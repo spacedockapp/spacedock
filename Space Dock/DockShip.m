@@ -2,7 +2,7 @@
 //  DockShip.m
 //  Space Dock
 //
-//  Created by Rob Tsuk on 9/21/13.
+//  Created by Rob Tsuk on 9/22/13.
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
@@ -15,7 +15,6 @@
 @dynamic ability;
 @dynamic agility;
 @dynamic attack;
-@dynamic battlestations;
 @dynamic cloak;
 @dynamic cost;
 @dynamic crew;
@@ -33,6 +32,7 @@
 @dynamic title;
 @dynamic unique;
 @dynamic weapon;
+@dynamic battleStations;
 @dynamic equippedShips;
 
 @end

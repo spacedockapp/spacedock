@@ -76,6 +76,8 @@
             NSString* modifiedKey;
             if ([key isEqualToString: @"Id"]) {
                 modifiedKey = @"externalId";
+            } else if ([key isEqualToString: @"Battlestations"]) {
+                modifiedKey = @"battleStations";
             } else {
                 NSString* lowerFirst = [[key substringToIndex: 1] lowercaseString];
                 NSString* rest = [key substringFromIndex: 1];

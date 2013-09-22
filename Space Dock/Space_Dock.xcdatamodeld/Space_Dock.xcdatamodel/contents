@@ -11,7 +11,7 @@
         <attribute name="ability" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="agility" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="attack" optional="YES" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
-        <attribute name="battlestations" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="battleStations" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="cloak" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="cost" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="crew" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
@@ -30,6 +30,11 @@
         <attribute name="unique" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="weapon" optional="YES" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <relationship name="equippedShips" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EquippedShip" inverseName="ship" inverseEntity="EquippedShip" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="title"/>
+            </compoundIndex>
+        </compoundIndexes>
     </entity>
     <entity name="Squad" representedClassName="DockSquad" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
