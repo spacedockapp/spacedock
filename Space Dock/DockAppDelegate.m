@@ -8,15 +8,102 @@
 
 #import "DockAppDelegate.h"
 
+#import "DockCaptain.h"
+#import "DockShip.h"
+
 @implementation DockAppDelegate
 
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
 
+-(void)handleError:(NSError*)error
+{
+}
+
+-(NSDictionary*)convertNode: (NSXMLNode*)node
+{
+    NSMutableDictionary* d = [NSMutableDictionary dictionaryWithCapacity:0];
+    for (NSXMLNode* c in node.children) {
+        [d setObject: [c objectValue] forKey: [c name]];
+    }
+    return [NSDictionary dictionaryWithDictionary: d];
+}
+
+- (void)loadData {
+    NSString* file = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"xml"];
+    NSXMLDocument *xmlDoc;
+    NSError *err=nil;
+    NSURL *furl = [NSURL fileURLWithPath:file];
+    if (!furl) {
+        NSLog(@"Can't create an URL from file %@.", file);
+        return;
+    }
+    xmlDoc = [[NSXMLDocument alloc] initWithContentsOfURL:furl
+            options:(NSXMLNodePreserveWhitespace|NSXMLNodePreserveCDATA)
+            error:&err];
+    if (xmlDoc == nil) {
+        xmlDoc = [[NSXMLDocument alloc] initWithContentsOfURL:furl
+                    options:NSXMLDocumentTidyXML
+                    error:&err];
+    }
+    if (xmlDoc == nil)  {
+        if (err) {
+            [self handleError:err];
+        }
+        return;
+    }
+ 
+    if (err) {
+        [self handleError:err];
+    }
+
+    NSEntityDescription* shipEntity = [NSEntityDescription entityForName: @"Ship" inManagedObjectContext:_managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:shipEntity];
+    NSArray *existingShips = [_managedObjectContext executeFetchRequest:request error:&err];
+    for (id existingShip in existingShips) {
+        [_managedObjectContext deleteObject: existingShip];
+    }
+
+    NSArray *shipNodes = [xmlDoc nodesForXPath:@"/Data/Ships/Ship"
+            error:&err];
+    NSDictionary* attributes = [shipEntity attributesByName];
+    for (NSXMLNode* shipNode in shipNodes) {
+        NSDictionary* d = [self convertNode: shipNode];
+        DockShip* c = [[DockShip alloc] initWithEntity: shipEntity insertIntoManagedObjectContext:_managedObjectContext];
+        for(NSString* key in d) {
+            NSString* modifiedKey;
+            if ([key isEqualToString: @"Id"]) {
+                modifiedKey = @"externalId";
+            } else {
+                NSString* lowerFirst = [[key substringToIndex: 1] lowercaseString];
+                NSString* rest = [key substringFromIndex: 1];
+                modifiedKey = [lowerFirst stringByAppendingString: rest];
+            }
+            NSAttributeDescription* desc = [attributes objectForKey: modifiedKey];
+            id v = [d valueForKey: key];
+            NSInteger aType = [desc attributeType];
+            switch(aType) {
+                case NSInteger16AttributeType:
+                    v = [NSNumber numberWithInt: [v intValue]];
+                    break;
+                case NSBooleanAttributeType:
+                    v = [NSNumber numberWithBool: [v isEqualToString: @"Y"]];
+                    break;
+            }
+            [c setValue: v forKey: modifiedKey];
+        }
+    }
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    self.shipsSortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title"
+                                                            ascending:YES],
+                              [NSSortDescriptor sortDescriptorWithKey:@"faction"
+                                                            ascending:YES]];
+    [self loadData];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
