@@ -668,20 +668,20 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="ot6-LJ-VSP">
-                                            <rect key="frame" x="-3" y="-89" width="608" height="294"/>
+                                            <rect key="frame" x="-3" y="-3" width="608" height="208"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <clipView key="contentView" id="cpU-MS-rMQ">
-                                                <rect key="frame" x="1" y="17" width="606" height="261"/>
+                                                <rect key="frame" x="1" y="17" width="606" height="175"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveName="shipTable" headerView="wao-eF-ukD" id="sJW-5v-BIo">
-                                                        <rect key="frame" x="0.0" y="0.0" width="1054" height="261"/>
+                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveName="shipTable" headerView="wao-eF-ukD" id="sJW-5v-BIo">
+                                                        <rect key="frame" x="0.0" y="0.0" width="1054" height="175"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                         <tableColumns>
-                                                            <tableColumn identifier="shipTitle" width="180" minWidth="40" maxWidth="1000" id="l57-C2-jWA" userLabel="title">
+                                                            <tableColumn identifier="shipTitle" editable="NO" width="180" minWidth="40" maxWidth="1000" id="l57-C2-jWA" userLabel="title">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Title">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -698,7 +698,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.title" id="ffj-Xh-z0q"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="shipFaction" width="100" minWidth="40" maxWidth="1000" id="Bxr-Dp-qNA" userLabel="faction">
+                                                            <tableColumn identifier="shipFaction" editable="NO" width="100" minWidth="40" maxWidth="1000" id="Bxr-Dp-qNA" userLabel="faction">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Faction">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -715,7 +715,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.faction" id="9B1-MT-SSx"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="shipClass" width="120" minWidth="40" maxWidth="1000" id="uXE-8g-Ukq" userLabel="class">
+                                                            <tableColumn identifier="shipClass" editable="NO" width="120" minWidth="40" maxWidth="1000" id="uXE-8g-Ukq" userLabel="class">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Class">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -732,7 +732,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.shipClass" id="xS7-ZQ-W0p"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="unique" width="40" minWidth="40" maxWidth="1000" id="e1N-49-OaD" userLabel="unique">
+                                                            <tableColumn identifier="unique" editable="NO" width="40" minWidth="40" maxWidth="1000" id="e1N-49-OaD" userLabel="unique">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Unique">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -749,7 +749,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.unique" id="YnF-Cu-bpe"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="cost" width="40" minWidth="40" maxWidth="1000" id="nkG-Xt-uEc" userLabel="cost">
+                                                            <tableColumn identifier="cost" editable="NO" width="40" minWidth="40" maxWidth="1000" id="nkG-Xt-uEc" userLabel="cost">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Cost">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -766,7 +766,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.cost" id="dYU-u2-9wJ"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="attack" width="40" minWidth="40" maxWidth="1000" id="wRH-MM-8l5" userLabel="attack">
+                                                            <tableColumn identifier="attack" editable="NO" width="40" minWidth="40" maxWidth="1000" id="wRH-MM-8l5" userLabel="attack">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Atk">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -783,7 +783,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.attack" id="ahq-15-uTg"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="hull" width="40" minWidth="40" maxWidth="1000" id="pH1-AZ-3Xf" userLabel="hull">
+                                                            <tableColumn identifier="hull" editable="NO" width="40" minWidth="40" maxWidth="1000" id="pH1-AZ-3Xf" userLabel="hull">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Hull">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -800,7 +800,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.hull" id="cPz-Dm-gYt"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="shield" width="40" minWidth="40" maxWidth="1000" id="UGi-Lf-Ww8" userLabel="shield">
+                                                            <tableColumn identifier="shield" editable="NO" width="40" minWidth="40" maxWidth="1000" id="UGi-Lf-Ww8" userLabel="shield">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Shld">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -817,7 +817,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.shield" id="Jkq-VF-Dci"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="evasiveManeuvers" width="40" minWidth="40" maxWidth="1000" id="FRM-s8-XLU" userLabel="evasiveManeuvers">
+                                                            <tableColumn identifier="evasiveManeuvers" editable="NO" width="40" minWidth="40" maxWidth="1000" id="FRM-s8-XLU" userLabel="evasiveManeuvers">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="EvaM">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -834,7 +834,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.evasiveManeuvers" id="5Bf-qo-Yh6"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="lock" width="40" minWidth="40" maxWidth="1000" id="u8B-kp-Zgh" userLabel="lock">
+                                                            <tableColumn identifier="lock" editable="NO" width="40" minWidth="40" maxWidth="1000" id="u8B-kp-Zgh" userLabel="lock">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Lock">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -851,7 +851,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.targetLock" id="zr6-KR-0pk"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="scan" width="40" minWidth="40" maxWidth="1000" id="1b8-fm-j2h" userLabel="scan">
+                                                            <tableColumn identifier="scan" editable="NO" width="40" minWidth="40" maxWidth="1000" id="1b8-fm-j2h" userLabel="scan">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Scan">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -868,7 +868,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.scan" id="yPU-n8-Bo7"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="battleStations" width="40" minWidth="40" maxWidth="1000" id="B3b-F4-4E8" userLabel="battleStations">
+                                                            <tableColumn identifier="battleStations" editable="NO" width="40" minWidth="40" maxWidth="1000" id="B3b-F4-4E8" userLabel="battleStations">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="BStn">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -885,7 +885,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.battleStations" id="zZR-kh-Tks"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="cloak" width="40" minWidth="40" maxWidth="1000" id="9gp-kQ-e69" userLabel="cloak">
+                                                            <tableColumn identifier="cloak" editable="NO" width="40" minWidth="40" maxWidth="1000" id="9gp-kQ-e69" userLabel="cloak">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Clk">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -902,7 +902,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.cloak" id="rLF-2c-u1j"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="sensorEcho" width="40" minWidth="40" maxWidth="1000" id="2vc-NF-inI" userLabel="sensorEcho">
+                                                            <tableColumn identifier="sensorEcho" editable="NO" width="40" minWidth="40" maxWidth="1000" id="2vc-NF-inI" userLabel="sensorEcho">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Echo">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -919,7 +919,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.sensorEcho" id="I9X-zN-pjZ"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="tech" width="40" minWidth="40" maxWidth="1000" id="iXO-d6-OB6" userLabel="tech">
+                                                            <tableColumn identifier="tech" editable="NO" width="40" minWidth="40" maxWidth="1000" id="iXO-d6-OB6" userLabel="tech">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Tech">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -936,7 +936,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.tech" id="ltI-VS-w1e"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="weapon" width="40" minWidth="40" maxWidth="1000" id="amn-hy-KZ2" userLabel="weapon">
+                                                            <tableColumn identifier="weapon" editable="NO" width="40" minWidth="40" maxWidth="1000" id="amn-hy-KZ2" userLabel="weapon">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Wpns">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -953,7 +953,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.weapon" id="Eqw-YD-fSi"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="crew" width="40" minWidth="40" maxWidth="1000" id="cWC-M8-0gJ" userLabel="crew">
+                                                            <tableColumn identifier="crew" editable="NO" width="40" minWidth="40" maxWidth="1000" id="cWC-M8-0gJ" userLabel="crew">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Crew">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -970,7 +970,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.crew" id="XoI-xd-HyX"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="ability" width="40" minWidth="40" maxWidth="1000" id="8Ke-49-66x" userLabel="ability">
+                                                            <tableColumn identifier="ability" editable="NO" width="40" minWidth="40" maxWidth="1000" id="8Ke-49-66x" userLabel="ability">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Ability">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -989,14 +989,15 @@
                                                         </tableColumns>
                                                         <connections>
                                                             <binding destination="Gzr-Z0-87U" name="content" keyPath="arrangedObjects" id="VY9-KL-DX6"/>
-                                                            <binding destination="Gzr-Z0-87U" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="VY9-KL-DX6" id="4GU-rd-Cyr"/>
+                                                            <binding destination="Gzr-Z0-87U" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="VY9-KL-DX6" id="pj3-vV-hLc"/>
+                                                            <binding destination="Gzr-Z0-87U" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="pj3-vV-hLc" id="Qbw-DB-1e2"/>
                                                         </connections>
                                                     </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </clipView>
                                             <scroller key="horizontalScroller" verticalHuggingPriority="750" id="EvD-WD-xZv">
-                                                <rect key="frame" x="1" y="278" width="606" height="15"/>
+                                                <rect key="frame" x="1" y="192" width="606" height="15"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" id="DVO-CD-eEF">
@@ -1057,6 +1058,9 @@
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="REc-Lj-a6S" name="value" keyPath="arrangedObjects.ship.title" id="EtR-GK-5wg"/>
+                                            </connections>
                                         </tableColumn>
                                         <tableColumn width="254" minWidth="40" maxWidth="1000" id="nZV-4v-pOe">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Upgrade">
@@ -1080,7 +1084,7 @@
                             <rect key="frame" x="1" y="119" width="223" height="15"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="37" id="Gkc-aC-yuc">
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" id="Gkc-aC-yuc">
                             <rect key="frame" x="224" y="17" width="15" height="102"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
@@ -1096,7 +1100,7 @@
                             <rect key="frame" x="1" y="17" width="238" height="155"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="wYX-HO-7CJ" id="Wtq-dR-8CY">
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" headerView="wYX-HO-7CJ" id="Wtq-dR-8CY">
                                     <rect key="frame" x="0.0" y="0.0" width="238" height="155"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -1171,6 +1175,10 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="addSelectedShip:" target="494" id="9qO-Zn-UsW"/>
+                            <binding destination="Gzr-Z0-87U" name="enabled" keyPath="selectedObjects.@count" id="cd1-Oh-Pvi"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="4zk-Ah-uPM">
                         <rect key="frame" x="287" y="19" width="23" height="23"/>
@@ -1179,6 +1187,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <binding destination="REc-Lj-a6S" name="enabled" keyPath="selectedObjects.@count" id="nmR-4y-xjF"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
@@ -1188,6 +1199,8 @@
         </window>
         <customObject id="494" customClass="DockAppDelegate">
             <connections>
+                <outlet property="shipsController" destination="Gzr-Z0-87U" id="5vW-HI-mUc"/>
+                <outlet property="squadsController" destination="w6h-j0-fyp" id="0Eh-Fh-QAl"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>
@@ -1214,6 +1227,16 @@
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="SED-9u-hqp"/>
             </connections>
         </arrayController>
+        <treeController mode="entity" entityName="EquippedShip" automaticallyPreparesContent="YES" childrenKeyPath="upgrades" id="REc-Lj-a6S" userLabel="SquadDetailController">
+            <connections>
+                <binding destination="w6h-j0-fyp" name="contentArray" keyPath="selection.equippedShips" id="3IC-va-cFM">
+                    <dictionary key="options">
+                        <string key="NSValueTransformerName">DockOrderedSetArrayValueTransformer</string>
+                    </dictionary>
+                </binding>
+                <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="1MA-Wn-t1P"/>
+            </connections>
+        </treeController>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="8" height="8"/>

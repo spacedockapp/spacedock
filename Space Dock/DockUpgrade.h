@@ -2,7 +2,7 @@
 //  DockUpgrade.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 9/21/13.
+//  Created by Rob Tsuk on 9/24/13.
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
@@ -17,9 +17,9 @@
 @property (nonatomic, retain) NSNumber * cost;
 @property (nonatomic, retain) NSString * externalId;
 @property (nonatomic, retain) NSString * faction;
-@property (nonatomic, retain) NSString * upType;
-@property (nonatomic, retain) NSNumber * unique;
 @property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSNumber * unique;
+@property (nonatomic, retain) NSString * upType;
 @property (nonatomic, retain) NSSet *equippedShips;
 @end
 

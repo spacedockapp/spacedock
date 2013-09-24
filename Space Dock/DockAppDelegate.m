@@ -10,6 +10,8 @@
 
 #import "DockCaptain.h"
 #import "DockShip.h"
+#import "DockSquad.h"
+#import "DockEquippedShip.h"
 
 @implementation DockAppDelegate
 
@@ -62,8 +64,9 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:shipEntity];
     NSArray *existingShips = [_managedObjectContext executeFetchRequest:request error:&err];
-    for (id existingShip in existingShips) {
-        [_managedObjectContext deleteObject: existingShip];
+    NSMutableDictionary* existingShipsLookup = [NSMutableDictionary dictionaryWithCapacity: existingShips.count];
+    for (DockShip* existingShip in existingShips) {
+        existingShipsLookup[existingShip.title] = existingShip;
     }
 
     NSArray *shipNodes = [xmlDoc nodesForXPath:@"/Data/Ships/Ship"
@@ -71,7 +74,13 @@
     NSDictionary* attributes = [shipEntity attributesByName];
     for (NSXMLNode* shipNode in shipNodes) {
         NSDictionary* d = [self convertNode: shipNode];
-        DockShip* c = [[DockShip alloc] initWithEntity: shipEntity insertIntoManagedObjectContext:_managedObjectContext];
+        NSString* shipTitle = d[@"Title"];
+        DockShip* c = existingShipsLookup[shipTitle];
+        if (c == nil) {
+            c = [[DockShip alloc] initWithEntity: shipEntity insertIntoManagedObjectContext:_managedObjectContext];
+        } else {
+            [existingShipsLookup removeObjectForKey: shipTitle];
+        }
         for(NSString* key in d) {
             NSString* modifiedKey;
             if ([key isEqualToString: @"Id"]) {
@@ -267,6 +276,21 @@
     }
 
     return NSTerminateNow;
+}
+
+-(IBAction)addSelectedShip:(id)sender
+{
+    DockSquad* squad = [[_squadsController selectedObjects] objectAtIndex: 0];
+    NSArray* shipsToAdd = [_shipsController selectedObjects];
+    NSEntityDescription* equippedShipEntity = [NSEntityDescription entityForName: @"EquippedShip" inManagedObjectContext:_managedObjectContext];
+    for (DockShip* ship in shipsToAdd) {
+        DockEquippedShip* es = [[DockEquippedShip alloc] initWithEntity: equippedShipEntity insertIntoManagedObjectContext:_managedObjectContext];
+        es.ship = ship;
+        NSMutableOrderedSet* tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:squad.equippedShips];
+        [tempSet addObject: es];
+        squad.equippedShips = tempSet;
+    }
+    NSLog(@"ships to add %@", shipsToAdd);
 }
 
 @end

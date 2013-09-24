@@ -1,5 +1,5 @@
 //
-//  DockTalent.h
+//  DockOrderedSetArrayValueTransformer.h
 //  Space Dock
 //
 //  Created by Rob Tsuk on 9/24/13.
@@ -7,11 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
-#import "DockUpgrade.h"
 
-
-@interface DockTalent : DockUpgrade
-
+@interface DockOrderedSetArrayValueTransformer : NSValueTransformer
 
 @end

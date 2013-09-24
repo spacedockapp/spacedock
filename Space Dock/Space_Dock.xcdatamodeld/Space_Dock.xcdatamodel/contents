@@ -39,7 +39,7 @@
     </entity>
     <entity name="Squad" representedClassName="DockSquad" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" defaultValueString="Untitled" syncable="YES"/>
-        <relationship name="equippedShips" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EquippedShip" inverseName="squad" inverseEntity="EquippedShip" syncable="YES"/>
+        <relationship name="equippedShips" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EquippedShip" inverseName="squad" inverseEntity="EquippedShip" syncable="YES"/>
     </entity>
     <entity name="Talent" representedClassName="DockTalent" parentEntity="Upgrade" syncable="YES"/>
     <entity name="Upgrade" representedClassName="DockUpgrade" isAbstract="YES" syncable="YES">
