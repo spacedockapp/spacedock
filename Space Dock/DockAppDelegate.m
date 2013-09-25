@@ -12,7 +12,11 @@
 #import "DockShip.h"
 #import "DockSquad.h"
 #import "DockEquippedShip.h"
+#import "DockTalent.h"
 #import "DockWeapon.h"
+#import "DockCrew.h"
+#import "DockTech.h"
+#import "DockResource.h"
 
 @implementation DockAppDelegate
 
@@ -124,6 +128,8 @@
                     modifiedKey = @"externalId";
                 } else if ([key isEqualToString: @"Battlestations"]) {
                     modifiedKey = @"battleStations";
+                } else if ([key isEqualToString: @"Type"]) {
+                    modifiedKey = @"upType";
                 } else {
                     NSString* lowerFirst = [[key substringToIndex: 1] lowercaseString];
                     NSString* rest = [key substringFromIndex: 1];
@@ -144,6 +150,7 @@
                     [c setValue: v forKey: modifiedKey];
                 }
             }
+            NSLog(@"title = %@", [c title]);
         }
     }
 }
@@ -179,6 +186,10 @@
     [self loadItems: xmlDoc itemClass: [DockShip class] entityName: @"Ship" xpath:@"/Data/Ships/Ship" targetType: nil];
     [self loadItems: xmlDoc itemClass: [DockCaptain class] entityName: @"Captain" xpath:@"/Data/Captains/Captain" targetType: nil];
     [self loadItems: xmlDoc itemClass: [DockWeapon class] entityName: @"Weapon" xpath:@"/Data/Upgrades/Upgrade" targetType: @"Weapon"];
+    [self loadItems: xmlDoc itemClass: [DockTalent class] entityName: @"Talent" xpath:@"/Data/Upgrades/Upgrade" targetType: @"Talent"];
+    [self loadItems: xmlDoc itemClass: [DockCrew class] entityName: @"Crew" xpath:@"/Data/Upgrades/Upgrade" targetType: @"Crew"];
+    [self loadItems: xmlDoc itemClass: [DockTech class] entityName: @"Tech" xpath:@"/Data/Upgrades/Upgrade" targetType: @"Tech"];
+    [self loadItems: xmlDoc itemClass: [DockResource class] entityName: @"Resource" xpath:@"/Data/Resources/Resource" targetType: @"Resource"];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification

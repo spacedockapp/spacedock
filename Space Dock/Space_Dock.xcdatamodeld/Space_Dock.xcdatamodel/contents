@@ -4,11 +4,13 @@
         <attribute name="skill" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="talent" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
     </entity>
+    <entity name="Crew" representedClassName="DockCrew" parentEntity="Upgrade" syncable="YES"/>
     <entity name="EquippedShip" representedClassName="DockEquippedShip" syncable="YES">
         <relationship name="ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ship" inverseName="equippedShips" inverseEntity="Ship" syncable="YES"/>
         <relationship name="squad" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Squad" inverseName="equippedShips" inverseEntity="Squad" syncable="YES"/>
         <relationship name="upgrades" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Upgrade" inverseName="equippedShips" inverseEntity="Upgrade" syncable="YES"/>
     </entity>
+    <entity name="Resource" representedClassName="DockResource" parentEntity="Upgrade" syncable="YES"/>
     <entity name="Ship" representedClassName="DockShip" syncable="YES">
         <attribute name="ability" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="agility" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
@@ -43,12 +45,13 @@
         <relationship name="equippedShips" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EquippedShip" inverseName="squad" inverseEntity="EquippedShip" syncable="YES"/>
     </entity>
     <entity name="Talent" representedClassName="DockTalent" parentEntity="Upgrade" syncable="YES"/>
+    <entity name="Tech" representedClassName="DockTech" parentEntity="Upgrade" syncable="YES"/>
     <entity name="Upgrade" representedClassName="DockUpgrade" isAbstract="YES" syncable="YES">
         <attribute name="ability" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cost" attributeType="Integer 16" minValueString="0" defaultValueString="1" syncable="YES"/>
         <attribute name="externalId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="faction" attributeType="String" defaultValueString="Independent" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
         <attribute name="unique" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="upType" attributeType="String" defaultValueString="Crew" syncable="YES"/>
         <relationship name="equippedShips" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EquippedShip" inverseName="upgrades" inverseEntity="EquippedShip" syncable="YES"/>
@@ -65,5 +68,8 @@
         <element name="Talent" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Upgrade" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Weapon" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Crew" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Tech" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Resource" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
