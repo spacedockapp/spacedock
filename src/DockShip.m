@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
-#import "DockShip.h"
 #import "DockEquippedShip.h"
+#import "DockShip.h"
 
 
 @implementation DockShip

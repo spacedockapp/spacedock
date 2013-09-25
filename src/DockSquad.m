@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
-#import "DockSquad.h"
 #import "DockEquippedShip.h"
+#import "DockSquad.h"
 
 
 @implementation DockSquad

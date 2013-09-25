@@ -8,18 +8,18 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface DockAppDelegate : NSObject <NSApplicationDelegate>
+@interface DockAppDelegate : NSObject<NSApplicationDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
-@property (assign) IBOutlet NSArrayController *shipsController;
-@property (assign) IBOutlet NSArrayController *squadsController;
+@property (assign) IBOutlet NSWindow* window;
+@property (assign) IBOutlet NSArrayController* shipsController;
+@property (assign) IBOutlet NSArrayController* squadsController;
 
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) NSArray *shipsSortDescriptors;
-@property (strong, nonatomic) NSArray *captainsSortDescriptors;
-@property (strong, nonatomic) NSArray *upgradesSortDescriptors;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;
+@property (readonly, strong, nonatomic) NSManagedObjectModel* managedObjectModel;
+@property (readonly, strong, nonatomic) NSManagedObjectContext* managedObjectContext;
+@property (strong, nonatomic) NSArray* shipsSortDescriptors;
+@property (strong, nonatomic) NSArray* captainsSortDescriptors;
+@property (strong, nonatomic) NSArray* upgradesSortDescriptors;
 
 -(IBAction)saveAction:(id)sender;
 -(IBAction)addSelectedShip:(id)sender;
