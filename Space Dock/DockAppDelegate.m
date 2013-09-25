@@ -32,41 +32,69 @@
     return [NSDictionary dictionaryWithDictionary: d];
 }
 
-- (void)loadData {
-    NSString* file = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"xml"];
-    NSXMLDocument *xmlDoc;
-    NSError *err=nil;
-    NSURL *furl = [NSURL fileURLWithPath:file];
-    if (!furl) {
-        NSLog(@"Can't create an URL from file %@.", file);
-        return;
-    }
-    xmlDoc = [[NSXMLDocument alloc] initWithContentsOfURL:furl
-            options:(NSXMLNodePreserveWhitespace|NSXMLNodePreserveCDATA)
-            error:&err];
-    if (xmlDoc == nil) {
-        xmlDoc = [[NSXMLDocument alloc] initWithContentsOfURL:furl
-                    options:NSXMLDocumentTidyXML
-                    error:&err];
-    }
-    if (xmlDoc == nil)  {
-        if (err) {
-            [self handleError:err];
-        }
-        return;
-    }
- 
-    if (err) {
-        [self handleError:err];
+-(void)loadCaptains:(NSXMLDocument*)xmlDoc
+{
+    NSEntityDescription* captainEntity = [NSEntityDescription entityForName: @"Captain" inManagedObjectContext:_managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:captainEntity];
+    NSError* err;
+    NSArray *existingCaptains = [_managedObjectContext executeFetchRequest:request error:&err];
+    NSMutableDictionary* existingCaptainsLookup = [NSMutableDictionary dictionaryWithCapacity: existingCaptains.count];
+    for (DockCaptain* existingCaptain in existingCaptains) {
+        existingCaptainsLookup[existingCaptain.externalId] = existingCaptain;
     }
 
+    NSArray *shipNodes = [xmlDoc nodesForXPath:@"/Data/Captains/Captain"
+            error:&err];
+    NSDictionary* attributes = [captainEntity attributesByName];
+    for (NSXMLNode* shipNode in shipNodes) {
+        NSDictionary* d = [self convertNode: shipNode];
+        NSString* externalId = d[@"Id"];
+        DockCaptain* c = existingCaptainsLookup[externalId];
+        if (c == nil) {
+            c = [[DockCaptain alloc] initWithEntity: captainEntity insertIntoManagedObjectContext:_managedObjectContext];
+        } else {
+            [existingCaptainsLookup removeObjectForKey: externalId];
+        }
+        for(NSString* key in d) {
+            NSString* modifiedKey;
+            if ([key isEqualToString: @"Id"]) {
+                modifiedKey = @"externalId";
+            } else if ([key isEqualToString: @"Battlestations"]) {
+                modifiedKey = @"battleStations";
+            } else {
+                NSString* lowerFirst = [[key substringToIndex: 1] lowercaseString];
+                NSString* rest = [key substringFromIndex: 1];
+                modifiedKey = [lowerFirst stringByAppendingString: rest];
+            }
+            NSAttributeDescription* desc = [attributes objectForKey: modifiedKey];
+            if (desc != nil) {
+                id v = [d valueForKey: key];
+                NSInteger aType = [desc attributeType];
+                switch(aType) {
+                    case NSInteger16AttributeType:
+                        v = [NSNumber numberWithInt: [v intValue]];
+                        break;
+                    case NSBooleanAttributeType:
+                        v = [NSNumber numberWithBool: [v isEqualToString: @"Y"]];
+                        break;
+                }
+                [c setValue: v forKey: modifiedKey];
+            }
+        }
+    }
+}
+
+-(void)loadShips:(NSXMLDocument*)xmlDoc
+{
     NSEntityDescription* shipEntity = [NSEntityDescription entityForName: @"Ship" inManagedObjectContext:_managedObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:shipEntity];
+    NSError* err;
     NSArray *existingShips = [_managedObjectContext executeFetchRequest:request error:&err];
     NSMutableDictionary* existingShipsLookup = [NSMutableDictionary dictionaryWithCapacity: existingShips.count];
     for (DockShip* existingShip in existingShips) {
-        existingShipsLookup[existingShip.title] = existingShip;
+        existingShipsLookup[existingShip.externalId] = existingShip;
     }
 
     NSArray *shipNodes = [xmlDoc nodesForXPath:@"/Data/Ships/Ship"
@@ -74,12 +102,12 @@
     NSDictionary* attributes = [shipEntity attributesByName];
     for (NSXMLNode* shipNode in shipNodes) {
         NSDictionary* d = [self convertNode: shipNode];
-        NSString* shipTitle = d[@"Title"];
-        DockShip* c = existingShipsLookup[shipTitle];
+        NSString* shipId = d[@"Id"];
+        DockShip* c = existingShipsLookup[shipId];
         if (c == nil) {
             c = [[DockShip alloc] initWithEntity: shipEntity insertIntoManagedObjectContext:_managedObjectContext];
         } else {
-            [existingShipsLookup removeObjectForKey: shipTitle];
+            [existingShipsLookup removeObjectForKey: shipId];
         }
         for(NSString* key in d) {
             NSString* modifiedKey;
@@ -108,9 +136,45 @@
     }
 }
 
+- (void)loadData {
+    NSString* file = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"xml"];
+    NSXMLDocument *xmlDoc;
+    NSError *err=nil;
+    NSURL *furl = [NSURL fileURLWithPath:file];
+    if (!furl) {
+        NSLog(@"Can't create an URL from file %@.", file);
+        return;
+    }
+    xmlDoc = [[NSXMLDocument alloc] initWithContentsOfURL:furl
+            options:(NSXMLNodePreserveWhitespace|NSXMLNodePreserveCDATA)
+            error:&err];
+    if (xmlDoc == nil) {
+        xmlDoc = [[NSXMLDocument alloc] initWithContentsOfURL:furl
+                    options:NSXMLDocumentTidyXML
+                    error:&err];
+    }
+    if (xmlDoc == nil)  {
+        if (err) {
+            [self handleError:err];
+        }
+        return;
+    }
+ 
+    if (err) {
+        [self handleError:err];
+    }
+
+    [self loadShips: xmlDoc];
+    [self loadCaptains: xmlDoc];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     self.shipsSortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title"
+                                                            ascending:YES],
+                              [NSSortDescriptor sortDescriptorWithKey:@"faction"
+                                                            ascending:YES]];
+    self.captainsSortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title"
                                                             ascending:YES],
                               [NSSortDescriptor sortDescriptorWithKey:@"faction"
                                                             ascending:YES]];

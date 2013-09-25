@@ -1016,6 +1016,87 @@
                                 <view key="view" id="Cng-MA-Uvw">
                                     <rect key="frame" x="10" y="33" width="602" height="208"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="QTr-tQ-sVV">
+                                            <rect key="frame" x="-3" y="-3" width="608" height="208"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                            <clipView key="contentView" id="1KK-zb-tQC">
+                                                <rect key="frame" x="1" y="17" width="606" height="190"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveName="captainsTable" headerView="ItB-eD-CxT" id="pbE-Lg-pvF" userLabel="captains table">
+                                                        <rect key="frame" x="0.0" y="0.0" width="606" height="190"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <size key="intercellSpacing" width="3" height="2"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                        <tableColumns>
+                                                            <tableColumn identifier="captainTitle" editable="NO" width="116" minWidth="40" maxWidth="1000" id="Qg8-Op-mSb">
+                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Title">
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </tableHeaderCell>
+                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="EWk-pq-Thr">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="title"/>
+                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                <connections>
+                                                                    <binding destination="0af-xY-vuT" name="value" keyPath="arrangedObjects.title" id="xPH-YO-9x8">
+                                                                        <dictionary key="options">
+                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                        </dictionary>
+                                                                    </binding>
+                                                                </connections>
+                                                            </tableColumn>
+                                                            <tableColumn identifier="captainFaction" editable="NO" width="484" minWidth="40" maxWidth="1000" id="LbR-bg-gbq">
+                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Faction">
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </tableHeaderCell>
+                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="Mdy-ip-yCb">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="faction"/>
+                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                <connections>
+                                                                    <binding destination="0af-xY-vuT" name="value" keyPath="arrangedObjects.faction" id="5bK-II-w7K">
+                                                                        <dictionary key="options">
+                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                        </dictionary>
+                                                                    </binding>
+                                                                </connections>
+                                                            </tableColumn>
+                                                        </tableColumns>
+                                                        <connections>
+                                                            <binding destination="0af-xY-vuT" name="content" keyPath="arrangedObjects" id="DVe-PL-bdP"/>
+                                                            <binding destination="0af-xY-vuT" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="DVe-PL-bdP" id="bu7-E4-r6C"/>
+                                                            <binding destination="0af-xY-vuT" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="bu7-E4-r6C" id="czn-rP-z9D"/>
+                                                        </connections>
+                                                    </tableView>
+                                                </subviews>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </clipView>
+                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" id="emL-6S-N9U">
+                                                <rect key="frame" x="1" y="119" width="223" height="15"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="37" id="eW6-eO-lQB">
+                                                <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <tableHeaderView key="headerView" id="ItB-eD-CxT">
+                                                <rect key="frame" x="0.0" y="0.0" width="606" height="17"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </tableHeaderView>
+                                        </scrollView>
+                                    </subviews>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Upgrades" identifier="" id="b51-qf-JF2">
@@ -1229,14 +1310,24 @@
         </arrayController>
         <treeController mode="entity" entityName="EquippedShip" automaticallyPreparesContent="YES" childrenKeyPath="upgrades" id="REc-Lj-a6S" userLabel="SquadDetailController">
             <connections>
+                <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="1MA-Wn-t1P"/>
                 <binding destination="w6h-j0-fyp" name="contentArray" keyPath="selection.equippedShips" id="3IC-va-cFM">
                     <dictionary key="options">
                         <string key="NSValueTransformerName">DockOrderedSetArrayValueTransformer</string>
                     </dictionary>
                 </binding>
-                <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="1MA-Wn-t1P"/>
             </connections>
         </treeController>
+        <arrayController mode="entity" entityName="Captain" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="0af-xY-vuT" userLabel="captains controller">
+            <connections>
+                <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="Ayz-MY-Ljt"/>
+                <binding destination="494" name="sortDescriptors" keyPath="self.captainsSortDescriptors" id="Qpf-sD-XHD">
+                    <dictionary key="options">
+                        <bool key="NSValidatesImmediately" value="YES"/>
+                    </dictionary>
+                </binding>
+            </connections>
+        </arrayController>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="8" height="8"/>

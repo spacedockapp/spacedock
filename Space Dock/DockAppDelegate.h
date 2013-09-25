@@ -18,6 +18,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSArray *shipsSortDescriptors;
+@property (strong, nonatomic) NSArray *captainsSortDescriptors;
 
 -(IBAction)saveAction:(id)sender;
 -(IBAction)addSelectedShip:(id)sender;
