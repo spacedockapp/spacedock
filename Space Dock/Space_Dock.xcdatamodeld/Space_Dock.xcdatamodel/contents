@@ -54,7 +54,7 @@
         <relationship name="equippedShips" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EquippedShip" inverseName="upgrades" inverseEntity="EquippedShip" syncable="YES"/>
     </entity>
     <entity name="Weapon" representedClassName="DockWeapon" parentEntity="Upgrade" syncable="YES">
-        <attribute name="attack" attributeType="Integer 16" minValueString="1" defaultValueString="1" syncable="YES"/>
+        <attribute name="attack" attributeType="Integer 16" minValueString="0" defaultValueString="1" syncable="YES"/>
         <attribute name="range" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
