@@ -220,14 +220,6 @@
 
 -(void)applicationDidFinishLaunching:(NSNotification*)aNotification
 {
-    self.shipsSortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey: @"title"
-                                                                ascending: YES],
-                                  [NSSortDescriptor sortDescriptorWithKey: @"faction"
-                                                                ascending: YES]];
-    self.captainsSortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey: @"title"
-                                                                   ascending: YES],
-                                     [NSSortDescriptor sortDescriptorWithKey: @"faction"
-                                                                   ascending: YES]];
     [self loadData];
 }
 

@@ -1556,11 +1556,6 @@
         <arrayController mode="entity" entityName="Ship" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="Gzr-Z0-87U" userLabel="Ship Controller">
             <connections>
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="lGA-ol-PLV"/>
-                <binding destination="494" name="sortDescriptors" keyPath="self.shipsSortDescriptors" id="Ajo-ZR-8iY">
-                    <dictionary key="options">
-                        <bool key="NSValidatesImmediately" value="YES"/>
-                    </dictionary>
-                </binding>
             </connections>
         </arrayController>
         <arrayController mode="entity" entityName="Squad" automaticallyPreparesContent="YES" id="w6h-j0-fyp" userLabel="Squad Controller">
@@ -1581,17 +1576,11 @@
         <arrayController mode="entity" entityName="Captain" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="0af-xY-vuT" userLabel="captains controller">
             <connections>
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="Ayz-MY-Ljt"/>
-                <binding destination="494" name="sortDescriptors" keyPath="self.captainsSortDescriptors" id="Qpf-sD-XHD">
-                    <dictionary key="options">
-                        <bool key="NSValidatesImmediately" value="YES"/>
-                    </dictionary>
-                </binding>
             </connections>
         </arrayController>
         <arrayController mode="entity" entityName="Upgrade" fetchPredicateFormat="not upType like 'Captain'" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="wVj-PN-1Jr" userLabel="upgrades controller">
             <connections>
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="iXi-bB-7Gl"/>
-                <binding destination="494" name="sortDescriptors" keyPath="self.upgradesSortDescriptors" id="d43-DX-dVc"/>
             </connections>
         </arrayController>
     </objects>
