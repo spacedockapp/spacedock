@@ -2,13 +2,13 @@
 //  DockTalent.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 9/24/13.
+//  Created by Rob Tsuk on 9/26/13.
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
-#import "DockUpgrade.h"
-#import <CoreData/CoreData.h>
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import "DockUpgrade.h"
 
 
 @interface DockTalent : DockUpgrade

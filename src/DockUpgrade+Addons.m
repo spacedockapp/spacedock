@@ -1,18 +1,30 @@
-//
-//  DockUpgrade+Addons.m
-//  Space Dock
-//
-//  Created by Rob Tsuk on 9/25/13.
-//  Copyright (c) 2013 Rob Tsuk. All rights reserved.
-//
-
 #import "DockUpgrade+Addons.h"
 
 @implementation DockUpgrade (Addons)
 
--(NSArray*)upgrades
+-(NSString*)description
 {
-    return nil;
+    return [NSString stringWithFormat: @"%@ (%@)", self.title, self.upType];
+}
+
+-(NSComparisonResult)compareTo:(DockUpgrade*)other
+{
+    NSString* upTypeMe = self.upType;
+    NSString* upTypeOther = other.upType;
+    NSComparisonResult r = [upTypeMe compare:upTypeOther];
+    if (r == NSOrderedSame) {
+        return [self.title caseInsensitiveCompare: other.title];
+    }
+
+    if ([upTypeMe isEqualToString: @"Captain"]) {
+        return NSOrderedAscending;
+    }
+
+    if ([upTypeOther isEqualToString: @"Captain"]) {
+        return NSOrderedDescending;
+    }
+
+    return r;
 }
 
 @end

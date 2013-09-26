@@ -11,6 +11,8 @@
 #import "DockCaptain.h"
 #import "DockCrew.h"
 #import "DockEquippedShip.h"
+#import "DockEquippedShip+Addons.h"
+#import "DockEquippedUpgrade+Addons.h"
 #import "DockResource.h"
 #import "DockShip.h"
 #import "DockSquad.h"
@@ -409,16 +411,31 @@
     NSLog(@"ships to add %@", shipsToAdd);
 }
 
--(void)addSelectedCaptain
+-(DockEquippedShip*)selectedShip
+{
+    id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
+    if ([target isMemberOfClass: [DockEquippedShip class]]) {
+        return target;
+    }
+    if ([target isMemberOfClass: [DockEquippedUpgrade class]]) {
+        DockEquippedUpgrade* upgrade = target;
+        return upgrade.equippedShip;
+    }
+    return nil;
+}
+
+-(void)addSelectedCaptain:(DockEquippedShip*)targetShip
 {
     NSArray* captainsToAdd = [_captainsController selectedObjects];
     DockCaptain* captain = captainsToAdd[0];
-    id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
-    if ([target isMemberOfClass: [DockEquippedShip class]]) {
-        DockEquippedShip* targetShip = target;
-        [targetShip addUpgrades: [NSSet setWithObject: captain]];
-    }
-    NSLog(@"want to add captain %@ to %@", captain, target);
+    [targetShip addUpgrade: captain];
+}
+
+-(void)addSelectedUpgrade:(DockEquippedShip*)targetShip
+{
+    NSArray* upgradeToAdd = [_upgradesController selectedObjects];
+    DockUpgrade* upgrade = upgradeToAdd[0];
+    [targetShip addUpgrade: upgrade];
 }
 
 -(IBAction)addSelected:(id)sender
@@ -427,8 +444,16 @@
     id identifier = selectedTab.identifier;
     if ([identifier isEqualToString: @"ships"]) {
         [self addSelectedShip];
-    } else if ([identifier isEqualToString: @"captains"]) {
-        [self addSelectedCaptain];
+    } else {
+        DockEquippedShip* selectedShip = [self selectedShip];
+        if (selectedShip != nil) {
+            if ([identifier isEqualToString: @"captains"]) {
+                [self addSelectedCaptain: selectedShip];
+            }
+            if ([identifier isEqualToString: @"upgrades"]) {
+                [self addSelectedUpgrade: selectedShip];
+            }
+        }
     }
 }
 

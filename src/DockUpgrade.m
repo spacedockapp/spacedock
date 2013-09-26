@@ -2,12 +2,12 @@
 //  DockUpgrade.m
 //  Space Dock
 //
-//  Created by Rob Tsuk on 9/24/13.
+//  Created by Rob Tsuk on 9/26/13.
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
-#import "DockEquippedShip.h"
 #import "DockUpgrade.h"
+#import "DockEquippedUpgrade.h"
 
 
 @implementation DockUpgrade
@@ -19,6 +19,6 @@
 @dynamic title;
 @dynamic unique;
 @dynamic upType;
-@dynamic equippedShips;
+@dynamic equippedUpgrades;
 
 @end

@@ -15,6 +15,7 @@
 @property (assign) IBOutlet NSArrayController* shipsController;
 @property (assign) IBOutlet NSArrayController* squadsController;
 @property (assign) IBOutlet NSArrayController* captainsController;
+@property (assign) IBOutlet NSArrayController* upgradesController;
 @property (assign) IBOutlet NSTreeController* squadDetailController;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;

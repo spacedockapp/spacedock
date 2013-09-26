@@ -8,7 +8,11 @@
     <entity name="EquippedShip" representedClassName="DockEquippedShip" syncable="YES">
         <relationship name="ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ship" inverseName="equippedShips" inverseEntity="Ship" syncable="YES"/>
         <relationship name="squad" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Squad" inverseName="equippedShips" inverseEntity="Squad" syncable="YES"/>
-        <relationship name="upgrades" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Upgrade" inverseName="equippedShips" inverseEntity="Upgrade" syncable="YES"/>
+        <relationship name="upgrades" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EquippedUpgrade" inverseName="equippedShip" inverseEntity="EquippedUpgrade" syncable="YES"/>
+    </entity>
+    <entity name="EquippedUpgrade" representedClassName="DockEquippedUpgrade" syncable="YES">
+        <relationship name="equippedShip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EquippedShip" inverseName="upgrades" inverseEntity="EquippedShip" syncable="YES"/>
+        <relationship name="upgrade" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Upgrade" inverseName="equippedUpgrades" inverseEntity="Upgrade" syncable="YES"/>
     </entity>
     <entity name="Resource" representedClassName="DockResource" parentEntity="Upgrade" syncable="YES"/>
     <entity name="Ship" representedClassName="DockShip" syncable="YES">
@@ -54,7 +58,7 @@
         <attribute name="title" attributeType="String" syncable="YES"/>
         <attribute name="unique" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="upType" attributeType="String" defaultValueString="Crew" syncable="YES"/>
-        <relationship name="equippedShips" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EquippedShip" inverseName="upgrades" inverseEntity="EquippedShip" syncable="YES"/>
+        <relationship name="equippedUpgrades" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EquippedUpgrade" inverseName="upgrade" inverseEntity="EquippedUpgrade" syncable="YES"/>
     </entity>
     <entity name="Weapon" representedClassName="DockWeapon" parentEntity="Upgrade" syncable="YES">
         <attribute name="attack" attributeType="Integer 16" minValueString="0" defaultValueString="1" syncable="YES"/>
@@ -62,14 +66,15 @@
     </entity>
     <elements>
         <element name="Captain" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Crew" positionX="0" positionY="0" width="0" height="0"/>
         <element name="EquippedShip" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Resource" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Ship" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Squad" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Talent" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Tech" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Upgrade" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Weapon" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Crew" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Tech" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Resource" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EquippedUpgrade" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

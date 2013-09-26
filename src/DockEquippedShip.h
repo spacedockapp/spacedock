@@ -2,27 +2,27 @@
 //  DockEquippedShip.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 9/24/13.
+//  Created by Rob Tsuk on 9/26/13.
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@class DockShip, DockSquad, DockUpgrade;
+@class DockEquippedUpgrade, DockShip, DockSquad;
 
 @interface DockEquippedShip : NSManagedObject
 
-@property (nonatomic, retain) DockShip* ship;
-@property (nonatomic, retain) NSSet* upgrades;
-@property (nonatomic, retain) DockSquad* squad;
+@property (nonatomic, retain) DockShip *ship;
+@property (nonatomic, retain) DockSquad *squad;
+@property (nonatomic, retain) NSSet *upgrades;
 @end
 
 @interface DockEquippedShip (CoreDataGeneratedAccessors)
 
--(void)addUpgradesObject:(DockUpgrade*)value;
--(void)removeUpgradesObject:(DockUpgrade*)value;
--(void)addUpgrades:(NSSet*)values;
--(void)removeUpgrades:(NSSet*)values;
+- (void)addUpgradesObject:(DockEquippedUpgrade *)value;
+- (void)removeUpgradesObject:(DockEquippedUpgrade *)value;
+- (void)addUpgrades:(NSSet *)values;
+- (void)removeUpgrades:(NSSet *)values;
 
 @end

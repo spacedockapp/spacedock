@@ -976,7 +976,7 @@
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </tableHeaderCell>
-                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="npT-gk-pgM">
+                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="npT-gk-pgM">
                                                                     <font key="font" metaFont="system"/>
                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1354,7 +1354,8 @@
                                                         </tableColumns>
                                                         <connections>
                                                             <binding destination="wVj-PN-1Jr" name="content" keyPath="arrangedObjects" id="qp5-OD-dZc"/>
-                                                            <binding destination="wVj-PN-1Jr" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="qp5-OD-dZc" id="NIn-Ae-dfm"/>
+                                                            <binding destination="wVj-PN-1Jr" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="qp5-OD-dZc" id="DJl-iF-Xqp"/>
+                                                            <binding destination="wVj-PN-1Jr" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="DJl-iF-Xqp" id="oUh-qK-xRY"/>
                                                         </connections>
                                                     </tableView>
                                                 </subviews>
@@ -1385,14 +1386,14 @@
                             <rect key="frame" x="1" y="17" width="361" height="155"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" headerView="ngn-KS-tlf" indentationPerLevel="16" outlineTableColumn="9Op-7d-bOD" id="6Xe-hT-jBi">
+                                <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" autosaveName="squadDetail" headerView="ngn-KS-tlf" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="9Op-7d-bOD" id="6Xe-hT-jBi">
                                     <rect key="frame" x="0.0" y="0.0" width="361" height="155"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn width="101" minWidth="16" maxWidth="1000" id="9Op-7d-bOD">
+                                        <tableColumn identifier="squadDetailTitle" editable="NO" width="101" minWidth="16" maxWidth="1000" id="9Op-7d-bOD">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Ship">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1405,21 +1406,12 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="REc-Lj-a6S" name="value" keyPath="arrangedObjects.title" id="MXw-3F-90G"/>
+                                                <binding destination="REc-Lj-a6S" name="value" keyPath="arrangedObjects.description" id="yhn-AR-Y3j">
+                                                    <dictionary key="options">
+                                                        <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
-                                        </tableColumn>
-                                        <tableColumn width="254" minWidth="40" maxWidth="1000" id="nZV-4v-pOe">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Upgrade">
-                                                <font key="font" metaFont="smallSystem"/>
-                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
-                                            </tableHeaderCell>
-                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="1m2-lB-5dz">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
                                     </tableColumns>
                                 </outlineView>
@@ -1550,6 +1542,7 @@
                 <outlet property="squadDetailController" destination="REc-Lj-a6S" id="Ujp-f8-UcS"/>
                 <outlet property="squadsController" destination="w6h-j0-fyp" id="0Eh-Fh-QAl"/>
                 <outlet property="tabView" destination="EsK-Y6-lVi" id="lkC-r1-enJ"/>
+                <outlet property="upgradesController" destination="wVj-PN-1Jr" id="s5T-X4-Yqh"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>
@@ -1566,7 +1559,7 @@
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="SED-9u-hqp"/>
             </connections>
         </arrayController>
-        <treeController mode="entity" entityName="EquippedShip" automaticallyPreparesContent="YES" childrenKeyPath="upgrades" id="REc-Lj-a6S" userLabel="SquadDetailController">
+        <treeController mode="entity" entityName="EquippedShip" automaticallyPreparesContent="YES" childrenKeyPath="sortedUpgrades" id="REc-Lj-a6S" userLabel="SquadDetailController">
             <connections>
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="1MA-Wn-t1P"/>
                 <binding destination="w6h-j0-fyp" name="contentArray" keyPath="selection.equippedShips" id="3IC-va-cFM">
