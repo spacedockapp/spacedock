@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D42BD1F017EA134B0000598C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42BD1EF17EA134B0000598C /* Cocoa.framework */; };
+		D4AAA28817F4082F00A99383 /* DockEquippedShip+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA28717F4082F00A99383 /* DockEquippedShip+Addons.m */; };
+		D4AAA28B17F408D400A99383 /* DockUpgrade+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA28A17F408D400A99383 /* DockUpgrade+Addons.m */; };
 		D4F7F40E17F2C95D00F5A808 /* Data.xml in Resources */ = {isa = PBXBuildFile; fileRef = D4F7F3EA17F2C95D00F5A808 /* Data.xml */; };
 		D4F7F40F17F2C95D00F5A808 /* DockAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F3EC17F2C95D00F5A808 /* DockAppDelegate.m */; };
 		D4F7F41017F2C95D00F5A808 /* DockCaptain.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F3EE17F2C95D00F5A808 /* DockCaptain.m */; };
@@ -22,10 +24,8 @@
 		D4F7F41917F2C95D00F5A808 /* DockUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40017F2C95D00F5A808 /* DockUpgrade.m */; };
 		D4F7F41A17F2C95D00F5A808 /* DockWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40217F2C95D00F5A808 /* DockWeapon.m */; };
 		D4F7F41B17F2C95D00F5A808 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D4F7F40317F2C95D00F5A808 /* Credits.rtf */; };
-		D4F7F41C17F2C95D00F5A808 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4F7F40517F2C95D00F5A808 /* InfoPlist.strings */; };
 		D4F7F41D17F2C95D00F5A808 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F7F40717F2C95D00F5A808 /* MainMenu.xib */; };
 		D4F7F41E17F2C95D00F5A808 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40917F2C95D00F5A808 /* main.m */; };
-		D4F7F41F17F2C95D00F5A808 /* Space Dock-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4F7F40A17F2C95D00F5A808 /* Space Dock-Info.plist */; };
 		D4F7F42017F2C95D00F5A808 /* Space_Dock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +35,10 @@
 		D42BD1F217EA134B0000598C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		D42BD1F317EA134B0000598C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D42BD1F417EA134B0000598C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D4AAA28617F4082F00A99383 /* DockEquippedShip+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockEquippedShip+Addons.h"; sourceTree = "<group>"; };
+		D4AAA28717F4082F00A99383 /* DockEquippedShip+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockEquippedShip+Addons.m"; sourceTree = "<group>"; };
+		D4AAA28917F408D400A99383 /* DockUpgrade+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockUpgrade+Addons.h"; sourceTree = "<group>"; };
+		D4AAA28A17F408D400A99383 /* DockUpgrade+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockUpgrade+Addons.m"; sourceTree = "<group>"; };
 		D4F7F3EA17F2C95D00F5A808 /* Data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Data.xml; sourceTree = "<group>"; };
 		D4F7F3EB17F2C95D00F5A808 /* DockAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockAppDelegate.h; sourceTree = "<group>"; };
 		D4F7F3EC17F2C95D00F5A808 /* DockAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockAppDelegate.m; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				D4F7F3F017F2C95D00F5A808 /* DockCrew.m */,
 				D4F7F3F117F2C95D00F5A808 /* DockEquippedShip.h */,
 				D4F7F3F217F2C95D00F5A808 /* DockEquippedShip.m */,
+				D4AAA28617F4082F00A99383 /* DockEquippedShip+Addons.h */,
+				D4AAA28717F4082F00A99383 /* DockEquippedShip+Addons.m */,
 				D4F7F3F317F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.h */,
 				D4F7F3F417F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m */,
 				D4F7F3F517F2C95D00F5A808 /* DockResource.h */,
@@ -152,6 +158,8 @@
 				D4F7F40A17F2C95D00F5A808 /* Space Dock-Info.plist */,
 				D4F7F40B17F2C95D00F5A808 /* Space Dock-Prefix.pch */,
 				D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */,
+				D4AAA28917F408D400A99383 /* DockUpgrade+Addons.h */,
+				D4AAA28A17F408D400A99383 /* DockUpgrade+Addons.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -210,9 +218,7 @@
 			files = (
 				D4F7F41D17F2C95D00F5A808 /* MainMenu.xib in Resources */,
 				D4F7F40E17F2C95D00F5A808 /* Data.xml in Resources */,
-				D4F7F41C17F2C95D00F5A808 /* InfoPlist.strings in Resources */,
 				D4F7F41B17F2C95D00F5A808 /* Credits.rtf in Resources */,
-				D4F7F41F17F2C95D00F5A808 /* Space Dock-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,7 +239,9 @@
 				D4F7F41017F2C95D00F5A808 /* DockCaptain.m in Sources */,
 				D4F7F41A17F2C95D00F5A808 /* DockWeapon.m in Sources */,
 				D4F7F41117F2C95D00F5A808 /* DockCrew.m in Sources */,
+				D4AAA28817F4082F00A99383 /* DockEquippedShip+Addons.m in Sources */,
 				D4F7F41617F2C95D00F5A808 /* DockSquad.m in Sources */,
+				D4AAA28B17F408D400A99383 /* DockUpgrade+Addons.m in Sources */,
 				D4F7F41317F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m in Sources */,
 				D4F7F41817F2C95D00F5A808 /* DockTech.m in Sources */,
 				D4F7F41217F2C95D00F5A808 /* DockEquippedShip.m in Sources */,
@@ -335,6 +343,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "src/Space Dock-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/src/Space Dock-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -347,6 +356,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "src/Space Dock-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/src/Space Dock-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

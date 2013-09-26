@@ -662,7 +662,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
-                            <tabViewItem label="Ships" identifier="1" id="B7y-WH-2to">
+                            <tabViewItem label="Ships" identifier="ships" id="B7y-WH-2to">
                                 <view key="view" id="pRf-ms-Hgi">
                                     <rect key="frame" x="10" y="33" width="602" height="208"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1012,7 +1012,7 @@
                                     </subviews>
                                 </view>
                             </tabViewItem>
-                            <tabViewItem label="Captains" identifier="2" id="sxb-ZK-52L">
+                            <tabViewItem label="Captains" identifier="captains" id="sxb-ZK-52L">
                                 <view key="view" id="Cng-MA-Uvw">
                                     <rect key="frame" x="10" y="33" width="602" height="208"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1204,7 +1204,7 @@
                                     </subviews>
                                 </view>
                             </tabViewItem>
-                            <tabViewItem label="Upgrades" identifier="" id="b51-qf-JF2">
+                            <tabViewItem label="Upgrades" identifier="upgrades" id="b51-qf-JF2">
                                 <view key="view" id="EQ1-zo-i4n">
                                     <rect key="frame" x="10" y="33" width="602" height="208"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1405,7 +1405,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="REc-Lj-a6S" name="value" keyPath="arrangedObjects.ship.title" id="EtR-GK-5wg"/>
+                                                <binding destination="REc-Lj-a6S" name="value" keyPath="arrangedObjects.title" id="MXw-3F-90G"/>
                                             </connections>
                                         </tableColumn>
                                         <tableColumn width="254" minWidth="40" maxWidth="1000" id="nZV-4v-pOe">
@@ -1522,7 +1522,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="addSelectedShip:" target="494" id="9qO-Zn-UsW"/>
+                            <action selector="addSelected:" target="494" id="caN-Xe-3u7"/>
                             <binding destination="Gzr-Z0-87U" name="enabled" keyPath="selectedObjects.@count" id="cd1-Oh-Pvi"/>
                         </connections>
                     </button>
@@ -1545,8 +1545,11 @@
         </window>
         <customObject id="494" customClass="DockAppDelegate">
             <connections>
+                <outlet property="captainsController" destination="0af-xY-vuT" id="lPO-O6-x8d"/>
                 <outlet property="shipsController" destination="Gzr-Z0-87U" id="5vW-HI-mUc"/>
+                <outlet property="squadDetailController" destination="REc-Lj-a6S" id="Ujp-f8-UcS"/>
                 <outlet property="squadsController" destination="w6h-j0-fyp" id="0Eh-Fh-QAl"/>
+                <outlet property="tabView" destination="EsK-Y6-lVi" id="lkC-r1-enJ"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>

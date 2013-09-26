@@ -393,7 +393,7 @@
     return NSTerminateNow;
 }
 
--(IBAction)addSelectedShip:(id)sender
+-(void)addSelectedShip
 {
     DockSquad* squad = [[_squadsController selectedObjects] objectAtIndex: 0];
     NSArray* shipsToAdd = [_shipsController selectedObjects];
@@ -407,6 +407,29 @@
         squad.equippedShips = tempSet;
     }
     NSLog(@"ships to add %@", shipsToAdd);
+}
+
+-(void)addSelectedCaptain
+{
+    NSArray* captainsToAdd = [_captainsController selectedObjects];
+    DockCaptain* captain = captainsToAdd[0];
+    id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
+    if ([target isMemberOfClass: [DockEquippedShip class]]) {
+        DockEquippedShip* targetShip = target;
+        [targetShip addUpgrades: [NSSet setWithObject: captain]];
+    }
+    NSLog(@"want to add captain %@ to %@", captain, target);
+}
+
+-(IBAction)addSelected:(id)sender
+{
+    NSTabViewItem* selectedTab = [_tabView selectedTabViewItem];
+    id identifier = selectedTab.identifier;
+    if ([identifier isEqualToString: @"ships"]) {
+        [self addSelectedShip];
+    } else if ([identifier isEqualToString: @"captains"]) {
+        [self addSelectedCaptain];
+    }
 }
 
 @end
