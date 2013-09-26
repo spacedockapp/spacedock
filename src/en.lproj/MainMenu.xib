@@ -1394,7 +1394,7 @@
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
                                         <tableColumn identifier="squadDetailTitle" editable="NO" width="101" minWidth="16" maxWidth="1000" id="9Op-7d-bOD">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Ship">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Title">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
@@ -1411,6 +1411,22 @@
                                                         <bool key="NSConditionallySetsEditable" value="YES"/>
                                                     </dictionary>
                                                 </binding>
+                                            </connections>
+                                        </tableColumn>
+                                        <tableColumn identifier="squadDetailCost" editable="NO" width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="GNm-Hk-GHr">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Cost">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" alignment="center" title="Text Cell" id="3fz-24-gOd">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="REc-Lj-a6S" name="value" keyPath="arrangedObjects.cost" id="pHa-f5-QFT"/>
                                             </connections>
                                         </tableColumn>
                                     </tableColumns>
@@ -1515,7 +1531,6 @@
                         </buttonCell>
                         <connections>
                             <action selector="addSelected:" target="494" id="caN-Xe-3u7"/>
-                            <binding destination="Gzr-Z0-87U" name="enabled" keyPath="selectedObjects.@count" id="cd1-Oh-Pvi"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="4zk-Ah-uPM">
@@ -1526,6 +1541,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
+                            <action selector="deleteSelected:" target="494" id="NwS-0P-xcQ"/>
                             <binding destination="REc-Lj-a6S" name="enabled" keyPath="selectedObjects.@count" id="nmR-4y-xjF"/>
                         </connections>
                     </button>

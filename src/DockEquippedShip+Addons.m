@@ -16,14 +16,34 @@
     return [NSString stringWithFormat: @"%@ (%@)", self.ship.title, self.ship.shipClass];
 }
 
+-(int)cost
+{
+    int cost = [self.ship.cost intValue];
+    for (DockEquippedUpgrade* upgrade in self.upgrades) {
+        cost += [upgrade cost];
+    }
+    return cost;
+}
+
 -(void)addUpgrade:(DockUpgrade*)upgrade
 {
     [self willChangeValueForKey: @"sortedUpgrades"];
+    [self willChangeValueForKey: @"cost"];
     NSManagedObjectContext* context = [self managedObjectContext];
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"EquippedUpgrade" inManagedObjectContext: context];
     DockEquippedUpgrade* equippedUpgrade = [[DockEquippedUpgrade alloc] initWithEntity: entity insertIntoManagedObjectContext: context];
     equippedUpgrade.upgrade = upgrade;
     [self addUpgrades: [NSSet setWithObject: equippedUpgrade]];
+    [self didChangeValueForKey: @"sortedUpgrades"];
+    [self didChangeValueForKey: @"cost"];
+}
+
+-(void)removeUpgrade:(DockUpgrade*)upgrade
+{
+    [self willChangeValueForKey: @"sortedUpgrades"];
+    [self willChangeValueForKey: @"cost"];
+    [self removeUpgrades: [NSSet setWithObject: upgrade]];
+    [self didChangeValueForKey: @"cost"];
     [self didChangeValueForKey: @"sortedUpgrades"];
 }
 

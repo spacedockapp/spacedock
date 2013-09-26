@@ -16,6 +16,7 @@
 #import "DockResource.h"
 #import "DockShip.h"
 #import "DockSquad.h"
+#import "DockSquad+Addons.h"
 #import "DockTalent.h"
 #import "DockTech.h"
 #import "DockWeapon.h"
@@ -404,31 +405,46 @@
     for (DockShip* ship in shipsToAdd) {
         DockEquippedShip* es = [[DockEquippedShip alloc] initWithEntity: equippedShipEntity insertIntoManagedObjectContext: _managedObjectContext];
         es.ship = ship;
-        NSMutableOrderedSet* tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet: squad.equippedShips];
-        [tempSet addObject: es];
-        squad.equippedShips = tempSet;
+        [squad addEquippedShip: es];
     }
-    NSLog(@"ships to add %@", shipsToAdd);
 }
 
 -(DockEquippedShip*)selectedShip
 {
-    id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
-    if ([target isMemberOfClass: [DockEquippedShip class]]) {
-        return target;
-    }
-    if ([target isMemberOfClass: [DockEquippedUpgrade class]]) {
-        DockEquippedUpgrade* upgrade = target;
-        return upgrade.equippedShip;
+    NSArray* selectedShips = [_squadDetailController selectedObjects];
+    if (selectedShips.count > 0) {
+        id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
+        if ([target isMemberOfClass: [DockEquippedShip class]]) {
+            return target;
+        }
+        if ([target isMemberOfClass: [DockEquippedUpgrade class]]) {
+            DockEquippedUpgrade* upgrade = target;
+            return upgrade.equippedShip;
+        }
     }
     return nil;
+}
+
+-(DockSquad*)selectedSquad
+{
+    DockSquad* squad = nil;
+
+    NSArray* squads = [_squadsController selectedObjects];
+    if (squads.count > 0) {
+        squad = [squads objectAtIndex: 0];
+    }
+
+    return squad;
 }
 
 -(void)addSelectedCaptain:(DockEquippedShip*)targetShip
 {
     NSArray* captainsToAdd = [_captainsController selectedObjects];
-    DockCaptain* captain = captainsToAdd[0];
-    [targetShip addUpgrade: captain];
+    if (captainsToAdd.count < 1) {
+    } else {
+        DockCaptain* captain = captainsToAdd[0];
+        [targetShip addUpgrade: captain];
+    }
 }
 
 -(void)addSelectedUpgrade:(DockEquippedShip*)targetShip
@@ -453,7 +469,26 @@
             if ([identifier isEqualToString: @"upgrades"]) {
                 [self addSelectedUpgrade: selectedShip];
             }
+        } else {
+            NSAlert* alert = [NSAlert alertWithMessageText: @"You must select a ship before adding a captain."
+                                             defaultButton: @"OK"
+                                           alternateButton: @""
+                                               otherButton: @""
+                                 informativeTextWithFormat: @""];
+            [alert runModal];
         }
+    }
+}
+
+-(IBAction)deleteSelected:(id)sender
+{
+    id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
+    DockEquippedShip* targetShip = [self selectedShip];
+    if (target == targetShip) {
+        DockSquad* squad = [[_squadsController selectedObjects] objectAtIndex: 0];
+        [squad removeEquippedShip: targetShip];
+    } else {
+        [targetShip removeUpgrade: target];
     }
 }
 

@@ -24,5 +24,6 @@
 
 -(IBAction)saveAction:(id)sender;
 -(IBAction)addSelected:(id)sender;
+-(IBAction)deleteSelected:(id)sender;
 
 @end
