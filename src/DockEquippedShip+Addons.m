@@ -3,6 +3,7 @@
 #import "DockEquippedUpgrade.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockShip.h"
+#import "DockSquad+Addons.h"
 
 @implementation DockEquippedShip (Addons)
 
@@ -25,7 +26,7 @@
     return cost;
 }
 
--(void)addUpgrade:(DockUpgrade*)upgrade
+-(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade
 {
     [self willChangeValueForKey: @"sortedUpgrades"];
     [self willChangeValueForKey: @"cost"];
@@ -36,6 +37,8 @@
     [self addUpgrades: [NSSet setWithObject: equippedUpgrade]];
     [self didChangeValueForKey: @"sortedUpgrades"];
     [self didChangeValueForKey: @"cost"];
+    [[self squad] squadCompositionChanged];
+    return equippedUpgrade;
 }
 
 -(void)removeUpgrade:(DockUpgrade*)upgrade
@@ -45,6 +48,7 @@
     [self removeUpgrades: [NSSet setWithObject: upgrade]];
     [self didChangeValueForKey: @"cost"];
     [self didChangeValueForKey: @"sortedUpgrades"];
+    [[self squad] squadCompositionChanged];
 }
 
 -(NSArray*)sortedUpgrades

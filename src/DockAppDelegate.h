@@ -12,6 +12,7 @@
 
 @property (assign) IBOutlet NSWindow* window;
 @property (assign) IBOutlet NSTabView* tabView;
+@property (assign) IBOutlet NSOutlineView* squadDetailView;
 @property (assign) IBOutlet NSArrayController* shipsController;
 @property (assign) IBOutlet NSArrayController* squadsController;
 @property (assign) IBOutlet NSArrayController* captainsController;

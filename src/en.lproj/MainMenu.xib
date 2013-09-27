@@ -1461,7 +1461,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn width="235" minWidth="40" maxWidth="1000" id="1UP-6U-WeG">
+                                        <tableColumn width="177" minWidth="40" maxWidth="1000" id="1UP-6U-WeG">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Squad">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1477,6 +1477,27 @@
                                                 <binding destination="w6h-j0-fyp" name="value" keyPath="arrangedObjects.name" id="C0s-SJ-eSh"/>
                                             </connections>
                                         </tableColumn>
+                                        <tableColumn editable="NO" width="53" minWidth="10" maxWidth="1000" id="wqL-6o-MDn">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Cost">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="1vu-6y-Eud">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="cost"/>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="w6h-j0-fyp" name="value" keyPath="arrangedObjects.cost" id="IHc-3Q-B4f">
+                                                    <dictionary key="options">
+                                                        <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </tableColumn>
                                     </tableColumns>
                                     <connections>
                                         <binding destination="w6h-j0-fyp" name="content" keyPath="arrangedObjects" id="F4x-cS-Im1"/>
@@ -1487,7 +1508,7 @@
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" id="PxQ-9t-Byw">
-                            <rect key="frame" x="1" y="119" width="238" height="15"/>
+                            <rect key="frame" x="1" y="157" width="238" height="15"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" id="tAJ-Iz-kiv">
@@ -1556,6 +1577,7 @@
                 <outlet property="captainsController" destination="0af-xY-vuT" id="lPO-O6-x8d"/>
                 <outlet property="shipsController" destination="Gzr-Z0-87U" id="5vW-HI-mUc"/>
                 <outlet property="squadDetailController" destination="REc-Lj-a6S" id="Ujp-f8-UcS"/>
+                <outlet property="squadDetailView" destination="6Xe-hT-jBi" id="hua-FN-E3G"/>
                 <outlet property="squadsController" destination="w6h-j0-fyp" id="0Eh-Fh-QAl"/>
                 <outlet property="tabView" destination="EsK-Y6-lVi" id="lkC-r1-enJ"/>
                 <outlet property="upgradesController" destination="wVj-PN-1Jr" id="s5T-X4-Yqh"/>

@@ -44,4 +44,10 @@
     return cost;
 }
 
+-(void)squadCompositionChanged
+{
+    [self willChangeValueForKey: @"cost"];
+    [self didChangeValueForKey: @"cost"];
+}
+
 @end

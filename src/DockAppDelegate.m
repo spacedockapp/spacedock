@@ -21,6 +21,8 @@
 #import "DockTech.h"
 #import "DockWeapon.h"
 
+#import "NSTreeController+Additions.h"
+
 @implementation DockAppDelegate
 
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -437,21 +439,22 @@
     return squad;
 }
 
--(void)addSelectedCaptain:(DockEquippedShip*)targetShip
+-(DockEquippedUpgrade*)addSelectedCaptain:(DockEquippedShip*)targetShip
 {
     NSArray* captainsToAdd = [_captainsController selectedObjects];
     if (captainsToAdd.count < 1) {
     } else {
         DockCaptain* captain = captainsToAdd[0];
-        [targetShip addUpgrade: captain];
+        return [targetShip addUpgrade: captain];
     }
+    return nil;
 }
 
--(void)addSelectedUpgrade:(DockEquippedShip*)targetShip
+-(DockEquippedUpgrade*)addSelectedUpgrade:(DockEquippedShip*)targetShip
 {
     NSArray* upgradeToAdd = [_upgradesController selectedObjects];
     DockUpgrade* upgrade = upgradeToAdd[0];
-    [targetShip addUpgrade: upgrade];
+    return [targetShip addUpgrade: upgrade];
 }
 
 -(IBAction)addSelected:(id)sender
@@ -462,15 +465,20 @@
         [self addSelectedShip];
     } else {
         DockEquippedShip* selectedShip = [self selectedShip];
+        DockEquippedUpgrade* equippedUpgrade = nil;
         if (selectedShip != nil) {
             if ([identifier isEqualToString: @"captains"]) {
-                [self addSelectedCaptain: selectedShip];
+                equippedUpgrade = [self addSelectedCaptain: selectedShip];
             }
             if ([identifier isEqualToString: @"upgrades"]) {
-                [self addSelectedUpgrade: selectedShip];
+                equippedUpgrade = [self addSelectedUpgrade: selectedShip];
+            }
+            if (equippedUpgrade != nil) {
+                NSIndexPath* path = [_squadDetailController indexPathOfObject: equippedUpgrade];
+                [_squadDetailController setSelectionIndexPath: path];
             }
         } else {
-            NSAlert* alert = [NSAlert alertWithMessageText: @"You must select a ship before adding a captain."
+            NSAlert* alert = [NSAlert alertWithMessageText: @"You must select a ship before adding a captain or upgrade."
                                              defaultButton: @"OK"
                                            alternateButton: @""
                                                otherButton: @""
@@ -489,6 +497,8 @@
         [squad removeEquippedShip: targetShip];
     } else {
         [targetShip removeUpgrade: target];
+        NSIndexPath* path = [_squadDetailController indexPathOfObject: targetShip];
+        [_squadDetailController setSelectionIndexPath: path];
     }
 }
 

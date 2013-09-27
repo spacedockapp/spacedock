@@ -6,4 +6,5 @@
 @property (nonatomic, readonly) int cost;
 -(void)addEquippedShip:(DockEquippedShip*)ship;
 -(void)removeEquippedShip:(DockEquippedShip*)ship;
+-(void)squadCompositionChanged;
 @end
