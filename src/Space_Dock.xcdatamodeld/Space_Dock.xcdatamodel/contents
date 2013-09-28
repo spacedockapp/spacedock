@@ -2,7 +2,7 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Captain" representedClassName="DockCaptain" parentEntity="Upgrade" syncable="YES">
         <attribute name="skill" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="talent" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="talent" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="Crew" representedClassName="DockCrew" parentEntity="Upgrade" syncable="YES"/>
     <entity name="EquippedShip" representedClassName="DockEquippedShip" syncable="YES">

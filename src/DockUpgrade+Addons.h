@@ -6,5 +6,6 @@
 -(BOOL)isCrew;
 -(BOOL)isWeapon;
 -(BOOL)isCaptain;
+-(BOOL)isPlaceholder;
 -(NSComparisonResult)compareTo:(DockUpgrade*)other;
 @end

@@ -11,5 +11,12 @@
 
 @implementation DockResource
 
+@dynamic ability;
+@dynamic cost;
+@dynamic externalId;
+@dynamic special;
+@dynamic title;
+@dynamic unique;
+@dynamic type;
 
 @end

@@ -13,6 +13,11 @@
     return self.upgrade.title;
 }
 
+-(BOOL)isPlaceholder
+{
+    return self.upgrade.isPlaceholder;
+}
+
 -(NSString*)description
 {
     return self.upgrade.description;
@@ -27,6 +32,9 @@
 {
     DockShip* ship = self.equippedShip.ship;
     DockUpgrade* upgrade = self.upgrade;
+    if ([upgrade isPlaceholder]) {
+        return 0;
+    }
     int cost = [upgrade.cost intValue];
     NSString* shipFaction = ship.faction;
     NSString* upgradeFaction = upgrade.faction;

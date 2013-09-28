@@ -37,12 +37,17 @@
         placeholderUpgrade.title = upType;
         placeholderUpgrade.upType = upType;
         placeholderUpgrade.placeholder = @YES;
+    } else {
+        placeholderUpgrade = existingItems[0];
     }
     return placeholderUpgrade;
 }
 
 -(NSString*)description
 {
+    if ([self isPlaceholder]) {
+        return self.title;
+    }
     return [NSString stringWithFormat: @"%@ (%@)", self.title, self.upType];
 }
 
@@ -64,6 +69,11 @@
 -(BOOL)isCaptain
 {
     return [self.upType isEqualToString: @"Captain"];
+}
+
+-(BOOL)isPlaceholder
+{
+    return [[self placeholder] boolValue];
 }
 
 -(NSComparisonResult)compareTo:(DockUpgrade*)other

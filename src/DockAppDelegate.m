@@ -178,7 +178,7 @@
                         break;
                     }
                     [c setValue: v forKey: modifiedKey];
-                }
+               }
             }
         }
     }
@@ -407,10 +407,9 @@
 {
     DockSquad* squad = [[_squadsController selectedObjects] objectAtIndex: 0];
     NSArray* shipsToAdd = [_shipsController selectedObjects];
-    NSEntityDescription* equippedShipEntity = [NSEntityDescription entityForName: @"EquippedShip" inManagedObjectContext: _managedObjectContext];
 
     for (DockShip* ship in shipsToAdd) {
-        DockEquippedShip* es = [[DockEquippedShip alloc] initWithEntity: equippedShipEntity insertIntoManagedObjectContext: _managedObjectContext];
+        DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: ship];
         es.ship = ship;
         [squad addEquippedShip: es];
     }

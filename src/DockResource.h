@@ -12,5 +12,12 @@
 
 @interface DockResource : NSManagedObject
 
+@property (nonatomic, retain) NSString * ability;
+@property (nonatomic, retain) NSNumber * cost;
+@property (nonatomic, retain) NSString * externalId;
+@property (nonatomic, retain) NSString * special;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSNumber * unique;
+@property (nonatomic, retain) NSString * type;
 
 @end
