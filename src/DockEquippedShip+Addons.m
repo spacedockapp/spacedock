@@ -4,6 +4,7 @@
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockShip.h"
 #import "DockSquad+Addons.h"
+#import "DockUpgrade+Addons.h"
 
 @implementation DockEquippedShip (Addons)
 
@@ -24,6 +25,17 @@
         cost += [upgrade cost];
     }
     return cost;
+}
+
+-(DockCaptain*)captain
+{
+    for (DockEquippedUpgrade* eu in self.upgrades) {
+        DockUpgrade* upgrade = eu.upgrade;
+        if ([upgrade.upType isEqualToString: @"Captain"]) {
+            return (DockCaptain*)upgrade;
+        }
+    }
+    return nil;
 }
 
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade

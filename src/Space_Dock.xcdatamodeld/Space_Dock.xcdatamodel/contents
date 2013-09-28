@@ -55,6 +55,7 @@
         <attribute name="cost" attributeType="Integer 16" minValueString="0" defaultValueString="1" syncable="YES"/>
         <attribute name="externalId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="faction" attributeType="String" defaultValueString="Independent" syncable="YES"/>
+        <attribute name="special" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <attribute name="unique" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="upType" attributeType="String" defaultValueString="Crew" syncable="YES"/>
@@ -68,6 +69,7 @@
         <element name="Captain" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Crew" positionX="0" positionY="0" width="0" height="0"/>
         <element name="EquippedShip" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EquippedUpgrade" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Resource" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Ship" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Squad" positionX="0" positionY="0" width="0" height="0"/>
@@ -75,6 +77,5 @@
         <element name="Tech" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Upgrade" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Weapon" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="EquippedUpgrade" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

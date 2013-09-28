@@ -7,6 +7,26 @@
     return [NSString stringWithFormat: @"%@ (%@)", self.title, self.upType];
 }
 
+-(BOOL)isTalent
+{
+    return [self.upType isEqualToString: @"Talent"];
+}
+
+-(BOOL)isCrew
+{
+    return [self.upType isEqualToString: @"Crew"];
+}
+
+-(BOOL)isWeapon
+{
+    return [self.upType isEqualToString: @"Weapon"];
+}
+
+-(BOOL)isCaptain
+{
+    return [self.upType isEqualToString: @"Captain"];
+}
+
 -(NSComparisonResult)compareTo:(DockUpgrade*)other
 {
     NSString* upTypeMe = self.upType;
