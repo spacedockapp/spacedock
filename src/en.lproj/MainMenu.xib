@@ -1612,7 +1612,7 @@
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="Ayz-MY-Ljt"/>
             </connections>
         </arrayController>
-        <arrayController mode="entity" entityName="Upgrade" fetchPredicateFormat="not upType like 'Captain'" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="wVj-PN-1Jr" userLabel="upgrades controller">
+        <arrayController mode="entity" entityName="Upgrade" fetchPredicateFormat="not upType like 'Captain' and not placeholder == YES" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="wVj-PN-1Jr" userLabel="upgrades controller">
             <connections>
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="iXi-bB-7Gl"/>
             </connections>

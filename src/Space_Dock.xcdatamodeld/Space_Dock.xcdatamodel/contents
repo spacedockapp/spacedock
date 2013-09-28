@@ -14,7 +14,15 @@
         <relationship name="equippedShip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EquippedShip" inverseName="upgrades" inverseEntity="EquippedShip" syncable="YES"/>
         <relationship name="upgrade" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Upgrade" inverseName="equippedUpgrades" inverseEntity="Upgrade" syncable="YES"/>
     </entity>
-    <entity name="Resource" representedClassName="DockResource" parentEntity="Upgrade" syncable="YES"/>
+    <entity name="Resource" representedClassName="DockResource" syncable="YES">
+        <attribute name="ability" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cost" attributeType="Integer 16" minValueString="0" defaultValueString="1" syncable="YES"/>
+        <attribute name="externalId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="special" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="String" defaultValueString="Crew" syncable="YES"/>
+        <attribute name="unique" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+    </entity>
     <entity name="Ship" representedClassName="DockShip" syncable="YES">
         <attribute name="ability" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="agility" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
@@ -55,6 +63,7 @@
         <attribute name="cost" attributeType="Integer 16" minValueString="0" defaultValueString="1" syncable="YES"/>
         <attribute name="externalId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="faction" attributeType="String" defaultValueString="Independent" syncable="YES"/>
+        <attribute name="placeholder" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="special" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <attribute name="unique" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
@@ -63,7 +72,7 @@
     </entity>
     <entity name="Weapon" representedClassName="DockWeapon" parentEntity="Upgrade" syncable="YES">
         <attribute name="attack" attributeType="Integer 16" minValueString="0" defaultValueString="1" syncable="YES"/>
-        <attribute name="range" attributeType="String" syncable="YES"/>
+        <attribute name="range" attributeType="String" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
         <element name="Captain" positionX="0" positionY="0" width="0" height="0"/>

@@ -19,6 +19,7 @@
 #import "DockSquad+Addons.h"
 #import "DockTalent.h"
 #import "DockTech.h"
+#import "DockUpgrade+Addons.h"
 #import "DockWeapon.h"
 
 #import "NSTreeController+Additions.h"
@@ -123,7 +124,10 @@
     NSMutableDictionary* existingItemsLookup = [NSMutableDictionary dictionaryWithCapacity: existingItems.count];
 
     for (id existingItem in existingItems) {
-        existingItemsLookup[[existingItem externalId]] = existingItem;
+        NSString* externalId = [existingItem externalId];
+        if (externalId != nil) {
+            existingItemsLookup[[existingItem externalId]] = existingItem;
+        }
     }
 
     NSArray* nodes = [xmlDoc nodesForXPath: xpath error: &err];
@@ -226,6 +230,7 @@
 -(void)applicationDidFinishLaunching:(NSNotification*)aNotification
 {
     [self loadData];
+    [DockUpgrade placeholder: @"Weapon" inContext: _managedObjectContext];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.

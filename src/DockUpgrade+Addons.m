@@ -1,6 +1,45 @@
 #import "DockUpgrade+Addons.h"
 
+#import "DockWeapon.h"
+#import "DockTech.h"
+#import "DockTalent.h"
+#import "DockCrew.h"
+#import "DockCaptain.h"
+#import "DockResource.h"
+
 @implementation DockUpgrade (Addons)
+
++(DockUpgrade*)placeholder:(NSString*)upType inContext:(NSManagedObjectContext*)context
+{
+    NSEntityDescription* entity = [NSEntityDescription entityForName: upType inManagedObjectContext: context];
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSPredicate *predicateTemplate = [NSPredicate predicateWithFormat:@"placeholder = YES"];
+    [request setPredicate: predicateTemplate];
+    DockUpgrade* placeholderUpgrade = nil;
+    NSError* err;
+    NSArray* existingItems = [context executeFetchRequest: request error: &err];
+    NSLog(@"placeholders = %@", existingItems);
+    if (existingItems.count == 0) {
+        Class upClass = [DockUpgrade class];
+        if ([upType isEqualToString: @"Weapon"]) {
+            upClass = [DockWeapon class];
+        } else if ([upType isEqualToString: @"Tech"]) {
+            upClass = [DockTech class];
+        } else if ([upType isEqualToString: @"Talent"]) {
+            upClass = [DockTalent class];
+        } else if ([upType isEqualToString: @"Captain"]) {
+            upClass = [DockCaptain class];
+        } else if ([upType isEqualToString: @"Crew"]) {
+            upClass = [DockCrew class];
+        }
+        placeholderUpgrade = [[upClass alloc] initWithEntity: entity insertIntoManagedObjectContext: context];
+        placeholderUpgrade.title = upType;
+        placeholderUpgrade.upType = upType;
+        placeholderUpgrade.placeholder = @YES;
+    }
+    return placeholderUpgrade;
+}
 
 -(NSString*)description
 {
