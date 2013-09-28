@@ -41,30 +41,51 @@
 +(DockEquippedShip*)equippedShipWithShip:(DockShip*)ship
 {
     NSManagedObjectContext* context = ship.managedObjectContext;
-    NSEntityDescription* entity = [NSEntityDescription entityForName: @"EquippedShip" inManagedObjectContext:context];
-    DockEquippedShip* es = [[DockEquippedShip alloc] initWithEntity: entity insertIntoManagedObjectContext:context];
-    int count = [[ship crew] intValue];
-    for (int i = 0; i < count; ++i) {
-        DockUpgrade* upgrade = [DockUpgrade placeholder: @"Crew" inContext:context];
-        [es addUpgrade: upgrade];
-    }
-    count = [[ship weapon] intValue];
-    for (int i = 0; i < count; ++i) {
-        DockUpgrade* upgrade = [DockUpgrade placeholder: @"Weapon" inContext:context];
-        [es addUpgrade: upgrade];
-    }
-    count = [[ship tech] intValue];
-    for (int i = 0; i < count; ++i) {
-        DockUpgrade* upgrade = [DockUpgrade placeholder: @"Tech" inContext:context];
-        [es addUpgrade: upgrade];
-    }
+    NSEntityDescription* entity = [NSEntityDescription entityForName: @"EquippedShip"
+                                              inManagedObjectContext:context];
+    DockEquippedShip* es = [[DockEquippedShip alloc] initWithEntity: entity
+                                     insertIntoManagedObjectContext:context];
+    es.ship = ship;
+    [es establishPlaceholders];
     return es;
+}
+
+-(int)equipped:(NSString*)upType
+{
+    int count = 0;
+    for (DockEquippedUpgrade* eu in self.upgrades) {
+        if ([eu.upgrade.upType isEqualToString: upType]) {
+            count += 1;
+        }
+    }
+    return count;
+}
+
+-(void)establishPlaceholdersForType:(NSString*)upType limit:(int)limit
+{
+    NSManagedObjectContext* context = self.managedObjectContext;
+    int current = [self equipped: upType];
+    for (int i = current; i < limit; ++i) {
+        DockUpgrade* upgrade = [DockUpgrade placeholder: upType inContext:context];
+        [self addUpgrade: upgrade];
+    }
+}
+
+-(void)establishPlaceholders
+{
+    [self establishPlaceholdersForType: @"Captain" limit:1];
+    int count = [[self.ship crew] intValue];
+    [self establishPlaceholdersForType: @"Crew" limit:count];
+    count = [[self.ship weapon] intValue];
+    [self establishPlaceholdersForType: @"Weapon" limit:count];
+    count = [[self.ship tech] intValue];
+    [self establishPlaceholdersForType: @"Tech" limit:count];
 }
 
 -(DockEquippedUpgrade*)findPlaceholder:(NSString*)upType
 {
     for (DockEquippedUpgrade* eu in self.upgrades) {
-        if ([eu isPlaceholder]) {
+        if ([eu isPlaceholder] && [eu.upgrade.upType isEqualToString: upType]) {
             return eu;
         }
     }
@@ -89,6 +110,12 @@
     }
 }
 
+-(BOOL)canAddUpgrade:(DockUpgrade*)upgrade
+{
+    int limit = [upgrade limitForShip: self];
+    return limit > 0;
+}
+
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade
 {
     [self willChangeValueForKey: @"sortedUpgrades"];
@@ -102,6 +129,7 @@
     if (![upgrade isPlaceholder]) {
         DockEquippedUpgrade* ph = [self findPlaceholder: upgrade.upType];
         if (ph) {
+            NSLog(@"removing placeholder %@", ph);
             [self removeUpgrade: ph];
         }
     }
@@ -112,7 +140,7 @@
     return equippedUpgrade;
 }
 
--(void)removeUpgrade:(DockEquippedUpgrade*)upgrade
+-(void)removeUpgrade:(DockEquippedUpgrade*)upgrade establishPlaceholders:(BOOL)doEstablish
 {
     [self willChangeValueForKey: @"sortedUpgrades"];
     [self willChangeValueForKey: @"cost"];
@@ -120,9 +148,17 @@
     if ([upgrade.upgrade isCaptain]) {
         [self removeAllTalents];
     }
+    if (doEstablish) {
+        [self establishPlaceholders];
+    }
     [self didChangeValueForKey: @"cost"];
     [self didChangeValueForKey: @"sortedUpgrades"];
     [[self squad] squadCompositionChanged];
+}
+
+-(void)removeUpgrade:(DockEquippedUpgrade*)upgrade
+{
+    [self removeUpgrade: upgrade establishPlaceholders: NO];
 }
 
 -(NSArray*)sortedUpgrades

@@ -4,8 +4,10 @@
 #import "DockTech.h"
 #import "DockTalent.h"
 #import "DockCrew.h"
-#import "DockCaptain.h"
+#import "DockCaptain+Addons.h"
 #import "DockResource.h"
+#import "DockShip+Addons.h"
+#import "DockEquippedShip+Addons.h"
 
 @implementation DockUpgrade (Addons)
 
@@ -71,6 +73,11 @@
     return [self.upType isEqualToString: @"Captain"];
 }
 
+-(BOOL)isTech
+{
+    return [self.upType isEqualToString: @"Tech"];
+}
+
 -(BOOL)isPlaceholder
 {
     return [[self placeholder] boolValue];
@@ -94,6 +101,30 @@
     }
 
     return r;
+}
+
+-(int)limitForShip:(DockEquippedShip*)targetShip
+{
+    if ([self isTalent]) {
+        DockCaptain* captain = [targetShip captain];
+        return [captain talentCount];
+    }
+    
+    DockShip* ship = targetShip.ship;
+    
+    if ([self isWeapon]) {
+        return [ship weaponCount];
+    }
+    
+    if ([self isCrew]) {
+        return [ship crewCount];
+    }
+    
+    if ([self isTech]) {
+        return [ship techCount];
+    }
+    
+    return 0;
 }
 
 @end

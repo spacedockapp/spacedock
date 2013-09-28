@@ -9,5 +9,5 @@
 #import "DockCaptain.h"
 
 @interface DockCaptain (Addons)
-
+@property (nonatomic, readonly) int talentCount;
 @end

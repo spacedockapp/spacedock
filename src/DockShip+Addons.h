@@ -10,4 +10,7 @@
 
 @interface DockShip (Addons)
 -(BOOL)isBreen;
+-(int)techCount;
+-(int)weaponCount;
+-(int)crewCount;
 @end

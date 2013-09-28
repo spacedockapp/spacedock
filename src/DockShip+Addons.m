@@ -16,4 +16,19 @@
     return r.location != NSNotFound;
 }
 
+-(int)techCount
+{
+    return [self.tech intValue];
+}
+
+-(int)weaponCount
+{
+    return [self.weapon intValue];
+}
+
+-(int)crewCount
+{
+    return [self.crew intValue];
+}
+
 @end

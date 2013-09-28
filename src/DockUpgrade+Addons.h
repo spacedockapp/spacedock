@@ -1,5 +1,7 @@
 #import "DockUpgrade.h"
 
+@class DockEquippedShip;
+
 @interface DockUpgrade (Addons)
 +(DockUpgrade*)placeholder:(NSString*)upType inContext:(NSManagedObjectContext*)context;
 -(BOOL)isTalent;
@@ -8,4 +10,5 @@
 -(BOOL)isCaptain;
 -(BOOL)isPlaceholder;
 -(NSComparisonResult)compareTo:(DockUpgrade*)other;
+-(int)limitForShip:(DockEquippedShip*)targetShip;
 @end

@@ -403,6 +403,13 @@
     return NSTerminateNow;
 }
 
+-(void)whineToUser:(NSString*)msg
+{
+    NSAlert* alert = [[NSAlert alloc] init];
+    [alert setMessageText: msg];
+    [alert runModal];
+}
+
 -(void)addSelectedShip
 {
     DockSquad* squad = [[_squadsController selectedObjects] objectAtIndex: 0];
@@ -458,6 +465,10 @@
 {
     NSArray* upgradeToAdd = [_upgradesController selectedObjects];
     DockUpgrade* upgrade = upgradeToAdd[0];
+    if (![targetShip canAddUpgrade: upgrade]) {
+        [self whineToUser: @"Really?"];
+        return nil;
+    }
     return [targetShip addUpgrade: upgrade];
 }
 
@@ -500,7 +511,7 @@
         DockSquad* squad = [[_squadsController selectedObjects] objectAtIndex: 0];
         [squad removeEquippedShip: targetShip];
     } else {
-        [targetShip removeUpgrade: target];
+        [targetShip removeUpgrade: target establishPlaceholders: YES];
         NSIndexPath* path = [_squadDetailController indexPathOfObject: targetShip];
         [_squadDetailController setSelectionIndexPath: path];
     }
