@@ -15,7 +15,13 @@
 
 -(NSString*)description
 {
-    return [NSString stringWithFormat: @"%@ (%@)", self.ship.title, self.ship.shipClass];
+    return [self.ship description];
+}
+
+-(NSAttributedString*)styledDescription
+{
+    NSString* s = [self description];
+    return [[NSAttributedString alloc] initWithString: s];
 }
 
 -(int)cost

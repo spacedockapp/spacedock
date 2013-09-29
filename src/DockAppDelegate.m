@@ -407,7 +407,41 @@
 {
     NSAlert* alert = [[NSAlert alloc] init];
     [alert setMessageText: msg];
+    [alert setAlertStyle: NSInformationalAlertStyle];
     [alert runModal];
+}
+
+- (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+	[[alert window] orderOut:self];
+}
+
+
+-(void)explainCantAddUpgrade:(DockEquippedShip*)ship upgrade:(DockUpgrade*)upgrade
+{
+    NSAlert* alert = [[NSAlert alloc] init];
+    NSString* msg =[NSString stringWithFormat: @"Can't add %@ to %@", upgrade, ship];
+    [alert setMessageText: msg];
+    NSString* info = @"";
+    int limit = [upgrade limitForShip: ship];
+    if (limit == 0) {
+        NSString* targetClass = [upgrade targetShipClass];
+        if (targetClass != nil) {
+            info = [NSString stringWithFormat: @"This upgrade can only be installed on ships of class %@.", targetClass];
+        } else {
+            if ([upgrade isTalent]) {
+                info = [NSString stringWithFormat: @"This ship's captain has no %@ upgrade symbols.", [upgrade.upType lowercaseString]];
+            } else {
+                info = [NSString stringWithFormat: @"This ship has no %@ upgrade symbols on its ship card.", [upgrade.upType lowercaseString]];
+            }
+        }
+    }
+    [alert setInformativeText: info];
+    [alert setAlertStyle: NSInformationalAlertStyle];
+    [alert beginSheetModalForWindow:[self window]
+                      modalDelegate:self
+                     didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:)
+                        contextInfo:nil];
 }
 
 -(void)addSelectedShip
@@ -466,7 +500,7 @@
     NSArray* upgradeToAdd = [_upgradesController selectedObjects];
     DockUpgrade* upgrade = upgradeToAdd[0];
     if (![targetShip canAddUpgrade: upgrade]) {
-        [self whineToUser: @"Really?"];
+        [self explainCantAddUpgrade: targetShip upgrade: upgrade];
         return nil;
     }
     return [targetShip addUpgrade: upgrade];

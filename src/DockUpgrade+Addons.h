@@ -11,4 +11,6 @@
 -(BOOL)isPlaceholder;
 -(NSComparisonResult)compareTo:(DockUpgrade*)other;
 -(int)limitForShip:(DockEquippedShip*)targetShip;
+-(NSAttributedString*)styledDescription;
+-(NSString*)targetShipClass;
 @end

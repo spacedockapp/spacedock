@@ -1406,7 +1406,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="REc-Lj-a6S" name="value" keyPath="arrangedObjects.description" id="yhn-AR-Y3j">
+                                                <binding destination="REc-Lj-a6S" name="value" keyPath="arrangedObjects.styledDescription" id="d3K-Pa-uhE">
                                                     <dictionary key="options">
                                                         <bool key="NSConditionallySetsEditable" value="YES"/>
                                                     </dictionary>

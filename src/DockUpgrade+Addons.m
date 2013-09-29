@@ -53,6 +53,18 @@
     return [NSString stringWithFormat: @"%@ (%@)", self.title, self.upType];
 }
 
+-(NSAttributedString*)styledDescription
+{
+    NSString* s = [self description];
+    if ([self isPlaceholder]) {
+        NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithString: s];
+        NSRange r = NSMakeRange(0, s.length);
+        [as applyFontTraits: NSItalicFontMask range:r];
+        return as;
+    }
+    return [[NSAttributedString alloc] initWithString: s];
+}
+
 -(BOOL)isTalent
 {
     return [self.upType isEqualToString: @"Talent"];
@@ -110,6 +122,14 @@
         return [captain talentCount];
     }
     
+    NSString* title = [self title];
+    if ([title isEqualToString: @"Muon Feedback Wave"]) {
+        NSString* shipClass = targetShip.ship.shipClass;
+        if (![shipClass isEqualToString: @"Romulan Science Vessel"]) {
+            return 0;
+        }
+    }
+    
     DockShip* ship = targetShip.ship;
     
     if ([self isWeapon]) {
@@ -125,6 +145,15 @@
     }
     
     return 0;
+}
+
+-(NSString*)targetShipClass
+{
+    NSString* title = self.title;
+    if ([title isEqualToString: @"Muon Feedback Wave"]) {
+        return @"Romulan Science Vessel";
+    }
+    return nil;
 }
 
 @end

@@ -23,6 +23,11 @@
     return self.upgrade.description;
 }
 
+-(NSAttributedString*)styledDescription
+{
+    return self.upgrade.styledDescription;
+}
+
 -(NSArray*)sortedUpgrades
 {
     return nil;
