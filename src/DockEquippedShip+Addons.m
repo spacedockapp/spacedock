@@ -1,5 +1,6 @@
 #import "DockEquippedShip+Addons.h"
 
+#import "DockCaptain+Addons.h"
 #import "DockEquippedUpgrade.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockShip.h"
@@ -33,15 +34,20 @@
     return cost;
 }
 
--(DockCaptain*)captain
+-(DockEquippedUpgrade*)equippedCaptain
 {
     for (DockEquippedUpgrade* eu in self.upgrades) {
         DockUpgrade* upgrade = eu.upgrade;
         if ([upgrade.upType isEqualToString: @"Captain"]) {
-            return (DockCaptain*)upgrade;
+            return eu;
         }
     }
     return nil;
+}
+
+-(DockCaptain*)captain
+{
+    return (DockCaptain*)[[self equippedCaptain] upgrade];
 }
 
 +(DockEquippedShip*)equippedShipWithShip:(DockShip*)ship
@@ -80,7 +86,9 @@
 -(void)establishPlaceholders
 {
     [self establishPlaceholdersForType: @"Captain" limit:1];
-    int count = [[self.ship crew] intValue];
+    int count = [self talentCount];
+    [self establishPlaceholdersForType: @"Talent" limit:count];
+    count = [[self.ship crew] intValue];
     [self establishPlaceholdersForType: @"Crew" limit:count];
     count = [[self.ship weapon] intValue];
     [self establishPlaceholdersForType: @"Weapon" limit:count];
@@ -140,6 +148,7 @@
         }
     }
     [self addUpgrades: [NSSet setWithObject: equippedUpgrade]];
+    [self establishPlaceholders];
     [self didChangeValueForKey: @"sortedUpgrades"];
     [self didChangeValueForKey: @"cost"];
     [[self squad] squadCompositionChanged];
@@ -148,18 +157,20 @@
 
 -(void)removeUpgrade:(DockEquippedUpgrade*)upgrade establishPlaceholders:(BOOL)doEstablish
 {
-    [self willChangeValueForKey: @"sortedUpgrades"];
-    [self willChangeValueForKey: @"cost"];
-    [self removeUpgrades: [NSSet setWithObject: upgrade]];
-    if ([upgrade.upgrade isCaptain]) {
-        [self removeAllTalents];
+    if (upgrade != nil) {
+        [self willChangeValueForKey: @"sortedUpgrades"];
+        [self willChangeValueForKey: @"cost"];
+        [self removeUpgrades: [NSSet setWithObject: upgrade]];
+        if ([upgrade.upgrade isCaptain]) {
+            [self removeAllTalents];
+        }
+        if (doEstablish) {
+            [self establishPlaceholders];
+        }
+        [self didChangeValueForKey: @"cost"];
+        [self didChangeValueForKey: @"sortedUpgrades"];
+        [[self squad] squadCompositionChanged];
     }
-    if (doEstablish) {
-        [self establishPlaceholders];
-    }
-    [self didChangeValueForKey: @"cost"];
-    [self didChangeValueForKey: @"sortedUpgrades"];
-    [[self squad] squadCompositionChanged];
 }
 
 -(void)removeUpgrade:(DockEquippedUpgrade*)upgrade
@@ -175,4 +186,14 @@
     }];
 }
 
+-(void)removeCaptain
+{
+    [self removeUpgrade: [self equippedCaptain]];
+}
+
+-(int)talentCount
+{
+    DockCaptain* captain = [self captain];
+    return [captain talentCount];
+}
 @end

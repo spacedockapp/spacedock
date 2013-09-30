@@ -472,6 +472,18 @@
     return nil;
 }
 
+-(DockEquippedUpgrade*)selectedUpgrade
+{
+    NSArray* selectedItems = [_squadDetailController selectedObjects];
+    if (selectedItems.count > 0) {
+        id target = [selectedItems objectAtIndex: 0];
+        if ([target isMemberOfClass: [DockEquippedUpgrade class]]) {
+            return target;
+        }
+    }
+    return nil;
+}
+
 -(DockSquad*)selectedSquad
 {
     DockSquad* squad = nil;
@@ -489,13 +501,14 @@
     NSArray* captainsToAdd = [_captainsController selectedObjects];
     if (captainsToAdd.count < 1) {
     } else {
+        [targetShip removeCaptain];
         DockCaptain* captain = captainsToAdd[0];
         return [targetShip addUpgrade: captain];
     }
     return nil;
 }
 
--(DockEquippedUpgrade*)addSelectedUpgrade:(DockEquippedShip*)targetShip
+-(DockEquippedUpgrade*)addSelectedUpgrade:(DockEquippedShip*)targetShip maybeReplace:(DockEquippedUpgrade*)maybeUpgrade
 {
     NSArray* upgradeToAdd = [_upgradesController selectedObjects];
     DockUpgrade* upgrade = upgradeToAdd[0];
@@ -506,6 +519,11 @@
     return [targetShip addUpgrade: upgrade];
 }
 
+-(DockEquippedUpgrade*)addSelectedUpgrade:(DockEquippedShip*)targetShip
+{
+    return [self addSelectedUpgrade: targetShip maybeReplace: nil];
+}
+
 -(IBAction)addSelected:(id)sender
 {
     NSTabViewItem* selectedTab = [_tabView selectedTabViewItem];
@@ -514,13 +532,14 @@
         [self addSelectedShip];
     } else {
         DockEquippedShip* selectedShip = [self selectedShip];
+        DockEquippedUpgrade* maybeUpgrade = [self selectedUpgrade];
         DockEquippedUpgrade* equippedUpgrade = nil;
         if (selectedShip != nil) {
             if ([identifier isEqualToString: @"captains"]) {
                 equippedUpgrade = [self addSelectedCaptain: selectedShip];
             }
             if ([identifier isEqualToString: @"upgrades"]) {
-                equippedUpgrade = [self addSelectedUpgrade: selectedShip];
+                equippedUpgrade = [self addSelectedUpgrade: selectedShip maybeReplace: maybeUpgrade];
             }
             if (equippedUpgrade != nil) {
                 NSIndexPath* path = [_squadDetailController indexPathOfObject: equippedUpgrade];

@@ -12,4 +12,6 @@
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade;
 -(void)removeUpgrade:(DockEquippedUpgrade*)upgrade;
 -(void)removeUpgrade:(DockEquippedUpgrade*)upgrade establishPlaceholders:(BOOL)doEstablish;
+-(void)removeCaptain;
+-(int)talentCount;
 @end
