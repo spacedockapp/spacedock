@@ -230,7 +230,6 @@
 -(void)applicationDidFinishLaunching:(NSNotification*)aNotification
 {
     [self loadData];
-    [DockUpgrade placeholder: @"Weapon" inContext: _managedObjectContext];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
