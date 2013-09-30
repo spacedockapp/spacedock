@@ -21,7 +21,6 @@
     DockUpgrade* placeholderUpgrade = nil;
     NSError* err;
     NSArray* existingItems = [context executeFetchRequest: request error: &err];
-    NSLog(@"placeholders = %@", existingItems);
     if (existingItems.count == 0) {
         Class upClass = [DockUpgrade class];
         if ([upType isEqualToString: @"Weapon"]) {
@@ -97,8 +96,8 @@
 
 -(NSComparisonResult)compareTo:(DockUpgrade*)other
 {
-    NSString* upTypeMe = self.upType;
-    NSString* upTypeOther = other.upType;
+    NSString* upTypeMe = [self upSortType];
+    NSString* upTypeOther = [other upSortType];
     NSComparisonResult r = [upTypeMe compare:upTypeOther];
     if (r == NSOrderedSame) {
         BOOL selfIsPlaceholder = [self isPlaceholder];
@@ -168,6 +167,14 @@
         return @"Romulan Science Vessel";
     }
     return nil;
+}
+
+-(NSString*)upSortType
+{
+    if ([self isTalent]) {
+        return @"AATalent";
+    }
+    return self.upType;
 }
 
 @end

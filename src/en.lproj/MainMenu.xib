@@ -970,7 +970,7 @@
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.crew" id="XoI-xd-HyX"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="ability" editable="NO" width="40" minWidth="40" maxWidth="1000" id="8Ke-49-66x" userLabel="ability">
+                                                            <tableColumn identifier="ability" editable="NO" width="40" minWidth="40" maxWidth="10000" id="8Ke-49-66x" userLabel="ability">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Ability">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1157,7 +1157,7 @@
                                                                     </binding>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="captainAbility" editable="NO" width="49" minWidth="40" maxWidth="1000" id="qFa-XH-tlx" userLabel="ability">
+                                                            <tableColumn identifier="captainAbility" editable="NO" width="49" minWidth="40" maxWidth="10000" id="qFa-XH-tlx" userLabel="ability">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Ability">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1330,7 +1330,7 @@
                                                                     </binding>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="upgradeAbility" editable="NO" width="40" minWidth="40" maxWidth="1000" id="xeo-D4-4nP" userLabel="ability">
+                                                            <tableColumn identifier="upgradeAbility" editable="NO" width="40" minWidth="40" maxWidth="10000" id="xeo-D4-4nP" userLabel="ability">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Ability">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1386,14 +1386,14 @@
                             <rect key="frame" x="1" y="17" width="361" height="155"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" autosaveName="squadDetail" headerView="ngn-KS-tlf" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="9Op-7d-bOD" id="6Xe-hT-jBi">
+                                <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" autosaveName="squadDetail" headerView="ngn-KS-tlf" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="9Op-7d-bOD" id="6Xe-hT-jBi">
                                     <rect key="frame" x="0.0" y="0.0" width="361" height="155"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="squadDetailTitle" editable="NO" width="101" minWidth="16" maxWidth="1000" id="9Op-7d-bOD">
+                                        <tableColumn identifier="squadDetailTitle" editable="NO" width="200" minWidth="200" maxWidth="1000" id="9Op-7d-bOD">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Title">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1413,7 +1413,23 @@
                                                 </binding>
                                             </connections>
                                         </tableColumn>
-                                        <tableColumn identifier="squadDetailCost" editable="NO" width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="GNm-Hk-GHr">
+                                        <tableColumn identifier="squadDetailBaseCost" editable="NO" width="60" minWidth="60" maxWidth="60" id="cOd-xw-dP8">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Base">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" alignment="center" title="Text Cell" id="nkw-Fh-8bo">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="REc-Lj-a6S" name="value" keyPath="arrangedObjects.baseCost" id="qIS-t4-Jne"/>
+                                            </connections>
+                                        </tableColumn>
+                                        <tableColumn identifier="squadDetailCost" editable="NO" width="60" minWidth="60" maxWidth="60" id="GNm-Hk-GHr">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Cost">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>

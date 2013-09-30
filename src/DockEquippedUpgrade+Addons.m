@@ -33,6 +33,16 @@
     return nil;
 }
 
+-(int)baseCost
+{
+    DockUpgrade* upgrade = self.upgrade;
+    if ([upgrade isPlaceholder]) {
+        return 0;
+    }
+
+    return [upgrade.cost intValue];
+}
+
 -(int)cost
 {
     DockShip* ship = self.equippedShip.ship;
@@ -56,7 +66,7 @@
         }
         
         if ([upgradeSpecial isEqualToString: @"costincreasedifnotromulansciencevessel"]) {
-            if ([ship.shipClass isEqualToString: @"Romulan Science Vessel"]) {
+            if (![ship.shipClass isEqualToString: @"Romulan Science Vessel"]) {
                 cost += 5;
             }
         }

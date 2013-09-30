@@ -13,4 +13,5 @@
 -(int)limitForShip:(DockEquippedShip*)targetShip;
 -(NSAttributedString*)styledDescription;
 -(NSString*)targetShipClass;
+-(NSString*)upSortType;
 @end

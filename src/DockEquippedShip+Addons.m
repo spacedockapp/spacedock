@@ -25,6 +25,11 @@
     return [[NSAttributedString alloc] initWithString: s];
 }
 
+-(int)baseCost
+{
+    return [self.ship.cost intValue];
+}
+
 -(int)cost
 {
     int cost = [self.ship.cost intValue];
