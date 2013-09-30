@@ -130,7 +130,7 @@
     return limit > 0;
 }
 
--(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade
+-(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace;
 {
     [self willChangeValueForKey: @"sortedUpgrades"];
     [self willChangeValueForKey: @"cost"];
@@ -147,12 +147,36 @@
             [self removeUpgrade: ph];
         }
     }
+    NSString* upType = [upgrade upType];
+    int limit = [upgrade limitForShip: self];
+    int current = [self equipped: upType];
+    if (current == limit) {
+        if (maybeReplace == nil) {
+            maybeReplace = [self firstUpgrade: upType];
+        }
+        [self removeUpgrade: maybeReplace establishPlaceholders:NO];
+    }
     [self addUpgrades: [NSSet setWithObject: equippedUpgrade]];
     [self establishPlaceholders];
     [self didChangeValueForKey: @"sortedUpgrades"];
     [self didChangeValueForKey: @"cost"];
     [[self squad] squadCompositionChanged];
     return equippedUpgrade;
+}
+
+-(DockEquippedUpgrade*)firstUpgrade:(NSString*)upType
+{
+    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        if ([upType isEqualToString: eu.upgrade.upType]) {
+            return eu;
+        }
+    }
+    return nil;
+}
+
+-(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade
+{
+    return [self addUpgrade: upgrade maybeReplace: nil];
 }
 
 -(void)removeUpgrade:(DockEquippedUpgrade*)upgrade establishPlaceholders:(BOOL)doEstablish

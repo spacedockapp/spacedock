@@ -10,6 +10,8 @@
 +(DockEquippedShip*)equippedShipWithShip:(DockShip*)ship;
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade;
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade;
+-(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace;
+-(DockEquippedUpgrade*)firstUpgrade:(NSString*)upType;
 -(void)removeUpgrade:(DockEquippedUpgrade*)upgrade;
 -(void)removeUpgrade:(DockEquippedUpgrade*)upgrade establishPlaceholders:(BOOL)doEstablish;
 -(void)removeCaptain;

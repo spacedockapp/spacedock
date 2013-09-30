@@ -101,7 +101,17 @@
     NSString* upTypeOther = other.upType;
     NSComparisonResult r = [upTypeMe compare:upTypeOther];
     if (r == NSOrderedSame) {
-        return [self.title caseInsensitiveCompare: other.title];
+        BOOL selfIsPlaceholder = [self isPlaceholder];
+        BOOL otherIsPlaceholder = [other isPlaceholder];
+        if (selfIsPlaceholder == otherIsPlaceholder) {
+            return [self.title caseInsensitiveCompare: other.title];
+        }
+        
+        if (selfIsPlaceholder) {
+            return NSOrderedDescending;
+        }
+
+        return NSOrderedAscending;
     }
 
     if ([upTypeMe isEqualToString: @"Captain"]) {
@@ -117,6 +127,10 @@
 
 -(int)limitForShip:(DockEquippedShip*)targetShip
 {
+    if ([self isCaptain]) {
+        return 1;
+    }
+    
     if ([self isTalent]) {
         DockCaptain* captain = [targetShip captain];
         return [captain talentCount];

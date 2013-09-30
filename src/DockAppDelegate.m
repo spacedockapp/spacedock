@@ -508,7 +508,7 @@
     return nil;
 }
 
--(DockEquippedUpgrade*)addSelectedUpgrade:(DockEquippedShip*)targetShip maybeReplace:(DockEquippedUpgrade*)maybeUpgrade
+-(DockEquippedUpgrade*)addSelectedUpgrade:(DockEquippedShip*)targetShip maybeReplace:(DockEquippedUpgrade*)maybeReplace
 {
     NSArray* upgradeToAdd = [_upgradesController selectedObjects];
     DockUpgrade* upgrade = upgradeToAdd[0];
@@ -516,7 +516,7 @@
         [self explainCantAddUpgrade: targetShip upgrade: upgrade];
         return nil;
     }
-    return [targetShip addUpgrade: upgrade];
+    return [targetShip addUpgrade: upgrade maybeReplace: maybeReplace];
 }
 
 -(DockEquippedUpgrade*)addSelectedUpgrade:(DockEquippedShip*)targetShip
