@@ -225,4 +225,10 @@
     DockCaptain* captain = [self captain];
     return [captain talentCount];
 }
+
+-(NSString*)ability
+{
+    return self.ship.ability;
+}
+
 @end

@@ -99,5 +99,10 @@
     return [[self upgrade] compareTo: [other upgrade]];
 }
 
+-(NSString*)ability
+{
+    return self.upgrade.ability;
+}
+
 
 @end

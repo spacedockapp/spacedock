@@ -452,6 +452,8 @@
         DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: ship];
         es.ship = ship;
         [squad addEquippedShip: es];
+        NSIndexPath* path = [_squadDetailController indexPathOfObject: [es equippedCaptain]];
+        [_squadDetailController setSelectionIndexPath: path];
     }
 }
 
@@ -567,6 +569,11 @@
         NSIndexPath* path = [_squadDetailController indexPathOfObject: targetShip];
         [_squadDetailController setSelectionIndexPath: path];
     }
+}
+
+-(IBAction)expandAll:(id)sender
+{
+    [_squadDetailView expandItem: nil expandChildren: YES];
 }
 
 @end
