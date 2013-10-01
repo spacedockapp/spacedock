@@ -10,4 +10,5 @@
 
 @interface DockCaptain (Addons)
 @property (nonatomic, readonly) int talentCount;
++(DockUpgrade*)zeroCostCaptain:(NSString*)faction context:(NSManagedObjectContext*)context;
 @end

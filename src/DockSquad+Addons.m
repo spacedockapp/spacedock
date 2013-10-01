@@ -10,6 +10,7 @@
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockShip+Addons.h"
+#import "DockUpgrade+Addons.h"
 
 @implementation DockSquad (Addons)
 
@@ -90,18 +91,25 @@
     [textFormat appendString: header];
     int i = 1;
     for (DockEquippedShip* ship in self.equippedShips) {
-        NSString* s = [NSString stringWithFormat: @"Ship %d  %@ %1@  %5d\n", i, [ship.title stringByPaddingToLength:43 withString:@" " startingAtIndex:0], [ship.ship.faction substringToIndex:1], ship.cost];
+        NSString* s = [NSString stringWithFormat: @"Ship %d  %@ %1@  %5d\n", i, [ship.title stringByPaddingToLength:43 withString:@" " startingAtIndex:0], [ship.ship.faction substringToIndex:1], [ship.ship.cost intValue]];
         [textFormat appendString: s];
         for (DockEquippedUpgrade* upgrade in ship.sortedUpgrades) {
-            if ([upgrade isPlaceholder]) {
-            } else {
-                NSString* s = [NSString stringWithFormat: @"  %@     %@ %1@  %5d\n", [upgrade typeCode], [upgrade.title stringByPaddingToLength:43 withString:@" " startingAtIndex:0], [upgrade.faction substringToIndex:1], upgrade.cost];
+            if (![upgrade isPlaceholder]) {
+                
+                if ([upgrade.upgrade isCaptain]) {
+                    s = [NSString stringWithFormat: @" Cap    %@ %1@  %5d\n", [upgrade.title stringByPaddingToLength:43 withString:@" " startingAtIndex:0], [upgrade.faction substringToIndex:1], upgrade.cost];
+                } else {
+                    s = [NSString stringWithFormat: @"  %@     %@ %1@  %5d\n", [upgrade typeCode], [upgrade.title stringByPaddingToLength:43 withString:@" " startingAtIndex:0], [upgrade.faction substringToIndex:1], upgrade.cost];
+                }
                 [textFormat appendString: s];
             }
         }
+        s = [NSString stringWithFormat: @"                                                 Total %5d\n", ship.cost];
+        [textFormat appendString: s];
         [textFormat appendString: @"\n"];
         i+=1;
     }
+    [textFormat appendString: [NSString stringWithFormat: @"Total Build: %d\n", self.cost]];
     return [NSString stringWithString: textFormat];
 }
 

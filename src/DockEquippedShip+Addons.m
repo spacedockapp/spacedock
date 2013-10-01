@@ -100,7 +100,11 @@
 
 -(void)establishPlaceholders
 {
-    [self establishPlaceholdersForType: @"Captain" limit:1];
+    DockCaptain* captain = [self captain];
+    if (captain == nil) {
+        DockUpgrade* zcc = [DockCaptain zeroCostCaptain: self.ship.faction context: self.managedObjectContext];
+        [self addUpgrade: zcc];
+    }
     int count = [self talentCount];
     [self establishPlaceholdersForType: @"Talent" limit:count];
     count = [[self.ship crew] intValue];
