@@ -258,7 +258,7 @@
       <Tech>
       </Tech>
       <Weapon>1</Weapon>
-      <Crew>1</Crew>
+      <Crew>2</Crew>
       <Id>1010</Id>
     </Ship>
     <Ship>
@@ -270,7 +270,7 @@
       <Agility>2</Agility>
       <Hull>6</Hull>
       <Shield>3</Shield>
-      <Ability>If you perform a Green Manuver, add +1 attack die for the remainder of this round.</Ability>
+      <Ability>If you perform a Green Maneuver, add +1 attack die for the remainder of this round.</Ability>
       <Cost>30</Cost>
       <Set>Wave 1</Set>
       <EvasiveManeuvers>1</EvasiveManeuvers>
@@ -323,7 +323,7 @@
       <Agility>2</Agility>
       <Hull>2</Hull>
       <Shield>2</Shield>
-      <Ability>Action (once/game): Every ship at range 1 sustains 1 damage (including this ship). During the Planning Phase this ship must choose a '1' Manuver (forward, bank or turn) for the rest of the game.</Ability>
+      <Ability>Action (once/game): Every ship at range 1 sustains 1 damage (including this ship). During the Planning Phase this ship must choose a '1' Maneuver (forward, bank or turn) for the rest of the game.</Ability>
       <Cost>14</Cost>
       <Set>Wave 1</Set>
       <EvasiveManeuvers>1</EvasiveManeuvers>
@@ -432,7 +432,7 @@
       <Agility>1</Agility>
       <Hull>6</Hull>
       <Shield>3</Shield>
-      <Ability>Target a ship within your firing arc at Range 1-2 and roll 3 attack dice. For each {damage} result disable 1 of that ship's Shileds. If possible, you may play Klingon Boarding Party as a free action this turn. </Ability>
+      <Ability>Target a ship within your firing arc at Range 1-2 and roll 3 attack dice. For each {damage} result disable 1 of that ship's Shields. If possible, you may play Klingon Boarding Party as a free action this turn. </Ability>
       <Cost>30</Cost>
       <Set>Wave 1</Set>
       <EvasiveManeuvers>1</EvasiveManeuvers>
@@ -1065,7 +1065,7 @@
       <Id>2022</Id>
     </Captain>
     <Captain>
-      <Title>Toth Gor</Title>
+      <Title>Thot Gor</Title>
       <Unique>Y</Unique>
       <Ability>All your [WEAPON] Upgrades cost -1 Squadron Point. </Ability>
       <Skill>6</Skill>
@@ -1699,7 +1699,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Tactical Officer</Title>
-      <Ability>When removing your target lock from an opposing ship in order to reroll your attack dice, you may re-roll each attack die an additional time. </Ability>
+      <Ability>When removing your target lock from an opposing ship in order to re-roll your attack dice, you may re-roll each attack die an additional time. </Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -1854,7 +1854,7 @@
       <Range>
       </Range>
       <Type>Crew</Type>
-      <Faction>Klingon</Faction>
+      <Faction>Independent</Faction>
       <Cost>3</Cost>
       <Id>3044</Id>
     </Upgrade>
@@ -1930,7 +1930,7 @@
       </Attack>
       <Range>
       </Range>
-      <Type>Crew</Type>
+      <Type>Talent</Type>
       <Faction>Klingon</Faction>
       <Cost>5</Cost>
       <Id>3049</Id>
@@ -2108,7 +2108,7 @@
     </Upgrade>
     <Upgrade>
       <Title>EM Pulse</Title>
-      <Ability>ACTION: Disable this card to target a ship at Range 1-2 that is not in your forward firing arc. Place an Auxillary Power Token beside the target ship. The target ship rolls 2 less attack dice this round.</Ability>
+      <Ability>ACTION: Disable this card to target a ship at Range 1-2 that is not in your forward firing arc. Place an Auxiliary Power Token beside the target ship. The target ship rolls 2 less attack dice this round.</Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -2140,8 +2140,8 @@
       <Id>3062</Id>
     </Upgrade>
     <Upgrade>
-      <Title>Missle Launchers</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. Make 2 attacks aainst ship(s) in our forward firing arc. Roll 2 attack dice for each of these attacks. Any [CRITICAL] results that would damage an opponent's Shelds inflict critical damage to that ship's Hull instead.</Ability>
+      <Title>Missile Launchers</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. Make 2 attacks against ship(s) in our forward firing arc. Roll 2 attack dice for each of these attacks. Any [CRITICAL] results that would damage an opponent's Shields inflict critical damage to that ship's Hull instead.</Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -2158,7 +2158,11 @@
     <Resource>
       <Title>Elite Attack Die</Title>
       <Unique>Y</Unique>
-      <Ability>1) Once during every round, a player may choose to exchange 1 of their attack dice with the Elite Attack Die. Players may not roll this die more than once per round, regardless of how many ships they have in their fleet. 2)The pips on the Elite Attack Die are [DOUBLE HIT], [CRITICAL], [CRITICAL], [HIT],[HIT],[HIT], [BATTLESTATIONS], [BATTLESTATIONS]. 3) The [DOUBLE HIT] result may be canceled by 1 [EVADE]. 4) The [DOUBLE HIT] result inflicts 2 danage if not canceled. 5) When canceling the attach dice with [EVADE] results, the order that the dice are canceled is: [HIT], [DOUBLE HIT], then [CRITICAL].</Ability>
+      <Ability>1) Once during every round, a player may choose to exchange 1 of their attack dice with the Elite Attack Die. Players may not roll 
+      this die more than once per round, regardless of how many ships they have in their fleet. 2)The pips on the Elite Attack Die are [DOUBLE HIT], 
+      [CRITICAL], [CRITICAL], [HIT],[HIT],[HIT], [BATTLESTATIONS], [BATTLESTATIONS]. 3) The [DOUBLE HIT] result may be canceled by 1 [EVADE]. 4) The 
+      [DOUBLE HIT] result inflicts 2 damage if not canceled. 5) When canceling the attack dice with [EVADE] results, the order that the dice are
+      canceled is: [HIT], [DOUBLE HIT], then [CRITICAL].</Ability>
       <Type>Resource</Type>
       <Cost>5</Cost>
       <Id>4001</Id>
