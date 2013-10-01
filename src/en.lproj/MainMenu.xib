@@ -413,7 +413,7 @@
                                                 <rect key="frame" x="1" y="17" width="606" height="175"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveName="shipTable" headerView="wao-eF-ukD" id="sJW-5v-BIo">
+                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveName="shipTable" headerView="wao-eF-ukD" id="sJW-5v-BIo" userLabel="ships">
                                                         <rect key="frame" x="0.0" y="0.0" width="1054" height="175"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
@@ -955,7 +955,7 @@
                                                 <rect key="frame" x="1" y="17" width="606" height="175"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveName="upgradesTable" headerView="u7D-PI-HNg" id="LbO-KE-GHl">
+                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveName="upgradesTable" headerView="u7D-PI-HNg" id="LbO-KE-GHl" userLabel="upgrades">
                                                         <rect key="frame" x="0.0" y="0.0" width="649" height="175"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
@@ -1116,7 +1116,7 @@
                                     </subviews>
                                 </view>
                             </tabViewItem>
-                            <tabViewItem label="Resources" identifier="" id="qmw-4G-teh">
+                            <tabViewItem label="Resources" identifier="resources" id="qmw-4G-teh">
                                 <view key="view" id="F8K-af-BOm">
                                     <rect key="frame" x="10" y="33" width="602" height="208"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1128,7 +1128,7 @@
                                                 <rect key="frame" x="1" y="17" width="606" height="190"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="uY0-dW-gMI" id="v13-24-CCG">
+                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" headerView="uY0-dW-gMI" id="v13-24-CCG">
                                                         <rect key="frame" x="0.0" y="0.0" width="606" height="190"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
@@ -1206,6 +1206,11 @@
                                                         </tableColumns>
                                                         <connections>
                                                             <binding destination="YPe-Zs-mE7" name="content" keyPath="arrangedObjects" id="gBf-kR-DL7"/>
+                                                            <binding destination="YPe-Zs-mE7" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="gBf-kR-DL7" id="vOs-jb-UXr">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSValidatesImmediately" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </tableView>
                                                 </subviews>
@@ -1329,7 +1334,7 @@
                             <rect key="frame" x="1" y="17" width="238" height="155"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" headerView="wYX-HO-7CJ" id="Wtq-dR-8CY">
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" headerView="wYX-HO-7CJ" id="Wtq-dR-8CY">
                                     <rect key="frame" x="0.0" y="0.0" width="238" height="155"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -1367,7 +1372,6 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
-                                            <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="cost"/>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
                                                 <binding destination="w6h-j0-fyp" name="value" keyPath="arrangedObjects.cost" id="G4e-Bd-EcC">
@@ -1447,7 +1451,7 @@
                         </connections>
                     </button>
                     <popUpButton verticalHuggingPriority="750" id="uff-CK-GtC" userLabel="resource">
-                        <rect key="frame" x="362" y="17" width="269" height="26"/>
+                        <rect key="frame" x="431" y="17" width="200" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="C4e-K2-egy" id="C8d-VF-NtP">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -1480,6 +1484,15 @@
                             </binding>
                         </connections>
                     </popUpButton>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="d7C-wE-7Dq">
+                        <rect key="frame" x="362" y="22" width="66" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Resource:" id="VbV-WL-lA5">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <connections>
@@ -1489,14 +1502,19 @@
         <customObject id="494" customClass="DockAppDelegate">
             <connections>
                 <outlet property="captainsController" destination="0af-xY-vuT" id="lPO-O6-x8d"/>
+                <outlet property="captainsTableView" destination="pbE-Lg-pvF" id="hWe-nR-T6n"/>
                 <outlet property="exportFormatPopup" destination="L6E-ZC-cT8" id="RvO-d0-hQJ"/>
                 <outlet property="exportFormatView" destination="d19-nn-2NS" id="XKY-3v-Vdh"/>
+                <outlet property="resourcesController" destination="YPe-Zs-mE7" id="QpO-G6-Tot"/>
+                <outlet property="resourcesTableView" destination="v13-24-CCG" id="Rq7-QP-07h"/>
                 <outlet property="shipsController" destination="Gzr-Z0-87U" id="5vW-HI-mUc"/>
+                <outlet property="shipsTableView" destination="sJW-5v-BIo" id="ln7-xP-Eyt"/>
                 <outlet property="squadDetailController" destination="REc-Lj-a6S" id="Ujp-f8-UcS"/>
                 <outlet property="squadDetailView" destination="6Xe-hT-jBi" id="hua-FN-E3G"/>
                 <outlet property="squadsController" destination="w6h-j0-fyp" id="0Eh-Fh-QAl"/>
                 <outlet property="tabView" destination="EsK-Y6-lVi" id="lkC-r1-enJ"/>
                 <outlet property="upgradesController" destination="wVj-PN-1Jr" id="s5T-X4-Yqh"/>
+                <outlet property="upgradesTableView" destination="LbO-KE-GHl" id="Cfq-6k-TVU"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>

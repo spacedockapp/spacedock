@@ -248,6 +248,11 @@
                              forKeyPath: @"content"
                                 options: 0
                                 context: nil];
+    NSSortDescriptor* defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"title" ascending: YES];
+    [_shipsTableView setSortDescriptors: @[defaultSortDescriptor]];
+    [_captainsTableView setSortDescriptors: @[defaultSortDescriptor]];
+    [_upgradesTableView setSortDescriptors: @[defaultSortDescriptor]];
+    [_resourcesTableView setSortDescriptors: @[defaultSortDescriptor]];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
@@ -561,6 +566,17 @@
     return [self addSelectedUpgrade: targetShip maybeReplace: nil];
 }
 
+-(void)addSelectedResource
+{
+    NSArray* selectedResources = [_resourcesController selectedObjects];
+
+    if (selectedResources.count > 0) {
+        DockSquad* squad = [self selectedSquad];
+        DockResource* resource = selectedResources[0];
+        squad.resource = resource;
+    }
+}
+
 -(IBAction)addSelected:(id)sender
 {
     NSTabViewItem* selectedTab = [_tabView selectedTabViewItem];
@@ -568,6 +584,8 @@
 
     if ([identifier isEqualToString: @"ships"]) {
         [self addSelectedShip];
+    } else if ([identifier isEqualToString: @"resources"]) {
+        [self addSelectedResource];
     } else {
         DockEquippedShip* selectedShip = [self selectedShip];
         DockEquippedUpgrade* maybeUpgrade = [self selectedUpgrade];

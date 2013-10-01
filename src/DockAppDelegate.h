@@ -17,9 +17,14 @@
 @property (assign) IBOutlet NSArrayController* squadsController;
 @property (assign) IBOutlet NSArrayController* captainsController;
 @property (assign) IBOutlet NSArrayController* upgradesController;
+@property (assign) IBOutlet NSArrayController* resourcesController;
 @property (assign) IBOutlet NSTreeController* squadDetailController;
 @property (assign) IBOutlet NSView* exportFormatView;
 @property (assign) IBOutlet NSPopUpButton* exportFormatPopup;
+@property (assign) IBOutlet NSTableView* shipsTableView;
+@property (assign) IBOutlet NSTableView* captainsTableView;
+@property (assign) IBOutlet NSTableView* upgradesTableView;
+@property (assign) IBOutlet NSTableView* resourcesTableView;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel* managedObjectModel;
