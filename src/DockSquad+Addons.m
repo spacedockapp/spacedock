@@ -1,14 +1,7 @@
-//
-//  DockSquad+Addons.m
-//  Space Dock
-//
-//  Created by Rob Tsuk on 9/26/13.
-//  Copyright (c) 2013 Rob Tsuk. All rights reserved.
-//
-
 #import "DockSquad+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
+#import "DockResource.h"
 #import "DockShip+Addons.h"
 #import "DockUpgrade+Addons.h"
 
@@ -16,7 +9,7 @@
 
 + (NSSet *)keyPathsForValuesAffectingCost
 {
-    return [NSSet setWithObjects:@"equippedShips", nil];
+    return [NSSet setWithObjects:@"equippedShips", @"resource", nil];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -74,6 +67,9 @@
     int cost = 0;
     for (DockEquippedShip* ship in self.equippedShips) {
         cost += [ship cost];
+    }
+    if (self.resource != nil) {
+        cost += [self.resource.cost intValue];
     }
     return cost;
 }

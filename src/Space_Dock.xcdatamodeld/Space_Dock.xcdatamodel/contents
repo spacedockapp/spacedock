@@ -22,6 +22,7 @@
         <attribute name="title" attributeType="String" syncable="YES"/>
         <attribute name="type" attributeType="String" defaultValueString="Crew" syncable="YES"/>
         <attribute name="unique" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <relationship name="squad" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Squad" inverseName="resource" inverseEntity="Squad" syncable="YES"/>
     </entity>
     <entity name="Ship" representedClassName="DockShip" syncable="YES">
         <attribute name="ability" optional="YES" attributeType="String" syncable="YES"/>
@@ -55,6 +56,7 @@
     <entity name="Squad" representedClassName="DockSquad" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" defaultValueString="Untitled" syncable="YES"/>
         <relationship name="equippedShips" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EquippedShip" inverseName="squad" inverseEntity="EquippedShip" syncable="YES"/>
+        <relationship name="resource" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Resource" inverseName="squad" inverseEntity="Resource" syncable="YES"/>
     </entity>
     <entity name="Talent" representedClassName="DockTalent" parentEntity="Upgrade" syncable="YES"/>
     <entity name="Tech" representedClassName="DockTech" parentEntity="Upgrade" syncable="YES"/>

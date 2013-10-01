@@ -2,19 +2,20 @@
 //  DockSquad.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 9/28/13.
+//  Created by Rob Tsuk on 10/1/13.
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class DockEquippedShip;
+@class DockEquippedShip, DockResource;
 
 @interface DockSquad : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSOrderedSet *equippedShips;
+@property (nonatomic, retain) DockResource *resource;
 @end
 
 @interface DockSquad (CoreDataGeneratedAccessors)

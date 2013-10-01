@@ -170,7 +170,9 @@
         [self removeUpgrade: maybeReplace establishPlaceholders:NO];
     }
     [self addUpgrades: [NSSet setWithObject: equippedUpgrade]];
-    [self establishPlaceholders];
+    if (![upgrade isPlaceholder]) {
+        [self establishPlaceholders];
+    }
     [[self squad] squadCompositionChanged];
     return equippedUpgrade;
 }
