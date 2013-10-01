@@ -116,13 +116,13 @@
     DockResource* resource = self.resource;
 
     if (resource != nil) {
-        NSString* resourceString = [NSString stringWithFormat: @"Resource: %@     %5d\n",
+        NSString* resourceString = [NSString stringWithFormat: @"Resource: %@     %5d\n\n",
                                     [resource.title stringByPaddingToLength: 40 withString: @" " startingAtIndex: 0],
                                     [resource.cost intValue]];
         [textFormat appendString: resourceString];
     }
 
-    [textFormat appendString: [NSString stringWithFormat: @"\nTotal Build: %d\n", self.cost]];
+    [textFormat appendString: [NSString stringWithFormat: @"Total Build: %d\n", self.cost]];
     return [NSString stringWithString: textFormat];
 }
 
