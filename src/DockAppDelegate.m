@@ -10,13 +10,13 @@
 
 #import "DockCaptain.h"
 #import "DockCrew.h"
-#import "DockEquippedShip.h"
 #import "DockEquippedShip+Addons.h"
+#import "DockEquippedShip.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockResource.h"
 #import "DockShip.h"
-#import "DockSquad.h"
 #import "DockSquad+Addons.h"
+#import "DockSquad.h"
 #import "DockTalent.h"
 #import "DockTech.h"
 #import "DockUpgrade+Addons.h"
@@ -125,6 +125,7 @@
 
     for (id existingItem in existingItems) {
         NSString* externalId = [existingItem externalId];
+
         if (externalId != nil) {
             existingItemsLookup[[existingItem externalId]] = existingItem;
         }
@@ -178,7 +179,7 @@
                         break;
                     }
                     [c setValue: v forKey: modifiedKey];
-               }
+                }
             }
         }
     }
@@ -227,26 +228,26 @@
     [self loadItems: xmlDoc itemClass: [DockResource class] entityName: @"Resource" xpath: @"/Data/Resources/Resource" targetType: @"Resource"];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context
+-(void)observeValueForKeyPath:(NSString*)keyPath
+                     ofObject:(id)object
+                       change:(NSDictionary*)change
+                      context:(void*)context
 {
     if (object == _squadDetailController) {
         [_squadDetailView expandItem: nil
-                       expandChildren:YES];
-        [_squadDetailController removeObserver:self
-                            forKeyPath:@"content"];
+                      expandChildren: YES];
+        [_squadDetailController removeObserver: self
+                                    forKeyPath: @"content"];
     }
 }
 
 -(void)applicationDidFinishLaunching:(NSNotification*)aNotification
 {
     [self loadData];
-    [_squadDetailController addObserver:self
-                     forKeyPath:@"content"
-                        options:0
-                        context:nil];
+    [_squadDetailController addObserver: self
+                             forKeyPath: @"content"
+                                options: 0
+                                context: nil];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
@@ -427,21 +428,22 @@
     [alert runModal];
 }
 
-- (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+-(void)alertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
 {
-	[[alert window] orderOut:self];
+    [[alert window] orderOut: self];
 }
-
 
 -(void)explainCantAddUpgrade:(DockEquippedShip*)ship upgrade:(DockUpgrade*)upgrade
 {
     NSAlert* alert = [[NSAlert alloc] init];
-    NSString* msg =[NSString stringWithFormat: @"Can't add %@ to %@", upgrade, ship];
+    NSString* msg = [NSString stringWithFormat: @"Can't add %@ to %@", upgrade, ship];
     [alert setMessageText: msg];
     NSString* info = @"";
     int limit = [upgrade limitForShip: ship];
+
     if (limit == 0) {
         NSString* targetClass = [upgrade targetShipClass];
+
         if (targetClass != nil) {
             info = [NSString stringWithFormat: @"This upgrade can only be installed on ships of class %@.", targetClass];
         } else {
@@ -452,17 +454,19 @@
             }
         }
     }
+
     [alert setInformativeText: info];
     [alert setAlertStyle: NSInformationalAlertStyle];
-    [alert beginSheetModalForWindow:[self window]
-                      modalDelegate:self
-                     didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:)
-                        contextInfo:nil];
+    [alert beginSheetModalForWindow: [self window]
+                      modalDelegate: self
+                     didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
+                        contextInfo: nil];
 }
 
 -(void)addSelectedShip
 {
     NSArray* selectedShips = [_squadsController selectedObjects];
+
     if (selectedShips.count > 0) {
         DockSquad* squad = selectedShips[0];
         NSArray* shipsToAdd = [_shipsController selectedObjects];
@@ -480,28 +484,35 @@
 -(DockEquippedShip*)selectedShip
 {
     NSArray* selectedShips = [_squadDetailController selectedObjects];
+
     if (selectedShips.count > 0) {
         id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
+
         if ([target isMemberOfClass: [DockEquippedShip class]]) {
             return target;
         }
+
         if ([target isMemberOfClass: [DockEquippedUpgrade class]]) {
             DockEquippedUpgrade* upgrade = target;
             return upgrade.equippedShip;
         }
     }
+
     return nil;
 }
 
 -(DockEquippedUpgrade*)selectedUpgrade
 {
     NSArray* selectedItems = [_squadDetailController selectedObjects];
+
     if (selectedItems.count > 0) {
         id target = [selectedItems objectAtIndex: 0];
+
         if ([target isMemberOfClass: [DockEquippedUpgrade class]]) {
             return target;
         }
     }
+
     return nil;
 }
 
@@ -510,6 +521,7 @@
     DockSquad* squad = nil;
 
     NSArray* squads = [_squadsController selectedObjects];
+
     if (squads.count > 0) {
         squad = [squads objectAtIndex: 0];
     }
@@ -520,12 +532,14 @@
 -(DockEquippedUpgrade*)addSelectedCaptain:(DockEquippedShip*)targetShip
 {
     NSArray* captainsToAdd = [_captainsController selectedObjects];
+
     if (captainsToAdd.count < 1) {
     } else {
         [targetShip removeCaptain];
         DockCaptain* captain = captainsToAdd[0];
         return [targetShip addUpgrade: captain];
     }
+
     return nil;
 }
 
@@ -533,10 +547,12 @@
 {
     NSArray* upgradeToAdd = [_upgradesController selectedObjects];
     DockUpgrade* upgrade = upgradeToAdd[0];
+
     if (![targetShip canAddUpgrade: upgrade]) {
         [self explainCantAddUpgrade: targetShip upgrade: upgrade];
         return nil;
     }
+
     return [targetShip addUpgrade: upgrade maybeReplace: maybeReplace];
 }
 
@@ -549,19 +565,23 @@
 {
     NSTabViewItem* selectedTab = [_tabView selectedTabViewItem];
     id identifier = selectedTab.identifier;
+
     if ([identifier isEqualToString: @"ships"]) {
         [self addSelectedShip];
     } else {
         DockEquippedShip* selectedShip = [self selectedShip];
         DockEquippedUpgrade* maybeUpgrade = [self selectedUpgrade];
         DockEquippedUpgrade* equippedUpgrade = nil;
+
         if (selectedShip != nil) {
             if ([identifier isEqualToString: @"captains"]) {
                 equippedUpgrade = [self addSelectedCaptain: selectedShip];
             }
+
             if ([identifier isEqualToString: @"upgrades"]) {
                 equippedUpgrade = [self addSelectedUpgrade: selectedShip maybeReplace: maybeUpgrade];
             }
+
             if (equippedUpgrade != nil) {
                 NSIndexPath* path = [_squadDetailController indexPathOfObject: equippedUpgrade];
                 [_squadDetailController setSelectionIndexPath: path];
@@ -581,6 +601,7 @@
 {
     id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
     DockEquippedShip* targetShip = [self selectedShip];
+
     if (target == targetShip) {
         DockSquad* squad = [[_squadsController selectedObjects] objectAtIndex: 0];
         [squad removeEquippedShip: targetShip];
@@ -602,17 +623,20 @@
     exportPanel.allowedFileTypes = @[@"txt", @"dat"];
     exportPanel.accessoryView = _exportFormatView;
     [exportPanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
-        if (v == NSFileHandlingPanelOKButton) {
-            NSURL* fileUrl = exportPanel.URL;
-            NSInteger formatSelected = self.exportFormatPopup.selectedTag;
-            if (formatSelected == 1) {
-                DockSquad* squad = [self selectedSquad];
-                NSString* textFormat = [squad asTextFormat];
-                NSError* error;
-                [textFormat writeToURL: fileUrl atomically:NO encoding: NSUTF8StringEncoding error: &error];
-            }
-        }
-    }];
+         if (v == NSFileHandlingPanelOKButton) {
+             NSURL* fileUrl = exportPanel.URL;
+             NSInteger formatSelected = self.exportFormatPopup.selectedTag;
+
+             if (formatSelected == 1) {
+                 DockSquad* squad = [self selectedSquad];
+                 NSString* textFormat = [squad asTextFormat];
+                 NSError* error;
+                 [textFormat writeToURL: fileUrl atomically: NO encoding: NSUTF8StringEncoding error: &error];
+             }
+         }
+     }
+
+    ];
 }
 
 @end

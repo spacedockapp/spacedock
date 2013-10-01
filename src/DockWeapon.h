@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 #import "DockUpgrade.h"
+#import <CoreData/CoreData.h>
+#import <Foundation/Foundation.h>
 
 
 @interface DockWeapon : DockUpgrade
 
-@property (nonatomic, retain) NSNumber * attack;
-@property (nonatomic, retain) NSString * range;
+@property (nonatomic, retain) NSNumber* attack;
+@property (nonatomic, retain) NSString* range;
 
 @end

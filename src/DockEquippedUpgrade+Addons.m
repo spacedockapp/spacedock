@@ -46,6 +46,7 @@
 -(int)baseCost
 {
     DockUpgrade* upgrade = self.upgrade;
+
     if ([upgrade isPlaceholder]) {
         return 0;
     }
@@ -57,15 +58,18 @@
 {
     DockShip* ship = self.equippedShip.ship;
     DockUpgrade* upgrade = self.upgrade;
+
     if ([upgrade isPlaceholder]) {
         return 0;
     }
+
     int cost = [upgrade.cost intValue];
     NSString* shipFaction = ship.faction;
     NSString* upgradeFaction = upgrade.faction;
     DockCaptain* captain = self.equippedShip.captain;
     NSString* captainSpecial = captain.special;
     NSString* upgradeSpecial = upgrade.special;
+
     if ([upgrade isTalent]) {
         if ([captainSpecial isEqualToString: @"BaselineTalentCostToThree"]) {
             cost = 3;
@@ -74,7 +78,7 @@
         if ([captainSpecial isEqualToString: @"CrewUpgradesCostOneLess"]) {
             cost -= 1;
         }
-        
+
         if ([upgradeSpecial isEqualToString: @"costincreasedifnotromulansciencevessel"]) {
             if (![ship.shipClass isEqualToString: @"Romulan Science Vessel"]) {
                 cost += 5;
@@ -82,24 +86,25 @@
         }
     } else if ([upgrade isWeapon]) {
         if ([captainSpecial isEqualToString: @"WeaponUpgradesCostOneLess"]) {
-           cost -= 1;
+            cost -= 1;
         }
     }
-    
+
     if ([upgradeSpecial isEqualToString: @"costincreasedifnotbreen"]) {
         if (![ship isBreen]) {
             cost += 5;
         }
     }
-    
+
     if (![shipFaction isEqualToString: upgradeFaction]) {
         if ([captainSpecial isEqualToString: @"UpgradesIgnoreFactionPenalty"]) {
         } else if ([captainSpecial isEqualToString: @"CaptainAndTalentsIgnoreFactionPenalty"] &&
-            ([upgrade isTalent] || [upgrade isCaptain])) {
+                   ([upgrade isTalent] || [upgrade isCaptain])) {
         } else {
             cost += 1;
         }
     }
+
     return cost;
 }
 

@@ -1,13 +1,13 @@
 #import "DockUpgrade+Addons.h"
 
-#import "DockWeapon.h"
-#import "DockTech.h"
-#import "DockTalent.h"
-#import "DockCrew.h"
 #import "DockCaptain+Addons.h"
+#import "DockCrew.h"
+#import "DockEquippedShip+Addons.h"
 #import "DockResource.h"
 #import "DockShip+Addons.h"
-#import "DockEquippedShip+Addons.h"
+#import "DockTalent.h"
+#import "DockTech.h"
+#import "DockWeapon.h"
 
 @implementation DockUpgrade (Addons)
 
@@ -16,13 +16,15 @@
     NSEntityDescription* entity = [NSEntityDescription entityForName: upType inManagedObjectContext: context];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
-    NSPredicate *predicateTemplate = [NSPredicate predicateWithFormat:@"placeholder = YES"];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"placeholder = YES"];
     [request setPredicate: predicateTemplate];
     DockUpgrade* placeholderUpgrade = nil;
     NSError* err;
     NSArray* existingItems = [context executeFetchRequest: request error: &err];
+
     if (existingItems.count == 0) {
         Class upClass = [DockUpgrade class];
+
         if ([upType isEqualToString: @"Weapon"]) {
             upClass = [DockWeapon class];
         } else if ([upType isEqualToString: @"Tech"]) {
@@ -34,6 +36,7 @@
         } else if ([upType isEqualToString: @"Crew"]) {
             upClass = [DockCrew class];
         }
+
         placeholderUpgrade = [[upClass alloc] initWithEntity: entity insertIntoManagedObjectContext: context];
         placeholderUpgrade.title = upType;
         placeholderUpgrade.upType = upType;
@@ -41,6 +44,7 @@
     } else {
         placeholderUpgrade = existingItems[0];
     }
+
     return placeholderUpgrade;
 }
 
@@ -49,18 +53,21 @@
     if ([self isPlaceholder]) {
         return self.title;
     }
+
     return [NSString stringWithFormat: @"%@ (%@)", self.title, self.upType];
 }
 
 -(NSAttributedString*)styledDescription
 {
     NSString* s = [self description];
+
     if ([self isPlaceholder]) {
         NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithString: s];
         NSRange r = NSMakeRange(0, s.length);
-        [as applyFontTraits: NSItalicFontMask range:r];
+        [as applyFontTraits: NSItalicFontMask range: r];
         return as;
     }
+
     return [[NSAttributedString alloc] initWithString: s];
 }
 
@@ -98,14 +105,16 @@
 {
     NSString* upTypeMe = [self upSortType];
     NSString* upTypeOther = [other upSortType];
-    NSComparisonResult r = [upTypeMe compare:upTypeOther];
+    NSComparisonResult r = [upTypeMe compare: upTypeOther];
+
     if (r == NSOrderedSame) {
         BOOL selfIsPlaceholder = [self isPlaceholder];
         BOOL otherIsPlaceholder = [other isPlaceholder];
+
         if (selfIsPlaceholder == otherIsPlaceholder) {
             return [self.title caseInsensitiveCompare: other.title];
         }
-        
+
         if (selfIsPlaceholder) {
             return NSOrderedDescending;
         }
@@ -129,43 +138,47 @@
     if ([self isCaptain]) {
         return 1;
     }
-    
+
     if ([self isTalent]) {
         DockCaptain* captain = [targetShip captain];
         return [captain talentCount];
     }
-    
+
     NSString* title = [self title];
+
     if ([title isEqualToString: @"Muon Feedback Wave"]) {
         NSString* shipClass = targetShip.ship.shipClass;
+
         if (![shipClass isEqualToString: @"Romulan Science Vessel"]) {
             return 0;
         }
     }
-    
+
     DockShip* ship = targetShip.ship;
-    
+
     if ([self isWeapon]) {
         return [ship weaponCount];
     }
-    
+
     if ([self isCrew]) {
         return [ship crewCount];
     }
-    
+
     if ([self isTech]) {
         return [ship techCount];
     }
-    
+
     return 0;
 }
 
 -(NSString*)targetShipClass
 {
     NSString* title = self.title;
+
     if ([title isEqualToString: @"Muon Feedback Wave"]) {
         return @"Romulan Science Vessel";
     }
+
     return nil;
 }
 
@@ -174,6 +187,7 @@
     if ([self isTalent]) {
         return @"AATalent";
     }
+
     return self.upType;
 }
 
@@ -182,25 +196,25 @@
     if ([self isWeapon]) {
         return @"W";
     }
-    
+
     if ([self isCrew]) {
         return @"C";
     }
-    
+
     if ([self isTech]) {
         return @"T";
     }
-    
+
     if ([self isTalent]) {
         return @"E";
     }
-    
+
     if ([self isCaptain]) {
         return @"C";
     }
-    
+
     return @"?";
-    
+
 }
 
 @end

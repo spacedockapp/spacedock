@@ -15,6 +15,7 @@
     if ([[self title] isEqualToString: self.shipClass]) {
         return self.title;
     }
+
     return [NSString stringWithFormat: @"%@ (%@)", self.title, self.shipClass];
 }
 
