@@ -1256,9 +1256,10 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="REc-Lj-a6S" name="value" keyPath="arrangedObjects.styledDescription" id="d3K-Pa-uhE">
+                                                <binding destination="REc-Lj-a6S" name="value" keyPath="arrangedObjects.styledDescription" id="zs6-ln-hfi">
                                                     <dictionary key="options">
                                                         <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
                                                     </dictionary>
                                                 </binding>
                                             </connections>
@@ -1276,7 +1277,11 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="REc-Lj-a6S" name="value" keyPath="arrangedObjects.baseCost" id="qIS-t4-Jne"/>
+                                                <binding destination="REc-Lj-a6S" name="value" keyPath="arrangedObjects.baseCost" id="8wQ-P0-zHz">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </tableColumn>
                                         <tableColumn identifier="squadDetailCost" editable="NO" width="60" minWidth="60" maxWidth="60" id="GNm-Hk-GHr">
@@ -1292,7 +1297,11 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="REc-Lj-a6S" name="value" keyPath="arrangedObjects.cost" id="pHa-f5-QFT"/>
+                                                <binding destination="REc-Lj-a6S" name="value" keyPath="arrangedObjects.cost" id="Dcv-mo-MWc">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </tableColumn>
                                     </tableColumns>
@@ -1340,7 +1349,11 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="w6h-j0-fyp" name="value" keyPath="arrangedObjects.name" id="C0s-SJ-eSh"/>
+                                                <binding destination="w6h-j0-fyp" name="value" keyPath="arrangedObjects.name" id="jYl-z3-veC">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </tableColumn>
                                         <tableColumn editable="NO" width="53" minWidth="10" maxWidth="1000" id="wqL-6o-MDn">
@@ -1357,9 +1370,10 @@
                                             <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="cost"/>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="w6h-j0-fyp" name="value" keyPath="arrangedObjects.cost" id="IHc-3Q-B4f">
+                                                <binding destination="w6h-j0-fyp" name="value" keyPath="arrangedObjects.cost" id="G4e-Bd-EcC">
                                                     <dictionary key="options">
                                                         <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
                                                     </dictionary>
                                                 </binding>
                                             </connections>
