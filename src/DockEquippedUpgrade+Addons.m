@@ -33,6 +33,11 @@
     return nil;
 }
 
+-(NSArray*)upgrades
+{
+    return nil;
+}
+
 -(int)baseCost
 {
     DockUpgrade* upgrade = self.upgrade;
