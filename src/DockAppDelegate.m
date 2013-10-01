@@ -227,9 +227,26 @@
     [self loadItems: xmlDoc itemClass: [DockResource class] entityName: @"Resource" xpath: @"/Data/Resources/Resource" targetType: @"Resource"];
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if (object == _squadDetailController) {
+        [_squadDetailView expandItem: nil
+                       expandChildren:YES];
+        [_squadDetailController removeObserver:self
+                            forKeyPath:@"content"];
+    }
+}
+
 -(void)applicationDidFinishLaunching:(NSNotification*)aNotification
 {
     [self loadData];
+    [_squadDetailController addObserver:self
+                     forKeyPath:@"content"
+                        options:0
+                        context:nil];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
@@ -445,15 +462,18 @@
 
 -(void)addSelectedShip
 {
-    DockSquad* squad = [[_squadsController selectedObjects] objectAtIndex: 0];
-    NSArray* shipsToAdd = [_shipsController selectedObjects];
+    NSArray* selectedShips = [_squadsController selectedObjects];
+    if (selectedShips.count > 0) {
+        DockSquad* squad = selectedShips[0];
+        NSArray* shipsToAdd = [_shipsController selectedObjects];
 
-    for (DockShip* ship in shipsToAdd) {
-        DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: ship];
-        es.ship = ship;
-        [squad addEquippedShip: es];
-        NSIndexPath* path = [_squadDetailController indexPathOfObject: [es equippedCaptain]];
-        [_squadDetailController setSelectionIndexPath: path];
+        for (DockShip* ship in shipsToAdd) {
+            DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: ship];
+            es.ship = ship;
+            [squad addEquippedShip: es];
+            NSIndexPath* path = [_squadDetailController indexPathOfObject: [es equippedCaptain]];
+            [_squadDetailController setSelectionIndexPath: path];
+        }
     }
 }
 
