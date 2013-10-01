@@ -11,6 +11,35 @@
 
 @implementation DockSquad (Addons)
 
++ (NSSet *)keyPathsForValuesAffectingCost
+{
+    return [NSSet setWithObjects:@"equippedShips", nil];
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    [self squadCompositionChanged];
+}
+
+-(void)watchForCostChange
+{
+    for (DockEquippedShip* es in self.equippedShips) {
+        [es addObserver: self forKeyPath: @"cost" options: 0 context: 0];
+    }
+}
+
+-(void)awakeFromInsert
+{
+    [super awakeFromInsert];
+    [self watchForCostChange];
+}
+
+-(void)awakeFromFetch
+{
+    [super awakeFromFetch];
+    [self watchForCostChange];
+}
+
 -(void)addEquippedShip:(DockEquippedShip*)ship
 {
     [self willChangeValueForKey: @"cost"];
@@ -18,6 +47,7 @@
     [tempSet addObject: ship];
     self.equippedShips = tempSet;
     [self didChangeValueForKey: @"cost"];
+    [ship addObserver: self forKeyPath: @"cost" options: 0 context: 0];
 }
 
 -(void)removeEquippedShip:(DockEquippedShip*)ship
@@ -32,6 +62,7 @@
         [self setPrimitiveValue:tmpOrderedSet forKey:@"equippedShips"];
         [self didChange:NSKeyValueChangeRemoval valuesAtIndexes:indexes forKey:@"equippedShips"];
     }
+    [ship removeObserver:  self forKeyPath: @"cost"];
     [self didChangeValueForKey: @"cost"];
 }
 

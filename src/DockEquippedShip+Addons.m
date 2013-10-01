@@ -9,6 +9,16 @@
 
 @implementation DockEquippedShip (Addons)
 
++ (NSSet *)keyPathsForValuesAffectingSortedUpgrades
+{
+    return [NSSet setWithObjects:@"upgrades", nil];
+}
+
++ (NSSet *)keyPathsForValuesAffectingCost
+{
+    return [NSSet setWithObjects:@"upgrades", nil];
+}
+
 -(NSString*)title
 {
     return self.ship.title;
@@ -120,11 +130,7 @@
         }
     }
     if (onesToRemove.count > 0) {
-    [self willChangeValueForKey: @"sortedUpgrades"];
-    [self willChangeValueForKey: @"cost"];
     [self removeUpgrades: onesToRemove];
-    [self didChangeValueForKey: @"cost"];
-    [self didChangeValueForKey: @"sortedUpgrades"];
     [[self squad] squadCompositionChanged];
     }
 }
@@ -137,8 +143,6 @@
 
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace;
 {
-    [self willChangeValueForKey: @"sortedUpgrades"];
-    [self willChangeValueForKey: @"cost"];
     NSManagedObjectContext* context = [self managedObjectContext];
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"EquippedUpgrade"
                                               inManagedObjectContext: context];
@@ -163,8 +167,6 @@
     }
     [self addUpgrades: [NSSet setWithObject: equippedUpgrade]];
     [self establishPlaceholders];
-    [self didChangeValueForKey: @"sortedUpgrades"];
-    [self didChangeValueForKey: @"cost"];
     [[self squad] squadCompositionChanged];
     return equippedUpgrade;
 }
@@ -187,8 +189,6 @@
 -(void)removeUpgrade:(DockEquippedUpgrade*)upgrade establishPlaceholders:(BOOL)doEstablish
 {
     if (upgrade != nil) {
-        [self willChangeValueForKey: @"sortedUpgrades"];
-        [self willChangeValueForKey: @"cost"];
         [self removeUpgrades: [NSSet setWithObject: upgrade]];
         if ([upgrade.upgrade isCaptain]) {
             [self removeAllTalents];
@@ -196,8 +196,6 @@
         if (doEstablish) {
             [self establishPlaceholders];
         }
-        [self didChangeValueForKey: @"cost"];
-        [self didChangeValueForKey: @"sortedUpgrades"];
         [[self squad] squadCompositionChanged];
     }
 }
