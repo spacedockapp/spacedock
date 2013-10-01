@@ -7,4 +7,5 @@
 -(void)addEquippedShip:(DockEquippedShip*)ship;
 -(void)removeEquippedShip:(DockEquippedShip*)ship;
 -(void)squadCompositionChanged;
+-(NSString*)asTextFormat;
 @end

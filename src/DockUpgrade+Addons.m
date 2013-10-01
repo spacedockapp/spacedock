@@ -177,4 +177,30 @@
     return self.upType;
 }
 
+-(NSString*)typeCode
+{
+    if ([self isWeapon]) {
+        return @"W";
+    }
+    
+    if ([self isCrew]) {
+        return @"C";
+    }
+    
+    if ([self isTech]) {
+        return @"T";
+    }
+    
+    if ([self isTalent]) {
+        return @"E";
+    }
+    
+    if ([self isCaptain]) {
+        return @"C";
+    }
+    
+    return @"?";
+    
+}
+
 @end

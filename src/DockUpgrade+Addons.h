@@ -14,4 +14,5 @@
 -(NSAttributedString*)styledDescription;
 -(NSString*)targetShipClass;
 -(NSString*)upSortType;
+-(NSString*)typeCode;
 @end

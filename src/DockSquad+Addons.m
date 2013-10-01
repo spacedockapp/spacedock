@@ -8,6 +8,8 @@
 
 #import "DockSquad+Addons.h"
 #import "DockEquippedShip+Addons.h"
+#import "DockEquippedUpgrade+Addons.h"
+#import "DockShip+Addons.h"
 
 @implementation DockSquad (Addons)
 
@@ -79,6 +81,28 @@
 {
     [self willChangeValueForKey: @"cost"];
     [self didChangeValueForKey: @"cost"];
+}
+
+-(NSString*)asTextFormat
+{
+    NSMutableString* textFormat = [[NSMutableString alloc] init];
+    NSString* header = [NSString stringWithFormat: @"Type    %@ %@  %@\n", [@"Card Title" stringByPaddingToLength:40 withString:@" " startingAtIndex: 0], @"Faction", @"SP"];
+    [textFormat appendString: header];
+    int i = 1;
+    for (DockEquippedShip* ship in self.equippedShips) {
+        NSString* s = [NSString stringWithFormat: @"Ship %d  %@ %1@  %5d\n", i, [ship.title stringByPaddingToLength:43 withString:@" " startingAtIndex:0], [ship.ship.faction substringToIndex:1], ship.cost];
+        [textFormat appendString: s];
+        for (DockEquippedUpgrade* upgrade in ship.sortedUpgrades) {
+            if ([upgrade isPlaceholder]) {
+            } else {
+                NSString* s = [NSString stringWithFormat: @"  %@     %@ %1@  %5d\n", [upgrade typeCode], [upgrade.title stringByPaddingToLength:43 withString:@" " startingAtIndex:0], [upgrade.faction substringToIndex:1], upgrade.cost];
+                [textFormat appendString: s];
+            }
+        }
+        [textFormat appendString: @"\n"];
+        i+=1;
+    }
+    return [NSString stringWithString: textFormat];
 }
 
 @end

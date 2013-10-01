@@ -596,4 +596,23 @@
     [_squadDetailView expandItem: nil expandChildren: YES];
 }
 
+-(IBAction)exportSquad:(id)sender
+{
+    NSSavePanel* exportPanel = [NSSavePanel savePanel];
+    exportPanel.allowedFileTypes = @[@"txt", @"dat"];
+    exportPanel.accessoryView = _exportFormatView;
+    [exportPanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
+        if (v == NSFileHandlingPanelOKButton) {
+            NSURL* fileUrl = exportPanel.URL;
+            NSInteger formatSelected = self.exportFormatPopup.selectedTag;
+            if (formatSelected == 1) {
+                DockSquad* squad = [self selectedSquad];
+                NSString* textFormat = [squad asTextFormat];
+                NSError* error;
+                [textFormat writeToURL: fileUrl atomically:NO encoding: NSUTF8StringEncoding error: &error];
+            }
+        }
+    }];
+}
+
 @end

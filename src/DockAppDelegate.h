@@ -18,6 +18,8 @@
 @property (assign) IBOutlet NSArrayController* captainsController;
 @property (assign) IBOutlet NSArrayController* upgradesController;
 @property (assign) IBOutlet NSTreeController* squadDetailController;
+@property (assign) IBOutlet NSView* exportFormatView;
+@property (assign) IBOutlet NSPopUpButton* exportFormatPopup;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel* managedObjectModel;
@@ -27,5 +29,6 @@
 -(IBAction)addSelected:(id)sender;
 -(IBAction)deleteSelected:(id)sender;
 -(IBAction)expandAll:(id)sender;
+-(IBAction)exportSquad:(id)sender;
 
 @end

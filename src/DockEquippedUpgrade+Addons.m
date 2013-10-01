@@ -13,6 +13,11 @@
     return self.upgrade.title;
 }
 
+-(NSString*)faction
+{
+    return self.upgrade.faction;
+}
+
 -(BOOL)isPlaceholder
 {
     return self.upgrade.isPlaceholder;
@@ -109,5 +114,9 @@
     return self.upgrade.ability;
 }
 
+-(NSString*)typeCode
+{
+    return self.upgrade.typeCode;
+}
 
 @end
