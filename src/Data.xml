@@ -2158,11 +2158,7 @@
     <Resource>
       <Title>Elite Attack Die</Title>
       <Unique>Y</Unique>
-      <Ability>1) Once during every round, a player may choose to exchange 1 of their attack dice with the Elite Attack Die. Players may not roll 
-      this die more than once per round, regardless of how many ships they have in their fleet. 2)The pips on the Elite Attack Die are [DOUBLE HIT], 
-      [CRITICAL], [CRITICAL], [HIT],[HIT],[HIT], [BATTLESTATIONS], [BATTLESTATIONS]. 3) The [DOUBLE HIT] result may be canceled by 1 [EVADE]. 4) The 
-      [DOUBLE HIT] result inflicts 2 danage if not canceled. 5) When canceling the attach dice with [EVADE] results, the order that the dice are 
-      canceled is: [HIT], [DOUBLE HIT], then [CRITICAL].</Ability>
+      <Ability>1) Once during every round, a player may choose to exchange 1 of their attack dice with the Elite Attack Die. Players may not roll this die more than once per round, regardless of how many ships they have in their fleet. 2)The pips on the Elite Attack Die are [DOUBLE HIT], [CRITICAL], [CRITICAL], [HIT],[HIT],[HIT], [BATTLESTATIONS], [BATTLESTATIONS]. 3) The [DOUBLE HIT] result may be canceled by 1 [EVADE]. 4) The [DOUBLE HIT] result inflicts 2 danage if not canceled. 5) When canceling the attach dice with [EVADE] results, the order that the dice are canceled is: [HIT], [DOUBLE HIT], then [CRITICAL].</Ability>
       <Type>Resource</Type>
       <Cost>5</Cost>
       <Id>4001</Id>
