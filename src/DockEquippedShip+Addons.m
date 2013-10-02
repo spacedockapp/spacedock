@@ -98,7 +98,7 @@
 
     for (int i = current; i < limit; ++i) {
         DockUpgrade* upgrade = [DockUpgrade placeholder: upType inContext: context];
-        [self addUpgrade: upgrade];
+        [self addUpgrade: upgrade maybeReplace: nil establishPlaceholders: NO];
     }
 }
 
@@ -107,8 +107,12 @@
     DockCaptain* captain = [self captain];
 
     if (captain == nil) {
-        DockUpgrade* zcc = [DockCaptain zeroCostCaptain: self.ship.faction context: self.managedObjectContext];
-        [self addUpgrade: zcc];
+        NSString* faction = self.ship.faction;
+        if ([faction isEqualToString: @"Independent"]) {
+            faction = @"Federation";
+        }
+        DockUpgrade* zcc = [DockCaptain zeroCostCaptain: faction context: self.managedObjectContext];
+        [self addUpgrade: zcc maybeReplace: nil establishPlaceholders: NO];
     }
 
     int count = [self talentCount];
@@ -153,7 +157,7 @@
     return limit > 0;
 }
 
--(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace;
+-(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace establishPlaceholders:(BOOL)establish
 {
     NSManagedObjectContext* context = [self managedObjectContext];
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"EquippedUpgrade"
@@ -185,12 +189,17 @@
 
     [self addUpgrades: [NSSet setWithObject: equippedUpgrade]];
 
-    if (![upgrade isPlaceholder]) {
+    if (establish) {
         [self establishPlaceholders];
     }
 
     [[self squad] squadCompositionChanged];
     return equippedUpgrade;
+}
+
+-(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace
+{
+    return [self addUpgrade: upgrade maybeReplace: maybeReplace establishPlaceholders: YES];
 }
 
 -(DockEquippedUpgrade*)firstUpgrade:(NSString*)upType
