@@ -170,7 +170,6 @@
         DockEquippedUpgrade* ph = [self findPlaceholder: upgrade.upType];
 
         if (ph) {
-            NSLog(@"removing placeholder %@", ph);
             [self removeUpgrade: ph];
         }
     }

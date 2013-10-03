@@ -4,6 +4,7 @@
 
 @interface DockUpgrade (Addons)
 +(DockUpgrade*)placeholder:(NSString*)upType inContext:(NSManagedObjectContext*)context;
++(DockUpgrade*)upgradeForId:(NSString*)externalId context:(NSManagedObjectContext*)context;
 -(BOOL)isTalent;
 -(BOOL)isCrew;
 -(BOOL)isWeapon;

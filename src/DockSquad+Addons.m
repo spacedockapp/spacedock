@@ -1,7 +1,7 @@
 #import "DockCaptain+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
-#import "DockResource.h"
+#import "DockResource+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"
@@ -30,13 +30,19 @@
                     [squad addEquippedShip: currentShip];
                 }
             } else if (currentShip != nil) {
-                if ([label isEqualToString: @"Captains"]) {
-                    DockUpgrade* captain = [DockCaptain captainForId: externalId context: context];
-                    [currentShip addUpgrade: captain maybeReplace: nil establishPlaceholders: NO];
+                if (externalId.length > 0) {
+                    if ([label isEqualToString: @"Resources"]) {
+                        DockResource* resource = [DockResource resourceForId: externalId context: context];
+                        squad.resource = resource;
+                    } else {
+                        DockUpgrade* upgrade = [DockUpgrade upgradeForId: externalId context:context];
+                        [currentShip addUpgrade: upgrade];
+                    }
                 }
             }
         }
     }
+    [context commitEditing];
     return squad;
 }
 
