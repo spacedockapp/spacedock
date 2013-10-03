@@ -165,8 +165,35 @@
     return [NSString stringWithString: textFormat];
 }
 
+static NSString* toDataFormat(NSString*label, id element)
+{
+    return [NSString stringWithFormat: @"%@|%@|%@\n", label, [element title], [element externalId]];
+}
+
 -(NSString*)asDataFormat
 {
-    return @"";
+    NSMutableString* dataFormat = [[NSMutableString alloc] init];
+    int i = 0;
+    for (DockEquippedShip* ship in self.equippedShips) {
+        [dataFormat appendString: toDataFormat(@"Ships", ship.ship)];
+        for (DockEquippedUpgrade* upgrade in ship.sortedUpgrades) {
+            if ([upgrade isPlaceholder]) {
+                [dataFormat appendString: @"Upgrades||\n"];
+            } else if ([upgrade.upgrade isCaptain]) {
+                [dataFormat appendString: toDataFormat(@"Captains", upgrade.upgrade)];
+            } else {
+                [dataFormat appendString: toDataFormat(@"Upgrades", upgrade.upgrade)];
+            }
+        }
+        i += 1;
+    }
+
+    DockResource* resource = self.resource;
+
+    if (resource != nil) {
+        [dataFormat appendString: toDataFormat(@"Resources", resource)];
+    }
+
+    return [NSString stringWithString: dataFormat];
 }
 @end
