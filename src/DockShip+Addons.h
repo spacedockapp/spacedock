@@ -9,6 +9,7 @@
 #import "DockShip.h"
 
 @interface DockShip (Addons)
++(DockShip*)shipForId:(NSString*)externalId context:(NSManagedObjectContext*)context;
 -(BOOL)isBreen;
 -(int)techCount;
 -(int)weaponCount;

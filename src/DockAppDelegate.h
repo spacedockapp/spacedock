@@ -35,5 +35,6 @@
 -(IBAction)deleteSelected:(id)sender;
 -(IBAction)expandAll:(id)sender;
 -(IBAction)exportSquad:(id)sender;
+-(IBAction)importSquad:(id)sender;
 
 @end

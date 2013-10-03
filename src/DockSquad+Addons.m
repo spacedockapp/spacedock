@@ -1,3 +1,4 @@
+#import "DockCaptain+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockResource.h"
@@ -6,6 +7,38 @@
 #import "DockUpgrade+Addons.h"
 
 @implementation DockSquad (Addons)
+
++(DockSquad*)import:(NSString*)name data:(NSString*)datFormatString context:(NSManagedObjectContext*)context
+{
+    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Squad"
+                                              inManagedObjectContext: context];
+    DockSquad* squad = [[DockSquad alloc] initWithEntity: entity
+                                     insertIntoManagedObjectContext: context];
+    squad.name = name;
+
+    DockEquippedShip* currentShip = nil;
+    NSArray* lines = [datFormatString componentsSeparatedByCharactersInSet: [NSCharacterSet newlineCharacterSet]];
+    for (NSString* line in lines) {
+        NSArray* parts = [line componentsSeparatedByString: @"|"];
+        if (parts.count >= 3) {
+            NSString* label = parts[0];
+            NSString* externalId = parts[2];
+            if ([label isEqualToString: @"Ships"]) {
+                DockShip* ship = [DockShip shipForId: externalId context: context];
+                if (ship != nil) {
+                    currentShip = [DockEquippedShip equippedShipWithShip: ship];
+                    [squad addEquippedShip: currentShip];
+                }
+            } else if (currentShip != nil) {
+                if ([label isEqualToString: @"Captains"]) {
+                    DockUpgrade* captain = [DockCaptain captainForId: externalId context: context];
+                    [currentShip addUpgrade: captain maybeReplace: nil establishPlaceholders: NO];
+                }
+            }
+        }
+    }
+    return squad;
+}
 
 +(NSSet*)keyPathsForValuesAffectingCost
 {
@@ -126,4 +159,8 @@
     return [NSString stringWithString: textFormat];
 }
 
+-(NSString*)asDataFormat
+{
+    return @"";
+}
 @end

@@ -231,6 +231,11 @@
 				CLASSPREFIX = Dock;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Rob Tsuk";
+				TargetAttributes = {
+					D42BD1EB17EA134B0000598C = {
+						DevelopmentTeam = NM66XJZ7L9;
+					};
+				};
 			};
 			buildConfigurationList = D42BD1E717EA134B0000598C /* Build configuration list for PBXProject "Space Dock" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -384,6 +389,7 @@
 		D42BD20D17EA134B0000598C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "src/Space Dock-Prefix.pch";
@@ -397,6 +403,7 @@
 		D42BD20E17EA134B0000598C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "src/Space Dock-Prefix.pch";

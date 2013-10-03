@@ -5,6 +5,7 @@
         <attribute name="talent" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="Crew" representedClassName="DockCrew" parentEntity="Upgrade" syncable="YES"/>
+    <entity name="Entity" syncable="YES"/>
     <entity name="EquippedShip" representedClassName="DockEquippedShip" syncable="YES">
         <relationship name="ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ship" inverseName="equippedShips" inverseEntity="Ship" syncable="YES"/>
         <relationship name="squad" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Squad" inverseName="equippedShips" inverseEntity="Squad" syncable="YES"/>
@@ -88,5 +89,6 @@
         <element name="Tech" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Upgrade" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Weapon" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Entity" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

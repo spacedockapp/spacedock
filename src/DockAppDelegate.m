@@ -651,11 +651,32 @@
                  NSString* textFormat = [squad asTextFormat];
                  NSError* error;
                  [textFormat writeToURL: fileUrl atomically: NO encoding: NSUTF8StringEncoding error: &error];
-             }
+             } else if (formatSelected == 2) {
+                 NSString* textFormat = [squad asDataFormat];
+                 NSError* error;
+                 [textFormat writeToURL: fileUrl atomically: NO encoding: NSUTF8StringEncoding error: &error];
+            }
          }
      }
 
     ];
+}
+
+-(IBAction)importSquad:(id)sender
+{
+    NSOpenPanel* importPanel = [NSOpenPanel openPanel];
+    importPanel.allowedFileTypes = @[@"dat"];
+    [importPanel beginSheetModalForWindow: self.window completionHandler:^(NSInteger v) {
+        if (v == NSFileHandlingPanelOKButton) {
+            NSURL* fileUrl = importPanel.URL;
+            NSString* filePath = [fileUrl path];
+            NSString* fileName = [filePath lastPathComponent];
+            NSString* squadName = [fileName stringByDeletingPathExtension];
+            NSError* error;
+            NSString* data = [NSString stringWithContentsOfURL: fileUrl encoding: NSUTF8StringEncoding error:&error];
+            [DockSquad import: squadName data: data context: _managedObjectContext];
+        }
+    }];
 }
 
 @end

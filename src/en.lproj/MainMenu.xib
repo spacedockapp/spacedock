@@ -340,9 +340,14 @@
                                     <action selector="expandAll:" target="-1" id="XOa-XV-DFe"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Export..." keyEquivalent="E" id="dPM-9g-MEz">
+                            <menuItem title="Import..." keyEquivalent="I" id="dPM-9g-MEz">
                                 <connections>
-                                    <action selector="exportSquad:" target="-1" id="DDn-wf-Hgq"/>
+                                    <action selector="importSquad:" target="-1" id="vnk-ze-CzV"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Export..." keyEquivalent="E" id="PyL-1e-1zE">
+                                <connections>
+                                    <action selector="exportSquad:" target="-1" id="RHs-2r-WUQ"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -1455,7 +1460,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="C4e-K2-egy" id="C8d-VF-NtP">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="JrY-qD-Xzd">
                                 <items>
                                     <menuItem title="Item 1" state="on" id="C4e-K2-egy"/>
