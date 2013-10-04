@@ -734,4 +734,15 @@
     }];
 }
 
+- (IBAction)print:(id)sender
+{
+    NSPrintOperation *op;
+    op = [NSPrintOperation printOperationWithView: _fleetBuildSheet];
+    if (op) {
+        [op runOperation];
+    } else {
+        // handle error here
+    }
+}
+
 @end

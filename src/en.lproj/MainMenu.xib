@@ -117,7 +117,7 @@
                             </menuItem>
                             <menuItem title="Print…" keyEquivalent="p" id="78">
                                 <connections>
-                                    <action selector="print:" target="-1" id="86"/>
+                                    <action selector="print:" target="494" id="y8o-5h-gO4"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -1514,6 +1514,7 @@
                 <outlet property="captainsTableView" destination="pbE-Lg-pvF" id="hWe-nR-T6n"/>
                 <outlet property="exportFormatPopup" destination="L6E-ZC-cT8" id="RvO-d0-hQJ"/>
                 <outlet property="exportFormatView" destination="d19-nn-2NS" id="XKY-3v-Vdh"/>
+                <outlet property="fleetBuildSheet" destination="HGh-wD-qfR" id="lgH-TO-rQn"/>
                 <outlet property="resourcesController" destination="YPe-Zs-mE7" id="QpO-G6-Tot"/>
                 <outlet property="resourcesTableView" destination="v13-24-CCG" id="Rq7-QP-07h"/>
                 <outlet property="shipsController" destination="Gzr-Z0-87U" id="5vW-HI-mUc"/>
@@ -1598,6 +1599,21 @@
                 <binding destination="494" name="managedObjectContext" keyPath="self.managedObjectContext" id="2uq-jW-ChQ"/>
             </connections>
         </arrayController>
+        <customView id="HGh-wD-qfR" userLabel="fleet build sheet">
+            <rect key="frame" x="0.0" y="0.0" width="726" height="477"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wwS-aO-OV8">
+                    <rect key="frame" x="333" y="230" width="61" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Print this" id="ASO-kB-ELi">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+        </customView>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="8" height="8"/>

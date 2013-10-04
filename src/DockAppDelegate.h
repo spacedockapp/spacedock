@@ -25,6 +25,7 @@
 @property (assign) IBOutlet NSTableView* captainsTableView;
 @property (assign) IBOutlet NSTableView* upgradesTableView;
 @property (assign) IBOutlet NSTableView* resourcesTableView;
+@property (assign) IBOutlet NSView* fleetBuildSheet;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel* managedObjectModel;
