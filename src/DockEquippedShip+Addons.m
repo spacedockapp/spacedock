@@ -32,6 +32,9 @@
 -(NSAttributedString*)styledDescription
 {
     NSString* s = [self description];
+    if (s == nil) {
+        return nil;
+    }
     return [[NSAttributedString alloc] initWithString: s];
 }
 
@@ -262,6 +265,16 @@
 -(NSString*)ability
 {
     return self.ship.ability;
+}
+
+-(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade
+{
+    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        if (eu.upgrade == theUpgrade) {
+            return eu;
+        }
+    }
+    return nil;
 }
 
 @end

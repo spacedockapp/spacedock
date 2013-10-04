@@ -10,4 +10,6 @@
 -(void)squadCompositionChanged;
 -(NSString*)asTextFormat;
 -(NSString*)asDataFormat;
+-(DockEquippedShip*)containsShip:(DockShip*)theShip;
+-(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
 @end

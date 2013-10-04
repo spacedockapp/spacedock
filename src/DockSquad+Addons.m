@@ -196,4 +196,26 @@ static NSString* toDataFormat(NSString*label, id element)
 
     return [NSString stringWithString: dataFormat];
 }
+
+-(DockEquippedShip*)containsShip:(DockShip*)theShip
+{
+    for (DockEquippedShip* ship in self.equippedShips) {
+        if (ship.ship == theShip) {
+            return ship;
+        }
+    }
+    return nil;
+}
+
+-(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade
+{
+    for (DockEquippedShip* ship in self.equippedShips) {
+        DockEquippedUpgrade* existing = [ship containsUpgrade: theUpgrade];
+        if (existing) {
+            return existing;
+        }
+    }
+    return nil;
+}
+
 @end

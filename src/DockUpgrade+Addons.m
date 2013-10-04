@@ -116,6 +116,11 @@
     return [[self placeholder] boolValue];
 }
 
+-(BOOL)isUnique
+{
+    return [[self unique] boolValue];
+}
+
 -(NSComparisonResult)compareTo:(DockUpgrade*)other
 {
     NSString* upTypeMe = [self upSortType];

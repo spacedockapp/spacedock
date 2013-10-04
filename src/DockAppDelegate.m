@@ -14,7 +14,7 @@
 #import "DockEquippedShip.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockResource.h"
-#import "DockShip.h"
+#import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockSquad.h"
 #import "DockTalent.h"
@@ -438,6 +438,34 @@
     [[alert window] orderOut: self];
 }
 
+-(void)explainCantAddShip:(DockShip*)ship
+{
+    NSAlert* alert = [[NSAlert alloc] init];
+    NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", ship.title];
+    [alert setMessageText: msg];
+    NSString* info = @"This ship is unique and already exists in the squadron.";
+    [alert setInformativeText: info];
+    [alert setAlertStyle: NSInformationalAlertStyle];
+    [alert beginSheetModalForWindow: [self window]
+                      modalDelegate: self
+                     didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
+                        contextInfo: nil];
+}
+
+-(void)explainCantUniqueUpgrade:(DockUpgrade*)upgrade
+{
+    NSAlert* alert = [[NSAlert alloc] init];
+    NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", upgrade.title];
+    [alert setMessageText: msg];
+    NSString* info = @"This upgrade is unique and already exists in the squadron.";
+    [alert setInformativeText: info];
+    [alert setAlertStyle: NSInformationalAlertStyle];
+    [alert beginSheetModalForWindow: [self window]
+                      modalDelegate: self
+                     didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
+                        contextInfo: nil];
+}
+
 -(void)explainCantAddUpgrade:(DockEquippedShip*)ship upgrade:(DockUpgrade*)upgrade
 {
     NSAlert* alert = [[NSAlert alloc] init];
@@ -477,11 +505,18 @@
         NSArray* shipsToAdd = [_shipsController selectedObjects];
 
         for (DockShip* ship in shipsToAdd) {
+            if ([ship isUnique]) {
+                DockEquippedShip* existing = [squad containsShip: ship];
+                if (existing != nil) {
+                    [self selectShip: existing];
+                    [self explainCantAddShip: ship];
+                    continue;
+                }
+            }
             DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: ship];
             es.ship = ship;
             [squad addEquippedShip: es];
-            NSIndexPath* path = [_squadDetailController indexPathOfObject: [es equippedCaptain]];
-            [_squadDetailController setSelectionIndexPath: path];
+            [self selectShip: es];
         }
     }
 }
@@ -506,6 +541,12 @@
     return nil;
 }
 
+-(void)selectShip:(DockEquippedShip*)theShip
+{
+    NSIndexPath* path = [_squadDetailController indexPathOfObject: theShip];
+    [_squadDetailController setSelectionIndexPath: path];
+}
+
 -(DockEquippedUpgrade*)selectedUpgrade
 {
     NSArray* selectedItems = [_squadDetailController selectedObjects];
@@ -519,6 +560,12 @@
     }
 
     return nil;
+}
+
+-(void)selectUpgrade:(DockEquippedUpgrade*)theUpgrade
+{
+    NSIndexPath* path = [_squadDetailController indexPathOfObject: theUpgrade];
+    [_squadDetailController setSelectionIndexPath: path];
 }
 
 -(DockSquad*)selectedSquad
@@ -552,6 +599,16 @@
 {
     NSArray* upgradeToAdd = [_upgradesController selectedObjects];
     DockUpgrade* upgrade = upgradeToAdd[0];
+
+    if ([upgrade isUnique]) {
+        DockSquad* squad = [self selectedSquad];
+        DockEquippedUpgrade* existing = [squad containsUpgrade: upgrade];
+        if (existing) {
+            [self selectUpgrade: existing];
+            [self explainCantUniqueUpgrade: upgrade];
+            return nil;
+        }
+    }
 
     if (![targetShip canAddUpgrade: upgrade]) {
         [self explainCantAddUpgrade: targetShip upgrade: upgrade];
@@ -601,8 +658,7 @@
             }
 
             if (equippedUpgrade != nil) {
-                NSIndexPath* path = [_squadDetailController indexPathOfObject: equippedUpgrade];
-                [_squadDetailController setSelectionIndexPath: path];
+                [self selectUpgrade: equippedUpgrade];
             }
         } else {
             NSAlert* alert = [NSAlert alertWithMessageText: @"You must select a ship before adding a captain or upgrade."
@@ -625,8 +681,7 @@
         [squad removeEquippedShip: targetShip];
     } else {
         [targetShip removeUpgrade: target establishPlaceholders: YES];
-        NSIndexPath* path = [_squadDetailController indexPathOfObject: targetShip];
-        [_squadDetailController setSelectionIndexPath: path];
+        [self selectShip: targetShip];
     }
 }
 

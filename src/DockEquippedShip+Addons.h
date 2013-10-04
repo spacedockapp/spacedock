@@ -19,4 +19,5 @@
 -(void)removeCaptain;
 -(int)talentCount;
 -(NSArray*)sortedUpgrades;
+-(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
 @end

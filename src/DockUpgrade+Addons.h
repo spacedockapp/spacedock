@@ -10,6 +10,7 @@
 -(BOOL)isWeapon;
 -(BOOL)isCaptain;
 -(BOOL)isPlaceholder;
+-(BOOL)isUnique;
 -(NSComparisonResult)compareTo:(DockUpgrade*)other;
 -(int)limitForShip:(DockEquippedShip*)targetShip;
 -(NSAttributedString*)styledDescription;

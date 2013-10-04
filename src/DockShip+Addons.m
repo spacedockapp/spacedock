@@ -40,6 +40,11 @@
     return r.location != NSNotFound;
 }
 
+-(BOOL)isUnique
+{
+    return [self.unique boolValue];
+}
+
 -(int)techCount
 {
     return [self.tech intValue];

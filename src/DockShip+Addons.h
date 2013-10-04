@@ -11,6 +11,7 @@
 @interface DockShip (Addons)
 +(DockShip*)shipForId:(NSString*)externalId context:(NSManagedObjectContext*)context;
 -(BOOL)isBreen;
+-(BOOL)isUnique;
 -(int)techCount;
 -(int)weaponCount;
 -(int)crewCount;
