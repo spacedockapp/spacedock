@@ -587,8 +587,21 @@
 
     if (captainsToAdd.count < 1) {
     } else {
-        [targetShip removeCaptain];
         DockCaptain* captain = captainsToAdd[0];
+        DockCaptain* existingCaptain = [targetShip captain];
+        if (captain == existingCaptain) {
+            return nil;
+        }
+        if ([captain isUnique]) {
+            DockSquad* squad = [self selectedSquad];
+            DockEquippedUpgrade* existing = [squad containsUpgrade: captain];
+            if (existing) {
+                [self selectUpgrade: existing];
+                [self explainCantUniqueUpgrade: captain];
+                return nil;
+            }
+        }
+        [targetShip removeCaptain];
         return [targetShip addUpgrade: captain];
     }
 
@@ -720,7 +733,7 @@
 -(IBAction)importSquad:(id)sender
 {
     NSOpenPanel* importPanel = [NSOpenPanel openPanel];
-    importPanel.allowedFileTypes = @[@"dat"];
+    importPanel.allowedFileTypes = @[@"dat", @"txt"];
     [importPanel beginSheetModalForWindow: self.window completionHandler:^(NSInteger v) {
         if (v == NSFileHandlingPanelOKButton) {
             NSURL* fileUrl = importPanel.URL;

@@ -419,7 +419,7 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveName="shipTable" headerView="wao-eF-ukD" id="sJW-5v-BIo" userLabel="ships">
-                                                        <rect key="frame" x="0.0" y="0.0" width="1054" height="175"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="1097" height="175"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -526,6 +526,27 @@
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <connections>
                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.attack" id="ahq-15-uTg"/>
+                                                                </connections>
+                                                            </tableColumn>
+                                                            <tableColumn identifier="agility" editable="NO" width="40" minWidth="40" maxWidth="1000" id="czZ-Ac-QPs" userLabel="agility">
+                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Agi">
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </tableHeaderCell>
+                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="hYK-Oh-xwC">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="agility"/>
+                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                <connections>
+                                                                    <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.agility" id="uH2-Jx-X5b">
+                                                                        <dictionary key="options">
+                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                        </dictionary>
+                                                                    </binding>
                                                                 </connections>
                                                             </tableColumn>
                                                             <tableColumn identifier="hull" editable="NO" width="40" minWidth="40" maxWidth="1000" id="pH1-AZ-3Xf" userLabel="hull">
@@ -734,6 +755,11 @@
                                                         </tableColumns>
                                                         <connections>
                                                             <binding destination="Gzr-Z0-87U" name="content" keyPath="arrangedObjects" id="VY9-KL-DX6"/>
+                                                            <binding destination="494" name="doubleClickTarget" keyPath="self" id="FRJ-Ig-sVx">
+                                                                <dictionary key="options">
+                                                                    <string key="NSSelectorName">addSelected:</string>
+                                                                </dictionary>
+                                                            </binding>
                                                             <binding destination="Gzr-Z0-87U" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="VY9-KL-DX6" id="pj3-vV-hLc"/>
                                                             <binding destination="Gzr-Z0-87U" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="pj3-vV-hLc" id="Qbw-DB-1e2"/>
                                                         </connections>
@@ -750,7 +776,7 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <tableHeaderView key="headerView" id="wao-eF-ukD">
-                                                <rect key="frame" x="0.0" y="0.0" width="1054" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="1097" height="17"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </tableHeaderView>
                                         </scrollView>
@@ -927,6 +953,11 @@
                                                         </tableColumns>
                                                         <connections>
                                                             <binding destination="0af-xY-vuT" name="content" keyPath="arrangedObjects" id="DVe-PL-bdP"/>
+                                                            <binding destination="494" name="doubleClickTarget" keyPath="self" id="5ba-tz-p4H">
+                                                                <dictionary key="options">
+                                                                    <string key="NSSelectorName">addSelected:</string>
+                                                                </dictionary>
+                                                            </binding>
                                                             <binding destination="0af-xY-vuT" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="DVe-PL-bdP" id="bu7-E4-r6C"/>
                                                             <binding destination="0af-xY-vuT" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="bu7-E4-r6C" id="czn-rP-z9D"/>
                                                         </connections>
@@ -1101,6 +1132,11 @@
                                                         </tableColumns>
                                                         <connections>
                                                             <binding destination="wVj-PN-1Jr" name="content" keyPath="arrangedObjects" id="qp5-OD-dZc"/>
+                                                            <binding destination="494" name="doubleClickTarget" keyPath="self" id="8WD-1b-Ynz">
+                                                                <dictionary key="options">
+                                                                    <string key="NSSelectorName">addSelected:</string>
+                                                                </dictionary>
+                                                            </binding>
                                                             <binding destination="wVj-PN-1Jr" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="qp5-OD-dZc" id="DJl-iF-Xqp"/>
                                                             <binding destination="wVj-PN-1Jr" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="DJl-iF-Xqp" id="oUh-qK-xRY"/>
                                                         </connections>
@@ -1160,7 +1196,7 @@
                                                                     <binding destination="YPe-Zs-mE7" name="value" keyPath="arrangedObjects.title" id="3c1-0F-AvP"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="resourceUnique" width="60" minWidth="60" maxWidth="60" id="iZz-2b-seY" userLabel="unique">
+                                                            <tableColumn identifier="resourceUnique" editable="NO" width="60" minWidth="60" maxWidth="60" id="iZz-2b-seY" userLabel="unique">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Unique">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1178,7 +1214,7 @@
                                                                     <binding destination="YPe-Zs-mE7" name="value" keyPath="arrangedObjects.unique" id="wDS-qL-Qcv"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="resourceCost" width="60" minWidth="60" maxWidth="60" id="dD7-Qv-dKs" userLabel="cost">
+                                                            <tableColumn identifier="resourceCost" editable="NO" width="60" minWidth="60" maxWidth="60" id="dD7-Qv-dKs" userLabel="cost">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Cost">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1195,7 +1231,7 @@
                                                                     <binding destination="YPe-Zs-mE7" name="value" keyPath="arrangedObjects.cost" id="e8z-UB-36z"/>
                                                                 </connections>
                                                             </tableColumn>
-                                                            <tableColumn identifier="resourceAbility" width="294" minWidth="40" maxWidth="10000" id="hE3-c0-xax" userLabel="ability">
+                                                            <tableColumn identifier="resourceAbility" editable="NO" width="294" minWidth="40" maxWidth="10000" id="hE3-c0-xax" userLabel="ability">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Ability">
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1215,6 +1251,11 @@
                                                         </tableColumns>
                                                         <connections>
                                                             <binding destination="YPe-Zs-mE7" name="content" keyPath="arrangedObjects" id="gBf-kR-DL7"/>
+                                                            <binding destination="494" name="doubleClickTarget" keyPath="self" id="Tzp-IR-vN9">
+                                                                <dictionary key="options">
+                                                                    <string key="NSSelectorName">addSelected:</string>
+                                                                </dictionary>
+                                                            </binding>
                                                             <binding destination="YPe-Zs-mE7" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="gBf-kR-DL7" id="vOs-jb-UXr">
                                                                 <dictionary key="options">
                                                                     <bool key="NSValidatesImmediately" value="YES"/>
