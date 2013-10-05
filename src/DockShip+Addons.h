@@ -9,6 +9,7 @@
 #import "DockShip.h"
 
 @interface DockShip (Addons)
+-(NSAttributedString*)styledDescription;
 +(DockShip*)shipForId:(NSString*)externalId context:(NSManagedObjectContext*)context;
 -(BOOL)isBreen;
 -(BOOL)isUnique;

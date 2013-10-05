@@ -3,7 +3,7 @@
 #import "DockCaptain+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockEquippedUpgrade.h"
-#import "DockShip.h"
+#import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"
 
@@ -31,11 +31,7 @@
 
 -(NSAttributedString*)styledDescription
 {
-    NSString* s = [self description];
-    if (s == nil) {
-        return nil;
-    }
-    return [[NSAttributedString alloc] initWithString: s];
+    return [self.ship styledDescription];
 }
 
 -(int)baseCost

@@ -23,6 +23,7 @@
 		D43ABA6E17F769CC000CBBE7 /* DockUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = D43ABA6D17F769CC000CBBE7 /* DockUpgrade.m */; };
 		D43ABA7117F769CC000CBBE7 /* DockResource.m in Sources */ = {isa = PBXBuildFile; fileRef = D43ABA7017F769CC000CBBE7 /* DockResource.m */; };
 		D43ABA7417F769CC000CBBE7 /* DockEquippedUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = D43ABA7317F769CC000CBBE7 /* DockEquippedUpgrade.m */; };
+		D45AF1F017FFE7F900C04F9A /* DockUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D45AF1EF17FFE7F900C04F9A /* DockUtils.m */; };
 		D4AAA28817F4082F00A99383 /* DockEquippedShip+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA28717F4082F00A99383 /* DockEquippedShip+Addons.m */; };
 		D4AAA28B17F408D400A99383 /* DockUpgrade+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA28A17F408D400A99383 /* DockUpgrade+Addons.m */; };
 		D4AAA29417F48F8100A99383 /* DockEquippedUpgrade+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA29317F48F8100A99383 /* DockEquippedUpgrade+Addons.m */; };
@@ -73,6 +74,8 @@
 		D43ABA7017F769CC000CBBE7 /* DockResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockResource.m; sourceTree = "<group>"; };
 		D43ABA7217F769CC000CBBE7 /* DockEquippedUpgrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockEquippedUpgrade.h; sourceTree = "<group>"; };
 		D43ABA7317F769CC000CBBE7 /* DockEquippedUpgrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockEquippedUpgrade.m; sourceTree = "<group>"; };
+		D45AF1EE17FFE7F900C04F9A /* DockUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockUtils.h; sourceTree = "<group>"; };
+		D45AF1EF17FFE7F900C04F9A /* DockUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockUtils.m; sourceTree = "<group>"; };
 		D4AAA28617F4082F00A99383 /* DockEquippedShip+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockEquippedShip+Addons.h"; sourceTree = "<group>"; };
 		D4AAA28717F4082F00A99383 /* DockEquippedShip+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockEquippedShip+Addons.m"; sourceTree = "<group>"; };
 		D4AAA28917F408D400A99383 /* DockUpgrade+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockUpgrade+Addons.h"; sourceTree = "<group>"; };
@@ -203,6 +206,8 @@
 				D4AAA2BB17F4DF3D00A99383 /* DockSquad+Addons.m */,
 				D4AAA28917F408D400A99383 /* DockUpgrade+Addons.h */,
 				D4AAA28A17F408D400A99383 /* DockUpgrade+Addons.m */,
+				D45AF1EE17FFE7F900C04F9A /* DockUtils.h */,
+				D45AF1EF17FFE7F900C04F9A /* DockUtils.m */,
 				D4AAA2DE17F4F79600A99383 /* NSTreeController+Additions.h */,
 				D4AAA2DF17F4F79600A99383 /* NSTreeController+Additions.m */,
 				D4F7F40917F2C95D00F5A808 /* main.m */,
@@ -295,6 +300,7 @@
 				D43ABA6817F769CC000CBBE7 /* DockEquippedShip.m in Sources */,
 				D4F7F41E17F2C95D00F5A808 /* main.m in Sources */,
 				D4F7F40F17F2C95D00F5A808 /* DockAppDelegate.m in Sources */,
+				D45AF1F017FFE7F900C04F9A /* DockUtils.m in Sources */,
 				D4E1F76F17FB5AC900ECB984 /* DockSquad.m in Sources */,
 				D41B77E917FE13D1005A5DA8 /* DockBooleanFormatter.m in Sources */,
 				D4F7F42017F2C95D00F5A808 /* Space_Dock.xcdatamodeld in Sources */,

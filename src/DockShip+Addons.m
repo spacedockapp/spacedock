@@ -8,6 +8,8 @@
 
 #import "DockShip+Addons.h"
 
+#import "DockUtils.h"
+
 @implementation DockShip (Addons)
 
 +(DockShip*)shipForId:(NSString*)externalId context:(NSManagedObjectContext*)context
@@ -32,6 +34,21 @@
     }
 
     return [NSString stringWithFormat: @"%@ (%@)", self.title, self.shipClass];
+}
+
+-(NSAttributedString*)styledDescription
+{
+    NSAttributedString* space = [[NSAttributedString alloc] initWithString: @" "];
+    NSMutableAttributedString* desc = [[NSMutableAttributedString alloc] initWithString: [self description]];
+    [desc appendAttributedString: space];
+    [desc appendAttributedString: coloredString([self.attack stringValue], [NSColor whiteColor], [NSColor redColor])];
+    [desc appendAttributedString: space];
+    [desc appendAttributedString: coloredString([self.agility stringValue], [NSColor blackColor], [NSColor greenColor])];
+    [desc appendAttributedString: space];
+    [desc appendAttributedString: coloredString([self.hull stringValue], [NSColor blackColor], [NSColor yellowColor])];
+    [desc appendAttributedString: space];
+    [desc appendAttributedString: coloredString([self.shield stringValue], [NSColor whiteColor], [NSColor blueColor])];
+    return desc;
 }
 
 -(BOOL)isBreen
