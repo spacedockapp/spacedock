@@ -679,7 +679,10 @@
                                            alternateButton: @""
                                                otherButton: @""
                                  informativeTextWithFormat: @""];
-            [alert runModal];
+            [alert beginSheetModalForWindow: [self window]
+                              modalDelegate: self
+                             didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
+                                contextInfo: nil];
         }
     }
 }
