@@ -5,8 +5,9 @@ NSAttributedString* coloredString(NSString* text, NSColor* color, NSColor* backC
     id attr = @{
         NSForegroundColorAttributeName: color,
         NSBackgroundColorAttributeName : backColor,
-        NSExpansionAttributeName: @0.4
+        NSExpansionAttributeName: @0.0
     };
-    return [[NSAttributedString alloc] initWithString: text attributes: attr];
+    NSString* t = [NSString stringWithFormat: @" %@ ", text];
+    return [[NSAttributedString alloc] initWithString: t attributes: attr];
 }
 

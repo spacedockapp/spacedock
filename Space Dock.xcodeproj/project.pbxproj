@@ -13,6 +13,7 @@
 		D41B77EF17FE4184005A5DA8 /* space_dock.icns in Resources */ = {isa = PBXBuildFile; fileRef = D41B77EE17FE416F005A5DA8 /* space_dock.icns */; };
 		D41BA80817F67FE0005266E6 /* DockShip+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D41BA80717F67FE0005266E6 /* DockShip+Addons.m */; };
 		D42BD1F017EA134B0000598C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42BD1EF17EA134B0000598C /* Cocoa.framework */; };
+		D437079E1800AFDF00622E7F /* DockWeapon+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D437079D1800AFDF00622E7F /* DockWeapon+Addons.m */; };
 		D43ABA5617F769CB000CBBE7 /* DockShip.m in Sources */ = {isa = PBXBuildFile; fileRef = D43ABA5517F769CB000CBBE7 /* DockShip.m */; };
 		D43ABA5917F769CC000CBBE7 /* DockWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = D43ABA5817F769CC000CBBE7 /* DockWeapon.m */; };
 		D43ABA5F17F769CC000CBBE7 /* DockTalent.m in Sources */ = {isa = PBXBuildFile; fileRef = D43ABA5E17F769CC000CBBE7 /* DockTalent.m */; };
@@ -54,6 +55,8 @@
 		D42BD1F217EA134B0000598C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		D42BD1F317EA134B0000598C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D42BD1F417EA134B0000598C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D437079C1800AFDF00622E7F /* DockWeapon+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockWeapon+Addons.h"; sourceTree = "<group>"; };
+		D437079D1800AFDF00622E7F /* DockWeapon+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockWeapon+Addons.m"; sourceTree = "<group>"; };
 		D43ABA5417F769CB000CBBE7 /* DockShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockShip.h; sourceTree = "<group>"; };
 		D43ABA5517F769CB000CBBE7 /* DockShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockShip.m; sourceTree = "<group>"; };
 		D43ABA5717F769CC000CBBE7 /* DockWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockWeapon.h; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 				D4AAA28A17F408D400A99383 /* DockUpgrade+Addons.m */,
 				D45AF1EE17FFE7F900C04F9A /* DockUtils.h */,
 				D45AF1EF17FFE7F900C04F9A /* DockUtils.m */,
+				D437079C1800AFDF00622E7F /* DockWeapon+Addons.h */,
+				D437079D1800AFDF00622E7F /* DockWeapon+Addons.m */,
 				D4AAA2DE17F4F79600A99383 /* NSTreeController+Additions.h */,
 				D4AAA2DF17F4F79600A99383 /* NSTreeController+Additions.m */,
 				D4F7F40917F2C95D00F5A808 /* main.m */,
@@ -304,6 +309,7 @@
 				D4E1F76F17FB5AC900ECB984 /* DockSquad.m in Sources */,
 				D41B77E917FE13D1005A5DA8 /* DockBooleanFormatter.m in Sources */,
 				D4F7F42017F2C95D00F5A808 /* Space_Dock.xcdatamodeld in Sources */,
+				D437079E1800AFDF00622E7F /* DockWeapon+Addons.m in Sources */,
 				D4AAA2BC17F4DF3D00A99383 /* DockSquad+Addons.m in Sources */,
 				D43ABA5917F769CC000CBBE7 /* DockWeapon.m in Sources */,
 				D41B77E617FDCF91005A5DA8 /* DockResource+Addons.m in Sources */,
