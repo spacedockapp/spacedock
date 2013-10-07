@@ -323,7 +323,12 @@
     NSURL* url = [applicationFilesDirectory URLByAppendingPathComponent: @"Space_Dock.storedata"];
     NSPersistentStoreCoordinator* coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: mom];
 
-    if (![coordinator addPersistentStoreWithType: NSXMLStoreType configuration: nil URL: url options: nil error: &error]) {
+    NSDictionary *options = @{
+        NSMigratePersistentStoresAutomaticallyOption : @YES,
+        NSInferMappingModelAutomaticallyOption: @YES
+    };
+
+    if (![coordinator addPersistentStoreWithType: NSXMLStoreType configuration: nil URL: url options: options error: &error]) {
         [[NSApplication sharedApplication] presentError: error];
         return nil;
     }
