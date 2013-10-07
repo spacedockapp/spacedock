@@ -1,0 +1,80 @@
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Fleet Build</title>
+</head>
+<body>
+    <style type="text/css" media="screen, print">
+    table.gridtable {
+    	font-family: verdana,arial,sans-serif;
+    	font-size:11px;
+    	color:#333333;
+    	border-width: 1px;
+    	border-color: #666666;
+    	border-collapse: collapse;
+    }
+    table.gridtable th {
+    	border-width: 1px;
+    	padding: 8px;
+    	border-style: solid;
+    	border-color: #666666;
+    	background-color: #dedede;
+    	height: 40px;
+    }
+    table.gridtable td {
+    	border-width: 1px;
+    	padding: 8px;
+    	border-style: solid;
+    	border-color: #666666;
+    	background-color: #ffffff;
+    }
+    
+    td.blank {
+        width: 200px;
+    }
+    
+    table.top_row {
+        height: 100px;
+    }
+    </style>
+    <table>
+        <tr>
+            <td>
+                <table class="gridtable top_row">
+                    <tr><th colspan="2">Tournament Information</th></tr>
+                    <tr><td>Date</td><td class="blank"></td></tr>
+                    <tr><td>Event</td><td class="blank"></td></tr>
+                </table>
+            </td>
+            <td>
+                <table class="gridtable top_row">
+                    <tr><th>Faction Allegiance</th></tr>
+                    <tr rowspan="2"><td>&nbsp;</td></tr>
+                </table>
+            </td>
+            <td>
+                <table class="gridtable top_row">
+                    <tr><th colspan="2">Player Information</th></tr>
+                    <tr><td>Name</td><td class="blank"></td></tr>
+                    <tr><td>Email</td><td class="blank"></td></tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <table class="">
+                <tr><td>Ship</td><td class="blank"></td></tr>
+                <tr><td>Captain</td><td class="blank"></td></tr>
+                <tr><td>Upgrades</td><td class="blank"></td></tr>
+            </table>
+        </tr>
+    </table>
+    
+    <ul>
+    {{#equippedShips}}
+    <li>
+    {{description}}
+    </li>
+    {{/equippedShips}}
+    </ul>
+</body>
+</html>

@@ -1,11 +1,3 @@
-//
-//  DockAppDelegate.m
-//  Space Dock
-//
-//  Created by Rob Tsuk on 9/18/13.
-//  Copyright (c) 2013 Rob Tsuk. All rights reserved.
-//
-
 #import "DockAppDelegate.h"
 
 #import "DockCaptain.h"
@@ -14,6 +6,7 @@
 #import "DockEquippedShip.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockResource.h"
+#import "DockFleetBuildSheet.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockSquad.h"
@@ -752,13 +745,8 @@
 
 - (IBAction)print:(id)sender
 {
-    NSPrintOperation *op;
-    op = [NSPrintOperation printOperationWithView: _fleetBuildSheet];
-    if (op) {
-        [op runOperation];
-    } else {
-        // handle error here
-    }
+    DockSquad* squad = [self selectedSquad];
+    [_fleetBuildSheet show: squad];
 }
 
 @end

@@ -1,12 +1,6 @@
-//
-//  DockAppDelegate.h
-//  Space Dock
-//
-//  Created by Rob Tsuk on 9/18/13.
-//  Copyright (c) 2013 Rob Tsuk. All rights reserved.
-//
-
 #import <Cocoa/Cocoa.h>
+
+@class DockFleetBuildSheet;
 
 @interface DockAppDelegate : NSObject<NSApplicationDelegate>
 
@@ -25,7 +19,7 @@
 @property (assign) IBOutlet NSTableView* captainsTableView;
 @property (assign) IBOutlet NSTableView* upgradesTableView;
 @property (assign) IBOutlet NSTableView* resourcesTableView;
-@property (assign) IBOutlet NSView* fleetBuildSheet;
+@property (assign) IBOutlet DockFleetBuildSheet* fleetBuildSheet;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel* managedObjectModel;
