@@ -106,20 +106,6 @@
                                     <action selector="revertDocumentToSaved:" target="-1" id="364"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="74">
-                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                            </menuItem>
-                            <menuItem title="Page Setup..." keyEquivalent="P" id="77">
-                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
-                                <connections>
-                                    <action selector="runPageLayout:" target="-1" id="87"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Print…" keyEquivalent="p" id="78">
-                                <connections>
-                                    <action selector="print:" target="494" id="y8o-5h-gO4"/>
-                                </connections>
-                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
@@ -392,7 +378,7 @@
             </items>
         </menu>
         <window title="Space Dock" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="spaceDock1" animationBehavior="default" id="371">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="640" height="480"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1578"/>
@@ -755,12 +741,12 @@
                                                         </tableColumns>
                                                         <connections>
                                                             <binding destination="Gzr-Z0-87U" name="content" keyPath="arrangedObjects" id="VY9-KL-DX6"/>
+                                                            <binding destination="Gzr-Z0-87U" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="VY9-KL-DX6" id="pj3-vV-hLc"/>
                                                             <binding destination="494" name="doubleClickTarget" keyPath="self" id="FRJ-Ig-sVx">
                                                                 <dictionary key="options">
                                                                     <string key="NSSelectorName">addSelected:</string>
                                                                 </dictionary>
                                                             </binding>
-                                                            <binding destination="Gzr-Z0-87U" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="VY9-KL-DX6" id="pj3-vV-hLc"/>
                                                             <binding destination="Gzr-Z0-87U" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="pj3-vV-hLc" id="Qbw-DB-1e2"/>
                                                         </connections>
                                                     </tableView>
@@ -953,12 +939,12 @@
                                                         </tableColumns>
                                                         <connections>
                                                             <binding destination="0af-xY-vuT" name="content" keyPath="arrangedObjects" id="DVe-PL-bdP"/>
+                                                            <binding destination="0af-xY-vuT" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="DVe-PL-bdP" id="bu7-E4-r6C"/>
                                                             <binding destination="494" name="doubleClickTarget" keyPath="self" id="5ba-tz-p4H">
                                                                 <dictionary key="options">
                                                                     <string key="NSSelectorName">addSelected:</string>
                                                                 </dictionary>
                                                             </binding>
-                                                            <binding destination="0af-xY-vuT" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="DVe-PL-bdP" id="bu7-E4-r6C"/>
                                                             <binding destination="0af-xY-vuT" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="bu7-E4-r6C" id="czn-rP-z9D"/>
                                                         </connections>
                                                     </tableView>
@@ -1132,12 +1118,12 @@
                                                         </tableColumns>
                                                         <connections>
                                                             <binding destination="wVj-PN-1Jr" name="content" keyPath="arrangedObjects" id="qp5-OD-dZc"/>
+                                                            <binding destination="wVj-PN-1Jr" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="qp5-OD-dZc" id="DJl-iF-Xqp"/>
                                                             <binding destination="494" name="doubleClickTarget" keyPath="self" id="8WD-1b-Ynz">
                                                                 <dictionary key="options">
                                                                     <string key="NSSelectorName">addSelected:</string>
                                                                 </dictionary>
                                                             </binding>
-                                                            <binding destination="wVj-PN-1Jr" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="qp5-OD-dZc" id="DJl-iF-Xqp"/>
                                                             <binding destination="wVj-PN-1Jr" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="DJl-iF-Xqp" id="oUh-qK-xRY"/>
                                                         </connections>
                                                     </tableView>
@@ -1251,14 +1237,14 @@
                                                         </tableColumns>
                                                         <connections>
                                                             <binding destination="YPe-Zs-mE7" name="content" keyPath="arrangedObjects" id="gBf-kR-DL7"/>
-                                                            <binding destination="494" name="doubleClickTarget" keyPath="self" id="Tzp-IR-vN9">
-                                                                <dictionary key="options">
-                                                                    <string key="NSSelectorName">addSelected:</string>
-                                                                </dictionary>
-                                                            </binding>
                                                             <binding destination="YPe-Zs-mE7" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="gBf-kR-DL7" id="vOs-jb-UXr">
                                                                 <dictionary key="options">
                                                                     <bool key="NSValidatesImmediately" value="YES"/>
+                                                                </dictionary>
+                                                            </binding>
+                                                            <binding destination="494" name="doubleClickTarget" keyPath="self" id="Tzp-IR-vN9">
+                                                                <dictionary key="options">
+                                                                    <string key="NSSelectorName">addSelected:</string>
                                                                 </dictionary>
                                                             </binding>
                                                         </connections>

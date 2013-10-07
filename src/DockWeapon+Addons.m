@@ -19,7 +19,7 @@
         [as appendAttributedString: coloredString([attack stringValue], [NSColor redColor], [NSColor blackColor])];
     }
     NSString* range = [self range];
-    if (range != nil) {
+    if (range != nil && range.length > 0) {
         [as appendAttributedString: [[NSMutableAttributedString alloc] initWithString: @" "]];
         [as appendAttributedString: coloredString(range, [NSColor whiteColor], [NSColor blackColor])];
     }
