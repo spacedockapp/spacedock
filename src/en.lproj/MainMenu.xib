@@ -318,24 +318,37 @@
                 </menuItem>
                 <menuItem title="Squad" id="uoH-np-kk0">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Squad" id="l4a-MO-WSQ">
+                    <menu key="submenu" title="Squad" id="QFo-v5-7fd">
                         <items>
-                            <menuItem title="Expand All Ships" keyEquivalent="e" id="79X-Hn-gQY">
+                            <menuItem title="Expand All Ships" keyEquivalent="e" id="dYB-VN-rqv">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
-                                    <action selector="expandAll:" target="-1" id="XOa-XV-DFe"/>
+                                    <action selector="expandAll:" target="-1" id="EDx-if-fqv"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Import..." keyEquivalent="I" id="dPM-9g-MEz">
+                            <menuItem title="Import..." keyEquivalent="I" id="Kok-GA-5Jc">
                                 <connections>
-                                    <action selector="importSquad:" target="-1" id="vnk-ze-CzV"/>
+                                    <action selector="importSquad:" target="-1" id="FXY-Fs-v3t"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Export..." keyEquivalent="E" id="PyL-1e-1zE">
+                            <menuItem title="Export..." keyEquivalent="E" id="KDF-pf-1Qg">
                                 <connections>
-                                    <action selector="exportSquad:" target="-1" id="RHs-2r-WUQ"/>
+                                    <action selector="exportSquad:" target="-1" id="MyO-W3-zPy"/>
                                 </connections>
                             </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Faction" id="R71-os-hD3" userLabel="Menu Item - Filter">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Faction" id="jzV-EA-Bef">
+                        <items>
+                            <menuItem title="Show All Factions" keyEquivalent="0" id="5hG-7b-qgH">
+                                <connections>
+                                    <action selector="resetFactionFilter:" target="-1" id="Xn9-i9-hZG"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="weZ-xq-eEQ"/>
                         </items>
                     </menu>
                 </menuItem>
@@ -1541,6 +1554,7 @@
                 <outlet property="captainsTableView" destination="pbE-Lg-pvF" id="hWe-nR-T6n"/>
                 <outlet property="exportFormatPopup" destination="L6E-ZC-cT8" id="RvO-d0-hQJ"/>
                 <outlet property="exportFormatView" destination="d19-nn-2NS" id="XKY-3v-Vdh"/>
+                <outlet property="factionMenu" destination="jzV-EA-Bef" id="s0C-A5-mcz"/>
                 <outlet property="fleetBuildSheet" destination="HGh-wD-qfR" id="lgH-TO-rQn"/>
                 <outlet property="resourcesController" destination="YPe-Zs-mE7" id="QpO-G6-Tot"/>
                 <outlet property="resourcesTableView" destination="v13-24-CCG" id="Rq7-QP-07h"/>
@@ -1558,7 +1572,7 @@
         <customObject id="420" customClass="NSFontManager"/>
         <collectionViewItem id="567"/>
         <userDefaultsController representsSharedInstance="YES" id="ptf-Fd-SPq"/>
-        <arrayController mode="entity" entityName="Ship" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="Gzr-Z0-87U" userLabel="Ship Controller">
+        <arrayController mode="entity" entityName="Ship" fetchPredicateFormat="" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="Gzr-Z0-87U" userLabel="Ship Controller">
             <connections>
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="lGA-ol-PLV"/>
             </connections>

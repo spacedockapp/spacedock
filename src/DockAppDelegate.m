@@ -20,15 +20,28 @@
 #import "DockTalent.h"
 #import "DockTech.h"
 #import "DockUpgrade+Addons.h"
+#import "DockUtils.h"
 #import "DockWeapon.h"
 
 #import "NSTreeController+Additions.h"
+
+NSString* kWarnAboutUnhandledSpecials = @"warnAboutUnhandledSpecials";
 
 @implementation DockAppDelegate
 
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
+
++ (void)initialize
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *appDefs = @{
+        kWarnAboutUnhandledSpecials: @YES
+    };
+
+    [defaults registerDefaults:appDefs];
+}
 
 -(void)handleError:(NSError*)error
 {
@@ -42,6 +55,24 @@
         [d setObject: [c objectValue] forKey: [c name]];
     }
     return [NSDictionary dictionaryWithDictionary: d];
+}
+
+static id processAttribute(id v, NSInteger aType)
+{
+    switch (aType) {
+    case NSInteger16AttributeType:
+        v = [NSNumber numberWithInt: [v intValue]];
+        break;
+
+    case NSBooleanAttributeType:
+        v = [NSNumber numberWithBool: [v isEqualToString: @"Y"]];
+        break;
+
+    case NSStringAttributeType:
+        v = [v stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        break;
+    }
+    return v;
 }
 
 -(void)loadItems:(NSXMLDocument*)xmlDoc itemClasses:(NSDictionary*)itemClasses entityName:(NSString*)entityName xpath:(NSString*)xpath
@@ -98,16 +129,7 @@
             if (desc != nil) {
                 id v = [d valueForKey: key];
                 NSInteger aType = [desc attributeType];
-
-                switch (aType) {
-                case NSInteger16AttributeType:
-                    v = [NSNumber numberWithInt: [v intValue]];
-                    break;
-
-                case NSBooleanAttributeType:
-                    v = [NSNumber numberWithBool: [v isEqualToString: @"Y"]];
-                    break;
-                }
+                v = processAttribute(v, aType);
                 [c setValue: v forKey: modifiedKey];
             }
         }
@@ -168,19 +190,36 @@
                 if (desc != nil) {
                     id v = [d valueForKey: key];
                     NSInteger aType = [desc attributeType];
-
-                    switch (aType) {
-                    case NSInteger16AttributeType:
-                        v = [NSNumber numberWithInt: [v intValue]];
-                        break;
-
-                    case NSBooleanAttributeType:
-                        v = [NSNumber numberWithBool: [v isEqualToString: @"Y"]];
-                        break;
-                    }
+                    v = processAttribute(v, aType);
                     [c setValue: v forKey: modifiedKey];
                 }
             }
+        }
+    }
+}
+
+-(void)validateSpecials
+{
+    NSSet* specials = allAttributes(_managedObjectContext, @"Upgrade", @"Special");
+    specials = [specials setByAddingObjectsFromSet: allAttributes(_managedObjectContext, @"Resource", @"Special")];
+    NSArray* handledSpecials = @[
+        @"BaselineTalentCostToThree",
+        @"CrewUpgradesCostOneLess",
+        @"costincreasedifnotromulansciencevessel",
+        @"WeaponUpgradesCostOneLess",
+        @"costincreasedifnotbreen",
+        @"UpgradesIgnoreFactionPenalty",
+        @"CaptainAndTalentsIgnoreFactionPenalty",
+    ];
+    NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
+    [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];
+    if (unhandledSpecials.count > 0) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        if ([defaults boolForKey: kWarnAboutUnhandledSpecials]) {
+            NSString* msg = [NSString stringWithFormat: @"Data.xml contains cards that have special effects that this version of Space Dock doesn't know how to handle"];
+            NSArray* unhandledSpecialsArray = [unhandledSpecials allObjects];
+            NSString* info = [unhandledSpecialsArray componentsJoinedByString: @", "];
+            [self whineToUser: msg info: info showsSuppressionButton: YES];
         }
     }
 }
@@ -226,6 +265,7 @@
     [self loadItems: xmlDoc itemClass: [DockCrew class] entityName: @"Crew" xpath: @"/Data/Upgrades/Upgrade" targetType: @"Crew"];
     [self loadItems: xmlDoc itemClass: [DockTech class] entityName: @"Tech" xpath: @"/Data/Upgrades/Upgrade" targetType: @"Tech"];
     [self loadItems: xmlDoc itemClass: [DockResource class] entityName: @"Resource" xpath: @"/Data/Resources/Resource" targetType: @"Resource"];
+    [self validateSpecials];
 }
 
 -(void)observeValueForKeyPath:(NSString*)keyPath
@@ -241,6 +281,17 @@
     }
 }
 
+-(void)setupFactionMenu
+{
+    NSSet* factionsSet = [DockUpgrade allFactions: _managedObjectContext];
+    NSArray* factionsArray = [[factionsSet allObjects] sortedArrayUsingSelector: @selector(caseInsensitiveCompare:)];
+    int i = 1;
+    for (NSString* factionName in factionsArray) {
+        [_factionMenu addItemWithTitle: factionName action: @selector(filterToFaction:) keyEquivalent: [NSString stringWithFormat: @"%d", i]];
+        i += 1;
+    }
+}
+
 -(void)applicationDidFinishLaunching:(NSNotification*)aNotification
 {
     [self loadData];
@@ -253,6 +304,7 @@
     [_captainsTableView setSortDescriptors: @[defaultSortDescriptor]];
     [_upgradesTableView setSortDescriptors: @[defaultSortDescriptor]];
     [_resourcesTableView setSortDescriptors: @[defaultSortDescriptor]];
+    [self setupFactionMenu];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
@@ -430,17 +482,31 @@
     return NSTerminateNow;
 }
 
--(void)whineToUser:(NSString*)msg
+-(void)whineToUser:(NSString*)msg info:(NSString*)info showsSuppressionButton:(BOOL)showsSuppressionButton
 {
     NSAlert* alert = [[NSAlert alloc] init];
     [alert setMessageText: msg];
+    [alert setInformativeText: info];
     [alert setAlertStyle: NSInformationalAlertStyle];
-    [alert runModal];
+    [alert setShowsSuppressionButton: showsSuppressionButton];
+    [alert beginSheetModalForWindow: [self window]
+                      modalDelegate: self
+                     didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
+                        contextInfo: nil];
+}
+
+-(void)whineToUser:(NSString*)msg
+{
+    [self whineToUser: msg info: @"" showsSuppressionButton: NO];
 }
 
 -(void)alertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
 {
     [[alert window] orderOut: self];
+    if ([[alert suppressionButton] state] == NSOnState) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setBool: NO forKey: kWarnAboutUnhandledSpecials];
+    }
 }
 
 -(void)explainCantAddShip:(DockShip*)ship
@@ -764,6 +830,36 @@
     } else {
         // handle error here
     }
+}
+
+-(IBAction)resetFactionFilter:(id)sender
+{
+    _factionName = nil;
+    _shipsController.fetchPredicate = nil;
+    _captainsController.fetchPredicate = nil;
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES"];
+    _upgradesController.fetchPredicate = predicateTemplate;
+}
+
+-(IBAction)filterToFaction:(id)sender
+{
+    _factionName = [sender title];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"faction = %@", _factionName];
+    _shipsController.fetchPredicate = predicateTemplate;
+    _captainsController.fetchPredicate = predicateTemplate;
+    predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES and faction = %@", _factionName];
+    _upgradesController.fetchPredicate = predicateTemplate;
+}
+
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem
+{
+    if ([menuItem action] == @selector(resetFactionFilter:)) {
+        [menuItem setState: _factionName == nil ? NSOnState : NSOffState];
+    } else if ([menuItem action] == @selector(filterToFaction:)) {
+        BOOL isCurrentFilter = [menuItem.title isEqualToString: _factionName];
+        [menuItem setState: isCurrentFilter ? NSOnState : NSOffState];
+    }
+    return YES;
 }
 
 @end

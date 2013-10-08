@@ -11,6 +11,23 @@
 
 @implementation DockUpgrade (Addons)
 
++(NSSet*)allFactions:(NSManagedObjectContext*)context
+{
+    NSMutableSet* allFactionsSet = [[NSMutableSet alloc] initWithCapacity: 0];
+    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Upgrade" inManagedObjectContext: context];
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSError* err;
+    NSArray* existingItems = [context executeFetchRequest: request error: &err];
+    if (existingItems.count > 0) {
+        for (DockUpgrade* upgrade in existingItems) {
+            [allFactionsSet addObject: upgrade.faction];
+        }
+        return [NSSet setWithSet: allFactionsSet];
+    }
+    return nil;
+}
+
 +(DockUpgrade*)upgradeForId:(NSString*)externalId context:(NSManagedObjectContext*)context
 {
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Upgrade" inManagedObjectContext: context];

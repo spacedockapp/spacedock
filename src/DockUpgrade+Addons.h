@@ -3,6 +3,7 @@
 @class DockEquippedShip;
 
 @interface DockUpgrade (Addons)
++(NSSet*)allFactions:(NSManagedObjectContext*)context;
 +(DockUpgrade*)placeholder:(NSString*)upType inContext:(NSManagedObjectContext*)context;
 +(DockUpgrade*)upgradeForId:(NSString*)externalId context:(NSManagedObjectContext*)context;
 -(BOOL)isTalent;
