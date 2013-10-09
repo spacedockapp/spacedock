@@ -46,6 +46,7 @@
     for (DockEquippedUpgrade* upgrade in self.upgrades) {
         cost += [upgrade cost];
     }
+
     return cost;
 }
 
@@ -107,7 +108,7 @@
 
     if (captain == nil) {
         NSString* faction = self.ship.faction;
-        if ([faction isEqualToString: @"Independent"]) {
+        if ([faction isEqualToString: @"Independent"] || [faction isEqualToString: @"Bajoran"]) {
             faction = @"Federation";
         }
         DockUpgrade* zcc = [DockCaptain zeroCostCaptain: faction context: self.managedObjectContext];
@@ -152,6 +153,12 @@
 
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade
 {
+    NSString* upgradeSpecial = upgrade.special;
+    if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
+        if (![self.ship isJemhadar]) {
+            return NO;
+        }
+    }
     int limit = [upgrade limitForShip: self];
     return limit > 0;
 }
@@ -208,6 +215,36 @@
         }
     }
     return nil;
+}
+
+-(DockEquippedUpgrade*)mostExpensiveUpgradeOfFaction:(NSString*)faction
+{
+    DockEquippedUpgrade* mostExpensive = nil;
+    NSMutableArray* allUpgrades = [[NSMutableArray alloc] init];
+    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        if (![eu.upgrade isCaptain]) {
+            if ([faction isEqualToString: eu.upgrade.faction]) {
+                [allUpgrades addObject: eu];
+            }
+        }
+    }
+    if (allUpgrades.count > 0) {
+        if (allUpgrades.count > 1) {
+            id cmp = ^(DockEquippedUpgrade* a, DockEquippedUpgrade* b) {
+                int aCost = [a rawCost];
+                int bCost = [b rawCost];
+                if (aCost == bCost) {
+                    return NSOrderedSame;
+                } else if (aCost > bCost) {
+                    return NSOrderedAscending;
+                }
+                return NSOrderedAscending;
+            };
+            [allUpgrades sortedArrayUsingComparator: cmp];
+        }
+        mostExpensive = allUpgrades[0];
+    }
+    return mostExpensive;
 }
 
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade

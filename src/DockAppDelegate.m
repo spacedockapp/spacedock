@@ -210,6 +210,11 @@ static id processAttribute(id v, NSInteger aType)
         @"costincreasedifnotbreen",
         @"UpgradesIgnoreFactionPenalty",
         @"CaptainAndTalentsIgnoreFactionPenalty",
+        @"PenaltyOnShipOtherThanDefiant",
+        @"PlusFivePointsNonJemHadarShips",
+        @"NoPenaltyOnFederationOrBajoranShip",
+        @"OneDominionUpgradeCostsMinusTwo",
+        @"OnlyJemHadarShips"
     ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];
@@ -556,6 +561,11 @@ static id processAttribute(id v, NSInteger aType)
             } else {
                 info = [NSString stringWithFormat: @"This ship has no %@ upgrade symbols on its ship card.", [upgrade.upType lowercaseString]];
             }
+        }
+    } else {
+        NSString* upgradeSpecial = upgrade.special;
+        if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
+            info = @"This upgrade can only be added to Jem'hadar ships.";
         }
     }
 

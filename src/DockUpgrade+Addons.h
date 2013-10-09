@@ -12,6 +12,7 @@
 -(BOOL)isCaptain;
 -(BOOL)isPlaceholder;
 -(BOOL)isUnique;
+-(BOOL)isDominion;
 -(NSComparisonResult)compareTo:(DockUpgrade*)other;
 -(int)limitForShip:(DockEquippedShip*)targetShip;
 -(NSAttributedString*)styledDescription;

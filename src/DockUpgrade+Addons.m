@@ -138,6 +138,11 @@
     return [[self unique] boolValue];
 }
 
+-(BOOL)isDominion
+{
+    return [self.faction isEqualToString: @"Dominion"];
+}
+
 -(NSComparisonResult)compareTo:(DockUpgrade*)other
 {
     NSString* upTypeMe = [self upSortType];

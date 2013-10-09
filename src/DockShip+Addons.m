@@ -57,9 +57,30 @@
     return r.location != NSNotFound;
 }
 
+-(BOOL)isJemhadar
+{
+    NSRange r = [self.shipClass rangeOfString: @"Jem'hadar"];
+    return r.location != NSNotFound;
+}
+
+-(BOOL)isDefiant
+{
+    return [self.title isEqualToString: @"U.S.S. Defiant"];
+}
+
 -(BOOL)isUnique
 {
     return [self.unique boolValue];
+}
+
+-(BOOL)isFederation
+{
+    return [self.faction isEqualToString: @"Federation"];
+}
+
+-(BOOL)isBajoran
+{
+    return [self.faction isEqualToString: @"Bajoran"];
 }
 
 -(int)techCount
