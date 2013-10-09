@@ -1,4 +1,4 @@
-<Data version="1.11">
+<Data version="1.13">
   <Ships>
     <Ship>
       <Title>U.S.S. Enterprise-D</Title>
@@ -1560,7 +1560,7 @@
       <Type>Captain</Type>
       <Faction>Dominion</Faction>
       <Cost>0</Cost>
-      <Id>2025</Id>
+      <Id>2036</Id>
       <Set>71271</Set>
     </Captain>    
 
@@ -2648,7 +2648,7 @@
       <Type>Talent</Type>
       <Faction>Klingon</Faction>
       <Cost>5</Cost>
-      <Id>3064</Id>
+      <Id>3086</Id>
       <Set>OP2Prize</Set>
     </Upgrade>
     <Upgrade>
@@ -2663,7 +2663,7 @@
       <Type>Weapon</Type>
       <Faction>Klingon</Faction>
       <Cost>5</Cost>
-      <Id>3064</Id>
+      <Id>3087</Id>
       <Set>OP2Prize</Set>
     </Upgrade>
     <Upgrade>
@@ -2757,7 +2757,7 @@
       <Type>Talent</Type>
       <Faction>Federation</Faction>
       <Cost>3</Cost>
-      <Id>3070</Id>
+      <Id>3088</Id>
       <Set>71268</Set>
     </Upgrade>
     <Upgrade>
@@ -2788,7 +2788,7 @@
       <Type>Crew</Type>
       <Faction>Federation</Faction>
       <Cost>4</Cost>
-      <Id>3071</Id>
+      <Id>3089</Id>
       <Set>71268</Set>
     </Upgrade>
     <Upgrade>
@@ -2804,7 +2804,7 @@
       <Type>Crew</Type>
       <Faction>Federation</Faction>
       <Cost>5</Cost>
-      <Id>3071</Id>
+      <Id>3090</Id>
       <Set>71268</Set>
     </Upgrade>
 
