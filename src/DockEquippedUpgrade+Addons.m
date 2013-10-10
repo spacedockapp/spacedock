@@ -121,6 +121,7 @@
     if ([captainSpecial isEqualToString: @"OneDominionUpgradeCostsMinusTwo"]) {
         if ([upgrade isDominion]) {
             DockEquippedUpgrade* most = [self.equippedShip mostExpensiveUpgradeOfFaction: @"Dominion"];
+
             if (most == self) {
                 cost -= 2;
             }

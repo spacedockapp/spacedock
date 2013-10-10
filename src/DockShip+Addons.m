@@ -21,9 +21,11 @@
     [request setPredicate: predicateTemplate];
     NSError* err;
     NSArray* existingItems = [context executeFetchRequest: request error: &err];
+
     if (existingItems.count > 0) {
         return existingItems[0];
     }
+
     return nil;
 }
 
@@ -37,9 +39,11 @@
     [request setPredicate: predicateTemplate];
     NSError* err;
     NSArray* existingItems = [context executeFetchRequest: request error: &err];
+
     if (existingItems.count > 0) {
         return existingItems[0];
     }
+
     return nil;
 }
 

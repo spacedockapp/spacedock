@@ -22,18 +22,22 @@
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Squad"
                                               inManagedObjectContext: context];
     DockSquad* squad = [[DockSquad alloc] initWithEntity: entity
-                                     insertIntoManagedObjectContext: context];
+                          insertIntoManagedObjectContext: context];
     squad.name = name;
 
     DockEquippedShip* currentShip = nil;
     NSArray* lines = [datFormatString componentsSeparatedByCharactersInSet: [NSCharacterSet newlineCharacterSet]];
+
     for (NSString* line in lines) {
         NSArray* parts = [line componentsSeparatedByString: @"|"];
+
         if (parts.count >= 3) {
             NSString* label = parts[0];
             NSString* externalId = parts[2];
+
             if ([label isEqualToString: @"Ships"]) {
                 DockShip* ship = [DockShip shipForId: externalId context: context];
+
                 if (ship != nil) {
                     currentShip = [DockEquippedShip equippedShipWithShip: ship];
                     [squad addEquippedShip: currentShip];
@@ -44,7 +48,7 @@
                         DockResource* resource = [DockResource resourceForId: externalId context: context];
                         squad.resource = resource;
                     } else {
-                        DockUpgrade* upgrade = [DockUpgrade upgradeForId: externalId context:context];
+                        DockUpgrade* upgrade = [DockUpgrade upgradeForId: externalId context: context];
                         [currentShip addUpgrade: upgrade];
                     }
                 }
@@ -174,7 +178,7 @@
     return [NSString stringWithString: textFormat];
 }
 
-static NSString* toDataFormat(NSString*label, id element)
+static NSString* toDataFormat(NSString* label, id element)
 {
     return [NSString stringWithFormat: @"%@|%@|%@\n", label, [element title], [element externalId]];
 }
@@ -183,8 +187,10 @@ static NSString* toDataFormat(NSString*label, id element)
 {
     NSMutableString* dataFormat = [[NSMutableString alloc] init];
     int i = 0;
+
     for (DockEquippedShip* ship in self.equippedShips) {
         [dataFormat appendString: toDataFormat(@"Ships", ship.ship)];
+
         for (DockEquippedUpgrade* upgrade in ship.sortedUpgrades) {
             if ([upgrade isPlaceholder]) {
                 [dataFormat appendString: @"Upgrades||\n"];
@@ -220,6 +226,7 @@ static NSString* toDataFormat(NSString*label, id element)
 {
     for (DockEquippedShip* ship in self.equippedShips) {
         DockEquippedUpgrade* existing = [ship containsUpgrade: theUpgrade];
+
         if (existing) {
             return existing;
         }

@@ -33,14 +33,14 @@ NSString* kWarnAboutUnhandledSpecials = @"warnAboutUnhandledSpecials";
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
 
-+ (void)initialize
++(void)initialize
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *appDefs = @{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary* appDefs = @{
         kWarnAboutUnhandledSpecials: @YES
     };
 
-    [defaults registerDefaults:appDefs];
+    [defaults registerDefaults: appDefs];
 }
 
 -(void)handleError:(NSError*)error
@@ -215,11 +215,13 @@ static id processAttribute(id v, NSInteger aType)
         @"NoPenaltyOnFederationOrBajoranShip",
         @"OneDominionUpgradeCostsMinusTwo",
         @"OnlyJemHadarShips"
-    ];
+                               ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];
+
     if (unhandledSpecials.count > 0) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+
         if ([defaults boolForKey: kWarnAboutUnhandledSpecials]) {
             NSString* msg = [NSString stringWithFormat: @"Data.xml contains cards that have special effects that this version of Space Dock doesn't know how to handle"];
             NSArray* unhandledSpecialsArray = [unhandledSpecials allObjects];
@@ -269,6 +271,7 @@ static id processAttribute(id v, NSInteger aType)
 -(void)loadData
 {
     NSXMLDocument* xmlDoc = [self loadDataFile];
+
     if (xmlDoc != nil) {
         [self loadItems: xmlDoc itemClass: [DockShip class] entityName: @"Ship" xpath: @"/Data/Ships/Ship" targetType: nil];
         [self loadItems: xmlDoc itemClass: [DockCaptain class] entityName: @"Captain" xpath: @"/Data/Captains/Captain" targetType: nil];
@@ -299,6 +302,7 @@ static id processAttribute(id v, NSInteger aType)
     NSSet* factionsSet = [DockUpgrade allFactions: _managedObjectContext];
     NSArray* factionsArray = [[factionsSet allObjects] sortedArrayUsingSelector: @selector(caseInsensitiveCompare:)];
     int i = 1;
+
     for (NSString* factionName in factionsArray) {
         [_factionMenu addItemWithTitle: factionName action: @selector(filterToFaction:) keyEquivalent: [NSString stringWithFormat: @"%d", i]];
         i += 1;
@@ -388,7 +392,7 @@ static id processAttribute(id v, NSInteger aType)
     NSURL* url = [applicationFilesDirectory URLByAppendingPathComponent: @"Space_Dock.storedata"];
     NSPersistentStoreCoordinator* coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: mom];
 
-    NSDictionary *options = @{
+    NSDictionary* options = @{
         NSMigratePersistentStoresAutomaticallyOption : @YES,
         NSInferMappingModelAutomaticallyOption: @YES
     };
@@ -516,8 +520,9 @@ static id processAttribute(id v, NSInteger aType)
 -(void)alertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
 {
     [[alert window] orderOut: self];
+
     if ([[alert suppressionButton] state] == NSOnState) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
         [defaults setBool: NO forKey: kWarnAboutUnhandledSpecials];
     }
 }
@@ -572,6 +577,7 @@ static id processAttribute(id v, NSInteger aType)
         }
     } else {
         NSString* upgradeSpecial = upgrade.special;
+
         if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
             info = @"This upgrade can only be added to Jem'hadar ships.";
         }
@@ -596,12 +602,14 @@ static id processAttribute(id v, NSInteger aType)
         for (DockShip* ship in shipsToAdd) {
             if ([ship isUnique]) {
                 DockEquippedShip* existing = [squad containsShip: ship];
+
                 if (existing != nil) {
                     [self selectShip: existing];
                     [self explainCantAddShip: ship];
                     continue;
                 }
             }
+
             DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: ship];
             es.ship = ship;
             [squad addEquippedShip: es];
@@ -678,18 +686,22 @@ static id processAttribute(id v, NSInteger aType)
     } else {
         DockCaptain* captain = captainsToAdd[0];
         DockCaptain* existingCaptain = [targetShip captain];
+
         if (captain == existingCaptain) {
             return nil;
         }
+
         if ([captain isUnique]) {
             DockSquad* squad = [self selectedSquad];
             DockEquippedUpgrade* existing = [squad containsUpgrade: captain];
+
             if (existing) {
                 [self selectUpgrade: existing];
                 [self explainCantUniqueUpgrade: captain];
                 return nil;
             }
         }
+
         [targetShip removeCaptain];
         return [targetShip addUpgrade: captain];
     }
@@ -705,6 +717,7 @@ static id processAttribute(id v, NSInteger aType)
     if ([upgrade isUnique]) {
         DockSquad* squad = [self selectedSquad];
         DockEquippedUpgrade* existing = [squad containsUpgrade: upgrade];
+
         if (existing) {
             [self selectUpgrade: existing];
             [self explainCantUniqueUpgrade: upgrade];
@@ -815,8 +828,9 @@ static id processAttribute(id v, NSInteger aType)
                  NSString* textFormat = [squad asDataFormat];
                  NSError* error;
                  [textFormat writeToURL: fileUrl atomically: NO encoding: NSUTF8StringEncoding error: &error];
-            }
+             }
          }
+
          _currentSavePanel = nil;
      }
 
@@ -826,10 +840,12 @@ static id processAttribute(id v, NSInteger aType)
 -(IBAction)setFormat:(id)sender
 {
     NSString* newExtension = @"txt";
-     NSInteger formatSelected = self.exportFormatPopup.selectedTag;
+    NSInteger formatSelected = self.exportFormatPopup.selectedTag;
+
     if (formatSelected == 2) {
         newExtension = @"dat";
     }
+
     NSString* currentName = [_currentSavePanel nameFieldStringValue];
     NSString* currentBaseName = [currentName stringByDeletingPathExtension];
     NSString* newName = [currentBaseName stringByAppendingPathExtension: newExtension];
@@ -840,23 +856,26 @@ static id processAttribute(id v, NSInteger aType)
 {
     NSOpenPanel* importPanel = [NSOpenPanel openPanel];
     importPanel.allowedFileTypes = @[@"dat"];
-    [importPanel beginSheetModalForWindow: self.window completionHandler:^(NSInteger v) {
-        if (v == NSFileHandlingPanelOKButton) {
-            NSURL* fileUrl = importPanel.URL;
-            NSString* filePath = [fileUrl path];
-            NSString* fileName = [filePath lastPathComponent];
-            NSString* squadName = [fileName stringByDeletingPathExtension];
-            NSError* error;
-            NSString* data = [NSString stringWithContentsOfURL: fileUrl encoding: NSUTF8StringEncoding error:&error];
-            [DockSquad import: squadName data: data context: _managedObjectContext];
-        }
-    }];
+    [importPanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
+         if (v == NSFileHandlingPanelOKButton) {
+             NSURL* fileUrl = importPanel.URL;
+             NSString* filePath = [fileUrl path];
+             NSString* fileName = [filePath lastPathComponent];
+             NSString* squadName = [fileName stringByDeletingPathExtension];
+             NSError* error;
+             NSString* data = [NSString stringWithContentsOfURL: fileUrl encoding: NSUTF8StringEncoding error: &error];
+             [DockSquad import: squadName data: data context: _managedObjectContext];
+         }
+     }
+
+    ];
 }
 
-- (IBAction)print:(id)sender
+-(IBAction)print:(id)sender
 {
-    NSPrintOperation *op;
+    NSPrintOperation* op;
     op = [NSPrintOperation printOperationWithView: _fleetBuildSheet];
+
     if (op) {
         [op runOperation];
     } else {
@@ -897,14 +916,16 @@ static id processAttribute(id v, NSInteger aType)
                         contextInfo: nil];
 }
 
-- (IBAction)toggleUnique:(id)sender
+-(IBAction)toggleUnique:(id)sender
 {
     DockEquippedShip* currentShip = [self selectedShip];
+
     if (currentShip != nil) {
         DockShip* ship = currentShip.ship;
         DockShip* counterpart = [ship counterpart];
         DockSquad* squad = [self selectedSquad];
         DockEquippedShip* existing = [squad containsShip: counterpart];
+
         if (existing != nil && [counterpart isUnique]) {
             [self explainCantPromoteShip: counterpart];
         } else {
@@ -913,27 +934,32 @@ static id processAttribute(id v, NSInteger aType)
     }
 }
 
-- (BOOL)validateMenuItem:(NSMenuItem *)menuItem
+-(BOOL)validateMenuItem:(NSMenuItem*)menuItem
 {
     SEL action = [menuItem action];
+
     if (action == @selector(resetFactionFilter:)) {
-        [menuItem setState: _factionName == nil ? NSOnState : NSOffState];
+        [menuItem setState: _factionName == nil ? NSOnState: NSOffState];
     } else if (action == @selector(filterToFaction:)) {
         BOOL isCurrentFilter = [menuItem.title isEqualToString: _factionName];
-        [menuItem setState: isCurrentFilter ? NSOnState : NSOffState];
+        [menuItem setState: isCurrentFilter ? NSOnState: NSOffState];
     } else if (action == @selector(toggleUnique:)) {
         DockEquippedShip* currentShip = [self selectedShip];
+
         if (currentShip == nil) {
             return NO;
         }
+
         DockShip* ship = currentShip.ship;
         DockShip* counterpart = [ship counterpart];
+
         if ([ship isUnique]) {
             [menuItem setTitle: [NSString stringWithFormat: @"Demote to '%@'", counterpart.title]];
         } else {
             [menuItem setTitle: [NSString stringWithFormat: @"Promote to '%@'", counterpart.title]];
         }
     }
+
     return YES;
 }
 
@@ -941,15 +967,17 @@ static id processAttribute(id v, NSInteger aType)
 {
     NSLog(@"cleanupDatabase");
     NSArray* dupNames = @[
-                          @"Attack Pattern Delta",
-                          @"Cloaking Device",
-                          @"Jadzia Dax",
-                          @"Miles O'Brien",
-                          @"Defense Condition One",
-                          @"Barrage of Fire",
-                          ];
+        @"Attack Pattern Delta",
+        @"Cloaking Device",
+        @"Jadzia Dax",
+        @"Miles O'Brien",
+        @"Defense Condition One",
+        @"Barrage of Fire",
+                        ];
+
     for (NSString* name in dupNames) {
         NSArray* upgrades = [DockUpgrade findUpgrades: name context: _managedObjectContext];
+
         if (upgrades.count > 1) {
             id cmp = ^(id a, id b) {
                 return [[b externalId] compare: [a externalId]];
@@ -958,11 +986,13 @@ static id processAttribute(id v, NSInteger aType)
             NSIndexSet* indexSet = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(1, upgrades.count - 1)];
             NSArray* onesToReplace = [upgrades objectsAtIndexes: indexSet];
             DockUpgrade* oneTrueUpgrade = upgrades[0];
+
             for (id u in onesToReplace) {
                 NSLog(@"u = %@ %@", u, [u externalId]);
                 NSArray* squads = [DockSquad allSquads: _managedObjectContext];
+
                 for (DockSquad* squad in squads) {
-                    for(DockEquippedShip* ship in squad.equippedShips) {
+                    for (DockEquippedShip* ship in squad.equippedShips) {
                         for (DockEquippedUpgrade* eu in ship.sortedUpgrades) {
                             if (eu.upgrade == u) {
                                 NSLog(@"need to replace upgrade in %@", eu);
@@ -982,14 +1012,16 @@ static id processAttribute(id v, NSInteger aType)
     [request setPredicate: predicateTemplate];
     NSError* err;
     NSArray* dupBreens = [_managedObjectContext executeFetchRequest: request error: &err];
+
     if (dupBreens.count > 1) {
         NSIndexSet* indexSet = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(1, dupBreens.count - 1)];
         NSArray* onesToReplace = [dupBreens objectsAtIndexes: indexSet];
         NSArray* squads = [DockSquad allSquads: _managedObjectContext];
         id oneTrueBreen = dupBreens[0];
+
         for (id dupBreen in onesToReplace) {
             for (DockSquad* squad in squads) {
-                for(DockEquippedShip* ship in squad.equippedShips) {
+                for (DockEquippedShip* ship in squad.equippedShips) {
                     if (ship.equippedCaptain.upgrade == dupBreen) {
                         NSLog(@"need to replace captain in %@", ship);
                         ship.equippedCaptain.upgrade = oneTrueBreen;

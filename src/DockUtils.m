@@ -21,13 +21,16 @@ NSSet* allAttributes(NSManagedObjectContext* context, NSString* entityName, NSSt
     [request setEntity: entity];
     NSError* err;
     NSArray* existingItems = [context executeFetchRequest: request error: &err];
+
     if (existingItems.count > 0) {
         for (id item in existingItems) {
             NSString* attributeValue = [item valueForKey: attributeName];
+
             if ([attributeValue length] > 0) {
                 [allSpecials addObject: attributeValue];
             }
         }
     }
+
     return [NSSet setWithSet: allSpecials];
 }

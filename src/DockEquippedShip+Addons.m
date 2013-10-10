@@ -96,7 +96,7 @@
     return count;
 }
 
--(void)removeOverLimit:(NSString*)upType current:(int) current limit:(int)limit
+-(void)removeOverLimit:(NSString*)upType current:(int)current limit:(int)limit
 {
     int amountToRemove = current - limit;
     [self removeUpgradesOfType: upType targetCount: amountToRemove];
@@ -123,9 +123,11 @@
 
     if (captain == nil) {
         NSString* faction = self.ship.faction;
+
         if ([faction isEqualToString: @"Independent"] || [faction isEqualToString: @"Bajoran"]) {
             faction = @"Federation";
         }
+
         DockUpgrade* zcc = [DockCaptain zeroCostCaptain: faction context: self.managedObjectContext];
         [self addUpgrade: zcc maybeReplace: nil establishPlaceholders: NO];
     }
@@ -169,11 +171,13 @@
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade
 {
     NSString* upgradeSpecial = upgrade.special;
+
     if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
         if (![self.ship isJemhadar]) {
             return NO;
         }
     }
+
     int limit = [upgrade limitForShip: self];
     return limit > 0;
 }
@@ -236,6 +240,7 @@
 {
     DockEquippedUpgrade* mostExpensive = nil;
     NSMutableArray* allUpgrades = [[NSMutableArray alloc] init];
+
     for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
         if (![eu.upgrade isCaptain]) {
             if ([faction isEqualToString: eu.upgrade.faction]) {
@@ -243,22 +248,27 @@
             }
         }
     }
+
     if (allUpgrades.count > 0) {
         if (allUpgrades.count > 1) {
             id cmp = ^(DockEquippedUpgrade* a, DockEquippedUpgrade* b) {
                 int aCost = [a rawCost];
                 int bCost = [b rawCost];
+
                 if (aCost == bCost) {
                     return NSOrderedSame;
                 } else if (aCost > bCost) {
                     return NSOrderedAscending;
                 }
+
                 return NSOrderedAscending;
             };
             [allUpgrades sortedArrayUsingComparator: cmp];
         }
+
         mostExpensive = allUpgrades[0];
     }
+
     return mostExpensive;
 }
 
@@ -297,6 +307,7 @@
         if ([eu.upgrade isPlaceholder] && [upType isEqualToString: eu.upgrade.upType]) {
             [onesToRemove addObject: eu];
         }
+
         if (onesToRemove.count == targetCount) {
             break;
         }
@@ -307,6 +318,7 @@
             if ([upType isEqualToString: eu.upgrade.upType]) {
                 [onesToRemove addObject: eu];
             }
+
             if (onesToRemove.count == targetCount) {
                 break;
             }

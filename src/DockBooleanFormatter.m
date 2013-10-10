@@ -10,12 +10,14 @@
 
 @implementation DockBooleanFormatter
 
-- (NSString *)stringForObjectValue:(id)obj
+-(NSString*)stringForObjectValue:(id)obj
 {
     BOOL yn = [obj boolValue];
+
     if (yn) {
         return @"Y";
     }
+
     return @"N";
 }
 
