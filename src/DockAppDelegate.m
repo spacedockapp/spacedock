@@ -229,7 +229,7 @@ static id processAttribute(id v, NSInteger aType)
     }
 }
 
--(void)loadData
+-(NSXMLDocument*)loadDataFile
 {
     NSString* file = [[NSBundle mainBundle] pathForResource: @"Data" ofType: @"xml"];
     NSXMLDocument* xmlDoc;
@@ -238,7 +238,7 @@ static id processAttribute(id v, NSInteger aType)
 
     if (!furl) {
         NSLog(@"Can't create an URL from file %@.", file);
-        return;
+        return nil;
     }
 
     xmlDoc = [[NSXMLDocument alloc] initWithContentsOfURL: furl
@@ -256,21 +256,29 @@ static id processAttribute(id v, NSInteger aType)
             [self handleError: err];
         }
 
-        return;
+        return nil;
     }
 
     if (err) {
         [self handleError: err];
     }
 
-    [self loadItems: xmlDoc itemClass: [DockShip class] entityName: @"Ship" xpath: @"/Data/Ships/Ship" targetType: nil];
-    [self loadItems: xmlDoc itemClass: [DockCaptain class] entityName: @"Captain" xpath: @"/Data/Captains/Captain" targetType: nil];
-    [self loadItems: xmlDoc itemClass: [DockWeapon class] entityName: @"Weapon" xpath: @"/Data/Upgrades/Upgrade" targetType: @"Weapon"];
-    [self loadItems: xmlDoc itemClass: [DockTalent class] entityName: @"Talent" xpath: @"/Data/Upgrades/Upgrade" targetType: @"Talent"];
-    [self loadItems: xmlDoc itemClass: [DockCrew class] entityName: @"Crew" xpath: @"/Data/Upgrades/Upgrade" targetType: @"Crew"];
-    [self loadItems: xmlDoc itemClass: [DockTech class] entityName: @"Tech" xpath: @"/Data/Upgrades/Upgrade" targetType: @"Tech"];
-    [self loadItems: xmlDoc itemClass: [DockResource class] entityName: @"Resource" xpath: @"/Data/Resources/Resource" targetType: @"Resource"];
-    [self validateSpecials];
+    return xmlDoc;
+}
+
+-(void)loadData
+{
+    NSXMLDocument* xmlDoc = [self loadDataFile];
+    if (xmlDoc != nil) {
+        [self loadItems: xmlDoc itemClass: [DockShip class] entityName: @"Ship" xpath: @"/Data/Ships/Ship" targetType: nil];
+        [self loadItems: xmlDoc itemClass: [DockCaptain class] entityName: @"Captain" xpath: @"/Data/Captains/Captain" targetType: nil];
+        [self loadItems: xmlDoc itemClass: [DockWeapon class] entityName: @"Weapon" xpath: @"/Data/Upgrades/Upgrade" targetType: @"Weapon"];
+        [self loadItems: xmlDoc itemClass: [DockTalent class] entityName: @"Talent" xpath: @"/Data/Upgrades/Upgrade" targetType: @"Talent"];
+        [self loadItems: xmlDoc itemClass: [DockCrew class] entityName: @"Crew" xpath: @"/Data/Upgrades/Upgrade" targetType: @"Crew"];
+        [self loadItems: xmlDoc itemClass: [DockTech class] entityName: @"Tech" xpath: @"/Data/Upgrades/Upgrade" targetType: @"Tech"];
+        [self loadItems: xmlDoc itemClass: [DockResource class] entityName: @"Resource" xpath: @"/Data/Resources/Resource" targetType: @"Resource"];
+        [self validateSpecials];
+    }
 }
 
 -(void)observeValueForKeyPath:(NSString*)keyPath
@@ -927,6 +935,97 @@ static id processAttribute(id v, NSInteger aType)
         }
     }
     return YES;
+}
+
+-(IBAction)cleanupDatabase:(id)sender
+{
+    NSLog(@"cleanupDatabase");
+    NSArray* dupNames = @[
+                          @"Attack Pattern Delta",
+                          @"Cloaking Device",
+                          @"Jadzia Dax",
+                          @"Miles O'Brien",
+                          @"Defense Condition One",
+                          @"Barrage of Fire",
+                          ];
+    for (NSString* name in dupNames) {
+        NSArray* upgrades = [DockUpgrade findUpgrades: name context: _managedObjectContext];
+        if (upgrades.count > 1) {
+            id cmp = ^(id a, id b) {
+                return [[b externalId] compare: [a externalId]];
+            };
+            upgrades = [upgrades sortedArrayUsingComparator: cmp];
+            NSIndexSet* indexSet = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(1, upgrades.count - 1)];
+            NSArray* onesToReplace = [upgrades objectsAtIndexes: indexSet];
+            DockUpgrade* oneTrueUpgrade = upgrades[0];
+            for (id u in onesToReplace) {
+                NSLog(@"u = %@ %@", u, [u externalId]);
+                NSArray* squads = [DockSquad allSquads: _managedObjectContext];
+                for (DockSquad* squad in squads) {
+                    for(DockEquippedShip* ship in squad.equippedShips) {
+                        for (DockEquippedUpgrade* eu in ship.sortedUpgrades) {
+                            if (eu.upgrade == u) {
+                                NSLog(@"need to replace upgrade in %@", eu);
+                                eu.upgrade = oneTrueUpgrade;
+                            }
+                        }
+                    }
+                }
+                [_managedObjectContext deleteObject: u];
+            }
+        }
+    }
+    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Captain" inManagedObjectContext: _managedObjectContext];
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"externalId == %@", @"2025"];
+    [request setPredicate: predicateTemplate];
+    NSError* err;
+    NSArray* dupBreens = [_managedObjectContext executeFetchRequest: request error: &err];
+    if (dupBreens.count > 1) {
+        NSIndexSet* indexSet = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(1, dupBreens.count - 1)];
+        NSArray* onesToReplace = [dupBreens objectsAtIndexes: indexSet];
+        NSArray* squads = [DockSquad allSquads: _managedObjectContext];
+        id oneTrueBreen = dupBreens[0];
+        for (id dupBreen in onesToReplace) {
+            for (DockSquad* squad in squads) {
+                for(DockEquippedShip* ship in squad.equippedShips) {
+                    if (ship.equippedCaptain.upgrade == dupBreen) {
+                        NSLog(@"need to replace captain in %@", ship);
+                        ship.equippedCaptain.upgrade = oneTrueBreen;
+                    }
+                }
+            }
+            [_managedObjectContext deleteObject: dupBreen];
+        }
+    }
+
+    [_managedObjectContext commitEditing];
+}
+
+-(IBAction)logItem:(id)sender
+{
+    NSTabViewItem* selectedTab = [_tabView selectedTabViewItem];
+    id identifier = selectedTab.identifier;
+    id target = nil;
+
+    if ([identifier isEqualToString: @"ships"]) {
+        NSArray* shipsToAdd = [_shipsController selectedObjects];
+        target = shipsToAdd[0];
+    } else if ([identifier isEqualToString: @"resources"]) {
+        NSArray* selectedResources = [_resourcesController selectedObjects];
+        target = selectedResources[0];
+    } else if ([identifier isEqualToString: @"captains"]) {
+        NSArray* captainsToAdd = [_captainsController selectedObjects];
+        target = captainsToAdd[0];
+    } else if ([identifier isEqualToString: @"upgrades"]) {
+        NSArray* upgradeToAdd = [_upgradesController selectedObjects];
+        target = upgradeToAdd[0];
+    }
+
+    if (target != nil) {
+        NSLog(@"target = %@, id = %@", target, [target externalId]);
+    }
 }
 
 @end

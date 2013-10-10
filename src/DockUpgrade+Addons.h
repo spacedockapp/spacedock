@@ -6,6 +6,7 @@
 +(NSSet*)allFactions:(NSManagedObjectContext*)context;
 +(DockUpgrade*)placeholder:(NSString*)upType inContext:(NSManagedObjectContext*)context;
 +(DockUpgrade*)upgradeForId:(NSString*)externalId context:(NSManagedObjectContext*)context;
++(NSArray*)findUpgrades:(NSString*)title context:(NSManagedObjectContext*)context;
 -(BOOL)isTalent;
 -(BOOL)isCrew;
 -(BOOL)isWeapon;

@@ -8,6 +8,15 @@
 
 @implementation DockSquad (Addons)
 
++(NSArray*)allSquads:(NSManagedObjectContext*)context
+{
+    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Squad" inManagedObjectContext: context];
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSError* err;
+    return [context executeFetchRequest: request error: &err];
+}
+
 +(DockSquad*)import:(NSString*)name data:(NSString*)datFormatString context:(NSManagedObjectContext*)context
 {
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Squad"

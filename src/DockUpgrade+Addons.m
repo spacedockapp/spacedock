@@ -80,6 +80,17 @@
     return placeholderUpgrade;
 }
 
++(NSArray*)findUpgrades:(NSString*)title context:(NSManagedObjectContext*)context
+{
+    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Upgrade" inManagedObjectContext: context];
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"title like %@", title];
+    [request setPredicate: predicateTemplate];
+    NSError* err;
+    return [context executeFetchRequest: request error: &err];
+}
+
 -(NSString*)description
 {
     if ([self isPlaceholder]) {
