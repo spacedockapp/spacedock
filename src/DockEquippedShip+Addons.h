@@ -21,4 +21,5 @@
 -(int)talentCount;
 -(NSArray*)sortedUpgrades;
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
+-(void)changeShip:(DockShip*)newShip;
 @end

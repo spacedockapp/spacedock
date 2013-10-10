@@ -11,6 +11,7 @@
 @interface DockShip (Addons)
 -(NSAttributedString*)styledDescription;
 +(DockShip*)shipForId:(NSString*)externalId context:(NSManagedObjectContext*)context;
+-(DockShip*)counterpart;
 -(BOOL)isBreen;
 -(BOOL)isJemhadar;
 -(BOOL)isDefiant;

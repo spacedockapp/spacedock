@@ -339,6 +339,19 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem title="Ship" id="Xxh-Qd-BCT">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Ship" id="eAT-Ot-kmk">
+                        <items>
+                            <menuItem title="Promote" id="CTX-xB-lZ9">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="toggleUnique:" target="-1" id="Vo1-Nt-UAQ"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
                 <menuItem title="Faction" id="R71-os-hD3" userLabel="Menu Item - Filter">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Faction" id="jzV-EA-Bef">

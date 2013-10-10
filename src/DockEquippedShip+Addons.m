@@ -11,12 +11,17 @@
 
 +(NSSet*)keyPathsForValuesAffectingSortedUpgrades
 {
-    return [NSSet setWithObjects: @"upgrades", nil];
+    return [NSSet setWithObjects: @"upgrades", @"ship", nil];
 }
 
 +(NSSet*)keyPathsForValuesAffectingCost
 {
-    return [NSSet setWithObjects: @"upgrades", nil];
+    return [NSSet setWithObjects: @"upgrades", @"ship", nil];
+}
+
++(NSSet*)keyPathsForValuesAffectingStyledDescription
+{
+    return [NSSet setWithObjects: @"ship", nil];
 }
 
 -(NSString*)title
@@ -91,14 +96,24 @@
     return count;
 }
 
+-(void)removeOverLimit:(NSString*)upType current:(int) current limit:(int)limit
+{
+    int amountToRemove = current - limit;
+    [self removeUpgradesOfType: upType targetCount: amountToRemove];
+}
+
 -(void)establishPlaceholdersForType:(NSString*)upType limit:(int)limit
 {
     NSManagedObjectContext* context = self.managedObjectContext;
     int current = [self equipped: upType];
 
-    for (int i = current; i < limit; ++i) {
-        DockUpgrade* upgrade = [DockUpgrade placeholder: upType inContext: context];
-        [self addUpgrade: upgrade maybeReplace: nil establishPlaceholders: NO];
+    if (current > limit) {
+        [self removeOverLimit: upType current: current limit: limit];
+    } else {
+        for (int i = current; i < limit; ++i) {
+            DockUpgrade* upgrade = [DockUpgrade placeholder: upType inContext: context];
+            [self addUpgrade: upgrade maybeReplace: nil establishPlaceholders: NO];
+        }
     }
 }
 
@@ -274,6 +289,35 @@
     [self removeUpgrade: upgrade establishPlaceholders: NO];
 }
 
+-(void)removeUpgradesOfType:(NSString*)upType targetCount:(int)targetCount
+{
+    NSMutableArray* onesToRemove = [[NSMutableArray alloc] initWithCapacity: 0];
+
+    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        if ([eu.upgrade isPlaceholder] && [upType isEqualToString: eu.upgrade.upType]) {
+            [onesToRemove addObject: eu];
+        }
+        if (onesToRemove.count == targetCount) {
+            break;
+        }
+    }
+
+    if (onesToRemove.count != targetCount) {
+        for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+            if ([upType isEqualToString: eu.upgrade.upType]) {
+                [onesToRemove addObject: eu];
+            }
+            if (onesToRemove.count == targetCount) {
+                break;
+            }
+        }
+    }
+
+    for (DockEquippedUpgrade* eu in onesToRemove) {
+        [self removeUpgrade: eu establishPlaceholders: NO];
+    }
+}
+
 -(NSArray*)sortedUpgrades
 {
     NSArray* items = [self.upgrades allObjects];
@@ -308,6 +352,12 @@
         }
     }
     return nil;
+}
+
+-(void)changeShip:(DockShip*)newShip
+{
+    self.ship = newShip;
+    [self establishPlaceholders];
 }
 
 @end

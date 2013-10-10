@@ -875,13 +875,36 @@ static id processAttribute(id v, NSInteger aType)
     _upgradesController.fetchPredicate = predicateTemplate;
 }
 
+- (IBAction)toggleUnique:(id)sender
+{
+    DockEquippedShip* currentShip = [self selectedShip];
+    if (currentShip != nil) {
+        DockShip* ship = currentShip.ship;
+        DockShip* counterpart = [ship counterpart];
+        [currentShip changeShip: counterpart];
+    }
+}
+
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem
 {
-    if ([menuItem action] == @selector(resetFactionFilter:)) {
+    SEL action = [menuItem action];
+    if (action == @selector(resetFactionFilter:)) {
         [menuItem setState: _factionName == nil ? NSOnState : NSOffState];
-    } else if ([menuItem action] == @selector(filterToFaction:)) {
+    } else if (action == @selector(filterToFaction:)) {
         BOOL isCurrentFilter = [menuItem.title isEqualToString: _factionName];
         [menuItem setState: isCurrentFilter ? NSOnState : NSOffState];
+    } else if (action == @selector(toggleUnique:)) {
+        DockEquippedShip* currentShip = [self selectedShip];
+        if (currentShip == nil) {
+            return NO;
+        }
+        DockShip* ship = currentShip.ship;
+        DockShip* counterpart = [ship counterpart];
+        if ([ship isUnique]) {
+            [menuItem setTitle: [NSString stringWithFormat: @"Demote to '%@'", counterpart.title]];
+        } else {
+            [menuItem setTitle: [NSString stringWithFormat: @"Promote to '%@'", counterpart.title]];
+        }
     }
     return YES;
 }
