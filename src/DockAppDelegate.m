@@ -875,13 +875,33 @@ static id processAttribute(id v, NSInteger aType)
     _upgradesController.fetchPredicate = predicateTemplate;
 }
 
+-(void)explainCantPromoteShip:(DockShip*)ship
+{
+    NSAlert* alert = [[NSAlert alloc] init];
+    NSString* msg = [NSString stringWithFormat: @"Can't promote the selected ship to %@.", ship.title];
+    [alert setMessageText: msg];
+    NSString* info = [NSString stringWithFormat: @"%@ is unique and already exists in the squadron.", ship.title];
+    [alert setInformativeText: info];
+    [alert setAlertStyle: NSInformationalAlertStyle];
+    [alert beginSheetModalForWindow: [self window]
+                      modalDelegate: self
+                     didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
+                        contextInfo: nil];
+}
+
 - (IBAction)toggleUnique:(id)sender
 {
     DockEquippedShip* currentShip = [self selectedShip];
     if (currentShip != nil) {
         DockShip* ship = currentShip.ship;
         DockShip* counterpart = [ship counterpart];
-        [currentShip changeShip: counterpart];
+        DockSquad* squad = [self selectedSquad];
+        DockEquippedShip* existing = [squad containsShip: counterpart];
+        if (existing != nil && [counterpart isUnique]) {
+            [self explainCantPromoteShip: counterpart];
+        } else {
+            [currentShip changeShip: counterpart];
+        }
     }
 }
 
