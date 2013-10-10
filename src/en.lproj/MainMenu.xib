@@ -1414,6 +1414,7 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <sortDescriptor key="sortDescriptorPrototype" selector="caseInsensitiveCompare:" sortKey="name"/>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
                                                 <binding destination="w6h-j0-fyp" name="value" keyPath="arrangedObjects.name" id="jYl-z3-veC">
@@ -1434,6 +1435,7 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="cost"/>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
                                                 <binding destination="w6h-j0-fyp" name="value" keyPath="arrangedObjects.cost" id="G4e-Bd-EcC">
@@ -1448,6 +1450,7 @@
                                     <connections>
                                         <binding destination="w6h-j0-fyp" name="content" keyPath="arrangedObjects" id="F4x-cS-Im1"/>
                                         <binding destination="w6h-j0-fyp" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="F4x-cS-Im1" id="TJS-Lk-B6W"/>
+                                        <binding destination="w6h-j0-fyp" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="TJS-Lk-B6W" id="7qs-cp-evH"/>
                                     </connections>
                                 </tableView>
                             </subviews>
@@ -1590,7 +1593,7 @@
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="lGA-ol-PLV"/>
             </connections>
         </arrayController>
-        <arrayController mode="entity" entityName="Squad" automaticallyPreparesContent="YES" id="w6h-j0-fyp" userLabel="Squad Controller">
+        <arrayController mode="entity" entityName="Squad" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="w6h-j0-fyp" userLabel="Squad Controller">
             <connections>
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="SED-9u-hqp"/>
             </connections>
