@@ -32,12 +32,14 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel* managedObjectModel;
 @property (readonly, strong, nonatomic) NSManagedObjectContext* managedObjectContext;
 @property (strong, nonatomic) NSString* factionName;
+@property (strong, nonatomic) NSSavePanel* currentSavePanel;
 
 -(IBAction)saveAction:(id)sender;
 -(IBAction)addSelected:(id)sender;
 -(IBAction)deleteSelected:(id)sender;
 -(IBAction)expandAll:(id)sender;
 -(IBAction)exportSquad:(id)sender;
+-(IBAction)setFormat:(id)sender;
 -(IBAction)importSquad:(id)sender;
 -(IBAction)resetFactionFilter:(id)sender;
 -(IBAction)filterToFaction:(id)sender;

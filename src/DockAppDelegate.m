@@ -790,13 +790,13 @@ static id processAttribute(id v, NSInteger aType)
 -(IBAction)exportSquad:(id)sender
 {
     DockSquad* squad = [self selectedSquad];
-    NSSavePanel* exportPanel = [NSSavePanel savePanel];
-    exportPanel.allowedFileTypes = @[@"txt", @"dat"];
-    exportPanel.accessoryView = _exportFormatView;
-    [exportPanel setNameFieldStringValue: squad.name];
-    [exportPanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
+    _currentSavePanel = [NSSavePanel savePanel];
+    _currentSavePanel.allowedFileTypes = @[@"txt", @"dat"];
+    _currentSavePanel.accessoryView = _exportFormatView;
+    [_currentSavePanel setNameFieldStringValue: squad.name];
+    [_currentSavePanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
          if (v == NSFileHandlingPanelOKButton) {
-             NSURL* fileUrl = exportPanel.URL;
+             NSURL* fileUrl = _currentSavePanel.URL;
              NSInteger formatSelected = self.exportFormatPopup.selectedTag;
 
              if (formatSelected == 1) {
@@ -809,15 +809,29 @@ static id processAttribute(id v, NSInteger aType)
                  [textFormat writeToURL: fileUrl atomically: NO encoding: NSUTF8StringEncoding error: &error];
             }
          }
+         _currentSavePanel = nil;
      }
 
     ];
 }
 
+-(IBAction)setFormat:(id)sender
+{
+    NSString* newExtension = @"txt";
+     NSInteger formatSelected = self.exportFormatPopup.selectedTag;
+    if (formatSelected == 2) {
+        newExtension = @"dat";
+    }
+    NSString* currentName = [_currentSavePanel nameFieldStringValue];
+    NSString* currentBaseName = [currentName stringByDeletingPathExtension];
+    NSString* newName = [currentBaseName stringByAppendingPathExtension: newExtension];
+    [_currentSavePanel setNameFieldStringValue: newName];
+}
+
 -(IBAction)importSquad:(id)sender
 {
     NSOpenPanel* importPanel = [NSOpenPanel openPanel];
-    importPanel.allowedFileTypes = @[@"dat", @"txt"];
+    importPanel.allowedFileTypes = @[@"dat"];
     [importPanel beginSheetModalForWindow: self.window completionHandler:^(NSInteger v) {
         if (v == NSFileHandlingPanelOKButton) {
             NSURL* fileUrl = importPanel.URL;

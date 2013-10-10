@@ -1622,6 +1622,9 @@
                                 </menuItem>
                             </items>
                         </menu>
+                        <connections>
+                            <action selector="setFormat:" target="-1" id="aF7-w1-fEV"/>
+                        </connections>
                     </popUpButtonCell>
                 </popUpButton>
                 <textField verticalHuggingPriority="750" id="dUb-fR-RaV">
