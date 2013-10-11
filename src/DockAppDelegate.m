@@ -1,11 +1,3 @@
-//
-//  DockAppDelegate.m
-//  Space Dock
-//
-//  Created by Rob Tsuk on 9/18/13.
-//  Copyright (c) 2013 Rob Tsuk. All rights reserved.
-//
-
 #import "DockAppDelegate.h"
 
 #import "DockCaptain.h"
@@ -14,6 +6,7 @@
 #import "DockEquippedShip.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockResource.h"
+#import "DockSet.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockSquad.h"
@@ -75,19 +68,26 @@ static id processAttribute(id v, NSInteger aType)
     return v;
 }
 
--(void)loadItems:(NSXMLDocument*)xmlDoc itemClasses:(NSDictionary*)itemClasses entityName:(NSString*)entityName xpath:(NSString*)xpath
+static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* context, NSEntityDescription* entity)
 {
-    NSEntityDescription* entity = [NSEntityDescription entityForName: entityName inManagedObjectContext: _managedObjectContext];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
     NSError* err;
-    NSArray* existingItems = [_managedObjectContext executeFetchRequest: request error: &err];
+    NSArray* existingItems = [context executeFetchRequest: request error: &err];
     NSMutableDictionary* existingItemsLookup = [NSMutableDictionary dictionaryWithCapacity: existingItems.count];
 
     for (id existingItem in existingItems) {
         existingItemsLookup[[existingItem externalId]] = existingItem;
     }
 
+    return existingItemsLookup;
+}
+
+-(void)loadItems:(NSXMLDocument*)xmlDoc itemClasses:(NSDictionary*)itemClasses entityName:(NSString*)entityName xpath:(NSString*)xpath
+{
+    NSEntityDescription* entity = [NSEntityDescription entityForName: entityName inManagedObjectContext: _managedObjectContext];
+    NSMutableDictionary* existingItemsLookup = createExistingItemsLookup(_managedObjectContext, entity);
+    NSError* err;
     NSArray* nodes = [xmlDoc nodesForXPath: xpath error: &err];
     NSDictionary* attributes = [entity attributesByName];
 
@@ -119,9 +119,7 @@ static id processAttribute(id v, NSInteger aType)
             } else if ([key isEqualToString: @"Battlestations"]) {
                 modifiedKey = @"battleStations";
             } else {
-                NSString* lowerFirst = [[key substringToIndex: 1] lowercaseString];
-                NSString* rest = [key substringFromIndex: 1];
-                modifiedKey = [lowerFirst stringByAppendingString: rest];
+                modifiedKey = makeKey(key);
             }
 
             NSAttributeDescription* desc = [attributes objectForKey: modifiedKey];
@@ -139,19 +137,8 @@ static id processAttribute(id v, NSInteger aType)
 -(void)loadItems:(NSXMLDocument*)xmlDoc itemClass:(Class)itemClass entityName:(NSString*)entityName xpath:(NSString*)xpath targetType:(NSString*)targetType
 {
     NSEntityDescription* entity = [NSEntityDescription entityForName: entityName inManagedObjectContext: _managedObjectContext];
-    NSFetchRequest* request = [[NSFetchRequest alloc] init];
-    [request setEntity: entity];
     NSError* err;
-    NSArray* existingItems = [_managedObjectContext executeFetchRequest: request error: &err];
-    NSMutableDictionary* existingItemsLookup = [NSMutableDictionary dictionaryWithCapacity: existingItems.count];
-
-    for (id existingItem in existingItems) {
-        NSString* externalId = [existingItem externalId];
-
-        if (externalId != nil) {
-            existingItemsLookup[[existingItem externalId]] = existingItem;
-        }
-    }
+    NSMutableDictionary* existingItemsLookup = createExistingItemsLookup(_managedObjectContext, entity);
 
     NSArray* nodes = [xmlDoc nodesForXPath: xpath error: &err];
     NSDictionary* attributes = [entity attributesByName];
@@ -180,9 +167,7 @@ static id processAttribute(id v, NSInteger aType)
                 } else if ([key isEqualToString: @"Type"]) {
                     modifiedKey = @"upType";
                 } else {
-                    NSString* lowerFirst = [[key substringToIndex: 1] lowercaseString];
-                    NSString* rest = [key substringFromIndex: 1];
-                    modifiedKey = [lowerFirst stringByAppendingString: rest];
+                    modifiedKey = makeKey(key);
                 }
 
                 NSAttributeDescription* desc = [attributes objectForKey: modifiedKey];
@@ -197,6 +182,38 @@ static id processAttribute(id v, NSInteger aType)
         }
     }
 }
+
+NSString* makeKey(NSString *key)
+{
+    NSString* lowerFirst = [[key substringToIndex: 1] lowercaseString];
+    NSString* rest = [key substringFromIndex: 1];
+    return [lowerFirst stringByAppendingString: rest];
+}
+
+-(void)loadSets:(NSXMLDocument*)xmlDoc
+{
+    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Set" inManagedObjectContext: _managedObjectContext];
+    NSError* err;
+    NSMutableDictionary* existingItemsLookup = createExistingItemsLookup(_managedObjectContext, entity);
+    NSArray* elements = [xmlDoc nodesForXPath: @"/Data/Sets/Set" error: &err];
+
+    for (NSXMLElement* oneElement in elements) {
+        NSString* externalId = [[oneElement attributeForName: @"id"] stringValue];
+        DockSet* c = existingItemsLookup[externalId];
+
+        if (c == nil) {
+            c = [[DockSet alloc] initWithEntity: entity insertIntoManagedObjectContext: _managedObjectContext];
+        } else {
+            [existingItemsLookup removeObjectForKey: externalId];
+        }
+
+        [c setExternalId: externalId];
+        [c setProductName: [oneElement stringValue]];
+        NSString* name = [[oneElement attributeForName: @"overallSetName"] stringValue];
+        [c setName: name];
+    }
+}
+
 
 -(void)validateSpecials
 {
@@ -273,6 +290,7 @@ static id processAttribute(id v, NSInteger aType)
     NSXMLDocument* xmlDoc = [self loadDataFile];
 
     if (xmlDoc != nil) {
+        [self loadSets: xmlDoc];
         [self loadItems: xmlDoc itemClass: [DockShip class] entityName: @"Ship" xpath: @"/Data/Ships/Ship" targetType: nil];
         [self loadItems: xmlDoc itemClass: [DockCaptain class] entityName: @"Captain" xpath: @"/Data/Captains/Captain" targetType: nil];
         [self loadItems: xmlDoc itemClass: [DockWeapon class] entityName: @"Weapon" xpath: @"/Data/Upgrades/Upgrade" targetType: @"Weapon"];
