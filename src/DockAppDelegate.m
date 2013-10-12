@@ -6,7 +6,7 @@
 #import "DockEquippedShip.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockResource.h"
-#import "DockSet.h"
+#import "DockSet+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockSquad.h"
@@ -83,57 +83,6 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
     return existingItemsLookup;
 }
 
--(void)loadItems:(NSXMLDocument*)xmlDoc itemClasses:(NSDictionary*)itemClasses entityName:(NSString*)entityName xpath:(NSString*)xpath
-{
-    NSEntityDescription* entity = [NSEntityDescription entityForName: entityName inManagedObjectContext: _managedObjectContext];
-    NSMutableDictionary* existingItemsLookup = createExistingItemsLookup(_managedObjectContext, entity);
-    NSError* err;
-    NSArray* nodes = [xmlDoc nodesForXPath: xpath error: &err];
-    NSDictionary* attributes = [entity attributesByName];
-
-    for (NSXMLNode* oneNode in nodes) {
-        NSDictionary* d = [self convertNode: oneNode];
-        NSString* externalId = d[@"Id"];
-        id c = existingItemsLookup[externalId];
-
-        if (c == nil) {
-            Class itemClass = nil;
-
-            if (itemClasses.count == 1) {
-                itemClass = [itemClasses allValues][0];
-            } else {
-                NSString* itemType = d[@"Type"];
-                itemClass = itemClasses[itemType];
-            }
-
-            c = [[itemClass alloc] initWithEntity: entity insertIntoManagedObjectContext: _managedObjectContext];
-        } else {
-            [existingItemsLookup removeObjectForKey: externalId];
-        }
-
-        for (NSString* key in d) {
-            NSString* modifiedKey;
-
-            if ([key isEqualToString: @"Id"]) {
-                modifiedKey = @"externalId";
-            } else if ([key isEqualToString: @"Battlestations"]) {
-                modifiedKey = @"battleStations";
-            } else {
-                modifiedKey = makeKey(key);
-            }
-
-            NSAttributeDescription* desc = [attributes objectForKey: modifiedKey];
-
-            if (desc != nil) {
-                id v = [d valueForKey: key];
-                NSInteger aType = [desc attributeType];
-                v = processAttribute(v, aType);
-                [c setValue: v forKey: modifiedKey];
-            }
-        }
-    }
-}
-
 -(void)loadItems:(NSXMLDocument*)xmlDoc itemClass:(Class)itemClass entityName:(NSString*)entityName xpath:(NSString*)xpath targetType:(NSString*)targetType
 {
     NSEntityDescription* entity = [NSEntityDescription entityForName: entityName inManagedObjectContext: _managedObjectContext];
@@ -179,6 +128,13 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                     [c setValue: v forKey: modifiedKey];
                 }
             }
+            NSString* setValue = [d objectForKey: @"Set"];
+            NSArray* sets = [setValue componentsSeparatedByString: @","];
+            for (NSString* rawSet in sets) {
+                NSString* setId = [rawSet stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                DockSet* theSet = [DockSet setForId:setId context:_managedObjectContext];
+                [theSet addItemsObject: c];
+            }
         }
     }
 }
@@ -203,14 +159,16 @@ NSString* makeKey(NSString *key)
 
         if (c == nil) {
             c = [[DockSet alloc] initWithEntity: entity insertIntoManagedObjectContext: _managedObjectContext];
-        } else {
-            [existingItemsLookup removeObjectForKey: externalId];
         }
 
         [c setExternalId: externalId];
         [c setProductName: [oneElement stringValue]];
         NSString* name = [[oneElement attributeForName: @"overallSetName"] stringValue];
         [c setName: name];
+    }
+
+    for (DockSet* set in [DockSet allSets: _managedObjectContext]) {
+        [set addObserver: self forKeyPath: @"include" options: 0 context: 0];
     }
 }
 
@@ -312,6 +270,10 @@ NSString* makeKey(NSString *key)
                       expandChildren: YES];
         [_squadDetailController removeObserver: self
                                     forKeyPath: @"content"];
+    } else if ([object isMemberOfClass: [DockSet class]]) {
+        [self updateForSelectedSets];
+    } else {
+        NSLog(@"other change %@ %@", object, change);
     }
 }
 
@@ -330,6 +292,7 @@ NSString* makeKey(NSString *key)
 -(void)applicationDidFinishLaunching:(NSNotification*)aNotification
 {
     [self loadData];
+    [self updateForSelectedSets];
     [_squadDetailController addObserver: self
                              forKeyPath: @"content"
                                 options: 0
@@ -901,23 +864,45 @@ NSString* makeKey(NSString *key)
     }
 }
 
+-(void)updatePredicates
+{
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"any sets.externalId in %@", _includedSets];
+    _resourcesController.fetchPredicate = predicateTemplate;
+    if (_factionName == nil) {
+        _shipsController.fetchPredicate = predicateTemplate;
+        _captainsController.fetchPredicate = predicateTemplate;
+        predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES and any sets.externalId in %@", _includedSets];
+        _upgradesController.fetchPredicate = predicateTemplate;
+    } else {
+        NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"faction = %@ and any sets.externalId in %@", _factionName, _includedSets];
+        _shipsController.fetchPredicate = predicateTemplate;
+        _captainsController.fetchPredicate = predicateTemplate;
+        predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES and faction = %@ and any sets.externalId in %@", _factionName, _includedSets];
+        _upgradesController.fetchPredicate = predicateTemplate;
+    }
+}
+
 -(IBAction)resetFactionFilter:(id)sender
 {
     _factionName = nil;
-    _shipsController.fetchPredicate = nil;
-    _captainsController.fetchPredicate = nil;
-    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES"];
-    _upgradesController.fetchPredicate = predicateTemplate;
+    [self updatePredicates];
 }
 
 -(IBAction)filterToFaction:(id)sender
 {
     _factionName = [sender title];
-    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"faction = %@", _factionName];
-    _shipsController.fetchPredicate = predicateTemplate;
-    _captainsController.fetchPredicate = predicateTemplate;
-    predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES and faction = %@", _factionName];
-    _upgradesController.fetchPredicate = predicateTemplate;
+    [self updatePredicates];
+}
+
+-(void)updateForSelectedSets
+{
+    NSArray* includedSets = [DockSet includedSets: _managedObjectContext];
+    NSMutableArray* includedIds = [[NSMutableArray alloc] init];
+    for (DockSet* set in includedSets) {
+        [includedIds addObject: [set externalId]];
+    }
+    _includedSets = [NSArray arrayWithArray: includedIds];
+    [self updatePredicates];
 }
 
 -(void)explainCantPromoteShip:(DockShip*)ship

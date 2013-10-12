@@ -1732,7 +1732,7 @@
                 </binding>
             </connections>
         </treeController>
-        <arrayController mode="entity" entityName="Captain" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="0af-xY-vuT" userLabel="captains controller">
+        <arrayController mode="entity" entityName="Captain" fetchPredicateFormat="ANY sets.externalId in {&quot;71120&quot;, &quot;71121&quot;}" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="0af-xY-vuT" userLabel="captains controller">
             <connections>
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="Ayz-MY-Ljt"/>
             </connections>

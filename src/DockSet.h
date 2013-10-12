@@ -13,9 +13,10 @@
 
 @interface DockSet : NSManagedObject
 
-@property (nonatomic, retain) NSString * productName;
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * externalId;
+@property (nonatomic, retain) NSNumber * include;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * productName;
 @property (nonatomic, retain) NSSet *items;
 @end
 

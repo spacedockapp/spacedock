@@ -2,12 +2,12 @@
 //  DockShip.m
 //  Space Dock
 //
-//  Created by Rob Tsuk on 9/28/13.
+//  Created by Rob Tsuk on 10/11/13.
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
-#import "DockEquippedShip.h"
 #import "DockShip.h"
+#import "DockEquippedShip.h"
 
 
 @implementation DockShip
@@ -25,7 +25,6 @@
 @dynamic hull;
 @dynamic scan;
 @dynamic sensorEcho;
-@dynamic set;
 @dynamic shield;
 @dynamic shipClass;
 @dynamic targetLock;

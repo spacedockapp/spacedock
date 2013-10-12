@@ -12,9 +12,10 @@
 
 @implementation DockSet
 
-@dynamic productName;
-@dynamic name;
 @dynamic externalId;
+@dynamic include;
+@dynamic name;
+@dynamic productName;
 @dynamic items;
 
 @end

@@ -32,6 +32,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel* managedObjectModel;
 @property (readonly, strong, nonatomic) NSManagedObjectContext* managedObjectContext;
 @property (strong, nonatomic) NSString* factionName;
+@property (strong, nonatomic) NSArray* includedSets;
 @property (strong, nonatomic) NSSavePanel* currentSavePanel;
 
 -(IBAction)saveAction:(id)sender;
