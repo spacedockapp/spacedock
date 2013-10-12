@@ -1669,12 +1669,12 @@
                     <popUpButton verticalHuggingPriority="750" id="uff-CK-GtC" userLabel="resource">
                         <rect key="frame" x="431" y="17" width="200" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="C4e-K2-egy" id="C8d-VF-NtP">
+                        <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" altersStateOfSelectedItem="NO" selectedItem="C4e-K2-egy" id="C8d-VF-NtP">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="JrY-qD-Xzd">
                                 <items>
-                                    <menuItem title="Item 1" state="on" id="C4e-K2-egy"/>
+                                    <menuItem title="Item 1" id="C4e-K2-egy"/>
                                     <menuItem title="Item 2" id="luc-M4-IOt"/>
                                     <menuItem title="Item 3" id="YlU-Yg-qft"/>
                                 </items>
