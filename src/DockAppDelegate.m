@@ -77,7 +77,10 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
     NSMutableDictionary* existingItemsLookup = [NSMutableDictionary dictionaryWithCapacity: existingItems.count];
 
     for (id existingItem in existingItems) {
-        existingItemsLookup[[existingItem externalId]] = existingItem;
+        NSString* externalId = [existingItem externalId];
+        if (externalId) {
+            existingItemsLookup[externalId] = existingItem;
+        }
     }
 
     return existingItemsLookup;
@@ -302,6 +305,10 @@ NSString* makeKey(NSString *key)
     [_captainsTableView setSortDescriptors: @[defaultSortDescriptor]];
     [_upgradesTableView setSortDescriptors: @[defaultSortDescriptor]];
     [_resourcesTableView setSortDescriptors: @[defaultSortDescriptor]];
+    defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"externalId" ascending: YES];
+    [_setsTableView setSortDescriptors: @[defaultSortDescriptor]];
+    defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"name" ascending: YES];
+    [_squadsTableView setSortDescriptors: @[defaultSortDescriptor]];
     [self setupFactionMenu];
 }
 
@@ -599,7 +606,41 @@ NSString* makeKey(NSString *key)
     }
 }
 
--(DockEquippedShip*)selectedShip
+-(void)addSelectedShip:(id)sender
+{
+    [self addSelectedShip];
+}
+
+-(IBAction)deleteSelectedShip:(id)sender
+{
+    [self deleteSelected: sender];
+}
+
+-(id)selectedItem:(NSString*)tabName controller:(NSArrayController*)controller
+{
+    NSTabViewItem* selectedTab = [_tabView selectedTabViewItem];
+    id identifier = selectedTab.identifier;
+
+    if ([identifier isEqualToString: tabName]) {
+        NSArray* selected = [controller selectedObjects];
+        if (selected.count > 0) {
+            return selected[0];
+        }
+    }
+    return nil;
+}
+
+-(DockShip*)selectedShip
+{
+    return [self selectedItem: @"ships" controller: _shipsController];
+}
+
+-(DockUpgrade*)selectedUpgrade
+{
+    return [self selectedItem: @"upgrades" controller: _upgradesController];
+}
+
+-(DockEquippedShip*)selectedEquippedShip
 {
     NSArray* selectedShips = [_squadDetailController selectedObjects];
 
@@ -625,7 +666,7 @@ NSString* makeKey(NSString *key)
     [_squadDetailController setSelectionIndexPath: path];
 }
 
--(DockEquippedUpgrade*)selectedUpgrade
+-(DockEquippedUpgrade*)selectedEquippedUpgrade
 {
     NSArray* selectedItems = [_squadDetailController selectedObjects];
 
@@ -740,8 +781,8 @@ NSString* makeKey(NSString *key)
     } else if ([identifier isEqualToString: @"resources"]) {
         [self addSelectedResource];
     } else {
-        DockEquippedShip* selectedShip = [self selectedShip];
-        DockEquippedUpgrade* maybeUpgrade = [self selectedUpgrade];
+        DockEquippedShip* selectedShip = [self selectedEquippedShip];
+        DockEquippedUpgrade* maybeUpgrade = [self selectedEquippedUpgrade];
         DockEquippedUpgrade* equippedUpgrade = nil;
 
         if (selectedShip != nil) {
@@ -773,7 +814,7 @@ NSString* makeKey(NSString *key)
 -(IBAction)deleteSelected:(id)sender
 {
     id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
-    DockEquippedShip* targetShip = [self selectedShip];
+    DockEquippedShip* targetShip = [self selectedEquippedShip];
 
     if (target == targetShip) {
         DockSquad* squad = [[_squadsController selectedObjects] objectAtIndex: 0];
@@ -782,6 +823,16 @@ NSString* makeKey(NSString *key)
         [targetShip removeUpgrade: target establishPlaceholders: YES];
         [self selectShip: targetShip];
     }
+}
+
+-(IBAction)addSelectedUpgradeAction:(id)sender
+{
+    [self addSelected: sender];
+}
+
+-(IBAction)deleteSelectedUpgradeAction:(id)sender
+{
+    [self deleteSelected: sender];
 }
 
 -(IBAction)expandAll:(id)sender
@@ -921,7 +972,7 @@ NSString* makeKey(NSString *key)
 
 -(IBAction)toggleUnique:(id)sender
 {
-    DockEquippedShip* currentShip = [self selectedShip];
+    DockEquippedShip* currentShip = [self selectedEquippedShip];
 
     if (currentShip != nil) {
         DockShip* ship = currentShip.ship;
@@ -946,8 +997,46 @@ NSString* makeKey(NSString *key)
     } else if (action == @selector(filterToFaction:)) {
         BOOL isCurrentFilter = [menuItem.title isEqualToString: _factionName];
         [menuItem setState: isCurrentFilter ? NSOnState: NSOffState];
+    } else if (action == @selector(addSelectedShip:)) {
+        DockShip* ship = [self selectedShip];
+        DockSquad* squad = [self selectedSquad];
+        if (ship && squad) {
+            [menuItem setTitle: [NSString stringWithFormat: @"Add '%@' to '%@'", ship.title, squad.name]];
+        } else {
+            [menuItem setTitle: @"Add Ship to Squad"];
+            return NO;
+        }
+    } else if (action == @selector(deleteSelectedShip:)) {
+        DockEquippedShip* ship = [self selectedEquippedShip];
+        DockSquad* squad = [self selectedSquad];
+        if (ship && squad) {
+            [menuItem setTitle: [NSString stringWithFormat: @"Remove '%@' from '%@'", ship.ship.title, squad.name]];
+        } else {
+            [menuItem setTitle: @"Delete Ship from Squad"];
+            return NO;
+        }
+    } else if (action == @selector(addSelectedUpgradeAction:)) {
+        DockEquippedShip* ship = [self selectedEquippedShip];
+        DockUpgrade* upgrade = [self selectedUpgrade];
+        if (ship && upgrade) {
+            [menuItem setTitle: [NSString stringWithFormat: @"Add '%@' to '%@'", upgrade.title, ship.ship.title]];
+            return YES;
+        } else {
+            [menuItem setTitle: @"Add Upgrade to Ship"];
+            return NO;
+        }
+    } else if (action == @selector(deleteSelectedUpgradeAction:)) {
+        DockEquippedShip* ship = [self selectedEquippedShip];
+        DockEquippedUpgrade* upgrade = [self selectedEquippedUpgrade];
+        if (ship && upgrade) {
+            [menuItem setTitle: [NSString stringWithFormat: @"Remove '%@' from '%@'", upgrade.upgrade.title, ship.ship.title]];
+            return YES;
+        } else {
+            [menuItem setTitle: @"Remove Upgrade from Ship"];
+            return NO;
+        }
     } else if (action == @selector(toggleUnique:)) {
-        DockEquippedShip* currentShip = [self selectedShip];
+        DockEquippedShip* currentShip = [self selectedEquippedShip];
 
         if (currentShip == nil) {
             return NO;

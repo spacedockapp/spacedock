@@ -25,6 +25,8 @@
 @property (assign) IBOutlet NSTableView* captainsTableView;
 @property (assign) IBOutlet NSTableView* upgradesTableView;
 @property (assign) IBOutlet NSTableView* resourcesTableView;
+@property (assign) IBOutlet NSTableView* setsTableView;
+@property (assign) IBOutlet NSTableView* squadsTableView;
 @property (assign) IBOutlet NSView* fleetBuildSheet;
 @property (assign) IBOutlet NSMenu* factionMenu;
 
@@ -37,6 +39,10 @@
 
 -(IBAction)saveAction:(id)sender;
 -(IBAction)addSelected:(id)sender;
+-(IBAction)addSelectedShip:(id)sender;
+-(IBAction)deleteSelectedShip:(id)sender;
+-(IBAction)addSelectedUpgradeAction:(id)sender;
+-(IBAction)deleteSelectedUpgradeAction:(id)sender;
 -(IBAction)deleteSelected:(id)sender;
 -(IBAction)expandAll:(id)sender;
 -(IBAction)exportSquad:(id)sender;

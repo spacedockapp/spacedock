@@ -335,6 +335,20 @@
                                     <action selector="expandAll:" target="-1" id="EDx-if-fqv"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="KgH-1X-mcT"/>
+                            <menuItem title="Add ship to Squad" id="mE4-2V-qVn">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="addSelectedShip:" target="-1" id="GbM-yb-1iA"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Remove Ship from Squad" id="DtG-iK-FER">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="deleteSelectedShip:" target="-1" id="O7D-Gx-vSU"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="GDr-cO-qyz"/>
                             <menuItem title="Import..." keyEquivalent="I" id="Kok-GA-5Jc">
                                 <connections>
                                     <action selector="importSquad:" target="-1" id="FXY-Fs-v3t"/>
@@ -356,6 +370,19 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="toggleUnique:" target="-1" id="Vo1-Nt-UAQ"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="HcR-Jb-reU"/>
+                            <menuItem title="Add Upgrade to Ship" id="p9A-sR-L0Y">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="addSelectedUpgradeAction:" target="-1" id="5OQ-gx-5GV"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Remove Upgrade from Ship" id="gdN-zW-zNH">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="deleteSelectedUpgradeAction:" target="-1" id="Zys-p2-rv8"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -1698,11 +1725,13 @@
                 <outlet property="fleetBuildSheet" destination="HGh-wD-qfR" id="lgH-TO-rQn"/>
                 <outlet property="resourcesController" destination="YPe-Zs-mE7" id="QpO-G6-Tot"/>
                 <outlet property="resourcesTableView" destination="v13-24-CCG" id="Rq7-QP-07h"/>
+                <outlet property="setsTableView" destination="Gkg-Ph-STg" id="Nvm-3W-i0i"/>
                 <outlet property="shipsController" destination="Gzr-Z0-87U" id="5vW-HI-mUc"/>
                 <outlet property="shipsTableView" destination="sJW-5v-BIo" id="ln7-xP-Eyt"/>
                 <outlet property="squadDetailController" destination="REc-Lj-a6S" id="Ujp-f8-UcS"/>
                 <outlet property="squadDetailView" destination="6Xe-hT-jBi" id="hua-FN-E3G"/>
                 <outlet property="squadsController" destination="w6h-j0-fyp" id="0Eh-Fh-QAl"/>
+                <outlet property="squadsTableView" destination="Wtq-dR-8CY" id="g27-xk-IQD"/>
                 <outlet property="tabView" destination="EsK-Y6-lVi" id="lkC-r1-enJ"/>
                 <outlet property="upgradesController" destination="wVj-PN-1Jr" id="s5T-X4-Yqh"/>
                 <outlet property="upgradesTableView" destination="LbO-KE-GHl" id="Cfq-6k-TVU"/>
