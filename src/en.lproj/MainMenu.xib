@@ -466,7 +466,7 @@
                                                 <rect key="frame" x="1" y="17" width="606" height="175"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveName="shipTable" headerView="wao-eF-ukD" id="sJW-5v-BIo" userLabel="ships">
+                                                    <tableView identifier="shipsTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveName="shipTable" headerView="wao-eF-ukD" id="sJW-5v-BIo" userLabel="ships">
                                                         <rect key="frame" x="0.0" y="0.0" width="1097" height="175"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
@@ -843,7 +843,7 @@
                                                 <rect key="frame" x="1" y="17" width="606" height="190"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveName="captainsTable" headerView="ItB-eD-CxT" id="pbE-Lg-pvF" userLabel="captains table">
+                                                    <tableView identifier="captainsTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveName="captainsTable" headerView="ItB-eD-CxT" id="pbE-Lg-pvF" userLabel="captains table">
                                                         <rect key="frame" x="0.0" y="0.0" width="606" height="190"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
@@ -1041,7 +1041,7 @@
                                                 <rect key="frame" x="1" y="17" width="606" height="175"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveName="upgradesTable" headerView="u7D-PI-HNg" id="LbO-KE-GHl" userLabel="upgrades">
+                                                    <tableView identifier="upgradeTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveName="upgradesTable" headerView="u7D-PI-HNg" id="LbO-KE-GHl" userLabel="upgrades">
                                                         <rect key="frame" x="0.0" y="0.0" width="649" height="175"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
@@ -1220,7 +1220,7 @@
                                                 <rect key="frame" x="1" y="17" width="606" height="190"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" headerView="uY0-dW-gMI" id="v13-24-CCG">
+                                                    <tableView identifier="resourcesTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" headerView="uY0-dW-gMI" id="v13-24-CCG" userLabel="resources">
                                                         <rect key="frame" x="0.0" y="0.0" width="606" height="190"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
@@ -1342,7 +1342,7 @@
                                                 <rect key="frame" x="1" y="17" width="600" height="182"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" emptySelection="NO" autosaveColumns="NO" headerView="MUq-8S-24N" id="Gkg-Ph-STg" userLabel="sets">
+                                                    <tableView identifier="setsTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" emptySelection="NO" autosaveColumns="NO" headerView="MUq-8S-24N" id="Gkg-Ph-STg" userLabel="sets">
                                                         <rect key="frame" x="0.0" y="0.0" width="600" height="182"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
@@ -1454,7 +1454,7 @@
                             <rect key="frame" x="1" y="17" width="361" height="155"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" autosaveName="squadDetail" headerView="ngn-KS-tlf" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="9Op-7d-bOD" id="6Xe-hT-jBi">
+                                <outlineView identifier="squadsDetailOutline" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" autosaveName="squadDetail" headerView="ngn-KS-tlf" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="9Op-7d-bOD" id="6Xe-hT-jBi">
                                     <rect key="frame" x="0.0" y="0.0" width="361" height="155"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -1547,7 +1547,7 @@
                             <rect key="frame" x="1" y="17" width="238" height="155"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" headerView="wYX-HO-7CJ" id="Wtq-dR-8CY">
+                                <tableView identifier="squadsTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" headerView="wYX-HO-7CJ" id="Wtq-dR-8CY">
                                     <rect key="frame" x="0.0" y="0.0" width="238" height="155"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -1715,6 +1715,27 @@
                 <outlet property="delegate" destination="494" id="cpC-FC-iFJ"/>
             </connections>
         </window>
+        <customObject id="L6P-6L-sOj" customClass="DockInspector">
+            <connections>
+                <outlet property="ability" destination="Tgx-YS-CVc" id="mFX-cF-F7T"/>
+                <outlet property="captains" destination="0af-xY-vuT" id="qKm-yR-D6r"/>
+                <outlet property="captainsTable" destination="pbE-Lg-pvF" id="t92-Pu-inm"/>
+                <outlet property="inspector" destination="h3B-q6-zJy" id="nzl-G2-VQy"/>
+                <outlet property="mainWindow" destination="371" id="Zwt-et-1M2"/>
+                <outlet property="resources" destination="YPe-Zs-mE7" id="2o6-hy-Ap1"/>
+                <outlet property="resourcesTable" destination="v13-24-CCG" id="QAi-kK-Wzn"/>
+                <outlet property="setsTable" destination="Gkg-Ph-STg" id="vrP-aX-IyQ"/>
+                <outlet property="ships" destination="Gzr-Z0-87U" id="jhd-Yl-ReE"/>
+                <outlet property="shipsTable" destination="sJW-5v-BIo" id="YVd-hw-ljf"/>
+                <outlet property="squadDetail" destination="REc-Lj-a6S" id="G2w-sA-Gcj"/>
+                <outlet property="squadDetailsOutline" destination="6Xe-hT-jBi" id="PbX-T3-gis"/>
+                <outlet property="squadsTable" destination="Wtq-dR-8CY" id="Afp-z7-IKN"/>
+                <outlet property="tabView" destination="2vW-1R-ccO" id="h2F-4h-01z"/>
+                <outlet property="title" destination="sGR-vv-Okw" id="Nnx-Yb-dPd"/>
+                <outlet property="upgrades" destination="wVj-PN-1Jr" id="G8F-M7-n31"/>
+                <outlet property="upgradesTable" destination="LbO-KE-GHl" id="Ggp-q6-eyB"/>
+            </connections>
+        </customObject>
         <customObject id="494" customClass="DockAppDelegate">
             <connections>
                 <outlet property="captainsController" destination="0af-xY-vuT" id="lPO-O6-x8d"/>
@@ -1722,7 +1743,7 @@
                 <outlet property="exportFormatPopup" destination="L6E-ZC-cT8" id="RvO-d0-hQJ"/>
                 <outlet property="exportFormatView" destination="d19-nn-2NS" id="XKY-3v-Vdh"/>
                 <outlet property="factionMenu" destination="jzV-EA-Bef" id="s0C-A5-mcz"/>
-                <outlet property="fleetBuildSheet" destination="HGh-wD-qfR" id="lgH-TO-rQn"/>
+                <outlet property="inspector" destination="h3B-q6-zJy" id="1q3-ND-zUm"/>
                 <outlet property="resourcesController" destination="YPe-Zs-mE7" id="QpO-G6-Tot"/>
                 <outlet property="resourcesTableView" destination="v13-24-CCG" id="Rq7-QP-07h"/>
                 <outlet property="setsTableView" destination="Gkg-Ph-STg" id="Nvm-3W-i0i"/>
@@ -1771,7 +1792,7 @@
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="iXi-bB-7Gl"/>
             </connections>
         </arrayController>
-        <customView id="d19-nn-2NS" userLabel="View">
+        <customView id="d19-nn-2NS" userLabel="export format popup">
             <rect key="frame" x="0.0" y="0.0" width="233" height="61"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
@@ -1812,26 +1833,163 @@
                 <binding destination="494" name="managedObjectContext" keyPath="self.managedObjectContext" id="2uq-jW-ChQ"/>
             </connections>
         </arrayController>
-        <customView id="HGh-wD-qfR" userLabel="fleet build sheet">
-            <rect key="frame" x="0.0" y="0.0" width="726" height="477"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wwS-aO-OV8">
-                    <rect key="frame" x="333" y="230" width="61" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Print this" id="ASO-kB-ELi">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-            </subviews>
-        </customView>
         <arrayController mode="entity" entityName="Set" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="a37-z6-clf" userLabel="sets controller">
             <connections>
                 <binding destination="494" name="managedObjectContext" keyPath="self.managedObjectContext" id="7oK-dl-fr6"/>
             </connections>
         </arrayController>
+        <window title="Inspector" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="inspector" animationBehavior="default" id="h3B-q6-zJy" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" nonactivatingPanel="YES"/>
+            <rect key="contentRect" x="1160" y="1118" width="200" height="250"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1578"/>
+            <value key="minSize" type="size" width="200" height="250"/>
+            <view key="contentView" id="aBC-nj-3k4">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <tabView type="noTabsNoBorder" id="2vW-1R-ccO">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <tabViewItems>
+                            <tabViewItem label="Ship" identifier="ship" id="Q2Y-MJ-JoO">
+                                <view key="view" id="BWH-5o-6yC">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="Captain" identifier="captain" id="59h-wZ-gbO">
+                                <view key="view" id="VGC-vM-mzK">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="Tgx-YS-CVc" userLabel="ability">
+                                            <rect key="frame" x="14" y="47" width="172" height="152"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" borderStyle="border" alignment="center" title="Multiline Label" drawsBackground="YES" id="F1a-HN-63Y">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentCaptain.ability" id="RfG-5G-PFT"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="sGR-vv-Okw">
+                                            <rect key="frame" x="14" y="207" width="121" height="23"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Nu'Daq" id="uYb-cw-e3F">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentCaptain.title" id="IRn-MK-wPC"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="XCg-fW-bj1">
+                                            <rect key="frame" x="127" y="207" width="62" height="23"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Captain" id="eli-Es-4pB">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="BNz-oy-cxI">
+                                            <rect key="frame" x="160" y="18" width="26" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="hFA-1d-HfH">
+                                                <font key="font" size="15" name="LucidaGrande"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentCaptain.cost" id="5eV-lZ-ziw"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="b2e-P2-OXd">
+                                            <rect key="frame" x="14" y="16" width="35" height="23"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" alignment="center" title="3" drawsBackground="YES" id="NUO-je-55X">
+                                                <font key="font" size="18" name="LucidaGrande-Bold"/>
+                                                <color key="textColor" red="0.85490202903747559" green="0.67058825492858887" blue="0.18039216101169586" alpha="1" colorSpace="deviceRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentCaptain.skill" id="5HQ-an-7AO"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="Upgrade" identifier="upgrade" id="fLS-bW-1ud">
+                                <view key="view" id="Tlg-lp-ocP">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="f3A-pL-0vR" userLabel="ability">
+                                            <rect key="frame" x="14" y="49" width="172" height="152"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" borderStyle="border" alignment="center" title="Multiline Label" drawsBackground="YES" id="iem-P8-me6">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentUpgrade.ability" id="T3P-S0-fFU"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="HBv-fy-KaD">
+                                            <rect key="frame" x="160" y="20" width="26" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="5uj-UB-cZS">
+                                                <font key="font" size="15" name="LucidaGrande"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentUpgrade.cost" id="zwO-1I-JIE"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="fXC-Q4-Egy">
+                                            <rect key="frame" x="160" y="209" width="26" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="kr7-qB-I8Z">
+                                                <font key="font" size="15" name="LucidaGrande"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentUpgrade.attack" id="1gJ-17-rnu"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="nZs-wg-Ft8">
+                                            <rect key="frame" x="11" y="209" width="121" height="23"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Nu'Daq" id="2nZ-Qa-h4X">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentUpgrade.title" id="0aQ-kN-f2G"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="Resource" identifier="resource" id="Ad8-1x-YmR">
+                                <view key="view" id="bYB-Rp-JbS">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                            </tabViewItem>
+                        </tabViewItems>
+                    </tabView>
+                </subviews>
+            </view>
+        </window>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="8" height="8"/>

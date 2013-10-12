@@ -274,4 +274,13 @@
 
 }
 
+-(NSString*)optionalAttack
+{
+    if ([self isWa])
+}
+
+-(NSString*)optionalRange
+{
+}
+
 @end
