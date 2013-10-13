@@ -21,4 +21,5 @@
 @property (weak, nonatomic) DockUpgrade* currentUpgrade;
 @property (weak, nonatomic) DockShip* currentShip;
 @property (weak, nonatomic) DockResource* currentResource;
+-(void)show;
 @end

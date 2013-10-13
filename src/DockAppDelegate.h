@@ -1,12 +1,8 @@
-//
-//  DockAppDelegate.h
-//  Space Dock
-//
-//  Created by Rob Tsuk on 9/18/13.
-//  Copyright (c) 2013 Rob Tsuk. All rights reserved.
-//
-
 #import <Cocoa/Cocoa.h>
+
+@class DockInspector;
+
+extern NSString* kInspectorVisible;
 
 @interface DockAppDelegate : NSObject<NSApplicationDelegate>
 
@@ -29,6 +25,7 @@
 @property (assign) IBOutlet NSTableView* squadsTableView;
 @property (assign) IBOutlet NSView* fleetBuildSheet;
 @property (assign) IBOutlet NSMenu* factionMenu;
+@property (assign) IBOutlet DockInspector* inspector;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel* managedObjectModel;
@@ -50,5 +47,6 @@
 -(IBAction)importSquad:(id)sender;
 -(IBAction)resetFactionFilter:(id)sender;
 -(IBAction)filterToFaction:(id)sender;
+-(IBAction)showInspector:(id)sender;
 
 @end

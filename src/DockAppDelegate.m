@@ -5,6 +5,7 @@
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedShip.h"
 #import "DockEquippedUpgrade+Addons.h"
+#import "DockInspector.h"
 #import "DockResource.h"
 #import "DockSet+Addons.h"
 #import "DockShip+Addons.h"
@@ -19,6 +20,7 @@
 #import "NSTreeController+Additions.h"
 
 NSString* kWarnAboutUnhandledSpecials = @"warnAboutUnhandledSpecials";
+NSString* kInspectorVisible = @"inspectorVisible";
 
 @implementation DockAppDelegate
 
@@ -30,7 +32,8 @@ NSString* kWarnAboutUnhandledSpecials = @"warnAboutUnhandledSpecials";
 {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary* appDefs = @{
-        kWarnAboutUnhandledSpecials: @YES
+        kWarnAboutUnhandledSpecials: @YES,
+        kInspectorVisible: @NO
     };
 
     [defaults registerDefaults: appDefs];
@@ -310,6 +313,12 @@ NSString* makeKey(NSString *key)
     defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"name" ascending: YES];
     [_squadsTableView setSortDescriptors: @[defaultSortDescriptor]];
     [self setupFactionMenu];
+
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults boolForKey: kInspectorVisible]) {
+        [_inspector show];
+    }
+
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
@@ -1150,6 +1159,11 @@ NSString* makeKey(NSString *key)
     if (target != nil) {
         NSLog(@"target = %@, id = %@", target, [target externalId]);
     }
+}
+
+-(IBAction)showInspector:(id)sender
+{
+    [_inspector show];
 }
 
 @end

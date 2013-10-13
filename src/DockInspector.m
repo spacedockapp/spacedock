@@ -1,5 +1,6 @@
 #import "DockInspector.h"
 
+#import "DockAppDelegate.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockShip+Addons.h"
@@ -98,6 +99,20 @@ static id extractSelectedItem(id controller)
     [_upgrades addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     [_resources addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     [_squadDetail addObserver: self forKeyPath: @"selectionIndexPath" options: 0 context: 0];
+}
+
+-(void)show
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool: YES forKey: kInspectorVisible];
+    [_inspector orderFront: self];
+}
+
+- (BOOL)windowShouldClose:(id)sender
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool: NO forKey: kInspectorVisible];
+    return YES;
 }
 
 @end

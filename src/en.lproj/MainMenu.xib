@@ -417,6 +417,15 @@
                             <menuItem isSeparatorItem="YES" id="92">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
+                            <menuItem title="Show Inspector" keyEquivalent="i" id="Hly-dM-JQ9">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="showInspector:" target="-1" id="aHY-2Z-7dM"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="FKI-7F-zB7">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
                             <menuItem title="Bring All to Front" id="5">
                                 <connections>
                                     <action selector="arrangeInFront:" target="-1" id="39"/>
@@ -1743,7 +1752,7 @@
                 <outlet property="exportFormatPopup" destination="L6E-ZC-cT8" id="RvO-d0-hQJ"/>
                 <outlet property="exportFormatView" destination="d19-nn-2NS" id="XKY-3v-Vdh"/>
                 <outlet property="factionMenu" destination="jzV-EA-Bef" id="s0C-A5-mcz"/>
-                <outlet property="inspector" destination="h3B-q6-zJy" id="1q3-ND-zUm"/>
+                <outlet property="inspector" destination="L6P-6L-sOj" id="Emf-SV-SDs"/>
                 <outlet property="resourcesController" destination="YPe-Zs-mE7" id="QpO-G6-Tot"/>
                 <outlet property="resourcesTableView" destination="v13-24-CCG" id="Rq7-QP-07h"/>
                 <outlet property="setsTableView" destination="Gkg-Ph-STg" id="Nvm-3W-i0i"/>
@@ -1838,7 +1847,7 @@
                 <binding destination="494" name="managedObjectContext" keyPath="self.managedObjectContext" id="7oK-dl-fr6"/>
             </connections>
         </arrayController>
-        <window title="Inspector" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="inspector" animationBehavior="default" id="h3B-q6-zJy" customClass="NSPanel">
+        <window title="Inspector" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="inspector" animationBehavior="default" id="h3B-q6-zJy" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" nonactivatingPanel="YES"/>
             <rect key="contentRect" x="1160" y="1118" width="200" height="250"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1578"/>
@@ -2165,6 +2174,9 @@
                     </tabView>
                 </subviews>
             </view>
+            <connections>
+                <outlet property="delegate" destination="L6P-6L-sOj" id="Hks-Ag-Yx6"/>
+            </connections>
         </window>
     </objects>
     <resources>
