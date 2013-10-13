@@ -1961,7 +1961,7 @@
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </textFieldCell>
                                             <connections>
-                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentUpgrade.attack" id="1gJ-17-rnu"/>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentUpgrade.optionalAttack" id="AEa-ed-g3F"/>
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="nZs-wg-Ft8">

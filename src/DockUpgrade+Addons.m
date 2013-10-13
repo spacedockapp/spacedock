@@ -276,11 +276,18 @@
 
 -(NSString*)optionalAttack
 {
-    if ([self isWa])
+    if ([self isWeapon]) {
+        return [self valueForKey: @"attack"];
+    }
+    return nil;
 }
 
 -(NSString*)optionalRange
 {
+    if ([self isWeapon]) {
+        return [self valueForKey: @"range"];
+    }
+    return nil;
 }
 
 @end
