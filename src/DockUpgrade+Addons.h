@@ -20,4 +20,5 @@
 -(NSString*)targetShipClass;
 -(NSString*)upSortType;
 -(NSString*)typeCode;
+-(NSString*)plainDescription;
 @end

@@ -23,9 +23,9 @@
     return self.upgrade.isPlaceholder;
 }
 
--(NSString*)description
+-(NSString*)plainDescription
 {
-    return self.upgrade.description;
+    return self.upgrade.plainDescription;
 }
 
 -(NSAttributedString*)styledDescription

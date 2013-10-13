@@ -4,6 +4,7 @@
 -(NSAttributedString*)styledDescription;
 +(DockShip*)shipForId:(NSString*)externalId context:(NSManagedObjectContext*)context;
 -(DockShip*)counterpart;
+-(NSString*)plainDescription;
 -(BOOL)isBreen;
 -(BOOL)isJemhadar;
 -(BOOL)isDefiant;

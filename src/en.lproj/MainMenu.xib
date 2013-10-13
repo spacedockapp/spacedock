@@ -1953,27 +1953,49 @@
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="fXC-Q4-Egy">
-                                            <rect key="frame" x="160" y="209" width="26" height="19"/>
+                                            <rect key="frame" x="67" y="20" width="26" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="kr7-qB-I8Z">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" drawsBackground="YES" id="kr7-qB-I8Z">
                                                 <font key="font" size="15" name="LucidaGrande"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </textFieldCell>
                                             <connections>
                                                 <binding destination="L6P-6L-sOj" name="value" keyPath="currentUpgrade.optionalAttack" id="AEa-ed-g3F"/>
+                                                <binding destination="L6P-6L-sOj" name="hidden" keyPath="currentUpgrade.optionalAttack" id="Gvf-m9-IM4">
+                                                    <dictionary key="options">
+                                                        <string key="NSValueTransformerName">NSIsNil</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="xcX-Z9-Fmr">
+                                            <rect key="frame" x="102" y="20" width="45" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" drawsBackground="YES" id="IgE-MR-xax">
+                                                <font key="font" size="15" name="LucidaGrande"/>
+                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="hidden" keyPath="currentUpgrade.optionalRange" id="Y6Y-vt-WyI">
+                                                    <dictionary key="options">
+                                                        <string key="NSValueTransformerName">NSIsNil</string>
+                                                    </dictionary>
+                                                </binding>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentUpgrade.optionalRange" id="geh-1q-Abd"/>
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="nZs-wg-Ft8">
-                                            <rect key="frame" x="11" y="209" width="121" height="23"/>
+                                            <rect key="frame" x="11" y="213" width="139" height="17"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Nu'Daq" id="2nZ-Qa-h4X">
+                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="title" id="2nZ-Qa-h4X">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentUpgrade.title" id="0aQ-kN-f2G"/>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentUpgrade.title" id="gfv-ug-B2B"/>
                                             </connections>
                                         </textField>
                                     </subviews>
@@ -1981,6 +2003,12 @@
                             </tabViewItem>
                             <tabViewItem label="Resource" identifier="resource" id="Ad8-1x-YmR">
                                 <view key="view" id="bYB-Rp-JbS">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="Blank" identifier="blank" id="biD-ag-b1Y">
+                                <view key="view" id="ylw-cf-s3E">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>

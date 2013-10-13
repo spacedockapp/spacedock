@@ -19,7 +19,7 @@
     return nil;
 }
 
--(NSString*)description
+-(NSString*)plainDescription
 {
     return self.title;
 }

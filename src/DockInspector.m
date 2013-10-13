@@ -40,7 +40,9 @@ static id extractSelectedItem(id controller)
             if ([upgrade isCaptain]) {
                 [_tabView selectTabViewItemWithIdentifier: @"captain"];
                 self.currentCaptain = (DockCaptain*)upgrade;
-            } else {
+            } else if ([upgrade isPlaceholder]) {
+                 [_tabView selectTabViewItemWithIdentifier: @"blank"];
+           } else {
                 [_tabView selectTabViewItemWithIdentifier: @"upgrade"];
                 self.currentUpgrade = upgrade;
             }

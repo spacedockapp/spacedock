@@ -95,7 +95,7 @@
     return [context executeFetchRequest: request error: &err];
 }
 
--(NSString*)description
+-(NSString*)plainDescription
 {
     if ([self isPlaceholder]) {
         return self.title;
@@ -106,7 +106,7 @@
 
 -(NSAttributedString*)styledDescription
 {
-    NSString* s = [self description];
+    NSString* s = [self plainDescription];
 
     if ([self isPlaceholder]) {
         NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithString: s];

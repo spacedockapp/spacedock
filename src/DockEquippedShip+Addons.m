@@ -29,9 +29,9 @@
     return self.ship.title;
 }
 
--(NSString*)description
+-(NSString*)plainDescription
 {
-    return [self.ship description];
+    return [self.ship plainDescription];
 }
 
 -(NSAttributedString*)styledDescription

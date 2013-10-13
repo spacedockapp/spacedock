@@ -39,7 +39,7 @@
     return nil;
 }
 
--(NSString*)description
+-(NSString*)plainDescription
 {
     if ([[self title] isEqualToString: self.shipClass]) {
         return self.title;
@@ -51,7 +51,7 @@
 -(NSAttributedString*)styledDescription
 {
     NSAttributedString* space = [[NSAttributedString alloc] initWithString: @" "];
-    NSMutableAttributedString* desc = [[NSMutableAttributedString alloc] initWithString: [self description]];
+    NSMutableAttributedString* desc = [[NSMutableAttributedString alloc] initWithString: [self plainDescription]];
     [desc appendAttributedString: space];
     [desc appendAttributedString: coloredString([self.attack stringValue], [NSColor whiteColor], [NSColor redColor])];
     [desc appendAttributedString: space];
