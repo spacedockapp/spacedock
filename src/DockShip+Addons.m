@@ -44,6 +44,24 @@
     return [NSString stringWithFormat: @"%@ Class", self.shipClass];
 }
 
+-(NSString*)capabilities
+{
+    NSMutableArray* caps = [[NSMutableArray alloc] initWithCapacity: 0];
+    int v = [self techCount];
+    if (v > 0) {
+        [caps addObject: [NSString stringWithFormat: @"Tech: %d", v]];
+    }
+    v = [self weaponCount];
+    if (v > 0) {
+        [caps addObject: [NSString stringWithFormat: @"Weap: %d", v]];
+    }
+    v = [self crewCount];
+    if (v > 0) {
+        [caps addObject: [NSString stringWithFormat: @"Crew: %d", v]];
+    }
+    return [caps componentsJoinedByString: @" "];
+}
+
 -(NSString*)plainDescription
 {
     if ([[self title] isEqualToString: self.shipClass]) {

@@ -16,41 +16,66 @@ static id extractSelectedItem(id controller)
     return nil;
 }
 
+-(void)updateInspectorTabForItem:(id)selectedItem changeTab:(BOOL)changeTab
+{
+    if ([selectedItem isMemberOfClass: [DockEquippedShip class]]) {
+        self.currentShip = [selectedItem ship];
+        [_tabView selectTabViewItemWithIdentifier: @"ship"];
+    } else if ([selectedItem isMemberOfClass: [DockEquippedUpgrade class]]) {
+        DockUpgrade* upgrade = [selectedItem upgrade];
+        if ([upgrade isCaptain]) {
+            self.currentCaptain = (DockCaptain*)upgrade;
+            if (changeTab) {
+                [_tabView selectTabViewItemWithIdentifier: @"captain"];
+            }
+        } else if ([upgrade isPlaceholder]) {
+            if (changeTab) {
+                [_tabView selectTabViewItemWithIdentifier: @"blank"];
+            }
+       } else {
+            self.currentUpgrade = upgrade;
+            if (changeTab) {
+                [_tabView selectTabViewItemWithIdentifier: @"upgrade"];
+            }
+        }
+    }
+}
+
+-(void)updateInspectorTabForItem:(id)selectedItem
+{
+    [self updateInspectorTabForItem: selectedItem changeTab: NO];
+}
+
 -(void)observeValueForKeyPath:(NSString*)keyPath
                      ofObject:(id)object
                        change:(NSDictionary*)change
                       context:(void*)context
 {
+    id responder = [_mainWindow firstResponder];
+    NSString* ident = [responder identifier];
     if (object == _mainWindow) {
-        id responder = [_mainWindow firstResponder];
-        NSString* ident = [responder identifier];
         if ([ident isEqualToString: @"captainsTable"]) {
+            self.currentCaptain = extractSelectedItem(_captains);
             [_tabView selectTabViewItemWithIdentifier: @"captain"];
         } else if ([ident isEqualToString: @"upgradeTable"]) {
+            self.currentUpgrade = extractSelectedItem(_upgrades);
             [_tabView selectTabViewItemWithIdentifier: @"upgrade"];
         } else if ([ident isEqualToString: @"shipsTable"]) {
+            self.currentShip = extractSelectedItem(_ships);
             [_tabView selectTabViewItemWithIdentifier: @"ship"];
+        } else if ([ident isEqualToString: @"resourcesTable"]) {
+            self.currentResource = extractSelectedItem(_resources);
+            [_tabView selectTabViewItemWithIdentifier: @"resource"];
+        } else if ([ident isEqualToString: @"squadsDetailOutline"]) {
+            id selectedItem = extractSelectedItem(_squadDetail);
+            [self updateInspectorTabForItem: selectedItem];
         } else {
             [_tabView selectTabViewItemWithIdentifier: @"blank"];
         }
     } else if (object == _squadDetail) {
-        id selectedItem = extractSelectedItem(_squadDetail);
-        if ([selectedItem isMemberOfClass: [DockEquippedShip class]]) {
-            [_tabView selectTabViewItemWithIdentifier: @"ship"];
-            self.currentShip = [selectedItem ship];
-        } else if ([selectedItem isMemberOfClass: [DockEquippedUpgrade class]]) {
-            DockUpgrade* upgrade = [selectedItem upgrade];
-            if ([upgrade isCaptain]) {
-                [_tabView selectTabViewItemWithIdentifier: @"captain"];
-                self.currentCaptain = (DockCaptain*)upgrade;
-            } else if ([upgrade isPlaceholder]) {
-                 [_tabView selectTabViewItemWithIdentifier: @"blank"];
-           } else {
-                [_tabView selectTabViewItemWithIdentifier: @"upgrade"];
-                self.currentUpgrade = upgrade;
-            }
-        } else {
-            NSLog(@"got detail %@", selectedItem);
+        if ([ident isEqualToString: @"squadsDetailOutline"]) {
+            id selectedItem = extractSelectedItem(_squadDetail);
+            [self updateInspectorTabForItem: selectedItem changeTab: YES];
         }
     } else if (object == _captains) {
         self.currentCaptain = extractSelectedItem(_captains);
@@ -58,14 +83,9 @@ static id extractSelectedItem(id controller)
         self.currentShip = extractSelectedItem(_ships);
     } else if (object == _upgrades) {
         self.currentUpgrade = extractSelectedItem(_upgrades);
+    } else if (object == _resources) {
+        self.currentResource = extractSelectedItem(_resources);
     }
-}
-
--(void)selectionChanged:(NSNotification*)notification
-{
-    id object = [notification object];
-    NSString* notObj = [object identifier];
-    NSLog(@"%@ is up", notObj);
 }
 
 -(void)awakeFromNib
@@ -76,6 +96,7 @@ static id extractSelectedItem(id controller)
     [_captains addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     [_ships addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     [_upgrades addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
+    [_resources addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     [_squadDetail addObserver: self forKeyPath: @"selectionIndexPath" options: 0 context: 0];
 }
 
