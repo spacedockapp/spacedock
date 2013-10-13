@@ -39,6 +39,11 @@
     return nil;
 }
 
+-(NSString*)formattedClass
+{
+    return [NSString stringWithFormat: @"%@ Class", self.shipClass];
+}
+
 -(NSString*)plainDescription
 {
     if ([[self title] isEqualToString: self.shipClass]) {

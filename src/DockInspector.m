@@ -28,13 +28,16 @@ static id extractSelectedItem(id controller)
             [_tabView selectTabViewItemWithIdentifier: @"captain"];
         } else if ([ident isEqualToString: @"upgradeTable"]) {
             [_tabView selectTabViewItemWithIdentifier: @"upgrade"];
-        } else {
+        } else if ([ident isEqualToString: @"shipsTable"]) {
             [_tabView selectTabViewItemWithIdentifier: @"ship"];
+        } else {
+            [_tabView selectTabViewItemWithIdentifier: @"blank"];
         }
     } else if (object == _squadDetail) {
         id selectedItem = extractSelectedItem(_squadDetail);
         if ([selectedItem isMemberOfClass: [DockEquippedShip class]]) {
             [_tabView selectTabViewItemWithIdentifier: @"ship"];
+            self.currentShip = [selectedItem ship];
         } else if ([selectedItem isMemberOfClass: [DockEquippedUpgrade class]]) {
             DockUpgrade* upgrade = [selectedItem upgrade];
             if ([upgrade isCaptain]) {
@@ -51,6 +54,8 @@ static id extractSelectedItem(id controller)
         }
     } else if (object == _captains) {
         self.currentCaptain = extractSelectedItem(_captains);
+    } else if (object == _ships) {
+        self.currentShip = extractSelectedItem(_ships);
     } else if (object == _upgrades) {
         self.currentUpgrade = extractSelectedItem(_upgrades);
     }
@@ -69,6 +74,7 @@ static id extractSelectedItem(id controller)
     [_inspector setFloatingPanel: YES];
     [_mainWindow addObserver: self forKeyPath: @"firstResponder" options: 0 context: 0];
     [_captains addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
+    [_ships addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     [_upgrades addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     [_squadDetail addObserver: self forKeyPath: @"selectionIndexPath" options: 0 context: 0];
 }

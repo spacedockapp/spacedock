@@ -1856,6 +1856,104 @@
                                 <view key="view" id="BWH-5o-6yC">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="FO6-8J-XwX" userLabel="ability">
+                                            <rect key="frame" x="47" y="47" width="139" height="132"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" borderStyle="border" alignment="center" title="Multiline Label" drawsBackground="YES" id="aw9-ad-MCr">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.ability" id="Xux-dG-5yC"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="SBb-e3-hQW" userLabel="title">
+                                            <rect key="frame" x="11" y="207" width="178" height="23"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Ship Title" placeholderString="" id="1GN-bu-5wD">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.title" id="KrX-JA-1B7"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="BeH-hV-B8C" userLabel="title">
+                                            <rect key="frame" x="11" y="187" width="178" height="23"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Ship Class" placeholderString="" id="Jvo-B3-ah0">
+                                                <font key="font" size="10" name="LucidaGrande"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.formattedClass" id="lOC-ya-kE4"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Z4C-3c-BQt" userLabel="cost">
+                                            <rect key="frame" x="160" y="20" width="26" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="IXY-DO-ggM">
+                                                <font key="font" size="15" name="LucidaGrande"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.cost" id="QdZ-V8-kJh"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="DKR-jN-iEU" userLabel="cost">
+                                            <rect key="frame" x="14" y="147" width="25" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="eTU-82-Nbt">
+                                                <font key="font" size="15" name="LucidaGrande"/>
+                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.attack" id="Zkx-YN-mgR"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="95Q-Pi-7Ek" userLabel="cost">
+                                            <rect key="frame" x="14" y="118" width="25" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="mlr-fG-bZy">
+                                                <font key="font" size="15" name="LucidaGrande"/>
+                                                <color key="textColor" red="0.25098040699958801" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.agility" id="Lvi-xd-8Hd"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dpR-Vj-tYo" userLabel="cost">
+                                            <rect key="frame" x="14" y="89" width="25" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="TLW-1m-bsO">
+                                                <font key="font" size="15" name="LucidaGrande"/>
+                                                <color key="textColor" red="1" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.hull" id="GXS-o9-5bz"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="iTK-A8-Kgb" userLabel="cost">
+                                            <rect key="frame" x="14" y="60" width="25" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="Ev5-Mg-9KA">
+                                                <font key="font" size="15" name="LucidaGrande"/>
+                                                <color key="textColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.shield" id="QWr-e9-PYQ"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Captain" identifier="captain" id="59h-wZ-gbO">
@@ -1875,10 +1973,10 @@
                                                 <binding destination="L6P-6L-sOj" name="value" keyPath="currentCaptain.ability" id="RfG-5G-PFT"/>
                                             </connections>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="sGR-vv-Okw">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="sGR-vv-Okw" userLabel="title">
                                             <rect key="frame" x="14" y="207" width="121" height="23"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Nu'Daq" id="uYb-cw-e3F">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="uYb-cw-e3F">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1887,7 +1985,7 @@
                                                 <binding destination="L6P-6L-sOj" name="value" keyPath="currentCaptain.title" id="IRn-MK-wPC"/>
                                             </connections>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="XCg-fW-bj1">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="XCg-fW-bj1" userLabel="captain">
                                             <rect key="frame" x="127" y="207" width="62" height="23"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Captain" id="eli-Es-4pB">
@@ -1896,7 +1994,7 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="BNz-oy-cxI">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="BNz-oy-cxI" userLabel="cost">
                                             <rect key="frame" x="160" y="18" width="26" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="hFA-1d-HfH">
@@ -1908,7 +2006,7 @@
                                                 <binding destination="L6P-6L-sOj" name="value" keyPath="currentCaptain.cost" id="5eV-lZ-ziw"/>
                                             </connections>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="b2e-P2-OXd">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="b2e-P2-OXd" userLabel="skill">
                                             <rect key="frame" x="14" y="16" width="35" height="23"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" alignment="center" title="3" drawsBackground="YES" id="NUO-je-55X">
@@ -1940,7 +2038,7 @@
                                                 <binding destination="L6P-6L-sOj" name="value" keyPath="currentUpgrade.ability" id="T3P-S0-fFU"/>
                                             </connections>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="HBv-fy-KaD">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="HBv-fy-KaD" userLabel="cost">
                                             <rect key="frame" x="160" y="20" width="26" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="5uj-UB-cZS">
@@ -1952,7 +2050,7 @@
                                                 <binding destination="L6P-6L-sOj" name="value" keyPath="currentUpgrade.cost" id="zwO-1I-JIE"/>
                                             </connections>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="fXC-Q4-Egy">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="fXC-Q4-Egy" userLabel="attack">
                                             <rect key="frame" x="67" y="20" width="26" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" drawsBackground="YES" id="kr7-qB-I8Z">
@@ -1969,12 +2067,12 @@
                                                 </binding>
                                             </connections>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="xcX-Z9-Fmr">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="xcX-Z9-Fmr" userLabel="range">
                                             <rect key="frame" x="102" y="20" width="45" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" drawsBackground="YES" id="IgE-MR-xax">
                                                 <font key="font" size="15" name="LucidaGrande"/>
-                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </textFieldCell>
                                             <connections>

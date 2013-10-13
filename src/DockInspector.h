@@ -2,6 +2,8 @@
 
 @class DockCaptain;
 @class DockUpgrade;
+@class DockResource;
+@class DockShip;
 
 @interface DockInspector : NSObject
 @property (assign) IBOutlet NSPanel* inspector;
@@ -17,4 +19,6 @@
 @property (strong, nonatomic) NSString* targetKind;
 @property (weak, nonatomic) DockCaptain* currentCaptain;
 @property (weak, nonatomic) DockUpgrade* currentUpgrade;
+@property (weak, nonatomic) DockShip* currentShip;
+@property (weak, nonatomic) DockResource* currentResource;
 @end

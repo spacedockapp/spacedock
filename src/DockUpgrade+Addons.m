@@ -277,7 +277,10 @@
 -(NSString*)optionalAttack
 {
     if ([self isWeapon]) {
-        return [self valueForKey: @"attack"];
+        id attackValue = [self valueForKey: @"attack"];
+        if ([attackValue intValue] > 0) {
+            return attackValue;
+        }
     }
     return nil;
 }
@@ -285,7 +288,10 @@
 -(NSString*)optionalRange
 {
     if ([self isWeapon]) {
-        return [self valueForKey: @"range"];
+        id rangeValue = [self valueForKey: @"range"];
+        if ([rangeValue length] > 0) {
+            return rangeValue;
+        }
     }
     return nil;
 }
