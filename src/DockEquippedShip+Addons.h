@@ -20,6 +20,7 @@
 -(void)removeCaptain;
 -(int)talentCount;
 -(NSArray*)sortedUpgrades;
+-(NSString*)plainDescription;
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
 -(void)changeShip:(DockShip*)newShip;
 @end

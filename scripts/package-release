@@ -5,6 +5,8 @@ scriptDir=`dirname $0`
 scriptDir=`cd $scriptDir; pwd`
 baseDir=$scriptDir/..
 baseDir=`cd $baseDir; pwd`
+siteDir=$baseDir/../spacedocksite
+siteDir=`cd $siteDir; pwd`
 xcodebuild clean build
 version=$(defaults read "$baseDir/build/Release/Space Dock.app/Contents/Info" CFBundleShortVersionString)
 versionDash=$(echo $version | sed 's/\./-/g')
@@ -13,3 +15,4 @@ encodedName="space_dock_b$build_number"
 archiveName=$encodedName.zip
 cd $baseDir/build/Release
 zip --symlinks -r -q $archiveName "Space Dock".app
+cp $archiveName $siteDir/

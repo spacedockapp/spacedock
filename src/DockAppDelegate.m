@@ -555,7 +555,7 @@ NSString* makeKey(NSString *key)
 -(void)explainCantAddUpgrade:(DockEquippedShip*)ship upgrade:(DockUpgrade*)upgrade
 {
     NSAlert* alert = [[NSAlert alloc] init];
-    NSString* msg = [NSString stringWithFormat: @"Can't add %@ to %@", upgrade, ship];
+    NSString* msg = [NSString stringWithFormat: @"Can't add %@ to %@", [upgrade plainDescription], [ship plainDescription]];
     [alert setMessageText: msg];
     NSString* info = @"";
     int limit = [upgrade limitForShip: ship];
