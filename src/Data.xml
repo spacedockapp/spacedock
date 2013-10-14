@@ -1,4 +1,4 @@
-<Data version="1.13">
+<Data version="1.14">
   <Ships>
     <Ship>
       <Title>U.S.S. Enterprise-D</Title>
@@ -1429,8 +1429,7 @@
       <Ability>Once per round, you may re-roll any one of your attack or defense dice.</Ability>
       <Unique>Y</Unique>
       <Skill>6</Skill>
-      <Talent>
-      </Talent>
+      <Talent>1</Talent>
       <Attack>
       </Attack>
       <Range>
@@ -2638,7 +2637,7 @@
 
     <Upgrade>
       <Title>Defense Condition One</Title>
-      <Ability>ATTACK: Disable this card to place a [BATTLESTATION] Token beside your ship and all friendly ships within Range 1-2 of your ship (even if there is already one there).</Ability>
+      <Ability>ACTION: Disable this card to place a [BATTLESTATION] Token beside your ship and all friendly ships within Range 1-2 of your ship (even if there is already one there).</Ability>
       <Skill>
       </Skill>
       <Talent>
