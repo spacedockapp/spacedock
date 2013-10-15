@@ -234,4 +234,16 @@ static NSString* toDataFormat(NSString* label, id element)
     return nil;
 }
 
+-(DockEquippedUpgrade*)containsUpgradeWithName:(NSString*)theName
+{
+    for (DockEquippedShip* ship in self.equippedShips) {
+        DockEquippedUpgrade* existing = [ship containsUpgradeWithName: theName];
+
+        if (existing) {
+            return existing;
+        }
+    }
+    return nil;
+}
+
 @end

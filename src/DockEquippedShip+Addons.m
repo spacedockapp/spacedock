@@ -366,6 +366,16 @@
     return nil;
 }
 
+-(DockEquippedUpgrade*)containsUpgradeWithName:(NSString*)theName
+{
+    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        if ([eu.upgrade.title isEqualToString: theName]) {
+            return eu;
+        }
+    }
+    return nil;
+}
+
 -(void)changeShip:(DockShip*)newShip
 {
     self.ship = newShip;

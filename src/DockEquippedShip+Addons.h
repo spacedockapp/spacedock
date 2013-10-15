@@ -22,5 +22,6 @@
 -(NSArray*)sortedUpgrades;
 -(NSString*)plainDescription;
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
+-(DockEquippedUpgrade*)containsUpgradeWithName:(NSString*)theName;
 -(void)changeShip:(DockShip*)newShip;
 @end
