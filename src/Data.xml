@@ -1,4 +1,4 @@
-<Data version="1.14">
+<Data version="1.15">
   <Ships>
     <Ship>
       <Title>U.S.S. Enterprise-D</Title>
@@ -432,7 +432,7 @@
       <Agility>1</Agility>
       <Hull>6</Hull>
       <Shield>3</Shield>
-      <Ability>Target a ship within your firing arc at Range 1-2 and roll 3 attack dice. For each [DAMAGE] result disable 1 of that ship's Shields. If possible, you may play Klingon Boarding Party as a free action this turn. </Ability>
+      <Ability>ACTION: Target a ship within your firing arc at Range 1-2 and roll 3 attack dice. For each [DAMAGE] result disable 1 of that ship's Shields. If possible, you may play Klingon Boarding Party as a free action this turn. </Ability>
       <Cost>30</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
@@ -534,7 +534,7 @@
       <Agility>2</Agility>
       <Hull>4</Hull>
       <Shield>4</Shield>
-      <Ability>Although you much be Target Locked on a ship to fire a Torpedo at it, you do not need to discard your Target Lock when doing so.</Ability>
+      <Ability>Although you must be Target Locked on a ship to fire a Torpedo at it, you do not need to discard your Target Lock when doing so.</Ability>
       <Cost>26</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
@@ -1601,7 +1601,7 @@
       <Set>71120</Set>
     </Upgrade>
     <Upgrade>
-      <Title>O'Brien</Title>
+      <Title>Miles O'Brien</Title>
       <Unique>Y</Unique>
       <Ability>ACTION: Discard this card to disable any 1 Upgrade on another ship at Range 1-3. This ability may be used against a ship that is Cloaked. </Ability>
       <Skill>

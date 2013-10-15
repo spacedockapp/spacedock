@@ -13,4 +13,5 @@
 -(NSString*)asDataFormat;
 -(DockEquippedShip*)containsShip:(DockShip*)theShip;
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
+-(DockEquippedUpgrade*)containsUpgradeWithName:(NSString*)theName;
 @end

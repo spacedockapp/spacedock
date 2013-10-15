@@ -326,7 +326,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
     NSAlert* alert = [[NSAlert alloc] init];
     NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", ship.title];
     [alert setMessageText: msg];
-    NSString* info = @"This ship is unique and already exists in the squadron.";
+    NSString* info = @"This ship is unique and one with the same name already exists in the squadron.";
     [alert setInformativeText: info];
     [alert setAlertStyle: NSInformationalAlertStyle];
     [alert beginSheetModalForWindow: [self window]
@@ -340,7 +340,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
     NSAlert* alert = [[NSAlert alloc] init];
     NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", upgrade.title];
     [alert setMessageText: msg];
-    NSString* info = @"This upgrade is unique and already exists in the squadron.";
+    NSString* info = @"This upgrade is unique and one with the same name already exists in the squadron.";
     [alert setInformativeText: info];
     [alert setAlertStyle: NSInformationalAlertStyle];
     [alert beginSheetModalForWindow: [self window]
@@ -521,7 +521,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 
         if ([captain isUnique]) {
             DockSquad* squad = [self selectedSquad];
-            DockEquippedUpgrade* existing = [squad containsUpgrade: captain];
+            DockEquippedUpgrade* existing = [squad containsUpgradeWithName: captain.title];
 
             if (existing) {
                 [self selectUpgrade: existing];
@@ -544,7 +544,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 
     if ([upgrade isUnique]) {
         DockSquad* squad = [self selectedSquad];
-        DockEquippedUpgrade* existing = [squad containsUpgrade: upgrade];
+        DockEquippedUpgrade* existing = [squad containsUpgradeWithName: upgrade.title];
 
         if (existing) {
             [self selectUpgrade: existing];
