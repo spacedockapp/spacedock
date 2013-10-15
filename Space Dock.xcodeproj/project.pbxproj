@@ -10,18 +10,35 @@
 		D41B77E617FDCF91005A5DA8 /* DockResource+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B77E517FDCF91005A5DA8 /* DockResource+Addons.m */; };
 		D41B77E917FE13D1005A5DA8 /* DockBooleanFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B77E817FE13D1005A5DA8 /* DockBooleanFormatter.m */; };
 		D41B77EB17FE3FB6005A5DA8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D41B77EA17FE3FB6005A5DA8 /* Images.xcassets */; };
-		D41B77EF17FE4184005A5DA8 /* space_dock.icns in Resources */ = {isa = PBXBuildFile; fileRef = D41B77EE17FE416F005A5DA8 /* space_dock.icns */; };
 		D41BA80817F67FE0005266E6 /* DockShip+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D41BA80717F67FE0005266E6 /* DockShip+Addons.m */; };
 		D42BD1F017EA134B0000598C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42BD1EF17EA134B0000598C /* Cocoa.framework */; };
 		D437079E1800AFDF00622E7F /* DockWeapon+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D437079D1800AFDF00622E7F /* DockWeapon+Addons.m */; };
 		D45AF1F017FFE7F900C04F9A /* DockUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D45AF1EF17FFE7F900C04F9A /* DockUtils.m */; };
+		D48D3115180C3E3C0084663B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48D3114180C3E3C0084663B /* Foundation.framework */; };
+		D48D3117180C3E3C0084663B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48D3116180C3E3C0084663B /* CoreGraphics.framework */; };
+		D48D3119180C3E3D0084663B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48D3118180C3E3D0084663B /* UIKit.framework */; };
+		D48D311B180C3E3D0084663B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48D311A180C3E3D0084663B /* CoreData.framework */; };
+		D48D3121180C3E3D0084663B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D48D311F180C3E3D0084663B /* InfoPlist.strings */; };
+		D48D3123180C3E3D0084663B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D3122180C3E3D0084663B /* main.m */; };
+		D48D3127180C3E3D0084663B /* DockAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D3126180C3E3D0084663B /* DockAppDelegate.m */; };
+		D48D312C180C3E3D0084663B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D48D312B180C3E3D0084663B /* Images.xcassets */; };
+		D48D3148180C44140084663B /* Space_Dock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */; };
+		D48D315A180C4D4F0084663B /* DockAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D314B180C4D4F0084663B /* DockAppDelegate.m */; };
+		D48D315B180C4D4F0084663B /* DockInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D314D180C4D4F0084663B /* DockInspector.m */; };
+		D48D315C180C4D4F0084663B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D48D314E180C4D4F0084663B /* Credits.rtf */; };
+		D48D315D180C4D4F0084663B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D48D3150180C4D4F0084663B /* InfoPlist.strings */; };
+		D48D315E180C4D4F0084663B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48D3152180C4D4F0084663B /* MainMenu.xib */; };
+		D48D315F180C4D4F0084663B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D3154180C4D4F0084663B /* main.m */; };
+		D48D3160180C4D4F0084663B /* NSTreeController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D3156180C4D4F0084663B /* NSTreeController+Additions.m */; };
+		D48D3162180C4D4F0084663B /* space_dock.icns in Resources */ = {isa = PBXBuildFile; fileRef = D48D3159180C4D4F0084663B /* space_dock.icns */; };
+		D48D3163180C50B20084663B /* Data.xml in Resources */ = {isa = PBXBuildFile; fileRef = D4F7F3EA17F2C95D00F5A808 /* Data.xml */; };
+		D48D3166180C510C0084663B /* DockDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D3165180C510C0084663B /* DockDataLoader.m */; };
+		D48D3167180C510C0084663B /* DockDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D3165180C510C0084663B /* DockDataLoader.m */; };
 		D4AAA28817F4082F00A99383 /* DockEquippedShip+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA28717F4082F00A99383 /* DockEquippedShip+Addons.m */; };
 		D4AAA28B17F408D400A99383 /* DockUpgrade+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA28A17F408D400A99383 /* DockUpgrade+Addons.m */; };
 		D4AAA29417F48F8100A99383 /* DockEquippedUpgrade+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA29317F48F8100A99383 /* DockEquippedUpgrade+Addons.m */; };
 		D4AAA2BC17F4DF3D00A99383 /* DockSquad+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA2BB17F4DF3D00A99383 /* DockSquad+Addons.m */; };
-		D4AAA2E017F4F79600A99383 /* NSTreeController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA2DF17F4F79600A99383 /* NSTreeController+Additions.m */; };
 		D4D7BE6817F76FB50070D94D /* DockCaptain+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D7BE6717F76FB50070D94D /* DockCaptain+Addons.m */; };
-		D4DCA8DD1809E2B40066F8A5 /* DockInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DCA8DC1809E2B40066F8A5 /* DockInspector.m */; };
 		D4F7F17F1808DA2500157E32 /* DockSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F17E1808DA2500157E32 /* DockSet.m */; };
 		D4F7F1821808DA2600157E32 /* DockCrew.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1811808DA2600157E32 /* DockCrew.m */; };
 		D4F7F1851808DA2600157E32 /* DockShip.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1841808DA2600157E32 /* DockShip.m */; };
@@ -37,11 +54,7 @@
 		D4F7F1A61808DA2600157E32 /* DockWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1A51808DA2600157E32 /* DockWeapon.m */; };
 		D4F7F1A91808DBB000157E32 /* DockSet+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1A81808DBB000157E32 /* DockSet+Addons.m */; };
 		D4F7F40E17F2C95D00F5A808 /* Data.xml in Resources */ = {isa = PBXBuildFile; fileRef = D4F7F3EA17F2C95D00F5A808 /* Data.xml */; };
-		D4F7F40F17F2C95D00F5A808 /* DockAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F3EC17F2C95D00F5A808 /* DockAppDelegate.m */; };
 		D4F7F41317F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F3F417F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m */; };
-		D4F7F41B17F2C95D00F5A808 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D4F7F40317F2C95D00F5A808 /* Credits.rtf */; };
-		D4F7F41D17F2C95D00F5A808 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F7F40717F2C95D00F5A808 /* MainMenu.xib */; };
-		D4F7F41E17F2C95D00F5A808 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40917F2C95D00F5A808 /* main.m */; };
 		D4F7F42017F2C95D00F5A808 /* Space_Dock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +65,6 @@
 		D41B77E717FE13D1005A5DA8 /* DockBooleanFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockBooleanFormatter.h; sourceTree = "<group>"; };
 		D41B77E817FE13D1005A5DA8 /* DockBooleanFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockBooleanFormatter.m; sourceTree = "<group>"; };
 		D41B77EA17FE3FB6005A5DA8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Space Dock/Images.xcassets"; sourceTree = "<group>"; };
-		D41B77EE17FE416F005A5DA8 /* space_dock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = space_dock.icns; sourceTree = "<group>"; };
 		D41BA80617F67FE0005266E6 /* DockShip+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockShip+Addons.h"; sourceTree = "<group>"; };
 		D41BA80717F67FE0005266E6 /* DockShip+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockShip+Addons.m"; sourceTree = "<group>"; };
 		D42BD1EC17EA134B0000598C /* Space Dock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Dock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +77,34 @@
 		D439357618084DB600096EDA /* Space_Dock_3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock_3.xcdatamodel; sourceTree = "<group>"; };
 		D45AF1EE17FFE7F900C04F9A /* DockUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockUtils.h; sourceTree = "<group>"; };
 		D45AF1EF17FFE7F900C04F9A /* DockUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockUtils.m; sourceTree = "<group>"; };
+		D48D3113180C3E3C0084663B /* Space Dock Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Dock Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D48D3114180C3E3C0084663B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D48D3116180C3E3C0084663B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D48D3118180C3E3D0084663B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		D48D311A180C3E3D0084663B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		D48D311E180C3E3D0084663B /* SpaceDockMobile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpaceDockMobile-Info.plist"; sourceTree = "<group>"; };
+		D48D3120180C3E3D0084663B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D48D3122180C3E3D0084663B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D48D3124180C3E3D0084663B /* SpaceDockMobile-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpaceDockMobile-Prefix.pch"; sourceTree = "<group>"; };
+		D48D3125180C3E3D0084663B /* DockAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DockAppDelegate.h; sourceTree = "<group>"; };
+		D48D3126180C3E3D0084663B /* DockAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DockAppDelegate.m; sourceTree = "<group>"; };
+		D48D312B180C3E3D0084663B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D48D3132180C3E3D0084663B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D48D314A180C4D4F0084663B /* DockAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockAppDelegate.h; sourceTree = "<group>"; };
+		D48D314B180C4D4F0084663B /* DockAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockAppDelegate.m; sourceTree = "<group>"; };
+		D48D314C180C4D4F0084663B /* DockInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockInspector.h; sourceTree = "<group>"; };
+		D48D314D180C4D4F0084663B /* DockInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockInspector.m; sourceTree = "<group>"; };
+		D48D314F180C4D4F0084663B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D48D3151180C4D4F0084663B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D48D3153180C4D4F0084663B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D48D3154180C4D4F0084663B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D48D3155180C4D4F0084663B /* NSTreeController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTreeController+Additions.h"; sourceTree = "<group>"; };
+		D48D3156180C4D4F0084663B /* NSTreeController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTreeController+Additions.m"; sourceTree = "<group>"; };
+		D48D3157180C4D4F0084663B /* Space Dock-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Space Dock-Info.plist"; sourceTree = "<group>"; };
+		D48D3158180C4D4F0084663B /* Space Dock-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Space Dock-Prefix.pch"; sourceTree = "<group>"; };
+		D48D3159180C4D4F0084663B /* space_dock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = space_dock.icns; sourceTree = "<group>"; };
+		D48D3164180C510C0084663B /* DockDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockDataLoader.h; sourceTree = "<group>"; };
+		D48D3165180C510C0084663B /* DockDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockDataLoader.m; sourceTree = "<group>"; };
 		D4AAA28617F4082F00A99383 /* DockEquippedShip+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockEquippedShip+Addons.h"; sourceTree = "<group>"; };
 		D4AAA28717F4082F00A99383 /* DockEquippedShip+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockEquippedShip+Addons.m"; sourceTree = "<group>"; };
 		D4AAA28917F408D400A99383 /* DockUpgrade+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockUpgrade+Addons.h"; sourceTree = "<group>"; };
@@ -73,12 +113,8 @@
 		D4AAA29317F48F8100A99383 /* DockEquippedUpgrade+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockEquippedUpgrade+Addons.m"; sourceTree = "<group>"; };
 		D4AAA2BA17F4DF3D00A99383 /* DockSquad+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockSquad+Addons.h"; sourceTree = "<group>"; };
 		D4AAA2BB17F4DF3D00A99383 /* DockSquad+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockSquad+Addons.m"; sourceTree = "<group>"; };
-		D4AAA2DE17F4F79600A99383 /* NSTreeController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTreeController+Additions.h"; sourceTree = "<group>"; };
-		D4AAA2DF17F4F79600A99383 /* NSTreeController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTreeController+Additions.m"; sourceTree = "<group>"; };
 		D4D7BE6617F76FB50070D94D /* DockCaptain+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockCaptain+Addons.h"; sourceTree = "<group>"; };
 		D4D7BE6717F76FB50070D94D /* DockCaptain+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockCaptain+Addons.m"; sourceTree = "<group>"; };
-		D4DCA8DB1809E2B40066F8A5 /* DockInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockInspector.h; sourceTree = "<group>"; };
-		D4DCA8DC1809E2B40066F8A5 /* DockInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockInspector.m; sourceTree = "<group>"; };
 		D4F7F17D1808DA2500157E32 /* DockSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockSet.h; sourceTree = "<group>"; };
 		D4F7F17E1808DA2500157E32 /* DockSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockSet.m; sourceTree = "<group>"; };
 		D4F7F1801808DA2600157E32 /* DockCrew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockCrew.h; sourceTree = "<group>"; };
@@ -108,16 +144,8 @@
 		D4F7F1A71808DBB000157E32 /* DockSet+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockSet+Addons.h"; sourceTree = "<group>"; };
 		D4F7F1A81808DBB000157E32 /* DockSet+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockSet+Addons.m"; sourceTree = "<group>"; };
 		D4F7F3EA17F2C95D00F5A808 /* Data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Data.xml; sourceTree = "<group>"; };
-		D4F7F3EB17F2C95D00F5A808 /* DockAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockAppDelegate.h; sourceTree = "<group>"; };
-		D4F7F3EC17F2C95D00F5A808 /* DockAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockAppDelegate.m; sourceTree = "<group>"; };
 		D4F7F3F317F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockOrderedSetArrayValueTransformer.h; sourceTree = "<group>"; };
 		D4F7F3F417F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockOrderedSetArrayValueTransformer.m; sourceTree = "<group>"; };
-		D4F7F40417F2C95D00F5A808 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		D4F7F40617F2C95D00F5A808 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D4F7F40817F2C95D00F5A808 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		D4F7F40917F2C95D00F5A808 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D4F7F40A17F2C95D00F5A808 /* Space Dock-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Space Dock-Info.plist"; sourceTree = "<group>"; };
-		D4F7F40B17F2C95D00F5A808 /* Space Dock-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Space Dock-Prefix.pch"; sourceTree = "<group>"; };
 		D4F7F40D17F2C95D00F5A808 /* Space_Dock.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +158,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D48D3110180C3E3C0084663B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D48D3117180C3E3C0084663B /* CoreGraphics.framework in Frameworks */,
+				D48D311B180C3E3D0084663B /* CoreData.framework in Frameworks */,
+				D48D3119180C3E3D0084663B /* UIKit.framework in Frameworks */,
+				D48D3115180C3E3C0084663B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -137,7 +176,9 @@
 			isa = PBXGroup;
 			children = (
 				D41B77EA17FE3FB6005A5DA8 /* Images.xcassets */,
+				D48D3149180C4D4F0084663B /* mac */,
 				D4F7F3E917F2C95D00F5A808 /* src */,
+				D48D311C180C3E3D0084663B /* SpaceDockMobile */,
 				D42BD1EE17EA134B0000598C /* Frameworks */,
 				D42BD1ED17EA134B0000598C /* Products */,
 			);
@@ -147,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				D42BD1EC17EA134B0000598C /* Space Dock.app */,
+				D48D3113180C3E3C0084663B /* Space Dock Mobile.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,6 +197,11 @@
 			isa = PBXGroup;
 			children = (
 				D42BD1EF17EA134B0000598C /* Cocoa.framework */,
+				D48D3114180C3E3C0084663B /* Foundation.framework */,
+				D48D3116180C3E3C0084663B /* CoreGraphics.framework */,
+				D48D3118180C3E3D0084663B /* UIKit.framework */,
+				D48D311A180C3E3D0084663B /* CoreData.framework */,
+				D48D3132180C3E3D0084663B /* XCTest.framework */,
 				D42BD1F117EA134B0000598C /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -168,6 +215,48 @@
 				D42BD1F417EA134B0000598C /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D48D311C180C3E3D0084663B /* SpaceDockMobile */ = {
+			isa = PBXGroup;
+			children = (
+				D48D3125180C3E3D0084663B /* DockAppDelegate.h */,
+				D48D3126180C3E3D0084663B /* DockAppDelegate.m */,
+				D48D312B180C3E3D0084663B /* Images.xcassets */,
+				D48D311D180C3E3D0084663B /* Supporting Files */,
+			);
+			path = SpaceDockMobile;
+			sourceTree = "<group>";
+		};
+		D48D311D180C3E3D0084663B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D48D311E180C3E3D0084663B /* SpaceDockMobile-Info.plist */,
+				D48D311F180C3E3D0084663B /* InfoPlist.strings */,
+				D48D3122180C3E3D0084663B /* main.m */,
+				D48D3124180C3E3D0084663B /* SpaceDockMobile-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D48D3149180C4D4F0084663B /* mac */ = {
+			isa = PBXGroup;
+			children = (
+				D48D314A180C4D4F0084663B /* DockAppDelegate.h */,
+				D48D314B180C4D4F0084663B /* DockAppDelegate.m */,
+				D48D314C180C4D4F0084663B /* DockInspector.h */,
+				D48D314D180C4D4F0084663B /* DockInspector.m */,
+				D48D314E180C4D4F0084663B /* Credits.rtf */,
+				D48D3150180C4D4F0084663B /* InfoPlist.strings */,
+				D48D3152180C4D4F0084663B /* MainMenu.xib */,
+				D48D3154180C4D4F0084663B /* main.m */,
+				D48D3155180C4D4F0084663B /* NSTreeController+Additions.h */,
+				D48D3156180C4D4F0084663B /* NSTreeController+Additions.m */,
+				D48D3157180C4D4F0084663B /* Space Dock-Info.plist */,
+				D48D3158180C4D4F0084663B /* Space Dock-Prefix.pch */,
+				D48D3159180C4D4F0084663B /* space_dock.icns */,
+			);
+			path = mac;
 			sourceTree = "<group>";
 		};
 		D4AAA2B617F4C9B200A99383 /* Entities */ = {
@@ -207,18 +296,16 @@
 			isa = PBXGroup;
 			children = (
 				D4AAA2B617F4C9B200A99383 /* Entities */,
-				D4F7F3EB17F2C95D00F5A808 /* DockAppDelegate.h */,
-				D4F7F3EC17F2C95D00F5A808 /* DockAppDelegate.m */,
 				D41B77E717FE13D1005A5DA8 /* DockBooleanFormatter.h */,
 				D41B77E817FE13D1005A5DA8 /* DockBooleanFormatter.m */,
 				D4D7BE6617F76FB50070D94D /* DockCaptain+Addons.h */,
 				D4D7BE6717F76FB50070D94D /* DockCaptain+Addons.m */,
+				D48D3164180C510C0084663B /* DockDataLoader.h */,
+				D48D3165180C510C0084663B /* DockDataLoader.m */,
 				D4AAA28617F4082F00A99383 /* DockEquippedShip+Addons.h */,
 				D4AAA28717F4082F00A99383 /* DockEquippedShip+Addons.m */,
 				D4AAA29217F48F8100A99383 /* DockEquippedUpgrade+Addons.h */,
 				D4AAA29317F48F8100A99383 /* DockEquippedUpgrade+Addons.m */,
-				D4DCA8DB1809E2B40066F8A5 /* DockInspector.h */,
-				D4DCA8DC1809E2B40066F8A5 /* DockInspector.m */,
 				D4F7F3F317F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.h */,
 				D4F7F3F417F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m */,
 				D41B77E417FDCF91005A5DA8 /* DockResource+Addons.h */,
@@ -235,17 +322,8 @@
 				D45AF1EF17FFE7F900C04F9A /* DockUtils.m */,
 				D437079C1800AFDF00622E7F /* DockWeapon+Addons.h */,
 				D437079D1800AFDF00622E7F /* DockWeapon+Addons.m */,
-				D4AAA2DE17F4F79600A99383 /* NSTreeController+Additions.h */,
-				D4AAA2DF17F4F79600A99383 /* NSTreeController+Additions.m */,
-				D4F7F40917F2C95D00F5A808 /* main.m */,
 				D4F7F3EA17F2C95D00F5A808 /* Data.xml */,
-				D4F7F40317F2C95D00F5A808 /* Credits.rtf */,
-				D4F7F40517F2C95D00F5A808 /* InfoPlist.strings */,
-				D4F7F40717F2C95D00F5A808 /* MainMenu.xib */,
-				D4F7F40A17F2C95D00F5A808 /* Space Dock-Info.plist */,
 				D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */,
-				D4F7F40B17F2C95D00F5A808 /* Space Dock-Prefix.pch */,
-				D41B77EE17FE416F005A5DA8 /* space_dock.icns */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -270,6 +348,23 @@
 			productReference = D42BD1EC17EA134B0000598C /* Space Dock.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D48D3112180C3E3C0084663B /* Space Dock Mobile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D48D3141180C3E3D0084663B /* Build configuration list for PBXNativeTarget "Space Dock Mobile" */;
+			buildPhases = (
+				D48D310F180C3E3C0084663B /* Sources */,
+				D48D3110180C3E3C0084663B /* Frameworks */,
+				D48D3111180C3E3C0084663B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Space Dock Mobile";
+			productName = SpaceDockMobile;
+			productReference = D48D3113180C3E3C0084663B /* Space Dock Mobile.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -281,6 +376,9 @@
 				ORGANIZATIONNAME = "Rob Tsuk";
 				TargetAttributes = {
 					D42BD1EB17EA134B0000598C = {
+						DevelopmentTeam = NM66XJZ7L9;
+					};
+					D48D3112180C3E3C0084663B = {
 						DevelopmentTeam = NM66XJZ7L9;
 					};
 				};
@@ -298,6 +396,7 @@
 			projectRoot = "";
 			targets = (
 				D42BD1EB17EA134B0000598C /* Space Dock */,
+				D48D3112180C3E3C0084663B /* Space Dock Mobile */,
 			);
 		};
 /* End PBXProject section */
@@ -307,11 +406,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4F7F41D17F2C95D00F5A808 /* MainMenu.xib in Resources */,
-				D41B77EF17FE4184005A5DA8 /* space_dock.icns in Resources */,
+				D48D315D180C4D4F0084663B /* InfoPlist.strings in Resources */,
+				D48D315C180C4D4F0084663B /* Credits.rtf in Resources */,
 				D41B77EB17FE3FB6005A5DA8 /* Images.xcassets in Resources */,
+				D48D3162180C4D4F0084663B /* space_dock.icns in Resources */,
 				D4F7F40E17F2C95D00F5A808 /* Data.xml in Resources */,
-				D4F7F41B17F2C95D00F5A808 /* Credits.rtf in Resources */,
+				D48D315E180C4D4F0084663B /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D48D3111180C3E3C0084663B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D48D3121180C3E3D0084663B /* InfoPlist.strings in Resources */,
+				D48D3163180C50B20084663B /* Data.xml in Resources */,
+				D48D312C180C3E3D0084663B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,13 +432,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D48D3166180C510C0084663B /* DockDataLoader.m in Sources */,
 				D4D7BE6817F76FB50070D94D /* DockCaptain+Addons.m in Sources */,
 				D4F7F19A1808DA2600157E32 /* DockSquad.m in Sources */,
-				D4DCA8DD1809E2B40066F8A5 /* DockInspector.m in Sources */,
-				D4AAA2E017F4F79600A99383 /* NSTreeController+Additions.m in Sources */,
-				D4F7F41E17F2C95D00F5A808 /* main.m in Sources */,
+				D48D315B180C4D4F0084663B /* DockInspector.m in Sources */,
 				D4F7F1A01808DA2600157E32 /* DockTalent.m in Sources */,
-				D4F7F40F17F2C95D00F5A808 /* DockAppDelegate.m in Sources */,
 				D4F7F1941808DA2600157E32 /* DockSetItem.m in Sources */,
 				D45AF1F017FFE7F900C04F9A /* DockUtils.m in Sources */,
 				D41B77E917FE13D1005A5DA8 /* DockBooleanFormatter.m in Sources */,
@@ -337,9 +445,11 @@
 				D437079E1800AFDF00622E7F /* DockWeapon+Addons.m in Sources */,
 				D4AAA2BC17F4DF3D00A99383 /* DockSquad+Addons.m in Sources */,
 				D41B77E617FDCF91005A5DA8 /* DockResource+Addons.m in Sources */,
+				D48D315A180C4D4F0084663B /* DockAppDelegate.m in Sources */,
 				D4AAA29417F48F8100A99383 /* DockEquippedUpgrade+Addons.m in Sources */,
 				D4AAA28817F4082F00A99383 /* DockEquippedShip+Addons.m in Sources */,
 				D4F7F17F1808DA2500157E32 /* DockSet.m in Sources */,
+				D48D3160180C4D4F0084663B /* NSTreeController+Additions.m in Sources */,
 				D4F7F1881808DA2600157E32 /* DockResource.m in Sources */,
 				D4F7F19D1808DA2600157E32 /* DockEquippedUpgrade.m in Sources */,
 				D41BA80817F67FE0005266E6 /* DockShip+Addons.m in Sources */,
@@ -351,33 +461,53 @@
 				D4F7F1A61808DA2600157E32 /* DockWeapon.m in Sources */,
 				D4F7F41317F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m in Sources */,
 				D4F7F1911808DA2600157E32 /* DockTech.m in Sources */,
+				D48D315F180C4D4F0084663B /* main.m in Sources */,
 				D4F7F1821808DA2600157E32 /* DockCrew.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D48D310F180C3E3C0084663B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D48D3123180C3E3D0084663B /* main.m in Sources */,
+				D48D3167180C510C0084663B /* DockDataLoader.m in Sources */,
+				D48D3148180C44140084663B /* Space_Dock.xcdatamodeld in Sources */,
+				D48D3127180C3E3D0084663B /* DockAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D4F7F40317F2C95D00F5A808 /* Credits.rtf */ = {
+		D48D311F180C3E3D0084663B /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D4F7F40417F2C95D00F5A808 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		D4F7F40517F2C95D00F5A808 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D4F7F40617F2C95D00F5A808 /* en */,
+				D48D3120180C3E3D0084663B /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		D4F7F40717F2C95D00F5A808 /* MainMenu.xib */ = {
+		D48D314E180C4D4F0084663B /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D4F7F40817F2C95D00F5A808 /* en */,
+				D48D314F180C4D4F0084663B /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		D48D3150180C4D4F0084663B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D48D3151180C4D4F0084663B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D48D3152180C4D4F0084663B /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D48D3153180C4D4F0084663B /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -412,6 +542,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -439,6 +570,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
 			};
@@ -451,9 +583,9 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "src/Space Dock-Prefix.pch";
+				GCC_PREFIX_HEADER = "mac/Space Dock-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/src/Space Dock-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/mac/Space Dock-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -467,11 +599,79 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "src/Space Dock-Prefix.pch";
+				GCC_PREFIX_HEADER = "mac/Space Dock-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/src/Space Dock-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/mac/Space Dock-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D48D3142180C3E3D0084663B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SpaceDockMobile/SpaceDockMobile-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "SpaceDockMobile/SpaceDockMobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D48D3143180C3E3D0084663B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SpaceDockMobile/SpaceDockMobile-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "SpaceDockMobile/SpaceDockMobile-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -496,6 +696,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D48D3141180C3E3D0084663B /* Build configuration list for PBXNativeTarget "Space Dock Mobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D48D3142180C3E3D0084663B /* Debug */,
+				D48D3143180C3E3D0084663B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
