@@ -88,13 +88,13 @@
 
 -(BOOL)isBreen
 {
-    NSRange r = [self.shipClass rangeOfString: @"Breen"];
+    NSRange r = [self.shipClass rangeOfString: @"Breen" options: NSCaseInsensitiveSearch];
     return r.location != NSNotFound;
 }
 
 -(BOOL)isJemhadar
 {
-    NSRange r = [self.shipClass rangeOfString: @"Jem'hadar"];
+    NSRange r = [self.shipClass rangeOfString: @"Jem'hadar" options: NSCaseInsensitiveSearch];
     return r.location != NSNotFound;
 }
 
