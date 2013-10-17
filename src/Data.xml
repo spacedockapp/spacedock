@@ -1,4 +1,4 @@
-<Data version="1.15">
+<Data version="1.16">
   <Ships>
     <Ship>
       <Title>U.S.S. Enterprise-D</Title>
@@ -911,7 +911,7 @@
       <Agility>2</Agility>
       <Hull>3</Hull>
       <Shield>3</Shield>
-      <Ability>ACTION: When attacking this round, gain +1 attack die. When defending this round, roll one less attack die.</Ability>
+      <Ability>ACTION: When attacking this round, gain +1 attack die. When defending this round, roll one less defense die.</Ability>
       <Cost>22</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
@@ -1412,8 +1412,7 @@
       </Ability>
       <Unique>Y</Unique>
       <Skill>9</Skill>
-      <Talent>
-      </Talent>
+      <Talent>1</Talent>
       <Attack>
       </Attack>
       <Range>
@@ -3036,6 +3035,27 @@
       <Set>71271</Set>
       <Special>OnlyJemHadarShips</Special>
     </Upgrade>
+    <Upgrade>
+      <Title>Redshirt</Title>
+      <Unique>n</Unique>
+      <Ability>When defending, discard this card to cancel any one of your opponent's attack dice of your choice.</Ability>
+      <Skill>
+      </Skill>
+      <Talent>
+      </Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>3091</Id>
+      <Set>OP2Participation</Set>
+      <Special></Special>
+    </Upgrade>
+
+
+
+
 
   </Upgrades>
   <Resources>
