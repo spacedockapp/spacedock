@@ -11,12 +11,17 @@
 
 +(NSSet*)keyPathsForValuesAffectingSortedUpgrades
 {
-    return [NSSet setWithObjects: @"upgrades", nil];
+    return [NSSet setWithObjects: @"upgrades", @"ship", nil];
 }
 
 +(NSSet*)keyPathsForValuesAffectingCost
 {
-    return [NSSet setWithObjects: @"upgrades", nil];
+    return [NSSet setWithObjects: @"upgrades", @"ship", nil];
+}
+
++(NSSet*)keyPathsForValuesAffectingStyledDescription
+{
+    return [NSSet setWithObjects: @"ship", nil];
 }
 
 -(NSString*)title
@@ -24,9 +29,9 @@
     return self.ship.title;
 }
 
--(NSString*)description
+-(NSString*)plainDescription
 {
-    return [self.ship description];
+    return [self.ship plainDescription];
 }
 
 -(NSAttributedString*)styledDescription
@@ -46,6 +51,7 @@
     for (DockEquippedUpgrade* upgrade in self.upgrades) {
         cost += [upgrade cost];
     }
+
     return cost;
 }
 
@@ -90,14 +96,24 @@
     return count;
 }
 
+-(void)removeOverLimit:(NSString*)upType current:(int)current limit:(int)limit
+{
+    int amountToRemove = current - limit;
+    [self removeUpgradesOfType: upType targetCount: amountToRemove];
+}
+
 -(void)establishPlaceholdersForType:(NSString*)upType limit:(int)limit
 {
     NSManagedObjectContext* context = self.managedObjectContext;
     int current = [self equipped: upType];
 
-    for (int i = current; i < limit; ++i) {
-        DockUpgrade* upgrade = [DockUpgrade placeholder: upType inContext: context];
-        [self addUpgrade: upgrade maybeReplace: nil establishPlaceholders: NO];
+    if (current > limit) {
+        [self removeOverLimit: upType current: current limit: limit];
+    } else {
+        for (int i = current; i < limit; ++i) {
+            DockUpgrade* upgrade = [DockUpgrade placeholder: upType inContext: context];
+            [self addUpgrade: upgrade maybeReplace: nil establishPlaceholders: NO];
+        }
     }
 }
 
@@ -107,9 +123,11 @@
 
     if (captain == nil) {
         NSString* faction = self.ship.faction;
-        if ([faction isEqualToString: @"Independent"]) {
+
+        if ([faction isEqualToString: @"Independent"] || [faction isEqualToString: @"Bajoran"]) {
             faction = @"Federation";
         }
+
         DockUpgrade* zcc = [DockCaptain zeroCostCaptain: faction context: self.managedObjectContext];
         [self addUpgrade: zcc maybeReplace: nil establishPlaceholders: NO];
     }
@@ -152,6 +170,14 @@
 
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade
 {
+    NSString* upgradeSpecial = upgrade.special;
+
+    if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
+        if (![self.ship isJemhadar]) {
+            return NO;
+        }
+    }
+
     int limit = [upgrade limitForShip: self];
     return limit > 0;
 }
@@ -210,6 +236,42 @@
     return nil;
 }
 
+-(DockEquippedUpgrade*)mostExpensiveUpgradeOfFaction:(NSString*)faction
+{
+    DockEquippedUpgrade* mostExpensive = nil;
+    NSMutableArray* allUpgrades = [[NSMutableArray alloc] init];
+
+    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        if (![eu.upgrade isCaptain]) {
+            if ([faction isEqualToString: eu.upgrade.faction]) {
+                [allUpgrades addObject: eu];
+            }
+        }
+    }
+
+    if (allUpgrades.count > 0) {
+        if (allUpgrades.count > 1) {
+            id cmp = ^(DockEquippedUpgrade* a, DockEquippedUpgrade* b) {
+                int aCost = [a rawCost];
+                int bCost = [b rawCost];
+
+                if (aCost == bCost) {
+                    return NSOrderedSame;
+                } else if (aCost > bCost) {
+                    return NSOrderedAscending;
+                }
+
+                return NSOrderedAscending;
+            };
+            [allUpgrades sortedArrayUsingComparator: cmp];
+        }
+
+        mostExpensive = allUpgrades[0];
+    }
+
+    return mostExpensive;
+}
+
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade
 {
     return [self addUpgrade: upgrade maybeReplace: nil];
@@ -235,6 +297,37 @@
 -(void)removeUpgrade:(DockEquippedUpgrade*)upgrade
 {
     [self removeUpgrade: upgrade establishPlaceholders: NO];
+}
+
+-(void)removeUpgradesOfType:(NSString*)upType targetCount:(int)targetCount
+{
+    NSMutableArray* onesToRemove = [[NSMutableArray alloc] initWithCapacity: 0];
+
+    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        if ([eu.upgrade isPlaceholder] && [upType isEqualToString: eu.upgrade.upType]) {
+            [onesToRemove addObject: eu];
+        }
+
+        if (onesToRemove.count == targetCount) {
+            break;
+        }
+    }
+
+    if (onesToRemove.count != targetCount) {
+        for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+            if ([upType isEqualToString: eu.upgrade.upType]) {
+                [onesToRemove addObject: eu];
+            }
+
+            if (onesToRemove.count == targetCount) {
+                break;
+            }
+        }
+    }
+
+    for (DockEquippedUpgrade* eu in onesToRemove) {
+        [self removeUpgrade: eu establishPlaceholders: NO];
+    }
 }
 
 -(NSArray*)sortedUpgrades
@@ -271,6 +364,22 @@
         }
     }
     return nil;
+}
+
+-(DockEquippedUpgrade*)containsUpgradeWithName:(NSString*)theName
+{
+    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        if ([eu.upgrade.title isEqualToString: theName]) {
+            return eu;
+        }
+    }
+    return nil;
+}
+
+-(void)changeShip:(DockShip*)newShip
+{
+    self.ship = newShip;
+    [self establishPlaceholders];
 }
 
 @end

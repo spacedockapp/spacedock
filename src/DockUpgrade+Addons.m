@@ -11,6 +11,25 @@
 
 @implementation DockUpgrade (Addons)
 
++(NSSet*)allFactions:(NSManagedObjectContext*)context
+{
+    NSMutableSet* allFactionsSet = [[NSMutableSet alloc] initWithCapacity: 0];
+    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Upgrade" inManagedObjectContext: context];
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSError* err;
+    NSArray* existingItems = [context executeFetchRequest: request error: &err];
+
+    if (existingItems.count > 0) {
+        for (DockUpgrade* upgrade in existingItems) {
+            [allFactionsSet addObject: upgrade.faction];
+        }
+        return [NSSet setWithSet: allFactionsSet];
+    }
+
+    return nil;
+}
+
 +(DockUpgrade*)upgradeForId:(NSString*)externalId context:(NSManagedObjectContext*)context
 {
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Upgrade" inManagedObjectContext: context];
@@ -20,9 +39,11 @@
     [request setPredicate: predicateTemplate];
     NSError* err;
     NSArray* existingItems = [context executeFetchRequest: request error: &err];
+
     if (existingItems.count > 0) {
         return existingItems[0];
     }
+
     return nil;
 }
 
@@ -63,7 +84,18 @@
     return placeholderUpgrade;
 }
 
--(NSString*)description
++(NSArray*)findUpgrades:(NSString*)title context:(NSManagedObjectContext*)context
+{
+    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Upgrade" inManagedObjectContext: context];
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"title like %@", title];
+    [request setPredicate: predicateTemplate];
+    NSError* err;
+    return [context executeFetchRequest: request error: &err];
+}
+
+-(NSString*)plainDescription
 {
     if ([self isPlaceholder]) {
         return self.title;
@@ -74,7 +106,7 @@
 
 -(NSAttributedString*)styledDescription
 {
-    NSString* s = [self description];
+    NSString* s = [self plainDescription];
 
     if ([self isPlaceholder]) {
         NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithString: s];
@@ -119,6 +151,11 @@
 -(BOOL)isUnique
 {
     return [[self unique] boolValue];
+}
+
+-(BOOL)isDominion
+{
+    return [self.faction isEqualToString: @"Dominion"];
 }
 
 -(NSComparisonResult)compareTo:(DockUpgrade*)other
@@ -235,6 +272,28 @@
 
     return @"?";
 
+}
+
+-(NSString*)optionalAttack
+{
+    if ([self isWeapon]) {
+        id attackValue = [self valueForKey: @"attack"];
+        if ([attackValue intValue] > 0) {
+            return attackValue;
+        }
+    }
+    return nil;
+}
+
+-(NSString*)optionalRange
+{
+    if ([self isWeapon]) {
+        id rangeValue = [self valueForKey: @"range"];
+        if ([rangeValue length] > 0) {
+            return rangeValue;
+        }
+    }
+    return nil;
 }
 
 @end

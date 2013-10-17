@@ -2,22 +2,33 @@
 //  DockResource.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 9/28/13.
+//  Created by Rob Tsuk on 10/11/13.
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import "DockSetItem.h"
 
+@class DockSquad;
 
-@interface DockResource : NSManagedObject
+@interface DockResource : DockSetItem
 
-@property (nonatomic, retain) NSString* ability;
-@property (nonatomic, retain) NSNumber* cost;
-@property (nonatomic, retain) NSString* externalId;
-@property (nonatomic, retain) NSString* special;
-@property (nonatomic, retain) NSString* title;
-@property (nonatomic, retain) NSNumber* unique;
-@property (nonatomic, retain) NSString* type;
+@property (nonatomic, retain) NSString * ability;
+@property (nonatomic, retain) NSNumber * cost;
+@property (nonatomic, retain) NSString * externalId;
+@property (nonatomic, retain) NSString * special;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSNumber * unique;
+@property (nonatomic, retain) NSSet *squad;
+@end
+
+@interface DockResource (CoreDataGeneratedAccessors)
+
+- (void)addSquadObject:(DockSquad *)value;
+- (void)removeSquadObject:(DockSquad *)value;
+- (void)addSquad:(NSSet *)values;
+- (void)removeSquad:(NSSet *)values;
 
 @end

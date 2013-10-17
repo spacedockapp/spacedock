@@ -23,9 +23,9 @@
     return self.upgrade.isPlaceholder;
 }
 
--(NSString*)description
+-(NSString*)plainDescription
 {
-    return self.upgrade.description;
+    return self.upgrade.plainDescription;
 }
 
 -(NSAttributedString*)styledDescription
@@ -94,18 +94,46 @@
         if (![ship isBreen]) {
             cost += 5;
         }
+    } else if ([upgradeSpecial isEqualToString: @"PenaltyOnShipOtherThanDefiant"]) {
+        if (![ship isDefiant]) {
+            cost += 5;
+        }
+    } else if ([upgradeSpecial isEqualToString: @"PlusFivePointsNonJemHadarShips"]) {
+        if (![ship isJemhadar]) {
+            cost += 5;
+        }
     }
 
     if (![shipFaction isEqualToString: upgradeFaction]) {
         if ([captainSpecial isEqualToString: @"UpgradesIgnoreFactionPenalty"]) {
+        } else if ([captainSpecial isEqualToString: @"NoPenaltyOnFederationOrBajoranShip"]) {
+            if (!([ship isFederation] || [ship isBajoran])) {
+                cost += 1;
+            }
         } else if ([captainSpecial isEqualToString: @"CaptainAndTalentsIgnoreFactionPenalty"] &&
                    ([upgrade isTalent] || [upgrade isCaptain])) {
         } else {
             cost += 1;
         }
+
+    }
+
+    if ([captainSpecial isEqualToString: @"OneDominionUpgradeCostsMinusTwo"]) {
+        if ([upgrade isDominion]) {
+            DockEquippedUpgrade* most = [self.equippedShip mostExpensiveUpgradeOfFaction: @"Dominion"];
+
+            if (most == self) {
+                cost -= 2;
+            }
+        }
     }
 
     return cost;
+}
+
+-(int)rawCost
+{
+    return [self.upgrade.cost intValue];
 }
 
 -(NSComparisonResult)compareTo:(DockEquippedUpgrade*)other
