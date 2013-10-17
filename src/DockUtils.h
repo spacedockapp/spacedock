@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-#if MAC
+#if !TARGET_OS_IPHONE
 NSAttributedString* coloredString(NSString* text, NSColor* color, NSColor* backColor);
 #endif
 

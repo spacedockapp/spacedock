@@ -38,6 +38,20 @@
 		D4AAA28B17F408D400A99383 /* DockUpgrade+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA28A17F408D400A99383 /* DockUpgrade+Addons.m */; };
 		D4AAA29417F48F8100A99383 /* DockEquippedUpgrade+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA29317F48F8100A99383 /* DockEquippedUpgrade+Addons.m */; };
 		D4AAA2BC17F4DF3D00A99383 /* DockSquad+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA2BB17F4DF3D00A99383 /* DockSquad+Addons.m */; };
+		D4D1BC4E180E6EAF00389F41 /* DockWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1A51808DA2600157E32 /* DockWeapon.m */; };
+		D4D1BC4F180E6EAF00389F41 /* DockTalent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F19F1808DA2600157E32 /* DockTalent.m */; };
+		D4D1BC50180E6EAF00389F41 /* DockEquippedUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F19C1808DA2600157E32 /* DockEquippedUpgrade.m */; };
+		D4D1BC51180E6EAF00389F41 /* DockSquad.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1991808DA2600157E32 /* DockSquad.m */; };
+		D4D1BC52180E6EAF00389F41 /* DockUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1961808DA2600157E32 /* DockUpgrade.m */; };
+		D4D1BC53180E6EAF00389F41 /* DockSetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1931808DA2600157E32 /* DockSetItem.m */; };
+		D4D1BC54180E6EAF00389F41 /* DockTech.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1901808DA2600157E32 /* DockTech.m */; };
+		D4D1BC55180E6EAF00389F41 /* DockEquippedShip.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F18D1808DA2600157E32 /* DockEquippedShip.m */; };
+		D4D1BC56180E6EAF00389F41 /* DockCaptain.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F18A1808DA2600157E32 /* DockCaptain.m */; };
+		D4D1BC57180E6EB000389F41 /* DockResource.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1871808DA2600157E32 /* DockResource.m */; };
+		D4D1BC58180E6EB000389F41 /* DockShip.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1841808DA2600157E32 /* DockShip.m */; };
+		D4D1BC59180E6EB000389F41 /* DockCrew.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1811808DA2600157E32 /* DockCrew.m */; };
+		D4D1BC5A180E6EB000389F41 /* DockSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F17E1808DA2500157E32 /* DockSet.m */; };
+		D4D1BC5B180E6ECF00389F41 /* DockUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D45AF1EF17FFE7F900C04F9A /* DockUtils.m */; };
 		D4D7BE6817F76FB50070D94D /* DockCaptain+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D7BE6717F76FB50070D94D /* DockCaptain+Addons.m */; };
 		D4F7F17F1808DA2500157E32 /* DockSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F17E1808DA2500157E32 /* DockSet.m */; };
 		D4F7F1821808DA2600157E32 /* DockCrew.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1811808DA2600157E32 /* DockCrew.m */; };
@@ -470,10 +484,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4D1BC4F180E6EAF00389F41 /* DockTalent.m in Sources */,
+				D4D1BC56180E6EAF00389F41 /* DockCaptain.m in Sources */,
+				D4D1BC5A180E6EB000389F41 /* DockSet.m in Sources */,
+				D4D1BC4E180E6EAF00389F41 /* DockWeapon.m in Sources */,
+				D4D1BC58180E6EB000389F41 /* DockShip.m in Sources */,
+				D4D1BC53180E6EAF00389F41 /* DockSetItem.m in Sources */,
+				D4D1BC57180E6EB000389F41 /* DockResource.m in Sources */,
 				D48D3123180C3E3D0084663B /* main.m in Sources */,
+				D4D1BC59180E6EB000389F41 /* DockCrew.m in Sources */,
 				D48D3167180C510C0084663B /* DockDataLoader.m in Sources */,
+				D4D1BC54180E6EAF00389F41 /* DockTech.m in Sources */,
+				D4D1BC50180E6EAF00389F41 /* DockEquippedUpgrade.m in Sources */,
+				D4D1BC51180E6EAF00389F41 /* DockSquad.m in Sources */,
 				D48D3148180C44140084663B /* Space_Dock.xcdatamodeld in Sources */,
+				D4D1BC5B180E6ECF00389F41 /* DockUtils.m in Sources */,
+				D4D1BC52180E6EAF00389F41 /* DockUpgrade.m in Sources */,
 				D48D3127180C3E3D0084663B /* DockAppDelegate.m in Sources */,
+				D4D1BC55180E6EAF00389F41 /* DockEquippedShip.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,6 +732,7 @@
 				D48D3143180C3E3D0084663B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

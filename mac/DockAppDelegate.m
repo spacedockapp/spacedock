@@ -61,6 +61,9 @@ NSString* kInspectorVisible = @"inspectorVisible";
     if ([loader loadData: &error]) {
         [self validateSpecials: [loader validateSpecials]];
     }
+    for (DockSet* set in [DockSet allSets: _managedObjectContext]) {
+        [set addObserver: self forKeyPath: @"include" options: 0 context: 0];
+    }
 }
 
 -(void)observeValueForKeyPath:(NSString*)keyPath
