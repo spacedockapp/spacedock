@@ -5,6 +5,7 @@
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedShip.h"
 #import "DockEquippedUpgrade+Addons.h"
+#import "DockFleetBuildSheet.h"
 #import "DockInspector.h"
 #import "DockResource.h"
 #import "DockSet+Addons.h"
@@ -912,18 +913,6 @@ NSString* makeKey(NSString *key)
     ];
 }
 
--(IBAction)print:(id)sender
-{
-    NSPrintOperation* op;
-    op = [NSPrintOperation printOperationWithView: _fleetBuildSheet];
-
-    if (op) {
-        [op runOperation];
-    } else {
-        // handle error here
-    }
-}
-
 -(void)updatePredicates
 {
     NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"any sets.externalId in %@", _includedSets];
@@ -1166,4 +1155,8 @@ NSString* makeKey(NSString *key)
     [_inspector show];
 }
 
+-(IBAction)showFleetBuildSheet:(id)sender
+{
+    [_fleetBuildSheet show: [self selectedSquad]];
+}
 @end

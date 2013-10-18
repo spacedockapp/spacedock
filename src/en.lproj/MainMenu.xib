@@ -3,6 +3,7 @@
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4510"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="3336"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -109,10 +110,9 @@
                             <menuItem isSeparatorItem="YES" id="Wmq-fm-HgB">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Repair Database" id="vGz-t5-bBO">
-                                <modifierMask key="keyEquivalentModifierMask"/>
+                            <menuItem title="Print Fleet Build..." keyEquivalent="p" id="vGz-t5-bBO">
                                 <connections>
-                                    <action selector="cleanupDatabase:" target="-1" id="a6W-g1-Oek"/>
+                                    <action selector="showFleetBuildSheet:" target="494" id="a3g-an-vcz"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -1752,6 +1752,7 @@
                 <outlet property="exportFormatPopup" destination="L6E-ZC-cT8" id="RvO-d0-hQJ"/>
                 <outlet property="exportFormatView" destination="d19-nn-2NS" id="XKY-3v-Vdh"/>
                 <outlet property="factionMenu" destination="jzV-EA-Bef" id="s0C-A5-mcz"/>
+                <outlet property="fleetBuildSheet" destination="KBd-hH-NVO" id="fpU-4T-aV4"/>
                 <outlet property="inspector" destination="L6P-6L-sOj" id="Emf-SV-SDs"/>
                 <outlet property="resourcesController" destination="YPe-Zs-mE7" id="QpO-G6-Tot"/>
                 <outlet property="resourcesTableView" destination="v13-24-CCG" id="Rq7-QP-07h"/>
@@ -1766,6 +1767,12 @@
                 <outlet property="upgradesController" destination="wVj-PN-1Jr" id="s5T-X4-Yqh"/>
                 <outlet property="upgradesTableView" destination="LbO-KE-GHl" id="Cfq-6k-TVU"/>
                 <outlet property="window" destination="371" id="532"/>
+            </connections>
+        </customObject>
+        <customObject id="KBd-hH-NVO" customClass="DockFleetBuildSheet">
+            <connections>
+                <outlet property="fleetBuildWindow" destination="KiT-nv-wME" id="dWV-J4-J9z"/>
+                <outlet property="webView" destination="rVo-5l-pKh" id="zIE-0F-uRt"/>
             </connections>
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
@@ -2176,6 +2183,26 @@
             </view>
             <connections>
                 <outlet property="delegate" destination="L6P-6L-sOj" id="Hks-Ag-Yx6"/>
+            </connections>
+        </window>
+        <window title="Fleet Report" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="fleetReport" animationBehavior="default" id="KiT-nv-wME">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="283" y="348" width="480" height="270"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1578"/>
+            <view key="contentView" id="RhR-mh-GpB">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <webView id="rVo-5l-pKh">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12"/>
+                    </webView>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="KBd-hH-NVO" id="8bP-wI-Yxs"/>
             </connections>
         </window>
     </objects>
