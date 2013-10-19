@@ -1772,6 +1772,7 @@
         <customObject id="KBd-hH-NVO" customClass="DockFleetBuildSheet">
             <connections>
                 <outlet property="fleetBuildWindow" destination="KiT-nv-wME" id="dWV-J4-J9z"/>
+                <outlet property="mainWindow" destination="371" id="Wsg-t8-NsF"/>
                 <outlet property="webView" destination="rVo-5l-pKh" id="zIE-0F-uRt"/>
             </connections>
         </customObject>

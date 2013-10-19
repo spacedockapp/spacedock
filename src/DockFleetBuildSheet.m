@@ -95,19 +95,17 @@ static NSDictionary* dataForResource(DockResource* theResource)
     dict[NSPrintVerticalPagination] = [NSNumber numberWithInt: NSFitPagination];
 
     [[_webView mainFrame] loadHTMLString: rendering baseURL: url];
-    [_fleetBuildWindow makeKeyAndOrderFront: nil];
-    [NSApp runModalForWindow: _fleetBuildWindow];
-    [_fleetBuildWindow orderOut: nil];
+    [NSApp beginSheet: _fleetBuildWindow modalForWindow: _mainWindow modalDelegate: self didEndSelector: @selector(sheetDidEnd:returnCode:contextInfo:) contextInfo: nil];
 }
 
-- (void)windowWillClose:(NSNotification *)notification
+-(void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
-    [NSApp stopModal];
+    [_fleetBuildWindow orderOut: nil];
 }
 
 -(IBAction)cancel:(id)sender
 {
-    [NSApp stopModal];
+    [NSApp endSheet: _fleetBuildWindow];
 }
 
 -(IBAction)print:(id)sender
