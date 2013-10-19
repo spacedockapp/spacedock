@@ -267,11 +267,16 @@
     }
 
     if ([self isCaptain]) {
-        return @"C";
+        return @"Cp";
     }
 
     return @"?";
 
+}
+
+-(NSString*)factionCode
+{
+    return [self.faction substringToIndex: 1];
 }
 
 -(NSString*)optionalAttack
