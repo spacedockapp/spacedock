@@ -1,4 +1,4 @@
-<Data version="1.16">
+<Data version="1.162">
   <Ships>
     <Ship>
       <Title>U.S.S. Enterprise-D</Title>
@@ -1256,7 +1256,7 @@
       <Title>Gowron</Title>
       <Unique>Y</Unique>
       <Ability>ACTION: All other friendly Klingon ships within Range 1-2 of your ship gain +1 attack die this round. </Ability>
-      <Skill>7</Skill>
+      <Skill>6</Skill>
       <Talent>
       </Talent>
       <Attack>
@@ -2728,7 +2728,7 @@
       <Special>PenaltyOnShipOtherThanDefiant</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Worf (Defiant)</Title>
+      <Title>Worf</Title>
       <Unique>Y</Unique>
       <Ability>ACTION: Target a ship at Range 1. That ship rolls 2 less attack dice this round.</Ability>
       <Skill>
@@ -2898,7 +2898,7 @@
       <Range></Range>
       <Type>Tech</Type>
       <Faction>Romulan</Faction>
-      <Cost>4</Cost>
+      <Cost>3</Cost>
       <Id>3076</Id>
       <Set>71270</Set>
     </Upgrade>
