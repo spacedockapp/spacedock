@@ -14,4 +14,5 @@
 -(DockEquippedShip*)containsShip:(DockShip*)theShip;
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
 -(DockEquippedUpgrade*)containsUpgradeWithName:(NSString*)theName;
+-(DockSquad*)duplicate;
 @end

@@ -710,6 +710,11 @@ NSString* makeKey(NSString *key)
     return squad;
 }
 
+-(void)selectSquad:(DockSquad*)theSquad
+{
+    [_squadsController setSelectedObjects: @[theSquad]];
+}
+
 -(DockEquippedUpgrade*)addSelectedCaptain:(DockEquippedShip*)targetShip
 {
     NSArray* captainsToAdd = [_captainsController selectedObjects];
@@ -833,6 +838,13 @@ NSString* makeKey(NSString *key)
         [targetShip removeUpgrade: target establishPlaceholders: YES];
         [self selectShip: targetShip];
     }
+}
+
+-(IBAction)duplicate:(id)sender
+{
+    DockSquad* squad = [self selectedSquad];
+    DockSquad* newSquad = [squad duplicate];
+    [self selectSquad: newSquad];
 }
 
 -(IBAction)addSelectedUpgradeAction:(id)sender

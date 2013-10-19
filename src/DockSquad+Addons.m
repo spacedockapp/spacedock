@@ -246,4 +246,27 @@ static NSString* toDataFormat(NSString* label, id element)
     return nil;
 }
 
+static NSString* namePrefix(NSString* originalName)
+{
+    NSRegularExpression* expression = [NSRegularExpression regularExpressionWithPattern: @"Copy \\d+"
+                                                                                options: NSRegularExpressionCaseInsensitive
+                                                                                  error: nil];
+    NSArray* matches = [expression matchesInString: originalName options: 0 range: NSMakeRange(0, originalName.length)];
+    if (matches.count > 0) {
+        NSTextCheckingResult* r = [matches lastObject];
+        return [originalName substringToIndex: r.range.location];
+    }
+    return originalName;
+}
+
+-(DockSquad*)duplicate
+{
+    NSManagedObjectContext* context = [self managedObjectContext];
+    NSEntityDescription* squadEntity = [NSEntityDescription entityForName: @"Squad" inManagedObjectContext: context];
+    DockSquad* squad = [[DockSquad alloc] initWithEntity: squadEntity insertIntoManagedObjectContext: context];
+    NSString* newName = [namePrefix(self.name) stringByAppendingString: @"copy"];
+    squad.name = newName;
+    return squad;
+}
+
 @end

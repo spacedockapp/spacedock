@@ -41,7 +41,7 @@ extern NSString* kInspectorVisible;
 -(IBAction)deleteSelectedShip:(id)sender;
 -(IBAction)addSelectedUpgradeAction:(id)sender;
 -(IBAction)deleteSelectedUpgradeAction:(id)sender;
--(IBAction)deleteSelected:(id)sender;
+-(IBAction)duplicate:(id)sender;
 -(IBAction)expandAll:(id)sender;
 -(IBAction)exportSquad:(id)sender;
 -(IBAction)setFormat:(id)sender;

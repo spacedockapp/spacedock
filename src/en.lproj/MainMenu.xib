@@ -156,6 +156,11 @@
                                     <action selector="pasteAsPlainText:" target="-1" id="486"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Duplicate" keyEquivalent="d" id="wHz-6x-H5s">
+                                <connections>
+                                    <action selector="duplicate:" target="-1" id="IJf-YM-jfh"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Delete" id="202">
                                 <connections>
                                     <action selector="delete:" target="-1" id="235"/>
