@@ -8,6 +8,7 @@
 @property (nonatomic, readonly) int cost;
 @property (nonatomic, readonly) DockCaptain* captain;
 +(DockEquippedShip*)equippedShipWithShip:(DockShip*)ship;
+-(DockEquippedShip*)duplicate;
 -(DockEquippedUpgrade*)equippedCaptain;
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade;
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade;

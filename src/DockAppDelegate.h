@@ -36,6 +36,7 @@ extern NSString* kInspectorVisible;
 @property (strong, nonatomic) NSSavePanel* currentSavePanel;
 
 -(IBAction)saveAction:(id)sender;
+-(IBAction)addSquad:(id)sender;
 -(IBAction)addSelected:(id)sender;
 -(IBAction)addSelectedShip:(id)sender;
 -(IBAction)deleteSelectedShip:(id)sender;

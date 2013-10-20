@@ -84,6 +84,19 @@
     return es;
 }
 
+-(DockEquippedShip*)duplicate
+{
+    DockEquippedShip* newShip = [DockEquippedShip equippedShipWithShip: self.ship];
+    for (DockEquippedUpgrade* equippedUpgrade in self.sortedUpgrades) {
+        DockUpgrade* upgrade = [equippedUpgrade upgrade];
+        if (![upgrade isPlaceholder]) {
+            [newShip addUpgrade: equippedUpgrade.upgrade maybeReplace: nil establishPlaceholders: NO];
+        }
+    }
+    [self establishPlaceholders];
+    return newShip;
+}
+
 -(int)equipped:(NSString*)upType
 {
     int count = 0;

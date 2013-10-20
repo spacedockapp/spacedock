@@ -1642,7 +1642,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="add:" target="w6h-j0-fyp" id="70I-ir-Sd3"/>
+                            <action selector="addSquad:" target="-1" id="iVr-Fp-4Am"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="HqW-oK-tqo">

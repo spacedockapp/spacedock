@@ -589,6 +589,15 @@ NSString* makeKey(NSString *key)
                         contextInfo: nil];
 }
 
+-(IBAction)addSquad:(id)sender
+{
+    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Squad"
+                                              inManagedObjectContext: _managedObjectContext];
+    DockSquad* squad = [[DockSquad alloc] initWithEntity: entity
+                          insertIntoManagedObjectContext: _managedObjectContext];
+    [self performSelector: @selector(editNameOfSquad:) withObject: squad afterDelay: 0];
+}
+
 -(void)addSelectedShip
 {
     NSArray* selectedShips = [_squadsController selectedObjects];
@@ -609,7 +618,6 @@ NSString* makeKey(NSString *key)
             }
 
             DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: ship];
-            es.ship = ship;
             [squad addEquippedShip: es];
             [self selectShip: es];
         }
@@ -712,7 +720,9 @@ NSString* makeKey(NSString *key)
 
 -(void)selectSquad:(DockSquad*)theSquad
 {
-    [_squadsController setSelectedObjects: @[theSquad]];
+    NSArray* objects = [_squadsController arrangedObjects];
+    NSInteger index = [objects indexOfObject: theSquad];
+    [_squadsController setSelectionIndex: index];
 }
 
 -(DockEquippedUpgrade*)addSelectedCaptain:(DockEquippedShip*)targetShip
@@ -840,11 +850,22 @@ NSString* makeKey(NSString *key)
     }
 }
 
+-(void)editNameOfSquad:(DockSquad*)theSquad
+{
+    NSArray* objects = [_squadsController arrangedObjects];
+    NSInteger row = [objects indexOfObject: theSquad];
+    if (row != NSNotFound) {
+        [_squadsTableView becomeFirstResponder];
+        [_squadsController setSelectionIndex: row];
+        [_squadsTableView editColumn: 0 row: row withEvent: nil select: YES];
+    }
+}
+
 -(IBAction)duplicate:(id)sender
 {
     DockSquad* squad = [self selectedSquad];
     DockSquad* newSquad = [squad duplicate];
-    [self selectSquad: newSquad];
+    [self performSelector: @selector(editNameOfSquad:) withObject: newSquad afterDelay: 0];
 }
 
 -(IBAction)addSelectedUpgradeAction:(id)sender
