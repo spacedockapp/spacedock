@@ -59,6 +59,17 @@
 		D4BCA3EE1814EC0900921183 /* NSTreeController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA3E41814EC0900921183 /* NSTreeController+Additions.m */; };
 		D4BCA3F01814EC0900921183 /* space_dock.icns in Resources */ = {isa = PBXBuildFile; fileRef = D4BCA3E71814EC0900921183 /* space_dock.icns */; };
 		D4BCA3F31814EC5100921183 /* DockDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA3F21814EC5100921183 /* DockDataLoader.m */; };
+		D4BCA3FD1814F8DF00921183 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCA3FC1814F8DF00921183 /* Foundation.framework */; };
+		D4BCA3FF1814F8DF00921183 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCA3FE1814F8DF00921183 /* CoreGraphics.framework */; };
+		D4BCA4011814F8DF00921183 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCA4001814F8DF00921183 /* UIKit.framework */; };
+		D4BCA4071814F8DF00921183 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4BCA4051814F8DF00921183 /* InfoPlist.strings */; };
+		D4BCA4091814F8DF00921183 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA4081814F8DF00921183 /* main.m */; };
+		D4BCA40D1814F8DF00921183 /* DockAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA40C1814F8DF00921183 /* DockAppDelegate.m */; };
+		D4BCA4101814F8DF00921183 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BCA40E1814F8DF00921183 /* Main_iPhone.storyboard */; };
+		D4BCA4131814F8DF00921183 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BCA4111814F8DF00921183 /* Main_iPad.storyboard */; };
+		D4BCA4161814F8DF00921183 /* DockFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA4151814F8DF00921183 /* DockFirstViewController.m */; };
+		D4BCA4191814F8DF00921183 /* DockSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA4181814F8DF00921183 /* DockSecondViewController.m */; };
+		D4BCA41B1814F8DF00921183 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4BCA41A1814F8DF00921183 /* Images.xcassets */; };
 		D4D7BE6817F76FB50070D94D /* DockCaptain+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D7BE6717F76FB50070D94D /* DockCaptain+Addons.m */; };
 		D4F7F17F1808DA2500157E32 /* DockSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F17E1808DA2500157E32 /* DockSet.m */; };
 		D4F7F1821808DA2600157E32 /* DockCrew.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1811808DA2600157E32 /* DockCrew.m */; };
@@ -212,6 +223,27 @@
 		D4BCA3E71814EC0900921183 /* space_dock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = space_dock.icns; sourceTree = "<group>"; };
 		D4BCA3F11814EC5100921183 /* DockDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockDataLoader.h; sourceTree = "<group>"; };
 		D4BCA3F21814EC5100921183 /* DockDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockDataLoader.m; sourceTree = "<group>"; };
+		D4BCA3FB1814F8DF00921183 /* Space Dock iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Dock iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4BCA3FC1814F8DF00921183 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D4BCA3FE1814F8DF00921183 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D4BCA4001814F8DF00921183 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		D4BCA4041814F8DF00921183 /* Space Dock iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Space Dock iOS-Info.plist"; sourceTree = "<group>"; };
+		D4BCA4061814F8DF00921183 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D4BCA4081814F8DF00921183 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D4BCA40A1814F8DF00921183 /* Space Dock iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Space Dock iOS-Prefix.pch"; sourceTree = "<group>"; };
+		D4BCA40B1814F8DF00921183 /* DockAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DockAppDelegate.h; sourceTree = "<group>"; };
+		D4BCA40C1814F8DF00921183 /* DockAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DockAppDelegate.m; sourceTree = "<group>"; };
+		D4BCA40F1814F8DF00921183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		D4BCA4121814F8DF00921183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		D4BCA4141814F8DF00921183 /* DockFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DockFirstViewController.h; sourceTree = "<group>"; };
+		D4BCA4151814F8DF00921183 /* DockFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DockFirstViewController.m; sourceTree = "<group>"; };
+		D4BCA4171814F8DF00921183 /* DockSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DockSecondViewController.h; sourceTree = "<group>"; };
+		D4BCA4181814F8DF00921183 /* DockSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DockSecondViewController.m; sourceTree = "<group>"; };
+		D4BCA41A1814F8DF00921183 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D4BCA4211814F8DF00921183 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D4BCA4291814F8DF00921183 /* Space Dock iOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Space Dock iOSTests-Info.plist"; sourceTree = "<group>"; };
+		D4BCA42B1814F8DF00921183 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D4BCA42D1814F8DF00921183 /* Space_Dock_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Space_Dock_iOSTests.m; sourceTree = "<group>"; };
 		D4D7BE6617F76FB50070D94D /* DockCaptain+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockCaptain+Addons.h"; sourceTree = "<group>"; };
 		D4D7BE6717F76FB50070D94D /* DockCaptain+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockCaptain+Addons.m"; sourceTree = "<group>"; };
 		D4F7F17D1808DA2500157E32 /* DockSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockSet.h; sourceTree = "<group>"; };
@@ -255,6 +287,16 @@
 			files = (
 				D4259EDF180F94E300BB02BA /* WebKit.framework in Frameworks */,
 				D42BD1F017EA134B0000598C /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4BCA3F81814F8DF00921183 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4BCA3FF1814F8DF00921183 /* CoreGraphics.framework in Frameworks */,
+				D4BCA4011814F8DF00921183 /* UIKit.framework in Frameworks */,
+				D4BCA3FD1814F8DF00921183 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +430,8 @@
 				D4259ECB180F937A00BB02BA /* external */,
 				D4BCA3D71814EC0900921183 /* mac */,
 				D4F7F3E917F2C95D00F5A808 /* src */,
+				D4BCA4021814F8DF00921183 /* Space Dock iOS */,
+				D4BCA4271814F8DF00921183 /* Space Dock iOSTests */,
 				D42BD1EE17EA134B0000598C /* Frameworks */,
 				D42BD1ED17EA134B0000598C /* Products */,
 			);
@@ -397,6 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				D42BD1EC17EA134B0000598C /* Space Dock.app */,
+				D4BCA3FB1814F8DF00921183 /* Space Dock iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -406,6 +451,10 @@
 			children = (
 				D4259EDE180F94E300BB02BA /* WebKit.framework */,
 				D42BD1EF17EA134B0000598C /* Cocoa.framework */,
+				D4BCA3FC1814F8DF00921183 /* Foundation.framework */,
+				D4BCA3FE1814F8DF00921183 /* CoreGraphics.framework */,
+				D4BCA4001814F8DF00921183 /* UIKit.framework */,
+				D4BCA4211814F8DF00921183 /* XCTest.framework */,
 				D42BD1F117EA134B0000598C /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -474,6 +523,52 @@
 			path = mac;
 			sourceTree = "<group>";
 		};
+		D4BCA4021814F8DF00921183 /* Space Dock iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D4BCA40B1814F8DF00921183 /* DockAppDelegate.h */,
+				D4BCA40C1814F8DF00921183 /* DockAppDelegate.m */,
+				D4BCA40E1814F8DF00921183 /* Main_iPhone.storyboard */,
+				D4BCA4111814F8DF00921183 /* Main_iPad.storyboard */,
+				D4BCA4141814F8DF00921183 /* DockFirstViewController.h */,
+				D4BCA4151814F8DF00921183 /* DockFirstViewController.m */,
+				D4BCA4171814F8DF00921183 /* DockSecondViewController.h */,
+				D4BCA4181814F8DF00921183 /* DockSecondViewController.m */,
+				D4BCA41A1814F8DF00921183 /* Images.xcassets */,
+				D4BCA4031814F8DF00921183 /* Supporting Files */,
+			);
+			path = "Space Dock iOS";
+			sourceTree = "<group>";
+		};
+		D4BCA4031814F8DF00921183 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D4BCA4041814F8DF00921183 /* Space Dock iOS-Info.plist */,
+				D4BCA4051814F8DF00921183 /* InfoPlist.strings */,
+				D4BCA4081814F8DF00921183 /* main.m */,
+				D4BCA40A1814F8DF00921183 /* Space Dock iOS-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4BCA4271814F8DF00921183 /* Space Dock iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				D4BCA42D1814F8DF00921183 /* Space_Dock_iOSTests.m */,
+				D4BCA4281814F8DF00921183 /* Supporting Files */,
+			);
+			path = "Space Dock iOSTests";
+			sourceTree = "<group>";
+		};
+		D4BCA4281814F8DF00921183 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D4BCA4291814F8DF00921183 /* Space Dock iOSTests-Info.plist */,
+				D4BCA42A1814F8DF00921183 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D4F7F3E917F2C95D00F5A808 /* src */ = {
 			isa = PBXGroup;
 			children = (
@@ -533,6 +628,23 @@
 			productReference = D42BD1EC17EA134B0000598C /* Space Dock.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D4BCA3FA1814F8DF00921183 /* Space Dock iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4BCA4331814F8DF00921183 /* Build configuration list for PBXNativeTarget "Space Dock iOS" */;
+			buildPhases = (
+				D4BCA3F71814F8DF00921183 /* Sources */,
+				D4BCA3F81814F8DF00921183 /* Frameworks */,
+				D4BCA3F91814F8DF00921183 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Space Dock iOS";
+			productName = "Space Dock iOS";
+			productReference = D4BCA3FB1814F8DF00921183 /* Space Dock iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -554,6 +666,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = D42BD1E317EA134B0000598C;
 			productRefGroup = D42BD1ED17EA134B0000598C /* Products */;
@@ -561,6 +674,7 @@
 			projectRoot = "";
 			targets = (
 				D42BD1EB17EA134B0000598C /* Space Dock */,
+				D4BCA3FA1814F8DF00921183 /* Space Dock iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -576,6 +690,17 @@
 				D4BCA3F01814EC0900921183 /* space_dock.icns in Resources */,
 				D4BCA3EA1814EC0900921183 /* Credits.rtf in Resources */,
 				D4F7F40E17F2C95D00F5A808 /* Data.xml in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4BCA3F91814F8DF00921183 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4BCA4131814F8DF00921183 /* Main_iPad.storyboard in Resources */,
+				D4BCA41B1814F8DF00921183 /* Images.xcassets in Resources */,
+				D4BCA4101814F8DF00921183 /* Main_iPhone.storyboard in Resources */,
+				D4BCA4071814F8DF00921183 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +776,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D4BCA3F71814F8DF00921183 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4BCA4161814F8DF00921183 /* DockFirstViewController.m in Sources */,
+				D4BCA4191814F8DF00921183 /* DockSecondViewController.m in Sources */,
+				D4BCA4091814F8DF00921183 /* main.m in Sources */,
+				D4BCA40D1814F8DF00921183 /* DockAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -676,6 +812,38 @@
 				D4BCA3E11814EC0900921183 /* en */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		D4BCA4051814F8DF00921183 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4BCA4061814F8DF00921183 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D4BCA40E1814F8DF00921183 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4BCA40F1814F8DF00921183 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		D4BCA4111814F8DF00921183 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4BCA4121814F8DF00921183 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		D4BCA42A1814F8DF00921183 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4BCA42B1814F8DF00921183 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -780,6 +948,70 @@
 			};
 			name = Release;
 		};
+		D4BCA42F1814F8DF00921183 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Space Dock iOS/Space Dock iOS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "Space Dock iOS/Space Dock iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D4BCA4301814F8DF00921183 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Space Dock iOS/Space Dock iOS-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "Space Dock iOS/Space Dock iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -800,6 +1032,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D4BCA4331814F8DF00921183 /* Build configuration list for PBXNativeTarget "Space Dock iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4BCA42F1814F8DF00921183 /* Debug */,
+				D4BCA4301814F8DF00921183 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 

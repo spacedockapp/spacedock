@@ -122,18 +122,14 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
     return existingItemsLookup;
 }
 
--(void)loadItems:(NSDictionary*)xmlData itemClass:(Class)itemClass entityName:(NSString*)entityName xpath:(NSString*)xpath targetType:(NSString*)targetType
+-(void)loadItems:(NSArray*)items itemClass:(Class)itemClass entityName:(NSString*)entityName targetType:(NSString*)targetType
 {
-#if 0
     NSEntityDescription* entity = [NSEntityDescription entityForName: entityName inManagedObjectContext: _managedObjectContext];
-    NSError* err;
     NSMutableDictionary* existingItemsLookup = createExistingItemsLookup(_managedObjectContext, entity);
 
-    NSArray* nodes = [xmlDoc nodesForXPath: xpath error: &err];
     NSDictionary* attributes = [entity attributesByName];
 
-    for (NSXMLNode* oneNode in nodes) {
-        NSDictionary* d = [self convertNode: oneNode];
+    for (NSDictionary* d in items) {
         NSString* nodeType = d[@"Type"];
 
         if (targetType == nil || [nodeType isEqualToString: targetType]) {
@@ -177,7 +173,6 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
             }
         }
     }
-#endif
 }
 
 static NSString* makeKey(NSString *key)
@@ -193,7 +188,7 @@ static NSString* makeKey(NSString *key)
     NSMutableDictionary* existingItemsLookup = createExistingItemsLookup(_managedObjectContext, entity);
 
     for (NSDictionary* oneSet in sets) {
-        NSString* externalId = [oneSet objectForKey: @"externalId"];
+        NSString* externalId = [oneSet objectForKey: @"id"];
         DockSet* c = existingItemsLookup[externalId];
 
         if (c == nil) {
@@ -201,12 +196,8 @@ static NSString* makeKey(NSString *key)
         }
 
         [c setExternalId: externalId];
-        [c setProductName: [oneSet objectForKey: @"productName"]];
-        [c setName: [oneSet objectForKey: @"name"]];
-    }
-
-    for (DockSet* set in [DockSet allSets: _managedObjectContext]) {
-        [set addObserver: self forKeyPath: @"include" options: 0 context: 0];
+        [c setProductName: [oneSet objectForKey: @"ProductName"]];
+        [c setName: [oneSet objectForKey: @"overallSetName"]];
     }
 }
 
@@ -261,7 +252,6 @@ static NSString* makeKey(NSString *key)
         _currentAttributes = nil;
     }
     if ([self isList: elementName]) {
-        NSLog(@"didStartElement %@ '%@'", elementName, qName);
         if (_currentList != nil) {
             NSLog(@"starting a new list element before finishing the last");
         }
@@ -279,7 +269,6 @@ static NSString* makeKey(NSString *key)
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
     if ([self isList: elementName]) {
-        NSLog(@"didEndElement %@ '%@'", elementName, qName);
         if (_currentList != nil) {
             _parsedData[elementName] = _currentList;
             _currentList = nil;
@@ -380,7 +369,6 @@ static NSString* makeKey(NSString *key)
     NSXMLParser* parser = [[NSXMLParser alloc] initWithContentsOfURL: [NSURL fileURLWithPath: file]];
     [parser setDelegate:self];
     [parser parse];
-    NSLog(@"_parsedData.sets = %@", _parsedData[@"Sets"]);
 
     return _parsedData;
 }
@@ -416,14 +404,14 @@ static NSString* makeKey(NSString *key)
         return NO;
     }
 
-    [self loadSets: xmlData[@"sets"]];
-    [self loadItems: xmlData itemClass: [DockShip class] entityName: @"Ship" xpath: @"/Data/Ships/Ship" targetType: nil];
-    [self loadItems: xmlData itemClass: [DockCaptain class] entityName: @"Captain" xpath: @"/Data/Captains/Captain" targetType: nil];
-    [self loadItems: xmlData itemClass: [DockWeapon class] entityName: @"Weapon" xpath: @"/Data/Upgrades/Upgrade" targetType: @"Weapon"];
-    [self loadItems: xmlData itemClass: [DockTalent class] entityName: @"Talent" xpath: @"/Data/Upgrades/Upgrade" targetType: @"Talent"];
-    [self loadItems: xmlData itemClass: [DockCrew class] entityName: @"Crew" xpath: @"/Data/Upgrades/Upgrade" targetType: @"Crew"];
-    [self loadItems: xmlData itemClass: [DockTech class] entityName: @"Tech" xpath: @"/Data/Upgrades/Upgrade" targetType: @"Tech"];
-    [self loadItems: xmlData itemClass: [DockResource class] entityName: @"Resource" xpath: @"/Data/Resources/Resource" targetType: @"Resource"];
+    [self loadSets: xmlData[@"Sets"]];
+    [self loadItems: xmlData[@"Ships"] itemClass: [DockShip class] entityName: @"Ship" targetType: nil];
+    [self loadItems: xmlData[@"Captains"] itemClass: [DockCaptain class] entityName: @"Captain" targetType: nil];
+    [self loadItems: xmlData[@"Upgrades"] itemClass: [DockWeapon class] entityName: @"Weapon" targetType: @"Weapon"];
+    [self loadItems: xmlData[@"Upgrades"] itemClass: [DockTalent class] entityName: @"Talent" targetType: @"Talent"];
+    [self loadItems: xmlData[@"Upgrades"] itemClass: [DockCrew class] entityName: @"Crew" targetType: @"Crew"];
+    [self loadItems: xmlData[@"Upgrades"] itemClass: [DockTech class] entityName: @"Tech" targetType: @"Tech"];
+    [self loadItems: xmlData[@"Resources"] itemClass: [DockResource class] entityName: @"Resource" targetType: @"Resource"];
 
     return YES;
 }
