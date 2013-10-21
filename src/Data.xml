@@ -2745,6 +2745,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Attack Pattern Delta</Title>
+      <Unique>Y</Unique>
       <Ability>Disable this card to re-roll your entire defense roll. You must re-roll all of the dice and keep the results of the second roll.</Ability>
       <Skill>
       </Skill>
@@ -2760,6 +2761,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Attack Pattern Omega</Title>
+      <Unique>Y</Unique>
       <Ability>If you damage an opponent's Hull with a [CRITICAL], you may immediately discard this card to search the Damage Deck for a "Warp Core Breach" card instead of drawing a random Damage Card. Re-shuffle the Damage Deck when you are done.</Ability>
       <Skill>
       </Skill>
