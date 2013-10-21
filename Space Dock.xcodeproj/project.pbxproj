@@ -44,6 +44,17 @@
 		D4259F461810D24000BB02BA /* NSValueTransformer+GRMustache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F291810D24000BB02BA /* NSValueTransformer+GRMustache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D4259F491810D2C000BB02BA /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F481810D2C000BB02BA /* JRSwizzle.m */; };
 		D42BD1F017EA134B0000598C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42BD1EF17EA134B0000598C /* Cocoa.framework */; };
+		D433FE0A181503A20062731A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCA3FC1814F8DF00921183 /* Foundation.framework */; };
+		D433FE0B181503A20062731A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCA3FE1814F8DF00921183 /* CoreGraphics.framework */; };
+		D433FE0C181503A20062731A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCA4001814F8DF00921183 /* UIKit.framework */; };
+		D433FE12181503A20062731A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D433FE10181503A20062731A /* InfoPlist.strings */; };
+		D433FE14181503A20062731A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D433FE13181503A20062731A /* main.m */; };
+		D433FE18181503A20062731A /* DockAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D433FE17181503A20062731A /* DockAppDelegate.m */; };
+		D433FE1B181503A20062731A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D433FE19181503A20062731A /* Main_iPhone.storyboard */; };
+		D433FE1E181503A20062731A /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D433FE1C181503A20062731A /* Main_iPad.storyboard */; };
+		D433FE21181503A20062731A /* DockFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D433FE20181503A20062731A /* DockFirstViewController.m */; };
+		D433FE24181503A20062731A /* DockSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D433FE23181503A20062731A /* DockSecondViewController.m */; };
+		D433FE26181503A20062731A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D433FE25181503A20062731A /* Images.xcassets */; };
 		D437079E1800AFDF00622E7F /* DockWeapon+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D437079D1800AFDF00622E7F /* DockWeapon+Addons.m */; };
 		D45AF1F017FFE7F900C04F9A /* DockUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D45AF1EF17FFE7F900C04F9A /* DockUtils.m */; };
 		D4AAA28817F4082F00A99383 /* DockEquippedShip+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA28717F4082F00A99383 /* DockEquippedShip+Addons.m */; };
@@ -59,17 +70,6 @@
 		D4BCA3EE1814EC0900921183 /* NSTreeController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA3E41814EC0900921183 /* NSTreeController+Additions.m */; };
 		D4BCA3F01814EC0900921183 /* space_dock.icns in Resources */ = {isa = PBXBuildFile; fileRef = D4BCA3E71814EC0900921183 /* space_dock.icns */; };
 		D4BCA3F31814EC5100921183 /* DockDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA3F21814EC5100921183 /* DockDataLoader.m */; };
-		D4BCA3FD1814F8DF00921183 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCA3FC1814F8DF00921183 /* Foundation.framework */; };
-		D4BCA3FF1814F8DF00921183 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCA3FE1814F8DF00921183 /* CoreGraphics.framework */; };
-		D4BCA4011814F8DF00921183 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCA4001814F8DF00921183 /* UIKit.framework */; };
-		D4BCA4071814F8DF00921183 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4BCA4051814F8DF00921183 /* InfoPlist.strings */; };
-		D4BCA4091814F8DF00921183 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA4081814F8DF00921183 /* main.m */; };
-		D4BCA40D1814F8DF00921183 /* DockAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA40C1814F8DF00921183 /* DockAppDelegate.m */; };
-		D4BCA4101814F8DF00921183 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BCA40E1814F8DF00921183 /* Main_iPhone.storyboard */; };
-		D4BCA4131814F8DF00921183 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4BCA4111814F8DF00921183 /* Main_iPad.storyboard */; };
-		D4BCA4161814F8DF00921183 /* DockFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA4151814F8DF00921183 /* DockFirstViewController.m */; };
-		D4BCA4191814F8DF00921183 /* DockSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA4181814F8DF00921183 /* DockSecondViewController.m */; };
-		D4BCA41B1814F8DF00921183 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4BCA41A1814F8DF00921183 /* Images.xcassets */; };
 		D4D7BE6817F76FB50070D94D /* DockCaptain+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D7BE6717F76FB50070D94D /* DockCaptain+Addons.m */; };
 		D4F7F17F1808DA2500157E32 /* DockSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F17E1808DA2500157E32 /* DockSet.m */; };
 		D4F7F1821808DA2600157E32 /* DockCrew.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1811808DA2600157E32 /* DockCrew.m */; };
@@ -195,6 +195,20 @@
 		D42BD1F217EA134B0000598C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		D42BD1F317EA134B0000598C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D42BD1F417EA134B0000598C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D433FE09181503A20062731A /* Space Dock iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Dock iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D433FE0F181503A20062731A /* Space Dock iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Space Dock iOS-Info.plist"; sourceTree = "<group>"; };
+		D433FE11181503A20062731A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D433FE13181503A20062731A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D433FE15181503A20062731A /* Space Dock iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Space Dock iOS-Prefix.pch"; sourceTree = "<group>"; };
+		D433FE16181503A20062731A /* DockAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DockAppDelegate.h; sourceTree = "<group>"; };
+		D433FE17181503A20062731A /* DockAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DockAppDelegate.m; sourceTree = "<group>"; };
+		D433FE1A181503A20062731A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		D433FE1D181503A20062731A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		D433FE1F181503A20062731A /* DockFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DockFirstViewController.h; sourceTree = "<group>"; };
+		D433FE20181503A20062731A /* DockFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DockFirstViewController.m; sourceTree = "<group>"; };
+		D433FE22181503A20062731A /* DockSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DockSecondViewController.h; sourceTree = "<group>"; };
+		D433FE23181503A20062731A /* DockSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DockSecondViewController.m; sourceTree = "<group>"; };
+		D433FE25181503A20062731A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D437079C1800AFDF00622E7F /* DockWeapon+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockWeapon+Addons.h"; sourceTree = "<group>"; };
 		D437079D1800AFDF00622E7F /* DockWeapon+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockWeapon+Addons.m"; sourceTree = "<group>"; };
 		D439357618084DB600096EDA /* Space_Dock_3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock_3.xcdatamodel; sourceTree = "<group>"; };
@@ -223,27 +237,10 @@
 		D4BCA3E71814EC0900921183 /* space_dock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = space_dock.icns; sourceTree = "<group>"; };
 		D4BCA3F11814EC5100921183 /* DockDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockDataLoader.h; sourceTree = "<group>"; };
 		D4BCA3F21814EC5100921183 /* DockDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockDataLoader.m; sourceTree = "<group>"; };
-		D4BCA3FB1814F8DF00921183 /* Space Dock iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Dock iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BCA3FC1814F8DF00921183 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D4BCA3FE1814F8DF00921183 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D4BCA4001814F8DF00921183 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		D4BCA4041814F8DF00921183 /* Space Dock iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Space Dock iOS-Info.plist"; sourceTree = "<group>"; };
-		D4BCA4061814F8DF00921183 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D4BCA4081814F8DF00921183 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D4BCA40A1814F8DF00921183 /* Space Dock iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Space Dock iOS-Prefix.pch"; sourceTree = "<group>"; };
-		D4BCA40B1814F8DF00921183 /* DockAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DockAppDelegate.h; sourceTree = "<group>"; };
-		D4BCA40C1814F8DF00921183 /* DockAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DockAppDelegate.m; sourceTree = "<group>"; };
-		D4BCA40F1814F8DF00921183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		D4BCA4121814F8DF00921183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		D4BCA4141814F8DF00921183 /* DockFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DockFirstViewController.h; sourceTree = "<group>"; };
-		D4BCA4151814F8DF00921183 /* DockFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DockFirstViewController.m; sourceTree = "<group>"; };
-		D4BCA4171814F8DF00921183 /* DockSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DockSecondViewController.h; sourceTree = "<group>"; };
-		D4BCA4181814F8DF00921183 /* DockSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DockSecondViewController.m; sourceTree = "<group>"; };
-		D4BCA41A1814F8DF00921183 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D4BCA4211814F8DF00921183 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		D4BCA4291814F8DF00921183 /* Space Dock iOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Space Dock iOSTests-Info.plist"; sourceTree = "<group>"; };
-		D4BCA42B1814F8DF00921183 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D4BCA42D1814F8DF00921183 /* Space_Dock_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Space_Dock_iOSTests.m; sourceTree = "<group>"; };
 		D4D7BE6617F76FB50070D94D /* DockCaptain+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockCaptain+Addons.h"; sourceTree = "<group>"; };
 		D4D7BE6717F76FB50070D94D /* DockCaptain+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockCaptain+Addons.m"; sourceTree = "<group>"; };
 		D4F7F17D1808DA2500157E32 /* DockSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockSet.h; sourceTree = "<group>"; };
@@ -290,13 +287,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4BCA3F81814F8DF00921183 /* Frameworks */ = {
+		D433FE06181503A20062731A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4BCA3FF1814F8DF00921183 /* CoreGraphics.framework in Frameworks */,
-				D4BCA4011814F8DF00921183 /* UIKit.framework in Frameworks */,
-				D4BCA3FD1814F8DF00921183 /* Foundation.framework in Frameworks */,
+				D433FE0B181503A20062731A /* CoreGraphics.framework in Frameworks */,
+				D433FE0C181503A20062731A /* UIKit.framework in Frameworks */,
+				D433FE0A181503A20062731A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,8 +427,7 @@
 				D4259ECB180F937A00BB02BA /* external */,
 				D4BCA3D71814EC0900921183 /* mac */,
 				D4F7F3E917F2C95D00F5A808 /* src */,
-				D4BCA4021814F8DF00921183 /* Space Dock iOS */,
-				D4BCA4271814F8DF00921183 /* Space Dock iOSTests */,
+				D433FE0D181503A20062731A /* Space Dock iOS */,
 				D42BD1EE17EA134B0000598C /* Frameworks */,
 				D42BD1ED17EA134B0000598C /* Products */,
 			);
@@ -441,7 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				D42BD1EC17EA134B0000598C /* Space Dock.app */,
-				D4BCA3FB1814F8DF00921183 /* Space Dock iOS.app */,
+				D433FE09181503A20062731A /* Space Dock iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -468,6 +464,34 @@
 				D42BD1F417EA134B0000598C /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D433FE0D181503A20062731A /* Space Dock iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D433FE16181503A20062731A /* DockAppDelegate.h */,
+				D433FE17181503A20062731A /* DockAppDelegate.m */,
+				D433FE19181503A20062731A /* Main_iPhone.storyboard */,
+				D433FE1C181503A20062731A /* Main_iPad.storyboard */,
+				D433FE1F181503A20062731A /* DockFirstViewController.h */,
+				D433FE20181503A20062731A /* DockFirstViewController.m */,
+				D433FE22181503A20062731A /* DockSecondViewController.h */,
+				D433FE23181503A20062731A /* DockSecondViewController.m */,
+				D433FE25181503A20062731A /* Images.xcassets */,
+				D433FE0E181503A20062731A /* Supporting Files */,
+			);
+			path = "Space Dock iOS";
+			sourceTree = "<group>";
+		};
+		D433FE0E181503A20062731A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D433FE0F181503A20062731A /* Space Dock iOS-Info.plist */,
+				D433FE10181503A20062731A /* InfoPlist.strings */,
+				D433FE13181503A20062731A /* main.m */,
+				D433FE15181503A20062731A /* Space Dock iOS-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		D4AAA2B617F4C9B200A99383 /* Entities */ = {
@@ -521,52 +545,6 @@
 				D4BCA3E71814EC0900921183 /* space_dock.icns */,
 			);
 			path = mac;
-			sourceTree = "<group>";
-		};
-		D4BCA4021814F8DF00921183 /* Space Dock iOS */ = {
-			isa = PBXGroup;
-			children = (
-				D4BCA40B1814F8DF00921183 /* DockAppDelegate.h */,
-				D4BCA40C1814F8DF00921183 /* DockAppDelegate.m */,
-				D4BCA40E1814F8DF00921183 /* Main_iPhone.storyboard */,
-				D4BCA4111814F8DF00921183 /* Main_iPad.storyboard */,
-				D4BCA4141814F8DF00921183 /* DockFirstViewController.h */,
-				D4BCA4151814F8DF00921183 /* DockFirstViewController.m */,
-				D4BCA4171814F8DF00921183 /* DockSecondViewController.h */,
-				D4BCA4181814F8DF00921183 /* DockSecondViewController.m */,
-				D4BCA41A1814F8DF00921183 /* Images.xcassets */,
-				D4BCA4031814F8DF00921183 /* Supporting Files */,
-			);
-			path = "Space Dock iOS";
-			sourceTree = "<group>";
-		};
-		D4BCA4031814F8DF00921183 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D4BCA4041814F8DF00921183 /* Space Dock iOS-Info.plist */,
-				D4BCA4051814F8DF00921183 /* InfoPlist.strings */,
-				D4BCA4081814F8DF00921183 /* main.m */,
-				D4BCA40A1814F8DF00921183 /* Space Dock iOS-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D4BCA4271814F8DF00921183 /* Space Dock iOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				D4BCA42D1814F8DF00921183 /* Space_Dock_iOSTests.m */,
-				D4BCA4281814F8DF00921183 /* Supporting Files */,
-			);
-			path = "Space Dock iOSTests";
-			sourceTree = "<group>";
-		};
-		D4BCA4281814F8DF00921183 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D4BCA4291814F8DF00921183 /* Space Dock iOSTests-Info.plist */,
-				D4BCA42A1814F8DF00921183 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		D4F7F3E917F2C95D00F5A808 /* src */ = {
@@ -628,13 +606,13 @@
 			productReference = D42BD1EC17EA134B0000598C /* Space Dock.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D4BCA3FA1814F8DF00921183 /* Space Dock iOS */ = {
+		D433FE08181503A20062731A /* Space Dock iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4BCA4331814F8DF00921183 /* Build configuration list for PBXNativeTarget "Space Dock iOS" */;
+			buildConfigurationList = D433FE39181503A30062731A /* Build configuration list for PBXNativeTarget "Space Dock iOS" */;
 			buildPhases = (
-				D4BCA3F71814F8DF00921183 /* Sources */,
-				D4BCA3F81814F8DF00921183 /* Frameworks */,
-				D4BCA3F91814F8DF00921183 /* Resources */,
+				D433FE05181503A20062731A /* Sources */,
+				D433FE06181503A20062731A /* Frameworks */,
+				D433FE07181503A20062731A /* Resources */,
 			);
 			buildRules = (
 			);
@@ -642,7 +620,7 @@
 			);
 			name = "Space Dock iOS";
 			productName = "Space Dock iOS";
-			productReference = D4BCA3FB1814F8DF00921183 /* Space Dock iOS.app */;
+			productReference = D433FE09181503A20062731A /* Space Dock iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -674,7 +652,7 @@
 			projectRoot = "";
 			targets = (
 				D42BD1EB17EA134B0000598C /* Space Dock */,
-				D4BCA3FA1814F8DF00921183 /* Space Dock iOS */,
+				D433FE08181503A20062731A /* Space Dock iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -693,14 +671,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4BCA3F91814F8DF00921183 /* Resources */ = {
+		D433FE07181503A20062731A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4BCA4131814F8DF00921183 /* Main_iPad.storyboard in Resources */,
-				D4BCA41B1814F8DF00921183 /* Images.xcassets in Resources */,
-				D4BCA4101814F8DF00921183 /* Main_iPhone.storyboard in Resources */,
-				D4BCA4071814F8DF00921183 /* InfoPlist.strings in Resources */,
+				D433FE1E181503A20062731A /* Main_iPad.storyboard in Resources */,
+				D433FE26181503A20062731A /* Images.xcassets in Resources */,
+				D433FE1B181503A20062731A /* Main_iPhone.storyboard in Resources */,
+				D433FE12181503A20062731A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,20 +754,44 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4BCA3F71814F8DF00921183 /* Sources */ = {
+		D433FE05181503A20062731A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4BCA4161814F8DF00921183 /* DockFirstViewController.m in Sources */,
-				D4BCA4191814F8DF00921183 /* DockSecondViewController.m in Sources */,
-				D4BCA4091814F8DF00921183 /* main.m in Sources */,
-				D4BCA40D1814F8DF00921183 /* DockAppDelegate.m in Sources */,
+				D433FE21181503A20062731A /* DockFirstViewController.m in Sources */,
+				D433FE24181503A20062731A /* DockSecondViewController.m in Sources */,
+				D433FE14181503A20062731A /* main.m in Sources */,
+				D433FE18181503A20062731A /* DockAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		D433FE10181503A20062731A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D433FE11181503A20062731A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D433FE19181503A20062731A /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D433FE1A181503A20062731A /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		D433FE1C181503A20062731A /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D433FE1D181503A20062731A /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
 		D4BCA3DC1814EC0900921183 /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -812,38 +814,6 @@
 				D4BCA3E11814EC0900921183 /* en */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		D4BCA4051814F8DF00921183 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D4BCA4061814F8DF00921183 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D4BCA40E1814F8DF00921183 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D4BCA40F1814F8DF00921183 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		D4BCA4111814F8DF00921183 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D4BCA4121814F8DF00921183 /* Base */,
-			);
-			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		D4BCA42A1814F8DF00921183 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D4BCA42B1814F8DF00921183 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -948,7 +918,7 @@
 			};
 			name = Release;
 		};
-		D4BCA42F1814F8DF00921183 /* Debug */ = {
+		D433FE3A181503A30062731A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
@@ -981,7 +951,7 @@
 			};
 			name = Debug;
 		};
-		D4BCA4301814F8DF00921183 /* Release */ = {
+		D433FE3B181503A30062731A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
@@ -1033,11 +1003,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4BCA4331814F8DF00921183 /* Build configuration list for PBXNativeTarget "Space Dock iOS" */ = {
+		D433FE39181503A30062731A /* Build configuration list for PBXNativeTarget "Space Dock iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D4BCA42F1814F8DF00921183 /* Debug */,
-				D4BCA4301814F8DF00921183 /* Release */,
+				D433FE3A181503A30062731A /* Debug */,
+				D433FE3B181503A30062731A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
