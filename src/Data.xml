@@ -1,4 +1,4 @@
-<Data version="1.15">
+<Data version="1.162">
   <Ships>
     <Ship>
       <Title>U.S.S. Enterprise-D</Title>
@@ -911,7 +911,7 @@
       <Agility>2</Agility>
       <Hull>3</Hull>
       <Shield>3</Shield>
-      <Ability>ACTION: When attacking this round, gain +1 attack die. When defending this round, roll one less attack die.</Ability>
+      <Ability>ACTION: When attacking this round, gain +1 attack die. When defending this round, roll one less defense die.</Ability>
       <Cost>22</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
@@ -1256,7 +1256,7 @@
       <Title>Gowron</Title>
       <Unique>Y</Unique>
       <Ability>ACTION: All other friendly Klingon ships within Range 1-2 of your ship gain +1 attack die this round. </Ability>
-      <Skill>7</Skill>
+      <Skill>6</Skill>
       <Talent>
       </Talent>
       <Attack>
@@ -1412,8 +1412,7 @@
       </Ability>
       <Unique>Y</Unique>
       <Skill>9</Skill>
-      <Talent>
-      </Talent>
+      <Talent>1</Talent>
       <Attack>
       </Attack>
       <Range>
@@ -2729,7 +2728,7 @@
       <Special>PenaltyOnShipOtherThanDefiant</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Worf (Defiant)</Title>
+      <Title>Worf</Title>
       <Unique>Y</Unique>
       <Ability>ACTION: Target a ship at Range 1. That ship rolls 2 less attack dice this round.</Ability>
       <Skill>
@@ -2746,6 +2745,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Attack Pattern Delta</Title>
+      <Unique>Y</Unique>
       <Ability>Disable this card to re-roll your entire defense roll. You must re-roll all of the dice and keep the results of the second roll.</Ability>
       <Skill>
       </Skill>
@@ -2761,6 +2761,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Attack Pattern Omega</Title>
+      <Unique>Y</Unique>
       <Ability>If you damage an opponent's Hull with a [CRITICAL], you may immediately discard this card to search the Damage Deck for a "Warp Core Breach" card instead of drawing a random Damage Card. Re-shuffle the Damage Deck when you are done.</Ability>
       <Skill>
       </Skill>
@@ -2899,7 +2900,7 @@
       <Range></Range>
       <Type>Tech</Type>
       <Faction>Romulan</Faction>
-      <Cost>4</Cost>
+      <Cost>3</Cost>
       <Id>3076</Id>
       <Set>71270</Set>
     </Upgrade>
@@ -3036,6 +3037,27 @@
       <Set>71271</Set>
       <Special>OnlyJemHadarShips</Special>
     </Upgrade>
+    <Upgrade>
+      <Title>Redshirt</Title>
+      <Unique>n</Unique>
+      <Ability>When defending, discard this card to cancel any one of your opponent's attack dice of your choice.</Ability>
+      <Skill>
+      </Skill>
+      <Talent>
+      </Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>3091</Id>
+      <Set>OP2Participation</Set>
+      <Special></Special>
+    </Upgrade>
+
+
+
+
 
   </Upgrades>
   <Resources>

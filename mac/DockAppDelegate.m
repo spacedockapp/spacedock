@@ -6,6 +6,7 @@
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedShip.h"
 #import "DockEquippedUpgrade+Addons.h"
+#import "DockFleetBuildSheet.h"
 #import "DockInspector.h"
 #import "DockResource.h"
 #import "DockSet+Addons.h"
@@ -388,6 +389,15 @@ NSString* kInspectorVisible = @"inspectorVisible";
                         contextInfo: nil];
 }
 
+-(IBAction)addSquad:(id)sender
+{
+    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Squad"
+                                              inManagedObjectContext: _managedObjectContext];
+    DockSquad* squad = [[DockSquad alloc] initWithEntity: entity
+                          insertIntoManagedObjectContext: _managedObjectContext];
+    [self performSelector: @selector(editNameOfSquad:) withObject: squad afterDelay: 0];
+}
+
 -(void)addSelectedShip
 {
     NSArray* selectedShips = [_squadsController selectedObjects];
@@ -408,7 +418,6 @@ NSString* kInspectorVisible = @"inspectorVisible";
             }
 
             DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: ship];
-            es.ship = ship;
             [squad addEquippedShip: es];
             [self selectShip: es];
         }
@@ -507,6 +516,13 @@ NSString* kInspectorVisible = @"inspectorVisible";
     }
 
     return squad;
+}
+
+-(void)selectSquad:(DockSquad*)theSquad
+{
+    NSArray* objects = [_squadsController arrangedObjects];
+    NSInteger index = [objects indexOfObject: theSquad];
+    [_squadsController setSelectionIndex: index];
 }
 
 -(DockEquippedUpgrade*)addSelectedCaptain:(DockEquippedShip*)targetShip
@@ -634,6 +650,24 @@ NSString* kInspectorVisible = @"inspectorVisible";
     }
 }
 
+-(void)editNameOfSquad:(DockSquad*)theSquad
+{
+    NSArray* objects = [_squadsController arrangedObjects];
+    NSInteger row = [objects indexOfObject: theSquad];
+    if (row != NSNotFound) {
+        [_squadsTableView becomeFirstResponder];
+        [_squadsController setSelectionIndex: row];
+        [_squadsTableView editColumn: 0 row: row withEvent: nil select: YES];
+    }
+}
+
+-(IBAction)duplicate:(id)sender
+{
+    DockSquad* squad = [self selectedSquad];
+    DockSquad* newSquad = [squad duplicate];
+    [self performSelector: @selector(editNameOfSquad:) withObject: newSquad afterDelay: 0];
+}
+
 -(IBAction)addSelectedUpgradeAction:(id)sender
 {
     [self addSelected: sender];
@@ -710,18 +744,6 @@ NSString* kInspectorVisible = @"inspectorVisible";
      }
 
     ];
-}
-
--(IBAction)print:(id)sender
-{
-    NSPrintOperation* op;
-    op = [NSPrintOperation printOperationWithView: _fleetBuildSheet];
-
-    if (op) {
-        [op runOperation];
-    } else {
-        // handle error here
-    }
 }
 
 -(void)updatePredicates
@@ -966,4 +988,8 @@ NSString* kInspectorVisible = @"inspectorVisible";
     [_inspector show];
 }
 
+-(IBAction)showFleetBuildSheet:(id)sender
+{
+    [_fleetBuildSheet show: [self selectedSquad]];
+}
 @end

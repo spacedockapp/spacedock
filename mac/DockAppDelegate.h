@@ -1,6 +1,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class DockInspector;
+@class DockFleetBuildSheet;
 
 extern NSString* kInspectorVisible;
 
@@ -23,9 +24,9 @@ extern NSString* kInspectorVisible;
 @property (assign) IBOutlet NSTableView* resourcesTableView;
 @property (assign) IBOutlet NSTableView* setsTableView;
 @property (assign) IBOutlet NSTableView* squadsTableView;
-@property (assign) IBOutlet NSView* fleetBuildSheet;
 @property (assign) IBOutlet NSMenu* factionMenu;
 @property (assign) IBOutlet DockInspector* inspector;
+@property (assign) IBOutlet DockFleetBuildSheet* fleetBuildSheet;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel* managedObjectModel;
@@ -35,12 +36,13 @@ extern NSString* kInspectorVisible;
 @property (strong, nonatomic) NSSavePanel* currentSavePanel;
 
 -(IBAction)saveAction:(id)sender;
+-(IBAction)addSquad:(id)sender;
 -(IBAction)addSelected:(id)sender;
 -(IBAction)addSelectedShip:(id)sender;
 -(IBAction)deleteSelectedShip:(id)sender;
 -(IBAction)addSelectedUpgradeAction:(id)sender;
 -(IBAction)deleteSelectedUpgradeAction:(id)sender;
--(IBAction)deleteSelected:(id)sender;
+-(IBAction)duplicate:(id)sender;
 -(IBAction)expandAll:(id)sender;
 -(IBAction)exportSquad:(id)sender;
 -(IBAction)setFormat:(id)sender;
@@ -48,5 +50,6 @@ extern NSString* kInspectorVisible;
 -(IBAction)resetFactionFilter:(id)sender;
 -(IBAction)filterToFaction:(id)sender;
 -(IBAction)showInspector:(id)sender;
+-(IBAction)showFleetBuildSheet:(id)sender;
 
 @end

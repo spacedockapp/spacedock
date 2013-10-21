@@ -21,4 +21,5 @@
 -(NSString*)upSortType;
 -(NSString*)typeCode;
 -(NSString*)plainDescription;
+-(NSString*)factionCode;
 @end

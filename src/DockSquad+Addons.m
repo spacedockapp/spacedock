@@ -17,6 +17,16 @@
     return [context executeFetchRequest: request error: &err];
 }
 
++(NSSet*)allNames:(NSManagedObjectContext*)context
+{
+    NSArray* allSquads = [DockSquad allSquads: context];
+    NSMutableSet* allNames = [[NSMutableSet alloc] initWithCapacity: allSquads.count];
+    for (DockSquad* s in allSquads) {
+        [allNames addObject: s.name];
+    }
+    return [NSSet setWithSet: allNames];
+}
+
 +(DockSquad*)import:(NSString*)name data:(NSString*)datFormatString context:(NSManagedObjectContext*)context
 {
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Squad"
@@ -244,6 +254,41 @@ static NSString* toDataFormat(NSString* label, id element)
         }
     }
     return nil;
+}
+
+static NSString* namePrefix(NSString* originalName)
+{
+    NSRegularExpression* expression = [NSRegularExpression regularExpressionWithPattern: @" copy *\\d*"
+                                                                                options: NSRegularExpressionCaseInsensitive
+                                                                                  error: nil];
+    NSArray* matches = [expression matchesInString: originalName options: 0 range: NSMakeRange(0, originalName.length)];
+    if (matches.count > 0) {
+        NSTextCheckingResult* r = [matches lastObject];
+        return [originalName substringToIndex: r.range.location];
+    }
+    return originalName;
+}
+
+-(DockSquad*)duplicate
+{
+    NSManagedObjectContext* context = [self managedObjectContext];
+    NSEntityDescription* squadEntity = [NSEntityDescription entityForName: @"Squad" inManagedObjectContext: context];
+    DockSquad* squad = [[DockSquad alloc] initWithEntity: squadEntity insertIntoManagedObjectContext: context];
+    NSString* originalNamePrefix = namePrefix(self.name);
+    NSString* newName = [originalNamePrefix stringByAppendingString: @" copy"];
+    NSSet* allNames = [DockSquad allNames: context];
+    int index = 2;
+    while ([allNames containsObject: newName]) {
+        newName = [NSString stringWithFormat: @"%@ copy %d", originalNamePrefix, index];
+        index += 1;
+    }
+    squad.name = newName;
+    for (DockEquippedShip* ship in self.equippedShips) {
+        DockEquippedShip* dup = [ship duplicate];
+        [squad addEquippedShip: dup];
+    }
+    squad.resource = self.resource;
+    return squad;
 }
 
 @end

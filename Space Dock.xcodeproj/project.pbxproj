@@ -9,50 +9,51 @@
 /* Begin PBXBuildFile section */
 		D41B77E617FDCF91005A5DA8 /* DockResource+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B77E517FDCF91005A5DA8 /* DockResource+Addons.m */; };
 		D41B77E917FE13D1005A5DA8 /* DockBooleanFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B77E817FE13D1005A5DA8 /* DockBooleanFormatter.m */; };
-		D41B77EB17FE3FB6005A5DA8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D41B77EA17FE3FB6005A5DA8 /* Images.xcassets */; };
+		D41B77EF17FE4184005A5DA8 /* space_dock.icns in Resources */ = {isa = PBXBuildFile; fileRef = D41B77EE17FE416F005A5DA8 /* space_dock.icns */; };
 		D41BA80817F67FE0005266E6 /* DockShip+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D41BA80717F67FE0005266E6 /* DockShip+Addons.m */; };
+		D4259ECA180F932100BB02BA /* DockFleetBuildSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259EC9180F932100BB02BA /* DockFleetBuildSheet.m */; };
+		D4259EDF180F94E300BB02BA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4259EDE180F94E300BB02BA /* WebKit.framework */; };
+		D4259EE11810CA4A00BB02BA /* fleet.mustache in Resources */ = {isa = PBXBuildFile; fileRef = D4259EE01810CA4A00BB02BA /* fleet.mustache */; };
+		D4259F2A1810D24000BB02BA /* GRMustache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259EE41810D24000BB02BA /* GRMustache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F2B1810D24000BB02BA /* GRMustacheAccumulatorTag.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259EE61810D24000BB02BA /* GRMustacheAccumulatorTag.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F2C1810D24000BB02BA /* GRMustacheCompiler.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259EEA1810D24000BB02BA /* GRMustacheCompiler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F2D1810D24000BB02BA /* GRMustacheConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259EED1810D24000BB02BA /* GRMustacheConfiguration.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F2E1810D24000BB02BA /* GRMustacheContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259EF01810D24000BB02BA /* GRMustacheContext.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F2F1810D24000BB02BA /* GRMustacheError.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259EF31810D24000BB02BA /* GRMustacheError.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F301810D24000BB02BA /* GRMustacheExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259EF41810D24000BB02BA /* GRMustacheExpression.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F311810D24000BB02BA /* GRMustacheExpressionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259EF61810D24000BB02BA /* GRMustacheExpressionParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F321810D24000BB02BA /* GRMustacheFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259EF91810D24000BB02BA /* GRMustacheFilter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F331810D24000BB02BA /* GRMustacheFilteredExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259EFB1810D24000BB02BA /* GRMustacheFilteredExpression.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F341810D24000BB02BA /* GRMustacheHTMLLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259EFD1810D24000BB02BA /* GRMustacheHTMLLibrary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F351810D24000BB02BA /* GRMustacheIdentifierExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259EFF1810D24000BB02BA /* GRMustacheIdentifierExpression.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F361810D24000BB02BA /* GRMustacheImplicitIteratorExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F011810D24000BB02BA /* GRMustacheImplicitIteratorExpression.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F371810D24000BB02BA /* GRMustacheJavascriptLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F031810D24000BB02BA /* GRMustacheJavascriptLibrary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F381810D24000BB02BA /* GRMustacheLocalizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F061810D24000BB02BA /* GRMustacheLocalizer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F391810D24000BB02BA /* GRMustacheParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F071810D24000BB02BA /* GRMustacheParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F3A1810D24000BB02BA /* GRMustacheScopedExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F0A1810D24000BB02BA /* GRMustacheScopedExpression.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F3B1810D24000BB02BA /* GRMustacheSectionTag.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F0C1810D24000BB02BA /* GRMustacheSectionTag.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F3C1810D24000BB02BA /* GRMustacheStandardLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F0E1810D24000BB02BA /* GRMustacheStandardLibrary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F3D1810D24000BB02BA /* GRMustacheTag.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F111810D24000BB02BA /* GRMustacheTag.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F3E1810D24000BB02BA /* GRMustacheTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F151810D24000BB02BA /* GRMustacheTemplate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F3F1810D24000BB02BA /* GRMustacheTemplateOverride.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F181810D24000BB02BA /* GRMustacheTemplateOverride.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F401810D24000BB02BA /* GRMustacheTemplateRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F1B1810D24000BB02BA /* GRMustacheTemplateRepository.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F411810D24000BB02BA /* GRMustacheTextComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F1D1810D24000BB02BA /* GRMustacheTextComponent.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F421810D24000BB02BA /* GRMustacheToken.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F1F1810D24000BB02BA /* GRMustacheToken.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F431810D24000BB02BA /* GRMustacheURLLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F211810D24000BB02BA /* GRMustacheURLLibrary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F441810D24000BB02BA /* GRMustacheVariableTag.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F231810D24000BB02BA /* GRMustacheVariableTag.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F451810D24000BB02BA /* NSFormatter+GRMustache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F271810D24000BB02BA /* NSFormatter+GRMustache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F461810D24000BB02BA /* NSValueTransformer+GRMustache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F291810D24000BB02BA /* NSValueTransformer+GRMustache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4259F491810D2C000BB02BA /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F481810D2C000BB02BA /* JRSwizzle.m */; };
 		D42BD1F017EA134B0000598C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42BD1EF17EA134B0000598C /* Cocoa.framework */; };
 		D437079E1800AFDF00622E7F /* DockWeapon+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D437079D1800AFDF00622E7F /* DockWeapon+Addons.m */; };
 		D45AF1F017FFE7F900C04F9A /* DockUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D45AF1EF17FFE7F900C04F9A /* DockUtils.m */; };
-		D48D3115180C3E3C0084663B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48D3114180C3E3C0084663B /* Foundation.framework */; };
-		D48D3117180C3E3C0084663B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48D3116180C3E3C0084663B /* CoreGraphics.framework */; };
-		D48D3119180C3E3D0084663B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48D3118180C3E3D0084663B /* UIKit.framework */; };
-		D48D311B180C3E3D0084663B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48D311A180C3E3D0084663B /* CoreData.framework */; };
-		D48D3121180C3E3D0084663B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D48D311F180C3E3D0084663B /* InfoPlist.strings */; };
-		D48D3123180C3E3D0084663B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D3122180C3E3D0084663B /* main.m */; };
-		D48D3127180C3E3D0084663B /* DockAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D3126180C3E3D0084663B /* DockAppDelegate.m */; };
-		D48D312C180C3E3D0084663B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D48D312B180C3E3D0084663B /* Images.xcassets */; };
-		D48D3148180C44140084663B /* Space_Dock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */; };
-		D48D315A180C4D4F0084663B /* DockAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D314B180C4D4F0084663B /* DockAppDelegate.m */; };
-		D48D315B180C4D4F0084663B /* DockInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D314D180C4D4F0084663B /* DockInspector.m */; };
-		D48D315C180C4D4F0084663B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D48D314E180C4D4F0084663B /* Credits.rtf */; };
-		D48D315D180C4D4F0084663B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D48D3150180C4D4F0084663B /* InfoPlist.strings */; };
-		D48D315E180C4D4F0084663B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48D3152180C4D4F0084663B /* MainMenu.xib */; };
-		D48D315F180C4D4F0084663B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D3154180C4D4F0084663B /* main.m */; };
-		D48D3160180C4D4F0084663B /* NSTreeController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D3156180C4D4F0084663B /* NSTreeController+Additions.m */; };
-		D48D3162180C4D4F0084663B /* space_dock.icns in Resources */ = {isa = PBXBuildFile; fileRef = D48D3159180C4D4F0084663B /* space_dock.icns */; };
-		D48D3163180C50B20084663B /* Data.xml in Resources */ = {isa = PBXBuildFile; fileRef = D4F7F3EA17F2C95D00F5A808 /* Data.xml */; };
-		D48D3166180C510C0084663B /* DockDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D3165180C510C0084663B /* DockDataLoader.m */; };
-		D48D3167180C510C0084663B /* DockDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D48D3165180C510C0084663B /* DockDataLoader.m */; };
 		D4AAA28817F4082F00A99383 /* DockEquippedShip+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA28717F4082F00A99383 /* DockEquippedShip+Addons.m */; };
 		D4AAA28B17F408D400A99383 /* DockUpgrade+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA28A17F408D400A99383 /* DockUpgrade+Addons.m */; };
 		D4AAA29417F48F8100A99383 /* DockEquippedUpgrade+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA29317F48F8100A99383 /* DockEquippedUpgrade+Addons.m */; };
 		D4AAA2BC17F4DF3D00A99383 /* DockSquad+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA2BB17F4DF3D00A99383 /* DockSquad+Addons.m */; };
-		D4D1BC4E180E6EAF00389F41 /* DockWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1A51808DA2600157E32 /* DockWeapon.m */; };
-		D4D1BC4F180E6EAF00389F41 /* DockTalent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F19F1808DA2600157E32 /* DockTalent.m */; };
-		D4D1BC50180E6EAF00389F41 /* DockEquippedUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F19C1808DA2600157E32 /* DockEquippedUpgrade.m */; };
-		D4D1BC51180E6EAF00389F41 /* DockSquad.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1991808DA2600157E32 /* DockSquad.m */; };
-		D4D1BC52180E6EAF00389F41 /* DockUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1961808DA2600157E32 /* DockUpgrade.m */; };
-		D4D1BC53180E6EAF00389F41 /* DockSetItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1931808DA2600157E32 /* DockSetItem.m */; };
-		D4D1BC54180E6EAF00389F41 /* DockTech.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1901808DA2600157E32 /* DockTech.m */; };
-		D4D1BC55180E6EAF00389F41 /* DockEquippedShip.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F18D1808DA2600157E32 /* DockEquippedShip.m */; };
-		D4D1BC56180E6EAF00389F41 /* DockCaptain.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F18A1808DA2600157E32 /* DockCaptain.m */; };
-		D4D1BC57180E6EB000389F41 /* DockResource.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1871808DA2600157E32 /* DockResource.m */; };
-		D4D1BC58180E6EB000389F41 /* DockShip.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1841808DA2600157E32 /* DockShip.m */; };
-		D4D1BC59180E6EB000389F41 /* DockCrew.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1811808DA2600157E32 /* DockCrew.m */; };
-		D4D1BC5A180E6EB000389F41 /* DockSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F17E1808DA2500157E32 /* DockSet.m */; };
-		D4D1BC5B180E6ECF00389F41 /* DockUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D45AF1EF17FFE7F900C04F9A /* DockUtils.m */; };
+		D4AAA2E017F4F79600A99383 /* NSTreeController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAA2DF17F4F79600A99383 /* NSTreeController+Additions.m */; };
 		D4D7BE6817F76FB50070D94D /* DockCaptain+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D7BE6717F76FB50070D94D /* DockCaptain+Addons.m */; };
+		D4DCA8DD1809E2B40066F8A5 /* DockInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DCA8DC1809E2B40066F8A5 /* DockInspector.m */; };
 		D4F7F17F1808DA2500157E32 /* DockSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F17E1808DA2500157E32 /* DockSet.m */; };
 		D4F7F1821808DA2600157E32 /* DockCrew.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1811808DA2600157E32 /* DockCrew.m */; };
 		D4F7F1851808DA2600157E32 /* DockShip.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1841808DA2600157E32 /* DockShip.m */; };
@@ -68,7 +69,11 @@
 		D4F7F1A61808DA2600157E32 /* DockWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1A51808DA2600157E32 /* DockWeapon.m */; };
 		D4F7F1A91808DBB000157E32 /* DockSet+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1A81808DBB000157E32 /* DockSet+Addons.m */; };
 		D4F7F40E17F2C95D00F5A808 /* Data.xml in Resources */ = {isa = PBXBuildFile; fileRef = D4F7F3EA17F2C95D00F5A808 /* Data.xml */; };
+		D4F7F40F17F2C95D00F5A808 /* DockAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F3EC17F2C95D00F5A808 /* DockAppDelegate.m */; };
 		D4F7F41317F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F3F417F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m */; };
+		D4F7F41B17F2C95D00F5A808 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D4F7F40317F2C95D00F5A808 /* Credits.rtf */; };
+		D4F7F41D17F2C95D00F5A808 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F7F40717F2C95D00F5A808 /* MainMenu.xib */; };
+		D4F7F41E17F2C95D00F5A808 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40917F2C95D00F5A808 /* main.m */; };
 		D4F7F42017F2C95D00F5A808 /* Space_Dock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -78,9 +83,101 @@
 		D41B77E517FDCF91005A5DA8 /* DockResource+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockResource+Addons.m"; sourceTree = "<group>"; };
 		D41B77E717FE13D1005A5DA8 /* DockBooleanFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockBooleanFormatter.h; sourceTree = "<group>"; };
 		D41B77E817FE13D1005A5DA8 /* DockBooleanFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockBooleanFormatter.m; sourceTree = "<group>"; };
-		D41B77EA17FE3FB6005A5DA8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Space Dock/Images.xcassets"; sourceTree = "<group>"; };
+		D41B77EE17FE416F005A5DA8 /* space_dock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = space_dock.icns; sourceTree = "<group>"; };
 		D41BA80617F67FE0005266E6 /* DockShip+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockShip+Addons.h"; sourceTree = "<group>"; };
 		D41BA80717F67FE0005266E6 /* DockShip+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockShip+Addons.m"; sourceTree = "<group>"; };
+		D4259EC8180F932100BB02BA /* DockFleetBuildSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockFleetBuildSheet.h; sourceTree = "<group>"; };
+		D4259EC9180F932100BB02BA /* DockFleetBuildSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockFleetBuildSheet.m; sourceTree = "<group>"; };
+		D4259ECD180F938C00BB02BA /* GRMustache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustache.h; sourceTree = "<group>"; };
+		D4259ECE180F938C00BB02BA /* GRMustacheAvailabilityMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheAvailabilityMacros.h; sourceTree = "<group>"; };
+		D4259ECF180F938C00BB02BA /* GRMustacheConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheConfiguration.h; sourceTree = "<group>"; };
+		D4259ED0180F938C00BB02BA /* GRMustacheContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheContext.h; sourceTree = "<group>"; };
+		D4259ED1180F938C00BB02BA /* GRMustacheError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheError.h; sourceTree = "<group>"; };
+		D4259ED2180F938C00BB02BA /* GRMustacheFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheFilter.h; sourceTree = "<group>"; };
+		D4259ED3180F938C00BB02BA /* GRMustacheLocalizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheLocalizer.h; sourceTree = "<group>"; };
+		D4259ED4180F938C00BB02BA /* GRMustacheRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheRendering.h; sourceTree = "<group>"; };
+		D4259ED5180F938C00BB02BA /* GRMustacheTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTag.h; sourceTree = "<group>"; };
+		D4259ED6180F938C00BB02BA /* GRMustacheTagDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTagDelegate.h; sourceTree = "<group>"; };
+		D4259ED7180F938C00BB02BA /* GRMustacheTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTemplate.h; sourceTree = "<group>"; };
+		D4259ED8180F938C00BB02BA /* GRMustacheTemplateRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTemplateRepository.h; sourceTree = "<group>"; };
+		D4259ED9180F938C00BB02BA /* GRMustacheVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheVersion.h; sourceTree = "<group>"; };
+		D4259EDA180F938C00BB02BA /* NSFormatter+GRMustache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFormatter+GRMustache.h"; sourceTree = "<group>"; };
+		D4259EDB180F938C00BB02BA /* NSValueTransformer+GRMustache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+GRMustache.h"; sourceTree = "<group>"; };
+		D4259EDE180F94E300BB02BA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		D4259EE01810CA4A00BB02BA /* fleet.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fleet.mustache; sourceTree = "<group>"; };
+		D4259EE31810D24000BB02BA /* GRMustache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustache.h; sourceTree = "<group>"; };
+		D4259EE41810D24000BB02BA /* GRMustache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustache.m; sourceTree = "<group>"; };
+		D4259EE51810D24000BB02BA /* GRMustache_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustache_private.h; sourceTree = "<group>"; };
+		D4259EE61810D24000BB02BA /* GRMustacheAccumulatorTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheAccumulatorTag.m; sourceTree = "<group>"; };
+		D4259EE71810D24000BB02BA /* GRMustacheAccumulatorTag_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheAccumulatorTag_private.h; sourceTree = "<group>"; };
+		D4259EE81810D24000BB02BA /* GRMustacheAvailabilityMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheAvailabilityMacros.h; sourceTree = "<group>"; };
+		D4259EE91810D24000BB02BA /* GRMustacheAvailabilityMacros_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheAvailabilityMacros_private.h; sourceTree = "<group>"; };
+		D4259EEA1810D24000BB02BA /* GRMustacheCompiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheCompiler.m; sourceTree = "<group>"; };
+		D4259EEB1810D24000BB02BA /* GRMustacheCompiler_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheCompiler_private.h; sourceTree = "<group>"; };
+		D4259EEC1810D24000BB02BA /* GRMustacheConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheConfiguration.h; sourceTree = "<group>"; };
+		D4259EED1810D24000BB02BA /* GRMustacheConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheConfiguration.m; sourceTree = "<group>"; };
+		D4259EEE1810D24000BB02BA /* GRMustacheConfiguration_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheConfiguration_private.h; sourceTree = "<group>"; };
+		D4259EEF1810D24000BB02BA /* GRMustacheContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheContext.h; sourceTree = "<group>"; };
+		D4259EF01810D24000BB02BA /* GRMustacheContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheContext.m; sourceTree = "<group>"; };
+		D4259EF11810D24000BB02BA /* GRMustacheContext_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheContext_private.h; sourceTree = "<group>"; };
+		D4259EF21810D24000BB02BA /* GRMustacheError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheError.h; sourceTree = "<group>"; };
+		D4259EF31810D24000BB02BA /* GRMustacheError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheError.m; sourceTree = "<group>"; };
+		D4259EF41810D24000BB02BA /* GRMustacheExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheExpression.m; sourceTree = "<group>"; };
+		D4259EF51810D24000BB02BA /* GRMustacheExpression_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheExpression_private.h; sourceTree = "<group>"; };
+		D4259EF61810D24000BB02BA /* GRMustacheExpressionParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheExpressionParser.m; sourceTree = "<group>"; };
+		D4259EF71810D24000BB02BA /* GRMustacheExpressionParser_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheExpressionParser_private.h; sourceTree = "<group>"; };
+		D4259EF81810D24000BB02BA /* GRMustacheFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheFilter.h; sourceTree = "<group>"; };
+		D4259EF91810D24000BB02BA /* GRMustacheFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheFilter.m; sourceTree = "<group>"; };
+		D4259EFA1810D24000BB02BA /* GRMustacheFilter_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheFilter_private.h; sourceTree = "<group>"; };
+		D4259EFB1810D24000BB02BA /* GRMustacheFilteredExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheFilteredExpression.m; sourceTree = "<group>"; };
+		D4259EFC1810D24000BB02BA /* GRMustacheFilteredExpression_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheFilteredExpression_private.h; sourceTree = "<group>"; };
+		D4259EFD1810D24000BB02BA /* GRMustacheHTMLLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheHTMLLibrary.m; sourceTree = "<group>"; };
+		D4259EFE1810D24000BB02BA /* GRMustacheHTMLLibrary_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheHTMLLibrary_private.h; sourceTree = "<group>"; };
+		D4259EFF1810D24000BB02BA /* GRMustacheIdentifierExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheIdentifierExpression.m; sourceTree = "<group>"; };
+		D4259F001810D24000BB02BA /* GRMustacheIdentifierExpression_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheIdentifierExpression_private.h; sourceTree = "<group>"; };
+		D4259F011810D24000BB02BA /* GRMustacheImplicitIteratorExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheImplicitIteratorExpression.m; sourceTree = "<group>"; };
+		D4259F021810D24000BB02BA /* GRMustacheImplicitIteratorExpression_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheImplicitIteratorExpression_private.h; sourceTree = "<group>"; };
+		D4259F031810D24000BB02BA /* GRMustacheJavascriptLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheJavascriptLibrary.m; sourceTree = "<group>"; };
+		D4259F041810D24000BB02BA /* GRMustacheJavascriptLibrary_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheJavascriptLibrary_private.h; sourceTree = "<group>"; };
+		D4259F051810D24000BB02BA /* GRMustacheLocalizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheLocalizer.h; sourceTree = "<group>"; };
+		D4259F061810D24000BB02BA /* GRMustacheLocalizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheLocalizer.m; sourceTree = "<group>"; };
+		D4259F071810D24000BB02BA /* GRMustacheParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheParser.m; sourceTree = "<group>"; };
+		D4259F081810D24000BB02BA /* GRMustacheParser_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheParser_private.h; sourceTree = "<group>"; };
+		D4259F091810D24000BB02BA /* GRMustacheRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheRendering.h; sourceTree = "<group>"; };
+		D4259F0A1810D24000BB02BA /* GRMustacheScopedExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheScopedExpression.m; sourceTree = "<group>"; };
+		D4259F0B1810D24000BB02BA /* GRMustacheScopedExpression_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheScopedExpression_private.h; sourceTree = "<group>"; };
+		D4259F0C1810D24000BB02BA /* GRMustacheSectionTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheSectionTag.m; sourceTree = "<group>"; };
+		D4259F0D1810D24000BB02BA /* GRMustacheSectionTag_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheSectionTag_private.h; sourceTree = "<group>"; };
+		D4259F0E1810D24000BB02BA /* GRMustacheStandardLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheStandardLibrary.m; sourceTree = "<group>"; };
+		D4259F0F1810D24000BB02BA /* GRMustacheStandardLibrary_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheStandardLibrary_private.h; sourceTree = "<group>"; };
+		D4259F101810D24000BB02BA /* GRMustacheTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTag.h; sourceTree = "<group>"; };
+		D4259F111810D24000BB02BA /* GRMustacheTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheTag.m; sourceTree = "<group>"; };
+		D4259F121810D24000BB02BA /* GRMustacheTag_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTag_private.h; sourceTree = "<group>"; };
+		D4259F131810D24000BB02BA /* GRMustacheTagDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTagDelegate.h; sourceTree = "<group>"; };
+		D4259F141810D24000BB02BA /* GRMustacheTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTemplate.h; sourceTree = "<group>"; };
+		D4259F151810D24000BB02BA /* GRMustacheTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheTemplate.m; sourceTree = "<group>"; };
+		D4259F161810D24000BB02BA /* GRMustacheTemplate_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTemplate_private.h; sourceTree = "<group>"; };
+		D4259F171810D24000BB02BA /* GRMustacheTemplateComponent_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTemplateComponent_private.h; sourceTree = "<group>"; };
+		D4259F181810D24000BB02BA /* GRMustacheTemplateOverride.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheTemplateOverride.m; sourceTree = "<group>"; };
+		D4259F191810D24000BB02BA /* GRMustacheTemplateOverride_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTemplateOverride_private.h; sourceTree = "<group>"; };
+		D4259F1A1810D24000BB02BA /* GRMustacheTemplateRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTemplateRepository.h; sourceTree = "<group>"; };
+		D4259F1B1810D24000BB02BA /* GRMustacheTemplateRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheTemplateRepository.m; sourceTree = "<group>"; };
+		D4259F1C1810D24000BB02BA /* GRMustacheTemplateRepository_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTemplateRepository_private.h; sourceTree = "<group>"; };
+		D4259F1D1810D24000BB02BA /* GRMustacheTextComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheTextComponent.m; sourceTree = "<group>"; };
+		D4259F1E1810D24000BB02BA /* GRMustacheTextComponent_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheTextComponent_private.h; sourceTree = "<group>"; };
+		D4259F1F1810D24000BB02BA /* GRMustacheToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheToken.m; sourceTree = "<group>"; };
+		D4259F201810D24000BB02BA /* GRMustacheToken_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheToken_private.h; sourceTree = "<group>"; };
+		D4259F211810D24000BB02BA /* GRMustacheURLLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheURLLibrary.m; sourceTree = "<group>"; };
+		D4259F221810D24000BB02BA /* GRMustacheURLLibrary_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheURLLibrary_private.h; sourceTree = "<group>"; };
+		D4259F231810D24000BB02BA /* GRMustacheVariableTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheVariableTag.m; sourceTree = "<group>"; };
+		D4259F241810D24000BB02BA /* GRMustacheVariableTag_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheVariableTag_private.h; sourceTree = "<group>"; };
+		D4259F251810D24000BB02BA /* GRMustacheVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheVersion.h; sourceTree = "<group>"; };
+		D4259F261810D24000BB02BA /* NSFormatter+GRMustache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFormatter+GRMustache.h"; sourceTree = "<group>"; };
+		D4259F271810D24000BB02BA /* NSFormatter+GRMustache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFormatter+GRMustache.m"; sourceTree = "<group>"; };
+		D4259F281810D24000BB02BA /* NSValueTransformer+GRMustache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+GRMustache.h"; sourceTree = "<group>"; };
+		D4259F291810D24000BB02BA /* NSValueTransformer+GRMustache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValueTransformer+GRMustache.m"; sourceTree = "<group>"; };
+		D4259F471810D2C000BB02BA /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRSwizzle.h; path = ../GRMustache/src/vendor/groue/jrswizzle/JRSwizzle.h; sourceTree = "<group>"; };
+		D4259F481810D2C000BB02BA /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRSwizzle.m; path = ../GRMustache/src/vendor/groue/jrswizzle/JRSwizzle.m; sourceTree = "<group>"; };
 		D42BD1EC17EA134B0000598C /* Space Dock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Dock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42BD1EF17EA134B0000598C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D42BD1F217EA134B0000598C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -91,34 +188,6 @@
 		D439357618084DB600096EDA /* Space_Dock_3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock_3.xcdatamodel; sourceTree = "<group>"; };
 		D45AF1EE17FFE7F900C04F9A /* DockUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockUtils.h; sourceTree = "<group>"; };
 		D45AF1EF17FFE7F900C04F9A /* DockUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockUtils.m; sourceTree = "<group>"; };
-		D48D3113180C3E3C0084663B /* Space Dock Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Dock Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D48D3114180C3E3C0084663B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D48D3116180C3E3C0084663B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D48D3118180C3E3D0084663B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		D48D311A180C3E3D0084663B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
-		D48D311E180C3E3D0084663B /* SpaceDockMobile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpaceDockMobile-Info.plist"; sourceTree = "<group>"; };
-		D48D3120180C3E3D0084663B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D48D3122180C3E3D0084663B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D48D3124180C3E3D0084663B /* SpaceDockMobile-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpaceDockMobile-Prefix.pch"; sourceTree = "<group>"; };
-		D48D3125180C3E3D0084663B /* DockAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DockAppDelegate.h; sourceTree = "<group>"; };
-		D48D3126180C3E3D0084663B /* DockAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DockAppDelegate.m; sourceTree = "<group>"; };
-		D48D312B180C3E3D0084663B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D48D3132180C3E3D0084663B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		D48D314A180C4D4F0084663B /* DockAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockAppDelegate.h; sourceTree = "<group>"; };
-		D48D314B180C4D4F0084663B /* DockAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockAppDelegate.m; sourceTree = "<group>"; };
-		D48D314C180C4D4F0084663B /* DockInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockInspector.h; sourceTree = "<group>"; };
-		D48D314D180C4D4F0084663B /* DockInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockInspector.m; sourceTree = "<group>"; };
-		D48D314F180C4D4F0084663B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		D48D3151180C4D4F0084663B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D48D3153180C4D4F0084663B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		D48D3154180C4D4F0084663B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D48D3155180C4D4F0084663B /* NSTreeController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTreeController+Additions.h"; sourceTree = "<group>"; };
-		D48D3156180C4D4F0084663B /* NSTreeController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTreeController+Additions.m"; sourceTree = "<group>"; };
-		D48D3157180C4D4F0084663B /* Space Dock-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Space Dock-Info.plist"; sourceTree = "<group>"; };
-		D48D3158180C4D4F0084663B /* Space Dock-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Space Dock-Prefix.pch"; sourceTree = "<group>"; };
-		D48D3159180C4D4F0084663B /* space_dock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = space_dock.icns; sourceTree = "<group>"; };
-		D48D3164180C510C0084663B /* DockDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockDataLoader.h; sourceTree = "<group>"; };
-		D48D3165180C510C0084663B /* DockDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockDataLoader.m; sourceTree = "<group>"; };
 		D4AAA28617F4082F00A99383 /* DockEquippedShip+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockEquippedShip+Addons.h"; sourceTree = "<group>"; };
 		D4AAA28717F4082F00A99383 /* DockEquippedShip+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockEquippedShip+Addons.m"; sourceTree = "<group>"; };
 		D4AAA28917F408D400A99383 /* DockUpgrade+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockUpgrade+Addons.h"; sourceTree = "<group>"; };
@@ -127,8 +196,12 @@
 		D4AAA29317F48F8100A99383 /* DockEquippedUpgrade+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockEquippedUpgrade+Addons.m"; sourceTree = "<group>"; };
 		D4AAA2BA17F4DF3D00A99383 /* DockSquad+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockSquad+Addons.h"; sourceTree = "<group>"; };
 		D4AAA2BB17F4DF3D00A99383 /* DockSquad+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockSquad+Addons.m"; sourceTree = "<group>"; };
+		D4AAA2DE17F4F79600A99383 /* NSTreeController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTreeController+Additions.h"; sourceTree = "<group>"; };
+		D4AAA2DF17F4F79600A99383 /* NSTreeController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTreeController+Additions.m"; sourceTree = "<group>"; };
 		D4D7BE6617F76FB50070D94D /* DockCaptain+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockCaptain+Addons.h"; sourceTree = "<group>"; };
 		D4D7BE6717F76FB50070D94D /* DockCaptain+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockCaptain+Addons.m"; sourceTree = "<group>"; };
+		D4DCA8DB1809E2B40066F8A5 /* DockInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockInspector.h; sourceTree = "<group>"; };
+		D4DCA8DC1809E2B40066F8A5 /* DockInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockInspector.m; sourceTree = "<group>"; };
 		D4F7F17D1808DA2500157E32 /* DockSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockSet.h; sourceTree = "<group>"; };
 		D4F7F17E1808DA2500157E32 /* DockSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockSet.m; sourceTree = "<group>"; };
 		D4F7F1801808DA2600157E32 /* DockCrew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockCrew.h; sourceTree = "<group>"; };
@@ -158,8 +231,16 @@
 		D4F7F1A71808DBB000157E32 /* DockSet+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockSet+Addons.h"; sourceTree = "<group>"; };
 		D4F7F1A81808DBB000157E32 /* DockSet+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockSet+Addons.m"; sourceTree = "<group>"; };
 		D4F7F3EA17F2C95D00F5A808 /* Data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Data.xml; sourceTree = "<group>"; };
+		D4F7F3EB17F2C95D00F5A808 /* DockAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockAppDelegate.h; sourceTree = "<group>"; };
+		D4F7F3EC17F2C95D00F5A808 /* DockAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockAppDelegate.m; sourceTree = "<group>"; };
 		D4F7F3F317F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockOrderedSetArrayValueTransformer.h; sourceTree = "<group>"; };
 		D4F7F3F417F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockOrderedSetArrayValueTransformer.m; sourceTree = "<group>"; };
+		D4F7F40417F2C95D00F5A808 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D4F7F40617F2C95D00F5A808 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D4F7F40817F2C95D00F5A808 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D4F7F40917F2C95D00F5A808 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D4F7F40A17F2C95D00F5A808 /* Space Dock-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Space Dock-Info.plist"; sourceTree = "<group>"; };
+		D4F7F40B17F2C95D00F5A808 /* Space Dock-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Space Dock-Prefix.pch"; sourceTree = "<group>"; };
 		D4F7F40D17F2C95D00F5A808 /* Space_Dock.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,31 +249,140 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4259EDF180F94E300BB02BA /* WebKit.framework in Frameworks */,
 				D42BD1F017EA134B0000598C /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D48D3110180C3E3C0084663B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D48D3117180C3E3C0084663B /* CoreGraphics.framework in Frameworks */,
-				D48D311B180C3E3D0084663B /* CoreData.framework in Frameworks */,
-				D48D3119180C3E3D0084663B /* UIKit.framework in Frameworks */,
-				D48D3115180C3E3C0084663B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D4259ECB180F937A00BB02BA /* external */ = {
+			isa = PBXGroup;
+			children = (
+				D4259F4B1810D39A00BB02BA /* grmustache */,
+			);
+			name = external;
+			sourceTree = "<group>";
+		};
+		D4259ECC180F938C00BB02BA /* include */ = {
+			isa = PBXGroup;
+			children = (
+				D4259ECD180F938C00BB02BA /* GRMustache.h */,
+				D4259ECE180F938C00BB02BA /* GRMustacheAvailabilityMacros.h */,
+				D4259ECF180F938C00BB02BA /* GRMustacheConfiguration.h */,
+				D4259ED0180F938C00BB02BA /* GRMustacheContext.h */,
+				D4259ED1180F938C00BB02BA /* GRMustacheError.h */,
+				D4259ED2180F938C00BB02BA /* GRMustacheFilter.h */,
+				D4259ED3180F938C00BB02BA /* GRMustacheLocalizer.h */,
+				D4259ED4180F938C00BB02BA /* GRMustacheRendering.h */,
+				D4259ED5180F938C00BB02BA /* GRMustacheTag.h */,
+				D4259ED6180F938C00BB02BA /* GRMustacheTagDelegate.h */,
+				D4259ED7180F938C00BB02BA /* GRMustacheTemplate.h */,
+				D4259ED8180F938C00BB02BA /* GRMustacheTemplateRepository.h */,
+				D4259ED9180F938C00BB02BA /* GRMustacheVersion.h */,
+				D4259EDA180F938C00BB02BA /* NSFormatter+GRMustache.h */,
+				D4259EDB180F938C00BB02BA /* NSValueTransformer+GRMustache.h */,
+			);
+			name = include;
+			path = ../GRMustache/include;
+			sourceTree = "<group>";
+		};
+		D4259EE21810D24000BB02BA /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				D4259EE31810D24000BB02BA /* GRMustache.h */,
+				D4259EE41810D24000BB02BA /* GRMustache.m */,
+				D4259EE51810D24000BB02BA /* GRMustache_private.h */,
+				D4259EE61810D24000BB02BA /* GRMustacheAccumulatorTag.m */,
+				D4259EE71810D24000BB02BA /* GRMustacheAccumulatorTag_private.h */,
+				D4259EE81810D24000BB02BA /* GRMustacheAvailabilityMacros.h */,
+				D4259EE91810D24000BB02BA /* GRMustacheAvailabilityMacros_private.h */,
+				D4259EEA1810D24000BB02BA /* GRMustacheCompiler.m */,
+				D4259EEB1810D24000BB02BA /* GRMustacheCompiler_private.h */,
+				D4259EEC1810D24000BB02BA /* GRMustacheConfiguration.h */,
+				D4259EED1810D24000BB02BA /* GRMustacheConfiguration.m */,
+				D4259EEE1810D24000BB02BA /* GRMustacheConfiguration_private.h */,
+				D4259EEF1810D24000BB02BA /* GRMustacheContext.h */,
+				D4259EF01810D24000BB02BA /* GRMustacheContext.m */,
+				D4259EF11810D24000BB02BA /* GRMustacheContext_private.h */,
+				D4259EF21810D24000BB02BA /* GRMustacheError.h */,
+				D4259EF31810D24000BB02BA /* GRMustacheError.m */,
+				D4259EF41810D24000BB02BA /* GRMustacheExpression.m */,
+				D4259EF51810D24000BB02BA /* GRMustacheExpression_private.h */,
+				D4259EF61810D24000BB02BA /* GRMustacheExpressionParser.m */,
+				D4259EF71810D24000BB02BA /* GRMustacheExpressionParser_private.h */,
+				D4259EF81810D24000BB02BA /* GRMustacheFilter.h */,
+				D4259EF91810D24000BB02BA /* GRMustacheFilter.m */,
+				D4259EFA1810D24000BB02BA /* GRMustacheFilter_private.h */,
+				D4259EFB1810D24000BB02BA /* GRMustacheFilteredExpression.m */,
+				D4259EFC1810D24000BB02BA /* GRMustacheFilteredExpression_private.h */,
+				D4259EFD1810D24000BB02BA /* GRMustacheHTMLLibrary.m */,
+				D4259EFE1810D24000BB02BA /* GRMustacheHTMLLibrary_private.h */,
+				D4259EFF1810D24000BB02BA /* GRMustacheIdentifierExpression.m */,
+				D4259F001810D24000BB02BA /* GRMustacheIdentifierExpression_private.h */,
+				D4259F011810D24000BB02BA /* GRMustacheImplicitIteratorExpression.m */,
+				D4259F021810D24000BB02BA /* GRMustacheImplicitIteratorExpression_private.h */,
+				D4259F031810D24000BB02BA /* GRMustacheJavascriptLibrary.m */,
+				D4259F041810D24000BB02BA /* GRMustacheJavascriptLibrary_private.h */,
+				D4259F051810D24000BB02BA /* GRMustacheLocalizer.h */,
+				D4259F061810D24000BB02BA /* GRMustacheLocalizer.m */,
+				D4259F071810D24000BB02BA /* GRMustacheParser.m */,
+				D4259F081810D24000BB02BA /* GRMustacheParser_private.h */,
+				D4259F091810D24000BB02BA /* GRMustacheRendering.h */,
+				D4259F0A1810D24000BB02BA /* GRMustacheScopedExpression.m */,
+				D4259F0B1810D24000BB02BA /* GRMustacheScopedExpression_private.h */,
+				D4259F0C1810D24000BB02BA /* GRMustacheSectionTag.m */,
+				D4259F0D1810D24000BB02BA /* GRMustacheSectionTag_private.h */,
+				D4259F0E1810D24000BB02BA /* GRMustacheStandardLibrary.m */,
+				D4259F0F1810D24000BB02BA /* GRMustacheStandardLibrary_private.h */,
+				D4259F101810D24000BB02BA /* GRMustacheTag.h */,
+				D4259F111810D24000BB02BA /* GRMustacheTag.m */,
+				D4259F121810D24000BB02BA /* GRMustacheTag_private.h */,
+				D4259F131810D24000BB02BA /* GRMustacheTagDelegate.h */,
+				D4259F141810D24000BB02BA /* GRMustacheTemplate.h */,
+				D4259F151810D24000BB02BA /* GRMustacheTemplate.m */,
+				D4259F161810D24000BB02BA /* GRMustacheTemplate_private.h */,
+				D4259F171810D24000BB02BA /* GRMustacheTemplateComponent_private.h */,
+				D4259F181810D24000BB02BA /* GRMustacheTemplateOverride.m */,
+				D4259F191810D24000BB02BA /* GRMustacheTemplateOverride_private.h */,
+				D4259F1A1810D24000BB02BA /* GRMustacheTemplateRepository.h */,
+				D4259F1B1810D24000BB02BA /* GRMustacheTemplateRepository.m */,
+				D4259F1C1810D24000BB02BA /* GRMustacheTemplateRepository_private.h */,
+				D4259F1D1810D24000BB02BA /* GRMustacheTextComponent.m */,
+				D4259F1E1810D24000BB02BA /* GRMustacheTextComponent_private.h */,
+				D4259F1F1810D24000BB02BA /* GRMustacheToken.m */,
+				D4259F201810D24000BB02BA /* GRMustacheToken_private.h */,
+				D4259F211810D24000BB02BA /* GRMustacheURLLibrary.m */,
+				D4259F221810D24000BB02BA /* GRMustacheURLLibrary_private.h */,
+				D4259F231810D24000BB02BA /* GRMustacheVariableTag.m */,
+				D4259F241810D24000BB02BA /* GRMustacheVariableTag_private.h */,
+				D4259F251810D24000BB02BA /* GRMustacheVersion.h */,
+				D4259F261810D24000BB02BA /* NSFormatter+GRMustache.h */,
+				D4259F271810D24000BB02BA /* NSFormatter+GRMustache.m */,
+				D4259F281810D24000BB02BA /* NSValueTransformer+GRMustache.h */,
+				D4259F291810D24000BB02BA /* NSValueTransformer+GRMustache.m */,
+			);
+			name = classes;
+			path = ../GRMustache/src/classes;
+			sourceTree = "<group>";
+		};
+		D4259F4B1810D39A00BB02BA /* grmustache */ = {
+			isa = PBXGroup;
+			children = (
+				D4259F471810D2C000BB02BA /* JRSwizzle.h */,
+				D4259F481810D2C000BB02BA /* JRSwizzle.m */,
+				D4259EE21810D24000BB02BA /* classes */,
+				D4259ECC180F938C00BB02BA /* include */,
+			);
+			name = grmustache;
+			sourceTree = "<group>";
+		};
 		D42BD1E317EA134B0000598C = {
 			isa = PBXGroup;
 			children = (
-				D41B77EA17FE3FB6005A5DA8 /* Images.xcassets */,
-				D48D3149180C4D4F0084663B /* mac */,
+				D4259ECB180F937A00BB02BA /* external */,
 				D4F7F3E917F2C95D00F5A808 /* src */,
-				D48D311C180C3E3D0084663B /* SpaceDockMobile */,
 				D42BD1EE17EA134B0000598C /* Frameworks */,
 				D42BD1ED17EA134B0000598C /* Products */,
 			);
@@ -202,7 +392,6 @@
 			isa = PBXGroup;
 			children = (
 				D42BD1EC17EA134B0000598C /* Space Dock.app */,
-				D48D3113180C3E3C0084663B /* Space Dock Mobile.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -210,12 +399,8 @@
 		D42BD1EE17EA134B0000598C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4259EDE180F94E300BB02BA /* WebKit.framework */,
 				D42BD1EF17EA134B0000598C /* Cocoa.framework */,
-				D48D3114180C3E3C0084663B /* Foundation.framework */,
-				D48D3116180C3E3C0084663B /* CoreGraphics.framework */,
-				D48D3118180C3E3D0084663B /* UIKit.framework */,
-				D48D311A180C3E3D0084663B /* CoreData.framework */,
-				D48D3132180C3E3D0084663B /* XCTest.framework */,
 				D42BD1F117EA134B0000598C /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -229,48 +414,6 @@
 				D42BD1F417EA134B0000598C /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		D48D311C180C3E3D0084663B /* SpaceDockMobile */ = {
-			isa = PBXGroup;
-			children = (
-				D48D3125180C3E3D0084663B /* DockAppDelegate.h */,
-				D48D3126180C3E3D0084663B /* DockAppDelegate.m */,
-				D48D312B180C3E3D0084663B /* Images.xcassets */,
-				D48D311D180C3E3D0084663B /* Supporting Files */,
-			);
-			path = SpaceDockMobile;
-			sourceTree = "<group>";
-		};
-		D48D311D180C3E3D0084663B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D48D311E180C3E3D0084663B /* SpaceDockMobile-Info.plist */,
-				D48D311F180C3E3D0084663B /* InfoPlist.strings */,
-				D48D3122180C3E3D0084663B /* main.m */,
-				D48D3124180C3E3D0084663B /* SpaceDockMobile-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D48D3149180C4D4F0084663B /* mac */ = {
-			isa = PBXGroup;
-			children = (
-				D48D314A180C4D4F0084663B /* DockAppDelegate.h */,
-				D48D314B180C4D4F0084663B /* DockAppDelegate.m */,
-				D48D314C180C4D4F0084663B /* DockInspector.h */,
-				D48D314D180C4D4F0084663B /* DockInspector.m */,
-				D48D314E180C4D4F0084663B /* Credits.rtf */,
-				D48D3150180C4D4F0084663B /* InfoPlist.strings */,
-				D48D3152180C4D4F0084663B /* MainMenu.xib */,
-				D48D3154180C4D4F0084663B /* main.m */,
-				D48D3155180C4D4F0084663B /* NSTreeController+Additions.h */,
-				D48D3156180C4D4F0084663B /* NSTreeController+Additions.m */,
-				D48D3157180C4D4F0084663B /* Space Dock-Info.plist */,
-				D48D3158180C4D4F0084663B /* Space Dock-Prefix.pch */,
-				D48D3159180C4D4F0084663B /* space_dock.icns */,
-			);
-			path = mac;
 			sourceTree = "<group>";
 		};
 		D4AAA2B617F4C9B200A99383 /* Entities */ = {
@@ -310,16 +453,20 @@
 			isa = PBXGroup;
 			children = (
 				D4AAA2B617F4C9B200A99383 /* Entities */,
+				D4F7F3EB17F2C95D00F5A808 /* DockAppDelegate.h */,
+				D4F7F3EC17F2C95D00F5A808 /* DockAppDelegate.m */,
 				D41B77E717FE13D1005A5DA8 /* DockBooleanFormatter.h */,
 				D41B77E817FE13D1005A5DA8 /* DockBooleanFormatter.m */,
 				D4D7BE6617F76FB50070D94D /* DockCaptain+Addons.h */,
 				D4D7BE6717F76FB50070D94D /* DockCaptain+Addons.m */,
-				D48D3164180C510C0084663B /* DockDataLoader.h */,
-				D48D3165180C510C0084663B /* DockDataLoader.m */,
 				D4AAA28617F4082F00A99383 /* DockEquippedShip+Addons.h */,
 				D4AAA28717F4082F00A99383 /* DockEquippedShip+Addons.m */,
 				D4AAA29217F48F8100A99383 /* DockEquippedUpgrade+Addons.h */,
 				D4AAA29317F48F8100A99383 /* DockEquippedUpgrade+Addons.m */,
+				D4259EC8180F932100BB02BA /* DockFleetBuildSheet.h */,
+				D4259EC9180F932100BB02BA /* DockFleetBuildSheet.m */,
+				D4DCA8DB1809E2B40066F8A5 /* DockInspector.h */,
+				D4DCA8DC1809E2B40066F8A5 /* DockInspector.m */,
 				D4F7F3F317F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.h */,
 				D4F7F3F417F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m */,
 				D41B77E417FDCF91005A5DA8 /* DockResource+Addons.h */,
@@ -336,8 +483,18 @@
 				D45AF1EF17FFE7F900C04F9A /* DockUtils.m */,
 				D437079C1800AFDF00622E7F /* DockWeapon+Addons.h */,
 				D437079D1800AFDF00622E7F /* DockWeapon+Addons.m */,
+				D4AAA2DE17F4F79600A99383 /* NSTreeController+Additions.h */,
+				D4AAA2DF17F4F79600A99383 /* NSTreeController+Additions.m */,
+				D4F7F40917F2C95D00F5A808 /* main.m */,
 				D4F7F3EA17F2C95D00F5A808 /* Data.xml */,
+				D4259EE01810CA4A00BB02BA /* fleet.mustache */,
+				D4F7F40317F2C95D00F5A808 /* Credits.rtf */,
+				D4F7F40517F2C95D00F5A808 /* InfoPlist.strings */,
+				D4F7F40717F2C95D00F5A808 /* MainMenu.xib */,
+				D4F7F40A17F2C95D00F5A808 /* Space Dock-Info.plist */,
 				D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */,
+				D4F7F40B17F2C95D00F5A808 /* Space Dock-Prefix.pch */,
+				D41B77EE17FE416F005A5DA8 /* space_dock.icns */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -362,23 +519,6 @@
 			productReference = D42BD1EC17EA134B0000598C /* Space Dock.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D48D3112180C3E3C0084663B /* Space Dock Mobile */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D48D3141180C3E3D0084663B /* Build configuration list for PBXNativeTarget "Space Dock Mobile" */;
-			buildPhases = (
-				D48D310F180C3E3C0084663B /* Sources */,
-				D48D3110180C3E3C0084663B /* Frameworks */,
-				D48D3111180C3E3C0084663B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Space Dock Mobile";
-			productName = SpaceDockMobile;
-			productReference = D48D3113180C3E3C0084663B /* Space Dock Mobile.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -390,9 +530,6 @@
 				ORGANIZATIONNAME = "Rob Tsuk";
 				TargetAttributes = {
 					D42BD1EB17EA134B0000598C = {
-						DevelopmentTeam = NM66XJZ7L9;
-					};
-					D48D3112180C3E3C0084663B = {
 						DevelopmentTeam = NM66XJZ7L9;
 					};
 				};
@@ -410,7 +547,6 @@
 			projectRoot = "";
 			targets = (
 				D42BD1EB17EA134B0000598C /* Space Dock */,
-				D48D3112180C3E3C0084663B /* Space Dock Mobile */,
 			);
 		};
 /* End PBXProject section */
@@ -420,22 +556,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D48D315D180C4D4F0084663B /* InfoPlist.strings in Resources */,
-				D48D315C180C4D4F0084663B /* Credits.rtf in Resources */,
-				D41B77EB17FE3FB6005A5DA8 /* Images.xcassets in Resources */,
-				D48D3162180C4D4F0084663B /* space_dock.icns in Resources */,
+				D4259EE11810CA4A00BB02BA /* fleet.mustache in Resources */,
+				D4F7F41D17F2C95D00F5A808 /* MainMenu.xib in Resources */,
+				D41B77EF17FE4184005A5DA8 /* space_dock.icns in Resources */,
 				D4F7F40E17F2C95D00F5A808 /* Data.xml in Resources */,
-				D48D315E180C4D4F0084663B /* MainMenu.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D48D3111180C3E3C0084663B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D48D3121180C3E3D0084663B /* InfoPlist.strings in Resources */,
-				D48D3163180C50B20084663B /* Data.xml in Resources */,
-				D48D312C180C3E3D0084663B /* Images.xcassets in Resources */,
+				D4F7F41B17F2C95D00F5A808 /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,11 +571,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D48D3166180C510C0084663B /* DockDataLoader.m in Sources */,
+				D4259F2D1810D24000BB02BA /* GRMustacheConfiguration.m in Sources */,
+				D4259F411810D24000BB02BA /* GRMustacheTextComponent.m in Sources */,
+				D4259F381810D24000BB02BA /* GRMustacheLocalizer.m in Sources */,
+				D4259F3F1810D24000BB02BA /* GRMustacheTemplateOverride.m in Sources */,
+				D4259F421810D24000BB02BA /* GRMustacheToken.m in Sources */,
+				D4259F3A1810D24000BB02BA /* GRMustacheScopedExpression.m in Sources */,
+				D4259F331810D24000BB02BA /* GRMustacheFilteredExpression.m in Sources */,
+				D4259F441810D24000BB02BA /* GRMustacheVariableTag.m in Sources */,
+				D4259F351810D24000BB02BA /* GRMustacheIdentifierExpression.m in Sources */,
+				D4259F451810D24000BB02BA /* NSFormatter+GRMustache.m in Sources */,
+				D4259F2C1810D24000BB02BA /* GRMustacheCompiler.m in Sources */,
+				D4259F3E1810D24000BB02BA /* GRMustacheTemplate.m in Sources */,
+				D4259F321810D24000BB02BA /* GRMustacheFilter.m in Sources */,
+				D4259F2F1810D24000BB02BA /* GRMustacheError.m in Sources */,
+				D4259F3D1810D24000BB02BA /* GRMustacheTag.m in Sources */,
+				D4259F301810D24000BB02BA /* GRMustacheExpression.m in Sources */,
+				D4259F391810D24000BB02BA /* GRMustacheParser.m in Sources */,
+				D4259F3B1810D24000BB02BA /* GRMustacheSectionTag.m in Sources */,
+				D4259F401810D24000BB02BA /* GRMustacheTemplateRepository.m in Sources */,
+				D4259F3C1810D24000BB02BA /* GRMustacheStandardLibrary.m in Sources */,
+				D4259F341810D24000BB02BA /* GRMustacheHTMLLibrary.m in Sources */,
+				D4259F2B1810D24000BB02BA /* GRMustacheAccumulatorTag.m in Sources */,
+				D4259F371810D24000BB02BA /* GRMustacheJavascriptLibrary.m in Sources */,
+				D4259F361810D24000BB02BA /* GRMustacheImplicitIteratorExpression.m in Sources */,
+				D4259F431810D24000BB02BA /* GRMustacheURLLibrary.m in Sources */,
+				D4259F311810D24000BB02BA /* GRMustacheExpressionParser.m in Sources */,
+				D4259F2A1810D24000BB02BA /* GRMustache.m in Sources */,
+				D4259F461810D24000BB02BA /* NSValueTransformer+GRMustache.m in Sources */,
+				D4259F2E1810D24000BB02BA /* GRMustacheContext.m in Sources */,
 				D4D7BE6817F76FB50070D94D /* DockCaptain+Addons.m in Sources */,
 				D4F7F19A1808DA2600157E32 /* DockSquad.m in Sources */,
-				D48D315B180C4D4F0084663B /* DockInspector.m in Sources */,
+				D4DCA8DD1809E2B40066F8A5 /* DockInspector.m in Sources */,
+				D4AAA2E017F4F79600A99383 /* NSTreeController+Additions.m in Sources */,
+				D4F7F41E17F2C95D00F5A808 /* main.m in Sources */,
 				D4F7F1A01808DA2600157E32 /* DockTalent.m in Sources */,
+				D4F7F40F17F2C95D00F5A808 /* DockAppDelegate.m in Sources */,
 				D4F7F1941808DA2600157E32 /* DockSetItem.m in Sources */,
 				D45AF1F017FFE7F900C04F9A /* DockUtils.m in Sources */,
 				D41B77E917FE13D1005A5DA8 /* DockBooleanFormatter.m in Sources */,
@@ -459,11 +615,9 @@
 				D437079E1800AFDF00622E7F /* DockWeapon+Addons.m in Sources */,
 				D4AAA2BC17F4DF3D00A99383 /* DockSquad+Addons.m in Sources */,
 				D41B77E617FDCF91005A5DA8 /* DockResource+Addons.m in Sources */,
-				D48D315A180C4D4F0084663B /* DockAppDelegate.m in Sources */,
 				D4AAA29417F48F8100A99383 /* DockEquippedUpgrade+Addons.m in Sources */,
 				D4AAA28817F4082F00A99383 /* DockEquippedShip+Addons.m in Sources */,
 				D4F7F17F1808DA2500157E32 /* DockSet.m in Sources */,
-				D48D3160180C4D4F0084663B /* NSTreeController+Additions.m in Sources */,
 				D4F7F1881808DA2600157E32 /* DockResource.m in Sources */,
 				D4F7F19D1808DA2600157E32 /* DockEquippedUpgrade.m in Sources */,
 				D41BA80817F67FE0005266E6 /* DockShip+Addons.m in Sources */,
@@ -471,71 +625,39 @@
 				D4F7F1851808DA2600157E32 /* DockShip.m in Sources */,
 				D4F7F18E1808DA2600157E32 /* DockEquippedShip.m in Sources */,
 				D4AAA28B17F408D400A99383 /* DockUpgrade+Addons.m in Sources */,
+				D4259F491810D2C000BB02BA /* JRSwizzle.m in Sources */,
 				D4F7F1A91808DBB000157E32 /* DockSet+Addons.m in Sources */,
 				D4F7F1A61808DA2600157E32 /* DockWeapon.m in Sources */,
+				D4259ECA180F932100BB02BA /* DockFleetBuildSheet.m in Sources */,
 				D4F7F41317F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m in Sources */,
 				D4F7F1911808DA2600157E32 /* DockTech.m in Sources */,
-				D48D315F180C4D4F0084663B /* main.m in Sources */,
 				D4F7F1821808DA2600157E32 /* DockCrew.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D48D310F180C3E3C0084663B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D4D1BC4F180E6EAF00389F41 /* DockTalent.m in Sources */,
-				D4D1BC56180E6EAF00389F41 /* DockCaptain.m in Sources */,
-				D4D1BC5A180E6EB000389F41 /* DockSet.m in Sources */,
-				D4D1BC4E180E6EAF00389F41 /* DockWeapon.m in Sources */,
-				D4D1BC58180E6EB000389F41 /* DockShip.m in Sources */,
-				D4D1BC53180E6EAF00389F41 /* DockSetItem.m in Sources */,
-				D4D1BC57180E6EB000389F41 /* DockResource.m in Sources */,
-				D48D3123180C3E3D0084663B /* main.m in Sources */,
-				D4D1BC59180E6EB000389F41 /* DockCrew.m in Sources */,
-				D48D3167180C510C0084663B /* DockDataLoader.m in Sources */,
-				D4D1BC54180E6EAF00389F41 /* DockTech.m in Sources */,
-				D4D1BC50180E6EAF00389F41 /* DockEquippedUpgrade.m in Sources */,
-				D4D1BC51180E6EAF00389F41 /* DockSquad.m in Sources */,
-				D48D3148180C44140084663B /* Space_Dock.xcdatamodeld in Sources */,
-				D4D1BC5B180E6ECF00389F41 /* DockUtils.m in Sources */,
-				D4D1BC52180E6EAF00389F41 /* DockUpgrade.m in Sources */,
-				D48D3127180C3E3D0084663B /* DockAppDelegate.m in Sources */,
-				D4D1BC55180E6EAF00389F41 /* DockEquippedShip.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D48D311F180C3E3D0084663B /* InfoPlist.strings */ = {
+		D4F7F40317F2C95D00F5A808 /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D48D3120180C3E3D0084663B /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D48D314E180C4D4F0084663B /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D48D314F180C4D4F0084663B /* en */,
+				D4F7F40417F2C95D00F5A808 /* en */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
-		D48D3150180C4D4F0084663B /* InfoPlist.strings */ = {
+		D4F7F40517F2C95D00F5A808 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D48D3151180C4D4F0084663B /* en */,
+				D4F7F40617F2C95D00F5A808 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		D48D3152180C4D4F0084663B /* MainMenu.xib */ = {
+		D4F7F40717F2C95D00F5A808 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D48D3153180C4D4F0084663B /* en */,
+				D4F7F40817F2C95D00F5A808 /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -570,7 +692,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -598,7 +719,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
 			};
@@ -611,9 +731,13 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "mac/Space Dock-Prefix.pch";
+				GCC_PREFIX_HEADER = "src/Space Dock-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/mac/Space Dock-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/src/Space Dock-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/rob/Projects/GRMustache/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -627,79 +751,15 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "mac/Space Dock-Prefix.pch";
+				GCC_PREFIX_HEADER = "src/Space Dock-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/mac/Space Dock-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/src/Space Dock-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/rob/Projects/GRMustache/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		D48D3142180C3E3D0084663B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpaceDockMobile/SpaceDockMobile-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = "SpaceDockMobile/SpaceDockMobile-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		D48D3143180C3E3D0084663B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_NS_ASSERTIONS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpaceDockMobile/SpaceDockMobile-Prefix.pch";
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = "SpaceDockMobile/SpaceDockMobile-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -721,15 +781,6 @@
 			buildConfigurations = (
 				D42BD20D17EA134B0000598C /* Debug */,
 				D42BD20E17EA134B0000598C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D48D3141180C3E3D0084663B /* Build configuration list for PBXNativeTarget "Space Dock Mobile" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D48D3142180C3E3D0084663B /* Debug */,
-				D48D3143180C3E3D0084663B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

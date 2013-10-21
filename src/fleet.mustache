@@ -1,0 +1,155 @@
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <Title>Star Trek Attack Wing - Fleet Build Sheet</Title>
+    <style>
+    body {
+        font-size: 10pt;
+    }
+
+    table
+    {
+        width:100%;
+        font-size: 10pt;
+    }
+
+    td
+    {
+        text-align:left;
+        width: 6em;
+    }
+
+    td.title
+    {
+        width: 30em;
+    }
+
+    td.subheader {
+        text-align: right;
+    }
+    </style>
+    <style type="text/css" media="print">
+        input {
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div name="header">
+        <H2>Star Trek Attack Wing - Fleet Build Sheet</H2>
+        <table border="1">
+            <tr>
+                <th>Event Date</th>
+                <th>Event Name</th>
+                <th>Faction Allegiance</th>
+                <th>Player Name</th>
+                <th>Player Email</th>
+            </tr>
+            <tr>
+                <td><input type="text" name="date" value="{{date}}" id="date"></td>
+                <td><input type="text" name="eventName" value="{{eventName}}" id="eventName"></td>
+                <td><input type="text" name="allegiance" value="{{allegiance}}" id="allegiance"></td>
+                <td><input type="text" name="playerName" value="{{playerName}}" id="playerName"></td>
+                <td><input type="text" name="playerEmail" value="{{playerEmail}}" id="playerEmail"></td>
+            </tr>
+        </table>
+    </div>
+    <H3>Squadron List</H3>
+    <table>
+        {{#ships}}
+        <tr>
+            {{#list}}
+            <td>
+                {{#title}}
+                <table border="1">
+                    <tr>
+                        <th bgcolor='#D3D3D3'>&nbsp;</th>
+                        <th bgcolor='#D3D3D3'>Type</th>
+                        <th bgcolor='#D3D3D3'>Card Title</th>
+                        <th bgcolor='#D3D3D3'>Faction</th>
+                        <th bgcolor='#D3D3D3'>SP</th>
+                    </tr>
+                    <tr>
+                        <td bgcolor='#D3D3D3' class='subheader'>Ship</td>
+                        <td>Ship {{index}}</td>
+                        <td>{{title}}</td>
+                        <td>{{faction}}</td>
+                        <td>{{cost}}</td>
+                    </tr>
+                    <tr>
+                        <td bgcolor='#D3D3D3' class='subheader'>Captain</td>
+                        <td>Captain</td>
+                        <td class="title">{{captain.title}}</td>
+                        <td>{{captain.faction}}</td>
+                        <td>{{captain.cost}}</td>
+                    </tr>
+                    {{#upgrades}}
+                    <tr>
+                        <td bgcolor='#D3D3D3' class='subheader'>{{{label}}}</td>
+                        <td>{{upType}}</td>
+                        <td>{{title}}</td>
+                        <td>{{faction}}</td>
+                        <td>{{cost}}</td>
+                    </tr>
+                    {{/upgrades}}
+                    <tr>
+                        <td bgcolor='#D3D3D3'>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td style='font-weight:bold;'>Total SP</td>
+                        <td style='font-weight:bold;'>{{totalCost}}</td>
+                    </tr>
+                </table>
+            {{/title}}
+            </td>
+            {{/list}}
+        </tr>
+        {{/ships}}
+    </table>
+
+    {{#resource}}
+    <br></br>
+    <table border="1">
+        <tr>
+            <th style='font-weight:bold;width:10em;' bgcolor='#D3D3D3'>Resource Used:</th>
+            <td>{{resource.title}}</td>
+            <th style='font-weight:bold;;width:10em;' bgcolor='#D3D3D3'>SP:</th>
+            <td>{{resource.cost}}</td>
+
+        </tr>
+    </table>
+    {{/resource}}
+
+    <br></br>
+    <div name="totalSP">
+        <table border="1">
+            <tr>
+                {{#ships}}
+                {{#list}}
+                {{#totalCost}}
+                <th bgcolor="#D3D3D3">Ship {{index}}</th>
+                {{/totalCost}}
+                {{/list}}
+                {{/ships}}
+                {{#resource}}
+                <th bgcolor="#D3D3D3">Resource</th>
+                {{/resource}}
+                <th style='font-weight:bold;' bgcolor="#D3D3D3">Total Build</th>
+            </tr>
+            <tr>
+                {{#ships}}
+                {{#list}}
+                {{#totalCost}}
+                <td>{{totalCost}}</td>
+                {{/totalCost}}
+                {{/list}}
+                {{/ships}}
+                {{#resource}}
+                <td>{{resourceCost}}</td>
+                {{/resource}}
+                <td style='font-weight:bold;'>{{squadTotalCost}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
