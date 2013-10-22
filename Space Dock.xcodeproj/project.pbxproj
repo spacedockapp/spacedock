@@ -50,8 +50,6 @@
 		D433FE12181503A20062731A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D433FE10181503A20062731A /* InfoPlist.strings */; };
 		D433FE14181503A20062731A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D433FE13181503A20062731A /* main.m */; };
 		D433FE18181503A20062731A /* DockAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D433FE17181503A20062731A /* DockAppDelegate.m */; };
-		D433FE1B181503A20062731A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D433FE19181503A20062731A /* Main_iPhone.storyboard */; };
-		D433FE1E181503A20062731A /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D433FE1C181503A20062731A /* Main_iPad.storyboard */; };
 		D433FE21181503A20062731A /* DockFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D433FE20181503A20062731A /* DockFirstViewController.m */; };
 		D433FE24181503A20062731A /* DockSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D433FE23181503A20062731A /* DockSecondViewController.m */; };
 		D433FE26181503A20062731A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D433FE25181503A20062731A /* Images.xcassets */; };
@@ -70,6 +68,7 @@
 		D4BCA3EE1814EC0900921183 /* NSTreeController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA3E41814EC0900921183 /* NSTreeController+Additions.m */; };
 		D4BCA3F01814EC0900921183 /* space_dock.icns in Resources */ = {isa = PBXBuildFile; fileRef = D4BCA3E71814EC0900921183 /* space_dock.icns */; };
 		D4BCA3F31814EC5100921183 /* DockDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA3F21814EC5100921183 /* DockDataLoader.m */; };
+		D4D7A0171816606B00B0D654 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4D7A0161816606B00B0D654 /* Storyboard.storyboard */; };
 		D4D7BE6817F76FB50070D94D /* DockCaptain+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D7BE6717F76FB50070D94D /* DockCaptain+Addons.m */; };
 		D4F7F17F1808DA2500157E32 /* DockSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F17E1808DA2500157E32 /* DockSet.m */; };
 		D4F7F1821808DA2600157E32 /* DockCrew.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1811808DA2600157E32 /* DockCrew.m */; };
@@ -202,8 +201,6 @@
 		D433FE15181503A20062731A /* Space Dock iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Space Dock iOS-Prefix.pch"; sourceTree = "<group>"; };
 		D433FE16181503A20062731A /* DockAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DockAppDelegate.h; sourceTree = "<group>"; };
 		D433FE17181503A20062731A /* DockAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DockAppDelegate.m; sourceTree = "<group>"; };
-		D433FE1A181503A20062731A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		D433FE1D181503A20062731A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		D433FE1F181503A20062731A /* DockFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DockFirstViewController.h; sourceTree = "<group>"; };
 		D433FE20181503A20062731A /* DockFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DockFirstViewController.m; sourceTree = "<group>"; };
 		D433FE22181503A20062731A /* DockSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DockSecondViewController.h; sourceTree = "<group>"; };
@@ -241,6 +238,7 @@
 		D4BCA3FE1814F8DF00921183 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D4BCA4001814F8DF00921183 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D4BCA4211814F8DF00921183 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D4D7A0161816606B00B0D654 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		D4D7BE6617F76FB50070D94D /* DockCaptain+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockCaptain+Addons.h"; sourceTree = "<group>"; };
 		D4D7BE6717F76FB50070D94D /* DockCaptain+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockCaptain+Addons.m"; sourceTree = "<group>"; };
 		D4F7F17D1808DA2500157E32 /* DockSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockSet.h; sourceTree = "<group>"; };
@@ -471,14 +469,13 @@
 			children = (
 				D433FE16181503A20062731A /* DockAppDelegate.h */,
 				D433FE17181503A20062731A /* DockAppDelegate.m */,
-				D433FE19181503A20062731A /* Main_iPhone.storyboard */,
-				D433FE1C181503A20062731A /* Main_iPad.storyboard */,
 				D433FE1F181503A20062731A /* DockFirstViewController.h */,
 				D433FE20181503A20062731A /* DockFirstViewController.m */,
 				D433FE22181503A20062731A /* DockSecondViewController.h */,
 				D433FE23181503A20062731A /* DockSecondViewController.m */,
 				D433FE25181503A20062731A /* Images.xcassets */,
 				D433FE0E181503A20062731A /* Supporting Files */,
+				D4D7A0161816606B00B0D654 /* Storyboard.storyboard */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -675,10 +672,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D433FE1E181503A20062731A /* Main_iPad.storyboard in Resources */,
 				D433FE26181503A20062731A /* Images.xcassets in Resources */,
-				D433FE1B181503A20062731A /* Main_iPhone.storyboard in Resources */,
 				D433FE12181503A20062731A /* InfoPlist.strings in Resources */,
+				D4D7A0171816606B00B0D654 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,22 +770,6 @@
 				D433FE11181503A20062731A /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D433FE19181503A20062731A /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D433FE1A181503A20062731A /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		D433FE1C181503A20062731A /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D433FE1D181503A20062731A /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		D4BCA3DC1814EC0900921183 /* Credits.rtf */ = {
@@ -1010,6 +990,7 @@
 				D433FE3B181503A30062731A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
