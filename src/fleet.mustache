@@ -111,10 +111,10 @@
     <br></br>
     <table border="1">
         <tr>
-            <th style='font-weight:bold;width:10em;' bgcolor='#D3D3D3'>Resource Used:</th>
+            <th style='font-weight:bold;width:4em;' bgcolor='#D3D3D3'>Resource Used:</th>
             <td>{{resource.title}}</td>
-            <th style='font-weight:bold;;width:10em;' bgcolor='#D3D3D3'>SP:</th>
-            <td>{{resource.cost}}</td>
+            <th style='font-weight:bold;width:2em;' bgcolor='#D3D3D3'>SP:</th>
+            <td style='width:2em;'>{{resource.cost}}</td>
 
         </tr>
     </table>
@@ -145,7 +145,7 @@
                 {{/list}}
                 {{/ships}}
                 {{#resource}}
-                <td>{{resourceCost}}</td>
+                <td>{{cost}}</td>
                 {{/resource}}
                 <td style='font-weight:bold;'>{{squadTotalCost}}</td>
             </tr>
@@ -155,13 +155,13 @@
     <div name="battleRecord">
       <table border="1">
         <tr>
-          <th bgcolor="#D3D3D3">Battle Round</th>
+          <th bgcolor="#D3D3D3" style="width:1em;">Battle Round</th>
           <th bgcolor="#D3D3D3">Opponent's Name</th>
-          <th bgcolor="#D3D3D3">Opponent's Initials (Verify Build)</th>
-          <th bgcolor="#D3D3D3">Your Result (W-L-B)</th>
-          <th bgcolor="#D3D3D3">Your Fleet Points</th>
-          <th bgcolor="#D3D3D3">Cumulative Fleet Points</th>
-          <th bgcolor="#D3D3D3">Opponent's Initials (Verify Results)</th>
+          <th bgcolor="#D3D3D3" style="width:4em;">Opponent's Initials (Verify Build)</th>
+          <th bgcolor="#D3D3D3" style="width:4em;">Your Result (W-L-B)</th>
+          <th bgcolor="#D3D3D3" style="width:4em;">Your Fleet Points</th>
+          <th bgcolor="#D3D3D3" style="width:4em;">Cumulative Fleet Points</th>
+          <th bgcolor="#D3D3D3" style="width:4em;">Opponent's Initials (Verify Results)</th>
         </tr>
         <tr>
           <td>1</td>
