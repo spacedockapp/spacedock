@@ -65,7 +65,9 @@
             }
         }
     }
+    #if !TARGET_OS_IPHONE
     [context commitEditing];
+    #endif
     return squad;
 }
 

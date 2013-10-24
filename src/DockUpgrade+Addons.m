@@ -110,8 +110,11 @@
 
     if ([self isPlaceholder]) {
         NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithString: s];
+#if !TARGET_OS_IPHONE
         NSRange r = NSMakeRange(0, s.length);
         [as applyFontTraits: NSItalicFontMask range: r];
+#else
+#endif
         return as;
     }
 
