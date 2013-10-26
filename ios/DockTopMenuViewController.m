@@ -1,5 +1,7 @@
 #import "DockTopMenuViewController.h"
 #import "DockShipsViewController.h"
+#import "DockSquadsViewController.h"
+#import "DockAddSquadViewController.h"
 
 @interface DockTopMenuViewController ()
 
@@ -27,16 +29,11 @@
         id destination = [segue destinationViewController];
         DockShipsViewController *shipsViewController = (DockShipsViewController *)destination;
         shipsViewController.managedObjectContext = self.managedObjectContext;
-    }  else if ([[segue identifier] isEqualToString:@"ShowSelectedBook"]) {
-        #if 0
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Book *selectedBook = (Book *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
-
-        // Pass the selected book to the new view controller.
-        DetailViewController *detailViewController = (DetailViewController *)[segue destinationViewController];
-        detailViewController.book = selectedBook;
-        #endif
-    }    
+    } else if ([[segue identifier] isEqualToString:@"GoToSquads"]) {
+        id destination = [segue destinationViewController];
+        DockSquadsViewController *controller = (DockSquadsViewController *)destination;
+        controller.managedObjectContext = self.managedObjectContext;
+    }
 }
 
 @end

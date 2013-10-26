@@ -278,15 +278,16 @@ static NSString* makeKey(NSString *key)
     } else if ([self isDataItem: elementName]) {
         if (_currentElement == nil) {
             NSLog(@"ending an item before starting it");
-        }
-        if (_currentAttributes != nil) {
-            [_currentElement addEntriesFromDictionary: _currentAttributes];
-            if (_currentText != nil) {
-                [_currentElement setObject: _currentText forKey: @"ProductName"];
+        } else {
+            if (_currentAttributes != nil) {
+                [_currentElement addEntriesFromDictionary: _currentAttributes];
+                if (_currentText != nil) {
+                    [_currentElement setObject: _currentText forKey: @"ProductName"];
+                }
             }
+            [_currentList addObject: _currentElement];
+            _currentElement = nil;
         }
-        [_currentList addObject: _currentElement];
-        _currentElement = nil;
     } else {
         if (_currentText != nil) {
             NSString* trimmed = [_currentText stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];

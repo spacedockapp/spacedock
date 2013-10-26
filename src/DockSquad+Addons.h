@@ -1,6 +1,9 @@
 #import "DockSquad.h"
 
 @class DockEquippedShip;
+@class DockEquippedUpgrade;
+@class DockUpgrade;
+@class DockShip;
 
 @interface DockSquad (Addons)
 @property (nonatomic, readonly) int cost;

@@ -1,4 +1,4 @@
-#import <UIKit/UIKit.h>
+#import "DockAddSquadViewController.h"
 
 @interface DockTopMenuViewController : UIViewController
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;

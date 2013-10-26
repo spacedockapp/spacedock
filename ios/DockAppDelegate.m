@@ -29,7 +29,8 @@
     if ([loader loadData: &error]) {
     }
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    DockTopMenuViewController *topMenuViewController = (DockTopMenuViewController *)[[navigationController viewControllers] objectAtIndex:0];
+    id controller = [navigationController topViewController];
+    DockTopMenuViewController *topMenuViewController = (DockTopMenuViewController *)controller;
     topMenuViewController.managedObjectContext = self.managedObjectContext;
 }
 
