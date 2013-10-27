@@ -355,33 +355,10 @@ NSString* kInspectorVisible = @"inspectorVisible";
 
 -(void)explainCantAddUpgrade:(DockEquippedShip*)ship upgrade:(DockUpgrade*)upgrade
 {
+    NSDictionary* reasons = [ship explainCantAddUpgrade: upgrade];
     NSAlert* alert = [[NSAlert alloc] init];
-    NSString* msg = [NSString stringWithFormat: @"Can't add %@ to %@", [upgrade plainDescription], [ship plainDescription]];
-    [alert setMessageText: msg];
-    NSString* info = @"";
-    int limit = [upgrade limitForShip: ship];
-
-    if (limit == 0) {
-        NSString* targetClass = [upgrade targetShipClass];
-
-        if (targetClass != nil) {
-            info = [NSString stringWithFormat: @"This upgrade can only be installed on ships of class %@.", targetClass];
-        } else {
-            if ([upgrade isTalent]) {
-                info = [NSString stringWithFormat: @"This ship's captain has no %@ upgrade symbols.", [upgrade.upType lowercaseString]];
-            } else {
-                info = [NSString stringWithFormat: @"This ship has no %@ upgrade symbols on its ship card.", [upgrade.upType lowercaseString]];
-            }
-        }
-    } else {
-        NSString* upgradeSpecial = upgrade.special;
-
-        if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
-            info = @"This upgrade can only be added to Jem'hadar ships.";
-        }
-    }
-
-    [alert setInformativeText: info];
+    [alert setMessageText: reasons[@"message"]];
+    [alert setInformativeText: reasons[@"info"]];
     [alert setAlertStyle: NSInformationalAlertStyle];
     [alert beginSheetModalForWindow: [self window]
                       modalDelegate: self

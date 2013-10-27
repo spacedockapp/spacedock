@@ -1,6 +1,8 @@
 #import "DockShipsViewController.h"
 
+#import "DockEquippedShip+Addons.h"
 #import "DockShip+Addons.h"
+#import "DockSquad+Addons.h"
 
 @interface DockShipsViewController ()
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
@@ -79,6 +81,13 @@
     // Configure the cell to show the book's title
     DockShip *ship = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = ship.title;
+    if ([ship isUnique]) {
+        if (_targetSquad) {
+            if ([_targetSquad containsShip: ship]) {
+                cell.textLabel.textColor = [UIColor grayColor];
+            }
+        }
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -118,6 +127,38 @@
             abort();
         }
     }   
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (_targetSquad) {
+        DockShip *ship = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        if ([ship isUnique]) {
+            return ![_targetSquad containsShip: ship];
+        }
+    }
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (_targetSquad) {
+        DockShip *ship = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        _onShipPicked(ship);
+        [self clearTarget];
+    }
+}
+
+-(void)targetSquad:(DockSquad*)squad onPicked:(DockShipPicked)onPicked
+{
+    _targetSquad = squad;
+    _onShipPicked = onPicked;
+}
+
+-(void)clearTarget
+{
+    _targetSquad = nil;
+    _onShipPicked = nil;
 }
 
 @end

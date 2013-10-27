@@ -1,5 +1,6 @@
 #import "DockShip+Addons.h"
 
+#import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
 
 @implementation DockShip (Addons)

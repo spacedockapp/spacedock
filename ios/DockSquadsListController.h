@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
 
-@interface DockTopMenuViewController : UIViewController
+@interface DockSquadsListController : UITableViewController<NSFetchedResultsControllerDelegate>
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @end

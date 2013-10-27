@@ -203,44 +203,36 @@ static NSString* makeKey(NSString *key)
 
 - (void)parserDidStartDocument:(NSXMLParser *)parser;
 {
-    NSLog(@"parserDidStartDocument %@", parser);
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
-    NSLog(@"foundNotationDeclarationWithName %@", parser);
 }
     // sent when the parser has completed parsing. If this is encountered, the parse was successful.
 
 // DTD handling methods for various declarations.
 - (void)parser:(NSXMLParser *)parser foundNotationDeclarationWithName:(NSString *)name publicID:(NSString *)publicID systemID:(NSString *)systemID
 {
-    NSLog(@"foundNotationDeclarationWithName %@", name);
 }
 
 - (void)parser:(NSXMLParser *)parser foundUnparsedEntityDeclarationWithName:(NSString *)name publicID:(NSString *)publicID systemID:(NSString *)systemID notationName:(NSString *)notationName
 {
-    NSLog(@"foundUnparsedEntityDeclarationWithName %@", name);
 }
 
 - (void)parser:(NSXMLParser *)parser foundAttributeDeclarationWithName:(NSString *)attributeName forElement:(NSString *)elementName type:(NSString *)type defaultValue:(NSString *)defaultValue;
 {
-    NSLog(@"foundAttributeDeclarationWithName %@", attributeName);
 }
 
 - (void)parser:(NSXMLParser *)parser foundElementDeclarationWithName:(NSString *)elementName model:(NSString *)model
 {
-    NSLog(@"foundElementDeclarationWithName %@", elementName);
 }
 
 - (void)parser:(NSXMLParser *)parser foundInternalEntityDeclarationWithName:(NSString *)name value:(NSString *)value
 {
-    NSLog(@"foundExternalEntityDeclarationWithName %@", name);
 }
 
 - (void)parser:(NSXMLParser *)parser foundExternalEntityDeclarationWithName:(NSString *)name publicID:(NSString *)publicID systemID:(NSString *)systemID
 {
-    NSLog(@"foundExternalEntityDeclarationWithName %@", name);
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
@@ -306,12 +298,10 @@ static NSString* makeKey(NSString *key)
 
 - (void)parser:(NSXMLParser *)parser didStartMappingPrefix:(NSString *)prefix toURI:(NSString *)namespaceURI
 {
-    NSLog(@"didStartMappingPrefix %@", prefix);
 }
 
 - (void)parser:(NSXMLParser *)parser didEndMappingPrefix:(NSString *)prefix
 {
-    NSLog(@"didEndMappingPrefix %@", prefix);
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -321,27 +311,22 @@ static NSString* makeKey(NSString *key)
 
 - (void)parser:(NSXMLParser *)parser foundIgnorableWhitespace:(NSString *)whitespaceString
 {
-    NSLog(@"foundIgnorableWhitespace %@", whitespaceString);
 }
 
 - (void)parser:(NSXMLParser *)parser foundProcessingInstructionWithTarget:(NSString *)target data:(NSString *)data
 {
-    NSLog(@"foundProcessingInstructionWithTarget %@", target);
 }
 
 - (void)parser:(NSXMLParser *)parser foundComment:(NSString *)comment
 {
-    NSLog(@"foundComment %@", comment);
 }
 
 - (void)parser:(NSXMLParser *)parser foundCDATA:(NSData *)CDATABlock
 {
-    NSLog(@"foundCDATA %@", CDATABlock);
 }
 
 - (NSData *)parser:(NSXMLParser *)parser resolveExternalEntityName:(NSString *)name systemID:(NSString *)systemID
 {
-    NSLog(@"resolveExternalEntityName %@", name);
     return nil;
 }
 
