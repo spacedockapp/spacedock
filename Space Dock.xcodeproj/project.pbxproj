@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D40108E2182015090029FDC4 /* DockEquippedShipController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40108E1182015090029FDC4 /* DockEquippedShipController.m */; };
 		D41B77E617FDCF91005A5DA8 /* DockResource+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B77E517FDCF91005A5DA8 /* DockResource+Addons.m */; };
 		D41B77E917FE13D1005A5DA8 /* DockBooleanFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B77E817FE13D1005A5DA8 /* DockBooleanFormatter.m */; };
 		D41BA80817F67FE0005266E6 /* DockShip+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D41BA80717F67FE0005266E6 /* DockShip+Addons.m */; };
@@ -123,6 +124,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D40108E0182015090029FDC4 /* DockEquippedShipController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockEquippedShipController.h; sourceTree = "<group>"; };
+		D40108E1182015090029FDC4 /* DockEquippedShipController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockEquippedShipController.m; sourceTree = "<group>"; };
 		D40AF35A1802FB36000B9FF3 /* Space_Dock_2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock_2.xcdatamodel; sourceTree = "<group>"; };
 		D41B77E417FDCF91005A5DA8 /* DockResource+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockResource+Addons.h"; sourceTree = "<group>"; };
 		D41B77E517FDCF91005A5DA8 /* DockResource+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockResource+Addons.m"; sourceTree = "<group>"; };
@@ -515,14 +518,16 @@
 				D433FE17181503A20062731A /* DockAppDelegate.m */,
 				D457FD16181D58E0009C2E13 /* DockEditValueController.h */,
 				D457FD17181D58E0009C2E13 /* DockEditValueController.m */,
-				D433FE22181503A20062731A /* DockTopMenuViewController.h */,
-				D433FE23181503A20062731A /* DockTopMenuViewController.m */,
+				D40108E0182015090029FDC4 /* DockEquippedShipController.h */,
+				D40108E1182015090029FDC4 /* DockEquippedShipController.m */,
 				D433FE1F181503A20062731A /* DockShipsViewController.h */,
 				D433FE20181503A20062731A /* DockShipsViewController.m */,
 				D4EE8DC0181C5EB500E92DD6 /* DockSquadDetailController.h */,
 				D4EE8DC1181C5EB500E92DD6 /* DockSquadDetailController.m */,
 				D4EE8DBD181C2E4000E92DD6 /* DockSquadsListController.h */,
 				D4EE8DBE181C2E4000E92DD6 /* DockSquadsListController.m */,
+				D433FE22181503A20062731A /* DockTopMenuViewController.h */,
+				D433FE23181503A20062731A /* DockTopMenuViewController.m */,
 				D457FD1A181DAE88009C2E13 /* DockUtilsMobile.h */,
 				D457FD1B181DAE88009C2E13 /* DockUtilsMobile.m */,
 				D433FE25181503A20062731A /* Images.xcassets */,
@@ -828,6 +833,7 @@
 				D47316B018182C4C00046428 /* DockResource+Addons.m in Sources */,
 				D47316AB18182C4C00046428 /* DockDataLoader.m in Sources */,
 				D433FE14181503A20062731A /* main.m in Sources */,
+				D40108E2182015090029FDC4 /* DockEquippedShipController.m in Sources */,
 				D47316B118182C4C00046428 /* DockSet+Addons.m in Sources */,
 				D47316A918182C4C00046428 /* DockBooleanFormatter.m in Sources */,
 				D47316BB18182DE700046428 /* DockUpgrade.m in Sources */,

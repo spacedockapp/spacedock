@@ -1,5 +1,6 @@
 #import "DockSquadDetailController.h"
 
+#import "DockEquippedShipController.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEditValueController.h"
 #import "DockShipsViewController.h"
@@ -146,12 +147,19 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSString* sequeIdentifier = [segue identifier];
     id destination = [segue destinationViewController];
-    if ([[segue identifier] isEqualToString:@"PickShip"]) {
+    if ([sequeIdentifier isEqualToString:@"PickShip"]) {
         DockShipsViewController *shipsViewController = (DockShipsViewController *)destination;
         shipsViewController.managedObjectContext = [_squad managedObjectContext];
         [shipsViewController targetSquad: _squad onPicked: ^(DockShip* theShip) { [self addShip: theShip]; }];
-    } else if ([[segue identifier] isEqualToString:@"EditName"]) {
+    } else if ([sequeIdentifier isEqualToString:@"ShowEquippedShip"]) {
+        DockEquippedShipController* controller = (DockEquippedShipController*)destination;
+        NSIndexPath *indexPath = [[self tableView] indexPathForSelectedRow];
+        NSInteger row = [indexPath indexAtPosition: 1];
+        DockEquippedShip* es = _squad.equippedShips[row];
+        controller.equippedShip = es;
+    } else if ([sequeIdentifier isEqualToString:@"EditName"]) {
         DockEditValueController* editValue = (DockEditValueController*)destination;
         editValue.valueName = @"Name";
         editValue.initialValue = _squad.name;

@@ -85,6 +85,8 @@
         if (_targetSquad) {
             if ([_targetSquad containsShip: ship]) {
                 cell.textLabel.textColor = [UIColor grayColor];
+            } else {
+                cell.textLabel.textColor = [UIColor blackColor];
             }
         }
     }
