@@ -93,12 +93,31 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPH-r0-vTF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="430" y="-638"/>
+            <point key="canvasLocation" x="271" y="-688"/>
         </scene>
-        <!--Dock Edit Value Controller - Edit Value-->
+        <!--Equipped Ship-->
+        <scene sceneID="auF-VQ-g1M">
+            <objects>
+                <tableViewController title="Equipped Ship" id="WHg-GX-8r1" userLabel="Equipped Ship" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="208" sectionHeaderHeight="22" sectionFooterHeight="22" id="Pcv-3M-khg" userLabel="Equipped Ship">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="WHg-GX-8r1" id="6Q1-ac-iVj"/>
+                            <outlet property="delegate" destination="WHg-GX-8r1" id="BlS-Bj-thO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="FEB-hX-VsH"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RHF-WC-cI7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1242" y="-963"/>
+        </scene>
+        <!--Edit Value-->
         <scene sceneID="UGA-zw-vHQ">
             <objects>
-                <viewController title="Edit Value" id="2Bj-OL-F4i" customClass="DockEditValueController" sceneMemberID="viewController">
+                <viewController title="Edit Value" id="2Bj-OL-F4i" userLabel="Edit Value" customClass="DockEditValueController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4MQ-cN-CRm"/>
                         <viewControllerLayoutGuide type="bottom" id="m60-6V-tx1"/>
@@ -185,10 +204,10 @@
             </objects>
             <point key="canvasLocation" x="95" y="-1536"/>
         </scene>
-        <!--Dock Squad Detail Controller - Squad Detail-->
+        <!--Squad Detail-->
         <scene sceneID="D8n-ha-7UV">
             <objects>
-                <tableViewController title="Squad Detail" id="aSy-vS-qmb" customClass="DockSquadDetailController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SquadDetail" title="Squad Detail" id="aSy-vS-qmb" userLabel="Squad Detail" customClass="DockSquadDetailController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="l4r-XH-dee">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -244,6 +263,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="WHg-GX-8r1" kind="push" identifier="ShowEquippedShip" id="43d-N2-9zV"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addShip" id="e9l-hs-DG9">
                                 <rect key="frame" x="0.0" y="174" width="320" height="44"/>
@@ -284,7 +306,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Gif-bs-7CW"/>
+        <segue reference="URj-sy-vnv"/>
         <segue reference="EVA-Ha-95D"/>
     </inferredMetricsTieBreakers>
 </document>
