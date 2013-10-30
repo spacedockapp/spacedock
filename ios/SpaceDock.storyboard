@@ -33,6 +33,14 @@
                                     <segue destination="qai-jN-X8t" kind="push" identifier="GoToShips" id="oNC-5G-Oph"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZC-PF-ZEr">
+                                <rect key="frame" x="20" y="137" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Captains"/>
+                                <connections>
+                                    <segue destination="wec-1c-3wP" kind="push" identifier="GoToCaptains" id="cZu-hv-qs8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -41,6 +49,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="APE-PM-Ygn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-432" y="-1165"/>
+        </scene>
+        <!--Dock Captains View Controller - Captains-->
+        <scene sceneID="A1L-pu-LgQ">
+            <objects>
+                <tableViewController title="Captains" id="wec-1c-3wP" customClass="DockCaptainsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YGK-XV-I3r">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Captain" textLabel="XI3-Sb-wa8" style="IBUITableViewCellStyleDefault" id="Yvg-uZ-Wf5">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yvg-uZ-Wf5" id="eHq-Cw-nBc">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XI3-Sb-wa8">
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wec-1c-3wP" id="EtX-Ak-mi0"/>
+                            <outlet property="delegate" destination="wec-1c-3wP" id="h2g-xJ-3nj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="5pF-ng-PRr"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XYc-I5-9x1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-140" y="-244"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ki2-aR-xMU">
@@ -332,7 +378,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="oNC-5G-Oph"/>
         <segue reference="URj-sy-vnv"/>
-        <segue reference="EVA-Ha-95D"/>
     </inferredMetricsTieBreakers>
 </document>

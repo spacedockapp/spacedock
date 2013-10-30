@@ -1,6 +1,7 @@
 #import "DockTopMenuViewController.h"
 #import "DockShipsViewController.h"
 #import "DockSquadsListController.h"
+#import "DockCaptainsViewController.h"
 
 @interface DockTopMenuViewController ()
 
@@ -32,6 +33,10 @@
     } else if ([[segue identifier] isEqualToString:@"GoToSquads"]) {
         id destination = [segue destinationViewController];
         DockSquadsListController *controller = (DockSquadsListController *)destination;
+        controller.managedObjectContext = self.managedObjectContext;
+    } else if ([[segue identifier] isEqualToString:@"GoToCaptains"]) {
+        id destination = [segue destinationViewController];
+        DockCaptainsViewController *controller = (DockCaptainsViewController *)destination;
         controller.managedObjectContext = self.managedObjectContext;
     }
 }
