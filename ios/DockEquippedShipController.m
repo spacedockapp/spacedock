@@ -3,6 +3,8 @@
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockUpgrade+Addons.h"
+#import "DockUpgradesViewController.h"
+#import "DockUtilsMobile.h"
 
 @interface DockEquippedShipController ()
 @property (strong, nonatomic) NSArray* upgradeBuckets;
@@ -30,7 +32,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+-(void)createBuckets
 {
     NSMutableArray* upgradeBuckets = [NSMutableArray arrayWithCapacity: 0];
     NSMutableArray* currentBucket = [NSMutableArray arrayWithCapacity: 0];
@@ -52,6 +54,11 @@
         [upgradeBuckets addObject: currentBucket];
     }
     _upgradeBuckets = [NSArray arrayWithArray: upgradeBuckets];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self createBuckets];
     [super viewWillAppear: animated];
 }
 
@@ -82,14 +89,31 @@
     return group.count;
 }
 
+-(DockEquippedUpgrade*)upgradeAtPath:(NSIndexPath*)indexPath
+{
+    NSInteger section = [indexPath indexAtPosition: 0];
+    if (section >= _upgradeBuckets.count) {
+        return nil;
+    }
+    NSArray* group = _upgradeBuckets[section];
+    NSInteger row = [indexPath indexAtPosition: 1];
+    if (row >= group.count) {
+        return nil;
+    }
+    return group[row];
+}
+
+-(DockEquippedUpgrade*)selectedUpgrade
+{
+    NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+    return [self upgradeAtPath: indexPath];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"upgrade";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    NSInteger section = [indexPath indexAtPosition: 0];
-    NSInteger row = [indexPath indexAtPosition: 1];
-    NSArray* group = _upgradeBuckets[section];
-    DockEquippedUpgrade* equippedUpgrade = group[row];
+    DockEquippedUpgrade* equippedUpgrade = [self upgradeAtPath: indexPath];
     DockUpgrade* upgrade = equippedUpgrade.upgrade;
     cell.textLabel.text = [upgrade title];
     if ([upgrade isPlaceholder]) {
@@ -102,28 +126,30 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
-// Override to support editing the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        DockEquippedUpgrade* equippedUpgrade = [self upgradeAtPath: indexPath];
+        [_equippedShip removeUpgrade: equippedUpgrade establishPlaceholders: YES];
+        NSError* error;
+        if (!saveItem(_equippedShip, &error)) {
+            presentError(error);
+        }
+        [self createBuckets];
+        [tableView reloadData];
+    }
 }
-*/
 
 /*
 // Override to support rearranging the table view.
@@ -141,16 +167,32 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
-// In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"PickUpgrade"]) {
+        DockEquippedUpgrade* oneToReplace = [self selectedUpgrade];
+        id destination = [segue destinationViewController];
+        DockUpgradesViewController* controller = (DockUpgradesViewController *)destination;
+        controller.managedObjectContext = _equippedShip.managedObjectContext;
+        controller.upType = [[[self selectedUpgrade] upgrade] upType];
+        id onPick = ^(DockUpgrade* upgrade) {
+            [self addUpgrade: upgrade replacing: oneToReplace];
+        };
+        [controller targetSquad: _equippedShip.squad onPicked: onPick];
+    }
 }
 
- */
+-(void)addUpgrade:(DockUpgrade*)upgrade replacing:(DockEquippedUpgrade*)oneToReplace
+{
+    [_equippedShip addUpgrade: upgrade maybeReplace: oneToReplace establishPlaceholders: YES];
+    [self.navigationController popViewControllerAnimated:YES];
+    NSError *error;
+    if (!saveItem(_equippedShip, &error)) {
+        presentError(error);
+    }
+    [self.tableView reloadData];
+}
 
 @end

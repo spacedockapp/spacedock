@@ -1,7 +1,7 @@
 #import "DockTopMenuViewController.h"
 #import "DockShipsViewController.h"
 #import "DockSquadsListController.h"
-#import "DockCaptainsViewController.h"
+#import "DockUpgradesViewController.h"
 
 @interface DockTopMenuViewController ()
 
@@ -36,8 +36,29 @@
         controller.managedObjectContext = self.managedObjectContext;
     } else if ([[segue identifier] isEqualToString:@"GoToCaptains"]) {
         id destination = [segue destinationViewController];
-        DockCaptainsViewController *controller = (DockCaptainsViewController *)destination;
+        DockUpgradesViewController *controller = (DockUpgradesViewController *)destination;
         controller.managedObjectContext = self.managedObjectContext;
+        controller.upType = @"Captain";
+    } else if ([[segue identifier] isEqualToString:@"GoToCrew"]) {
+        id destination = [segue destinationViewController];
+        DockUpgradesViewController *controller = (DockUpgradesViewController *)destination;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.upType = @"Crew";
+    } else if ([[segue identifier] isEqualToString:@"GoToTalents"]) {
+        id destination = [segue destinationViewController];
+        DockUpgradesViewController *controller = (DockUpgradesViewController *)destination;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.upType = @"Talent";
+    } else if ([[segue identifier] isEqualToString:@"GoToTech"]) {
+        id destination = [segue destinationViewController];
+        DockUpgradesViewController *controller = (DockUpgradesViewController *)destination;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.upType = @"Tech";
+    } else if ([[segue identifier] isEqualToString:@"GoToWeapons"]) {
+        id destination = [segue destinationViewController];
+        DockUpgradesViewController *controller = (DockUpgradesViewController *)destination;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.upType = @"Weapon";
     }
 }
 

@@ -38,7 +38,39 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Captains"/>
                                 <connections>
-                                    <segue destination="wec-1c-3wP" kind="push" identifier="GoToCaptains" id="cZu-hv-qs8"/>
+                                    <segue destination="ItA-jp-4hr" kind="push" identifier="GoToCaptains" id="0Mb-Mm-vMI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QvW-Di-0rr">
+                                <rect key="frame" x="20" y="175" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Crew"/>
+                                <connections>
+                                    <segue destination="ItA-jp-4hr" kind="push" identifier="GoToCrew" id="jdh-9V-K7k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4v4-A9-djr">
+                                <rect key="frame" x="20" y="213" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Talent"/>
+                                <connections>
+                                    <segue destination="ItA-jp-4hr" kind="push" identifier="GoToTalents" id="fmq-xm-zWp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RV9-Ne-iKB">
+                                <rect key="frame" x="20" y="251" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Tech"/>
+                                <connections>
+                                    <segue destination="ItA-jp-4hr" kind="push" identifier="GoToTech" id="N02-BV-CkD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUP-xq-pNJ">
+                                <rect key="frame" x="20" y="289" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Weapons"/>
+                                <connections>
+                                    <segue destination="ItA-jp-4hr" kind="push" identifier="GoToWeapons" id="sjM-AU-6Xp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -50,23 +82,23 @@
             </objects>
             <point key="canvasLocation" x="-432" y="-1165"/>
         </scene>
-        <!--Dock Captains View Controller - Captains-->
-        <scene sceneID="A1L-pu-LgQ">
+        <!--Dock Upgrades View Controller - Upgrade-->
+        <scene sceneID="6lp-e3-gDt">
             <objects>
-                <tableViewController title="Captains" id="wec-1c-3wP" customClass="DockCaptainsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YGK-XV-I3r">
+                <tableViewController title="Upgrade" id="ItA-jp-4hr" customClass="DockUpgradesViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="u21-Rz-XAh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Captain" textLabel="XI3-Sb-wa8" style="IBUITableViewCellStyleDefault" id="Yvg-uZ-Wf5">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Upgrade" textLabel="DhE-Pf-WJa" style="IBUITableViewCellStyleDefault" id="Fcm-LY-Fpg">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yvg-uZ-Wf5" id="eHq-Cw-nBc">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fcm-LY-Fpg" id="Dsm-cq-KHz">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XI3-Sb-wa8">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DhE-Pf-WJa">
                                             <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -78,15 +110,15 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="wec-1c-3wP" id="EtX-Ak-mi0"/>
-                            <outlet property="delegate" destination="wec-1c-3wP" id="h2g-xJ-3nj"/>
+                            <outlet property="dataSource" destination="ItA-jp-4hr" id="Fol-TN-G9z"/>
+                            <outlet property="delegate" destination="ItA-jp-4hr" id="9un-J0-kfV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="5pF-ng-PRr"/>
+                    <navigationItem key="navigationItem" id="11d-kb-pRr"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XYc-I5-9x1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uy7-Uo-AXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-140" y="-244"/>
+            <point key="canvasLocation" x="-188" y="-266"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ki2-aR-xMU">
@@ -150,11 +182,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="upgrade" textLabel="0Ud-GX-LKM" detailTextLabel="IWM-AD-HRu" style="IBUITableViewCellStyleValue1" id="DuY-60-1H4">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="upgrade" textLabel="0Ud-GX-LKM" detailTextLabel="IWM-AD-HRu" style="IBUITableViewCellStyleValue1" id="DuY-60-1H4">
                                 <rect key="frame" x="0.0" y="86" width="320" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DuY-60-1H4" id="3TB-fS-cC9">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="32"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="32"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Ud-GX-LKM">
@@ -165,7 +197,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IWM-AD-HRu">
-                                            <rect key="frame" x="261" y="6" width="44" height="21"/>
+                                            <rect key="frame" x="241" y="6" width="44" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
@@ -173,6 +205,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="ItA-jp-4hr" kind="push" identifier="PickUpgrade" id="Edb-dE-lUZ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -380,5 +415,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="oNC-5G-Oph"/>
         <segue reference="URj-sy-vnv"/>
+        <segue reference="Edb-dE-lUZ"/>
     </inferredMetricsTieBreakers>
 </document>
