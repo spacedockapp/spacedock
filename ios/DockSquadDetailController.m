@@ -33,6 +33,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)updateCost
+{
+    NSIndexPath* costPath = [NSIndexPath indexPathForRow: 1 inSection: 0];
+    [self.tableView reloadRowsAtIndexPaths: @[costPath] withRowAnimation: UITableViewRowAnimationAutomatic];
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString: @"cost"]) {
+        [self performSelector:@selector(updateCost) withObject: nil afterDelay: 0];
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
+    [_squad addObserver: self forKeyPath: @"cost" options: 0 context: 0];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [_squad removeObserver: self forKeyPath: @"cost"];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -81,12 +105,8 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"ship" forIndexPath:indexPath];
             DockEquippedShip* es = _squad.equippedShips[row];
             DockShip* ship = es.ship;
+            cell.detailTextLabel.text = [NSString stringWithFormat: @"%d", [es cost]];
             cell.textLabel.text = ship.title;
-            if ([ship isUnique]) {
-                cell.detailTextLabel.text = ship.shipClass;
-            } else {
-                cell.detailTextLabel.text = @"";
-            }
         }
     }
     return cell;
@@ -176,6 +196,7 @@
 
 -(void)addShip:(DockShip*)ship
 {
+    [self.tableView beginUpdates];
     DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: ship];
     [_squad addEquippedShip: es];
     [self.navigationController popViewControllerAnimated:YES];
@@ -189,6 +210,10 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-    [self.tableView reloadData];
+    NSIndexPath* newShipIndexPath = [NSIndexPath indexPathForRow: _squad.equippedShips.count-1 inSection: 1];
+    [self.tableView insertRowsAtIndexPaths: @[newShipIndexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
+    [self.tableView endUpdates];
+    [self updateCost];
 }
+
 @end

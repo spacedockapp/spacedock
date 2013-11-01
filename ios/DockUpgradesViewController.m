@@ -51,6 +51,7 @@
     // Configure the cell to show the book's title
     DockUpgrade* upgrade = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [upgrade title];
+    cell.detailTextLabel.text = [[upgrade cost] stringValue];
     if ([upgrade isUnique] && [_targetSquad containsUpgradeWithName: upgrade.title]) {
         cell.textLabel.textColor = [UIColor grayColor];
     } else {
