@@ -3,7 +3,13 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "SpaceDock-iOS-Small@2x-1.png",
+      "filename" : "SpaceDock-iOS-Small.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "SpaceDock-iOS-Small@2x.png",
       "scale" : "2x"
     },
     {
@@ -13,21 +19,33 @@
       "scale" : "2x"
     },
     {
+      "size" : "57x57",
+      "idiom" : "iphone",
+      "filename" : "SpaceDock-iOS-iOS6.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "57x57",
+      "idiom" : "iphone",
+      "filename" : "SpaceDock-iOS-iOS6@2x.png",
+      "scale" : "2x"
+    },
+    {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "SpaceDock-iOS@2x.png",
+      "filename" : "SpaceDock-iOS@2x-1.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "SpaceDock-iOS-Small.png",
+      "filename" : "SpaceDock-iOS-Small-1-1.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "SpaceDock-iOS-Small@2x.png",
+      "filename" : "SpaceDock-iOS-Small@2x-1-1.png",
       "scale" : "2x"
     },
     {
@@ -40,6 +58,30 @@
       "size" : "40x40",
       "idiom" : "ipad",
       "filename" : "SpaceDock-iOS-40@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "50x50",
+      "idiom" : "ipad",
+      "filename" : "SpaceDock-iOS-Small-50.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "50x50",
+      "idiom" : "ipad",
+      "filename" : "SpaceDock-iOS-Small-50@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "72x72",
+      "idiom" : "ipad",
+      "filename" : "SpaceDock-iOS-72.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "72x72",
+      "idiom" : "ipad",
+      "filename" : "SpaceDock-iOS-72@2x.png",
       "scale" : "2x"
     },
     {
