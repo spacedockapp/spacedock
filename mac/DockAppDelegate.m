@@ -6,6 +6,7 @@
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedShip.h"
 #import "DockEquippedUpgrade+Addons.h"
+#import "DockErrors.h"
 #import "DockFleetBuildSheet.h"
 #import "DockInspector.h"
 #import "DockResource.h"
@@ -339,12 +340,17 @@ NSString* kInspectorVisible = @"inspectorVisible";
                         contextInfo: nil];
 }
 
--(void)explainCantUniqueUpgrade:(DockUpgrade*)upgrade
+-(void)explainCantUniqueUpgrade:(NSError*)error
 {
+    NSDictionary* d = error.userInfo;
+    DockEquippedUpgrade* upgrade = d[DockExistingUpgradeKey];
+    if (upgrade) {
+        [self selectUpgrade: upgrade];
+    }
     NSAlert* alert = [[NSAlert alloc] init];
-    NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", upgrade.title];
+    NSString* msg = d[NSLocalizedDescriptionKey];
     [alert setMessageText: msg];
-    NSString* info = @"This upgrade is unique and one with the same name already exists in the squadron.";
+    NSString* info = d[NSLocalizedFailureReasonErrorKey];
     [alert setInformativeText: info];
     [alert setAlertStyle: NSInformationalAlertStyle];
     [alert beginSheetModalForWindow: [self window]
@@ -509,25 +515,15 @@ NSString* kInspectorVisible = @"inspectorVisible";
     if (captainsToAdd.count < 1) {
     } else {
         DockCaptain* captain = captainsToAdd[0];
-        DockCaptain* existingCaptain = [targetShip captain];
-
-        if (captain == existingCaptain) {
-            return nil;
+        DockSquad* squad = [self selectedSquad];
+        NSError* error;
+        if ([squad canAddCaptain: captain toShip: targetShip error: &error]) {
+            return [squad addCaptain: captain toShip: targetShip error: nil];
+        } else {
+            [self explainCantUniqueUpgrade: error];
         }
+        return nil;
 
-        if ([captain isUnique]) {
-            DockSquad* squad = [self selectedSquad];
-            DockEquippedUpgrade* existing = [squad containsUpgradeWithName: captain.title];
-
-            if (existing) {
-                [self selectUpgrade: existing];
-                [self explainCantUniqueUpgrade: captain];
-                return nil;
-            }
-        }
-
-        [targetShip removeCaptain];
-        return [targetShip addUpgrade: captain];
     }
 
     return nil;
@@ -544,7 +540,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 
         if (existing) {
             [self selectUpgrade: existing];
-            [self explainCantUniqueUpgrade: upgrade];
+            [self explainCantUniqueUpgrade: nil]; // fixme
             return nil;
         }
     }

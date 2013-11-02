@@ -31,9 +31,9 @@
 {
     if (![_upType isEqualToString: upType]) {
         _upType = upType;
-        self.fetchedResultsController = nil;
         self.navigationController.title = upType;
     }
+    self.fetchedResultsController = nil;
 }
 
 -(void)setupFetch:(NSFetchRequest*)fetchRequest context:(NSManagedObjectContext*)context
@@ -52,7 +52,8 @@
     DockUpgrade* upgrade = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [upgrade title];
     cell.detailTextLabel.text = [[upgrade cost] stringValue];
-    if ([upgrade isUnique] && [_targetSquad containsUpgradeWithName: upgrade.title]) {
+    BOOL canAdd = [_targetSquad canAddUpgrade: upgrade toShip: _targetShip error: nil];
+    if (!canAdd) {
         cell.textLabel.textColor = [UIColor grayColor];
     } else {
         cell.textLabel.textColor = [UIColor blackColor];
@@ -63,9 +64,7 @@
 {
     if (_targetSquad) {
         DockUpgrade *upgrade = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        if ([upgrade isUnique]) {
-            return ![_targetSquad containsUpgradeWithName: upgrade.title];
-        }
+        return [_targetSquad canAddUpgrade: upgrade toShip: _targetShip error: nil];
     }
     return YES;
 }
@@ -88,7 +87,15 @@
 -(void)clearTarget
 {
     _targetSquad = nil;
+    _targetShip = nil;
     _onUpgradePicked = nil;
+}
+
+-(void)targetSquad:(DockSquad*)squad ship:(DockEquippedShip*)ship onPicked:(DockUpgradePicked)onPicked
+{
+    _targetSquad = squad;
+    _targetShip = ship;
+    _onUpgradePicked = onPicked;
 }
 
 @end

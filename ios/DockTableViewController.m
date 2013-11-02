@@ -61,7 +61,7 @@
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest: fetchRequest
                                                                     managedObjectContext: self.managedObjectContext
                                                                       sectionNameKeyPath: [self sectionNameKeyPath]
-                                                                               cacheName: [self cacheName]];
+                                                                               cacheName: nil];
     _fetchedResultsController.delegate = self;
     
     return _fetchedResultsController;

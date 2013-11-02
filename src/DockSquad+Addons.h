@@ -3,6 +3,7 @@
 @class DockEquippedShip;
 @class DockEquippedUpgrade;
 @class DockUpgrade;
+@class DockCaptain;
 @class DockShip;
 
 @interface DockSquad (Addons)
@@ -19,4 +20,7 @@
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
 -(DockEquippedUpgrade*)containsUpgradeWithName:(NSString*)theName;
 -(DockSquad*)duplicate;
+-(BOOL)canAddCaptain:(DockCaptain*)captain toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
+-(DockEquippedUpgrade*)addCaptain:(DockCaptain*)captain toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
+-(BOOL)canAddUpgrade:(DockUpgrade*)upgrade toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
 @end

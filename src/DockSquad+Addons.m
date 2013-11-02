@@ -5,6 +5,7 @@
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"
+#import "DockErrors.h"
 
 @implementation DockSquad (Addons)
 
@@ -292,5 +293,79 @@ static NSString* namePrefix(NSString* originalName)
     squad.resource = self.resource;
     return squad;
 }
+
+-(DockEquippedUpgrade*)addCaptain:(DockCaptain*)captain toShip:(DockEquippedShip*)targetShip error:(NSError**)error
+{
+    if (![self canAddCaptain: captain toShip: targetShip error: error]) {
+        return nil;
+    }
+    [targetShip removeCaptain];
+    return [targetShip addUpgrade: captain];
+}
+
+-(BOOL)canAddCaptain:(DockCaptain*)captain toShip:(DockEquippedShip*)targetShip error:(NSError**)error
+{
+    DockCaptain* existingCaptain = [targetShip captain];
+
+    if (captain == existingCaptain) {
+        return YES;
+    }
+
+    if ([captain isUnique]) {
+        DockEquippedUpgrade* existing = [self containsUpgradeWithName: captain.title];
+
+        if (existing) {
+            if (error) {
+                NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", captain.title];
+                NSString* info = @"This Captain is unique and one with the same name already exists in the squadron.";
+                NSDictionary* d = @{
+                    NSLocalizedDescriptionKey: msg,
+                    NSLocalizedFailureReasonErrorKey: info,
+                    DockExistingUpgradeKey: existing
+                };
+                *error = [NSError errorWithDomain: DockErrorDomain code: kUniqueConflict userInfo: d];
+            }
+            return NO;
+        }
+    }
+
+    return YES;
+}
+
+-(BOOL)canAddUpgrade:(DockUpgrade*)upgrade toShip:(DockEquippedShip*)targetShip error:(NSError**)error
+{
+    if ([upgrade isUnique]) {
+        DockEquippedUpgrade* existing = [self containsUpgradeWithName: upgrade.title];
+
+        if (existing) {
+            if (error) {
+                NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", upgrade.title];
+                NSString* info = [NSString stringWithFormat: @"This %@ is unique and one with the same name already exists in the squadron.", upgrade.upType];
+                NSDictionary* d = @{
+                    NSLocalizedDescriptionKey: msg,
+                    NSLocalizedFailureReasonErrorKey: info,
+                    DockExistingUpgradeKey: existing
+                };
+                *error = [NSError errorWithDomain: DockErrorDomain code: kUniqueConflict userInfo: d];
+            }
+            return NO;
+        }
+    }
+
+    if (![targetShip canAddUpgrade: upgrade]) {
+        if (error) {
+            NSDictionary* reasons = [targetShip explainCantAddUpgrade: upgrade];
+            NSDictionary* d = @{
+                NSLocalizedDescriptionKey: reasons[@"message"],
+                NSLocalizedFailureReasonErrorKey: reasons[@"info"]
+            };
+            *error = [NSError errorWithDomain: DockErrorDomain code: kUniqueConflict userInfo: d];
+        }
+        return NO;
+    }
+
+    return YES;
+}
+
 
 @end

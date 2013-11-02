@@ -4,6 +4,7 @@
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockShipsViewController.h"
+#import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUpgradesViewController.h"
 #import "DockUtilsMobile.h"
@@ -200,7 +201,7 @@
         id onPick = ^(DockUpgrade* upgrade) {
             [self addUpgrade: upgrade replacing: oneToReplace];
         };
-        [controller targetSquad: _equippedShip.squad onPicked: onPick];
+        [controller targetSquad: _equippedShip.squad ship: _equippedShip onPicked: onPick];
     } else if ([sequeIdentifier isEqualToString:@"PickShip"]) {
         DockShipsViewController *shipsViewController = (DockShipsViewController *)destination;
         shipsViewController.managedObjectContext = [_equippedShip managedObjectContext];
