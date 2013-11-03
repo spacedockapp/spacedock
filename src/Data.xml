@@ -1,4 +1,4 @@
-<Data version="1.162">
+<Data version="1.164">
   <Ships>
     <Ship>
       <Title>U.S.S. Enterprise-D</Title>
@@ -2636,7 +2636,7 @@
 
     <Upgrade>
       <Title>Defense Condition One</Title>
-      <Ability>ACTION: Disable this card to place a [BATTLESTATION] Token beside your ship and all friendly ships within Range 1-2 of your ship (even if there is already one there).</Ability>
+      <Ability>ACTION: Discard this card to place a [BATTLESTATION] Token beside your ship and all friendly ships within Range 1-2 of your ship (even if there is already one there).</Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -2651,7 +2651,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Barrage of Fire</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. Target 1 friendly ship within Range 1 of your ship. Target ship may not make a normal attack this round. Instead, add the Primary Weapon value of that ship to your attack roll for this attack. Both ships must have the enemy ship within their forward firing arcs. Place an Auxillary Power Token beside both ships.</Ability>
+      <Ability>ATTACK: Discard this card to perform this attack. Target 1 friendly ship within Range 1 of your ship. Target ship may not make a normal attack this round. Instead, add the Primary Weapon value of that ship to your attack roll for this attack. Both ships must have the enemy ship within their forward firing arcs. Place an Auxillary Power Token beside both ships.</Ability>
       <Skill>
       </Skill>
       <Talent>
