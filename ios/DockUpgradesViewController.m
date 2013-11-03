@@ -3,6 +3,7 @@
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"
+#import "DockUpgradeDetailViewController.h"
 
 @interface DockUpgradesViewController ()
 
@@ -51,12 +52,23 @@
     // Configure the cell to show the book's title
     DockUpgrade* upgrade = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [upgrade title];
-    cell.detailTextLabel.text = [[upgrade cost] stringValue];
-    BOOL canAdd = [_targetSquad canAddUpgrade: upgrade toShip: _targetShip error: nil];
-    if (!canAdd) {
-        cell.textLabel.textColor = [UIColor grayColor];
+    if (_targetShip) {
+        BOOL canAdd = [_targetSquad canAddUpgrade: upgrade toShip: _targetShip error: nil];
+        if (!canAdd) {
+            cell.textLabel.textColor = [UIColor grayColor];
+        } else {
+            cell.textLabel.textColor = [UIColor blackColor];
+        }
+        int actualCost = [upgrade costForShip: _targetShip];
+        int cost = [[upgrade cost] intValue];
+        if (cost == actualCost) {
+            cell.detailTextLabel.text = [upgrade.cost stringValue];
+        } else {
+            cell.detailTextLabel.text = [NSString stringWithFormat: @"%d (%@)", actualCost, upgrade.cost];
+        }
     } else {
         cell.textLabel.textColor = [UIColor blackColor];
+        cell.detailTextLabel.text = [[upgrade cost] stringValue];
     }
 }
 
@@ -75,6 +87,7 @@
         DockUpgrade *upgrade = [self.fetchedResultsController objectAtIndexPath:indexPath];
         _onUpgradePicked(upgrade);
         [self clearTarget];
+    } else {
     }
 }
 
@@ -96,6 +109,20 @@
     _targetSquad = squad;
     _targetShip = ship;
     _onUpgradePicked = onPicked;
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSString* identifier = [segue identifier];
+    id destination = [segue destinationViewController];
+    if ([identifier isEqualToString:@"ShowUpgradeDetails"]) {
+        DockUpgradeDetailViewController* controller = (DockUpgradeDetailViewController*)destination;
+        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        DockUpgrade *upgrade = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        controller.upgrade = upgrade;
+    }
 }
 
 @end

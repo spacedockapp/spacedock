@@ -2,6 +2,7 @@
 
 #import "DockCaptain+Addons.h"
 #import "DockCrew.h"
+#import "DockEquippedUpgrade+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockResource.h"
 #import "DockShip+Addons.h"
@@ -302,6 +303,86 @@
         }
     }
     return nil;
+}
+
+-(int)costForShip:(DockEquippedShip*)equippedShip
+{
+    DockShip* ship = equippedShip.ship;
+    DockUpgrade* upgrade = self;
+
+    if ([upgrade isPlaceholder]) {
+        return 0;
+    }
+
+    int cost = [upgrade.cost intValue];
+    NSString* shipFaction = ship.faction;
+    NSString* upgradeFaction = upgrade.faction;
+    DockCaptain* captain = equippedShip.captain;
+    if ([upgrade isCaptain]) {
+        captain = (DockCaptain*)upgrade;
+    }
+    NSString* captainSpecial = captain.special;
+    NSString* upgradeSpecial = upgrade.special;
+
+    if ([upgrade isTalent]) {
+        if ([captainSpecial isEqualToString: @"BaselineTalentCostToThree"]) {
+            cost = 3;
+        }
+    } else if ([upgrade isCrew]) {
+        if ([captainSpecial isEqualToString: @"CrewUpgradesCostOneLess"]) {
+            cost -= 1;
+        }
+
+        if ([upgradeSpecial isEqualToString: @"costincreasedifnotromulansciencevessel"]) {
+            if (![ship.shipClass isEqualToString: @"Romulan Science Vessel"]) {
+                cost += 5;
+            }
+        }
+    } else if ([upgrade isWeapon]) {
+        if ([captainSpecial isEqualToString: @"WeaponUpgradesCostOneLess"]) {
+            cost -= 1;
+        }
+    }
+
+    if ([upgradeSpecial isEqualToString: @"costincreasedifnotbreen"]) {
+        if (![ship isBreen]) {
+            cost += 5;
+        }
+    } else if ([upgradeSpecial isEqualToString: @"PenaltyOnShipOtherThanDefiant"]) {
+        if (![ship isDefiant]) {
+            cost += 5;
+        }
+    } else if ([upgradeSpecial isEqualToString: @"PlusFivePointsNonJemHadarShips"]) {
+        if (![ship isJemhadar]) {
+            cost += 5;
+        }
+    }
+
+    if (![shipFaction isEqualToString: upgradeFaction]) {
+        if ([captainSpecial isEqualToString: @"UpgradesIgnoreFactionPenalty"]) {
+        } else if ([captainSpecial isEqualToString: @"NoPenaltyOnFederationOrBajoranShip"]) {
+            if (!([ship isFederation] || [ship isBajoran])) {
+                cost += 1;
+            }
+        } else if ([captainSpecial isEqualToString: @"CaptainAndTalentsIgnoreFactionPenalty"] &&
+                   ([upgrade isTalent] || [upgrade isCaptain])) {
+        } else {
+            cost += 1;
+        }
+
+    }
+
+    if ([captainSpecial isEqualToString: @"OneDominionUpgradeCostsMinusTwo"]) {
+        if ([upgrade isDominion]) {
+            DockEquippedUpgrade* most = [equippedShip mostExpensiveUpgradeOfFaction: @"Dominion"];
+
+            if (most.upgrade == self) {
+                cost -= 2;
+            }
+        }
+    }
+
+    return cost;
 }
 
 @end
