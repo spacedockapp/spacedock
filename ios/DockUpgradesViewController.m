@@ -6,7 +6,7 @@
 #import "DockUpgradeDetailViewController.h"
 
 @interface DockUpgradesViewController ()
-
+@property (nonatomic, assign) BOOL disclosureTapped;
 @end
 
 @implementation DockUpgradesViewController
@@ -20,6 +20,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     self.navigationController.title = _upType;
+    _disclosureTapped = NO;
     [super viewWillAppear: animated];
 }
 
@@ -77,6 +78,7 @@
     if (_targetSquad) {
         DockUpgrade *upgrade = [self.fetchedResultsController objectAtIndexPath:indexPath];
         return [_targetSquad canAddUpgrade: upgrade toShip: _targetShip error: nil];
+    } else {
     }
     return YES;
 }
@@ -87,8 +89,14 @@
         DockUpgrade *upgrade = [self.fetchedResultsController objectAtIndexPath:indexPath];
         _onUpgradePicked(upgrade);
         [self clearTarget];
-    } else {
     }
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    _disclosureTapped = YES;
+    [self.tableView selectRowAtIndexPath: indexPath animated: NO scrollPosition:UITableViewScrollPositionMiddle];
+    [self performSegueWithIdentifier: @"ShowUpgradeDetails" sender: self];
 }
 
 -(void)targetSquad:(DockSquad*)squad onPicked:(DockUpgradePicked)onPicked
@@ -112,6 +120,14 @@
 }
 
 #pragma mark - Navigation
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if (_targetShip) {
+        return _disclosureTapped;
+    }
+    return YES;
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
