@@ -2,6 +2,8 @@
 
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockSquad+Addons.h"
+#import "DockShip+Addons.h"
+#import "DockEquippedShip+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUpgradeDetailViewController.h"
 
@@ -22,6 +24,27 @@
     self.navigationController.title = _upType;
     _disclosureTapped = NO;
     [super viewWillAppear: animated];
+    NSIndexPath* indexPath = nil;
+    if (_targetUpgrade) {
+        if (![_targetUpgrade isPlaceholder]) {
+            indexPath = [self.fetchedResultsController indexPathForObject: _targetUpgrade];
+        }
+    }
+
+    if (indexPath == nil && _targetShip) {
+        NSString* faction = _targetShip.ship.faction;
+        NSArray* sectionTitles = self.fetchedResultsController.sections;
+        id titleCheck = ^(id obj, NSUInteger idx, BOOL *stop) {
+            id<NSFetchedResultsSectionInfo> sectionInfo = obj;
+            return [[sectionInfo name] isEqualToString: faction];
+        };
+        NSInteger section = [sectionTitles indexOfObjectPassingTest: titleCheck];
+        indexPath = [NSIndexPath indexPathForRow: 0 inSection: section];
+    }
+    
+    if (indexPath != nil) {
+        [self.tableView selectRowAtIndexPath: indexPath animated: YES scrollPosition: UITableViewScrollPositionMiddle];
+    }
 }
 
 -(NSString*)entityName
@@ -101,21 +124,27 @@
 
 -(void)targetSquad:(DockSquad*)squad onPicked:(DockUpgradePicked)onPicked
 {
-    _targetSquad = squad;
-    _onUpgradePicked = onPicked;
+    [self targetSquad: squad ship: nil upgrade: nil onPicked: onPicked];
 }
 
 -(void)clearTarget
 {
     _targetSquad = nil;
     _targetShip = nil;
+    _targetUpgrade = nil;
     _onUpgradePicked = nil;
 }
 
 -(void)targetSquad:(DockSquad*)squad ship:(DockEquippedShip*)ship onPicked:(DockUpgradePicked)onPicked
 {
+    [self targetSquad: squad ship: ship upgrade: nil onPicked: onPicked];
+}
+
+-(void)targetSquad:(DockSquad*)squad ship:(DockEquippedShip*)ship upgrade:(DockUpgrade*)upgrade onPicked:(DockUpgradePicked)onPicked
+{
     _targetSquad = squad;
     _targetShip = ship;
+    _targetUpgrade = upgrade;
     _onUpgradePicked = onPicked;
 }
 

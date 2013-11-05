@@ -141,7 +141,13 @@
         cell.detailTextLabel.text = @"";
     } else {
         cell.textLabel.textColor = [UIColor blackColor];
-        cell.detailTextLabel.text = [NSString stringWithFormat: @"%d (%@)", [equippedUpgrade cost], [upgrade cost]];
+        int baseCost = [[upgrade cost] intValue];
+        int equippedCost = [equippedUpgrade cost];
+        if (equippedCost == baseCost) {
+            cell.detailTextLabel.text = [[upgrade cost] stringValue];
+        } else {
+            cell.detailTextLabel.text = [NSString stringWithFormat: @"%d (%@)", [equippedUpgrade cost], [upgrade cost]];
+        }
     }
     return cell;
 }
@@ -201,7 +207,7 @@
         id onPick = ^(DockUpgrade* upgrade) {
             [self addUpgrade: upgrade replacing: oneToReplace];
         };
-        [controller targetSquad: _equippedShip.squad ship: _equippedShip onPicked: onPick];
+        [controller targetSquad: _equippedShip.squad ship: _equippedShip upgrade: oneToReplace.upgrade onPicked: onPick];
     } else if ([sequeIdentifier isEqualToString:@"PickShip"]) {
         DockShipsViewController *shipsViewController = (DockShipsViewController *)destination;
         shipsViewController.managedObjectContext = [_equippedShip managedObjectContext];
