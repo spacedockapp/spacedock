@@ -97,7 +97,7 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
     NSMutableDictionary* existingItemsLookup = createExistingItemsLookup(_managedObjectContext, entity);
 
     NSArray* nodes = [xmlDoc nodesForXPath: xpath error: &err];
-    NSDictionary* attributes = [entity attributesByName];
+    NSDictionary* attributes = [NSDictionary dictionaryWithDictionary: [entity attributesByName]];
 
     for (NSXMLNode* oneNode in nodes) {
         NSDictionary* d = [self convertNode: oneNode];
