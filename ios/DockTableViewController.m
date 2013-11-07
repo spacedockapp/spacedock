@@ -42,7 +42,8 @@
 
 -(void)setupFetch:(NSFetchRequest*)fetchRequest context:(NSManagedObjectContext*)context
 {
-    NSEntityDescription *entity = [NSEntityDescription entityForName: [self entityName] inManagedObjectContext:self.managedObjectContext];
+    NSString* entityName = [self entityName];
+    NSEntityDescription *entity = [NSEntityDescription entityForName: entityName inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     [fetchRequest setSortDescriptors: [self sortDescriptors]];
 }

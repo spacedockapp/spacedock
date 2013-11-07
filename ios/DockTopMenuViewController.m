@@ -1,6 +1,7 @@
 #import "DockTopMenuViewController.h"
 #import "DockShipsViewController.h"
 #import "DockSquadsListController.h"
+#import "DockResourcesViewController.h"
 #import "DockUpgradesViewController.h"
 
 @interface DockTopMenuViewController ()
@@ -59,6 +60,10 @@
         DockUpgradesViewController *controller = (DockUpgradesViewController *)destination;
         controller.managedObjectContext = self.managedObjectContext;
         controller.upType = @"Weapon";
+    } else if ([[segue identifier] isEqualToString:@"GoToResources"]) {
+        id destination = [segue destinationViewController];
+        DockResourcesViewController *controller = (DockResourcesViewController *)destination;
+        controller.managedObjectContext = self.managedObjectContext;
     }
 }
 
