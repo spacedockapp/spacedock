@@ -127,7 +127,7 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
     NSEntityDescription* entity = [NSEntityDescription entityForName: entityName inManagedObjectContext: _managedObjectContext];
     NSMutableDictionary* existingItemsLookup = createExistingItemsLookup(_managedObjectContext, entity);
 
-    NSDictionary* attributes = [entity attributesByName];
+    NSDictionary* attributes = [NSDictionary dictionaryWithDictionary: [entity attributesByName]];
 
     for (NSDictionary* d in items) {
         NSString* nodeType = d[@"Type"];
