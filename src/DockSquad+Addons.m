@@ -77,6 +77,11 @@
     return [NSSet setWithObjects: @"equippedShips", @"resource", nil];
 }
 
+-(void)dealloc
+{
+    [self stopWatchingForCostChange];
+}
+
 -(void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void*)context
 {
     [self squadCompositionChanged];
@@ -86,6 +91,13 @@
 {
     for (DockEquippedShip* es in self.equippedShips) {
         [es addObserver: self forKeyPath: @"cost" options: 0 context: 0];
+    }
+}
+
+-(void)stopWatchingForCostChange
+{
+    for (DockEquippedShip* es in self.equippedShips) {
+        [es removeObserver: self forKeyPath: @"cost"];
     }
 }
 

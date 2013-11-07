@@ -3,6 +3,8 @@
 #import "DockEquippedShipController.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEditValueController.h"
+#import "DockResource+Addons.h"
+#import "DockResourcesViewController.h"
 #import "DockShipsViewController.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
@@ -76,7 +78,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 2;
+        return 3;
     }
     return _squad.equippedShips.count + 1;
 }
@@ -86,15 +88,28 @@
     NSInteger section = [indexPath indexAtPosition: 0];
     UITableViewCell *cell = nil;
     if (section == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"detail" forIndexPath:indexPath];
         NSInteger row = [indexPath indexAtPosition: 1];
+        if (row == 2) {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"resource" forIndexPath:indexPath];
+        } else {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"detail" forIndexPath:indexPath];
+        }
         if (row == 0) {
             cell.textLabel.text = @"Name";
             cell.detailTextLabel.text = _squad.name;
-        } else {
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        } else if (row == 1) {
             cell.textLabel.text = @"Cost";
             cell.detailTextLabel.text = [NSString stringWithFormat: @"%d", _squad.cost];
             cell.accessoryType = UITableViewCellAccessoryNone;
+        } else {
+            cell.textLabel.text = @"Resource";
+            if (_squad.resource != nil) {
+                cell.detailTextLabel.text = _squad.resource.title;
+            } else {
+                cell.detailTextLabel.text = @"No Resource";
+            }
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
     } else {
         NSInteger row = [indexPath indexAtPosition: 1];
@@ -115,23 +130,30 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section = [indexPath indexAtPosition: 0];
-    return section > 0;
+    NSInteger row = [indexPath indexAtPosition: 1];
+    return section > 0 || (row == 2 && _squad.resource != nil);
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger section = [indexPath indexAtPosition: 0];
     NSInteger row = [indexPath indexAtPosition: 1];
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        DockEquippedShip* es = _squad.equippedShips[row];
-        [_squad removeEquippedShip: es];
-        NSError* error;
-        if (!saveItem(_squad, &error)) {
-            presentError(error);
+    if (section == 0) {
+        if (editingStyle == UITableViewCellEditingStyleDelete) {
+            _squad.resource = nil;
+            [self.tableView reloadRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
         }
-        [self.tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    } else {
+        if (editingStyle == UITableViewCellEditingStyleDelete) {
+            DockEquippedShip* es = _squad.equippedShips[row];
+            [_squad removeEquippedShip: es];
+            NSError* error;
+            if (!saveItem(_squad, &error)) {
+                presentError(error);
+            }
+            [self.tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
+        }
+    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
@@ -139,29 +161,13 @@
     NSInteger section = [indexPath indexAtPosition: 0];
     NSInteger row = [indexPath indexAtPosition: 1];
     if (section == 0) {
-        return row == 0;
+        return row != 1;
     } else {
         NSInteger shipCount = _squad.equippedShips.count;
         return row < shipCount;
     }
     return YES;
 }
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Navigation
 
@@ -173,6 +179,10 @@
         DockShipsViewController *shipsViewController = (DockShipsViewController *)destination;
         shipsViewController.managedObjectContext = [_squad managedObjectContext];
         [shipsViewController targetSquad: _squad onPicked: ^(DockShip* theShip) { [self addShip: theShip]; }];
+    } else if ([sequeIdentifier isEqualToString:@"PickResource"]) {
+        DockResourcesViewController *resourcesViewController = (DockResourcesViewController *)destination;
+        resourcesViewController.managedObjectContext = [_squad managedObjectContext];
+        [resourcesViewController targetSquad: _squad resource: _squad.resource onPicked: ^(DockResource* resource) { [self addResource: resource];}];
     } else if ([sequeIdentifier isEqualToString:@"ShowEquippedShip"]) {
         DockEquippedShipController* controller = (DockEquippedShipController*)destination;
         NSIndexPath *indexPath = [[self tableView] indexPathForSelectedRow];
@@ -213,6 +223,17 @@
     NSIndexPath* newShipIndexPath = [NSIndexPath indexPathForRow: _squad.equippedShips.count-1 inSection: 1];
     [self.tableView insertRowsAtIndexPaths: @[newShipIndexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
+    [self updateCost];
+}
+
+-(void)addResource:(DockResource*)resource
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    _squad.resource = resource;
+    NSError* error;
+    if (!saveItem(_squad,  &error)) {
+        presentError(error);
+    }
     [self updateCost];
 }
 
