@@ -5,6 +5,7 @@
 #import "DockSquad+Addons.h"
 
 @interface DockShipsViewController ()
+@property (nonatomic, assign) BOOL disclosureTapped;
 @end
 
 @implementation DockShipsViewController
@@ -24,6 +25,12 @@
 -(NSString*)entityName
 {
     return @"Ship";
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    _disclosureTapped = NO;
+    [super viewWillAppear: animated];
 }
 
 #pragma mark - Table view data source methods
@@ -62,7 +69,16 @@
         DockShip *ship = [self.fetchedResultsController objectAtIndexPath:indexPath];
         _onShipPicked(ship);
         [self clearTarget];
+    } else {
+        [self performSegueWithIdentifier: @"ShowShipDetails" sender: self];
     }
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    _disclosureTapped = YES;
+    [self.tableView selectRowAtIndexPath: indexPath animated: NO scrollPosition:UITableViewScrollPositionMiddle];
+    [self performSegueWithIdentifier: @"ShowShipDetails" sender: self];
 }
 
 -(void)targetSquad:(DockSquad*)squad onPicked:(DockShipPicked)onPicked
@@ -75,6 +91,14 @@
 {
     _targetSquad = nil;
     _onShipPicked = nil;
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if (_targetSquad) {
+        return _disclosureTapped;
+    }
+    return YES;
 }
 
 @end

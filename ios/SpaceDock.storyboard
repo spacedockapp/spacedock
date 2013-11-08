@@ -251,7 +251,36 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xcl-7X-0mK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="518" y="177"/>
+            <point key="canvasLocation" x="51" y="411"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="qxa-Wg-dru">
+            <objects>
+                <tableViewController id="khE-7U-mMQ" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zQl-JD-9WJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="A3z-ty-SSf">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A3z-ty-SSf" id="620-a7-4CW">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="khE-7U-mMQ" id="Hx0-g9-VMI"/>
+                            <outlet property="delegate" destination="khE-7U-mMQ" id="e5I-EG-yRz"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Dqy-Bw-DFb"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vgd-iB-glA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="542" y="22"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ki2-aR-xMU">
@@ -293,6 +322,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="khE-7U-mMQ" kind="push" identifier="ShowShipDetails" id="Erb-AH-HHX"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
