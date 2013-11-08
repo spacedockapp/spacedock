@@ -29,7 +29,7 @@
     }
 
     if ([_upgrade isCaptain]) {
-        rows += 1;
+        rows += 2;
     }
 
     if (_upgrade.ability.length == 0) {
@@ -94,6 +94,15 @@
     return cell;
 }
 
+-(UITableViewCell*)cellForTalent:(UITableView*)tableView
+{
+    DockCaptain* captain = (DockCaptain*)_upgrade;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
+    cell.textLabel.text = @"Talent";
+    cell.detailTextLabel.text = [captain.talent stringValue];
+    return cell;
+}
+
 -(UITableViewCell*)cellForAttack:(UITableView*)tableView
 {
     DockWeapon* weapon = (DockWeapon*)_upgrade;
@@ -144,6 +153,8 @@
             return [self cellForCost: tableView];
         case 5:
             return [self cellForUnique: tableView];
+        case 6:
+            return [self cellForTalent: tableView];
         }
         return [self cellForAbility: tableView];
     } else if ([_upgrade isWeapon]) {
