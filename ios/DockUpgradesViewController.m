@@ -8,7 +8,6 @@
 #import "DockUpgradeDetailViewController.h"
 
 @interface DockUpgradesViewController ()
-@property (nonatomic, assign) BOOL disclosureTapped;
 @end
 
 @implementation DockUpgradesViewController
@@ -22,7 +21,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     self.navigationController.title = _upType;
-    _disclosureTapped = NO;
     [super viewWillAppear: animated];
     NSIndexPath* indexPath = nil;
     if (_targetUpgrade) {
@@ -119,7 +117,6 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    _disclosureTapped = YES;
     [self.tableView selectRowAtIndexPath: indexPath animated: NO scrollPosition:UITableViewScrollPositionMiddle];
     [self performSegueWithIdentifier: @"ShowUpgradeDetails" sender: self];
 }
@@ -154,10 +151,7 @@
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    if (_targetShip) {
-        return _disclosureTapped;
-    }
-    return YES;
+    return NO;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -211,7 +211,7 @@
     } else if ([sequeIdentifier isEqualToString:@"PickShip"]) {
         DockShipsViewController *shipsViewController = (DockShipsViewController *)destination;
         shipsViewController.managedObjectContext = [_equippedShip managedObjectContext];
-        [shipsViewController targetSquad: _equippedShip.squad onPicked: ^(DockShip* theShip) { [self changeShip: theShip]; }];
+        [shipsViewController targetSquad: _equippedShip.squad ship:_equippedShip.ship onPicked: ^(DockShip* theShip) { [self changeShip: theShip]; }];
     }
 }
 

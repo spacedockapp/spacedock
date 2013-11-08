@@ -1,5 +1,7 @@
 #import <UIKit/UIKit.h>
 
-@interface DockShipDetailViewController : UITableViewController
+@class DockShip;
 
+@interface DockShipDetailViewController : UITableViewController
+@property (nonatomic, weak) DockShip* ship;
 @end

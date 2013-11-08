@@ -1,11 +1,14 @@
 #import "DockShipsViewController.h"
 
 #import "DockEquippedShip+Addons.h"
+#import "DockShipDetailViewController.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 
 @interface DockShipsViewController ()
-@property (nonatomic, assign) BOOL disclosureTapped;
+@property (nonatomic, strong) DockShipPicked onShipPicked;
+@property (nonatomic, weak) DockShip *targetShip;
+@property (nonatomic, weak) DockSquad *targetSquad;
 @end
 
 @implementation DockShipsViewController
@@ -29,8 +32,17 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    _disclosureTapped = NO;
     [super viewWillAppear: animated];
+
+    NSIndexPath* indexPath = nil;
+
+    if (_targetShip) {
+        indexPath = [self.fetchedResultsController indexPathForObject: _targetShip];
+    }
+
+    if (indexPath != nil) {
+        [self.tableView selectRowAtIndexPath: indexPath animated: YES scrollPosition: UITableViewScrollPositionMiddle];
+    }
 }
 
 #pragma mark - Table view data source methods
@@ -65,6 +77,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"didSelectRowAtIndexPath %@", indexPath);
     if (_targetSquad) {
         DockShip *ship = [self.fetchedResultsController objectAtIndexPath:indexPath];
         _onShipPicked(ship);
@@ -76,14 +89,20 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    _disclosureTapped = YES;
+    NSLog(@"accessoryButtonTappedForRowWithIndexPath %@", indexPath);
     [self.tableView selectRowAtIndexPath: indexPath animated: NO scrollPosition:UITableViewScrollPositionMiddle];
     [self performSegueWithIdentifier: @"ShowShipDetails" sender: self];
 }
 
 -(void)targetSquad:(DockSquad*)squad onPicked:(DockShipPicked)onPicked
 {
+    [self targetSquad: squad ship: nil onPicked: onPicked];
+}
+
+-(void)targetSquad:(DockSquad*)squad ship:(DockShip*)ship onPicked:(DockShipPicked)onPicked
+{
     _targetSquad = squad;
+    _targetShip = ship;
     _onShipPicked = onPicked;
 }
 
@@ -95,10 +114,19 @@
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    if (_targetSquad) {
-        return _disclosureTapped;
+    return NO;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSString* identifier = [segue identifier];
+    id destination = [segue destinationViewController];
+    if ([identifier isEqualToString:@"ShowShipDetails"]) {
+        DockShipDetailViewController* controller = (DockShipDetailViewController*)destination;
+        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        DockShip *ship = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        controller.ship = ship;
     }
-    return YES;
 }
 
 @end
