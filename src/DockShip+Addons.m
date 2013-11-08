@@ -142,4 +142,27 @@
     return [self.crew intValue];
 }
 
+-(NSArray*)actionStrings
+{
+    NSMutableArray* actionStringParts = [NSMutableArray arrayWithCapacity: 0];
+    if ([self.scan intValue]) {
+        [actionStringParts addObject: @"Scan"];
+    }
+    if ([self.cloak intValue]) {
+        [actionStringParts addObject: @"Cloak"];
+    }
+    if ([self.battleStations intValue]) {
+        [actionStringParts addObject: @"Battle"];
+    }
+    if ([self.evasiveManeuvers intValue]) {
+        [actionStringParts addObject: @"Evade"];
+    }
+
+    if ([self.targetLock intValue]) {
+        [actionStringParts addObject: @"Lock"];
+    }
+
+    return [NSArray arrayWithArray: actionStringParts];
+}
+
 @end

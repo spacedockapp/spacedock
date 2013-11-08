@@ -18,7 +18,11 @@
 
 -(NSInteger)rowCount
 {
-    return 6;
+    NSString *str = _ship.ability;
+    if (str.length > 0) {
+        return kShipDetailAbility+1;
+    }
+    return kShipDetailAbility;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -40,38 +44,6 @@
     return cell;
 }
 
--(UITableViewCell*)cellForTitle:(UITableView*)tableView
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
-    cell.textLabel.text = @"Title";
-    cell.detailTextLabel.text = _ship.title;
-    return cell;
-}
-
--(UITableViewCell*)cellForFaction:(UITableView*)tableView
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
-    cell.textLabel.text = @"Faction";
-    cell.detailTextLabel.text = _ship.faction;
-    return cell;
-}
-
--(UITableViewCell*)cellForClass:(UITableView*)tableView
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
-    cell.textLabel.text = @"Class";
-    cell.detailTextLabel.text = _ship.shipClass;
-    return cell;
-}
-
--(UITableViewCell*)cellForCost:(UITableView*)tableView
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
-    cell.textLabel.text = @"Cost";
-    cell.detailTextLabel.text = [_ship.cost stringValue];
-    return cell;
-}
-
 -(UITableViewCell*)cellForUnique:(UITableView*)tableView
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
@@ -86,21 +58,73 @@
     return cell;
 }
 
+-(UITableViewCell*)cellForActions:(UITableView*)tableView
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
+    cell.textLabel.text = @"Actions";
+    NSArray* actions = [_ship actionStrings];
+    cell.detailTextLabel.text = [actions componentsJoinedByString: @", "];
+    return cell;
+}
+
+-(UITableViewCell*)cell:(UITableView*)tableView forKey:(NSString*)key label:(NSString*)label
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
+    cell.textLabel.text = label;
+    id value = [_ship valueForKey: key];
+    NSString* textValue = [NSString stringWithFormat: @"%@", value];
+    cell.detailTextLabel.text = textValue;
+    return cell;
+}
+
+enum {
+    kShipDetailTitle,
+    kShipDetailClass,
+    kShipDetailFaction,
+    kShipDetailCost,
+    kShipDetailUnique,
+    kShipDetailAttack,
+    kShipDetailAgility,
+    kShipDetailHull,
+    kShipDetailShields,
+    kShipDetailCrew,
+    kShipDetailTech,
+    kShipDetailWeapons,
+    kShipDetailActions,
+    kShipDetailAbility
+};
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger row = [indexPath indexAtPosition: 1];
 
     switch (row) {
-    case 0:
-        return [self cellForTitle: tableView];
-    case 1:
-        return [self cellForClass: tableView];
-    case 2:
-        return [self cellForFaction: tableView];
-    case 3:
-        return [self cellForCost: tableView];
-    case 4:
+    case kShipDetailTitle:
+        return [self cell: tableView forKey: @"title" label: @"Title"];
+    case kShipDetailClass:
+        return [self cell: tableView forKey: @"shipClass" label: @"Class"];
+    case kShipDetailFaction:
+        return [self cell: tableView forKey: @"faction" label: @"Faction"];
+    case kShipDetailCost:
+        return [self cell: tableView forKey: @"cost" label: @"Cost"];
+    case kShipDetailUnique:
         return [self cellForUnique: tableView];
+    case kShipDetailAttack:
+        return [self cell: tableView forKey: @"attack" label: @"Attack"];
+    case kShipDetailAgility:
+        return [self cell: tableView forKey: @"agility" label: @"Agility"];
+    case kShipDetailHull:
+        return [self cell: tableView forKey: @"hull" label: @"Hull"];
+    case kShipDetailShields:
+        return [self cell: tableView forKey: @"shield" label: @"Shields"];
+    case kShipDetailCrew:
+        return [self cell: tableView forKey: @"crew" label: @"Crew"];
+    case kShipDetailTech:
+        return [self cell: tableView forKey: @"tech" label: @"Tech"];
+    case kShipDetailWeapons:
+        return [self cell: tableView forKey: @"weapon" label: @"Weapon"];
+    case kShipDetailActions:
+        return [self cellForActions: tableView];
     }
 
     return [self cellForAbility: tableView];
@@ -108,17 +132,17 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    CGFloat rowHeight = tableView.rowHeight;
     NSInteger lastRowIndex = [self rowCount] - 1;
     NSInteger row = [indexPath indexAtPosition: 1];
     if (row == lastRowIndex) {
         NSString *str = _ship.ability;
         if (str.length > 0) {
             CGSize size = [str sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(_labelWidth-40, 999) lineBreakMode:NSLineBreakByWordWrapping];
-            CGFloat rowHeight = size.height+20;
-            return rowHeight;
+            return size.height+rowHeight/2;
         }
     }
-    return tableView.rowHeight;
+    return rowHeight;
 }
 
 @end

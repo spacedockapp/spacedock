@@ -15,4 +15,5 @@
 -(int)techCount;
 -(int)weaponCount;
 -(int)crewCount;
+-(NSArray*)actionStrings;
 @end

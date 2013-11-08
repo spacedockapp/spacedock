@@ -77,7 +77,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didSelectRowAtIndexPath %@", indexPath);
     if (_targetSquad) {
         DockShip *ship = [self.fetchedResultsController objectAtIndexPath:indexPath];
         _onShipPicked(ship);
