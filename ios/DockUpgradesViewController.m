@@ -112,6 +112,8 @@
         DockUpgrade *upgrade = [self.fetchedResultsController objectAtIndexPath:indexPath];
         _onUpgradePicked(upgrade);
         [self clearTarget];
+    } else {
+        [self performSegueWithIdentifier: @"ShowUpgradeDetails" sender: self];
     }
 }
 
