@@ -17,14 +17,20 @@
 
     if (attackValue != 0) {
         [as appendAttributedString: [[NSMutableAttributedString alloc] initWithString: @" "]];
+#if TARGET_OS_IPHONE
+#else
         [as appendAttributedString: coloredString([attack stringValue], [NSColor redColor], [NSColor blackColor])];
+#endif
     }
 
     NSString* range = [self range];
 
     if (range != nil && range.length > 0) {
         [as appendAttributedString: [[NSMutableAttributedString alloc] initWithString: @" "]];
+#if TARGET_OS_IPHONE
+#else
         [as appendAttributedString: coloredString(range, [NSColor whiteColor], [NSColor blackColor])];
+#endif
     }
 
     return as;

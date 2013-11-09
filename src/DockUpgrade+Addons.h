@@ -22,4 +22,5 @@
 -(NSString*)typeCode;
 -(NSString*)plainDescription;
 -(NSString*)factionCode;
+-(int)costForShip:(DockEquippedShip*)equippedShip;
 @end

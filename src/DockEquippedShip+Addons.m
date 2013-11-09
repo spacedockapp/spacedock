@@ -395,4 +395,33 @@
     [self establishPlaceholders];
 }
 
+-(NSDictionary*)explainCantAddUpgrade:(DockUpgrade*)upgrade
+{
+    NSString* msg = [NSString stringWithFormat: @"Can't add %@ to %@", [upgrade plainDescription], [self plainDescription]];
+    NSString* info = @"";
+    int limit = [upgrade limitForShip: self];
+
+    if (limit == 0) {
+        NSString* targetClass = [upgrade targetShipClass];
+
+        if (targetClass != nil) {
+            info = [NSString stringWithFormat: @"This upgrade can only be installed on ships of class %@.", targetClass];
+        } else {
+            if ([upgrade isTalent]) {
+                info = [NSString stringWithFormat: @"This ship's captain has no %@ upgrade symbols.", [upgrade.upType lowercaseString]];
+            } else {
+                info = [NSString stringWithFormat: @"This ship has no %@ upgrade symbols on its ship card.", [upgrade.upType lowercaseString]];
+            }
+        }
+    } else {
+        NSString* upgradeSpecial = upgrade.special;
+
+        if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
+            info = @"This upgrade can only be added to Jem'hadar ships.";
+        }
+    }
+
+    return @{@"info": info, @"message": msg};
+}
+
 @end

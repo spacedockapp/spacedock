@@ -1,5 +1,6 @@
 #import "DockShip+Addons.h"
 
+#import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
 
 @implementation DockShip (Addons)
@@ -73,8 +74,10 @@
 
 -(NSAttributedString*)styledDescription
 {
-    NSAttributedString* space = [[NSAttributedString alloc] initWithString: @" "];
     NSMutableAttributedString* desc = [[NSMutableAttributedString alloc] initWithString: [self plainDescription]];
+#if TARGET_OS_IPHONE
+#else
+    NSAttributedString* space = [[NSAttributedString alloc] initWithString: @" "];
     [desc appendAttributedString: space];
     [desc appendAttributedString: coloredString([self.attack stringValue], [NSColor whiteColor], [NSColor redColor])];
     [desc appendAttributedString: space];
@@ -83,6 +86,7 @@
     [desc appendAttributedString: coloredString([self.hull stringValue], [NSColor blackColor], [NSColor yellowColor])];
     [desc appendAttributedString: space];
     [desc appendAttributedString: coloredString([self.shield stringValue], [NSColor whiteColor], [NSColor blueColor])];
+#endif
     return desc;
 }
 
@@ -136,6 +140,29 @@
 -(int)crewCount
 {
     return [self.crew intValue];
+}
+
+-(NSArray*)actionStrings
+{
+    NSMutableArray* actionStringParts = [NSMutableArray arrayWithCapacity: 0];
+    if ([self.scan intValue]) {
+        [actionStringParts addObject: @"Scan"];
+    }
+    if ([self.cloak intValue]) {
+        [actionStringParts addObject: @"Cloak"];
+    }
+    if ([self.battleStations intValue]) {
+        [actionStringParts addObject: @"Battle"];
+    }
+    if ([self.evasiveManeuvers intValue]) {
+        [actionStringParts addObject: @"Evade"];
+    }
+
+    if ([self.targetLock intValue]) {
+        [actionStringParts addObject: @"Lock"];
+    }
+
+    return [NSArray arrayWithArray: actionStringParts];
 }
 
 @end

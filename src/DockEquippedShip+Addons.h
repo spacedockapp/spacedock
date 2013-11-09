@@ -25,4 +25,5 @@
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
 -(DockEquippedUpgrade*)containsUpgradeWithName:(NSString*)theName;
 -(void)changeShip:(DockShip*)newShip;
+-(NSDictionary*)explainCantAddUpgrade:(DockUpgrade*)upgrade;
 @end
