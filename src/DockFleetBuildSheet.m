@@ -31,7 +31,7 @@ static NSDictionary* dataForResource(DockResource* theResource)
     return @{@"title": theResource.title, @"cost": theResource.cost};
 }
 
--(NSDictionary*)printableData:(DockEquippedShip*)theShip index:(int)index
+-(NSDictionary*)printableData:(DockEquippedShip*)theShip index:(int)index upgradeCount:(NSInteger)upgradeCount
 {
     NSArray* equippedUpgrades = theShip.sortedUpgrades;
     NSMutableArray* upgrades = [[NSMutableArray alloc] initWithCapacity: equippedUpgrades.count];
@@ -39,6 +39,15 @@ static NSDictionary* dataForResource(DockResource* theResource)
         if (![upgrade isPlaceholder] && ![upgrade.upgrade isCaptain]) {
             [upgrades addObject: dataForUpgrade(upgrade)];
         }
+    }
+    id blank = @{
+        @"title": @" ",
+        @"faction": @" ",
+        @"upType": @" ",
+        @"cost": @" "
+    };
+    while (upgrades.count < upgradeCount) {
+        [upgrades addObject: blank];
     }
     return @{
         @"index": [NSNumber numberWithInt: index],
@@ -69,10 +78,17 @@ static NSDictionary* dataForResource(DockResource* theResource)
         squadData[@"resource"] = resourceData;
     }
     NSMutableArray* list = [[NSMutableArray alloc] initWithCapacity: 2];
+    NSInteger upgradeCount = -1;
+    for (DockEquippedShip* ship in equippedShips) {
+        NSInteger current = [ship upgradeCount];
+        if (current > upgradeCount) {
+            upgradeCount = current;
+        }
+    }
     for (int i = 0; i < 6; i+=1) {
         NSDictionary* shipData;
         if (i < shipCount) {
-            shipData = [self printableData: equippedShips[i] index: i+1];
+            shipData = [self printableData: equippedShips[i] index: i+1 upgradeCount: upgradeCount];
         } else {
             shipData = @{};
         }

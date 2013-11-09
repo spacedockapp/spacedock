@@ -364,6 +364,18 @@
     return [captain talentCount];
 }
 
+-(int)upgradeCount
+{
+    int count = 0;
+    for (DockEquippedUpgrade* eu in [self sortedUpgrades]) {
+        DockUpgrade* upgrade = eu.upgrade;
+        if (![upgrade isPlaceholder] && ![upgrade isCaptain]) {
+            count += 1;
+        }
+    }
+    return count;
+}
+
 -(NSString*)ability
 {
     return self.ship.ability;

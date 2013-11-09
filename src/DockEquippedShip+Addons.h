@@ -20,6 +20,7 @@
 -(void)removeUpgrade:(DockEquippedUpgrade*)upgrade establishPlaceholders:(BOOL)doEstablish;
 -(void)removeCaptain;
 -(int)talentCount;
+-(int)upgradeCount;
 -(NSArray*)sortedUpgrades;
 -(NSString*)plainDescription;
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
