@@ -77,6 +77,7 @@
     if (row == resources.count) {
         cell.textLabel.text = @"No resource";
         cell.detailTextLabel.text = @"";
+        cell.accessoryType = UITableViewCellAccessoryNone;
     } else {
         DockResource* resource = resources[row];
         cell.textLabel.text = [resource title];
