@@ -463,7 +463,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="640" height="480"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <splitView dividerStyle="paneSplitter" id="lMe-F2-UQf">
+                    <splitView autosaveName="topbottomsplit" dividerStyle="paneSplitter" id="lMe-F2-UQf">
                         <rect key="frame" x="20" y="18" width="608" height="450"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
