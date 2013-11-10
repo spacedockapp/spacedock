@@ -15,6 +15,7 @@
 -(void)removeEquippedShip:(DockEquippedShip*)ship;
 -(void)squadCompositionChanged;
 -(NSString*)asTextFormat;
+-(NSString*)asPlainTextFormat;
 -(NSString*)asDataFormat;
 -(DockEquippedShip*)containsShip:(DockShip*)theShip;
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;

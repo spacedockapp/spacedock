@@ -203,6 +203,37 @@
     return [NSString stringWithString: textFormat];
 }
 
+-(NSString*)asPlainTextFormat
+{
+    NSMutableString* textFormat = [[NSMutableString alloc] init];
+
+    for (DockEquippedShip* ship in self.equippedShips) {
+        NSString* s = [NSString stringWithFormat: @"%@ (%@)\n", ship.title, [ship.ship cost]];
+        [textFormat appendString: s];
+
+        for (DockEquippedUpgrade* upgrade in ship.sortedUpgrades) {
+            if (![upgrade isPlaceholder]) {
+
+                s = [NSString stringWithFormat: @"%@ (%d)\n", upgrade.title, [upgrade cost]];
+                [textFormat appendString: s];
+            }
+        }
+        s = [NSString stringWithFormat: @"Total (%d)\n", ship.cost];
+        [textFormat appendString: s];
+        [textFormat appendString: @"\n"];
+    }
+
+    DockResource* resource = self.resource;
+
+    if (resource != nil) {
+        NSString* resourceString = [NSString stringWithFormat: @"%@ (%@)\n", resource.title, [resource cost]];
+        [textFormat appendString: resourceString];
+    }
+
+    [textFormat appendString: [NSString stringWithFormat: @"Fleet total: %d\n", self.cost]];
+    return [NSString stringWithString: textFormat];
+}
+
 static NSString* toDataFormat(NSString* label, id element)
 {
     return [NSString stringWithFormat: @"%@|%@|%@\n", label, [element title], [element externalId]];

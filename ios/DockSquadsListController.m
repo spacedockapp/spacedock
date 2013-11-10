@@ -4,7 +4,9 @@
 #import "DockSquad+Addons.h"
 #import "DockSquadDetailController.h"
 
-@interface DockSquadsListController ()
+#import <MessageUI/MessageUI.h>
+
+@interface DockSquadsListController () <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @end
 
@@ -199,6 +201,57 @@
             newSquad.name = newValue;
         };
     }
+}
+
+-(IBAction)export:(id)sender
+{
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+        picker.mailComposeDelegate = self;
+        
+        [picker setSubject:@"Space Dock All Squads"];
+        
+        // Fill out the email body text
+        NSString* textFormat = @"Attached are squads for use with Space Dock on Mac or STAW Squad Builder on Windows.";
+        [picker setMessageBody:textFormat isHTML: NO];
+
+        for (DockSquad* squad in self.fetchedResultsController.fetchedObjects) {
+            NSString* stawFormat = [squad asDataFormat];
+            NSData *myData = [stawFormat dataUsingEncoding: NSUTF8StringEncoding];
+            [picker addAttachmentData:myData mimeType:@"text/x-staw" fileName: [squad.name stringByAppendingPathExtension: @"dat"]];
+        }
+
+        [self presentViewController:picker animated:YES completion:NULL];
+    } else {
+        UIAlertView* view = [[UIAlertView alloc] initWithTitle: @"Can't Send All Squads"
+                                                       message: @"This device is not configured to send mail."
+                                                      delegate: nil
+                                             cancelButtonTitle: @""
+                                             otherButtonTitles: @"",
+                             nil];
+        [view show];
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+		didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    if (error != nil) {
+        UIAlertView* view = [[UIAlertView alloc] initWithTitle: @"Can't send Squad"
+                                                       message: error.localizedDescription
+                                                      delegate: nil
+                                             cancelButtonTitle: @""
+                                             otherButtonTitles: @"",
+                             nil];
+        [view show];
+    }
+	[self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller
+			  didFinishWithResult:(MessageComposeResult)result
+{
+	[self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end

@@ -10,7 +10,9 @@
 #import "DockSquad+Addons.h"
 #import "DockUtilsMobile.h"
 
-@interface DockSquadDetailController ()
+#import <MessageUI/MessageUI.h>
+
+@interface DockSquadDetailController () <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 @property (nonatomic, strong) UITextView *nameTextView;
 @end
 
@@ -246,4 +248,52 @@
     [self updateCost];
 }
 
+-(IBAction)export:(id)sender
+{
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+        picker.mailComposeDelegate = self;
+        
+        [picker setSubject:[NSString stringWithFormat: @"Space Dock squad %@", _squad.name]];
+        
+        // Fill out the email body text
+        NSString* textFormat = [_squad asPlainTextFormat];
+        [picker setMessageBody:textFormat isHTML: NO];
+        
+        NSString* stawFormat = [_squad asDataFormat];
+        NSData *myData = [stawFormat dataUsingEncoding: NSUTF8StringEncoding];
+        [picker addAttachmentData:myData mimeType:@"text/x-staw" fileName: [_squad.name stringByAppendingPathExtension: @"dat"]];
+
+        [self presentViewController:picker animated:YES completion:NULL];
+    } else {
+        UIAlertView* view = [[UIAlertView alloc] initWithTitle: @"Can't send Squad"
+                                                       message: @"This device is not configured to send mail."
+                                                      delegate: nil
+                                             cancelButtonTitle: @""
+                                             otherButtonTitles: @"",
+                             nil];
+        [view show];
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+		didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    if (error != nil) {
+        UIAlertView* view = [[UIAlertView alloc] initWithTitle: @"Can't send Squad"
+                                                       message: error.localizedDescription
+                                                      delegate: nil
+                                             cancelButtonTitle: @""
+                                             otherButtonTitles: @"",
+                             nil];
+        [view show];
+    }
+	[self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller
+			  didFinishWithResult:(MessageComposeResult)result
+{
+	[self dismissViewControllerAnimated:YES completion:NULL];
+}
 @end

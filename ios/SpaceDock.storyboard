@@ -397,10 +397,14 @@
         <!--Navigation Controller-->
         <scene sceneID="ki2-aR-xMU">
             <objects>
-                <navigationController definesPresentationContext="YES" id="CGb-hD-QBi" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" toolbarHidden="NO" id="CGb-hD-QBi" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wnT-eg-K5x">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Bnz-Im-J1X">
+                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="yzI-Hg-i8a" kind="relationship" relationship="rootViewController" id="MHS-bI-bqY"/>
                     </connections>
@@ -525,6 +529,25 @@
             </objects>
             <point key="canvasLocation" x="1242" y="-963"/>
         </scene>
+        <!--Mail Compose View Controller-->
+        <scene sceneID="Gee-6S-SeR">
+            <objects>
+                <viewController id="8XB-1c-r4d" customClass="MFMailComposeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qSS-Fc-5Ff"/>
+                        <viewControllerLayoutGuide type="bottom" id="ICD-nY-1JQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UFm-N8-fMj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3SR-jJ-Vk4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hOk-pY-ihi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1556" y="-373"/>
+        </scene>
         <!--Edit Value-->
         <scene sceneID="UGA-zw-vHQ">
             <objects>
@@ -559,6 +582,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="valueField" destination="Gf6-Gg-Vpr" id="Lld-T4-YxF"/>
                     </connections>
@@ -603,6 +627,13 @@
                             <outlet property="delegate" destination="a7T-G7-OqU" id="Etl-Ng-9ER"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem systemItem="action" id="HCT-qf-8bK">
+                            <connections>
+                                <action selector="export:" destination="a7T-G7-OqU" id="FR4-Bz-9Mz"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Squads" id="sxs-41-PIs">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="z1b-3p-kgw">
                             <connections>
@@ -731,6 +762,13 @@
                             <outlet property="delegate" destination="aSy-vS-qmb" id="MSq-Ay-mCf"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem systemItem="action" id="PrS-Bq-AMN">
+                            <connections>
+                                <action selector="export:" destination="aSy-vS-qmb" id="Ecp-dO-ANZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="ZAe-z1-8m9"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uZd-6l-NAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
