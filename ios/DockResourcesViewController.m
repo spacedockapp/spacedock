@@ -1,5 +1,6 @@
 #import "DockResourcesViewController.h"
 
+#import "DockDetailViewController.h"
 #import "DockResource.h"
 
 @interface DockResourcesViewController ()
@@ -99,6 +100,8 @@
         }
         _onResourcePicked(resource);
         [self clearTarget];
+    } else {
+        [self performSegueWithIdentifier: @"ShowResourceDetails" sender: self];
     }
 }
 
@@ -106,7 +109,7 @@
 {
     _disclosureTapped = YES;
     [self.tableView selectRowAtIndexPath: indexPath animated: NO scrollPosition:UITableViewScrollPositionMiddle];
-    [self performSegueWithIdentifier: @"ShowUpgradeDetails" sender: self];
+    [self performSegueWithIdentifier: @"ShowResourceDetails" sender: self];
 }
 
 -(void)clearTarget
@@ -121,6 +124,25 @@
     _targetResource = resource;
     _targetSquad = squad;
     _onResourcePicked = onPicked;
+}
+
+#pragma mark - Navigation
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    return NO;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSString* identifier = [segue identifier];
+    id destination = [segue destinationViewController];
+    if ([identifier isEqualToString:@"ShowResourceDetails"]) {
+        DockDetailViewController* controller = (DockDetailViewController*)destination;
+        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        NSManagedObject *target = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        controller.target = target;
+    }
 }
 
 @end

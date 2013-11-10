@@ -173,7 +173,7 @@
 {
     NSInteger section = [indexPath indexAtPosition: 0];
     if (section == 0) {
-        return 22;
+        return 32;
     }
     return tableView.rowHeight;
 }
