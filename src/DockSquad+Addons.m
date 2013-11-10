@@ -228,6 +228,7 @@
     if (resource != nil) {
         NSString* resourceString = [NSString stringWithFormat: @"%@ (%@)\n", resource.title, [resource cost]];
         [textFormat appendString: resourceString];
+        [textFormat appendString: @"\n"];
     }
 
     [textFormat appendString: [NSString stringWithFormat: @"Fleet total: %d\n", self.cost]];

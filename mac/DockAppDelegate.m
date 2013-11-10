@@ -965,4 +965,13 @@ NSString* kInspectorVisible = @"inspectorVisible";
 {
     [_fleetBuildSheet show: [self selectedSquad]];
 }
+
+-(IBAction)copy:(id)sender
+{
+    NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
+    [pasteboard clearContents];
+    NSArray *objectsToCopy = @[[[self selectedSquad] asPlainTextFormat]];
+    [pasteboard writeObjects:objectsToCopy];
+}
+
 @end
