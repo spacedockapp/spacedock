@@ -3,6 +3,7 @@
 #import "DockEquippedShipController.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEditValueController.h"
+#import "DockEquippedShipCell.h"
 #import "DockResource+Addons.h"
 #import "DockResourcesViewController.h"
 #import "DockShipsViewController.h"
@@ -120,10 +121,12 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"addShip" forIndexPath:indexPath];
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier:@"ship" forIndexPath:indexPath];
+            DockEquippedShipCell* shipCell = (DockEquippedShipCell*)cell;
             DockEquippedShip* es = _squad.equippedShips[row];
             DockShip* ship = es.ship;
-            cell.detailTextLabel.text = [NSString stringWithFormat: @"%d", [es cost]];
-            cell.textLabel.text = ship.title;
+            shipCell.cost.text = [NSString stringWithFormat: @"%d", [es cost]];
+            shipCell.details.text = [es upgradesDescription];
+            shipCell.title.text = ship.title;
         }
     }
     return cell;

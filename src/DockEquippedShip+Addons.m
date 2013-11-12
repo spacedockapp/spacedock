@@ -39,6 +39,19 @@
     return [self.ship styledDescription];
 }
 
+-(NSString*)upgradesDescription
+{
+    NSArray* sortedUpgrades = [self sortedUpgrades];
+    NSMutableArray* upgradeTitles = [NSMutableArray arrayWithCapacity: sortedUpgrades.count];
+    for (DockEquippedUpgrade* eu in sortedUpgrades) {
+        DockUpgrade* upgrade = eu.upgrade;
+        if (![upgrade isPlaceholder]) {
+            [upgradeTitles addObject: upgrade.title];
+        }
+    }
+    return [upgradeTitles componentsJoinedByString: @", "];
+}
+
 -(int)baseCost
 {
     return [self.ship.cost intValue];

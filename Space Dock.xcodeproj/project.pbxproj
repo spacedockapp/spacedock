@@ -46,6 +46,7 @@
 		D4259F451810D24000BB02BA /* NSFormatter+GRMustache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F271810D24000BB02BA /* NSFormatter+GRMustache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D4259F461810D24000BB02BA /* NSValueTransformer+GRMustache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F291810D24000BB02BA /* NSValueTransformer+GRMustache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D4259F491810D2C000BB02BA /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F481810D2C000BB02BA /* JRSwizzle.m */; };
+		D427FC3118320F2500D4CC83 /* DockEquippedShipCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D427FC3018320F2500D4CC83 /* DockEquippedShipCell.m */; };
 		D42BD1F017EA134B0000598C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42BD1EF17EA134B0000598C /* Cocoa.framework */; };
 		D433FE0A181503A20062731A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCA3FC1814F8DF00921183 /* Foundation.framework */; };
 		D433FE0B181503A20062731A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCA3FE1814F8DF00921183 /* CoreGraphics.framework */; };
@@ -238,6 +239,8 @@
 		D4259F291810D24000BB02BA /* NSValueTransformer+GRMustache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValueTransformer+GRMustache.m"; sourceTree = "<group>"; };
 		D4259F471810D2C000BB02BA /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRSwizzle.h; path = ../GRMustache/src/vendor/groue/jrswizzle/JRSwizzle.h; sourceTree = "<group>"; };
 		D4259F481810D2C000BB02BA /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRSwizzle.m; path = ../GRMustache/src/vendor/groue/jrswizzle/JRSwizzle.m; sourceTree = "<group>"; };
+		D427FC2F18320F2500D4CC83 /* DockEquippedShipCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockEquippedShipCell.h; sourceTree = "<group>"; };
+		D427FC3018320F2500D4CC83 /* DockEquippedShipCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockEquippedShipCell.m; sourceTree = "<group>"; };
 		D42BD1EC17EA134B0000598C /* Space Dock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Dock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42BD1EF17EA134B0000598C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D42BD1F217EA134B0000598C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -549,6 +552,8 @@
 				D45E4CB2182E8FE400F0AA7D /* DockDetailViewController.m */,
 				D457FD16181D58E0009C2E13 /* DockEditValueController.h */,
 				D457FD17181D58E0009C2E13 /* DockEditValueController.m */,
+				D427FC2F18320F2500D4CC83 /* DockEquippedShipCell.h */,
+				D427FC3018320F2500D4CC83 /* DockEquippedShipCell.m */,
 				D40108E0182015090029FDC4 /* DockEquippedShipController.h */,
 				D40108E1182015090029FDC4 /* DockEquippedShipController.m */,
 				D45E4CB4182E9B2500F0AA7D /* DockResourceDetailViewController.h */,
@@ -868,6 +873,7 @@
 				D433FE21181503A20062731A /* DockShipsViewController.m in Sources */,
 				D457FD1C181DAE88009C2E13 /* DockUtilsMobile.m in Sources */,
 				D47316C318182DE700046428 /* DockSet.m in Sources */,
+				D427FC3118320F2500D4CC83 /* DockEquippedShipCell.m in Sources */,
 				D433FE24181503A20062731A /* DockTopMenuViewController.m in Sources */,
 				D47316AC18182C4C00046428 /* DockEquippedShip+Addons.m in Sources */,
 				D457FD19181D5B1E009C2E13 /* DockEditValueController.m in Sources */,

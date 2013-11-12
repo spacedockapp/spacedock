@@ -23,6 +23,7 @@
 -(int)upgradeCount;
 -(NSArray*)sortedUpgrades;
 -(NSString*)plainDescription;
+-(NSString*)upgradesDescription;
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
 -(DockEquippedUpgrade*)containsUpgradeWithName:(NSString*)theName;
 -(void)changeShip:(DockShip*)newShip;
