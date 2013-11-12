@@ -343,6 +343,21 @@
     }
 }
 
+-(void)removeIllegalUpgrades
+{
+    NSMutableArray* onesToRemove = [[NSMutableArray alloc] initWithCapacity: 0];
+
+    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        if (![self canAddUpgrade: eu.upgrade]) {
+            [onesToRemove addObject: eu];
+        }
+    }
+
+    for (DockEquippedUpgrade* eu in onesToRemove) {
+        [self removeUpgrade: eu establishPlaceholders: NO];
+    }
+}
+
 -(NSArray*)sortedUpgrades
 {
     NSArray* items = [self.upgrades allObjects];
@@ -404,6 +419,7 @@
 -(void)changeShip:(DockShip*)newShip
 {
     self.ship = newShip;
+    [self removeIllegalUpgrades];
     [self establishPlaceholders];
 }
 
