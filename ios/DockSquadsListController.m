@@ -3,6 +3,7 @@
 #import "DockEditValueController.h"
 #import "DockSquad+Addons.h"
 #import "DockSquadDetailController.h"
+#import "DockSquadListCell.h"
 
 #import <MessageUI/MessageUI.h>
 
@@ -137,8 +138,11 @@
 
 -(void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath *)indexPath
 {
+    DockSquadListCell* squadCell = (DockSquadListCell*)cell;
     DockSquad* squad = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = squad.name;
+    squadCell.cost.text = [NSString stringWithFormat: @"%d", [squad cost]];
+    squadCell.details.text = [squad shipsDescription];
+    squadCell.title.text = squad.name;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

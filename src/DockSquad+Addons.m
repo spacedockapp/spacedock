@@ -162,6 +162,15 @@
     [self didChangeValueForKey: @"cost"];
 }
 
+-(NSString*)shipsDescription
+{
+    NSMutableArray* shipTitles = [NSMutableArray arrayWithCapacity: self.equippedShips.count];
+    for (DockEquippedShip* ship in self.equippedShips) {
+        [shipTitles addObject: ship.ship.title];
+    }
+    return [shipTitles componentsJoinedByString: @", "];
+}
+
 -(NSString*)asTextFormat
 {
     NSMutableString* textFormat = [[NSMutableString alloc] init];
