@@ -6,6 +6,7 @@
 #import "DockEquippedShip+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUpgradeDetailViewController.h"
+#import "DockUtilsMobile.h"
 
 @interface DockUpgradesViewController ()
 @end
@@ -66,6 +67,17 @@
     [fetchRequest setPredicate: predicateTemplate];
 }
 
+-(void)explainCantAddUpgrade:(NSError*)error
+{
+    NSDictionary* d = [error userInfo];
+    UIAlertView* view = [[UIAlertView alloc] initWithTitle: d[NSLocalizedDescriptionKey]
+        message: d[NSLocalizedFailureReasonErrorKey]
+        delegate: nil
+        cancelButtonTitle: nil
+        otherButtonTitles: @"OK", nil];
+    [view show];
+}
+
 #pragma mark - Table view data source methods
 
 // Customize the appearance of table view cells.
@@ -76,7 +88,7 @@
     cell.textLabel.text = [upgrade title];
     if (_targetShip) {
         BOOL canAdd = [_targetSquad canAddUpgrade: upgrade toShip: _targetShip error: nil];
-        if (!canAdd) {
+        if (!canAdd && (_targetUpgrade != upgrade)) {
             cell.textLabel.textColor = [UIColor grayColor];
         } else {
             cell.textLabel.textColor = [UIColor blackColor];
@@ -98,8 +110,12 @@
 {
     if (_targetSquad) {
         DockUpgrade *upgrade = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        return [_targetSquad canAddUpgrade: upgrade toShip: _targetShip error: nil];
-    } else {
+        NSError* error;
+        if (_targetUpgrade == upgrade || [_targetSquad canAddUpgrade: upgrade toShip: _targetShip error: &error]) {
+            return YES;
+        }
+        [self explainCantAddUpgrade: error];
+        return NO;
     }
     return YES;
 }

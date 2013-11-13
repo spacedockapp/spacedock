@@ -3,5 +3,6 @@
 extern NSString* DockErrorDomain;
 extern NSString* DockExistingUpgradeKey;
 enum {
-    kUniqueConflict = 1000
+    kUniqueConflict = 1000,
+    kIllegalUpgrade
 };

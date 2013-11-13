@@ -55,7 +55,7 @@
     cell.textLabel.text = ship.title;
     if ([ship isUnique]) {
         if (_targetSquad) {
-            if ([_targetSquad containsShip: ship]) {
+            if (_targetShip != ship && [_targetSquad containsShip: ship]) {
                 cell.textLabel.textColor = [UIColor grayColor];
             } else {
                 cell.textLabel.textColor = [UIColor blackColor];
@@ -68,7 +68,7 @@
 {
     if (_targetSquad) {
         DockShip *ship = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        if ([ship isUnique]) {
+        if (_targetShip != ship && [ship isUnique]) {
             return ![_targetSquad containsShip: ship];
         }
     }

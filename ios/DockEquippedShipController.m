@@ -217,26 +217,31 @@
 
 -(void)addUpgrade:(DockUpgrade*)upgrade replacing:(DockEquippedUpgrade*)oneToReplace
 {
-    [_equippedShip addUpgrade: upgrade maybeReplace: oneToReplace establishPlaceholders: YES];
-    [self.navigationController popViewControllerAnimated:YES];
-    NSError *error;
-    if (!saveItem(_equippedShip, &error)) {
-        presentError(error);
+    if (upgrade != oneToReplace.upgrade) {
+        [_equippedShip removeUpgrade: oneToReplace];
+        [_equippedShip addUpgrade: upgrade maybeReplace: nil establishPlaceholders: YES];
+        NSError *error;
+        if (!saveItem(_equippedShip, &error)) {
+            presentError(error);
+        }
+        [self createBuckets];
+        [self.tableView reloadData];
     }
-    [self createBuckets];
-    [self.tableView reloadData];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)changeShip:(DockShip*)newShip
 {
-    [_equippedShip changeShip: newShip];
-    [self.navigationController popViewControllerAnimated:YES];
-    NSError *error;
-    if (!saveItem(_equippedShip, &error)) {
-        presentError(error);
+    if (_equippedShip.ship != newShip) {
+        [_equippedShip changeShip: newShip];
+        NSError *error;
+        if (!saveItem(_equippedShip, &error)) {
+            presentError(error);
+        }
+        [self createBuckets];
+        [self.tableView reloadData];
     }
-    [self createBuckets];
-    [self.tableView reloadData];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

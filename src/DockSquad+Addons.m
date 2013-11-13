@@ -412,7 +412,7 @@ static NSString* namePrefix(NSString* originalName)
                 NSLocalizedDescriptionKey: reasons[@"message"],
                 NSLocalizedFailureReasonErrorKey: reasons[@"info"]
             };
-            *error = [NSError errorWithDomain: DockErrorDomain code: kUniqueConflict userInfo: d];
+            *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
         }
         return NO;
     }
