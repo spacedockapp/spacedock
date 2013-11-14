@@ -1,6 +1,6 @@
 #import "DockEquippedUpgrade+Addons.h"
 
-#import "DockCaptain.h"
+#import "DockCaptain+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade.h"
 #import "DockShip+Addons.h"
@@ -73,6 +73,11 @@
     if ([upgrade isTalent]) {
         if ([captainSpecial isEqualToString: @"BaselineTalentCostToThree"]) {
             cost = 3;
+        }
+    } else if ([upgrade isCaptain]) {
+        int baseCost = [[upgrade cost] intValue];
+        if (baseCost == 0) {
+            return 0;
         }
     } else if ([upgrade isCrew]) {
         if ([captainSpecial isEqualToString: @"CrewUpgradesCostOneLess"]) {
