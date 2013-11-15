@@ -13,8 +13,8 @@
 
 #import <MessageUI/MessageUI.h>
 
-@interface DockSquadDetailController () <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
-@property (nonatomic, strong) UITextView *nameTextView;
+@interface DockSquadDetailController () <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, UIActionSheetDelegate>
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *cpyBarItem;
 @end
 
 @implementation DockSquadDetailController
@@ -272,7 +272,7 @@
         UIAlertView* view = [[UIAlertView alloc] initWithTitle: @"Can't send Squad"
                                                        message: @"This device is not configured to send mail."
                                                       delegate: nil
-                                             cancelButtonTitle: @""
+                                             cancelButtonTitle: nil
                                              otherButtonTitles: @"",
                              nil];
         [view show];
@@ -286,7 +286,7 @@
         UIAlertView* view = [[UIAlertView alloc] initWithTitle: @"Can't send Squad"
                                                        message: error.localizedDescription
                                                       delegate: nil
-                                             cancelButtonTitle: @""
+                                             cancelButtonTitle: nil
                                              otherButtonTitles: @"",
                              nil];
         [view show];
@@ -299,4 +299,20 @@
 {
 	[self dismissViewControllerAnimated:YES completion:NULL];
 }
+
+-(IBAction)copy:(id)sender
+{
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle: @"Copy Squad"
+                                                       delegate: self
+                                              cancelButtonTitle: @"Cancel"
+                                         destructiveButtonTitle: nil
+                                              otherButtonTitles: @"Duplicate", @"Copy to Clipboard",
+                            nil];
+    [sheet showFromBarButtonItem: _cpyBarItem animated: YES];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+}
+
 @end
