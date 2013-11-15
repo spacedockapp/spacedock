@@ -948,7 +948,98 @@
       <Id>1037</Id>
       <Set>71271</Set>
     </Ship>
-
+    <Ship>
+      <Title>I.K.S. Koraga</Title>
+      <Unique>Y</Unique>
+          <ShipClass>Klingon K'Vort</ShipClass>
+          <Faction>Klingon</Faction>
+          <Attack>4</Attack>
+          <Agility>1</Agility>
+          <Hull>5</Hull>
+          <Shield>3</Shield>
+          <Ability>Each time you defend while Cloaked, roll +1 defense die</Ability>
+          <Cost>26</Cost>
+          <EvasiveManeuvers>1</EvasiveManeuvers>
+          <TargetLock>1</TargetLock>
+          <Scan></Scan>
+          <Battlestations></Battlestations>
+          <Cloak>1</Cloak>
+          <SensorEcho>1</SensorEcho>
+          <Tech>1</Tech>
+          <Weapon>1</Weapon>
+          <Crew>2</Crew>
+          <Id>1038</Id>
+          <Set>71273</Set>
+      </Ship>
+      <Ship>
+      <Title>Klingon K'Vort</Title>
+      <Unique>N</Unique>
+          <ShipClass>Klingon K'Vort</ShipClass>
+          <Faction>Klingon</Faction>
+          <Attack>4</Attack>
+          <Agility>1</Agility>
+          <Hull>5</Hull>
+          <Shield>2</Shield>
+          <Ability></Ability>
+          <Cost>24</Cost>
+          <EvasiveManeuvers>1</EvasiveManeuvers>
+          <TargetLock>1</TargetLock>
+          <Scan></Scan>
+          <Battlestations></Battlestations>
+          <Cloak>1</Cloak>
+          <SensorEcho>1</SensorEcho>
+          <Tech>1</Tech>
+          <Weapon>1</Weapon>
+          <Crew>1</Crew>
+          <Id>1039</Id>
+          <Set>71273</Set>
+      </Ship>
+    <Ship>
+      <Title>Koranak</Title>
+      <Unique>Y</Unique>
+          <ShipClass>Cardassian Keldon</ShipClass>
+          <Faction>Dominion</Faction>
+          <Attack>5</Attack>
+          <Agility>1</Agility>
+          <Hull>4</Hull>
+          <Shield>3</Shield>
+          <Ability>Instead of making a normal attack, you may spend a [SCAN] Token to attack 2 different ships with your Primary Weapon at -2 attack dice each.</Ability>
+          <Cost>26</Cost>
+          <EvasiveManeuvers>1</EvasiveManeuvers>
+          <TargetLock>1</TargetLock>
+          <Scan>1</Scan>
+          <Battlestations>1</Battlestations>
+          <Cloak></Cloak>
+          <SensorEcho></SensorEcho>
+          <Tech>2</Tech>
+          <Weapon>2</Weapon>
+          <Crew>1</Crew>
+          <Id>1040</Id>
+          <Set>71275</Set>
+      </Ship>
+      <Ship>
+      <Title>Cardassian Keldon</Title>
+      <Unique>N</Unique>
+          <ShipClass>Cardassian Keldon</ShipClass>
+          <Faction>Dominion</Faction>
+          <Attack>5</Attack>
+          <Agility>1</Agility>
+          <Hull>4</Hull>
+          <Shield>2</Shield>
+          <Ability></Ability>
+          <Cost>24</Cost>
+          <EvasiveManeuvers>1</EvasiveManeuvers>
+          <TargetLock>1</TargetLock>
+          <Scan>1</Scan>
+          <Battlestations>1</Battlestations>
+          <Cloak></Cloak>
+          <SensorEcho></SensorEcho>
+          <Tech>2</Tech>
+          <Weapon>1</Weapon>
+          <Crew>1</Crew>
+          <Id>1041</Id>
+          <Set>71275</Set>
+      </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -1561,7 +1652,72 @@
       <Id>2036</Id>
       <Set>71271</Set>
     </Captain>    
-
+	<Captain>
+      <Title>Worf</Title>
+      <Unique>Y</Unique>
+      <Ability>When attacking, you may re-roll all of your blank results one time.</Ability>
+      <Skill>5</Skill>
+      <Talent>
+      </Talent>
+      <Attack>
+      </Attack>
+      <Range>
+      </Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>3</Cost>
+      <Id>2037</Id>
+      <Set>71273</Set>
+    </Captain>
+    <Captain>
+      <Title>Kurn</Title>
+      <Unique>Y</Unique>
+      <Ability>ACTION: When attacking this round, gain +1 attack die. Place an Auxiliary Power Token beside your ship.</Ability>
+      <Skill>3</Skill>
+      <Talent>
+      </Talent>
+      <Attack>
+      </Attack>
+      <Range>
+      </Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>2</Cost>
+      <Id>2038</Id>
+      <Set>71273</Set>
+    </Captain>
+    <Captain>
+      <Title>Gul Dukat</Title>
+      <Unique>Y</Unique>
+      <Ability>Your ship may perform an [EVASIVE] or a [BATTLESTATIONS] Action as a free Action each round.</Ability>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack>
+      </Attack>
+      <Range>
+      </Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>2039</Id>
+      <Set>71275</Set>
+    </Captain>
+    <Captain>
+      <Title>Gul Evek</Title>
+      <Unique>Y</Unique>
+      <Ability>Each time you defend, you may re-roll all of your blank results one time.</Ability>
+      <Skill>4</Skill>
+      <Talent></Talent>
+      <Attack>
+      </Attack>
+      <Range>
+      </Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>2</Cost>
+      <Id>2040</Id>
+      <Set>71275</Set>
+    </Captain>
   </Captains>
   <Upgrades>
     <Upgrade>
@@ -3054,10 +3210,158 @@
       <Set>OP2Participation</Set>
       <Special></Special>
     </Upgrade>
-
-
-
-
+	<Upgrade>
+      <Title>N'Garen</Title>
+      <Unique>Y</Unique>
+      <Ability>ACTION: When attacking this round, you may convert 1 of your [BATTLESTATIONS] results into a [CRITICAL] result all all of your other [BATTLESTATIONS] results into [HIT] results.</Ability>
+      <Skill>
+      </Skill>
+      <Talent>
+      </Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>3092</Id>
+      <Set>71273</Set>
+      <Special></Special>
+    </Upgrade>
+	<Upgrade>
+      <Title>Alexander</Title>
+      <Unique>Y</Unique>
+      <Ability>Each time your ship is hit for at least 1 damage, place 1 [BATTLESTATIONS] Token on this card. During the Activation Phase, you may take 1 [BATTLESTATIONS] Token off this card and place it beside your ship.</Ability>
+      <Skill>
+      </Skill>
+      <Talent>
+      </Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Klingon</Faction>
+      <Cost>3</Cost>
+      <Id>3093</Id>
+      <Set>71273</Set>
+      <Special></Special>
+    </Upgrade>
+	<Upgrade>
+      <Title>EM Pulse</Title>
+      <Ability>ACTION: Disable this card to target a ship at Range 1-2. The targeted ship rolls 1 less attack die and 1 less defense die this round. </Ability>
+      <Skill>
+      </Skill>
+      <Talent>
+      </Talent>
+      <Attack>
+      </Attack>
+      <Range>
+      </Range>
+      <Type>Tech</Type>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>3094</Id>
+      <Set>71273</Set>
+    </Upgrade>
+	<Upgrade>
+      <Title>Boheeka</Title>
+      <Unique>Y</Unique>
+      <Ability>If you ship has a [BATTLESTATIONS] Token beside it when you attack, you may convert 1 blank result into 1 [HIT] result.</Ability>
+      <Skill>
+      </Skill>
+      <Talent>
+      </Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Dominion</Faction>
+      <Cost>2</Cost>
+      <Id>3095</Id>
+      <Set>71275</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Enhanced Weaponry</Title>
+      <Unique>N</Unique>
+      <Ability>ATTACK: (Target Lock) Spend your target lock and disable this card to perform this attack. If fired from a Keldon Class ship, add +1 attack die.</Ability>
+      <Skill>
+      </Skill>
+      <Talent>
+      </Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>3096</Id>
+      <Set>71275</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Dorsal Weapons Array</Title>
+      <Unique>N</Unique>
+      <Ability>ATTACK: Disable this card to perform this attack. You may fire this weapon in any direction.</Ability>
+      <Skill>
+      </Skill>
+      <Talent>
+      </Talent>
+      <Attack>3</Attack>
+      <Range>1-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Dominion</Faction>
+      <Cost>3</Cost>
+      <Id>3097</Id>
+      <Set>71275</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Tetryon Emissions</Title>
+      <Unique>N</Unique>
+      <Ability>ACTION: Disable this Upgrade to add +3 defense dice each time you defend this round.</Ability>
+      <Skill>
+      </Skill>
+      <Talent>
+      </Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Dominion</Faction>
+      <Cost>3</Cost>
+      <Id>3098</Id>
+      <Set>71275</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Cloaking Device</Title>
+      <Ability>Instead of performing a normal Action, you may disable this card to perform the [CLOAK] Action. While you have a [CLOAK] token beside your ship, you may perform the [SENSOR ECHO] Action even if this card is disabled. This Upgrade costs +5 Squadron Points for any non-Keldon class ship.</Ability>
+      <Skill>
+      </Skill>
+      <Talent>
+      </Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Dominion</Faction>
+      <Cost>4</Cost>
+      <Id>3099</Id>
+      <Set>71275</Set>
+      <Special>PenaltyOnShipOtherThanKeldonClass</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Captured Intelligence</Title>
+      <Ability>Before rolling your defense dice, if you do not have an [EVASIVE] Token beside your ship, you may discard this card to place an [EVASIVE] Token beside your ship. In addtion, each time you defend during the round use this ability, roll 1 extra defense die.</Ability>
+      <Unique>Y</Unique>
+      <Skill>
+      </Skill>
+      <Talent>
+      </Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Dominion</Faction>
+      <Cost>3</Cost>
+      <Id>3100</Id>
+      <Set>71275</Set>
+      <Special></Special>
+    </Upgrade>
 
   </Upgrades>
   <Resources>

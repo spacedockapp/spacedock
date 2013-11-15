@@ -356,6 +356,10 @@
         if (![ship isJemhadar]) {
             cost += 5;
         }
+    } else if ([upgradeSpecial isEqualToString: @"PenaltyOnShipOtherThanKeldonClass"]) {
+        if (![ship.shipClass isEqualToString: @"Cardassian Keldon"]) {
+            cost += 5;
+        }
     }
 
     if (![shipFaction isEqualToString: upgradeFaction]) {
