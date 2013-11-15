@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" initialViewController="CGb-hD-QBi">
     <dependencies>
         <deployment version="1536" defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--top menu-->
@@ -790,16 +790,8 @@
                                 <action selector="export:" destination="aSy-vS-qmb" id="Ecp-dO-ANZ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="Copy" id="rv2-2T-A1S">
-                            <connections>
-                                <action selector="copy:" destination="aSy-vS-qmb" id="Nj8-dA-WxL"/>
-                            </connections>
-                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="ZAe-z1-8m9"/>
-                    <connections>
-                        <outlet property="cpyBarItem" destination="rv2-2T-A1S" id="XXS-e3-gRM"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uZd-6l-NAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
