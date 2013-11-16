@@ -9,6 +9,7 @@
 #import "DockShipsViewController.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
+#import "DockSquadsListController.h"
 #import "DockUtilsMobile.h"
 
 #import <MessageUI/MessageUI.h>
@@ -300,6 +301,23 @@
 	[self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+-(void)duplicate
+{
+    DockSquad* squad = [_squad duplicate];
+    NSError* error;
+    if (!saveItem(squad, &error)) {
+        presentError(error);
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)copyToClipboard
+{
+    NSString* plainText = [_squad asPlainTextFormat];
+    UIPasteboard* pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = plainText;
+}
+
 -(IBAction)copy:(id)sender
 {
     UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle: @"Copy Squad"
@@ -313,6 +331,14 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    switch (buttonIndex) {
+    case 0:
+        [self duplicate];
+        break;
+    case 1:
+        [self copyToClipboard];
+        break;
+    }
 }
 
 @end

@@ -790,8 +790,17 @@
                                 <action selector="export:" destination="aSy-vS-qmb" id="Ecp-dO-ANZ"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="9Qc-wm-gq2"/>
+                        <barButtonItem title="Copy" id="xYq-5l-WtP">
+                            <connections>
+                                <action selector="copy:" destination="aSy-vS-qmb" id="eVp-ic-E0c"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="ZAe-z1-8m9"/>
+                    <connections>
+                        <outlet property="cpyBarItem" destination="xYq-5l-WtP" id="kYT-1n-1tO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uZd-6l-NAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -805,7 +814,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="sjM-AU-6Xp"/>
-        <segue reference="URj-sy-vnv"/>
+        <segue reference="Gif-bs-7CW"/>
         <segue reference="4En-j0-M2p"/>
         <segue reference="EVA-Ha-95D"/>
     </inferredMetricsTieBreakers>

@@ -258,4 +258,9 @@
 	[self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+-(void)selectSquad:(DockSquad*)squad
+{
+    NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject: squad];
+    [self.tableView selectRowAtIndexPath: indexPath animated: YES scrollPosition: UITableViewScrollPositionMiddle];
+}
 @end
