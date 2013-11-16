@@ -98,7 +98,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"heightForRowAtIndexPath");
     NSInteger lastRowIndex = _attributeTitles.count - 1;
     NSInteger row = [indexPath indexAtPosition: 1];
     if (row == lastRowIndex) {

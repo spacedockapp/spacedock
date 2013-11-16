@@ -88,7 +88,6 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"accessoryButtonTappedForRowWithIndexPath %@", indexPath);
     [self.tableView selectRowAtIndexPath: indexPath animated: NO scrollPosition:UITableViewScrollPositionMiddle];
     [self performSegueWithIdentifier: @"ShowShipDetails" sender: self];
 }
