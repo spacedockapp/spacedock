@@ -72,7 +72,9 @@
 
     if ([upgrade isTalent]) {
         if ([captainSpecial isEqualToString: @"BaselineTalentCostToThree"]) {
-            cost = 3;
+            if ([upgradeFaction isEqualToString: @"Federation"]) {
+                cost = 3;
+            }
         }
     } else if ([upgrade isCaptain]) {
         int baseCost = [[upgrade cost] intValue];
