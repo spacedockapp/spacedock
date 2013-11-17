@@ -1,4 +1,4 @@
-<Data version="1.168">
+<Data version="1.170">
   <Ships>
     <Ship>
       <Title>U.S.S. Enterprise-D</Title>
@@ -1532,7 +1532,7 @@
     </Captain>
     <Captain>
       <Title>Kira Nerys</Title>
-      <Ability>If a [CREW] Upgrade on an enemy ship would cause your ship to discard or disable any of your Upgrades, roll 2 defense dice. If you rol at least 1 [EVADE] result, ignore the effects of the enemy Upgrade. You do not pay a Faction penalty when assigning Kira Nerys to a Federation ship.</Ability>
+      <Ability>If a [CREW] Upgrade on an enemy ship would cause your ship to discard or disable any of your Upgrades, roll 2 defense dice. If you roll at least 1 [EVADE] result, ignore the effects of the enemy Upgrade. You do not pay a Faction penalty when assigning Kira Nerys to a Federation ship.</Ability>
       <Unique>Y</Unique>
       <Skill>3</Skill>
       <Talent>
@@ -2407,7 +2407,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Muon Feedback Wave</Title>
-      <Ability>ACTION: Discard this card to place a Muon Token beside a ship at Range 1. This upgrade may only be purchased for a Romulan Science Vessel </Ability>
+      <Ability>ACTION: Discard this card to place a Muon Token beside a ship at Range 1. This upgrade may only be purchased for a Romulan Science Vessel. </Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -2807,7 +2807,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Barrage of Fire</Title>
-      <Ability>ATTACK: Discard this card to perform this attack. Target 1 friendly ship within Range 1 of your ship. Target ship may not make a normal attack this round. Instead, add the Primary Weapon value of that ship to your attack roll for this attack. Both ships must have the enemy ship within their forward firing arcs. Place an Auxillary Power Token beside both ships.</Ability>
+      <Ability>ATTACK: Discard this card to perform this attack. Target 1 friendly ship within Range 1 of your ship. Target ship may not make a normal attack this round. Instead, add the Primary Weapon value of that ship to your attack roll for this attack. Both ships must have the enemy ship within their forward firing arcs. Place an Auxiliary Power Token beside both ships.</Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -2983,7 +2983,7 @@
     <Upgrade>
       <Title>Concussive Charges</Title>
       <Unique></Unique>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and diable this card to perform this attack. For every uncanceled [HIT] or [CRITICAL] result, the target ship loses 1 token of your choice that has been placed beside it in the play area. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. For every uncanceled [HIT] or [CRITICAL] result, the target ship loses 1 token of your choice that has been placed beside it in the play area. You may fire this weapon from your forward or rear firing arcs.</Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -3047,7 +3047,7 @@
     <Upgrade>
       <Title>Cloaked Mines</Title>
       <Unique></Unique>
-      <Ability>During the Planning Phase, you may discard this card to place a Minefield Token within Range 2 of your ship (in any direction) but not witihn Range 2 of an Enemy ship. If an enemy ship passes within Range 1 of the token, roll 3 attack dice (-1 if the taret ship immediately performs a [SCAN] Action). Any [HIT] or [CRITICAL] damages the target ship as normal. The affected ship does not roll any defense dice.</Ability>
+      <Ability>During the Planning Phase, you may discard this card to place a Minefield Token within Range 2 of your ship (in any direction) but not within Range 2 of an Enemy ship. If an enemy ship passes within Range 1 of the token, roll 3 attack dice (-1 if the target ship immediately performs a [SCAN] Action). Any [HIT] or [CRITICAL] damages the target ship as normal. The affected ship does not roll any defense dice.</Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -3077,7 +3077,7 @@
       <Set>71270</Set>
     </Upgrade>
     <Upgrade>
-      <Title>Nuclear Missles</Title>
+      <Title>Nuclear Missiles</Title>
       <Unique></Unique>
       <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may re-roll one of your blank results one time.</Ability>
       <Skill>
@@ -3095,7 +3095,7 @@
     <Upgrade>
       <Title>Long Range Tachyon Scan</Title>
       <Unique></Unique>
-      <Ability>When attacking a ship at Range 3, you may spend 1 [SCAN] Token to force that ship to roll 2 less defence dice this round.</Ability>
+      <Ability>When attacking a ship at Range 3, you may spend 1 [SCAN] Token to force that ship to roll 2 less defense dice this round.</Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -3111,7 +3111,7 @@
     <Upgrade>
       <Title>Suicide Attack</Title>
       <Unique></Unique>
-      <Ability>ACTION: At the end of the Activation Phase, you must make a 1 Forward Maneuver and place an Auxillary Power Token beside your ship. If your ship overlaps an enemy ship, destroy your ship and roll 8 attack dice to damage the enemy ship. That ship rolls defense dice against this attack. This Upgrade may only be purchased for a Jem'Hadar ship.</Ability>
+      <Ability>ACTION: At the end of the Activation Phase, you must make a 1 Forward Maneuver and place an Auxiliary Power Token beside your ship. If your ship overlaps an enemy ship, destroy your ship and roll 8 attack dice to damage the enemy ship. That ship rolls defense dice against this attack. This Upgrade may only be purchased for a Jem'Hadar ship.</Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -3179,7 +3179,7 @@
     <Upgrade>
       <Title>Toman'Torax</Title>
       <Unique>Y</Unique>
-      <Ability>ACTION: Target a ship at Range 1. Discard this card and 1 [CREW] Upgrade of your choice on the taget ship (even if that ship is Cloaked or has Active Shields. This Upgrade may only be purchased for a Jem'hadar ship.</Ability>
+      <Ability>ACTION: Target a ship at Range 1. Discard this card and 1 [CREW] Upgrade of your choice on the target ship (even if that ship is Cloaked or has Active Shields. This Upgrade may only be purchased for a Jem'hadar ship.</Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -3347,7 +3347,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Captured Intelligence</Title>
-      <Ability>Before rolling your defense dice, if you do not have an [EVASIVE] Token beside your ship, you may discard this card to place an [EVASIVE] Token beside your ship. In addtion, each time you defend during the round use this ability, roll 1 extra defense die.</Ability>
+      <Ability>Before rolling your defense dice, if you do not have an [EVASIVE] Token beside your ship, you may discard this card to place an [EVASIVE] Token beside your ship. In addition, each time you defend during the round use this ability, roll 1 extra defense die.</Ability>
       <Unique>Y</Unique>
       <Skill>
       </Skill>
