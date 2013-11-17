@@ -3,6 +3,7 @@
 #import "DockSquadsListController.h"
 #import "DockResourcesViewController.h"
 #import "DockUpgradesViewController.h"
+#import "DockSetsListViewController.h"
 
 @interface DockTopMenuViewController ()
 
@@ -63,6 +64,10 @@
     } else if ([[segue identifier] isEqualToString:@"GoToResources"]) {
         id destination = [segue destinationViewController];
         DockResourcesViewController *controller = (DockResourcesViewController *)destination;
+        controller.managedObjectContext = self.managedObjectContext;
+    } else if ([[segue identifier] isEqualToString:@"GoToSets"]) {
+        id destination = [segue destinationViewController];
+        DockSetsListViewController *controller = (DockSetsListViewController *)destination;
         controller.managedObjectContext = self.managedObjectContext;
     }
 }

@@ -18,7 +18,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WbI-yM-pHW">
-                                        <rect key="frame" x="20" y="38" width="280" height="30"/>
+                                        <rect key="frame" x="20" y="20" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Squads"/>
                                         <connections>
@@ -26,7 +26,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hyV-mn-dLh">
-                                        <rect key="frame" x="20" y="76" width="280" height="30"/>
+                                        <rect key="frame" x="20" y="58" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Ships"/>
                                         <connections>
@@ -34,7 +34,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qZC-PF-ZEr">
-                                        <rect key="frame" x="20" y="114" width="280" height="30"/>
+                                        <rect key="frame" x="20" y="96" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Captains"/>
                                         <connections>
@@ -42,7 +42,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QvW-Di-0rr">
-                                        <rect key="frame" x="20" y="152" width="280" height="30"/>
+                                        <rect key="frame" x="20" y="134" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Crew"/>
                                         <connections>
@@ -50,7 +50,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4v4-A9-djr">
-                                        <rect key="frame" x="20" y="190" width="280" height="30"/>
+                                        <rect key="frame" x="20" y="172" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Talent"/>
                                         <connections>
@@ -58,7 +58,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RV9-Ne-iKB">
-                                        <rect key="frame" x="20" y="228" width="280" height="30"/>
+                                        <rect key="frame" x="20" y="210" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Tech"/>
                                         <connections>
@@ -66,7 +66,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LUP-xq-pNJ">
-                                        <rect key="frame" x="20" y="266" width="280" height="30"/>
+                                        <rect key="frame" x="20" y="248" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Weapons"/>
                                         <connections>
@@ -74,11 +74,19 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xxP-3e-ab7">
-                                        <rect key="frame" x="20" y="304" width="280" height="30"/>
+                                        <rect key="frame" x="20" y="286" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Resources"/>
                                         <connections>
                                             <segue destination="z3Y-97-pZc" kind="push" identifier="GoToResources" id="R9B-Le-sK9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hDH-tb-cnU">
+                                        <rect key="frame" x="20" y="323" width="280" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Sets"/>
+                                        <connections>
+                                            <segue destination="Yqd-y8-Y23" kind="push" identifier="GoToSets" id="7UL-eI-y2C"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -587,6 +595,44 @@
             </objects>
             <point key="canvasLocation" x="1103" y="-1706"/>
         </scene>
+        <!--Dock Sets List View Controller - Sets-->
+        <scene sceneID="Idu-AG-Elf">
+            <objects>
+                <tableViewController id="Yqd-y8-Y23" customClass="DockSetsListViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Lay-oa-UIy">
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Set" textLabel="uHh-pP-Bgl" style="IBUITableViewCellStyleDefault" id="Nsl-Vv-qSE" customClass="DockSetTableViewCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nsl-Vv-qSE" id="J3h-Rc-lHg">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uHh-pP-Bgl">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Yqd-y8-Y23" id="IX9-ry-WYs"/>
+                            <outlet property="delegate" destination="Yqd-y8-Y23" id="JQl-tN-ovj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Sets" id="py4-qf-hKW"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eoz-ak-Cla" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-361" y="-2077"/>
+        </scene>
         <!--squads-->
         <scene sceneID="Ebm-sv-P3C">
             <objects>
@@ -813,9 +859,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="R9B-Le-sK9"/>
+        <segue reference="oNC-5G-Oph"/>
         <segue reference="sjM-AU-6Xp"/>
         <segue reference="Gif-bs-7CW"/>
-        <segue reference="4En-j0-M2p"/>
-        <segue reference="EVA-Ha-95D"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -1,5 +1,6 @@
 #import "DockTableViewController.h"
 
+#import "DockSet+Addons.h"
 #import "DockUtilsMobile.h"
 
 @interface DockTableViewController ()
@@ -17,6 +18,11 @@
 }
 
 #pragma mark - Fetching
+
+-(BOOL)useSetFilter
+{
+    return YES;
+}
 
 -(NSString*)cacheName
 {
@@ -48,6 +54,18 @@
     [fetchRequest setSortDescriptors: [self sortDescriptors]];
 }
 
+-(void)updateSelectedSets
+{
+    NSArray* includedSets = [DockSet includedSets: _managedObjectContext];
+    NSMutableArray* includedIds = [[NSMutableArray alloc] init];
+    for (DockSet* set in includedSets) {
+        [includedIds addObject: [set externalId]];
+    }
+    _includedSets = [NSArray arrayWithArray: includedIds];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"any sets.externalId in %@", _includedSets];
+    self.fetchedResultsController.fetchRequest.predicate = predicateTemplate;
+}
+
 - (NSFetchedResultsController *)fetchedResultsController {
 
     if (_fetchedResultsController != nil) {
@@ -64,7 +82,11 @@
                                                                       sectionNameKeyPath: [self sectionNameKeyPath]
                                                                                cacheName: nil];
     _fetchedResultsController.delegate = self;
-    
+
+    if ([self useSetFilter]) {
+        [self updateSelectedSets];
+    }
+
     return _fetchedResultsController;
 }
 

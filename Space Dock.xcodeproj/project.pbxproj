@@ -133,6 +133,8 @@
 		D4F7F40E17F2C95D00F5A808 /* Data.xml in Resources */ = {isa = PBXBuildFile; fileRef = D4F7F3EA17F2C95D00F5A808 /* Data.xml */; };
 		D4F7F41317F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F3F417F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m */; };
 		D4F7F42017F2C95D00F5A808 /* Space_Dock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */; };
+		D4F8B50C1837E4EC0051A486 /* DockSetsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F8B50B1837E4EC0051A486 /* DockSetsListViewController.m */; };
+		D4F8B50F1837EFF20051A486 /* DockSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F8B50E1837EFF20051A486 /* DockSetTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -351,6 +353,10 @@
 		D4F7F3F317F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockOrderedSetArrayValueTransformer.h; sourceTree = "<group>"; };
 		D4F7F3F417F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockOrderedSetArrayValueTransformer.m; sourceTree = "<group>"; };
 		D4F7F40D17F2C95D00F5A808 /* Space_Dock.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock.xcdatamodel; sourceTree = "<group>"; };
+		D4F8B50A1837E4EC0051A486 /* DockSetsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockSetsListViewController.h; sourceTree = "<group>"; };
+		D4F8B50B1837E4EC0051A486 /* DockSetsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockSetsListViewController.m; sourceTree = "<group>"; };
+		D4F8B50D1837EFF20051A486 /* DockSetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockSetTableViewCell.h; sourceTree = "<group>"; };
+		D4F8B50E1837EFF20051A486 /* DockSetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockSetTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -563,6 +569,10 @@
 				D45E4CB5182E9B2500F0AA7D /* DockResourceDetailViewController.m */,
 				D49985C6182C0AF80035A2D1 /* DockResourcesViewController.h */,
 				D49985C7182C0AF80035A2D1 /* DockResourcesViewController.m */,
+				D4F8B50A1837E4EC0051A486 /* DockSetsListViewController.h */,
+				D4F8B50B1837E4EC0051A486 /* DockSetsListViewController.m */,
+				D4F8B50D1837EFF20051A486 /* DockSetTableViewCell.h */,
+				D4F8B50E1837EFF20051A486 /* DockSetTableViewCell.m */,
 				D46E95E9182C8BC20060DCD7 /* DockShipDetailViewController.h */,
 				D46E95EA182C8BC20060DCD7 /* DockShipDetailViewController.m */,
 				D433FE1F181503A20062731A /* DockShipsViewController.h */,
@@ -891,6 +901,7 @@
 				D45E4CB3182E8FE400F0AA7D /* DockDetailViewController.m in Sources */,
 				D46FB28E1821F20100E7017D /* DockUpgradesViewController.m in Sources */,
 				D47316BA18182DE700046428 /* DockSquad.m in Sources */,
+				D4F8B50C1837E4EC0051A486 /* DockSetsListViewController.m in Sources */,
 				D47316B818182DE700046428 /* DockTalent.m in Sources */,
 				D4A7B58B18329BA600C66123 /* DockSquadListCell.m in Sources */,
 				D47316C218182DE700046428 /* DockCrew.m in Sources */,
@@ -903,6 +914,7 @@
 				D47316BB18182DE700046428 /* DockUpgrade.m in Sources */,
 				D4EE8DBF181C2E4000E92DD6 /* DockSquadsListController.m in Sources */,
 				D47316B218182C4C00046428 /* DockShip+Addons.m in Sources */,
+				D4F8B50F1837EFF20051A486 /* DockSetTableViewCell.m in Sources */,
 				D4D7092F1825F9F8004F4F1E /* DockUpgradeDetailViewController.m in Sources */,
 				D47316BD18182DE700046428 /* DockTech.m in Sources */,
 				D461E4BB182488C800F18FBC /* DockErrors.m in Sources */,
