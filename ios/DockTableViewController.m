@@ -52,6 +52,11 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName: entityName inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     [fetchRequest setSortDescriptors: [self sortDescriptors]];
+    NSArray* includedSets = self.includedSets;
+    if (includedSets) {
+        NSPredicate* predicateTemplate= [NSPredicate predicateWithFormat: @"any sets.externalId in %@", includedSets];
+        [fetchRequest setPredicate: predicateTemplate];
+    }
 }
 
 -(void)updateSelectedSets
@@ -62,14 +67,16 @@
         [includedIds addObject: [set externalId]];
     }
     _includedSets = [NSArray arrayWithArray: includedIds];
-    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"any sets.externalId in %@", _includedSets];
-    self.fetchedResultsController.fetchRequest.predicate = predicateTemplate;
 }
 
 - (NSFetchedResultsController *)fetchedResultsController {
 
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
+    }
+    
+    if ([self useSetFilter]) {
+        [self updateSelectedSets];
     }
 
     // Create and configure a fetch request with the Book entity.
@@ -82,10 +89,6 @@
                                                                       sectionNameKeyPath: [self sectionNameKeyPath]
                                                                                cacheName: nil];
     _fetchedResultsController.delegate = self;
-
-    if ([self useSetFilter]) {
-        [self updateSelectedSets];
-    }
 
     return _fetchedResultsController;
 }

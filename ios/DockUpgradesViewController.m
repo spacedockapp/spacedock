@@ -63,7 +63,13 @@
 -(void)setupFetch:(NSFetchRequest*)fetchRequest context:(NSManagedObjectContext*)context
 {
     [super setupFetch: fetchRequest context: context];
-    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"upType = %@ and not placeholder == YES", _upType];
+    NSPredicate* predicateTemplate;
+    NSArray* includedSets = self.includedSets;
+    if (includedSets) {
+        predicateTemplate = [NSPredicate predicateWithFormat: @"upType = %@ and not placeholder == YES and any sets.externalId in %@", _upType, includedSets];
+    } else {
+        predicateTemplate = [NSPredicate predicateWithFormat: @"upType = %@ and not placeholder == YES", _upType];
+    }
     [fetchRequest setPredicate: predicateTemplate];
 }
 
