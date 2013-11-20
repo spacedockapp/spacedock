@@ -9,8 +9,6 @@
 @property (assign) IBOutlet NSPanel* inspector;
 @property (assign) IBOutlet NSWindow* mainWindow;
 @property (assign) IBOutlet NSTabView* tabView;
-@property (assign) IBOutlet NSTextField* title;
-@property (assign) IBOutlet NSTextField* ability;
 @property (assign) IBOutlet NSArrayController* captains;
 @property (assign) IBOutlet NSArrayController* upgrades;
 @property (assign) IBOutlet NSArrayController* ships;
