@@ -6,6 +6,8 @@
 @property (strong, nonatomic) NSDictionary* currentAttributes;
 @property (strong, nonatomic) NSMutableArray* currentList;
 @property (strong, nonatomic) NSMutableArray* elementNameStack;
+@property (strong, nonatomic) NSMutableArray* listStack;
+@property (strong, nonatomic) NSMutableArray* elementStack;
 @property (strong, nonatomic) NSMutableString* currentText;
 @property (strong, nonatomic) NSSet* listElementNames;
 @property (strong, nonatomic) NSSet* itemElementNames;

@@ -737,6 +737,25 @@
       <Crew>1</Crew>
       <Id>1028</Id>
       <Set>OP2Prize</Set>
+        <Maneuvers>
+            <Maneuver speed="4" type="straight" color="WHITE" />
+            <Maneuver speed="3" type="left-turn" color="WHITE" />
+            <Maneuver speed="3" type="left-bank" color="WHITE" />
+            <Maneuver speed="3" type="straight" color="WHITE" />
+            <Maneuver speed="3" type="right-bank" color="WHITE" />
+            <Maneuver speed="3" type="right-turn" color="WHITE" />
+            <Maneuver speed="3" type="about" color="RED" />
+            <Maneuver speed="2" type="left-turn" color="WHITE" />
+            <Maneuver speed="2" type="left-bank" color="GREEN" />
+            <Maneuver speed="2" type="straight" color="GREEN" />
+            <Maneuver speed="2" type="right-bank" color="GREEN" />
+            <Maneuver speed="2" type="right-turn" color="WHITE" />
+            <Maneuver speed="1" type="left-bank" color="GREEN" />
+            <Maneuver speed="1" type="straight" color="GREEN" />
+            <Maneuver speed="1" type="right-bank" color="GREEN" />
+        </Maneuvers>
+        <FrontArc>90</FrontArc>
+        <RearArc>90</RearArc>
     </Ship>
     <Ship>
       <Title>Klingon B'Rel</Title>

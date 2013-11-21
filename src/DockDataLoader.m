@@ -25,9 +25,11 @@
     self = [super init];
     if (self != nil) {
         _managedObjectContext = context;
-        _listElementNames = [NSSet setWithArray: @[@"Sets", @"Upgrades", @"Captains", @"Ships", @"Resources"]];
-        _itemElementNames = [NSSet setWithArray: @[@"Set", @"Upgrade", @"Captain", @"Ship", @"Resource"]];
+        _listElementNames = [NSSet setWithArray: @[@"Sets", @"Upgrades", @"Captains", @"Ships", @"Resources", @"Maneuvers"]];
+        _itemElementNames = [NSSet setWithArray: @[@"Set", @"Upgrade", @"Captain", @"Ship", @"Resource", @"Maneuver"]];
         _elementNameStack = [[NSMutableArray alloc] initWithCapacity: 0];
+        _listStack = [[NSMutableArray alloc] initWithCapacity: 0];
+        _elementStack = [[NSMutableArray alloc] initWithCapacity: 0];
     }
     return self;
 }
@@ -163,6 +165,10 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                     v = processAttribute(v, aType);
                     [c setValue: v forKey: modifiedKey];
                 }
+                
+                if ([key isEqualToString: @"maneuvers"]) {
+                    NSLog(@"maneuvers %@", [d valueForKey: key]);
+                }
             }
             NSString* setValue = [d objectForKey: @"Set"];
             NSArray* sets = [setValue componentsSeparatedByString: @","];
@@ -237,6 +243,11 @@ static NSString* makeKey(NSString *key)
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
+    if ([elementName isEqualToString: @"Maneuvers"]) {
+        NSLog(@"Starting maneuvers");
+    } else if ([elementName isEqualToString: @"Maneuver"]) {
+        NSLog(@"Starting maneuver");
+    }
     [_elementNameStack addObject: elementName];
     if (attributeDict.count > 0) {
         _currentAttributes = attributeDict;
@@ -245,12 +256,12 @@ static NSString* makeKey(NSString *key)
     }
     if ([self isList: elementName]) {
         if (_currentList != nil) {
-            NSLog(@"starting a new list element before finishing the last");
+            [_listStack addObject: _currentList];
         }
         _currentList = [[NSMutableArray alloc] initWithCapacity: 0];
     } else if ([self isDataItem: elementName]) {
         if (_currentElement != nil) {
-            NSLog(@"starting a new item %@ before finishing the last", elementName);
+            [_elementStack addObject: _currentElement];
         }
         _currentElement = [[NSMutableDictionary alloc] initWithCapacity: 0];
     }
@@ -263,7 +274,10 @@ static NSString* makeKey(NSString *key)
     if ([self isList: elementName]) {
         if (_currentList != nil) {
             _parsedData[elementName] = _currentList;
-            _currentList = nil;
+            _currentList = [_listStack lastObject];
+            if (_currentList) {
+                [_listStack removeLastObject];
+            }
         } else {
             NSLog(@"ending a list element before starting it");
         }
@@ -271,6 +285,9 @@ static NSString* makeKey(NSString *key)
         if (_currentElement == nil) {
             NSLog(@"ending an item before starting it");
         } else {
+            if ([elementName isEqualToString: @"Maneuver"]) {
+                NSLog(@"ending maneuver");
+            }
             if (_currentAttributes != nil) {
                 [_currentElement addEntriesFromDictionary: _currentAttributes];
                 if (_currentText != nil) {
@@ -278,7 +295,10 @@ static NSString* makeKey(NSString *key)
                 }
             }
             [_currentList addObject: _currentElement];
-            _currentElement = nil;
+            _currentElement = [_elementStack lastObject];
+            if (_currentElement) {
+                [_elementStack removeLastObject];
+            }
         }
     } else {
         if (_currentText != nil) {
@@ -355,7 +375,7 @@ static NSString* makeKey(NSString *key)
     NSXMLParser* parser = [[NSXMLParser alloc] initWithContentsOfURL: [NSURL fileURLWithPath: file]];
     [parser setDelegate:self];
     [parser parse];
-
+    
     return _parsedData;
 }
 

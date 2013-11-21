@@ -45,6 +45,24 @@
     return [NSString stringWithFormat: @"%@ Class", self.shipClass];
 }
 
+NSString* asDegrees(NSString* textValue)
+{
+    if (textValue == nil) {
+        return @"";
+    }
+    return [NSString stringWithFormat: @"%@º", textValue];
+}
+
+-(NSString*)formattedFrontArc
+{
+    return asDegrees(self.frontArc);
+}
+
+-(NSString*)formattedRearArc
+{
+    return asDegrees(self.rearArc);
+}
+
 -(NSString*)capabilities
 {
     NSMutableArray* caps = [[NSMutableArray alloc] initWithCapacity: 0];
