@@ -148,14 +148,14 @@ shipLines.each do |l|
   if speed == 6
     parts = l.split "\t"
     puts %Q(<Ship class="#{parts[0].chomp}">)
-    puts %Q(\t<Maneuvers>)
+    puts %Q(\t<Maneuvers shipClass="#{parts[0].chomp}">)
   else
     parts = l.split "\t"
     directions.to_enum.with_index(0) do |direction, i|
       if i < parts.length
         move = parts[i].chomp
         if move.length > 0
-          puts %Q[\t\t<Maneuver speed="#{speed}" type="#{direction}" color="#{move}" />]
+          puts %Q[\t\t<Maneuver speed="#{speed}" kind="#{direction}" color="#{move}" />]
           # LT Maneuver speed="3" type="tight" color="red" RT
           
         end

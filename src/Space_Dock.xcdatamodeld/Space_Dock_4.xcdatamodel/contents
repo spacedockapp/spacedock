@@ -14,6 +14,12 @@
         <relationship name="equippedShip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EquippedShip" inverseName="upgrades" inverseEntity="EquippedShip" syncable="YES"/>
         <relationship name="upgrade" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Upgrade" inverseName="equippedUpgrades" inverseEntity="Upgrade" syncable="YES"/>
     </entity>
+    <entity name="Maneuver" representedClassName="DockManeuver" syncable="YES">
+        <attribute name="color" attributeType="String" defaultValueString="white" syncable="YES"/>
+        <attribute name="kind" attributeType="String" defaultValueString="straight" syncable="YES"/>
+        <attribute name="speed" attributeType="Integer 16" defaultValueString="1" syncable="YES"/>
+        <relationship name="ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ship" inverseName="maneuvers" inverseEntity="Ship" syncable="YES"/>
+    </entity>
     <entity name="Resource" representedClassName="DockResource" parentEntity="SetItem" syncable="YES">
         <attribute name="ability" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cost" attributeType="Integer 16" minValueString="0" defaultValueString="1" syncable="YES"/>
@@ -58,6 +64,7 @@
         <attribute name="unique" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="weapon" optional="YES" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <relationship name="equippedShips" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EquippedShip" inverseName="ship" inverseEntity="EquippedShip" syncable="YES"/>
+        <relationship name="maneuvers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Maneuver" inverseName="ship" inverseEntity="Maneuver" syncable="YES"/>
         <compoundIndexes>
             <compoundIndex>
                 <index value="title"/>
@@ -101,5 +108,6 @@
         <element name="Tech" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Upgrade" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Weapon" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Maneuver" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

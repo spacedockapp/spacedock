@@ -166,8 +166,10 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                     [c setValue: v forKey: modifiedKey];
                 }
                 
-                if ([key isEqualToString: @"maneuvers"]) {
-                    NSLog(@"maneuvers %@", [d valueForKey: key]);
+                if ([key isEqualToString: @"Maneuvers"]) {
+                    DockShip* ship = (DockShip*)c;
+                    NSArray* m =  [d valueForKey: key];
+                    [ship updateManeuvers: m];
                 }
             }
             NSString* setValue = [d objectForKey: @"Set"];
@@ -273,7 +275,12 @@ static NSString* makeKey(NSString *key)
 {
     if ([self isList: elementName]) {
         if (_currentList != nil) {
-            _parsedData[elementName] = _currentList;
+            if ([elementName isEqualToString: @"Maneuvers"]) {
+                _currentElement[elementName] = _currentList;
+                NSLog(@"ending maneuvers");
+            } else {
+                _parsedData[elementName] = _currentList;
+            }
             _currentList = [_listStack lastObject];
             if (_currentList) {
                 [_listStack removeLastObject];
@@ -290,7 +297,7 @@ static NSString* makeKey(NSString *key)
             }
             if (_currentAttributes != nil) {
                 [_currentElement addEntriesFromDictionary: _currentAttributes];
-                if (_currentText != nil) {
+                if (_currentText != nil && [elementName isEqualToString: @"Set"]) {
                     [_currentElement setObject: _currentText forKey: @"ProductName"];
                 }
             }

@@ -8,6 +8,7 @@
 
 #import "DockShip.h"
 #import "DockEquippedShip.h"
+#import "DockManeuver.h"
 
 
 @implementation DockShip
@@ -35,5 +36,6 @@
 @dynamic frontArc;
 @dynamic rearArc;
 @dynamic equippedShips;
+@dynamic maneuvers;
 
 @end

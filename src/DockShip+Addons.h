@@ -1,5 +1,7 @@
 #import "DockShip.h"
 
+@class DockManeuver;
+
 @interface DockShip (Addons)
 -(NSAttributedString*)styledDescription;
 +(DockShip*)shipForId:(NSString*)externalId context:(NSManagedObjectContext*)context;
@@ -16,4 +18,5 @@
 -(int)weaponCount;
 -(int)crewCount;
 -(NSArray*)actionStrings;
+-(void)updateManeuvers:(NSArray*)m;
 @end

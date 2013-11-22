@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "DockSetItem.h"
 
-@class DockEquippedShip;
+@class DockEquippedShip, DockManeuver;
 
 @interface DockShip : DockSetItem
 
@@ -37,6 +37,7 @@
 @property (nonatomic, retain) NSString * frontArc;
 @property (nonatomic, retain) NSString * rearArc;
 @property (nonatomic, retain) NSSet *equippedShips;
+@property (nonatomic, retain) NSSet *maneuvers;
 @end
 
 @interface DockShip (CoreDataGeneratedAccessors)
@@ -45,5 +46,10 @@
 - (void)removeEquippedShipsObject:(DockEquippedShip *)value;
 - (void)addEquippedShips:(NSSet *)values;
 - (void)removeEquippedShips:(NSSet *)values;
+
+- (void)addManeuversObject:(DockManeuver *)value;
+- (void)removeManeuversObject:(DockManeuver *)value;
+- (void)addManeuvers:(NSSet *)values;
+- (void)removeManeuvers:(NSSet *)values;
 
 @end
