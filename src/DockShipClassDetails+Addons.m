@@ -79,4 +79,9 @@
     self.maneuvers = mSet;
 }
 
+-(BOOL)hasRearFiringArc
+{
+    return [self.rearArc length] > 0;
+}
+
 @end
