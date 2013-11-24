@@ -1,6 +1,7 @@
 #import "DockShip+Addons.h"
 
 #import "DockManeuver.h"
+#import "DockShipClassDetails+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
 
@@ -48,7 +49,7 @@
 
 NSString* asDegrees(NSString* textValue)
 {
-    if (textValue == nil) {
+    if ([textValue length] == 0) {
         return @"";
     }
     return [NSString stringWithFormat: @"%@º", textValue];
@@ -56,12 +57,12 @@ NSString* asDegrees(NSString* textValue)
 
 -(NSString*)formattedFrontArc
 {
-    return asDegrees(self.frontArc);
+    return asDegrees(self.shipClassDetails.frontArc);
 }
 
 -(NSString*)formattedRearArc
 {
-    return asDegrees(self.rearArc);
+    return asDegrees(self.shipClassDetails.rearArc);
 }
 
 -(NSString*)capabilities
@@ -184,62 +185,17 @@ NSString* asDegrees(NSString* textValue)
     return [NSArray arrayWithArray: actionStringParts];
 }
 
--(void)removeAllManeuvers
+-(void)updateShipClass:(NSString*)newShipClass
 {
-    [self setManeuvers: [NSSet set]];
-}
-
--(void)addManeuver:(DockManeuver*)maneuver
-{
-    [self addManeuvers: [NSSet setWithObject: maneuver]];
-}
-
--(void)updateManeuvers:(NSArray*)m
-{
-    NSMutableArray* mData = [NSMutableArray arrayWithCapacity: 0];
-    for (DockManeuver* move in self.maneuvers) {
-        NSDictionary* moveData = @{
-            @"speed":  move.speed,
-            @"color":  move.color,
-            @"kind":  move.kind
-        };
-        [mData addObject: moveData];
-    }
-    
-    id compareData = ^(NSDictionary* a, NSDictionary* b) {
-        NSArray* keys = @[@"speed", @"kind", @"color"];
-        NSComparisonResult r;
-        for (NSString* key in keys) {
-            id aValue = a[key];
-            id bValue = b[key];
-            r = [aValue compare: bValue];
-            if (r != NSOrderedSame) {
-                break;
-            }
+    if (self.shipClassDetails == nil || ![self.shipClass isEqualToString: newShipClass]) {
+        self.shipClass = newShipClass;
+        DockShipClassDetails* details = [DockShipClassDetails find: newShipClass context: self.managedObjectContext];
+        if (details != nil) {
+            self.shipClassDetails = details;
+        } else {
+            NSLog(@"failed to find class %@", newShipClass);
         }
-        return r;
-    };
-    m = [m sortedArrayUsingComparator: compareData];
-    [mData sortUsingComparator: compareData];
-    NSString* s1 = [m componentsJoinedByString: @","];
-    NSString* s2 = [mData componentsJoinedByString: @","];
-    if ([s1 isEqualToString: s2]) {
-        return;
     }
-    NSManagedObjectContext* context = self.managedObjectContext;
-    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Maneuver" inManagedObjectContext: context];
-
-    NSMutableSet* mSet = [NSMutableSet setWithCapacity: 0];
-    for (NSDictionary* oneMove in m) {
-        DockManeuver* maneuver = [[DockManeuver alloc] initWithEntity: entity insertIntoManagedObjectContext: context];
-        NSString* speedString = oneMove[@"speed"];
-        int speedInt = [speedString intValue];
-        maneuver.speed = [NSNumber numberWithInt: speedInt];
-        maneuver.kind = oneMove[@"kind"];
-        maneuver.color = oneMove[@"color"];
-        [mSet addObject: maneuver];
-    }
-    self.maneuvers = mSet;
 }
 
 @end

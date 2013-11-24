@@ -2,13 +2,13 @@
 //  DockShip.m
 //  Space Dock
 //
-//  Created by Rob Tsuk on 11/20/13.
+//  Created by Rob Tsuk on 11/24/13.
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
 #import "DockShip.h"
 #import "DockEquippedShip.h"
-#import "DockManeuver.h"
+#import "DockShipClassDetails.h"
 
 
 @implementation DockShip
@@ -33,9 +33,7 @@
 @dynamic title;
 @dynamic unique;
 @dynamic weapon;
-@dynamic frontArc;
-@dynamic rearArc;
 @dynamic equippedShips;
-@dynamic maneuvers;
+@dynamic shipClassDetails;
 
 @end

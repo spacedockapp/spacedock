@@ -2,7 +2,7 @@
 //  DockShip.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 11/20/13.
+//  Created by Rob Tsuk on 11/24/13.
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "DockSetItem.h"
 
-@class DockEquippedShip, DockManeuver;
+@class DockEquippedShip, DockShipClassDetails;
 
 @interface DockShip : DockSetItem
 
@@ -34,10 +34,8 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSNumber * unique;
 @property (nonatomic, retain) NSNumber * weapon;
-@property (nonatomic, retain) NSString * frontArc;
-@property (nonatomic, retain) NSString * rearArc;
 @property (nonatomic, retain) NSSet *equippedShips;
-@property (nonatomic, retain) NSSet *maneuvers;
+@property (nonatomic, retain) DockShipClassDetails *shipClassDetails;
 @end
 
 @interface DockShip (CoreDataGeneratedAccessors)
@@ -46,10 +44,5 @@
 - (void)removeEquippedShipsObject:(DockEquippedShip *)value;
 - (void)addEquippedShips:(NSSet *)values;
 - (void)removeEquippedShips:(NSSet *)values;
-
-- (void)addManeuversObject:(DockManeuver *)value;
-- (void)removeManeuversObject:(DockManeuver *)value;
-- (void)addManeuvers:(NSSet *)values;
-- (void)removeManeuvers:(NSSet *)values;
 
 @end

@@ -18,5 +18,5 @@
 -(int)weaponCount;
 -(int)crewCount;
 -(NSArray*)actionStrings;
--(void)updateManeuvers:(NSArray*)m;
+-(void)updateShipClass:(NSString*)newShipClass;
 @end

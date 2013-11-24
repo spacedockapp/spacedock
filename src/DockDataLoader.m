@@ -10,6 +10,7 @@
 #import "DockResource.h"
 #import "DockSet+Addons.h"
 #import "DockShip+Addons.h"
+#import "DockShipClassDetails+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockSquad.h"
 #import "DockTalent.h"
@@ -25,8 +26,8 @@
     self = [super init];
     if (self != nil) {
         _managedObjectContext = context;
-        _listElementNames = [NSSet setWithArray: @[@"Sets", @"Upgrades", @"Captains", @"Ships", @"Resources", @"Maneuvers"]];
-        _itemElementNames = [NSSet setWithArray: @[@"Set", @"Upgrade", @"Captain", @"Ship", @"Resource", @"Maneuver"]];
+        _listElementNames = [NSSet setWithArray: @[@"Sets", @"Upgrades", @"Captains", @"Ships", @"Resources", @"Maneuvers", @"ShipClassDetails"]];
+        _itemElementNames = [NSSet setWithArray: @[@"Set", @"Upgrade", @"Captain", @"Ship", @"Resource", @"Maneuver", @"ShipClassDetail"]];
         _elementNameStack = [[NSMutableArray alloc] initWithCapacity: 0];
         _listStack = [[NSMutableArray alloc] initWithCapacity: 0];
         _elementStack = [[NSMutableArray alloc] initWithCapacity: 0];
@@ -166,10 +167,17 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                     [c setValue: v forKey: modifiedKey];
                 }
                 
+            }
+            for (NSString* key in d) {
                 if ([key isEqualToString: @"Maneuvers"]) {
-                    DockShip* ship = (DockShip*)c;
+                    DockShipClassDetails* shipClassDetails = (DockShipClassDetails*)c;
                     NSArray* m =  [d valueForKey: key];
-                    [ship updateManeuvers: m];
+                    [shipClassDetails updateManeuvers: m];
+                } else if ([key isEqualToString: @"ShipClass"]) {
+                    DockShip* ship = (DockShip*)c;
+                    NSLog(@"updating ship class for ship %@", ship.title);
+                    NSString* shipClass =  [d valueForKey: key];
+                    [ship updateShipClass: shipClass];
                 }
             }
             NSString* setValue = [d objectForKey: @"Set"];
@@ -245,11 +253,6 @@ static NSString* makeKey(NSString *key)
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
-    if ([elementName isEqualToString: @"Maneuvers"]) {
-        NSLog(@"Starting maneuvers");
-    } else if ([elementName isEqualToString: @"Maneuver"]) {
-        NSLog(@"Starting maneuver");
-    }
     [_elementNameStack addObject: elementName];
     if (attributeDict.count > 0) {
         _currentAttributes = attributeDict;
@@ -277,7 +280,6 @@ static NSString* makeKey(NSString *key)
         if (_currentList != nil) {
             if ([elementName isEqualToString: @"Maneuvers"]) {
                 _currentElement[elementName] = _currentList;
-                NSLog(@"ending maneuvers");
             } else {
                 _parsedData[elementName] = _currentList;
             }
@@ -292,9 +294,6 @@ static NSString* makeKey(NSString *key)
         if (_currentElement == nil) {
             NSLog(@"ending an item before starting it");
         } else {
-            if ([elementName isEqualToString: @"Maneuver"]) {
-                NSLog(@"ending maneuver");
-            }
             if (_currentAttributes != nil) {
                 [_currentElement addEntriesFromDictionary: _currentAttributes];
                 if (_currentText != nil && [elementName isEqualToString: @"Set"]) {
@@ -417,8 +416,11 @@ static NSString* makeKey(NSString *key)
     if (xmlData == nil) {
         return NO;
     }
+    
+    NSLog(@"Ships = %@", xmlData[@"Ships"]);
 
     [self loadSets: xmlData[@"Sets"]];
+    [self loadItems: xmlData[@"ShipClassDetails"] itemClass: [DockShipClassDetails class] entityName: @"ShipClassDetails" targetType: nil];
     [self loadItems: xmlData[@"Ships"] itemClass: [DockShip class] entityName: @"Ship" targetType: nil];
     [self loadItems: xmlData[@"Captains"] itemClass: [DockCaptain class] entityName: @"Captain" targetType: nil];
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockWeapon class] entityName: @"Weapon" targetType: @"Weapon"];

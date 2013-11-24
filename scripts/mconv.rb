@@ -144,11 +144,17 @@ shipLines = ship.split "\n"
 speed = 6
 frontArc = ""
 rearArc = ""
+puts %Q(<ShipClassDetails>)
+externalId = 5000
 shipLines.each do |l|
   if speed == 6
     parts = l.split "\t"
-    puts %Q(<Ship class="#{parts[0].chomp}">)
-    puts %Q(\t<Maneuvers shipClass="#{parts[0].chomp}">)
+    name = parts[0].chomp
+    puts %Q(<ShipClassDetail>)
+    puts %Q(\t<Name>#{name}</Name>)
+    puts %Q(\t<Id>#{externalId}</Id>)
+    externalId += 1
+    puts %Q(\t<Maneuvers>)
   else
     parts = l.split "\t"
     directions.to_enum.with_index(0) do |direction, i|
@@ -181,8 +187,9 @@ shipLines.each do |l|
     puts "\t</Maneuvers>"
     puts "\t<FrontArc>#{frontArc}</FrontArc>" if frontArc
     puts "\t<RearArc>#{rearArc}</RearArc>" if rearArc
-    puts "</Ship>"
+    puts "</ShipClassDetail>"
     speed = 6
     frontArc = rearArc = ""
   end
 end
+puts %Q(</ShipClassDetails>)
