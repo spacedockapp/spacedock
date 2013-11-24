@@ -19,5 +19,7 @@
 @property (weak, nonatomic) DockUpgrade* currentUpgrade;
 @property (weak, nonatomic) DockShip* currentShip;
 @property (weak, nonatomic) DockResource* currentResource;
+@property (strong, nonatomic) NSString* shipDetailTab;
+
 -(void)show;
 @end

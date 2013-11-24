@@ -1943,114 +1943,162 @@
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="FO6-8J-XwX" userLabel="ability">
-                                            <rect key="frame" x="47" y="47" width="139" height="132"/>
+                                        <tabView type="noTabsNoBorder" id="jr8-hd-pCK" userLabel="ship details">
+                                            <rect key="frame" x="-1" y="-1" width="202" height="253"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" borderStyle="border" alignment="left" title="Multiline Label" drawsBackground="YES" id="aw9-ad-MCr">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
+                                            <font key="font" metaFont="miniSystem"/>
+                                            <tabViewItems>
+                                                <tabViewItem label="ship" identifier="forShip" id="PmB-ev-dGG">
+                                                    <view key="view" id="ChS-Ib-kcu">
+                                                        <rect key="frame" x="0.0" y="0.0" width="202" height="253"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="FO6-8J-XwX" userLabel="ability">
+                                                                <rect key="frame" x="46" y="40" width="139" height="161"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" borderStyle="border" alignment="left" title="Multiline Label" drawsBackground="YES" id="aw9-ad-MCr">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                                <connections>
+                                                                    <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.ability" id="Xux-dG-5yC"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="85e-H7-axY" userLabel="title">
+                                                                <rect key="frame" x="12" y="9" width="140" height="23"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="capabilities" placeholderString="" id="93r-ps-ySE">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                                <connections>
+                                                                    <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.capabilities" id="5NA-fb-LeW"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Z4C-3c-BQt" userLabel="cost">
+                                                                <rect key="frame" x="159" y="13" width="26" height="19"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="IXY-DO-ggM">
+                                                                    <font key="font" size="15" name="LucidaGrande"/>
+                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </textFieldCell>
+                                                                <connections>
+                                                                    <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.cost" id="QdZ-V8-kJh"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="DKR-jN-iEU" userLabel="attack">
+                                                                <rect key="frame" x="13" y="171" width="25" height="19"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="eTU-82-Nbt">
+                                                                    <font key="font" size="15" name="LucidaGrande"/>
+                                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </textFieldCell>
+                                                                <connections>
+                                                                    <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.attack" id="Zkx-YN-mgR"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="95Q-Pi-7Ek" userLabel="agility">
+                                                                <rect key="frame" x="13" y="142" width="25" height="19"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="mlr-fG-bZy">
+                                                                    <font key="font" size="15" name="LucidaGrande"/>
+                                                                    <color key="textColor" red="0.25098040699958801" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </textFieldCell>
+                                                                <connections>
+                                                                    <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.agility" id="Lvi-xd-8Hd"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dpR-Vj-tYo" userLabel="hull">
+                                                                <rect key="frame" x="13" y="113" width="25" height="19"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="TLW-1m-bsO">
+                                                                    <font key="font" size="15" name="LucidaGrande"/>
+                                                                    <color key="textColor" red="1" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </textFieldCell>
+                                                                <connections>
+                                                                    <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.hull" id="GXS-o9-5bz"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="iTK-A8-Kgb" userLabel="shield">
+                                                                <rect key="frame" x="13" y="84" width="25" height="19"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="Ev5-Mg-9KA">
+                                                                    <font key="font" size="15" name="LucidaGrande"/>
+                                                                    <color key="textColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </textFieldCell>
+                                                                <connections>
+                                                                    <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.shield" id="QWr-e9-PYQ"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="SBb-e3-hQW" userLabel="title">
+                                                                <rect key="frame" x="24" y="227" width="157.5" height="23"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Ship Title" placeholderString="" id="1GN-bu-5wD">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                                <connections>
+                                                                    <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.title" id="KrX-JA-1B7"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="BeH-hV-B8C" userLabel="ship class">
+                                                                <rect key="frame" x="24" y="207" width="157.5" height="23"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Ship Class" placeholderString="" id="Jvo-B3-ah0">
+                                                                    <font key="font" size="10" name="LucidaGrande"/>
+                                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                                <connections>
+                                                                    <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.formattedClass" id="lOC-ya-kE4"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <button id="bu4-wZ-cYh">
+                                                                <rect key="frame" x="15" y="47" width="21" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="NSInfo" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="tvK-8l-yvO">
+                                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                                    <font key="font" metaFont="system"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <action selector="toggleShipClass:" target="L6P-6L-sOj" id="Tch-hk-3kf"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </view>
+                                                </tabViewItem>
+                                                <tabViewItem label="class" identifier="forClass" id="EQc-5w-EEO">
+                                                    <view key="view" id="9DS-S6-OHu">
+                                                        <rect key="frame" x="0.0" y="0.0" width="202" height="253"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <button id="ive-2E-ktg">
+                                                                <rect key="frame" x="15" y="47" width="21" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="NSInfo" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="z9u-F9-nr9">
+                                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                                    <font key="font" metaFont="system"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <action selector="toggleShipClass:" target="L6P-6L-sOj" id="1Nh-RO-WOE"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </view>
+                                                </tabViewItem>
+                                            </tabViewItems>
                                             <connections>
-                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.ability" id="Xux-dG-5yC"/>
+                                                <binding destination="L6P-6L-sOj" name="selectedIdentifier" keyPath="self.shipDetailTab" id="MBB-IG-zPx"/>
                                             </connections>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="SBb-e3-hQW" userLabel="title">
-                                            <rect key="frame" x="11" y="207" width="178" height="23"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Ship Title" placeholderString="" id="1GN-bu-5wD">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.title" id="KrX-JA-1B7"/>
-                                            </connections>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="85e-H7-axY" userLabel="title">
-                                            <rect key="frame" x="11" y="18" width="144" height="23"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="capabilities" placeholderString="" id="93r-ps-ySE">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.capabilities" id="5NA-fb-LeW"/>
-                                            </connections>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="BeH-hV-B8C" userLabel="ship class">
-                                            <rect key="frame" x="11" y="187" width="178" height="23"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Ship Class" placeholderString="" id="Jvo-B3-ah0">
-                                                <font key="font" size="10" name="LucidaGrande"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.formattedClass" id="lOC-ya-kE4"/>
-                                            </connections>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Z4C-3c-BQt" userLabel="cost">
-                                            <rect key="frame" x="160" y="20" width="26" height="19"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="IXY-DO-ggM">
-                                                <font key="font" size="15" name="LucidaGrande"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.cost" id="QdZ-V8-kJh"/>
-                                            </connections>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="DKR-jN-iEU" userLabel="attack">
-                                            <rect key="frame" x="14" y="147" width="25" height="19"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="eTU-82-Nbt">
-                                                <font key="font" size="15" name="LucidaGrande"/>
-                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.attack" id="Zkx-YN-mgR"/>
-                                            </connections>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="95Q-Pi-7Ek" userLabel="agility">
-                                            <rect key="frame" x="14" y="118" width="25" height="19"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="mlr-fG-bZy">
-                                                <font key="font" size="15" name="LucidaGrande"/>
-                                                <color key="textColor" red="0.25098040699958801" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.agility" id="Lvi-xd-8Hd"/>
-                                            </connections>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dpR-Vj-tYo" userLabel="hull">
-                                            <rect key="frame" x="14" y="89" width="25" height="19"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="TLW-1m-bsO">
-                                                <font key="font" size="15" name="LucidaGrande"/>
-                                                <color key="textColor" red="1" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.hull" id="GXS-o9-5bz"/>
-                                            </connections>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="iTK-A8-Kgb" userLabel="shield">
-                                            <rect key="frame" x="14" y="60" width="25" height="19"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="Ev5-Mg-9KA">
-                                                <font key="font" size="15" name="LucidaGrande"/>
-                                                <color key="textColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentShip.shield" id="QWr-e9-PYQ"/>
-                                            </connections>
-                                        </textField>
+                                        </tabView>
                                     </subviews>
                                 </view>
                             </tabViewItem>
@@ -2305,6 +2353,7 @@ Gw
     </objects>
     <resources>
         <image name="NSAddTemplate" width="8" height="8"/>
+        <image name="NSInfo" width="32" height="32"/>
         <image name="NSRemoveTemplate" width="8" height="8"/>
     </resources>
 </document>

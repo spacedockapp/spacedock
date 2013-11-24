@@ -92,6 +92,7 @@ static id extractSelectedItem(id controller)
 -(void)awakeFromNib
 {
     [super awakeFromNib];
+    self.shipDetailTab = @"forClass";
     [_inspector setFloatingPanel: YES];
     [_mainWindow addObserver: self forKeyPath: @"firstResponder" options: 0 context: 0];
     [_captains addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
@@ -113,6 +114,15 @@ static id extractSelectedItem(id controller)
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool: NO forKey: kInspectorVisible];
     return YES;
+}
+
+-(IBAction)toggleShipClass:(id)sender
+{
+    if ([self.shipDetailTab isEqualToString: @"forClass"]) {
+        self.shipDetailTab = @"forShip";
+    } else {
+        self.shipDetailTab = @"forClass";
+    }
 }
 
 @end
