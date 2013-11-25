@@ -2082,7 +2082,7 @@
                                                         <subviews>
                                                             <button id="ive-2E-ktg">
                                                                 <rect key="frame" x="15" y="47" width="21" height="21"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="NSInfo" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="z9u-F9-nr9">
                                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="system"/>
@@ -2092,7 +2092,7 @@
                                                                 </connections>
                                                             </button>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="HDN-8K-IMZ" userLabel="title">
-                                                                <rect key="frame" x="24" y="227" width="157.5" height="23"/>
+                                                                <rect key="frame" x="24" y="227" width="157" height="23"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Ship Title" placeholderString="" id="4rx-it-JAy">
                                                                     <font key="font" metaFont="system"/>
@@ -2104,7 +2104,7 @@
                                                                 </connections>
                                                             </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="4ys-tr-exI" userLabel="ship class">
-                                                                <rect key="frame" x="24" y="207" width="157.5" height="23"/>
+                                                                <rect key="frame" x="24" y="207" width="157" height="23"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Ship Class" placeholderString="" id="vJy-ip-hbj">
                                                                     <font key="font" size="10" name="LucidaGrande"/>
@@ -2129,7 +2129,7 @@
                                                             </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="QbX-y0-dZF" userLabel="title">
                                                                 <rect key="frame" x="151" y="9" width="40" height="23"/>
-                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="capabilities" placeholderString="" id="wra-Gg-laS">
                                                                     <font key="font" metaFont="system"/>
                                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -2141,7 +2141,7 @@
                                                             </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="aYM-sD-Z6f">
                                                                 <rect key="frame" x="13" y="15" width="42" height="17"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Front:" id="NEI-E3-vMA">
                                                                     <font key="font" metaFont="system"/>
                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -2150,7 +2150,7 @@
                                                             </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="pxo-MX-HoS">
                                                                 <rect key="frame" x="115" y="15" width="37" height="17"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Rear:" id="FfH-l7-17h">
                                                                     <font key="font" metaFont="system"/>
                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -2164,6 +2164,10 @@
                                                                     </binding>
                                                                 </connections>
                                                             </textField>
+                                                            <customView id="XsD-d6-3SQ" customClass="DockMoveGrid">
+                                                                <rect key="frame" x="39" y="51" width="150" height="150"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            </customView>
                                                         </subviews>
                                                     </view>
                                                 </tabViewItem>
