@@ -1,397 +1,397 @@
 <Data version="1.170">
-<ShipClassDetails>
-<ShipClassDetail>
-	<Name>Galaxy Class</Name>
-	<Id>5000</Id>
-	<Maneuvers>
-		<Maneuver speed="5" kind="straight" color="WHITE" />
-		<Maneuver speed="4" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="left-turn" color="RED" />
-		<Maneuver speed="3" kind="left-bank" color="WHITE" />
-		<Maneuver speed="3" kind="straight" color="GREEN" />
-		<Maneuver speed="3" kind="right-bank" color="WHITE" />
-		<Maneuver speed="3" kind="right-turn" color="RED" />
-		<Maneuver speed="2" kind="left-bank" color="WHITE" />
-		<Maneuver speed="2" kind="straight" color="GREEN" />
-		<Maneuver speed="2" kind="right-bank" color="WHITE" />
-		<Maneuver speed="1" kind="left-bank" color="GREEN" />
-		<Maneuver speed="1" kind="straight" color="GREEN" />
-		<Maneuver speed="1" kind="right-bank" color="GREEN" />
-		<Maneuver speed="-1" kind="straight" color="RED" />
-		<Maneuver speed="-2" kind="straight" color="RED" />
-	</Maneuvers>
-	<FrontArc>90</FrontArc>
-	<RearArc>90</RearArc>
-</ShipClassDetail>
-<ShipClassDetail>
-	<Name>Miranda Class</Name>
-	<Id>5001</Id>
-	<Maneuvers>
-		<Maneuver speed="4" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="left-turn" color="WHITE" />
-		<Maneuver speed="3" kind="left-bank" color="WHITE" />
-		<Maneuver speed="3" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="right-bank" color="WHITE" />
-		<Maneuver speed="3" kind="right-turn" color="WHITE" />
-		<Maneuver speed="2" kind="left-turn" color="WHITE" />
-		<Maneuver speed="2" kind="left-bank" color="WHITE" />
-		<Maneuver speed="2" kind="straight" color="GREEN" />
-		<Maneuver speed="2" kind="right-bank" color="WHITE" />
-		<Maneuver speed="2" kind="right-turn" color="WHITE" />
-		<Maneuver speed="1" kind="left-bank" color="GREEN" />
-		<Maneuver speed="1" kind="straight" color="GREEN" />
-		<Maneuver speed="1" kind="right-bank" color="GREEN" />
-		<Maneuver speed="-2" kind="straight" color="RED" />
-	</Maneuvers>
-	<FrontArc>180</FrontArc>
-	<RearArc>90</RearArc>
-</ShipClassDetail>
-<ShipClassDetail>
-	<Name>Constitution Class</Name>
-	<Id>5002</Id>
-	<Maneuvers>
-		<Maneuver speed="4" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="left-turn" color="RED" />
-		<Maneuver speed="3" kind="left-bank" color="WHITE" />
-		<Maneuver speed="3" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="right-bank" color="WHITE" />
-		<Maneuver speed="3" kind="right-turn" color="RED" />
-		<Maneuver speed="2" kind="left-turn" color="WHITE" />
-		<Maneuver speed="2" kind="left-bank" color="WHITE" />
-		<Maneuver speed="2" kind="straight" color="GREEN" />
-		<Maneuver speed="2" kind="right-bank" color="WHITE" />
-		<Maneuver speed="2" kind="right-turn" color="WHITE" />
-		<Maneuver speed="1" kind="left-bank" color="GREEN" />
-		<Maneuver speed="1" kind="straight" color="GREEN" />
-		<Maneuver speed="1" kind="right-bank" color="GREEN" />
-		<Maneuver speed="-2" kind="straight" color="RED" />
-	</Maneuvers>
-	<FrontArc>180</FrontArc>
-	<RearArc></RearArc>
-</ShipClassDetail>
-<ShipClassDetail>
-	<Name>Defiant Class</Name>
-	<Id>5003</Id>
-	<Maneuvers>
-		<Maneuver speed="4" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="left-turn" color="WHITE" />
-		<Maneuver speed="3" kind="left-bank" color="WHITE" />
-		<Maneuver speed="3" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="right-bank" color="WHITE" />
-		<Maneuver speed="3" kind="right-turn" color="WHITE" />
-		<Maneuver speed="3" kind="about" color="RED" />
-		<Maneuver speed="2" kind="left-turn" color="WHITE" />
-		<Maneuver speed="2" kind="left-bank" color="WHITE" />
-		<Maneuver speed="2" kind="straight" color="GREEN" />
-		<Maneuver speed="2" kind="right-bank" color="WHITE" />
-		<Maneuver speed="2" kind="right-turn" color="WHITE" />
-		<Maneuver speed="1" kind="left-bank" color="GREEN" />
-		<Maneuver speed="1" kind="straight" color="GREEN" />
-		<Maneuver speed="1" kind="right-bank" color="GREEN" />
-	</Maneuvers>
-	<FrontArc>90</FrontArc>
-	<RearArc>90</RearArc>
-</ShipClassDetail>
-<ShipClassDetail>
-	<Name>D'deridex Class</Name>
-	<Id>5004</Id>
-	<Maneuvers>
-		<Maneuver speed="4" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="left-turn" color="WHITE" />
-		<Maneuver speed="3" kind="left-bank" color="WHITE" />
-		<Maneuver speed="3" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="right-bank" color="WHITE" />
-		<Maneuver speed="3" kind="right-turn" color="WHITE" />
-		<Maneuver speed="2" kind="left-turn" color="WHITE" />
-		<Maneuver speed="2" kind="left-bank" color="WHITE" />
-		<Maneuver speed="2" kind="straight" color="GREEN" />
-		<Maneuver speed="2" kind="right-bank" color="WHITE" />
-		<Maneuver speed="2" kind="right-turn" color="WHITE" />
-		<Maneuver speed="1" kind="left-bank" color="GREEN" />
-		<Maneuver speed="1" kind="straight" color="GREEN" />
-		<Maneuver speed="1" kind="right-bank" color="GREEN" />
-		<Maneuver speed="-2" kind="straight" color="RED" />
-	</Maneuvers>
-	<FrontArc>90</FrontArc>
-	<RearArc></RearArc>
-</ShipClassDetail>
-<ShipClassDetail>
-	<Name>Valdore Class</Name>
-	<Id>5005</Id>
-	<Maneuvers>
-		<Maneuver speed="4" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="left-turn" color="RED" />
-		<Maneuver speed="3" kind="left-bank" color="WHITE" />
-		<Maneuver speed="3" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="right-bank" color="WHITE" />
-		<Maneuver speed="3" kind="right-turn" color="RED" />
-		<Maneuver speed="3" kind="about" color="RED" />
-		<Maneuver speed="2" kind="left-turn" color="WHITE" />
-		<Maneuver speed="2" kind="left-bank" color="GREEN" />
-		<Maneuver speed="2" kind="straight" color="GREEN" />
-		<Maneuver speed="2" kind="right-bank" color="GREEN" />
-		<Maneuver speed="2" kind="right-turn" color="WHITE" />
-		<Maneuver speed="1" kind="left-bank" color="GREEN" />
-		<Maneuver speed="1" kind="straight" color="GREEN" />
-		<Maneuver speed="1" kind="right-bank" color="GREEN" />
-	</Maneuvers>
-	<FrontArc>90</FrontArc>
-	<RearArc></RearArc>
-</ShipClassDetail>
-<ShipClassDetail>
-	<Name>Romulan Science Vessel</Name>
-	<Id>5006</Id>
-	<Maneuvers>
-		<Maneuver speed="4" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="left-bank" color="WHITE" />
-		<Maneuver speed="3" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="right-bank" color="WHITE" />
-		<Maneuver speed="2" kind="left-turn" color="WHITE" />
-		<Maneuver speed="2" kind="left-bank" color="GREEN" />
-		<Maneuver speed="2" kind="straight" color="GREEN" />
-		<Maneuver speed="2" kind="right-bank" color="GREEN" />
-		<Maneuver speed="2" kind="right-turn" color="WHITE" />
-		<Maneuver speed="2" kind="about" color="WHITE" />
-		<Maneuver speed="1" kind="left-turn" color="WHITE" />
-		<Maneuver speed="1" kind="left-bank" color="GREEN" />
-		<Maneuver speed="1" kind="straight" color="GREEN" />
-		<Maneuver speed="1" kind="right-bank" color="GREEN" />
-		<Maneuver speed="1" kind="right-turn" color="WHITE" />
-	</Maneuvers>
-	<FrontArc>90</FrontArc>
-	<RearArc></RearArc>
-</ShipClassDetail>
-<ShipClassDetail>
-	<Name>Romulan Bird of Prey Class</Name>
-	<Id>5007</Id>
-	<Maneuvers>
-		<Maneuver speed="4" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="left-turn" color="WHITE" />
-		<Maneuver speed="3" kind="left-bank" color="WHITE" />
-		<Maneuver speed="3" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="right-bank" color="WHITE" />
-		<Maneuver speed="3" kind="right-turn" color="WHITE" />
-		<Maneuver speed="3" kind="about" color="RED" />
-		<Maneuver speed="2" kind="left-turn" color="WHITE" />
-		<Maneuver speed="2" kind="left-bank" color="WHITE" />
-		<Maneuver speed="2" kind="straight" color="GREEN" />
-		<Maneuver speed="2" kind="right-bank" color="WHITE" />
-		<Maneuver speed="2" kind="right-turn" color="WHITE" />
-		<Maneuver speed="1" kind="left-bank" color="GREEN" />
-		<Maneuver speed="1" kind="straight" color="GREEN" />
-		<Maneuver speed="1" kind="right-bank" color="GREEN" />
-	</Maneuvers>
-	<FrontArc>90</FrontArc>
-	<RearArc></RearArc>
-</ShipClassDetail>
-<ShipClassDetail>
-	<Name>Vor'cha Class</Name>
-	<Id>5008</Id>
-	<Maneuvers>
-		<Maneuver speed="4" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="left-turn" color="RED" />
-		<Maneuver speed="3" kind="left-bank" color="WHITE" />
-		<Maneuver speed="3" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="right-bank" color="WHITE" />
-		<Maneuver speed="3" kind="right-turn" color="RED" />
-		<Maneuver speed="3" kind="about" color="RED" />
-		<Maneuver speed="2" kind="left-turn" color="WHITE" />
-		<Maneuver speed="2" kind="left-bank" color="GREEN" />
-		<Maneuver speed="2" kind="straight" color="GREEN" />
-		<Maneuver speed="2" kind="right-bank" color="GREEN" />
-		<Maneuver speed="2" kind="right-turn" color="WHITE" />
-		<Maneuver speed="1" kind="left-bank" color="GREEN" />
-		<Maneuver speed="1" kind="straight" color="GREEN" />
-		<Maneuver speed="1" kind="right-bank" color="GREEN" />
-	</Maneuvers>
-	<FrontArc>90</FrontArc>
-	<RearArc></RearArc>
-</ShipClassDetail>
-<ShipClassDetail>
-	<Name>D7 Class*</Name>
-	<Id>5009</Id>
-	<Maneuvers>
-		<Maneuver speed="4" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="left-turn" color="RED" />
-		<Maneuver speed="3" kind="left-bank" color="WHITE" />
-		<Maneuver speed="3" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="right-bank" color="WHITE" />
-		<Maneuver speed="3" kind="right-turn" color="RED" />
-		<Maneuver speed="3" kind="about" color="RED" />
-		<Maneuver speed="2" kind="left-turn" color="WHITE" />
-		<Maneuver speed="2" kind="left-bank" color="WHITE" />
-		<Maneuver speed="2" kind="straight" color="GREEN" />
-		<Maneuver speed="2" kind="right-bank" color="WHITE" />
-		<Maneuver speed="2" kind="right-turn" color="WHITE" />
-		<Maneuver speed="1" kind="left-bank" color="GREEN" />
-		<Maneuver speed="1" kind="straight" color="GREEN" />
-		<Maneuver speed="1" kind="right-bank" color="GREEN" />
-	</Maneuvers>
-	<FrontArc>90</FrontArc>
-	<RearArc></RearArc>
-</ShipClassDetail>
-<ShipClassDetail>
-	<Name>Negh'var Class</Name>
-	<Id>5010</Id>
-	<Maneuvers>
-		<Maneuver speed="4" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="left-turn" color="RED" />
-		<Maneuver speed="3" kind="left-bank" color="WHITE" />
-		<Maneuver speed="3" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="right-bank" color="WHITE" />
-		<Maneuver speed="3" kind="right-turn" color="RED" />
-		<Maneuver speed="3" kind="about" color="RED" />
-		<Maneuver speed="2" kind="left-turn" color="WHITE" />
-		<Maneuver speed="2" kind="left-bank" color="WHITE" />
-		<Maneuver speed="2" kind="straight" color="GREEN" />
-		<Maneuver speed="2" kind="right-bank" color="WHITE" />
-		<Maneuver speed="2" kind="right-turn" color="WHITE" />
-		<Maneuver speed="1" kind="left-bank" color="GREEN" />
-		<Maneuver speed="1" kind="straight" color="GREEN" />
-		<Maneuver speed="1" kind="right-bank" color="GREEN" />
-	</Maneuvers>
-	<FrontArc>90</FrontArc>
-	<RearArc></RearArc>
-</ShipClassDetail>
-<ShipClassDetail>
-	<Name>K'T'Inga Class</Name>
-	<Id>5011</Id>
-	<Maneuvers>
-		<Maneuver speed="4" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="left-turn" color="RED" />
-		<Maneuver speed="3" kind="left-bank" color="WHITE" />
-		<Maneuver speed="3" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="right-bank" color="WHITE" />
-		<Maneuver speed="3" kind="right-turn" color="RED" />
-		<Maneuver speed="3" kind="about" color="RED" />
-		<Maneuver speed="2" kind="left-turn" color="WHITE" />
-		<Maneuver speed="2" kind="left-bank" color="WHITE" />
-		<Maneuver speed="2" kind="straight" color="GREEN" />
-		<Maneuver speed="2" kind="right-bank" color="WHITE" />
-		<Maneuver speed="2" kind="right-turn" color="WHITE" />
-		<Maneuver speed="1" kind="left-bank" color="GREEN" />
-		<Maneuver speed="1" kind="straight" color="GREEN" />
-		<Maneuver speed="1" kind="right-bank" color="GREEN" />
-	</Maneuvers>
-	<FrontArc>90</FrontArc>
-	<RearArc>90</RearArc>
-</ShipClassDetail>
-<ShipClassDetail>
-	<Name>Cardassian Galor Class</Name>
-	<Id>5012</Id>
-	<Maneuvers>
-		<Maneuver speed="5" kind="straight" color="WHITE" />
-		<Maneuver speed="4" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="left-turn" color="RED" />
-		<Maneuver speed="3" kind="left-bank" color="WHITE" />
-		<Maneuver speed="3" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="right-bank" color="WHITE" />
-		<Maneuver speed="3" kind="right-turn" color="RED" />
-		<Maneuver speed="2" kind="left-turn" color="RED" />
-		<Maneuver speed="2" kind="left-bank" color="WHITE" />
-		<Maneuver speed="2" kind="straight" color="GREEN" />
-		<Maneuver speed="2" kind="right-bank" color="WHITE" />
-		<Maneuver speed="2" kind="right-turn" color="RED" />
-		<Maneuver speed="1" kind="left-bank" color="GREEN" />
-		<Maneuver speed="1" kind="straight" color="GREEN" />
-		<Maneuver speed="1" kind="right-bank" color="GREEN" />
-	</Maneuvers>
-	<FrontArc>180</FrontArc>
-	<RearArc></RearArc>
-</ShipClassDetail>
-<ShipClassDetail>
-	<Name>Breen Battle Cruiser</Name>
-	<Id>5013</Id>
-	<Maneuvers>
-		<Maneuver speed="4" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="left-turn" color="RED" />
-		<Maneuver speed="3" kind="left-bank" color="WHITE" />
-		<Maneuver speed="3" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="right-bank" color="WHITE" />
-		<Maneuver speed="3" kind="right-turn" color="RED" />
-		<Maneuver speed="3" kind="about" color="RED" />
-		<Maneuver speed="2" kind="left-turn" color="WHITE" />
-		<Maneuver speed="2" kind="left-bank" color="WHITE" />
-		<Maneuver speed="2" kind="straight" color="GREEN" />
-		<Maneuver speed="2" kind="right-bank" color="WHITE" />
-		<Maneuver speed="2" kind="right-turn" color="WHITE" />
-		<Maneuver speed="1" kind="left-bank" color="GREEN" />
-		<Maneuver speed="1" kind="straight" color="GREEN" />
-		<Maneuver speed="1" kind="right-bank" color="GREEN" />
-	</Maneuvers>
-	<FrontArc>90</FrontArc>
-	<RearArc></RearArc>
-</ShipClassDetail>
-<ShipClassDetail>
-	<Name>Jem'Hadar Attack Ship</Name>
-	<Id>5014</Id>
-	<Maneuvers>
-		<Maneuver speed="4" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="left-turn" color="WHITE" />
-		<Maneuver speed="3" kind="left-bank" color="WHITE" />
-		<Maneuver speed="3" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="right-bank" color="WHITE" />
-		<Maneuver speed="3" kind="right-turn" color="WHITE" />
-		<Maneuver speed="3" kind="about" color="RED" />
-		<Maneuver speed="2" kind="left-turn" color="WHITE" />
-		<Maneuver speed="2" kind="left-bank" color="GREEN" />
-		<Maneuver speed="2" kind="straight" color="GREEN" />
-		<Maneuver speed="2" kind="right-bank" color="GREEN" />
-		<Maneuver speed="2" kind="right-turn" color="WHITE" />
-		<Maneuver speed="1" kind="left-bank" color="GREEN" />
-		<Maneuver speed="1" kind="straight" color="GREEN" />
-		<Maneuver speed="1" kind="right-bank" color="GREEN" />
-	</Maneuvers>
-	<FrontArc>90</FrontArc>
-	<RearArc></RearArc>
-</ShipClassDetail>
-<ShipClassDetail>
-	<Name>Ferengi D'Kora Class</Name>
-	<Id>5015</Id>
-	<Maneuvers>
-		<Maneuver speed="4" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="left-turn" color="RED" />
-		<Maneuver speed="3" kind="left-bank" color="WHITE" />
-		<Maneuver speed="3" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="right-bank" color="WHITE" />
-		<Maneuver speed="3" kind="right-turn" color="RED" />
-		<Maneuver speed="2" kind="left-turn" color="WHITE" />
-		<Maneuver speed="2" kind="left-bank" color="WHITE" />
-		<Maneuver speed="2" kind="straight" color="GREEN" />
-		<Maneuver speed="2" kind="right-bank" color="WHITE" />
-		<Maneuver speed="2" kind="right-turn" color="WHITE" />
-		<Maneuver speed="1" kind="left-bank" color="GREEN" />
-		<Maneuver speed="1" kind="straight" color="GREEN" />
-		<Maneuver speed="1" kind="right-bank" color="GREEN" />
-		<Maneuver speed="-1" kind="straight" color="RED" />
-	</Maneuvers>
-	<FrontArc>90</FrontArc>
-	<RearArc></RearArc>
-</ShipClassDetail>
-<ShipClassDetail>
-	<Name>B'rel Class</Name>
-	<Id>5016</Id>
-	<Maneuvers>
-		<Maneuver speed="4" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="left-turn" color="WHITE" />
-		<Maneuver speed="3" kind="left-bank" color="WHITE" />
-		<Maneuver speed="3" kind="straight" color="WHITE" />
-		<Maneuver speed="3" kind="right-bank" color="WHITE" />
-		<Maneuver speed="3" kind="right-turn" color="WHITE" />
-		<Maneuver speed="3" kind="about" color="RED" />
-		<Maneuver speed="2" kind="left-turn" color="WHITE" />
-		<Maneuver speed="2" kind="left-bank" color="GREEN" />
-		<Maneuver speed="2" kind="straight" color="GREEN" />
-		<Maneuver speed="2" kind="right-bank" color="GREEN" />
-		<Maneuver speed="2" kind="right-turn" color="WHITE" />
-		<Maneuver speed="1" kind="left-bank" color="GREEN" />
-		<Maneuver speed="1" kind="straight" color="GREEN" />
-		<Maneuver speed="1" kind="right-bank" color="GREEN" />
-	</Maneuvers>
-	<FrontArc>90</FrontArc>
-	<RearArc>90</RearArc>
-</ShipClassDetail>
-</ShipClassDetails>
+    <ShipClassDetails>
+        <ShipClassDetail>
+            <Name>Galaxy Class</Name>
+            <Id>5000</Id>
+            <Maneuvers>
+                <Maneuver speed="5" kind="straight" color="WHITE" />
+                <Maneuver speed="4" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="left-turn" color="RED" />
+                <Maneuver speed="3" kind="left-bank" color="WHITE" />
+                <Maneuver speed="3" kind="straight" color="GREEN" />
+                <Maneuver speed="3" kind="right-bank" color="WHITE" />
+                <Maneuver speed="3" kind="right-turn" color="RED" />
+                <Maneuver speed="2" kind="left-bank" color="WHITE" />
+                <Maneuver speed="2" kind="straight" color="GREEN" />
+                <Maneuver speed="2" kind="right-bank" color="WHITE" />
+                <Maneuver speed="1" kind="left-bank" color="GREEN" />
+                <Maneuver speed="1" kind="straight" color="GREEN" />
+                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+                <Maneuver speed="-1" kind="straight" color="RED" />
+                <Maneuver speed="-2" kind="straight" color="RED" />
+            </Maneuvers>
+            <FrontArc>90</FrontArc>
+            <RearArc>90</RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>Miranda Class</Name>
+            <Id>5001</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="left-turn" color="WHITE" />
+                <Maneuver speed="3" kind="left-bank" color="WHITE" />
+                <Maneuver speed="3" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="right-bank" color="WHITE" />
+                <Maneuver speed="3" kind="right-turn" color="WHITE" />
+                <Maneuver speed="2" kind="left-turn" color="WHITE" />
+                <Maneuver speed="2" kind="left-bank" color="WHITE" />
+                <Maneuver speed="2" kind="straight" color="GREEN" />
+                <Maneuver speed="2" kind="right-bank" color="WHITE" />
+                <Maneuver speed="2" kind="right-turn" color="WHITE" />
+                <Maneuver speed="1" kind="left-bank" color="GREEN" />
+                <Maneuver speed="1" kind="straight" color="GREEN" />
+                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+                <Maneuver speed="-2" kind="straight" color="RED" />
+            </Maneuvers>
+            <FrontArc>180</FrontArc>
+            <RearArc>90</RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>Constitution Class</Name>
+            <Id>5002</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="left-turn" color="RED" />
+                <Maneuver speed="3" kind="left-bank" color="WHITE" />
+                <Maneuver speed="3" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="right-bank" color="WHITE" />
+                <Maneuver speed="3" kind="right-turn" color="RED" />
+                <Maneuver speed="2" kind="left-turn" color="WHITE" />
+                <Maneuver speed="2" kind="left-bank" color="WHITE" />
+                <Maneuver speed="2" kind="straight" color="GREEN" />
+                <Maneuver speed="2" kind="right-bank" color="WHITE" />
+                <Maneuver speed="2" kind="right-turn" color="WHITE" />
+                <Maneuver speed="1" kind="left-bank" color="GREEN" />
+                <Maneuver speed="1" kind="straight" color="GREEN" />
+                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+                <Maneuver speed="-2" kind="straight" color="RED" />
+            </Maneuvers>
+            <FrontArc>180</FrontArc>
+            <RearArc></RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>Defiant Class</Name>
+            <Id>5003</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="left-turn" color="WHITE" />
+                <Maneuver speed="3" kind="left-bank" color="WHITE" />
+                <Maneuver speed="3" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="right-bank" color="WHITE" />
+                <Maneuver speed="3" kind="right-turn" color="WHITE" />
+                <Maneuver speed="3" kind="about" color="RED" />
+                <Maneuver speed="2" kind="left-turn" color="WHITE" />
+                <Maneuver speed="2" kind="left-bank" color="WHITE" />
+                <Maneuver speed="2" kind="straight" color="GREEN" />
+                <Maneuver speed="2" kind="right-bank" color="WHITE" />
+                <Maneuver speed="2" kind="right-turn" color="WHITE" />
+                <Maneuver speed="1" kind="left-bank" color="GREEN" />
+                <Maneuver speed="1" kind="straight" color="GREEN" />
+                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+            </Maneuvers>
+            <FrontArc>90</FrontArc>
+            <RearArc>90</RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>D'deridex Class</Name>
+            <Id>5004</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="left-turn" color="WHITE" />
+                <Maneuver speed="3" kind="left-bank" color="WHITE" />
+                <Maneuver speed="3" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="right-bank" color="WHITE" />
+                <Maneuver speed="3" kind="right-turn" color="WHITE" />
+                <Maneuver speed="2" kind="left-turn" color="WHITE" />
+                <Maneuver speed="2" kind="left-bank" color="WHITE" />
+                <Maneuver speed="2" kind="straight" color="GREEN" />
+                <Maneuver speed="2" kind="right-bank" color="WHITE" />
+                <Maneuver speed="2" kind="right-turn" color="WHITE" />
+                <Maneuver speed="1" kind="left-bank" color="GREEN" />
+                <Maneuver speed="1" kind="straight" color="GREEN" />
+                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+                <Maneuver speed="-2" kind="straight" color="RED" />
+            </Maneuvers>
+            <FrontArc>90</FrontArc>
+            <RearArc></RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>Valdore Class</Name>
+            <Id>5005</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="left-turn" color="RED" />
+                <Maneuver speed="3" kind="left-bank" color="WHITE" />
+                <Maneuver speed="3" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="right-bank" color="WHITE" />
+                <Maneuver speed="3" kind="right-turn" color="RED" />
+                <Maneuver speed="3" kind="about" color="RED" />
+                <Maneuver speed="2" kind="left-turn" color="WHITE" />
+                <Maneuver speed="2" kind="left-bank" color="GREEN" />
+                <Maneuver speed="2" kind="straight" color="GREEN" />
+                <Maneuver speed="2" kind="right-bank" color="GREEN" />
+                <Maneuver speed="2" kind="right-turn" color="WHITE" />
+                <Maneuver speed="1" kind="left-bank" color="GREEN" />
+                <Maneuver speed="1" kind="straight" color="GREEN" />
+                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+            </Maneuvers>
+            <FrontArc>90</FrontArc>
+            <RearArc></RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>Romulan Science Vessel</Name>
+            <Id>5006</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="left-bank" color="WHITE" />
+                <Maneuver speed="3" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="right-bank" color="WHITE" />
+                <Maneuver speed="2" kind="left-turn" color="WHITE" />
+                <Maneuver speed="2" kind="left-bank" color="GREEN" />
+                <Maneuver speed="2" kind="straight" color="GREEN" />
+                <Maneuver speed="2" kind="right-bank" color="GREEN" />
+                <Maneuver speed="2" kind="right-turn" color="WHITE" />
+                <Maneuver speed="2" kind="about" color="WHITE" />
+                <Maneuver speed="1" kind="left-turn" color="WHITE" />
+                <Maneuver speed="1" kind="left-bank" color="GREEN" />
+                <Maneuver speed="1" kind="straight" color="GREEN" />
+                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+                <Maneuver speed="1" kind="right-turn" color="WHITE" />
+            </Maneuvers>
+            <FrontArc>90</FrontArc>
+            <RearArc></RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>Romulan Bird of Prey Class</Name>
+            <Id>5007</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="left-turn" color="WHITE" />
+                <Maneuver speed="3" kind="left-bank" color="WHITE" />
+                <Maneuver speed="3" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="right-bank" color="WHITE" />
+                <Maneuver speed="3" kind="right-turn" color="WHITE" />
+                <Maneuver speed="3" kind="about" color="RED" />
+                <Maneuver speed="2" kind="left-turn" color="WHITE" />
+                <Maneuver speed="2" kind="left-bank" color="WHITE" />
+                <Maneuver speed="2" kind="straight" color="GREEN" />
+                <Maneuver speed="2" kind="right-bank" color="WHITE" />
+                <Maneuver speed="2" kind="right-turn" color="WHITE" />
+                <Maneuver speed="1" kind="left-bank" color="GREEN" />
+                <Maneuver speed="1" kind="straight" color="GREEN" />
+                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+            </Maneuvers>
+            <FrontArc>90</FrontArc>
+            <RearArc></RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>Vor'cha Class</Name>
+            <Id>5008</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="left-turn" color="RED" />
+                <Maneuver speed="3" kind="left-bank" color="WHITE" />
+                <Maneuver speed="3" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="right-bank" color="WHITE" />
+                <Maneuver speed="3" kind="right-turn" color="RED" />
+                <Maneuver speed="3" kind="about" color="RED" />
+                <Maneuver speed="2" kind="left-turn" color="WHITE" />
+                <Maneuver speed="2" kind="left-bank" color="GREEN" />
+                <Maneuver speed="2" kind="straight" color="GREEN" />
+                <Maneuver speed="2" kind="right-bank" color="GREEN" />
+                <Maneuver speed="2" kind="right-turn" color="WHITE" />
+                <Maneuver speed="1" kind="left-bank" color="GREEN" />
+                <Maneuver speed="1" kind="straight" color="GREEN" />
+                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+            </Maneuvers>
+            <FrontArc>90</FrontArc>
+            <RearArc></RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>D7 Class*</Name>
+            <Id>5009</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="left-turn" color="RED" />
+                <Maneuver speed="3" kind="left-bank" color="WHITE" />
+                <Maneuver speed="3" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="right-bank" color="WHITE" />
+                <Maneuver speed="3" kind="right-turn" color="RED" />
+                <Maneuver speed="3" kind="about" color="RED" />
+                <Maneuver speed="2" kind="left-turn" color="WHITE" />
+                <Maneuver speed="2" kind="left-bank" color="WHITE" />
+                <Maneuver speed="2" kind="straight" color="GREEN" />
+                <Maneuver speed="2" kind="right-bank" color="WHITE" />
+                <Maneuver speed="2" kind="right-turn" color="WHITE" />
+                <Maneuver speed="1" kind="left-bank" color="GREEN" />
+                <Maneuver speed="1" kind="straight" color="GREEN" />
+                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+            </Maneuvers>
+            <FrontArc>90</FrontArc>
+            <RearArc></RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>Negh'var Class</Name>
+            <Id>5010</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="left-turn" color="RED" />
+                <Maneuver speed="3" kind="left-bank" color="WHITE" />
+                <Maneuver speed="3" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="right-bank" color="WHITE" />
+                <Maneuver speed="3" kind="right-turn" color="RED" />
+                <Maneuver speed="3" kind="about" color="RED" />
+                <Maneuver speed="2" kind="left-turn" color="WHITE" />
+                <Maneuver speed="2" kind="left-bank" color="WHITE" />
+                <Maneuver speed="2" kind="straight" color="GREEN" />
+                <Maneuver speed="2" kind="right-bank" color="WHITE" />
+                <Maneuver speed="2" kind="right-turn" color="WHITE" />
+                <Maneuver speed="1" kind="left-bank" color="GREEN" />
+                <Maneuver speed="1" kind="straight" color="GREEN" />
+                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+            </Maneuvers>
+            <FrontArc>90</FrontArc>
+            <RearArc></RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>K'T'Inga Class</Name>
+            <Id>5011</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="left-turn" color="RED" />
+                <Maneuver speed="3" kind="left-bank" color="WHITE" />
+                <Maneuver speed="3" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="right-bank" color="WHITE" />
+                <Maneuver speed="3" kind="right-turn" color="RED" />
+                <Maneuver speed="3" kind="about" color="RED" />
+                <Maneuver speed="2" kind="left-turn" color="WHITE" />
+                <Maneuver speed="2" kind="left-bank" color="WHITE" />
+                <Maneuver speed="2" kind="straight" color="GREEN" />
+                <Maneuver speed="2" kind="right-bank" color="WHITE" />
+                <Maneuver speed="2" kind="right-turn" color="WHITE" />
+                <Maneuver speed="1" kind="left-bank" color="GREEN" />
+                <Maneuver speed="1" kind="straight" color="GREEN" />
+                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+            </Maneuvers>
+            <FrontArc>90</FrontArc>
+            <RearArc>90</RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>Cardassian Galor Class</Name>
+            <Id>5012</Id>
+            <Maneuvers>
+                <Maneuver speed="5" kind="straight" color="WHITE" />
+                <Maneuver speed="4" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="left-turn" color="RED" />
+                <Maneuver speed="3" kind="left-bank" color="WHITE" />
+                <Maneuver speed="3" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="right-bank" color="WHITE" />
+                <Maneuver speed="3" kind="right-turn" color="RED" />
+                <Maneuver speed="2" kind="left-turn" color="RED" />
+                <Maneuver speed="2" kind="left-bank" color="WHITE" />
+                <Maneuver speed="2" kind="straight" color="GREEN" />
+                <Maneuver speed="2" kind="right-bank" color="WHITE" />
+                <Maneuver speed="2" kind="right-turn" color="RED" />
+                <Maneuver speed="1" kind="left-bank" color="GREEN" />
+                <Maneuver speed="1" kind="straight" color="GREEN" />
+                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+            </Maneuvers>
+            <FrontArc>180</FrontArc>
+            <RearArc></RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>Breen Battle Cruiser</Name>
+            <Id>5013</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="left-turn" color="RED" />
+                <Maneuver speed="3" kind="left-bank" color="WHITE" />
+                <Maneuver speed="3" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="right-bank" color="WHITE" />
+                <Maneuver speed="3" kind="right-turn" color="RED" />
+                <Maneuver speed="3" kind="about" color="RED" />
+                <Maneuver speed="2" kind="left-turn" color="WHITE" />
+                <Maneuver speed="2" kind="left-bank" color="WHITE" />
+                <Maneuver speed="2" kind="straight" color="GREEN" />
+                <Maneuver speed="2" kind="right-bank" color="WHITE" />
+                <Maneuver speed="2" kind="right-turn" color="WHITE" />
+                <Maneuver speed="1" kind="left-bank" color="GREEN" />
+                <Maneuver speed="1" kind="straight" color="GREEN" />
+                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+            </Maneuvers>
+            <FrontArc>90</FrontArc>
+            <RearArc></RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>Jem'Hadar Attack Ship</Name>
+            <Id>5014</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="left-turn" color="WHITE" />
+                <Maneuver speed="3" kind="left-bank" color="WHITE" />
+                <Maneuver speed="3" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="right-bank" color="WHITE" />
+                <Maneuver speed="3" kind="right-turn" color="WHITE" />
+                <Maneuver speed="3" kind="about" color="RED" />
+                <Maneuver speed="2" kind="left-turn" color="WHITE" />
+                <Maneuver speed="2" kind="left-bank" color="GREEN" />
+                <Maneuver speed="2" kind="straight" color="GREEN" />
+                <Maneuver speed="2" kind="right-bank" color="GREEN" />
+                <Maneuver speed="2" kind="right-turn" color="WHITE" />
+                <Maneuver speed="1" kind="left-bank" color="GREEN" />
+                <Maneuver speed="1" kind="straight" color="GREEN" />
+                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+            </Maneuvers>
+            <FrontArc>90</FrontArc>
+            <RearArc></RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>Ferengi D'Kora Class</Name>
+            <Id>5015</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="left-turn" color="RED" />
+                <Maneuver speed="3" kind="left-bank" color="WHITE" />
+                <Maneuver speed="3" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="right-bank" color="WHITE" />
+                <Maneuver speed="3" kind="right-turn" color="RED" />
+                <Maneuver speed="2" kind="left-turn" color="WHITE" />
+                <Maneuver speed="2" kind="left-bank" color="WHITE" />
+                <Maneuver speed="2" kind="straight" color="GREEN" />
+                <Maneuver speed="2" kind="right-bank" color="WHITE" />
+                <Maneuver speed="2" kind="right-turn" color="WHITE" />
+                <Maneuver speed="1" kind="left-bank" color="GREEN" />
+                <Maneuver speed="1" kind="straight" color="GREEN" />
+                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+                <Maneuver speed="-1" kind="straight" color="RED" />
+            </Maneuvers>
+            <FrontArc>90</FrontArc>
+            <RearArc></RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>B'rel Class</Name>
+            <Id>5016</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="left-turn" color="WHITE" />
+                <Maneuver speed="3" kind="left-bank" color="WHITE" />
+                <Maneuver speed="3" kind="straight" color="WHITE" />
+                <Maneuver speed="3" kind="right-bank" color="WHITE" />
+                <Maneuver speed="3" kind="right-turn" color="WHITE" />
+                <Maneuver speed="3" kind="about" color="RED" />
+                <Maneuver speed="2" kind="left-turn" color="WHITE" />
+                <Maneuver speed="2" kind="left-bank" color="GREEN" />
+                <Maneuver speed="2" kind="straight" color="GREEN" />
+                <Maneuver speed="2" kind="right-bank" color="GREEN" />
+                <Maneuver speed="2" kind="right-turn" color="WHITE" />
+                <Maneuver speed="1" kind="left-bank" color="GREEN" />
+                <Maneuver speed="1" kind="straight" color="GREEN" />
+                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+            </Maneuvers>
+            <FrontArc>90</FrontArc>
+            <RearArc>90</RearArc>
+        </ShipClassDetail>
+    </ShipClassDetails>
     <Ships>
         <Ship>
             <Title>U.S.S. Enterprise-D</Title>
@@ -1155,7 +1155,55 @@
             <Id>1029</Id>
             <Set>OP2Prize</Set>
         </Ship>
-        
+        <Ship>
+            <Title>P.W.B. Aj'Rmr</Title>
+            <Unique>Y</Unique>
+            <ShipClass>Romulan D'deridex 2</ShipClass>
+            <Faction>Romulan</Faction>
+            <Attack>3</Attack>
+            <Agility>2</Agility>
+            <Hull>6</Hull>
+            <Shield>4</Shield>
+            <Ability>Each time you attack, you may re-roll 1 of your attack dice for every damage card assigned to your ship.</Ability>
+            <Cost>30</Cost>
+            <EvasiveManeuvers>1</EvasiveManeuvers>
+            <TargetLock>1</TargetLock>
+            <Scan></Scan>
+            <Battlestations></Battlestations>
+            <Cloak>1</Cloak>
+            <SensorEcho>1</SensorEcho>
+            <Tech>1</Tech>
+            <Weapon>2</Weapon>
+            <Crew>2</Crew>
+            <Id>1042</Id>
+            <Set>OP3Prize</Set>
+        </Ship>
+        <Ship>
+            <Title>Romulan D'deridex 2</Title>
+            <Unique>N</Unique>
+            <ShipClass>Romulan D'deridex</ShipClass>
+            <Faction>Romulan</Faction>
+            <Attack>3</Attack>
+            <Agility>2</Agility>
+            <Hull>6</Hull>
+            <Shield>3</Shield>
+            <Ability>
+            </Ability>
+            <Cost>28</Cost>
+            <EvasiveManeuvers>1</EvasiveManeuvers>
+            <TargetLock>1</TargetLock>
+            <Scan>
+            </Scan>
+            <Battlestations>
+            </Battlestations>
+            <Cloak>1</Cloak>
+            <SensorEcho>1</SensorEcho>
+            <Tech>1</Tech>
+            <Weapon>2</Weapon>
+            <Crew>1</Crew>
+            <Id>1043</Id>
+            <Set>OP3Prize</Set>
+        </Ship>
         <Ship>
             <Title>U.S.S. Defiant</Title>
             <Unique>Y</Unique>
@@ -1906,6 +1954,22 @@
             <Cost>6</Cost>
             <Id>2028</Id>
             <Set>OP2Prize</Set>
+        </Captain>
+        <Captain>
+            <Title>Letant</Title>
+            <Unique>Y</Unique>
+            <Ability>Each round, when defending, you may force one opponent to re-roll one of there [CRITICAL] results.</Ability>
+            <Skill>6</Skill>
+            <Talent>1</Talent>
+            <Attack>
+            </Attack>
+            <Range>
+            </Range>
+            <Type>Captain</Type>
+            <Faction>Romulan</Faction>
+            <Cost>4</Cost>
+            <Id>2041</Id>
+            <Set>OP3Prize</Set>
         </Captain>
         <Captain>
             <Title>Benjamin Sisko</Title>
@@ -3244,7 +3308,74 @@
             <Id>3066</Id>
             <Set>OP2Prize</Set>
         </Upgrade>
-        
+        <Upgrade>
+            <Title>Invasion Plans</Title>
+            <Ability>When you initiate an attack against a ship at Range 2-3 while you are Cloaked, you may discard this card to force that ship to roll 2 less defense dice against your attack.</Ability>
+            <Unique>Y</Unique>
+            <Skill>
+            </Skill>
+            <Talent>
+            </Talent>
+            <Attack></Attack>
+            <Range></Range>
+            <Type>Talent</Type>
+            <Faction>Romulan</Faction>
+            <Cost>5</Cost>
+            <Id>3101</Id>
+            <Set>OP3Prize</Set>
+            <Special></Special>
+        </Upgrade>
+        <Upgrade>
+            <Title>Romulan Pilot</Title>
+            <Ability>After you move, you may discard this card to place a [SCAN] Token beside your ship as a free Action. If you do so, you may immediately make an additional Green Maneuver.</Ability>
+            <Unique>N</Unique>
+            <Skill>
+            </Skill>
+            <Talent>
+            </Talent>
+            <Attack></Attack>
+            <Range></Range>
+            <Type>Crew</Type>
+            <Faction>Romulan</Faction>
+            <Cost>2</Cost>
+            <Id>3102</Id>
+            <Set>OP3Prize</Set>
+            <Special></Special>
+        </Upgrade>
+        <Upgrade>
+            <Title>Additional Weapons Array</Title>
+            <Ability>ATTACK: Disable this card to make this attack. You may convert 1 of your [BATTLESTATION] results into 1 [CRITICAL] result.</Ability>
+            <Unique>N</Unique>
+            <Skill>
+            </Skill>
+            <Talent>
+            </Talent>
+            <Attack></Attack>
+            <Range></Range>
+            <Type>Weapon</Type>
+            <Faction>Romulan</Faction>
+            <Cost>4</Cost>
+            <Id>3103</Id>
+            <Set>OP3Prize</Set>
+            <Special></Special>
+        </Upgrade>
+        <Upgrade>
+            <Title>Nullifier Core</Title>
+            <Ability>Each time you defend while Cloaked, you may re-roll 1 of your defense dice. Discard this card if you ship sustains any damage to its Hull.</Ability>
+            <Unique>N</Unique>
+            <Skill>
+            </Skill>
+            <Talent>
+            </Talent>
+            <Attack></Attack>
+            <Range></Range>
+            <Type>Tech</Type>
+            <Faction>Romulan</Faction>
+            <Cost>3</Cost>
+            <Id>3104</Id>
+            <Set>OP3Prize</Set>
+            <Special></Special>
+        </Upgrade>
         <Upgrade>
             <Title>Quantum Torpedoes</Title>
             <Ability>ATTACK: [TARGET LOCK] Spend your [TARGET LOCK] and disable this card to perform this attack. If the target ship is hit, add 1 [HIT] result to your total damage. You may fire this weapon from your forward or rear firing arcs.</Ability>
@@ -3798,7 +3929,7 @@
             <Cost>5</Cost>
             <Id>4002</Id>
             <Set>OP2Participation</Set>
-        </Resource>    
+        </Resource>
     </Resources>
     <Sets>
         
@@ -3825,7 +3956,7 @@
         <Set id="71125" overallSetName="Wave 0">Klingon I.K.S. Gr''oth Expansion Pack</Set>
         <Set id="71126" overallSetName="Wave 0">Klingon I.K.S. Negh''var Expansion Pack</Set>
         <Set id="71127" overallSetName="Wave 0">Dominion Kraxon Expansion Pack</Set>
-        <Set id="71128" overallSetName="Wave 0">Dominion Gor Portas Expansion Pack</Set>    
+        <Set id="71128" overallSetName="Wave 0">Dominion Gor Portas Expansion Pack</Set>
         
         <Set id="71268" overallSetName="Wave 1">Federation U.S.S. Defiant Expansion Pack</Set>
         <Set id="71269" overallSetName="Wave 1">Klingon I.K.S. Kronos One Expansion Pack</Set>
