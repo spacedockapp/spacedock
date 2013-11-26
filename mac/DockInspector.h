@@ -4,6 +4,7 @@
 @class DockUpgrade;
 @class DockResource;
 @class DockShip;
+@class DockMoveGrid;
 
 @interface DockInspector : NSObject
 @property (assign) IBOutlet NSPanel* inspector;
@@ -14,6 +15,7 @@
 @property (assign) IBOutlet NSArrayController* ships;
 @property (assign) IBOutlet NSArrayController* resources;
 @property (assign) IBOutlet NSTreeController* squadDetail;
+@property (assign) IBOutlet DockMoveGrid* moveGrid;
 @property (strong, nonatomic) NSString* targetKind;
 @property (weak, nonatomic) DockCaptain* currentCaptain;
 @property (weak, nonatomic) DockUpgrade* currentUpgrade;

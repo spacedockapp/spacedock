@@ -84,4 +84,14 @@
     return [self.rearArc length] > 0;
 }
 
+-(DockManeuver*)getDockManeuver:(int)speed kind:(NSString*)kind
+{
+    for (DockManeuver* m in self.maneuvers) {
+        if ([m.speed intValue] == speed && [m.kind isEqualToString: kind]) {
+            return m;
+        }
+    }
+    return nil;
+}
+
 @end

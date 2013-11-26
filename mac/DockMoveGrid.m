@@ -1,12 +1,8 @@
-//
-//  DockMoveGrid.m
-//  Space Dock
-//
-//  Created by Rob Tsuk on 11/24/13.
-//  Copyright (c) 2013 Rob Tsuk. All rights reserved.
-//
-
 #import "DockMoveGrid.h"
+
+#import "DockShip+Addons.h"
+#import "DockShipClassDetails+Addons.h"
+#import "DockManeuver.h"
 
 @implementation DockMoveGrid
 
@@ -17,6 +13,12 @@
         // Initialization code here.
     }
     return self;
+}
+
+-(void)setShip:(DockShip *)ship
+{
+    _ship = ship;
+    [self setNeedsDisplay: YES];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -59,22 +61,54 @@
         y += rowSize;
     }
     
-    int moveValues[] = {5,4,3,2,1,1,2};
+    int moveValues[] = {5,4,3,2,1,-1,-2};
     y = gridBox.origin.y - 1;
     NSFont* font = [NSFont fontWithName: @"Helvetica" size: fontSize];
     NSDictionary* attr = @{
         NSForegroundColorAttributeName: [NSColor whiteColor],
         NSFontAttributeName: font
     };
+
+    NSArray* kinds = @[@"left-turn", @"left-bank", @"straight", @"right-bank", @"right-turn", @"about"];
+    DockShipClassDetails* details = _ship.shipClassDetails;
     for (int i = 6; i >= 0; --i) {
-        NSString* move = [NSString stringWithFormat: @"%d", moveValues[i]];
-        NSSize moveStringSize = [move sizeWithAttributes: attr];
-        CGFloat deltaX = (rowSize - moveStringSize.width)/2.0;
-        CGFloat deltaY = (rowSize - moveStringSize.height)/2.0;
-        NSRect moveRect = NSMakeRect(gridBox.origin.x + deltaX, y + deltaY + lineWidth, moveStringSize.width, moveStringSize.height);
-        [move drawInRect: moveRect withAttributes: attr];
+        x = gridBox.origin.x;
+        int speed = moveValues[i];
+        int absSpeed = speed;
+        if (speed < 0) {
+            absSpeed = -speed;
+        }
+        for (int j = 0; j < 7; ++j) {
+            if (j == 0) {
+                NSString* move = [NSString stringWithFormat: @"%d", absSpeed];
+                NSSize moveStringSize = [move sizeWithAttributes: attr];
+                CGFloat deltaX = (rowSize - moveStringSize.width)/2.0;
+                CGFloat deltaY = (rowSize - moveStringSize.height)/2.0;
+                NSRect moveRect = NSMakeRect(x + deltaX, y + deltaY + lineWidth, moveStringSize.width, moveStringSize.height);
+                [move drawInRect: moveRect withAttributes: attr];
+            } else if (details != nil ){
+                NSString* kind = kinds[j-1];
+                DockManeuver* maneuver = [details getDockManeuver: speed kind: kind];
+                if (maneuver != nil) {
+                    NSString* kind = maneuver.kind;
+                    NSString* color = maneuver.color;
+                    NSString* directionName = kind;
+                    if (speed < 0) {
+                        directionName = @"backup";
+                    }
+                    NSString* fileName = [NSString stringWithFormat: @"%@-%@", [color lowercaseString], directionName];
+                    NSImage* image = [NSImage imageNamed: fileName];
+                    if (image) {
+                        NSRect moveRect = NSMakeRect(x, y, rowSize, rowSize);
+                        [image drawInRect:moveRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+                    }
+                }
+            }
+            x += rowSize;
+        }
         y += rowSize;
-    }
+   }
+
 }
 
 @end

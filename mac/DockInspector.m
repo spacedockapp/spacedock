@@ -3,6 +3,7 @@
 #import "DockAppDelegate.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockEquippedShip+Addons.h"
+#import "DockMoveGrid.h"
 #import "DockShip+Addons.h"
 #import "DockUpgrade+Addons.h"
 
@@ -17,10 +18,16 @@ static id extractSelectedItem(id controller)
     return nil;
 }
 
+-(void)updateForShip
+{
+    _moveGrid.ship = self.currentShip;
+}
+
 -(void)updateInspectorTabForItem:(id)selectedItem changeTab:(BOOL)changeTab
 {
     if ([selectedItem isMemberOfClass: [DockEquippedShip class]]) {
         self.currentShip = [selectedItem ship];
+        [self updateForShip];
         [_tabView selectTabViewItemWithIdentifier: @"ship"];
     } else if ([selectedItem isMemberOfClass: [DockEquippedUpgrade class]]) {
         DockUpgrade* upgrade = [selectedItem upgrade];
@@ -63,6 +70,7 @@ static id extractSelectedItem(id controller)
             [_tabView selectTabViewItemWithIdentifier: @"upgrade"];
         } else if ([ident isEqualToString: @"shipsTable"]) {
             self.currentShip = extractSelectedItem(_ships);
+            [self updateForShip];
             [_tabView selectTabViewItemWithIdentifier: @"ship"];
         } else if ([ident isEqualToString: @"resourcesTable"]) {
             self.currentResource = extractSelectedItem(_resources);
@@ -82,6 +90,7 @@ static id extractSelectedItem(id controller)
         self.currentCaptain = extractSelectedItem(_captains);
     } else if (object == _ships) {
         self.currentShip = extractSelectedItem(_ships);
+        [self updateForShip];
     } else if (object == _upgrades) {
         self.currentUpgrade = extractSelectedItem(_upgrades);
     } else if (object == _resources) {
@@ -92,7 +101,7 @@ static id extractSelectedItem(id controller)
 -(void)awakeFromNib
 {
     [super awakeFromNib];
-    self.shipDetailTab = @"forClass";
+    self.shipDetailTab = @"forShip";
     [_inspector setFloatingPanel: YES];
     [_mainWindow addObserver: self forKeyPath: @"firstResponder" options: 0 context: 0];
     [_captains addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];

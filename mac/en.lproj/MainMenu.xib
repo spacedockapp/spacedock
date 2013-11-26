@@ -1800,6 +1800,7 @@
                 <outlet property="captainsTable" destination="pbE-Lg-pvF" id="t92-Pu-inm"/>
                 <outlet property="inspector" destination="h3B-q6-zJy" id="nzl-G2-VQy"/>
                 <outlet property="mainWindow" destination="371" id="Zwt-et-1M2"/>
+                <outlet property="moveGrid" destination="XsD-d6-3SQ" id="xEO-WR-jfX"/>
                 <outlet property="resources" destination="YPe-Zs-mE7" id="2o6-hy-Ap1"/>
                 <outlet property="resourcesTable" destination="v13-24-CCG" id="QAi-kK-Wzn"/>
                 <outlet property="setsTable" destination="Gkg-Ph-STg" id="vrP-aX-IyQ"/>
@@ -2038,7 +2039,7 @@
                                                                 </connections>
                                                             </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="SBb-e3-hQW" userLabel="title">
-                                                                <rect key="frame" x="24" y="227" width="157.5" height="23"/>
+                                                                <rect key="frame" x="24" y="227" width="157" height="23"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Ship Title" placeholderString="" id="1GN-bu-5wD">
                                                                     <font key="font" metaFont="system"/>
@@ -2050,7 +2051,7 @@
                                                                 </connections>
                                                             </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="BeH-hV-B8C" userLabel="ship class">
-                                                                <rect key="frame" x="24" y="207" width="157.5" height="23"/>
+                                                                <rect key="frame" x="24" y="207" width="157" height="23"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Ship Class" placeholderString="" id="Jvo-B3-ah0">
                                                                     <font key="font" size="10" name="LucidaGrande"/>
