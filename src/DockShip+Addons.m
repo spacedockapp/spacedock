@@ -198,4 +198,13 @@ NSString* asDegrees(NSString* textValue)
     }
 }
 
+-(NSString*)movesSummary
+{
+    DockShipClassDetails* details = self.shipClassDetails;
+    if (details == nil) {
+        return @"";
+    }
+    return details.movesSummary;
+}
+
 @end

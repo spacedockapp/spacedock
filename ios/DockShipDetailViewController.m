@@ -67,15 +67,22 @@
     return cell;
 }
 
--(UITableViewCell*)cell:(UITableView*)tableView forKey:(NSString*)key label:(NSString*)label
+-(UITableViewCell*)cell:(UITableView*)tableView forKey:(NSString*)key label:(NSString*)label accessory:(UITableViewCellAccessoryType)accessory
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
     cell.textLabel.text = label;
     id value = [_ship valueForKey: key];
     NSString* textValue = [NSString stringWithFormat: @"%@", value];
     cell.detailTextLabel.text = textValue;
+    cell.accessoryType = accessory;
     return cell;
 }
+
+-(UITableViewCell*)cell:(UITableView*)tableView forKey:(NSString*)key label:(NSString*)label
+{
+    return [self cell: tableView forKey: key label: label accessory: UITableViewCellAccessoryNone];
+}
+
 
 enum {
     kShipDetailTitle,
@@ -91,6 +98,7 @@ enum {
     kShipDetailTech,
     kShipDetailWeapons,
     kShipDetailActions,
+    kShipDetailMoves,
     kShipDetailAbility
 };
 
@@ -123,6 +131,8 @@ enum {
         return [self cell: tableView forKey: @"tech" label: @"Tech"];
     case kShipDetailWeapons:
         return [self cell: tableView forKey: @"weapon" label: @"Weapon"];
+    case kShipDetailMoves:
+        return [self cell: tableView forKey: @"movesSummary" label: @"Key Moves" accessory: UITableViewCellAccessoryDetailDisclosureButton];
     case kShipDetailActions:
         return [self cellForActions: tableView];
     }

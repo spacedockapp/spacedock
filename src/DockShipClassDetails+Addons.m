@@ -94,4 +94,17 @@
     return nil;
 }
 
+-(NSString*)movesSummary
+{
+    NSMutableSet* specials = [NSMutableSet setWithCapacity: 0];
+    for (DockManeuver* m in self.maneuvers) {
+        if ([m.kind isEqualToString: @"about"]) {
+            [specials addObject: @"come about"];
+        } else if ([m.speed intValue] < 0 && [m.kind isEqualToString: @"straight"]) {
+            [specials addObject: @"backup"];
+        }
+    }
+    return [[specials allObjects] componentsJoinedByString: @","];
+}
+
 @end

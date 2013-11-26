@@ -100,6 +100,7 @@
 		D4408DD718446C03008BA352 /* green-right-turn.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D4408DD318446C03008BA352 /* green-right-turn.pdf */; };
 		D4408DD918446C3A008BA352 /* green-about.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D4408DD818446C3A008BA352 /* green-about.pdf */; };
 		D4408DDA18446C3A008BA352 /* green-about.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D4408DD818446C3A008BA352 /* green-about.pdf */; };
+		D4408DDE184471C4008BA352 /* DockMoveGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4408DDC184471C4008BA352 /* DockMoveGridView.m */; };
 		D457FD19181D5B1E009C2E13 /* DockEditValueController.m in Sources */ = {isa = PBXBuildFile; fileRef = D457FD17181D58E0009C2E13 /* DockEditValueController.m */; };
 		D457FD1C181DAE88009C2E13 /* DockUtilsMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = D457FD1B181DAE88009C2E13 /* DockUtilsMobile.m */; };
 		D45AF1F017FFE7F900C04F9A /* DockUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D45AF1EF17FFE7F900C04F9A /* DockUtils.m */; };
@@ -336,6 +337,8 @@
 		D4408DD218446C03008BA352 /* green-left-turn.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "green-left-turn.pdf"; sourceTree = "<group>"; };
 		D4408DD318446C03008BA352 /* green-right-turn.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "green-right-turn.pdf"; sourceTree = "<group>"; };
 		D4408DD818446C3A008BA352 /* green-about.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "green-about.pdf"; sourceTree = "<group>"; };
+		D4408DDB184471C4008BA352 /* DockMoveGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockMoveGridView.h; sourceTree = "<group>"; };
+		D4408DDC184471C4008BA352 /* DockMoveGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockMoveGridView.m; sourceTree = "<group>"; };
 		D457FD16181D58E0009C2E13 /* DockEditValueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockEditValueController.h; sourceTree = "<group>"; };
 		D457FD17181D58E0009C2E13 /* DockEditValueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockEditValueController.m; sourceTree = "<group>"; };
 		D457FD1A181DAE88009C2E13 /* DockUtilsMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockUtilsMobile.h; sourceTree = "<group>"; };
@@ -649,6 +652,8 @@
 				D427FC3018320F2500D4CC83 /* DockEquippedShipCell.m */,
 				D40108E0182015090029FDC4 /* DockEquippedShipController.h */,
 				D40108E1182015090029FDC4 /* DockEquippedShipController.m */,
+				D4408DDB184471C4008BA352 /* DockMoveGridView.h */,
+				D4408DDC184471C4008BA352 /* DockMoveGridView.m */,
 				D45E4CB4182E9B2500F0AA7D /* DockResourceDetailViewController.h */,
 				D45E4CB5182E9B2500F0AA7D /* DockResourceDetailViewController.m */,
 				D49985C6182C0AF80035A2D1 /* DockResourcesViewController.h */,
@@ -1084,6 +1089,7 @@
 				D40108E2182015090029FDC4 /* DockEquippedShipController.m in Sources */,
 				D47316B118182C4C00046428 /* DockSet+Addons.m in Sources */,
 				D47316A918182C4C00046428 /* DockBooleanFormatter.m in Sources */,
+				D4408DDE184471C4008BA352 /* DockMoveGridView.m in Sources */,
 				D47316BB18182DE700046428 /* DockUpgrade.m in Sources */,
 				D4EE8DBF181C2E4000E92DD6 /* DockSquadsListController.m in Sources */,
 				D47316B218182C4C00046428 /* DockShip+Addons.m in Sources */,
