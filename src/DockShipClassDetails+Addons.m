@@ -76,7 +76,7 @@
         maneuver.color = oneMove[@"color"];
         [mSet addObject: maneuver];
     }
-    self.maneuvers = mSet;
+    [self addManeuvers: mSet];
 }
 
 -(BOOL)hasRearFiringArc
@@ -105,6 +105,15 @@
         }
     }
     return [[specials allObjects] componentsJoinedByString: @","];
+}
+
+-(NSSet*)speeds
+{
+    NSMutableSet* speeds = [NSMutableSet setWithCapacity: 0];
+    for (DockManeuver* m in self.maneuvers) {
+        [speeds addObject: m.speed];
+    }
+    return [NSSet setWithSet: speeds];
 }
 
 @end

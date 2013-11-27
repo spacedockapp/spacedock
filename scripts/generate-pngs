@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+images_path = Pathname.new(File.join(File.dirname(__FILE__), "..", "images")).cleanpath()
+images = Dir.glob("#{images_path}/*.pdf")
+images.each do |f|
+    dst = f.gsub ".pdf", ".png"
+    system("sips -Z 64 #{f} --setProperty format png --out #{dst}")
+end

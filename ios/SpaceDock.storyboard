@@ -304,10 +304,32 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Dqy-Bw-DFb"/>
+                    <connections>
+                        <segue destination="WM0-DO-tvn" kind="push" identifier="ShowMoves" id="Spv-nA-Bq2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vgd-iB-glA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="731" y="-113"/>
+        </scene>
+        <!--moves-->
+        <scene sceneID="N1g-IE-RZn">
+            <objects>
+                <viewController id="WM0-DO-tvn" userLabel="moves" customClass="DockMovesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="center" id="AOI-Nj-Jcs" customClass="DockMoveGridView">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="5rx-4H-Upc"/>
+                    <connections>
+                        <outlet property="moveGrid" destination="AOI-Nj-Jcs" id="ale-oZ-jT1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tyg-Cf-8ez" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1198" y="392"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ki2-aR-xMU">

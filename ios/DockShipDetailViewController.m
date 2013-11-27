@@ -1,5 +1,6 @@
 #import "DockShipDetailViewController.h"
 
+#import "DockMovesViewController.h"
 #import "DockShip+Addons.h"
 
 @interface DockShipDetailViewController ()
@@ -154,5 +155,25 @@ enum {
     }
     return rowHeight;
 }
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger row = [indexPath indexAtPosition: 1];
+    if (row == kShipDetailMoves) {
+        [self.tableView selectRowAtIndexPath: indexPath animated: NO scrollPosition:UITableViewScrollPositionMiddle];
+        [self performSegueWithIdentifier: @"ShowMoves" sender: self];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSString* identifier = [segue identifier];
+    id destination = [segue destinationViewController];
+    if ([identifier isEqualToString:@"ShowMoves"]) {
+        DockMovesViewController *controller = (DockMovesViewController *)destination;
+        controller.ship = _ship;
+    }
+}
+
 
 @end

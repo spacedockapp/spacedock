@@ -5,4 +5,5 @@
 -(void)updateManeuvers:(NSArray*)m;
 -(DockManeuver*)getDockManeuver:(int)speed kind:(NSString*)kind;
 -(NSString*)movesSummary;
+-(NSSet*)speeds;
 @end
