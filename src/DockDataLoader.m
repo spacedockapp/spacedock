@@ -175,7 +175,6 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                     [shipClassDetails updateManeuvers: m];
                 } else if ([key isEqualToString: @"ShipClass"]) {
                     DockShip* ship = (DockShip*)c;
-                    NSLog(@"updating ship class for ship %@", ship.title);
                     NSString* shipClass =  [d valueForKey: key];
                     [ship updateShipClass: shipClass];
                 }
@@ -417,8 +416,6 @@ static NSString* makeKey(NSString *key)
         return NO;
     }
     
-    NSLog(@"Ships = %@", xmlData[@"Ships"]);
-
     [self loadSets: xmlData[@"Sets"]];
     [self loadItems: xmlData[@"ShipClassDetails"] itemClass: [DockShipClassDetails class] entityName: @"ShipClassDetails" targetType: nil];
     [self loadItems: xmlData[@"Ships"] itemClass: [DockShip class] entityName: @"Ship" targetType: nil];

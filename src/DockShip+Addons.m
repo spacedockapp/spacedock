@@ -188,6 +188,7 @@ NSString* asDegrees(NSString* textValue)
 -(void)updateShipClass:(NSString*)newShipClass
 {
     if (self.shipClassDetails == nil || ![self.shipClass isEqualToString: newShipClass]) {
+        NSLog(@"updating ship class for ship %@", self.title);
         self.shipClass = newShipClass;
         DockShipClassDetails* details = [DockShipClassDetails find: newShipClass context: self.managedObjectContext];
         if (details != nil) {
