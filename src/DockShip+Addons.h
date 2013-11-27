@@ -19,4 +19,5 @@
 -(int)crewCount;
 -(NSArray*)actionStrings;
 -(void)updateShipClass:(NSString*)newShipClass;
+-(NSString*)descriptiveTitle;
 @end

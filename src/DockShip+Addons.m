@@ -110,6 +110,14 @@ NSString* asDegrees(NSString* textValue)
     return desc;
 }
 
+-(NSString*)descriptiveTitle
+{
+    if (self.isUnique) {
+        return self.title;
+    }
+    return self.shipClass;
+}
+
 -(NSString*)factionCode
 {
     return [[self faction] substringToIndex: 1];

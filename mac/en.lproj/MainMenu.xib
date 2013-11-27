@@ -506,10 +506,14 @@
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
-                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="title"/>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="descriptiveTitle"/>
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <connections>
-                                                                                    <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.title" id="ffj-Xh-z0q"/>
+                                                                                    <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.descriptiveTitle" id="pCy-sT-lgA">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
                                                                                 </connections>
                                                                             </tableColumn>
                                                                             <tableColumn identifier="shipFaction" editable="NO" width="100" minWidth="40" maxWidth="1000" id="Bxr-Dp-qNA" userLabel="faction">

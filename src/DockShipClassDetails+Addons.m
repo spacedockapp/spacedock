@@ -76,7 +76,7 @@
         maneuver.color = oneMove[@"color"];
         [mSet addObject: maneuver];
     }
-    [self addManeuvers: mSet];
+    self.maneuvers = mSet;
 }
 
 -(BOOL)hasRearFiringArc

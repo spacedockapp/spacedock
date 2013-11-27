@@ -94,7 +94,7 @@
                     if (speed < 0) {
                         directionName = @"backup";
                     }
-                    NSString* fileName = [NSString stringWithFormat: @"%@-%@", [color lowercaseString], directionName];
+                    NSString* fileName = [NSString stringWithFormat: @"%@-%@", color, directionName];
                     UIImage* image = [UIImage imageNamed: fileName];
                     if (image) {
                         CGRect moveRect = CGRectMake(x, y, rowSize, rowSize);

@@ -1,24 +1,24 @@
-<Data version="1.170">
+<Data version="1.171">
     <ShipClassDetails>
         <ShipClassDetail>
             <Name>Galaxy Class</Name>
             <Id>5000</Id>
             <Maneuvers>
-                <Maneuver speed="5" kind="straight" color="WHITE" />
-                <Maneuver speed="4" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="left-turn" color="RED" />
-                <Maneuver speed="3" kind="left-bank" color="WHITE" />
-                <Maneuver speed="3" kind="straight" color="GREEN" />
-                <Maneuver speed="3" kind="right-bank" color="WHITE" />
-                <Maneuver speed="3" kind="right-turn" color="RED" />
-                <Maneuver speed="2" kind="left-bank" color="WHITE" />
-                <Maneuver speed="2" kind="straight" color="GREEN" />
-                <Maneuver speed="2" kind="right-bank" color="WHITE" />
-                <Maneuver speed="1" kind="left-bank" color="GREEN" />
-                <Maneuver speed="1" kind="straight" color="GREEN" />
-                <Maneuver speed="1" kind="right-bank" color="GREEN" />
-                <Maneuver speed="-1" kind="straight" color="RED" />
-                <Maneuver speed="-2" kind="straight" color="RED" />
+                <Maneuver speed="5" kind="straight" color="white" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="red" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="green" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="red" />
+                <Maneuver speed="2" kind="left-bank" color="white" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
+                <Maneuver speed="-1" kind="straight" color="red" />
+                <Maneuver speed="-2" kind="straight" color="red" />
             </Maneuvers>
             <FrontArc>90</FrontArc>
             <RearArc>90</RearArc>
@@ -27,21 +27,21 @@
             <Name>Miranda Class</Name>
             <Id>5001</Id>
             <Maneuvers>
-                <Maneuver speed="4" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="left-turn" color="WHITE" />
-                <Maneuver speed="3" kind="left-bank" color="WHITE" />
-                <Maneuver speed="3" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="right-bank" color="WHITE" />
-                <Maneuver speed="3" kind="right-turn" color="WHITE" />
-                <Maneuver speed="2" kind="left-turn" color="WHITE" />
-                <Maneuver speed="2" kind="left-bank" color="WHITE" />
-                <Maneuver speed="2" kind="straight" color="GREEN" />
-                <Maneuver speed="2" kind="right-bank" color="WHITE" />
-                <Maneuver speed="2" kind="right-turn" color="WHITE" />
-                <Maneuver speed="1" kind="left-bank" color="GREEN" />
-                <Maneuver speed="1" kind="straight" color="GREEN" />
-                <Maneuver speed="1" kind="right-bank" color="GREEN" />
-                <Maneuver speed="-2" kind="straight" color="RED" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="white" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="white" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="white" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="white" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
+                <Maneuver speed="-2" kind="straight" color="red" />
             </Maneuvers>
             <FrontArc>180</FrontArc>
             <RearArc>90</RearArc>
@@ -50,21 +50,21 @@
             <Name>Constitution Class</Name>
             <Id>5002</Id>
             <Maneuvers>
-                <Maneuver speed="4" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="left-turn" color="RED" />
-                <Maneuver speed="3" kind="left-bank" color="WHITE" />
-                <Maneuver speed="3" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="right-bank" color="WHITE" />
-                <Maneuver speed="3" kind="right-turn" color="RED" />
-                <Maneuver speed="2" kind="left-turn" color="WHITE" />
-                <Maneuver speed="2" kind="left-bank" color="WHITE" />
-                <Maneuver speed="2" kind="straight" color="GREEN" />
-                <Maneuver speed="2" kind="right-bank" color="WHITE" />
-                <Maneuver speed="2" kind="right-turn" color="WHITE" />
-                <Maneuver speed="1" kind="left-bank" color="GREEN" />
-                <Maneuver speed="1" kind="straight" color="GREEN" />
-                <Maneuver speed="1" kind="right-bank" color="GREEN" />
-                <Maneuver speed="-2" kind="straight" color="RED" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="red" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="red" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="white" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="white" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
+                <Maneuver speed="-2" kind="straight" color="red" />
             </Maneuvers>
             <FrontArc>180</FrontArc>
             <RearArc></RearArc>
@@ -73,21 +73,21 @@
             <Name>Defiant Class</Name>
             <Id>5003</Id>
             <Maneuvers>
-                <Maneuver speed="4" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="left-turn" color="WHITE" />
-                <Maneuver speed="3" kind="left-bank" color="WHITE" />
-                <Maneuver speed="3" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="right-bank" color="WHITE" />
-                <Maneuver speed="3" kind="right-turn" color="WHITE" />
-                <Maneuver speed="3" kind="about" color="RED" />
-                <Maneuver speed="2" kind="left-turn" color="WHITE" />
-                <Maneuver speed="2" kind="left-bank" color="WHITE" />
-                <Maneuver speed="2" kind="straight" color="GREEN" />
-                <Maneuver speed="2" kind="right-bank" color="WHITE" />
-                <Maneuver speed="2" kind="right-turn" color="WHITE" />
-                <Maneuver speed="1" kind="left-bank" color="GREEN" />
-                <Maneuver speed="1" kind="straight" color="GREEN" />
-                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="white" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="white" />
+                <Maneuver speed="3" kind="about" color="red" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="white" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="white" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
             </Maneuvers>
             <FrontArc>90</FrontArc>
             <RearArc>90</RearArc>
@@ -96,21 +96,21 @@
             <Name>D'deridex Class</Name>
             <Id>5004</Id>
             <Maneuvers>
-                <Maneuver speed="4" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="left-turn" color="WHITE" />
-                <Maneuver speed="3" kind="left-bank" color="WHITE" />
-                <Maneuver speed="3" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="right-bank" color="WHITE" />
-                <Maneuver speed="3" kind="right-turn" color="WHITE" />
-                <Maneuver speed="2" kind="left-turn" color="WHITE" />
-                <Maneuver speed="2" kind="left-bank" color="WHITE" />
-                <Maneuver speed="2" kind="straight" color="GREEN" />
-                <Maneuver speed="2" kind="right-bank" color="WHITE" />
-                <Maneuver speed="2" kind="right-turn" color="WHITE" />
-                <Maneuver speed="1" kind="left-bank" color="GREEN" />
-                <Maneuver speed="1" kind="straight" color="GREEN" />
-                <Maneuver speed="1" kind="right-bank" color="GREEN" />
-                <Maneuver speed="-2" kind="straight" color="RED" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="white" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="white" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="white" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="white" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
+                <Maneuver speed="-2" kind="straight" color="red" />
             </Maneuvers>
             <FrontArc>90</FrontArc>
             <RearArc></RearArc>
@@ -119,21 +119,21 @@
             <Name>Valdore Class</Name>
             <Id>5005</Id>
             <Maneuvers>
-                <Maneuver speed="4" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="left-turn" color="RED" />
-                <Maneuver speed="3" kind="left-bank" color="WHITE" />
-                <Maneuver speed="3" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="right-bank" color="WHITE" />
-                <Maneuver speed="3" kind="right-turn" color="RED" />
-                <Maneuver speed="3" kind="about" color="RED" />
-                <Maneuver speed="2" kind="left-turn" color="WHITE" />
-                <Maneuver speed="2" kind="left-bank" color="GREEN" />
-                <Maneuver speed="2" kind="straight" color="GREEN" />
-                <Maneuver speed="2" kind="right-bank" color="GREEN" />
-                <Maneuver speed="2" kind="right-turn" color="WHITE" />
-                <Maneuver speed="1" kind="left-bank" color="GREEN" />
-                <Maneuver speed="1" kind="straight" color="GREEN" />
-                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="red" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="red" />
+                <Maneuver speed="3" kind="about" color="red" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="green" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="green" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
             </Maneuvers>
             <FrontArc>90</FrontArc>
             <RearArc></RearArc>
@@ -142,21 +142,21 @@
             <Name>Romulan Science Vessel</Name>
             <Id>5006</Id>
             <Maneuvers>
-                <Maneuver speed="4" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="left-bank" color="WHITE" />
-                <Maneuver speed="3" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="right-bank" color="WHITE" />
-                <Maneuver speed="2" kind="left-turn" color="WHITE" />
-                <Maneuver speed="2" kind="left-bank" color="GREEN" />
-                <Maneuver speed="2" kind="straight" color="GREEN" />
-                <Maneuver speed="2" kind="right-bank" color="GREEN" />
-                <Maneuver speed="2" kind="right-turn" color="WHITE" />
-                <Maneuver speed="2" kind="about" color="WHITE" />
-                <Maneuver speed="1" kind="left-turn" color="WHITE" />
-                <Maneuver speed="1" kind="left-bank" color="GREEN" />
-                <Maneuver speed="1" kind="straight" color="GREEN" />
-                <Maneuver speed="1" kind="right-bank" color="GREEN" />
-                <Maneuver speed="1" kind="right-turn" color="WHITE" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="green" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="green" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="2" kind="about" color="white" />
+                <Maneuver speed="1" kind="left-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
+                <Maneuver speed="1" kind="right-turn" color="white" />
             </Maneuvers>
             <FrontArc>90</FrontArc>
             <RearArc></RearArc>
@@ -165,21 +165,21 @@
             <Name>Romulan Bird of Prey Class</Name>
             <Id>5007</Id>
             <Maneuvers>
-                <Maneuver speed="4" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="left-turn" color="WHITE" />
-                <Maneuver speed="3" kind="left-bank" color="WHITE" />
-                <Maneuver speed="3" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="right-bank" color="WHITE" />
-                <Maneuver speed="3" kind="right-turn" color="WHITE" />
-                <Maneuver speed="3" kind="about" color="RED" />
-                <Maneuver speed="2" kind="left-turn" color="WHITE" />
-                <Maneuver speed="2" kind="left-bank" color="WHITE" />
-                <Maneuver speed="2" kind="straight" color="GREEN" />
-                <Maneuver speed="2" kind="right-bank" color="WHITE" />
-                <Maneuver speed="2" kind="right-turn" color="WHITE" />
-                <Maneuver speed="1" kind="left-bank" color="GREEN" />
-                <Maneuver speed="1" kind="straight" color="GREEN" />
-                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="white" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="white" />
+                <Maneuver speed="3" kind="about" color="red" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="white" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="white" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
             </Maneuvers>
             <FrontArc>90</FrontArc>
             <RearArc></RearArc>
@@ -188,44 +188,44 @@
             <Name>Vor'cha Class</Name>
             <Id>5008</Id>
             <Maneuvers>
-                <Maneuver speed="4" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="left-turn" color="RED" />
-                <Maneuver speed="3" kind="left-bank" color="WHITE" />
-                <Maneuver speed="3" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="right-bank" color="WHITE" />
-                <Maneuver speed="3" kind="right-turn" color="RED" />
-                <Maneuver speed="3" kind="about" color="RED" />
-                <Maneuver speed="2" kind="left-turn" color="WHITE" />
-                <Maneuver speed="2" kind="left-bank" color="GREEN" />
-                <Maneuver speed="2" kind="straight" color="GREEN" />
-                <Maneuver speed="2" kind="right-bank" color="GREEN" />
-                <Maneuver speed="2" kind="right-turn" color="WHITE" />
-                <Maneuver speed="1" kind="left-bank" color="GREEN" />
-                <Maneuver speed="1" kind="straight" color="GREEN" />
-                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="red" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="red" />
+                <Maneuver speed="3" kind="about" color="red" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="green" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="green" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
             </Maneuvers>
             <FrontArc>90</FrontArc>
             <RearArc></RearArc>
         </ShipClassDetail>
         <ShipClassDetail>
-            <Name>D7 Class*</Name>
+            <Name>D7 Class</Name>
             <Id>5009</Id>
             <Maneuvers>
-                <Maneuver speed="4" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="left-turn" color="RED" />
-                <Maneuver speed="3" kind="left-bank" color="WHITE" />
-                <Maneuver speed="3" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="right-bank" color="WHITE" />
-                <Maneuver speed="3" kind="right-turn" color="RED" />
-                <Maneuver speed="3" kind="about" color="RED" />
-                <Maneuver speed="2" kind="left-turn" color="WHITE" />
-                <Maneuver speed="2" kind="left-bank" color="WHITE" />
-                <Maneuver speed="2" kind="straight" color="GREEN" />
-                <Maneuver speed="2" kind="right-bank" color="WHITE" />
-                <Maneuver speed="2" kind="right-turn" color="WHITE" />
-                <Maneuver speed="1" kind="left-bank" color="GREEN" />
-                <Maneuver speed="1" kind="straight" color="GREEN" />
-                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="red" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="red" />
+                <Maneuver speed="3" kind="about" color="red" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="white" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="white" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
             </Maneuvers>
             <FrontArc>90</FrontArc>
             <RearArc></RearArc>
@@ -234,21 +234,21 @@
             <Name>Negh'var Class</Name>
             <Id>5010</Id>
             <Maneuvers>
-                <Maneuver speed="4" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="left-turn" color="RED" />
-                <Maneuver speed="3" kind="left-bank" color="WHITE" />
-                <Maneuver speed="3" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="right-bank" color="WHITE" />
-                <Maneuver speed="3" kind="right-turn" color="RED" />
-                <Maneuver speed="3" kind="about" color="RED" />
-                <Maneuver speed="2" kind="left-turn" color="WHITE" />
-                <Maneuver speed="2" kind="left-bank" color="WHITE" />
-                <Maneuver speed="2" kind="straight" color="GREEN" />
-                <Maneuver speed="2" kind="right-bank" color="WHITE" />
-                <Maneuver speed="2" kind="right-turn" color="WHITE" />
-                <Maneuver speed="1" kind="left-bank" color="GREEN" />
-                <Maneuver speed="1" kind="straight" color="GREEN" />
-                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="red" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="red" />
+                <Maneuver speed="3" kind="about" color="red" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="white" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="white" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
             </Maneuvers>
             <FrontArc>90</FrontArc>
             <RearArc></RearArc>
@@ -257,21 +257,21 @@
             <Name>K'T'Inga Class</Name>
             <Id>5011</Id>
             <Maneuvers>
-                <Maneuver speed="4" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="left-turn" color="RED" />
-                <Maneuver speed="3" kind="left-bank" color="WHITE" />
-                <Maneuver speed="3" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="right-bank" color="WHITE" />
-                <Maneuver speed="3" kind="right-turn" color="RED" />
-                <Maneuver speed="3" kind="about" color="RED" />
-                <Maneuver speed="2" kind="left-turn" color="WHITE" />
-                <Maneuver speed="2" kind="left-bank" color="WHITE" />
-                <Maneuver speed="2" kind="straight" color="GREEN" />
-                <Maneuver speed="2" kind="right-bank" color="WHITE" />
-                <Maneuver speed="2" kind="right-turn" color="WHITE" />
-                <Maneuver speed="1" kind="left-bank" color="GREEN" />
-                <Maneuver speed="1" kind="straight" color="GREEN" />
-                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="red" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="red" />
+                <Maneuver speed="3" kind="about" color="red" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="white" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="white" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
             </Maneuvers>
             <FrontArc>90</FrontArc>
             <RearArc>90</RearArc>
@@ -280,21 +280,21 @@
             <Name>Cardassian Galor Class</Name>
             <Id>5012</Id>
             <Maneuvers>
-                <Maneuver speed="5" kind="straight" color="WHITE" />
-                <Maneuver speed="4" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="left-turn" color="RED" />
-                <Maneuver speed="3" kind="left-bank" color="WHITE" />
-                <Maneuver speed="3" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="right-bank" color="WHITE" />
-                <Maneuver speed="3" kind="right-turn" color="RED" />
-                <Maneuver speed="2" kind="left-turn" color="RED" />
-                <Maneuver speed="2" kind="left-bank" color="WHITE" />
-                <Maneuver speed="2" kind="straight" color="GREEN" />
-                <Maneuver speed="2" kind="right-bank" color="WHITE" />
-                <Maneuver speed="2" kind="right-turn" color="RED" />
-                <Maneuver speed="1" kind="left-bank" color="GREEN" />
-                <Maneuver speed="1" kind="straight" color="GREEN" />
-                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+                <Maneuver speed="5" kind="straight" color="white" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="red" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="red" />
+                <Maneuver speed="2" kind="left-turn" color="red" />
+                <Maneuver speed="2" kind="left-bank" color="white" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="white" />
+                <Maneuver speed="2" kind="right-turn" color="red" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
             </Maneuvers>
             <FrontArc>180</FrontArc>
             <RearArc></RearArc>
@@ -303,21 +303,21 @@
             <Name>Breen Battle Cruiser</Name>
             <Id>5013</Id>
             <Maneuvers>
-                <Maneuver speed="4" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="left-turn" color="RED" />
-                <Maneuver speed="3" kind="left-bank" color="WHITE" />
-                <Maneuver speed="3" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="right-bank" color="WHITE" />
-                <Maneuver speed="3" kind="right-turn" color="RED" />
-                <Maneuver speed="3" kind="about" color="RED" />
-                <Maneuver speed="2" kind="left-turn" color="WHITE" />
-                <Maneuver speed="2" kind="left-bank" color="WHITE" />
-                <Maneuver speed="2" kind="straight" color="GREEN" />
-                <Maneuver speed="2" kind="right-bank" color="WHITE" />
-                <Maneuver speed="2" kind="right-turn" color="WHITE" />
-                <Maneuver speed="1" kind="left-bank" color="GREEN" />
-                <Maneuver speed="1" kind="straight" color="GREEN" />
-                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="red" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="red" />
+                <Maneuver speed="3" kind="about" color="red" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="white" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="white" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
             </Maneuvers>
             <FrontArc>90</FrontArc>
             <RearArc></RearArc>
@@ -326,44 +326,44 @@
             <Name>Jem'Hadar Attack Ship</Name>
             <Id>5014</Id>
             <Maneuvers>
-                <Maneuver speed="4" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="left-turn" color="WHITE" />
-                <Maneuver speed="3" kind="left-bank" color="WHITE" />
-                <Maneuver speed="3" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="right-bank" color="WHITE" />
-                <Maneuver speed="3" kind="right-turn" color="WHITE" />
-                <Maneuver speed="3" kind="about" color="RED" />
-                <Maneuver speed="2" kind="left-turn" color="WHITE" />
-                <Maneuver speed="2" kind="left-bank" color="GREEN" />
-                <Maneuver speed="2" kind="straight" color="GREEN" />
-                <Maneuver speed="2" kind="right-bank" color="GREEN" />
-                <Maneuver speed="2" kind="right-turn" color="WHITE" />
-                <Maneuver speed="1" kind="left-bank" color="GREEN" />
-                <Maneuver speed="1" kind="straight" color="GREEN" />
-                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="white" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="white" />
+                <Maneuver speed="3" kind="about" color="red" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="green" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="green" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
             </Maneuvers>
             <FrontArc>90</FrontArc>
             <RearArc></RearArc>
         </ShipClassDetail>
         <ShipClassDetail>
-            <Name>Ferengi D'Kora Class</Name>
+            <Name>D'Kora Class</Name>
             <Id>5015</Id>
             <Maneuvers>
-                <Maneuver speed="4" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="left-turn" color="RED" />
-                <Maneuver speed="3" kind="left-bank" color="WHITE" />
-                <Maneuver speed="3" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="right-bank" color="WHITE" />
-                <Maneuver speed="3" kind="right-turn" color="RED" />
-                <Maneuver speed="2" kind="left-turn" color="WHITE" />
-                <Maneuver speed="2" kind="left-bank" color="WHITE" />
-                <Maneuver speed="2" kind="straight" color="GREEN" />
-                <Maneuver speed="2" kind="right-bank" color="WHITE" />
-                <Maneuver speed="2" kind="right-turn" color="WHITE" />
-                <Maneuver speed="1" kind="left-bank" color="GREEN" />
-                <Maneuver speed="1" kind="straight" color="GREEN" />
-                <Maneuver speed="1" kind="right-bank" color="GREEN" />
-                <Maneuver speed="-1" kind="straight" color="RED" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="red" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="red" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="white" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="white" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
+                <Maneuver speed="-1" kind="straight" color="red" />
             </Maneuvers>
             <FrontArc>90</FrontArc>
             <RearArc></RearArc>
@@ -372,31 +372,131 @@
             <Name>B'rel Class</Name>
             <Id>5016</Id>
             <Maneuvers>
-                <Maneuver speed="4" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="left-turn" color="WHITE" />
-                <Maneuver speed="3" kind="left-bank" color="WHITE" />
-                <Maneuver speed="3" kind="straight" color="WHITE" />
-                <Maneuver speed="3" kind="right-bank" color="WHITE" />
-                <Maneuver speed="3" kind="right-turn" color="WHITE" />
-                <Maneuver speed="3" kind="about" color="RED" />
-                <Maneuver speed="2" kind="left-turn" color="WHITE" />
-                <Maneuver speed="2" kind="left-bank" color="GREEN" />
-                <Maneuver speed="2" kind="straight" color="GREEN" />
-                <Maneuver speed="2" kind="right-bank" color="GREEN" />
-                <Maneuver speed="2" kind="right-turn" color="WHITE" />
-                <Maneuver speed="1" kind="left-bank" color="GREEN" />
-                <Maneuver speed="1" kind="straight" color="GREEN" />
-                <Maneuver speed="1" kind="right-bank" color="GREEN" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="white" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="white" />
+                <Maneuver speed="3" kind="about" color="red" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="green" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="green" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
             </Maneuvers>
             <FrontArc>90</FrontArc>
             <RearArc>90</RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>Nor Class Orbital Space Station</Name>
+            <Id>5017</Id>
+            <Maneuvers>
+            </Maneuvers>
+            <FrontArc>360</FrontArc>
+            <RearArc></RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>B'Rel Class</Name>
+            <Id>5018</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="white" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="white" />
+                <Maneuver speed="3" kind="about" color="red" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="white" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="white" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
+            </Maneuvers>
+            <FrontArc>90</FrontArc>
+            <RearArc>90</RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>Romulan Bird-Of-Prey Class</Name>
+            <Id>5019</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="white" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="white" />
+                <Maneuver speed="3" kind="about" color="red" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="white" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="white" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
+            </Maneuvers>
+            <FrontArc>90</FrontArc>
+            <RearArc></RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>K'Vort Class</Name>
+            <Id>5020</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="red" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="red" />
+                <Maneuver speed="3" kind="about" color="red" />
+                <Maneuver speed="2" kind="left-turn" color="white" />
+                <Maneuver speed="2" kind="left-bank" color="white" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-bank" color="white" />
+                <Maneuver speed="2" kind="right-turn" color="white" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
+            </Maneuvers>
+            <FrontArc>90</FrontArc>
+            <RearArc>90</RearArc>
+        </ShipClassDetail>
+        <ShipClassDetail>
+            <Name>Cardassian Keldon Class</Name>
+            <Id>5021</Id>
+            <Maneuvers>
+                <Maneuver speed="5" kind="straight" color="white" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="3" kind="left-turn" color="red" />
+                <Maneuver speed="3" kind="left-bank" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-bank" color="white" />
+                <Maneuver speed="3" kind="right-turn" color="red" />
+                <Maneuver speed="2" kind="left-turn" color="red" />
+                <Maneuver speed="2" kind="left-bank" color="white" />
+                <Maneuver speed="2" kind="straight" color="white" />
+                <Maneuver speed="2" kind="right-bank" color="white" />
+                <Maneuver speed="2" kind="right-turn" color="red" />
+                <Maneuver speed="1" kind="left-bank" color="green" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-bank" color="green" />
+            </Maneuvers>
+            <FrontArc>180</FrontArc>
+            <RearArc></RearArc>
         </ShipClassDetail>
     </ShipClassDetails>
     <Ships>
         <Ship>
             <Title>U.S.S. Enterprise-D</Title>
             <Unique>Y</Unique>
-            <ShipClass>Galaxy</ShipClass>
+            <ShipClass>Galaxy Class</ShipClass>
             <Faction>Federation</Faction>
             <Attack>4</Attack>
             <Agility>1</Agility>
@@ -420,9 +520,9 @@
             <Set>71120</Set>
         </Ship>
         <Ship>
-            <Title>Federation Galaxy</Title>
+            <Title>Federation Starship</Title>
             <Unique>N</Unique>
-            <ShipClass>Galaxy</ShipClass>
+            <ShipClass>Galaxy Class</ShipClass>
             <Faction>Federation</Faction>
             <Attack>4</Attack>
             <Agility>1</Agility>
@@ -449,13 +549,13 @@
         <Ship>
             <Title>I.R.W. Khazara</Title>
             <Unique>Y</Unique>
-            <ShipClass>D'deridex</ShipClass>
+            <ShipClass>D'deridex Class</ShipClass>
             <Faction>Romulan</Faction>
             <Attack>3</Attack>
             <Agility>2</Agility>
             <Hull>6</Hull>
             <Shield>4</Shield>
-            <Ability>If you initiate and attack while cloaked add +1 attack die.</Ability>
+            <Ability>If you initiate and attack while cloaked, add +1 attack die.</Ability>
             <Cost>30</Cost>
             <EvasiveManeuvers>1</EvasiveManeuvers>
             <TargetLock>1</TargetLock>
@@ -472,9 +572,9 @@
             <Set>71120</Set>
         </Ship>
         <Ship>
-            <Title>Romulan D'deridex</Title>
+            <Title>Romulan Starship</Title>
             <Unique>N</Unique>
-            <ShipClass>D'deridex</ShipClass>
+            <ShipClass>D'deridex Class</ShipClass>
             <Faction>Romulan</Faction>
             <Attack>3</Attack>
             <Agility>2</Agility>
@@ -500,7 +600,7 @@
         <Ship>
             <Title>I.K.S. Maht-H'A</Title>
             <Unique>Y</Unique>
-            <ShipClass>Vor'cha</ShipClass>
+            <ShipClass>Vor'cha Class</ShipClass>
             <Faction>Klingon</Faction>
             <Attack>5</Attack>
             <Agility>1</Agility>
@@ -523,9 +623,9 @@
             <Set>71120</Set>
         </Ship>
         <Ship>
-            <Title>Klingon Vor'cha</Title>
+            <Title>Klingon Starship</Title>
             <Unique>N</Unique>
-            <ShipClass>Vor'cha</ShipClass>
+            <ShipClass>Vor'cha Class</ShipClass>
             <Faction>Klingon</Faction>
             <Attack>5</Attack>
             <Agility>1</Agility>
@@ -551,7 +651,7 @@
         <Ship>
             <Title>U.S.S. Reliant</Title>
             <Unique>Y</Unique>
-            <ShipClass>Miranda</ShipClass>
+            <ShipClass>Miranda Class</ShipClass>
             <Faction>Federation</Faction>
             <Attack>2</Attack>
             <Agility>2</Agility>
@@ -575,9 +675,9 @@
             <Set>71121</Set>
         </Ship>
         <Ship>
-            <Title>Federation Miranda</Title>
+            <Title>Federation Starship</Title>
             <Unique>N</Unique>
-            <ShipClass>Miranda</ShipClass>
+            <ShipClass>Miranda Class</ShipClass>
             <Faction>Federation</Faction>
             <Attack>2</Attack>
             <Agility>2</Agility>
@@ -604,7 +704,7 @@
         <Ship>
             <Title>U.S.S. Enterprise</Title>
             <Unique>Y</Unique>
-            <ShipClass>Constitution</ShipClass>
+            <ShipClass>Constitution Class</ShipClass>
             <Faction>Federation</Faction>
             <Attack>3</Attack>
             <Agility>1</Agility>
@@ -628,9 +728,9 @@
             <Set>71122</Set>
         </Ship>
         <Ship>
-            <Title>Federation Constitution</Title>
+            <Title>Federation Starship</Title>
             <Unique>N</Unique>
-            <ShipClass>Constitution</ShipClass>
+            <ShipClass>Constitution Class</ShipClass>
             <Faction>Federation</Faction>
             <Attack>3</Attack>
             <Agility>1</Agility>
@@ -657,7 +757,7 @@
         <Ship>
             <Title>I.R.W. Valdore</Title>
             <Unique>Y</Unique>
-            <ShipClass>Valdore</ShipClass>
+            <ShipClass>Valdore Class</ShipClass>
             <Faction>Romulan</Faction>
             <Attack>4</Attack>
             <Agility>2</Agility>
@@ -681,9 +781,9 @@
             <Set>71123</Set>
         </Ship>
         <Ship>
-            <Title>Romulan Valdore</Title>
+            <Title>Romulan Starship</Title>
             <Unique>N</Unique>
-            <ShipClass>Valdore</ShipClass>
+            <ShipClass>Valdore Class</ShipClass>
             <Faction>Romulan</Faction>
             <Attack>4</Attack>
             <Agility>2</Agility>
@@ -765,7 +865,7 @@
         <Ship>
             <Title>I.K.S. Gr'oth</Title>
             <Unique>Y</Unique>
-            <ShipClass>D7</ShipClass>
+            <ShipClass>D7 Class</ShipClass>
             <Faction>Klingon</Faction>
             <Attack>3</Attack>
             <Agility>1</Agility>
@@ -789,9 +889,9 @@
             <Set>71125</Set>
         </Ship>
         <Ship>
-            <Title>Klingon D7</Title>
+            <Title>Klingon Battlecruiser</Title>
             <Unique>N</Unique>
-            <ShipClass>D7</ShipClass>
+            <ShipClass>D7 Class</ShipClass>
             <Faction>Klingon</Faction>
             <Attack>3</Attack>
             <Agility>1</Agility>
@@ -819,7 +919,7 @@
         <Ship>
             <Title>I.K.S. Negh'var</Title>
             <Unique>Y</Unique>
-            <ShipClass>Negh'var</ShipClass>
+            <ShipClass>Negh'var Class</ShipClass>
             <Faction>Klingon</Faction>
             <Attack>5</Attack>
             <Agility>1</Agility>
@@ -841,9 +941,9 @@
             <Set>71126</Set>
         </Ship>
         <Ship>
-            <Title>Klingon Negh'var</Title>
+            <Title>Klingon Starship</Title>
             <Unique>N</Unique>
-            <ShipClass>Negh'var</ShipClass>
+            <ShipClass>Negh'var Class</ShipClass>
             <Faction>Klingon</Faction>
             <Attack>5</Attack>
             <Agility>1</Agility>
@@ -868,7 +968,7 @@
         <Ship>
             <Title>Kraxon</Title>
             <Unique>Y</Unique>
-            <ShipClass>Cardassian Galor</ShipClass>
+            <ShipClass>Cardassian Galor Class</ShipClass>
             <Faction>Dominion</Faction>
             <Attack>4</Attack>
             <Agility>1</Agility>
@@ -892,9 +992,9 @@
             <Set>71127</Set>
         </Ship>
         <Ship>
-            <Title>Cardassian Galor</Title>
+            <Title>Dominion Starship</Title>
             <Unique>N</Unique>
-            <ShipClass>Cardassian Galor</ShipClass>
+            <ShipClass>Cardassian Galor Class</ShipClass>
             <Faction>Dominion</Faction>
             <Attack>4</Attack>
             <Agility>1</Agility>
@@ -946,7 +1046,7 @@
             <Set>71128</Set>
         </Ship>
         <Ship>
-            <Title>Breen Battle Cruiser</Title>
+            <Title>Dominion Starship</Title>
             <Unique>N</Unique>
             <ShipClass>Breen Battle Cruiser</ShipClass>
             <Faction>Dominion</Faction>
@@ -976,7 +1076,7 @@
         <Ship>
             <Title>Krayton</Title>
             <Unique>Y</Unique>
-            <ShipClass>D'Kora</ShipClass>
+            <ShipClass>D'Kora Class</ShipClass>
             <Faction>Ferengi</Faction>
             <Attack>3</Attack>
             <Agility>1</Agility>
@@ -1002,7 +1102,7 @@
         <Ship>
             <Title>Ferengi Marauder</Title>
             <Unique>N</Unique>
-            <ShipClass>D'Kora</ShipClass>
+            <ShipClass>D'Kora Class</ShipClass>
             <Faction>Ferengi</Faction>
             <Attack>3</Attack>
             <Agility>1</Agility>
@@ -1132,7 +1232,7 @@
             <Set>OP2Prize</Set>
         </Ship>
         <Ship>
-            <Title>Klingon B'Rel</Title>
+            <Title>Klingon Starship</Title>
             <Unique>N</Unique>
             <ShipClass>B'Rel Class</ShipClass>
             <Faction>Klingon</Faction>
@@ -1158,7 +1258,7 @@
         <Ship>
             <Title>P.W.B. Aj'Rmr</Title>
             <Unique>Y</Unique>
-            <ShipClass>Romulan D'deridex 2</ShipClass>
+            <ShipClass>D'deridex Class</ShipClass>
             <Faction>Romulan</Faction>
             <Attack>3</Attack>
             <Agility>2</Agility>
@@ -1179,9 +1279,9 @@
             <Set>OP3Prize</Set>
         </Ship>
         <Ship>
-            <Title>Romulan D'deridex 2</Title>
+            <Title>Romulan Starship</Title>
             <Unique>N</Unique>
-            <ShipClass>Romulan D'deridex</ShipClass>
+            <ShipClass>D'deridex Class</ShipClass>
             <Faction>Romulan</Faction>
             <Attack>3</Attack>
             <Agility>2</Agility>
@@ -1229,7 +1329,7 @@
             <Set>71268</Set>
         </Ship>
         <Ship>
-            <Title>Federation Defiant</Title>
+            <Title>Federation Starship</Title>
             <Unique>N</Unique>
             <ShipClass>Defiant Class</ShipClass>
             <Faction>Federation</Faction>
@@ -1275,7 +1375,7 @@
             <Set>71269</Set>
         </Ship>
         <Ship>
-            <Title>Klingon K'T'Inga</Title>
+            <Title>Klingon Starship</Title>
             <Unique>N</Unique>
             <ShipClass>K'T'Inga Class</ShipClass>
             <Faction>Klingon</Faction>
@@ -1321,7 +1421,7 @@
             <Set>71270</Set>
         </Ship>
         <Ship>
-            <Title>Romulan Bird-Of-Prey</Title>
+            <Title>Romulan Starship</Title>
             <Unique>N</Unique>
             <ShipClass>Romulan Bird-Of-Prey Class</ShipClass>
             <Faction>Romulan</Faction>
@@ -1367,7 +1467,7 @@
             <Set>71271</Set>
         </Ship>
         <Ship>
-            <Title>Jem'Hadar Attack Ship</Title>
+            <Title>Dominion Starship</Title>
             <Unique>N</Unique>
             <ShipClass>Jem'Hadar Attack Ship</ShipClass>
             <Faction>Dominion</Faction>
@@ -1392,7 +1492,7 @@
         <Ship>
             <Title>I.K.S. Koraga</Title>
             <Unique>Y</Unique>
-            <ShipClass>Klingon K'Vort</ShipClass>
+            <ShipClass>K'Vort Class</ShipClass>
             <Faction>Klingon</Faction>
             <Attack>4</Attack>
             <Agility>1</Agility>
@@ -1413,9 +1513,9 @@
             <Set>71273</Set>
         </Ship>
         <Ship>
-            <Title>Klingon K'Vort</Title>
+            <Title>Klingon Starship</Title>
             <Unique>N</Unique>
-            <ShipClass>Klingon K'Vort</ShipClass>
+            <ShipClass>K'Vort Class</ShipClass>
             <Faction>Klingon</Faction>
             <Attack>4</Attack>
             <Agility>1</Agility>
@@ -1438,7 +1538,7 @@
         <Ship>
             <Title>Koranak</Title>
             <Unique>Y</Unique>
-            <ShipClass>Cardassian Keldon</ShipClass>
+            <ShipClass>Cardassian Keldon Class</ShipClass>
             <Faction>Dominion</Faction>
             <Attack>5</Attack>
             <Agility>1</Agility>
@@ -1461,7 +1561,7 @@
         <Ship>
             <Title>Cardassian Keldon</Title>
             <Unique>N</Unique>
-            <ShipClass>Cardassian Keldon</ShipClass>
+            <ShipClass>Cardassian Keldon Class</ShipClass>
             <Faction>Dominion</Faction>
             <Attack>5</Attack>
             <Agility>1</Agility>

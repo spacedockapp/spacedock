@@ -45,6 +45,15 @@
     }
 }
 
+-(NSArray*)sortDescriptors
+{
+    NSSortDescriptor *titleDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+    NSSortDescriptor *classDescriptor = [[NSSortDescriptor alloc] initWithKey:@"shipClass" ascending:YES];
+    NSSortDescriptor *uniqueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"unique" ascending:NO];
+    NSSortDescriptor *factionDescriptor = [[NSSortDescriptor alloc] initWithKey:@"faction" ascending:YES];
+    return @[factionDescriptor, classDescriptor, uniqueDescriptor, titleDescriptor];
+}
+
 #pragma mark - Table view data source methods
 
 // Customize the appearance of table view cells.
@@ -52,7 +61,7 @@
     
     // Configure the cell to show the book's title
     DockShip *ship = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = ship.title;
+    cell.textLabel.text = ship.descriptiveTitle;
     if ([ship isUnique]) {
         if (_targetSquad) {
             if (_targetShip != ship && [_targetSquad containsShip: ship]) {
