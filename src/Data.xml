@@ -3994,13 +3994,13 @@
       <Unique>Y</Unique>
       <Ability>1) Once during every round, a player may choose to exchange 1 of their attack dice with the Elite Attack Die. Players may not roll this die more than once per round, regardless of how many ships they have in their fleet.
 
-        2) The pips on the Elite Attack Die are [DOUBLE HIT], [CRITICAL], [CRITICAL], [HIT],[HIT],[HIT], [BATTLESTATIONS], [BATTLESTATIONS].
+2) The pips on the Elite Attack Die are [DOUBLE HIT], [CRITICAL], [CRITICAL], [HIT],[HIT],[HIT], [BATTLESTATIONS], [BATTLESTATIONS].
 
-        3) The [DOUBLE HIT] result may be canceled by 1 [EVADE].
+3) The [DOUBLE HIT] result may be canceled by 1 [EVADE].
 
-        4) The [DOUBLE HIT] result inflicts 2 damage if not canceled.
+4) The [DOUBLE HIT] result inflicts 2 damage if not canceled.
 
-        5) When canceling the attack dice with [EVADE] results, the order that the dice are canceled is: [HIT], [DOUBLE HIT], then [CRITICAL].</Ability>
+5) When canceling the attack dice with [EVADE] results, the order that the dice are canceled is: [HIT], [DOUBLE HIT], then [CRITICAL].</Ability>
         <Type>Resource</Type>
         <Cost>5</Cost>
         <Id>4001</Id>
@@ -4010,25 +4010,55 @@
         <Title>Command Tokens</Title>
         <Unique>Y</Unique>
         <Ability>1) Players receive a set of 10 Command Tokens and choose 5 to use.
-          2) A player may only use Command Tokens for his/her ships.
-          3) When a Command Token is used, it is flipped over and may not be used again in that Battle.
+2) A player may only use Command Tokens for his/her ships.
+3) When a Command Token is used, it is flipped over and may not be used again in that Battle.
 
-          COMMAND TOKENS:
-          - Place a [EVADE] token beside your ship as a Free Action this Round.
-          - Place a [BATTLESTATIONS] token beside your ship as a Free Action this Round.
-          - Place a [SCAN] token beside your ship as a Free Action this Round.
-          - You may [TARGET LOCK] 1 enemy ship as a Free Action this Round.
-          - You may choose any number of your attack dice and re-roll them once. You must keep the results of the 2nd roll.
-          - You may choose any number of your defense dice and re-roll them once. You must keep the results of the 2nd roll.
-          - Before rolling any of your attack dice, you may add +1 attack die to the current attack.
-          - Before rolling any of your defense dice, you may add +1 defense die to the current defense.
-          - Before rolling any of your attack dice, you may set 1 of your attack dice on any side of your choice. This die may not be rolled or re-rolled during this round.
-          - Before rolling any of your defense dice, you may set 1 of your defense dice on any side of your choice. This die may not be rolled or re-rolled during this round.
+COMMAND TOKENS:
+- Place a [EVADE] token beside your ship as a Free Action this Round.
+- Place a [BATTLESTATIONS] token beside your ship as a Free Action this Round.
+- Place a [SCAN] token beside your ship as a Free Action this Round.
+- You may [TARGET LOCK] 1 enemy ship as a Free Action this Round.
+- You may choose any number of your attack dice and re-roll them once. You must keep the results of the 2nd roll.
+- You may choose any number of your defense dice and re-roll them once. You must keep the results of the 2nd roll.
+- Before rolling any of your attack dice, you may add +1 attack die to the current attack.
+- Before rolling any of your defense dice, you may add +1 defense die to the current defense.
+- Before rolling any of your attack dice, you may set 1 of your attack dice on any side of your choice. This die may not be rolled or re-rolled during this round.
+- Before rolling any of your defense dice, you may set 1 of your defense dice on any side of your choice. This die may not be rolled or re-rolled during this round.
         </Ability>
         <Type>Resource</Type>
         <Cost>5</Cost>
         <Id>4002</Id>
         <Set>OP2Participation</Set>
+      </Resource>
+      <Resource>
+        <Title>Reinforcements Sideboard</Title>
+        <Unique>Y</Unique>
+        <Ability>1) Prior to the event, players select 1 of each of the following card types and places them in the appropriate section on the Reinforcements Sideboard: 1 Captain Card, 1 [TALENT] Upgrade, 1 [CREW] Upgrade, 1 [TECH] Upgrade and 1 [WEAPON] Upgrade. The total cost of these cards may not exceed 20 SP.
+
+2) During the Activation Phase of any round, a player may use a ship's Action to: 
+
+a) Equip that ship with one Upgrade card from his Sideboard. The ship must have an Upgrade slot of the appropriate type available to do this. 
+
+OR
+
+b) Exchange 1 Upgrade from his ship with 1 Upgrade of the same type from his Sideboard. 
+
+OR
+
+c) Exchange 1 Captain from his ship with 1 Captain from his Sideboard. 
+
+3) Upgrades that may only be purchased for certain ship types can only be equipped onto or exchanged to that specific ship type. 
+
+4) Place an Auxiliary Power Token beside a ship if the Upgrade that is equiped onto or exchanged to that ship is of a different Faction or if the Upgrade would have an additional cost applied to that ship (i.e. "This Upgrade costs +5 Squadron Points if purchased for...")
+
+5) A Captain or Upgrade may be exchanged multiple times during the game. 
+
+6) If a Captain or Upgrade which is currently affected by a game effect (i.e. a critical damage card, disabled token, etc.) is moved to a player's sideboard, that Captain or Upgrade is no longer affected by that game effect. NOTE: If the game effect is a Critical Damage Card, flip the Critical Damage Card face down and leave it with the ship.
+        </Ability>
+        <Type>Resource</Type>
+        <Cost>10</Cost>
+        <Id>4003</Id>
+        <Set>OP3Participation</Set>
       </Resource>
     </Resources>
     <Sets>
