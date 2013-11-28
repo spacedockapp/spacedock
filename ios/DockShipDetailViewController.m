@@ -98,6 +98,8 @@ enum {
     kShipDetailCrew,
     kShipDetailTech,
     kShipDetailWeapons,
+    kShipDetailFrontArc,
+    kShipDetailRearArc,
     kShipDetailActions,
     kShipDetailMoves,
     kShipDetailAbility
@@ -132,6 +134,10 @@ enum {
         return [self cell: tableView forKey: @"tech" label: @"Tech"];
     case kShipDetailWeapons:
         return [self cell: tableView forKey: @"weapon" label: @"Weapon"];
+    case kShipDetailFrontArc:
+        return [self cell: tableView forKey: @"formattedFrontArc" label: @"Front Arc"];
+    case kShipDetailRearArc:
+        return [self cell: tableView forKey: @"formattedRearArc" label: @"Rear Arc"];
     case kShipDetailMoves:
         return [self cell: tableView forKey: @"movesSummary" label: @"Key Moves" accessory: UITableViewCellAccessoryDetailDisclosureButton];
     case kShipDetailActions:
