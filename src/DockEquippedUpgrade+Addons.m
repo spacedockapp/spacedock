@@ -116,7 +116,7 @@
     }
 
     if (![shipFaction isEqualToString: upgradeFaction]) {
-        if ([captainSpecial isEqualToString: @"UpgradesIgnoreFactionPenalty"]) {
+        if ([captainSpecial isEqualToString: @"UpgradesIgnoreFactionPenalty"] && ![upgrade isCaptain]) {
         } else if ([captainSpecial isEqualToString: @"NoPenaltyOnFederationOrBajoranShip"]) {
             if (!([ship isFederation] || [ship isBajoran])) {
                 cost += 1;
