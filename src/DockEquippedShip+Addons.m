@@ -3,6 +3,7 @@
 #import "DockCaptain+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockEquippedUpgrade.h"
+#import "DockResource+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"
@@ -31,6 +32,9 @@
 
 -(NSString*)plainDescription
 {
+    if ([self isResourceSideboard]) {
+        return self.squad.resource.title;
+    }
     return [self.ship plainDescription];
 }
 
@@ -52,8 +56,16 @@
     return [upgradeTitles componentsJoinedByString: @", "];
 }
 
+-(NSString*)factionCode
+{
+    return self.ship.factionCode;
+}
+
 -(int)baseCost
 {
+    if ([self isResourceSideboard]) {
+        return [self.squad.resource.cost intValue];
+    }
     return [self.ship.cost intValue];
 }
 
@@ -83,6 +95,11 @@
 -(DockCaptain*)captain
 {
     return (DockCaptain*)[[self equippedCaptain] upgrade];
+}
+
+-(BOOL)isResourceSideboard
+{
+    return self.ship == nil;
 }
 
 +(DockEquippedShip*)equippedShipWithShip:(DockShip*)ship
@@ -143,12 +160,17 @@
     }
 }
 
+-(NSString*)shipFaction
+{
+   return self.ship.faction;
+}
+
 -(void)establishPlaceholders
 {
     DockCaptain* captain = [self captain];
 
     if (captain == nil) {
-        NSString* faction = self.ship.faction;
+        NSString* faction = self.shipFaction;
 
         if ([faction isEqualToString: @"Independent"] || [faction isEqualToString: @"Bajoran"]) {
             faction = @"Federation";
@@ -158,14 +180,10 @@
         [self addUpgrade: zcc maybeReplace: nil establishPlaceholders: NO];
     }
 
-    int count = [self talentCount];
-    [self establishPlaceholdersForType: @"Talent" limit: count];
-    count = [[self.ship crew] intValue];
-    [self establishPlaceholdersForType: @"Crew" limit: count];
-    count = [[self.ship weapon] intValue];
-    [self establishPlaceholdersForType: @"Weapon" limit: count];
-    count = [[self.ship tech] intValue];
-    [self establishPlaceholdersForType: @"Tech" limit: count];
+    [self establishPlaceholdersForType: @"Talent" limit: self.talentCount];
+    [self establishPlaceholdersForType: @"Crew" limit: self.crewCount];
+    [self establishPlaceholdersForType: @"Weapon" limit: self.weaponCount];
+    [self establishPlaceholdersForType: @"Tech" limit: self.techCount];
 }
 
 -(DockEquippedUpgrade*)findPlaceholder:(NSString*)upType
@@ -308,14 +326,12 @@
     if (upgrade != nil) {
         [self removeUpgrades: [NSSet setWithObject: upgrade]];
 
-        if ([upgrade.upgrade isCaptain]) {
-            [self removeAllTalents];
-        }
-
         if (doEstablish) {
             [self establishPlaceholders];
         }
 
+        [self removeIllegalUpgrades];
+        
         [[self squad] squadCompositionChanged];
     }
 }
@@ -390,6 +406,26 @@
 {
     DockCaptain* captain = [self captain];
     return [captain talentCount];
+}
+
+-(int)shipPropertyCount:(NSString*)propertyName
+{
+    return [[self.ship valueForKey: propertyName] intValue];
+}
+
+-(int)techCount
+{
+    return [self shipPropertyCount: @"tech"];
+}
+
+-(int)weaponCount
+{
+    return [self shipPropertyCount: @"weapon"];
+}
+
+-(int)crewCount
+{
+    return [self shipPropertyCount: @"crew"];
 }
 
 -(int)upgradeCount

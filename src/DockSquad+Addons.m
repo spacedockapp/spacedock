@@ -3,6 +3,7 @@
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockResource+Addons.h"
 #import "DockShip+Addons.h"
+#import "DockSideboard+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockErrors.h"
@@ -115,9 +116,22 @@
 
 -(void)addEquippedShip:(DockEquippedShip*)ship
 {
+    id compareIsSideboard = ^(DockEquippedShip* a, DockEquippedShip* b) {
+        if (a.isResourceSideboard == b.isResourceSideboard) {
+            return NSOrderedSame;
+        }
+        
+        if (a.isResourceSideboard) {
+            return NSOrderedDescending;
+        }
+        
+        return NSOrderedAscending;
+    };
+
     [self willChangeValueForKey: @"cost"];
     NSMutableOrderedSet* tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet: self.equippedShips];
     [tempSet addObject: ship];
+    [tempSet sortUsingComparator:compareIsSideboard];
     self.equippedShips = tempSet;
     [self didChangeValueForKey: @"cost"];
     [ship addObserver: self forKeyPath: @"cost" options: 0 context: 0];
@@ -146,7 +160,9 @@
     int cost = 0;
 
     for (DockEquippedShip* ship in self.equippedShips) {
-        cost += [ship cost];
+        if (![ship isResourceSideboard]) {
+            cost += [ship cost];
+        }
     }
 
     if (self.resource != nil) {
@@ -166,7 +182,7 @@
 {
     NSMutableArray* shipTitles = [NSMutableArray arrayWithCapacity: self.equippedShips.count];
     for (DockEquippedShip* ship in self.equippedShips) {
-        [shipTitles addObject: ship.ship.title];
+        [shipTitles addObject: ship.plainDescription];
     }
     return [shipTitles componentsJoinedByString: @", "];
 }
@@ -217,7 +233,7 @@
     NSMutableString* textFormat = [[NSMutableString alloc] init];
 
     for (DockEquippedShip* ship in self.equippedShips) {
-        NSString* s = [NSString stringWithFormat: @"%@ (%@)\n", ship.title, [ship.ship cost]];
+        NSString* s = [NSString stringWithFormat: @"%@ (%d)\n", ship.plainDescription, [ship baseCost]];
         [textFormat appendString: s];
 
         for (DockEquippedUpgrade* upgrade in ship.sortedUpgrades) {
@@ -227,8 +243,10 @@
                 [textFormat appendString: s];
             }
         }
-        s = [NSString stringWithFormat: @"Total (%d)\n", ship.cost];
-        [textFormat appendString: s];
+        if (![ship isResourceSideboard]) {
+            s = [NSString stringWithFormat: @"Total (%d)\n", ship.cost];
+            [textFormat appendString: s];
+        }
         [textFormat appendString: @"\n"];
     }
 
@@ -418,6 +436,43 @@ static NSString* namePrefix(NSString* originalName)
     }
 
     return YES;
+}
+
+-(void)addSideboard
+{
+    [self removeSideboard];
+    DockEquippedShip* sideboard = [DockSideboard sideboard: [self managedObjectContext]];
+    [self addEquippedShip: sideboard];
+}
+
+-(DockEquippedShip*)removeSideboard
+{
+    DockEquippedShip* sideboard = nil;
+    for (DockEquippedShip *target in self.equippedShips) {
+        if (target.isResourceSideboard) {
+            sideboard = target;
+            break;
+        }
+    }
+    if (sideboard) {
+        [self removeEquippedShip: sideboard];
+    }
+
+    return sideboard;
+}
+
+- (void)setResource:(DockResource *)resource
+{
+  DockResource* oldResource = [self primitiveValueForKey: @"resource"];
+  if ([oldResource isSideboard]) {
+    [self removeSideboard];
+  }
+  [self willChangeValueForKey: @"resource"];
+  [self setPrimitiveValue: resource forKey:@"resource"];
+  [self didChangeValueForKey: @"resource"];
+  if ([resource isSideboard]) {
+    [self addSideboard];
+  }
 }
 
 

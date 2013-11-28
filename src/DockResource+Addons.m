@@ -2,6 +2,8 @@
 
 @implementation DockResource (Addons)
 
+static NSString* kSideboardExternalId = @"4003";
+
 +(DockResource*)resourceForId:(NSString*)externalId context:(NSManagedObjectContext*)context
 {
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Resource" inManagedObjectContext: context];
@@ -19,9 +21,19 @@
     return nil;
 }
 
++(DockResource*)sideboardResource:(NSManagedObjectContext*)context
+{
+    return [DockResource resourceForId: kSideboardExternalId context: context];
+}
+
 -(NSString*)plainDescription
 {
     return self.title;
+}
+
+-(BOOL)isSideboard
+{
+    return [self.externalId isEqualToString: kSideboardExternalId];
 }
 
 @end

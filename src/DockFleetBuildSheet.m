@@ -50,10 +50,11 @@ static NSDictionary* dataForResource(DockResource* theResource)
         [upgrades addObject: blank];
     }
     return @{
+        @"sideboard": [NSNumber numberWithBool: [theShip isResourceSideboard]],
         @"index": [NSNumber numberWithInt: index],
-        @"title": [theShip title],
-        @"faction": [theShip.ship factionCode],
-        @"cost": [theShip.ship cost],
+        @"title": [theShip plainDescription],
+        @"faction": [theShip factionCode],
+        @"cost": [NSNumber numberWithInt: [theShip baseCost]],
         @"captain" : dataForUpgrade(theShip.equippedCaptain),
         @"upgrades" : upgrades,
         @"totalCost": [NSNumber numberWithInt: [theShip cost]]

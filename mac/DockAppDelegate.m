@@ -448,7 +448,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
     if (selectedShips.count > 0) {
         id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
 
-        if ([target isMemberOfClass: [DockEquippedShip class]]) {
+        if ([target isKindOfClass: [DockEquippedShip class]]) {
             return target;
         }
 

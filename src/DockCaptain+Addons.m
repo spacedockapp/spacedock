@@ -55,4 +55,9 @@
     return as;
 }
 
+-(BOOL)isZeroCost
+{
+    return [self.cost intValue] == 0;
+}
+
 @end

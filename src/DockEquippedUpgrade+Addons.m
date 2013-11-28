@@ -56,17 +56,22 @@
 
 -(int)cost
 {
-    DockShip* ship = self.equippedShip.ship;
+    DockEquippedShip* equippedShip = self.equippedShip;
+    DockShip* ship = equippedShip.ship;
     DockUpgrade* upgrade = self.upgrade;
 
     if ([upgrade isPlaceholder]) {
         return 0;
     }
-
+    
     int cost = [upgrade.cost intValue];
+    if (equippedShip.isResourceSideboard) {
+        return cost;
+    }
+
     NSString* shipFaction = ship.faction;
     NSString* upgradeFaction = upgrade.faction;
-    DockCaptain* captain = self.equippedShip.captain;
+    DockCaptain* captain = equippedShip.captain;
     NSString* captainSpecial = captain.special;
     NSString* upgradeSpecial = upgrade.special;
 
@@ -131,7 +136,7 @@
 
     if ([captainSpecial isEqualToString: @"OneDominionUpgradeCostsMinusTwo"]) {
         if ([upgrade isDominion]) {
-            DockEquippedUpgrade* most = [self.equippedShip mostExpensiveUpgradeOfFaction: @"Dominion"];
+            DockEquippedUpgrade* most = [equippedShip mostExpensiveUpgradeOfFaction: @"Dominion"];
 
             if (most == self) {
                 cost -= 2;

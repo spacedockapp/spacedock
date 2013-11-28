@@ -128,7 +128,7 @@
         UITableViewCell *shipCell = [tableView dequeueReusableCellWithIdentifier: @"ship" forIndexPath:indexPath];
         DockShip* ship = _equippedShip.ship;
         shipCell.textLabel.text = ship.title;
-        shipCell.detailTextLabel.text = [NSString stringWithFormat: @"%d (%@)", [_equippedShip cost], [[ship cost] stringValue]];
+        shipCell.detailTextLabel.text = [NSString stringWithFormat: @"%d (%d)", [_equippedShip cost], [_equippedShip baseCost]];
         return shipCell;
     }
     static NSString *CellIdentifier = @"upgrade";

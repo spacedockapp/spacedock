@@ -10,4 +10,5 @@
 @property (nonatomic, readonly) NSString* faction;
 -(NSComparisonResult)compareTo:(DockEquippedUpgrade*)other;
 -(NSString*)typeCode;
+-(int)baseCost;
 @end

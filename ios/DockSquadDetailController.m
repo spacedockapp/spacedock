@@ -54,7 +54,13 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear: animated];
     [self.tableView reloadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear: animated];
     [_squad addObserver: self forKeyPath: @"cost" options: 0 context: 0];
 }
 
@@ -124,10 +130,9 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"ship" forIndexPath:indexPath];
             DockEquippedShipCell* shipCell = (DockEquippedShipCell*)cell;
             DockEquippedShip* es = _squad.equippedShips[row];
-            DockShip* ship = es.ship;
             shipCell.cost.text = [NSString stringWithFormat: @"%d", [es cost]];
             shipCell.details.text = [es upgradesDescription];
-            shipCell.title.text = ship.title;
+            shipCell.title.text = es.plainDescription;
         }
     }
     return cell;
@@ -142,17 +147,29 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.tableView beginUpdates];
     NSInteger section = [indexPath indexAtPosition: 0];
     NSInteger row = [indexPath indexAtPosition: 1];
     if (section == 0) {
         if (editingStyle == UITableViewCellEditingStyleDelete) {
+            DockResource* resource = _squad.resource;
+            if (resource.isSideboard) {
+                NSIndexPath* sideboardPath = [NSIndexPath indexPathForRow: _squad.equippedShips.count-1 inSection: 1];
+                [self.tableView deleteRowsAtIndexPaths: @[sideboardPath] withRowAnimation: UITableViewRowAnimationNone];
+            }
             _squad.resource = nil;
             [self.tableView reloadRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
         }
     } else {
         if (editingStyle == UITableViewCellEditingStyleDelete) {
             DockEquippedShip* es = _squad.equippedShips[row];
-            [_squad removeEquippedShip: es];
+            if (es.isResourceSideboard) {
+                NSIndexPath* resourceIndexPath = [NSIndexPath indexPathForRow: 2 inSection: 1];
+                _squad.resource = nil;
+                [self.tableView reloadRowsAtIndexPaths: @[resourceIndexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
+            } else {
+                [_squad removeEquippedShip: es];
+            }
             NSError* error;
             if (!saveItem(_squad, &error)) {
                 presentError(error);
@@ -160,6 +177,7 @@
             [self.tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
         }
     }
+    [self.tableView endUpdates];
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
@@ -249,7 +267,7 @@
     if (!saveItem(_squad,  &error)) {
         presentError(error);
     }
-    [self updateCost];
+    [self.tableView reloadData];
 }
 
 -(IBAction)export:(id)sender

@@ -70,14 +70,25 @@
                         <th bgcolor='#D3D3D3'>SP</th>
                     </tr>
                     <tr>
+                        {{#sideboard}}
+                        <td bgcolor='#D3D3D3' class='subheader'>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        {{/sideboard}}
+                        {{^sideboard}}
                         <td bgcolor='#D3D3D3' class='subheader'>Ship</td>
                         <td>Ship {{index}}</td>
+                        {{/sideboard}}
                         <td>{{title}}</td>
                         <td>{{faction}}</td>
                         <td>{{cost}}</td>
                     </tr>
                     <tr>
+                        {{#sideboard}}
+                        <td bgcolor='#D3D3D3' class='subheader'>&nbsp;</td>
+                        {{/sideboard}}
+                        {{^sideboard}}
                         <td bgcolor='#D3D3D3' class='subheader'>Captain</td>
+                        {{/sideboard}}
                         <td>Captain</td>
                         <td class="title">{{captain.title}}</td>
                         <td>{{captain.faction}}</td>
