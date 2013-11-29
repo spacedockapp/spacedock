@@ -319,12 +319,12 @@
     NSString* shipFaction = ship.faction;
     NSString* upgradeFaction = upgrade.faction;
     DockCaptain* captain = equippedShip.captain;
+
     if ([upgrade isCaptain]) {
         captain = (DockCaptain*)upgrade;
-    }
-    
-    if ([captain isZeroCost]) {
-        return 0;
+        if ([captain isZeroCost]) {
+            return 0;
+        }
     }
     
     NSString* captainSpecial = captain.special;
