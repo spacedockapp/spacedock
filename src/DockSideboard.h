@@ -2,16 +2,17 @@
 //  DockSideboard.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 11/28/13.
+//  Created by Rob Tsuk on 11/29/13.
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
-#import "DockEquippedShip.h"
-#import <CoreData/CoreData.h>
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import "DockEquippedShip.h"
 
 
 @interface DockSideboard : DockEquippedShip
 
+@property (nonatomic, retain) NSString * unused;
 
 @end
