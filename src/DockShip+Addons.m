@@ -85,11 +85,11 @@ NSString* asDegrees(NSString* textValue)
 
 -(NSString*)plainDescription
 {
-    if ([[self title] isEqualToString: self.shipClass]) {
-        return self.title;
+    if (!self.isUnique) {
+        return self.shipClass;
     }
 
-    return [NSString stringWithFormat: @"%@ (%@)", self.title, self.shipClass];
+    return self.title;
 }
 
 -(NSAttributedString*)styledDescription

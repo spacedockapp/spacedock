@@ -28,6 +28,7 @@
 -(BOOL)isResourceSideboard;
 -(NSArray*)sortedUpgrades;
 -(NSString*)plainDescription;
+-(NSString*)descriptiveTitle;
 -(NSString*)upgradesDescription;
 -(NSString*)factionCode;
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;

@@ -27,6 +27,9 @@
 
 -(NSString*)title
 {
+    if ([self isResourceSideboard]) {
+        return self.squad.resource.title;
+    }
     return self.ship.title;
 }
 
@@ -40,7 +43,18 @@
 
 -(NSAttributedString*)styledDescription
 {
+    if ([self isResourceSideboard]) {
+        return [[NSAttributedString alloc] initWithString: self.squad.resource.title];
+    }
     return [self.ship styledDescription];
+}
+
+-(NSString*)descriptiveTitle
+{
+    if ([self isResourceSideboard]) {
+        return self.squad.resource.title;
+    }
+    return [self.ship descriptiveTitle];
 }
 
 -(NSString*)upgradesDescription

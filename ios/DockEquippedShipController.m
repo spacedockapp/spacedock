@@ -126,8 +126,7 @@
     NSInteger section = [indexPath indexAtPosition: 0];
     if (section == 0) {
         UITableViewCell *shipCell = [tableView dequeueReusableCellWithIdentifier: @"ship" forIndexPath:indexPath];
-        DockShip* ship = _equippedShip.ship;
-        shipCell.textLabel.text = ship.title;
+        shipCell.textLabel.text = _equippedShip.plainDescription;
         shipCell.detailTextLabel.text = [NSString stringWithFormat: @"%d (%d)", [_equippedShip cost], [_equippedShip baseCost]];
         return shipCell;
     }
