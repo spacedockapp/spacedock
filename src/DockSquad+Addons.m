@@ -54,11 +54,17 @@
                     currentShip = [DockEquippedShip equippedShipWithShip: ship];
                     [squad addEquippedShip: currentShip];
                 }
+            } else if ([label isEqualToString: @"Sideboard"]) {
+                DockResource* resource = [DockResource resourceForId: externalId context: context];
+                squad.resource = resource;
+                currentShip = [squad getSideboard];
             } else if (currentShip != nil) {
                 if (externalId.length > 0) {
                     if ([label isEqualToString: @"Resources"]) {
                         DockResource* resource = [DockResource resourceForId: externalId context: context];
-                        squad.resource = resource;
+                        if (![resource isSideboard]) {
+                            squad.resource = resource;
+                        }
                     } else {
                         DockUpgrade* upgrade = [DockUpgrade upgradeForId: externalId context: context];
                         [currentShip addUpgrade: upgrade];
@@ -273,7 +279,11 @@ static NSString* toDataFormat(NSString* label, id element)
     int i = 0;
 
     for (DockEquippedShip* ship in self.equippedShips) {
-        [dataFormat appendString: toDataFormat(@"Ships", ship.ship)];
+        if ([ship isResourceSideboard]) {
+            [dataFormat appendString: toDataFormat(@"Sideboard", ship.squad.resource)];
+        } else {
+            [dataFormat appendString: toDataFormat(@"Ships", ship.ship)];
+        }
 
         for (DockEquippedUpgrade* upgrade in ship.sortedUpgrades) {
             if ([upgrade isPlaceholder]) {
@@ -438,14 +448,7 @@ static NSString* namePrefix(NSString* originalName)
     return YES;
 }
 
--(void)addSideboard
-{
-    [self removeSideboard];
-    DockEquippedShip* sideboard = [DockSideboard sideboard: [self managedObjectContext]];
-    [self addEquippedShip: sideboard];
-}
-
--(DockEquippedShip*)removeSideboard
+-(DockEquippedShip*)getSideboard
 {
     DockEquippedShip* sideboard = nil;
     for (DockEquippedShip *target in self.equippedShips) {
@@ -454,6 +457,21 @@ static NSString* namePrefix(NSString* originalName)
             break;
         }
     }
+    return sideboard;
+}
+
+-(DockEquippedShip*)addSideboard
+{
+    [self removeSideboard];
+    DockEquippedShip* sideboard = [DockSideboard sideboard: [self managedObjectContext]];
+    [self addEquippedShip: sideboard];
+    return sideboard;
+}
+
+-(DockEquippedShip*)removeSideboard
+{
+    DockEquippedShip* sideboard = [self getSideboard];
+
     if (sideboard) {
         [self removeEquippedShip: sideboard];
     }
