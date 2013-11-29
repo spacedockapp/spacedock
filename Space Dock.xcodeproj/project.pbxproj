@@ -431,7 +431,7 @@
 		D4AAA2BB17F4DF3D00A99383 /* DockSquad+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockSquad+Addons.m"; sourceTree = "<group>"; };
 		D4ACA9751842F86B008B3EB6 /* DockMoveGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockMoveGrid.h; sourceTree = "<group>"; };
 		D4ACA9761842F86B008B3EB6 /* DockMoveGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockMoveGrid.m; sourceTree = "<group>"; };
-		D4B889221847C14B00AE46E6 /* Space_Dock_ 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Space_Dock_ 5.xcdatamodel"; sourceTree = "<group>"; };
+		D4B889221847C14B00AE46E6 /* Space_Dock_ 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Space_Dock_ 5.xcdatamodel"; sourceTree = "<group>"; };
 		D4B889231847C1D200AE46E6 /* DockSideboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockSideboard.h; sourceTree = "<group>"; };
 		D4B889241847C1D200AE46E6 /* DockSideboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockSideboard.m; sourceTree = "<group>"; };
 		D4B889271847C1F300AE46E6 /* DockSideboard+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockSideboard+Addons.h"; sourceTree = "<group>"; };
