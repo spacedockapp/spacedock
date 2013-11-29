@@ -12,7 +12,7 @@
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Sideboard"
                                               inManagedObjectContext: context];
     DockSideboard* sideboard = [[DockSideboard alloc] initWithEntity: entity
-                                     insertIntoManagedObjectContext: context];
+                                      insertIntoManagedObjectContext: context];
     [sideboard establishPlaceholders];
     return sideboard;
 }
@@ -62,6 +62,7 @@
 -(int)baseCost
 {
     int cost = 0;
+
     for (DockEquippedUpgrade* upgrade in self.sortedUpgrades) {
         cost += [upgrade baseCost];
     }

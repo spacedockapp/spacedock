@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 #import "DockUpgrade.h"
+#import <CoreData/CoreData.h>
+#import <Foundation/Foundation.h>
 
 
 @interface DockCaptain : DockUpgrade
 
-@property (nonatomic, retain) NSNumber * skill;
-@property (nonatomic, retain) NSNumber * talent;
+@property (nonatomic, retain) NSNumber* skill;
+@property (nonatomic, retain) NSNumber* talent;
 
 @end

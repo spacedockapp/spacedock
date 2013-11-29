@@ -4,15 +4,15 @@
 #import "DockResource.h"
 
 @interface DockResourcesViewController ()
-@property (nonatomic, weak) DockSquad *targetSquad;
-@property (nonatomic, weak) DockResource *targetResource;
+@property (nonatomic, weak) DockSquad* targetSquad;
+@property (nonatomic, weak) DockResource* targetResource;
 @property (nonatomic, strong) DockResourcePicked onResourcePicked;
 @property (nonatomic, assign) BOOL disclosureTapped;
 @end
 
 @implementation DockResourcesViewController
 
-- (void)viewDidLoad
+-(void)viewDidLoad
 {
     self.cellIdentifer = @"Resource";
     [super viewDidLoad];
@@ -23,6 +23,7 @@
     _disclosureTapped = NO;
     [super viewWillAppear: animated];
     NSIndexPath* indexPath = nil;
+
     if (_targetResource) {
         indexPath = [self.fetchedResultsController indexPathForObject: _targetResource];
     } else if (_targetSquad) {
@@ -35,7 +36,7 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
+-(void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
@@ -57,23 +58,26 @@
 
 -(NSArray*)sortDescriptors
 {
-    NSSortDescriptor *titleDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+    NSSortDescriptor* titleDescriptor = [[NSSortDescriptor alloc] initWithKey: @"title" ascending: YES];
     return @[titleDescriptor];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+-(NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger actual = [super tableView:tableView numberOfRowsInSection: section];
+    NSInteger actual = [super tableView: tableView numberOfRowsInSection: section];
+
     if (_targetSquad) {
         actual += 1;
     }
+
     return actual;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+-(void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
     NSInteger row = [indexPath indexAtPosition: 1];
     NSArray* resources = self.fetchedResultsController.fetchedObjects;
+
     if (row == resources.count) {
         cell.textLabel.text = @"No resource";
         cell.detailTextLabel.text = @"";
@@ -85,20 +89,22 @@
     }
 }
 
-- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+-(BOOL)tableView:(UITableView*)tableView shouldHighlightRowAtIndexPath:(NSIndexPath*)indexPath
 {
     return YES;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
     if (_targetSquad) {
         NSInteger row = [indexPath indexAtPosition: 1];
         NSArray* resources = self.fetchedResultsController.fetchedObjects;
-        DockResource *resource = nil;
+        DockResource* resource = nil;
+
         if (row < resources.count) {
             resource = resources[row];
         }
+
         _onResourcePicked(resource);
         [self clearTarget];
     } else {
@@ -106,10 +112,10 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView*)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath*)indexPath
 {
     _disclosureTapped = YES;
-    [self.tableView selectRowAtIndexPath: indexPath animated: NO scrollPosition:UITableViewScrollPositionMiddle];
+    [self.tableView selectRowAtIndexPath: indexPath animated: NO scrollPosition: UITableViewScrollPositionMiddle];
     [self performSegueWithIdentifier: @"ShowResourceDetails" sender: self];
 }
 
@@ -129,19 +135,20 @@
 
 #pragma mark - Navigation
 
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString*)identifier sender:(id)sender
 {
     return NO;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
     NSString* identifier = [segue identifier];
     id destination = [segue destinationViewController];
-    if ([identifier isEqualToString:@"ShowResourceDetails"]) {
+
+    if ([identifier isEqualToString: @"ShowResourceDetails"]) {
         DockDetailViewController* controller = (DockDetailViewController*)destination;
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *target = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        NSManagedObject* target = [self.fetchedResultsController objectAtIndexPath: indexPath];
         controller.target = target;
     }
 }

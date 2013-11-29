@@ -2,8 +2,8 @@
 
 #import "DockCaptain+Addons.h"
 #import "DockCrew.h"
-#import "DockEquippedUpgrade+Addons.h"
 #import "DockEquippedShip+Addons.h"
+#import "DockEquippedUpgrade+Addons.h"
 #import "DockResource.h"
 #import "DockShip+Addons.h"
 #import "DockTalent.h"
@@ -284,10 +284,12 @@
 {
     if ([self isWeapon]) {
         id attackValue = [self valueForKey: @"attack"];
+
         if ([attackValue intValue] > 0) {
             return attackValue;
         }
     }
+
     return nil;
 }
 
@@ -295,10 +297,12 @@
 {
     if ([self isWeapon]) {
         id rangeValue = [self valueForKey: @"range"];
+
         if ([rangeValue length] > 0) {
             return rangeValue;
         }
     }
+
     return nil;
 }
 
@@ -311,6 +315,7 @@
     }
 
     int cost = [upgrade.cost intValue];
+
     if (equippedShip.isResourceSideboard) {
         return cost;
     }
@@ -322,11 +327,12 @@
 
     if ([upgrade isCaptain]) {
         captain = (DockCaptain*)upgrade;
+
         if ([captain isZeroCost]) {
             return 0;
         }
     }
-    
+
     NSString* captainSpecial = captain.special;
     NSString* upgradeSpecial = upgrade.special;
 

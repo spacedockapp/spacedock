@@ -58,12 +58,14 @@ NSString* kInspectorVisible = @"inspectorVisible";
 
 -(void)loadData
 {
-    DockDataLoader* loader = [[DockDataLoader alloc] initWithContext:_managedObjectContext];
+    DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: _managedObjectContext];
     NSError* error = nil;
+
     if ([loader loadData: &error]) {
         [self validateSpecials: [loader validateSpecials]];
     }
-    for (DockSet* set in [DockSet allSets: _managedObjectContext]) {
+
+    for (DockSet* set in[DockSet allSets : _managedObjectContext]) {
         [set addObserver: self forKeyPath: @"include" options: 0 context: 0];
     }
 }
@@ -117,6 +119,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
     [self setupFactionMenu];
 
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+
     if ([defaults boolForKey: kInspectorVisible]) {
         [_inspector show];
     }
@@ -344,9 +347,11 @@ NSString* kInspectorVisible = @"inspectorVisible";
 {
     NSDictionary* d = error.userInfo;
     DockEquippedUpgrade* upgrade = d[DockExistingUpgradeKey];
+
     if (upgrade) {
         [self selectUpgrade: upgrade];
     }
+
     NSAlert* alert = [[NSAlert alloc] init];
     NSString* msg = d[NSLocalizedDescriptionKey];
     [alert setMessageText: msg];
@@ -424,10 +429,12 @@ NSString* kInspectorVisible = @"inspectorVisible";
 
     if ([identifier isEqualToString: tabName]) {
         NSArray* selected = [controller selectedObjects];
+
         if (selected.count > 0) {
             return selected[0];
         }
     }
+
     return nil;
 }
 
@@ -517,11 +524,13 @@ NSString* kInspectorVisible = @"inspectorVisible";
         DockCaptain* captain = captainsToAdd[0];
         DockSquad* squad = [self selectedSquad];
         NSError* error;
+
         if ([squad canAddCaptain: captain toShip: targetShip error: &error]) {
             return [squad addCaptain: captain toShip: targetShip error: nil];
         } else {
             [self explainCantUniqueUpgrade: error];
         }
+
         return nil;
 
     }
@@ -627,6 +636,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 {
     NSArray* objects = [_squadsController arrangedObjects];
     NSInteger row = [objects indexOfObject: theSquad];
+
     if (row != NSNotFound) {
         [_squadsTableView becomeFirstResponder];
         [_squadsController setSelectionIndex: row];
@@ -723,6 +733,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 {
     NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"any sets.externalId in %@", _includedSets];
     _resourcesController.fetchPredicate = predicateTemplate;
+
     if (_factionName == nil) {
         _shipsController.fetchPredicate = predicateTemplate;
         _captainsController.fetchPredicate = predicateTemplate;
@@ -753,6 +764,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 {
     NSArray* includedSets = [DockSet includedSets: _managedObjectContext];
     NSMutableArray* includedIds = [[NSMutableArray alloc] init];
+
     for (DockSet* set in includedSets) {
         [includedIds addObject: [set externalId]];
     }
@@ -804,6 +816,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
     } else if (action == @selector(addSelectedShip:)) {
         DockShip* ship = [self selectedShip];
         DockSquad* squad = [self selectedSquad];
+
         if (ship && squad) {
             [menuItem setTitle: [NSString stringWithFormat: @"Add '%@' to '%@'", ship.title, squad.name]];
         } else {
@@ -813,6 +826,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
     } else if (action == @selector(deleteSelectedShip:)) {
         DockEquippedShip* ship = [self selectedEquippedShip];
         DockSquad* squad = [self selectedSquad];
+
         if (ship && squad) {
             [menuItem setTitle: [NSString stringWithFormat: @"Remove '%@' from '%@'", ship.ship.title, squad.name]];
         } else {
@@ -822,6 +836,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
     } else if (action == @selector(addSelectedUpgradeAction:)) {
         DockEquippedShip* ship = [self selectedEquippedShip];
         DockUpgrade* upgrade = [self selectedUpgrade];
+
         if (ship && upgrade) {
             [menuItem setTitle: [NSString stringWithFormat: @"Add '%@' to '%@'", upgrade.title, ship.ship.title]];
             return YES;
@@ -832,6 +847,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
     } else if (action == @selector(deleteSelectedUpgradeAction:)) {
         DockEquippedShip* ship = [self selectedEquippedShip];
         DockEquippedUpgrade* upgrade = [self selectedEquippedUpgrade];
+
         if (ship && upgrade) {
             [menuItem setTitle: [NSString stringWithFormat: @"Remove '%@' from '%@'", upgrade.upgrade.title, ship.ship.title]];
             return YES;
@@ -968,10 +984,10 @@ NSString* kInspectorVisible = @"inspectorVisible";
 
 -(IBAction)copy:(id)sender
 {
-    NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
+    NSPasteboard* pasteboard = [NSPasteboard generalPasteboard];
     [pasteboard clearContents];
-    NSArray *objectsToCopy = @[[[self selectedSquad] asPlainTextFormat]];
-    [pasteboard writeObjects:objectsToCopy];
+    NSArray* objectsToCopy = @[[[self selectedSquad] asPlainTextFormat]];
+    [pasteboard writeObjects: objectsToCopy];
 }
 
 @end

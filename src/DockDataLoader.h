@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface DockDataLoader : NSObject <NSXMLParserDelegate>
+@interface DockDataLoader : NSObject<NSXMLParserDelegate>
 @property (strong, nonatomic) NSMutableDictionary* parsedData;
 @property (strong, nonatomic) NSMutableDictionary* currentElement;
 @property (strong, nonatomic) NSDictionary* currentAttributes;

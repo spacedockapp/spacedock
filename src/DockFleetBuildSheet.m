@@ -1,10 +1,10 @@
 #import "DockFleetBuildSheet.h"
 
+#import "DockCaptain+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
-#import "DockShip+Addons.h"
-#import "DockCaptain+Addons.h"
 #import "DockResource+Addons.h"
+#import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"
 
@@ -14,12 +14,13 @@
 
 static NSDictionary* dataForUpgrade(DockEquippedUpgrade* theUpgrade)
 {
-    DockUpgrade * upgrade = theUpgrade.upgrade;
+    DockUpgrade* upgrade = theUpgrade.upgrade;
     return @{
-        @"title": [upgrade title],
-        @"faction": [upgrade factionCode],
-        @"upType": [upgrade typeCode],
-        @"cost": [NSNumber numberWithInt: [theUpgrade cost]]};
+               @"title": [upgrade title],
+               @"faction": [upgrade factionCode],
+               @"upType": [upgrade typeCode],
+               @"cost": [NSNumber numberWithInt: [theUpgrade cost]]
+    };
 }
 
 static NSDictionary* dataForResource(DockResource* theResource)
@@ -28,13 +29,16 @@ static NSDictionary* dataForResource(DockResource* theResource)
         return nil;
     }
 
-    return @{@"title": theResource.title, @"cost": theResource.cost};
+    return @{
+               @"title": theResource.title, @"cost": theResource.cost
+    };
 }
 
 -(NSDictionary*)printableData:(DockEquippedShip*)theShip index:(int)index upgradeCount:(NSInteger)upgradeCount
 {
     NSArray* equippedUpgrades = theShip.sortedUpgrades;
     NSMutableArray* upgrades = [[NSMutableArray alloc] initWithCapacity: equippedUpgrades.count];
+
     for (DockEquippedUpgrade* upgrade in equippedUpgrades) {
         if (![upgrade isPlaceholder] && ![upgrade.upgrade isCaptain]) {
             [upgrades addObject: dataForUpgrade(upgrade)];
@@ -46,18 +50,19 @@ static NSDictionary* dataForResource(DockResource* theResource)
         @"upType": @" ",
         @"cost": @" "
     };
+
     while (upgrades.count < upgradeCount) {
         [upgrades addObject: blank];
     }
     return @{
-        @"sideboard": [NSNumber numberWithBool: [theShip isResourceSideboard]],
-        @"index": [NSNumber numberWithInt: index],
-        @"title": [theShip plainDescription],
-        @"faction": [theShip factionCode],
-        @"cost": [NSNumber numberWithInt: [theShip baseCost]],
-        @"captain" : dataForUpgrade(theShip.equippedCaptain),
-        @"upgrades" : upgrades,
-        @"totalCost": [NSNumber numberWithInt: [theShip cost]]
+               @"sideboard": [NSNumber numberWithBool: [theShip isResourceSideboard]],
+               @"index": [NSNumber numberWithInt: index],
+               @"title": [theShip plainDescription],
+               @"faction": [theShip factionCode],
+               @"cost": [NSNumber numberWithInt: [theShip baseCost]],
+               @"captain" : dataForUpgrade(theShip.equippedCaptain),
+               @"upgrades" : upgrades,
+               @"totalCost": [NSNumber numberWithInt: [theShip cost]]
     };
 }
 
@@ -70,40 +75,49 @@ static NSDictionary* dataForResource(DockResource* theResource)
     squadData[@"ships"] = ships;
     squadData[@"squadTotalCost"] = [NSNumber numberWithInt: targetSquad.cost];
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    [formatter setTimeStyle:NSDateFormatterNoStyle];
-    [formatter setDateStyle:NSDateFormatterShortStyle];
+    [formatter setTimeStyle: NSDateFormatterNoStyle];
+    [formatter setDateStyle: NSDateFormatterShortStyle];
 
     squadData[@"date"] = [formatter stringFromDate: [NSDate date]];
     NSDictionary* resourceData = dataForResource(targetSquad.resource);
+
     if (resourceData != nil) {
         squadData[@"resource"] = resourceData;
     }
+
     NSMutableArray* list = [[NSMutableArray alloc] initWithCapacity: 2];
     NSInteger upgradeCount = -1;
+
     for (DockEquippedShip* ship in equippedShips) {
         NSInteger current = [ship upgradeCount];
+
         if (current > upgradeCount) {
             upgradeCount = current;
         }
     }
-    for (int i = 0; i < 6; i+=1) {
+
+    for (int i = 0; i < 6; i += 1) {
         NSDictionary* shipData;
+
         if (i < shipCount) {
-            shipData = [self printableData: equippedShips[i] index: i+1 upgradeCount: upgradeCount];
+            shipData = [self printableData: equippedShips[i] index: i + 1 upgradeCount: upgradeCount];
         } else {
             shipData = @{};
         }
+
         [list addObject: shipData];
-        if (i%2 == 1) {
-            [ships addObject: @{@"list": list }];
+
+        if (i % 2 == 1) {
+            [ships addObject: @{ @"list": list }
+            ];
             list = [[NSMutableArray alloc] initWithCapacity: 2];
         }
     }
     NSURL* url = [NSURL URLWithString: @"http://sample.com"];
-    NSString *rendering = [GRMustacheTemplate renderObject: squadData
+    NSString* rendering = [GRMustacheTemplate renderObject: squadData
                                               fromResource: @"fleet"
                                                     bundle: nil
-                                                     error: NULL]; 
+                                                     error: NULL];
 
     NSMutableDictionary* dict = [[NSPrintInfo sharedPrintInfo] dictionary];
     dict[NSPrintHorizontallyCentered] = [NSNumber numberWithBool: YES];
@@ -115,7 +129,7 @@ static NSDictionary* dataForResource(DockResource* theResource)
     [NSApp beginSheet: _fleetBuildWindow modalForWindow: _mainWindow modalDelegate: self didEndSelector: @selector(sheetDidEnd:returnCode:contextInfo:) contextInfo: nil];
 }
 
--(void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+-(void)sheetDidEnd:(NSWindow*)sheet returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
 {
     [_fleetBuildWindow orderOut: nil];
 }

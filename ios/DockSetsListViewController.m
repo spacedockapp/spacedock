@@ -1,7 +1,7 @@
 #import "DockSetsListViewController.h"
 
-#import "DockSetTableViewCell.h"
 #import "DockSet+Addons.h"
+#import "DockSetTableViewCell.h"
 #import "DockUtilsMobile.h"
 
 @interface DockSetsListViewController ()
@@ -10,7 +10,7 @@
 
 @implementation DockSetsListViewController
 
-- (void)viewDidLoad
+-(void)viewDidLoad
 {
     self.cellIdentifer = @"Set";
     [super viewDidLoad];
@@ -19,6 +19,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     NSArray* items = [self.fetchedResultsController fetchedObjects];
+
     for (DockSet* set in items) {
         if ([set.include boolValue]) {
             NSIndexPath* indexPath = [self.fetchedResultsController indexPathForObject: set];
@@ -28,7 +29,7 @@
     [super viewWillAppear: animated];
 }
 
-- (void)didReceiveMemoryWarning
+-(void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
@@ -55,11 +56,11 @@
 
 -(NSArray*)sortDescriptors
 {
-    NSSortDescriptor *titleDescriptor = [[NSSortDescriptor alloc] initWithKey:@"externalId" ascending:YES];
+    NSSortDescriptor* titleDescriptor = [[NSSortDescriptor alloc] initWithKey: @"externalId" ascending: YES];
     return @[titleDescriptor];
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+-(void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
     DockSet* set = [self.fetchedResultsController objectAtIndexPath: indexPath];
     cell.detailTextLabel.text = set.name;
@@ -70,18 +71,19 @@
 {
     NSError* error;
     set.include = [NSNumber numberWithBool: shouldInclude];
+
     if (!saveItem(set, &error)) {
         presentError(error);
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
     DockSet* set = [self.fetchedResultsController objectAtIndexPath: indexPath];
     [self setIncludeSet: set shouldInclude: YES];
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView*)tableView didDeselectRowAtIndexPath:(NSIndexPath*)indexPath
 {
     DockSet* set = [self.fetchedResultsController objectAtIndexPath: indexPath];
     [self setIncludeSet: set shouldInclude: NO];

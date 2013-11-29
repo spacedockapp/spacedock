@@ -3,7 +3,7 @@
 @class DockSquad;
 @class DockShip;
 
-typedef void (^DockShipPicked)(DockShip*);
+typedef void (^ DockShipPicked)(DockShip*);
 
 @interface DockShipsViewController : DockTableViewController
 -(void)targetSquad:(DockSquad*)squad onPicked:(DockShipPicked)onPicked;

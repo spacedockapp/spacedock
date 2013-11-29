@@ -52,6 +52,7 @@ NSString* asDegrees(NSString* textValue)
     if ([textValue length] == 0) {
         return @"";
     }
+
     return [NSString stringWithFormat: @"%@º", textValue];
 }
 
@@ -69,17 +70,23 @@ NSString* asDegrees(NSString* textValue)
 {
     NSMutableArray* caps = [[NSMutableArray alloc] initWithCapacity: 0];
     int v = [self techCount];
+
     if (v > 0) {
         [caps addObject: [NSString stringWithFormat: @"Tech: %d", v]];
     }
+
     v = [self weaponCount];
+
     if (v > 0) {
         [caps addObject: [NSString stringWithFormat: @"Weap: %d", v]];
     }
+
     v = [self crewCount];
+
     if (v > 0) {
         [caps addObject: [NSString stringWithFormat: @"Crew: %d", v]];
     }
+
     return [caps componentsJoinedByString: @" "];
 }
 
@@ -115,6 +122,7 @@ NSString* asDegrees(NSString* textValue)
     if (self.isUnique) {
         return self.title;
     }
+
     return self.shipClass;
 }
 
@@ -173,15 +181,19 @@ NSString* asDegrees(NSString* textValue)
 -(NSArray*)actionStrings
 {
     NSMutableArray* actionStringParts = [NSMutableArray arrayWithCapacity: 0];
+
     if ([self.scan intValue]) {
         [actionStringParts addObject: @"Scan"];
     }
+
     if ([self.cloak intValue]) {
         [actionStringParts addObject: @"Cloak"];
     }
+
     if ([self.battleStations intValue]) {
         [actionStringParts addObject: @"Battle"];
     }
+
     if ([self.evasiveManeuvers intValue]) {
         [actionStringParts addObject: @"Evade"];
     }
@@ -199,6 +211,7 @@ NSString* asDegrees(NSString* textValue)
         NSLog(@"updating ship class for ship %@", self.title);
         self.shipClass = newShipClass;
         DockShipClassDetails* details = [DockShipClassDetails find: newShipClass context: self.managedObjectContext];
+
         if (details != nil) {
             self.shipClassDetails = details;
         } else {
@@ -210,9 +223,11 @@ NSString* asDegrees(NSString* textValue)
 -(NSString*)movesSummary
 {
     DockShipClassDetails* details = self.shipClassDetails;
+
     if (details == nil) {
         return @"";
     }
+
     return details.movesSummary;
 }
 

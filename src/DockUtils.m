@@ -13,6 +13,7 @@ NSAttributedString* coloredString(NSString* text, NSColor* color, NSColor* backC
     NSString* t = [NSString stringWithFormat: @" %@ ", text];
     return [[NSAttributedString alloc] initWithString: t attributes: attr];
 }
+
 #endif
 
 NSSet* allAttributes(NSManagedObjectContext* context, NSString* entityName, NSString* attributeName)

@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
-#import "DockUpgrade.h"
 #import "DockEquippedUpgrade.h"
+#import "DockUpgrade.h"
 
 
 @implementation DockUpgrade

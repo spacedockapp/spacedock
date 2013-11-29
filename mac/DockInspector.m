@@ -1,8 +1,8 @@
 #import "DockInspector.h"
 
 #import "DockAppDelegate.h"
-#import "DockEquippedUpgrade+Addons.h"
 #import "DockEquippedShip+Addons.h"
+#import "DockEquippedUpgrade+Addons.h"
 #import "DockMoveGrid.h"
 #import "DockShip+Addons.h"
 #import "DockUpgrade+Addons.h"
@@ -12,9 +12,11 @@
 static id extractSelectedItem(id controller)
 {
     NSArray* selectedItems = [controller selectedObjects];
+
     if (selectedItems.count > 0) {
         return selectedItems[0];
     }
+
     return nil;
 }
 
@@ -31,8 +33,10 @@ static id extractSelectedItem(id controller)
         [_tabView selectTabViewItemWithIdentifier: @"ship"];
     } else if ([selectedItem isMemberOfClass: [DockEquippedUpgrade class]]) {
         DockUpgrade* upgrade = [selectedItem upgrade];
+
         if ([upgrade isCaptain]) {
             self.currentCaptain = (DockCaptain*)upgrade;
+
             if (changeTab) {
                 [_tabView selectTabViewItemWithIdentifier: @"captain"];
             }
@@ -40,8 +44,9 @@ static id extractSelectedItem(id controller)
             if (changeTab) {
                 [_tabView selectTabViewItemWithIdentifier: @"blank"];
             }
-       } else {
+        } else {
             self.currentUpgrade = upgrade;
+
             if (changeTab) {
                 [_tabView selectTabViewItemWithIdentifier: @"upgrade"];
             }
@@ -61,6 +66,7 @@ static id extractSelectedItem(id controller)
 {
     id responder = [_mainWindow firstResponder];
     NSString* ident = [responder identifier];
+
     if (object == _mainWindow) {
         if ([ident isEqualToString: @"captainsTable"]) {
             self.currentCaptain = extractSelectedItem(_captains);
@@ -118,7 +124,7 @@ static id extractSelectedItem(id controller)
     [_inspector orderFront: self];
 }
 
-- (BOOL)windowShouldClose:(id)sender
+-(BOOL)windowShouldClose:(id)sender
 {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool: NO forKey: kInspectorVisible];

@@ -63,8 +63,9 @@
     if ([upgrade isPlaceholder]) {
         return 0;
     }
-    
+
     int cost = [upgrade.cost intValue];
+
     if (equippedShip.isResourceSideboard) {
         return cost;
     }
@@ -83,6 +84,7 @@
         }
     } else if ([upgrade isCaptain]) {
         int baseCost = [[upgrade cost] intValue];
+
         if (baseCost == 0) {
             return 0;
         }

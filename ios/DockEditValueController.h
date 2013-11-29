@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-typedef void (^DockOnSave)(NSString*);
+typedef void (^ DockOnSave)(NSString*);
 
 @interface DockEditValueController : UIViewController
 @property (strong, nonatomic) IBOutlet UITextField* valueField;

@@ -5,31 +5,31 @@
 
 @implementation DockEditValueController
 
-- (void)viewDidLoad
+-(void)viewDidLoad
 {
     [super viewDidLoad];
     [_valueField setText: _initialValue];
 }
 
-- (void)didReceiveMemoryWarning
+-(void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(void)setValueName:(NSString *)valueName
+-(void)setValueName:(NSString*)valueName
 {
     [self setTitle: valueName];
 }
 
--(void)setInitialValue:(NSString *)initialValue
+-(void)setInitialValue:(NSString*)initialValue
 {
     _initialValue = initialValue;
 }
 
 -(IBAction)cancel:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated: YES];
 }
 
 -(IBAction)save:(id)sender
@@ -37,7 +37,8 @@
     if (_onSave != nil) {
         _onSave([_valueField text]);
     }
-    [self.navigationController popViewControllerAnimated:YES];
+
+    [self.navigationController popViewControllerAnimated: YES];
 }
 
 @end

@@ -2,7 +2,7 @@
 
 @implementation DockResource (Addons)
 
-static NSString* kSideboardExternalId = @"4003";
+static NSString * kSideboardExternalId = @"4003";
 
 +(DockResource*)resourceForId:(NSString*)externalId context:(NSManagedObjectContext*)context
 {

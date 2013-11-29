@@ -30,6 +30,7 @@
     if ([self isResourceSideboard]) {
         return self.squad.resource.title;
     }
+
     return self.ship.title;
 }
 
@@ -38,6 +39,7 @@
     if ([self isResourceSideboard]) {
         return self.squad.resource.title;
     }
+
     return [self.ship plainDescription];
 }
 
@@ -46,6 +48,7 @@
     if ([self isResourceSideboard]) {
         return [[NSAttributedString alloc] initWithString: self.squad.resource.title];
     }
+
     return [self.ship styledDescription];
 }
 
@@ -54,6 +57,7 @@
     if ([self isResourceSideboard]) {
         return self.squad.resource.title;
     }
+
     return [self.ship descriptiveTitle];
 }
 
@@ -61,8 +65,10 @@
 {
     NSArray* sortedUpgrades = [self sortedUpgrades];
     NSMutableArray* upgradeTitles = [NSMutableArray arrayWithCapacity: sortedUpgrades.count];
+
     for (DockEquippedUpgrade* eu in sortedUpgrades) {
         DockUpgrade* upgrade = eu.upgrade;
+
         if (![upgrade isPlaceholder]) {
             [upgradeTitles addObject: upgrade.title];
         }
@@ -80,6 +86,7 @@
     if ([self isResourceSideboard]) {
         return [self.squad.resource.cost intValue];
     }
+
     return [self.ship.cost intValue];
 }
 
@@ -131,8 +138,10 @@
 -(DockEquippedShip*)duplicate
 {
     DockEquippedShip* newShip = [DockEquippedShip equippedShipWithShip: self.ship];
+
     for (DockEquippedUpgrade* equippedUpgrade in self.sortedUpgrades) {
         DockUpgrade* upgrade = [equippedUpgrade upgrade];
+
         if (![upgrade isPlaceholder]) {
             [newShip addUpgrade: equippedUpgrade.upgrade maybeReplace: nil establishPlaceholders: NO];
         }
@@ -176,7 +185,7 @@
 
 -(NSString*)shipFaction
 {
-   return self.ship.faction;
+    return self.ship.faction;
 }
 
 -(void)establishPlaceholders
@@ -345,7 +354,7 @@
         }
 
         [self removeIllegalUpgrades];
-        
+
         [[self squad] squadCompositionChanged];
     }
 }
@@ -445,8 +454,10 @@
 -(int)upgradeCount
 {
     int count = 0;
-    for (DockEquippedUpgrade* eu in [self sortedUpgrades]) {
+
+    for (DockEquippedUpgrade* eu in[self sortedUpgrades]) {
         DockUpgrade* upgrade = eu.upgrade;
+
         if (![upgrade isPlaceholder] && ![upgrade isCaptain]) {
             count += 1;
         }
@@ -512,7 +523,9 @@
         }
     }
 
-    return @{@"info": info, @"message": msg};
+    return @{
+               @"info": info, @"message": msg
+    };
 }
 
 @end

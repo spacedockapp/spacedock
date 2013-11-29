@@ -3,11 +3,11 @@
 #import "DockCaptain+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
+#import "DockErrors.h"
 #import "DockResource+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSideboard+Addons.h"
 #import "DockUpgrade+Addons.h"
-#import "DockErrors.h"
 
 @implementation DockSquad (Addons)
 
@@ -24,6 +24,7 @@
 {
     NSArray* allSquads = [DockSquad allSquads: context];
     NSMutableSet* allNames = [[NSMutableSet alloc] initWithCapacity: allSquads.count];
+
     for (DockSquad* s in allSquads) {
         [allNames addObject: s.name];
     }
@@ -63,6 +64,7 @@
                 if (externalId.length > 0) {
                     if ([label isEqualToString: @"Resources"]) {
                         DockResource* resource = [DockResource resourceForId: externalId context: context];
+
                         if (![resource isSideboard]) {
                             squad.resource = resource;
                         }
@@ -127,18 +129,18 @@
         if (a.isResourceSideboard == b.isResourceSideboard) {
             return NSOrderedSame;
         }
-        
+
         if (a.isResourceSideboard) {
             return NSOrderedDescending;
         }
-        
+
         return NSOrderedAscending;
     };
 
     [self willChangeValueForKey: @"cost"];
     NSMutableOrderedSet* tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet: self.equippedShips];
     [tempSet addObject: ship];
-    [tempSet sortUsingComparator:compareIsSideboard];
+    [tempSet sortUsingComparator: compareIsSideboard];
     self.equippedShips = tempSet;
     [self didChangeValueForKey: @"cost"];
     [ship addObserver: self forKeyPath: @"cost" options: 0 context: 0];
@@ -188,6 +190,7 @@
 -(NSString*)shipsDescription
 {
     NSMutableArray* shipTitles = [NSMutableArray arrayWithCapacity: self.equippedShips.count];
+
     for (DockEquippedShip* ship in self.equippedShips) {
         [shipTitles addObject: ship.plainDescription];
     }
@@ -250,10 +253,12 @@
                 [textFormat appendString: s];
             }
         }
+
         if (![ship isResourceSideboard]) {
             s = [NSString stringWithFormat: @"Total (%d)\n", ship.cost];
             [textFormat appendString: s];
         }
+
         [textFormat appendString: @"\n"];
     }
 
@@ -347,10 +352,12 @@ static NSString* namePrefix(NSString* originalName)
                                                                                 options: NSRegularExpressionCaseInsensitive
                                                                                   error: nil];
     NSArray* matches = [expression matchesInString: originalName options: 0 range: NSMakeRange(0, originalName.length)];
+
     if (matches.count > 0) {
         NSTextCheckingResult* r = [matches lastObject];
         return [originalName substringToIndex: r.range.location];
     }
+
     return originalName;
 }
 
@@ -363,11 +370,13 @@ static NSString* namePrefix(NSString* originalName)
     NSString* newName = [originalNamePrefix stringByAppendingString: @" copy"];
     NSSet* allNames = [DockSquad allNames: context];
     int index = 2;
+
     while ([allNames containsObject: newName]) {
         newName = [NSString stringWithFormat: @"%@ copy %d", originalNamePrefix, index];
         index += 1;
     }
     squad.name = newName;
+
     for (DockEquippedShip* ship in self.equippedShips) {
         DockEquippedShip* dup = [ship duplicate];
         [squad addEquippedShip: dup];
@@ -381,6 +390,7 @@ static NSString* namePrefix(NSString* originalName)
     if (![self canAddCaptain: captain toShip: targetShip error: error]) {
         return nil;
     }
+
     [targetShip removeCaptain];
     return [targetShip addUpgrade: captain];
 }
@@ -407,6 +417,7 @@ static NSString* namePrefix(NSString* originalName)
                 };
                 *error = [NSError errorWithDomain: DockErrorDomain code: kUniqueConflict userInfo: d];
             }
+
             return NO;
         }
     }
@@ -430,6 +441,7 @@ static NSString* namePrefix(NSString* originalName)
                 };
                 *error = [NSError errorWithDomain: DockErrorDomain code: kUniqueConflict userInfo: d];
             }
+
             return NO;
         }
     }
@@ -443,6 +455,7 @@ static NSString* namePrefix(NSString* originalName)
             };
             *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
         }
+
         return NO;
     }
 
@@ -452,7 +465,8 @@ static NSString* namePrefix(NSString* originalName)
 -(DockEquippedShip*)getSideboard
 {
     DockEquippedShip* sideboard = nil;
-    for (DockEquippedShip *target in self.equippedShips) {
+
+    for (DockEquippedShip* target in self.equippedShips) {
         if (target.isResourceSideboard) {
             sideboard = target;
             break;
@@ -480,19 +494,21 @@ static NSString* namePrefix(NSString* originalName)
     return sideboard;
 }
 
-- (void)setResource:(DockResource *)resource
+-(void)setResource:(DockResource*)resource
 {
-  DockResource* oldResource = [self primitiveValueForKey: @"resource"];
-  if ([oldResource isSideboard]) {
-    [self removeSideboard];
-  }
-  [self willChangeValueForKey: @"resource"];
-  [self setPrimitiveValue: resource forKey:@"resource"];
-  [self didChangeValueForKey: @"resource"];
-  if ([resource isSideboard]) {
-    [self addSideboard];
-  }
-}
+    DockResource* oldResource = [self primitiveValueForKey: @"resource"];
 
+    if ([oldResource isSideboard]) {
+        [self removeSideboard];
+    }
+
+    [self willChangeValueForKey: @"resource"];
+    [self setPrimitiveValue: resource forKey: @"resource"];
+    [self didChangeValueForKey: @"resource"];
+
+    if ([resource isSideboard]) {
+        [self addSideboard];
+    }
+}
 
 @end

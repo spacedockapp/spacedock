@@ -34,6 +34,7 @@
 -(void)updateManeuvers:(NSArray*)m
 {
     NSMutableArray* mData = [NSMutableArray arrayWithCapacity: 0];
+
     for (DockManeuver* move in self.maneuvers) {
         NSDictionary* moveData = @{
             @"speed":  move.speed,
@@ -42,14 +43,16 @@
         };
         [mData addObject: moveData];
     }
-    
+
     id compareData = ^(NSDictionary* a, NSDictionary* b) {
         NSArray* keys = @[@"speed", @"kind", @"color"];
         NSComparisonResult r;
+
         for (NSString* key in keys) {
             id aValue = a[key];
             id bValue = b[key];
             r = [aValue compare: bValue];
+
             if (r != NSOrderedSame) {
                 break;
             }
@@ -60,13 +63,16 @@
     [mData sortUsingComparator: compareData];
     NSString* s1 = [m componentsJoinedByString: @","];
     NSString* s2 = [mData componentsJoinedByString: @","];
+
     if ([s1 isEqualToString: s2]) {
         return;
     }
+
     NSManagedObjectContext* context = self.managedObjectContext;
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Maneuver" inManagedObjectContext: context];
 
     NSMutableSet* mSet = [NSMutableSet setWithCapacity: 0];
+
     for (NSDictionary* oneMove in m) {
         DockManeuver* maneuver = [[DockManeuver alloc] initWithEntity: entity insertIntoManagedObjectContext: context];
         NSString* speedString = oneMove[@"speed"];
@@ -97,6 +103,7 @@
 -(NSString*)movesSummary
 {
     NSMutableSet* specials = [NSMutableSet setWithCapacity: 0];
+
     for (DockManeuver* m in self.maneuvers) {
         if ([m.kind isEqualToString: @"about"]) {
             [specials addObject: @"come about"];
@@ -110,6 +117,7 @@
 -(NSSet*)speeds
 {
     NSMutableSet* speeds = [NSMutableSet setWithCapacity: 0];
+
     for (DockManeuver* m in self.maneuvers) {
         [speeds addObject: m.speed];
     }

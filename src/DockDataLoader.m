@@ -24,6 +24,7 @@
 -(id)initWithContext:(NSManagedObjectContext*)context
 {
     self = [super init];
+
     if (self != nil) {
         _managedObjectContext = context;
         _listElementNames = [NSSet setWithArray: @[@"Sets", @"Upgrades", @"Captains", @"Ships", @"Resources", @"Maneuvers", @"ShipClassDetails"]];
@@ -32,9 +33,9 @@
         _listStack = [[NSMutableArray alloc] initWithCapacity: 0];
         _elementStack = [[NSMutableArray alloc] initWithCapacity: 0];
     }
+
     return self;
 }
-
 
 #if 0
 -(NSDictionary*)convertNode:(NSXMLNode*)node
@@ -46,14 +47,17 @@
     }
     return [NSDictionary dictionaryWithDictionary: d];
 }
+
 #endif
 
 -(NSString*)parentName
 {
     NSString* parentName = nil;
+
     if (_elementNameStack.count > 1) {
         parentName = _elementNameStack[_elementNameStack.count - 2];
     }
+
     return parentName;
 }
 
@@ -65,7 +69,8 @@
 
     if ([elementName isEqualToString: @"Set"]) {
         NSString* parentName = [self parentName];
-        if (![parentName isEqualToString: @"Sets"] ) {
+
+        if (![parentName isEqualToString: @"Sets"]) {
             return NO;
         }
     }
@@ -81,7 +86,8 @@
 
     if ([elementName isEqualToString: @"Set"]) {
         NSString* parentName = [self parentName];
-        if (![parentName isEqualToString: @"Sets"] ) {
+
+        if (![parentName isEqualToString: @"Sets"]) {
             return NO;
         }
     }
@@ -117,6 +123,7 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
 
     for (id existingItem in existingItems) {
         NSString* externalId = [existingItem externalId];
+
         if (externalId) {
             existingItemsLookup[externalId] = existingItem;
         }
@@ -166,8 +173,9 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                     v = processAttribute(v, aType);
                     [c setValue: v forKey: modifiedKey];
                 }
-                
+
             }
+
             for (NSString* key in d) {
                 if ([key isEqualToString: @"Maneuvers"]) {
                     DockShipClassDetails* shipClassDetails = (DockShipClassDetails*)c;
@@ -181,16 +189,17 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
             }
             NSString* setValue = [d objectForKey: @"Set"];
             NSArray* sets = [setValue componentsSeparatedByString: @","];
+
             for (NSString* rawSet in sets) {
                 NSString* setId = [rawSet stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-                DockSet* theSet = [DockSet setForId:setId context:_managedObjectContext];
+                DockSet* theSet = [DockSet setForId: setId context: _managedObjectContext];
                 [theSet addItemsObject: c];
             }
         }
     }
 }
 
-static NSString* makeKey(NSString *key)
+static NSString* makeKey(NSString* key)
 {
     NSString* lowerFirst = [[key substringToIndex: 1] lowercaseString];
     NSString* rest = [key substringFromIndex: 1];
@@ -216,64 +225,69 @@ static NSString* makeKey(NSString *key)
     }
 }
 
-- (void)parserDidStartDocument:(NSXMLParser *)parser;
+-(void)parserDidStartDocument:(NSXMLParser*)parser;
 {
 }
 
-- (void)parserDidEndDocument:(NSXMLParser *)parser
+-(void)parserDidEndDocument:(NSXMLParser*)parser
 {
 }
-    // sent when the parser has completed parsing. If this is encountered, the parse was successful.
+
+// sent when the parser has completed parsing. If this is encountered, the parse was successful.
 
 // DTD handling methods for various declarations.
-- (void)parser:(NSXMLParser *)parser foundNotationDeclarationWithName:(NSString *)name publicID:(NSString *)publicID systemID:(NSString *)systemID
+-(void)parser:(NSXMLParser*)parser foundNotationDeclarationWithName:(NSString*)name publicID:(NSString*)publicID systemID:(NSString*)systemID
 {
 }
 
-- (void)parser:(NSXMLParser *)parser foundUnparsedEntityDeclarationWithName:(NSString *)name publicID:(NSString *)publicID systemID:(NSString *)systemID notationName:(NSString *)notationName
+-(void)parser:(NSXMLParser*)parser foundUnparsedEntityDeclarationWithName:(NSString*)name publicID:(NSString*)publicID systemID:(NSString*)systemID notationName:(NSString*)notationName
 {
 }
 
-- (void)parser:(NSXMLParser *)parser foundAttributeDeclarationWithName:(NSString *)attributeName forElement:(NSString *)elementName type:(NSString *)type defaultValue:(NSString *)defaultValue;
+-(void)parser:(NSXMLParser*)parser foundAttributeDeclarationWithName:(NSString*)attributeName forElement:(NSString*)elementName type:(NSString*)type defaultValue:(NSString*)defaultValue;
 {
 }
 
-- (void)parser:(NSXMLParser *)parser foundElementDeclarationWithName:(NSString *)elementName model:(NSString *)model
+-(void)parser:(NSXMLParser*)parser foundElementDeclarationWithName:(NSString*)elementName model:(NSString*)model
 {
 }
 
-- (void)parser:(NSXMLParser *)parser foundInternalEntityDeclarationWithName:(NSString *)name value:(NSString *)value
+-(void)parser:(NSXMLParser*)parser foundInternalEntityDeclarationWithName:(NSString*)name value:(NSString*)value
 {
 }
 
-- (void)parser:(NSXMLParser *)parser foundExternalEntityDeclarationWithName:(NSString *)name publicID:(NSString *)publicID systemID:(NSString *)systemID
+-(void)parser:(NSXMLParser*)parser foundExternalEntityDeclarationWithName:(NSString*)name publicID:(NSString*)publicID systemID:(NSString*)systemID
 {
 }
 
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
+-(void)parser:(NSXMLParser*)parser didStartElement:(NSString*)elementName namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString*)qName attributes:(NSDictionary*)attributeDict
 {
     [_elementNameStack addObject: elementName];
+
     if (attributeDict.count > 0) {
         _currentAttributes = attributeDict;
     } else {
         _currentAttributes = nil;
     }
+
     if ([self isList: elementName]) {
         if (_currentList != nil) {
             [_listStack addObject: _currentList];
         }
+
         _currentList = [[NSMutableArray alloc] initWithCapacity: 0];
     } else if ([self isDataItem: elementName]) {
         if (_currentElement != nil) {
             [_elementStack addObject: _currentElement];
         }
+
         _currentElement = [[NSMutableDictionary alloc] initWithCapacity: 0];
     }
+
     _currentText = [[NSMutableString alloc] init];
 }
 
-
-- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+-(void)parser:(NSXMLParser*)parser didEndElement:(NSString*)elementName namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString*)qName
 {
     if ([self isList: elementName]) {
         if (_currentList != nil) {
@@ -282,7 +296,9 @@ static NSString* makeKey(NSString *key)
             } else {
                 _parsedData[elementName] = _currentList;
             }
+
             _currentList = [_listStack lastObject];
+
             if (_currentList) {
                 [_listStack removeLastObject];
             }
@@ -295,12 +311,15 @@ static NSString* makeKey(NSString *key)
         } else {
             if (_currentAttributes != nil) {
                 [_currentElement addEntriesFromDictionary: _currentAttributes];
+
                 if (_currentText != nil && [elementName isEqualToString: @"Set"]) {
                     [_currentElement setObject: _currentText forKey: @"ProductName"];
                 }
             }
+
             [_currentList addObject: _currentElement];
             _currentElement = [_elementStack lastObject];
+
             if (_currentElement) {
                 [_elementStack removeLastObject];
             }
@@ -308,6 +327,7 @@ static NSString* makeKey(NSString *key)
     } else {
         if (_currentText != nil) {
             NSString* trimmed = [_currentText stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
             if (_currentAttributes != nil) {
                 _currentElement[@"ProductName"] = trimmed;
             } else {
@@ -316,51 +336,53 @@ static NSString* makeKey(NSString *key)
         } else {
             NSLog(@"ending element %@ before starting", elementName);
         }
+
         _currentText = nil;
     }
+
     [_elementNameStack removeLastObject];
 }
 
-- (void)parser:(NSXMLParser *)parser didStartMappingPrefix:(NSString *)prefix toURI:(NSString *)namespaceURI
+-(void)parser:(NSXMLParser*)parser didStartMappingPrefix:(NSString*)prefix toURI:(NSString*)namespaceURI
 {
 }
 
-- (void)parser:(NSXMLParser *)parser didEndMappingPrefix:(NSString *)prefix
+-(void)parser:(NSXMLParser*)parser didEndMappingPrefix:(NSString*)prefix
 {
 }
 
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+-(void)parser:(NSXMLParser*)parser foundCharacters:(NSString*)string
 {
     [_currentText appendString: string];
 }
 
-- (void)parser:(NSXMLParser *)parser foundIgnorableWhitespace:(NSString *)whitespaceString
+-(void)parser:(NSXMLParser*)parser foundIgnorableWhitespace:(NSString*)whitespaceString
 {
 }
 
-- (void)parser:(NSXMLParser *)parser foundProcessingInstructionWithTarget:(NSString *)target data:(NSString *)data
+-(void)parser:(NSXMLParser*)parser foundProcessingInstructionWithTarget:(NSString*)target data:(NSString*)data
 {
 }
 
-- (void)parser:(NSXMLParser *)parser foundComment:(NSString *)comment
+-(void)parser:(NSXMLParser*)parser foundComment:(NSString*)comment
 {
 }
 
-- (void)parser:(NSXMLParser *)parser foundCDATA:(NSData *)CDATABlock
+-(void)parser:(NSXMLParser*)parser foundCDATA:(NSData*)CDATABlock
 {
 }
 
-- (NSData *)parser:(NSXMLParser *)parser resolveExternalEntityName:(NSString *)name systemID:(NSString *)systemID
+-(NSData*)parser:(NSXMLParser*)parser resolveExternalEntityName:(NSString*)name systemID:(NSString*)systemID
 {
     return nil;
 }
 
-- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError
+-(void)parser:(NSXMLParser*)parser parseErrorOccurred:(NSError*)parseError
 {
     NSLog(@"parseErrorOccurred %@", parseError);
 }
 
-- (void)parser:(NSXMLParser *)parser validationErrorOccurred:(NSError *)validationError
+-(void)parser:(NSXMLParser*)parser validationErrorOccurred:(NSError*)validationError
 {
     NSLog(@"validationErrorOccurred %@", validationError);
 }
@@ -378,9 +400,9 @@ static NSString* makeKey(NSString *key)
     }
 
     NSXMLParser* parser = [[NSXMLParser alloc] initWithContentsOfURL: [NSURL fileURLWithPath: file]];
-    [parser setDelegate:self];
+    [parser setDelegate: self];
     [parser parse];
-    
+
     return _parsedData;
 }
 
@@ -415,7 +437,7 @@ static NSString* makeKey(NSString *key)
     if (xmlData == nil) {
         return NO;
     }
-    
+
     [self loadSets: xmlData[@"Sets"]];
     [self loadItems: xmlData[@"ShipClassDetails"] itemClass: [DockShipClassDetails class] entityName: @"ShipClassDetails" targetType: nil];
     [self loadItems: xmlData[@"Ships"] itemClass: [DockShip class] entityName: @"Ship" targetType: nil];

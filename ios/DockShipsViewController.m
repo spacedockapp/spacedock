@@ -1,25 +1,25 @@
 #import "DockShipsViewController.h"
 
 #import "DockEquippedShip+Addons.h"
-#import "DockShipDetailViewController.h"
 #import "DockShip+Addons.h"
+#import "DockShipDetailViewController.h"
 #import "DockSquad+Addons.h"
 
 @interface DockShipsViewController ()
 @property (nonatomic, strong) DockShipPicked onShipPicked;
-@property (nonatomic, weak) DockShip *targetShip;
-@property (nonatomic, weak) DockSquad *targetSquad;
+@property (nonatomic, weak) DockShip* targetShip;
+@property (nonatomic, weak) DockSquad* targetSquad;
 @end
 
 @implementation DockShipsViewController
 
-- (void)viewDidLoad
+-(void)viewDidLoad
 {
     self.cellIdentifer = @"Ship";
     [super viewDidLoad];
 }
 
-- (void)didReceiveMemoryWarning
+-(void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -30,7 +30,7 @@
     return @"Ship";
 }
 
-- (void)viewWillAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear: animated];
 
@@ -47,21 +47,23 @@
 
 -(NSArray*)sortDescriptors
 {
-    NSSortDescriptor *titleDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
-    NSSortDescriptor *classDescriptor = [[NSSortDescriptor alloc] initWithKey:@"shipClass" ascending:YES];
-    NSSortDescriptor *uniqueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"unique" ascending:NO];
-    NSSortDescriptor *factionDescriptor = [[NSSortDescriptor alloc] initWithKey:@"faction" ascending:YES];
+    NSSortDescriptor* titleDescriptor = [[NSSortDescriptor alloc] initWithKey: @"title" ascending: YES];
+    NSSortDescriptor* classDescriptor = [[NSSortDescriptor alloc] initWithKey: @"shipClass" ascending: YES];
+    NSSortDescriptor* uniqueDescriptor = [[NSSortDescriptor alloc] initWithKey: @"unique" ascending: NO];
+    NSSortDescriptor* factionDescriptor = [[NSSortDescriptor alloc] initWithKey: @"faction" ascending: YES];
     return @[factionDescriptor, classDescriptor, uniqueDescriptor, titleDescriptor];
 }
 
 #pragma mark - Table view data source methods
 
 // Customize the appearance of table view cells.
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    
+-(void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
+{
+
     // Configure the cell to show the book's title
-    DockShip *ship = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    DockShip* ship = [self.fetchedResultsController objectAtIndexPath: indexPath];
     cell.textLabel.text = ship.descriptiveTitle;
+
     if ([ship isUnique]) {
         if (_targetSquad) {
             if (_targetShip != ship && [_targetSquad containsShip: ship]) {
@@ -73,21 +75,23 @@
     }
 }
 
-- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+-(BOOL)tableView:(UITableView*)tableView shouldHighlightRowAtIndexPath:(NSIndexPath*)indexPath
 {
     if (_targetSquad) {
-        DockShip *ship = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        DockShip* ship = [self.fetchedResultsController objectAtIndexPath: indexPath];
+
         if (_targetShip != ship && [ship isUnique]) {
             return ![_targetSquad containsShip: ship];
         }
     }
+
     return YES;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
     if (_targetSquad) {
-        DockShip *ship = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        DockShip* ship = [self.fetchedResultsController objectAtIndexPath: indexPath];
         _onShipPicked(ship);
         [self clearTarget];
     } else {
@@ -95,9 +99,9 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView*)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath*)indexPath
 {
-    [self.tableView selectRowAtIndexPath: indexPath animated: NO scrollPosition:UITableViewScrollPositionMiddle];
+    [self.tableView selectRowAtIndexPath: indexPath animated: NO scrollPosition: UITableViewScrollPositionMiddle];
     [self performSegueWithIdentifier: @"ShowShipDetails" sender: self];
 }
 
@@ -119,19 +123,20 @@
     _onShipPicked = nil;
 }
 
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString*)identifier sender:(id)sender
 {
     return NO;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
     NSString* identifier = [segue identifier];
     id destination = [segue destinationViewController];
-    if ([identifier isEqualToString:@"ShowShipDetails"]) {
+
+    if ([identifier isEqualToString: @"ShowShipDetails"]) {
         DockShipDetailViewController* controller = (DockShipDetailViewController*)destination;
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
-        DockShip *ship = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        DockShip* ship = [self.fetchedResultsController objectAtIndexPath: indexPath];
         controller.ship = ship;
     }
 }

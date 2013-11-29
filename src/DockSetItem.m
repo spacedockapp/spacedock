@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
-#import "DockSetItem.h"
 #import "DockSet.h"
+#import "DockSetItem.h"
 
 
 @implementation DockSetItem
