@@ -143,7 +143,7 @@
     NSURL* storeURL = [self storeURL];
     NSError* error;
     NSPersistentStore* store = [self createStore: storeURL error: &error];
-    if (store == nil || true) {
+    if (store == nil) {
         NSString* explanation = @"Something has gone wrong with the Space Dock data store and the application cannot continue without discarding your data. Preset 'Reset Data' to reset.";
         UIAlertView* view = [[UIAlertView alloc] initWithTitle: @"Error reading data"
                                                        message: explanation
