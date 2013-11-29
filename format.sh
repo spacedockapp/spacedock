@@ -8,3 +8,5 @@ if [ "$modified" != "" ] ; then
 fi
 
 uncrustify --no-backup --replace -l OC+ -c uncrustify.cfg `find src \( -name "*.m" -o -name "*.h" \)`
+uncrustify --no-backup --replace -l OC+ -c uncrustify.cfg `find mac \( -name "*.m" -o -name "*.h" \)`
+uncrustify --no-backup --replace -l OC+ -c uncrustify.cfg `find ios \( -name "*.m" -o -name "*.h" \)`
