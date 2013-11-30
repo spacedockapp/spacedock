@@ -1,5 +1,6 @@
 #import "DockSquadDetailController.h"
 
+#import "DockConstants.h"
 #import "DockEditValueController.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedShipCell.h"
@@ -319,7 +320,7 @@
 
         NSString* stawFormat = [_squad asDataFormat];
         NSData* myData = [stawFormat dataUsingEncoding: NSUTF8StringEncoding];
-        [picker addAttachmentData: myData mimeType: @"text/x-staw" fileName: [_squad.name stringByAppendingPathExtension: @"dat"]];
+        [picker addAttachmentData: myData mimeType: @"text/x-staw" fileName: [_squad.name stringByAppendingPathExtension: kSpaceDockSquadFileExtension]];
 
         [self presentViewController: picker animated: YES completion: NULL];
     } else {

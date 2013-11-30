@@ -6,6 +6,21 @@
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>Space Dock</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeIconFiles</key>
+			<array>
+				<string>staw-squad-icon-320</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Star Trek Attack Wing Squad</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.funnyhatsoftware.stawsquad</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
@@ -55,6 +70,30 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.plain-text</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Star Trek Attack Wing Squad</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.funnyhatsoftware.stawsquad</string>
+			<key>UTTypeSize320IconFile</key>
+			<string>space-dock-icon-320</string>
+			<key>UTTypeSize64IconFile</key>
+			<string>space-dock-icon-64</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>stawsquad</string>
+				</array>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>

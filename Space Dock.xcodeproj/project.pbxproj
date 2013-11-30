@@ -48,6 +48,10 @@
 		D4259F451810D24000BB02BA /* NSFormatter+GRMustache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F271810D24000BB02BA /* NSFormatter+GRMustache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D4259F461810D24000BB02BA /* NSValueTransformer+GRMustache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F291810D24000BB02BA /* NSValueTransformer+GRMustache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D4259F491810D2C000BB02BA /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F481810D2C000BB02BA /* JRSwizzle.m */; };
+		D427CDDE184A440B0086EB86 /* staw-squad-icon-64.png in Resources */ = {isa = PBXBuildFile; fileRef = D427CDDC184A440B0086EB86 /* staw-squad-icon-64.png */; };
+		D427CDDF184A440B0086EB86 /* staw-squad-icon-320.png in Resources */ = {isa = PBXBuildFile; fileRef = D427CDDD184A440B0086EB86 /* staw-squad-icon-320.png */; };
+		D427CDE2184A50CF0086EB86 /* DockConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D427CDE1184A50CF0086EB86 /* DockConstants.m */; };
+		D427CDE3184A50CF0086EB86 /* DockConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D427CDE1184A50CF0086EB86 /* DockConstants.m */; };
 		D427FC3118320F2500D4CC83 /* DockEquippedShipCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D427FC3018320F2500D4CC83 /* DockEquippedShipCell.m */; };
 		D42BD1F017EA134B0000598C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42BD1EF17EA134B0000598C /* Cocoa.framework */; };
 		D433FE0A181503A20062731A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCA3FC1814F8DF00921183 /* Foundation.framework */; };
@@ -322,6 +326,10 @@
 		D4259F291810D24000BB02BA /* NSValueTransformer+GRMustache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValueTransformer+GRMustache.m"; sourceTree = "<group>"; };
 		D4259F471810D2C000BB02BA /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRSwizzle.h; path = ../GRMustache/src/vendor/groue/jrswizzle/JRSwizzle.h; sourceTree = "<group>"; };
 		D4259F481810D2C000BB02BA /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRSwizzle.m; path = ../GRMustache/src/vendor/groue/jrswizzle/JRSwizzle.m; sourceTree = "<group>"; };
+		D427CDDC184A440B0086EB86 /* staw-squad-icon-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "staw-squad-icon-64.png"; path = "../../../Desktop/staw/SpaceDock-iOS/staw-squad-icon-64.png"; sourceTree = "<group>"; };
+		D427CDDD184A440B0086EB86 /* staw-squad-icon-320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "staw-squad-icon-320.png"; path = "../../../Desktop/staw/SpaceDock-iOS/staw-squad-icon-320.png"; sourceTree = "<group>"; };
+		D427CDE0184A50CF0086EB86 /* DockConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockConstants.h; sourceTree = "<group>"; };
+		D427CDE1184A50CF0086EB86 /* DockConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockConstants.m; sourceTree = "<group>"; };
 		D427FC2F18320F2500D4CC83 /* DockEquippedShipCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockEquippedShipCell.h; sourceTree = "<group>"; };
 		D427FC3018320F2500D4CC83 /* DockEquippedShipCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockEquippedShipCell.m; sourceTree = "<group>"; };
 		D42BD1EC17EA134B0000598C /* Space Dock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Dock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -780,6 +788,8 @@
 		D4408D8C18445AF2008BA352 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D427CDDC184A440B0086EB86 /* staw-squad-icon-64.png */,
+				D427CDDD184A440B0086EB86 /* staw-squad-icon-320.png */,
 				D4408D8D18445AF2008BA352 /* white-about.pdf */,
 				D4408D8E18445AF2008BA352 /* white-backup.pdf */,
 				D4408D8F18445AF2008BA352 /* white-left-bank.pdf */,
@@ -876,6 +886,8 @@
 				D41B77E817FE13D1005A5DA8 /* DockBooleanFormatter.m */,
 				D4D7BE6617F76FB50070D94D /* DockCaptain+Addons.h */,
 				D4D7BE6717F76FB50070D94D /* DockCaptain+Addons.m */,
+				D427CDE0184A50CF0086EB86 /* DockConstants.h */,
+				D427CDE1184A50CF0086EB86 /* DockConstants.m */,
 				D4BCA3F11814EC5100921183 /* DockDataLoader.h */,
 				D4BCA3F21814EC5100921183 /* DockDataLoader.m */,
 				D4AAA28617F4082F00A99383 /* DockEquippedShip+Addons.h */,
@@ -1052,6 +1064,7 @@
 				D4408E121845B3C5008BA352 /* white-straight.png in Resources */,
 				D4408DB7184469C4008BA352 /* green-left-bank.pdf in Resources */,
 				D4408E0E1845B3C5008BA352 /* white-left-bank.png in Resources */,
+				D427CDDE184A440B0086EB86 /* staw-squad-icon-64.png in Resources */,
 				D4408D9918445AF2008BA352 /* white-left-bank.pdf in Resources */,
 				D4408DDA18446C3A008BA352 /* green-about.pdf in Resources */,
 				D4408DCC18446B84008BA352 /* red-right-turn.pdf in Resources */,
@@ -1069,6 +1082,7 @@
 				D4408D9F18445AF2008BA352 /* white-right-turn.pdf in Resources */,
 				D4408DD718446C03008BA352 /* green-right-turn.pdf in Resources */,
 				D4408D9518445AF2008BA352 /* white-about.pdf in Resources */,
+				D427CDDF184A440B0086EB86 /* staw-squad-icon-320.png in Resources */,
 				D4408E111845B3C5008BA352 /* white-right-turn.png in Resources */,
 				D4408E011845B3C5008BA352 /* green-left-turn.png in Resources */,
 				D4408E081845B3C5008BA352 /* red-left-turn.png in Resources */,
@@ -1084,6 +1098,7 @@
 			files = (
 				D4259F2D1810D24000BB02BA /* GRMustacheConfiguration.m in Sources */,
 				D4259F411810D24000BB02BA /* GRMustacheTextComponent.m in Sources */,
+				D427CDE2184A50CF0086EB86 /* DockConstants.m in Sources */,
 				D4259F381810D24000BB02BA /* GRMustacheLocalizer.m in Sources */,
 				D4259F3F1810D24000BB02BA /* GRMustacheTemplateOverride.m in Sources */,
 				D4711F6D18427CA300EFF34B /* DockShipClassDetails+Addons.m in Sources */,
@@ -1167,6 +1182,7 @@
 				D4711F6A18427C6700EFF34B /* DockManeuver.m in Sources */,
 				D47316BE18182DE700046428 /* DockEquippedShip.m in Sources */,
 				D433FE21181503A20062731A /* DockShipsViewController.m in Sources */,
+				D427CDE3184A50CF0086EB86 /* DockConstants.m in Sources */,
 				D457FD1C181DAE88009C2E13 /* DockUtilsMobile.m in Sources */,
 				D47316C318182DE700046428 /* DockSet.m in Sources */,
 				D427FC3118320F2500D4CC83 /* DockEquippedShipCell.m in Sources */,

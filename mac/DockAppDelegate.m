@@ -1,6 +1,7 @@
 #import "DockAppDelegate.h"
 
 #import "DockCaptain.h"
+#import "DockConstants.h"
 #import "DockCrew.h"
 #import "DockDataLoader.h"
 #import "DockEquippedShip+Addons.h"
@@ -670,7 +671,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 {
     DockSquad* squad = [self selectedSquad];
     _currentSavePanel = [NSSavePanel savePanel];
-    _currentSavePanel.allowedFileTypes = @[@"txt", @"dat"];
+    _currentSavePanel.allowedFileTypes = @[@"txt", kSpaceDockSquadFileExtension];
     _currentSavePanel.accessoryView = _exportFormatView;
     [_currentSavePanel setNameFieldStringValue: squad.name];
     [_currentSavePanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
@@ -701,7 +702,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
     NSInteger formatSelected = self.exportFormatPopup.selectedTag;
 
     if (formatSelected == 2) {
-        newExtension = @"dat";
+        newExtension = kSpaceDockSquadFileExtension;
     }
 
     NSString* currentName = [_currentSavePanel nameFieldStringValue];
@@ -713,7 +714,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 -(IBAction)importSquad:(id)sender
 {
     NSOpenPanel* importPanel = [NSOpenPanel openPanel];
-    importPanel.allowedFileTypes = @[@"dat"];
+    importPanel.allowedFileTypes = @[@"dat", kSpaceDockSquadFileExtension];
     [importPanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
          if (v == NSFileHandlingPanelOKButton) {
              NSURL* fileUrl = importPanel.URL;

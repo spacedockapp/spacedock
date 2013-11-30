@@ -1,5 +1,6 @@
 #import "DockSquadsListController.h"
 
+#import "DockConstants.h"
 #import "DockEditValueController.h"
 #import "DockSquad+Addons.h"
 #import "DockSquadDetailController.h"
@@ -235,7 +236,7 @@
         for (DockSquad* squad in self.fetchedResultsController.fetchedObjects) {
             NSString* stawFormat = [squad asDataFormat];
             NSData* myData = [stawFormat dataUsingEncoding: NSUTF8StringEncoding];
-            [picker addAttachmentData: myData mimeType: @"text/x-staw" fileName: [squad.name stringByAppendingPathExtension: @"dat"]];
+            [picker addAttachmentData: myData mimeType: @"text/x-staw" fileName: [squad.name stringByAppendingPathExtension: kSpaceDockSquadFileExtension]];
         }
 
         [self presentViewController: picker animated: YES completion: NULL];

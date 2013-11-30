@@ -2,6 +2,7 @@
 
 #import "DockDataLoader.h"
 #import "DockSet+Addons.h"
+#import "DockSquad+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockTopMenuViewController.h"
 
@@ -22,7 +23,7 @@
 
 #pragma mark - Application lifecycle
 
--(void)applicationDidFinishLaunching:(UIApplication*)application
+-(void)loadAppData
 {
     DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: self.managedObjectContext];
     NSError* error = nil;
@@ -34,6 +35,30 @@
     id controller = [navigationController topViewController];
     DockTopMenuViewController* topMenuViewController = (DockTopMenuViewController*)controller;
     topMenuViewController.managedObjectContext = self.managedObjectContext;
+}
+
+-(DockSquad*)importSquad:(NSURL*)url
+{
+    NSError* error;
+    DockSquad* newSquad = nil;
+    NSString* contents = [NSString stringWithContentsOfURL: url encoding: NSUTF8StringEncoding error: &error];
+    if (contents != nil) {
+        NSString* name = [[[url path] lastPathComponent] stringByDeletingPathExtension];
+        newSquad = [DockSquad import: name data: contents context: _managedObjectContext];
+    }
+    return newSquad;
+}
+
+-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [self loadAppData];
+    return YES;
+}
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    DockSquad* newSquad = [self importSquad: url];
+    return newSquad != nil;
 }
 
 -(void)applicationWillTerminate:(UIApplication*)application
