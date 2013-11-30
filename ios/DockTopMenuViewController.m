@@ -26,6 +26,7 @@
         id destination = [segue destinationViewController];
         DockSquadsListController* controller = (DockSquadsListController*)destination;
         controller.managedObjectContext = self.managedObjectContext;
+        controller.targetSquad = _targetSquad;
     } else if ([[segue identifier] isEqualToString: @"GoToCaptains"]) {
         id destination = [segue destinationViewController];
         DockUpgradesViewController* controller = (DockUpgradesViewController*)destination;
@@ -60,6 +61,13 @@
         DockSetsListViewController* controller = (DockSetsListViewController*)destination;
         controller.managedObjectContext = self.managedObjectContext;
     }
+    _targetSquad = nil;
+}
+
+-(void)showSquad:(DockSquad*)squad
+{
+    _targetSquad = squad;
+    [self performSegueWithIdentifier: @"GoToSquads" sender: self];
 }
 
 @end

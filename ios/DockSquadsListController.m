@@ -47,6 +47,15 @@
     [self.tableView reloadData];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    if (_targetSquad != nil) {
+        [self selectSquad: _targetSquad];
+        [self performSegueWithIdentifier: @"ShowSelectedSquad" sender: nil];
+    }
+    _targetSquad = nil;
+}
+
 -(void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -58,6 +58,17 @@
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     DockSquad* newSquad = [self importSquad: url];
+    if (newSquad != nil) {
+        UINavigationController* navigationController = (UINavigationController*)self.window.rootViewController;
+        for (UIViewController* controller in navigationController.viewControllers) {
+            if ([controller isKindOfClass: [DockTopMenuViewController class]]) {
+                [navigationController popToViewController: controller animated: NO];
+                DockTopMenuViewController* topMenuViewController = (DockTopMenuViewController*)controller;
+                [topMenuViewController showSquad: newSquad];
+                break;
+            }
+        }
+    }
     return newSquad != nil;
 }
 
