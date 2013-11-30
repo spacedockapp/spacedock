@@ -1,4 +1,4 @@
-<Data version="1.173">
+<Data version="1.174">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -502,7 +502,7 @@
       <Agility>1</Agility>
       <Hull>5</Hull>
       <Shield>4</Shield>
-      <Ability>Instead of making a normal attack with your primary weapon, you may fire in any direction at Range 1-2</Ability>
+      <Ability>Instead of making a normal attack with your primary weapon, you may fire in any direction at Range 1-2 with 3 attack dice.</Ability>
       <Cost>28</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
