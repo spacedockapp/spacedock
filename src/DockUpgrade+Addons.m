@@ -316,10 +316,6 @@
 
     int cost = [upgrade.cost intValue];
 
-    if (equippedShip.isResourceSideboard) {
-        return cost;
-    }
-
     DockShip* ship = equippedShip.ship;
     NSString* shipFaction = ship.faction;
     NSString* upgradeFaction = upgrade.faction;
@@ -374,7 +370,7 @@
         }
     }
 
-    if (![shipFaction isEqualToString: upgradeFaction]) {
+    if (![shipFaction isEqualToString: upgradeFaction] && !equippedShip.isResourceSideboard) {
         if ([captainSpecial isEqualToString: @"UpgradesIgnoreFactionPenalty"] && ![upgrade isCaptain]) {
         } else if ([captainSpecial isEqualToString: @"NoPenaltyOnFederationOrBajoranShip"]) {
             if (!([ship isFederation] || [ship isBajoran])) {
