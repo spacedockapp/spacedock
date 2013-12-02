@@ -22,6 +22,7 @@
 @property (weak, nonatomic) DockShip* currentShip;
 @property (weak, nonatomic) DockResource* currentResource;
 @property (strong, nonatomic) NSString* shipDetailTab;
+@property (strong, nonatomic) NSString* currentSetName;
 
 -(void)show;
 @end

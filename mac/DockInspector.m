@@ -1,10 +1,13 @@
 #import "DockInspector.h"
 
 #import "DockAppDelegate.h"
+#import "DockCaptain+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockMoveGrid.h"
+#import "DockSet+Addons.h"
 #import "DockShip+Addons.h"
+#import "DockResource+Addons.h"
 #import "DockUpgrade+Addons.h"
 
 @implementation DockInspector
@@ -23,6 +26,13 @@ static id extractSelectedItem(id controller)
 -(void)updateForShip
 {
     _moveGrid.ship = self.currentShip;
+}
+
+-(void)updateSet:(DockSetItem*)item
+{
+    DockSet* set  = item.sets.anyObject;
+    
+    self.currentSetName = set.productName;
 }
 
 -(void)updateInspectorTabForItem:(id)selectedItem changeTab:(BOOL)changeTab
@@ -71,19 +81,24 @@ static id extractSelectedItem(id controller)
         if ([ident isEqualToString: @"captainsTable"]) {
             self.currentCaptain = extractSelectedItem(_captains);
             [_tabView selectTabViewItemWithIdentifier: @"captain"];
+            [self updateSet: self.currentCaptain];
         } else if ([ident isEqualToString: @"upgradeTable"]) {
             self.currentUpgrade = extractSelectedItem(_upgrades);
             [_tabView selectTabViewItemWithIdentifier: @"upgrade"];
+            [self updateSet: self.currentUpgrade];
         } else if ([ident isEqualToString: @"shipsTable"]) {
             self.currentShip = extractSelectedItem(_ships);
             [self updateForShip];
             [_tabView selectTabViewItemWithIdentifier: @"ship"];
+            [self updateSet: self.currentShip];
         } else if ([ident isEqualToString: @"resourcesTable"]) {
             self.currentResource = extractSelectedItem(_resources);
             [_tabView selectTabViewItemWithIdentifier: @"resource"];
+            [self updateSet: self.currentResource];
         } else if ([ident isEqualToString: @"squadsDetailOutline"]) {
             id selectedItem = extractSelectedItem(_squadDetail);
             [self updateInspectorTabForItem: selectedItem];
+            [self updateSet: selectedItem];
         } else {
             [_tabView selectTabViewItemWithIdentifier: @"blank"];
         }
@@ -94,13 +109,17 @@ static id extractSelectedItem(id controller)
         }
     } else if (object == _captains) {
         self.currentCaptain = extractSelectedItem(_captains);
+        [self updateSet: _currentCaptain];
     } else if (object == _ships) {
         self.currentShip = extractSelectedItem(_ships);
         [self updateForShip];
+        [self updateSet: self.currentShip];
     } else if (object == _upgrades) {
         self.currentUpgrade = extractSelectedItem(_upgrades);
+        [self updateSet: self.currentUpgrade];
     } else if (object == _resources) {
         self.currentResource = extractSelectedItem(_resources);
+        [self updateSet: self.currentResource];
     }
 }
 

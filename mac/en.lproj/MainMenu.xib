@@ -1807,6 +1807,7 @@
                 <outlet property="moveGrid" destination="XsD-d6-3SQ" id="xEO-WR-jfX"/>
                 <outlet property="resources" destination="YPe-Zs-mE7" id="2o6-hy-Ap1"/>
                 <outlet property="resourcesTable" destination="v13-24-CCG" id="QAi-kK-Wzn"/>
+                <outlet property="setLabel" destination="ZGj-ZZ-ieE" id="gr3-Xf-kLc"/>
                 <outlet property="setsTable" destination="Gkg-Ph-STg" id="vrP-aX-IyQ"/>
                 <outlet property="ships" destination="Gzr-Z0-87U" id="jhd-Yl-ReE"/>
                 <outlet property="shipsTable" destination="sJW-5v-BIo" id="YVd-hw-ljf"/>
@@ -1931,11 +1932,11 @@
         </arrayController>
         <window title="Inspector" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="inspector" animationBehavior="default" id="h3B-q6-zJy" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" nonactivatingPanel="YES"/>
-            <rect key="contentRect" x="1160" y="1118" width="200" height="250"/>
+            <rect key="contentRect" x="1160" y="1118" width="200" height="270"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1578"/>
             <value key="minSize" type="size" width="200" height="250"/>
             <view key="contentView" id="aBC-nj-3k4">
-                <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                <rect key="frame" x="0.0" y="0.0" width="200" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <tabView type="noTabsNoBorder" id="2vW-1R-ccO">
@@ -2379,6 +2380,18 @@
                             </tabViewItem>
                         </tabViewItems>
                     </tabView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ZGj-ZZ-ieE">
+                        <rect key="frame" x="-2" y="253" width="204" height="17"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="truncatingHead" sendsActionOnEndEditing="YES" alignment="center" title="set" id="Cen-5a-aaD">
+                            <font key="font" metaFont="miniSystem"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="L6P-6L-sOj" name="value" keyPath="self.currentSetName" id="YgP-wv-cn2"/>
+                        </connections>
+                    </textField>
                 </subviews>
             </view>
             <connections>
