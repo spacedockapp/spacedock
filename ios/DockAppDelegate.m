@@ -1,5 +1,6 @@
 #import "DockAppDelegate.h"
 
+#import "DockConstants.h"
 #import "DockDataLoader.h"
 #import "DockSet+Addons.h"
 #import "DockSquad+Addons.h"
@@ -25,10 +26,13 @@
 
 -(void)loadAppData
 {
-    DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: self.managedObjectContext];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSString* currentVersion = [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
+    DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: self.managedObjectContext version: currentVersion];
     NSError* error = nil;
 
     if ([loader loadData: &error]) {
+        [defaults setObject: loader.dataVersion forKey: kSpaceDockCurrentDataVersionKey];
     }
 
     UINavigationController* navigationController = (UINavigationController*)self.window.rootViewController;

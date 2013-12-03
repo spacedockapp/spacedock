@@ -59,10 +59,14 @@ NSString* kInspectorVisible = @"inspectorVisible";
 
 -(void)loadData
 {
-    DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: _managedObjectContext];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSString* currentVersion = [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
+    DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: _managedObjectContext
+                                                             version: currentVersion];
     NSError* error = nil;
 
     if ([loader loadData: &error]) {
+        [defaults setObject: loader.dataVersion forKey: kSpaceDockCurrentDataVersionKey];
         [self validateSpecials: [loader validateSpecials]];
     }
 

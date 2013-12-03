@@ -21,7 +21,7 @@
 
 @implementation DockDataLoader
 
--(id)initWithContext:(NSManagedObjectContext*)context
+-(id)initWithContext:(NSManagedObjectContext*)context version:(NSString*)version
 {
     self = [super init];
 
@@ -32,6 +32,7 @@
         _elementNameStack = [[NSMutableArray alloc] initWithCapacity: 0];
         _listStack = [[NSMutableArray alloc] initWithCapacity: 0];
         _elementStack = [[NSMutableArray alloc] initWithCapacity: 0];
+        _currentVersion = version;
     }
 
     return self;
@@ -282,6 +283,12 @@ static NSString* makeKey(NSString* key)
         }
 
         _currentElement = [[NSMutableDictionary alloc] initWithCapacity: 0];
+    } else if ([elementName isEqualToString: @"Data"]) {
+        self.dataVersion = _currentAttributes[@"version"];
+        if ([_dataVersion isEqualToString: _currentVersion]) {
+            _versionMatched = YES;
+            [parser abortParsing];
+        }
     }
 
     _currentText = [[NSMutableString alloc] init];
@@ -379,12 +386,15 @@ static NSString* makeKey(NSString* key)
 
 -(void)parser:(NSXMLParser*)parser parseErrorOccurred:(NSError*)parseError
 {
-    NSLog(@"parseErrorOccurred %@", parseError);
+    if (!_versionMatched) {
+        NSLog(@"parseErrorOccurred %@", parseError);
+    }
 }
 
 -(void)parser:(NSXMLParser*)parser validationErrorOccurred:(NSError*)validationError
 {
     NSLog(@"validationErrorOccurred %@", validationError);
+    _parsedData = nil;
 }
 
 -(NSDictionary*)loadDataFile:(NSError**)error

@@ -11,8 +11,11 @@
 @property (strong, nonatomic) NSMutableString* currentText;
 @property (strong, nonatomic) NSSet* listElementNames;
 @property (strong, nonatomic) NSSet* itemElementNames;
+@property (strong, nonatomic) NSString* currentVersion;
+@property (strong, nonatomic) NSString* dataVersion;
+@property (assign, nonatomic) BOOL versionMatched;
 @property (readonly, weak, nonatomic) NSManagedObjectContext* managedObjectContext;
--(id)initWithContext:(NSManagedObjectContext*)context;
+-(id)initWithContext:(NSManagedObjectContext*)context version:(NSString*)version;
 -(BOOL)loadData:(NSError**)error;
 -(NSSet*)validateSpecials;
 @end
