@@ -35,17 +35,46 @@ static id extractSelectedItem(id controller)
     self.currentSetName = set.productName;
 }
 
+-(void)clearSet
+{
+    self.currentSetName = @"";
+}
+
+-(void)updateUpgrade:(DockUpgrade*)upgrade
+{
+    if (upgrade != nil) {
+        self.currentUpgrade = upgrade;
+        [self updateSet: upgrade];
+    }
+}
+
+-(void)updateCaptain:(DockCaptain*)captain
+{
+    if (captain != nil) {
+        self.currentCaptain = captain;
+        [self updateSet: captain];
+    }
+}
+
+-(void)updateShip:(DockShip*)ship
+{
+    if (ship != nil) {
+        self.currentShip = ship;
+        [self updateForShip];
+        [self updateSet: ship];
+    }
+}
+
 -(void)updateInspectorTabForItem:(id)selectedItem changeTab:(BOOL)changeTab
 {
     if ([selectedItem isMemberOfClass: [DockEquippedShip class]]) {
-        self.currentShip = [selectedItem ship];
-        [self updateForShip];
+        [self updateShip: [selectedItem ship]];
         [_tabView selectTabViewItemWithIdentifier: @"ship"];
     } else if ([selectedItem isMemberOfClass: [DockEquippedUpgrade class]]) {
         DockUpgrade* upgrade = [selectedItem upgrade];
 
         if ([upgrade isCaptain]) {
-            self.currentCaptain = (DockCaptain*)upgrade;
+            [self updateCaptain: (DockCaptain*)upgrade];
 
             if (changeTab) {
                 [_tabView selectTabViewItemWithIdentifier: @"captain"];
@@ -54,8 +83,9 @@ static id extractSelectedItem(id controller)
             if (changeTab) {
                 [_tabView selectTabViewItemWithIdentifier: @"blank"];
             }
+            [self clearSet];
         } else {
-            self.currentUpgrade = upgrade;
+            [self updateUpgrade: upgrade];
 
             if (changeTab) {
                 [_tabView selectTabViewItemWithIdentifier: @"upgrade"];
@@ -74,52 +104,51 @@ static id extractSelectedItem(id controller)
                        change:(NSDictionary*)change
                       context:(void*)context
 {
-    id responder = [_mainWindow firstResponder];
-    NSString* ident = [responder identifier];
-
-    if (object == _mainWindow) {
-        if ([ident isEqualToString: @"captainsTable"]) {
-            self.currentCaptain = extractSelectedItem(_captains);
-            [_tabView selectTabViewItemWithIdentifier: @"captain"];
-            [self updateSet: self.currentCaptain];
-        } else if ([ident isEqualToString: @"upgradeTable"]) {
-            self.currentUpgrade = extractSelectedItem(_upgrades);
-            [_tabView selectTabViewItemWithIdentifier: @"upgrade"];
-            [self updateSet: self.currentUpgrade];
-        } else if ([ident isEqualToString: @"shipsTable"]) {
-            self.currentShip = extractSelectedItem(_ships);
-            [self updateForShip];
-            [_tabView selectTabViewItemWithIdentifier: @"ship"];
-            [self updateSet: self.currentShip];
-        } else if ([ident isEqualToString: @"resourcesTable"]) {
+    @try {
+        id responder = [_mainWindow firstResponder];
+        NSString* ident = [responder identifier];
+        
+        if (object == _mainWindow) {
+            if ([ident isEqualToString: @"captainsTable"]) {
+                [self updateCaptain: extractSelectedItem(_captains)];
+                [_tabView selectTabViewItemWithIdentifier: @"captain"];
+            } else if ([ident isEqualToString: @"upgradeTable"]) {
+                [self updateUpgrade: extractSelectedItem(_upgrades)];
+                [_tabView selectTabViewItemWithIdentifier: @"upgrade"];
+            } else if ([ident isEqualToString: @"shipsTable"]) {
+                [self updateShip: extractSelectedItem(_ships)];
+                [_tabView selectTabViewItemWithIdentifier: @"ship"];
+            } else if ([ident isEqualToString: @"resourcesTable"]) {
+                self.currentResource = extractSelectedItem(_resources);
+                [_tabView selectTabViewItemWithIdentifier: @"resource"];
+                [self updateSet: self.currentResource];
+            } else if ([ident isEqualToString: @"squadsDetailOutline"]) {
+                id selectedItem = extractSelectedItem(_squadDetail);
+                [self updateInspectorTabForItem: selectedItem];
+                [self updateSet: selectedItem];
+            } else {
+                [_tabView selectTabViewItemWithIdentifier: @"blank"];
+                [self clearSet];
+            }
+        } else if (object == _squadDetail) {
+            if ([ident isEqualToString: @"squadsDetailOutline"]) {
+                id selectedItem = extractSelectedItem(_squadDetail);
+                [self updateInspectorTabForItem: selectedItem changeTab: YES];
+            }
+        } else if (object == _captains) {
+            [self updateCaptain: extractSelectedItem(_captains)];
+        } else if (object == _ships) {
+            [self updateShip: extractSelectedItem(_ships)];
+        } else if (object == _upgrades) {
+            [self updateUpgrade: extractSelectedItem(_upgrades)];
+        } else if (object == _resources) {
             self.currentResource = extractSelectedItem(_resources);
-            [_tabView selectTabViewItemWithIdentifier: @"resource"];
             [self updateSet: self.currentResource];
-        } else if ([ident isEqualToString: @"squadsDetailOutline"]) {
-            id selectedItem = extractSelectedItem(_squadDetail);
-            [self updateInspectorTabForItem: selectedItem];
-            [self updateSet: selectedItem];
-        } else {
-            [_tabView selectTabViewItemWithIdentifier: @"blank"];
         }
-    } else if (object == _squadDetail) {
-        if ([ident isEqualToString: @"squadsDetailOutline"]) {
-            id selectedItem = extractSelectedItem(_squadDetail);
-            [self updateInspectorTabForItem: selectedItem changeTab: YES];
-        }
-    } else if (object == _captains) {
-        self.currentCaptain = extractSelectedItem(_captains);
-        [self updateSet: _currentCaptain];
-    } else if (object == _ships) {
-        self.currentShip = extractSelectedItem(_ships);
-        [self updateForShip];
-        [self updateSet: self.currentShip];
-    } else if (object == _upgrades) {
-        self.currentUpgrade = extractSelectedItem(_upgrades);
-        [self updateSet: self.currentUpgrade];
-    } else if (object == _resources) {
-        self.currentResource = extractSelectedItem(_resources);
-        [self updateSet: self.currentResource];
+    }
+    @catch (NSException *exception) {
+    }
+    @finally {
     }
 }
 
