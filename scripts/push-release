@@ -1,0 +1,11 @@
+set -e
+set -x
+
+scriptDir=`dirname $0`
+scriptDir=`cd $scriptDir; pwd`
+baseDir=$scriptDir/..
+baseDir=`cd $baseDir; pwd`
+siteDir=$baseDir/spacedocksite
+siteDir=`cd $siteDir; pwd`
+
+rsync -e 'ssh -p 2222' -azv "$siteDir/" rob@gator4110.hostgator.com:/home2/rob/public_html/spacedock/
