@@ -44,7 +44,7 @@
 
 -(NSString*)formattedClass
 {
-    return [NSString stringWithFormat: @"%@ Class", self.shipClass];
+    return self.shipClass;
 }
 
 NSString* asDegrees(NSString* textValue)
@@ -141,6 +141,17 @@ NSString* asDegrees(NSString* textValue)
 {
     NSRange r = [self.shipClass rangeOfString: @"Jem'hadar" options: NSCaseInsensitiveSearch];
     return r.location != NSNotFound;
+}
+
+-(BOOL)isKeldon
+{
+    NSRange r = [self.shipClass rangeOfString: @"Keldon" options: NSCaseInsensitiveSearch];
+    return r.location != NSNotFound;
+}
+
+-(BOOL)isRomulanScienceVessel
+{
+    return [self.shipClass isEqualToString: @"Romulan Science Vessel"];
 }
 
 -(BOOL)isDefiant

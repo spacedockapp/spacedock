@@ -342,7 +342,7 @@
         }
 
         if ([upgradeSpecial isEqualToString: @"costincreasedifnotromulansciencevessel"]) {
-            if (![ship.shipClass isEqualToString: @"Romulan Science Vessel"]) {
+            if (![ship isRomulanScienceVessel]) {
                 cost += 5;
             }
         }
@@ -365,7 +365,7 @@
             cost += 5;
         }
     } else if ([upgradeSpecial isEqualToString: @"PenaltyOnShipOtherThanKeldonClass"]) {
-        if (![ship.shipClass isEqualToString: @"Cardassian Keldon"]) {
+        if (![ship isKeldon]) {
             cost += 5;
         }
     }

@@ -10,6 +10,8 @@
 -(NSString*)factionCode;
 -(BOOL)isBreen;
 -(BOOL)isJemhadar;
+-(BOOL)isKeldon;
+-(BOOL)isRomulanScienceVessel;
 -(BOOL)isDefiant;
 -(BOOL)isUnique;
 -(BOOL)isFederation;
