@@ -48,8 +48,6 @@
 		D4259F451810D24000BB02BA /* NSFormatter+GRMustache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F271810D24000BB02BA /* NSFormatter+GRMustache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D4259F461810D24000BB02BA /* NSValueTransformer+GRMustache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F291810D24000BB02BA /* NSValueTransformer+GRMustache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D4259F491810D2C000BB02BA /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259F481810D2C000BB02BA /* JRSwizzle.m */; };
-		D427CDDE184A440B0086EB86 /* staw-squad-icon-64.png in Resources */ = {isa = PBXBuildFile; fileRef = D427CDDC184A440B0086EB86 /* staw-squad-icon-64.png */; };
-		D427CDDF184A440B0086EB86 /* staw-squad-icon-320.png in Resources */ = {isa = PBXBuildFile; fileRef = D427CDDD184A440B0086EB86 /* staw-squad-icon-320.png */; };
 		D427CDE2184A50CF0086EB86 /* DockConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D427CDE1184A50CF0086EB86 /* DockConstants.m */; };
 		D427CDE3184A50CF0086EB86 /* DockConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D427CDE1184A50CF0086EB86 /* DockConstants.m */; };
 		D427FC3118320F2500D4CC83 /* DockEquippedShipCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D427FC3018320F2500D4CC83 /* DockEquippedShipCell.m */; };
@@ -129,6 +127,8 @@
 		D4408E101845B3C5008BA352 /* white-right-bank.png in Resources */ = {isa = PBXBuildFile; fileRef = D4408DFB1845B3C5008BA352 /* white-right-bank.png */; };
 		D4408E111845B3C5008BA352 /* white-right-turn.png in Resources */ = {isa = PBXBuildFile; fileRef = D4408DFC1845B3C5008BA352 /* white-right-turn.png */; };
 		D4408E121845B3C5008BA352 /* white-straight.png in Resources */ = {isa = PBXBuildFile; fileRef = D4408DFD1845B3C5008BA352 /* white-straight.png */; };
+		D4409397184EBBF600385361 /* staw-squad-icon-64.png in Resources */ = {isa = PBXBuildFile; fileRef = D4409396184EBBF600385361 /* staw-squad-icon-64.png */; };
+		D4409399184EBC0B00385361 /* staw-squad-icon-320.png in Resources */ = {isa = PBXBuildFile; fileRef = D4409398184EBC0B00385361 /* staw-squad-icon-320.png */; };
 		D457FD19181D5B1E009C2E13 /* DockEditValueController.m in Sources */ = {isa = PBXBuildFile; fileRef = D457FD17181D58E0009C2E13 /* DockEditValueController.m */; };
 		D457FD1C181DAE88009C2E13 /* DockUtilsMobile.m in Sources */ = {isa = PBXBuildFile; fileRef = D457FD1B181DAE88009C2E13 /* DockUtilsMobile.m */; };
 		D45AF1F017FFE7F900C04F9A /* DockUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D45AF1EF17FFE7F900C04F9A /* DockUtils.m */; };
@@ -326,8 +326,6 @@
 		D4259F291810D24000BB02BA /* NSValueTransformer+GRMustache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValueTransformer+GRMustache.m"; sourceTree = "<group>"; };
 		D4259F471810D2C000BB02BA /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRSwizzle.h; path = ../GRMustache/src/vendor/groue/jrswizzle/JRSwizzle.h; sourceTree = "<group>"; };
 		D4259F481810D2C000BB02BA /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRSwizzle.m; path = ../GRMustache/src/vendor/groue/jrswizzle/JRSwizzle.m; sourceTree = "<group>"; };
-		D427CDDC184A440B0086EB86 /* staw-squad-icon-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "staw-squad-icon-64.png"; path = "../../../Desktop/staw/SpaceDock-iOS/staw-squad-icon-64.png"; sourceTree = "<group>"; };
-		D427CDDD184A440B0086EB86 /* staw-squad-icon-320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "staw-squad-icon-320.png"; path = "../../../Desktop/staw/SpaceDock-iOS/staw-squad-icon-320.png"; sourceTree = "<group>"; };
 		D427CDE0184A50CF0086EB86 /* DockConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockConstants.h; sourceTree = "<group>"; };
 		D427CDE1184A50CF0086EB86 /* DockConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockConstants.m; sourceTree = "<group>"; };
 		D427FC2F18320F2500D4CC83 /* DockEquippedShipCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockEquippedShipCell.h; sourceTree = "<group>"; };
@@ -398,6 +396,8 @@
 		D4408DFB1845B3C5008BA352 /* white-right-bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-right-bank.png"; path = "images/white-right-bank.png"; sourceTree = SOURCE_ROOT; };
 		D4408DFC1845B3C5008BA352 /* white-right-turn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-right-turn.png"; path = "images/white-right-turn.png"; sourceTree = SOURCE_ROOT; };
 		D4408DFD1845B3C5008BA352 /* white-straight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-straight.png"; path = "images/white-straight.png"; sourceTree = SOURCE_ROOT; };
+		D4409396184EBBF600385361 /* staw-squad-icon-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "staw-squad-icon-64.png"; sourceTree = "<group>"; };
+		D4409398184EBC0B00385361 /* staw-squad-icon-320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "staw-squad-icon-320.png"; sourceTree = "<group>"; };
 		D457FD16181D58E0009C2E13 /* DockEditValueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockEditValueController.h; sourceTree = "<group>"; };
 		D457FD17181D58E0009C2E13 /* DockEditValueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockEditValueController.m; sourceTree = "<group>"; };
 		D457FD1A181DAE88009C2E13 /* DockUtilsMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockUtilsMobile.h; sourceTree = "<group>"; };
@@ -788,8 +788,8 @@
 		D4408D8C18445AF2008BA352 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				D427CDDC184A440B0086EB86 /* staw-squad-icon-64.png */,
-				D427CDDD184A440B0086EB86 /* staw-squad-icon-320.png */,
+				D4409396184EBBF600385361 /* staw-squad-icon-64.png */,
+				D4409398184EBC0B00385361 /* staw-squad-icon-320.png */,
 				D4408D8D18445AF2008BA352 /* white-about.pdf */,
 				D4408D8E18445AF2008BA352 /* white-backup.pdf */,
 				D4408D8F18445AF2008BA352 /* white-left-bank.pdf */,
@@ -1043,8 +1043,10 @@
 				D4408DC418446B84008BA352 /* red-backup.pdf in Resources */,
 				D4408DB0184468D5008BA352 /* green-straight.pdf in Resources */,
 				D4408E071845B3C5008BA352 /* red-left-bank.png in Resources */,
+				D4409399184EBC0B00385361 /* staw-squad-icon-320.png in Resources */,
 				D4408E031845B3C5008BA352 /* green-right-turn.png in Resources */,
 				D4408E0F1845B3C5008BA352 /* white-left-turn.png in Resources */,
+				D4409397184EBBF600385361 /* staw-squad-icon-64.png in Resources */,
 				D4408E051845B3C5008BA352 /* red-about.png in Resources */,
 				D4408E0D1845B3C5008BA352 /* white-backup.png in Resources */,
 				D433FE26181503A20062731A /* Images.xcassets in Resources */,
@@ -1064,7 +1066,6 @@
 				D4408E121845B3C5008BA352 /* white-straight.png in Resources */,
 				D4408DB7184469C4008BA352 /* green-left-bank.pdf in Resources */,
 				D4408E0E1845B3C5008BA352 /* white-left-bank.png in Resources */,
-				D427CDDE184A440B0086EB86 /* staw-squad-icon-64.png in Resources */,
 				D4408D9918445AF2008BA352 /* white-left-bank.pdf in Resources */,
 				D4408DDA18446C3A008BA352 /* green-about.pdf in Resources */,
 				D4408DCC18446B84008BA352 /* red-right-turn.pdf in Resources */,
@@ -1082,7 +1083,6 @@
 				D4408D9F18445AF2008BA352 /* white-right-turn.pdf in Resources */,
 				D4408DD718446C03008BA352 /* green-right-turn.pdf in Resources */,
 				D4408D9518445AF2008BA352 /* white-about.pdf in Resources */,
-				D427CDDF184A440B0086EB86 /* staw-squad-icon-320.png in Resources */,
 				D4408E111845B3C5008BA352 /* white-right-turn.png in Resources */,
 				D4408E011845B3C5008BA352 /* green-left-turn.png in Resources */,
 				D4408E081845B3C5008BA352 /* red-left-turn.png in Resources */,
