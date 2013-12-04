@@ -1,9 +1,13 @@
 #import "DockTableViewController.h"
 
+#import "DockConstants.h"
 #import "DockSet+Addons.h"
+#import "DockUpgrade+Addons.h"
 #import "DockUtilsMobile.h"
 
-@interface DockTableViewController ()
+@interface DockTableViewController () <UIActionSheetDelegate>
+@property (nonatomic, strong) IBOutlet UIBarButtonItem* factionBarItem;
+@property (nonatomic, strong) NSMutableDictionary* buttons;
 @end
 
 @implementation DockTableViewController
@@ -11,16 +15,19 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    NSError* error;
-
-    if (![[self fetchedResultsController] performFetch: &error]) {
-        presentError(error);
-    }
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    _faction = [defaults valueForKey: kSpaceDockFactionFilterKey];
+    [self performFetch];
 }
 
 #pragma mark - Fetching
 
 -(BOOL)useSetFilter
+{
+    return YES;
+}
+
+-(BOOL)useFactionFilter
 {
     return YES;
 }
@@ -56,7 +63,13 @@
     NSArray* includedSets = self.includedSets;
 
     if (includedSets) {
-        NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"any sets.externalId in %@", includedSets];
+        NSPredicate* predicateTemplate = nil;
+        NSString* faction = self.faction;
+        if (faction != nil && [self useFactionFilter]) {
+            predicateTemplate = [NSPredicate predicateWithFormat: @"faction = %@ and any sets.externalId in %@", faction, includedSets];
+        } else {
+            predicateTemplate = [NSPredicate predicateWithFormat: @"any sets.externalId in %@", includedSets];
+        }
         [fetchRequest setPredicate: predicateTemplate];
     }
 }
@@ -97,6 +110,22 @@
     return _fetchedResultsController;
 }
 
+-(void)clearFetch
+{
+    _fetchedResultsController = nil;
+    [self performFetch];
+    [self.tableView reloadData];
+}
+
+-(void)performFetch
+{
+    NSError* error;
+
+    if (![[self fetchedResultsController] performFetch: &error]) {
+        presentError(error);
+    }
+}
+
 #pragma mark - Table view data source methods
 
 /*
@@ -105,8 +134,8 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
-
-    return [[self.fetchedResultsController sections] count];
+    NSInteger sectionCount = [[self.fetchedResultsController sections] count];
+    return sectionCount;
 }
 
 // Customize the number of rows in the table view.
@@ -138,5 +167,49 @@
     // Display the authors' names as section headings.
     return [[[self.fetchedResultsController sections] objectAtIndex: section] name];
 }
+
+-(IBAction)faction:(id)sender
+{
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle: @"Faction"
+                                                       delegate: self
+                                              cancelButtonTitle: @"Cancel"
+                                         destructiveButtonTitle: nil
+                                              otherButtonTitles: @"All", nil];
+    NSSet* factionsSet = [DockUpgrade allFactions: self.managedObjectContext];
+    _buttons = [[NSMutableDictionary alloc] initWithCapacity: 0];
+    NSArray* factionsArray = [[factionsSet allObjects] sortedArrayUsingSelector: @selector(caseInsensitiveCompare:)];
+    for (NSString* faction in factionsArray) {
+        NSInteger index = [sheet addButtonWithTitle: faction];
+        _buttons[[NSNumber numberWithInteger: index]] = faction;
+    }
+    [sheet showFromBarButtonItem: _factionBarItem animated: YES];
+}
+
+-(void)updateFaction:(NSString*)faction
+{
+    _faction = faction;
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject: _faction forKey: kSpaceDockFactionFilterKey];
+    [self clearFetch];
+}
+
+-(void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString* faction;
+    switch (buttonIndex) {
+    case 0:
+        [self updateFaction: nil];
+        break;
+
+    case 1:
+        break;
+
+    default:
+        faction = _buttons[[NSNumber numberWithInteger: buttonIndex+1]];
+        [self updateFaction: faction];
+        break;
+    }
+}
+
 
 @end

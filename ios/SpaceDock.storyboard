@@ -92,8 +92,16 @@
                             <outlet property="delegate" destination="ItA-jp-4hr" id="9un-J0-kfV"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Faction" id="hOj-NS-uDd">
+                            <connections>
+                                <action selector="faction:" destination="ItA-jp-4hr" id="CJR-aP-bNo"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="11d-kb-pRr"/>
                     <connections>
+                        <outlet property="factionBarItem" destination="hOj-NS-uDd" id="ZP2-7J-5f8"/>
                         <segue destination="Lre-O3-tmx" kind="push" identifier="ShowUpgradeDetails" id="tMG-Zk-kkS"/>
                     </connections>
                 </tableViewController>
@@ -601,7 +609,17 @@
                             <outlet property="delegate" destination="qai-jN-X8t" id="MzM-Ov-sNj"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Faction" id="fby-Vg-3Sd">
+                            <connections>
+                                <action selector="faction:" destination="qai-jN-X8t" id="Smc-t1-Qse"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="A1E-to-W1G"/>
+                    <connections>
+                        <outlet property="factionBarItem" destination="fby-Vg-3Sd" id="IkX-L0-i3W"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPH-r0-vTF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

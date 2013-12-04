@@ -68,10 +68,19 @@
     NSPredicate* predicateTemplate;
     NSArray* includedSets = self.includedSets;
 
-    if (includedSets) {
-        predicateTemplate = [NSPredicate predicateWithFormat: @"upType = %@ and not placeholder == YES and any sets.externalId in %@", _upType, includedSets];
+    NSString* faction = self.faction;
+    if (faction != nil) {
+        if (includedSets) {
+            predicateTemplate = [NSPredicate predicateWithFormat: @"(upType = %@) and (faction = %@) and (not placeholder == YES) and (any sets.externalId in %@)", _upType, faction, includedSets];
+        } else {
+            predicateTemplate = [NSPredicate predicateWithFormat: @"upType = %@ and faction = %@ and not placeholder == YES", _upType, faction];
+        }
     } else {
-        predicateTemplate = [NSPredicate predicateWithFormat: @"upType = %@ and not placeholder == YES", _upType];
+        if (includedSets) {
+            predicateTemplate = [NSPredicate predicateWithFormat: @"upType = %@ and not placeholder == YES and any sets.externalId in %@", _upType, includedSets];
+        } else {
+            predicateTemplate = [NSPredicate predicateWithFormat: @"upType = %@ and not placeholder == YES", _upType];
+        }
     }
 
     [fetchRequest setPredicate: predicateTemplate];

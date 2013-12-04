@@ -51,6 +51,11 @@
     return nil;
 }
 
+-(BOOL)useFactionFilter
+{
+    return NO;
+}
+
 -(void)setupFetch:(NSFetchRequest*)fetchRequest context:(NSManagedObjectContext*)context
 {
     [super setupFetch: fetchRequest context: context];
