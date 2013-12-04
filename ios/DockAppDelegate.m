@@ -6,6 +6,7 @@
 #import "DockSquad+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockTopMenuViewController.h"
+#import "DockUpgrade+Addons.h"
 
 @interface DockAppDelegate ()
 

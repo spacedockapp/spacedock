@@ -7,7 +7,6 @@
 
 @interface DockTableViewController () <UIActionSheetDelegate>
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* factionBarItem;
-@property (nonatomic, strong) NSMutableDictionary* buttons;
 @end
 
 @implementation DockTableViewController
@@ -62,7 +61,7 @@
     [fetchRequest setSortDescriptors: [self sortDescriptors]];
     NSArray* includedSets = self.includedSets;
 
-    if (includedSets) {
+    if (includedSets.count > 0) {
         NSPredicate* predicateTemplate = nil;
         NSString* faction = self.faction;
         if (faction != nil && [self useFactionFilter]) {
@@ -172,15 +171,13 @@
 {
     UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle: @"Faction"
                                                        delegate: self
-                                              cancelButtonTitle: @"Cancel"
+                                              cancelButtonTitle: nil
                                          destructiveButtonTitle: nil
                                               otherButtonTitles: @"All", nil];
     NSSet* factionsSet = [DockUpgrade allFactions: self.managedObjectContext];
-    _buttons = [[NSMutableDictionary alloc] initWithCapacity: 0];
     NSArray* factionsArray = [[factionsSet allObjects] sortedArrayUsingSelector: @selector(caseInsensitiveCompare:)];
     for (NSString* faction in factionsArray) {
-        NSInteger index = [sheet addButtonWithTitle: faction];
-        _buttons[[NSNumber numberWithInteger: index]] = faction;
+        [sheet addButtonWithTitle: faction];
     }
     [sheet showFromBarButtonItem: _factionBarItem animated: YES];
 }
@@ -205,7 +202,7 @@
         break;
 
     default:
-        faction = _buttons[[NSNumber numberWithInteger: buttonIndex+1]];
+        faction = [actionSheet buttonTitleAtIndex: buttonIndex];
         [self updateFaction: faction];
         break;
     }

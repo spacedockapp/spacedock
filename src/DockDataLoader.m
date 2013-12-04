@@ -448,6 +448,10 @@ static NSString* makeKey(NSString* key)
         return NO;
     }
 
+    if (xmlData.count == 0) {
+        return YES;
+    }
+
     [self loadSets: xmlData[@"Sets"]];
     [self loadItems: xmlData[@"ShipClassDetails"] itemClass: [DockShipClassDetails class] entityName: @"ShipClassDetails" targetType: nil];
     [self loadItems: xmlData[@"Ships"] itemClass: [DockShip class] entityName: @"Ship" targetType: nil];
@@ -458,7 +462,7 @@ static NSString* makeKey(NSString* key)
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockTech class] entityName: @"Tech" targetType: @"Tech"];
     [self loadItems: xmlData[@"Resources"] itemClass: [DockResource class] entityName: @"Resource" targetType: @"Resource"];
 
-    return YES;
+    return [self.managedObjectContext save: error];
 }
 
 @end
