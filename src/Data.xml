@@ -1,4 +1,4 @@
-<Data version="1.176">
+<Data version="1.177">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -495,21 +495,21 @@
         <Name>Excelsior Class</Name>
         <Id>5022</Id>
         <Maneuvers>
-            <Maneuver speed="4" kind="straight" color="WHITE" />
-            <Maneuver speed="3" kind="left-turn" color="RED" />
-            <Maneuver speed="3" kind="left-bank" color="WHITE" />
-            <Maneuver speed="3" kind="straight" color="WHITE" />
-            <Maneuver speed="3" kind="right-bank" color="WHITE" />
-            <Maneuver speed="3" kind="right-turn" color="RED" />
-            <Maneuver speed="2" kind="left-turn" color="RED" />
-            <Maneuver speed="2" kind="left-bank" color="WHITE" />
-            <Maneuver speed="2" kind="straight" color="GREEN" />
-            <Maneuver speed="2" kind="right-bank" color="WHITE" />
-            <Maneuver speed="2" kind="right-turn" color="RED" />
-            <Maneuver speed="1" kind="left-bank" color="GREEN" />
-            <Maneuver speed="1" kind="straight" color="GREEN" />
-            <Maneuver speed="1" kind="right-bank" color="GREEN" />
-            <Maneuver speed="-2" kind="straight" color="RED" />
+            <Maneuver speed="4" kind="straight" color="white" />
+            <Maneuver speed="3" kind="left-turn" color="red" />
+            <Maneuver speed="3" kind="left-bank" color="white" />
+            <Maneuver speed="3" kind="straight" color="white" />
+            <Maneuver speed="3" kind="right-bank" color="white" />
+            <Maneuver speed="3" kind="right-turn" color="red" />
+            <Maneuver speed="2" kind="left-turn" color="red" />
+            <Maneuver speed="2" kind="left-bank" color="white" />
+            <Maneuver speed="2" kind="straight" color="green" />
+            <Maneuver speed="2" kind="right-bank" color="white" />
+            <Maneuver speed="2" kind="right-turn" color="red" />
+            <Maneuver speed="1" kind="left-bank" color="green" />
+            <Maneuver speed="1" kind="straight" color="green" />
+            <Maneuver speed="1" kind="right-bank" color="green" />
+            <Maneuver speed="-2" kind="straight" color="red" />
         </Maneuvers>
         <FrontArc>180</FrontArc>
         <RearArc>90</RearArc>
@@ -518,21 +518,21 @@
         <Name>Romulan Scout Vessel</Name>
         <Id>5023</Id>
         <Maneuvers>
-            <Maneuver speed="4" kind="straight" color="WHITE" />
-            <Maneuver speed="3" kind="left-bank" color="WHITE" />
-            <Maneuver speed="3" kind="straight" color="WHITE" />
-            <Maneuver speed="3" kind="right-bank" color="WHITE" />
-            <Maneuver speed="2" kind="left-turn" color="WHITE" />
-            <Maneuver speed="2" kind="left-bank" color="GREEN" />
-            <Maneuver speed="2" kind="straight" color="GREEN" />
-            <Maneuver speed="2" kind="right-bank" color="GREEN" />
-            <Maneuver speed="2" kind="right-turn" color="WHITE" />
-            <Maneuver speed="2" kind="about" color="WHITE" />
-            <Maneuver speed="1" kind="left-turn" color="WHITE" />
-            <Maneuver speed="1" kind="left-bank" color="GREEN" />
-            <Maneuver speed="1" kind="straight" color="GREEN" />
-            <Maneuver speed="1" kind="right-bank" color="GREEN" />
-            <Maneuver speed="1" kind="right-turn" color="WHITE" />
+            <Maneuver speed="4" kind="straight" color="white" />
+            <Maneuver speed="3" kind="left-bank" color="white" />
+            <Maneuver speed="3" kind="straight" color="white" />
+            <Maneuver speed="3" kind="right-bank" color="white" />
+            <Maneuver speed="2" kind="left-turn" color="white" />
+            <Maneuver speed="2" kind="left-bank" color="green" />
+            <Maneuver speed="2" kind="straight" color="green" />
+            <Maneuver speed="2" kind="right-bank" color="green" />
+            <Maneuver speed="2" kind="right-turn" color="white" />
+            <Maneuver speed="2" kind="about" color="white" />
+            <Maneuver speed="1" kind="left-turn" color="white" />
+            <Maneuver speed="1" kind="left-bank" color="green" />
+            <Maneuver speed="1" kind="straight" color="green" />
+            <Maneuver speed="1" kind="right-bank" color="green" />
+            <Maneuver speed="1" kind="right-turn" color="white" />
         </Maneuvers>
         <FrontArc>90</FrontArc>
         <RearArc></RearArc>
@@ -541,21 +541,21 @@
         <Name>Nebula Class</Name>
         <Id>5024</Id>
         <Maneuvers>
-            <Maneuver speed="4" kind="straight" color="WHITE" />
-            <Maneuver speed="3" kind="left-turn" color="RED" />
-            <Maneuver speed="3" kind="left-bank" color="WHITE" />
-            <Maneuver speed="3" kind="straight" color="WHITE" />
-            <Maneuver speed="3" kind="right-bank" color="WHITE" />
-            <Maneuver speed="3" kind="right-turn" color="RED" />
-            <Maneuver speed="2" kind="left-turn" color="WHITE" />
-            <Maneuver speed="2" kind="left-bank" color="WHITE" />
-            <Maneuver speed="2" kind="straight" color="GREEN" />
-            <Maneuver speed="2" kind="right-bank" color="WHITE" />
-            <Maneuver speed="2" kind="right-turn" color="WHITE" />
-            <Maneuver speed="1" kind="left-bank" color="GREEN" />
-            <Maneuver speed="1" kind="straight" color="GREEN" />
-            <Maneuver speed="1" kind="right-bank" color="GREEN" />
-            <Maneuver speed="-1" kind="straight" color="RED" />
+            <Maneuver speed="4" kind="straight" color="white" />
+            <Maneuver speed="3" kind="left-turn" color="red" />
+            <Maneuver speed="3" kind="left-bank" color="white" />
+            <Maneuver speed="3" kind="straight" color="white" />
+            <Maneuver speed="3" kind="right-bank" color="white" />
+            <Maneuver speed="3" kind="right-turn" color="red" />
+            <Maneuver speed="2" kind="left-turn" color="white" />
+            <Maneuver speed="2" kind="left-bank" color="white" />
+            <Maneuver speed="2" kind="straight" color="green" />
+            <Maneuver speed="2" kind="right-bank" color="white" />
+            <Maneuver speed="2" kind="right-turn" color="white" />
+            <Maneuver speed="1" kind="left-bank" color="green" />
+            <Maneuver speed="1" kind="straight" color="green" />
+            <Maneuver speed="1" kind="right-bank" color="green" />
+            <Maneuver speed="-1" kind="straight" color="red" />
         </Maneuvers>
         <FrontArc>90</FrontArc>
         <RearArc></RearArc>
@@ -4193,7 +4193,366 @@
       <Set>71275</Set>
       <Special></Special>
     </Upgrade>
-
+    <Upgrade>
+      <Title>Hikaru Sulu</Title>
+      <Ability>Action: Disable one of your (crew) upgrades to remove an opponent's [TARGET LOCK] token from your ship. Remove the corresponding token from the opponent's ship as well.</Ability>
+      <Unique>Y</Unique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>3105</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Styles</Title>
+      <Ability>Add 1 additional [TECH] icon to your ship's upgrade bar.</Ability>
+      <Unique>Y</Unique>
+      <Skill>3</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>3106</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Feint</Title>
+      <Ability>Action: Discard this upgrade to target a ship at range 2-3. If you attack that ship this round, it rolls 2 less defense dice.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>3107</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Dmitri Valtane</Title>
+      <Ability>If your ship has a [SCAN] token beside it when you attack, you may re-roll up to 2 of your attack dice.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>3108</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Janice Rand</Title>
+      <Ability>After your ship moves, discard Rand to allow your captain to perform the action on one of his [TALENT] upgrades as a free action this round.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>3109</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Lojur</Title>
+      <Ability>When your ship fires a [WEAPON] upgrade that requires you to disable it, you may disable Lojur instead of that [WEAPON] upgrade.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>3110</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photon Torpedoes</Title>
+      <Ability>Attack: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>4</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>3111</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Positron Beam</Title>
+      <Ability>During the planning phase, you may discard this upgrade to target a ship at range 1 of your ship. That ship immediately receive an auxiliary  power token.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>3112</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Transwarp Drive</Title>
+      <Ability>During the activation phase, if your maneuver dial reveals a [STRAIGHT] 4 or [STRAIGHT] 5 maneuver, you may instead use a [STRAIGHT] 6 maneuver.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>3113</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Worf</Title>
+      <Ability>When attacking, you may re-roll all of your blank results one time. </Ability>
+      <Unique>Y</Unique>
+      <Skill>5</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>3</Cost>
+      <Id>3114</Id>
+      <Set>71273</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Kurn</Title>
+      <Ability>Action: When attacking this round, gain +1 attack die. Place an Auxiliary Power Token beside your ship. </Ability>
+      <Unique>Y</Unique>
+      <Skill>3</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>2</Cost>
+      <Id>3115</Id>
+      <Set>71273</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photon Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>3118</Id>
+      <Set>71273</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Advanced Weapon System</Title>
+      <Ability>When attacking, you may disable this card before rolling any dice to keep your [CLOAK] token from flipping to its red side. </Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>3119</Id>
+      <Set>71273</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Alidar Jarok</Title>
+      <Ability>Action: Discard your [TALENT] upgrade to target 1 ship at range 1-2. Neither of your ships may attack each other this round.</Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>3121</Id>
+      <Set>71274</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Massacre</Title>
+      <Ability>If your ship inflicts a [CRITICAL] agaisnt an enemy's Hull, discard this card to inflict 1 additional damage to that ship. </Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Romulan</Faction>
+      <Cost>3</Cost>
+      <Id>3122</Id>
+      <Set>71274</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Selok</Title>
+      <Ability>Action: Discard Selok to target a ship at Range 1. That ship cannot attack your ship this round. </Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>3123</Id>
+      <Set>71274</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Ultritium Explosives</Title>
+      <Ability>Action: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Discard this card and 1 of your [CREW] Upgrades to inflict 1 [CRITICAL] against the target ship. </Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Romulan</Faction>
+      <Cost>2</Cost>
+      <Id>3124</Id>
+      <Set>71274</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Gul Dukat</Title>
+      <Ability>Your ship may perform an [EVADE] or a [BATTLESTATIONS] Action as a free Action each round. </Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>3125</Id>
+      <Set>71275</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Gul Evek</Title>
+      <Ability>Each time you defend, you may re-roll all of your blank results one time. </Ability>
+      <Unique>Y</Unique>
+      <Skill>4</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>2</Cost>
+      <Id>3126</Id>
+      <Set>71275</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Data</Title>
+      <Ability>Action: Disable one of your crew upgrades and one of your weapon upgrades to target all cloaked ship at range 1-3. They immediately flip their cloak tokens to the red side. </Ability>
+      <Unique>Y</Unique>
+      <Skill>4</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>3133</Id>
+      <Set>OP4Prize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Disobey Orders</Title>
+      <Ability>You may discard this card at any time to replace 1 [EVADE][SCAN] or [BATTLESTATIONS] token next to your ship with a [EVADE][SCAN] or [BATTLESTATIONS] token. </Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>3134</Id>
+      <Set>OP4Prize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Christopher Hobson</Title>
+      <Ability>Action: Gain +1 attack die when firing at a cloaked ship. </Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>3135</Id>
+      <Set>OP4Prize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Secondary Torpedo Launcher</Title>
+      <Ability>Attack: [TARGET LOCK] Discard this card and spend your target lock to perform this attack. If you have already fired another torpedo at an enemy ship in your forward firing arc this round, you may use this weapon to make a second attack against that ship at -1 attack die. you do not need to spend a second target lock to make the extra attack.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>4</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>3136</Id>
+      <Set>OP4Prize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>High Energy Sensor Sweep</Title>
+      <Ability>After you move, you may disable 1 active shield to perform a free [SCAN] Action.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>3137</Id>
+      <Set>OP4Prize</Set>
+      <Special></Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>

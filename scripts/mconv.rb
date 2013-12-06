@@ -65,7 +65,7 @@ shipLines.each do |l|
       if i < parts.length
         move = parts[i].chomp
         if move.length > 0
-          puts %Q[\t\t<Maneuver speed="#{speed}" kind="#{direction}" color="#{move}" />]
+          puts %Q[\t\t<Maneuver speed="#{speed}" kind="#{direction}" color="#{move.downcase}" />]
           # LT Maneuver speed="3" type="tight" color="red" RT
           
         end

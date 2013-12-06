@@ -135,6 +135,66 @@
       <Special></Special>
     </Upgrade>
     <Upgrade>
+      <Title>Worf</Title>
+      <Ability>When attacking, you may re-roll all of your blank results one time. </Ability>
+      <Unique>Y</Unique>
+      <Skill>5</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>3</Cost>
+      <Id>3114</Id>
+      <Set>71273</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Kurn</Title>
+      <Ability>Action: When attacking this round, gain +1 attack die. Place an Auxiliary Power Token beside your ship. </Ability>
+      <Unique>Y</Unique>
+      <Skill>3</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>2</Cost>
+      <Id>3115</Id>
+      <Set>71273</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photon Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>3118</Id>
+      <Set>71273</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Advanced Weapon System</Title>
+      <Ability>When attacking, you may disable this card before rolling any dice to keep your [CLOAK] token from flipping to its red side. </Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>3119</Id>
+      <Set>71273</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
       <Title>Alidar Jarok</Title>
       <Ability>Action: Discard your [TALENT] upgrade to target 1 ship at range 1-2. Neither of your ships may attack each other this round.</Ability>
       <Unique>Y</Unique>
@@ -145,13 +205,13 @@
       <Type>Captain</Type>
       <Faction>Romulan</Faction>
       <Cost>4</Cost>
-      <Id>3114</Id>
+      <Id>3121</Id>
       <Set>71274</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
       <Title>Massacre</Title>
-      <Ability>If your ship inflicts a [CRITICAL] against an enemy's Hull, discard this card to inflict 1 additional damage to that ship. </Ability>
+      <Ability>If your ship inflicts a [CRITICAL] agaisnt an enemy's Hull, discard this card to inflict 1 additional damage to that ship. </Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -160,7 +220,7 @@
       <Type>Talent</Type>
       <Faction>Romulan</Faction>
       <Cost>3</Cost>
-      <Id>3115</Id>
+      <Id>3122</Id>
       <Set>71274</Set>
       <Special></Special>
     </Upgrade>
@@ -175,7 +235,7 @@
       <Type>Crew</Type>
       <Faction>Romulan</Faction>
       <Cost>5</Cost>
-      <Id>3116</Id>
+      <Id>3123</Id>
       <Set>71274</Set>
       <Special></Special>
     </Upgrade>
@@ -190,8 +250,38 @@
       <Type>Tech</Type>
       <Faction>Romulan</Faction>
       <Cost>2</Cost>
-      <Id>3117</Id>
+      <Id>3124</Id>
       <Set>71274</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Gul Dukat</Title>
+      <Ability>Your ship may perform an [EVADE] or a [BATTLESTATIONS] Action as a free Action each round. </Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>3125</Id>
+      <Set>71275</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Gul Evek</Title>
+      <Ability>Each time you defend, you may re-roll all of your blank results one time. </Ability>
+      <Unique>Y</Unique>
+      <Skill>4</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>2</Cost>
+      <Id>3126</Id>
+      <Set>71275</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -205,7 +295,7 @@
       <Type>Captain</Type>
       <Faction>Federation</Faction>
       <Cost>2</Cost>
-      <Id>3118</Id>
+      <Id>3133</Id>
       <Set>OP4Prize</Set>
       <Special></Special>
     </Upgrade>
@@ -220,7 +310,7 @@
       <Type>Talent</Type>
       <Faction>Federation</Faction>
       <Cost>3</Cost>
-      <Id>3119</Id>
+      <Id>3134</Id>
       <Set>OP4Prize</Set>
       <Special></Special>
     </Upgrade>
@@ -235,7 +325,7 @@
       <Type>Crew</Type>
       <Faction>Federation</Faction>
       <Cost>4</Cost>
-      <Id>3120</Id>
+      <Id>3135</Id>
       <Set>OP4Prize</Set>
       <Special></Special>
     </Upgrade>
@@ -250,7 +340,7 @@
       <Type>Weapon</Type>
       <Faction>Federation</Faction>
       <Cost>4</Cost>
-      <Id>3121</Id>
+      <Id>3136</Id>
       <Set>OP4Prize</Set>
       <Special></Special>
     </Upgrade>
@@ -265,7 +355,7 @@
       <Type>Tech</Type>
       <Faction>Federation</Faction>
       <Cost>5</Cost>
-      <Id>3122</Id>
+      <Id>3137</Id>
       <Set>OP4Prize</Set>
       <Special></Special>
     </Upgrade>

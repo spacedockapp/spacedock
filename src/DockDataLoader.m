@@ -33,6 +33,9 @@
         _listStack = [[NSMutableArray alloc] initWithCapacity: 0];
         _elementStack = [[NSMutableArray alloc] initWithCapacity: 0];
         _currentVersion = version;
+        if ([DockUpgrade allFactions: _managedObjectContext] == 0) {
+            _currentVersion = @"";
+        }
     }
 
     return self;
