@@ -1,4 +1,4 @@
-<Data version="1.177">
+<Data version="1.179">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1659,7 +1659,7 @@
       <Agility>1</Agility>
       <Hull>5</Hull>
       <Shield>4</Shield>
-      <Ability>After you move, if no enemy ships are within Range 1 of your ship, you may perform a (scan) action as a free action.</Ability>
+      <Ability>After you move, if no enemy ships are within Range 1 of your ship, you may perform a [SCAN] action as a free action.</Ability>
       <Cost>26</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
@@ -1705,7 +1705,7 @@
       <Agility>3</Agility>
       <Hull>2</Hull>
       <Shield>2</Shield>
-      <Ability>After you move, you may perform an (evade) action as a free action. If you do so, you cannot attack during this round.</Ability>
+      <Ability>After you move, you may perform an [EVASIVE] action as a free action. If you do so, you cannot attack during this round.</Ability>
       <Cost>16</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock></TargetLock>
@@ -2296,7 +2296,7 @@
     </Captain>
     <Captain>
       <Title>Kira Nerys</Title>
-      <Ability>If a [CREW] Upgrade on an enemy ship would cause your ship to discard or disable any of your Upgrades, roll 2 defense dice. If you roll at least 1 [EVADE] result, ignore the effects of the enemy Upgrade. You do not pay a Faction penalty when assigning Kira Nerys to a Federation ship.</Ability>
+      <Ability>If a [CREW] Upgrade on an enemy ship would cause your ship to discard or disable any of your Upgrades, roll 2 defense dice. If you roll at least 1 [EVASIVE] result, ignore the effects of the enemy Upgrade. You do not pay a Faction penalty when assigning Kira Nerys to a Federation ship.</Ability>
       <Unique>Y</Unique>
       <Skill>3</Skill>
       <Talent>
@@ -2967,7 +2967,7 @@
     <Upgrade>
       <Title>Hikaru Sulu</Title>
       <Unique>Y</Unique>
-      <Ability>ACTION: Add 2 to your Agility for the rest of this round. Each time you defend this round, you may convert 1 [BATTLE STATIONS] result into a [EVADE] result. </Ability>
+      <Ability>ACTION: Add 2 to your Agility for the rest of this round. Each time you defend this round, you may convert 1 [BATTLE STATIONS] result into a [EVASIVE] result. </Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -3657,8 +3657,8 @@
       </Skill>
       <Talent>
       </Talent>
-      <Attack></Attack>
-      <Range></Range>
+      <Attack>4</Attack>
+      <Range>1-2</Range>
       <Type>Weapon</Type>
       <Faction>Romulan</Faction>
       <Cost>4</Cost>
@@ -3845,7 +3845,7 @@
     <Upgrade>
       <Title>Kerla</Title>
       <Unique>Y</Unique>
-      <Ability>When defending against a ship at Range 1, you may convert 1 of your [BATTLESTATION] results into 1 [EVADE] result.</Ability>
+      <Ability>When defending against a ship at Range 1, you may convert 1 of your [BATTLESTATION] results into 1 [EVASIVE] result.</Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -3861,7 +3861,7 @@
     <Upgrade>
       <Title>Stex</Title>
       <Unique>Y</Unique>
-      <Ability>If a [CREW] Upgrade on an enemy ship would cause your ship to discard or disable any of your Upgrades, roll 2 defense dice. If you roll at least 1 [EVADE] result, ignore the effects of the enemy Upgrade. </Ability>
+      <Ability>If a [CREW] Upgrade on an enemy ship would cause your ship to discard or disable any of your Upgrades, roll 2 defense dice. If you roll at least 1 [EVASIVE] result, ignore the effects of the enemy Upgrade. </Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -4450,7 +4450,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Gul Dukat</Title>
-      <Ability>Your ship may perform an [EVADE] or a [BATTLESTATIONS] Action as a free Action each round. </Ability>
+      <Ability>Your ship may perform an [EVASIVE] or a [BATTLESTATIONS] Action as a free Action each round. </Ability>
       <Unique>Y</Unique>
       <Skill>7</Skill>
       <Talent>1</Talent>
@@ -4495,7 +4495,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Disobey Orders</Title>
-      <Ability>You may discard this card at any time to replace 1 [EVADE][SCAN] or [BATTLESTATIONS] token next to your ship with a [EVADE][SCAN] or [BATTLESTATIONS] token. </Ability>
+      <Ability>You may discard this card at any time to replace 1 [EVASIVE][SCAN] or [BATTLESTATIONS] token next to your ship with a [EVASIVE][SCAN] or [BATTLESTATIONS] token. </Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -4562,11 +4562,11 @@
 
 2) The pips on the Elite Attack Die are [DOUBLE HIT], [CRITICAL], [CRITICAL], [HIT],[HIT],[HIT], [BATTLESTATIONS], [BATTLESTATIONS].
 
-3) The [DOUBLE HIT] result may be canceled by 1 [EVADE].
+3) The [DOUBLE HIT] result may be canceled by 1 [EVASIVE].
 
 4) The [DOUBLE HIT] result inflicts 2 damage if not canceled.
 
-5) When canceling the attack dice with [EVADE] results, the order that the dice are canceled is: [HIT], [DOUBLE HIT], then [CRITICAL].</Ability>
+5) When canceling the attack dice with [EVASIVE] results, the order that the dice are canceled is: [HIT], [DOUBLE HIT], then [CRITICAL].</Ability>
         <Type>Resource</Type>
         <Cost>5</Cost>
         <Id>4001</Id>
@@ -4580,7 +4580,7 @@
 3) When a Command Token is used, it is flipped over and may not be used again in that Battle.
 
 COMMAND TOKENS:
-- Place a [EVADE] token beside your ship as a Free Action this Round.
+- Place a [EVASIVE] token beside your ship as a Free Action this Round.
 - Place a [BATTLESTATIONS] token beside your ship as a Free Action this Round.
 - Place a [SCAN] token beside your ship as a Free Action this Round.
 - You may [TARGET LOCK] 1 enemy ship as a Free Action this Round.
