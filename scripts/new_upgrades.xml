@@ -1,0 +1,272 @@
+<Upgrades>
+    <Upgrade>
+      <Title>Hikaru Sulu</Title>
+      <Ability>Action: Disable one of your (crew) upgrades to remove an opponent's [TARGET LOCK] token from your ship. Remove the corresponding token from the opponent's ship as well.</Ability>
+      <Unique>Y</Unique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>3105</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Styles</Title>
+      <Ability>Add 1 additional [TECH] icon to your ship's upgrade bar.</Ability>
+      <Unique>Y</Unique>
+      <Skill>3</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>3106</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Feint</Title>
+      <Ability>Action: Discard this upgrade to target a ship at range 2-3. If you attack that ship this round, it rolls 2 less defense dice.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>3107</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Dmitri Valtane</Title>
+      <Ability>If your ship has a [SCAN] token beside it when you attack, you may re-roll up to 2 of your attack dice.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>3108</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Janice Rand</Title>
+      <Ability>After your ship moves, discard Rand to allow your captain to perform the action on one of his [TALENT] upgrades as a free action this round.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>3109</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Lojur</Title>
+      <Ability>When your ship fires a [WEAPON] upgrade that requires you to disable it, you may disable Lojur instead of that [WEAPON] upgrade.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>3110</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photon Torpedoes</Title>
+      <Ability>Attack: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>4</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>3111</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Positron Beam</Title>
+      <Ability>During the planning phase, you may discard this upgrade to target a ship at range 1 of your ship. That ship immediately receive an auxiliary  power token.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>3112</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Transwarp Drive</Title>
+      <Ability>During the activation phase, if your maneuver dial reveals a [STRAIGHT] 4 or [STRAIGHT] 5 maneuver, you may instead use a [STRAIGHT] 6 maneuver.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>3113</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Alidar Jarok</Title>
+      <Ability>Action: Discard your [TALENT] upgrade to target 1 ship at range 1-2. Neither of your ships may attack each other this round.</Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>3114</Id>
+      <Set>71274</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Massacre</Title>
+      <Ability>If your ship inflicts a [CRITICAL] against an enemy's Hull, discard this card to inflict 1 additional damage to that ship. </Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Romulan</Faction>
+      <Cost>3</Cost>
+      <Id>3115</Id>
+      <Set>71274</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Selok</Title>
+      <Ability>Action: Discard Selok to target a ship at Range 1. That ship cannot attack your ship this round. </Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>3116</Id>
+      <Set>71274</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Ultritium Explosives</Title>
+      <Ability>Action: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Discard this card and 1 of your [CREW] Upgrades to inflict 1 [CRITICAL] against the target ship. </Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Romulan</Faction>
+      <Cost>2</Cost>
+      <Id>3117</Id>
+      <Set>71274</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Data</Title>
+      <Ability>Action: Disable one of your crew upgrades and one of your weapon upgrades to target all cloaked ship at range 1-3. They immediately flip their cloak tokens to the red side. </Ability>
+      <Unique>Y</Unique>
+      <Skill>4</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>3118</Id>
+      <Set>OP4Prize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Disobey Orders</Title>
+      <Ability>You may discard this card at any time to replace 1 [EVADE][SCAN] or [BATTLESTATIONS] token next to your ship with a [EVADE][SCAN] or [BATTLESTATIONS] token. </Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>3119</Id>
+      <Set>OP4Prize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Christopher Hobson</Title>
+      <Ability>Action: Gain +1 attack die when firing at a cloaked ship. </Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>3120</Id>
+      <Set>OP4Prize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Secondary Torpedo Launcher</Title>
+      <Ability>Attack: [TARGET LOCK] Discard this card and spend your target lock to perform this attack. If you have already fired another torpedo at an enemy ship in your forward firing arc this round, you may use this weapon to make a second attack against that ship at -1 attack die. you do not need to spend a second target lock to make the extra attack.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>4</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>3121</Id>
+      <Set>OP4Prize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>High Energy Sensor Sweep</Title>
+      <Ability>After you move, you may disable 1 active shield to perform a free [SCAN] Action.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>3122</Id>
+      <Set>OP4Prize</Set>
+      <Special></Special>
+    </Upgrade>
+</Upgrades>

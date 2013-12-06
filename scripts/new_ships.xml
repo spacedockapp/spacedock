@@ -1,0 +1,140 @@
+<Ships>
+    <Ship>
+      <Title>U.S.S. Excelsior</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Excelsior</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>4</Shield>
+      <Ability>After you move, if no enemy ships are within Range 1 of your ship, you may perform a [SCAN] action as a free action.</Ability>
+      <Cost>26</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>3</Crew>
+      <Id>1044</Id>
+      <Set>71272</Set>
+    </Ship>
+    <Ship>
+      <Title>Federation Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Excelsior</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>2</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>3</Shield>
+      <Ability></Ability>
+      <Cost>24</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
+      <Id>1045</Id>
+      <Set>71272</Set>
+    </Ship>
+    <Ship>
+      <Title>R.I.S. Vo</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Romulan Scout Vessel</ShipClass>
+      <Faction>Romulan</Faction>
+      <Attack>1</Attack>
+      <Agility>3</Agility>
+      <Hull>2</Hull>
+      <Shield>2</Shield>
+      <Ability>After you move, you may perform an [EVADE] action as a free action. If you do so, you cannot attack during this round.</Ability>
+      <Cost>16</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock></TargetLock>
+      <Scan>1</Scan>
+      <Battlestations></Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Tech>1</Tech>
+      <Weapon></Weapon>
+      <Crew>1</Crew>
+      <Id>1046</Id>
+      <Set>71274</Set>
+    </Ship>
+    <Ship>
+      <Title>Romulan Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Romulan Scout Vessel</ShipClass>
+      <Faction>Romulan</Faction>
+      <Attack>1</Attack>
+      <Agility>3</Agility>
+      <Hull>2</Hull>
+      <Shield>1</Shield>
+      <Ability></Ability>
+      <Cost>14</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock></TargetLock>
+      <Scan>1</Scan>
+      <Battlestations></Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Tech>1</Tech>
+      <Weapon></Weapon>
+      <Crew></Crew>
+      <Id>1047</Id>
+      <Set>71274</Set>
+    </Ship>
+    <Ship>
+      <Title>U.S.S. Sutherland</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Nebula</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>4</Shield>
+      <Ability>When you initiate an attack at range 3, you may choose any number of your attack dice and re-roll them once.</Ability>
+      <Cost>26</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>2</Crew>
+      <Id>1048</Id>
+      <Set>OP4Prize</Set>
+    </Ship>
+    <Ship>
+      <Title>Federation Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Nebula</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>4</Shield>
+      <Ability></Ability>
+      <Cost>24</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
+      <Id>1049</Id>
+      <Set>OP4Prize</Set>
+    </Ship>
+</Ships>

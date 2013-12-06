@@ -1,142 +1,46 @@
 require "enumerator"
+require "nokogiri"
+require "pathname"
+
+script_path = Pathname.new(File.dirname(__FILE__))
+root_path = script_path.parent()
+src_path =  root_path.join("src")
+xml_path = src_path.join("Data.xml").to_s
+xml_text = File.read(xml_path)
+doc = Nokogiri::XML(xml_text)
+
+ships = doc.xpath("//Data//ShipClassDetails/ShipClassDetail/Id").collect do |node|
+  node.content
+end
+
+v = ships.sort.last.to_i 
+v+= 1
 
 ship = <<-SHIPTEXT
-Galaxy Class	
-		WHITE				Front Arc
-		WHITE				90°
-RED	WHITE	GREEN	WHITE	RED		
-	WHITE	GREEN	WHITE			Rear Arc
-	GREEN	GREEN	GREEN			90°
-		RED				
-		RED				
-Miranda Class	
-						Front Arc
-		WHITE				180°
-WHITE	WHITE	WHITE	WHITE	WHITE		
-WHITE	WHITE	GREEN	WHITE	WHITE		Rear Arc
-	GREEN	GREEN	GREEN			90°
-						
-		RED				
-Constitution Class	
+Excelsior Class	
 						Front Arc
 		WHITE				180°
 RED	WHITE	WHITE	WHITE	RED		
-WHITE	WHITE	GREEN	WHITE	WHITE		
-	GREEN	GREEN	GREEN			
-						
-		RED				
-Defiant Class	
-						Front Arc
-		WHITE				90°
-WHITE	WHITE	WHITE	WHITE	WHITE	RED	
-WHITE	WHITE	GREEN	WHITE	WHITE		Rear Arc
+RED	WHITE	GREEN	WHITE	RED		Rear Arc
 	GREEN	GREEN	GREEN			90°
 						
-						
-D'deridex Class	
-						Front Arc
-		WHITE				90°
-WHITE	WHITE	WHITE	WHITE	WHITE		
-WHITE	WHITE	GREEN	WHITE	WHITE		
-	GREEN	GREEN	GREEN			
-						
-		RED				
-Valdore Class	
-						Front Arc
-		WHITE				90°
-RED	WHITE	WHITE	WHITE	RED	RED	
-WHITE	GREEN	GREEN	GREEN	WHITE		
-	GREEN	GREEN	GREEN			
-						
-						
-Romulan Science Vessel	
+		RED
+Romulan Scout Vessel	
 						Front Arc
 		WHITE				90°
 	WHITE	WHITE	WHITE			
 WHITE	GREEN	GREEN	GREEN	WHITE	WHITE	
 WHITE	GREEN	GREEN	GREEN	WHITE		
-						
-						
-Romulan Bird of Prey Class	
-						Front Arc
-		WHITE				90°
-WHITE	WHITE	WHITE	WHITE	WHITE	RED	
-WHITE	WHITE	GREEN	WHITE	WHITE		
-	GREEN	GREEN	GREEN			
-						
-						
-Vor'cha Class	
-						Front Arc
-		WHITE				90°
-RED	WHITE	WHITE	WHITE	RED	RED	
-WHITE	GREEN	GREEN	GREEN	WHITE		
-	GREEN	GREEN	GREEN			
-						
-						
-D7 Class*	
-						Front Arc
-		WHITE				90°
-RED	WHITE	WHITE	WHITE	RED	RED	
-WHITE	WHITE	GREEN	WHITE	WHITE		
-	GREEN	GREEN	GREEN			
-						
-						
-Negh'var Class	
-						Front Arc
-		WHITE				90°
-RED	WHITE	WHITE	WHITE	RED	RED	
-WHITE	WHITE	GREEN	WHITE	WHITE		
-	GREEN	GREEN	GREEN			
-						
-						
-K'T'Inga Class	
-						Front Arc
-		WHITE				90°
-RED	WHITE	WHITE	WHITE	RED	RED	
-WHITE	WHITE	GREEN	WHITE	WHITE		Rear Arc
-	GREEN	GREEN	GREEN			90°
-						
-						
-Cardassian Galor Class	
-		WHITE				Front Arc
-		WHITE				180°
-RED	WHITE	WHITE	WHITE	RED		
-RED	WHITE	GREEN	WHITE	RED		
-	GREEN	GREEN	GREEN			
-						
-						
-Breen Battle Cruiser	
-						Front Arc
-		WHITE				90°
-RED	WHITE	WHITE	WHITE	RED	RED	
-WHITE	WHITE	GREEN	WHITE	WHITE		
-	GREEN	GREEN	GREEN			
-						
-						
-Jem'Hadar Attack Ship	
-						Front Arc
-		WHITE				90°
-WHITE	WHITE	WHITE	WHITE	WHITE	RED	
-WHITE	GREEN	GREEN	GREEN	WHITE		
-	GREEN	GREEN	GREEN			
-						
-						
-Ferengi D'Kora Class	
+
+
+Nebula Class	
 						Front Arc
 		WHITE				90°
 RED	WHITE	WHITE	WHITE	RED		
 WHITE	WHITE	GREEN	WHITE	WHITE		
 	GREEN	GREEN	GREEN			
 		RED				
-						
-B'rel Class	
-						Front Arc
-		WHITE				90°
-WHITE	WHITE	WHITE	WHITE	WHITE	RED	
-WHITE	GREEN	GREEN	GREEN	WHITE		Rear Arc
-	GREEN	GREEN	GREEN			90°
-						
-						
+		
 SHIPTEXT
 
 directions = ["left-turn", "left-bank", "straight", "right-bank", "right-turn", "about"]
@@ -145,7 +49,7 @@ speed = 6
 frontArc = ""
 rearArc = ""
 puts %Q(<ShipClassDetails>)
-externalId = 5000
+externalId = v
 shipLines.each do |l|
   if speed == 6
     parts = l.split "\t"
