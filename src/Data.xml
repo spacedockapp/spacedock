@@ -1,4 +1,4 @@
-<Data version="1.179">
+<Data version="1.180">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -4624,6 +4624,26 @@ c) Exchange 1 Captain from his ship with 1 Captain from his Sideboard.
         <Type>Resource</Type>
         <Cost>10</Cost>
         <Id>4003</Id>
+        <Set>OP3Participation</Set>
+      </Resource>
+      <Resource>
+        <Title>Flagship</Title>
+        <Unique>Y</Unique>
+        <Ability>1) Players receive a set of 4 flagship cards (with 2 options on each card) and choose 1 of those options to use during the tournament. There are 4 Independent options and 1 option for each faction: Federation, Klingon, Romulan, and Dominion. If a Federation, Klingon, Romulan, or Dominion flagship option is chosen, players must assign a ship of the same faction as their flagship. If an Independent option is chosen, players may assign any ship as their flagship and pay no faction penalty. An independent faction flagship is now independent faction in addition to its original faction.
+
+2) Flagship cards are oversized cards that are placed beneath your ship card. These cards will have additional stats that increase the printed values* of your ship (primary weapon, agility, hull, shields). In addition, flagship cards may add bonus text-based abilities, actions, and upgrade slots to the assigned ship card.
+
+3) Players may use the bonus text-based ability in addition to their ship's normal text-based ability (if applicable) during the battle.
+
+4) If a ship card does not have the bonus action in its action bar, that ship is now considered to have that action in its action bar. If a ship card already has the bonus action in its action bar, that ship may use this action as a free action every round.
+
+5) If there is a bonus (talent) upgrade slot on your chosen flagship option, you may choose a (talent) upgrade even if your captain does not have the (talent) icon on the captain card. This talent is considered to be attached to the captain.
+
+6) Players also receive a special plastic base and pegs that will show which ship is your flagship at a glance. The color of the base and pegs is black.
+        </Ability>
+        <Type>Resource</Type>
+        <Cost>10</Cost>
+        <Id>4004</Id>
         <Set>OP3Participation</Set>
       </Resource>
     </Resources>
