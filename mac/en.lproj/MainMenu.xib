@@ -821,7 +821,7 @@
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
-                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="frontArc"/>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="formattedFrontArc"/>
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <connections>
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.formattedFrontArc" id="jdy-Jh-YSn">
@@ -842,7 +842,7 @@
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
-                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="rearArc"/>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="formattedRearArc"/>
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <connections>
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.formattedRearArc" id="RCd-73-mMx">
