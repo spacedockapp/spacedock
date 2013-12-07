@@ -3,6 +3,9 @@
 typedef void (^ DockFAQDownloadFinished)();
 
 @interface DockFAQLoader : NSObject
+
+@property (strong, nonatomic) NSURLRequest* request;
+@property (strong, nonatomic) NSURLDownload* download;
 @property (strong, nonatomic) NSString* downloadPath;
 @property (strong, nonatomic) NSMutableString* currentText;
 @property (strong, nonatomic) DockFAQDownloadFinished downloadFinished;
@@ -12,4 +15,5 @@ typedef void (^ DockFAQDownloadFinished)();
 
 -(void)load:(DockFAQDownloadFinished)whenFinished;
 -(NSString*)asHTML:(BOOL)andrewOnly;
+
 @end

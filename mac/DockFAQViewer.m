@@ -3,7 +3,7 @@
 #import <WebKit/WebKit.h>
 
 #import "DockAppDelegate.h"
-#import "DockFAQLoaderMac.h"
+#import "DockFAQLoader.h"
 
 @interface DockFAQViewer (Private) <NSTextFinderClient>
 
@@ -41,16 +41,10 @@
 {
     BOOL andrewOnly = [_andrewOnlyButton state] == NSOnState;
     NSURL* fileURL = [self urlForHTMLFile: andrewOnly];
-    NSFileManager* fm = [NSFileManager defaultManager];
-    BOOL isDirectory;
-    if ([fm fileExistsAtPath: [fileURL path] isDirectory: &isDirectory]) {
-        NSError* error;
-        NSString* html = [NSString stringWithContentsOfURL: fileURL encoding: NSUTF8StringEncoding error: &error];
-        NSURL* bggURL = [NSURL URLWithString: @"http://boardgamegeek.com"];
-        [[_webView mainFrame] loadHTMLString: html baseURL: bggURL];
-    } else {
-        [self refresh: nil];
-    }
+    NSError* error;
+    NSString* html = [NSString stringWithContentsOfURL: fileURL encoding: NSUTF8StringEncoding error: &error];
+    NSURL* bggURL = [NSURL URLWithString: @"http://boardgamegeek.com"];
+    [[_webView mainFrame] loadHTMLString: html baseURL: bggURL];
 }
 
 -(void)updateFinished
@@ -66,7 +60,7 @@
     [_refreshButton setEnabled: NO];
     [_progressIndicator startAnimation: sender];
     [_progressIndicator setHidden: NO];
-    _faqLoader = [[DockFAQLoaderMac alloc] init];
+    _faqLoader = [[DockFAQLoader alloc] init];
     [_faqLoader load: ^() { [self updateFinished];}];
 }
 
