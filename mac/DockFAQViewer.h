@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 
 @class WebView;
-@class DockFAQLoader;
+@class DockFAQLoaderMac;
 
 @interface DockFAQViewer : NSObject
 @property (strong, nonatomic) IBOutlet NSWindow* window;
@@ -10,7 +10,7 @@
 @property (strong, nonatomic) IBOutlet NSButton* andrewOnlyButton;
 @property (strong, nonatomic) IBOutlet NSProgressIndicator* progressIndicator;
 @property (strong, nonatomic) IBOutlet NSSearchField* searchField;
-@property (strong, nonatomic) DockFAQLoader* faqLoader;
+@property (strong, nonatomic) DockFAQLoaderMac* faqLoader;
 -(IBAction)refresh:(id)sender;
 -(void)show;
 @end
