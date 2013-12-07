@@ -43,7 +43,8 @@
     NSURL* fileURL = [self urlForHTMLFile: andrewOnly];
     NSError* error;
     NSString* html = [NSString stringWithContentsOfURL: fileURL encoding: NSUTF8StringEncoding error: &error];
-    [[_webView mainFrame] loadHTMLString: html baseURL: fileURL];
+    NSURL* bggURL = [NSURL URLWithString: @"http://boardgamegeek.com"];
+    [[_webView mainFrame] loadHTMLString: html baseURL: bggURL];
 }
 
 -(void)updateFinished
@@ -94,5 +95,19 @@
 {
     [self findAgain: nil];
 }
+
+- (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation
+        request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id)listener
+{
+    NSURL* url = [request URL];
+    NSString *urlString = [url absoluteString];
+    if ([urlString hasPrefix:@"http://boardgamegeek.com/article"]) {
+        [listener ignore];
+        [[NSWorkspace sharedWorkspace] openURL: url];
+    } else {
+        [listener use];
+    }
+}
+
 
 @end

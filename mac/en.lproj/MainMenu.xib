@@ -2523,6 +2523,9 @@ Gw
                                     <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" plugInsEnabled="NO" javaEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO">
                                         <nil key="identifier"/>
                                     </webPreferences>
+                                    <connections>
+                                        <outlet property="policyDelegate" destination="fzH-hA-dLG" id="TTN-43-8hP"/>
+                                    </connections>
                                 </webView>
                             </subviews>
                         </view>
