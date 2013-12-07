@@ -1377,6 +1377,7 @@
                                                                                     <string key="NSSelectorName">addSelected:</string>
                                                                                 </dictionary>
                                                                             </binding>
+                                                                            <binding destination="YPe-Zs-mE7" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="vOs-jb-UXr" id="s2z-wS-RAn"/>
                                                                         </connections>
                                                                     </tableView>
                                                                 </subviews>
@@ -1920,7 +1921,7 @@
                 </textField>
             </subviews>
         </customView>
-        <arrayController mode="entity" entityName="Resource" automaticallyPreparesContent="YES" avoidsEmptySelection="NO" automaticallyRearrangesObjects="YES" id="YPe-Zs-mE7" userLabel="resources controller">
+        <arrayController mode="entity" entityName="Resource" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="YPe-Zs-mE7" userLabel="resources controller">
             <connections>
                 <binding destination="494" name="managedObjectContext" keyPath="self.managedObjectContext" id="2uq-jW-ChQ"/>
             </connections>
