@@ -2,6 +2,7 @@
 
 @class DockInspector;
 @class DockFleetBuildSheet;
+@class DockFAQViewer;
 
 extern NSString* kInspectorVisible;
 
@@ -27,6 +28,7 @@ extern NSString* kInspectorVisible;
 @property (assign) IBOutlet NSMenu* factionMenu;
 @property (assign) IBOutlet DockInspector* inspector;
 @property (assign) IBOutlet DockFleetBuildSheet* fleetBuildSheet;
+@property (assign) IBOutlet DockFAQViewer* faqViewer;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel* managedObjectModel;
@@ -35,6 +37,7 @@ extern NSString* kInspectorVisible;
 @property (strong, nonatomic) NSArray* includedSets;
 @property (strong, nonatomic) NSSavePanel* currentSavePanel;
 
++(NSURL*)applicationFilesDirectory;
 -(IBAction)saveAction:(id)sender;
 -(IBAction)addSquad:(id)sender;
 -(IBAction)addSelected:(id)sender;
@@ -50,6 +53,7 @@ extern NSString* kInspectorVisible;
 -(IBAction)resetFactionFilter:(id)sender;
 -(IBAction)filterToFaction:(id)sender;
 -(IBAction)showInspector:(id)sender;
+-(IBAction)showFAQ:(id)sender;
 -(IBAction)showFleetBuildSheet:(id)sender;
 
 @end

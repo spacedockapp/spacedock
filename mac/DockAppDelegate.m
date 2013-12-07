@@ -8,6 +8,7 @@
 #import "DockEquippedShip.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockErrors.h"
+#import "DockFAQViewer.h"
 #import "DockFleetBuildSheet.h"
 #import "DockInspector.h"
 #import "DockResource.h"
@@ -132,7 +133,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
--(NSURL*)applicationFilesDirectory
++(NSURL*)applicationFilesDirectory
 {
     NSFileManager* fileManager = [NSFileManager defaultManager];
     NSURL* appSupportURL = [[fileManager URLsForDirectory: NSApplicationSupportDirectory inDomains: NSUserDomainMask] lastObject];
@@ -166,7 +167,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
     }
 
     NSFileManager* fileManager = [NSFileManager defaultManager];
-    NSURL* applicationFilesDirectory = [self applicationFilesDirectory];
+    NSURL* applicationFilesDirectory = [DockAppDelegate applicationFilesDirectory];
     NSError* error = nil;
 
     NSDictionary* properties = [applicationFilesDirectory resourceValuesForKeys: @[NSURLIsDirectoryKey] error: &error];
@@ -993,6 +994,11 @@ NSString* kInspectorVisible = @"inspectorVisible";
     [pasteboard clearContents];
     NSArray* objectsToCopy = @[[[self selectedSquad] asPlainTextFormat]];
     [pasteboard writeObjects: objectsToCopy];
+}
+
+-(IBAction)showFAQ:(id)sender
+{
+    [_faqViewer show];
 }
 
 @end
