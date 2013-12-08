@@ -400,19 +400,17 @@ static NSString* makeKey(NSString* key)
     _parsedData = nil;
 }
 
--(NSDictionary*)loadDataFile:(NSError**)error
+-(NSDictionary*)loadDataFile:(NSString*)pathToDataFile error:(NSError**)error
 {
-    NSString* file = [[NSBundle mainBundle] pathForResource: @"Data" ofType: @"xml"];
-
     _parsedData = [[NSMutableDictionary alloc] initWithCapacity: 0];
-    NSURL* furl = [NSURL fileURLWithPath: file];
+    NSURL* furl = [NSURL fileURLWithPath: pathToDataFile];
 
     if (!furl) {
-        NSLog(@"Can't create an URL from file %@.", file);
+        NSLog(@"Can't create an URL from file %@.", pathToDataFile);
         return nil;
     }
 
-    NSXMLParser* parser = [[NSXMLParser alloc] initWithContentsOfURL: [NSURL fileURLWithPath: file]];
+    NSXMLParser* parser = [[NSXMLParser alloc] initWithContentsOfURL: furl];
     [parser setDelegate: self];
     [parser parse];
 
@@ -443,9 +441,9 @@ static NSString* makeKey(NSString* key)
     return unhandledSpecials;
 }
 
--(BOOL)loadData:(NSError**)error
+-(BOOL)loadData:(NSString*)pathToDataFile error:(NSError**)error;
 {
-    NSDictionary* xmlData = [self loadDataFile: error];
+    NSDictionary* xmlData = [self loadDataFile: pathToDataFile error:error];
 
     if (xmlData == nil) {
         return NO;

@@ -110,6 +110,33 @@
                             <menuItem isSeparatorItem="YES" id="Wmq-fm-HgB">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
+                            <menuItem title="Export Data.xml..." id="ZIu-cK-2Eu">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="exportDataFile:" target="-1" id="ESN-YB-cOZ"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Import Data.xml..." id="Xq9-UM-4v7">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="importDataFile:" target="-1" id="DGN-Vr-a3Y"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Revert Data.xml" id="xbu-oQ-Qc1">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="revertDataFile:" target="-1" id="vtB-XK-8tW"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Check for New Data.xml" id="BhT-Sy-uW9">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="checkForNewDataFile:" target="-1" id="lEW-Q5-0nh"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="yyY-e2-lFG">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
                             <menuItem title="Print Fleet Build..." keyEquivalent="p" id="vGz-t5-bBO">
                                 <connections>
                                     <action selector="showFleetBuildSheet:" target="494" id="a3g-an-vcz"/>

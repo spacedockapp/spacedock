@@ -4,6 +4,7 @@
 #import "DockConstants.h"
 #import "DockCrew.h"
 #import "DockDataLoader.h"
+#import "DockDataUpdater.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedShip.h"
 #import "DockEquippedUpgrade+Addons.h"
@@ -26,6 +27,10 @@
 
 NSString* kWarnAboutUnhandledSpecials = @"warnAboutUnhandledSpecials";
 NSString* kInspectorVisible = @"inspectorVisible";
+
+@interface DockAppDelegate ()
+@property (strong, nonatomic) DockDataUpdater* updater;
+@end
 
 @implementation DockAppDelegate
 
@@ -58,17 +63,28 @@ NSString* kInspectorVisible = @"inspectorVisible";
     }
 }
 
--(void)loadData
+-(NSString*)loadDataForVersion:(NSString*)currentVersion filePath:(NSString*)filePath
 {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    NSString* currentVersion = [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
     DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: _managedObjectContext
                                                              version: currentVersion];
     NSError* error = nil;
 
-    if ([loader loadData: &error]) {
-        [defaults setObject: loader.dataVersion forKey: kSpaceDockCurrentDataVersionKey];
+    if ([loader loadData: filePath error: &error]) {
         [self validateSpecials: [loader validateSpecials]];
+        return loader.dataVersion;
+    }
+    
+    return nil;
+}
+
+-(void)loadData:(NSString*)filePath
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSString* currentVersion = [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
+
+    NSString* dataVersion = [self loadDataForVersion: currentVersion filePath: filePath];
+    if (dataVersion != nil) {
+        [defaults setObject: dataVersion forKey: kSpaceDockCurrentDataVersionKey];
     }
 
     for (DockSet* set in[DockSet allSets : _managedObjectContext]) {
@@ -105,9 +121,23 @@ NSString* kInspectorVisible = @"inspectorVisible";
     }
 }
 
+-(NSString*)pathToDataFile
+{
+    NSString* appData = [[DockAppDelegate applicationFilesDirectory] path];
+    NSString* xmlFile = [appData stringByAppendingPathComponent: @"Data.xml"];
+    NSFileManager* fm = [NSFileManager defaultManager];
+    BOOL isDirectory;
+    if ([fm fileExistsAtPath: xmlFile isDirectory: &isDirectory]) {
+        return xmlFile;
+    }
+    
+    return [[NSBundle mainBundle] pathForResource: @"Data" ofType: @"xml"];
+}
+
 -(void)applicationDidFinishLaunching:(NSNotification*)aNotification
 {
-    [self loadData];
+    NSString* pathToData = [self pathToDataFile];
+    [self loadData: pathToData];
     [self updateForSelectedSets];
     [_squadDetailController addObserver: self
                              forKeyPath: @"content"
@@ -999,6 +1029,86 @@ NSString* kInspectorVisible = @"inspectorVisible";
 -(IBAction)showFAQ:(id)sender
 {
     [_faqViewer show];
+}
+
+-(IBAction)exportDataFile:(id)sender
+{
+    NSSavePanel* savePanel = [NSSavePanel savePanel];
+    savePanel.allowedFileTypes = @[@"xml"];
+    [savePanel setNameFieldStringValue: @"Data.xml"];
+    [savePanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
+         if (v == NSFileHandlingPanelOKButton) {
+            NSURL* fileURL = [[NSBundle mainBundle] URLForResource: @"Data" withExtension: @"xml"];
+            NSFileManager* fm = [NSFileManager defaultManager];
+            NSError* error;
+            if (![fm copyItemAtURL: fileURL toURL: savePanel.URL error: &error]) {
+            }
+         }
+     }
+    ];
+}
+
+-(IBAction)importDataFile:(id)sender
+{
+    NSOpenPanel* importPanel = [NSOpenPanel openPanel];
+    importPanel.allowedFileTypes = @[@"xml"];
+    [importPanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
+         if (v == NSFileHandlingPanelOKButton) {
+            NSURL* importURL = [DockAppDelegate applicationFilesDirectory];
+            importURL = [importURL URLByAppendingPathComponent: @"Data.xml"];
+            NSFileManager* fm = [NSFileManager defaultManager];
+            [fm removeItemAtURL: importURL error: nil];
+            NSError* error;
+            if ([fm copyItemAtURL: importPanel.URL toURL: importURL error: &error]) {
+                [self loadDataForVersion: @"" filePath: [self pathToDataFile]];
+            }
+         }
+     }
+
+    ];
+}
+
+-(IBAction)revertDataFile:(id)sender
+{
+    NSURL* importURL = [DockAppDelegate applicationFilesDirectory];
+    importURL = [importURL URLByAppendingPathComponent: @"Data.xml"];
+    NSFileManager* fm = [NSFileManager defaultManager];
+    [fm removeItemAtURL: importURL error: nil];
+    [self loadDataForVersion: @""filePath: [self pathToDataFile]];
+}
+
+-(void)updateInfo:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
+{
+    _updater = nil;
+}
+
+-(void)handleNewData:(NSString*)remoteVersion path:(NSString*)path error:(NSError*)error
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSString* currentVersion = [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
+    if (![currentVersion isEqualToString: remoteVersion] || true) {
+        NSAlert* alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle: @"Update"];
+        [alert addButtonWithTitle: @"Cancel"];
+        [alert setMessageText: @"New Game Data Available"];
+        NSString* info = [NSString stringWithFormat: @"Current data version is %@ vs remote version of %@", currentVersion, remoteVersion];
+        [alert setInformativeText: info];
+        [alert setAlertStyle: NSInformationalAlertStyle];
+        [alert beginSheetModalForWindow: [self window]
+                          modalDelegate: self
+                         didEndSelector: @selector(updateInfo:returnCode:contextInfo:)
+                            contextInfo: nil];
+    }
+}
+
+-(IBAction)checkForNewDataFile:(id)sender
+{
+    if (_updater == nil) {
+        _updater = [[DockDataUpdater alloc] init];
+        [_updater checkForNewData: ^(NSString* remoteVersion, NSString* downoadPath, NSError* error) {
+            [self handleNewData: remoteVersion path: downoadPath error: error];
+        }];
+    }
 }
 
 @end

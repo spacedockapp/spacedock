@@ -55,5 +55,8 @@ extern NSString* kInspectorVisible;
 -(IBAction)showInspector:(id)sender;
 -(IBAction)showFAQ:(id)sender;
 -(IBAction)showFleetBuildSheet:(id)sender;
+-(IBAction)exportDataFile:(id)sender;
+-(IBAction)importDataFile:(id)sender;
+-(IBAction)revertDataFile:(id)sender;
 
 @end
