@@ -199,6 +199,7 @@
 		D4BCA3F31814EC5100921183 /* DockDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA3F21814EC5100921183 /* DockDataLoader.m */; };
 		D4D7092F1825F9F8004F4F1E /* DockUpgradeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D7092D1825F770004F4F1E /* DockUpgradeDetailViewController.m */; };
 		D4D7BE6817F76FB50070D94D /* DockCaptain+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D7BE6717F76FB50070D94D /* DockCaptain+Addons.m */; };
+		D4DA34BD1854D18C00F58858 /* DockDataUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E94BA91853F8A300AE415D /* DockDataUpdater.m */; };
 		D4E94BAA1853F8A300AE415D /* DockDataUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E94BA91853F8A300AE415D /* DockDataUpdater.m */; };
 		D4EE8DBF181C2E4000E92DD6 /* DockSquadsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EE8DBE181C2E4000E92DD6 /* DockSquadsListController.m */; };
 		D4EE8DC2181C5EB500E92DD6 /* DockSquadDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EE8DC1181C5EB500E92DD6 /* DockSquadDetailController.m */; };
@@ -1242,6 +1243,7 @@
 				D47316B418182C4C00046428 /* DockUpgrade+Addons.m in Sources */,
 				D45E4CB6182E9B2500F0AA7D /* DockResourceDetailViewController.m in Sources */,
 				D47316AD18182C4C00046428 /* DockEquippedUpgrade+Addons.m in Sources */,
+				D4DA34BD1854D18C00F58858 /* DockDataUpdater.m in Sources */,
 				D46E95EB182C8BC20060DCD7 /* DockShipDetailViewController.m in Sources */,
 				D47316B318182C4C00046428 /* DockSquad+Addons.m in Sources */,
 				D4B8892A1847C1F300AE46E6 /* DockSideboard+Addons.m in Sources */,

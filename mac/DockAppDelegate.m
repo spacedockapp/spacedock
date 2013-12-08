@@ -77,13 +77,19 @@ NSString* kInspectorVisible = @"inspectorVisible";
     return nil;
 }
 
--(void)loadData:(NSString*)filePath
+-(NSString*)currentDataVersion
 {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    NSString* currentVersion = [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
+    return [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
+}
+
+-(void)loadData:(NSString*)filePath
+{
+    NSString* currentVersion = [self currentDataVersion];
 
     NSString* dataVersion = [self loadDataForVersion: currentVersion filePath: filePath];
     if (dataVersion != nil) {
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject: dataVersion forKey: kSpaceDockCurrentDataVersionKey];
     }
 
@@ -906,6 +912,12 @@ NSString* kInspectorVisible = @"inspectorVisible";
         } else {
             [menuItem setTitle: [NSString stringWithFormat: @"Promote to '%@'", counterpart.title]];
         }
+    } else if (action == @selector(checkForNewDataFile:)) {
+        return _updater == nil;
+    } else if (action == @selector(revertDataFile:)) {
+        NSString* pathToDataFile = [self pathToDataFile];
+        NSString* appPath = [[DockAppDelegate applicationFilesDirectory] path];
+        return [pathToDataFile hasPrefix: appPath];
     }
 
     return YES;
@@ -1077,36 +1089,53 @@ NSString* kInspectorVisible = @"inspectorVisible";
     [self loadDataForVersion: @""filePath: [self pathToDataFile]];
 }
 
--(void)updateInfo:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
+-(void)updateInfo:(NSData*)downloadedData
 {
-    _updater = nil;
+    NSURL* importURL = [DockAppDelegate applicationFilesDirectory];
+    importURL = [importURL URLByAppendingPathComponent: @"Data.xml"];
+    NSFileManager* fm = [NSFileManager defaultManager];
+    [fm removeItemAtURL: importURL error: nil];
+    [downloadedData writeToURL: importURL atomically: NO];
+    [self loadDataForVersion: [self currentDataVersion] filePath: [self pathToDataFile]];
 }
 
--(void)handleNewData:(NSString*)remoteVersion path:(NSString*)path error:(NSError*)error
+-(void)handleNewData:(NSString*)remoteVersion path:(NSData*)downloadData error:(NSError*)error
 {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSString* currentVersion = [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
-    if (![currentVersion isEqualToString: remoteVersion] || true) {
-        NSAlert* alert = [[NSAlert alloc] init];
+    NSAlert* alert = [[NSAlert alloc] init];
+    if (![currentVersion isEqualToString: remoteVersion]) {
         [alert addButtonWithTitle: @"Update"];
         [alert addButtonWithTitle: @"Cancel"];
         [alert setMessageText: @"New Game Data Available"];
-        NSString* info = [NSString stringWithFormat: @"Current data version is %@ vs remote version of %@", currentVersion, remoteVersion];
+        NSString* info = [NSString stringWithFormat: @"Current data version is %@ and version %@ is available Would you like to update?", currentVersion, remoteVersion];
         [alert setInformativeText: info];
         [alert setAlertStyle: NSInformationalAlertStyle];
+        id completion = ^(NSModalResponse returnCode) {
+            [self updateInfo: downloadData];
+        };
         [alert beginSheetModalForWindow: [self window]
-                          modalDelegate: self
-                         didEndSelector: @selector(updateInfo:returnCode:contextInfo:)
-                            contextInfo: nil];
+                          completionHandler: completion];
+    } else {
+        [alert addButtonWithTitle: @"OK"];
+        [alert setMessageText: @"Game Data Up to Date"];
+        NSString* info = [NSString stringWithFormat: @"Data version %@ and is the most recent version available.", currentVersion];
+        [alert setInformativeText: info];
+        [alert setAlertStyle: NSInformationalAlertStyle];
+        id completion = ^(NSModalResponse returnCode) {
+        };
+        [alert beginSheetModalForWindow: [self window]
+                          completionHandler: completion];
     }
+    _updater = nil;
 }
 
 -(IBAction)checkForNewDataFile:(id)sender
 {
     if (_updater == nil) {
         _updater = [[DockDataUpdater alloc] init];
-        [_updater checkForNewData: ^(NSString* remoteVersion, NSString* downoadPath, NSError* error) {
-            [self handleNewData: remoteVersion path: downoadPath error: error];
+        [_updater checkForNewData: ^(NSString* remoteVersion, NSData* downloadData, NSError* error) {
+            [self handleNewData: remoteVersion path: downloadData error: error];
         }];
     }
 }

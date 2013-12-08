@@ -25,14 +25,28 @@
 
 #pragma mark - Application lifecycle
 
+-(NSString*)pathToDataFile
+{
+    NSString* appData = [[self applicationDocumentsDirectory] path];
+    NSString* xmlFile = [appData stringByAppendingPathComponent: @"Data.xml"];
+    NSFileManager* fm = [NSFileManager defaultManager];
+    BOOL isDirectory;
+    if ([fm fileExistsAtPath: xmlFile isDirectory: &isDirectory]) {
+        return xmlFile;
+    }
+    
+    return [[NSBundle mainBundle] pathForResource: @"Data" ofType: @"xml"];
+}
+
 -(void)loadAppData
 {
+    NSString* filePath = [self pathToDataFile];
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSString* currentVersion = [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
     DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: self.managedObjectContext version: currentVersion];
     NSError* error = nil;
 
-    if ([loader loadData: &error]) {
+    if ([loader loadData: filePath error: &error]) {
         [defaults setObject: loader.dataVersion forKey: kSpaceDockCurrentDataVersionKey];
     }
 

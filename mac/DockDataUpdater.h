@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-typedef void (^ DockDataUpdaterFinished)(NSString* remoteVersion, NSString* downloadPath, NSError* error);
+typedef void (^ DockDataUpdaterFinished)(NSString* remoteVersion, NSData* downloadData, NSError* error);
 
 @interface DockDataUpdater : NSObject
 -(void)checkForNewData:(DockDataUpdaterFinished)finished;

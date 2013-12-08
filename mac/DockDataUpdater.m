@@ -1,9 +1,9 @@
 #import "DockDataUpdater.h"
 
-@interface DockDataUpdater () <NSURLDownloadDelegate,NSXMLParserDelegate>
+@interface DockDataUpdater () <NSXMLParserDelegate>
 @property (strong, nonatomic) NSURLRequest* request;
-@property (strong, nonatomic) NSURLDownload* download;
-@property (strong, nonatomic) NSString* downloadPath;
+@property (strong, nonatomic) NSURLConnection* connnection;
+@property (strong, nonatomic) NSMutableData *downloadData;
 @property (strong, nonatomic) NSString* remoteVersion;
 @property (strong, nonatomic) DockDataUpdaterFinished onFinished;
 @end
@@ -18,17 +18,26 @@
     }
 }
 
-- (void)downloadDidFinish:(NSURLDownload *)download
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    NSXMLParser* parser = [[NSXMLParser alloc] initWithContentsOfURL: [NSURL fileURLWithPath: _downloadPath]];
-    [parser setDelegate: self];
-    [parser parse];
-    _onFinished(_remoteVersion, _downloadPath, nil);
 }
 
-- (void)download:(NSURLDownload *)download didFailWithError:(NSError *)error
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    _onFinished(nil, nil, error);
+    [_downloadData appendData: data];
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
+{
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSXMLParser* parser = [[NSXMLParser alloc] initWithData: _downloadData];
+    [parser setDelegate: self];
+    [parser parse];
+    _onFinished(_remoteVersion, _downloadData, nil);
 }
 
 -(void)checkForNewData:(DockDataUpdaterFinished)finished
@@ -36,10 +45,8 @@
     _onFinished = finished;
     NSURL* url = [NSURL URLWithString: @"http://spacedock.funnyhatsoftware.com/Data.xml"];
     _request = [NSURLRequest requestWithURL: url];
-    _download = [[NSURLDownload alloc] initWithRequest: _request delegate: self];
-    _downloadPath = NSTemporaryDirectory();
-    _downloadPath = [_downloadPath stringByAppendingPathComponent: @"Data.xml"];
-    [_download setDestination: _downloadPath allowOverwrite: YES];
+    _downloadData = [[NSMutableData alloc] init];
+    _connnection = [NSURLConnection connectionWithRequest: _request delegate: self];
 }
 
 @end
