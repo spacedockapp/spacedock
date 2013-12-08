@@ -10,6 +10,7 @@ typedef void (^ DockUpgradePicked)(DockUpgrade*);
 @interface DockUpgradesViewController : DockTableViewController
 @property (strong, nonatomic) IBOutlet DockUpgradeDetailViewController* detailViewController;
 @property (strong, nonatomic) NSString* upType;
+@property (strong, nonatomic) NSString* upgradeTypeName;
 @property (nonatomic, strong) DockUpgradePicked onUpgradePicked;
 @property (nonatomic, weak) DockSquad* targetSquad;
 @property (nonatomic, weak) DockEquippedShip* targetShip;

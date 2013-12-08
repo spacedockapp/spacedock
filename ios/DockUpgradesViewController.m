@@ -19,10 +19,11 @@
     [super viewDidLoad];
 }
 
+
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.navigationController.title = _upType;
     [super viewWillAppear: animated];
+    [self setTitle: _upgradeTypeName];
     NSIndexPath* indexPath = nil;
 
     if (_targetUpgrade) {

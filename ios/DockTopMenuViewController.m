@@ -32,26 +32,31 @@
         DockUpgradesViewController* controller = (DockUpgradesViewController*)destination;
         controller.managedObjectContext = self.managedObjectContext;
         controller.upType = @"Captain";
+        controller.upgradeTypeName = @"Captains";
     } else if ([[segue identifier] isEqualToString: @"GoToCrew"]) {
         id destination = [segue destinationViewController];
         DockUpgradesViewController* controller = (DockUpgradesViewController*)destination;
         controller.managedObjectContext = self.managedObjectContext;
         controller.upType = @"Crew";
+        controller.upgradeTypeName = @"Crew";
     } else if ([[segue identifier] isEqualToString: @"GoToTalents"]) {
         id destination = [segue destinationViewController];
         DockUpgradesViewController* controller = (DockUpgradesViewController*)destination;
         controller.managedObjectContext = self.managedObjectContext;
         controller.upType = @"Talent";
+        controller.upgradeTypeName = @"Talents";
     } else if ([[segue identifier] isEqualToString: @"GoToTech"]) {
         id destination = [segue destinationViewController];
         DockUpgradesViewController* controller = (DockUpgradesViewController*)destination;
         controller.managedObjectContext = self.managedObjectContext;
         controller.upType = @"Tech";
+        controller.upgradeTypeName = @"Tech";
     } else if ([[segue identifier] isEqualToString: @"GoToWeapons"]) {
         id destination = [segue destinationViewController];
         DockUpgradesViewController* controller = (DockUpgradesViewController*)destination;
         controller.managedObjectContext = self.managedObjectContext;
         controller.upType = @"Weapon";
+        controller.upgradeTypeName = @"Weapons";
     } else if ([[segue identifier] isEqualToString: @"GoToResources"]) {
         id destination = [segue destinationViewController];
         DockResourcesViewController* controller = (DockResourcesViewController*)destination;
