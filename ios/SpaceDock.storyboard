@@ -814,13 +814,35 @@
             </objects>
             <point key="canvasLocation" x="-361" y="-2077"/>
         </scene>
-        <!--View Controller - Update Data-->
+        <!--Dock Update Data View Controller - Update Data-->
         <scene sceneID="7wr-Bk-Bab">
             <objects>
-                <viewController title="Update Data" id="3Oa-wy-NbX" sceneMemberID="viewController">
+                <viewController title="Update Data" id="3Oa-wy-NbX" customClass="DockUpdateDataViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qBd-sA-Qfe">
                         <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PMj-qA-r72">
+                                <rect key="frame" x="20" y="183" width="280" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Check">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkForNewData:" destination="3Oa-wy-NbX" eventType="touchUpInside" id="a3g-Yc-tFQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7Jw-A8-5DC">
+                                <rect key="frame" x="20" y="234" width="280" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <state key="normal" title="Revert">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Update Data" id="0gb-1h-Z2q"/>
