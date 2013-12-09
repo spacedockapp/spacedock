@@ -2482,6 +2482,126 @@
       <Id>2040</Id>
       <Set>71275</Set>
     </Captain>
+    <Captain>
+      <Title>Gul Dukat</Title>
+      <Ability>Your ship may perform an [EVASIVE] or a [BATTLESTATIONS] Action as a free Action each round. </Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>2041</Id>
+      <Set>71275</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Gul Evek</Title>
+      <Ability>Each time you defend, you may re-roll all of your blank results one time. </Ability>
+      <Unique>Y</Unique>
+      <Skill>4</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>2</Cost>
+      <Id>2042</Id>
+      <Set>71275</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Data</Title>
+      <Ability>Action: Disable one of your crew upgrades and one of your weapon upgrades to target all cloaked ship at range 1-3. They immediately flip their cloak tokens to the red side. </Ability>
+      <Unique>Y</Unique>
+      <Skill>4</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>2043</Id>
+      <Set>OP4Prize</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Alidar Jarok</Title>
+      <Ability>Action: Discard your [TALENT] upgrade to target 1 ship at range 1-2. Neither of your ships may attack each other this round.</Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>3121</Id>
+      <Set>71274</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Worf</Title>
+      <Ability>When attacking, you may re-roll all of your blank results one time. </Ability>
+      <Unique>Y</Unique>
+      <Skill>5</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>3</Cost>
+      <Id>2044</Id>
+      <Set>71273</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Kurn</Title>
+      <Ability>Action: When attacking this round, gain +1 attack die. Place an Auxiliary Power Token beside your ship. </Ability>
+      <Unique>Y</Unique>
+      <Skill>3</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>2</Cost>
+      <Id>2045</Id>
+      <Set>71273</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Hikaru Sulu</Title>
+      <Ability>Action: Disable one of your [CREW] upgrades to remove an opponent's [TARGET LOCK] token from your ship. Remove the corresponding token from the opponent's ship as well.</Ability>
+      <Unique>Y</Unique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>2046</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Styles</Title>
+      <Ability>Add 1 additional [TECH] icon to your ship's upgrade bar.</Ability>
+      <Unique>Y</Unique>
+      <Skill>3</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>3106</Id>
+      <Set>71272</Set>
+      <Special></Special>
+    </Captain>
   </Captains>
   <Upgrades>
     <Upgrade>
@@ -4194,36 +4314,6 @@
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Hikaru Sulu</Title>
-      <Ability>Action: Disable one of your (crew) upgrades to remove an opponent's [TARGET LOCK] token from your ship. Remove the corresponding token from the opponent's ship as well.</Ability>
-      <Unique>Y</Unique>
-      <Skill>6</Skill>
-      <Talent>1</Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Captain</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>3105</Id>
-      <Set>71272</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Styles</Title>
-      <Ability>Add 1 additional [TECH] icon to your ship's upgrade bar.</Ability>
-      <Unique>Y</Unique>
-      <Skill>3</Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Captain</Type>
-      <Faction>Federation</Faction>
-      <Cost>2</Cost>
-      <Id>3106</Id>
-      <Set>71272</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
       <Title>Feint</Title>
       <Ability>Action: Discard this upgrade to target a ship at range 2-3. If you attack that ship this round, it rolls 2 less defense dice.</Ability>
       <Unique>Y</Unique>
@@ -4329,36 +4419,6 @@
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Worf</Title>
-      <Ability>When attacking, you may re-roll all of your blank results one time. </Ability>
-      <Unique>Y</Unique>
-      <Skill>5</Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Captain</Type>
-      <Faction>Klingon</Faction>
-      <Cost>3</Cost>
-      <Id>3114</Id>
-      <Set>71273</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Kurn</Title>
-      <Ability>Action: When attacking this round, gain +1 attack die. Place an Auxiliary Power Token beside your ship. </Ability>
-      <Unique>Y</Unique>
-      <Skill>3</Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Captain</Type>
-      <Faction>Klingon</Faction>
-      <Cost>2</Cost>
-      <Id>3115</Id>
-      <Set>71273</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
       <Title>Photon Torpedoes</Title>
       <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
       <Unique>N</Unique>
@@ -4386,21 +4446,6 @@
       <Cost>5</Cost>
       <Id>3119</Id>
       <Set>71273</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Alidar Jarok</Title>
-      <Ability>Action: Discard your [TALENT] upgrade to target 1 ship at range 1-2. Neither of your ships may attack each other this round.</Ability>
-      <Unique>Y</Unique>
-      <Skill>7</Skill>
-      <Talent>1</Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Captain</Type>
-      <Faction>Romulan</Faction>
-      <Cost>4</Cost>
-      <Id>3121</Id>
-      <Set>71274</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -4446,51 +4491,6 @@
       <Cost>2</Cost>
       <Id>3124</Id>
       <Set>71274</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Gul Dukat</Title>
-      <Ability>Your ship may perform an [EVASIVE] or a [BATTLESTATIONS] Action as a free Action each round. </Ability>
-      <Unique>Y</Unique>
-      <Skill>7</Skill>
-      <Talent>1</Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Captain</Type>
-      <Faction>Dominion</Faction>
-      <Cost>5</Cost>
-      <Id>3125</Id>
-      <Set>71275</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Gul Evek</Title>
-      <Ability>Each time you defend, you may re-roll all of your blank results one time. </Ability>
-      <Unique>Y</Unique>
-      <Skill>4</Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Captain</Type>
-      <Faction>Dominion</Faction>
-      <Cost>2</Cost>
-      <Id>3126</Id>
-      <Set>71275</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Data</Title>
-      <Ability>Action: Disable one of your crew upgrades and one of your weapon upgrades to target all cloaked ship at range 1-3. They immediately flip their cloak tokens to the red side. </Ability>
-      <Unique>Y</Unique>
-      <Skill>4</Skill>
-      <Talent>1</Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Captain</Type>
-      <Faction>Federation</Faction>
-      <Cost>2</Cost>
-      <Id>3133</Id>
-      <Set>OP4Prize</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
