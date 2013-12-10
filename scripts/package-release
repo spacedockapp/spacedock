@@ -15,3 +15,4 @@ archiveName=$encodedName.zip
 cd $baseDir/build
 zip --symlinks -r -q $archiveName "Space Dock".app
 cp $archiveName $siteDir/
+cp $baseDir/src/Data.xml $siteDir/

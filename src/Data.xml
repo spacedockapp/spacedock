@@ -1,4 +1,4 @@
-<Data version="1.180">
+<Data version="1.181">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -2483,36 +2483,6 @@
       <Set>71275</Set>
     </Captain>
     <Captain>
-      <Title>Gul Dukat</Title>
-      <Ability>Your ship may perform an [EVASIVE] or a [BATTLESTATIONS] Action as a free Action each round. </Ability>
-      <Unique>Y</Unique>
-      <Skill>7</Skill>
-      <Talent>1</Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Captain</Type>
-      <Faction>Dominion</Faction>
-      <Cost>5</Cost>
-      <Id>2041</Id>
-      <Set>71275</Set>
-      <Special></Special>
-    </Captain>
-    <Captain>
-      <Title>Gul Evek</Title>
-      <Ability>Each time you defend, you may re-roll all of your blank results one time. </Ability>
-      <Unique>Y</Unique>
-      <Skill>4</Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Captain</Type>
-      <Faction>Dominion</Faction>
-      <Cost>2</Cost>
-      <Id>2042</Id>
-      <Set>71275</Set>
-      <Special></Special>
-    </Captain>
-    <Captain>
       <Title>Data</Title>
       <Ability>Action: Disable one of your crew upgrades and one of your weapon upgrades to target all cloaked ship at range 1-3. They immediately flip their cloak tokens to the red side. </Ability>
       <Unique>Y</Unique>
@@ -2540,36 +2510,6 @@
       <Cost>4</Cost>
       <Id>3121</Id>
       <Set>71274</Set>
-      <Special></Special>
-    </Captain>
-    <Captain>
-      <Title>Worf</Title>
-      <Ability>When attacking, you may re-roll all of your blank results one time. </Ability>
-      <Unique>Y</Unique>
-      <Skill>5</Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Captain</Type>
-      <Faction>Klingon</Faction>
-      <Cost>3</Cost>
-      <Id>2044</Id>
-      <Set>71273</Set>
-      <Special></Special>
-    </Captain>
-    <Captain>
-      <Title>Kurn</Title>
-      <Ability>Action: When attacking this round, gain +1 attack die. Place an Auxiliary Power Token beside your ship. </Ability>
-      <Unique>Y</Unique>
-      <Skill>3</Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Captain</Type>
-      <Faction>Klingon</Faction>
-      <Cost>2</Cost>
-      <Id>2045</Id>
-      <Set>71273</Set>
       <Special></Special>
     </Captain>
     <Captain>
