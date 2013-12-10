@@ -841,11 +841,18 @@
                                 <state key="normal" title="Revert">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="revertData:" destination="3Oa-wy-NbX" eventType="touchUpInside" id="gmZ-hU-XMJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Update Data" id="0gb-1h-Z2q"/>
+                    <connections>
+                        <outlet property="checkButton" destination="PMj-qA-r72" id="bjS-k7-vof"/>
+                        <outlet property="resetButton" destination="7Jw-A8-5DC" id="oea-1r-rcH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQd-54-hWW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

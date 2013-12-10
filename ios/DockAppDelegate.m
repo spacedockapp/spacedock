@@ -38,18 +38,32 @@
     return [[NSBundle mainBundle] pathForResource: @"Data" ofType: @"xml"];
 }
 
--(void)loadAppData
+-(NSString*)loadDataFromPath:(NSString*)filePath version:(NSString*)currentVersion error:(NSError**)error
+{
+    DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: self.managedObjectContext version: currentVersion];
+    if ([loader loadData: filePath error: error]) {
+        return loader.dataVersion;
+    }
+    return nil;
+}
+
+-(void)loadAppDataNow
 {
     NSString* filePath = [self pathToDataFile];
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSString* currentVersion = [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
-    DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: self.managedObjectContext version: currentVersion];
     NSError* error = nil;
 
-    if ([loader loadData: filePath error: &error]) {
-        [defaults setObject: loader.dataVersion forKey: kSpaceDockCurrentDataVersionKey];
+    NSString* dataVersion = [self loadDataFromPath: filePath version: currentVersion error: &error];
+    if (dataVersion != nil) {
+        [defaults setObject: dataVersion forKey: kSpaceDockCurrentDataVersionKey];
     }
 
+}
+
+-(void)loadAppData
+{
+    [self loadAppDataNow];
     UINavigationController* navigationController = (UINavigationController*)self.window.rootViewController;
     id controller = [navigationController topViewController];
     DockTopMenuViewController* topMenuViewController = (DockTopMenuViewController*)controller;
@@ -158,10 +172,11 @@
     return _managedObjectModel;
 }
 
+static NSString* kSpaceDockFileName = @"SpaceDock2.CDBStore";
 
 -(NSURL*)storeURL
 {
-    return [[self applicationDocumentsDirectory] URLByAppendingPathComponent: @"SpaceDock2.CDBStore"];
+    return [[self applicationDocumentsDirectory] URLByAppendingPathComponent: kSpaceDockFileName];
 }
 
 -(NSPersistentStore*)createStore:(NSURL*)storeURL error:(NSError**)error
@@ -226,6 +241,32 @@
 -(NSURL*)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory: NSDocumentDirectory inDomains: NSUserDomainMask] lastObject];
+}
+
+-(NSURL*)updatedDataURL
+{
+    return [[self applicationDocumentsDirectory] URLByAppendingPathComponent: @"Data.xml"];
+}
+
+-(void)installData:(NSData*)data
+{
+    NSURL* appDataPath = [self updatedDataURL];
+    [data writeToURL: appDataPath atomically: NO];
+    [self loadAppDataNow];
+}
+
+-(void)revertData
+{
+    NSURL* appDataPath = [self updatedDataURL];
+    [[NSFileManager defaultManager] removeItemAtURL: appDataPath error: nil];
+    [self loadAppDataNow];
+}
+
+-(BOOL)hasUpdatedData
+{
+    NSString* pathToDataFile = [self pathToDataFile];
+    NSString* appDocsPath = [[self applicationDocumentsDirectory] path];
+    return [pathToDataFile hasPrefix: appDocsPath];
 }
 
 @end
