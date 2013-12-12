@@ -1108,7 +1108,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
         [alert addButtonWithTitle: @"Update"];
         [alert addButtonWithTitle: @"Cancel"];
         [alert setMessageText: @"New Game Data Available"];
-        NSString* info = [NSString stringWithFormat: @"Current data version is %@ and version %@ is available Would you like to update?", currentVersion, remoteVersion];
+        NSString* info = [NSString stringWithFormat: @"Current data version is %@ and version %@ is available. Would you like to update?", currentVersion, remoteVersion];
         [alert setInformativeText: info];
         [alert setAlertStyle: NSInformationalAlertStyle];
         id completion = ^(NSModalResponse returnCode) {
@@ -1119,7 +1119,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
     } else {
         [alert addButtonWithTitle: @"OK"];
         [alert setMessageText: @"Game Data Up to Date"];
-        NSString* info = [NSString stringWithFormat: @"Data version %@ and is the most recent version available.", currentVersion];
+        NSString* info = [NSString stringWithFormat: @"Installed data is version %@ and is the most recent version available.", currentVersion];
         [alert setInformativeText: info];
         [alert setAlertStyle: NSInformationalAlertStyle];
         id completion = ^(NSModalResponse returnCode) {
