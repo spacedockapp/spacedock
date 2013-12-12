@@ -1,4 +1,4 @@
-<Data version="1.181">
+<Data version="1.182">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -3600,7 +3600,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Missile Launchers</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. Make 2 attacks against ship(s) in our forward firing arc. Roll 2 attack dice for each of these attacks. Any [CRITICAL] results that would damage an opponent's Shields inflict critical damage to that ship's Hull instead.</Ability>
+      <Ability>ATTACK: Disable this card to perform this attack. Make 2 attacks against ship(s) in your forward firing arc. Roll 2 attack dice for each of these attacks. Any [CRITICAL] results that would damage an opponent's Shields inflict critical damage to that ship's Hull instead.</Ability>
       <Skill>
       </Skill>
       <Talent>
