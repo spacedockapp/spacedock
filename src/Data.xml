@@ -1,4 +1,4 @@
-<Data version="1.182">
+<Data version="1.183">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -4584,7 +4584,7 @@ c) Exchange 1 Captain from his ship with 1 Captain from his Sideboard.
         <Type>Resource</Type>
         <Cost>10</Cost>
         <Id>4004</Id>
-        <Set>OP3Participation</Set>
+        <Set>OP4Participation</Set>
       </Resource>
     </Resources>
     <Sets>
