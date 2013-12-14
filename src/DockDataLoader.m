@@ -323,7 +323,8 @@ static NSString* makeKey(NSString* key)
                 [_currentElement addEntriesFromDictionary: _currentAttributes];
 
                 if (_currentText != nil && [elementName isEqualToString: @"Set"]) {
-                    [_currentElement setObject: _currentText forKey: @"ProductName"];
+                    NSString* trimmed = [_currentText stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                    [_currentElement setObject: trimmed forKey: @"ProductName"];
                 }
             }
 
