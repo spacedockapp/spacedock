@@ -191,13 +191,23 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                     [ship updateShipClass: shipClass];
                 }
             }
-            NSString* setValue = [d objectForKey: @"Set"];
-            NSArray* sets = [setValue componentsSeparatedByString: @","];
 
-            for (NSString* rawSet in sets) {
-                NSString* setId = [rawSet stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-                DockSet* theSet = [DockSet setForId: setId context: _managedObjectContext];
-                [theSet addItemsObject: c];
+            if ([c isKindOfClass: [DockSetItem class]]) {
+                NSString* setValue = [d objectForKey: @"Set"];
+                NSArray* sets = [setValue componentsSeparatedByString: @","];
+
+                NSSet* existingSets = [NSSet setWithSet: [c sets]];
+                for (DockSet* set in existingSets) {
+                    if (![sets containsObject: set.externalId]) {
+                        [set removeItems: [NSSet setWithObject: c]];
+                    }
+                }
+
+                for (NSString* rawSet in sets) {
+                    NSString* setId = [rawSet stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                    DockSet* theSet = [DockSet setForId: setId context: _managedObjectContext];
+                    [theSet addItemsObject: c];
+                }
             }
         }
     }
