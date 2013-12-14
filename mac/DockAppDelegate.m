@@ -30,6 +30,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 
 @interface DockAppDelegate ()
 @property (strong, nonatomic) DockDataUpdater* updater;
+@property (copy, nonatomic) NSArray* allSets;
 @end
 
 @implementation DockAppDelegate
@@ -93,9 +94,13 @@ NSString* kInspectorVisible = @"inspectorVisible";
         [defaults setObject: dataVersion forKey: kSpaceDockCurrentDataVersionKey];
     }
 
-    for (DockSet* set in[DockSet allSets : _managedObjectContext]) {
+    _allSets = [DockSet allSets : _managedObjectContext];
+    NSMutableArray* setNames = [NSMutableArray arrayWithCapacity: _allSets.count];
+    for (DockSet* set in _allSets) {
+        [setNames addObject: set.productName];
         [set addObserver: self forKeyPath: @"include" options: 0 context: 0];
     }
+    [setNames sortUsingSelector: @selector(compare:)];
 }
 
 -(void)observeValueForKeyPath:(NSString*)keyPath
