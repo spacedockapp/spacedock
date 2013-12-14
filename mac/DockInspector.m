@@ -42,7 +42,7 @@ static id extractSelectedItem(id controller)
 
 -(void)updateUpgrade:(DockUpgrade*)upgrade
 {
-    if (upgrade != nil) {
+    if (upgrade != nil && upgrade != _currentUpgrade) {
         self.currentUpgrade = upgrade;
         [self updateSet: upgrade];
     }
@@ -50,7 +50,7 @@ static id extractSelectedItem(id controller)
 
 -(void)updateCaptain:(DockCaptain*)captain
 {
-    if (captain != nil) {
+    if (captain != nil && captain != _currentCaptain) {
         self.currentCaptain = captain;
         [self updateSet: captain];
     }
@@ -58,7 +58,7 @@ static id extractSelectedItem(id controller)
 
 -(void)updateShip:(DockShip*)ship
 {
-    if (ship != nil) {
+    if (ship != nil && ship != _currentShip) {
         self.currentShip = ship;
         [self updateForShip];
         [self updateSet: ship];
