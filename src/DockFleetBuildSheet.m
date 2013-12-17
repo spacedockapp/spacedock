@@ -10,6 +10,10 @@
 
 #import "GRMustache.h"
 
+@interface DockFleetBuildSheet ()
+@property (weak, nonatomic) DockSquad* targetSquad;
+@end
+
 @implementation DockFleetBuildSheet
 
 static NSDictionary* dataForUpgrade(DockEquippedUpgrade* theUpgrade)
@@ -66,7 +70,7 @@ static NSDictionary* dataForResource(DockResource* theResource)
     };
 }
 
--(void)show:(DockSquad*)targetSquad
+-(void)updateWebView:(WebView*)webview forTargetSquad:(DockSquad*)targetSquad
 {
     NSMutableDictionary* squadData = [[NSMutableDictionary alloc] initWithCapacity: 0];
     NSArray* equippedShips = [[targetSquad equippedShips] array];
@@ -119,14 +123,7 @@ static NSDictionary* dataForResource(DockResource* theResource)
                                                     bundle: nil
                                                      error: NULL];
 
-    NSMutableDictionary* dict = [[NSPrintInfo sharedPrintInfo] dictionary];
-    dict[NSPrintHorizontallyCentered] = [NSNumber numberWithBool: YES];
-    dict[NSPrintVerticallyCentered] = [NSNumber numberWithBool: NO];
-    dict[NSPrintHorizontalPagination] = [NSNumber numberWithInt: NSFitPagination];
-    dict[NSPrintVerticalPagination] = [NSNumber numberWithInt: NSFitPagination];
-
-    [[_webView mainFrame] loadHTMLString: rendering baseURL: url];
-    [NSApp beginSheet: _fleetBuildWindow modalForWindow: _mainWindow modalDelegate: self didEndSelector: @selector(sheetDidEnd:returnCode:contextInfo:) contextInfo: nil];
+    [[webview mainFrame] loadHTMLString: rendering baseURL: url];
 }
 
 -(void)sheetDidEnd:(NSWindow*)sheet returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
@@ -134,16 +131,42 @@ static NSDictionary* dataForResource(DockResource* theResource)
     [_fleetBuildWindow orderOut: nil];
 }
 
+-(void)show:(DockSquad*)targetSquad
+{
+    _targetSquad = targetSquad;
+    [self updateWebView: _webView forTargetSquad: targetSquad];
+    [NSApp beginSheet: _fleetBuildWindow modalForWindow: _mainWindow modalDelegate: self didEndSelector: @selector(sheetDidEnd:returnCode:contextInfo:) contextInfo: nil];
+}
+
 -(IBAction)cancel:(id)sender
 {
     [NSApp endSheet: _fleetBuildWindow];
 }
 
+//  WebView has completed loading, so it can be printed now.
+- (void) webView: (WebView *) printView didFinishLoadForFrame: (WebFrame *)frame
+{
+    [printView print: nil];
+    [self cancel: nil];
+}
+
 -(IBAction)print:(id)sender
 {
-    [[_webView preferences] setShouldPrintBackgrounds: YES];
-    [_webView print: sender];
-    [self cancel: sender];
+    NSPrintInfo* info = [NSPrintInfo sharedPrintInfo];
+    NSMutableDictionary* dict = [info dictionary];
+    dict[NSPrintHorizontallyCentered] = [NSNumber numberWithBool: YES];
+    dict[NSPrintVerticallyCentered] = [NSNumber numberWithBool: NO];
+    dict[NSPrintHorizontalPagination] = [NSNumber numberWithInt: NSFitPagination];
+    dict[NSPrintVerticalPagination] = [NSNumber numberWithInt: NSFitPagination];
+
+    NSSize paperSize = [info paperSize];
+    NSRect frame = NSMakeRect(0, 0, paperSize.width - info.leftMargin - info.rightMargin, paperSize.height - info.topMargin - info.bottomMargin);
+    WebView* webView = [[WebView alloc] initWithFrame: frame];
+    [[[webView mainFrame] frameView] setAllowsScrolling:NO];
+    [webView setShouldUpdateWhileOffscreen: YES];
+    [webView setFrameLoadDelegate: self];
+    [self updateWebView: webView forTargetSquad: _targetSquad];
+    [[webView preferences] setShouldPrintBackgrounds: YES];
 }
 
 @end

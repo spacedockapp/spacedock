@@ -2,6 +2,7 @@
 
 @class DockInspector;
 @class DockFleetBuildSheet;
+@class DockFleetBuildSheet2;
 @class DockFAQViewer;
 
 extern NSString* kInspectorVisible;
@@ -28,6 +29,7 @@ extern NSString* kInspectorVisible;
 @property (assign) IBOutlet NSMenu* factionMenu;
 @property (assign) IBOutlet DockInspector* inspector;
 @property (assign) IBOutlet DockFleetBuildSheet* fleetBuildSheet;
+@property (assign) IBOutlet DockFleetBuildSheet2* fleetBuildSheet2;
 @property (assign) IBOutlet DockFAQViewer* faqViewer;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;
