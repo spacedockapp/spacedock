@@ -1,7 +1,6 @@
 #import <Cocoa/Cocoa.h>
 
 @class DockInspector;
-@class DockFleetBuildSheet;
 @class DockFleetBuildSheet2;
 @class DockFAQViewer;
 
@@ -28,7 +27,6 @@ extern NSString* kInspectorVisible;
 @property (assign) IBOutlet NSTableView* squadsTableView;
 @property (assign) IBOutlet NSMenu* factionMenu;
 @property (assign) IBOutlet DockInspector* inspector;
-@property (assign) IBOutlet DockFleetBuildSheet* fleetBuildSheet;
 @property (assign) IBOutlet DockFleetBuildSheet2* fleetBuildSheet2;
 @property (assign) IBOutlet DockFAQViewer* faqViewer;
 
@@ -56,7 +54,6 @@ extern NSString* kInspectorVisible;
 -(IBAction)filterToFaction:(id)sender;
 -(IBAction)showInspector:(id)sender;
 -(IBAction)showFAQ:(id)sender;
--(IBAction)showFleetBuildSheet:(id)sender;
 -(IBAction)exportDataFile:(id)sender;
 -(IBAction)importDataFile:(id)sender;
 -(IBAction)revertDataFile:(id)sender;

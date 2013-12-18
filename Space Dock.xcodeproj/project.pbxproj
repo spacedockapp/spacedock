@@ -15,7 +15,6 @@
 		D41B77E617FDCF91005A5DA8 /* DockResource+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B77E517FDCF91005A5DA8 /* DockResource+Addons.m */; };
 		D41B77E917FE13D1005A5DA8 /* DockBooleanFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B77E817FE13D1005A5DA8 /* DockBooleanFormatter.m */; };
 		D41BA80817F67FE0005266E6 /* DockShip+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D41BA80717F67FE0005266E6 /* DockShip+Addons.m */; };
-		D4259ECA180F932100BB02BA /* DockFleetBuildSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259EC9180F932100BB02BA /* DockFleetBuildSheet.m */; };
 		D4259EDF180F94E300BB02BA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4259EDE180F94E300BB02BA /* WebKit.framework */; };
 		D4259EE11810CA4A00BB02BA /* fleet.mustache in Resources */ = {isa = PBXBuildFile; fileRef = D4259EE01810CA4A00BB02BA /* fleet.mustache */; };
 		D4259F2A1810D24000BB02BA /* GRMustache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4259EE41810D24000BB02BA /* GRMustache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -241,8 +240,6 @@
 		D41B77E817FE13D1005A5DA8 /* DockBooleanFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockBooleanFormatter.m; sourceTree = "<group>"; };
 		D41BA80617F67FE0005266E6 /* DockShip+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockShip+Addons.h"; sourceTree = "<group>"; };
 		D41BA80717F67FE0005266E6 /* DockShip+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockShip+Addons.m"; sourceTree = "<group>"; };
-		D4259EC8180F932100BB02BA /* DockFleetBuildSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DockFleetBuildSheet.h; path = ../src/DockFleetBuildSheet.h; sourceTree = "<group>"; };
-		D4259EC9180F932100BB02BA /* DockFleetBuildSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DockFleetBuildSheet.m; path = ../src/DockFleetBuildSheet.m; sourceTree = "<group>"; };
 		D4259ECD180F938C00BB02BA /* GRMustache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustache.h; sourceTree = "<group>"; };
 		D4259ECE180F938C00BB02BA /* GRMustacheAvailabilityMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheAvailabilityMacros.h; sourceTree = "<group>"; };
 		D4259ECF180F938C00BB02BA /* GRMustacheConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMustacheConfiguration.h; sourceTree = "<group>"; };
@@ -885,8 +882,6 @@
 				D49709FE1852E7B3001BC375 /* DockFAQViewer.m */,
 				D4970A001852E8AE001BC375 /* DockFAQLoader.h */,
 				D4970A011852E8AE001BC375 /* DockFAQLoader.m */,
-				D4259EC8180F932100BB02BA /* DockFleetBuildSheet.h */,
-				D4259EC9180F932100BB02BA /* DockFleetBuildSheet.m */,
 				D4CEF4DF18602B6E007FA6F4 /* DockFleetBuildSheet2.h */,
 				D4CEF4E018602B6E007FA6F4 /* DockFleetBuildSheet2.m */,
 				D4BCA3DA1814EC0900921183 /* DockInspector.h */,
@@ -1197,7 +1192,6 @@
 				D4F7F1A91808DBB000157E32 /* DockSet+Addons.m in Sources */,
 				D4F7F1A61808DA2600157E32 /* DockWeapon.m in Sources */,
 				D4B889291847C1F300AE46E6 /* DockSideboard+Addons.m in Sources */,
-				D4259ECA180F932100BB02BA /* DockFleetBuildSheet.m in Sources */,
 				D4F7F41317F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m in Sources */,
 				D4F7F1911808DA2600157E32 /* DockTech.m in Sources */,
 				D4F7F1821808DA2600157E32 /* DockCrew.m in Sources */,

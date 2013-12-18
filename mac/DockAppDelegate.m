@@ -10,7 +10,6 @@
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockErrors.h"
 #import "DockFAQViewer.h"
-#import "DockFleetBuildSheet.h"
 #import "DockFleetBuildSheet2.h"
 #import "DockInspector.h"
 #import "DockResource.h"
@@ -1029,11 +1028,6 @@ NSString* kInspectorVisible = @"inspectorVisible";
 -(IBAction)showInspector:(id)sender
 {
     [_inspector show];
-}
-
--(IBAction)showFleetBuildSheet:(id)sender
-{
-    [_fleetBuildSheet show: [self selectedSquad]];
 }
 
 -(IBAction)printFleetBuildSheet:(id)sender
