@@ -1038,7 +1038,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 
 -(IBAction)printFleetBuildSheet:(id)sender
 {
-    [_fleetBuildSheet2 print: [self selectedSquad]];
+    [_fleetBuildSheet2 show: [self selectedSquad]];
 }
 
 -(IBAction)copy:(id)sender

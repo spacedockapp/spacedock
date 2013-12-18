@@ -164,11 +164,16 @@ NSAttributedString* headerText(NSString* string)
     NSDictionary* _dataForResource;
     NSMutableArray* _buildShips;
 }
+@property (strong, nonatomic) IBOutlet NSWindow* mainWindow;
+@property (strong, nonatomic) IBOutlet NSWindow* fleetBuildDetails;
 @property (strong, nonatomic) IBOutlet NSBox* sheetBox;
 @property (strong, nonatomic) IBOutlet NSView* box1;
 @property (strong, nonatomic) IBOutlet NSView* box2;
 @property (strong, nonatomic) IBOutlet NSView* box3;
 @property (strong, nonatomic) IBOutlet NSView* box4;
+@property (strong, nonatomic) IBOutlet NSTextField* resourceTitleField;
+@property (strong, nonatomic) IBOutlet NSTextField* resourceCostField;
+@property (strong, nonatomic) IBOutlet NSTextField* nameField;
 @property (strong, nonatomic) DockSquad* targetSquad;
 @end
 
@@ -177,6 +182,7 @@ NSAttributedString* headerText(NSString* string)
 
 -(void)awakeFromNib
 {
+    self.eventDate = [NSDate date];
     _buildShips = [[NSMutableArray alloc] init];
     NSArray* views = @[_box1, _box2, _box3, _box4];
     NSBundle* mainBundle = [NSBundle mainBundle];
@@ -190,20 +196,28 @@ NSAttributedString* headerText(NSString* string)
         [view addSubview: ship.gridContainer];
         [_buildShips addObject: ship];
     }
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    self.name = [defaults stringForKey: @"name"];
+    self.eventName = [defaults stringForKey: @"eventName"];
+    self.email = [defaults stringForKey: @"email"];
+    self.faction = [defaults stringForKey: @"faction"];
 }
 
--(void)print:(DockSquad*)squad;
+-(void)print
 {
-    _targetSquad = squad;
     NSOrderedSet* equippedShips = _targetSquad.equippedShips;
     for (int i = 0; i < 4; ++i) {
         DockEquippedShip* equippedShip = nil;
         if (i < equippedShips.count) {
-            equippedShip = _targetSquad.equippedShips[i];
+            equippedShip = equippedShips[i];
         }
         DockFleetBuildSheetShip* buildSheetShip = _buildShips[i];
         buildSheetShip.equippedShip = equippedShip;
     }
+    
+    [_resourceTitleField setStringValue: [self resourceTile]];
+    [_resourceCostField setStringValue: [self resourceCost]];
 
     NSPrintInfo* info = [NSPrintInfo sharedPrintInfo];
     info.leftMargin = 0;
@@ -218,6 +232,175 @@ NSAttributedString* headerText(NSString* string)
     NSRect r = [info imageablePageBounds];
     [_sheetBox setFrameSize: r.size];
     [[NSPrintOperation printOperationWithView: _sheetBox] runOperation];
+}
+
+-(NSString*)shipCost:(int)index
+{
+    NSOrderedSet* equippedShips = _targetSquad.equippedShips;
+    if (index < equippedShips.count) {
+        DockEquippedShip* equippedShip = equippedShips[index];
+        return [NSString stringWithFormat: @"%d", equippedShip.cost];
+    }
+    return @"";
+}
+
+-(NSString*)resourceCost
+{
+    DockResource* res = _targetSquad.resource;
+    if (res) {
+        return [NSString stringWithFormat: @"%@", res.cost];
+    }
+    return @"";
+}
+
+-(NSString*)resourceTile
+{
+    DockResource* res = _targetSquad.resource;
+    if (res) {
+        return res.title;
+    }
+    return @"";
+}
+
+-(id)beforeValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    NSString* identifier = tableColumn.identifier;
+    if (row == 0) {
+        NSDictionary* labels = @{
+            @"round" : @"Battle Round",
+            @"name" : @"Opponent's Name",
+            @"initials" : @"Opponent's\nInitials\n(Verify Build)"
+        };
+        return headerText(labels[identifier]);
+    }
+    
+    if ([identifier isEqualToString: @"round"]) {
+        return [NSString stringWithFormat: @"%ld", (long)row];
+    }
+    return @"";
+}
+
+-(id)endValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    if (row == 0) {
+        NSDictionary* labels = @{
+            @"result" : @"Your Result\n(W-L-B)",
+            @"fp" : @"Your\nFleet Points",
+            @"cfp" : @"Cumulative\nFleet Points",
+            @"initials" : @"Opponent's\nInitials\n(Verify Results)"
+        };
+        return headerText(labels[tableColumn.identifier]);
+    }
+    return @"";
+}
+
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    NSString* identifier = tableView.identifier;
+    
+    if ([identifier isEqualToString: @"before"]) {
+        return [self beforeValueForTableColumn: tableColumn row:row];
+    }
+
+    if ([identifier isEqualToString: @"end"]) {
+        return [self endValueForTableColumn: tableColumn row:row];
+    }
+
+    NSString* columnIdentifier = tableColumn.identifier;
+    int index = [columnIdentifier intValue];
+    switch(index) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+        return [self shipCost: index];
+    case 4:
+        return [self resourceCost];
+        
+    }
+    return [NSNumber numberWithInt: _targetSquad.cost];
+}
+
+-(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+    NSString* identifier = tableView.identifier;
+    if ([identifier isEqualToString: @"before"] || [identifier isEqualToString: @"end"]) {
+        return 4;
+    }
+    return 1;
+}
+
+- (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
+{
+    if (row == 0) {
+        return tableView.rowHeight*2;
+    }
+    return tableView.rowHeight;
+}
+
+-(void)sheetDidEnd:(NSWindow*)sheet returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
+{
+    [_fleetBuildDetails orderOut: nil];
+}
+
+-(void)show:(DockSquad*)targetSquad
+{
+    _targetSquad = targetSquad;
+    [NSApp beginSheet: _fleetBuildDetails modalForWindow: _mainWindow modalDelegate: self didEndSelector: @selector(sheetDidEnd:returnCode:contextInfo:) contextInfo: nil];
+}
+
+-(IBAction)cancel:(id)sender
+{
+    [NSApp endSheet: _fleetBuildDetails];
+}
+
+-(IBAction)print:(id)sender
+{
+    [NSApp endSheet: _fleetBuildDetails];
+    [self print];
+}
+
+-(void)setEventDate:(NSDate *)eventDate
+{
+    _eventDate = eventDate;
+    [self willChangeValueForKey: @"eventDateString"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    _eventDateString = [dateFormatter stringFromDate: eventDate];
+    [self didChangeValueForKey: @"eventDateString"];
+}
+
+-(void)setEventName:(NSString *)eventName
+{
+    [self willChangeValueForKey: @"eventName"];
+    _eventName = eventName;
+    [[NSUserDefaults standardUserDefaults] setObject: _eventName forKey: @"eventName"];
+    [self didChangeValueForKey: @"eventName"];
+}
+
+-(void)setFaction:(NSString *)faction
+{
+    [self willChangeValueForKey: @"faction"];
+    _faction = faction;
+    [[NSUserDefaults standardUserDefaults] setObject: _faction forKey: @"faction"];
+    [self didChangeValueForKey: @"faction"];
+}
+
+-(void)setEmail:(NSString *)email
+{
+    [self willChangeValueForKey: @"email"];
+    _email = email;
+    [[NSUserDefaults standardUserDefaults] setObject: _email forKey: @"email"];
+    [self didChangeValueForKey: @"email"];
+}
+
+-(void)setName:(NSString *)name
+{
+    [self willChangeValueForKey: @"name"];
+    _name = name;
+    [[NSUserDefaults standardUserDefaults] setObject: _name forKey: @"name"];
+    [self didChangeValueForKey: @"name"];
 }
 
 @end
