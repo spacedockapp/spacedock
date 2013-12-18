@@ -239,6 +239,10 @@ NSAttributedString* headerText(NSString* string)
     NSOrderedSet* equippedShips = _targetSquad.equippedShips;
     if (index < equippedShips.count) {
         DockEquippedShip* equippedShip = equippedShips[index];
+        int cost = equippedShip.cost;
+        if (cost == 0) {
+            return @"";
+        }
         return [NSString stringWithFormat: @"%d", equippedShip.cost];
     }
     return @"";
