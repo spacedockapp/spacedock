@@ -52,4 +52,9 @@
     return [self.cost intValue] == 0;
 }
 
+-(int)additionalTechSlots
+{
+    return [self.special isEqualToString: @"addonetechslot"] ? 1 : 0;
+}
+
 @end

@@ -1032,7 +1032,12 @@ NSString* kInspectorVisible = @"inspectorVisible";
 
 -(IBAction)printFleetBuildSheet:(id)sender
 {
-    [_fleetBuildSheet2 show: [self selectedSquad]];
+    DockSquad* squad = [self selectedSquad];
+    if (squad.equippedShips.count > 4) {
+        [self whineToUser: @"This version of Space Dock cannot print build sheets for squads with more than four ships."];
+    } else {
+        [_fleetBuildSheet2 show: [self selectedSquad]];
+    }
 }
 
 -(IBAction)copy:(id)sender

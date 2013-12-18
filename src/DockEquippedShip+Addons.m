@@ -438,7 +438,9 @@
 
 -(int)techCount
 {
-    return [self shipPropertyCount: @"tech"];
+    int techCount = [self shipPropertyCount: @"tech"];
+    techCount += [self.captain additionalTechSlots];
+    return techCount;
 }
 
 -(int)weaponCount
