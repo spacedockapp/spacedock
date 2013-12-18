@@ -10,7 +10,7 @@
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockErrors.h"
 #import "DockFAQViewer.h"
-#import "DockFleetBuildSheet2.h"
+#import "DockFleetBuildSheet.h"
 #import "DockInspector.h"
 #import "DockResource.h"
 #import "DockSet+Addons.h"

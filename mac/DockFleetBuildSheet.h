@@ -2,7 +2,7 @@
 
 @class DockSquad;
 
-@interface DockFleetBuildSheet2 : NSObject
+@interface DockFleetBuildSheet : NSObject
 -(void)show:(DockSquad*)squad;
 @property (strong, nonatomic) NSDate* eventDate;
 @property (strong, nonatomic, readonly) NSString* eventDateString;

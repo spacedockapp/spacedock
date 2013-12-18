@@ -1,7 +1,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class DockInspector;
-@class DockFleetBuildSheet2;
+@class DockFleetBuildSheet;
 @class DockFAQViewer;
 
 extern NSString* kInspectorVisible;
@@ -27,7 +27,7 @@ extern NSString* kInspectorVisible;
 @property (assign) IBOutlet NSTableView* squadsTableView;
 @property (assign) IBOutlet NSMenu* factionMenu;
 @property (assign) IBOutlet DockInspector* inspector;
-@property (assign) IBOutlet DockFleetBuildSheet2* fleetBuildSheet2;
+@property (assign) IBOutlet DockFleetBuildSheet* fleetBuildSheet2;
 @property (assign) IBOutlet DockFAQViewer* faqViewer;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;

@@ -1,4 +1,4 @@
-#import "DockFleetBuildSheet2.h"
+#import "DockFleetBuildSheet.h"
 
 #import "DockCaptain+Addons.h"
 #import "DockEquippedShip+Addons.h"
@@ -157,7 +157,7 @@ NSAttributedString* headerText(NSString* string)
 
 @end
 
-@interface DockFleetBuildSheet2 () <NSTableViewDataSource> {
+@interface DockFleetBuildSheet () <NSTableViewDataSource> {
     NSMutableArray* _shipDataList;
     NSNumber* _squadTotalCost;
     NSString* _date;
@@ -177,7 +177,7 @@ NSAttributedString* headerText(NSString* string)
 @property (strong, nonatomic) DockSquad* targetSquad;
 @end
 
-@implementation DockFleetBuildSheet2
+@implementation DockFleetBuildSheet
 
 
 -(void)awakeFromNib
