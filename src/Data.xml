@@ -4632,6 +4632,7 @@ c) Exchange 1 Captain from his ship with 1 Captain from his Sideboard.
     </Sets>
     <Flagships>
         <Flagship>
+            <Title>Romulan</Title>
             <Id>6001</Id>
             <Set>OP4Participation</Set>
             <Faction>Romulan</Faction>
@@ -4651,6 +4652,7 @@ c) Exchange 1 Captain from his ship with 1 Captain from his Sideboard.
             <Weapon>1</Weapon>
         </Flagship>
         <Flagship>
+            <Title>Romulan (Independent)</Title>
             <Id>6002</Id>
             <Set>OP4Participation</Set>
             <Faction>Independent</Faction>
@@ -4671,6 +4673,7 @@ c) Exchange 1 Captain from his ship with 1 Captain from his Sideboard.
             <Weapon>1</Weapon>
         </Flagship>
         <Flagship>
+            <Title>Klingon</Title>
             <Id>6003</Id>
             <Set>OP4Participation</Set>
             <Faction>Klingon</Faction>
@@ -4691,6 +4694,7 @@ c) Exchange 1 Captain from his ship with 1 Captain from his Sideboard.
             <Weapon>0</Weapon>
         </Flagship>
         <Flagship>
+            <Title>Klingon (Independent)</Title>
             <Id>6004</Id>
             <Set>OP4Participation</Set>
             <Faction>Independent</Faction>
@@ -4711,6 +4715,7 @@ c) Exchange 1 Captain from his ship with 1 Captain from his Sideboard.
             <Weapon>0</Weapon>
         </Flagship>
         <Flagship>
+            <Title>Dominion</Title>
             <Id>6005</Id>
             <Set>OP4Participation</Set>
             <Faction>Dominion</Faction>
@@ -4731,6 +4736,7 @@ c) Exchange 1 Captain from his ship with 1 Captain from his Sideboard.
             <Weapon>1</Weapon>
         </Flagship>
         <Flagship>
+            <Title>Dominion (Independent)</Title>
             <Id>6006</Id>
             <Set>OP4Participation</Set>
             <Faction>Independent</Faction>
@@ -4751,6 +4757,7 @@ c) Exchange 1 Captain from his ship with 1 Captain from his Sideboard.
             <Weapon>1</Weapon>
         </Flagship>
         <Flagship>
+            <Title>Federation</Title>
             <Id>6007</Id>
             <Set>OP4Participation</Set>
             <Faction>Federation</Faction>
@@ -4771,6 +4778,7 @@ c) Exchange 1 Captain from his ship with 1 Captain from his Sideboard.
             <Weapon>0</Weapon>
         </Flagship>
         <Flagship>
+            <Title>Federation (Independent)</Title>
             <Id>6008</Id>
             <Set>OP4Participation</Set>
             <Faction>Independent</Faction>

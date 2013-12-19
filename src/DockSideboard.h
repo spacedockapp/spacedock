@@ -2,7 +2,7 @@
 //  DockSideboard.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 11/29/13.
+//  Created by Rob Tsuk on 12/18/13.
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
@@ -13,6 +13,5 @@
 
 @interface DockSideboard : DockEquippedShip
 
-@property (nonatomic, retain) NSString * unused;
 
 @end

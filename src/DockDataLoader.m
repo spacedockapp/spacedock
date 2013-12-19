@@ -7,6 +7,7 @@
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedShip.h"
 #import "DockEquippedUpgrade+Addons.h"
+#import "DockFlagship.h"
 #import "DockResource.h"
 #import "DockSet+Addons.h"
 #import "DockShip+Addons.h"
@@ -19,6 +20,11 @@
 #import "DockUtils.h"
 #import "DockWeapon.h"
 
+@interface DockDataLoader () {
+    BOOL _force;
+}
+@end
+
 @implementation DockDataLoader
 
 -(id)initWithContext:(NSManagedObjectContext*)context version:(NSString*)version
@@ -27,8 +33,8 @@
 
     if (self != nil) {
         _managedObjectContext = context;
-        _listElementNames = [NSSet setWithArray: @[@"Sets", @"Upgrades", @"Captains", @"Ships", @"Resources", @"Maneuvers", @"ShipClassDetails"]];
-        _itemElementNames = [NSSet setWithArray: @[@"Set", @"Upgrade", @"Captain", @"Ship", @"Resource", @"Maneuver", @"ShipClassDetail"]];
+        _listElementNames = [NSSet setWithArray: @[@"Sets", @"Upgrades", @"Captains", @"Ships", @"Resources", @"Maneuvers", @"ShipClassDetails", @"Flagships"]];
+        _itemElementNames = [NSSet setWithArray: @[@"Set", @"Upgrade", @"Captain", @"Ship", @"Resource", @"Maneuver", @"ShipClassDetail", @"Flagship"]];
         _elementNameStack = [[NSMutableArray alloc] initWithCapacity: 0];
         _listStack = [[NSMutableArray alloc] initWithCapacity: 0];
         _elementStack = [[NSMutableArray alloc] initWithCapacity: 0];
@@ -298,7 +304,7 @@ static NSString* makeKey(NSString* key)
         _currentElement = [[NSMutableDictionary alloc] initWithCapacity: 0];
     } else if ([elementName isEqualToString: @"Data"]) {
         self.dataVersion = _currentAttributes[@"version"];
-        if ([_dataVersion isEqualToString: _currentVersion]) {
+        if (!_force && [_dataVersion isEqualToString: _currentVersion]) {
             _versionMatched = YES;
             [parser abortParsing];
         }
@@ -411,7 +417,7 @@ static NSString* makeKey(NSString* key)
     _parsedData = nil;
 }
 
--(NSDictionary*)loadDataFile:(NSString*)pathToDataFile error:(NSError**)error
+-(NSDictionary*)loadDataFile:(NSString*)pathToDataFile force:(BOOL)force error:(NSError**)error
 {
     _parsedData = [[NSMutableDictionary alloc] initWithCapacity: 0];
     NSURL* furl = [NSURL fileURLWithPath: pathToDataFile];
@@ -453,9 +459,9 @@ static NSString* makeKey(NSString* key)
     return unhandledSpecials;
 }
 
--(BOOL)loadData:(NSString*)pathToDataFile error:(NSError**)error;
+-(BOOL)loadData:(NSString*)pathToDataFile force:(BOOL)force error:(NSError**)error;
 {
-    NSDictionary* xmlData = [self loadDataFile: pathToDataFile error:error];
+    NSDictionary* xmlData = [self loadDataFile: pathToDataFile force: force error:error];
 
     if (xmlData == nil) {
         return NO;
@@ -474,6 +480,7 @@ static NSString* makeKey(NSString* key)
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockCrew class] entityName: @"Crew" targetType: @"Crew"];
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockTech class] entityName: @"Tech" targetType: @"Tech"];
     [self loadItems: xmlData[@"Resources"] itemClass: [DockResource class] entityName: @"Resource" targetType: @"Resource"];
+    [self loadItems: xmlData[@"Flagships"] itemClass: [DockFlagship class] entityName: @"Flagship" targetType: nil];
 
     return [self.managedObjectContext save: error];
 }

@@ -70,7 +70,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
                                                              version: currentVersion];
     NSError* error = nil;
 
-    if ([loader loadData: filePath error: &error]) {
+    if ([loader loadData: filePath force: NO error: &error]) {
         [self validateSpecials: [loader validateSpecials]];
         return loader.dataVersion;
     }
@@ -159,6 +159,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
     [_captainsTableView setSortDescriptors: @[defaultSortDescriptor]];
     [_upgradesTableView setSortDescriptors: @[defaultSortDescriptor]];
     [_resourcesTableView setSortDescriptors: @[defaultSortDescriptor]];
+    [_flagshipsTableView setSortDescriptors: @[defaultSortDescriptor]];
     defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"externalId" ascending: YES];
     [_setsTableView setSortDescriptors: @[defaultSortDescriptor]];
     defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"name" ascending: YES];

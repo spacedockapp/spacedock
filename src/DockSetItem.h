@@ -2,25 +2,25 @@
 //  DockSetItem.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 10/11/13.
+//  Created by Rob Tsuk on 12/18/13.
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 @class DockSet;
 
 @interface DockSetItem : NSManagedObject
 
-@property (nonatomic, retain) NSSet* sets;
+@property (nonatomic, retain) NSSet *sets;
 @end
 
 @interface DockSetItem (CoreDataGeneratedAccessors)
 
--(void)addSetsObject:(DockSet*)value;
--(void)removeSetsObject:(DockSet*)value;
--(void)addSets:(NSSet*)values;
--(void)removeSets:(NSSet*)values;
+- (void)addSetsObject:(DockSet *)value;
+- (void)removeSetsObject:(DockSet *)value;
+- (void)addSets:(NSSet *)values;
+- (void)removeSets:(NSSet *)values;
 
 @end

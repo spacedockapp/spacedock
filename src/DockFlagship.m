@@ -1,17 +1,16 @@
 //
-//  DockShip.m
+//  DockFlagship.m
 //  Space Dock
 //
 //  Created by Rob Tsuk on 12/18/13.
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
-#import "DockShip.h"
+#import "DockFlagship.h"
 #import "DockEquippedShip.h"
-#import "DockShipClassDetails.h"
 
 
-@implementation DockShip
+@implementation DockFlagship
 
 @dynamic ability;
 @dynamic agility;
@@ -27,13 +26,9 @@
 @dynamic scan;
 @dynamic sensorEcho;
 @dynamic shield;
-@dynamic shipClass;
 @dynamic targetLock;
 @dynamic tech;
-@dynamic title;
-@dynamic unique;
 @dynamic weapon;
-@dynamic equippedShips;
-@dynamic shipClassDetails;
+@dynamic ships;
 
 @end

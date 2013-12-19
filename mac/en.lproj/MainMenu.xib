@@ -1432,6 +1432,406 @@
                                                     </subviews>
                                                 </view>
                                             </tabViewItem>
+                                            <tabViewItem label="Flagships" identifier="flagships" id="WoN-gG-9Wa">
+                                                <view key="view" id="4WW-Ri-in6">
+                                                    <rect key="frame" x="10" y="33" width="602" height="208"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="8eh-8t-VzF">
+                                                            <rect key="frame" x="-3" y="-3" width="608" height="214"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <clipView key="contentView" id="OLu-50-apX">
+                                                                <rect key="frame" x="1" y="17" width="606" height="181"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                <subviews>
+                                                                    <tableView identifier="flagshipsTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveName="flagshipTable" headerView="jxk-pb-A0U" id="fgU-tR-2vJ" userLabel="flagships">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="808" height="181"/>
+                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                        <size key="intercellSpacing" width="3" height="2"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                                        <tableColumns>
+                                                                            <tableColumn identifier="flagshipTitle" editable="NO" width="100" minWidth="40" maxWidth="1000" id="hcv-Ad-yhL" userLabel="title">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Title">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="eQ0-MZ-In7">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="title"/>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.title" id="x95-4O-1wt">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn identifier="flagshipFaction" editable="NO" width="100" minWidth="40" maxWidth="1000" id="bzB-Um-YXg" userLabel="faction">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Faction">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="NzB-Fx-cFU">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="faction"/>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.faction" id="Xf7-BR-QGn">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn identifier="flagshipAttack" editable="NO" width="40" minWidth="40" maxWidth="1000" id="ZE8-jb-Mev" userLabel="attack">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Atk">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="AC1-nT-8FC">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="attack"/>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.attack" id="hkm-SD-kF2">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn identifier="flagshipagility" editable="NO" width="40" minWidth="40" maxWidth="1000" id="DlW-bO-qMv" userLabel="agility">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Agi">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="RMq-8I-YZH">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="agility"/>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.agility" id="kT6-nH-jqa">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn identifier="flagshiphull" editable="NO" width="40" minWidth="40" maxWidth="1000" id="x5V-Md-e7e" userLabel="hull">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Hull">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="F6E-kk-eRa">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="hull"/>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.hull" id="pmV-sm-jey">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn identifier="flagshipshield" editable="NO" width="40" minWidth="40" maxWidth="1000" id="e3e-md-ImT" userLabel="shield">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Shld">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="hwt-bw-NsX">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="shield"/>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.shield" id="JL3-Sw-gCf">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn identifier="flagshipevasiveManeuvers" editable="NO" width="40" minWidth="40" maxWidth="1000" id="D6O-Zh-z3K" userLabel="evasiveManeuvers">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="EvaM">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="kHo-hb-9ps">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="evasiveManeuvers"/>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.evasiveManeuvers" id="Jjb-VD-fnP">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn identifier="flagshiplock" editable="NO" width="40" minWidth="40" maxWidth="1000" id="efi-xD-hvX" userLabel="lock">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Lock">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="dhw-hA-taX">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="targetLock"/>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.targetLock" id="qxZ-cn-8tx">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn identifier="flagshipscan" editable="NO" width="40" minWidth="40" maxWidth="1000" id="G5U-cv-KU9" userLabel="scan">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Scan">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="gYJ-01-Sje">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="scan"/>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.scan" id="Ot3-rk-dNs">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn identifier="flagshipbattleStations" editable="NO" width="40" minWidth="40" maxWidth="1000" id="ZQ6-ip-sCE" userLabel="battleStations">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="BStn">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="gT4-Gt-jzS">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="battleStations"/>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.battleStations" id="Zis-68-oD0">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn identifier="flagshipcloak" editable="NO" width="40" minWidth="40" maxWidth="1000" id="LqB-AD-59v" userLabel="cloak">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Clk">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="RsJ-kH-508">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="cloak"/>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.cloak" id="BIB-u9-Ah4">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn identifier="flagshipsensorEcho" editable="NO" width="40" minWidth="40" maxWidth="1000" id="pMp-Fh-Tsu" userLabel="sensorEcho">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Echo">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="gzy-t3-f1a">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="sensorEcho"/>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.sensorEcho" id="M3X-5O-F4a">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn identifier="flagshiptech" editable="NO" width="40" minWidth="40" maxWidth="1000" id="Egr-8H-V0M" userLabel="tech">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Tech">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="8ZH-fF-Dpj">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="tech"/>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.tech" id="p0Y-Qb-nvr">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn identifier="flagshipweapon" editable="NO" width="40" minWidth="40" maxWidth="1000" id="h6J-aJ-JYQ" userLabel="weapon">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Wpns">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="qa9-g6-k7e">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="weapon"/>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.weapon" id="tx1-pM-T3D">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn identifier="flagshipcrew" editable="NO" width="40" minWidth="40" maxWidth="1000" id="ZN8-NE-G0c" userLabel="crew">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Crew">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="e1f-jT-9Va">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="crew"/>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.crew" id="MgJ-Wh-vKQ">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn identifier="flagshipability" editable="NO" width="40" minWidth="40" maxWidth="10000" id="Umo-MV-are" userLabel="ability">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Ability">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="g9u-Mz-Zul">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.ability" id="ral-m9-6hJ">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                        </tableColumns>
+                                                                        <connections>
+                                                                            <binding destination="Akm-Zf-Blb" name="content" keyPath="arrangedObjects" id="0bB-xt-gIS"/>
+                                                                            <binding destination="Akm-Zf-Blb" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="0bB-xt-gIS" id="pU4-ps-WnR"/>
+                                                                            <binding destination="494" name="doubleClickTarget" keyPath="self" id="i15-Gv-Iuz">
+                                                                                <dictionary key="options">
+                                                                                    <string key="NSSelectorName">addSelected:</string>
+                                                                                </dictionary>
+                                                                            </binding>
+                                                                            <binding destination="Akm-Zf-Blb" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="pU4-ps-WnR" id="zXe-uT-hHc"/>
+                                                                        </connections>
+                                                                    </tableView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </clipView>
+                                                            <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="xFE-hf-9hV">
+                                                                <rect key="frame" x="1" y="198" width="606" height="15"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </scroller>
+                                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="0GY-ZC-474">
+                                                                <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </scroller>
+                                                            <tableHeaderView key="headerView" id="jxk-pb-A0U">
+                                                                <rect key="frame" x="0.0" y="0.0" width="808" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </tableHeaderView>
+                                                        </scrollView>
+                                                    </subviews>
+                                                </view>
+                                            </tabViewItem>
                                             <tabViewItem label="Sets" identifier="tabSets" id="6Og-br-tE8">
                                                 <view key="view" id="yjJ-F2-CD0">
                                                     <rect key="frame" x="10" y="33" width="602" height="208"/>
@@ -1862,6 +2262,8 @@
                 <outlet property="exportFormatView" destination="d19-nn-2NS" id="XKY-3v-Vdh"/>
                 <outlet property="factionMenu" destination="jzV-EA-Bef" id="s0C-A5-mcz"/>
                 <outlet property="faqViewer" destination="fzH-hA-dLG" id="hGA-Hc-kbp"/>
+                <outlet property="flagshipsController" destination="Akm-Zf-Blb" id="y5T-L6-ti5"/>
+                <outlet property="flagshipsTableView" destination="fgU-tR-2vJ" id="MPh-Ek-V1X"/>
                 <outlet property="fleetBuildSheet2" destination="Izs-mh-ARI" id="H4b-K4-PBX"/>
                 <outlet property="inspector" destination="L6P-6L-sOj" id="Emf-SV-SDs"/>
                 <outlet property="resourcesController" destination="YPe-Zs-mE7" id="QpO-G6-Tot"/>
@@ -1923,7 +2325,7 @@
                 </binding>
             </connections>
         </treeController>
-        <arrayController mode="entity" entityName="Captain" fetchPredicateFormat="ANY sets.externalId in {&quot;71120&quot;, &quot;71121&quot;}" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="0af-xY-vuT" userLabel="captains controller">
+        <arrayController mode="entity" entityName="Captain" fetchPredicateFormat="" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="0af-xY-vuT" userLabel="captains controller">
             <connections>
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="Ayz-MY-Ljt"/>
             </connections>
@@ -1972,6 +2374,11 @@
         <arrayController mode="entity" entityName="Resource" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="YPe-Zs-mE7" userLabel="resources controller">
             <connections>
                 <binding destination="494" name="managedObjectContext" keyPath="self.managedObjectContext" id="2uq-jW-ChQ"/>
+            </connections>
+        </arrayController>
+        <arrayController mode="entity" entityName="Flagship" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="Akm-Zf-Blb" userLabel="flagships">
+            <connections>
+                <binding destination="494" name="managedObjectContext" keyPath="self.managedObjectContext" id="sbd-bw-16Y"/>
             </connections>
         </arrayController>
         <arrayController mode="entity" entityName="Set" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="a37-z6-clf" userLabel="sets controller">
@@ -2684,7 +3091,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="initials" width="59" maxWidth="9999" id="vLw-H6-RFc">
+                                                    <tableColumn identifier="initials" width="58.5" maxWidth="9999" id="vLw-H6-RFc">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -2858,7 +3265,7 @@
                                     <tableViewGridLines key="gridStyleMask" vertical="YES" horizontal="YES"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="0" width="82" maxWidth="9999" id="VHf-tQ-Bl3">
+                                        <tableColumn identifier="0" width="83.5" maxWidth="9999" id="VHf-tQ-Bl3">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Ship 1">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -2871,7 +3278,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
-                                        <tableColumn identifier="1" width="74" maxWidth="9999" id="55W-sn-ZFg">
+                                        <tableColumn identifier="1" width="75.5" maxWidth="9999" id="55W-sn-ZFg">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Ship 2">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -2910,7 +3317,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
-                                        <tableColumn identifier="4" width="75" maxWidth="9999" id="rb3-dD-LGi">
+                                        <tableColumn identifier="4" width="73.5" maxWidth="9999" id="rb3-dD-LGi">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Resource">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -2923,7 +3330,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
-                                        <tableColumn identifier="5" width="68" maxWidth="9999" id="zYu-iP-dKW">
+                                        <tableColumn identifier="5" width="66.5" maxWidth="9999" id="zYu-iP-dKW">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Total">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>

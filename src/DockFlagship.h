@@ -1,5 +1,5 @@
 //
-//  DockShip.h
+//  DockFlagship.h
 //  Space Dock
 //
 //  Created by Rob Tsuk on 12/18/13.
@@ -10,9 +10,9 @@
 #import <CoreData/CoreData.h>
 #import "DockSetItem.h"
 
-@class DockEquippedShip, DockShipClassDetails;
+@class DockEquippedShip;
 
-@interface DockShip : DockSetItem
+@interface DockFlagship : DockSetItem
 
 @property (nonatomic, retain) NSString * ability;
 @property (nonatomic, retain) NSNumber * agility;
@@ -28,21 +28,17 @@
 @property (nonatomic, retain) NSNumber * scan;
 @property (nonatomic, retain) NSNumber * sensorEcho;
 @property (nonatomic, retain) NSNumber * shield;
-@property (nonatomic, retain) NSString * shipClass;
 @property (nonatomic, retain) NSNumber * targetLock;
 @property (nonatomic, retain) NSNumber * tech;
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSNumber * unique;
 @property (nonatomic, retain) NSNumber * weapon;
-@property (nonatomic, retain) NSSet *equippedShips;
-@property (nonatomic, retain) DockShipClassDetails *shipClassDetails;
+@property (nonatomic, retain) NSSet *ships;
 @end
 
-@interface DockShip (CoreDataGeneratedAccessors)
+@interface DockFlagship (CoreDataGeneratedAccessors)
 
-- (void)addEquippedShipsObject:(DockEquippedShip *)value;
-- (void)removeEquippedShipsObject:(DockEquippedShip *)value;
-- (void)addEquippedShips:(NSSet *)values;
-- (void)removeEquippedShips:(NSSet *)values;
+- (void)addShipsObject:(DockEquippedShip *)value;
+- (void)removeShipsObject:(DockEquippedShip *)value;
+- (void)addShips:(NSSet *)values;
+- (void)removeShips:(NSSet *)values;
 
 @end

@@ -16,6 +16,6 @@
 @property (assign, nonatomic) BOOL versionMatched;
 @property (readonly, weak, nonatomic) NSManagedObjectContext* managedObjectContext;
 -(id)initWithContext:(NSManagedObjectContext*)context version:(NSString*)version;
--(BOOL)loadData:(NSString*)pathToDataFile error:(NSError**)error;
+-(BOOL)loadData:(NSString*)pathToDataFile force:(BOOL)force error:(NSError**)error;
 -(NSSet*)validateSpecials;
 @end

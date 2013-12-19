@@ -2,7 +2,7 @@
 //  DockSideboard.m
 //  Space Dock
 //
-//  Created by Rob Tsuk on 11/29/13.
+//  Created by Rob Tsuk on 12/18/13.
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
@@ -11,6 +11,5 @@
 
 @implementation DockSideboard
 
-@dynamic unused;
 
 @end
