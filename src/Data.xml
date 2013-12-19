@@ -4640,7 +4640,7 @@ c) Exchange 1 Captain from his ship with 1 Captain from his Sideboard.
             <Agility>1</Agility>
             <Hull>0</Hull>
             <Shield>1</Shield>
-            <Ability>When attacking, all other friendly, Romulan ships within Range 1 - 2 of your Flagship may choose any number of their attack dice and re-roll them once.</Ability>
+            <Ability>When attacking, all other friendly, Romulan ships within Range 1-2 of your Flagship may choose any number of their attack dice and re-roll them once.</Ability>
             <EvasiveManeuvers>0</EvasiveManeuvers>
             <TargetLock>0</TargetLock>
             <Scan>0</Scan>
@@ -4681,7 +4681,7 @@ c) Exchange 1 Captain from his ship with 1 Captain from his Sideboard.
             <Agility>1</Agility>
             <Hull>1</Hull>
             <Shield>0</Shield>
-            <Ability>When attacking, all other friendly Klingon ships within Range 1 - 2 of your Flagship may convert 1 blank result into 1 [HIT] result.</Ability>
+            <Ability>When attacking, all other friendly Klingon ships within Range 1-2 of your Flagship may convert 1 blank result into 1 [HIT] result.</Ability>
             <EvasiveManeuvers>0</EvasiveManeuvers>
             <TargetLock>0</TargetLock>
             <Scan>0</Scan>
@@ -4702,7 +4702,7 @@ c) Exchange 1 Captain from his ship with 1 Captain from his Sideboard.
             <Agility>1</Agility>
             <Hull>1</Hull>
             <Shield>0</Shield>
-            <Ability>All other friendly ships within Range 1 of your Flagship gain +1 attack die when attaching at Range 2 - 3.</Ability>
+            <Ability>All other friendly ships within Range 1 of your Flagship gain +1 attack die when attacking at Range 2-3.</Ability>
             <EvasiveManeuvers>0</EvasiveManeuvers>
             <TargetLock>0</TargetLock>
             <Scan>1</Scan>
@@ -4723,7 +4723,7 @@ c) Exchange 1 Captain from his ship with 1 Captain from his Sideboard.
             <Agility>1</Agility>
             <Hull>1</Hull>
             <Shield>1</Shield>
-            <Ability>When defending, all other friendly Dominion ships within Range 1 - 2 of your Flagship may convert 1 blank result into 1 [EVASION] result.</Ability>
+            <Ability>When defending, all other friendly Dominion ships within Range 1-2 of your Flagship may convert 1 blank result into 1 [EVASION] result.</Ability>
             <EvasiveManeuvers>0</EvasiveManeuvers>
             <TargetLock>0</TargetLock>
             <Scan>1</Scan>
@@ -4765,7 +4765,7 @@ c) Exchange 1 Captain from his ship with 1 Captain from his Sideboard.
             <Agility>0</Agility>
             <Hull>1</Hull>
             <Shield>1</Shield>
-            <Ability>When defending, all other friendly Federation ships within Range 1 - 2 of your Flagship may choose any number of their defense dice and re-roll them once.</Ability>
+            <Ability>When defending, all other friendly Federation ships within Range 1-2 of your Flagship may choose any number of their defense dice and re-roll them once.</Ability>
             <EvasiveManeuvers>0</EvasiveManeuvers>
             <TargetLock>0</TargetLock>
             <Scan>0</Scan>

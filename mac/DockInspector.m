@@ -4,6 +4,7 @@
 #import "DockCaptain+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
+#import "DockFlagship+Addons.h"
 #import "DockMoveGrid.h"
 #import "DockSet+Addons.h"
 #import "DockShip+Addons.h"
@@ -62,6 +63,15 @@ static id extractSelectedItem(id controller)
         self.currentShip = ship;
         [self updateForShip];
         [self updateSet: ship];
+    }
+}
+
+-(void)updateFlagship:(DockFlagship*)flagship
+{
+    if (flagship != nil && flagship != _currentFlagship) {
+        self.currentFlagship = flagship;
+        //[self updateForFlagship];
+        [self updateSet: flagship];
     }
 }
 
@@ -126,6 +136,9 @@ static id extractSelectedItem(id controller)
                 id selectedItem = extractSelectedItem(_squadDetail);
                 [self updateInspectorTabForItem: selectedItem];
                 [self updateSet: selectedItem];
+            } else if ([ident isEqualToString: @"flagshipsTable"]) {
+                [_tabView selectTabViewItemWithIdentifier: @"flagship"];
+                [self updateFlagship: extractSelectedItem(_flagships)];
             } else {
                 [_tabView selectTabViewItemWithIdentifier: @"blank"];
                 [self clearSet];
@@ -139,6 +152,8 @@ static id extractSelectedItem(id controller)
             [self updateCaptain: extractSelectedItem(_captains)];
         } else if (object == _ships) {
             [self updateShip: extractSelectedItem(_ships)];
+        } else if (object == _flagships) {
+            [self updateFlagship: extractSelectedItem(_flagships)];
         } else if (object == _upgrades) {
             [self updateUpgrade: extractSelectedItem(_upgrades)];
         } else if (object == _resources) {
@@ -147,6 +162,7 @@ static id extractSelectedItem(id controller)
         }
     }
     @catch (NSException *exception) {
+        NSLog(@"caught exception %@", exception);
     }
     @finally {
     }
@@ -162,6 +178,7 @@ static id extractSelectedItem(id controller)
     [_ships addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     [_upgrades addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     [_resources addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
+    [_flagships addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     [_squadDetail addObserver: self forKeyPath: @"selectionIndexPath" options: 0 context: 0];
 }
 

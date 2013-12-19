@@ -2236,6 +2236,7 @@
                 <outlet property="ability" destination="Tgx-YS-CVc" id="mFX-cF-F7T"/>
                 <outlet property="captains" destination="0af-xY-vuT" id="qKm-yR-D6r"/>
                 <outlet property="captainsTable" destination="pbE-Lg-pvF" id="t92-Pu-inm"/>
+                <outlet property="flagships" destination="Akm-Zf-Blb" id="lC1-gc-YZb"/>
                 <outlet property="inspector" destination="h3B-q6-zJy" id="nzl-G2-VQy"/>
                 <outlet property="mainWindow" destination="371" id="Zwt-et-1M2"/>
                 <outlet property="moveGrid" destination="XsD-d6-3SQ" id="xEO-WR-jfX"/>
@@ -2781,6 +2782,104 @@
                                                 <binding destination="L6P-6L-sOj" name="value" keyPath="currentUpgrade.title" id="gfv-ug-B2B"/>
                                             </connections>
                                         </textField>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="Flagship" identifier="flagship" id="BL3-zB-ofr">
+                                <view key="view" id="i4G-FV-tHe">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view id="vOM-Q2-fHP">
+                                            <rect key="frame" x="-1" y="-2" width="202" height="253"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="2Cv-vd-Pbb" userLabel="ability">
+                                                    <rect key="frame" x="46" y="40" width="139" height="179"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" borderStyle="border" alignment="left" title="Multiline Label" drawsBackground="YES" id="TsB-NL-V0c">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <connections>
+                                                        <binding destination="L6P-6L-sOj" name="value" keyPath="currentFlagship.ability" id="cii-O0-EKv"/>
+                                                    </connections>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Dal-mv-fOD" userLabel="title">
+                                                    <rect key="frame" x="12" y="9" width="140" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="capabilities" placeholderString="" id="9hm-Sj-wdJ">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <connections>
+                                                        <binding destination="L6P-6L-sOj" name="value" keyPath="currentFlagship.capabilities" id="lMm-eE-qJ4"/>
+                                                    </connections>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ZiF-9Q-hMv" userLabel="attack">
+                                                    <rect key="frame" x="13" y="171" width="25" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="t6r-gj-kij">
+                                                        <font key="font" size="15" name="LucidaGrande"/>
+                                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </textFieldCell>
+                                                    <connections>
+                                                        <binding destination="L6P-6L-sOj" name="value" keyPath="currentFlagship.attack" id="3ka-ae-78f"/>
+                                                    </connections>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ywe-Js-E5a" userLabel="agility">
+                                                    <rect key="frame" x="13" y="142" width="25" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="9aZ-zW-OSi">
+                                                        <font key="font" size="15" name="LucidaGrande"/>
+                                                        <color key="textColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </textFieldCell>
+                                                    <connections>
+                                                        <binding destination="L6P-6L-sOj" name="value" keyPath="currentFlagship.agility" id="bVQ-Aj-MY6"/>
+                                                    </connections>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="iev-Si-iS5" userLabel="hull">
+                                                    <rect key="frame" x="13" y="113" width="25" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="DqI-Tx-3Md">
+                                                        <font key="font" size="15" name="LucidaGrande"/>
+                                                        <color key="textColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </textFieldCell>
+                                                    <connections>
+                                                        <binding destination="L6P-6L-sOj" name="value" keyPath="currentFlagship.hull" id="ly5-hy-vpz"/>
+                                                    </connections>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ahF-G1-gM5" userLabel="shield">
+                                                    <rect key="frame" x="13" y="84" width="25" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" drawsBackground="YES" id="cnq-X8-wz1">
+                                                        <font key="font" size="15" name="LucidaGrande"/>
+                                                        <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </textFieldCell>
+                                                    <connections>
+                                                        <binding destination="L6P-6L-sOj" name="value" keyPath="currentFlagship.shield" id="gQw-dM-WIZ"/>
+                                                    </connections>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ckD-Gk-gfF" userLabel="title">
+                                                    <rect key="frame" x="24" y="227" width="157" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Flagship Title" placeholderString="" id="6uV-dP-HKj">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <connections>
+                                                        <binding destination="L6P-6L-sOj" name="value" keyPath="currentFlagship.title" id="bxg-MW-vZl"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                        </view>
                                     </subviews>
                                 </view>
                             </tabViewItem>
