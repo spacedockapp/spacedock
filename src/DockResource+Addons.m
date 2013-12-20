@@ -2,7 +2,8 @@
 
 @implementation DockResource (Addons)
 
-static NSString * kSideboardExternalId = @"4003";
+static NSString* kSideboardExternalId = @"4003";
+static NSString* kFlagshipExternalId = @"4004";
 
 +(DockResource*)resourceForId:(NSString*)externalId context:(NSManagedObjectContext*)context
 {
@@ -26,6 +27,11 @@ static NSString * kSideboardExternalId = @"4003";
     return [DockResource resourceForId: kSideboardExternalId context: context];
 }
 
++(DockResource*)flagshipResource:(NSManagedObjectContext*)context
+{
+    return [DockResource resourceForId: kFlagshipExternalId context: context];
+}
+
 -(NSString*)plainDescription
 {
     return self.title;
@@ -34,6 +40,11 @@ static NSString * kSideboardExternalId = @"4003";
 -(BOOL)isSideboard
 {
     return [self.externalId isEqualToString: kSideboardExternalId];
+}
+
+-(BOOL)isFlagship
+{
+    return [self.externalId isEqualToString: kFlagshipExternalId];
 }
 
 @end

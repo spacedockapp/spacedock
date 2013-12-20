@@ -2,7 +2,7 @@
 //  DockFlagship.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 12/18/13.
+//  Created by Rob Tsuk on 12/19/13.
 //  Copyright (c) 2013 Rob Tsuk. All rights reserved.
 //
 
@@ -28,8 +28,10 @@
 @property (nonatomic, retain) NSNumber * scan;
 @property (nonatomic, retain) NSNumber * sensorEcho;
 @property (nonatomic, retain) NSNumber * shield;
+@property (nonatomic, retain) NSNumber * talent;
 @property (nonatomic, retain) NSNumber * targetLock;
 @property (nonatomic, retain) NSNumber * tech;
+@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSNumber * weapon;
 @property (nonatomic, retain) NSSet *ships;
 @end

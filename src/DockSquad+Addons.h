@@ -2,6 +2,7 @@
 
 @class DockEquippedShip;
 @class DockEquippedUpgrade;
+@class DockFlagship;
 @class DockUpgrade;
 @class DockCaptain;
 @class DockShip;
@@ -26,4 +27,5 @@
 -(DockEquippedUpgrade*)addCaptain:(DockCaptain*)captain toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
 -(DockEquippedShip*)addSideboard;
+-(DockFlagship*)flagship;
 @end

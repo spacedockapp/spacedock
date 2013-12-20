@@ -1,6 +1,7 @@
 #import "DockShip.h"
 
 @class DockManeuver;
+@class DockFlagship;
 
 @interface DockShip (Addons)
 -(NSAttributedString*)styledDescription;

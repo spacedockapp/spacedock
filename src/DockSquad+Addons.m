@@ -494,21 +494,45 @@ static NSString* namePrefix(NSString* originalName)
     return sideboard;
 }
 
+-(void)removeFlagship
+{
+    for (DockEquippedShip* equippedShip in self.equippedShips) {
+        [equippedShip removeFlagship];
+    }
+}
+
 -(void)setResource:(DockResource*)resource
 {
     DockResource* oldResource = [self primitiveValueForKey: @"resource"];
+    
+    if (oldResource != resource) {
 
-    if ([oldResource isSideboard]) {
-        [self removeSideboard];
+        if ([oldResource isSideboard]) {
+            [self removeSideboard];
+        } else if ([oldResource isFlagship]) {
+            [self removeFlagship];
+        }
+
+        [self willChangeValueForKey: @"resource"];
+        [self setPrimitiveValue: resource forKey: @"resource"];
+        [self didChangeValueForKey: @"resource"];
+
+        if ([resource isSideboard]) {
+            [self addSideboard];
+        }
+        
     }
+}
 
-    [self willChangeValueForKey: @"resource"];
-    [self setPrimitiveValue: resource forKey: @"resource"];
-    [self didChangeValueForKey: @"resource"];
-
-    if ([resource isSideboard]) {
-        [self addSideboard];
+-(DockFlagship*)flagship
+{
+    for (DockEquippedShip* equippedShip in self.equippedShips) {
+        DockFlagship* flagShip = equippedShip.flagship;
+        if (flagShip != nil) {
+            return flagShip;
+        }
     }
+    return nil;
 }
 
 @end

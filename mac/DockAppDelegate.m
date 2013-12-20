@@ -626,6 +626,16 @@ NSString* kInspectorVisible = @"inspectorVisible";
     }
 }
 
+-(void)addSelectedFlagship:(DockEquippedShip*)selectedShip
+{
+    NSArray* selectedFlagships = [_flagshipsController selectedObjects];
+
+    if (selectedFlagships.count > 0) {
+        DockFlagship* flagShip = selectedFlagships[0];
+        [selectedShip becomeFlagship: flagShip];
+    }
+}
+
 -(IBAction)addSelected:(id)sender
 {
     NSTabViewItem* selectedTab = [_tabView selectedTabViewItem];
@@ -641,6 +651,11 @@ NSString* kInspectorVisible = @"inspectorVisible";
         DockEquippedUpgrade* equippedUpgrade = nil;
 
         if (selectedShip != nil) {
+            if ([identifier isEqualToString: @"flagships"]) {
+                [self addSelectedFlagship: selectedShip];
+                return;
+            }
+            
             if ([identifier isEqualToString: @"captains"]) {
                 equippedUpgrade = [self addSelectedCaptain: selectedShip];
             }
@@ -653,7 +668,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
                 [self selectUpgrade: equippedUpgrade];
             }
         } else {
-            NSAlert* alert = [NSAlert alertWithMessageText: @"You must select a ship before adding a captain or upgrade."
+            NSAlert* alert = [NSAlert alertWithMessageText: @"You must select a ship before adding a captain or upgrade or designating a flagship."
                                              defaultButton: @"OK"
                                            alternateButton: @""
                                                otherButton: @""
@@ -672,8 +687,12 @@ NSString* kInspectorVisible = @"inspectorVisible";
     DockEquippedShip* targetShip = [self selectedEquippedShip];
 
     if (target == targetShip) {
-        DockSquad* squad = [[_squadsController selectedObjects] objectAtIndex: 0];
-        [squad removeEquippedShip: targetShip];
+        if (targetShip.flagship != nil) {
+            [targetShip removeFlagship];
+        } else {
+            DockSquad* squad = [[_squadsController selectedObjects] objectAtIndex: 0];
+            [squad removeEquippedShip: targetShip];
+        }
     } else {
         [targetShip removeUpgrade: target establishPlaceholders: YES];
         [self selectShip: targetShip];

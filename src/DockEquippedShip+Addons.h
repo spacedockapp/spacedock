@@ -25,6 +25,10 @@
 -(int)weaponCount;
 -(int)crewCount;
 -(int)baseCost;
+-(int)attack;
+-(int)agility;
+-(int)hull;
+-(int)shield;
 -(BOOL)isResourceSideboard;
 -(NSArray*)sortedUpgrades;
 -(NSString*)plainDescription;
@@ -36,4 +40,6 @@
 -(void)changeShip:(DockShip*)newShip;
 -(NSDictionary*)explainCantAddUpgrade:(DockUpgrade*)upgrade;
 -(void)establishPlaceholders;
+-(void)becomeFlagship:(DockFlagship*)flagship;
+-(void)removeFlagship;
 @end

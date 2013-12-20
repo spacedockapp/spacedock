@@ -3,16 +3,18 @@
 #import "DockCaptain+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockEquippedUpgrade.h"
+#import "DockFlagship+Addons.h"
 #import "DockResource+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"
+#import "DockUtils.h"
 
 @implementation DockEquippedShip (Addons)
 
 +(NSSet*)keyPathsForValuesAffectingSortedUpgrades
 {
-    return [NSSet setWithObjects: @"upgrades", @"ship", nil];
+    return [NSSet setWithObjects: @"upgrades", @"ship", @"flagship", nil];
 }
 
 +(NSSet*)keyPathsForValuesAffectingCost
@@ -22,7 +24,7 @@
 
 +(NSSet*)keyPathsForValuesAffectingStyledDescription
 {
-    return [NSSet setWithObjects: @"ship", nil];
+    return [NSSet setWithObjects: @"ship", @"flagship", nil];
 }
 
 -(NSString*)title
@@ -43,13 +45,36 @@
     return [self.ship plainDescription];
 }
 
+static NSString* intToString(int v)
+{
+    return [NSString stringWithFormat: @"%d", v];
+}
+
 -(NSAttributedString*)styledDescription
 {
     if ([self isResourceSideboard]) {
         return [[NSAttributedString alloc] initWithString: self.squad.resource.title];
     }
 
-    return [self.ship styledDescription];
+    NSMutableAttributedString* desc = [[NSMutableAttributedString alloc] initWithString: [self plainDescription]];
+#if TARGET_OS_IPHONE
+#else
+    NSAttributedString* space = [[NSAttributedString alloc] initWithString: @" "];
+    [desc appendAttributedString: space];
+    [desc appendAttributedString: coloredString(intToString(self.attack), [NSColor whiteColor], [NSColor redColor])];
+    [desc appendAttributedString: space];
+    [desc appendAttributedString: coloredString(intToString(self.agility), [NSColor blackColor], [NSColor greenColor])];
+    [desc appendAttributedString: space];
+    [desc appendAttributedString: coloredString(intToString(self.hull), [NSColor blackColor], [NSColor yellowColor])];
+    [desc appendAttributedString: space];
+    [desc appendAttributedString: coloredString(intToString(self.shield), [NSColor whiteColor], [NSColor blueColor])];
+    DockFlagship* flagship = self.flagship;
+    if (flagship) {
+        NSString* flagshipTag = [NSString stringWithFormat: @" [%@]", flagship.plainDescription];
+        [desc appendAttributedString: [[NSAttributedString alloc] initWithString: flagshipTag]];
+    }
+#endif
+    return desc;
 }
 
 -(NSString*)descriptiveTitle
@@ -58,7 +83,11 @@
         return self.squad.resource.title;
     }
 
-    return [self.ship descriptiveTitle];
+    NSString* s = [self.ship descriptiveTitle];
+    if (self.flagship != nil) {
+        s = [s stringByAppendingString: @" [FS]"];
+    }
+    return s;
 }
 
 -(NSString*)upgradesDescription
@@ -88,6 +117,26 @@
     }
 
     return [self.ship.cost intValue];
+}
+
+-(int)attack
+{
+    return [self.ship.attack intValue] + [self.flagship attackAdd];
+}
+
+-(int)agility
+{
+    return [self.ship.agility intValue] + [self.flagship agilityAdd];
+}
+
+-(int)hull
+{
+    return [self.ship.hull intValue] + [self.flagship hullAdd];
+}
+
+-(int)shield
+{
+    return [self.ship.shield intValue] + [self.flagship shieldAdd];
 }
 
 -(int)cost
@@ -428,7 +477,9 @@
 -(int)talentCount
 {
     DockCaptain* captain = [self captain];
-    return [captain talentCount];
+    int talentCount = [captain talentCount];
+    talentCount += [self.flagship talentAdd];
+    return talentCount;
 }
 
 -(int)shipPropertyCount:(NSString*)propertyName
@@ -440,17 +491,22 @@
 {
     int techCount = [self shipPropertyCount: @"tech"];
     techCount += [self.captain additionalTechSlots];
+    techCount += [self.flagship techAdd];
     return techCount;
 }
 
 -(int)weaponCount
 {
-    return [self shipPropertyCount: @"weapon"];
+    int weaponCount = [self shipPropertyCount: @"weapon"];
+    weaponCount += [self.flagship weaponAdd];
+    return weaponCount;
 }
 
 -(int)crewCount
 {
-    return [self shipPropertyCount: @"crew"];
+    int crewCount = [self shipPropertyCount: @"crew"];
+    crewCount += [self.flagship crewAdd];
+    return crewCount;
 }
 
 -(int)upgradeCount
@@ -530,4 +586,25 @@
     };
 }
 
+-(void)becomeFlagship:(DockFlagship*)flagship
+{
+    if (self.flagship != flagship) {
+        for (DockEquippedShip* equippedShip in self.squad.equippedShips) {
+            if (equippedShip != self) {
+                [equippedShip removeFlagship];
+            }
+        }
+        self.flagship = flagship;
+        self.squad.resource = [DockResource flagshipResource: self.managedObjectContext];
+        [self establishPlaceholders];
+    }
+}
+
+-(void)removeFlagship
+{
+    if (self.flagship != nil) {
+        self.flagship = nil;
+        [self establishPlaceholders];
+    }
+}
 @end

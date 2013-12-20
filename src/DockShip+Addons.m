@@ -1,6 +1,7 @@
 #import "DockShip+Addons.h"
 
 #import "DockManeuver.h"
+#import "DockShip+Addons.h"
 #import "DockShipClassDetails+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"

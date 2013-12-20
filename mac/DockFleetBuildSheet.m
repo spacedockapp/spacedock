@@ -3,6 +3,7 @@
 #import "DockCaptain+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
+#import "DockFlagship+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockResource+Addons.h"
 #import "DockSquad+Addons.h"
@@ -261,6 +262,10 @@ NSAttributedString* headerText(NSString* string)
 {
     DockResource* res = _targetSquad.resource;
     if (res) {
+        if ([res isFlagship]) {
+            DockFlagship* flagship = (DockFlagship*)res;
+            return [flagship plainDescription];
+        }
         return res.title;
     }
     return @"";

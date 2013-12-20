@@ -2,19 +2,44 @@
 
 @implementation DockFlagship (Addons)
 
--(int)techCount
+-(int)talentAdd
+{
+    return [self.talent intValue];
+}
+
+-(int)techAdd
 {
     return [self.tech intValue];
 }
 
--(int)weaponCount
+-(int)weaponAdd
 {
     return [self.weapon intValue];
 }
 
--(int)crewCount
+-(int)crewAdd
 {
     return [self.crew intValue];
+}
+
+-(int)agilityAdd
+{
+    return [self.agility intValue];
+}
+
+-(int)hullAdd
+{
+    return [self.hull intValue];
+}
+
+-(int)attackAdd
+{
+    return [self.attack intValue];
+}
+
+-(int)shieldAdd
+{
+    return [self.shield intValue];
 }
 
 -(NSString*)capabilities
@@ -44,6 +69,11 @@
     }
 
     return [caps componentsJoinedByString: @" "];
+}
+
+-(NSString*)plainDescription
+{
+    return [NSString stringWithFormat: @"Flagship: %@", self.title];
 }
 
 @end

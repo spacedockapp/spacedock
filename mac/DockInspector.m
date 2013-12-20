@@ -29,11 +29,21 @@ static id extractSelectedItem(id controller)
     _moveGrid.ship = self.currentShip;
 }
 
--(void)updateSet:(DockSetItem*)item
+-(void)updateSet:(id)target
 {
-    DockSet* set  = item.sets.anyObject;
-    
-    self.currentSetName = set.productName;
+    DockSetItem* item = target;
+    if (![target isKindOfClass: [DockSetItem class]]) {
+        if (![target isKindOfClass: [DockEquippedShip class]]) {
+            return;
+        }
+        DockEquippedShip* equippedShip = (DockEquippedShip*)target;
+        item = equippedShip.ship;
+    }
+    NSSet* sets  = item.sets;
+    if (sets != nil) {
+        DockSet* set  = item.sets.anyObject;
+        self.currentSetName = set.productName;
+    }
 }
 
 -(void)clearSet
