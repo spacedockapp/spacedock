@@ -31,6 +31,10 @@ static id extractSelectedItem(id controller)
 
 -(void)updateSet:(id)target
 {
+    if (target == nil) {
+        self.currentSetName = @"";
+        return;
+    }
     DockSetItem* item = target;
     if (![target isKindOfClass: [DockSetItem class]]) {
         if (![target isKindOfClass: [DockEquippedShip class]]) {
@@ -55,16 +59,16 @@ static id extractSelectedItem(id controller)
 {
     if (upgrade != nil && upgrade != _currentUpgrade) {
         self.currentUpgrade = upgrade;
-        [self updateSet: upgrade];
     }
+    [self updateSet: upgrade];
 }
 
 -(void)updateCaptain:(DockCaptain*)captain
 {
     if (captain != nil && captain != _currentCaptain) {
         self.currentCaptain = captain;
-        [self updateSet: captain];
     }
+    [self updateSet: captain];
 }
 
 -(void)updateShip:(DockShip*)ship
@@ -72,17 +76,16 @@ static id extractSelectedItem(id controller)
     if (ship != nil && ship != _currentShip) {
         self.currentShip = ship;
         [self updateForShip];
-        [self updateSet: ship];
     }
+    [self updateSet: ship];
 }
 
 -(void)updateFlagship:(DockFlagship*)flagship
 {
     if (flagship != nil && flagship != _currentFlagship) {
         self.currentFlagship = flagship;
-        //[self updateForFlagship];
-        [self updateSet: flagship];
     }
+    [self updateSet: flagship];
 }
 
 -(void)updateInspectorTabForItem:(id)selectedItem changeTab:(BOOL)changeTab
@@ -149,6 +152,7 @@ static id extractSelectedItem(id controller)
             } else if ([ident isEqualToString: @"flagshipsTable"]) {
                 [_tabView selectTabViewItemWithIdentifier: @"flagship"];
                 [self updateFlagship: extractSelectedItem(_flagships)];
+                [self updateSet: self.currentFlagship];
             } else {
                 [_tabView selectTabViewItemWithIdentifier: @"blank"];
                 [self clearSet];
