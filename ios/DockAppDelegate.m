@@ -41,7 +41,7 @@
 -(NSString*)loadDataFromPath:(NSString*)filePath version:(NSString*)currentVersion error:(NSError**)error
 {
     DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: self.managedObjectContext version: currentVersion];
-    if ([loader loadData: filePath error: error]) {
+    if ([loader loadData: filePath force: NO error: error]) {
         return loader.dataVersion;
     }
     return nil;

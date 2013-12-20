@@ -12,5 +12,6 @@
 -(int)techAdd;
 -(int)weaponAdd;
 -(NSString*)plainDescription;
+-(NSString*)name;
 -(BOOL)compatibleWithShip:(DockShip*)targetShip;
 @end

@@ -73,6 +73,14 @@
     return [caps componentsJoinedByString: @" "];
 }
 
+-(NSString*)name
+{
+    if ([self.faction isEqualToString: @"Independent"]) {
+        return self.title;
+    }
+    return self.faction;
+}
+
 -(NSString*)plainDescription
 {
     return [NSString stringWithFormat: @"Flagship: %@", self.title];

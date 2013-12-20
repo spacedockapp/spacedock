@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D40108E2182015090029FDC4 /* DockEquippedShipController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40108E1182015090029FDC4 /* DockEquippedShipController.m */; };
 		D40108E518208F000029FDC4 /* DockTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40108E418208F000029FDC4 /* DockTableViewController.m */; };
+		D402A00C1864F8140012B4D7 /* DockFlagshipsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D402A00B1864F8140012B4D7 /* DockFlagshipsViewController.m */; };
+		D402A00F1865003D0012B4D7 /* DockFlagshipDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D402A00E1865003D0012B4D7 /* DockFlagshipDetailViewController.m */; };
 		D4135E8B182F71A100DBF750 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4135E8A182F71A100DBF750 /* MessageUI.framework */; };
 		D41B77E617FDCF91005A5DA8 /* DockResource+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B77E517FDCF91005A5DA8 /* DockResource+Addons.m */; };
 		D41B77E917FE13D1005A5DA8 /* DockBooleanFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B77E817FE13D1005A5DA8 /* DockBooleanFormatter.m */; };
@@ -234,6 +236,10 @@
 		D40108E1182015090029FDC4 /* DockEquippedShipController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockEquippedShipController.m; sourceTree = "<group>"; };
 		D40108E318208F000029FDC4 /* DockTableViewController.h */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = DockTableViewController.h; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		D40108E418208F000029FDC4 /* DockTableViewController.m */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = DockTableViewController.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
+		D402A00A1864F8140012B4D7 /* DockFlagshipsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockFlagshipsViewController.h; sourceTree = "<group>"; };
+		D402A00B1864F8140012B4D7 /* DockFlagshipsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockFlagshipsViewController.m; sourceTree = "<group>"; };
+		D402A00D1865003D0012B4D7 /* DockFlagshipDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockFlagshipDetailViewController.h; sourceTree = "<group>"; };
+		D402A00E1865003D0012B4D7 /* DockFlagshipDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockFlagshipDetailViewController.m; sourceTree = "<group>"; };
 		D40AF35A1802FB36000B9FF3 /* Space_Dock_2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock_2.xcdatamodel; sourceTree = "<group>"; };
 		D4135E8A182F71A100DBF750 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
 		D41B77E417FDCF91005A5DA8 /* DockResource+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockResource+Addons.h"; sourceTree = "<group>"; };
@@ -738,6 +744,10 @@
 				D427FC3018320F2500D4CC83 /* DockEquippedShipCell.m */,
 				D40108E0182015090029FDC4 /* DockEquippedShipController.h */,
 				D40108E1182015090029FDC4 /* DockEquippedShipController.m */,
+				D402A00D1865003D0012B4D7 /* DockFlagshipDetailViewController.h */,
+				D402A00E1865003D0012B4D7 /* DockFlagshipDetailViewController.m */,
+				D402A00A1864F8140012B4D7 /* DockFlagshipsViewController.h */,
+				D402A00B1864F8140012B4D7 /* DockFlagshipsViewController.m */,
 				D4408DDB184471C4008BA352 /* DockMoveGridView.h */,
 				D4408DDC184471C4008BA352 /* DockMoveGridView.m */,
 				D4408DE2184589E0008BA352 /* DockMovesViewController.h */,
@@ -1228,12 +1238,14 @@
 				D4C8EEFA18626A96007BBD1A /* DockSquad.m in Sources */,
 				D4DA34C01854F84B00F58858 /* DockUpdateDataViewController.m in Sources */,
 				D427FC3118320F2500D4CC83 /* DockEquippedShipCell.m in Sources */,
+				D402A00C1864F8140012B4D7 /* DockFlagshipsViewController.m in Sources */,
 				D433FE24181503A20062731A /* DockTopMenuViewController.m in Sources */,
 				D47316AC18182C4C00046428 /* DockEquippedShip+Addons.m in Sources */,
 				D457FD19181D5B1E009C2E13 /* DockEditValueController.m in Sources */,
 				D47316AA18182C4C00046428 /* DockCaptain+Addons.m in Sources */,
 				D4C8EF0A18626A96007BBD1A /* DockManeuver.m in Sources */,
 				D47316C418182E2F00046428 /* Space_Dock.xcdatamodeld in Sources */,
+				D402A00F1865003D0012B4D7 /* DockFlagshipDetailViewController.m in Sources */,
 				D47316AF18182C4C00046428 /* DockOrderedSetArrayValueTransformer.m in Sources */,
 				D40108E518208F000029FDC4 /* DockTableViewController.m in Sources */,
 				D4C8EF1618626A97007BBD1A /* DockShip.m in Sources */,

@@ -45,10 +45,12 @@
     return [self.ship plainDescription];
 }
 
+#if !TARGET_OS_IPHONE
 static NSString* intToString(int v)
 {
     return [NSString stringWithFormat: @"%d", v];
 }
+#endif
 
 -(NSAttributedString*)styledDescription
 {
