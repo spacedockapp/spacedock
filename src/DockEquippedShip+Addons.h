@@ -40,6 +40,6 @@
 -(void)changeShip:(DockShip*)newShip;
 -(NSDictionary*)explainCantAddUpgrade:(DockUpgrade*)upgrade;
 -(void)establishPlaceholders;
--(void)becomeFlagship:(DockFlagship*)flagship;
+-(NSDictionary*)becomeFlagship:(DockFlagship*)flagship;
 -(void)removeFlagship;
 @end

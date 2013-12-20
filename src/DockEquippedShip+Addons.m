@@ -586,8 +586,13 @@ static NSString* intToString(int v)
     };
 }
 
--(void)becomeFlagship:(DockFlagship*)flagship
+-(NSDictionary*)becomeFlagship:(DockFlagship*)flagship
 {
+    if (![flagship compatibleWithShip: self.ship]) {
+        NSString* msg = [NSString stringWithFormat: @"Can't add %@ to %@", [flagship plainDescription], [self.ship plainDescription]];
+        NSString* info = @"The faction of the flagship must be independent or match the faction of the target ship.";
+        return @{@"info": info, @"message": msg};
+    }
     if (self.flagship != flagship) {
         for (DockEquippedShip* equippedShip in self.squad.equippedShips) {
             if (equippedShip != self) {
@@ -598,6 +603,8 @@ static NSString* intToString(int v)
         self.squad.resource = [DockResource flagshipResource: self.managedObjectContext];
         [self establishPlaceholders];
     }
+    
+    return nil;
 }
 
 -(void)removeFlagship

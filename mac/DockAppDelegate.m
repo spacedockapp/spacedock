@@ -632,7 +632,17 @@ NSString* kInspectorVisible = @"inspectorVisible";
 
     if (selectedFlagships.count > 0) {
         DockFlagship* flagShip = selectedFlagships[0];
-        [selectedShip becomeFlagship: flagShip];
+        NSDictionary* info = [selectedShip becomeFlagship: flagShip];
+        if (info != nil) {
+            NSAlert* alert = [[NSAlert alloc] init];
+            [alert setMessageText: info[@"message"]];
+            [alert setInformativeText: info[@"info"]];
+            [alert setAlertStyle: NSInformationalAlertStyle];
+            [alert beginSheetModalForWindow: [self window]
+                              modalDelegate: self
+                             didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
+                                contextInfo: nil];
+        }
     }
 }
 

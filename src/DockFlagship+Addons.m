@@ -1,5 +1,7 @@
 #import "DockFlagship+Addons.h"
 
+#import "DockShip+Addons.h"
+
 @implementation DockFlagship (Addons)
 
 -(int)talentAdd
@@ -74,6 +76,17 @@
 -(NSString*)plainDescription
 {
     return [NSString stringWithFormat: @"Flagship: %@", self.title];
+}
+
+-(BOOL)compatibleWithShip:(DockShip*)targetShip
+{
+    NSString* myFaction = self.faction;
+    
+    if ([myFaction isEqualToString: @"Independent"]) {
+        return YES;
+    }
+    
+    return [myFaction isEqualToString: targetShip.faction];
 }
 
 @end
