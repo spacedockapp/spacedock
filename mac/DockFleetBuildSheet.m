@@ -263,7 +263,7 @@ NSAttributedString* headerText(NSString* string)
     DockResource* res = _targetSquad.resource;
     if (res) {
         if ([res isFlagship]) {
-            DockFlagship* flagship = (DockFlagship*)res;
+            DockFlagship* flagship = _targetSquad.flagship;
             return [flagship plainDescription];
         }
         return res.title;
