@@ -4,6 +4,7 @@
 #import "DockCrew.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
+#import "DockFlagship+Addons.h"
 #import "DockResource.h"
 #import "DockShip+Addons.h"
 #import "DockTalent.h"
@@ -370,7 +371,7 @@
         }
     }
 
-    if (![shipFaction isEqualToString: upgradeFaction] && !equippedShip.isResourceSideboard) {
+    if (![shipFaction isEqualToString: upgradeFaction] && !equippedShip.isResourceSideboard && ![equippedShip.flagship.faction isEqualToString: upgradeFaction]) {
         if ([captainSpecial isEqualToString: @"UpgradesIgnoreFactionPenalty"] && ![upgrade isCaptain]) {
         } else if ([captainSpecial isEqualToString: @"NoPenaltyOnFederationOrBajoranShip"]) {
             if (!([ship isFederation] || [ship isBajoran])) {
