@@ -142,7 +142,11 @@
             DockEquippedShip* es = _squad.equippedShips[row];
             shipCell.cost.text = [NSString stringWithFormat: @"%d", [es cost]];
             shipCell.details.text = [es upgradesDescription];
-            shipCell.title.text = es.plainDescription;
+            NSString* t = es.plainDescription;
+            if (es.flagship) {
+                t = [t stringByAppendingString: @" [FS]"];
+            }
+            shipCell.title.text = t;
         }
     }
 
