@@ -6,6 +6,7 @@
 #import "DockFlagship+Addons.h"
 #import "DockResource+Addons.h"
 #import "DockShip+Addons.h"
+#import "DockSideboard+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
@@ -188,7 +189,13 @@ static NSString* intToString(int v)
 
 -(DockEquippedShip*)duplicate
 {
-    DockEquippedShip* newShip = [DockEquippedShip equippedShipWithShip: self.ship];
+    DockEquippedShip* newShip;
+    if (self.isResourceSideboard) {
+        newShip = [DockSideboard sideboard: self.managedObjectContext];
+    } else {
+        newShip = [DockEquippedShip equippedShipWithShip: self.ship];
+        newShip.flagship = self.flagship;
+    }
 
     for (DockEquippedUpgrade* equippedUpgrade in self.sortedUpgrades) {
         DockUpgrade* upgrade = [equippedUpgrade upgrade];

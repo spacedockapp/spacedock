@@ -477,9 +477,11 @@ static NSString* namePrefix(NSString* originalName)
 
 -(DockEquippedShip*)addSideboard
 {
-    [self removeSideboard];
-    DockEquippedShip* sideboard = [DockSideboard sideboard: [self managedObjectContext]];
-    [self addEquippedShip: sideboard];
+    DockEquippedShip* sideboard = [self getSideboard];
+    if (sideboard == nil) {
+        sideboard = [DockSideboard sideboard: [self managedObjectContext]];
+        [self addEquippedShip: sideboard];
+    }
     return sideboard;
 }
 
