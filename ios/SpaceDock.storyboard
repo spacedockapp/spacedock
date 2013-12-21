@@ -738,7 +738,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="gvN-6f-O0Y" kind="push" identifier="PickFlagship" id="IEf-4f-cqy"/>
+                                    <segue destination="Goz-Ro-FHv" kind="push" identifier="PickFlagship" id="1wD-G8-AsZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -768,7 +768,7 @@
             </objects>
             <point key="canvasLocation" x="1556" y="-373"/>
         </scene>
-        <!--Dock Flagships View Controller-->
+        <!--Dock Flagships View Controller - Flagships-->
         <scene sceneID="dnM-gx-hrO">
             <objects>
                 <tableViewController id="gvN-6f-O0Y" customClass="DockFlagshipsViewController" sceneMemberID="viewController">
@@ -810,7 +810,7 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="dje-sf-wbN"/>
+                    <navigationItem key="navigationItem" title="Flagships" id="dje-sf-wbN"/>
                     <connections>
                         <outlet property="factionBarItem" destination="4tu-yi-WzR" id="1Qa-Ax-F8b"/>
                     </connections>
@@ -818,6 +818,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZa-f9-uVW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="622" y="-2079"/>
+        </scene>
+        <!--pick flagship-->
+        <scene sceneID="oq8-Ii-ghp">
+            <objects>
+                <tableViewController storyboardIdentifier="pick flagship" id="Goz-Ro-FHv" userLabel="pick flagship" customClass="DockFlagshipsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OkI-6M-cId">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="flagship" textLabel="eDZ-Ok-cS6" style="IBUITableViewCellStyleDefault" id="dcB-HP-Hpq">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dcB-HP-Hpq" id="zUe-ht-MQD">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eDZ-Ok-cS6">
+                                            <rect key="frame" x="10" y="0.0" width="267" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="1PZ-TN-dFw" kind="push" identifier="ShowFlagshipDetails" id="YvD-5N-V1B"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Goz-Ro-FHv" id="pdL-Wo-dnB"/>
+                            <outlet property="delegate" destination="Goz-Ro-FHv" id="En3-SZ-Pki"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Faction" id="ksQ-Ls-21f">
+                            <connections>
+                                <action selector="faction:" destination="Goz-Ro-FHv" id="Zzi-0R-33R"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="caL-Nh-yom">
+                        <barButtonItem key="rightBarButtonItem" title="None" id="v5T-Gh-JWb">
+                            <connections>
+                                <action selector="clearFlagship:" destination="Goz-Ro-FHv" id="J1G-g5-kkG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="factionBarItem" destination="ksQ-Ls-21f" id="B4F-GP-VTW"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OVc-Er-EQO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="600" y="-2725"/>
         </scene>
         <!--Dock Flagship Detail View Controller-->
         <scene sceneID="5QJ-tM-V7S">
@@ -1238,8 +1295,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="TwX-09-xdF"/>
         <segue reference="Gif-bs-7CW"/>
-        <segue reference="IEf-4f-cqy"/>
         <segue reference="Edb-dE-lUZ"/>
         <segue reference="AYA-Tq-E0B"/>
+        <segue reference="YvD-5N-V1B"/>
     </inferredMetricsTieBreakers>
 </document>

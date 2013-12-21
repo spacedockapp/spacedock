@@ -8,4 +8,5 @@ typedef void (^ DockFlagshipPicked)(DockFlagship*);
 
 @interface DockFlagshipsViewController : DockTableViewController
 -(void)targetSquad:(DockSquad*)squad ship:(DockShip*)ship onPicked:(DockFlagshipPicked)onPicked;
+-(IBAction)clearFlagship:(id)sender;
 @end

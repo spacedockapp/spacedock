@@ -10,6 +10,7 @@
 @property (nonatomic, strong) DockFlagshipPicked onFlagshipPicked;
 @property (nonatomic, weak) DockShip* targetShip;
 @property (nonatomic, weak) DockSquad* targetSquad;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem* noneItem;
 @end
 
 @implementation DockFlagshipsViewController
@@ -94,6 +95,14 @@
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         NSManagedObject* target = [self.fetchedResultsController objectAtIndexPath: indexPath];
         controller.target = target;
+    }
+}
+
+-(IBAction)clearFlagship:(id)sender
+{
+    if (_targetSquad) {
+        _onFlagshipPicked(nil);
+        [self clearTarget];
     }
 }
 
