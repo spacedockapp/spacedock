@@ -30,6 +30,13 @@
 {
     DockFlagship* flagship = [self.fetchedResultsController objectAtIndexPath: indexPath];
     cell.textLabel.text = flagship.name;
+    BOOL canAdd = _targetShip == nil || [flagship compatibleWithShip: _targetShip];
+
+    if (!canAdd) {
+        cell.textLabel.textColor = [UIColor grayColor];
+    } else {
+        cell.textLabel.textColor = [UIColor blackColor];
+    }
 }
 
 -(BOOL)tableView:(UITableView*)tableView shouldHighlightRowAtIndexPath:(NSIndexPath*)indexPath

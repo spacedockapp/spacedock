@@ -730,6 +730,17 @@
                                     <segue destination="qai-jN-X8t" kind="push" identifier="PickShip" id="AYA-Tq-E0B"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="flagship" id="CMt-zR-Gvx">
+                                <rect key="frame" x="0.0" y="88" width="320" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CMt-zR-Gvx" id="OBS-u5-lin">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="32"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="gvN-6f-O0Y" kind="push" identifier="PickFlagship" id="IEf-4f-cqy"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="WHg-GX-8r1" id="6Q1-ac-iVj"/>
@@ -1225,9 +1236,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="xuh-dp-0tA"/>
-        <segue reference="me1-T8-16w"/>
         <segue reference="TwX-09-xdF"/>
         <segue reference="Gif-bs-7CW"/>
+        <segue reference="IEf-4f-cqy"/>
+        <segue reference="Edb-dE-lUZ"/>
+        <segue reference="AYA-Tq-E0B"/>
     </inferredMetricsTieBreakers>
 </document>

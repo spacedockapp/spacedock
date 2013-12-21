@@ -2,6 +2,9 @@
 
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
+#import "DockFlagshipsViewController.h"
+#import "DockFlagship+Addons.h"
+#import "DockResource+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockShipsViewController.h"
 #import "DockSquad+Addons.h"
@@ -15,26 +18,9 @@
 
 @implementation DockEquippedShipController
 
--(id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle: style];
-
-    if (self) {
-        // Custom initialization
-    }
-
-    return self;
-}
-
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 -(void)createBuckets
@@ -83,13 +69,25 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
-    return _upgradeBuckets.count + 1;
+    int sections = _upgradeBuckets.count + 1;
+    if ([_equippedShip.squad.resource isFlagship]) {
+        sections += 1;
+    }
+    return sections;
 }
 
 -(NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
         return @"Ship";
+    }
+    
+    if ([_equippedShip.squad.resource isFlagship]) {
+        section -= 1;
+    }
+    
+    if (section == 0) {
+        return @"Flagship";
     }
 
     NSInteger groupIndex = section - 1;
@@ -105,6 +103,14 @@
         return 1;
     }
 
+    if ([_equippedShip.squad.resource isFlagship]) {
+        section -= 1;
+    }
+    
+    if (section == 0) {
+        return 1;
+    }
+    
     NSInteger groupIndex = section - 1;
     NSArray* group = _upgradeBuckets[groupIndex];
     return group.count;
@@ -114,6 +120,10 @@
 {
     NSInteger section = [indexPath indexAtPosition: 0];
     NSInteger groupIndex = section - 1;
+
+    if ([_equippedShip.squad.resource isFlagship]) {
+        groupIndex -= 1;
+    }
 
     if (groupIndex >= _upgradeBuckets.count) {
         return nil;
@@ -143,6 +153,21 @@
         UITableViewCell* shipCell = [tableView dequeueReusableCellWithIdentifier: @"ship" forIndexPath: indexPath];
         shipCell.textLabel.text = _equippedShip.plainDescription;
         shipCell.detailTextLabel.text = [NSString stringWithFormat: @"%d (%d)", [_equippedShip cost], [_equippedShip baseCost]];
+        return shipCell;
+    }
+    
+    if ([_equippedShip.squad.resource isFlagship]) {
+        section -= 1;
+    }
+
+    if (section == 0) {
+        UITableViewCell* shipCell = [tableView dequeueReusableCellWithIdentifier: @"flagship" forIndexPath: indexPath];
+        DockFlagship* flagship = _equippedShip.flagship;
+        NSString* name = @"None";
+        if (flagship != nil) {
+            name = flagship.name;
+        }
+        shipCell.textLabel.text = name;
         return shipCell;
     }
 
@@ -177,7 +202,13 @@
 
 -(BOOL)tableView:(UITableView*)tableView canEditRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    return YES;
+    NSInteger section = [indexPath indexAtPosition: 0];
+
+    if ([_equippedShip.squad.resource isFlagship]) {
+        section -= 1;
+    }
+
+    return section > 0;
 }
 
 -(void)tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath
@@ -229,6 +260,13 @@
             [self addUpgrade: upgrade replacing: oneToReplace];
         };
         [controller targetSquad: _equippedShip.squad ship: _equippedShip upgrade: oneToReplace.upgrade onPicked: onPick];
+    } else if ([sequeIdentifier isEqualToString: @"PickFlagship"]) {
+        DockFlagshipsViewController* flagshipsViewController = (DockFlagshipsViewController*)destination;
+        flagshipsViewController.managedObjectContext = [_equippedShip managedObjectContext];
+        [flagshipsViewController targetSquad: _equippedShip.squad ship: _equippedShip.ship onPicked: ^(DockFlagship* theFlagship) { [self changeFlagship: theFlagship];
+         }
+
+        ];
     } else if ([sequeIdentifier isEqualToString: @"PickShip"]) {
         DockShipsViewController* shipsViewController = (DockShipsViewController*)destination;
         shipsViewController.managedObjectContext = [_equippedShip managedObjectContext];
@@ -273,5 +311,24 @@
 
     [self.navigationController popViewControllerAnimated: YES];
 }
+
+-(void)changeFlagship:(DockFlagship*)newFlagship
+{
+    if (newFlagship == nil) {
+        [_equippedShip removeFlagship];
+    } else {
+        [_equippedShip becomeFlagship: newFlagship];
+    }
+    NSError* error;
+
+    if (!saveItem(_equippedShip, &error)) {
+        presentError(error);
+    }
+
+    [self createBuckets];
+    [self.tableView reloadData];
+    [self.navigationController popViewControllerAnimated: YES];
+}
+
 
 @end
