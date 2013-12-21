@@ -82,10 +82,15 @@ static id extractSelectedItem(id controller)
 
 -(void)updateFlagship:(DockFlagship*)flagship
 {
-    if (flagship != nil && flagship != _currentFlagship) {
-        self.currentFlagship = flagship;
+    if (flagship == nil) {
+        [_tabView selectTabViewItemWithIdentifier: @"blank"];
+        [self clearSet];
+    } else {
+        if (flagship != _currentFlagship) {
+            self.currentFlagship = flagship;
+        }
+        [self updateSet: flagship];
     }
-    [self updateSet: flagship];
 }
 
 -(void)updateInspectorTabForItem:(id)selectedItem changeTab:(BOOL)changeTab

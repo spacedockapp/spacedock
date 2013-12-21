@@ -814,12 +814,14 @@ NSString* kInspectorVisible = @"inspectorVisible";
     if (_factionName == nil) {
         _shipsController.fetchPredicate = predicateTemplate;
         _captainsController.fetchPredicate = predicateTemplate;
+        _flagshipsController.fetchPredicate = predicateTemplate;
         predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES and any sets.externalId in %@", _includedSets];
         _upgradesController.fetchPredicate = predicateTemplate;
     } else {
         NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"faction = %@ and any sets.externalId in %@", _factionName, _includedSets];
         _shipsController.fetchPredicate = predicateTemplate;
         _captainsController.fetchPredicate = predicateTemplate;
+        _flagshipsController.fetchPredicate = predicateTemplate;
         predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES and faction = %@ and any sets.externalId in %@", _factionName, _includedSets];
         _upgradesController.fetchPredicate = predicateTemplate;
     }

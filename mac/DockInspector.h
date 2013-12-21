@@ -19,11 +19,11 @@
 @property (assign) IBOutlet NSTreeController* squadDetail;
 @property (assign) IBOutlet DockMoveGrid* moveGrid;
 @property (strong, nonatomic) NSString* targetKind;
-@property (weak, nonatomic) DockCaptain* currentCaptain;
-@property (weak, nonatomic) DockUpgrade* currentUpgrade;
-@property (weak, nonatomic) DockShip* currentShip;
-@property (weak, nonatomic) DockResource* currentResource;
-@property (weak, nonatomic) DockFlagship* currentFlagship;
+@property (strong, nonatomic) DockCaptain* currentCaptain;
+@property (strong, nonatomic) DockUpgrade* currentUpgrade;
+@property (strong, nonatomic) DockShip* currentShip;
+@property (strong, nonatomic) DockResource* currentResource;
+@property (strong, nonatomic) DockFlagship* currentFlagship;
 @property (strong, nonatomic) NSString* shipDetailTab;
 @property (strong, nonatomic) NSString* currentSetName;
 
