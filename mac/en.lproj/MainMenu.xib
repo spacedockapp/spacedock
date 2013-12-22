@@ -398,10 +398,16 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Ship" id="eAT-Ot-kmk">
                         <items>
-                            <menuItem title="Promote" id="CTX-xB-lZ9">
+                            <menuItem title="Change Ship" id="CTX-xB-lZ9">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="toggleUnique:" target="-1" id="Vo1-Nt-UAQ"/>
+                                    <action selector="changeSelectedShip:" target="-1" id="4qm-TX-9cp"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Promote" id="gxK-6r-5JH">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="toggleUnique:" target="-1" id="w03-6c-xGr"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="HcR-Jb-reU"/>
@@ -3364,7 +3370,7 @@
                                     <tableViewGridLines key="gridStyleMask" vertical="YES" horizontal="YES"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="0" width="83.5" maxWidth="9999" id="VHf-tQ-Bl3">
+                                        <tableColumn identifier="0" width="84" maxWidth="9999" id="VHf-tQ-Bl3">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Ship 1">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -3377,7 +3383,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
-                                        <tableColumn identifier="1" width="75.5" maxWidth="9999" id="55W-sn-ZFg">
+                                        <tableColumn identifier="1" width="76" maxWidth="9999" id="55W-sn-ZFg">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Ship 2">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -3416,7 +3422,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
-                                        <tableColumn identifier="4" width="73.5" maxWidth="9999" id="rb3-dD-LGi">
+                                        <tableColumn identifier="4" width="73" maxWidth="9999" id="rb3-dD-LGi">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Resource">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -3429,7 +3435,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
-                                        <tableColumn identifier="5" width="66.5" maxWidth="9999" id="zYu-iP-dKW">
+                                        <tableColumn identifier="5" width="66" maxWidth="9999" id="zYu-iP-dKW">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Total">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>

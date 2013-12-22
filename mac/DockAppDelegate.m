@@ -470,6 +470,13 @@ NSString* kInspectorVisible = @"inspectorVisible";
     [self deleteSelected: sender];
 }
 
+-(IBAction)changeSelectedShip:(id)sender
+{
+    DockEquippedShip* targetShip = [self selectedEquippedShip];
+    DockShip* ship = [self selectedShip];
+    [targetShip changeShip: ship];
+}
+
 -(id)selectedItem:(NSString*)tabName controller:(NSArrayController*)controller
 {
     NSTabViewItem* selectedTab = [_tabView selectedTabViewItem];
@@ -897,7 +904,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
         DockSquad* squad = [self selectedSquad];
 
         if (ship && squad) {
-            [menuItem setTitle: [NSString stringWithFormat: @"Add '%@' to '%@'", ship.title, squad.name]];
+            [menuItem setTitle: [NSString stringWithFormat: @"Add '%@' to '%@'", ship.descriptiveTitle, squad.name]];
         } else {
             [menuItem setTitle: @"Add Ship to Squad"];
             return NO;
@@ -907,9 +914,19 @@ NSString* kInspectorVisible = @"inspectorVisible";
         DockSquad* squad = [self selectedSquad];
 
         if (ship && squad) {
-            [menuItem setTitle: [NSString stringWithFormat: @"Remove '%@' from '%@'", ship.ship.title, squad.name]];
+            [menuItem setTitle: [NSString stringWithFormat: @"Remove '%@' from '%@'", ship.descriptiveTitle, squad.name]];
         } else {
             [menuItem setTitle: @"Delete Ship from Squad"];
+            return NO;
+        }
+    } else if (action == @selector(changeSelectedShip:)) {
+        DockShip* ship = [self selectedShip];
+        DockEquippedShip* equippedShip = [self selectedEquippedShip];
+
+        if (ship && equippedShip) {
+            [menuItem setTitle: [NSString stringWithFormat: @"Change '%@' to '%@'", equippedShip.descriptiveTitle, ship.descriptiveTitle]];
+        } else {
+            [menuItem setTitle: @"Change Ship"];
             return NO;
         }
     } else if (action == @selector(addSelectedUpgradeAction:)) {
@@ -917,7 +934,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
         DockUpgrade* upgrade = [self selectedUpgrade];
 
         if (ship && upgrade) {
-            [menuItem setTitle: [NSString stringWithFormat: @"Add '%@' to '%@'", upgrade.title, ship.ship.title]];
+            [menuItem setTitle: [NSString stringWithFormat: @"Add '%@' to '%@'", upgrade.title, ship.descriptiveTitle]];
             return YES;
         } else {
             [menuItem setTitle: @"Add Upgrade to Ship"];
@@ -928,7 +945,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
         DockEquippedUpgrade* upgrade = [self selectedEquippedUpgrade];
 
         if (ship && upgrade) {
-            [menuItem setTitle: [NSString stringWithFormat: @"Remove '%@' from '%@'", upgrade.upgrade.title, ship.ship.title]];
+            [menuItem setTitle: [NSString stringWithFormat: @"Remove '%@' from '%@'", upgrade.upgrade.title, ship.descriptiveTitle]];
             return YES;
         } else {
             [menuItem setTitle: @"Remove Upgrade from Ship"];
@@ -945,9 +962,9 @@ NSString* kInspectorVisible = @"inspectorVisible";
         DockShip* counterpart = [ship counterpart];
 
         if ([ship isUnique]) {
-            [menuItem setTitle: [NSString stringWithFormat: @"Demote to '%@'", counterpart.title]];
+            [menuItem setTitle: [NSString stringWithFormat: @"Demote to '%@'", counterpart.descriptiveTitle]];
         } else {
-            [menuItem setTitle: [NSString stringWithFormat: @"Promote to '%@'", counterpart.title]];
+            [menuItem setTitle: [NSString stringWithFormat: @"Promote to '%@'", counterpart.descriptiveTitle]];
         }
     } else if (action == @selector(checkForNewDataFile:)) {
         return _updater == nil;
