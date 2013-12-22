@@ -1,6 +1,7 @@
 #import "DockShip+Addons.h"
 
 #import "DockManeuver.h"
+#import "DockSetItem+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockShipClassDetails+Addons.h"
 #import "DockUpgrade+Addons.h"
@@ -36,8 +37,10 @@
     NSError* err;
     NSArray* existingItems = [context executeFetchRequest: request error: &err];
 
-    if (existingItems.count > 0) {
-        return existingItems[0];
+    for (DockShip* ship in  existingItems) {
+        if ([ship.anySetExternalId isEqualToString: self.anySetExternalId]) {
+            return ship;
+        }
     }
 
     return nil;
