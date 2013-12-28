@@ -1,4 +1,4 @@
-<Data version="1.186">
+<Data version="1.187">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -4256,7 +4256,7 @@
     <Upgrade>
       <Title>Feint</Title>
       <Ability>ACTION: Discard this upgrade to target a ship at range 2-3. If you attack that ship this round, it rolls 2 less defense dice.</Ability>
-      <Unique>Y</Unique>
+      <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
