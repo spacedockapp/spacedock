@@ -3,6 +3,7 @@
 #import "DockCaptain.h"
 #import "DockConstants.h"
 #import "DockCrew.h"
+#import "DockDataFileLoader.h"
 #import "DockDataLoader.h"
 #import "DockDataUpdater.h"
 #import "DockEquippedShip+Addons.h"
@@ -66,7 +67,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 
 -(NSString*)loadDataForVersion:(NSString*)currentVersion filePath:(NSString*)filePath
 {
-    DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: _managedObjectContext
+    DockDataFileLoader* loader = [[DockDataFileLoader alloc] initWithContext: _managedObjectContext
                                                              version: currentVersion];
     NSError* error = nil;
 
@@ -78,21 +79,12 @@ NSString* kInspectorVisible = @"inspectorVisible";
     return nil;
 }
 
--(NSString*)currentDataVersion
+-(void)loadData
 {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    return [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
-}
-
--(void)loadData:(NSString*)filePath
-{
-    NSString* currentVersion = [self currentDataVersion];
-
-    NSString* dataVersion = [self loadDataForVersion: currentVersion filePath: filePath];
-    if (dataVersion != nil) {
-        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject: dataVersion forKey: kSpaceDockCurrentDataVersionKey];
-    }
+    DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: _managedObjectContext];
+    NSError* error;
+    [loader loadData: &error];
+    [self validateSpecials: [loader validateSpecials]];
 
     _allSets = [DockSet allSets : _managedObjectContext];
     NSMutableArray* setNames = [NSMutableArray arrayWithCapacity: _allSets.count];
@@ -147,8 +139,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 
 -(void)applicationDidFinishLaunching:(NSNotification*)aNotification
 {
-    NSString* pathToData = [self pathToDataFile];
-    [self loadData: pathToData];
+    [self loadData];
     [self updateForSelectedSets];
     [_squadDetailController addObserver: self
                              forKeyPath: @"content"
@@ -1102,52 +1093,6 @@ NSString* kInspectorVisible = @"inspectorVisible";
     [_faqViewer show];
 }
 
--(IBAction)exportDataFile:(id)sender
-{
-    NSSavePanel* savePanel = [NSSavePanel savePanel];
-    savePanel.allowedFileTypes = @[@"xml"];
-    [savePanel setNameFieldStringValue: @"Data.xml"];
-    [savePanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
-         if (v == NSFileHandlingPanelOKButton) {
-            NSURL* fileURL = [[NSBundle mainBundle] URLForResource: @"Data" withExtension: @"xml"];
-            NSFileManager* fm = [NSFileManager defaultManager];
-            NSError* error;
-            if (![fm copyItemAtURL: fileURL toURL: savePanel.URL error: &error]) {
-            }
-         }
-     }
-    ];
-}
-
--(IBAction)importDataFile:(id)sender
-{
-    NSOpenPanel* importPanel = [NSOpenPanel openPanel];
-    importPanel.allowedFileTypes = @[@"xml"];
-    [importPanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
-         if (v == NSFileHandlingPanelOKButton) {
-            NSURL* importURL = [DockAppDelegate applicationFilesDirectory];
-            importURL = [importURL URLByAppendingPathComponent: @"Data.xml"];
-            NSFileManager* fm = [NSFileManager defaultManager];
-            [fm removeItemAtURL: importURL error: nil];
-            NSError* error;
-            if ([fm copyItemAtURL: importPanel.URL toURL: importURL error: &error]) {
-                [self loadDataForVersion: @"" filePath: [self pathToDataFile]];
-            }
-         }
-     }
-
-    ];
-}
-
--(IBAction)revertDataFile:(id)sender
-{
-    NSURL* importURL = [DockAppDelegate applicationFilesDirectory];
-    importURL = [importURL URLByAppendingPathComponent: @"Data.xml"];
-    NSFileManager* fm = [NSFileManager defaultManager];
-    [fm removeItemAtURL: importURL error: nil];
-    [self loadDataForVersion: @""filePath: [self pathToDataFile]];
-}
-
 -(void)updateInfo:(NSData*)downloadedData
 {
     NSURL* importURL = [DockAppDelegate applicationFilesDirectory];
@@ -1155,7 +1100,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
     NSFileManager* fm = [NSFileManager defaultManager];
     [fm removeItemAtURL: importURL error: nil];
     [downloadedData writeToURL: importURL atomically: NO];
-    [self loadDataForVersion: [self currentDataVersion] filePath: [self pathToDataFile]];
+    [self loadData];
 }
 
 -(void)handleNewData:(NSString*)remoteVersion path:(NSData*)downloadData error:(NSError*)error

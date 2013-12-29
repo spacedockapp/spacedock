@@ -110,25 +110,7 @@
                             <menuItem isSeparatorItem="YES" id="Wmq-fm-HgB">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Export Data.xml..." id="ZIu-cK-2Eu">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="exportDataFile:" target="-1" id="ESN-YB-cOZ"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Import Data.xml..." id="Xq9-UM-4v7">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="importDataFile:" target="-1" id="DGN-Vr-a3Y"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Revert Data.xml" id="xbu-oQ-Qc1">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="revertDataFile:" target="-1" id="vtB-XK-8tW"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Check for New Data.xml" id="BhT-Sy-uW9">
+                            <menuItem title="Check for New Data..." id="BhT-Sy-uW9">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="checkForNewDataFile:" target="-1" id="lEW-Q5-0nh"/>
@@ -3370,7 +3352,7 @@
                                     <tableViewGridLines key="gridStyleMask" vertical="YES" horizontal="YES"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="0" width="84" maxWidth="9999" id="VHf-tQ-Bl3">
+                                        <tableColumn identifier="0" width="84.5" maxWidth="9999" id="VHf-tQ-Bl3">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Ship 1">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -3383,7 +3365,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
-                                        <tableColumn identifier="1" width="76" maxWidth="9999" id="55W-sn-ZFg">
+                                        <tableColumn identifier="1" width="76.5" maxWidth="9999" id="55W-sn-ZFg">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Ship 2">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -3422,7 +3404,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
-                                        <tableColumn identifier="4" width="73" maxWidth="9999" id="rb3-dD-LGi">
+                                        <tableColumn identifier="4" width="72.5" maxWidth="9999" id="rb3-dD-LGi">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Resource">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -3435,7 +3417,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
-                                        <tableColumn identifier="5" width="66" maxWidth="9999" id="zYu-iP-dKW">
+                                        <tableColumn identifier="5" width="65.5" maxWidth="9999" id="zYu-iP-dKW">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Total">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>

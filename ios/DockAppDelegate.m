@@ -1,7 +1,7 @@
 #import "DockAppDelegate.h"
 
 #import "DockConstants.h"
-#import "DockDataLoader.h"
+#import "DockDataFileLoader.h"
 #import "DockSet+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockShip+Addons.h"
@@ -40,7 +40,7 @@
 
 -(NSString*)loadDataFromPath:(NSString*)filePath version:(NSString*)currentVersion error:(NSError**)error
 {
-    DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: self.managedObjectContext version: currentVersion];
+    DockDataFileLoader* loader = [[DockDataFileLoader alloc] initWithContext: self.managedObjectContext version: currentVersion];
     if ([loader loadData: filePath force: NO error: error]) {
         return loader.dataVersion;
     }

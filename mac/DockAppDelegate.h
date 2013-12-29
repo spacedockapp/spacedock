@@ -56,8 +56,5 @@ extern NSString* kInspectorVisible;
 -(IBAction)filterToFaction:(id)sender;
 -(IBAction)showInspector:(id)sender;
 -(IBAction)showFAQ:(id)sender;
--(IBAction)exportDataFile:(id)sender;
--(IBAction)importDataFile:(id)sender;
--(IBAction)revertDataFile:(id)sender;
 
 @end
