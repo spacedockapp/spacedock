@@ -65,20 +65,6 @@ NSString* kInspectorVisible = @"inspectorVisible";
     }
 }
 
--(NSString*)loadDataForVersion:(NSString*)currentVersion filePath:(NSString*)filePath
-{
-    DockDataFileLoader* loader = [[DockDataFileLoader alloc] initWithContext: _managedObjectContext
-                                                             version: currentVersion];
-    NSError* error = nil;
-
-    if ([loader loadData: filePath force: NO error: &error]) {
-        [self validateSpecials: [loader validateSpecials]];
-        return loader.dataVersion;
-    }
-    
-    return nil;
-}
-
 -(void)loadData
 {
     DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: _managedObjectContext];

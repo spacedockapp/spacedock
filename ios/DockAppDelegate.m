@@ -1,6 +1,7 @@
 #import "DockAppDelegate.h"
 
 #import "DockConstants.h"
+#import "DockDataLoader.h"
 #import "DockDataFileLoader.h"
 #import "DockSet+Addons.h"
 #import "DockSquad+Addons.h"
@@ -49,16 +50,9 @@
 
 -(void)loadAppDataNow
 {
-    NSString* filePath = [self pathToDataFile];
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    NSString* currentVersion = [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
+    DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: self.managedObjectContext];
     NSError* error = nil;
-
-    NSString* dataVersion = [self loadDataFromPath: filePath version: currentVersion error: &error];
-    if (dataVersion != nil) {
-        [defaults setObject: dataVersion forKey: kSpaceDockCurrentDataVersionKey];
-    }
-
+    [loader loadData: &error];
 }
 
 -(void)loadAppData
