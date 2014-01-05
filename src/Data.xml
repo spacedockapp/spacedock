@@ -1,4 +1,4 @@
-<Data version="1.187">
+<Data version="1.188">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -473,20 +473,20 @@
       <Id>5021</Id>
       <Maneuvers>
         <Maneuver speed="5" kind="straight" color="white" />
+        <Maneuver speed="4" kind="left-bank" color="white" />
         <Maneuver speed="4" kind="straight" color="white" />
+        <Maneuver speed="4" kind="right-bank" color="white" />
         <Maneuver speed="3" kind="left-turn" color="red" />
         <Maneuver speed="3" kind="left-bank" color="white" />
         <Maneuver speed="3" kind="straight" color="white" />
         <Maneuver speed="3" kind="right-bank" color="white" />
         <Maneuver speed="3" kind="right-turn" color="red" />
         <Maneuver speed="2" kind="left-turn" color="red" />
-        <Maneuver speed="2" kind="left-bank" color="white" />
-        <Maneuver speed="2" kind="straight" color="white" />
-        <Maneuver speed="2" kind="right-bank" color="white" />
+        <Maneuver speed="2" kind="left-bank" color="green" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-bank" color="green" />
         <Maneuver speed="2" kind="right-turn" color="red" />
-        <Maneuver speed="1" kind="left-bank" color="green" />
         <Maneuver speed="1" kind="straight" color="green" />
-        <Maneuver speed="1" kind="right-bank" color="green" />
       </Maneuvers>
       <FrontArc>180</FrontArc>
       <RearArc></RearArc>
@@ -1678,7 +1678,7 @@
       <Unique>N</Unique>
       <ShipClass>Excelsior Class</ShipClass>
       <Faction>Federation</Faction>
-      <Attack>2</Attack>
+      <Attack>3</Attack>
       <Agility>1</Agility>
       <Hull>5</Hull>
       <Shield>3</Shield>
