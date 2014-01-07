@@ -87,14 +87,11 @@
     return [NSSet setWithObjects: @"equippedShips", @"resource", nil];
 }
 
--(void)dealloc
-{
-    [self stopWatchingForCostChange];
-}
-
 -(void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void*)context
 {
-    [self squadCompositionChanged];
+    if (![self isFault]) {
+        [self squadCompositionChanged];
+    }
 }
 
 -(void)watchForCostChange
@@ -121,6 +118,17 @@
 {
     [super awakeFromFetch];
     [self watchForCostChange];
+}
+
+- (void)awakeFromSnapshotEvents:(NSSnapshotEventType)flags
+{
+    [super awakeFromSnapshotEvents: flags];
+    [self watchForCostChange];
+}
+
+- (void)willTurnIntoFault
+{
+    [self stopWatchingForCostChange];
 }
 
 -(void)addEquippedShip:(DockEquippedShip*)ship
