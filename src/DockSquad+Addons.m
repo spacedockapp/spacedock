@@ -84,7 +84,7 @@
 
 +(NSSet*)keyPathsForValuesAffectingCost
 {
-    return [NSSet setWithObjects: @"equippedShips", @"resource", nil];
+    return [NSSet setWithObjects: @"equippedShips", @"resource", @"additionalPoints", nil];
 }
 
 -(void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void*)context
@@ -184,6 +184,10 @@
 
     if (self.resource != nil) {
         cost += [self.resource.cost intValue];
+    }
+    
+    if (self.additionalPoints != nil) {
+        cost += [self.additionalPoints intValue];
     }
 
     return cost;

@@ -3,6 +3,7 @@
 @class DockInspector;
 @class DockFleetBuildSheet;
 @class DockFAQViewer;
+@class DockNoteEditor;
 
 extern NSString* kInspectorVisible;
 
@@ -31,6 +32,7 @@ extern NSString* kInspectorVisible;
 @property (assign) IBOutlet DockInspector* inspector;
 @property (assign) IBOutlet DockFleetBuildSheet* fleetBuildSheet2;
 @property (assign) IBOutlet DockFAQViewer* faqViewer;
+@property (assign) IBOutlet DockNoteEditor* noteEditor;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel* managedObjectModel;
@@ -38,6 +40,7 @@ extern NSString* kInspectorVisible;
 @property (strong, nonatomic) NSString* factionName;
 @property (strong, nonatomic) NSArray* includedSets;
 @property (strong, nonatomic) NSSavePanel* currentSavePanel;
+
 
 +(NSURL*)applicationFilesDirectory;
 -(IBAction)saveAction:(id)sender;

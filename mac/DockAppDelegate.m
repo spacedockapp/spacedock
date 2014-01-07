@@ -13,6 +13,7 @@
 #import "DockFAQViewer.h"
 #import "DockFleetBuildSheet.h"
 #import "DockInspector.h"
+#import "DockNoteEditor.h"
 #import "DockResource.h"
 #import "DockSet+Addons.h"
 #import "DockShip+Addons.h"
@@ -1066,6 +1067,11 @@ NSString* kInspectorVisible = @"inspectorVisible";
     } else {
         [_fleetBuildSheet2 show: [self selectedSquad]];
     }
+}
+
+-(IBAction)editNotes:(id)sender
+{
+    [_noteEditor show: [self selectedSquad]];
 }
 
 -(IBAction)copy:(id)sender
