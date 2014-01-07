@@ -175,6 +175,7 @@ NSAttributedString* headerText(NSString* string)
 @property (strong, nonatomic) IBOutlet NSTextField* resourceTitleField;
 @property (strong, nonatomic) IBOutlet NSTextField* resourceCostField;
 @property (strong, nonatomic) IBOutlet NSTextField* nameField;
+@property (nonatomic, strong) NSString* notes;
 @property (strong, nonatomic) DockSquad* targetSquad;
 @end
 
@@ -219,6 +220,8 @@ NSAttributedString* headerText(NSString* string)
     
     [_resourceTitleField setStringValue: [self resourceTile]];
     [_resourceCostField setStringValue: [self resourceCost]];
+    
+    self.notes = _targetSquad.notes;
 
     NSPrintInfo* info = [NSPrintInfo sharedPrintInfo];
     info.leftMargin = 0;
@@ -254,6 +257,15 @@ NSAttributedString* headerText(NSString* string)
     DockResource* res = _targetSquad.resource;
     if (res) {
         return [NSString stringWithFormat: @"%@", res.cost];
+    }
+    return @"";
+}
+
+-(NSString*)otherCost
+{
+    NSNumber* additionalPoints = _targetSquad.additionalPoints;
+    if (additionalPoints) {
+        return [NSString stringWithFormat: @"%@", additionalPoints];
     }
     return @"";
 }
@@ -325,6 +337,8 @@ NSAttributedString* headerText(NSString* string)
         return [self shipCost: index];
     case 4:
         return [self resourceCost];
+    case 5:
+        return [self otherCost];
         
     }
     return [NSNumber numberWithInt: _targetSquad.cost];

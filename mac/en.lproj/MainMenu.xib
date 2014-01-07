@@ -2286,6 +2286,7 @@
                 <outlet property="box4" destination="C5m-cg-6g1" id="yFg-Zy-Tgz"/>
                 <outlet property="fleetBuildDetails" destination="FRw-fg-nD7" id="jMU-rT-0Pz"/>
                 <outlet property="mainWindow" destination="371" id="13L-tB-E4d"/>
+                <outlet property="nameField" destination="RCh-MD-Rvq" id="VOR-GW-Lnm"/>
                 <outlet property="resourceCostField" destination="kbl-Ho-Qm8" id="TbV-4H-Tvg"/>
                 <outlet property="resourceTitleField" destination="0Yo-1G-jEW" id="P1r-yg-0M5"/>
             </connections>
@@ -3351,21 +3352,21 @@
                         </connections>
                     </textField>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" id="2jF-Db-yHR" userLabel="summary">
-                        <rect key="frame" x="15" y="146" width="468" height="37"/>
+                        <rect key="frame" x="15" y="134" width="468" height="37"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" id="Q9x-KV-5aF">
                             <rect key="frame" x="1" y="17" width="466" height="19"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView identifier="summary" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="bFG-fx-GmL" id="lFj-Aa-Abz">
-                                    <rect key="frame" x="0.0" y="0.0" width="466" height="19"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="476" height="19"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <tableViewGridLines key="gridStyleMask" vertical="YES" horizontal="YES"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="0" width="85.5" maxWidth="9999" id="VHf-tQ-Bl3">
+                                        <tableColumn identifier="0" width="65" maxWidth="9999" id="VHf-tQ-Bl3">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Ship 1">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -3378,7 +3379,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
-                                        <tableColumn identifier="1" width="77.5" maxWidth="9999" id="55W-sn-ZFg">
+                                        <tableColumn identifier="1" width="65" maxWidth="9999" id="55W-sn-ZFg">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Ship 2">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -3391,7 +3392,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
-                                        <tableColumn identifier="2" width="74" maxWidth="9999" id="eVY-zo-pCp">
+                                        <tableColumn identifier="2" width="65" maxWidth="9999" id="eVY-zo-pCp">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Ship 3">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -3404,7 +3405,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
-                                        <tableColumn identifier="3" width="75" maxWidth="9999" id="NTh-k0-q9x">
+                                        <tableColumn identifier="3" width="65" maxWidth="9999" id="NTh-k0-q9x">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Ship 4">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -3417,8 +3418,21 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
-                                        <tableColumn identifier="4" width="71.5" maxWidth="9999" id="rb3-dD-LGi">
+                                        <tableColumn identifier="4" width="65" maxWidth="9999" id="su0-fp-FtU">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Resource">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="jy4-1v-hbo">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        </tableColumn>
+                                        <tableColumn identifier="5" width="65" maxWidth="9999" id="rb3-dD-LGi">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Other">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -3430,7 +3444,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
-                                        <tableColumn identifier="5" width="64.5" maxWidth="9999" id="zYu-iP-dKW">
+                                        <tableColumn identifier="6" width="65" maxWidth="9999" id="zYu-iP-dKW">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Total">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -3460,12 +3474,12 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <tableHeaderView key="headerView" id="bFG-fx-GmL">
-                            <rect key="frame" x="0.0" y="0.0" width="466" height="17"/>
+                            <rect key="frame" x="0.0" y="0.0" width="476" height="17"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
                     </scrollView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="J2U-zE-2Za">
-                        <rect key="frame" x="13" y="194" width="100" height="17"/>
+                        <rect key="frame" x="13" y="182" width="100" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Resource Used:" id="Tke-dg-BOk">
                             <font key="font" metaFont="system"/>
@@ -3474,7 +3488,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="0Yo-1G-jEW">
-                        <rect key="frame" x="119" y="191" width="311" height="23"/>
+                        <rect key="frame" x="119" y="179" width="311" height="23"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" alignment="left" title="None" id="UHy-KI-4L8">
                             <font key="font" size="13" name="CourierNewPSMT"/>
@@ -3483,7 +3497,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="6hK-Kr-aq2">
-                        <rect key="frame" x="436" y="194" width="19" height="17"/>
+                        <rect key="frame" x="436" y="182" width="19" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="SP" id="SH7-J4-WBn">
                             <font key="font" metaFont="system"/>
@@ -3492,7 +3506,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="kbl-Ho-Qm8">
-                        <rect key="frame" x="459" y="191" width="24" height="23"/>
+                        <rect key="frame" x="459" y="179" width="24" height="23"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" alignment="center" title="10" id="4gT-75-zm6">
                             <font key="font" size="13" name="CourierNewPSMT"/>
@@ -3501,21 +3515,33 @@
                         </textFieldCell>
                     </textField>
                     <customView id="GoY-kg-SkV">
-                        <rect key="frame" x="15" y="409" width="232" height="180"/>
+                        <rect key="frame" x="15" y="429" width="232" height="160"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </customView>
                     <customView id="l4D-JH-IGd">
-                        <rect key="frame" x="15" y="221" width="232" height="180"/>
+                        <rect key="frame" x="15" y="261" width="232" height="160"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </customView>
                     <customView id="aZG-f0-wGT">
-                        <rect key="frame" x="255" y="409" width="228" height="180"/>
+                        <rect key="frame" x="255" y="429" width="228" height="160"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                     </customView>
                     <customView id="C5m-cg-6g1">
-                        <rect key="frame" x="255" y="222" width="228" height="180"/>
+                        <rect key="frame" x="255" y="261" width="228" height="160"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                     </customView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="t4p-6e-B3a">
+                        <rect key="frame" x="15" y="212" width="468" height="41.000021797853691"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" alignment="left" title="Notes" id="WQ9-sP-5ob">
+                            <font key="font" size="13" name="CourierNewPSMT"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="Izs-mh-ARI" name="value" keyPath="self.notes" id="rBG-Bs-PvN"/>
+                        </connections>
+                    </textField>
                 </subviews>
             </view>
             <color key="borderColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -3718,9 +3744,8 @@ Gw
                         <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="A1j-Bz-rAK">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
-                            <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
+                            <string key="keyEquivalent">s</string>
+                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                         </buttonCell>
                         <connections>
                             <action selector="save:" target="H2Z-eg-yhQ" id="Y2P-cb-vgC"/>
