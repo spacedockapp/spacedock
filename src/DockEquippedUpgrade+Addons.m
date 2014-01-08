@@ -8,6 +8,11 @@
 
 @implementation DockEquippedUpgrade (Addons)
 
++(NSSet*)keyPathsForValuesAffectingCost
+{
+    return [NSSet setWithObjects: @"overridden", @"overriddenCost", nil];
+}
+
 -(NSString*)title
 {
     return self.upgrade.title;
@@ -54,11 +59,20 @@
     return [upgrade.cost intValue];
 }
 
--(int)cost
+-(int)nonOverriddenCost
 {
     DockEquippedShip* equippedShip = self.equippedShip;
     DockUpgrade* upgrade = self.upgrade;
     return [upgrade costForShip: equippedShip];
+}
+
+-(int)cost
+{
+    if ([self.overridden boolValue]) {
+        return [self.overriddenCost intValue];
+    }
+    
+    return [self nonOverriddenCost];
 }
 
 -(int)rawCost

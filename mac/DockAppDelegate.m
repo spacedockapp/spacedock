@@ -14,6 +14,7 @@
 #import "DockFleetBuildSheet.h"
 #import "DockInspector.h"
 #import "DockNoteEditor.h"
+#import "DockOverrideEditor.h"
 #import "DockResource.h"
 #import "DockSet+Addons.h"
 #import "DockShip+Addons.h"
@@ -1136,6 +1137,12 @@ NSString* kInspectorVisible = @"inspectorVisible";
             [self handleNewData: remoteVersion path: downloadData error: error];
         }];
     }
+}
+
+-(IBAction)overrideCost:(id)sender
+{
+    DockEquippedUpgrade* upgrade = [self selectedEquippedUpgrade];
+    [_overrideEditor show: upgrade];
 }
 
 @end

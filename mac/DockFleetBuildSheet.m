@@ -129,6 +129,9 @@ NSAttributedString* headerText(NSString* string)
         }
 
         if ([identifier isEqualToString: @"sp"]) {
+            if ([[equippedUpgrade overridden] boolValue]) {
+                return [NSString stringWithFormat: @"%@ (%d)", [equippedUpgrade overriddenCost], [equippedUpgrade nonOverriddenCost]];
+            }
             return [NSNumber numberWithInt: [equippedUpgrade cost]];
         }
         

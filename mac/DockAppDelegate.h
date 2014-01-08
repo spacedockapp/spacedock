@@ -4,6 +4,7 @@
 @class DockFleetBuildSheet;
 @class DockFAQViewer;
 @class DockNoteEditor;
+@class DockOverrideEditor;
 
 extern NSString* kInspectorVisible;
 
@@ -33,6 +34,7 @@ extern NSString* kInspectorVisible;
 @property (assign) IBOutlet DockFleetBuildSheet* fleetBuildSheet2;
 @property (assign) IBOutlet DockFAQViewer* faqViewer;
 @property (assign) IBOutlet DockNoteEditor* noteEditor;
+@property (assign) IBOutlet DockOverrideEditor* overrideEditor;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel* managedObjectModel;
@@ -59,5 +61,5 @@ extern NSString* kInspectorVisible;
 -(IBAction)filterToFaction:(id)sender;
 -(IBAction)showInspector:(id)sender;
 -(IBAction)showFAQ:(id)sender;
-
+-(IBAction)overrideCost:(id)sender;
 @end

@@ -45,7 +45,7 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                     </tableColumn>
-                                    <tableColumn identifier="title" width="132.5" minWidth="120" maxWidth="9999" id="Ymu-rL-cDt">
+                                    <tableColumn identifier="title" width="133" minWidth="120" maxWidth="9999" id="Ymu-rL-cDt">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Card Title">
                                             <font key="font" metaFont="miniSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -58,7 +58,7 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                     </tableColumn>
-                                    <tableColumn identifier="faction" width="40" minWidth="40" maxWidth="40" id="mtD-dd-dni">
+                                    <tableColumn identifier="faction" width="34" minWidth="34" maxWidth="34" id="mtD-dd-dni">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Faction">
                                             <font key="font" metaFont="miniSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -71,7 +71,7 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                     </tableColumn>
-                                    <tableColumn identifier="sp" width="28" minWidth="28" maxWidth="28" id="Djz-Di-t3W">
+                                    <tableColumn identifier="sp" width="34" minWidth="34" maxWidth="34" id="Djz-Di-t3W">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="SP">
                                             <font key="font" metaFont="miniSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>

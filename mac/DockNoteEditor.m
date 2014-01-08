@@ -30,6 +30,7 @@
 
 -(IBAction)save:(id)sender
 {
+    [_window makeFirstResponder: nil];
     _targetSquad.additionalPoints = [NSNumber numberWithInt: [_additionalPoints intValue]];
     _targetSquad.notes = _notes;
     [NSApp endSheet: _window];

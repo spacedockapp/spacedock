@@ -12,6 +12,8 @@
         <relationship name="upgrades" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EquippedUpgrade" inverseName="equippedShip" inverseEntity="EquippedUpgrade" syncable="YES"/>
     </entity>
     <entity name="EquippedUpgrade" representedClassName="DockEquippedUpgrade" syncable="YES">
+        <attribute name="overridden" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="overriddenCost" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="equippedShip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EquippedShip" inverseName="upgrades" inverseEntity="EquippedShip" syncable="YES"/>
         <relationship name="upgrade" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Upgrade" inverseName="equippedUpgrades" inverseEntity="Upgrade" syncable="YES"/>
     </entity>

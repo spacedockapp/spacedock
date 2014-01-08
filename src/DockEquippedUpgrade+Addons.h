@@ -11,4 +11,5 @@
 -(NSComparisonResult)compareTo:(DockEquippedUpgrade*)other;
 -(NSString*)typeCode;
 -(int)baseCost;
+-(int)nonOverriddenCost;
 @end
