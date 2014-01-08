@@ -319,6 +319,15 @@ static NSString* intToString(int v)
     return limit > 0;
 }
 
+-(DockEquippedUpgrade*)addUpgradeInternal:(DockEquippedUpgrade *)equippedUpgrade
+{
+    [self willChangeValueForKey: @"cost"];
+    [self addUpgrades: [NSSet setWithObject: equippedUpgrade]];
+    [equippedUpgrade addObserver: self forKeyPath: @"cost" options: 0 context: 0];
+    [self didChangeValueForKey: @"cost"];
+    return equippedUpgrade;
+}
+
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace establishPlaceholders:(BOOL)establish
 {
     NSManagedObjectContext* context = [self managedObjectContext];
@@ -348,8 +357,7 @@ static NSString* intToString(int v)
         [self removeUpgrade: maybeReplace establishPlaceholders: NO];
     }
 
-    [self addUpgrades: [NSSet setWithObject: equippedUpgrade]];
-    [equippedUpgrade addObserver: self forKeyPath: @"cost" options: 0 context: 0];
+    [self addUpgradeInternal: equippedUpgrade];
 
     if (establish) {
         [self establishPlaceholders];
@@ -417,8 +425,10 @@ static NSString* intToString(int v)
 
 -(void)removeUpgradeInternal:(DockEquippedUpgrade*)upgrade
 {
+    [self willChangeValueForKey: @"cost"];
     [self removeUpgrades: [NSSet setWithObject: upgrade]];
     [upgrade removeObserver: self forKeyPath: @"cost"];
+    [self didChangeValueForKey: @"cost"];
 }
 
 -(void)removeUpgrade:(DockEquippedUpgrade*)upgrade establishPlaceholders:(BOOL)doEstablish
