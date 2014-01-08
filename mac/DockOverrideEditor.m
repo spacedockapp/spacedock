@@ -25,21 +25,15 @@
     [_window orderOut: nil];
 }
 
--(IBAction)restore:(id)sender
+-(IBAction)cancel:(id)sender
 {
-    [_window makeFirstResponder: nil];
-    _targetUpgrade.overridden = [NSNumber numberWithBool: NO];
-    [_targetUpgrade.equippedShip.squad squadCompositionChanged];
-    _targetUpgrade = nil;
     [NSApp endSheet: _window];
 }
 
 -(IBAction)override:(id)sender
 {
     [_window makeFirstResponder: nil];
-    _targetUpgrade.overriddenCost = [NSNumber numberWithInt: [_cost intValue]];
-    _targetUpgrade.overridden = [NSNumber numberWithBool: YES];
-    [_targetUpgrade.equippedShip.squad squadCompositionChanged];
+    [_targetUpgrade overrideWithCost: [_cost intValue]];
     _targetUpgrade = nil;
     [NSApp endSheet: _window];
 }

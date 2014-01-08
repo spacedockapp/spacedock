@@ -417,6 +417,12 @@
                                     <action selector="overrideCost:" target="494" id="Sgy-jY-LfZ"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Remove Override" id="83e-0L-Dtl">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="removeOverride:" target="-1" id="QlM-vy-fZP"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
@@ -1445,7 +1451,7 @@
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <tableView identifier="flagshipsTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveName="flagshipTable" headerView="jxk-pb-A0U" id="fgU-tR-2vJ" userLabel="flagships">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="816" height="175"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="808" height="175"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2023,7 +2029,7 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <connections>
-                                                                <binding destination="REc-Lj-a6S" name="value" keyPath="arrangedObjects.cost" id="Dcv-mo-MWc">
+                                                                <binding destination="REc-Lj-a6S" name="value" keyPath="arrangedObjects.formattedCost" id="9pB-o7-gQs">
                                                                     <dictionary key="options">
                                                                         <bool key="NSCreatesSortDescriptor" value="NO"/>
                                                                     </dictionary>
@@ -2097,9 +2103,10 @@
                                                             <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="cost"/>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <connections>
-                                                                <binding destination="w6h-j0-fyp" name="value" keyPath="arrangedObjects.cost" id="G4e-Bd-EcC">
+                                                                <binding destination="w6h-j0-fyp" name="value" keyPath="arrangedObjects.cost" id="5SK-64-cn2">
                                                                     <dictionary key="options">
                                                                         <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                        <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                                         <bool key="NSCreatesSortDescriptor" value="NO"/>
                                                                     </dictionary>
                                                                 </binding>
@@ -3544,7 +3551,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                     </customView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="t4p-6e-B3a">
-                        <rect key="frame" x="15" y="212" width="468" height="41.000021797853691"/>
+                        <rect key="frame" x="15" y="212" width="468" height="41"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" alignment="left" title="Notes" id="WQ9-sP-5ob">
                             <font key="font" size="13" name="CourierNewPSMT"/>
@@ -3812,6 +3819,7 @@ Gw
             </view>
         </window>
         <window title="Override" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="yga-mt-nV7">
+            <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="283" y="348" width="209" height="91"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1578"/>
@@ -3825,8 +3833,9 @@ Gw
                         <buttonCell key="cell" type="push" title="Override" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bt0-SB-I3d">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
-                            <string key="keyEquivalent">s</string>
-                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                         </buttonCell>
                         <connections>
                             <action selector="override:" target="pOW-YK-TqM" id="ewm-Ku-pXH"/>
@@ -3835,7 +3844,7 @@ Gw
                     <button verticalHuggingPriority="750" id="W8F-f3-TKN">
                         <rect key="frame" x="14" y="13" width="87" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="push" title="Restore" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fV2-5e-GcL">
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fV2-5e-GcL">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
@@ -3843,11 +3852,11 @@ Gw
 </string>
                         </buttonCell>
                         <connections>
-                            <action selector="restore:" target="pOW-YK-TqM" id="4fY-d6-bDK"/>
+                            <action selector="cancel:" target="pOW-YK-TqM" id="NMs-5C-1oz"/>
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ypP-hr-ll7">
-                        <rect key="frame" x="88" y="51" width="36" height="17"/>
+                        <rect key="frame" x="105" y="52" width="36" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Cost:" id="Nge-TH-BTx">
                             <font key="font" metaFont="system"/>
@@ -3856,7 +3865,7 @@ Gw
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" id="RBb-sb-3S2">
-                        <rect key="frame" x="130" y="49" width="59" height="22"/>
+                        <rect key="frame" x="143" y="49" width="46" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="0" drawsBackground="YES" id="rxW-id-Lnz">
                             <numberFormatter key="formatter" formatterBehavior="default10_4" positiveFormat="#,##0.###" negativeFormat="#,##0.###" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" minimumFractionDigits="0" maximumFractionDigits="3" id="boW-kj-rYr">

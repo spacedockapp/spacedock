@@ -4,13 +4,20 @@
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade.h"
 #import "DockShip+Addons.h"
+#import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"
+#import "DockUtils.h"
 
 @implementation DockEquippedUpgrade (Addons)
 
 +(NSSet*)keyPathsForValuesAffectingCost
 {
     return [NSSet setWithObjects: @"overridden", @"overriddenCost", nil];
+}
+
++(NSSet*)keyPathsForValuesAffectingFormattedCost
+{
+    return [NSSet setWithObjects: @"cost", nil];
 }
 
 -(NSString*)title
@@ -75,6 +82,17 @@
     return [self nonOverriddenCost];
 }
 
+-(NSAttributedString*)formattedCost
+{
+    NSString* costString = [NSString stringWithFormat: @"%d", self.cost];
+
+    if ([self costIsOverridden]) {
+        return coloredString(costString, [NSColor redColor], [NSColor clearColor]);
+    }
+    
+    return coloredString(costString, [NSColor blackColor], [NSColor clearColor]);
+}
+
 -(int)rawCost
 {
     return [self.upgrade.cost intValue];
@@ -94,6 +112,24 @@
 -(NSString*)typeCode
 {
     return self.upgrade.typeCode;
+}
+
+-(BOOL)costIsOverridden
+{
+    return [self.overridden boolValue];
+}
+
+-(void)removeCostOverride
+{
+    if (self.costIsOverridden) {
+        self.overridden = [NSNumber numberWithBool: NO];
+    }
+}
+
+-(void)overrideWithCost:(int)cost
+{
+    self.overriddenCost = [NSNumber numberWithInt: cost];
+    self.overridden = [NSNumber numberWithBool: YES];
 }
 
 @end

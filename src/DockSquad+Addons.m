@@ -394,6 +394,8 @@ static NSString* namePrefix(NSString* originalName)
         [squad addEquippedShip: dup];
     }
     squad.resource = self.resource;
+    squad.notes = self.notes;
+    squad.additionalPoints = self.additionalPoints;
     return squad;
 }
 

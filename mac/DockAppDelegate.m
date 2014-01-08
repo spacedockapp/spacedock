@@ -947,6 +947,12 @@ NSString* kInspectorVisible = @"inspectorVisible";
         } else {
             [menuItem setTitle: [NSString stringWithFormat: @"Promote to '%@'", counterpart.descriptiveTitle]];
         }
+    } else if (action == @selector(overrideCost:)) {
+        DockEquippedUpgrade* upgrade = [self selectedEquippedUpgrade];
+        return upgrade && ![upgrade.upgrade isCaptain];
+    } else if (action == @selector(removeOverride:)) {
+        DockEquippedUpgrade* upgrade = [self selectedEquippedUpgrade];
+        return upgrade && [upgrade costIsOverridden];
     } else if (action == @selector(checkForNewDataFile:)) {
         return _updater == nil;
     } else if (action == @selector(revertDataFile:)) {
@@ -1143,6 +1149,14 @@ NSString* kInspectorVisible = @"inspectorVisible";
 {
     DockEquippedUpgrade* upgrade = [self selectedEquippedUpgrade];
     [_overrideEditor show: upgrade];
+}
+
+-(IBAction)removeOverride:(id)sender
+{
+    DockEquippedUpgrade* upgrade = [self selectedEquippedUpgrade];
+    if (upgrade) {
+        [upgrade removeCostOverride];
+    }
 }
 
 @end

@@ -28,6 +28,11 @@
     return [NSSet setWithObjects: @"ship", @"flagship", nil];
 }
 
++(NSSet*)keyPathsForValuesAffectingFormattedCost
+{
+    return [NSSet setWithObjects: @"cost", nil];
+}
+
 -(NSString*)title
 {
     if ([self isResourceSideboard]) {
@@ -153,6 +158,11 @@ static NSString* intToString(int v)
     return cost;
 }
 
+-(NSAttributedString*)formattedCost
+{
+    return coloredString([NSString stringWithFormat: @"%d", self.cost], [NSColor textColor], [NSColor clearColor]);
+}
+
 -(DockEquippedUpgrade*)equippedCaptain
 {
     for (DockEquippedUpgrade* eu in self.upgrades) {
@@ -201,7 +211,9 @@ static NSString* intToString(int v)
         DockUpgrade* upgrade = [equippedUpgrade upgrade];
 
         if (![upgrade isPlaceholder]) {
-            [newShip addUpgrade: equippedUpgrade.upgrade maybeReplace: nil establishPlaceholders: NO];
+            DockEquippedUpgrade* duppedUpgrade = [newShip addUpgrade: equippedUpgrade.upgrade maybeReplace: nil establishPlaceholders: NO];
+            duppedUpgrade.overridden = equippedUpgrade.overridden;
+            duppedUpgrade.overriddenCost = equippedUpgrade.overriddenCost;
         }
     }
     [self establishPlaceholders];
@@ -284,12 +296,12 @@ static NSString* intToString(int v)
     for (DockEquippedUpgrade* eu in self.upgrades) {
         if ([eu.upgrade isTalent]) {
             [onesToRemove addObject: eu];
+            [eu removeObserver: self forKeyPath: @"cost"];
         }
     }
 
-    if (onesToRemove.count > 0) {
-        [self removeUpgrades: onesToRemove];
-        [[self squad] squadCompositionChanged];
+    for (DockEquippedUpgrade* eu in onesToRemove) {
+        [self removeUpgradeInternal: eu];
     }
 }
 
@@ -337,6 +349,7 @@ static NSString* intToString(int v)
     }
 
     [self addUpgrades: [NSSet setWithObject: equippedUpgrade]];
+    [equippedUpgrade addObserver: self forKeyPath: @"cost" options: 0 context: 0];
 
     if (establish) {
         [self establishPlaceholders];
@@ -402,10 +415,16 @@ static NSString* intToString(int v)
     return [self addUpgrade: upgrade maybeReplace: nil];
 }
 
+-(void)removeUpgradeInternal:(DockEquippedUpgrade*)upgrade
+{
+    [self removeUpgrades: [NSSet setWithObject: upgrade]];
+    [upgrade removeObserver: self forKeyPath: @"cost"];
+}
+
 -(void)removeUpgrade:(DockEquippedUpgrade*)upgrade establishPlaceholders:(BOOL)doEstablish
 {
     if (upgrade != nil) {
-        [self removeUpgrades: [NSSet setWithObject: upgrade]];
+        [self removeUpgradeInternal: upgrade];
 
         if (doEstablish) {
             [self establishPlaceholders];
@@ -623,4 +642,50 @@ static NSString* intToString(int v)
         [self establishPlaceholders];
     }
 }
+
+-(void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void*)context
+{
+    if (![self isFault]) {
+        [self willChangeValueForKey: @"cost"];
+        [self didChangeValueForKey: @"cost"];
+    }
+}
+
+-(void)watchForCostChange
+{
+    for (DockEquippedUpgrade* upgrade in self.upgrades) {
+        [upgrade addObserver: self forKeyPath: @"cost" options: 0 context: 0];
+    }
+}
+
+-(void)stopWatchingForCostChange
+{
+    for (DockEquippedUpgrade* upgrade in self.upgrades) {
+        [upgrade removeObserver: self forKeyPath: @"cost"];
+    }
+}
+
+-(void)awakeFromInsert
+{
+    [super awakeFromInsert];
+    [self watchForCostChange];
+}
+
+-(void)awakeFromFetch
+{
+    [super awakeFromFetch];
+    [self watchForCostChange];
+}
+
+- (void)awakeFromSnapshotEvents:(NSSnapshotEventType)flags
+{
+    [super awakeFromSnapshotEvents: flags];
+    [self watchForCostChange];
+}
+
+- (void)willTurnIntoFault
+{
+    [self stopWatchingForCostChange];
+}
+
 @end

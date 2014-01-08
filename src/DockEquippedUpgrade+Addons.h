@@ -12,4 +12,7 @@
 -(NSString*)typeCode;
 -(int)baseCost;
 -(int)nonOverriddenCost;
+-(BOOL)costIsOverridden;
+-(void)removeCostOverride;
+-(void)overrideWithCost:(int)cost;
 @end
