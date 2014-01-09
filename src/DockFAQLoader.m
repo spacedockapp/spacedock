@@ -57,17 +57,17 @@
 
 -(NSString*)asHTML:(BOOL)andrewOnly
 {
-    NSMutableString* s = [[NSMutableString alloc] initWithString: @"<HTML><HEAD><link rel=\"stylesheet\" type=\"text/css\" href=\"http://static.geekdo-images.com/static/css_master_51f5d2398b0e4.css\"></HEAD><BODY>"];
+    NSMutableString* s = [[NSMutableString alloc] initWithString: @"<HTML>\n<HEAD>\n<meta charset=\"UTF-8\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"http://spacedock.funnyhatsoftware.com/css_for_faq.css\">\n</HEAD>\n<BODY>\n"];
     for (NSDictionary* d in _articles) {
         NSString* userName = d[@"username"];
         if (!andrewOnly || [userName isEqualToString: @"Andrew Parks"]) {
-            [s appendFormat: @"<div class=\"article\">"];
-            [s appendFormat: @"<div>%@ <a href=\"%@\">%@</a></div>", d[@"username"], d[@"link"], d[@"id"]];
-            [s appendFormat: @"<div>%@</div>", d[@"body"]];
-            [s appendFormat: @"</div>"];
+            [s appendFormat: @"<div class=\"article\">\n"];
+            [s appendFormat: @"<div>\n%@ <a href=\"%@\">%@</a></div>", d[@"username"], d[@"link"], d[@"id"]];
+            [s appendFormat: @"<div>\n%@</div>\n", d[@"body"]];
+            [s appendFormat: @"</div>\n"];
         }
     }
-    [s appendString: @"</BODY></HTML>"];
+    [s appendString: @"</BODY>\n</HTML>\n"];
     return s;
 }
 
