@@ -411,13 +411,13 @@
                                     <action selector="deleteSelectedUpgradeAction:" target="-1" id="Zys-p2-rv8"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Override Cost..." id="PWR-cd-Ubi">
+                            <menuItem title="Override Upgrade Cost..." id="PWR-cd-Ubi">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="overrideCost:" target="494" id="Sgy-jY-LfZ"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Remove Override" id="83e-0L-Dtl">
+                            <menuItem title="Remove Upgrade Cost Override" id="83e-0L-Dtl">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="removeOverride:" target="-1" id="QlM-vy-fZP"/>
