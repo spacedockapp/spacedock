@@ -160,7 +160,12 @@ static NSString* intToString(int v)
 
 -(NSAttributedString*)formattedCost
 {
-    return coloredString([NSString stringWithFormat: @"%d", self.cost], [NSColor textColor], [NSColor clearColor]);
+    NSString* costString = [NSString stringWithFormat: @"%d", self.cost];
+#if !TARGET_OS_IPHONE
+    return coloredString(costString, [NSColor textColor], [NSColor clearColor]);
+#else
+    return [[NSAttributedString alloc] initWithString: costString];
+#endif
 }
 
 -(DockEquippedUpgrade*)equippedCaptain

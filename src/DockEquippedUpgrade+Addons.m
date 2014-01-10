@@ -86,11 +86,15 @@
 {
     NSString* costString = [NSString stringWithFormat: @"%d", self.cost];
 
+#if !TARGET_OS_IPHONE
     if ([self costIsOverridden]) {
         return coloredString(costString, [NSColor redColor], [NSColor clearColor]);
     }
     
     return coloredString(costString, [NSColor blackColor], [NSColor clearColor]);
+#else
+    return [[NSAttributedString alloc] initWithString: costString];
+#endif
 }
 
 -(int)rawCost
