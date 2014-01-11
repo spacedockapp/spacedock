@@ -1,4 +1,4 @@
-<Data version="1.188">
+<Data version="1.189">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1000,7 +1000,7 @@
       <TargetLock>1</TargetLock>
       <Scan>
       </Scan>
-      <Battlestations>1</Battlestations>
+      <Battlestations>0</Battlestations>
       <Cloak>1</Cloak>
       <SensorEcho>1</SensorEcho>
       <Tech>1</Tech>
@@ -1025,7 +1025,7 @@
       <TargetLock>1</TargetLock>
       <Scan>
       </Scan>
-      <Battlestations>1</Battlestations>
+      <Battlestations>0</Battlestations>
       <Cloak>1</Cloak>
       <SensorEcho>1</SensorEcho>
       <Tech>1</Tech>
