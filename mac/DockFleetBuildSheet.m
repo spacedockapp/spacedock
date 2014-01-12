@@ -178,11 +178,17 @@ NSAttributedString* headerText(NSString* string)
 @property (strong, nonatomic) IBOutlet NSTextField* resourceTitleField;
 @property (strong, nonatomic) IBOutlet NSTextField* resourceCostField;
 @property (strong, nonatomic) IBOutlet NSTextField* nameField;
+@property (strong, nonatomic) IBOutlet NSTextField* notesField;
 @property (nonatomic, strong) NSString* notes;
 @property (strong, nonatomic) DockSquad* targetSquad;
 @end
 
 @implementation DockFleetBuildSheet
+
++(NSSet*)keyPathsForValuesAffectingNotesFontSize
+{
+    return [NSSet setWithObjects: @"notes", nil];
+}
 
 
 -(void)awakeFromNib
@@ -207,6 +213,49 @@ NSAttributedString* headerText(NSString* string)
     self.eventName = [defaults stringForKey: @"eventName"];
     self.email = [defaults stringForKey: @"email"];
     self.faction = [defaults stringForKey: @"faction"];
+}
+
+static float heightForStringDrawing(NSString *targetString, NSFont *targetFont, float targetWidth)
+{
+    NSTextStorage *textStorage = [[NSTextStorage alloc] initWithString: targetString];
+    NSTextContainer *textContainer = [[NSTextContainer alloc] initWithContainerSize: NSMakeSize(targetWidth, FLT_MAX)];
+    NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
+    
+ 	[layoutManager addTextContainer:textContainer];
+	[textStorage addLayoutManager:layoutManager];
+    
+    [textStorage addAttribute:NSFontAttributeName value:targetFont range:NSMakeRange(0, [textStorage length])];
+    [textContainer setLineFragmentPadding:0.0];
+    
+    [layoutManager glyphRangeForTextContainer:textContainer];
+    return [layoutManager usedRectForTextContainer:textContainer].size.height;
+}
+
+-(CGFloat)notesFontSize
+{
+    const CGFloat kMaxFontSize = 13.0;
+    const CGFloat kMinFontSize = 6;
+
+    NSString* notes = self.notes;
+    if (notes == nil) {
+        return kMaxFontSize;
+    }
+    float fontSize = kMaxFontSize;
+    NSSize frameSize = [_notesField frame].size;
+    CGFloat targetHeight = frameSize.height - 10;
+    NSFont* originalFont = _notesField.font;
+    CGFloat notesHeight = FLT_MAX;
+    while (fontSize > kMinFontSize)
+    {
+        NSFont* newFont = [NSFont fontWithName: [originalFont fontName] size: fontSize];
+        notesHeight = heightForStringDrawing(notes, newFont, frameSize.width);
+        if (notesHeight < targetHeight) {
+            break;
+        }
+        fontSize--;
+    }
+    
+    return fontSize;
 }
 
 -(void)print

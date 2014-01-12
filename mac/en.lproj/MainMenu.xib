@@ -2301,6 +2301,7 @@
                 <outlet property="fleetBuildDetails" destination="FRw-fg-nD7" id="jMU-rT-0Pz"/>
                 <outlet property="mainWindow" destination="371" id="13L-tB-E4d"/>
                 <outlet property="nameField" destination="RCh-MD-Rvq" id="VOR-GW-Lnm"/>
+                <outlet property="notesField" destination="t4p-6e-B3a" id="DWj-T8-gol"/>
                 <outlet property="resourceCostField" destination="kbl-Ho-Qm8" id="TbV-4H-Tvg"/>
                 <outlet property="resourceTitleField" destination="0Yo-1G-jEW" id="P1r-yg-0M5"/>
             </connections>
@@ -3551,14 +3552,15 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                     </customView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="t4p-6e-B3a">
-                        <rect key="frame" x="15" y="212" width="468" height="41"/>
+                        <rect key="frame" x="15" y="212.00002179785369" width="468" height="41"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="border" alignment="left" title="Notes" id="WQ9-sP-5ob">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" borderStyle="border" alignment="left" title="Notes" id="WQ9-sP-5ob">
                             <font key="font" size="13" name="CourierNewPSMT"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
+                            <binding destination="Izs-mh-ARI" name="fontSize" keyPath="self.notesFontSize" id="Q6Z-UN-4oq"/>
                             <binding destination="Izs-mh-ARI" name="value" keyPath="self.notes" id="rBG-Bs-PvN"/>
                         </connections>
                     </textField>
@@ -3749,7 +3751,7 @@ Gw
                     <textField verticalHuggingPriority="750" id="9SD-dh-ZuJ">
                         <rect key="frame" x="20" y="56" width="440" height="194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="20p-x7-f5u">
+                        <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="20p-x7-f5u">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -3764,8 +3766,9 @@ Gw
                         <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="A1j-Bz-rAK">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
-                            <string key="keyEquivalent">s</string>
-                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                         </buttonCell>
                         <connections>
                             <action selector="save:" target="H2Z-eg-yhQ" id="Y2P-cb-vgC"/>

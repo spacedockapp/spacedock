@@ -10,4 +10,5 @@
 @property (strong, nonatomic) NSString* faction;
 @property (strong, nonatomic) NSString* name;
 @property (strong, nonatomic) NSString* email;
+@property (assign, nonatomic) CGFloat notesFontSize;
 @end
