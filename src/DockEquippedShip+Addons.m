@@ -221,7 +221,7 @@ static NSString* intToString(int v)
             duppedUpgrade.overriddenCost = equippedUpgrade.overriddenCost;
         }
     }
-    [self establishPlaceholders];
+    [newShip establishPlaceholders];
     return newShip;
 }
 
