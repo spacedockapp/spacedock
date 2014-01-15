@@ -282,6 +282,19 @@
         [textFormat appendString: @"\n"];
     }
 
+    NSString* notes = self.notes;
+
+    if (notes != nil) {
+        [textFormat appendString: [notes stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+        [textFormat appendString: @"\n\n"];
+    }
+    
+    int otherCost = [self.additionalPoints intValue];
+    if (otherCost != 0) {
+        NSString* otherCostString = [NSString stringWithFormat: @"Other cost: %d\n\n", otherCost];
+        [textFormat appendString: otherCostString];
+    }
+
     [textFormat appendString: [NSString stringWithFormat: @"Fleet total: %d\n", self.cost]];
     return [NSString stringWithString: textFormat];
 }
