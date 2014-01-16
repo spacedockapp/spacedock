@@ -4,6 +4,7 @@
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockErrors.h"
+#import "DockFlagship+Addons.h"
 #import "DockResource+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSideboard+Addons.h"
@@ -255,13 +256,23 @@
     NSMutableString* textFormat = [[NSMutableString alloc] init];
 
     for (DockEquippedShip* ship in self.equippedShips) {
-        NSString* s = [NSString stringWithFormat: @"%@ (%d)\n", ship.plainDescription, [ship baseCost]];
+        NSString* s = [NSString stringWithFormat: @"%@ (%d)", ship.plainDescription, [ship baseCost]];
+        DockFlagship* flagship = ship.flagship;
+        if (flagship) {
+            NSString* flagshipTag = [NSString stringWithFormat: @" [%@]", flagship.plainDescription];
+            s = [s stringByAppendingString: flagshipTag];
+        }
         [textFormat appendString: s];
+        [textFormat appendString: @"\n"];
 
         for (DockEquippedUpgrade* upgrade in ship.sortedUpgrades) {
             if (![upgrade isPlaceholder]) {
+                if ([upgrade costIsOverridden]) {
+                    s = [NSString stringWithFormat: @"%@ (%d overridden to %d)\n", upgrade.title, [upgrade nonOverriddenCost], [upgrade cost]];
+                } else {
+                    s = [NSString stringWithFormat: @"%@ (%d)\n", upgrade.title, [upgrade cost]];
+                }
 
-                s = [NSString stringWithFormat: @"%@ (%d)\n", upgrade.title, [upgrade cost]];
                 [textFormat appendString: s];
             }
         }
