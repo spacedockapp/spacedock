@@ -239,13 +239,13 @@
         [picker setSubject: @"Space Dock All Squads"];
 
         // Fill out the email body text
-        NSString* textFormat = @"Attached are squads for use with Space Dock on Mac or STAW Squad Builder on Windows.";
+        NSString* textFormat = @"Attached are squads for use with Space Dock on Mac or iOS.";
         [picker setMessageBody: textFormat isHTML: NO];
 
         for (DockSquad* squad in self.fetchedResultsController.fetchedObjects) {
-            NSString* stawFormat = [squad asDataFormat];
-            NSData* myData = [stawFormat dataUsingEncoding: NSUTF8StringEncoding];
-            [picker addAttachmentData: myData mimeType: @"text/x-staw" fileName: [squad.name stringByAppendingPathExtension: kSpaceDockSquadFileExtension]];
+            NSDictionary* json = [squad asJSON];
+            NSData* jsonData = [NSJSONSerialization dataWithJSONObject: json options: NSJSONWritingPrettyPrinted error: nil];
+            [picker addAttachmentData: jsonData mimeType: @"text/x-spacedock" fileName: [squad.name stringByAppendingPathExtension: kSpaceDockSquadFileExtension]];
         }
 
         [self presentViewController: picker animated: YES completion: NULL];
