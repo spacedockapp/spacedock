@@ -4,6 +4,23 @@
 
 @implementation DockFlagship (Addons)
 
++(DockFlagship*)flagshipForId:(NSString*)flagshipId context:(NSManagedObjectContext*)context
+{
+    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Flagship" inManagedObjectContext: context];
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"externalId == %@", flagshipId];
+    [request setPredicate: predicateTemplate];
+    NSError* err;
+    NSArray* existingItems = [context executeFetchRequest: request error: &err];
+
+    if (existingItems.count > 0) {
+        return existingItems[0];
+    }
+
+    return nil;
+}
+
 -(int)talentAdd
 {
     return [self.talent intValue];

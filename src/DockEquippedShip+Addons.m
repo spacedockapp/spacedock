@@ -11,6 +11,8 @@
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
 
+#import "NSMutableDictionary+Addons.h"
+
 @implementation DockEquippedShip (Addons)
 
 +(NSSet*)keyPathsForValuesAffectingSortedUpgrades
@@ -113,6 +115,34 @@ static NSString* intToString(int v)
     return [upgradeTitles componentsJoinedByString: @", "];
 }
 
+-(NSDictionary*)asJSON
+{
+    NSMutableDictionary* json = [[NSMutableDictionary alloc] init];
+    DockShip* ship = self.ship;
+    if (ship == nil) {
+        [json setObject: @YES forKey: @"sideboard"];
+    } else {
+        [json setObject: ship.externalId forKey: @"shipId"];
+        [json setObject: ship.title forKey: @"shipTitle"];
+        DockFlagship* flagship = self.flagship;
+        if (flagship != nil) {
+            [json setObject: flagship.externalId forKey: @"flagship"];
+        }
+    }
+    [json setObject: [self.equippedCaptain asJSON]  forKey: @"captain"];
+    NSArray* upgrades = [self sortedUpgrades];
+    if (upgrades.count > 0) {
+        NSMutableArray* upgradesArray = [[NSMutableArray alloc] initWithCapacity: upgrades.count];
+        for (DockEquippedUpgrade* eu in upgrades) {
+            if (![eu isPlaceholder] && ![eu.upgrade isCaptain]) {
+                [upgradesArray addObject: [eu asJSON]];
+            }
+        }
+        [json setObject: upgradesArray forKey: @"upgrades"];
+    }
+    return [NSDictionary dictionaryWithDictionary: json];
+}
+
 -(NSString*)factionCode
 {
     return self.ship.factionCode;
@@ -200,6 +230,41 @@ static NSString* intToString(int v)
     es.ship = ship;
     [es establishPlaceholders];
     return es;
+}
+
++(DockEquippedShip*)import:(NSDictionary*)esDict context:(NSManagedObjectContext *)context
+{
+    DockShip* ship = [DockShip shipForId: esDict[@"shipId"] context: context];
+    DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: ship];
+    NSString* flagshipId = esDict[@"flagship"];
+    if (flagshipId) {
+        DockFlagship* flagship = [DockFlagship flagshipForId: flagshipId context: context];
+        es.flagship = flagship;
+    }
+    [es importUpgrades: esDict];
+    return es;
+}
+
+-(void)importUpgrades:(NSDictionary*)esDict
+{
+    NSManagedObjectContext* context = self.managedObjectContext;
+    NSDictionary* upgradeDict = esDict[@"captain"];
+    NSString* captainId = upgradeDict[@"upgradeId"];
+    [self addUpgrade: [DockCaptain captainForId: captainId context: context]];
+    NSArray* upgrades = esDict[@"upgrades"];
+    for (upgradeDict in upgrades) {
+        NSString* upgradeId = upgradeDict[@"upgradeId"];
+        DockUpgrade* upgrade = [DockUpgrade upgradeForId: upgradeId context: context];
+        DockEquippedUpgrade* eu = [self addUpgrade: upgrade];
+        NSNumber* overriddenNumber = upgradeDict[@"costIsOverridden"];
+        BOOL overridden = [overriddenNumber boolValue];
+        if (overridden) {
+            eu.overridden = overriddenNumber;
+            eu.overriddenCost = upgradeDict[@"overriddenCost"];
+        }
+    }
+    [self removeIllegalUpgrades];
+    [self establishPlaceholders];
 }
 
 -(DockEquippedShip*)duplicate

@@ -20,7 +20,6 @@ extern NSString* kInspectorVisible;
 @property (assign) IBOutlet NSArrayController* resourcesController;
 @property (assign) IBOutlet NSArrayController* flagshipsController;
 @property (assign) IBOutlet NSTreeController* squadDetailController;
-@property (assign) IBOutlet NSView* exportFormatView;
 @property (assign) IBOutlet NSPopUpButton* exportFormatPopup;
 @property (assign) IBOutlet NSTableView* shipsTableView;
 @property (assign) IBOutlet NSTableView* captainsTableView;

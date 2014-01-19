@@ -2266,8 +2266,6 @@
             <connections>
                 <outlet property="captainsController" destination="0af-xY-vuT" id="lPO-O6-x8d"/>
                 <outlet property="captainsTableView" destination="pbE-Lg-pvF" id="hWe-nR-T6n"/>
-                <outlet property="exportFormatPopup" destination="L6E-ZC-cT8" id="RvO-d0-hQJ"/>
-                <outlet property="exportFormatView" destination="d19-nn-2NS" id="XKY-3v-Vdh"/>
                 <outlet property="factionMenu" destination="jzV-EA-Bef" id="s0C-A5-mcz"/>
                 <outlet property="faqViewer" destination="fzH-hA-dLG" id="hGA-Hc-kbp"/>
                 <outlet property="flagshipsController" destination="Akm-Zf-Blb" id="y5T-L6-ti5"/>
@@ -2359,42 +2357,6 @@
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="iXi-bB-7Gl"/>
             </connections>
         </arrayController>
-        <customView id="d19-nn-2NS" userLabel="export format popup">
-            <rect key="frame" x="0.0" y="0.0" width="233" height="61"/>
-            <autoresizingMask key="autoresizingMask"/>
-            <subviews>
-                <popUpButton verticalHuggingPriority="750" id="L6E-ZC-cT8">
-                    <rect key="frame" x="72" y="17" width="144" height="26"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <popUpButtonCell key="cell" type="push" title="Plain Text" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" tag="1" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="tsI-f7-bw0" id="crl-n0-3lK">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="menu"/>
-                        <menu key="menu" title="OtherViews" id="0Ix-do-Vg1">
-                            <items>
-                                <menuItem title="Plain Text" state="on" tag="1" id="tsI-f7-bw0">
-                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                </menuItem>
-                                <menuItem title="STAW Format" tag="2" id="8XL-wF-kUZ">
-                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                </menuItem>
-                            </items>
-                        </menu>
-                        <connections>
-                            <action selector="setFormat:" target="-1" id="aF7-w1-fEV"/>
-                        </connections>
-                    </popUpButtonCell>
-                </popUpButton>
-                <textField verticalHuggingPriority="750" id="dUb-fR-RaV">
-                    <rect key="frame" x="17" y="23" width="53" height="17"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Format:" id="SUo-XO-phM">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-            </subviews>
-        </customView>
         <arrayController mode="entity" entityName="Resource" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="YPe-Zs-mE7" userLabel="resources controller">
             <connections>
                 <binding destination="494" name="managedObjectContext" keyPath="self.managedObjectContext" id="2uq-jW-ChQ"/>
@@ -3560,8 +3522,8 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="Izs-mh-ARI" name="fontSize" keyPath="self.notesFontSize" id="Q6Z-UN-4oq"/>
                             <binding destination="Izs-mh-ARI" name="value" keyPath="self.notes" id="rBG-Bs-PvN"/>
+                            <binding destination="Izs-mh-ARI" name="fontSize" keyPath="self.notesFontSize" id="Q6Z-UN-4oq"/>
                         </connections>
                     </textField>
                 </subviews>

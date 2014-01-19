@@ -10,6 +10,8 @@
 #import "DockSideboard+Addons.h"
 #import "DockUpgrade+Addons.h"
 
+#import "NSMutableDictionary+Addons.h"
+
 @implementation DockSquad (Addons)
 
 +(NSArray*)allSquads:(NSManagedObjectContext*)context
@@ -74,6 +76,49 @@
                         [currentShip addUpgrade: upgrade];
                     }
                 }
+            }
+        }
+    }
+    #if !TARGET_OS_IPHONE
+    [context commitEditing];
+    #endif
+    return squad;
+}
+
++(DockSquad*)import:(NSString*)dataFormatString context:(NSManagedObjectContext*)context
+{
+    NSError* error;
+    NSData* data = [dataFormatString dataUsingEncoding: NSUTF8StringEncoding];
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData: data options: 0 error: &error];
+    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Squad"
+                                              inManagedObjectContext: context];
+    DockSquad* squad = [[DockSquad alloc] initWithEntity: entity
+                          insertIntoManagedObjectContext: context];
+    
+    squad.name = json[@"name"];
+    squad.additionalPoints = json[@"additionalPoints"];
+    squad.notes = json[@"notes"];
+    BOOL hasSideboard = NO;
+
+    NSString* resourceId = json[@"resource"];
+    if (resourceId != nil) {
+        DockResource* resource = [DockResource resourceForId: resourceId context: context];
+        squad.resource = resource;
+        hasSideboard = resource.isSideboard;
+    }
+
+    NSArray* ships = json[@"ships"];
+
+    DockEquippedShip* currentShip = nil;
+
+    for (NSDictionary* esDict in ships) {
+        if ([esDict[@"sideboard"] boolValue]) {
+            currentShip = [squad getSideboard];
+            [currentShip importUpgrades: esDict];
+        } else {
+            currentShip = [DockEquippedShip import: esDict context: context];
+            if (currentShip) {
+                [squad addEquippedShip: currentShip];
             }
         }
     }
@@ -356,6 +401,24 @@ static NSString* toDataFormat(NSString* label, id element)
         }
     }
     return nil;
+}
+
+-(NSDictionary*)asJSON
+{
+    NSMutableDictionary* selfData = [[NSMutableDictionary alloc] init];
+    [selfData setNonNilObject: self.resource.externalId forKey: @"resource"];
+    [selfData setNonNilObject: self.name forKey: @"name"];
+    [selfData setNonNilObject: self.additionalPoints forKey: @"additionalPoints"];
+    [selfData setNonNilObject: self.notes forKey: @"notes"];
+    NSOrderedSet* ships = self.equippedShips;
+    if (ships.count > 0) {
+        NSMutableArray* shipsArray = [[NSMutableArray alloc] initWithCapacity: ships.count];
+        for (DockEquippedShip* equippedShip in ships) {
+            [shipsArray addObject: [equippedShip asJSON]];
+        }
+        [selfData setNonNilObject: shipsArray forKey: @"ships"];
+    }
+    return [NSDictionary dictionaryWithDictionary: selfData];
 }
 
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade

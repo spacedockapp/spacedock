@@ -136,4 +136,18 @@
     self.overridden = [NSNumber numberWithBool: YES];
 }
 
+-(NSDictionary*)asJSON
+{
+    NSMutableDictionary* json = [NSMutableDictionary dictionaryWithCapacity: 0];
+    
+    json[@"upgradeId"] = self.upgrade.externalId;
+    json[@"upgradeTitle"] = self.upgrade.title;
+    if ([self costIsOverridden]) {
+        [json setObject: @YES forKey: @"costIsOverridden"];
+        [json setObject: self.overriddenCost forKey: @"overriddenCost"];
+    }
+    
+    return [NSDictionary dictionaryWithDictionary: json];
+}
+
 @end

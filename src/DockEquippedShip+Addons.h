@@ -8,6 +8,8 @@
 @property (nonatomic, readonly) int cost;
 @property (nonatomic, readonly) DockCaptain* captain;
 +(DockEquippedShip*)equippedShipWithShip:(DockShip*)ship;
++(DockEquippedShip*)import:(NSDictionary*)esDict context:(NSManagedObjectContext *)context;
+-(void)importUpgrades:(NSDictionary*)esDict;
 -(DockEquippedShip*)duplicate;
 -(DockEquippedUpgrade*)equippedCaptain;
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade;
@@ -34,6 +36,7 @@
 -(NSString*)plainDescription;
 -(NSString*)descriptiveTitle;
 -(NSString*)upgradesDescription;
+-(NSDictionary*)asJSON;
 -(NSString*)factionCode;
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
 -(DockEquippedUpgrade*)containsUpgradeWithName:(NSString*)theName;

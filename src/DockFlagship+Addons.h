@@ -3,6 +3,7 @@
 @class DockShip;
 
 @interface DockFlagship (Addons)
++(DockFlagship*)flagshipForId:(NSString*)flagshipId context:(NSManagedObjectContext*)context;
 -(int)agilityAdd;
 -(int)hullAdd;
 -(int)attackAdd;

@@ -70,8 +70,13 @@
     DockSquad* newSquad = nil;
     NSString* contents = [NSString stringWithContentsOfURL: url encoding: NSUTF8StringEncoding error: &error];
     if (contents != nil) {
-        NSString* name = [[[url path] lastPathComponent] stringByDeletingPathExtension];
-        newSquad = [DockSquad import: name data: contents context: _managedObjectContext];
+        NSString* extension = [url pathExtension];
+        if ([extension isEqualToString: kSpaceDockSquadFileExtension]) {
+            newSquad = [DockSquad import: contents context: _managedObjectContext];
+        } else {
+            NSString* name = [[[url path] lastPathComponent] stringByDeletingPathExtension];
+            newSquad = [DockSquad import: name data: contents context: _managedObjectContext];
+        }
     }
     return newSquad;
 }

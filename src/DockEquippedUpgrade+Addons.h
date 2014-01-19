@@ -15,4 +15,5 @@
 -(BOOL)costIsOverridden;
 -(void)removeCostOverride;
 -(void)overrideWithCost:(int)cost;
+-(NSDictionary*)asJSON;
 @end

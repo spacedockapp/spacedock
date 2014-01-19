@@ -17,6 +17,18 @@
 			<string>Star Trek Attack Wing Squad</string>
 			<key>LSItemContentTypes</key>
 			<array>
+				<string>com.funnyhatsoftware.spacedocksquad</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeIconFiles</key>
+			<array>
+				<string>staw-squad-icon-320</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Star Trek Attack Wing Squad</string>
+			<key>LSItemContentTypes</key>
+			<array>
 				<string>com.funnyhatsoftware.stawsquad</string>
 			</array>
 		</dict>
@@ -73,6 +85,27 @@
 	</array>
 	<key>UTExportedTypeDeclarations</key>
 	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.plain-text</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Star Trek Attack Wing Squad</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.funnyhatsoftware.spacedocksquad</string>
+			<key>UTTypeSize320IconFile</key>
+			<string>space-dock-icon-320</string>
+			<key>UTTypeSize64IconFile</key>
+			<string>space-dock-icon-64</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>spacedock</string>
+				</array>
+			</dict>
+		</dict>
 		<dict>
 			<key>UTTypeConformsTo</key>
 			<array>

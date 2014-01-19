@@ -733,29 +733,21 @@ NSString* kInspectorVisible = @"inspectorVisible";
 {
     DockSquad* squad = [self selectedSquad];
     _currentSavePanel = [NSSavePanel savePanel];
-    _currentSavePanel.allowedFileTypes = @[@"txt", kSpaceDockSquadFileExtension];
-    _currentSavePanel.accessoryView = _exportFormatView;
+    _currentSavePanel.allowedFileTypes = @[kSpaceDockSquadFileExtension];
     [_currentSavePanel setNameFieldStringValue: squad.name];
     [_currentSavePanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
-         if (v == NSFileHandlingPanelOKButton) {
-             NSURL* fileUrl = _currentSavePanel.URL;
-             NSInteger formatSelected = self.exportFormatPopup.selectedTag;
-
-             if (formatSelected == 1) {
-                 NSString* textFormat = [squad asTextFormat];
-                 NSError* error;
-                 [textFormat writeToURL: fileUrl atomically: NO encoding: NSUTF8StringEncoding error: &error];
-             } else if (formatSelected == 2) {
-                 NSString* textFormat = [squad asDataFormat];
-                 NSError* error;
-                 [textFormat writeToURL: fileUrl atomically: NO encoding: NSUTF8StringEncoding error: &error];
-             }
-         }
-
-         _currentSavePanel = nil;
-     }
-
-    ];
+        if (v == NSFileHandlingPanelOKButton) {
+            NSURL* fileUrl = _currentSavePanel.URL;
+            NSDictionary* json = [squad asJSON];
+            NSError* error;
+            NSData* jsonData = [NSJSONSerialization dataWithJSONObject: json options: NSJSONWritingPrettyPrinted error: &error];
+            [jsonData writeToURL: fileUrl atomically: NO];
+        }
+        
+        _currentSavePanel = nil;
+    }
+     
+     ];
 }
 
 -(IBAction)setFormat:(id)sender
@@ -776,16 +768,19 @@ NSString* kInspectorVisible = @"inspectorVisible";
 -(IBAction)importSquad:(id)sender
 {
     NSOpenPanel* importPanel = [NSOpenPanel openPanel];
-    importPanel.allowedFileTypes = @[@"dat", kSpaceDockSquadFileExtension];
+    importPanel.allowedFileTypes = @[kSpaceDockSquadWindowsFileExtension, kSpaceDockSquadOldFileExtension, kSpaceDockSquadFileExtension];
     [importPanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
          if (v == NSFileHandlingPanelOKButton) {
              NSURL* fileUrl = importPanel.URL;
-             NSString* filePath = [fileUrl path];
-             NSString* fileName = [filePath lastPathComponent];
-             NSString* squadName = [fileName stringByDeletingPathExtension];
              NSError* error;
+             NSString* extension = [fileUrl pathExtension];
              NSString* data = [NSString stringWithContentsOfURL: fileUrl encoding: NSUTF8StringEncoding error: &error];
-             [DockSquad import: squadName data: data context: _managedObjectContext];
+             if ([extension isEqualToString: kSpaceDockSquadFileExtension]) {
+                [DockSquad import: data context: _managedObjectContext];
+             } else {
+                NSString* name = [[[fileUrl path] lastPathComponent] stringByDeletingPathExtension];
+                [DockSquad import: name data: data context: _managedObjectContext];
+             }
          }
      }
 
