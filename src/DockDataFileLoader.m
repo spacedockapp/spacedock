@@ -210,7 +210,7 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                 NSSet* existingSets = [NSSet setWithSet: [c sets]];
                 for (DockSet* set in existingSets) {
                     if (![sets containsObject: set.externalId]) {
-                        [set removeItems: [NSSet setWithObject: c]];
+                        [set removeItemsObject: c];
                     }
                 }
 
