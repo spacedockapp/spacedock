@@ -1,0 +1,105 @@
+    <Captain>
+      <Title>Thot Pran</Title>
+      <Ability>When Attacking with an Energy Dissipator, you may re-roll 1 of your blank results one time.</Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>thot_pran_op5prize</Id>
+      <Set>OP5Prize</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Rudolph Ransom</Title>
+      <Ability>When defending, if there is an [EVADE] token beside your ship, roll +2 defense dice.</Ability>
+      <Unique>Y</Unique>
+      <Skill>4</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>rudolph_ransom_71276</Id>
+      <Set>71276</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Maxwell Burke</Title>
+      <Ability>Action: Discard this card to gain +2 attack dice this round.</Ability>
+      <Unique>Y</Unique>
+      <Skill>2</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>1</Cost>
+      <Id>maxwell_burke_71276</Id>
+      <Set>71276</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Somraw Commander</Title>
+      <Ability>Each time you attack at Range 3, if you do not have an Auxiliary Power Token beside your ship, you may add +1 attack die. If you add the attack die, place an Auxiliary Power Token beside your ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill>5</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>3</Cost>
+      <Id>somraw_commander_71448</Id>
+      <Set>71448</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Romulan Commander</Title>
+      <Ability>Action: During the Combat Phase this round, your ship attacks before every other ship. Place an Auxiliary Power Token beside your ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>2</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>romulan_commander_71278</Id>
+      <Set>71278</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Weyoun</Title>
+      <Ability>Add up to 2 additional [CREW] Upgrade slots to you ship's Upgrade Bar. The cost of these Upgrades is -1 SP each if they are Dominion [CREW] Upgrades.</Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>weyoun_71279</Id>
+      <Set>71279</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Gelnon</Title>
+      <Ability>Action: Target an enemy ship in your forward firing arc within Range 1 and immediately roll 2 attack dice. The target ship does not toll any defense dice against this attack and sustains damage as normal for each [HIT] or [crit]. If you roll at least 1 [BATTLESTATIONS] result, place a [BATTLESTATIONS] Token beside your ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill>5</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>3</Cost>
+      <Id>gelnon_71279</Id>
+      <Set>71279</Set>
+      <Special></Special>
+    </Captain>

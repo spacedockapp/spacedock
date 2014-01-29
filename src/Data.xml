@@ -1,4 +1,4 @@
-<Data version="1.190">
+<Data version="1.191">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -556,6 +556,75 @@
             <Maneuver speed="1" kind="straight" color="green" />
             <Maneuver speed="1" kind="right-bank" color="green" />
             <Maneuver speed="-1" kind="straight" color="red" />
+        </Maneuvers>
+        <FrontArc>90</FrontArc>
+        <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+        <Name>Nova Class</Name>
+        <Id>nova_class</Id>
+        <Maneuvers>
+            <Maneuver speed="4" kind="straight" color="white" />
+            <Maneuver speed="3" kind="left-turn" color="red" />
+            <Maneuver speed="3" kind="left-bank" color="white" />
+            <Maneuver speed="3" kind="straight" color="white" />
+            <Maneuver speed="3" kind="right-bank" color="white" />
+            <Maneuver speed="3" kind="right-turn" color="red" />
+            <Maneuver speed="2" kind="left-turn" color="white" />
+            <Maneuver speed="2" kind="left-bank" color="white" />
+            <Maneuver speed="2" kind="straight" color="green" />
+            <Maneuver speed="2" kind="right-bank" color="white" />
+            <Maneuver speed="2" kind="right-turn" color="white" />
+            <Maneuver speed="1" kind="left-bank" color="green" />
+            <Maneuver speed="1" kind="straight" color="green" />
+            <Maneuver speed="1" kind="right-bank" color="green" />
+            <Maneuver speed="-1" kind="straight" color="red" />
+        </Maneuvers>
+        <FrontArc>90</FrontArc>
+        <RearArc>90</RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+        <Name>Raptor Class</Name>
+        <Id>raptor_class</Id>
+        <Maneuvers>
+            <Maneuver speed="4" kind="straight" color="white" />
+            <Maneuver speed="3" kind="left-turn" color="white" />
+            <Maneuver speed="3" kind="left-bank" color="white" />
+            <Maneuver speed="3" kind="straight" color="white" />
+            <Maneuver speed="3" kind="right-bank" color="white" />
+            <Maneuver speed="3" kind="right-turn" color="white" />
+            <Maneuver speed="3" kind="about" color="red" />
+            <Maneuver speed="2" kind="left-turn" color="white" />
+            <Maneuver speed="2" kind="left-bank" color="white" />
+            <Maneuver speed="2" kind="straight" color="green" />
+            <Maneuver speed="2" kind="right-bank" color="white" />
+            <Maneuver speed="2" kind="right-turn" color="white" />
+            <Maneuver speed="1" kind="left-bank" color="green" />
+            <Maneuver speed="1" kind="straight" color="green" />
+            <Maneuver speed="1" kind="right-bank" color="green" />
+        </Maneuvers>
+        <FrontArc>90</FrontArc>
+        <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+        <Name>Jem'Hadar Battleship</Name>
+        <Id>jem_hadar_battleship</Id>
+        <Maneuvers>
+            <Maneuver speed="5" kind="straight" color="white" />
+            <Maneuver speed="4" kind="left-bank" color="white" />
+            <Maneuver speed="4" kind="straight" color="white" />
+            <Maneuver speed="4" kind="right-bank" color="white" />
+            <Maneuver speed="3" kind="left-turn" color="red" />
+            <Maneuver speed="3" kind="left-bank" color="white" />
+            <Maneuver speed="3" kind="straight" color="green" />
+            <Maneuver speed="3" kind="right-bank" color="white" />
+            <Maneuver speed="3" kind="right-turn" color="red" />
+            <Maneuver speed="2" kind="left-bank" color="white" />
+            <Maneuver speed="2" kind="straight" color="green" />
+            <Maneuver speed="2" kind="right-bank" color="white" />
+            <Maneuver speed="1" kind="left-bank" color="white" />
+            <Maneuver speed="1" kind="straight" color="green" />
+            <Maneuver speed="1" kind="right-bank" color="white" />
         </Maneuvers>
         <FrontArc>90</FrontArc>
         <RearArc></RearArc>
@@ -1788,6 +1857,236 @@
       <Id>1049</Id>
       <Set>OP4Prize</Set>
     </Ship>
+    <Ship>
+      <Title>Rav Laerst</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Breen Battle Cruiser</ShipClass>
+      <Faction>Dominion</Faction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>4</Hull>
+      <Shield>4</Shield>
+      <Ability>Action: Perform a [SENSOR ECHO] Action even if this ship is not Cloaked. You may only use the 1 [STRAIGHT] Maneuver Template for this Action.</Ability>
+      <Cost>26</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations></Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech>1</Tech>
+      <Weapon>3</Weapon>
+      <Crew>1</Crew>
+      <Id>rav_laerst_op5prize</Id>
+      <Set>OP5Prize</Set>
+    </Ship>
+    <Ship>
+      <Title>Dominion Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Breen Battle Cruiser</ShipClass>
+      <Faction>Dominion</Faction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>4</Hull>
+      <Shield>3</Shield>
+      <Ability></Ability>
+      <Cost>24</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations></Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <Id>dominion_starship_op5prize</Id>
+      <Set>OP5Prize</Set>
+    </Ship>
+    <Ship>
+      <Title>U.S.S. Equinox</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Nova Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>2</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
+      <Shield>3</Shield>
+      <Ability>Action: Disable 1 of your Active Shields. During the End Phase this round, repair all of your damaged Shields.</Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
+      <Id>u_s_s_equinox_71276</Id>
+      <Set>71276</Set>
+    </Ship>
+    <Ship>
+      <Title>Federation Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Nova Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>2</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>18</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>federation_starship_71276</Id>
+      <Set>71276</Set>
+    </Ship>
+    <Ship>
+      <Title>I.K.S. Somraw</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Raptor Class</ShipClass>
+      <Faction>Klingon</Faction>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>3</Hull>
+      <Shield>2</Shield>
+      <Ability>Each time you defend, you may convert up to 2 of your [BATTLESTATIONS] results into [EVADE] results.</Ability>
+      <Cost>18</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations></Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>i_k_s_somraw_71448</Id>
+      <Set>71448</Set>
+    </Ship>
+    <Ship>
+      <Title>Klingon Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Raptor Class</ShipClass>
+      <Faction>Klingon</Faction>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>3</Hull>
+      <Shield>1</Shield>
+      <Ability></Ability>
+      <Cost>16</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations></Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew></Crew>
+      <Id>klingon_starship_71448</Id>
+      <Set>71448</Set>
+    </Ship>
+    <Ship>
+      <Title>I.R.W. Gal Gath`thong</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Bird of Prey</ShipClass>
+      <Faction>Romulan</Faction>
+      <Attack>2</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
+      <Shield>2</Shield>
+      <Ability>When initiating an attack while Cloaked, you may fire Plasma Torpedoes without needing a Target Lock.</Ability>
+      <Cost>18</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan></Scan>
+      <Battlestations></Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Tech></Tech>
+      <Weapon>2</Weapon>
+      <Crew>2</Crew>
+      <Id>i_r_w_gal_gath_thong_71278</Id>
+      <Set>71278</Set>
+    </Ship>
+    <Ship>
+      <Title>Romulan Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Bird of Prey</ShipClass>
+      <Faction>Romulan</Faction>
+      <Attack>2</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
+      <Shield>1</Shield>
+      <Ability></Ability>
+      <Cost>16</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan></Scan>
+      <Battlestations></Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Tech></Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <Id>romulan_starship_71278</Id>
+      <Set>71278</Set>
+    </Ship>
+    <Ship>
+      <Title>4th Division Battleship</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Jem'Hadar Battleship</ShipClass>
+      <Faction>Dominion</Faction>
+      <Attack>6</Attack>
+      <Agility>0</Agility>
+      <Hull>7</Hull>
+      <Shield>5</Shield>
+      <Ability>Each round, one other friendly Jem'Hadar ship within Range 1-2 of your ship may perform an Action on their Action Bar as a free Action.</Ability>
+      <Cost>36</Cost>
+      <EvasiveManeuvers></EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech>1</Tech>
+      <Weapon>3</Weapon>
+      <Crew>2</Crew>
+      <Id>4th_division_battleship_71279</Id>
+      <Set>71279</Set>
+    </Ship>
+    <Ship>
+      <Title>Dominion Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Jem'Hadar Battleship</ShipClass>
+      <Faction>Dominion</Faction>
+      <Attack>6</Attack>
+      <Agility>0</Agility>
+      <Hull>7</Hull>
+      <Shield>4</Shield>
+      <Ability></Ability>
+      <Cost>34</Cost>
+      <EvasiveManeuvers></EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>2</Crew>
+      <Id>dominion_starship_71279</Id>
+      <Set>71279</Set>
+    </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -2541,6 +2840,111 @@
       <Id>3106</Id>
       <Set>71272</Set>
       <Special>addonetechslot</Special>
+    </Captain>
+    <Captain>
+      <Title>Thot Pran</Title>
+      <Ability>When Attacking with an Energy Dissipator, you may re-roll 1 of your blank results one time.</Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>thot_pran_op5prize</Id>
+      <Set>OP5Prize</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Rudolph Ransom</Title>
+      <Ability>When defending, if there is an [EVADE] token beside your ship, roll +2 defense dice.</Ability>
+      <Unique>Y</Unique>
+      <Skill>4</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>rudolph_ransom_71276</Id>
+      <Set>71276</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Maxwell Burke</Title>
+      <Ability>Action: Discard this card to gain +2 attack dice this round.</Ability>
+      <Unique>Y</Unique>
+      <Skill>2</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>1</Cost>
+      <Id>maxwell_burke_71276</Id>
+      <Set>71276</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Somraw Commander</Title>
+      <Ability>Each time you attack at Range 3, if you do not have an Auxiliary Power Token beside your ship, you may add +1 attack die. If you add the attack die, place an Auxiliary Power Token beside your ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill>5</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>3</Cost>
+      <Id>somraw_commander_71448</Id>
+      <Set>71448</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Romulan Commander</Title>
+      <Ability>Action: During the Combat Phase this round, your ship attacks before every other ship. Place an Auxiliary Power Token beside your ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>2</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>romulan_commander_71278</Id>
+      <Set>71278</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Weyoun</Title>
+      <Ability>Add up to 2 additional [CREW] Upgrade slots to you ship's Upgrade Bar. The cost of these Upgrades is -1 SP each if they are Dominion [CREW] Upgrades.</Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>weyoun_71279</Id>
+      <Set>71279</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Gelnon</Title>
+      <Ability>Action: Target an enemy ship in your forward firing arc within Range 1 and immediately roll 2 attack dice. The target ship does not toll any defense dice against this attack and sustains damage as normal for each [HIT] or [crit]. If you roll at least 1 [BATTLESTATIONS] result, place a [BATTLESTATIONS] Token beside your ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill>5</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>3</Cost>
+      <Id>gelnon_71279</Id>
+      <Set>71279</Set>
+      <Special></Special>
     </Captain>
   </Captains>
   <Upgrades>
@@ -4491,6 +4895,396 @@
       <Cost>5</Cost>
       <Id>3137</Id>
       <Set>OP4Prize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Invaluable Advice</Title>
+      <Ability>Before rolling your attack or defense dice, you may discard this card to place a [BATTLESTATIONS] Token beside your ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Dominion</Faction>
+      <Cost>2</Cost>
+      <Id>invaluable_advice_op5prize</Id>
+      <Set>OP5Prize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Breen Guards</Title>
+      <Ability>Action: If your ship is not Cloaked, disable all your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Disable Breen Guards and discard one [CREW] Upgrade of your choice on the target ship. </Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>breen_guards_op5prize</Id>
+      <Set>OP5Prize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Energy Dissipator</Title>
+      <Ability>Attack: Disable this card to perform this attack. If this attack hits, the target suffers no damage, receives 1 Energy Dampening Token, and you may immediately attack the same ship again with another weapon. This upgrade cost +5 Squadron Points for any non-Breen ship. </Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Weapon</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>energy_dissipator_op5prize</Id>
+      <Set>OP5Prize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Cold Storage Unit</Title>
+      <Ability>Add 2 additional [weapon] icons to your ship's Upgrade Bar.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Dominion</Faction>
+      <Cost>4</Cost>
+      <Id>cold_storage_unit_op5prize</Id>
+      <Set>OP5Prize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Marla Gilmore</Title>
+      <Ability>Action: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields.  Disable this card and 1 [TECH] of your choice on the target ship.  You may then use that Upgrade's Action (if any) as a free action this round.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>marla_gilmore_71276</Id>
+      <Set>71276</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Noah Lessing</Title>
+      <Ability>Action: Disable this card and any 1 of your [TECH] Upgrades to target a ship at Range 1-2. Disable 1 of the target ship's Active Shields.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>noah_lessing_71276</Id>
+      <Set>71276</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photon Torpedoes</Title>
+      <Ability>Attack: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>photon_torpedoes_71276</Id>
+      <Set>71276</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Emergency Medical Hologram</Title>
+      <Ability>This Upgrade counts as either a [CREW] Upgrade or a [TECH] Upgrade (your choice). When you use a [TECH] Upgrade that requires you to disable it, you may disable this card instead of that [TECH] Upgrade.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>emergency_medical_hologram_71276</Id>
+      <Set>71276</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Navigational Deflector</Title>
+      <Ability>When taking damage, you may discard this card to cancel 1 [HIT] result. If the damage is from a minefield or an obstacle, disable this card instead of discarding it. If you disable this card, you may roll defense dice against obstacles or minefields.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>navigational_deflector_71276</Id>
+      <Set>71276</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Klingon Honor</Title>
+      <Ability>Action: Disable this card to add +1 attack die and convert 1 [HIT] result into 1 [crit] result during any one attack you initiate this round. You cannot roll any defense dice this round. This Upgrade may only be purchased for a Klingon Captain.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>klingon_honor_71448</Id>
+      <Set>71448</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photon Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Klingon</Faction>
+      <Cost>3</Cost>
+      <Id>photon_torpedoes_71448</Id>
+      <Set>71448</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Bu'Kah</Title>
+      <Ability>If you performed a Green Maneuver this round, discard this card to repair up to 2 damage to your Hull.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>bu_kah_71448</Id>
+      <Set>71448</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Shockwave</Title>
+      <Ability>Instead of moving normally during the Activation Phase, you may discard this card and disable 1 of your Torpedoes to disregard your chosen Maneuver and perform a Red [1 reverse] Full Astern Maneuver instead. This upgrade may only be purchased for a Raptor Class ship.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Klingon</Faction>
+      <Cost>2</Cost>
+      <Id>shockwave_71448</Id>
+      <Set>71448</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Tactical Sensors</Title>
+      <Ability>Action: Disable this card to place a [BATTLESTATIONS] token and a [SCAN] Token beside your ship. This upgrade may only be purchased for a Raptor class ship.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>tactical_sensors_71448</Id>
+      <Set>71448</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Centurion</Title>
+      <Ability>When one of your [CREW] upgrades or your Captain is to be disabled or discarded, you may discard this card instead.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>centurion_71278</Id>
+      <Set>71278</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Romulan Officer</Title>
+      <Ability>Action: Discard this card. If you initiate an attack while Cloaked this round, add +2 attack dice. You cannot roll any defense dice this round.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>romulan_officer_71278</Id>
+      <Set>71278</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Decoy</Title>
+      <Ability>When defending, before any dice are rolled, you may discard this card and any of your [weapon] or [TECH] Upgrades to force your opponent to roll 3 less attack dice this round.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>decoy_71278</Id>
+      <Set>71278</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Double Back</Title>
+      <Ability>After performing a [SENSOR ECHO] Action, you may discard this card to immediately perform a [reverse]1 or [reverse]2 Full Astern Maneuver.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>double_back_71278</Id>
+      <Set>71278</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Plasma Torpedoes</Title>
+      <Ability>Attack: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may re-roll all your blank results one time. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>4</Attack>
+      <Range>1-2</Range>
+      <Type>Weapon</Type>
+      <Faction>Romulan</Faction>
+      <Cost>3</Cost>
+      <Id>plasma_torpedoes_71278</Id>
+      <Set>71278</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Nuclear Warhead</Title>
+      <Ability>Action: At the end of the Activation Phase, discard this card and place a Minefield Token within Range 1 of your ship, but not within your forward firing arc and not on to of another ship. If a ship enters the minefield on a future turn, roll 3 attack dice. Any [HIT] or [crit] damages the ship as normal. The affected ship does not roll any defense dice.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Weapon</Type>
+      <Faction>Romulan</Faction>
+      <Cost>3</Cost>
+      <Id>nuclear_warhead_71278</Id>
+      <Set>71278</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Kudak'Etan</Title>
+      <Ability>Action: Target a ship at Range 1. Discard this card and disable 1 of your other [CREW] Upgrades to disable all [CREW] Upgrades on the target ship (even if that ships is Cloaked or has Active Shields). This Upgrade may only be purchased for a Jem'hadar ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Dominion</Faction>
+      <Cost>4</Cost>
+      <Id>kudak_etan_71279</Id>
+      <Set>71279</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Ixtana'Rax</Title>
+      <Ability>Action: Disable this card to flip over all Critical Damage cards assigned to your ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Dominion</Faction>
+      <Cost>2</Cost>
+      <Id>ixtana_rax_71279</Id>
+      <Set>71279</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Ikat'Ika</Title>
+      <Ability>When defending , you may discard this card to force one ship that attacks you this round to re-roll any number of their attack dice of your choice (once per die). This Upgrade costs +5 Squadron Points for any non-Jem'hadar ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>ikat_ika_71279</Id>
+      <Set>71279</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photon Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. If fired from a Jem'Hadar Battleship add +2 attack dice.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>photon_torpedoes_71279</Id>
+      <Set>71279</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Ketracel-White</Title>
+      <Ability>Action: Discard this card to remove all Disabled Upgrade Tokens from all of your Dominion [CREW] Upgrades.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Dominion</Faction>
+      <Cost>2</Cost>
+      <Id>ketracel_white_71279</Id>
+      <Set>71279</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Shroud</Title>
+      <Ability>If one of your Dominion [CREW] Upgrades is supposed to be discarded, discard this card instead.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Dominion</Faction>
+      <Cost>1</Cost>
+      <Id>shroud_71279</Id>
+      <Set>71279</Set>
       <Special></Special>
     </Upgrade>
   </Upgrades>

@@ -2,6 +2,8 @@ require "enumerator"
 require "nokogiri"
 require "pathname"
 
+require_relative "common"
+
 script_path = Pathname.new(File.dirname(__FILE__))
 root_path = script_path.parent()
 src_path =  root_path.join("src")
@@ -17,30 +19,30 @@ v = ships.sort.last.to_i
 v+= 1
 
 ship = <<-SHIPTEXT
-Excelsior Class	
+Nova Class	
 						Front Arc
-		WHITE				180°
+		WHITE				90°
 RED	WHITE	WHITE	WHITE	RED		
-RED	WHITE	GREEN	WHITE	RED		Rear Arc
+WHITE	WHITE	GREEN	WHITE	WHITE		Rear Arc
 	GREEN	GREEN	GREEN			90°
+		RED				
 						
-		RED
-Romulan Scout Vessel	
+Raptor Class	
 						Front Arc
 		WHITE				90°
-	WHITE	WHITE	WHITE			
-WHITE	GREEN	GREEN	GREEN	WHITE	WHITE	
-WHITE	GREEN	GREEN	GREEN	WHITE		
-
-
-Nebula Class	
-						Front Arc
-		WHITE				90°
-RED	WHITE	WHITE	WHITE	RED		
+WHITE	WHITE	WHITE	WHITE	WHITE	RED	
 WHITE	WHITE	GREEN	WHITE	WHITE		
 	GREEN	GREEN	GREEN			
-		RED				
-		
+						
+						
+Jem'Hadar Battleship	
+		WHITE				Front Arc
+	WHITE	WHITE	WHITE			90°
+RED	WHITE	GREEN	WHITE	RED		
+	WHITE	GREEN	WHITE			
+	WHITE	GREEN	WHITE			
+								
+							
 SHIPTEXT
 
 directions = ["left-turn", "left-bank", "straight", "right-bank", "right-turn", "about"]
@@ -48,7 +50,6 @@ shipLines = ship.split "\n"
 speed = 6
 frontArc = ""
 rearArc = ""
-puts %Q(<ShipClassDetails>)
 externalId = v
 shipLines.each do |l|
   if speed == 6
@@ -56,7 +57,7 @@ shipLines.each do |l|
     name = parts[0].chomp
     puts %Q(<ShipClassDetail>)
     puts %Q(\t<Name>#{name}</Name>)
-    puts %Q(\t<Id>#{externalId}</Id>)
+    puts %Q(\t<Id>#{sanitize_title(name).downcase()}</Id>)
     externalId += 1
     puts %Q(\t<Maneuvers>)
   else
@@ -96,4 +97,3 @@ shipLines.each do |l|
     frontArc = rearArc = ""
   end
 end
-puts %Q(</ShipClassDetails>)

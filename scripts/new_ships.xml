@@ -1,38 +1,60 @@
-<Ships>
     <Ship>
-      <Title>U.S.S. Excelsior</Title>
+      <Title>Rav Laerst</Title>
       <Unique>Y</Unique>
-      <ShipClass>Excelsior</ShipClass>
-      <Faction>Federation</Faction>
+      <ShipClass>Breen Battle Cruiser</ShipClass>
+      <Faction>Dominion</Faction>
       <Attack>3</Attack>
-      <Agility>1</Agility>
-      <Hull>5</Hull>
+      <Agility>2</Agility>
+      <Hull>4</Hull>
       <Shield>4</Shield>
-      <Ability>After you move, if no enemy ships are within Range 1 of your ship, you may perform a [SCAN] action as a free action.</Ability>
+      <Ability>Action: Perform a [SENSOR ECHO] Action even if this ship is not Cloaked. You may only use the 1 [STRAIGHT] Maneuver Template for this Action.</Ability>
       <Cost>26</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
       <Scan>1</Scan>
-      <Battlestations>1</Battlestations>
+      <Battlestations></Battlestations>
       <Cloak></Cloak>
       <SensorEcho></SensorEcho>
       <Tech>1</Tech>
-      <Weapon>1</Weapon>
-      <Crew>3</Crew>
-      <Id>1044</Id>
-      <Set>71272</Set>
+      <Weapon>3</Weapon>
+      <Crew>1</Crew>
+      <Id>rav_laerst_op5prize</Id>
+      <Set>OP5Prize</Set>
     </Ship>
     <Ship>
-      <Title>Federation Starship</Title>
+      <Title>Dominion Starship</Title>
       <Unique>N</Unique>
-      <ShipClass>Excelsior</ShipClass>
-      <Faction>Federation</Faction>
-      <Attack>2</Attack>
-      <Agility>1</Agility>
-      <Hull>5</Hull>
+      <ShipClass>Breen Battle Cruiser</ShipClass>
+      <Faction>Dominion</Faction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>4</Hull>
       <Shield>3</Shield>
       <Ability></Ability>
       <Cost>24</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations></Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <Id>dominion_starship_op5prize</Id>
+      <Set>OP5Prize</Set>
+    </Ship>
+    <Ship>
+      <Title>U.S.S. Equinox</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Nova Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>2</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
+      <Shield>3</Shield>
+      <Ability>Action: Disable 1 of your Active Shields. During the End Phase this round, repair all of your damaged Shields.</Ability>
+      <Cost>20</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
       <Scan>1</Scan>
@@ -42,67 +64,159 @@
       <Tech>1</Tech>
       <Weapon>1</Weapon>
       <Crew>2</Crew>
-      <Id>1045</Id>
-      <Set>71272</Set>
+      <Id>u_s_s_equinox_71276</Id>
+      <Set>71276</Set>
     </Ship>
     <Ship>
-      <Title>R.I.S. Vo</Title>
-      <Unique>Y</Unique>
-      <ShipClass>Romulan Scout Vessel</ShipClass>
-      <Faction>Romulan</Faction>
-      <Attack>1</Attack>
-      <Agility>3</Agility>
-      <Hull>2</Hull>
+      <Title>Federation Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Nova Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>2</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
       <Shield>2</Shield>
-      <Ability>After you move, you may perform an [EVADE] action as a free action. If you do so, you cannot attack during this round.</Ability>
+      <Ability></Ability>
+      <Cost>18</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>federation_starship_71276</Id>
+      <Set>71276</Set>
+    </Ship>
+    <Ship>
+      <Title>I.K.S. Somraw</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Raptor Class</ShipClass>
+      <Faction>Klingon</Faction>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>3</Hull>
+      <Shield>2</Shield>
+      <Ability>Each time you defend, you may convert up to 2 of your [BATTLESTATIONS] results into [EVADE] results.</Ability>
+      <Cost>18</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations></Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>i_k_s_somraw_71448</Id>
+      <Set>71448</Set>
+    </Ship>
+    <Ship>
+      <Title>Klingon Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Raptor Class</ShipClass>
+      <Faction>Klingon</Faction>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>3</Hull>
+      <Shield>1</Shield>
+      <Ability></Ability>
       <Cost>16</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock></TargetLock>
+      <TargetLock>1</TargetLock>
       <Scan>1</Scan>
+      <Battlestations></Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew></Crew>
+      <Id>klingon_starship_71448</Id>
+      <Set>71448</Set>
+    </Ship>
+    <Ship>
+      <Title>I.R.W. Gal Gath`thong</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Bird of Prey</ShipClass>
+      <Faction>Romulan</Faction>
+      <Attack>2</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
+      <Shield>2</Shield>
+      <Ability>When initiating an attack while Cloaked, you may fire Plasma Torpedoes without needing a Target Lock.</Ability>
+      <Cost>18</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan></Scan>
       <Battlestations></Battlestations>
       <Cloak>1</Cloak>
       <SensorEcho>1</SensorEcho>
-      <Tech>1</Tech>
-      <Weapon></Weapon>
-      <Crew>1</Crew>
-      <Id>1046</Id>
-      <Set>71274</Set>
+      <Tech></Tech>
+      <Weapon>2</Weapon>
+      <Crew>2</Crew>
+      <Id>i_r_w_gal_gath_thong_71278</Id>
+      <Set>71278</Set>
     </Ship>
     <Ship>
       <Title>Romulan Starship</Title>
       <Unique>N</Unique>
-      <ShipClass>Romulan Scout Vessel</ShipClass>
+      <ShipClass>Bird of Prey</ShipClass>
       <Faction>Romulan</Faction>
-      <Attack>1</Attack>
-      <Agility>3</Agility>
-      <Hull>2</Hull>
+      <Attack>2</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
       <Shield>1</Shield>
       <Ability></Ability>
-      <Cost>14</Cost>
+      <Cost>16</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock></TargetLock>
-      <Scan>1</Scan>
+      <TargetLock>1</TargetLock>
+      <Scan></Scan>
       <Battlestations></Battlestations>
       <Cloak>1</Cloak>
       <SensorEcho>1</SensorEcho>
-      <Tech>1</Tech>
-      <Weapon></Weapon>
-      <Crew></Crew>
-      <Id>1047</Id>
-      <Set>71274</Set>
+      <Tech></Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <Id>romulan_starship_71278</Id>
+      <Set>71278</Set>
     </Ship>
     <Ship>
-      <Title>U.S.S. Sutherland</Title>
+      <Title>4th Division Battleship</Title>
       <Unique>Y</Unique>
-      <ShipClass>Nebula</ShipClass>
-      <Faction>Federation</Faction>
-      <Attack>4</Attack>
-      <Agility>1</Agility>
-      <Hull>4</Hull>
+      <ShipClass>Jem'Hadar Battleship</ShipClass>
+      <Faction>Dominion</Faction>
+      <Attack>6</Attack>
+      <Agility>0</Agility>
+      <Hull>7</Hull>
+      <Shield>5</Shield>
+      <Ability>Each round, one other friendly Jem'Hadar ship within Range 1-2 of your ship may perform an Action on their Action Bar as a free Action.</Ability>
+      <Cost>36</Cost>
+      <EvasiveManeuvers></EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech>1</Tech>
+      <Weapon>3</Weapon>
+      <Crew>2</Crew>
+      <Id>4th_division_battleship_71279</Id>
+      <Set>71279</Set>
+    </Ship>
+    <Ship>
+      <Title>Dominion Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Jem'Hadar Battleship</ShipClass>
+      <Faction>Dominion</Faction>
+      <Attack>6</Attack>
+      <Agility>0</Agility>
+      <Hull>7</Hull>
       <Shield>4</Shield>
-      <Ability>When you initiate an attack at range 3, you may choose any number of your attack dice and re-roll them once.</Ability>
-      <Cost>26</Cost>
-      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <Ability></Ability>
+      <Cost>34</Cost>
+      <EvasiveManeuvers></EvasiveManeuvers>
       <TargetLock>1</TargetLock>
       <Scan>1</Scan>
       <Battlestations>1</Battlestations>
@@ -111,30 +225,6 @@
       <Tech>1</Tech>
       <Weapon>2</Weapon>
       <Crew>2</Crew>
-      <Id>1048</Id>
-      <Set>OP4Prize</Set>
+      <Id>dominion_starship_71279</Id>
+      <Set>71279</Set>
     </Ship>
-    <Ship>
-      <Title>Federation Starship</Title>
-      <Unique>N</Unique>
-      <ShipClass>Nebula</ShipClass>
-      <Faction>Federation</Faction>
-      <Attack>4</Attack>
-      <Agility>1</Agility>
-      <Hull>4</Hull>
-      <Shield>4</Shield>
-      <Ability></Ability>
-      <Cost>24</Cost>
-      <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock>1</TargetLock>
-      <Scan>1</Scan>
-      <Battlestations>1</Battlestations>
-      <Cloak></Cloak>
-      <SensorEcho></SensorEcho>
-      <Tech>1</Tech>
-      <Weapon>1</Weapon>
-      <Crew>2</Crew>
-      <Id>1049</Id>
-      <Set>OP4Prize</Set>
-    </Ship>
-</Ships>

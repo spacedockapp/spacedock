@@ -2,6 +2,8 @@ require "enumerator"
 require "nokogiri"
 require "pathname"
 
+require_relative "common"
+
 script_path = Pathname.new(File.dirname(__FILE__))
 root_path = script_path.parent()
 src_path =  root_path.join("src")
@@ -9,29 +11,27 @@ xml_path = src_path.join("Data.xml").to_s
 xml_text = File.read(xml_path)
 doc = Nokogiri::XML(xml_text)
 
-ships = doc.xpath("//Data//Ships/Ship/Id").collect do |node|
-  node.content
-end
-
-v = ships.sort.last.to_i 
-v+= 1
-
-
 #	Name	Ship Type	Faction	Weapon	Agility	Hull	Shield	Ship Ability	Evasive Maneuvers	Target Lock	Scan	Battlestations	Cloak	Sensor Echo	Other	Tech	Weapon	Crew	Other	Cost	Set
 
 ship = <<-SHIPTEXT
-*	U.S.S. Excelsior	Excelsior	Fed	3	1	5	4	After you move, if no enemy ships are within Range 1 of your ship, you may perform a (scan) action as a free action.	1	1	1	1				1	1	3		26	#71272
-	Federation Starship	Excelsior	Fed	2	1	5	3		1	1	1	1				1	1	2		24	#71272
-*	R.I.S. Vo	Romulan Scout Vessel	Rom	1	3	2	2	After you move, you may perform an (evade) action as a free action. If you do so, you cannot attack during this round.	1		1		1	1		1		1		16	#71274
-	Romulan Starship	Romulan Scout Vessel	Rom	1	3	2	1		1		1		1	1		1				14	#71274
-*	U.S.S. Sutherland	Nebula	Fed	4	1	4	4	When you initiate an attack at range 3, you may choose any number of your attack dice and re-roll them once.	1	1	1	1				1	2	2		26	OP 4 Prize
-	Federation Starship	Nebula	Fed	4	1	4	4		1	1	1	1				1	1	2		24	OP 4 Prize
+*	Rav Laerst	Breen Battle Cruiser	Dom	3	2	4	4	Action: Perform a [sensor echo] Action even if this ship is not Cloaked. You may only use the 1 [straight] Maneuver Template for this Action.	1	1	1					1	3	1		26	"OP 5 Prize"
+	Dominion Starship	Breen Battle Cruiser	Dom	3	2	4	3		1	1	1					1	2	1		24	"OP 5 Prize"
+*	U.S.S. Equinox	Nova Class	Fed	2	2	3	3	Action: Disable 1 of your Active Shields. During the End Phase this round, repair all of your damaged Shields.	1	1	1	1				1	1	2			#71276
+	Federation Starship	Nova Class	Fed	2	2	3	2		1	1	1	1				1	1	1			#71276
+*	I.K.S. Somraw	Raptor Class	Kli	3	1	3	2	Each time you defend, you may convert up to 2 of your [battle stations] results into [evade] results.	1	1	1					1	1	1			#71448
+	Klingon Starship	Raptor Class	Kli	3	1	3	1		1	1	1					1	1				#71448
+*	I.R.W. Gal Gath`thong	Bird of Prey	Rom	2	2	3	2	When initiating an attack while Cloaked, you may fire Plasma Torpedoes without needing a Target Lock.	1	1			1	1			2	2			#71278
+	Romulan Starship	Bird of Prey	Rom	2	2	3	1		1	1			1	1			2	1			#71278
+*	4th Division Battleship	Jem'Hadar Battleship	Dom	6	0	7	5	Each round, one other friendly Jem'Hadar ship within Range 1-2 of your ship may perform an Action on their Action Bar as a free Action.		1	1	1				1	3	2			#71279
+	Dominion Starship	Jem'Hadar Battleship	Dom	6	0	7	4			1	1	1				1	2	2			#71279
 SHIPTEXT
+
+
+convert_terms(ship)
 
 new_ships = File.open("new_ships.xml", "w")
 
 shipLines = ship.split "\n"
-new_ships.puts %Q(<Ships>)
 externalId = 5000
 FACTION_LOOKUP = {
   "Fed" => "Federation",
@@ -63,10 +63,13 @@ shipLines.each do |l|
     tech = parts[16]
     weapon = parts[17]
     crew = parts[18]
-    externalId = v
-    v+=1
     setId = parts[21].gsub "#", ""
     setId = setId.gsub " ", ""
+    setId = setId.gsub "\"", ""
+    externalId = make_external_id(setId, title)
+	if cost.length == 0
+		cost = (agility.to_i + attack.to_i + hull.to_i + shield.to_i) * 2
+	end
     shipXml = <<-SHIPXML
     <Ship>
       <Title>#{title}</Title>
@@ -94,5 +97,4 @@ shipLines.each do |l|
     SHIPXML
     new_ships.puts shipXml
     end
-new_ships.puts %Q(</Ships>)
 

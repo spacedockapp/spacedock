@@ -311,7 +311,7 @@ static NSString* makeKey(NSString* key)
         self.dataVersion = _currentAttributes[@"version"];
         if (_versionOnly) {
             [parser abortParsing];
-        } else if (!_force && [_dataVersion isEqualToString: _currentVersion]) {
+        } else if (!_force && [_dataVersion isEqualToString: _currentVersion] && _dataVersion.length != 0) {
             _versionMatched = YES;
             [parser abortParsing];
         }
