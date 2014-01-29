@@ -14,6 +14,7 @@
 -(BOOL)isPlaceholder;
 -(BOOL)isUnique;
 -(BOOL)isDominion;
+-(BOOL)isKlingon;
 -(NSComparisonResult)compareTo:(DockUpgrade*)other;
 -(int)limitForShip:(DockEquippedShip*)targetShip;
 -(NSAttributedString*)styledDescription;

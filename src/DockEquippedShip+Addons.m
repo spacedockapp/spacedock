@@ -1,6 +1,7 @@
 #import "DockEquippedShip+Addons.h"
 
 #import "DockCaptain+Addons.h"
+#import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockEquippedUpgrade.h"
 #import "DockFlagship+Addons.h"
@@ -385,6 +386,20 @@ static NSString* intToString(int v)
         }
     }
 
+    if ([upgradeSpecial isEqualToString: @"OnlyForKlingonCaptain"]) {
+        if (![self.captain isKlingon]) {
+            return NO;
+        }
+    }
+
+    if ([upgradeSpecial isEqualToString: @"OnlyForRomulanScienceVessel"] || [upgradeSpecial isEqualToString: @"OnlyForRaptorClassShips"]) {
+        NSString* legalShipClass = upgrade.targetShipClass;
+
+        if (![legalShipClass isEqualToString: self.ship.shipClass]) {
+            return 0;
+        }
+    }
+
     int limit = [upgrade limitForShip: self];
     return limit > 0;
 }
@@ -686,6 +701,8 @@ static NSString* intToString(int v)
 
         if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
             info = @"This upgrade can only be added to Jem'hadar ships.";
+        } else if ([upgradeSpecial isEqualToString: @"OnlyForKlingonCaptain"]) {
+            info = @"This upgrade can only be added to a Klingon Captain.";
         }
     }
 

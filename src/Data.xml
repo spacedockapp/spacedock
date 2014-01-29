@@ -1,4 +1,4 @@
-<Data version="1.191">
+<Data version="">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1866,7 +1866,7 @@
       <Agility>2</Agility>
       <Hull>4</Hull>
       <Shield>4</Shield>
-      <Ability>Action: Perform a [SENSOR ECHO] Action even if this ship is not Cloaked. You may only use the 1 [STRAIGHT] Maneuver Template for this Action.</Ability>
+      <Ability>ACTION: Perform a [SENSOR ECHO] Action even if this ship is not Cloaked. You may only use the 1 [STRAIGHT] Maneuver Template for this Action.</Ability>
       <Cost>26</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
@@ -1912,7 +1912,7 @@
       <Agility>2</Agility>
       <Hull>3</Hull>
       <Shield>3</Shield>
-      <Ability>Action: Disable 1 of your Active Shields. During the End Phase this round, repair all of your damaged Shields.</Ability>
+      <Ability>ACTION: Disable 1 of your Active Shields. During the End Phase this round, repair all of your damaged Shields.</Ability>
       <Cost>20</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
@@ -1958,7 +1958,7 @@
       <Agility>1</Agility>
       <Hull>3</Hull>
       <Shield>2</Shield>
-      <Ability>Each time you defend, you may convert up to 2 of your [BATTLESTATIONS] results into [EVADE] results.</Ability>
+      <Ability>Each time you defend, you may convert up to 2 of your [BATTLESTATIONS] results into [EVASIVE] results.</Ability>
       <Cost>18</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
@@ -2858,7 +2858,7 @@
     </Captain>
     <Captain>
       <Title>Rudolph Ransom</Title>
-      <Ability>When defending, if there is an [EVADE] token beside your ship, roll +2 defense dice.</Ability>
+      <Ability>When defending, if there is an [EVASIVE] token beside your ship, roll +2 defense dice.</Ability>
       <Unique>Y</Unique>
       <Skill>4</Skill>
       <Talent></Talent>
@@ -2873,7 +2873,7 @@
     </Captain>
     <Captain>
       <Title>Maxwell Burke</Title>
-      <Ability>Action: Discard this card to gain +2 attack dice this round.</Ability>
+      <Ability>ACTION: Discard this card to gain +2 attack dice this round.</Ability>
       <Unique>Y</Unique>
       <Skill>2</Skill>
       <Talent></Talent>
@@ -2903,7 +2903,7 @@
     </Captain>
     <Captain>
       <Title>Romulan Commander</Title>
-      <Ability>Action: During the Combat Phase this round, your ship attacks before every other ship. Place an Auxiliary Power Token beside your ship.</Ability>
+      <Ability>ACTION: During the Combat Phase this round, your ship attacks before every other ship. Place an Auxiliary Power Token beside your ship.</Ability>
       <Unique>Y</Unique>
       <Skill>7</Skill>
       <Talent>2</Talent>
@@ -2933,7 +2933,7 @@
     </Captain>
     <Captain>
       <Title>Gelnon</Title>
-      <Ability>Action: Target an enemy ship in your forward firing arc within Range 1 and immediately roll 2 attack dice. The target ship does not toll any defense dice against this attack and sustains damage as normal for each [HIT] or [crit]. If you roll at least 1 [BATTLESTATIONS] result, place a [BATTLESTATIONS] Token beside your ship.</Ability>
+      <Ability>ACTION: Target an enemy ship in your forward firing arc within Range 1 and immediately roll 2 attack dice. The target ship does not toll any defense dice against this attack and sustains damage as normal for each [HIT] or [CRITICAL]. If you roll at least 1 [BATTLESTATIONS] result, place a [BATTLESTATIONS] Token beside your ship.</Ability>
       <Unique>Y</Unique>
       <Skill>5</Skill>
       <Talent></Talent>
@@ -3647,6 +3647,7 @@
       <Type>Tech</Type>
       <Faction>Romulan</Faction>
       <Cost>4</Cost>
+      <Special>OnlyForRomulanScienceVessel</Special>
       <Id>3041</Id>
       <Set>71124</Set>
     </Upgrade>
@@ -4719,7 +4720,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>
-      <Ability>Attack: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -4869,7 +4870,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Secondary Torpedo Launcher</Title>
-      <Ability>Attack: [TARGET LOCK] Discard this card and spend your target lock to perform this attack. If you have already fired another torpedo at an enemy ship in your forward firing arc this round, you may use this weapon to make a second attack against that ship at -1 attack die. you do not need to spend a second target lock to make the extra attack.</Ability>
+      <Ability>ATTACK: [TARGET LOCK] Discard this card and spend your target lock to perform this attack. If you have already fired another torpedo at an enemy ship in your forward firing arc this round, you may use this weapon to make a second attack against that ship at -1 attack die. you do not need to spend a second target lock to make the extra attack.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -4914,7 +4915,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Breen Guards</Title>
-      <Ability>Action: If your ship is not Cloaked, disable all your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Disable Breen Guards and discard one [CREW] Upgrade of your choice on the target ship. </Ability>
+      <Ability>ACTION: If your ship is not Cloaked, disable all your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Disable Breen Guards and discard one [CREW] Upgrade of your choice on the target ship. </Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -4929,7 +4930,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Energy Dissipator</Title>
-      <Ability>Attack: Disable this card to perform this attack. If this attack hits, the target suffers no damage, receives 1 Energy Dampening Token, and you may immediately attack the same ship again with another weapon. This upgrade cost +5 Squadron Points for any non-Breen ship. </Ability>
+      <Ability>ATTACK: Disable this card to perform this attack. If this attack hits, the target suffers no damage, receives 1 Energy Dampening Token, and you may immediately attack the same ship again with another weapon. This upgrade cost +5 Squadron Points for any non-Breen ship. </Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -4940,11 +4941,11 @@
       <Cost>5</Cost>
       <Id>energy_dissipator_op5prize</Id>
       <Set>OP5Prize</Set>
-      <Special></Special>
+      <Special>costincreasedifnotbreen</Special>
     </Upgrade>
     <Upgrade>
       <Title>Cold Storage Unit</Title>
-      <Ability>Add 2 additional [weapon] icons to your ship's Upgrade Bar.</Ability>
+      <Ability>Add 2 additional [WEAPON] icons to your ship's Upgrade Bar.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -4959,7 +4960,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Marla Gilmore</Title>
-      <Ability>Action: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields.  Disable this card and 1 [TECH] of your choice on the target ship.  You may then use that Upgrade's Action (if any) as a free action this round.</Ability>
+      <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields.  Disable this card and 1 [TECH] of your choice on the target ship.  You may then use that Upgrade's Action (if any) as a free action this round.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -4974,7 +4975,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Noah Lessing</Title>
-      <Ability>Action: Disable this card and any 1 of your [TECH] Upgrades to target a ship at Range 1-2. Disable 1 of the target ship's Active Shields.</Ability>
+      <Ability>ACTION: Disable this card and any 1 of your [TECH] Upgrades to target a ship at Range 1-2. Disable 1 of the target ship's Active Shields.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -4989,7 +4990,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>
-      <Ability>Attack: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -5034,7 +5035,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Klingon Honor</Title>
-      <Ability>Action: Disable this card to add +1 attack die and convert 1 [HIT] result into 1 [crit] result during any one attack you initiate this round. You cannot roll any defense dice this round. This Upgrade may only be purchased for a Klingon Captain.</Ability>
+      <Ability>ACTION: Disable this card to add +1 attack die and convert 1 [HIT] result into 1 [CRITICAL] result during any one attack you initiate this round. You cannot roll any defense dice this round. This Upgrade may only be purchased for a Klingon Captain.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -5045,7 +5046,7 @@
       <Cost>5</Cost>
       <Id>klingon_honor_71448</Id>
       <Set>71448</Set>
-      <Special></Special>
+      <Special>OnlyForKlingonCaptain</Special>
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>
@@ -5079,7 +5080,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Shockwave</Title>
-      <Ability>Instead of moving normally during the Activation Phase, you may discard this card and disable 1 of your Torpedoes to disregard your chosen Maneuver and perform a Red [1 reverse] Full Astern Maneuver instead. This upgrade may only be purchased for a Raptor Class ship.</Ability>
+      <Ability>Instead of moving normally during the Activation Phase, you may discard this card and disable 1 of your Torpedoes to disregard your chosen Maneuver and perform a Red [REVERSE] 1 Full Astern Maneuver instead. This upgrade may only be purchased for a Raptor Class ship.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -5090,11 +5091,11 @@
       <Cost>2</Cost>
       <Id>shockwave_71448</Id>
       <Set>71448</Set>
-      <Special></Special>
+      <Special>OnlyForRaptorClassShips</Special>
     </Upgrade>
     <Upgrade>
       <Title>Tactical Sensors</Title>
-      <Ability>Action: Disable this card to place a [BATTLESTATIONS] token and a [SCAN] Token beside your ship. This upgrade may only be purchased for a Raptor class ship.</Ability>
+      <Ability>ACTION: Disable this card to place a [BATTLESTATIONS] token and a [SCAN] Token beside your ship. This upgrade may only be purchased for a Raptor class ship.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -5105,7 +5106,7 @@
       <Cost>4</Cost>
       <Id>tactical_sensors_71448</Id>
       <Set>71448</Set>
-      <Special></Special>
+      <Special>OnlyForRaptorClassShips</Special>
     </Upgrade>
     <Upgrade>
       <Title>Centurion</Title>
@@ -5124,7 +5125,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Romulan Officer</Title>
-      <Ability>Action: Discard this card. If you initiate an attack while Cloaked this round, add +2 attack dice. You cannot roll any defense dice this round.</Ability>
+      <Ability>ACTION: Discard this card. If you initiate an attack while Cloaked this round, add +2 attack dice. You cannot roll any defense dice this round.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -5139,7 +5140,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Decoy</Title>
-      <Ability>When defending, before any dice are rolled, you may discard this card and any of your [weapon] or [TECH] Upgrades to force your opponent to roll 3 less attack dice this round.</Ability>
+      <Ability>When defending, before any dice are rolled, you may discard this card and any of your [WEAPON] or [TECH] Upgrades to force your opponent to roll 3 less attack dice this round.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -5154,7 +5155,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Double Back</Title>
-      <Ability>After performing a [SENSOR ECHO] Action, you may discard this card to immediately perform a [reverse]1 or [reverse]2 Full Astern Maneuver.</Ability>
+      <Ability>After performing a [SENSOR ECHO] Action, you may discard this card to immediately perform a [REVERSE] 1 or [REVERSE] 2 Full Astern Maneuver.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -5169,7 +5170,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Plasma Torpedoes</Title>
-      <Ability>Attack: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may re-roll all your blank results one time. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may re-roll all your blank results one time. You may fire this weapon from your forward or rear firing arcs. </Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -5184,7 +5185,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Nuclear Warhead</Title>
-      <Ability>Action: At the end of the Activation Phase, discard this card and place a Minefield Token within Range 1 of your ship, but not within your forward firing arc and not on to of another ship. If a ship enters the minefield on a future turn, roll 3 attack dice. Any [HIT] or [crit] damages the ship as normal. The affected ship does not roll any defense dice.</Ability>
+      <Ability>ACTION: At the end of the Activation Phase, discard this card and place a Minefield Token within Range 1 of your ship, but not within your forward firing arc and not on to of another ship. If a ship enters the minefield on a future turn, roll 3 attack dice. Any [HIT] or [CRITICAL] damages the ship as normal. The affected ship does not roll any defense dice.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -5199,7 +5200,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Kudak'Etan</Title>
-      <Ability>Action: Target a ship at Range 1. Discard this card and disable 1 of your other [CREW] Upgrades to disable all [CREW] Upgrades on the target ship (even if that ships is Cloaked or has Active Shields). This Upgrade may only be purchased for a Jem'hadar ship.</Ability>
+      <Ability>ACTION: Target a ship at Range 1. Discard this card and disable 1 of your other [CREW] Upgrades to disable all [CREW] Upgrades on the target ship (even if that ships is Cloaked or has Active Shields). This Upgrade may only be purchased for a Jem'hadar ship.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -5210,11 +5211,11 @@
       <Cost>4</Cost>
       <Id>kudak_etan_71279</Id>
       <Set>71279</Set>
-      <Special></Special>
+      <Special>OnlyJemHadarShips</Special>
     </Upgrade>
     <Upgrade>
       <Title>Ixtana'Rax</Title>
-      <Ability>Action: Disable this card to flip over all Critical Damage cards assigned to your ship.</Ability>
+      <Ability>ACTION: Disable this card to flip over all Critical Damage cards assigned to your ship.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -5240,7 +5241,7 @@
       <Cost>5</Cost>
       <Id>ikat_ika_71279</Id>
       <Set>71279</Set>
-      <Special></Special>
+      <Special>PlusFivePointsNonJemHadarShips</Special>
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>
@@ -5259,7 +5260,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Ketracel-White</Title>
-      <Ability>Action: Discard this card to remove all Disabled Upgrade Tokens from all of your Dominion [CREW] Upgrades.</Ability>
+      <Ability>ACTION: Discard this card to remove all Disabled Upgrade Tokens from all of your Dominion [CREW] Upgrades.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>

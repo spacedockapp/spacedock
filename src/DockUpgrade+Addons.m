@@ -163,6 +163,11 @@
     return [self.faction isEqualToString: @"Dominion"];
 }
 
+-(BOOL)isKlingon
+{
+    return [self.faction isEqualToString: @"Klingon"];
+}
+
 -(NSComparisonResult)compareTo:(DockUpgrade*)other
 {
     NSString* upTypeMe = [self upSortType];
@@ -205,12 +210,12 @@
         return [targetShip talentCount];
     }
 
-    NSString* title = [self title];
+    NSString* special = self.special;
 
-    if ([title isEqualToString: @"Muon Feedback Wave"]) {
+    if ([special isEqualToString: @"OnlyForRomulanScienceVessel"] || [special isEqualToString: @"OnlyForRaptorClassShips"]) {
         NSString* shipClass = targetShip.ship.shipClass;
 
-        if (![shipClass isEqualToString: @"Romulan Science Vessel"]) {
+        if (![shipClass isEqualToString: self.targetShipClass]) {
             return 0;
         }
     }
@@ -232,10 +237,12 @@
 
 -(NSString*)targetShipClass
 {
-    NSString* title = self.title;
+    NSString* special = self.special;
 
-    if ([title isEqualToString: @"Muon Feedback Wave"]) {
+    if ([special isEqualToString: @"OnlyForRomulanScienceVessel"]) {
         return @"Romulan Science Vessel";
+    } else if ([special isEqualToString: @"OnlyForRaptorClassShips"]) {
+        return @"Raptor Class";
     }
 
     return nil;
