@@ -33,6 +33,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 
 @interface DockAppDelegate ()
 @property (strong, nonatomic) DockDataUpdater* updater;
+@property (strong, nonatomic) IBOutlet NSArrayController* setsController;
 @property (copy, nonatomic) NSArray* allSets;
 @end
 
@@ -1151,6 +1152,22 @@ NSString* kInspectorVisible = @"inspectorVisible";
     DockEquippedUpgrade* upgrade = [self selectedEquippedUpgrade];
     if (upgrade) {
         [upgrade removeCostOverride];
+    }
+}
+
+-(IBAction)includeSelectedSets:(id)sender
+{
+    NSArray* selectedItems = [_setsController selectedObjects];
+    for (DockSet* set in selectedItems) {
+        set.include = @YES;
+    }
+}
+
+-(IBAction)excludeSelectedSets:(id)sender
+{
+    NSArray* selectedItems = [_setsController selectedObjects];
+    for (DockSet* set in selectedItems) {
+        set.include = @NO;
     }
 }
 

@@ -1932,6 +1932,7 @@
                                                                             <binding destination="a37-z6-clf" name="content" keyPath="arrangedObjects" id="zpy-ai-3Pr"/>
                                                                             <binding destination="a37-z6-clf" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="zpy-ai-3Pr" id="njl-iB-ofS"/>
                                                                             <binding destination="a37-z6-clf" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="njl-iB-ofS" id="loA-66-Es2"/>
+                                                                            <outlet property="menu" destination="Ke4-BL-Tsd" id="4Fi-ad-S1E"/>
                                                                         </connections>
                                                                     </tableView>
                                                                 </subviews>
@@ -2276,6 +2277,7 @@
                 <outlet property="overrideEditor" destination="pOW-YK-TqM" id="5LW-1J-cds"/>
                 <outlet property="resourcesController" destination="YPe-Zs-mE7" id="QpO-G6-Tot"/>
                 <outlet property="resourcesTableView" destination="v13-24-CCG" id="Rq7-QP-07h"/>
+                <outlet property="setsController" destination="a37-z6-clf" id="pez-f2-2w9"/>
                 <outlet property="setsTableView" destination="Gkg-Ph-STg" id="Nvm-3W-i0i"/>
                 <outlet property="shipsController" destination="Gzr-Z0-87U" id="5vW-HI-mUc"/>
                 <outlet property="shipsTableView" destination="sJW-5v-BIo" id="ln7-xP-Eyt"/>
@@ -3856,6 +3858,22 @@ Gw
                 <outlet property="initialFirstResponder" destination="RBb-sb-3S2" id="E8x-uM-DkE"/>
             </connections>
         </window>
+        <menu id="Ke4-BL-Tsd">
+            <items>
+                <menuItem title="Include Selected Sets" id="VPM-Or-jgj">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="includeSelectedSets:" target="494" id="HN8-0D-bnZ"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Exclude Selected Sets" id="pkl-cE-D4i">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="excludeSelectedSets:" target="494" id="aZ2-IS-TKT"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="8" height="8"/>

@@ -61,4 +61,6 @@ extern NSString* kInspectorVisible;
 -(IBAction)showInspector:(id)sender;
 -(IBAction)showFAQ:(id)sender;
 -(IBAction)overrideCost:(id)sender;
+-(IBAction)includeSelectedSets:(id)sender;
+-(IBAction)excludeSelectedSets:(id)sender;
 @end
