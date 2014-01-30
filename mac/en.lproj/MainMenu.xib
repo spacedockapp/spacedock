@@ -1451,7 +1451,7 @@
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <tableView identifier="flagshipsTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveName="flagshipTable" headerView="jxk-pb-A0U" id="fgU-tR-2vJ" userLabel="flagships">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="808" height="175"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="851" height="175"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1764,8 +1764,30 @@
                                                                                     </binding>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="flagshipcrew" editable="NO" width="40" minWidth="40" maxWidth="1000" id="ZN8-NE-G0c" userLabel="crew">
+                                                                            <tableColumn identifier="flagshipcrew" editable="NO" width="40" minWidth="40" maxWidth="1000" id="gSw-l6-eRV" userLabel="crew">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Crew">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="cHy-wO-Y3l">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="crew"/>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                                <connections>
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.crew" id="Qf7-Lf-ydL">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn identifier="flagshiptalent" editable="NO" width="40" minWidth="40" maxWidth="1000" id="ZN8-NE-G0c" userLabel="talent">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Talent">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
@@ -1775,10 +1797,10 @@
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
-                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="crew"/>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="talent"/>
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <connections>
-                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.crew" id="MgJ-Wh-vKQ">
+                                                                                    <binding destination="Akm-Zf-Blb" name="value" keyPath="arrangedObjects.talent" id="CLB-Ut-Nkv">
                                                                                         <dictionary key="options">
                                                                                             <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                                                                                             <bool key="NSConditionallySetsEditable" value="YES"/>
@@ -1822,7 +1844,7 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </clipView>
-                                                            <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.0023474178403755869" horizontal="YES" id="xFE-hf-9hV">
+                                                            <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="xFE-hf-9hV">
                                                                 <rect key="frame" x="1" y="192" width="603" height="15"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
@@ -1831,7 +1853,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
                                                             <tableHeaderView key="headerView" id="jxk-pb-A0U">
-                                                                <rect key="frame" x="0.0" y="0.0" width="816" height="17"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="851" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </tableHeaderView>
                                                         </scrollView>
@@ -3516,7 +3538,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                     </customView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="t4p-6e-B3a">
-                        <rect key="frame" x="15" y="212.00002179785369" width="468" height="41"/>
+                        <rect key="frame" x="15" y="212" width="468" height="41"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" borderStyle="border" alignment="left" title="Notes" id="WQ9-sP-5ob">
                             <font key="font" size="13" name="CourierNewPSMT"/>
