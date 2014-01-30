@@ -74,6 +74,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
     NSError* error;
     [loader loadData: &error];
     [self validateSpecials: [loader validateSpecials]];
+    [loader cleanupDatabase];
 
     _allSets = [DockSet allSets : _managedObjectContext];
     NSMutableArray* setNames = [NSMutableArray arrayWithCapacity: _allSets.count];
@@ -960,7 +961,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
     return YES;
 }
 
--(IBAction)cleanupDatabase:(id)sender
+-(IBAction)cleanupDatabaseUnused:(id)sender
 {
     NSLog(@"cleanupDatabase");
     NSArray* dupNames = @[

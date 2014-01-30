@@ -57,4 +57,9 @@
     return [self.special isEqualToString: @"addonetechslot"] ? 1 : 0;
 }
 
+-(int)additionalCrewSlots
+{
+    return [self.special isEqualToString: @"AddTwoCrewSlotsDominionCostBonus"] ? 2 : 0;
+}
+
 @end

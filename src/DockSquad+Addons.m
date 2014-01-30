@@ -638,4 +638,11 @@ static NSString* namePrefix(NSString* originalName)
     return nil;
 }
 
+-(void)purgeUpgrade:(DockUpgrade*)upgrade
+{
+    for (DockEquippedShip* equippedShip in self.equippedShips) {
+        [equippedShip purgeUpgrade: upgrade];
+    }
+}
+
 @end

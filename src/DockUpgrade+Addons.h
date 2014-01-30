@@ -17,6 +17,7 @@
 -(BOOL)isKlingon;
 -(NSComparisonResult)compareTo:(DockUpgrade*)other;
 -(int)limitForShip:(DockEquippedShip*)targetShip;
+-(int)additionalWeaponSlots;
 -(NSAttributedString*)styledDescription;
 -(NSString*)targetShipClass;
 -(NSString*)upSortType;

@@ -6,4 +6,5 @@
 +(DockUpgrade*)captainForId:(NSString*)externalId context:(NSManagedObjectContext*)context;
 -(BOOL)isZeroCost;
 -(int)additionalTechSlots;
+-(int)additionalCrewSlots;
 @end

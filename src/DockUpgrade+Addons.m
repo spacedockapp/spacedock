@@ -400,9 +400,32 @@
                 cost -= 2;
             }
         }
+    } else if ([captainSpecial isEqualToString: @"AddTwoCrewSlotsDominionCostBonus"]) {
+        if ([upgrade isDominion]) {
+            NSArray* all = [equippedShip allUpgradesOfFaction: @"Dominion"];
+            
+            id upgradeCheck = ^(id obj, NSUInteger idx, BOOL* stop) {
+                DockEquippedUpgrade* eu = obj;
+                DockUpgrade* upgradeToTest = eu.upgrade;
+                return upgradeToTest == self;
+            };
+            NSInteger position = [all indexOfObjectPassingTest: upgradeCheck];
+
+            if (position != NSNotFound && position < 2) {
+                cost -= 1;
+            }
+        }
     }
 
     return cost;
+}
+
+-(int)additionalWeaponSlots
+{
+    if ([self.special isEqualToString: @"AddTwoWeaponSlots"]) {
+        return 2;
+    }
+    return 0;
 }
 
 @end

@@ -470,6 +470,17 @@ static NSString* intToString(int v)
 -(DockEquippedUpgrade*)mostExpensiveUpgradeOfFaction:(NSString*)faction
 {
     DockEquippedUpgrade* mostExpensive = nil;
+    NSArray* allUpgrades = [self allUpgradesOfFaction: faction];
+
+    if (allUpgrades.count > 0) {
+        mostExpensive = allUpgrades[0];
+    }
+
+    return mostExpensive;
+}
+
+-(NSArray*)allUpgradesOfFaction:(NSString*)faction
+{
     NSMutableArray* allUpgrades = [[NSMutableArray alloc] init];
 
     for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
@@ -497,10 +508,9 @@ static NSString* intToString(int v)
             [allUpgrades sortedArrayUsingComparator: cmp];
         }
 
-        mostExpensive = allUpgrades[0];
     }
 
-    return mostExpensive;
+    return [NSArray arrayWithArray: allUpgrades];
 }
 
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade
@@ -622,6 +632,12 @@ static NSString* intToString(int v)
 {
     int weaponCount = [self shipPropertyCount: @"weapon"];
     weaponCount += [self.flagship weaponAdd];
+
+    for (DockEquippedUpgrade* eu in self.upgrades) {
+        DockUpgrade* upgrade = eu.upgrade;
+        weaponCount += [upgrade additionalWeaponSlots];
+    }
+
     return weaponCount;
 }
 
@@ -629,6 +645,7 @@ static NSString* intToString(int v)
 {
     int crewCount = [self shipPropertyCount: @"crew"];
     crewCount += [self.flagship crewAdd];
+    crewCount += [self.captain additionalCrewSlots];
     return crewCount;
 }
 
@@ -783,6 +800,21 @@ static NSString* intToString(int v)
 - (void)willTurnIntoFault
 {
     [self stopWatchingForCostChange];
+}
+
+-(void)purgeUpgrade:(DockUpgrade*)upgrade
+{
+    NSMutableSet* onesToRemove = [NSMutableSet setWithCapacity: 0];
+
+    for (DockEquippedUpgrade* eu in self.upgrades) {
+        if (eu.upgrade == upgrade) {
+            [onesToRemove addObject: eu];
+        }
+    }
+
+    for (DockEquippedUpgrade* eu in onesToRemove) {
+        [self removeUpgradeInternal: eu];
+    }
 }
 
 @end

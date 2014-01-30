@@ -462,7 +462,9 @@ static NSString* makeKey(NSString* key)
         @"addonetechslot",
         @"OnlyForRomulanScienceVessel",
         @"OnlyForRaptorClassShips",
-        @"OnlyForKlingonCaptain"
+        @"OnlyForKlingonCaptain",
+        @"AddTwoWeaponSlots",
+        @"AddTwoCrewSlotsDominionCostBonus"
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];
