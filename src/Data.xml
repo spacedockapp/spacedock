@@ -4424,7 +4424,7 @@
     <Upgrade>
       <Title>Phased Polaron Beam</Title>
       <Unique></Unique>
-      <Ability>ATTACK: Disable this card to perform this attack. All damage inflicted by this attack ignore the opposing ship's Shields. This upgrade costs +5 Squadron Points for any non-Jem'Hadar ship.</Ability>
+      <Ability>ATTACK: Disable this card to perform this attack. All damage inflicted by this attack ignores the opposing ship's Shields. This Upgrade costs +5 Squadron Points for any non-Jem'Hadar ship.</Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -5287,6 +5287,23 @@
       <Id>shroud_71279</Id>
       <Set>71279</Set>
       <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Phased Polaron Beam</Title>
+      <Unique></Unique>
+      <Ability>ATTACK: Disable this card to perform this attack. All damage inflicted by this attack ignores the opposing ship's Shields. This Upgrade costs +5 Squadron Points for any non-Jem'Hadar ship.</Ability>
+      <Skill>
+      </Skill>
+      <Talent>
+      </Talent>
+      <Attack>4</Attack>
+      <Range>1</Range>
+      <Type>Weapon</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>phased_polaron_beam_71279</Id>
+      <Set>71279</Set>
+      <Special>PlusFivePointsNonJemHadarShips</Special>
     </Upgrade>
   </Upgrades>
   <Resources>
