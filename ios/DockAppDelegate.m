@@ -53,6 +53,7 @@
     DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: self.managedObjectContext];
     NSError* error = nil;
     [loader loadData: &error];
+    [loader cleanupDatabase];
 }
 
 -(void)loadAppData
