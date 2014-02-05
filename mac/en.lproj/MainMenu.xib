@@ -570,13 +570,6 @@
                                                                                         </connections>
                                                                                     </tableCellView>
                                                                                 </prototypeCellViews>
-                                                                                <connections>
-                                                                                    <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.descriptiveTitle" id="pCy-sT-lgA">
-                                                                                        <dictionary key="options">
-                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
-                                                                                        </dictionary>
-                                                                                    </binding>
-                                                                                </connections>
                                                                             </tableColumn>
                                                                             <tableColumn identifier="shipFaction" editable="NO" width="100" minWidth="40" maxWidth="1000" id="Bxr-Dp-qNA" userLabel="faction">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Faction">
@@ -604,6 +597,9 @@
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="4bS-pn-nZq" name="value" keyPath="objectValue.faction" id="ABl-Cy-r7N"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -641,6 +637,9 @@
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="sV6-mH-Lex" name="value" keyPath="objectValue.shipClass" id="pvU-qM-a1e"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -679,6 +678,9 @@
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="evL-jz-VUR" name="value" keyPath="objectValue.unique" id="S2n-Fy-cGW"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -711,11 +713,14 @@
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="2Sg-Aa-nqz">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="BCH-pI-cu3">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="BCH-pI-cu3">
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="FvN-Ox-MMW" name="value" keyPath="objectValue.cost" id="dtL-Dw-pRp"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -748,11 +753,14 @@
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="2fK-co-PWh">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="9wD-cq-UIt">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="justified" title="Table View Cell" id="9wD-cq-UIt">
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="eFj-Gj-zw5" name="value" keyPath="objectValue.styledAttack" id="2hv-sb-CCH"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -785,11 +793,14 @@
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="4FJ-0G-arf">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="6sS-KS-UcH">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="6sS-KS-UcH">
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="cQi-w7-x8v" name="value" keyPath="objectValue.styledAgility" id="Fcp-d1-6hB"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -831,6 +842,9 @@
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="6ic-Ic-p0E" name="value" keyPath="objectValue.styledHull" id="pug-2L-Rut"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -868,6 +882,9 @@
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="naR-O1-UrP" name="value" keyPath="objectValue.styledShield" id="J2f-NB-2ng"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -900,11 +917,14 @@
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="dQj-hb-Naq">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="P3K-sg-8DD">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="P3K-sg-8DD">
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="g6k-s7-BrH" name="value" keyPath="objectValue.evasiveManeuvers" id="jL8-7O-KUc"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -937,11 +957,14 @@
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="83g-sK-4p5">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="vnF-GM-852">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="vnF-GM-852">
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="WOt-9f-BfA" name="value" keyPath="objectValue.targetLock" id="lzS-Lj-hXL"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -974,11 +997,14 @@
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="8Nx-CD-7zw">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="q2k-hS-qJa">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="q2k-hS-qJa">
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="5Br-kZ-kDA" name="value" keyPath="objectValue.scan" id="KSS-4x-H8a"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -1011,11 +1037,14 @@
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="jg6-ub-jXU">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="h9Y-7y-Pig">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="h9Y-7y-Pig">
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="xQX-ts-tQT" name="value" keyPath="objectValue.battleStations" id="UW3-ma-ygN"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -1048,11 +1077,14 @@
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="8VI-hS-txL">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="sKg-JF-aKM">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="sKg-JF-aKM">
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="1KE-b0-gEm" name="value" keyPath="objectValue.cloak" id="uiJ-Ib-4Fe"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -1085,11 +1117,14 @@
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="aMu-VY-I2Y">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="2ho-bu-UPl">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="2ho-bu-UPl">
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="dWH-Re-yPh" name="value" keyPath="objectValue.sensorEcho" id="R9j-fa-pwv"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -1122,11 +1157,14 @@
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="PgB-DS-O8D">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="e7b-nf-dQh">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="e7b-nf-dQh">
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="g9z-oL-4Dq" name="value" keyPath="objectValue.tech" id="oZL-Yd-F7B"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -1159,11 +1197,14 @@
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="Zef-7k-wRm">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="T9y-8L-axc">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="T9y-8L-axc">
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="Pc7-j6-X8c" name="value" keyPath="objectValue.weapon" id="f7t-e6-YUC"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -1196,11 +1237,14 @@
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="oxs-aQ-GIy">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="QUx-aM-Bid">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="QUx-aM-Bid">
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="7n2-TC-JiH" name="value" keyPath="objectValue.crew" id="Khd-KA-BJ8"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -1233,11 +1277,14 @@
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="1z0-dS-c5h">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="ZOQ-YW-CiO">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="ZOQ-YW-CiO">
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="ssH-7u-z87" name="value" keyPath="objectValue.formattedFrontArc" id="sV9-hI-pRX"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>
@@ -1274,11 +1321,14 @@
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="7mL-Qd-Uja">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="iTp-XA-c98">
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="iTp-XA-c98">
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="OhC-1f-2vH" name="value" keyPath="objectValue.formattedRearArc" id="4rh-80-gKO"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <connections>

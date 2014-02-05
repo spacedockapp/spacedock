@@ -37,3 +37,13 @@ NSSet* allAttributes(NSManagedObjectContext* context, NSString* entityName, NSSt
 
     return [NSSet setWithSet: allSpecials];
 }
+
+NSAttributedString* makeCentered(NSAttributedString* s)
+{
+    NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithAttributedString: s];
+    NSMutableParagraphStyle *ps = [[NSMutableParagraphStyle alloc] init];
+    ps.alignment = NSCenterTextAlignment;
+    NSRange r = NSMakeRange(0, s.length);
+    [as addAttribute: NSParagraphStyleAttributeName value: ps range: r];
+    return [[NSAttributedString alloc] initWithAttributedString: as];
+}
