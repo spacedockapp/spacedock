@@ -1175,7 +1175,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 
 -(void)exportDataModelTo:(NSString*)targetFolder
 {
-    DockDataModelExporter* exporter = [[DockDataModelExporter alloc] init];
+    DockDataModelExporter* exporter = [[DockDataModelExporter alloc] initWithContext: _managedObjectContext];
     NSError* error;
     if (![exporter doExport: targetFolder error: &error]) {
         [[NSApplication sharedApplication] presentError: error];
