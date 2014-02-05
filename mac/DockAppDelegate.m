@@ -5,6 +5,7 @@
 #import "DockCrew.h"
 #import "DockDataFileLoader.h"
 #import "DockDataLoader.h"
+#import "DockDataModelExporter.h"
 #import "DockDataUpdater.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedShip.h"
@@ -1172,4 +1173,36 @@ NSString* kInspectorVisible = @"inspectorVisible";
     }
 }
 
+-(void)exportDataModelTo:(NSString*)targetFolder
+{
+    DockDataModelExporter* exporter = [[DockDataModelExporter alloc] init];
+    NSError* error;
+    if (![exporter doExport: targetFolder error: &error]) {
+        [[NSApplication sharedApplication] presentError: error];
+    }
+}
+
+-(IBAction)exportDataModel:(id)sender
+{
+    NSString* kDataModelExportTargetFolder = @"dataModelExportTargetFolder";
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSString* targetFolder = [defaults stringForKey: kDataModelExportTargetFolder];
+    NSUInteger modifierFlags = [NSEvent modifierFlags];
+    if (targetFolder == nil || ((modifierFlags & NSAlternateKeyMask) != 0)) {
+        NSOpenPanel* openPanel = [NSOpenPanel openPanel];
+        openPanel.canChooseDirectories = YES;
+        openPanel.canChooseFiles = NO;
+        openPanel.canCreateDirectories = YES;
+        [openPanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
+            if (v == NSFileHandlingPanelOKButton) {
+                NSURL* fileUrl = openPanel.URL;
+                NSString* target = [fileUrl path];
+                [defaults setObject: target forKey: kDataModelExportTargetFolder];
+                [self exportDataModelTo: target];
+            }
+        }];
+    } else {
+        [self exportDataModelTo: targetFolder];
+    }
+}
 @end

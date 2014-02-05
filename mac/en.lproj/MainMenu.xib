@@ -116,6 +116,11 @@
                                     <action selector="checkForNewDataFile:" target="-1" id="lEW-Q5-0nh"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Export Data Model" keyEquivalent="r" id="rz8-WM-uVB">
+                                <connections>
+                                    <action selector="exportDataModel:" target="-1" id="aCy-a9-dX5"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="yyY-e2-lFG">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
