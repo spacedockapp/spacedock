@@ -1,4 +1,4 @@
 package com.funnyhatsoftware.spacedock;
 
-class Crew extends Upgrade {
+class Crew extends CrewBase {
 }

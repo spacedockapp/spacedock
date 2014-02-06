@@ -1,6 +1,4 @@
 package com.funnyhatsoftware.spacedock;
 
-class Captain extends Upgrade {
-	int skill;
-	int talent;
+class Captain extends CaptainBase {
 }

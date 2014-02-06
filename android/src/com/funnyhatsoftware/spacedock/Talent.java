@@ -1,4 +1,4 @@
 package com.funnyhatsoftware.spacedock;
 
-class Talent extends Upgrade {
+class Talent extends TalentBase {
 }

@@ -64,6 +64,11 @@ static NSString* entityNameToJavaClassName(NSString* entityName)
     return entityName;
 }
 
+static NSString* entityNameToJavaBaseClassName(NSString* entityName)
+{
+    return [entityNameToJavaClassName(entityName) stringByAppendingString: @"Base"];
+}
+
 -(BOOL)exportEntity:(NSString*)name error:(NSError**)error
 {
     NSEntityDescription* entity = [NSEntityDescription entityForName: name inManagedObjectContext: _context];
@@ -71,12 +76,14 @@ static NSString* entityNameToJavaClassName(NSString* entityName)
     NSMutableString* javaClass = [[NSMutableString alloc] init];
     NSSet* parentAttributes = nil;
     NSSet* parentRelationships = nil;
+    NSString* javaBaseClassName = entityNameToJavaBaseClassName(name);
+    NSString* javaClassName = entityNameToJavaClassName(name);
     if (parent) {
         parentAttributes = [NSSet setWithArray: [[parent attributesByName] allKeys]];
         parentRelationships = [NSSet setWithArray: [[parent relationshipsByName] allKeys]];
-        [javaClass appendFormat: @"class %@ extends %@ {\n", entityNameToJavaClassName(name), entityNameToJavaClassName(parent.name)];
+        [javaClass appendFormat: @"class %@ extends %@ {\n", javaBaseClassName, entityNameToJavaClassName(parent.name)];
     } else {
-        [javaClass appendFormat: @"class %@ {\n", entityNameToJavaClassName(name)];
+        [javaClass appendFormat: @"class %@ {\n", javaBaseClassName];
     }
     for (NSAttributeDescription* desc in [entity.attributesByName allValues]) {
         if (![parentAttributes containsObject: desc.name]) {
@@ -99,15 +106,31 @@ static NSString* entityNameToJavaClassName(NSString* entityName)
         }
     }
     [javaClass appendString: @"}\n"];
-    NSString* sourceFileName = [NSString stringWithFormat: @"%@.java", entityNameToJavaClassName(name)];
+    NSString* baseSourceFileName = [NSString stringWithFormat: @"%@.java", javaBaseClassName];
+    NSString* baseClassFilePath = [_sourcePath stringByAppendingPathComponent: baseSourceFileName];
+    NSString* sourceFileName = [NSString stringWithFormat: @"%@.java", javaClassName];
     NSString* classFilePath = [_sourcePath stringByAppendingPathComponent: sourceFileName];
     NSMutableString* js = [[NSMutableString alloc] init];
     [js appendFormat: @"package %@;\n\n", _packageName];
     if (needsArrayList) {
         [js appendString: @"import java.util.ArrayList;\n\n"];
     }
+
     [js appendString: javaClass];
-    return [js writeToFile: classFilePath atomically: NO encoding: NSUTF8StringEncoding error: error];
+
+    if (![js writeToFile: baseClassFilePath atomically: NO encoding: NSUTF8StringEncoding error: error]) {
+        return NO;
+    }
+    
+    NSMutableString* jsConc = [[NSMutableString alloc] init];
+    [jsConc appendFormat: @"package %@;\n\n", _packageName];
+    [jsConc appendFormat: @"class %@ extends %@ {\n", javaClassName, javaBaseClassName];
+    [jsConc appendString: @"}\n"];
+    if (![jsConc writeToFile: classFilePath atomically: NO encoding: NSUTF8StringEncoding error: error]) {
+        return NO;
+    }
+    
+    return YES;
 }
 
 -(BOOL)doExport:(NSString*)targetFolder error:(NSError**)error

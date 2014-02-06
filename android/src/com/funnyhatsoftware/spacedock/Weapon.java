@@ -1,6 +1,4 @@
 package com.funnyhatsoftware.spacedock;
 
-class Weapon extends Upgrade {
-	int attack;
-	String range;
+class Weapon extends WeaponBase {
 }

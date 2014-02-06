@@ -1,4 +1,4 @@
 package com.funnyhatsoftware.spacedock;
 
-class Sideboard extends EquippedShip {
+class Sideboard extends SideboardBase {
 }

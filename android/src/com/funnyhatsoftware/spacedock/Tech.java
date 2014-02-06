@@ -1,4 +1,4 @@
 package com.funnyhatsoftware.spacedock;
 
-class Tech extends Upgrade {
+class Tech extends TechBase {
 }
