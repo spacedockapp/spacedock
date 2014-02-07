@@ -1,3 +1,4 @@
+// Generated code, any edits will be eventually lost.
 package com.funnyhatsoftware.spacedock.data;
 
 import java.util.Map;

@@ -18,8 +18,8 @@ public class TestShip extends AndroidTestCase {
 
 	public void testLoad() {
 		Ship entD = universe.ships.get("1001");
-		assertEquals(4, entD.attack);
-		assertEquals("U.S.S. Enterprise-D", entD.title);
+		assertEquals(4, entD.getAttack());
+		assertEquals("U.S.S. Enterprise-D", entD.getTitle());
 	}
 
 }

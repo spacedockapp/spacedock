@@ -96,6 +96,20 @@ static NSString* entityNameToJavaClassName(NSString* entityName)
     return entityName;
 }
 
+static NSString* propertyNameToJavaGetterName(NSString* propertyName)
+{
+    NSString* upperFirst = [[propertyName substringToIndex: 1] uppercaseString];
+    NSString* rest = [propertyName substringFromIndex: 1];
+    return [@"get" stringByAppendingString: [upperFirst stringByAppendingString: rest]];
+}
+
+static NSString* propertyNameToJavaSetterName(NSString* propertyName)
+{
+    NSString* upperFirst = [[propertyName substringToIndex: 1] uppercaseString];
+    NSString* rest = [propertyName substringFromIndex: 1];
+    return [@"set" stringByAppendingString: [upperFirst stringByAppendingString: rest]];
+}
+
 static NSString* entityNameToJavaBaseClassName(NSString* entityName)
 {
     return [entityNameToJavaClassName(entityName) stringByAppendingString: @"Base"];
@@ -137,7 +151,11 @@ static NSString* makeXmlKey(NSString* propertyName)
 
     for (NSAttributeDescription* desc in [entity.attributesByName allValues]) {
         if (![parentAttributes containsObject: desc.name]) {
-            [javaClass appendFormat: @"    public %@ %@;\n", attributeTypeToJavaType(desc.attributeType), desc.name];
+            [javaClass appendFormat: @"    %@ %@;\n", attributeTypeToJavaType(desc.attributeType), desc.name];
+            [javaClass appendFormat: @"    public %@ %@() { return %@; }\n",
+                attributeTypeToJavaType(desc.attributeType), propertyNameToJavaGetterName(desc.name), desc.name];
+            [javaClass appendFormat: @"    public %@ %@(%@ v) { %@ = v; return this;}\n",
+                javaBaseClassName, propertyNameToJavaSetterName(desc.name), attributeTypeToJavaType(desc.attributeType), desc.name];
         }
     }
     
@@ -149,9 +167,20 @@ static NSString* makeXmlKey(NSString* propertyName)
                 NSString* destClassName = entityNameToJavaClassName(desc.destinationEntity.name);
                 NSString* typeName = [NSString stringWithFormat: @"ArrayList<%@>", destClassName];
                 needsArrayList = YES;
-                [javaClass appendFormat: @"    public %@ %@ = new %@();\n", typeName, desc.name, typeName];
+                [javaClass appendFormat: @"    %@ %@ = new %@();\n", typeName, desc.name, typeName];
+                [javaClass appendString: @"    @SuppressWarnings(\"unchecked\")\n"];
+                [javaClass appendFormat: @"    public %@ %@() { return (%@)%@.clone(); }\n",
+                    typeName, propertyNameToJavaGetterName(desc.name), typeName, desc.name];
+                [javaClass appendString: @"    @SuppressWarnings(\"unchecked\")\n"];
+                [javaClass appendFormat: @"    public %@ %@(%@ v) { %@ = (%@)v.clone(); return this;}\n",
+                    javaBaseClassName, propertyNameToJavaSetterName(desc.name), typeName, desc.name, typeName];
             } else {
-                [javaClass appendFormat: @"    public %@ %@;\n", entityNameToJavaClassName(desc.destinationEntity.name), desc.name];
+                [javaClass appendFormat: @"    %@ %@;\n", entityNameToJavaClassName(desc.destinationEntity.name), desc.name];
+                [javaClass appendFormat: @"    public %@ %@() { return %@; }\n",
+                    entityNameToJavaClassName(desc.destinationEntity.name), propertyNameToJavaGetterName(desc.name), desc.name];
+                [javaClass appendFormat: @"    public %@ %@(%@ v) { %@ = v; return this;}\n",
+                    javaBaseClassName, propertyNameToJavaSetterName(desc.name),
+                    entityNameToJavaClassName(desc.destinationEntity.name), desc.name];
             }
         }
     }
@@ -169,6 +198,7 @@ static NSString* makeXmlKey(NSString* propertyName)
     NSString* sourceFileName = [NSString stringWithFormat: @"%@.java", javaClassName];
     NSString* classFilePath = [_sourcePath stringByAppendingPathComponent: sourceFileName];
     NSMutableString* js = [[NSMutableString alloc] init];
+    [js appendString: @"// Generated code, any edits will be eventually lost.\n"];
     [js appendFormat: @"package %@;\n\n", _packageNameData];
     if (needsArrayList) {
         [js appendString: @"import java.util.ArrayList;\n"];
