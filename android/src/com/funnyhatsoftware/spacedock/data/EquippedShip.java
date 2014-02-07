@@ -6,6 +6,13 @@ import org.json.JSONObject;
 
 public class EquippedShip extends EquippedShipBase {
 
+	public EquippedShip() {
+	}
+
+	public EquippedShip(Ship inShip) {
+		ship = inShip;
+	}
+
 	public boolean getIsResourceSideboard() {
 		return getShip() == null;
 	}
@@ -38,6 +45,14 @@ public class EquippedShip extends EquippedShipBase {
 
 	public void removeUpgrade(EquippedUpgrade eu) {
 		upgrades.remove(eu);
+	}
+	
+	public int calculateCost() {
+		int cost = ship.getCost();
+		for (EquippedUpgrade eu: upgrades) {
+			cost += eu.calculateCost();
+		}
+		return cost;
 	}
 
 }

@@ -18,5 +18,6 @@ public class TestSquad extends BaseTest {
 		assertEquals("Wrong ship count", 2, squad.getEquippedShips().size());
 		EquippedShip es = squad.getEquippedShips().get(0);
 		assertEquals("Wrong upgrade count", 5, es.getUpgrades().size());
+		assertEquals("Wrong cost", 100, squad.calculateCost());
 	}
 }

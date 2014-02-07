@@ -42,4 +42,8 @@ public class Universe {
 		return upgrades.get(upgradeId);
 	}
 
+	public Ship getShip(String shipId) {
+		return ships.get(shipId);
+	}
+
 }

@@ -69,7 +69,9 @@ public class Squad extends SquadBase {
 			if (shipIsSideboard) {
 				currentShip = getSideboard();
 			} else {
-				currentShip = new EquippedShip();		
+				String shipId = shipData.optString("shipId");
+				Ship targetShip = universe.getShip(shipId);
+				currentShip = new EquippedShip(targetShip);
 			}
 			currentShip.importUpgrades(universe, shipData);
 			add(currentShip);
@@ -79,5 +81,22 @@ public class Squad extends SquadBase {
 	public void add(EquippedShip ship) {
 		equippedShips.add(ship);
 		ship.setSquad(this);
+	}
+	
+	public int calculateCost() {
+		int cost = 0;
+		
+		Resource resource = getResource();
+		if (resource != null) {
+			cost += resource.getCost();
+		}
+		
+		cost += getAdditionalPoints();
+		
+		for (EquippedShip ship: equippedShips) {
+			cost += ship.calculateCost();
+		}
+		
+		return cost;
 	}
 }
