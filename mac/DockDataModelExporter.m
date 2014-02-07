@@ -4,6 +4,7 @@
 @property (strong, nonatomic) NSManagedObjectContext* context;
 @property (strong, nonatomic) NSString* sourcePath;
 @property (strong, nonatomic) NSString* packageName;
+@property (strong, nonatomic) NSString* packageNameData;
 @end
 
 @implementation DockDataModelExporter
@@ -14,6 +15,7 @@
     if (self != nil) {
         _context = context;
         _packageName = @"com.funnyhatsoftware.spacedock";
+        _packageNameData = [_packageName stringByAppendingString: @".data"];
     }
     return self;
 }
@@ -65,17 +67,17 @@ static NSString* attributeTypeToJavaConversion(NSAttributeType attrType)
         case NSInteger16AttributeType:
         case NSInteger32AttributeType:
         case NSInteger64AttributeType:
-            return @"Utils.intValue";
+            return @"DataUtils.intValue";
             break;
             
         case NSDecimalAttributeType:
         case NSDoubleAttributeType:
         case NSFloatAttributeType:
-            return @"Utils.doubleValue";
+            return @"DataUtils.doubleValue";
             break;
             
         case NSBooleanAttributeType:
-            return @"Utils.booleanValue";
+            return @"DataUtils.booleanValue";
             break;
             
         case NSDateAttributeType:
@@ -83,7 +85,7 @@ static NSString* attributeTypeToJavaConversion(NSAttributeType attrType)
             break;
             
         case NSStringAttributeType:
-            return @"Utils.stringValue";
+            return @"DataUtils.stringValue";
             break;
     }
     return @"";
@@ -135,7 +137,7 @@ static NSString* makeXmlKey(NSString* propertyName)
 
     for (NSAttributeDescription* desc in [entity.attributesByName allValues]) {
         if (![parentAttributes containsObject: desc.name]) {
-            [javaClass appendFormat: @"\tpublic %@ %@;\n", attributeTypeToJavaType(desc.attributeType), desc.name];
+            [javaClass appendFormat: @"    public %@ %@;\n", attributeTypeToJavaType(desc.attributeType), desc.name];
         }
     }
     
@@ -147,31 +149,31 @@ static NSString* makeXmlKey(NSString* propertyName)
                 NSString* destClassName = entityNameToJavaClassName(desc.destinationEntity.name);
                 NSString* typeName = [NSString stringWithFormat: @"ArrayList<%@>", destClassName];
                 needsArrayList = YES;
-                [javaClass appendFormat: @"\tpublic %@ %@ = new %@();\n", typeName, desc.name, typeName];
+                [javaClass appendFormat: @"    public %@ %@ = new %@();\n", typeName, desc.name, typeName];
             } else {
-                [javaClass appendFormat: @"\tpublic %@ %@;\n", entityNameToJavaClassName(desc.destinationEntity.name), desc.name];
+                [javaClass appendFormat: @"    public %@ %@;\n", entityNameToJavaClassName(desc.destinationEntity.name), desc.name];
             }
         }
     }
-    [javaClass appendString: @"\n\tpublic void update(Map<String,Object> data) {\n"];
+    [javaClass appendString: @"\n    public void update(Map<String,Object> data) {\n"];
     for (NSAttributeDescription* desc in [entity.attributesByName allValues]) {
         if (![parentAttributes containsObject: desc.name]) {
-            [javaClass appendFormat: @"\t\t%@ = %@((String)data.get(\"%@\"));\n",
+            [javaClass appendFormat: @"        %@ = %@((String)data.get(\"%@\"));\n",
                     desc.name, attributeTypeToJavaConversion(desc.attributeType), makeXmlKey(desc.name)];
         }
     }
-    [javaClass appendString: @"\t}\n\n"];
+    [javaClass appendString: @"    }\n\n"];
     [javaClass appendString: @"}\n"];
     NSString* baseSourceFileName = [NSString stringWithFormat: @"%@.java", javaBaseClassName];
     NSString* baseClassFilePath = [_sourcePath stringByAppendingPathComponent: baseSourceFileName];
     NSString* sourceFileName = [NSString stringWithFormat: @"%@.java", javaClassName];
     NSString* classFilePath = [_sourcePath stringByAppendingPathComponent: sourceFileName];
     NSMutableString* js = [[NSMutableString alloc] init];
-    [js appendFormat: @"package %@;\n\n", _packageName];
-    [js appendString: @"import java.util.Map;\n\n"];
+    [js appendFormat: @"package %@;\n\n", _packageNameData];
     if (needsArrayList) {
-        [js appendString: @"import java.util.ArrayList;\n\n"];
+        [js appendString: @"import java.util.ArrayList;\n"];
     }
+    [js appendString: @"import java.util.Map;\n\n"];
 
     [js appendString: javaClass];
 
@@ -179,12 +181,16 @@ static NSString* makeXmlKey(NSString* propertyName)
         return NO;
     }
     
-    NSMutableString* jsConc = [[NSMutableString alloc] init];
-    [jsConc appendFormat: @"package %@;\n\n", _packageName];
-    [jsConc appendFormat: @"public class %@ extends %@ {\n", javaClassName, javaBaseClassName];
-    [jsConc appendString: @"}\n"];
-    if (![jsConc writeToFile: classFilePath atomically: NO encoding: NSUTF8StringEncoding error: error]) {
-        return NO;
+    BOOL isDir;
+    NSFileManager* fm = [NSFileManager defaultManager];
+    if (![fm fileExistsAtPath: classFilePath isDirectory: &isDir]) {
+        NSMutableString* jsConc = [[NSMutableString alloc] init];
+        [jsConc appendFormat: @"package %@;\n\n", _packageNameData];
+        [jsConc appendFormat: @"public class %@ extends %@ {\n", javaClassName, javaBaseClassName];
+        [jsConc appendString: @"}\n"];
+        if (![jsConc writeToFile: classFilePath atomically: NO encoding: NSUTF8StringEncoding error: error]) {
+            return NO;
+        }
     }
     
     return YES;
@@ -201,7 +207,7 @@ static NSString* makeXmlKey(NSString* propertyName)
             return NO;
         }
     }
-    NSString* sourcePartialPath = [_packageName stringByReplacingOccurrencesOfString: @"." withString: @"/"];
+    NSString* sourcePartialPath = [_packageNameData stringByReplacingOccurrencesOfString: @"." withString: @"/"];
     _sourcePath = [targetFolder stringByAppendingPathComponent: sourcePartialPath];
     exists = [fm fileExistsAtPath: _sourcePath isDirectory: &isDir];
     if (!exists) {

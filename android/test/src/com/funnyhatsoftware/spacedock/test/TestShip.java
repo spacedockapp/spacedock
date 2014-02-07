@@ -12,9 +12,9 @@ import android.test.AndroidTestCase;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.funnyhatsoftware.spacedock.DataLoader;
-import com.funnyhatsoftware.spacedock.Ship;
-import com.funnyhatsoftware.spacedock.Universe;
+import com.funnyhatsoftware.spacedock.data.DataLoader;
+import com.funnyhatsoftware.spacedock.data.Ship;
+import com.funnyhatsoftware.spacedock.data.Universe;
 
 public class TestShip extends AndroidTestCase {
 	Universe universe;
@@ -27,8 +27,6 @@ public class TestShip extends AndroidTestCase {
 			SAXException {
 		universe = new Universe();
 		AssetManager am = getContext().getAssets();
-		String[] files = am.list("");
-		Log.i("spacedock", "files = " + TextUtils.join(",", files));
 		InputStream is = am.open("data.xml");
 		DataLoader loader = new DataLoader(universe, is);
 		loader.load();
