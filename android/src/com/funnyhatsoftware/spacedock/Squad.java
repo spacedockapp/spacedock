@@ -1,4 +1,4 @@
 package com.funnyhatsoftware.spacedock;
 
-class Squad extends SquadBase {
+public class Squad extends SquadBase {
 }

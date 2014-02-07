@@ -1,4 +1,4 @@
 package com.funnyhatsoftware.spacedock;
 
-class Flagship extends FlagshipBase {
+public class Flagship extends FlagshipBase {
 }

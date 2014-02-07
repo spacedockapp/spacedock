@@ -1,4 +1,4 @@
 package com.funnyhatsoftware.spacedock;
 
-class Sideboard extends SideboardBase {
+public class Sideboard extends SideboardBase {
 }

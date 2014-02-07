@@ -1,6 +1,14 @@
 package com.funnyhatsoftware.spacedock;
 
-class WeaponBase extends Upgrade {
-	int attack;
-	String range;
+import java.util.Map;
+
+public class WeaponBase extends Upgrade {
+	public int attack;
+	public String range;
+
+	public void update(Map<String,Object> data) {
+		attack = Utils.intValue((String)data.get("Attack"));
+		range = Utils.stringValue((String)data.get("Range"));
+	}
+
 }

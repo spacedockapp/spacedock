@@ -1,4 +1,4 @@
 package com.funnyhatsoftware.spacedock;
 
-class SetItem extends SetItemBase {
+public class SetItem extends SetItemBase {
 }

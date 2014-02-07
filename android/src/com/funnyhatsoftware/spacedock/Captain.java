@@ -1,4 +1,4 @@
 package com.funnyhatsoftware.spacedock;
 
-class Captain extends CaptainBase {
+public class Captain extends CaptainBase {
 }

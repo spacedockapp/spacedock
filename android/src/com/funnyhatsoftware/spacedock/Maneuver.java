@@ -1,4 +1,4 @@
 package com.funnyhatsoftware.spacedock;
 
-class Maneuver extends ManeuverBase {
+public class Maneuver extends ManeuverBase {
 }

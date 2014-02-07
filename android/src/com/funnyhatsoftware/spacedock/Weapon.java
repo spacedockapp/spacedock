@@ -1,4 +1,4 @@
 package com.funnyhatsoftware.spacedock;
 
-class Weapon extends WeaponBase {
+public class Weapon extends WeaponBase {
 }

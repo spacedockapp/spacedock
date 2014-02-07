@@ -1,7 +1,8 @@
 package com.funnyhatsoftware.spacedock;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Universe {
-	public ArrayList<Ship> ships = new ArrayList<Ship>();
+	public HashMap<String,Ship> ships = new HashMap<String,Ship>();
+	
 }

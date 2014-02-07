@@ -1,4 +1,4 @@
 package com.funnyhatsoftware.spacedock;
 
-class Upgrade extends UpgradeBase {
+public class Upgrade extends UpgradeBase {
 }

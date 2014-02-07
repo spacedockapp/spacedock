@@ -1,4 +1,4 @@
 package com.funnyhatsoftware.spacedock;
 
-class Tech extends TechBase {
+public class Tech extends TechBase {
 }

@@ -1,4 +1,10 @@
 package com.funnyhatsoftware.spacedock;
 
-class CrewBase extends Upgrade {
+import java.util.Map;
+
+public class CrewBase extends Upgrade {
+
+	public void update(Map<String,Object> data) {
+	}
+
 }

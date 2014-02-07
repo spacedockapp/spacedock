@@ -55,6 +55,7 @@ public class DataLoader extends DefaultHandler {
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	public boolean load() throws ParserConfigurationException, SAXException,
 			IOException {
 		SAXParserFactory spf = SAXParserFactory.newInstance();
@@ -65,6 +66,17 @@ public class DataLoader extends DefaultHandler {
 		xr.setContentHandler(this);
 
 		xr.parse(new InputSource(xmlInput));
+		ArrayList<Object> shipData = (ArrayList<Object>) parsedData.get("Ships");
+		for (Object oneShipDataObject : shipData) {
+			Map<String,Object> oneShipData = (Map<String, Object>) oneShipDataObject;
+			String externalId = (String)oneShipData.get("Id");
+			Ship ship = universe.ships.get(externalId);
+			if (ship == null) {
+				ship = new Ship();
+				universe.ships.put(externalId, ship);
+			}
+			ship.update(oneShipData);
+		}
 		return true;
 	}
 

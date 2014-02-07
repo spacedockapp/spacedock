@@ -1,4 +1,4 @@
 package com.funnyhatsoftware.spacedock;
 
-class EquippedShip extends EquippedShipBase {
+public class EquippedShip extends EquippedShipBase {
 }

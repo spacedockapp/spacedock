@@ -1,4 +1,10 @@
 package com.funnyhatsoftware.spacedock;
 
-class TechBase extends Upgrade {
+import java.util.Map;
+
+public class TechBase extends Upgrade {
+
+	public void update(Map<String,Object> data) {
+	}
+
 }

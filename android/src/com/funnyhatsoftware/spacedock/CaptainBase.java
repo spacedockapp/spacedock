@@ -1,6 +1,14 @@
 package com.funnyhatsoftware.spacedock;
 
-class CaptainBase extends Upgrade {
-	int skill;
-	int talent;
+import java.util.Map;
+
+public class CaptainBase extends Upgrade {
+	public int skill;
+	public int talent;
+
+	public void update(Map<String,Object> data) {
+		skill = Utils.intValue((String)data.get("Skill"));
+		talent = Utils.intValue((String)data.get("Talent"));
+	}
+
 }

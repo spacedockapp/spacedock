@@ -59,6 +59,36 @@ static NSString* attributeTypeToJavaType(NSAttributeType attrType)
     return @"void";
 }
 
+static NSString* attributeTypeToJavaConversion(NSAttributeType attrType)
+{
+    switch (attrType) {
+        case NSInteger16AttributeType:
+        case NSInteger32AttributeType:
+        case NSInteger64AttributeType:
+            return @"Utils.intValue";
+            break;
+            
+        case NSDecimalAttributeType:
+        case NSDoubleAttributeType:
+        case NSFloatAttributeType:
+            return @"Utils.doubleValue";
+            break;
+            
+        case NSBooleanAttributeType:
+            return @"Utils.booleanValue";
+            break;
+            
+        case NSDateAttributeType:
+            return @"";
+            break;
+            
+        case NSStringAttributeType:
+            return @"Utils.stringValue";
+            break;
+    }
+    return @"";
+}
+
 static NSString* entityNameToJavaClassName(NSString* entityName)
 {
     return entityName;
@@ -67,6 +97,23 @@ static NSString* entityNameToJavaClassName(NSString* entityName)
 static NSString* entityNameToJavaBaseClassName(NSString* entityName)
 {
     return [entityNameToJavaClassName(entityName) stringByAppendingString: @"Base"];
+}
+
+static NSString* makeXmlKey(NSString* propertyName)
+{
+    if ([propertyName isEqualToString: @"externalId"]) {
+        return @"Id";
+    }
+    if ([propertyName isEqualToString: @"battleStations"]) {
+        return @"Battlestations";
+    }
+    if ([propertyName isEqualToString: @"upType"]) {
+        return @"Type";
+    }
+
+    NSString* upperFirst = [[propertyName substringToIndex: 1] uppercaseString];
+    NSString* rest = [propertyName substringFromIndex: 1];
+    return [upperFirst stringByAppendingString: rest];
 }
 
 -(BOOL)exportEntity:(NSString*)name error:(NSError**)error
@@ -81,13 +128,14 @@ static NSString* entityNameToJavaBaseClassName(NSString* entityName)
     if (parent) {
         parentAttributes = [NSSet setWithArray: [[parent attributesByName] allKeys]];
         parentRelationships = [NSSet setWithArray: [[parent relationshipsByName] allKeys]];
-        [javaClass appendFormat: @"class %@ extends %@ {\n", javaBaseClassName, entityNameToJavaClassName(parent.name)];
+        [javaClass appendFormat: @"public class %@ extends %@ {\n", javaBaseClassName, entityNameToJavaClassName(parent.name)];
     } else {
-        [javaClass appendFormat: @"class %@ {\n", javaBaseClassName];
+        [javaClass appendFormat: @"public class %@ {\n", javaBaseClassName];
     }
+
     for (NSAttributeDescription* desc in [entity.attributesByName allValues]) {
         if (![parentAttributes containsObject: desc.name]) {
-            [javaClass appendFormat: @"\t%@ %@;\n", attributeTypeToJavaType(desc.attributeType), desc.name];
+            [javaClass appendFormat: @"\tpublic %@ %@;\n", attributeTypeToJavaType(desc.attributeType), desc.name];
         }
     }
     
@@ -99,12 +147,20 @@ static NSString* entityNameToJavaBaseClassName(NSString* entityName)
                 NSString* destClassName = entityNameToJavaClassName(desc.destinationEntity.name);
                 NSString* typeName = [NSString stringWithFormat: @"ArrayList<%@>", destClassName];
                 needsArrayList = YES;
-                [javaClass appendFormat: @"\t%@ %@ = new %@();\n", typeName, desc.name, typeName];
+                [javaClass appendFormat: @"\tpublic %@ %@ = new %@();\n", typeName, desc.name, typeName];
             } else {
-                [javaClass appendFormat: @"\t%@ %@;\n", entityNameToJavaClassName(desc.destinationEntity.name), desc.name];
+                [javaClass appendFormat: @"\tpublic %@ %@;\n", entityNameToJavaClassName(desc.destinationEntity.name), desc.name];
             }
         }
     }
+    [javaClass appendString: @"\n\tpublic void update(Map<String,Object> data) {\n"];
+    for (NSAttributeDescription* desc in [entity.attributesByName allValues]) {
+        if (![parentAttributes containsObject: desc.name]) {
+            [javaClass appendFormat: @"\t\t%@ = %@((String)data.get(\"%@\"));\n",
+                    desc.name, attributeTypeToJavaConversion(desc.attributeType), makeXmlKey(desc.name)];
+        }
+    }
+    [javaClass appendString: @"\t}\n\n"];
     [javaClass appendString: @"}\n"];
     NSString* baseSourceFileName = [NSString stringWithFormat: @"%@.java", javaBaseClassName];
     NSString* baseClassFilePath = [_sourcePath stringByAppendingPathComponent: baseSourceFileName];
@@ -112,6 +168,7 @@ static NSString* entityNameToJavaBaseClassName(NSString* entityName)
     NSString* classFilePath = [_sourcePath stringByAppendingPathComponent: sourceFileName];
     NSMutableString* js = [[NSMutableString alloc] init];
     [js appendFormat: @"package %@;\n\n", _packageName];
+    [js appendString: @"import java.util.Map;\n\n"];
     if (needsArrayList) {
         [js appendString: @"import java.util.ArrayList;\n\n"];
     }
@@ -124,7 +181,7 @@ static NSString* entityNameToJavaBaseClassName(NSString* entityName)
     
     NSMutableString* jsConc = [[NSMutableString alloc] init];
     [jsConc appendFormat: @"package %@;\n\n", _packageName];
-    [jsConc appendFormat: @"class %@ extends %@ {\n", javaClassName, javaBaseClassName];
+    [jsConc appendFormat: @"public class %@ extends %@ {\n", javaClassName, javaBaseClassName];
     [jsConc appendString: @"}\n"];
     if (![jsConc writeToFile: classFilePath atomically: NO encoding: NSUTF8StringEncoding error: error]) {
         return NO;

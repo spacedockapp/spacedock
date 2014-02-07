@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.funnyhatsoftware.spacedock.DataLoader;
+import com.funnyhatsoftware.spacedock.Ship;
 import com.funnyhatsoftware.spacedock.Universe;
 
 public class TestShip extends AndroidTestCase {
@@ -34,6 +35,9 @@ public class TestShip extends AndroidTestCase {
 	}
 
 	public void testLoad() {
+		Ship entD = universe.ships.get("1001");
+		assertEquals(4, entD.attack);
+		assertEquals("U.S.S. Enterprise-D", entD.title);
 	}
 
 }

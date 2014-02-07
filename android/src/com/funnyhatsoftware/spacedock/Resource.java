@@ -1,4 +1,4 @@
 package com.funnyhatsoftware.spacedock;
 
-class Resource extends ResourceBase {
+public class Resource extends ResourceBase {
 }
