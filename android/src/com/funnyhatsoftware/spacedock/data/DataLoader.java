@@ -23,7 +23,7 @@ public class DataLoader extends DefaultHandler {
 	Universe universe;
 	String xmlFilePath;
 	InputStream xmlInput;
-	String currentText;
+	StringBuilder currentText = new StringBuilder();
 	Map<String, Object> parsedData = new HashMap<String, Object>();
 	Map<String, Object> currentElement = null;
 	Map<String, String> currentAttributes = new HashMap<String, String>();
@@ -187,7 +187,7 @@ public class DataLoader extends DefaultHandler {
 				}
 
 				if (currentText != null && localName == "Set") {
-					String s = currentText.trim();
+					String s = currentText.toString().trim();
 					currentElement.put("ProduceName", s);
 				}
 
@@ -203,7 +203,7 @@ public class DataLoader extends DefaultHandler {
 			}
 		} else {
 			if (currentText != null && currentElement != null) {
-				String trimmed = currentText.trim();
+				String trimmed = currentText.toString().trim();
 				if (currentAttributes.size() != 0) {
 					currentElement.put("ProductName", trimmed);
 				} else {
@@ -220,19 +220,14 @@ public class DataLoader extends DefaultHandler {
 			elementNameStack.remove(stackIndex);
 		}
 
-		currentText = null;
+		currentText.delete(0, currentText.length());
 	}
 
 	@Override
 	public void characters(char[] ch, int start, int length)
 			throws SAXException {
 		super.characters(ch, start, length);
-		String s = new String(ch, start, length);
-		if (currentText == null) {
-			currentText = s;
-		} else {
-			currentText = currentText + s;
-		}
+		currentText.append(ch, start, length);
 	}
 
 	private void abortParsing() {
