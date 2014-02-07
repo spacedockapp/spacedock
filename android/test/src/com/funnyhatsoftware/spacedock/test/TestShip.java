@@ -3,6 +3,8 @@ package com.funnyhatsoftware.spacedock.test;
 import android.test.AndroidTestCase;
 
 import com.funnyhatsoftware.spacedock.data.Captain;
+import com.funnyhatsoftware.spacedock.data.Flagship;
+import com.funnyhatsoftware.spacedock.data.Resource;
 import com.funnyhatsoftware.spacedock.data.Set;
 import com.funnyhatsoftware.spacedock.data.Ship;
 import com.funnyhatsoftware.spacedock.data.Universe;
@@ -38,6 +40,16 @@ public class TestShip extends AndroidTestCase {
 		assertEquals(2, romulanPilot.getCost());
 		assertFalse("Romulan Pilot should not be unique",
 				romulanPilot.getUnique());
+
+		Flagship fs = universe.flagships.get("6002");
+		assertNotNull("Couldn't get flagship", fs);
+		assertEquals("attack value wrong", 1, fs.getAttack());
+		assertEquals("hull value wrong", 0, fs.getHull());
+		assertEquals("faction wrong", "Independent", fs.getFaction());
+		
+		Resource tokens = universe.resources.get("4002");
+		assertNotNull("Couldn't get resource", tokens);
+		assertEquals("resource cost value wrong", 5, tokens.getCost());
 
 		Set coreSet = universe.sets.get("71120");
 		assertNotNull("Couldn't get core set", coreSet);
