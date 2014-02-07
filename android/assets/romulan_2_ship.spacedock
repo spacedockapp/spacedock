@@ -1,0 +1,59 @@
+{
+  "additionalPoints" : 5,
+  "notes" : "Unified Force (0) Strike Force (5)",
+  "name" : "Romulan 2 Ship",
+  "ships" : [
+    {
+      "flagship" : "6008",
+      "shipId" : "1011",
+      "upgrades" : [
+        {
+          "upgradeId" : "3013",
+          "upgradeTitle" : "Counter Attack"
+        },
+        {
+          "upgradeId" : "3102",
+          "upgradeTitle" : "Romulan Pilot"
+        },
+        {
+          "upgradeId" : "3035",
+          "upgradeTitle" : "Tactical Officer"
+        },
+        {
+          "upgradeId" : "3040",
+          "upgradeTitle" : "Interphase Generator"
+        }
+      ],
+      "shipTitle" : "I.R.W. Valdore",
+      "captain" : {
+        "upgradeId" : "2041",
+        "upgradeTitle" : "Letant"
+      }
+    },
+    {
+      "shipId" : "1003",
+      "upgrades" : [
+        {
+          "upgradeId" : "3035",
+          "upgradeTitle" : "Tactical Officer"
+        },
+        {
+          "overriddenCost" : 0,
+          "upgradeTitle" : "Varel",
+          "upgradeId" : "3039",
+          "costIsOverridden" : true
+        },
+        {
+          "upgradeId" : "3040",
+          "upgradeTitle" : "Interphase Generator"
+        }
+      ],
+      "shipTitle" : "I.R.W. Khazara",
+      "captain" : {
+        "upgradeId" : "2013",
+        "upgradeTitle" : "Donatra"
+      }
+    }
+  ],
+  "resource" : "4004"
+}

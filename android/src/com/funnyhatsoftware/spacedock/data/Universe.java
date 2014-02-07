@@ -34,4 +34,12 @@ public class Universe {
 		return sUniverse;
 	}
 
+	public Captain getCaptain(String captainId) {
+		return captains.get(captainId);
+	}
+
+	public Upgrade getUpgrade(String upgradeId) {
+		return upgrades.get(upgradeId);
+	}
+
 }

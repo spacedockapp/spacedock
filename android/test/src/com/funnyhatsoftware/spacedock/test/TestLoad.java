@@ -1,27 +1,19 @@
 package com.funnyhatsoftware.spacedock.test;
 
-import android.test.AndroidTestCase;
 
 import com.funnyhatsoftware.spacedock.data.Captain;
 import com.funnyhatsoftware.spacedock.data.Flagship;
 import com.funnyhatsoftware.spacedock.data.Resource;
 import com.funnyhatsoftware.spacedock.data.Set;
 import com.funnyhatsoftware.spacedock.data.Ship;
-import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.data.Upgrade;
 
-public class TestShip extends AndroidTestCase {
-	Universe universe;
-
-	public TestShip() {
+public class TestLoad extends BaseTest {
+	public TestLoad() {
 		super();
 	}
 
-	public void setUp() {
-		universe = Universe.getUniverse(getContext());
-	}
-
-	public void testLoad() {
+	public void testBasics() {
 		Ship entD = universe.ships.get("1001");
 		assertNotNull("Couldn't get ship", entD);
 		assertEquals(4, entD.getAttack());
