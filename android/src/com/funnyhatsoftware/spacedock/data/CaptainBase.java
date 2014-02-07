@@ -12,6 +12,7 @@ public class CaptainBase extends Upgrade {
     public CaptainBase setTalent(int v) { talent = v; return this;}
 
     public void update(Map<String,Object> data) {
+        super.update(data);
         skill = DataUtils.intValue((String)data.get("Skill"));
         talent = DataUtils.intValue((String)data.get("Talent"));
     }

@@ -44,15 +44,15 @@ public class DataLoader extends DefaultHandler {
 		xmlInput = xmlTargetInput;
 		String[] a = { "Sets", "Upgrades", "Captains", "Ships", "Resources",
 				"Maneuvers", "ShipClassDetails", "Flagships" };
-		for (String v: a) {
+		for (String v : a) {
 			listElementNames.add(v);
 		}
 		String[] b = { "Set", "Upgrade", "Captain", "Ship", "Resource",
 				"Maneuver", "ShipClassDetail", "Flagship" };
-		for (String v: b) {
+		for (String v : b) {
 			itemElementNames.add(v);
 		}
-		
+
 	}
 
 	@SuppressWarnings("unchecked")
@@ -66,16 +66,30 @@ public class DataLoader extends DefaultHandler {
 		xr.setContentHandler(this);
 
 		xr.parse(new InputSource(xmlInput));
-		ArrayList<Object> shipData = (ArrayList<Object>) parsedData.get("Ships");
+		ArrayList<Object> shipData = (ArrayList<Object>) parsedData
+				.get("Ships");
 		for (Object oneShipDataObject : shipData) {
-			Map<String,Object> oneShipData = (Map<String, Object>) oneShipDataObject;
-			String externalId = (String)oneShipData.get("Id");
+			Map<String, Object> oneShipData = (Map<String, Object>) oneShipDataObject;
+			String externalId = (String) oneShipData.get("Id");
 			Ship ship = universe.ships.get(externalId);
 			if (ship == null) {
 				ship = new Ship();
 				universe.ships.put(externalId, ship);
 			}
 			ship.update(oneShipData);
+		}
+		
+		ArrayList<Object> captainData = (ArrayList<Object>) parsedData
+				.get("Captains");
+		for (Object oneCaptainDataObject : captainData) {
+			Map<String, Object> oneCaptainData = (Map<String, Object>) oneCaptainDataObject;
+			String externalId = (String) oneCaptainData.get("Id");
+			Captain captain = universe.captains.get(externalId);
+			if (captain == null) {
+				captain = new Captain();
+				universe.captains.put(externalId, captain);
+			}
+			captain.update(oneCaptainData);
 		}
 		return true;
 	}

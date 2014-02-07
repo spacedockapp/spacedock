@@ -69,6 +69,7 @@ public class FlagshipBase extends SetItem {
     public FlagshipBase setShips(ArrayList<EquippedShip> v) { ships = (ArrayList<EquippedShip>)v.clone(); return this;}
 
     public void update(Map<String,Object> data) {
+        super.update(data);
         ability = DataUtils.stringValue((String)data.get("Ability"));
         agility = DataUtils.intValue((String)data.get("Agility"));
         attack = DataUtils.intValue((String)data.get("Attack"));

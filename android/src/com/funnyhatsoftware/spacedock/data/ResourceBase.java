@@ -33,6 +33,7 @@ public class ResourceBase extends SetItem {
     public ResourceBase setSquad(ArrayList<Squad> v) { squad = (ArrayList<Squad>)v.clone(); return this;}
 
     public void update(Map<String,Object> data) {
+        super.update(data);
         ability = DataUtils.stringValue((String)data.get("Ability"));
         cost = DataUtils.intValue((String)data.get("Cost"));
         externalId = DataUtils.stringValue((String)data.get("Id"));

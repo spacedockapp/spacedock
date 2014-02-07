@@ -185,6 +185,9 @@ static NSString* makeXmlKey(NSString* propertyName)
         }
     }
     [javaClass appendString: @"\n    public void update(Map<String,Object> data) {\n"];
+    if (parent) {
+        [javaClass appendString: @"        super.update(data);\n"];
+    }
     for (NSAttributeDescription* desc in [entity.attributesByName allValues]) {
         if (![parentAttributes containsObject: desc.name]) {
             [javaClass appendFormat: @"        %@ = %@((String)data.get(\"%@\"));\n",

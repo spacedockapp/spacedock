@@ -39,6 +39,7 @@ public class UpgradeBase extends SetItem {
     public UpgradeBase setEquippedUpgrades(ArrayList<EquippedUpgrade> v) { equippedUpgrades = (ArrayList<EquippedUpgrade>)v.clone(); return this;}
 
     public void update(Map<String,Object> data) {
+        super.update(data);
         ability = DataUtils.stringValue((String)data.get("Ability"));
         cost = DataUtils.intValue((String)data.get("Cost"));
         externalId = DataUtils.stringValue((String)data.get("Id"));

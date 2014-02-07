@@ -9,6 +9,7 @@ import android.util.Log;
 
 public class Universe {
 	public HashMap<String, Ship> ships = new HashMap<String, Ship>();
+	public HashMap<String, Captain> captains = new HashMap<String, Captain>();
 
 	static Universe sUniverse;
 
