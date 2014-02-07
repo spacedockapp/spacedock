@@ -55,7 +55,6 @@ public class DataLoader extends DefaultHandler {
 
 	}
 
-	@SuppressWarnings("unchecked")
 	public boolean load() throws ParserConfigurationException, SAXException,
 			IOException {
 		SAXParserFactory spf = SAXParserFactory.newInstance();
@@ -66,32 +65,170 @@ public class DataLoader extends DefaultHandler {
 		xr.setContentHandler(this);
 
 		xr.parse(new InputSource(xmlInput));
-		ArrayList<Object> shipData = (ArrayList<Object>) parsedData
-				.get("Ships");
-		for (Object oneShipDataObject : shipData) {
-			Map<String, Object> oneShipData = (Map<String, Object>) oneShipDataObject;
-			String externalId = (String) oneShipData.get("Id");
-			Ship ship = universe.ships.get(externalId);
-			if (ship == null) {
-				ship = new Ship();
-				universe.ships.put(externalId, ship);
+
+		loadSets();
+
+		ItemCreator shipHandler = new ItemCreator() {
+
+			@Override
+			public SetItem create(String type) {
+				return new Ship();
 			}
-			ship.update(oneShipData);
-		}
-		
-		ArrayList<Object> captainData = (ArrayList<Object>) parsedData
-				.get("Captains");
-		for (Object oneCaptainDataObject : captainData) {
-			Map<String, Object> oneCaptainData = (Map<String, Object>) oneCaptainDataObject;
-			String externalId = (String) oneCaptainData.get("Id");
-			Captain captain = universe.captains.get(externalId);
-			if (captain == null) {
-				captain = new Captain();
-				universe.captains.put(externalId, captain);
+
+			@Override
+			public SetItem get(String externalId) {
+				return universe.ships.get(externalId);
 			}
-			captain.update(oneCaptainData);
-		}
+
+			@Override
+			public void put(String externalId, SetItem s) {
+				universe.ships.put(externalId, (Ship) s);
+			}
+
+		};
+
+		loadDataItems("Ships", shipHandler);
+
+		ItemCreator captainHandler = new ItemCreator() {
+
+			@Override
+			public SetItem create(String type) {
+				return new Captain();
+			}
+
+			@Override
+			public SetItem get(String externalId) {
+				return universe.captains.get(externalId);
+			}
+
+			@Override
+			public void put(String externalId, SetItem s) {
+				universe.captains.put(externalId, (Captain) s);
+			}
+
+		};
+
+		loadDataItems("Captains", captainHandler);
+
+		ItemCreator upgradeHandler = new ItemCreator() {
+
+			@Override
+			public SetItem create(String type) {
+				if (type.equalsIgnoreCase("Tech")) {
+					return new Tech();
+				}
+				if (type.equalsIgnoreCase("Talent")) {
+					return new Talent();
+				}
+				if (type.equalsIgnoreCase("Crew")) {
+					return new Crew();
+				}
+				return new Weapon();
+			}
+
+			@Override
+			public SetItem get(String externalId) {
+				return universe.upgrades.get(externalId);
+			}
+
+			@Override
+			public void put(String externalId, SetItem s) {
+				universe.upgrades.put(externalId, (Upgrade) s);
+			}
+
+		};
+
+		loadDataItems("Upgrades", upgradeHandler);
+
+		ItemCreator flagshipHandler = new ItemCreator() {
+
+			@Override
+			public SetItem create(String type) {
+				return new Flagship();
+			}
+
+			@Override
+			public SetItem get(String externalId) {
+				return universe.flagships.get(externalId);
+			}
+
+			@Override
+			public void put(String externalId, SetItem s) {
+				universe.flagships.put(externalId, (Flagship) s);
+			}
+
+		};
+
+		loadDataItems("Flagships", flagshipHandler);
+
+		ItemCreator resourceHandler = new ItemCreator() {
+
+			@Override
+			public SetItem create(String type) {
+				return new Resource();
+			}
+
+			@Override
+			public SetItem get(String externalId) {
+				return universe.resources.get(externalId);
+			}
+
+			@Override
+			public void put(String externalId, SetItem s) {
+				universe.resources.put(externalId, (Resource) s);
+			}
+
+		};
+
+		loadDataItems("Resources", resourceHandler);
+
 		return true;
+	}
+
+	@SuppressWarnings("unchecked")
+	private void loadSets() {
+		ArrayList<Object> setsList = (ArrayList<Object>) parsedData.get("Sets");
+		for (Object oneDataObject : setsList) {
+			Map<String, Object> oneData = (Map<String, Object>) oneDataObject;
+			String externalId = (String) oneData.get("id");
+			Set set = universe.sets.get(externalId);
+			if (set == null) {
+				set = new Set();
+				universe.sets.put(externalId, set);
+			}
+			set.update(oneData);
+		}
+	}
+
+	interface ItemCreator {
+		public SetItem create(String type);
+
+		public SetItem get(String externalId);
+
+		public void put(String externalId, SetItem s);
+	}
+
+	@SuppressWarnings("unchecked")
+	private void loadDataItems(String name, ItemCreator creator) {
+		ArrayList<Object> dataList = (ArrayList<Object>) parsedData.get(name);
+		for (Object oneDataObject : dataList) {
+			Map<String, Object> oneData = (Map<String, Object>) oneDataObject;
+			String externalId = (String) oneData.get("Id");
+			String type = (String) oneData.get("Type");
+			SetItem item = creator.get(externalId);
+			if (item == null) {
+				item = creator.create(type);
+				creator.put(externalId, item);
+			}
+			item.update(oneData);
+			String allSetIDs = (String) oneData.get("Set");
+			String[] allIds = allSetIDs.split(",");
+			for (String setID : allIds) {
+				setID = setID.trim();
+				Set set = universe.sets.get(setID);
+				set.addToSet(item);
+			}
+		}
 	}
 
 	String parentName() {

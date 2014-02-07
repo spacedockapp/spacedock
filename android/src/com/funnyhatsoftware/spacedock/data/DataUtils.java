@@ -27,7 +27,7 @@ public class DataUtils {
 		if (v == null) {
 			return false;
 		}
-		return v == "Y";
+		return v.equalsIgnoreCase("Y");
 	}
 
 	public static String stringValue(String v) {

@@ -10,6 +10,10 @@ import android.util.Log;
 public class Universe {
 	public HashMap<String, Ship> ships = new HashMap<String, Ship>();
 	public HashMap<String, Captain> captains = new HashMap<String, Captain>();
+	public HashMap<String, Upgrade> upgrades = new HashMap<String, Upgrade>();
+	public HashMap<String, Resource> resources = new HashMap<String, Resource>();
+	public HashMap<String, Flagship> flagships = new HashMap<String, Flagship>();
+	public HashMap<String, Set> sets = new HashMap<String, Set>();
 
 	static Universe sUniverse;
 
