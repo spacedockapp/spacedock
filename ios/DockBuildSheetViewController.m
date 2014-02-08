@@ -41,6 +41,7 @@
     scrollView.delegate = self;
     scrollView.minimumZoomScale=0.25;
     scrollView.maximumZoomScale=1;
+    scrollView.zoomScale = 1;
     _sheetView.squad = _squad;
     NSMutableData* pdfData = [[NSMutableData alloc] init];
     UIGraphicsBeginPDFContextToData(pdfData, CGRectZero, nil);
@@ -68,11 +69,21 @@
     ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
         if(!completed && error){
             NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+        } else {
+            NSString* selectedPrinter = printController.printInfo.dictionaryRepresentation[@"UIPrintInfoPrinterIDKey"];
+            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setValue: selectedPrinter forKey: @"UIPrintInfoPrinterIDKey"];
         }
     };
     
     // Obtain a printInfo so that we can set our printing defaults.
-    UIPrintInfo *printInfo = [UIPrintInfo printInfo];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary* infoDict = @{};
+    NSString* selectedPrinter = [defaults valueForKey: @"UIPrintInfoPrinterIDKey"];
+    if (selectedPrinter != nil) {
+        infoDict = @{ @"UIPrintInfoPrinterIDKey": selectedPrinter};
+    }
+    UIPrintInfo *printInfo = [UIPrintInfo printInfoWithDictionary: infoDict];
     // This application produces General content that contains color.
     printInfo.outputType = UIPrintInfoOutputGeneral;
     // We'll use the URL as the job name.
