@@ -1,5 +1,6 @@
 #import "DockSquadDetailController.h"
 
+#import "DockBuildSheetViewController.h"
 #import "DockConstants.h"
 #import "DockEditValueController.h"
 #import "DockEquippedShip+Addons.h"
@@ -270,6 +271,10 @@
 
             [self.tableView reloadData];
         };
+    } else if ([[segue identifier] isEqualToString: @"BuildSheet"]) {
+        id destination = [segue destinationViewController];
+        DockBuildSheetViewController* target = (DockBuildSheetViewController*)destination;
+        target.squad = _squad;
     }
 }
 
@@ -401,6 +406,49 @@
         [self copyToClipboard];
         break;
     }
+}
+
+-(IBAction)print:(id)sender
+{
+    NSMutableData* pdfData = [[NSMutableData alloc] init];
+    UIGraphicsBeginPDFContextToData(pdfData, CGRectZero, nil);
+    UIGraphicsBeginPDFPage();
+    CGRect pageBounds = UIGraphicsGetPDFContextBounds();
+    CGRect blackBox = CGRectMake(0, 0, pageBounds.size.width, 100);
+    [[UIColor blackColor] set];
+    UIBezierPath* blackBoxPath = [UIBezierPath bezierPathWithRect: blackBox];
+    [blackBoxPath fill];
+    UIGraphicsEndPDFContext();
+    UIPrintInteractionController *controller = [UIPrintInteractionController sharedPrintController];
+    if(!controller){
+        NSLog(@"Couldn't get shared UIPrintInteractionController!");
+        return;
+    }
+    
+    UIPrintInteractionCompletionHandler completionHandler =
+    ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
+        if(!completed && error){
+            NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+        }
+    };
+    
+    
+    // Obtain a printInfo so that we can set our printing defaults.
+    UIPrintInfo *printInfo = [UIPrintInfo printInfo];
+    // This application produces General content that contains color.
+    printInfo.outputType = UIPrintInfoOutputGeneral;
+    // We'll use the URL as the job name.
+    printInfo.jobName = @"sheet";
+    // Set duplex so that it is available if the printer supports it. We are
+    // performing portrait printing so we want to duplex along the long edge.
+    printInfo.duplex = UIPrintInfoDuplexLongEdge;
+    // Use this printInfo for this print job.
+    controller.printInfo = printInfo;
+    
+    // Be sure the page range controls are present for documents of > 1 page.
+    controller.showsPageRange = YES;
+    controller.printingItem = pdfData;
+    [controller presentAnimated:YES completionHandler:completionHandler];  // iPhone
 }
 
 @end
