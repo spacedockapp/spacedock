@@ -3538,7 +3538,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                     </customView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="t4p-6e-B3a">
-                        <rect key="frame" x="15" y="212" width="468" height="41"/>
+                        <rect key="frame" x="15" y="212.00002179785369" width="468" height="41"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" borderStyle="border" alignment="left" title="Notes" id="WQ9-sP-5ob">
                             <font key="font" size="13" name="CourierNewPSMT"/>
