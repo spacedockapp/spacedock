@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -27,7 +28,8 @@ public class SquadListAdapter extends BaseExpandableListAdapter
     };
 
     public interface SlotSelectCallback {
-        void onSlotSelected(int slotType, String currentEquipmentId);
+        void onSlotSelected(int equippedShipNumber, int slotType, int slotNumber,
+                String currentEquipmentId);
     }
 
     private final Activity mActivity;
@@ -35,9 +37,6 @@ public class SquadListAdapter extends BaseExpandableListAdapter
     private final SlotSelectCallback mCallback;
     private final ArrayList<EquippedShip> mEquippedShips;
     private ArrayList<ListItemLookup>[] mShipLookup;
-    private long mSelectedPosition;
-    private int mSelectedSlotType;
-    private int mSelectedSlotIndex;
 
     //////////////////////////////////////////////////////////////////
     // Lookup - groupNr,childNr to View type mapping
@@ -100,8 +99,8 @@ public class SquadListAdapter extends BaseExpandableListAdapter
 
     private class SquadListItemHolder {
         final int mItemType;
-        final TextView mTextView;
-        final TextView mCost;
+        final TextView mTitleText;
+        final TextView mCostText;
         int mGroupPosition;
         int mChildPosition;
         ListItemLookup mListItemLookup;
@@ -109,30 +108,31 @@ public class SquadListAdapter extends BaseExpandableListAdapter
         public SquadListItemHolder(int itemType, View item) {
             mItemType = itemType;
 
-            TextView textView;
-            textView = (TextView) item.findViewById(R.id.text);
-            if (textView == null) textView = (TextView) item;
-            mTextView = textView;
-            mCost = (TextView) item.findViewById(R.id.cost); // null for headers
+            mTitleText = (TextView) item.findViewById(R.id.title);
+            mCostText = (TextView) item.findViewById(R.id.cost); // null for headers
             mListItemLookup = null;
         }
 
-        public void reinitialize(int groupPosition, int childPosition, ListItemLookup listItemLookup) {
+        public void reinitialize(int groupPosition, int childPosition,
+                    ListItemLookup listItemLookup) {
             mGroupPosition = groupPosition;
             mChildPosition = childPosition;
             mListItemLookup = listItemLookup;
             if (mListItemLookup != null) {
                 if (mListItemLookup.headerResId != INVALID_HEADER_ID) {
                     // Header, simply set text
-                    mTextView.setText(mActivity.getResources().getString(mListItemLookup.headerResId));
+                    String headerText = mActivity.getResources().getString(
+                            mListItemLookup.headerResId);
+                    mTitleText.setText(headerText);
                 } else {
-                    // Slot, set item & cost
-                    EquipHelper.updateSlotCost(mEquippedShips.get(groupPosition), mTextView, mCost,
+                    // Slot, set title & cost
+                    EquipHelper.updateSlotCost(mEquippedShips.get(groupPosition),
+                            mTitleText, mCostText,
                             mListItemLookup.slotType, mListItemLookup.slotNumber);
                 }
             } else {
                 // Set equipped ship total cost
-                EquipHelper.updateTotalCost(mEquippedShips.get(groupPosition), mCost);
+                EquipHelper.updateTotalCost(mEquippedShips.get(groupPosition), mCostText);
             }
         }
     }
@@ -213,7 +213,8 @@ public class SquadListAdapter extends BaseExpandableListAdapter
         if (convertView == null) {
             convertView = buildItem(parent, itemType);
         }
-        ((SquadListItemHolder)convertView.getTag()).reinitialize(groupPosition, childPosition, lookup);
+        SquadListItemHolder holder = (SquadListItemHolder)convertView.getTag();
+        holder.reinitialize(groupPosition, childPosition, lookup);
         return convertView;
     }
 
@@ -227,35 +228,31 @@ public class SquadListAdapter extends BaseExpandableListAdapter
     @Override
     public boolean onChildClick(ExpandableListView parent, View v,
             int groupPosition, int childPosition, long id) {
-        // TODO: ignore click on 2nd empty slot/make those unselectable/add slots as needed
         long packedPosition = ExpandableListView.getPackedPositionForChild(
                 groupPosition, childPosition);
 
-        if (packedPosition == mSelectedPosition) {
-            // double selection... want to do anything here?
-            return false;
-        }
         int index = mListView.getFlatListPosition(packedPosition);
-        mListView.setItemChecked(index, true);
-
+        if (mListView.getChoiceMode() != AbsListView.CHOICE_MODE_NONE) {
+            if (packedPosition == mListView.getSelectedPosition()) {
+                return false; // do nothing for double select
+            }
+            mListView.setItemChecked(index, true);
+        }
 
         SquadListItemHolder holder = (SquadListItemHolder) v.getTag();
 
-        // TODO: store selection, so that select slot -> rotate -> select item works
-        mSelectedPosition = packedPosition;
-        mSelectedSlotType = holder.mListItemLookup.slotType;
-        mSelectedSlotIndex = holder.mListItemLookup.slotNumber;
-
+        int slotType = holder.mListItemLookup.slotType;
+        int slotNumber = holder.mListItemLookup.slotNumber;
         String currentEquipmentId = EquipHelper.getIdFromSlot(
-                mEquippedShips.get(groupPosition), mSelectedSlotType, mSelectedSlotIndex);
-        mCallback.onSlotSelected(holder.mListItemLookup.slotType, currentEquipmentId);
+                mEquippedShips.get(groupPosition), slotType, slotNumber);
+        mCallback.onSlotSelected(groupPosition, slotType, slotNumber, currentEquipmentId);
         return false;
     }
 
-    public void onSetItemReturned(String externalId) {
-        int groupPosition = ExpandableListView.getPackedPositionGroup(mSelectedPosition);
-        EquippedShip equippedShip = mEquippedShips.get(groupPosition);
-        EquipHelper.insertItem(externalId, equippedShip, mSelectedSlotType, mSelectedSlotIndex);
+    public void onSetItemReturned(int equippedShipNumber, int slotType, int slotIndex,
+                String externalId) {
+        EquippedShip equippedShip = mEquippedShips.get(equippedShipNumber);
+        EquipHelper.insertItem(externalId, equippedShip, slotType, slotIndex);
         notifyDataSetChanged();
     }
 }

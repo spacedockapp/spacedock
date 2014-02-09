@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Device too fat for single pane. Give it two. -->
+    <item type="layout" name="activity_squad_build_onepane">@layout/activity_squad_build_twopane</item>
+</resources>

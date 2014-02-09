@@ -7,30 +7,38 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class SetItemListFragment extends ListFragment {
-    public static final String ARG_SLOT_TYPE = "slot_type";
-    public static final String ARG_CURRENT_EQUIP_ID = "current_equip";
+    private static final String ARG_EQUIP_SHIP_NR = "ship_id";
+    private static final String ARG_SLOT_TYPE = "slot_type";
+    private static final String ARG_SLOT_NUMBER = "slot_number";
+    private static final String ARG_CURRENT_EQUIP_ID = "current_equip";
 
     public static final String SAVE_KEY_ACTIVATED_POSITION = "activated_position";
 
-    public interface CardSelectCallback {
-        public void onCardSelected(String externalId);
+    public interface SetItemSelectCallback {
+        public void onSetItemSelected(int equippedShipNumber, int slotType, int slotNumber, String externalId);
     }
 
-    private CardSelectCallback mCallback;
+    private SetItemSelectCallback mCallback;
     private ArrayAdapter<EquipHelper.SetItemWrapper> mAdapter;
-    private int mSlotType;
     private int mActivatedPosition = ListView.INVALID_POSITION;
+
+    private int mEquippedShipNumber = -1;
+    private int mSlotType = -1;
+    private int mSlotNumber = -1;
 
     /**
      * Create a new instance of CountingFragment, providing "num"
      * as an argument.
      */
-    static SetItemListFragment newInstance(int slotType, String currentEquipmentId) {
+    static SetItemListFragment newInstance(int equippedShipNumber,
+            int slotType, int slotNumber, String currentEquipmentId) {
         SetItemListFragment fragment = new SetItemListFragment();
 
         // Supply num input as an argument.
         Bundle args = new Bundle();
+        args.putInt(ARG_EQUIP_SHIP_NR, equippedShipNumber);
         args.putInt(ARG_SLOT_TYPE, slotType);
+        args.putInt(ARG_SLOT_NUMBER, slotNumber);
         args.putString(ARG_CURRENT_EQUIP_ID, currentEquipmentId);
         fragment.setArguments(args);
 
@@ -49,8 +57,10 @@ public class SetItemListFragment extends ListFragment {
         }
 
         // activity must implement selection callback
-        mCallback = (CardSelectCallback) getActivity();
+        mCallback = (SetItemSelectCallback) getActivity();
+        mEquippedShipNumber = getArguments().getInt(ARG_EQUIP_SHIP_NR);
         mSlotType = getArguments().getInt(ARG_SLOT_TYPE);
+        mSlotNumber = getArguments().getInt(ARG_SLOT_NUMBER);
         mAdapter = new ArrayAdapter<EquipHelper.SetItemWrapper>(
                 getActivity(),
                 android.R.layout.simple_list_item_activated_1,
@@ -84,7 +94,7 @@ public class SetItemListFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         EquipHelper.SetItemWrapper wrapper = mAdapter.getItem(position);
-        mCallback.onCardSelected(wrapper.getExternalId());
+        mCallback.onSetItemSelected(mEquippedShipNumber, mSlotType, mSlotNumber, wrapper.getExternalId());
     }
 
     private void setActivatedPosition(int position) {
