@@ -268,4 +268,49 @@ public class EquippedShip extends EquippedShipBase {
         setFlagship(null);
     }
 
+    //////////////////////////////////////////////////////////////////
+    // Slot management
+    //////////////////////////////////////////////////////////////////
+    private int getUpgradeIndexOfClass(Class slotClass, int slotIndex) {
+        for (int i = 0; i < mUpgrades.size(); i++) {
+            EquippedUpgrade equippedUpgrade = mUpgrades.get(i);
+            if (equippedUpgrade.getUpgrade().getClass() == slotClass) {
+                slotIndex--;
+                if (slotIndex < 0) return i;
+            }
+        }
+        return -1;
+    }
+
+    public EquippedUpgrade getUpgradeAtSlot(Class slotClass, int slotIndex) {
+        int upgradeIndex = getUpgradeIndexOfClass(slotClass, slotIndex);
+        if (upgradeIndex < 0) return null;
+        return mUpgrades.get(upgradeIndex);
+    }
+
+    public void equipUpgrade(Upgrade upgrade, int slotIndex) {
+        EquippedUpgrade eu = new EquippedUpgrade();
+        eu.setUpgrade(upgrade);
+        upgrade.mEquippedUpgrades.add(eu);
+
+        Class slotClass = upgrade.getClass();
+        int oldUpgradeIndex = getUpgradeIndexOfClass(slotClass, slotIndex);
+
+        if (oldUpgradeIndex >= 0) {
+            // replace old
+
+            EquippedUpgrade oldEu = mUpgrades.get(oldUpgradeIndex);
+            // existing upgrade to replace
+            Upgrade oldU = oldEu.getUpgrade();
+            oldU.getEquippedUpgrades().remove(oldEu);
+            oldEu.setEquippedShip(null);
+            oldEu.setUpgrade(null);
+
+            mUpgrades.set(oldUpgradeIndex, eu);
+        } else {
+            //simply add
+            mUpgrades.add(eu);
+        }
+    }
+
 }

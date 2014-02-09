@@ -3,20 +3,20 @@ package com.funnyhatsoftware.spacedock.data;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.support.v4.util.ArrayMap;
 import android.util.Log;
 
 public class Universe {
-    public HashMap<String, Ship> ships = new HashMap<String, Ship>();
-    public HashMap<String, Captain> captains = new HashMap<String, Captain>();
-    public HashMap<String, Upgrade> upgrades = new HashMap<String, Upgrade>();
-    public HashMap<String, Resource> resources = new HashMap<String, Resource>();
-    public HashMap<String, Flagship> flagships = new HashMap<String, Flagship>();
-    public HashMap<String, Set> sets = new HashMap<String, Set>();
-    public HashMap<String, Set> selectedSets = new HashMap<String, Set>();
+    public ArrayMap<String, Ship> ships = new ArrayMap<String, Ship>();
+    public ArrayMap<String, Captain> captains = new ArrayMap<String, Captain>();
+    public ArrayMap<String, Upgrade> upgrades = new ArrayMap<String, Upgrade>();
+    public ArrayMap<String, Resource> resources = new ArrayMap<String, Resource>();
+    public ArrayMap<String, Flagship> flagships = new ArrayMap<String, Flagship>();
+    public ArrayMap<String, Set> sets = new ArrayMap<String, Set>();
+    public ArrayMap<String, Set> selectedSets = new ArrayMap<String, Set>();
 
     static Universe sUniverse;
 
@@ -38,6 +38,7 @@ public class Universe {
     }
 
     public static Universe getUniverse() {
+        if (sUniverse == null) throw new IllegalStateException();
         return sUniverse;
     }
 
@@ -63,17 +64,22 @@ public class Universe {
 
     @SuppressWarnings("unchecked")
     public ArrayList<Set> getAllSets() {
-        return (ArrayList<Set>) sets.clone();
+        ArrayList<Set> setsCopy = new ArrayList<Set>();
+        setsCopy.addAll(sets.values());
+        return setsCopy;
     }
 
     @SuppressWarnings("unchecked")
     public ArrayList<Set> includedSets() {
-        return (ArrayList<Set>) selectedSets.clone();
+        ArrayList<Set> selectedSetsCopy = new ArrayList<Set>();
+        selectedSetsCopy.addAll(selectedSets.values());
+        return selectedSetsCopy;
     }
 
     @SuppressWarnings("unchecked")
     public ArrayList<Ship> getShips() {
-        return (ArrayList<Ship>) ships.clone();
+        ArrayList<Ship> shipsCopy = new ArrayList<Ship>();
+        shipsCopy.addAll(ships.values());
+        return shipsCopy;
     }
-
 }
