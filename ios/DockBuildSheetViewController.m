@@ -3,11 +3,22 @@
 #import "DockBuildSheetRenderer.h"
 #import "DockBuildSheetView.h"
 
-@interface DockBuildSheetPrintRenderer : UIPrintPageRenderer
-
+@interface DockBuildSheetPrintRenderer : UIPrintPageRenderer {
+    DockSquad* _squad;
+}
+-(id)initWithSquad:(DockSquad*)squad;
 @end
 
 @implementation DockBuildSheetPrintRenderer
+
+-(id)initWithSquad:(DockSquad*)squad
+{
+    self = [super init];
+    if (self != nil) {
+        _squad = squad;
+    }
+    return self;
+}
 
 - (NSInteger)numberOfPages
 {
@@ -16,7 +27,7 @@
 
 - (void)drawContentForPageAtIndex:(NSInteger)pageIndex inRect:(CGRect)contentRect
 {
-    DockBuildSheetRenderer* renderer = [[DockBuildSheetRenderer alloc] init];
+    DockBuildSheetRenderer* renderer = [[DockBuildSheetRenderer alloc] initWithSquad: _squad];
     [renderer draw: contentRect];
 }
 
@@ -31,6 +42,12 @@
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
     return _sheetView;
+}
+
+-(void)setSquad:(DockSquad *)squad
+{
+    _squad = squad;
+    _sheetView.squad = squad;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -62,7 +79,7 @@
         return;
     }
     
-    DockBuildSheetPrintRenderer* renderer = [[DockBuildSheetPrintRenderer alloc] init];
+    DockBuildSheetPrintRenderer* renderer = [[DockBuildSheetPrintRenderer alloc] initWithSquad: _squad];
     controller.printPageRenderer = renderer;
     
     UIPrintInteractionCompletionHandler completionHandler =
