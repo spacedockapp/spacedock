@@ -110,6 +110,13 @@ static NSString* propertyNameToJavaSetterName(NSString* propertyName)
     return [@"set" stringByAppendingString: [upperFirst stringByAppendingString: rest]];
 }
 
+static NSString* propertyNameToJavaInstanceName(NSString* propertyName)
+{
+    NSString* upperFirst = [[propertyName substringToIndex: 1] uppercaseString];
+    NSString* rest = [propertyName substringFromIndex: 1];
+    return [@"m" stringByAppendingString: [upperFirst stringByAppendingString: rest]];
+}
+
 static NSString* entityNameToJavaBaseClassName(NSString* entityName)
 {
     return [entityNameToJavaClassName(entityName) stringByAppendingString: @"Base"];
@@ -151,11 +158,12 @@ static NSString* makeXmlKey(NSString* propertyName)
 
     for (NSAttributeDescription* desc in [entity.attributesByName allValues]) {
         if (![parentAttributes containsObject: desc.name]) {
-            [javaClass appendFormat: @"    %@ %@;\n", attributeTypeToJavaType(desc.attributeType), desc.name];
+            NSString* instanceName = propertyNameToJavaInstanceName(desc.name);
+            [javaClass appendFormat: @"    %@ %@;\n", attributeTypeToJavaType(desc.attributeType), instanceName];
             [javaClass appendFormat: @"    public %@ %@() { return %@; }\n",
-                attributeTypeToJavaType(desc.attributeType), propertyNameToJavaGetterName(desc.name), desc.name];
+                attributeTypeToJavaType(desc.attributeType), propertyNameToJavaGetterName(desc.name), instanceName];
             [javaClass appendFormat: @"    public %@ %@(%@ v) { %@ = v; return this;}\n",
-                javaBaseClassName, propertyNameToJavaSetterName(desc.name), attributeTypeToJavaType(desc.attributeType), desc.name];
+                javaBaseClassName, propertyNameToJavaSetterName(desc.name), attributeTypeToJavaType(desc.attributeType), instanceName];
         }
     }
     
@@ -163,24 +171,25 @@ static NSString* makeXmlKey(NSString* propertyName)
     
     for (NSRelationshipDescription* desc in [entity.relationshipsByName allValues]) {
         if (![parentRelationships containsObject: desc.name]) {
+            NSString* instanceName = propertyNameToJavaInstanceName(desc.name);
             if (desc.isToMany) {
                 NSString* destClassName = entityNameToJavaClassName(desc.destinationEntity.name);
                 NSString* typeName = [NSString stringWithFormat: @"ArrayList<%@>", destClassName];
                 needsArrayList = YES;
-                [javaClass appendFormat: @"    %@ %@ = new %@();\n", typeName, desc.name, typeName];
+                [javaClass appendFormat: @"    %@ %@ = new %@();\n", typeName, instanceName, typeName];
                 [javaClass appendString: @"    @SuppressWarnings(\"unchecked\")\n"];
                 [javaClass appendFormat: @"    public %@ %@() { return (%@)%@.clone(); }\n",
-                    typeName, propertyNameToJavaGetterName(desc.name), typeName, desc.name];
+                    typeName, propertyNameToJavaGetterName(desc.name), typeName, instanceName];
                 [javaClass appendString: @"    @SuppressWarnings(\"unchecked\")\n"];
                 [javaClass appendFormat: @"    public %@ %@(%@ v) { %@ = (%@)v.clone(); return this;}\n",
-                    javaBaseClassName, propertyNameToJavaSetterName(desc.name), typeName, desc.name, typeName];
+                    javaBaseClassName, propertyNameToJavaSetterName(desc.name), typeName, instanceName, typeName];
             } else {
-                [javaClass appendFormat: @"    %@ %@;\n", entityNameToJavaClassName(desc.destinationEntity.name), desc.name];
+                [javaClass appendFormat: @"    %@ %@;\n", entityNameToJavaClassName(desc.destinationEntity.name), instanceName];
                 [javaClass appendFormat: @"    public %@ %@() { return %@; }\n",
-                    entityNameToJavaClassName(desc.destinationEntity.name), propertyNameToJavaGetterName(desc.name), desc.name];
+                    entityNameToJavaClassName(desc.destinationEntity.name), propertyNameToJavaGetterName(desc.name), instanceName];
                 [javaClass appendFormat: @"    public %@ %@(%@ v) { %@ = v; return this;}\n",
                     javaBaseClassName, propertyNameToJavaSetterName(desc.name),
-                    entityNameToJavaClassName(desc.destinationEntity.name), desc.name];
+                    entityNameToJavaClassName(desc.destinationEntity.name), instanceName];
             }
         }
     }
@@ -189,9 +198,10 @@ static NSString* makeXmlKey(NSString* propertyName)
         [javaClass appendString: @"        super.update(data);\n"];
     }
     for (NSAttributeDescription* desc in [entity.attributesByName allValues]) {
+        NSString* instanceName = propertyNameToJavaInstanceName(desc.name);
         if (![parentAttributes containsObject: desc.name]) {
             [javaClass appendFormat: @"        %@ = %@((String)data.get(\"%@\"));\n",
-                    desc.name, attributeTypeToJavaConversion(desc.attributeType), makeXmlKey(desc.name)];
+                    instanceName, attributeTypeToJavaConversion(desc.attributeType), makeXmlKey(desc.name)];
         }
     }
     [javaClass appendString: @"    }\n\n"];

@@ -4,22 +4,22 @@ package com.funnyhatsoftware.spacedock.data;
 import java.util.Map;
 
 public class EquippedUpgradeBase {
-    boolean overridden;
-    public boolean getOverridden() { return overridden; }
-    public EquippedUpgradeBase setOverridden(boolean v) { overridden = v; return this;}
-    int overriddenCost;
-    public int getOverriddenCost() { return overriddenCost; }
-    public EquippedUpgradeBase setOverriddenCost(int v) { overriddenCost = v; return this;}
-    EquippedShip equippedShip;
-    public EquippedShip getEquippedShip() { return equippedShip; }
-    public EquippedUpgradeBase setEquippedShip(EquippedShip v) { equippedShip = v; return this;}
-    Upgrade upgrade;
-    public Upgrade getUpgrade() { return upgrade; }
-    public EquippedUpgradeBase setUpgrade(Upgrade v) { upgrade = v; return this;}
+    boolean mOverridden;
+    public boolean getOverridden() { return mOverridden; }
+    public EquippedUpgradeBase setOverridden(boolean v) { mOverridden = v; return this;}
+    int mOverriddenCost;
+    public int getOverriddenCost() { return mOverriddenCost; }
+    public EquippedUpgradeBase setOverriddenCost(int v) { mOverriddenCost = v; return this;}
+    EquippedShip mEquippedShip;
+    public EquippedShip getEquippedShip() { return mEquippedShip; }
+    public EquippedUpgradeBase setEquippedShip(EquippedShip v) { mEquippedShip = v; return this;}
+    Upgrade mUpgrade;
+    public Upgrade getUpgrade() { return mUpgrade; }
+    public EquippedUpgradeBase setUpgrade(Upgrade v) { mUpgrade = v; return this;}
 
     public void update(Map<String,Object> data) {
-        overridden = DataUtils.booleanValue((String)data.get("Overridden"));
-        overriddenCost = DataUtils.intValue((String)data.get("OverriddenCost"));
+        mOverridden = DataUtils.booleanValue((String)data.get("Overridden"));
+        mOverriddenCost = DataUtils.intValue((String)data.get("OverriddenCost"));
     }
 
 }

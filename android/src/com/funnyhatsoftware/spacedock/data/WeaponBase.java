@@ -4,17 +4,17 @@ package com.funnyhatsoftware.spacedock.data;
 import java.util.Map;
 
 public class WeaponBase extends Upgrade {
-    int attack;
-    public int getAttack() { return attack; }
-    public WeaponBase setAttack(int v) { attack = v; return this;}
-    String range;
-    public String getRange() { return range; }
-    public WeaponBase setRange(String v) { range = v; return this;}
+    int mAttack;
+    public int getAttack() { return mAttack; }
+    public WeaponBase setAttack(int v) { mAttack = v; return this;}
+    String mRange;
+    public String getRange() { return mRange; }
+    public WeaponBase setRange(String v) { mRange = v; return this;}
 
     public void update(Map<String,Object> data) {
         super.update(data);
-        attack = DataUtils.intValue((String)data.get("Attack"));
-        range = DataUtils.stringValue((String)data.get("Range"));
+        mAttack = DataUtils.intValue((String)data.get("Attack"));
+        mRange = DataUtils.stringValue((String)data.get("Range"));
     }
 
 }

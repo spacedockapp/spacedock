@@ -5,28 +5,28 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class SquadBase {
-    int additionalPoints;
-    public int getAdditionalPoints() { return additionalPoints; }
-    public SquadBase setAdditionalPoints(int v) { additionalPoints = v; return this;}
-    String name;
-    public String getName() { return name; }
-    public SquadBase setName(String v) { name = v; return this;}
-    String notes;
-    public String getNotes() { return notes; }
-    public SquadBase setNotes(String v) { notes = v; return this;}
-    Resource resource;
-    public Resource getResource() { return resource; }
-    public SquadBase setResource(Resource v) { resource = v; return this;}
-    ArrayList<EquippedShip> equippedShips = new ArrayList<EquippedShip>();
+    int mAdditionalPoints;
+    public int getAdditionalPoints() { return mAdditionalPoints; }
+    public SquadBase setAdditionalPoints(int v) { mAdditionalPoints = v; return this;}
+    String mName;
+    public String getName() { return mName; }
+    public SquadBase setName(String v) { mName = v; return this;}
+    String mNotes;
+    public String getNotes() { return mNotes; }
+    public SquadBase setNotes(String v) { mNotes = v; return this;}
+    Resource mResource;
+    public Resource getResource() { return mResource; }
+    public SquadBase setResource(Resource v) { mResource = v; return this;}
+    ArrayList<EquippedShip> mEquippedShips = new ArrayList<EquippedShip>();
     @SuppressWarnings("unchecked")
-    public ArrayList<EquippedShip> getEquippedShips() { return (ArrayList<EquippedShip>)equippedShips.clone(); }
+    public ArrayList<EquippedShip> getEquippedShips() { return (ArrayList<EquippedShip>)mEquippedShips.clone(); }
     @SuppressWarnings("unchecked")
-    public SquadBase setEquippedShips(ArrayList<EquippedShip> v) { equippedShips = (ArrayList<EquippedShip>)v.clone(); return this;}
+    public SquadBase setEquippedShips(ArrayList<EquippedShip> v) { mEquippedShips = (ArrayList<EquippedShip>)v.clone(); return this;}
 
     public void update(Map<String,Object> data) {
-        additionalPoints = DataUtils.intValue((String)data.get("AdditionalPoints"));
-        name = DataUtils.stringValue((String)data.get("Name"));
-        notes = DataUtils.stringValue((String)data.get("Notes"));
+        mAdditionalPoints = DataUtils.intValue((String)data.get("AdditionalPoints"));
+        mName = DataUtils.stringValue((String)data.get("Name"));
+        mNotes = DataUtils.stringValue((String)data.get("Notes"));
     }
 
 }

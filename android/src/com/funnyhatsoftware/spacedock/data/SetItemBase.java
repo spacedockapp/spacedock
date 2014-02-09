@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class SetItemBase {
-    ArrayList<Set> sets = new ArrayList<Set>();
+    ArrayList<Set> mSets = new ArrayList<Set>();
     @SuppressWarnings("unchecked")
-    public ArrayList<Set> getSets() { return (ArrayList<Set>)sets.clone(); }
+    public ArrayList<Set> getSets() { return (ArrayList<Set>)mSets.clone(); }
     @SuppressWarnings("unchecked")
-    public SetItemBase setSets(ArrayList<Set> v) { sets = (ArrayList<Set>)v.clone(); return this;}
+    public SetItemBase setSets(ArrayList<Set> v) { mSets = (ArrayList<Set>)v.clone(); return this;}
 
     public void update(Map<String,Object> data) {
     }

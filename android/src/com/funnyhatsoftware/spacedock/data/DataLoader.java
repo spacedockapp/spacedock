@@ -1,3 +1,4 @@
+
 package com.funnyhatsoftware.spacedock.data;
 
 import java.io.IOException;
@@ -20,369 +21,373 @@ import org.xml.sax.helpers.DefaultHandler;
 import android.util.Log;
 
 public class DataLoader extends DefaultHandler {
-	Universe universe;
-	String xmlFilePath;
-	InputStream xmlInput;
-	StringBuilder currentText = new StringBuilder();
-	Map<String, Object> parsedData = new HashMap<String, Object>();
-	Map<String, Object> currentElement = null;
-	Map<String, String> currentAttributes = new HashMap<String, String>();
-	ArrayList<Object> currentList = null;
-	ArrayList<String> elementNameStack = new ArrayList<String>();
-	ArrayList<ArrayList<Object>> listStack = new ArrayList<ArrayList<Object>>();
-	ArrayList<Object> elementStack = new ArrayList<Object>();
-	HashSet<String> listElementNames = new HashSet<String>();
-	HashSet<String> itemElementNames = new HashSet<String>();
-	String currentVersion;
-	String dataVersion;
-	boolean versionMatched;
-	boolean versionOnly;
-	boolean force;
+    Universe universe;
+    String xmlFilePath;
+    InputStream xmlInput;
+    StringBuilder currentText = new StringBuilder();
+    Map<String, Object> parsedData = new HashMap<String, Object>();
+    Map<String, Object> currentElement = null;
+    Map<String, String> currentAttributes = new HashMap<String, String>();
+    ArrayList<Object> currentList = null;
+    ArrayList<String> elementNameStack = new ArrayList<String>();
+    ArrayList<ArrayList<Object>> listStack = new ArrayList<ArrayList<Object>>();
+    ArrayList<Object> elementStack = new ArrayList<Object>();
+    HashSet<String> listElementNames = new HashSet<String>();
+    HashSet<String> itemElementNames = new HashSet<String>();
+    String currentVersion;
+    String dataVersion;
+    boolean versionMatched;
+    boolean versionOnly;
+    boolean force;
 
-	public DataLoader(Universe targetUniverse, InputStream xmlTargetInput) {
-		universe = targetUniverse;
-		xmlInput = xmlTargetInput;
-		String[] a = { "Sets", "Upgrades", "Captains", "Ships", "Resources",
-				"Maneuvers", "ShipClassDetails", "Flagships" };
-		for (String v : a) {
-			listElementNames.add(v);
-		}
-		String[] b = { "Set", "Upgrade", "Captain", "Ship", "Resource",
-				"Maneuver", "ShipClassDetail", "Flagship" };
-		for (String v : b) {
-			itemElementNames.add(v);
-		}
+    public DataLoader(Universe targetUniverse, InputStream xmlTargetInput) {
+        universe = targetUniverse;
+        xmlInput = xmlTargetInput;
+        String[] a = {
+                "Sets", "Upgrades", "Captains", "Ships", "Resources",
+                "Maneuvers", "ShipClassDetails", "Flagships"
+        };
+        for (String v : a) {
+            listElementNames.add(v);
+        }
+        String[] b = {
+                "Set", "Upgrade", "Captain", "Ship", "Resource",
+                "Maneuver", "ShipClassDetail", "Flagship"
+        };
+        for (String v : b) {
+            itemElementNames.add(v);
+        }
 
-	}
+    }
 
-	public boolean load() throws ParserConfigurationException, SAXException,
-			IOException {
-		SAXParserFactory spf = SAXParserFactory.newInstance();
-		SAXParser sp = spf.newSAXParser();
+    public boolean load() throws ParserConfigurationException, SAXException,
+            IOException {
+        SAXParserFactory spf = SAXParserFactory.newInstance();
+        SAXParser sp = spf.newSAXParser();
 
-		XMLReader xr = sp.getXMLReader();
+        XMLReader xr = sp.getXMLReader();
 
-		xr.setContentHandler(this);
+        xr.setContentHandler(this);
 
-		xr.parse(new InputSource(xmlInput));
+        xr.parse(new InputSource(xmlInput));
 
-		loadSets();
+        loadSets();
 
-		ItemCreator shipHandler = new ItemCreator() {
+        ItemCreator shipHandler = new ItemCreator() {
 
-			@Override
-			public SetItem create(String type) {
-				return new Ship();
-			}
+            @Override
+            public SetItem create(String type) {
+                return new Ship();
+            }
 
-			@Override
-			public SetItem get(String externalId) {
-				return universe.ships.get(externalId);
-			}
+            @Override
+            public SetItem get(String externalId) {
+                return universe.ships.get(externalId);
+            }
 
-			@Override
-			public void put(String externalId, SetItem s) {
-				universe.ships.put(externalId, (Ship) s);
-			}
+            @Override
+            public void put(String externalId, SetItem s) {
+                universe.ships.put(externalId, (Ship) s);
+            }
 
-		};
+        };
 
-		loadDataItems("Ships", shipHandler);
+        loadDataItems("Ships", shipHandler);
 
-		ItemCreator captainHandler = new ItemCreator() {
+        ItemCreator captainHandler = new ItemCreator() {
 
-			@Override
-			public SetItem create(String type) {
-				return new Captain();
-			}
+            @Override
+            public SetItem create(String type) {
+                return new Captain();
+            }
 
-			@Override
-			public SetItem get(String externalId) {
-				return universe.captains.get(externalId);
-			}
+            @Override
+            public SetItem get(String externalId) {
+                return universe.captains.get(externalId);
+            }
 
-			@Override
-			public void put(String externalId, SetItem s) {
-				universe.captains.put(externalId, (Captain) s);
-			}
+            @Override
+            public void put(String externalId, SetItem s) {
+                universe.captains.put(externalId, (Captain) s);
+            }
 
-		};
+        };
 
-		loadDataItems("Captains", captainHandler);
+        loadDataItems("Captains", captainHandler);
 
-		ItemCreator upgradeHandler = new ItemCreator() {
+        ItemCreator upgradeHandler = new ItemCreator() {
 
-			@Override
-			public SetItem create(String type) {
-				if (type.equalsIgnoreCase("Tech")) {
-					return new Tech();
-				}
-				if (type.equalsIgnoreCase("Talent")) {
-					return new Talent();
-				}
-				if (type.equalsIgnoreCase("Crew")) {
-					return new Crew();
-				}
-				return new Weapon();
-			}
+            @Override
+            public SetItem create(String type) {
+                if (type.equalsIgnoreCase("Tech")) {
+                    return new Tech();
+                }
+                if (type.equalsIgnoreCase("Talent")) {
+                    return new Talent();
+                }
+                if (type.equalsIgnoreCase("Crew")) {
+                    return new Crew();
+                }
+                return new Weapon();
+            }
 
-			@Override
-			public SetItem get(String externalId) {
-				return universe.upgrades.get(externalId);
-			}
+            @Override
+            public SetItem get(String externalId) {
+                return universe.upgrades.get(externalId);
+            }
 
-			@Override
-			public void put(String externalId, SetItem s) {
-				universe.upgrades.put(externalId, (Upgrade) s);
-			}
+            @Override
+            public void put(String externalId, SetItem s) {
+                universe.upgrades.put(externalId, (Upgrade) s);
+            }
 
-		};
+        };
 
-		loadDataItems("Upgrades", upgradeHandler);
+        loadDataItems("Upgrades", upgradeHandler);
 
-		ItemCreator flagshipHandler = new ItemCreator() {
+        ItemCreator flagshipHandler = new ItemCreator() {
 
-			@Override
-			public SetItem create(String type) {
-				return new Flagship();
-			}
+            @Override
+            public SetItem create(String type) {
+                return new Flagship();
+            }
 
-			@Override
-			public SetItem get(String externalId) {
-				return universe.flagships.get(externalId);
-			}
+            @Override
+            public SetItem get(String externalId) {
+                return universe.flagships.get(externalId);
+            }
 
-			@Override
-			public void put(String externalId, SetItem s) {
-				universe.flagships.put(externalId, (Flagship) s);
-			}
+            @Override
+            public void put(String externalId, SetItem s) {
+                universe.flagships.put(externalId, (Flagship) s);
+            }
 
-		};
+        };
 
-		loadDataItems("Flagships", flagshipHandler);
+        loadDataItems("Flagships", flagshipHandler);
 
-		ItemCreator resourceHandler = new ItemCreator() {
+        ItemCreator resourceHandler = new ItemCreator() {
 
-			@Override
-			public SetItem create(String type) {
-				return new Resource();
-			}
+            @Override
+            public SetItem create(String type) {
+                return new Resource();
+            }
 
-			@Override
-			public SetItem get(String externalId) {
-				return universe.resources.get(externalId);
-			}
+            @Override
+            public SetItem get(String externalId) {
+                return universe.resources.get(externalId);
+            }
 
-			@Override
-			public void put(String externalId, SetItem s) {
-				universe.resources.put(externalId, (Resource) s);
-			}
+            @Override
+            public void put(String externalId, SetItem s) {
+                universe.resources.put(externalId, (Resource) s);
+            }
 
-		};
+        };
 
-		loadDataItems("Resources", resourceHandler);
+        loadDataItems("Resources", resourceHandler);
 
-		return true;
-	}
+        return true;
+    }
 
-	@SuppressWarnings("unchecked")
-	private void loadSets() {
-		ArrayList<Object> setsList = (ArrayList<Object>) parsedData.get("Sets");
-		for (Object oneDataObject : setsList) {
-			Map<String, Object> oneData = (Map<String, Object>) oneDataObject;
-			String externalId = (String) oneData.get("id");
-			Set set = universe.sets.get(externalId);
-			if (set == null) {
-				set = new Set();
-				universe.sets.put(externalId, set);
-			}
-			set.update(oneData);
-		}
-	}
+    @SuppressWarnings("unchecked")
+    private void loadSets() {
+        ArrayList<Object> setsList = (ArrayList<Object>) parsedData.get("Sets");
+        for (Object oneDataObject : setsList) {
+            Map<String, Object> oneData = (Map<String, Object>) oneDataObject;
+            String externalId = (String) oneData.get("id");
+            Set set = universe.sets.get(externalId);
+            if (set == null) {
+                set = new Set();
+                universe.sets.put(externalId, set);
+            }
+            set.update(oneData);
+        }
+    }
 
-	interface ItemCreator {
-		public SetItem create(String type);
+    interface ItemCreator {
+        public SetItem create(String type);
 
-		public SetItem get(String externalId);
+        public SetItem get(String externalId);
 
-		public void put(String externalId, SetItem s);
-	}
+        public void put(String externalId, SetItem s);
+    }
 
-	@SuppressWarnings("unchecked")
-	private void loadDataItems(String name, ItemCreator creator) {
-		ArrayList<Object> dataList = (ArrayList<Object>) parsedData.get(name);
-		for (Object oneDataObject : dataList) {
-			Map<String, Object> oneData = (Map<String, Object>) oneDataObject;
-			String externalId = (String) oneData.get("Id");
-			String type = (String) oneData.get("Type");
-			SetItem item = creator.get(externalId);
-			if (item == null) {
-				item = creator.create(type);
-				creator.put(externalId, item);
-			}
-			item.update(oneData);
-			String allSetIDs = (String) oneData.get("Set");
-			String[] allIds = allSetIDs.split(",");
-			for (String setID : allIds) {
-				setID = setID.trim();
-				Set set = universe.sets.get(setID);
-				set.addToSet(item);
-			}
-		}
-	}
+    @SuppressWarnings("unchecked")
+    private void loadDataItems(String name, ItemCreator creator) {
+        ArrayList<Object> dataList = (ArrayList<Object>) parsedData.get(name);
+        for (Object oneDataObject : dataList) {
+            Map<String, Object> oneData = (Map<String, Object>) oneDataObject;
+            String externalId = (String) oneData.get("Id");
+            String type = (String) oneData.get("Type");
+            SetItem item = creator.get(externalId);
+            if (item == null) {
+                item = creator.create(type);
+                creator.put(externalId, item);
+            }
+            item.update(oneData);
+            String allSetIDs = (String) oneData.get("Set");
+            String[] allIds = allSetIDs.split(",");
+            for (String setID : allIds) {
+                setID = setID.trim();
+                Set set = universe.sets.get(setID);
+                set.addToSet(item);
+            }
+        }
+    }
 
-	String parentName() {
-		String parName = "";
-		if (elementNameStack.size() > 1) {
-			parName = elementNameStack.get(elementNameStack.size() - 2);
-		}
-		return parName;
-	}
+    String parentName() {
+        String parName = "";
+        if (elementNameStack.size() > 1) {
+            parName = elementNameStack.get(elementNameStack.size() - 2);
+        }
+        return parName;
+    }
 
-	boolean isDataItem(String elementName) {
-		if (!itemElementNames.contains(elementName)) {
-			return false;
-		}
+    boolean isDataItem(String elementName) {
+        if (!itemElementNames.contains(elementName)) {
+            return false;
+        }
 
-		if (elementName == "Set") {
-			String parentName = parentName();
-			if (parentName != "Sets") {
-				return false;
-			}
-		}
-		return true;
-	}
+        if (elementName == "Set") {
+            String parentName = parentName();
+            if (parentName != "Sets") {
+                return false;
+            }
+        }
+        return true;
+    }
 
-	boolean isList(String elementName) {
-		if (!listElementNames.contains(elementName)) {
-			return false;
-		}
-		if (elementName == "Set") {
-			String parentName = parentName();
-			if (parentName != "Sets") {
-				return false;
-			}
-		}
-		return true;
-	}
+    boolean isList(String elementName) {
+        if (!listElementNames.contains(elementName)) {
+            return false;
+        }
+        if (elementName == "Set") {
+            String parentName = parentName();
+            if (parentName != "Sets") {
+                return false;
+            }
+        }
+        return true;
+    }
 
-	@Override
-	public void startElement(String uri, String localName, String qName,
-			Attributes attributes) throws SAXException {
-		super.startElement(uri, localName, qName, attributes);
-		elementNameStack.add(localName);
+    @Override
+    public void startElement(String uri, String localName, String qName,
+            Attributes attributes) throws SAXException {
+        super.startElement(uri, localName, qName, attributes);
+        elementNameStack.add(localName);
 
-		if (attributes.getLength() > 0) {
-			currentAttributes.clear();
-			for (int i = 0; i < attributes.getLength(); i++) {
-				String aName = attributes.getLocalName(i);
-				String aValue = attributes.getValue(i);
-				currentAttributes.put(aName, aValue);
-			}
-		} else {
-			currentAttributes.clear();
-		}
+        if (attributes.getLength() > 0) {
+            currentAttributes.clear();
+            for (int i = 0; i < attributes.getLength(); i++) {
+                String aName = attributes.getLocalName(i);
+                String aValue = attributes.getValue(i);
+                currentAttributes.put(aName, aValue);
+            }
+        } else {
+            currentAttributes.clear();
+        }
 
-		if (isList(localName)) {
-			if (currentList != null) {
-				listStack.add(currentList);
-			}
-			currentList = new ArrayList<Object>();
-		} else if (isDataItem(localName)) {
-			if (currentElement != null) {
-				elementStack.add(currentElement);
-			}
-			currentElement = new HashMap<String, Object>();
-		} else if (localName == "Data") {
-			dataVersion = attributes.getValue("version");
-			if (versionOnly) {
-				abortParsing();
-			} else if (!force && dataVersion == currentVersion
-					&& dataVersion.length() > 0) {
-				versionMatched = true;
-				abortParsing();
-			}
-		}
-	}
+        if (isList(localName)) {
+            if (currentList != null) {
+                listStack.add(currentList);
+            }
+            currentList = new ArrayList<Object>();
+        } else if (isDataItem(localName)) {
+            if (currentElement != null) {
+                elementStack.add(currentElement);
+            }
+            currentElement = new HashMap<String, Object>();
+        } else if (localName == "Data") {
+            dataVersion = attributes.getValue("version");
+            if (versionOnly) {
+                abortParsing();
+            } else if (!force && dataVersion == currentVersion
+                    && dataVersion.length() > 0) {
+                versionMatched = true;
+                abortParsing();
+            }
+        }
+    }
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public void endElement(String uri, String localName, String qName)
-			throws SAXException {
-		super.endElement(uri, localName, qName);
-		if (isList(localName)) {
-			if (currentList != null) {
-				if (localName == "Maneuvers") {
-					currentElement.put(localName, currentList);
-				} else {
-					parsedData.put(localName, currentList);
-				}
+    @SuppressWarnings("unchecked")
+    @Override
+    public void endElement(String uri, String localName, String qName)
+            throws SAXException {
+        super.endElement(uri, localName, qName);
+        if (isList(localName)) {
+            if (currentList != null) {
+                if (localName == "Maneuvers") {
+                    currentElement.put(localName, currentList);
+                } else {
+                    parsedData.put(localName, currentList);
+                }
 
-				int index = listStack.size() - 1;
-				if (index < 0) {
-					currentList = null;
-				} else {
-					currentList = listStack.get(index);
-					listStack.remove(index);
-				}
-			} else {
-				Log.e("spacedock", "ending a list element before starting it");
-			}
-		} else if (isDataItem(localName)) {
-			if (currentElement == null) {
-				Log.e("spacedock", "ending an item before starting it");
-			} else {
-				for (Map.Entry<String, String> entry : currentAttributes
-						.entrySet()) {
-					currentElement.put(entry.getKey(), entry.getValue());
-				}
+                int index = listStack.size() - 1;
+                if (index < 0) {
+                    currentList = null;
+                } else {
+                    currentList = listStack.get(index);
+                    listStack.remove(index);
+                }
+            } else {
+                Log.e("spacedock", "ending a list element before starting it");
+            }
+        } else if (isDataItem(localName)) {
+            if (currentElement == null) {
+                Log.e("spacedock", "ending an item before starting it");
+            } else {
+                for (Map.Entry<String, String> entry : currentAttributes
+                        .entrySet()) {
+                    currentElement.put(entry.getKey(), entry.getValue());
+                }
 
-				if (currentText != null && localName == "Set") {
-					String s = currentText.toString().trim();
-					currentElement.put("ProduceName", s);
-				}
+                if (currentText != null && localName == "Set") {
+                    String s = currentText.toString().trim();
+                    currentElement.put("ProduceName", s);
+                }
 
-				currentList.add(currentElement);
-				int index = elementStack.size() - 1;
-				if (index >= 0) {
-					currentElement = (Map<String, Object>) elementStack
-							.get(index);
-					elementStack.remove(index);
-				} else {
-					currentElement = null;
-				}
-			}
-		} else {
-			if (currentText != null && currentElement != null) {
-				String trimmed = currentText.toString().trim();
-				if (currentAttributes.size() != 0) {
-					currentElement.put("ProductName", trimmed);
-				} else {
-					currentElement.put(localName, trimmed);
-				}
-			} else {
-				Log.i("spacedock", "ending element " + localName
-						+ " before starting");
-			}
-		}
+                currentList.add(currentElement);
+                int index = elementStack.size() - 1;
+                if (index >= 0) {
+                    currentElement = (Map<String, Object>) elementStack
+                            .get(index);
+                    elementStack.remove(index);
+                } else {
+                    currentElement = null;
+                }
+            }
+        } else {
+            if (currentText != null && currentElement != null) {
+                String trimmed = currentText.toString().trim();
+                if (currentAttributes.size() != 0) {
+                    currentElement.put("ProductName", trimmed);
+                } else {
+                    currentElement.put(localName, trimmed);
+                }
+            } else {
+                Log.i("spacedock", "ending element " + localName
+                        + " before starting");
+            }
+        }
 
-		int stackIndex = elementNameStack.size() - 1;
-		if (stackIndex >= 0) {
-			elementNameStack.remove(stackIndex);
-		}
+        int stackIndex = elementNameStack.size() - 1;
+        if (stackIndex >= 0) {
+            elementNameStack.remove(stackIndex);
+        }
 
-		currentText.delete(0, currentText.length());
-	}
+        currentText.delete(0, currentText.length());
+    }
 
-	@Override
-	public void characters(char[] ch, int start, int length)
-			throws SAXException {
-		super.characters(ch, start, length);
-		currentText.append(ch, start, length);
-	}
+    @Override
+    public void characters(char[] ch, int start, int length)
+            throws SAXException {
+        super.characters(ch, start, length);
+        currentText.append(ch, start, length);
+    }
 
-	private void abortParsing() {
-		// TODO abort parsing
-		throw new RuntimeException("version only stop parsing");
-	}
+    private void abortParsing() {
+        // TODO abort parsing
+        throw new RuntimeException("version only stop parsing");
+    }
 }

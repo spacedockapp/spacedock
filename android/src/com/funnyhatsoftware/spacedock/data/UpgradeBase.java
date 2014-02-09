@@ -5,50 +5,50 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class UpgradeBase extends SetItem {
-    String ability;
-    public String getAbility() { return ability; }
-    public UpgradeBase setAbility(String v) { ability = v; return this;}
-    int cost;
-    public int getCost() { return cost; }
-    public UpgradeBase setCost(int v) { cost = v; return this;}
-    String externalId;
-    public String getExternalId() { return externalId; }
-    public UpgradeBase setExternalId(String v) { externalId = v; return this;}
-    String faction;
-    public String getFaction() { return faction; }
-    public UpgradeBase setFaction(String v) { faction = v; return this;}
-    boolean placeholder;
-    public boolean getPlaceholder() { return placeholder; }
-    public UpgradeBase setPlaceholder(boolean v) { placeholder = v; return this;}
-    String special;
-    public String getSpecial() { return special; }
-    public UpgradeBase setSpecial(String v) { special = v; return this;}
-    String title;
-    public String getTitle() { return title; }
-    public UpgradeBase setTitle(String v) { title = v; return this;}
-    boolean unique;
-    public boolean getUnique() { return unique; }
-    public UpgradeBase setUnique(boolean v) { unique = v; return this;}
-    String upType;
-    public String getUpType() { return upType; }
-    public UpgradeBase setUpType(String v) { upType = v; return this;}
-    ArrayList<EquippedUpgrade> equippedUpgrades = new ArrayList<EquippedUpgrade>();
+    String mAbility;
+    public String getAbility() { return mAbility; }
+    public UpgradeBase setAbility(String v) { mAbility = v; return this;}
+    int mCost;
+    public int getCost() { return mCost; }
+    public UpgradeBase setCost(int v) { mCost = v; return this;}
+    String mExternalId;
+    public String getExternalId() { return mExternalId; }
+    public UpgradeBase setExternalId(String v) { mExternalId = v; return this;}
+    String mFaction;
+    public String getFaction() { return mFaction; }
+    public UpgradeBase setFaction(String v) { mFaction = v; return this;}
+    boolean mPlaceholder;
+    public boolean getPlaceholder() { return mPlaceholder; }
+    public UpgradeBase setPlaceholder(boolean v) { mPlaceholder = v; return this;}
+    String mSpecial;
+    public String getSpecial() { return mSpecial; }
+    public UpgradeBase setSpecial(String v) { mSpecial = v; return this;}
+    String mTitle;
+    public String getTitle() { return mTitle; }
+    public UpgradeBase setTitle(String v) { mTitle = v; return this;}
+    boolean mUnique;
+    public boolean getUnique() { return mUnique; }
+    public UpgradeBase setUnique(boolean v) { mUnique = v; return this;}
+    String mUpType;
+    public String getUpType() { return mUpType; }
+    public UpgradeBase setUpType(String v) { mUpType = v; return this;}
+    ArrayList<EquippedUpgrade> mEquippedUpgrades = new ArrayList<EquippedUpgrade>();
     @SuppressWarnings("unchecked")
-    public ArrayList<EquippedUpgrade> getEquippedUpgrades() { return (ArrayList<EquippedUpgrade>)equippedUpgrades.clone(); }
+    public ArrayList<EquippedUpgrade> getEquippedUpgrades() { return (ArrayList<EquippedUpgrade>)mEquippedUpgrades.clone(); }
     @SuppressWarnings("unchecked")
-    public UpgradeBase setEquippedUpgrades(ArrayList<EquippedUpgrade> v) { equippedUpgrades = (ArrayList<EquippedUpgrade>)v.clone(); return this;}
+    public UpgradeBase setEquippedUpgrades(ArrayList<EquippedUpgrade> v) { mEquippedUpgrades = (ArrayList<EquippedUpgrade>)v.clone(); return this;}
 
     public void update(Map<String,Object> data) {
         super.update(data);
-        ability = DataUtils.stringValue((String)data.get("Ability"));
-        cost = DataUtils.intValue((String)data.get("Cost"));
-        externalId = DataUtils.stringValue((String)data.get("Id"));
-        faction = DataUtils.stringValue((String)data.get("Faction"));
-        placeholder = DataUtils.booleanValue((String)data.get("Placeholder"));
-        special = DataUtils.stringValue((String)data.get("Special"));
-        title = DataUtils.stringValue((String)data.get("Title"));
-        unique = DataUtils.booleanValue((String)data.get("Unique"));
-        upType = DataUtils.stringValue((String)data.get("Type"));
+        mAbility = DataUtils.stringValue((String)data.get("Ability"));
+        mCost = DataUtils.intValue((String)data.get("Cost"));
+        mExternalId = DataUtils.stringValue((String)data.get("Id"));
+        mFaction = DataUtils.stringValue((String)data.get("Faction"));
+        mPlaceholder = DataUtils.booleanValue((String)data.get("Placeholder"));
+        mSpecial = DataUtils.stringValue((String)data.get("Special"));
+        mTitle = DataUtils.stringValue((String)data.get("Title"));
+        mUnique = DataUtils.booleanValue((String)data.get("Unique"));
+        mUpType = DataUtils.stringValue((String)data.get("Type"));
     }
 
 }

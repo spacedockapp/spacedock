@@ -5,20 +5,20 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class EquippedShipBase {
-    Flagship flagship;
-    public Flagship getFlagship() { return flagship; }
-    public EquippedShipBase setFlagship(Flagship v) { flagship = v; return this;}
-    Ship ship;
-    public Ship getShip() { return ship; }
-    public EquippedShipBase setShip(Ship v) { ship = v; return this;}
-    Squad squad;
-    public Squad getSquad() { return squad; }
-    public EquippedShipBase setSquad(Squad v) { squad = v; return this;}
-    ArrayList<EquippedUpgrade> upgrades = new ArrayList<EquippedUpgrade>();
+    Flagship mFlagship;
+    public Flagship getFlagship() { return mFlagship; }
+    public EquippedShipBase setFlagship(Flagship v) { mFlagship = v; return this;}
+    Ship mShip;
+    public Ship getShip() { return mShip; }
+    public EquippedShipBase setShip(Ship v) { mShip = v; return this;}
+    Squad mSquad;
+    public Squad getSquad() { return mSquad; }
+    public EquippedShipBase setSquad(Squad v) { mSquad = v; return this;}
+    ArrayList<EquippedUpgrade> mUpgrades = new ArrayList<EquippedUpgrade>();
     @SuppressWarnings("unchecked")
-    public ArrayList<EquippedUpgrade> getUpgrades() { return (ArrayList<EquippedUpgrade>)upgrades.clone(); }
+    public ArrayList<EquippedUpgrade> getUpgrades() { return (ArrayList<EquippedUpgrade>)mUpgrades.clone(); }
     @SuppressWarnings("unchecked")
-    public EquippedShipBase setUpgrades(ArrayList<EquippedUpgrade> v) { upgrades = (ArrayList<EquippedUpgrade>)v.clone(); return this;}
+    public EquippedShipBase setUpgrades(ArrayList<EquippedUpgrade> v) { mUpgrades = (ArrayList<EquippedUpgrade>)v.clone(); return this;}
 
     public void update(Map<String,Object> data) {
     }

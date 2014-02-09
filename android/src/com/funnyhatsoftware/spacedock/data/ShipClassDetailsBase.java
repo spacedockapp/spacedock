@@ -5,34 +5,34 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class ShipClassDetailsBase {
-    String externalId;
-    public String getExternalId() { return externalId; }
-    public ShipClassDetailsBase setExternalId(String v) { externalId = v; return this;}
-    String frontArc;
-    public String getFrontArc() { return frontArc; }
-    public ShipClassDetailsBase setFrontArc(String v) { frontArc = v; return this;}
-    String name;
-    public String getName() { return name; }
-    public ShipClassDetailsBase setName(String v) { name = v; return this;}
-    String rearArc;
-    public String getRearArc() { return rearArc; }
-    public ShipClassDetailsBase setRearArc(String v) { rearArc = v; return this;}
-    ArrayList<Maneuver> maneuvers = new ArrayList<Maneuver>();
+    String mExternalId;
+    public String getExternalId() { return mExternalId; }
+    public ShipClassDetailsBase setExternalId(String v) { mExternalId = v; return this;}
+    String mFrontArc;
+    public String getFrontArc() { return mFrontArc; }
+    public ShipClassDetailsBase setFrontArc(String v) { mFrontArc = v; return this;}
+    String mName;
+    public String getName() { return mName; }
+    public ShipClassDetailsBase setName(String v) { mName = v; return this;}
+    String mRearArc;
+    public String getRearArc() { return mRearArc; }
+    public ShipClassDetailsBase setRearArc(String v) { mRearArc = v; return this;}
+    ArrayList<Maneuver> mManeuvers = new ArrayList<Maneuver>();
     @SuppressWarnings("unchecked")
-    public ArrayList<Maneuver> getManeuvers() { return (ArrayList<Maneuver>)maneuvers.clone(); }
+    public ArrayList<Maneuver> getManeuvers() { return (ArrayList<Maneuver>)mManeuvers.clone(); }
     @SuppressWarnings("unchecked")
-    public ShipClassDetailsBase setManeuvers(ArrayList<Maneuver> v) { maneuvers = (ArrayList<Maneuver>)v.clone(); return this;}
-    ArrayList<Ship> ships = new ArrayList<Ship>();
+    public ShipClassDetailsBase setManeuvers(ArrayList<Maneuver> v) { mManeuvers = (ArrayList<Maneuver>)v.clone(); return this;}
+    ArrayList<Ship> mShips = new ArrayList<Ship>();
     @SuppressWarnings("unchecked")
-    public ArrayList<Ship> getShips() { return (ArrayList<Ship>)ships.clone(); }
+    public ArrayList<Ship> getShips() { return (ArrayList<Ship>)mShips.clone(); }
     @SuppressWarnings("unchecked")
-    public ShipClassDetailsBase setShips(ArrayList<Ship> v) { ships = (ArrayList<Ship>)v.clone(); return this;}
+    public ShipClassDetailsBase setShips(ArrayList<Ship> v) { mShips = (ArrayList<Ship>)v.clone(); return this;}
 
     public void update(Map<String,Object> data) {
-        externalId = DataUtils.stringValue((String)data.get("Id"));
-        frontArc = DataUtils.stringValue((String)data.get("FrontArc"));
-        name = DataUtils.stringValue((String)data.get("Name"));
-        rearArc = DataUtils.stringValue((String)data.get("RearArc"));
+        mExternalId = DataUtils.stringValue((String)data.get("Id"));
+        mFrontArc = DataUtils.stringValue((String)data.get("FrontArc"));
+        mName = DataUtils.stringValue((String)data.get("Name"));
+        mRearArc = DataUtils.stringValue((String)data.get("RearArc"));
     }
 
 }
