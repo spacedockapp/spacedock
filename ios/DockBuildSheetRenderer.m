@@ -2,6 +2,13 @@
 
 #import <CoreText/CoreText.h>
 
+#import "DockEquippedShip+Addons.h"
+#import "DockCaptain+Addons.h"
+#import "DockUpgrade+Addons.h"
+#import "DockEquippedShip+Addons.h"
+#import "DockEquippedUpgrade+Addons.h"
+#import "DockSquad+Addons.h"
+
 NSString* kLabelFont = @"AvenirNext-Medium";
 NSString* kFieldFont = @"Noteworthy-Light";
 CGFloat kDefaultMargin = 6;
@@ -109,22 +116,95 @@ const CGFloat kShipGridHeight = 150;
 @interface DockShipGrid : NSObject
 @property (assign, nonatomic) CGRect bounds;
 @property (strong, nonatomic) UIBezierPath* boundsPath;
--(id)initWithBounds:(CGRect)bounds;
+@property (strong, nonatomic) DockEquippedShip* ship;
+@property (strong, nonatomic) NSMutableArray* upgrades;
+-(id)initWithBounds:(CGRect)bounds ship:(DockEquippedShip*)ship;
 @end
 
 @implementation DockShipGrid
 
--(id)initWithBounds:(CGRect)bounds
+-(id)initWithBounds:(CGRect)bounds ship:(DockEquippedShip*)ship
 {
     self = [super init];
     if (self != nil) {
         _bounds = bounds;
+        _ship = ship;
         CGRect upgradeListBounds = _bounds;
         upgradeListBounds.size.height -= kGridTotalSPHeight;
         _boundsPath = [UIBezierPath bezierPathWithRect: upgradeListBounds];
         _boundsPath.lineWidth = kDefaultLineWidth;
+        NSArray* equippedUpgrades = _ship.sortedUpgrades;
+        _upgrades = [[NSMutableArray alloc] initWithCapacity: equippedUpgrades.count];
+
+        for (DockEquippedUpgrade* upgrade in equippedUpgrades) {
+            if (![upgrade isPlaceholder] && ![upgrade.upgrade isCaptain]) {
+                [_upgrades addObject: upgrade];
+            }
+        }
     }
     return self;
+}
+
+-(NSString*)handleShip:(int)col
+{
+    switch(col) {
+    case 0:
+        return @"Ship";
+
+    case 2:
+        return [_ship factionCode];
+
+    case 3:
+        return [NSString stringWithFormat: @"%d", [_ship baseCost]];
+    }
+    
+    return [_ship descriptiveTitle];
+}
+
+-(NSString*)handleCaptain:(int)col
+{
+    DockEquippedUpgrade* equippedCaptain = [_ship equippedCaptain];
+    DockCaptain* captain = (DockCaptain*)[equippedCaptain upgrade];
+
+    switch(col) {
+    case 0:
+        return @"Cap";
+
+    case 2:
+        return [captain factionCode];
+
+    case 3:
+        return [NSString stringWithFormat: @"%d", equippedCaptain.cost];
+    }
+    
+    return captain.title;
+}
+
+-(NSString*)handleUpgrade:(int)col index:(long)index
+{
+    if (index < _upgrades.count) {
+        DockEquippedUpgrade* equippedUpgrade = _upgrades[index];
+        if (equippedUpgrade.isPlaceholder) {
+            return @"";
+        }
+        if (col == 0) {
+            return equippedUpgrade.upgrade.typeCode;
+        }
+        if (col == 2) {
+            return equippedUpgrade.upgrade.factionCode;
+        }
+
+        if (col == 3) {
+            if ([[equippedUpgrade overridden] boolValue]) {
+                return [NSString stringWithFormat: @"%@ (%d)", [equippedUpgrade overriddenCost], [equippedUpgrade nonOverriddenCost]];
+            }
+            return [NSString stringWithFormat: @"%d", [equippedUpgrade cost]];
+        }
+        
+        return equippedUpgrade.upgrade.title;
+    }
+
+    return nil;
 }
 
 -(void)draw
@@ -165,19 +245,49 @@ const CGFloat kShipGridHeight = 150;
     NSArray* labels = @[@"Type", @"Card Title", @"Faction", @"Cost"];
     CGRect labelBox = CGRectMake(_bounds.origin.x, _bounds.origin.y, kFixedGridColumnWidth, rowHeight);
     x = _bounds.origin.x;
+    y = _bounds.origin.y;
     DockTextBox* labelTextBox = [[DockTextBox alloc] initWithText: @""];
-    labelTextBox.font = [UIFont fontWithName: kLabelFont size: 7];
     labelTextBox.alignment = NSTextAlignmentCenter;
-    for (int i = 0; i < 4; ++i) {
-        NSString* label = labels[i];
-        labelTextBox.text = label;
-        if (i == 1) {
-            labelBox.size.width = secondColumnWidth;
-        } else {
-            labelBox.size.width = kFixedGridColumnWidth;
+    for (int j = 0; j < kGridRows; ++j) {
+        CGRect r = labelBox;
+        for (int i = 0; i < 4; ++i) {
+            NSString* s = nil;
+            labelTextBox.alignment = NSTextAlignmentCenter;
+            if (j == 0) {
+                s = labels[i];
+                labelTextBox.font = [UIFont fontWithName: kLabelFont size: 7];
+            } else {
+                if (_ship != nil) {
+                    switch (j) {
+                        case 1:
+                            s = [self handleShip: i];
+                            break;
+                            
+                        case 2:
+                            s = [self handleCaptain: i];
+                            break;
+                            
+                        default:
+                            s = [self handleUpgrade: i index: j - 3];
+                            break;
+                    }
+                    if (i == 1) {
+                        labelTextBox.alignment = NSTextAlignmentLeft;
+                    }
+                    labelTextBox.font = [UIFont fontWithName: kFieldFont size: 7];
+                }
+            }
+            if (i == 1) {
+                labelBox.size.width = secondColumnWidth;
+            } else {
+                labelBox.size.width = kFixedGridColumnWidth;
+            }
+            labelTextBox.text = s;
+            [labelTextBox draw: labelBox];
+            labelBox = CGRectOffset(labelBox, labelBox.size.width, 0);
         }
-        [labelTextBox draw: labelBox];
-        labelBox = CGRectOffset(labelBox, labelBox.size.width, 0);
+        r.origin.y += rowHeight;
+        labelBox = r;
     }
 
     CGFloat totalWidth = 2*kFixedGridColumnWidth + secondColumnWidth;
@@ -191,7 +301,7 @@ const CGFloat kShipGridHeight = 150;
     CGRect totalSPBoxText = totalSPBox;
     totalSPBoxText.origin.y += 3;
     totalSPBoxText.size.height -= 6;
-    totalSP.text = @"33";
+    totalSP.text = [NSString stringWithFormat: @"%d", [_ship cost]];
     totalSP.alignment = NSTextAlignmentCenter;
     [totalSP draw: totalSPBoxText];
     UIBezierPath* totalSPPath = [UIBezierPath bezierPathWithRect: totalSPBox];
@@ -203,7 +313,20 @@ const CGFloat kShipGridHeight = 150;
 
 @end
 
+@interface DockBuildSheetRenderer ()
+@property (strong, nonatomic) DockSquad* targetSquad;
+@end
+
 @implementation DockBuildSheetRenderer
+
+-(id)initWithSquad:(DockSquad*)targetSquad
+{
+    self = [super init];
+    if (self != nil) {
+        _targetSquad = targetSquad;
+    }
+    return self;
+}
 
 -(void)draw:(CGRect)targetBounds
 {
@@ -262,8 +385,15 @@ const CGFloat kShipGridHeight = 150;
     }
     
     CGFloat gridWith = fieldWidth - 5 * kDefaultMargin;
-    
+    NSOrderedSet* ships = _targetSquad.equippedShips;
+    NSInteger shipCount = ships.count;
+    DockEquippedShip* ship = nil;
     for (int i = 0; i < 4; ++i) {
+        if (i < shipCount) {
+            ship = [ships objectAtIndex: i];
+        } else {
+            ship = nil;
+        }
         CGFloat x, y;
         switch(i) {
         case 0:
@@ -284,7 +414,7 @@ const CGFloat kShipGridHeight = 150;
             break;
         }
         CGRect gridBox = CGRectMake(x, y, gridWith, kShipGridHeight);
-        DockShipGrid* grid = [[DockShipGrid alloc] initWithBounds: gridBox];
+        DockShipGrid* grid = [[DockShipGrid alloc] initWithBounds: gridBox ship: ship];
         [grid draw];
     }
 

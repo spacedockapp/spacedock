@@ -19,12 +19,19 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
-    _renderer = [[DockBuildSheetRenderer alloc] init];
+    _renderer = [[DockBuildSheetRenderer alloc] initWithSquad: _squad];
 }
 
 - (void)drawRect:(CGRect)rect
 {
     [_renderer draw: self.bounds];
+}
+
+-(void)setSquad:(DockSquad *)squad
+{
+    _squad = squad;
+    _renderer = [[DockBuildSheetRenderer alloc] initWithSquad: _squad];
+    [self setNeedsDisplay];
 }
 
 @end

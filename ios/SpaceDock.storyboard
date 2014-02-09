@@ -1313,7 +1313,7 @@
                         <barButtonItem title="Print" id="58h-dA-E6y">
                             <connections>
                                 <action selector="print:" destination="aSy-vS-qmb" id="yIE-ch-fa6"/>
-                                <segue destination="Roh-v4-uLK" kind="push" id="diN-XH-sr4"/>
+                                <segue destination="Roh-v4-uLK" kind="push" identifier="BuildSheet" id="diN-XH-sr4"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
