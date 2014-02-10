@@ -4,4 +4,10 @@
     <string name="app_name">Space Dock</string>
     <string name="title_ship_detail">Ship Detail</string>
 
+    <!-- Labels for configuration slots in each ship -->
+    <string name="captain_slot">Captain</string>
+    <string name="ship_slot">Ship</string>
+    <string name="crew_slot">Crew</string>
+    <string name="weapon_slot">Weaponry</string>
+    <string name="tech_slot">Tech</string>
 </resources>
