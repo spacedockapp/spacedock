@@ -118,23 +118,6 @@ public class EquippedShip extends EquippedShipBase {
         return sortedUpgrades;
     }
 
-    /*
-     * -(NSDictionary*)asJSON { NSMutableDictionary* json =
-     * [[NSMutableDictionary alloc] init]; DockShip* ship = self.ship; if (ship
-     * == nil) { [json setObject: @YES forKey: @"sideboard"]; } else { [json
-     * setObject: ship.externalId forKey: @"shipId"]; [json setObject:
-     * ship.title forKey: @"shipTitle"]; DockFlagship* flagship = self.flagship;
-     * if (flagship != nil) { [json setObject: flagship.externalId forKey:
-     * @"flagship"]; } } [json setObject: [self.equippedCaptain asJSON] forKey:
-     * @"captain"]; NSArray* upgrades = [self sortedUpgrades]; if
-     * (upgrades.count > 0) { NSMutableArray* upgradesArray = [[NSMutableArray
-     * alloc] initWithCapacity: upgrades.count]; for (DockEquippedUpgrade* eu in
-     * upgrades) { if (![eu isPlaceholder] && ![eu.upgrade isCaptain]) {
-     * [upgradesArray addObject: [eu asJSON]]; } } [json setObject:
-     * upgradesArray forKey: @"upgrades"]; } return [NSDictionary
-     * dictionaryWithDictionary: json]; }
-     */
-
     public String factionCode()
     {
         return getShip().factionCode();
@@ -266,6 +249,22 @@ public class EquippedShip extends EquippedShipBase {
 
     public void removeFlagship() {
         setFlagship(null);
+    }
+
+    public Object getFlagshipFaction() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public EquippedUpgrade mostExpensiveUpgradeOfFaction(String string) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public ArrayList<EquippedUpgrade> allUpgradesOfFaction(
+            String string) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }
