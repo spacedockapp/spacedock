@@ -17,6 +17,7 @@ public class Universe {
     public ArrayMap<String, Flagship> flagships = new ArrayMap<String, Flagship>();
     public ArrayMap<String, Set> sets = new ArrayMap<String, Set>();
     public ArrayMap<String, Set> selectedSets = new ArrayMap<String, Set>();
+    public ArrayMap<String, Upgrade> placeholders = new ArrayMap<String, Upgrade>();
 
     static Universe sUniverse;
 
@@ -62,24 +63,44 @@ public class Universe {
         return sets.get(setId);
     }
 
-    @SuppressWarnings("unchecked")
     public ArrayList<Set> getAllSets() {
         ArrayList<Set> setsCopy = new ArrayList<Set>();
         setsCopy.addAll(sets.values());
         return setsCopy;
     }
 
-    @SuppressWarnings("unchecked")
     public ArrayList<Set> includedSets() {
         ArrayList<Set> selectedSetsCopy = new ArrayList<Set>();
         selectedSetsCopy.addAll(selectedSets.values());
         return selectedSetsCopy;
     }
 
-    @SuppressWarnings("unchecked")
     public ArrayList<Ship> getShips() {
         ArrayList<Ship> shipsCopy = new ArrayList<Ship>();
         shipsCopy.addAll(ships.values());
         return shipsCopy;
+    }
+
+    public Upgrade findOrCreatePlaceholder(String upType) {
+        Upgrade placeholder = placeholders.get(upType);
+        if (placeholder == null) {
+            if (upType.equals("Weapon")) {
+                placeholder = new Weapon();
+            } else if (upType.equals("Tech")) {
+                placeholder = new Tech();
+            } else if (upType.equals("Talent")) {
+                placeholder = new Talent();
+            } else if (upType.equals("Captain")) {
+                placeholder = new Captain();
+            } else if (upType.equals("Crew")) {
+                placeholder = new Crew();
+            }
+            
+            placeholder.setTitle(upType);
+            placeholder.setUpType(upType);
+            placeholder.setPlaceholder(true);
+            placeholders.put(upType, placeholder);
+        }
+        return placeholder;
     }
 }

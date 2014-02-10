@@ -23,4 +23,5 @@ public class Flagship extends FlagshipBase {
 
         return mFaction.equals(targetShip.getFaction());
     }
+    
 }

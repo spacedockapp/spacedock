@@ -50,6 +50,14 @@ public class EquippedShip extends EquippedShipBase {
         return eu;
     }
 
+    public EquippedUpgrade addUpgrade(Upgrade upgrade, EquippedUpgrade maybeReplace,
+            boolean establishPlaceholders) {
+        EquippedUpgrade eu = new EquippedUpgrade();
+        eu.setUpgrade(upgrade);
+        mUpgrades.add(eu);
+        return eu;
+    }
+
     public void removeUpgrade(EquippedUpgrade eu) {
         mUpgrades.remove(eu);
     }
@@ -224,7 +232,89 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public void establishPlaceholders() {
-        // TODO establish placeholders
+        if (getCaptain() == null) {
+            String faction = shipFaction();
+            if (faction.equals("Federation") || faction.equals("Bajoran")) {
+                faction = "Federation";
+            }
+            Upgrade zcc = Captain.zeroCostCaptain(faction);
+            addUpgrade(zcc, null, false);
+        }
+
+        establishPlaceholdersForType("Talent", getTalent());
+        establishPlaceholdersForType("Crew", getCrew());
+        establishPlaceholdersForType("Weapon", getWeapon());
+        establishPlaceholdersForType("Tech", getTech());
+    }
+
+    private void establishPlaceholdersForType(String upType, int limit) {
+        int current = equipped(upType);
+        if (current > limit) {
+            removeOverLimit(upType, current, limit);
+        } else {
+            for (int i = current; i < limit; ++i) {
+                Upgrade upgrade = Upgrade.placeholder(upType);
+                addUpgrade(upgrade, null, false);
+            }
+        }
+    }
+
+    private void removeOverLimit(String upType, int current, int limit) {
+        int amountToRemove = current - limit;
+        removeUpgradesOfType(upType, amountToRemove);
+    }
+
+    private void removeUpgradesOfType(String upType, int targetCount) {
+        ArrayList<EquippedUpgrade> onesToRemove = new ArrayList<EquippedUpgrade>();
+        ArrayList<EquippedUpgrade> upgrades = getSortedUpgrades();
+
+        for (EquippedUpgrade eu : upgrades) {
+            if (eu.isPlaceholder() && upType.equals(eu.getUpgrade().getUpType())) {
+                onesToRemove.add(eu);
+            }
+
+            if (onesToRemove.size() == targetCount) {
+                break;
+            }
+        }
+
+        if (onesToRemove.size() != targetCount) {
+            for (EquippedUpgrade eu : upgrades) {
+                if (upType.equals(eu.getUpgrade().getUpType())) {
+                    onesToRemove.add(eu);
+                }
+
+                if (onesToRemove.size() == targetCount) {
+                    break;
+                }
+            }
+        }
+
+        for (EquippedUpgrade eu : onesToRemove) {
+            removeUpgrade(eu);
+        }
+
+    }
+
+    private int equipped(String upType) {
+        int count = 0;
+        ArrayList<EquippedUpgrade> upgrades = getSortedUpgrades();
+
+        for (EquippedUpgrade eu : upgrades) {
+            if (upType.equals(eu.getUpgrade().getUpType())) {
+                count += 1;
+            }
+
+        }
+        return count;
+    }
+
+    public String shipFaction() {
+        Ship ship = getShip();
+        if (ship == null) {
+            return "Federation";
+        }
+        return ship.getFaction();
     }
 
     public Explanation canAddUpgrade(Upgrade upgrade) {
@@ -267,15 +357,16 @@ public class EquippedShip extends EquippedShipBase {
         return null;
     }
 
-    //////////////////////////////////////////////////////////////////
+    // ////////////////////////////////////////////////////////////////
     // Slot management
-    //////////////////////////////////////////////////////////////////
+    // ////////////////////////////////////////////////////////////////
     private int getUpgradeIndexOfClass(Class slotClass, int slotIndex) {
         for (int i = 0; i < mUpgrades.size(); i++) {
             EquippedUpgrade equippedUpgrade = mUpgrades.get(i);
             if (equippedUpgrade.getUpgrade().getClass() == slotClass) {
                 slotIndex--;
-                if (slotIndex < 0) return i;
+                if (slotIndex < 0)
+                    return i;
             }
         }
         return -1;
@@ -283,7 +374,8 @@ public class EquippedShip extends EquippedShipBase {
 
     public EquippedUpgrade getUpgradeAtSlot(Class slotClass, int slotIndex) {
         int upgradeIndex = getUpgradeIndexOfClass(slotClass, slotIndex);
-        if (upgradeIndex < 0) return null;
+        if (upgradeIndex < 0)
+            return null;
         return mUpgrades.get(upgradeIndex);
     }
 
@@ -307,7 +399,7 @@ public class EquippedShip extends EquippedShipBase {
 
             mUpgrades.set(oldUpgradeIndex, eu);
         } else {
-            //simply add
+            // simply add
             mUpgrades.add(eu);
         }
     }

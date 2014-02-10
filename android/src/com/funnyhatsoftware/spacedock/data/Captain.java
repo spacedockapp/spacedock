@@ -2,7 +2,7 @@
 package com.funnyhatsoftware.spacedock.data;
 
 public class Captain extends CaptainBase {
-    public Upgrade zeroCostCaptain(String faction) {
+    public static Upgrade zeroCostCaptain(String faction) {
         return null;
     }
 

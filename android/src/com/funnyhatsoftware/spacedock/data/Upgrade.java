@@ -4,6 +4,11 @@ package com.funnyhatsoftware.spacedock.data;
 import java.util.ArrayList;
 
 public class Upgrade extends UpgradeBase {
+    
+    public static Upgrade placeholder(String upType) {
+        return Universe.getUniverse().findOrCreatePlaceholder(upType);
+    }
+
 
     public int limitForShip(EquippedShip targetShip) {
         if (isCaptain()) {
