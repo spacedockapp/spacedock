@@ -318,23 +318,66 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public Explanation canAddUpgrade(Upgrade upgrade) {
-        // TODO Auto-generated method stub
-        return new Explanation(false, "foo", "bar");
+        String msg = String.format("Can't add %s to %s", upgrade.getPlainDescription(),
+                getPlainDescription());
+        String expl = "";
+        String upgradeSpecial = upgrade.getSpecial();
+        if (upgradeSpecial.equals("OnlyJemHadarShips")) {
+            if (!getShip().isJemhadar()) {
+                return new Explanation(false, msg,
+                        "This upgrade can only be added to Jem'hadar ships.");
+            }
+        }
+        if (upgradeSpecial.equals("OnlyForKlingonCaptain")) {
+            if (!getCaptain().isKlingon()) {
+                return new Explanation(false, msg,
+                        "This upgrade can only be added to a Klingon Captain.");
+            }
+        }
+        if (upgradeSpecial.equals("OnlyForRomulanScienceVessel")
+                || upgradeSpecial.equals("OnlyForRaptorClassShips")) {
+            String legalShipClass = upgrade.targetShipClass();
+            if (!legalShipClass.equals(getShip().getShipClass())) {
+                return new Explanation(false, msg, String.format(
+                        "This upgrade can only be installed on ships of class %s.", legalShipClass));
+            }
+        }
+
+        int limit = upgrade.limitForShip(this);
+        if (limit <= 0) {
+            if (upgrade.isTalent()) {
+                expl = String.format("This ship's captain has no %s upgrade symbols.",
+                        upgrade.getUpType());
+            } else {
+                expl = String.format("This ship has no %s upgrade symbols on its ship card.",
+                        upgrade.getUpType());
+            }
+            return new Explanation(false, msg, expl);
+        }
+        return new Explanation(true);
     }
 
     public EquippedUpgrade containsUpgrade(Upgrade theUpgrade) {
-        // TODO Auto-generated method stub
+        for (EquippedUpgrade eu : mUpgrades) {
+            if (eu.getUpgrade() == theUpgrade) {
+                return eu;
+            }
+        }
         return null;
     }
 
     public EquippedUpgrade containsUpgradeWithName(String theName) {
-        // TODO Auto-generated method stub
+        for (EquippedUpgrade eu : mUpgrades) {
+            if (eu.getUpgrade().getTitle().equals(theName)) {
+                return eu;
+            }
+        }
         return null;
     }
 
     public EquippedShip duplicate() {
-        // TODO Auto-generated method stub
-        return null;
+        // TODO need to implement duplicate
+        throw new RuntimeException("Not yet implemented");
     }
 
     public void removeFlagship() {
@@ -342,19 +385,51 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public Object getFlagshipFaction() {
-        // TODO Auto-generated method stub
-        return null;
+        Flagship flagship = getFlagship();
+        if (flagship == null) {
+            return "";
+        }
+        return flagship.getFaction();
     }
 
-    public EquippedUpgrade mostExpensiveUpgradeOfFaction(String string) {
-        // TODO Auto-generated method stub
-        return null;
+    public EquippedUpgrade mostExpensiveUpgradeOfFaction(String faction) {
+        ArrayList<EquippedUpgrade> allUpgrades = allUpgradesOfFaction(faction);
+        if (allUpgrades.isEmpty()) {
+            return null;
+        }
+        return allUpgrades.get(0);
     }
 
     public ArrayList<EquippedUpgrade> allUpgradesOfFaction(
             String string) {
-        // TODO Auto-generated method stub
-        return null;
+        ArrayList<EquippedUpgrade> allUpgrades = new ArrayList<EquippedUpgrade>();
+        for (EquippedUpgrade eu: mUpgrades) {
+            if (!eu.getUpgrade().isCaptain()) {
+                allUpgrades.add(eu);
+            }
+        }
+        
+        if (allUpgrades.size() > 0) {
+            if (allUpgrades.size() > 1) {
+                Comparator<EquippedUpgrade> comparator = new Comparator<EquippedUpgrade>() {
+
+                    @Override
+                    public int compare(EquippedUpgrade a, EquippedUpgrade b) {
+                        int aCost = a.getUpgrade().getCost();
+                        int bCost = b.getUpgrade().getCost();
+                        if (aCost == bCost) {
+                            return 0;
+                        } else if (aCost > bCost) {
+                            return 1;
+                        }
+                        return -1;
+                    }
+
+                };
+                Collections.sort(allUpgrades, comparator);
+            }
+        }
+        return allUpgrades;
     }
 
     // ////////////////////////////////////////////////////////////////

@@ -68,7 +68,7 @@ public class Upgrade extends UpgradeBase {
         return getFaction().equals("Dominion");
     }
 
-    public Object targetShipClass() {
+    public String targetShipClass() {
 
         if (mSpecial.equals("OnlyForRomulanScienceVessel")) {
             return "Romulan Science Vessel";

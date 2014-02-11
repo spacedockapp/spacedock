@@ -2,6 +2,7 @@
 package com.funnyhatsoftware.spacedock.data;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -24,8 +25,12 @@ public class Squad extends SquadBase {
     }
 
     static private HashSet<String> allNames() {
-        // TODO Auto-generated method stub
-        return null;
+        ArrayList<Squad> allSquads = Universe.getUniverse().squads;
+        HashSet<String> names = new HashSet<String>();
+        for (Squad squad: allSquads) {
+            names.add(squad.getName());
+        }
+        return names;
     }
 
     public EquippedShip getSideboard() {

@@ -2,13 +2,18 @@
 package com.funnyhatsoftware.spacedock.data;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import android.text.TextUtils;
 
 public class ShipClassDetails extends ShipClassDetailsBase {
 
     public static ShipClassDetails find(String newShipClass) {
-        // TODO Auto-generated method stub
+        for (ShipClassDetails details: Universe.getUniverse().shipClassDetails.values()) {
+            if (details.getName().equals(newShipClass)) {
+                return details;
+            }
+        }
         return null;
     }
 
@@ -32,7 +37,7 @@ public class ShipClassDetails extends ShipClassDetailsBase {
         mManeuvers.add(maneuver);
     }
 
-    public void updateManeuvers(ArrayList<Maneuver> maneuvers) {
+    public void updateManeuvers(ArrayList<Map<String, Object>> m) {
         // TODO update maneuvers
     }
 

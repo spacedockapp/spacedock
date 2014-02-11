@@ -11,6 +11,7 @@ import android.util.Log;
 
 public class Universe {
     public ArrayMap<String, Ship> ships = new ArrayMap<String, Ship>();
+    public ArrayMap<String, ShipClassDetails> shipClassDetails = new ArrayMap<String, ShipClassDetails>();
     public ArrayMap<String, Captain> captains = new ArrayMap<String, Captain>();
     public ArrayMap<String, Upgrade> upgrades = new ArrayMap<String, Upgrade>();
     public ArrayMap<String, Resource> resources = new ArrayMap<String, Resource>();
@@ -18,6 +19,7 @@ public class Universe {
     public ArrayMap<String, Set> sets = new ArrayMap<String, Set>();
     public ArrayMap<String, Set> selectedSets = new ArrayMap<String, Set>();
     public ArrayMap<String, Upgrade> placeholders = new ArrayMap<String, Upgrade>();
+    public ArrayList<Squad> squads = new ArrayList<Squad>();
 
     static Universe sUniverse;
 

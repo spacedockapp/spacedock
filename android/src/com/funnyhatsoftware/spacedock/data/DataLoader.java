@@ -60,6 +60,23 @@ public class DataLoader extends DefaultHandler {
 
     }
 
+    void loadShipClassDetails() {
+        Map<String, ShipClassDetails> details = universe.shipClassDetails;
+        @SuppressWarnings("unchecked")
+        ArrayList<Object> dataList = (ArrayList<Object>) parsedData.get("ShipClassDetails");
+        for (Object oneDataObject : dataList) {
+            @SuppressWarnings("unchecked")
+            Map<String, Object> oneData = (Map<String, Object>) oneDataObject;
+            String externalId = (String) oneData.get("Id");
+            ShipClassDetails item = details.get(externalId);
+            if (item == null) {
+                item = new ShipClassDetails();
+                details.put(externalId, item);
+            }
+            item.update(oneData);
+        }
+    }
+
     public boolean load() throws ParserConfigurationException, SAXException,
             IOException {
         SAXParserFactory spf = SAXParserFactory.newInstance();
@@ -72,6 +89,8 @@ public class DataLoader extends DefaultHandler {
         xr.parse(new InputSource(xmlInput));
 
         loadSets();
+
+        loadShipClassDetails();
 
         ItemCreator shipHandler = new ItemCreator() {
 
@@ -226,6 +245,20 @@ public class DataLoader extends DefaultHandler {
                 creator.put(externalId, item);
             }
             item.update(oneData);
+
+            for (String key : oneData.keySet()) {
+                if (key.equals("Maneuvers")) {
+                    ShipClassDetails details = universe.shipClassDetails.get(externalId);
+                    ArrayList<Map<String, Object>> m = (ArrayList<Map<String, Object>>) oneData
+                            .get(key);
+                    details.updateManeuvers(m);
+                } else if (key.equals("ShipClass")) {
+                    Ship ship = (Ship) item;
+                    String shipClass = (String) oneData.get(key);
+                    ship.updateShipClass(shipClass);
+                }
+            }
+
             String allSetIDs = (String) oneData.get("Set");
             String[] allIds = allSetIDs.split(",");
             for (String setID : allIds) {

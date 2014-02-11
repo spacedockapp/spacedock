@@ -21,4 +21,8 @@ public class Captain extends CaptainBase {
     public int additionalCrewSlots() {
         return mSpecial.equals("AddTwoCrewSlotsDominionCostBonus") ? 2 : 0;
     }
+
+    public boolean isKlingon() {
+        return getFaction().equals("Klingon");
+    }
 }
