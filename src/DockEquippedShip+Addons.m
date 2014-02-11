@@ -505,7 +505,7 @@ static NSString* intToString(int v)
 
                 return NSOrderedDescending;
             };
-            [allUpgrades sortedArrayUsingComparator: cmp];
+            [allUpgrades sortUsingComparator: cmp];
         }
 
     }
