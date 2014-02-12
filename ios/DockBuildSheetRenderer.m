@@ -7,6 +7,8 @@
 #import "DockUpgrade+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
+#import "DockFlagship+Addons.h"
+#import "DockResource+Addons.h"
 #import "DockSquad+Addons.h"
 
 NSString* kLabelFont = @"AvenirNext-Medium";
@@ -77,6 +79,8 @@ const CGFloat kShipGridHeight = 150;
 @interface DockLabeledField : NSObject
 @property (strong, nonatomic) DockTextBox* label;
 @property (strong, nonatomic) DockTextBox* field;
+@property (assign, nonatomic) CGFloat labelFraction;
+@property (assign, nonatomic) NSInteger textAlignment;
 -(id)initWithLabel:(NSString*)label text:(NSString*)text;
 -(void)draw:(CGRect)bounds;
 @end
@@ -87,19 +91,22 @@ const CGFloat kShipGridHeight = 150;
 {
     self = [super init];
     if (self != nil) {
+        _textAlignment = NSTextAlignmentLeft;
         _field = [[DockTextBox alloc] initWithText: text];
         _field.font = [UIFont fontWithName: kFieldFont size: 11];
         _field.frame = YES;
+        _field.alignment = _textAlignment;
         _label = [[DockTextBox alloc] initWithText: label];
         _label.alignment = NSTextAlignmentRight;
         _label.font = [UIFont fontWithName: kLabelFont size: kLabelFontSize];
+        _labelFraction = 1.0/4.0;
     }
     return self;
 }
 
 -(void)draw:(CGRect)bounds
 {
-    CGFloat labelWidth = bounds.size.width / 4;
+    CGFloat labelWidth = bounds.size.width * _labelFraction;
     CGFloat fieldWidth = bounds.size.width - labelWidth;
     CGFloat baselineAdjust = 10;
     CGFloat y = bounds.origin.y + baselineAdjust;
@@ -109,6 +116,12 @@ const CGFloat kShipGridHeight = 150;
     CGRect fieldRect = CGRectMake(bounds.origin.x + labelWidth, y,
                                   fieldWidth, bounds.size.height);
     [_field draw: fieldRect];
+}
+
+-(void)setTextAlignment:(NSInteger)textAlignment
+{
+    _textAlignment = textAlignment;
+    _field.alignment = textAlignment;
 }
 
 @end
@@ -328,6 +341,139 @@ const CGFloat kShipGridHeight = 150;
     return self;
 }
 
+- (CGRect)drawShipGrids:(CGFloat)fieldWidth gridTop:(CGFloat)gridTop left:(CGFloat)left right:(CGFloat)right center:(CGFloat)center
+{
+    CGFloat gridWith = fieldWidth - 5 * kDefaultMargin;
+    NSOrderedSet* ships = _targetSquad.equippedShips;
+    NSInteger shipCount = ships.count;
+    DockEquippedShip* ship = nil;
+    CGFloat x, y, minX, maxX;
+    for (int i = 0; i < 4; ++i) {
+        if (i < shipCount) {
+            ship = [ships objectAtIndex: i];
+        } else {
+            ship = nil;
+        }
+        switch(i) {
+            case 0:
+                minX = x = left + center - gridWith - 2*kDefaultMargin;
+                y = gridTop;
+                break;
+            case 1:
+                x = right - gridWith - 2*kDefaultMargin;
+                y = gridTop;
+                maxX = x + gridWith;
+                break;
+            case 2:
+                x = left + center - gridWith - 2*kDefaultMargin;
+                y = gridTop + kShipGridHeight + 16;
+                break;
+            default:
+                x = right - gridWith - 2*kDefaultMargin;
+                y = gridTop + kShipGridHeight + 16;
+                break;
+        }
+        CGRect gridBox = CGRectMake(x, y, gridWith, kShipGridHeight);
+        DockShipGrid* grid = [[DockShipGrid alloc] initWithBounds: gridBox ship: ship];
+        [grid draw];
+    }
+    
+    return CGRectMake(minX, y + kShipGridHeight, maxX - minX, 0);
+}
+
+- (CGFloat)drawFields:(CGRect)fieldBox fields:(NSArray *)fields
+{
+    for (NSArray* parts in fields) {
+        DockLabeledField* field = [[DockLabeledField alloc] initWithLabel: parts[0]
+                                                                     text: parts[1]];
+        [field draw: fieldBox];
+        fieldBox = CGRectOffset(fieldBox, 0, fieldBox.size.height + kDefaultMargin);
+    }
+    return fieldBox.origin.y + fieldBox.size.height;
+}
+
+static float heightForStringDrawing(NSString *targetString, UIFont *targetFont, float targetWidth)
+{
+    NSMutableParagraphStyle* centered = [[NSMutableParagraphStyle alloc] init];
+    centered.alignment = NSTextAlignmentLeft;
+    NSDictionary* attributes = @{
+                    NSParagraphStyleAttributeName: centered,
+                    NSFontAttributeName: targetFont
+                    };
+    NSStringDrawingContext* context = [[NSStringDrawingContext alloc] init];
+    CGRect bounds = [targetString boundingRectWithSize: CGSizeMake(targetWidth, FLT_MAX)
+                                             options: NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin
+                                          attributes: attributes
+                                             context: context];
+    return bounds.size.height;
+}
+
+static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString* targetText)
+{
+    const CGFloat kMaxFontSize = 11;
+    const CGFloat kMinFontSize = 6;
+
+    if (targetText == nil) {
+        return kMaxFontSize;
+    }
+    float fontSize = kMaxFontSize;
+    CGFloat targetHeight = frameSize.height;
+    CGFloat notesHeight = FLT_MAX;
+    while (fontSize > kMinFontSize)
+    {
+        UIFont* newFont = [UIFont fontWithName: [originalFont fontName] size: fontSize];
+        notesHeight = heightForStringDrawing(targetText, newFont, frameSize.width);
+        if (notesHeight < targetHeight) {
+            break;
+        }
+        fontSize--;
+    }
+    
+    return fontSize;
+}
+
+- (void)drawNotes:(CGRect)fieldBox
+{
+    NSString* notes = @"This.\nThat\nAnother";
+    DockTextBox* notesBox = [[DockTextBox alloc] initWithText: notes];
+    notesBox.frame = YES;
+    UIFont* fieldFont = [UIFont fontWithName: kFieldFont size: 11];
+    notesBox.font = [UIFont fontWithName: kFieldFont size: fontSizeForText(fieldBox.size, fieldFont, notes)];
+    
+    [notesBox draw: fieldBox];
+}
+
+-(NSString*)resourceCost
+{
+    DockResource* res = _targetSquad.resource;
+    if (res) {
+        return [NSString stringWithFormat: @"%@", res.cost];
+    }
+    return @"";
+}
+
+-(NSString*)otherCost
+{
+    NSNumber* additionalPoints = _targetSquad.additionalPoints;
+    if (additionalPoints) {
+        return [NSString stringWithFormat: @"%@", additionalPoints];
+    }
+    return @"";
+}
+
+-(NSString*)resourceTile
+{
+    DockResource* res = _targetSquad.resource;
+    if (res) {
+        if ([res isFlagship]) {
+            DockFlagship* flagship = _targetSquad.flagship;
+            return [flagship plainDescription];
+        }
+        return res.title;
+    }
+    return @"";
+}
+
 -(void)draw:(CGRect)targetBounds
 {
     CGFloat left = targetBounds.origin.x;
@@ -361,63 +507,40 @@ const CGFloat kShipGridHeight = 150;
     CGFloat fieldsTop = top + blackBox.size.height;
     CGRect fieldBox = CGRectMake(left + kDefaultMargin, fieldsTop,
                                      fieldWidth,  kFieldHeight);
-    for (NSArray* parts in leftFields) {
-        DockLabeledField* field = [[DockLabeledField alloc] initWithLabel: parts[0]
-                                                                text: parts[1]];
-        [field draw: fieldBox];
-        fieldBox = CGRectOffset(fieldBox, 0, fieldBox.size.height + kDefaultMargin);
-    }
+    CGFloat fieldBottom = [self drawFields:fieldBox fields: leftFields];
 
     NSArray* rightFields = @[
         @[@"Name:", @"Rob Tsuk"],
         @[@"Email:", @"rob@tsuk.com"],
     ];
     
-    CGFloat fieldBottom = fieldBox.origin.y + fieldBox.size.height;
-
     fieldBox = CGRectMake(left + halfWidth + kDefaultMargin, fieldsTop,
                                      fieldWidth,  kFieldHeight);
-    for (NSArray* parts in rightFields) {
-        DockLabeledField* field = [[DockLabeledField alloc] initWithLabel: parts[0]
-                                                                text: parts[1]];
-        [field draw: fieldBox];
-        fieldBox = CGRectOffset(fieldBox, 0, fieldBox.size.height + kDefaultMargin);
-    }
+    [self drawFields:fieldBox fields: rightFields];
     
-    CGFloat gridWith = fieldWidth - 5 * kDefaultMargin;
-    NSOrderedSet* ships = _targetSquad.equippedShips;
-    NSInteger shipCount = ships.count;
-    DockEquippedShip* ship = nil;
-    for (int i = 0; i < 4; ++i) {
-        if (i < shipCount) {
-            ship = [ships objectAtIndex: i];
-        } else {
-            ship = nil;
-        }
-        CGFloat x, y;
-        switch(i) {
-        case 0:
-            x = left + halfWidth - gridWith - 2*kDefaultMargin;
-            y = fieldBottom;
-            break;
-        case 1:
-            x = right - gridWith - 2*kDefaultMargin;
-            y = fieldBottom;
-            break;
-        case 2:
-            x = left + halfWidth - gridWith - 2*kDefaultMargin;
-            y = fieldBottom + kShipGridHeight + 16;
-            break;
-        default:
-            x = right - gridWith - 2*kDefaultMargin;
-            y = fieldBottom + kShipGridHeight + 16;
-            break;
-        }
-        CGRect gridBox = CGRectMake(x, y, gridWith, kShipGridHeight);
-        DockShipGrid* grid = [[DockShipGrid alloc] initWithBounds: gridBox ship: ship];
-        [grid draw];
-    }
+    CGRect shipGridBox = [self drawShipGrids:fieldWidth gridTop:fieldBottom left:left right:right center:halfWidth];
 
+    fieldBox = CGRectMake(shipGridBox.origin.x, shipGridBox.origin.y + kDefaultMargin,
+                                     shipGridBox.size.width, 40);
+    [self drawNotes:fieldBox];
+    
+    CGRectOffset(fieldBox, 0, kDefaultMargin);
+    DockLabeledField* field = [[DockLabeledField alloc] initWithLabel: @"Resource Used:"
+                                                                 text: [self resourceTile]];
+    
+    CGFloat resourceNameFraction = 0.85;
+    
+    fieldBox = CGRectOffset(fieldBox, 0, fieldBox.size.height + kDefaultMargin);
+    fieldBox.size.width *= resourceNameFraction;
+    fieldBox.size.height = kFieldHeight;
+    [field draw: fieldBox];
+
+    fieldBox.origin.x += fieldBox.size.width;
+    fieldBox.size.width = shipGridBox.size.width * (1-resourceNameFraction);
+    field = [[DockLabeledField alloc] initWithLabel: @"SP" text: [self resourceCost]];
+    field.labelFraction = 0.6;
+    field.textAlignment = NSTextAlignmentCenter;
+    [field draw: fieldBox];
 }
 
 @end
