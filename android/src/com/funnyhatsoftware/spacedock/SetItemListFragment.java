@@ -1,8 +1,10 @@
 package com.funnyhatsoftware.spacedock;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -61,11 +63,9 @@ public class SetItemListFragment extends ListFragment {
         mEquippedShipNumber = getArguments().getInt(ARG_EQUIP_SHIP_NR);
         mSlotType = getArguments().getInt(ARG_SLOT_TYPE);
         mSlotNumber = getArguments().getInt(ARG_SLOT_NUMBER);
-        mAdapter = new ArrayAdapter<EquipHelper.SetItemWrapper>(
-                getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                EquipHelper.getItemsForSlot(mSlotType));
+        mAdapter = new SetItemAdapter(getActivity(), mSlotType);
         setListAdapter(mAdapter);
+
     }
 
     @Override
@@ -94,7 +94,8 @@ public class SetItemListFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         EquipHelper.SetItemWrapper wrapper = mAdapter.getItem(position);
-        mCallback.onSetItemSelected(mEquippedShipNumber, mSlotType, mSlotNumber, wrapper.getExternalId());
+        mCallback.onSetItemSelected(mEquippedShipNumber,
+                mSlotType, mSlotNumber, wrapper.getExternalId());
     }
 
     private void setActivatedPosition(int position) {
@@ -104,5 +105,29 @@ public class SetItemListFragment extends ListFragment {
             getListView().setItemChecked(position, true);
         }
         mActivatedPosition = position;
+    }
+
+    private static class SetItemAdapter extends ArrayAdapter<EquipHelper.SetItemWrapper> {
+        private final int mSlotType;
+
+        public SetItemAdapter(Context context, int slotType) {
+            super(context, SetItemHolder.getLayoutForSlot(slotType), R.id.title,
+                    EquipHelper.getItemsForSlot(slotType));
+            mSlotType = slotType;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View listItem = super.getView(position, convertView, parent);
+            assert(listItem != null);
+
+            SetItemHolder holder = (SetItemHolder) listItem.getTag();
+            if (holder == null) {
+                holder = SetItemHolder.createHolder(listItem, mSlotType);
+                listItem.setTag(holder);
+            }
+            holder.reinitialize(getItem(position).item);
+            return listItem;
+        }
     }
 }

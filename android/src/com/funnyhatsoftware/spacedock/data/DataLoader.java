@@ -4,6 +4,7 @@ package com.funnyhatsoftware.spacedock.data;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -22,7 +23,6 @@ import android.util.Log;
 
 public class DataLoader extends DefaultHandler {
     Universe universe;
-    String xmlFilePath;
     InputStream xmlInput;
     StringBuilder currentText = new StringBuilder();
     Map<String, Object> parsedData = new HashMap<String, Object>();
@@ -47,16 +47,12 @@ public class DataLoader extends DefaultHandler {
                 "Sets", "Upgrades", "Captains", "Ships", "Resources",
                 "Maneuvers", "ShipClassDetails", "Flagships"
         };
-        for (String v : a) {
-            listElementNames.add(v);
-        }
+        Collections.addAll(listElementNames, a);
         String[] b = {
                 "Set", "Upgrade", "Captain", "Ship", "Resource",
                 "Maneuver", "ShipClassDetail", "Flagship"
         };
-        for (String v : b) {
-            itemElementNames.add(v);
-        }
+        Collections.addAll(itemElementNames, b);
 
     }
 
@@ -276,15 +272,6 @@ public class DataLoader extends DefaultHandler {
             }
             item.update(oneData);
             creator.afterUpdate(item);
-
-            for (String key : oneData.keySet()) {
-                if (key.equals("Maneuvers")) {
-                    ShipClassDetails details = universe.shipClassDetails.get(externalId);
-                    ArrayList<Map<String, Object>> m = (ArrayList<Map<String, Object>>) oneData
-                            .get(key);
-                    details.updateManeuvers(m);
-                }
-            }
 
             String allSetIDs = (String) oneData.get("Set");
             String[] allIds = allSetIDs.split(",");

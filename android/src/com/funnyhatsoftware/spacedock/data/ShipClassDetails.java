@@ -67,4 +67,14 @@ public class ShipClassDetails extends ShipClassDetailsBase {
         return spds;
     }
 
+    @Override
+    public void update(Map<String, Object> data) {
+        super.update(data);
+
+        ArrayList<Map<String, Object>> maneuvers =
+                (ArrayList<Map<String, Object>>) data.get("Maneuvers");
+        if (maneuvers != null) {
+            updateManeuvers(maneuvers);
+        }
+    }
 }

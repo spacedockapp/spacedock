@@ -2,7 +2,7 @@
 package com.funnyhatsoftware.spacedock.data;
 
 public class DataUtils {
-    static int intValue(String v) {
+    public static int intValue(String v) {
         if (v == null) {
             return 0;
         }

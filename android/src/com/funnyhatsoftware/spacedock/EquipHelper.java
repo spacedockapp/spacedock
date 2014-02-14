@@ -8,12 +8,15 @@ import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Ship;
+import com.funnyhatsoftware.spacedock.data.Talent;
 import com.funnyhatsoftware.spacedock.data.Tech;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.data.Upgrade;
 import com.funnyhatsoftware.spacedock.data.Weapon;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class EquipHelper {
@@ -23,6 +26,7 @@ public class EquipHelper {
     public static final int SLOT_TYPE_CREW = 2;
     public static final int SLOT_TYPE_WEAPON = 3;
     public static final int SLOT_TYPE_TECH = 4;
+    public static final int SLOT_TYPE_TALENT = 5;
 
     private static Class[] CLASS_FOR_SLOT = new Class[] {
             Ship.class,
@@ -30,6 +34,7 @@ public class EquipHelper {
             Crew.class,
             Weapon.class,
             Tech.class,
+            Talent.class,
     };
 
     private static void insertShip(Ship ship, EquippedShip equippedShip) {
@@ -110,9 +115,21 @@ public class EquipHelper {
 
         @Override
         public String toString() {
-            return item.getTitle() + " " + item.getCost();
+            return item.getTitle();
         }
     }
+
+    private static Comparator<SetItemWrapper> sComparator = new Comparator<SetItemWrapper>() {
+        @Override
+        public int compare(SetItemWrapper lhs, SetItemWrapper rhs) {
+            int factionCompare = lhs.item.getFaction().compareTo(rhs.item.getFaction());
+            if (factionCompare != 0) {
+                return factionCompare;
+            }
+
+            return lhs.item.getCost() - rhs.item.getCost();
+        }
+    };
 
     public static List<SetItemWrapper> getItemsForSlot(int slotType) {
         List<SetItemWrapper> items = new ArrayList<SetItemWrapper>();
@@ -122,20 +139,19 @@ public class EquipHelper {
             for (int i = 0; i < universe.captains.size(); i++) {
                 items.add(new SetItemWrapper(universe.captains.valueAt(i)));
             }
-            return items;
         } else if (slotType == SLOT_TYPE_SHIP) {
             for (int i = 0; i < universe.ships.size(); i++) {
                 items.add(new SetItemWrapper(universe.ships.valueAt(i)));
             }
-            return items;
-        }
-
-        for (int i = 0; i < universe.upgrades.size(); i++) {
-            Upgrade upgrade = universe.upgrades.valueAt(i);
-            if (upgrade.getClass() == CLASS_FOR_SLOT[slotType]) {
-                items.add(new SetItemWrapper(upgrade));
+        } else {
+            for (int i = 0; i < universe.upgrades.size(); i++) {
+                Upgrade upgrade = universe.upgrades.valueAt(i);
+                if (upgrade.getClass() == CLASS_FOR_SLOT[slotType]) {
+                    items.add(new SetItemWrapper(upgrade));
+                }
             }
         }
+        Collections.sort(items, sComparator);
         return items;
     }
 }

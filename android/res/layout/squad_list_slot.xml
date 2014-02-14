@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/SelectableListItem"
     android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:layout_marginLeft="@dimen/listview_group_margin"
-    android:paddingLeft="@dimen/listview_horizontal_padding"
-    android:paddingRight="@dimen/listview_horizontal_padding"
-    android:background="?android:attr/activatedBackgroundIndicator">
+    android:minHeight="?android:attr/listPreferredItemHeightSmall"
+    android:gravity="center_vertical">
     <TextView
         android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:minHeight="?android:attr/listPreferredItemHeightSmall"
-        android:gravity="center_vertical"
         android:textColor="@color/default_text"
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
         android:singleLine="true"
@@ -24,8 +20,6 @@
         android:id="@+id/cost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="?android:attr/listPreferredItemHeightSmall"
-        android:gravity="center_vertical"
         android:textColor="@color/cost"
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
         android:text="0"/>
