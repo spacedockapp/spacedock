@@ -38,7 +38,12 @@ public class ShipClassDetails extends ShipClassDetailsBase {
     }
 
     public void updateManeuvers(ArrayList<Map<String, Object>> m) {
-        // TODO update maneuvers
+        mManeuvers.clear();
+        for (Map<String,Object> oneMove: m) {
+            Maneuver maneuver = new Maneuver();
+            mManeuvers.add(maneuver);
+            maneuver.update(oneMove);
+        }
     }
 
     public boolean hasRearFiringArc() {

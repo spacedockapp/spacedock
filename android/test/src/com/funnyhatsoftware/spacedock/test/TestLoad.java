@@ -14,7 +14,8 @@ public class TestLoad extends BaseTest {
 	}
 
 	public void testBasics() {
-		Ship entD = universe.ships.get("1001");
+        assertEquals("Ship count wrong", 59, universe.ships.size());
+        Ship entD = universe.ships.get("1001");
 		assertNotNull("Couldn't get ship", entD);
 		assertEquals(4, entD.getAttack());
 		assertEquals("U.S.S. Enterprise-D", entD.getTitle());
@@ -33,7 +34,7 @@ public class TestLoad extends BaseTest {
 		assertFalse("Romulan Pilot should not be unique",
 				romulanPilot.getUnique());
 
-		Flagship fs = universe.flagships.get("6002");
+		Flagship fs = universe.getFlagship("6002");
 		assertNotNull("Couldn't get flagship", fs);
 		assertEquals("attack value wrong", 1, fs.getAttack());
 		assertEquals("hull value wrong", 0, fs.getHull());

@@ -27,7 +27,7 @@ public class Squad extends SquadBase {
     static private HashSet<String> allNames() {
         ArrayList<Squad> allSquads = Universe.getUniverse().squads;
         HashSet<String> names = new HashSet<String>();
-        for (Squad squad: allSquads) {
+        for (Squad squad : allSquads) {
             names.add(squad.getName());
         }
         return names;
@@ -224,15 +224,17 @@ public class Squad extends SquadBase {
     public SquadBase setResource(Resource resource) {
         Resource oldResource = super.getResource();
         if (oldResource != resource) {
-            if (oldResource.getIsSideboard()) {
-                removeSideboard();
-            } else if (oldResource.getIsFlagship()) {
-                removeFlagship();
+            if (oldResource != null) {
+                if (oldResource.getIsSideboard()) {
+                    removeSideboard();
+                } else if (oldResource.getIsFlagship()) {
+                    removeFlagship();
+                }
             }
 
             super.setResource(resource);
 
-            if (resource.getIsSideboard()) {
+            if (resource != null && resource.getIsSideboard()) {
                 addSideboard();
             }
         }

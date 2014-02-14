@@ -20,6 +20,9 @@ public class Upgrade extends UpgradeBase {
         }
 
         String special = mSpecial;
+        if (special == null) {
+            special = "";
+        }
 
         if (special.equals("OnlyForRomulanScienceVessel")
                 || special.equals("OnlyForRaptorClassShips")) {

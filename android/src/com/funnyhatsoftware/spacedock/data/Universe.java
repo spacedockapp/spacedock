@@ -1,8 +1,13 @@
 
 package com.funnyhatsoftware.spacedock.data;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
 
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -23,25 +28,21 @@ public class Universe {
 
     static Universe sUniverse;
 
-    public static Universe getUniverse(Context context) {
+    public static Universe getUniverse(Context context) throws ParserConfigurationException, SAXException, IOException {
         if (sUniverse == null) {
-            // Debug.startMethodTracing();
-            sUniverse = new Universe();
+            Universe newUniverse = new Universe();
             AssetManager am = context.getAssets();
-            try {
-                InputStream is = am.open("data.xml");
-                DataLoader loader = new DataLoader(sUniverse, is);
-                loader.load();
-            } catch (Exception e) {
-                Log.e("spacedock", "Error while loading: " + e.toString());
-            }
-            // Debug.stopMethodTracing();
+            InputStream is = am.open("data.xml");
+            DataLoader loader = new DataLoader(newUniverse, is);
+            loader.load();
+            sUniverse = newUniverse;
         }
         return sUniverse;
     }
 
     public static Universe getUniverse() {
-        if (sUniverse == null) throw new IllegalStateException();
+        if (sUniverse == null)
+            throw new IllegalStateException();
         return sUniverse;
     }
 
@@ -97,12 +98,16 @@ public class Universe {
             } else if (upType.equals("Crew")) {
                 placeholder = new Crew();
             }
-            
+
             placeholder.setTitle(upType);
             placeholder.setUpType(upType);
             placeholder.setPlaceholder(true);
             placeholders.put(upType, placeholder);
         }
         return placeholder;
+    }
+
+    public Flagship getFlagship(String flagshipId) {
+        return flagships.get(flagshipId);
     }
 }

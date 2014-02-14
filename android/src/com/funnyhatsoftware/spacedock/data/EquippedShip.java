@@ -14,9 +14,19 @@ import android.text.TextUtils;
 public class EquippedShip extends EquippedShipBase {
 
     public EquippedShip() {
+        super();
+    }
+
+    public EquippedShip(Ship inShip, boolean establishPlaceholders) {
+        super();
+        mShip = inShip;
+        if (establishPlaceholders) {
+            establishPlaceholders();
+        }
     }
 
     public EquippedShip(Ship inShip) {
+        super();
         mShip = inShip;
     }
 
@@ -29,37 +39,94 @@ public class EquippedShip extends EquippedShipBase {
         JSONObject captainObject = shipData.optJSONObject("captain");
         String captainId = captainObject.optString("upgradeId");
         Captain captain = universe.getCaptain(captainId);
-        addUpgrade(captain);
+        addUpgrade(captain, null, false);
         JSONArray upgrades = shipData.getJSONArray("upgrades");
         for (int i = 0; i < upgrades.length(); ++i) {
             JSONObject upgradeData = upgrades.getJSONObject(i);
             String upgradeId = upgradeData.optString("upgradeId");
             Upgrade upgrade = universe.getUpgrade(upgradeId);
-            EquippedUpgrade eu = addUpgrade(upgrade);
+            EquippedUpgrade eu = addUpgrade(upgrade, null, false);
             if (upgradeData.optBoolean("costIsOverridden")) {
                 eu.setOverridden(true);
                 eu.setOverriddenCost(upgradeData.optInt("overriddenCost"));
             }
         }
+        String flagshipId = shipData.optString("flagship");
+        if (flagshipId != null) {
+            Flagship flagship = universe.getFlagship(flagshipId);
+            setFlagship(flagship);
+        }
+        establishPlaceholders();
     }
 
     public EquippedUpgrade addUpgrade(Upgrade upgrade) {
-        EquippedUpgrade eu = new EquippedUpgrade();
-        eu.setUpgrade(upgrade);
-        mUpgrades.add(eu);
-        return eu;
+        return addUpgrade(upgrade, null, true);
     }
 
     public EquippedUpgrade addUpgrade(Upgrade upgrade, EquippedUpgrade maybeReplace,
             boolean establishPlaceholders) {
         EquippedUpgrade eu = new EquippedUpgrade();
+        if (upgrade == null) {
+            return eu;
+        }
+        String upType = upgrade.getUpType();
         eu.setUpgrade(upgrade);
+        if (!upgrade.isPlaceholder()) {
+            EquippedUpgrade ph = findPlaceholder(upType);
+            if (ph != null) {
+                removeUpgrade(ph);
+            }
+        }
+        int limit = upgrade.limitForShip(this);
+        int current = equipped(upType);
+        if (current == limit) {
+            if (maybeReplace == null) {
+                maybeReplace = firstUpgrade(upType);
+            }
+
+            removeUpgrade(maybeReplace, false);
+        }
+
         mUpgrades.add(eu);
+
+        if (establishPlaceholders) {
+            establishPlaceholders();
+        }
+
         return eu;
     }
 
+    private EquippedUpgrade firstUpgrade(String upType) {
+
+        for (EquippedUpgrade eu : mUpgrades) {
+            if (upType.equals(eu.getUpgrade().getUpType())) {
+                return eu;
+            }
+        }
+
+        return null;
+    }
+
+    private EquippedUpgrade findPlaceholder(String upType) {
+
+        for (EquippedUpgrade eu : mUpgrades) {
+            if (eu.isPlaceholder() && upType.equals(eu.getUpgrade().getUpType())) {
+                return eu;
+            }
+        }
+
+        return null;
+    }
+
     public void removeUpgrade(EquippedUpgrade eu) {
+        removeUpgrade(eu, true);
+    }
+
+    private void removeUpgrade(EquippedUpgrade eu, boolean establishPlaceholders) {
         mUpgrades.remove(eu);
+        if (establishPlaceholders) {
+            establishPlaceholders();
+        }
     }
 
     public int calculateCost() {
@@ -142,17 +209,25 @@ public class EquippedShip extends EquippedShipBase {
 
     public int getAttack()
     {
-        int attack = getShip().getAttack();
+        int v = 0;
+        Ship ship = getShip();
+        if (ship != null) {
+            v = ship.getAttack();
+        }
         Flagship flagship = getFlagship();
         if (flagship != null) {
-            attack += flagship.getAttack();
+            v += flagship.getAttack();
         }
-        return attack;
+        return v;
     }
 
     public int getAgility()
     {
-        int v = getShip().getAgility();
+        int v = 0;
+        Ship ship = getShip();
+        if (ship != null) {
+            v = ship.getAgility();
+        }
         Flagship flagship = getFlagship();
         if (flagship != null) {
             v += flagship.getAgility();
@@ -162,7 +237,11 @@ public class EquippedShip extends EquippedShipBase {
 
     public int getHull()
     {
-        int v = getShip().getHull();
+        int v = 0;
+        Ship ship = getShip();
+        if (ship != null) {
+            v = ship.getHull();
+        }
         Flagship flagship = getFlagship();
         if (flagship != null) {
             v += flagship.getHull();
@@ -172,7 +251,12 @@ public class EquippedShip extends EquippedShipBase {
 
     public int getShield()
     {
-        int v = getShip().getShield();
+        int v = 0;
+        Ship ship = getShip();
+        if (ship != null) {
+            v = ship.getShield();
+        }
+
         Flagship flagship = getFlagship();
         if (flagship != null) {
             v += flagship.getShield();
@@ -181,7 +265,12 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public int getTech() {
-        int v = getShip().getTech();
+        int v = 0;
+        Ship ship = getShip();
+        if (ship != null) {
+            v = ship.getTech();
+        }
+
         Flagship flagship = getFlagship();
         if (flagship != null) {
             v += flagship.getTech();
@@ -190,7 +279,11 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public int getTalent() {
-        int v = getCaptain().getTalent();
+        int v = 0;
+        Captain captain = getCaptain();
+        if (captain != null) {
+            v = captain.getTalent();
+        }
         Flagship flagship = getFlagship();
         if (flagship != null) {
             v += flagship.getTalent();
@@ -199,7 +292,12 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public int getWeapon() {
-        int v = getShip().getWeapon();
+        int v = 0;
+        Ship ship = getShip();
+        if (ship != null) {
+            v = ship.getWeapon();
+        }
+
         Flagship flagship = getFlagship();
         if (flagship != null) {
             v += flagship.getWeapon();
@@ -208,7 +306,11 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public int getCrew() {
-        int v = getShip().getCrew();
+        int v = 0;
+        Ship ship = getShip();
+        if (ship != null) {
+            v = ship.getCrew();
+        }
         Flagship flagship = getFlagship();
         if (flagship != null) {
             v += flagship.getCrew();
@@ -228,7 +330,11 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     Captain getCaptain() {
-        return (Captain) getEquippedCaptain().getUpgrade();
+        EquippedUpgrade equippedCaptain = getEquippedCaptain();
+        if (equippedCaptain == null) {
+            return null;
+        }
+        return (Captain) equippedCaptain.getUpgrade();
     }
 
     public void establishPlaceholders() {
@@ -403,12 +509,12 @@ public class EquippedShip extends EquippedShipBase {
     public ArrayList<EquippedUpgrade> allUpgradesOfFaction(
             String string) {
         ArrayList<EquippedUpgrade> allUpgrades = new ArrayList<EquippedUpgrade>();
-        for (EquippedUpgrade eu: mUpgrades) {
+        for (EquippedUpgrade eu : mUpgrades) {
             if (!eu.getUpgrade().isCaptain()) {
                 allUpgrades.add(eu);
             }
         }
-        
+
         if (allUpgrades.size() > 0) {
             if (allUpgrades.size() > 1) {
                 Comparator<EquippedUpgrade> comparator = new Comparator<EquippedUpgrade>() {
