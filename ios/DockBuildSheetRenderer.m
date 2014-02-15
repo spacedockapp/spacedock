@@ -24,6 +24,24 @@ const int kTotalSPLabelFontSize = 11;
 const CGFloat kFixedGridColumnWidth = 40;
 const CGFloat kShipGridHeight = 150;
 
+static NSString* resourceCost(DockSquad* targetSquad)
+{
+    DockResource* res = targetSquad.resource;
+    if (res) {
+        return [NSString stringWithFormat: @"%@", res.cost];
+    }
+    return @"";
+}
+
+static NSString* otherCost(DockSquad* targetSquad)
+{
+    NSNumber* additionalPoints = targetSquad.additionalPoints;
+    if (additionalPoints) {
+        return [NSString stringWithFormat: @"%@", additionalPoints];
+    }
+    return @"";
+}
+
 
 @interface DockTextBox : NSObject
 @property (assign, nonatomic) NSInteger alignment;
@@ -326,6 +344,113 @@ const CGFloat kShipGridHeight = 150;
 
 @end
 
+@interface DockCostGrid : NSObject
+@property (assign, nonatomic) CGRect bounds;
+@property (strong, nonatomic) UIBezierPath* boundsPath;
+@property (strong, nonatomic) DockSquad* squad;
+@property NSArray* labels;
+@property NSArray* values;
+-(id)initWithBounds:(CGRect)bounds ship:(DockSquad*)squad;
+@end
+
+@implementation DockCostGrid
+
+-(id)initWithBounds:(CGRect)bounds ship:(DockSquad*)squad
+{
+    self = [super init];
+    if (self != nil) {
+        _bounds = bounds;
+        _squad = squad;
+        _boundsPath = [UIBezierPath bezierPathWithRect: bounds];
+        _boundsPath.lineWidth = kDefaultLineWidth;
+        _labels = @[
+            @"Ship 1",
+            @"Ship 2",
+            @"Ship 3",
+            @"Ship 4",
+            @"Resource",
+            @"Other",
+            @"Total"
+        ];
+        NSMutableArray* valuesMut = [[NSMutableArray alloc] initWithCapacity: 6];
+        for (int i  = 0; i < 4; ++i) {
+            if (i < _squad.equippedShips.count) {
+                DockEquippedShip* ship = _squad.equippedShips[i];
+                [valuesMut addObject: [NSString stringWithFormat: @"%d", ship.cost]];
+            } else {
+                [valuesMut addObject: @""];
+            }
+        }
+        [valuesMut addObject: resourceCost(_squad)];
+        [valuesMut addObject: otherCost(_squad)];
+        [valuesMut addObject: [NSString stringWithFormat: @"%d", _squad.cost]];
+        _values = [NSArray arrayWithArray: valuesMut];
+    }
+    return self;
+}
+
+-(void)draw
+{
+    [[UIColor blackColor] set];
+    [_boundsPath stroke];
+
+
+    int dividerCount = 2;
+    CGFloat left = _bounds.origin.x;
+    CGFloat rowHeight = _bounds.size.height / 2;
+    CGFloat right = left + _bounds.size.width;
+    CGFloat y = _bounds.origin.y + rowHeight;
+    [[UIColor lightGrayColor] set];
+    for (int i = 0; i < dividerCount; ++i) {
+        UIBezierPath* p = [UIBezierPath bezierPath];
+        [p moveToPoint: CGPointMake(left, y)];
+        [p addLineToPoint: CGPointMake(right, y)];
+        p.lineWidth = kGridDividerWidth;
+        [p stroke];
+        y += rowHeight;
+    }
+    
+    CGFloat top = _bounds.origin.y;
+    CGFloat bottom = top + _bounds.size.height;
+    CGFloat colWidth = _bounds.size.width / _labels.count;
+    CGFloat x = _bounds.origin.x + colWidth;
+    int horizDividers = _labels.count - 1;
+    for (int i = 0; i < horizDividers; ++i) {
+        UIBezierPath* p = [UIBezierPath bezierPath];
+        [p moveToPoint: CGPointMake(x, top)];
+        [p addLineToPoint: CGPointMake(x, bottom)];
+        p.lineWidth = kGridDividerWidth;
+        [p stroke];
+        x += colWidth;
+    }
+
+    CGRect labelBox = CGRectMake(_bounds.origin.x, _bounds.origin.y, colWidth, rowHeight);
+    x = _bounds.origin.x;
+    y = _bounds.origin.y;
+    DockTextBox* labelTextBox = [[DockTextBox alloc] initWithText: @""];
+    labelTextBox.alignment = NSTextAlignmentCenter;
+    labelBox.size.width = colWidth;
+    for (int j = 0; j < _labels.count; ++j) {
+        CGRect r = labelBox;
+        for (int i = 0; i < 2; ++i) {
+            if (i == 0) {
+                labelTextBox.text = _labels[j];
+                labelTextBox.font = [UIFont fontWithName: kLabelFont size: kTotalSPLabelFontSize];
+            } else {
+                labelTextBox.font = [UIFont fontWithName: kFieldFont size: 11];
+                labelTextBox.text = _values[j];
+            }
+            [labelTextBox draw: labelBox];
+            labelBox.origin.y += rowHeight;
+        }
+        labelBox = r;
+        labelBox = CGRectOffset(labelBox, labelBox.size.width, 0);
+    }
+}
+
+@end
+
+
 @interface DockBuildSheetRenderer ()
 @property (strong, nonatomic) DockSquad* targetSquad;
 @end
@@ -432,7 +557,7 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
     return fontSize;
 }
 
-- (void)drawNotes:(CGRect)fieldBox
+- (CGFloat)drawNotes:(CGRect)fieldBox
 {
     NSString* notes = @"This.\nThat\nAnother";
     DockTextBox* notesBox = [[DockTextBox alloc] initWithText: notes];
@@ -441,24 +566,17 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
     notesBox.font = [UIFont fontWithName: kFieldFont size: fontSizeForText(fieldBox.size, fieldFont, notes)];
     
     [notesBox draw: fieldBox];
+    return CGRectGetMaxY(fieldBox);
 }
 
 -(NSString*)resourceCost
 {
-    DockResource* res = _targetSquad.resource;
-    if (res) {
-        return [NSString stringWithFormat: @"%@", res.cost];
-    }
-    return @"";
+    return resourceCost(_targetSquad);
 }
 
 -(NSString*)otherCost
 {
-    NSNumber* additionalPoints = _targetSquad.additionalPoints;
-    if (additionalPoints) {
-        return [NSString stringWithFormat: @"%@", additionalPoints];
-    }
-    return @"";
+    return otherCost(_targetSquad);
 }
 
 -(NSString*)resourceTile
@@ -472,6 +590,26 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
         return res.title;
     }
     return @"";
+}
+
+- (CGFloat)drawResources:(CGRect)fieldBox shipGridBox:(CGRect)shipGridBox
+{
+    DockLabeledField* field = [[DockLabeledField alloc] initWithLabel: @"Resource Used:"
+                                                                 text: [self resourceTile]];
+    
+    CGFloat resourceNameFraction = 0.85;
+    
+    fieldBox.size.width *= resourceNameFraction;
+    fieldBox.size.height = kFieldHeight;
+    [field draw: fieldBox];
+    
+    fieldBox.origin.x += fieldBox.size.width;
+    fieldBox.size.width = shipGridBox.size.width * (1-resourceNameFraction);
+    field = [[DockLabeledField alloc] initWithLabel: @"SP" text: [self resourceCost]];
+    field.labelFraction = 0.6;
+    field.textAlignment = NSTextAlignmentCenter;
+    [field draw: fieldBox];
+    return CGRectGetMaxY(fieldBox);
 }
 
 -(void)draw:(CGRect)targetBounds
@@ -522,25 +660,16 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
 
     fieldBox = CGRectMake(shipGridBox.origin.x, shipGridBox.origin.y + kDefaultMargin,
                                      shipGridBox.size.width, 40);
-    [self drawNotes:fieldBox];
-    
-    CGRectOffset(fieldBox, 0, kDefaultMargin);
-    DockLabeledField* field = [[DockLabeledField alloc] initWithLabel: @"Resource Used:"
-                                                                 text: [self resourceTile]];
-    
-    CGFloat resourceNameFraction = 0.85;
-    
-    fieldBox = CGRectOffset(fieldBox, 0, fieldBox.size.height + kDefaultMargin);
-    fieldBox.size.width *= resourceNameFraction;
-    fieldBox.size.height = kFieldHeight;
-    [field draw: fieldBox];
+    CGFloat notesBottom = [self drawNotes:fieldBox];
 
-    fieldBox.origin.x += fieldBox.size.width;
-    fieldBox.size.width = shipGridBox.size.width * (1-resourceNameFraction);
-    field = [[DockLabeledField alloc] initWithLabel: @"SP" text: [self resourceCost]];
-    field.labelFraction = 0.6;
-    field.textAlignment = NSTextAlignmentCenter;
-    [field draw: fieldBox];
+    fieldBox = CGRectMake(shipGridBox.origin.x, notesBottom + kDefaultMargin,
+                                     shipGridBox.size.width, 40);
+    CGFloat resourcesBottom = [self drawResources:fieldBox shipGridBox:shipGridBox];
+
+    CGRect costBox = CGRectMake(shipGridBox.origin.x, resourcesBottom + kDefaultMargin*3,
+                                     shipGridBox.size.width, 40);
+    DockCostGrid* costGrid = [[DockCostGrid alloc] initWithBounds: costBox ship: _targetSquad];
+    [costGrid draw];
 }
 
 @end
