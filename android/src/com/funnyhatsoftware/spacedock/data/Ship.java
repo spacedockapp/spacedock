@@ -143,18 +143,6 @@ public class Ship extends ShipBase {
         return actions;
     }
 
-    public void updateShipClass(String newShipClass) {
-        if (mShipClass == null || !mShipClass.equals(newShipClass)) {
-            mShipClass = newShipClass;
-            ShipClassDetails details = ShipClassDetails.find(newShipClass);
-            if (details != null) {
-                mShipClassDetails = details;
-            } else {
-                Log.e("spacedock", "Failed to find class " + newShipClass);
-            }
-        }
-    }
-
     public String movesSummary() {
         if (mShipClassDetails == null) {
             return "";

@@ -17,6 +17,7 @@ import android.util.Log;
 public class Universe {
     public ArrayMap<String, Ship> ships = new ArrayMap<String, Ship>();
     public ArrayMap<String, ShipClassDetails> shipClassDetails = new ArrayMap<String, ShipClassDetails>();
+    public ArrayMap<String, ShipClassDetails> shipClassDetailsByName = new ArrayMap<String, ShipClassDetails>();
     public ArrayMap<String, Captain> captains = new ArrayMap<String, Captain>();
     public ArrayMap<String, Upgrade> upgrades = new ArrayMap<String, Upgrade>();
     public ArrayMap<String, Resource> resources = new ArrayMap<String, Resource>();
@@ -109,5 +110,14 @@ public class Universe {
 
     public Flagship getFlagship(String flagshipId) {
         return flagships.get(flagshipId);
+    }
+    
+    public void addShipClassDetails(ShipClassDetails details) {
+        shipClassDetails.put(details.getExternalId(), details);
+        shipClassDetailsByName.put(details.getName(), details);
+    }
+
+    public ShipClassDetails getShipClassDetailsByName(String shipClass) {
+        return shipClassDetailsByName.get(shipClass);
     }
 }

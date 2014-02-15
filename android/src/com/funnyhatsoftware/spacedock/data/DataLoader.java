@@ -71,9 +71,9 @@ public class DataLoader extends DefaultHandler {
             ShipClassDetails item = details.get(externalId);
             if (item == null) {
                 item = new ShipClassDetails();
-                details.put(externalId, item);
             }
             item.update(oneData);
+            universe.addShipClassDetails(item);
         }
     }
 
@@ -109,6 +109,18 @@ public class DataLoader extends DefaultHandler {
                 universe.ships.put(externalId, (Ship) s);
             }
 
+            @Override
+            public void afterUpdate(SetItem s) {
+                Ship ship = (Ship) s;
+                if (ship.getShipClassDetails() == null) {
+                    ShipClassDetails details = universe.getShipClassDetailsByName(ship
+                            .getShipClass());
+                    if (details != null) {
+                        ship.setShipClassDetails(details);
+                    }
+                }
+            }
+
         };
 
         loadDataItems("Ships", shipHandler);
@@ -128,6 +140,10 @@ public class DataLoader extends DefaultHandler {
             @Override
             public void put(String externalId, SetItem s) {
                 universe.captains.put(externalId, (Captain) s);
+            }
+
+            @Override
+            public void afterUpdate(SetItem s) {
             }
 
         };
@@ -160,6 +176,10 @@ public class DataLoader extends DefaultHandler {
                 universe.upgrades.put(externalId, (Upgrade) s);
             }
 
+            @Override
+            public void afterUpdate(SetItem s) {
+            }
+
         };
 
         loadDataItems("Upgrades", upgradeHandler);
@@ -181,6 +201,10 @@ public class DataLoader extends DefaultHandler {
                 universe.flagships.put(externalId, (Flagship) s);
             }
 
+            @Override
+            public void afterUpdate(SetItem s) {
+            }
+
         };
 
         loadDataItems("Flagships", flagshipHandler);
@@ -200,6 +224,10 @@ public class DataLoader extends DefaultHandler {
             @Override
             public void put(String externalId, SetItem s) {
                 universe.resources.put(externalId, (Resource) s);
+            }
+
+            @Override
+            public void afterUpdate(SetItem s) {
             }
 
         };
@@ -230,6 +258,8 @@ public class DataLoader extends DefaultHandler {
         public SetItem get(String externalId);
 
         public void put(String externalId, SetItem s);
+
+        public void afterUpdate(SetItem s);
     }
 
     @SuppressWarnings("unchecked")
@@ -245,6 +275,7 @@ public class DataLoader extends DefaultHandler {
                 creator.put(externalId, item);
             }
             item.update(oneData);
+            creator.afterUpdate(item);
 
             for (String key : oneData.keySet()) {
                 if (key.equals("Maneuvers")) {
@@ -252,10 +283,6 @@ public class DataLoader extends DefaultHandler {
                     ArrayList<Map<String, Object>> m = (ArrayList<Map<String, Object>>) oneData
                             .get(key);
                     details.updateManeuvers(m);
-                } else if (key.equals("ShipClass")) {
-                    Ship ship = (Ship) item;
-                    String shipClass = (String) oneData.get(key);
-                    ship.updateShipClass(shipClass);
                 }
             }
 
@@ -282,9 +309,9 @@ public class DataLoader extends DefaultHandler {
             return false;
         }
 
-        if (elementName == "Set") {
+        if (elementName.equals("Set")) {
             String parentName = parentName();
-            if (parentName != "Sets") {
+            if (!parentName.equals("Sets")) {
                 return false;
             }
         }
@@ -295,9 +322,9 @@ public class DataLoader extends DefaultHandler {
         if (!listElementNames.contains(elementName)) {
             return false;
         }
-        if (elementName == "Set") {
+        if (elementName.equals("Set")) {
             String parentName = parentName();
-            if (parentName != "Sets") {
+            if (!parentName.equals("Sets")) {
                 return false;
             }
         }
@@ -331,11 +358,11 @@ public class DataLoader extends DefaultHandler {
                 elementStack.add(currentElement);
             }
             currentElement = new HashMap<String, Object>();
-        } else if (localName == "Data") {
+        } else if (localName.equals("Data")) {
             dataVersion = attributes.getValue("version");
             if (versionOnly) {
                 abortParsing();
-            } else if (!force && dataVersion == currentVersion
+            } else if (!force && dataVersion.equals(currentVersion)
                     && dataVersion.length() > 0) {
                 versionMatched = true;
                 abortParsing();
@@ -350,7 +377,7 @@ public class DataLoader extends DefaultHandler {
         super.endElement(uri, localName, qName);
         if (isList(localName)) {
             if (currentList != null) {
-                if (localName == "Maneuvers") {
+                if (localName.equals("Maneuvers")) {
                     currentElement.put(localName, currentList);
                 } else {
                     parsedData.put(localName, currentList);
@@ -375,7 +402,7 @@ public class DataLoader extends DefaultHandler {
                     currentElement.put(entry.getKey(), entry.getValue());
                 }
 
-                if (currentText != null && localName == "Set") {
+                if (currentText != null && localName.equals("Set")) {
                     String s = currentText.toString().trim();
                     currentElement.put("ProduceName", s);
                 }
