@@ -739,10 +739,15 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
     CGFloat halfWidth = targetBounds.size.width/2;
     CGFloat fieldWidth = halfWidth - 3 * kDefaultMargin;
     
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    NSString* eventDateString = [dateFormatter stringFromDate: _date];
+
     NSArray* leftFields = @[
-        @[@"Date:", @"2/3/2014"],
-        @[@"Event:", @"Dominion Wary OP 5"],
-        @[@"Faction:", @"Romulan"],
+        @[@"Date:", eventDateString],
+        @[@"Event:", _event],
+        @[@"Faction:", _faction],
     ];
 
     CGFloat fieldsTop = top + blackBox.size.height;
@@ -751,8 +756,8 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
     CGFloat fieldBottom = [self drawFields:fieldBox fields: leftFields];
 
     NSArray* rightFields = @[
-        @[@"Name:", @"Rob Tsuk"],
-        @[@"Email:", @"rob@tsuk.com"],
+        @[@"Name:", _name],
+        @[@"Email:", _email],
     ];
     
     fieldBox = CGRectMake(left + halfWidth + kDefaultMargin, fieldsTop,

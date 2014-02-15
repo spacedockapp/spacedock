@@ -6,6 +6,11 @@
 @interface DockBuildSheetPrintRenderer : UIPrintPageRenderer {
     DockSquad* _squad;
 }
+@property (strong, nonatomic) NSString* name;
+@property (strong, nonatomic) NSString* email;
+@property (strong, nonatomic) NSString* event;
+@property (strong, nonatomic) NSString* faction;
+@property (strong, nonatomic) NSDate* date;
 -(id)initWithSquad:(DockSquad*)squad;
 @end
 
@@ -28,47 +33,61 @@
 - (void)drawContentForPageAtIndex:(NSInteger)pageIndex inRect:(CGRect)contentRect
 {
     DockBuildSheetRenderer* renderer = [[DockBuildSheetRenderer alloc] initWithSquad: _squad];
+    renderer.name = _name;
+    renderer.email = _email;
+    renderer.faction = _faction;
+    renderer.event = _event;
+    renderer.date = _date;
     [renderer draw: contentRect];
 }
 
 @end
 
-@interface DockBuildSheetViewController () <UIScrollViewDelegate>
-@property (assign, nonatomic) IBOutlet DockBuildSheetView* sheetView;
+@interface DockBuildSheetViewController ()
+@property (assign, nonatomic) IBOutlet UIDatePicker* datePicker;
+@property (assign, nonatomic) IBOutlet UITextField* nameField;
+@property (assign, nonatomic) IBOutlet UITextField* emailField;
+@property (assign, nonatomic) IBOutlet UITextField* eventField;
+@property (assign, nonatomic) IBOutlet UITextField* factionField;
 @end
 
 @implementation DockBuildSheetViewController
 
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
-{
-    return _sheetView;
-}
-
 -(void)setSquad:(DockSquad *)squad
 {
     _squad = squad;
-    _sheetView.squad = squad;
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear: animated];
-    UIScrollView* scrollView = (UIScrollView*)self.view;
-    scrollView.contentSize = _sheetView.bounds.size;
-    scrollView.delegate = self;
-    scrollView.minimumZoomScale=0.25;
-    scrollView.maximumZoomScale=1;
-    scrollView.zoomScale = 1;
-    _sheetView.squad = _squad;
-    NSMutableData* pdfData = [[NSMutableData alloc] init];
-    UIGraphicsBeginPDFContextToData(pdfData, CGRectZero, nil);
-    UIGraphicsBeginPDFPage();
-    CGRect pageBounds = UIGraphicsGetPDFContextBounds();
-    CGRect blackBox = CGRectMake(0, 0, pageBounds.size.width, 100);
-    [[UIColor blackColor] set];
-    UIBezierPath* blackBoxPath = [UIBezierPath bezierPathWithRect: blackBox];
-    [blackBoxPath fill];
-    UIGraphicsEndPDFContext();
+}
+
+static NSString* kPlayerNameKey = @"playerName";
+static NSString* kPlayerEmailKey = @"playerEmail";
+static NSString* kEventFactionKey = @"eventFaction";
+static NSString* kEventNameKey = @"eventName";
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    _nameField.text = [defaults stringForKey: kPlayerNameKey];
+    _emailField.text = [defaults stringForKey: kPlayerEmailKey];
+    _factionField.text = [defaults stringForKey: kEventFactionKey];
+    _eventField.text = [defaults stringForKey: kEventNameKey];
+    [super viewWillAppear: animated];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject: _nameField.text forKey: kPlayerNameKey];
+    [defaults setObject: _emailField.text forKey: kPlayerEmailKey];
+    [defaults setObject: _factionField.text forKey: kEventFactionKey];
+    [defaults setObject: _eventField.text forKey: kEventNameKey];
+
+    [super viewWillDisappear: animated];
 }
 
 -(IBAction)print:(id)sender
@@ -80,6 +99,11 @@
     }
     
     DockBuildSheetPrintRenderer* renderer = [[DockBuildSheetPrintRenderer alloc] initWithSquad: _squad];
+    renderer.name = _nameField.text;
+    renderer.email = _emailField.text;
+    renderer.event = _eventField.text;
+    renderer.faction = _factionField.text;
+    renderer.date = _datePicker.date;
     controller.printPageRenderer = renderer;
     
     UIPrintInteractionCompletionHandler completionHandler =
