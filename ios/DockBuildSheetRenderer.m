@@ -12,6 +12,7 @@
 #import "DockSquad+Addons.h"
 
 NSString* kLabelFont = @"AvenirNext-Medium";
+NSString* kLabelFontNarrow = @"AvenirNextCondensed-Medium";
 NSString* kFieldFont = @"Noteworthy-Light";
 CGFloat kDefaultMargin = 6;
 CGFloat kFieldHeight = 20;
@@ -350,12 +351,12 @@ static NSString* otherCost(DockSquad* targetSquad)
 @property (strong, nonatomic) DockSquad* squad;
 @property NSArray* labels;
 @property NSArray* values;
--(id)initWithBounds:(CGRect)bounds ship:(DockSquad*)squad;
+-(id)initWithBounds:(CGRect)bounds squad:(DockSquad*)squad;
 @end
 
 @implementation DockCostGrid
 
--(id)initWithBounds:(CGRect)bounds ship:(DockSquad*)squad
+-(id)initWithBounds:(CGRect)bounds squad:(DockSquad*)squad
 {
     self = [super init];
     if (self != nil) {
@@ -389,7 +390,7 @@ static NSString* otherCost(DockSquad* targetSquad)
     return self;
 }
 
--(void)draw
+-(CGFloat)draw
 {
     [[UIColor blackColor] set];
     [_boundsPath stroke];
@@ -446,10 +447,112 @@ static NSString* otherCost(DockSquad* targetSquad)
         labelBox = r;
         labelBox = CGRectOffset(labelBox, labelBox.size.width, 0);
     }
+    
+    return CGRectGetMaxY(_bounds);
 }
 
 @end
 
+@interface DockResultsGrid : NSObject
+@property (assign, nonatomic) CGRect bounds;
+@property (strong, nonatomic) UIBezierPath* boundsPath;
+@property (strong, nonatomic) NSString* title;
+@property (strong, nonatomic) NSArray* labels;
+@property (strong, nonatomic) NSArray* columnFractions;
+@property (assign, nonatomic) BOOL numberRows;
+-(id)initWithBounds:(CGRect)bounds;
+@end
+
+@implementation DockResultsGrid
+
+-(id)initWithBounds:(CGRect)bounds
+{
+    self = [super init];
+    if (self != nil) {
+        _bounds = bounds;
+        _boundsPath = [UIBezierPath bezierPathWithRect: bounds];
+        _boundsPath.lineWidth = kDefaultLineWidth;
+    }
+    return self;
+}
+
+-(void)draw
+{
+    DockTextBox* box = [[DockTextBox alloc] initWithText: _title];
+    box.alignment = NSTextAlignmentCenter;
+    box.font = [UIFont fontWithName: kLabelFont size: kLabelFontSize];
+    CGRect textBox = _bounds;
+    textBox.origin.y -= 20;
+    textBox.size.height = 20;
+    [box draw: textBox];
+    [[UIColor whiteColor] set];
+    [_boundsPath fill];
+    [[UIColor blackColor] set];
+    [_boundsPath stroke];
+
+    int dividerCount = 4;
+    CGFloat left = _bounds.origin.x;
+    CGFloat rowHeight = _bounds.size.height / 5;
+    CGFloat right = left + _bounds.size.width;
+    CGFloat y = _bounds.origin.y + rowHeight*2;
+    [[UIColor lightGrayColor] set];
+    for (int i = 0; i < dividerCount; ++i) {
+        UIBezierPath* p = [UIBezierPath bezierPath];
+        [p moveToPoint: CGPointMake(left, y)];
+        [p addLineToPoint: CGPointMake(right, y)];
+        p.lineWidth = kGridDividerWidth;
+        [p stroke];
+        y += rowHeight;
+    }
+    
+    CGFloat top = _bounds.origin.y;
+    CGFloat bottom = top + _bounds.size.height;
+    CGFloat colWidth = _bounds.size.width * [_columnFractions[0] doubleValue];
+    CGFloat x = _bounds.origin.x + colWidth;
+    int horizDividers = _labels.count - 1;
+    for (int i = 0; i < horizDividers; ++i) {
+        colWidth = _bounds.size.width * [_columnFractions[i+1] doubleValue];
+        UIBezierPath* p = [UIBezierPath bezierPath];
+        [p moveToPoint: CGPointMake(x, top)];
+        [p addLineToPoint: CGPointMake(x, bottom)];
+        p.lineWidth = kGridDividerWidth;
+        [p stroke];
+        x += colWidth;
+    }
+
+    x = _bounds.origin.x;
+    y = _bounds.origin.y;
+    DockTextBox* labelTextBox = [[DockTextBox alloc] initWithText: @""];
+    labelTextBox.alignment = NSTextAlignmentCenter;
+    labelTextBox.font = [UIFont fontWithName: kLabelFontNarrow size: 8];
+    CGFloat margin = 0.05;
+    for (int j = 0; j < _labels.count; ++j) {
+        colWidth = _bounds.size.width * [_columnFractions[j] doubleValue];
+        CGFloat offsetX = colWidth * margin;
+        CGFloat textWidth = colWidth * (1.0 - margin*2);
+        CGRect labelBox = CGRectMake(x + offsetX, y, textWidth, rowHeight*2);
+        labelTextBox.text = _labels[j];
+        [labelTextBox draw: labelBox];
+        x += colWidth;
+    }
+
+    if (_numberRows) {
+        y = _bounds.origin.y + rowHeight*2;
+        x = _bounds.origin.x;
+        colWidth = _bounds.size.width * [_columnFractions[0] doubleValue];
+        CGFloat offsetX = colWidth * margin;
+        CGFloat textWidth = colWidth * (1.0 - margin*2);
+        labelTextBox.font = [UIFont fontWithName: kLabelFontNarrow size: kLabelFontSize];
+        for (int j = 0; j < 3; ++j) {
+            CGRect labelBox = CGRectMake(x + offsetX, y, textWidth, rowHeight*2);
+            labelTextBox.text = [NSString stringWithFormat: @"%d", j+1];
+            [labelTextBox draw: labelBox];
+            y += rowHeight;
+        }
+    }
+}
+
+@end
 
 @interface DockBuildSheetRenderer ()
 @property (strong, nonatomic) DockSquad* targetSquad;
@@ -662,14 +765,51 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
                                      shipGridBox.size.width, 40);
     CGFloat notesBottom = [self drawNotes:fieldBox];
 
-    fieldBox = CGRectMake(shipGridBox.origin.x, notesBottom + kDefaultMargin,
+    CGRect resourceBox = CGRectMake(shipGridBox.origin.x, notesBottom + kDefaultMargin,
                                      shipGridBox.size.width, 40);
-    CGFloat resourcesBottom = [self drawResources:fieldBox shipGridBox:shipGridBox];
+    CGFloat resourcesBottom = [self drawResources:resourceBox shipGridBox:shipGridBox];
 
     CGRect costBox = CGRectMake(shipGridBox.origin.x, resourcesBottom + kDefaultMargin*3,
                                      shipGridBox.size.width, 40);
-    DockCostGrid* costGrid = [[DockCostGrid alloc] initWithBounds: costBox ship: _targetSquad];
-    [costGrid draw];
+    DockCostGrid* costGrid = [[DockCostGrid alloc] initWithBounds: costBox squad: _targetSquad];
+    CGFloat costBottom = [costGrid draw];
+    
+    costBottom += (kDefaultMargin * 3);
+    
+    CGRect resultsBox = targetBounds;
+    resultsBox.origin.y = costBottom;
+    resultsBox.size.height-= costBottom;
+    [self drawResultGrids: resultsBox];
+}
+
+- (void)drawResultGrids:(CGRect)resultsBox
+{
+    [[UIColor lightGrayColor] set];
+    UIBezierPath* resultsBoxPath = [UIBezierPath bezierPathWithRect: resultsBox];
+    [resultsBoxPath fill];
+    CGFloat left = resultsBox.origin.x + kDefaultMargin;
+    CGFloat center = resultsBox.origin.x + resultsBox.size.width / 2;
+    CGFloat right = center - kDefaultMargin;
+    CGFloat top = resultsBox.origin.y + kDefaultMargin + 4 * kDefaultMargin;
+    CGFloat bottom = CGRectGetMaxY(resultsBox) - kDefaultMargin;
+    
+    CGRect beforeRect = CGRectMake(left, top,
+                                     right - left, bottom - top);
+    DockResultsGrid* beforeGrid = [[DockResultsGrid alloc] initWithBounds: beforeRect];
+    beforeGrid.title = @"Before Battle Starts:";
+    beforeGrid.labels = @[@"Battle Round", @"Opponent's Name", @"Opponent's Initials (Verify Build)"];
+    beforeGrid.columnFractions = @[@0.15, @0.65, @0.2];
+    beforeGrid.numberRows = YES;
+    [beforeGrid draw];
+
+    left = center + kDefaultMargin;
+    right = CGRectGetMaxX(resultsBox) - kDefaultMargin;
+    CGRect afterRect = CGRectMake(left, top, right - left, bottom - top);
+    DockResultsGrid* afterGrid = [[DockResultsGrid alloc] initWithBounds: afterRect];
+    afterGrid.title = @"After Battle Ends:";
+    afterGrid.labels = @[@"Your Result (W-L-B)", @"Your Fleet Points", @"Cumulative Fleet Points", @"Opponent's Initials (Verify Results)"];
+    afterGrid.columnFractions = @[@0.25, @0.25, @0.25, @0.25];
+    [afterGrid draw];
 }
 
 @end
