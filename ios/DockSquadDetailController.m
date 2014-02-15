@@ -2,6 +2,8 @@
 
 #import "DockBuildSheetViewController.h"
 #import "DockConstants.h"
+#import "DockEditNotesCell.h"
+#import "DockEditStringTableCell.h"
 #import "DockEditValueController.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedShipCell.h"
@@ -16,8 +18,21 @@
 
 #import <MessageUI/MessageUI.h>
 
-@interface DockSquadDetailController ()<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, UIActionSheetDelegate>
+enum {
+    kNameRow, kCostRow, kResourceRow, kSectionOneCount
+};
+
+enum {
+    kAdditionalPointsRow, kNotesRow, kSectionThreeCount
+};
+
+enum {
+    kDetailsSection, kShipsSection, kNotesSection, kSectionCount
+};
+
+@interface DockSquadDetailController ()<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate, UITextViewDelegate>
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* cpyBarItem;
+@property (assign, nonatomic) int targetRow;
 @end
 
 @implementation DockSquadDetailController
@@ -77,13 +92,17 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
-    return 2;
+    return kSectionCount;
 }
 
 -(NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
+    if (section == kDetailsSection) {
         return @"Details";
+    }
+
+    if (section == kNotesSection) {
+        return @"Notes and Extra Points";
     }
 
     return @"Ships";
@@ -91,64 +110,116 @@
 
 -(NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return 3;
+    if (section == kDetailsSection) {
+        return kSectionOneCount;
+    }
+
+    if (section == kNotesSection) {
+        return kSectionThreeCount;
     }
 
     return _squad.equippedShips.count + 1;
 }
 
--(UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
+- (UITableViewCell *)cellForDetails:(NSIndexPath *)indexPath tableView:(UITableView *)tableView row:(NSInteger)row
 {
-    NSInteger section = [indexPath indexAtPosition: 0];
-    UITableViewCell* cell = nil;
-
-    if (section == 0) {
-        NSInteger row = [indexPath indexAtPosition: 1];
-
-        if (row == 2) {
+    UITableViewCell *cell;
+    if (self.tableView.editing && row == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier: @"editDetail" forIndexPath: indexPath];
+        DockEditStringTableCell* editCell = (DockEditStringTableCell*)cell;
+        editCell.labelField.text = @"Name";
+        editCell.valueField.text = _squad.name;
+        editCell.valueField.delegate = self;
+    } else {
+        if (row == kResourceRow) {
             cell = [tableView dequeueReusableCellWithIdentifier: @"resource" forIndexPath: indexPath];
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier: @"detail" forIndexPath: indexPath];
         }
-
-        if (row == 0) {
+        
+        if (row == kNameRow) {
             cell.textLabel.text = @"Name";
             cell.detailTextLabel.text = _squad.name;
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        } else if (row == 1) {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        } else if (row == kCostRow) {
             cell.textLabel.text = @"Cost";
             cell.detailTextLabel.text = [NSString stringWithFormat: @"%d", _squad.cost];
             cell.accessoryType = UITableViewCellAccessoryNone;
         } else {
             cell.textLabel.text = @"Resource";
-
+            
             if (_squad.resource != nil) {
                 cell.detailTextLabel.text = _squad.resource.title;
             } else {
                 cell.detailTextLabel.text = @"No Resource";
             }
-
+            
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
-    } else {
-        NSInteger row = [indexPath indexAtPosition: 1];
-        NSInteger shipCount = _squad.equippedShips.count;
+    }
+    return cell;
+}
 
-        if (row == shipCount) {
-            cell = [tableView dequeueReusableCellWithIdentifier: @"addShip" forIndexPath: indexPath];
-        } else {
-            cell = [tableView dequeueReusableCellWithIdentifier: @"ship" forIndexPath: indexPath];
-            DockEquippedShipCell* shipCell = (DockEquippedShipCell*)cell;
-            DockEquippedShip* es = _squad.equippedShips[row];
-            shipCell.cost.text = [NSString stringWithFormat: @"%d", [es cost]];
-            shipCell.details.text = [es upgradesDescription];
-            NSString* t = es.plainDescription;
-            if (es.flagship) {
-                t = [t stringByAppendingString: @" [FS]"];
-            }
-            shipCell.title.text = t;
+- (UITableViewCell *)cellForNotes:(NSIndexPath *)indexPath tableView:(UITableView *)tableView row:(NSInteger)row
+{
+    UITableViewCell *cell;
+    if (self.tableView.editing && row == kNotesRow) {
+        cell = [tableView dequeueReusableCellWithIdentifier: @"editNotes" forIndexPath: indexPath];
+        DockEditNotesCell* editCell = (DockEditNotesCell*)cell;
+        editCell.labelField.text = @"Notes";
+        editCell.notesView.text = _squad.notes;
+        editCell.notesView.delegate = self;
+    } else {
+        if (row == kNotesRow) {
+            cell = [tableView dequeueReusableCellWithIdentifier: @"notes" forIndexPath: indexPath];
+            DockNotesCell* editCell = (DockNotesCell*)cell;
+            editCell.notesLabel.text = _squad.notes;
+            [editCell.notesLabel sizeToFit];
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        } else if (row == kAdditionalPointsRow) {
+            cell = [tableView dequeueReusableCellWithIdentifier: @"detail" forIndexPath: indexPath];
+            cell.textLabel.text = @"Extra Points";
+            cell.detailTextLabel.text = [NSString stringWithFormat: @"%d", [[_squad additionalPoints] intValue]];
+            cell.accessoryType = UITableViewCellAccessoryNone;
         }
+    }
+    return cell;
+}
+
+- (UITableViewCell *)cellForShips:(NSInteger)row indexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView
+{
+    UITableViewCell *cell;
+    NSInteger shipCount = _squad.equippedShips.count;
+    
+    if (row == shipCount) {
+        cell = [tableView dequeueReusableCellWithIdentifier: @"addShip" forIndexPath: indexPath];
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier: @"ship" forIndexPath: indexPath];
+        DockEquippedShipCell* shipCell = (DockEquippedShipCell*)cell;
+        DockEquippedShip* es = _squad.equippedShips[row];
+        shipCell.cost.text = [NSString stringWithFormat: @"%d", [es cost]];
+        shipCell.details.text = [es upgradesDescription];
+        NSString* t = es.plainDescription;
+        if (es.flagship) {
+            t = [t stringByAppendingString: @" [FS]"];
+        }
+        shipCell.title.text = t;
+    }
+    return cell;
+}
+
+-(UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    NSInteger section = [indexPath indexAtPosition: 0];
+    NSInteger row = [indexPath indexAtPosition: 1];
+    UITableViewCell* cell = nil;
+
+    if (section == kDetailsSection) {
+        cell = [self cellForDetails:indexPath tableView:tableView row:row];
+    } else if (section == kNotesSection) {
+        cell = [self cellForNotes:indexPath tableView:tableView row:row];
+    } else {
+        cell = [self cellForShips:row indexPath:indexPath tableView:tableView];
     }
 
     return cell;
@@ -158,7 +229,12 @@
 {
     NSInteger section = [indexPath indexAtPosition: 0];
     NSInteger row = [indexPath indexAtPosition: 1];
-    return section > 0 || (row == 2 && _squad.resource != nil);
+    if (section == kShipsSection) {
+        return row != _squad.equippedShips.count;
+    } else if (section == kDetailsSection) {
+        return row == kResourceRow && _squad.resource != nil;
+    }
+    return NO;
 }
 
 -(void)tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath
@@ -210,7 +286,8 @@
     NSInteger row = [indexPath indexAtPosition: 1];
 
     if (section == 0) {
-        return row != 1;
+        _targetRow = row;
+        return row != kCostRow;
     } else {
         NSInteger shipCount = _squad.equippedShips.count;
         return row < shipCount;
@@ -219,18 +296,74 @@
     return YES;
 }
 
+-(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    NSInteger section = [indexPath indexAtPosition: 0];
+    NSInteger row = [indexPath indexAtPosition: 1];
+
+    if (section == 0) {
+        if (row == kNameRow || row == kAdditionalPointsRow) {
+            [self performSegueWithIdentifier: @"EditName" sender: self];
+        }
+    }
+}
+
 -(CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
     NSInteger section = [indexPath indexAtPosition: 0];
 
-    if (section == 0) {
+    if (section == kDetailsSection) {
         return 32;
+    }
+    
+    if (section == kNotesSection) {
+        NSInteger row = [indexPath indexAtPosition: 1];
+        if (row == kAdditionalPointsRow) {
+            return 32;
+        }
+        NSString* str = _squad.notes;
+
+        if (str.length > 0) {
+            CGSize size = [str sizeWithFont: [UIFont systemFontOfSize: 14] constrainedToSize: CGSizeMake(100, 999) lineBreakMode: NSLineBreakByWordWrapping];
+            CGFloat rowHeight = size.height + 20;
+            return rowHeight;
+        }
     }
 
     return tableView.rowHeight;
 }
 
+#pragma mark - TextField
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    _squad.name = textField.text;
+    NSError* error;
+    if (!saveItem(_squad, &error)) {
+        presentError(error);
+    }
+}
+
+#pragma mark - TextView
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    _squad.notes = textView.text;
+    NSError* error;
+    if (!saveItem(_squad, &error)) {
+        presentError(error);
+    }
+}
+
 #pragma mark - Navigation
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString*)identifier sender:(id)sender
+{
+    if ([identifier isEqualToString: @"EditName"]) {
+        return NO;
+    }
+    return YES;
+}
 
 -(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
@@ -259,10 +392,41 @@
         controller.equippedShip = es;
     } else if ([sequeIdentifier isEqualToString: @"EditName"]) {
         DockEditValueController* editValue = (DockEditValueController*)destination;
-        editValue.valueName = @"Name";
-        editValue.initialValue = _squad.name;
+        switch (_targetRow) {
+            case kAdditionalPointsRow:
+                editValue.initialValue = [NSString stringWithFormat: @"%d", [_squad.additionalPoints intValue]];
+                editValue.valueName = @"Additional Points";
+                break;
+            default:
+                editValue.valueName = @"Name";
+                editValue.initialValue = _squad.name;
+                break;
+        }
+        
         editValue.onSave = ^(NSString* newValue) {
-            _squad.name = newValue;
+            switch (_targetRow) {
+                case kAdditionalPointsRow:
+                    _squad.additionalPoints = [NSNumber numberWithInt: [newValue intValue]];
+                    break;
+                    
+                default:
+                    _squad.name = newValue;
+                    break;
+            }
+            NSError* error;
+
+            if (!saveItem(_squad, &error)) {
+                presentError(error);
+            }
+
+            [self.tableView reloadData];
+        };
+    } else if ([sequeIdentifier isEqualToString: @"EditPoints"]) {
+        DockEditValueController* editValue = (DockEditValueController*)destination;
+        editValue.valueName = @"Add. Points";
+        editValue.initialValue = [NSString stringWithFormat: @"%d", [_squad.additionalPoints intValue]];;
+        editValue.onSave = ^(NSString* newValue) {
+            _squad.additionalPoints = [NSNumber numberWithInt: [newValue intValue]];
             NSError* error;
 
             if (!saveItem(_squad, &error)) {
@@ -449,6 +613,24 @@
     controller.showsPageRange = YES;
     controller.printingItem = pdfData;
     [controller presentAnimated:YES completionHandler:completionHandler];  // iPhone
+}
+
+- (IBAction)enterEditMode:(id)sender
+{
+    UIBarButtonItem* editButton = sender;
+    if ([self.tableView isEditing]) {
+        editButton.style = UIBarButtonItemStylePlain;
+        editButton.title = @"Edit";
+        [self.tableView setEditing: NO animated:YES];
+        [self.tableView reloadSections: [NSIndexSet indexSetWithIndex: kDetailsSection] withRowAnimation: UITableViewRowAnimationFade];
+        [self.tableView reloadSections: [NSIndexSet indexSetWithIndex: kNotesSection] withRowAnimation: UITableViewRowAnimationFade];
+    } else {
+        editButton.style = UIBarButtonItemStyleDone;
+        editButton.title = @"Done";
+        [self.tableView setEditing:YES animated:YES];
+        [self.tableView reloadSections: [NSIndexSet indexSetWithIndex: kDetailsSection] withRowAnimation: UITableViewRowAnimationFade];
+        [self.tableView reloadSections: [NSIndexSet indexSetWithIndex: kNotesSection] withRowAnimation: UITableViewRowAnimationFade];
+    }
 }
 
 @end
