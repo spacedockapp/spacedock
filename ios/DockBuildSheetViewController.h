@@ -2,6 +2,6 @@
 
 @class DockSquad;
 
-@interface DockBuildSheetViewController : UIViewController
+@interface DockBuildSheetViewController : UITableViewController
 @property (strong, nonatomic) DockSquad* squad;
 @end
