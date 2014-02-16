@@ -2,6 +2,11 @@
 
 @class DockSquad;
 
+extern NSString* kPlayerNameKey;
+extern NSString* kPlayerEmailKey;
+extern NSString* kEventFactionKey;
+extern NSString* kEventNameKey;
+
 @interface DockBuildSheetRenderer : NSObject
 @property (strong, nonatomic) NSString* name;
 @property (strong, nonatomic) NSString* email;

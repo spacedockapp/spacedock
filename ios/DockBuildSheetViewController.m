@@ -63,12 +63,6 @@
     [super viewDidAppear: animated];
 }
 
-static NSString* kPlayerNameKey = @"playerName";
-static NSString* kPlayerEmailKey = @"playerEmail";
-static NSString* kEventFactionKey = @"eventFaction";
-static NSString* kEventNameKey = @"eventName";
-
-
 -(void)viewWillAppear:(BOOL)animated
 {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
