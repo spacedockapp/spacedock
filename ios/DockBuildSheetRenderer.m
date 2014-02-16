@@ -25,6 +25,11 @@ const int kTotalSPLabelFontSize = 11;
 const CGFloat kFixedGridColumnWidth = 40;
 const CGFloat kShipGridHeight = 150;
 
+NSString* kPlayerNameKey = @"playerName";
+NSString* kPlayerEmailKey = @"playerEmail";
+NSString* kEventFactionKey = @"eventFaction";
+NSString* kEventNameKey = @"eventName";
+
 static NSString* resourceCost(DockSquad* targetSquad)
 {
     DockResource* res = targetSquad.resource;
@@ -565,6 +570,11 @@ static NSString* otherCost(DockSquad* targetSquad)
     self = [super init];
     if (self != nil) {
         _targetSquad = targetSquad;
+        _event = @"";
+        _name = @"";
+        _date = [NSDate date];
+        _faction = @"";
+        _email = @"";
     }
     return self;
 }

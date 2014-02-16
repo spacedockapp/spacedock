@@ -1,5 +1,6 @@
 #import "DockAppDelegate.h"
 
+#import "DockBuildSheetRenderer.h"
 #import "DockConstants.h"
 #import "DockDataLoader.h"
 #import "DockDataFileLoader.h"
@@ -84,6 +85,16 @@
 
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary* appDefs = @{
+        kPlayerNameKey: @"",
+        kPlayerEmailKey: @"",
+        kEventFactionKey: @"",
+        kEventNameKey: @""
+    };
+
+    [defaults registerDefaults: appDefs];
+
     [self loadAppData];
     return YES;
 }
