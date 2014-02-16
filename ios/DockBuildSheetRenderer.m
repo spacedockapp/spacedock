@@ -672,7 +672,7 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
 
 - (CGFloat)drawNotes:(CGRect)fieldBox
 {
-    NSString* notes = @"This.\nThat\nAnother";
+    NSString* notes = _targetSquad.notes;
     DockTextBox* notesBox = [[DockTextBox alloc] initWithText: notes];
     notesBox.frame = YES;
     UIFont* fieldFont = [UIFont fontWithName: kFieldFont size: 11];
@@ -692,7 +692,7 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
     return otherCost(_targetSquad);
 }
 
--(NSString*)resourceTile
+-(NSString*)resourceTitle
 {
     DockResource* res = _targetSquad.resource;
     if (res) {
@@ -708,7 +708,7 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
 - (CGFloat)drawResources:(CGRect)fieldBox shipGridBox:(CGRect)shipGridBox
 {
     DockLabeledField* field = [[DockLabeledField alloc] initWithLabel: @"Resource Used:"
-                                                                 text: [self resourceTile]];
+                                                                 text: [self resourceTitle]];
     
     CGFloat resourceNameFraction = 0.85;
     
