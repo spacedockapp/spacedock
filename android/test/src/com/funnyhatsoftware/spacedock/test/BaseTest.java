@@ -1,3 +1,4 @@
+
 package com.funnyhatsoftware.spacedock.test;
 
 import java.io.IOException;
@@ -12,14 +13,14 @@ import android.test.AndroidTestCase;
 
 public class BaseTest extends AndroidTestCase {
 
-	protected Universe universe;
+    protected Universe universe;
 
-	public BaseTest() {
-		super();
-	}
+    public BaseTest() {
+        super();
+    }
 
-	public void setUp() throws ParserConfigurationException, SAXException, IOException {
-		universe = Universe.getUniverse(getContext());
-	}
+    public void setUp() throws ParserConfigurationException, SAXException, IOException {
+        universe = Universe.getUniverse(getContext());
+    }
 
 }
