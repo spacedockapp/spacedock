@@ -256,10 +256,10 @@
         DockUpgradesViewController* controller = (DockUpgradesViewController*)destination;
         controller.managedObjectContext = _equippedShip.managedObjectContext;
         controller.upType = [[[self selectedUpgrade] upgrade] upType];
-        id onPick = ^(DockUpgrade* upgrade) {
-            [self addUpgrade: upgrade replacing: oneToReplace];
+        id onPick = ^(DockUpgrade* upgrade, BOOL override, int overrideCost) {
+            [self addUpgrade: upgrade replacing: oneToReplace override: override overriddenCost: overrideCost];
         };
-        [controller targetSquad: _equippedShip.squad ship: _equippedShip upgrade: oneToReplace.upgrade onPicked: onPick];
+        [controller targetSquad: _equippedShip.squad ship: _equippedShip upgrade: oneToReplace onPicked: onPick];
     } else if ([sequeIdentifier isEqualToString: @"PickFlagship"]) {
         DockFlagshipsViewController* flagshipsViewController = (DockFlagshipsViewController*)destination;
         flagshipsViewController.managedObjectContext = [_equippedShip managedObjectContext];
@@ -277,11 +277,14 @@
     }
 }
 
--(void)addUpgrade:(DockUpgrade*)upgrade replacing:(DockEquippedUpgrade*)oneToReplace
+-(void)addUpgrade:(DockUpgrade*)upgrade replacing:(DockEquippedUpgrade*)oneToReplace override:(BOOL)override overriddenCost:(int)overriddenCost
 {
-    if (upgrade != oneToReplace.upgrade) {
+    if (upgrade != oneToReplace.upgrade || override != [oneToReplace.overridden boolValue] || overriddenCost != [oneToReplace.overriddenCost intValue]) {
         [_equippedShip removeUpgrade: oneToReplace];
-        [_equippedShip addUpgrade: upgrade maybeReplace: nil establishPlaceholders: YES];
+        DockEquippedUpgrade* eu = [_equippedShip addUpgrade: upgrade maybeReplace: nil establishPlaceholders: YES];
+        if (override) {
+            [eu overrideWithCost: overriddenCost];
+        }
         NSError* error;
 
         if (!saveItem(_equippedShip, &error)) {

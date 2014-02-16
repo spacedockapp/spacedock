@@ -98,6 +98,12 @@
                                 <action selector="faction:" destination="ItA-jp-4hr" id="CJR-aP-bNo"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Qw6-gB-Qua"/>
+                        <barButtonItem title="Override" id="f9C-2x-CG7">
+                            <connections>
+                                <action selector="overrideCost:" destination="ItA-jp-4hr" id="h3d-JK-oFS"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Upgrade" id="11d-kb-pRr"/>
                     <connections>
@@ -1484,6 +1490,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </navigationItem>
                     <connections>
                         <outlet property="cpyBarItem" destination="xYq-5l-WtP" id="kYT-1n-1tO"/>
+                        <outlet property="printBarItem" destination="58h-dA-E6y" id="jUI-pY-2q4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uZd-6l-NAT" userLabel="First Responder" sceneMemberID="firstResponder"/>

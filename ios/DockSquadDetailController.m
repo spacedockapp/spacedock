@@ -32,6 +32,7 @@ enum {
 
 @interface DockSquadDetailController ()<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate, UITextViewDelegate>
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* cpyBarItem;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem* printBarItem;
 @property (assign, nonatomic) int targetRow;
 @end
 
@@ -50,6 +51,10 @@ enum {
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    if (!isOS7OrGreater()) {
+        [_printBarItem setAction: @selector(explainCantPrint:)];
+        [_printBarItem setTarget: self];
+    }
 }
 
 -(void)didReceiveMemoryWarning
@@ -173,7 +178,9 @@ enum {
         notesView.text = _squad.notes;
         notesView.delegate = self;
         notesView.editable = self.tableView.editing;
-        notesView.textContainerInset = UIEdgeInsetsZero;
+        if (isOS7OrGreater()) {
+            notesView.textContainerInset = UIEdgeInsetsZero;
+        }
         CALayer* layer = notesView.layer;
         if (self.tableView.editing) {
             [layer setBorderColor:[[[UIColor grayColor] colorWithAlphaComponent:0.5] CGColor]];
@@ -576,49 +583,6 @@ enum {
     }
 }
 
--(IBAction)print:(id)sender
-{
-    NSMutableData* pdfData = [[NSMutableData alloc] init];
-    UIGraphicsBeginPDFContextToData(pdfData, CGRectZero, nil);
-    UIGraphicsBeginPDFPage();
-    CGRect pageBounds = UIGraphicsGetPDFContextBounds();
-    CGRect blackBox = CGRectMake(0, 0, pageBounds.size.width, 100);
-    [[UIColor blackColor] set];
-    UIBezierPath* blackBoxPath = [UIBezierPath bezierPathWithRect: blackBox];
-    [blackBoxPath fill];
-    UIGraphicsEndPDFContext();
-    UIPrintInteractionController *controller = [UIPrintInteractionController sharedPrintController];
-    if(!controller){
-        NSLog(@"Couldn't get shared UIPrintInteractionController!");
-        return;
-    }
-    
-    UIPrintInteractionCompletionHandler completionHandler =
-    ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
-        if(!completed && error){
-            NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
-        }
-    };
-    
-    
-    // Obtain a printInfo so that we can set our printing defaults.
-    UIPrintInfo *printInfo = [UIPrintInfo printInfo];
-    // This application produces General content that contains color.
-    printInfo.outputType = UIPrintInfoOutputGeneral;
-    // We'll use the URL as the job name.
-    printInfo.jobName = @"sheet";
-    // Set duplex so that it is available if the printer supports it. We are
-    // performing portrait printing so we want to duplex along the long edge.
-    printInfo.duplex = UIPrintInfoDuplexLongEdge;
-    // Use this printInfo for this print job.
-    controller.printInfo = printInfo;
-    
-    // Be sure the page range controls are present for documents of > 1 page.
-    controller.showsPageRange = YES;
-    controller.printingItem = pdfData;
-    [controller presentAnimated:YES completionHandler:completionHandler];  // iPhone
-}
-
 - (IBAction)enterEditMode:(id)sender
 {
     UIBarButtonItem* editButton = sender;
@@ -635,6 +599,11 @@ enum {
         [self.tableView reloadSections: [NSIndexSet indexSetWithIndex: kDetailsSection] withRowAnimation: UITableViewRowAnimationFade];
         [self.tableView reloadSections: [NSIndexSet indexSetWithIndex: kNotesSection] withRowAnimation: UITableViewRowAnimationFade];
     }
+}
+
+- (IBAction)explainCantPrint:(id)sender
+{
+    presentUnsuppportedFeatureDialog();
 }
 
 @end
