@@ -1310,9 +1310,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="2Bj-OL-F4i" kind="push" identifier="EditName" id="URj-sy-vnv"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="resource" textLabel="qox-08-OeU" detailTextLabel="Luy-Oe-p1x" rowHeight="32" style="IBUITableViewCellStyleValue2" id="qSV-2g-vco">
                                 <rect key="frame" x="0.0" y="54" width="320" height="32"/>
@@ -1368,36 +1365,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <outlet property="valueField" destination="EGD-a1-gVP" id="j3L-hA-tQN"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="notes" rowHeight="200" id="BxP-Lf-HrP" customClass="DockNotesCell">
-                                <rect key="frame" x="0.0" y="118" width="320" height="200"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BxP-Lf-HrP" id="4gh-dP-DkU">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Notes" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ypH-s3-I5j">
-                                            <rect key="frame" x="10" y="7" width="91" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="63Q-qA-MpB">
-                                            <rect key="frame" x="109" y="-1" width="191" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="labelField" destination="ypH-s3-I5j" id="A1H-pV-5pr"/>
-                                    <outlet property="notesLabel" destination="63Q-qA-MpB" id="CiU-zE-MDx"/>
-                                </connections>
-                            </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ship" rowHeight="90" id="2KK-pf-H7r" customClass="DockEquippedShipCell">
-                                <rect key="frame" x="0.0" y="318" width="320" height="90"/>
+                                <rect key="frame" x="0.0" y="118" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2KK-pf-H7r" id="RXw-hu-kOa">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="89"/>
@@ -1434,7 +1403,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addShip" id="e9l-hs-DG9">
-                                <rect key="frame" x="0.0" y="408" width="320" height="66"/>
+                                <rect key="frame" x="0.0" y="208" width="320" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e9l-hs-DG9" id="H6S-7D-XLJ">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
@@ -1454,7 +1423,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="editNotes" rowHeight="400" id="EBQ-CN-0rb" customClass="DockEditNotesCell">
-                                <rect key="frame" x="0.0" y="474" width="320" height="400"/>
+                                <rect key="frame" x="0.0" y="274" width="320" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EBQ-CN-0rb" id="Lrr-yD-UL1">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="399"/>
@@ -1467,11 +1436,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" id="Q9S-vb-ZD3">
-                                            <rect key="frame" x="108" y="-1" width="186" height="371"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" id="Q9S-vb-ZD3">
+                                            <rect key="frame" x="109" y="7" width="191" height="385"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                     </subviews>
@@ -1529,9 +1497,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="EVA-Ha-95D"/>
         <segue reference="4En-j0-M2p"/>
-        <segue reference="URj-sy-vnv"/>
+        <segue reference="EVA-Ha-95D"/>
         <segue reference="Edb-dE-lUZ"/>
         <segue reference="YvD-5N-V1B"/>
     </inferredMetricsTieBreakers>

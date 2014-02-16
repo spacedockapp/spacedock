@@ -130,6 +130,8 @@ enum {
         editCell.labelField.text = @"Name";
         editCell.valueField.text = _squad.name;
         editCell.valueField.delegate = self;
+        editCell.valueField.keyboardType = UIKeyboardTypeDefault;
+        editCell.valueField.tag = 0;
     } else {
         if (row == kResourceRow) {
             cell = [tableView dequeueReusableCellWithIdentifier: @"resource" forIndexPath: indexPath];
@@ -163,23 +165,41 @@ enum {
 - (UITableViewCell *)cellForNotes:(NSIndexPath *)indexPath tableView:(UITableView *)tableView row:(NSInteger)row
 {
     UITableViewCell *cell;
-    if (self.tableView.editing && row == kNotesRow) {
+    if (row == kNotesRow) {
         cell = [tableView dequeueReusableCellWithIdentifier: @"editNotes" forIndexPath: indexPath];
         DockEditNotesCell* editCell = (DockEditNotesCell*)cell;
         editCell.labelField.text = @"Notes";
-        editCell.notesView.text = _squad.notes;
-        editCell.notesView.delegate = self;
+        UITextView* notesView = editCell.notesView;
+        notesView.text = _squad.notes;
+        notesView.delegate = self;
+        notesView.editable = self.tableView.editing;
+        notesView.textContainerInset = UIEdgeInsetsZero;
+        CALayer* layer = notesView.layer;
+        if (self.tableView.editing) {
+            [layer setBorderColor:[[[UIColor grayColor] colorWithAlphaComponent:0.5] CGColor]];
+            [layer setBorderWidth: 0.5];
+            layer.cornerRadius = 5;
+            notesView.clipsToBounds = YES;
+        } else {
+            [layer setBorderWidth:0];
+            layer.cornerRadius = 0;
+            notesView.clipsToBounds = NO;
+        }
     } else {
-        if (row == kNotesRow) {
-            cell = [tableView dequeueReusableCellWithIdentifier: @"notes" forIndexPath: indexPath];
-            DockNotesCell* editCell = (DockNotesCell*)cell;
-            editCell.notesLabel.text = _squad.notes;
-            [editCell.notesLabel sizeToFit];
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        } else if (row == kAdditionalPointsRow) {
-            cell = [tableView dequeueReusableCellWithIdentifier: @"detail" forIndexPath: indexPath];
-            cell.textLabel.text = @"Extra Points";
-            cell.detailTextLabel.text = [NSString stringWithFormat: @"%d", [[_squad additionalPoints] intValue]];
+        if (row == kAdditionalPointsRow) {
+            if (self.tableView.editing) {
+                cell = [tableView dequeueReusableCellWithIdentifier: @"editDetail" forIndexPath: indexPath];
+                DockEditStringTableCell* editCell = (DockEditStringTableCell*)cell;
+                editCell.labelField.text = @"Extra Points";
+                editCell.valueField.text = [NSString stringWithFormat: @"%d", [[_squad additionalPoints] intValue]];
+                editCell.valueField.delegate = self;
+                editCell.valueField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+                editCell.valueField.tag = 0xdeadbeef;
+            } else {
+                cell = [tableView dequeueReusableCellWithIdentifier: @"detail" forIndexPath: indexPath];
+                cell.textLabel.text = @"Extra Points";
+                cell.detailTextLabel.text = [NSString stringWithFormat: @"%d", [[_squad additionalPoints] intValue]];
+            }
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
     }
@@ -285,27 +305,12 @@ enum {
     NSInteger section = [indexPath indexAtPosition: 0];
     NSInteger row = [indexPath indexAtPosition: 1];
 
-    if (section == 0) {
-        _targetRow = row;
-        return row != kCostRow;
-    } else {
+    if (section == kShipsSection) {
         NSInteger shipCount = _squad.equippedShips.count;
         return row < shipCount;
     }
 
-    return YES;
-}
-
--(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
-{
-    NSInteger section = [indexPath indexAtPosition: 0];
-    NSInteger row = [indexPath indexAtPosition: 1];
-
-    if (section == 0) {
-        if (row == kNameRow || row == kAdditionalPointsRow) {
-            [self performSegueWithIdentifier: @"EditName" sender: self];
-        }
-    }
+    return NO;
 }
 
 -(CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
@@ -321,13 +326,8 @@ enum {
         if (row == kAdditionalPointsRow) {
             return 32;
         }
-        NSString* str = _squad.notes;
-
-        if (str.length > 0) {
-            CGSize size = [str sizeWithFont: [UIFont systemFontOfSize: 14] constrainedToSize: CGSizeMake(100, 999) lineBreakMode: NSLineBreakByWordWrapping];
-            CGFloat rowHeight = size.height + 20;
-            return rowHeight;
-        }
+        
+        return 400;
     }
 
     return tableView.rowHeight;
@@ -337,7 +337,11 @@ enum {
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    _squad.name = textField.text;
+    if (textField.tag == 0xdeadbeef) {
+        _squad.additionalPoints = [NSNumber numberWithInt: [textField.text intValue]];;
+    } else {
+        _squad.name = textField.text;
+    }
     NSError* error;
     if (!saveItem(_squad, &error)) {
         presentError(error);
