@@ -3,6 +3,7 @@ package com.funnyhatsoftware.spacedock.test;
 
 import com.funnyhatsoftware.spacedock.data.Captain;
 import com.funnyhatsoftware.spacedock.data.Flagship;
+import com.funnyhatsoftware.spacedock.data.Maneuver;
 import com.funnyhatsoftware.spacedock.data.Resource;
 import com.funnyhatsoftware.spacedock.data.Set;
 import com.funnyhatsoftware.spacedock.data.Ship;
@@ -22,6 +23,9 @@ public class TestLoad extends BaseTest {
         ShipClassDetails details = entD.getShipClassDetails();
         assertNotNull("Couldn't get ship details", details);
         assertEquals("wrong front arc", "90", details.getFrontArc());
+        Maneuver maneuver = details.getManeuver(-2, "straight");
+        assertNotNull("Couldn't backup 2", maneuver);
+        assertEquals(-2, maneuver.getSpeed());
         assertEquals("U.S.S. Enterprise-D", entD.getTitle());
         assertTrue("U.S.S. Enterprise-D should be unique", entD.getUnique());
 
