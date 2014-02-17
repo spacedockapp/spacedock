@@ -42,7 +42,7 @@ static NSString* resourceCost(DockSquad* targetSquad)
 static NSString* otherCost(DockSquad* targetSquad)
 {
     NSNumber* additionalPoints = targetSquad.additionalPoints;
-    if (additionalPoints) {
+    if (additionalPoints && [additionalPoints intValue] > 0) {
         return [NSString stringWithFormat: @"%@", additionalPoints];
     }
     return @"";
@@ -340,7 +340,9 @@ static NSString* otherCost(DockSquad* targetSquad)
     totalSPBoxText.size.height -= 6;
     totalSP.text = [NSString stringWithFormat: @"%d", [_ship cost]];
     totalSP.alignment = NSTextAlignmentCenter;
-    [totalSP draw: totalSPBoxText];
+    if (_ship) {
+        [totalSP draw: totalSPBoxText];
+    }
     UIBezierPath* totalSPPath = [UIBezierPath bezierPathWithRect: totalSPBox];
     totalSPPath.lineWidth = kDefaultLineWidth;
     [[UIColor blackColor] set];
