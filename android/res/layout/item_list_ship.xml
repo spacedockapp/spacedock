@@ -8,6 +8,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceListItem"
         android:textColor="@color/default_text"
+        android:typeface="monospace"
         android:text="Fac"/>
     <TextView
         android:id="@+id/unique"

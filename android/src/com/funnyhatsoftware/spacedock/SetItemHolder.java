@@ -1,25 +1,28 @@
 package com.funnyhatsoftware.spacedock;
 
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.view.View;
 import android.widget.TextView;
 
 import com.funnyhatsoftware.spacedock.data.DataUtils;
+import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Ship;
 import com.funnyhatsoftware.spacedock.data.ShipClassDetails;
+import com.funnyhatsoftware.spacedock.data.Upgrade;
 
 public class SetItemHolder {
     static int getLayoutForSlot(int slotType) {
         switch(slotType) {
-            case EquipHelper.SLOT_TYPE_CAPTAIN:
-            case EquipHelper.SLOT_TYPE_CREW:
-            case EquipHelper.SLOT_TYPE_TECH:
-            case EquipHelper.SLOT_TYPE_TALENT:
-            case EquipHelper.SLOT_TYPE_WEAPON:
+            case EquippedShip.SLOT_TYPE_CAPTAIN:
+            case EquippedShip.SLOT_TYPE_CREW:
+            case EquippedShip.SLOT_TYPE_TECH:
+            case EquippedShip.SLOT_TYPE_TALENT:
+            case EquippedShip.SLOT_TYPE_WEAPON:
                 return R.layout.item_list_basic;
 
-            case EquipHelper.SLOT_TYPE_SHIP:
+            case EquippedShip.SLOT_TYPE_SHIP:
                 return R.layout.item_list_ship;
         }
         throw new IllegalArgumentException();
@@ -27,14 +30,14 @@ public class SetItemHolder {
 
     static SetItemHolder createHolder(View view, int slotType) {
         switch(slotType) {
-            case EquipHelper.SLOT_TYPE_CAPTAIN:
-            case EquipHelper.SLOT_TYPE_CREW:
-            case EquipHelper.SLOT_TYPE_TECH:
-            case EquipHelper.SLOT_TYPE_TALENT:
-            case EquipHelper.SLOT_TYPE_WEAPON:
+            case EquippedShip.SLOT_TYPE_CAPTAIN:
+            case EquippedShip.SLOT_TYPE_CREW:
+            case EquippedShip.SLOT_TYPE_TECH:
+            case EquippedShip.SLOT_TYPE_TALENT:
+            case EquippedShip.SLOT_TYPE_WEAPON:
                 return new SetItemHolder(view);
 
-            case EquipHelper.SLOT_TYPE_SHIP:
+            case EquippedShip.SLOT_TYPE_SHIP:
                 return new ShipHolder(view);
         }
         throw new IllegalArgumentException();
@@ -52,14 +55,27 @@ public class SetItemHolder {
         mAbilityTextView = (TextView) view.findViewById(R.id.ability);
     }
 
-    public void reinitialize(SetItem item) {
+    public void reinitialize(Resources res, SetItem item) {
+        if (item == null) {
+            // Disable anything?
+            mFactionTextView.setTextColor(res.getColor(R.color.light_text));
+            mFactionTextView.setText(R.string.indicator_not_applicable);
+            mCostTextView.setText(R.string.indicator_not_applicable);
+            mUniqueTextView.setText(null);
+            mAbilityTextView.setVisibility(View.GONE);
+            return;
+        }
         String faction = item.getFaction();
         mFactionTextView.setTextColor(FactionInfo.getFactionColor(
                 mFactionTextView.getResources(),
                 item.getFaction()));
         mFactionTextView.setText(faction.substring(0, 3));
         mCostTextView.setText(Integer.toString(item.getCost()));
-        mUniqueTextView.setText(item.getUnique() ? "U" : "");
+        if (item.getUnique()) {
+            mUniqueTextView.setText(R.string.indicator_unique);
+        } else {
+            mUniqueTextView.setText(null);
+        }
 
         String ability = item.getAbility();
         boolean hasAbility = ability != null && !ability.isEmpty();
@@ -68,7 +84,7 @@ public class SetItemHolder {
     }
 
     static class ShipHolder extends SetItemHolder {
-        private final ArcDrawable mArcDrawable = new ArcDrawable();
+        private final ArcDrawable mArcDrawable;
         private final ManeuverGridDrawable mManeuverGridDrawable;
         private final TextView mClassTextView;
         private final TextView mAttackTextView;
@@ -77,7 +93,9 @@ public class SetItemHolder {
         private final TextView mShieldTextView;
         public ShipHolder(View view) {
             super(view);
-            mManeuverGridDrawable = new ManeuverGridDrawable(view.getContext());
+            final Resources res = view.getContext().getResources();
+            mArcDrawable = new ArcDrawable(res);
+            mManeuverGridDrawable = new ManeuverGridDrawable(res);
 
             view.findViewById(R.id.arc_display).setBackgroundDrawable(mArcDrawable);
             view.findViewById(R.id.maneuver_display).setBackgroundDrawable(mManeuverGridDrawable);
@@ -89,23 +107,17 @@ public class SetItemHolder {
         }
 
         @Override
-        public void reinitialize(SetItem item) {
-            super.reinitialize(item);
+        public void reinitialize(Resources res, SetItem item) {
+            super.reinitialize(res, item);
             Ship ship = (Ship) item;
             ShipClassDetails details = ship.getShipClassDetails();
 
-            if (details != null) {
-                int factionColor = FactionInfo.getFactionColor(
-                        mClassTextView.getResources(), ship.getFaction());
-                int frontArc = DataUtils.intValue(details.getFrontArc());
-                int rearArc = DataUtils.intValue(details.getRearArc());
-                mArcDrawable.setArc(factionColor, frontArc, rearArc);
-                mManeuverGridDrawable.setManeuvers(details.getManeuvers());
-            } else {
-                // TODO: fix cases where details are missing
-                mArcDrawable.setArc(Color.BLACK, 0, 0);
-                mManeuverGridDrawable.setManeuvers(null);
-            }
+            int factionColor = FactionInfo.getFactionColor(
+                    mClassTextView.getResources(), ship.getFaction());
+            int frontArc = DataUtils.intValue(details.getFrontArc());
+            int rearArc = DataUtils.intValue(details.getRearArc());
+            mArcDrawable.setArc(factionColor, frontArc, rearArc);
+            mManeuverGridDrawable.setManeuvers(details.getManeuvers());
 
             mClassTextView.setText(ship.getShipClass());
             mAttackTextView.setText(Integer.toString(ship.getAttack()));

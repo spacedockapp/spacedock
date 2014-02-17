@@ -1,18 +1,17 @@
 package com.funnyhatsoftware.spacedock;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class SetItemListFragment extends ListFragment {
-    private static final String ARG_EQUIP_SHIP_NR = "ship_id";
-    private static final String ARG_SLOT_TYPE = "slot_type";
-    private static final String ARG_SLOT_NUMBER = "slot_number";
-    private static final String ARG_CURRENT_EQUIP_ID = "current_equip";
+    static final String ARG_EQUIP_SHIP_NR = "ship_id";
+    static final String ARG_SLOT_TYPE = "slot_type";
+    static final String ARG_SLOT_NUMBER = "slot_number";
+    static final String ARG_CURRENT_EQUIP_ID = "current_equip";
+    static final String ARG_RETURN_EQUIP_ID = "return_equip";
+    static final String ARG_PREFERRED_FACTION = "pref_faction";
 
     public static final String SAVE_KEY_ACTIVATED_POSITION = "activated_position";
 
@@ -21,7 +20,7 @@ public class SetItemListFragment extends ListFragment {
     }
 
     private SetItemSelectCallback mCallback;
-    private ArrayAdapter<EquipHelper.SetItemWrapper> mAdapter;
+    private SetItemAdapter mAdapter;
     private int mActivatedPosition = ListView.INVALID_POSITION;
 
     private int mEquippedShipNumber = -1;
@@ -32,19 +31,13 @@ public class SetItemListFragment extends ListFragment {
      * Create a new instance of CountingFragment, providing "num"
      * as an argument.
      */
-    static SetItemListFragment newInstance(int equippedShipNumber,
-            int slotType, int slotNumber, String currentEquipmentId) {
-        SetItemListFragment fragment = new SetItemListFragment();
-
-        // Supply num input as an argument.
-        Bundle args = new Bundle();
+    static void setupArgs(Bundle args, int equippedShipNumber,
+            int slotType, int slotNumber, String currentEquipmentId, String prefFaction) {
         args.putInt(ARG_EQUIP_SHIP_NR, equippedShipNumber);
         args.putInt(ARG_SLOT_TYPE, slotType);
         args.putInt(ARG_SLOT_NUMBER, slotNumber);
         args.putString(ARG_CURRENT_EQUIP_ID, currentEquipmentId);
-        fragment.setArguments(args);
-
-        return fragment;
+        args.putString(ARG_PREFERRED_FACTION, prefFaction);
     }
 
     /**
@@ -63,9 +56,10 @@ public class SetItemListFragment extends ListFragment {
         mEquippedShipNumber = getArguments().getInt(ARG_EQUIP_SHIP_NR);
         mSlotType = getArguments().getInt(ARG_SLOT_TYPE);
         mSlotNumber = getArguments().getInt(ARG_SLOT_NUMBER);
-        mAdapter = new SetItemAdapter(getActivity(), mSlotType);
-        setListAdapter(mAdapter);
 
+        String preferredFaction = getArguments().getString(ARG_PREFERRED_FACTION);
+        mAdapter = new SetItemAdapter(getActivity(), mSlotType, preferredFaction);
+        setListAdapter(mAdapter);
     }
 
     @Override
@@ -76,8 +70,10 @@ public class SetItemListFragment extends ListFragment {
         String currentEquipmentId = getArguments().getString(ARG_CURRENT_EQUIP_ID);
         if (currentEquipmentId != null) {
             for (int i = 0; i < mAdapter.getCount(); i++) {
-                if (currentEquipmentId.compareTo(mAdapter.getItem(i).getExternalId()) == 0) {
+                if (currentEquipmentId.compareTo(mAdapter.getItemExternalId(i)) == 0) {
+                    // TODO: reuse fragment, select & smoothly scroll to new position
                     setActivatedPosition(i);
+                    getListView().setSelection(i);
                     break;
                 }
             }
@@ -93,9 +89,8 @@ public class SetItemListFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        EquipHelper.SetItemWrapper wrapper = mAdapter.getItem(position);
         mCallback.onSetItemSelected(mEquippedShipNumber,
-                mSlotType, mSlotNumber, wrapper.getExternalId());
+                mSlotType, mSlotNumber, mAdapter.getItemExternalId(position));
     }
 
     private void setActivatedPosition(int position) {
@@ -105,29 +100,5 @@ public class SetItemListFragment extends ListFragment {
             getListView().setItemChecked(position, true);
         }
         mActivatedPosition = position;
-    }
-
-    private static class SetItemAdapter extends ArrayAdapter<EquipHelper.SetItemWrapper> {
-        private final int mSlotType;
-
-        public SetItemAdapter(Context context, int slotType) {
-            super(context, SetItemHolder.getLayoutForSlot(slotType), R.id.title,
-                    EquipHelper.getItemsForSlot(slotType));
-            mSlotType = slotType;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View listItem = super.getView(position, convertView, parent);
-            assert(listItem != null);
-
-            SetItemHolder holder = (SetItemHolder) listItem.getTag();
-            if (holder == null) {
-                holder = SetItemHolder.createHolder(listItem, mSlotType);
-                listItem.setTag(holder);
-            }
-            holder.reinitialize(getItem(position).item);
-            return listItem;
-        }
     }
 }

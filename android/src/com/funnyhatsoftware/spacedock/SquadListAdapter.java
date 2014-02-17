@@ -10,6 +10,8 @@ import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
+import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
+import com.funnyhatsoftware.spacedock.data.Squad;
 
 import java.util.ArrayList;
 
@@ -29,13 +31,13 @@ public class SquadListAdapter extends BaseExpandableListAdapter
 
     public interface SlotSelectCallback {
         void onSlotSelected(int equippedShipNumber, int slotType, int slotNumber,
-                String currentEquipmentId);
+                String currentEquipmentId, String prefFaction);
     }
 
     private final Activity mActivity;
     private final ExpandableListView mListView;
     private final SlotSelectCallback mCallback;
-    private final ArrayList<EquippedShip> mEquippedShips;
+    private final Squad mSquad;
     private ArrayList<ListItemLookup>[] mShipLookup;
 
     //////////////////////////////////////////////////////////////////
@@ -54,7 +56,7 @@ public class SquadListAdapter extends BaseExpandableListAdapter
     }
     private static class ListItemLookup {
         int headerResId = INVALID_HEADER_ID;
-        int slotType = EquipHelper.SLOT_TYPE_INVALID;
+        int slotType = EquippedShip.SLOT_TYPE_INVALID;
         int slotNumber = 0;
     }
     private static void populateLookup(ArrayList<ListItemLookup> arrayList, int count,
@@ -67,17 +69,16 @@ public class SquadListAdapter extends BaseExpandableListAdapter
         }
     }
     private void updateLookup() {
-        mShipLookup = new ArrayList[mEquippedShips.size()];
-        for (int i = 0; i < mEquippedShips.size(); i++) {
+        mShipLookup = new ArrayList[mSquad.getEquippedShips().size()];
+        for (int i = 0; i < mSquad.getEquippedShips().size(); i++) {
             ArrayList<ListItemLookup> l = new ArrayList<ListItemLookup>();
-            EquippedShip s = mEquippedShips.get(i);
-            populateLookup(l, 1, R.string.ship_slot, EquipHelper.SLOT_TYPE_SHIP);
-            if (s.getShip() != null) {
-                populateLookup(l, 1, R.string.captain_slot, EquipHelper.SLOT_TYPE_CAPTAIN);
-                populateLookup(l, s.getCrew(), R.string.crew_slot, EquipHelper.SLOT_TYPE_CREW);
-                populateLookup(l, s.getWeapon(), R.string.weapon_slot, EquipHelper.SLOT_TYPE_WEAPON);
-                populateLookup(l, s.getTech(), R.string.tech_slot, EquipHelper.SLOT_TYPE_TECH);
-            }
+            EquippedShip s = mSquad.getEquippedShips().get(i);
+            if (s.getShip() == null) throw new IllegalStateException();
+            populateLookup(l, 1, R.string.captain_slot, EquippedShip.SLOT_TYPE_CAPTAIN);
+            populateLookup(l, s.getCrew(), R.string.crew_slot, EquippedShip.SLOT_TYPE_CREW);
+            populateLookup(l, s.getWeapon(), R.string.weapon_slot, EquippedShip.SLOT_TYPE_WEAPON);
+            populateLookup(l, s.getTech(), R.string.tech_slot, EquippedShip.SLOT_TYPE_TECH);
+            populateLookup(l, s.getTalent(), R.string.talent_slot, EquippedShip.SLOT_TYPE_TALENT);
             mShipLookup[i] = l;
         }
     }
@@ -99,8 +100,8 @@ public class SquadListAdapter extends BaseExpandableListAdapter
 
     private class SquadListItemHolder {
         final int mItemType;
-        final TextView mTitleText;
-        final TextView mCostText;
+        final TextView mTitleTextView;
+        final TextView mCostTextView;
         int mGroupPosition;
         int mChildPosition;
         ListItemLookup mListItemLookup;
@@ -108,9 +109,13 @@ public class SquadListAdapter extends BaseExpandableListAdapter
         public SquadListItemHolder(int itemType, View item) {
             mItemType = itemType;
 
-            mTitleText = (TextView) item.findViewById(R.id.title);
-            mCostText = (TextView) item.findViewById(R.id.cost); // null for headers
+            mTitleTextView = (TextView) item.findViewById(R.id.title);
+            mCostTextView = (TextView) item.findViewById(R.id.cost); // null for headers
             mListItemLookup = null;
+
+            if (mTitleTextView == null || (mCostTextView == null && mItemType != ITEM_TYPE_HEADER)) {
+                throw new IllegalStateException();
+            }
         }
 
         public void reinitialize(int groupPosition, int childPosition,
@@ -118,31 +123,52 @@ public class SquadListAdapter extends BaseExpandableListAdapter
             mGroupPosition = groupPosition;
             mChildPosition = childPosition;
             mListItemLookup = listItemLookup;
-            if (mListItemLookup != null) {
-                if (mListItemLookup.headerResId != INVALID_HEADER_ID) {
+
+            final EquippedShip es = getEquippedShip(mGroupPosition);
+            switch(mItemType) {
+                case ITEM_TYPE_HEADER:
                     // Header, simply set text
                     String headerText = mActivity.getResources().getString(
                             mListItemLookup.headerResId);
-                    mTitleText.setText(headerText);
-                } else {
+                    mTitleTextView.setText(headerText);
+                    break;
+                case ITEM_TYPE_SLOT:
                     // Slot, set title & cost
-                    EquipHelper.updateSlotCost(mEquippedShips.get(groupPosition),
-                            mTitleText, mCostText,
+                    EquippedUpgrade upgrade = es.getUpgradeAtSlot(
                             mListItemLookup.slotType, mListItemLookup.slotNumber);
-                }
-            } else {
-                // Set equipped ship total cost
-                EquipHelper.updateTotalCost(mEquippedShips.get(groupPosition), mCostText);
+                    if (upgrade.getUpgrade().isPlaceholder()) {
+                        mTitleTextView.setText(R.string.empty_upgrade_slot);
+                        mCostTextView.setText(R.string.indicator_not_applicable);
+                    } else {
+                        mTitleTextView.setText(upgrade.getUpgrade().getTitle());
+                        mCostTextView.setText(Integer.toString(upgrade.calculateCost()));
+                    }
+                    break;
+                case ITEM_TYPE_GROUP:
+                    // Set equipped ship total cost
+                    mTitleTextView.setText(es.getTitle());
+                    mCostTextView.setText(Integer.toString(es.calculateCost()));
+                    break;
+                default:
+                    throw new IllegalStateException();
             }
         }
     }
 
+    public EquippedShip getEquippedShip(int shipIndex) {
+        return mSquad.getEquippedShips().get(shipIndex);
+    }
+
+    public EquippedUpgrade getEquippedUpgrade(int shipIndex, int slotType, int slotNumber) {
+        return getEquippedShip(shipIndex).getUpgradeAtSlot(slotType, slotNumber);
+    }
+
     public SquadListAdapter(Activity activity, ExpandableListView listView,
-            ArrayList<EquippedShip> equippedShips, SlotSelectCallback callback) {
+            Squad squad, SlotSelectCallback callback) {
         // TODO: always maintain one empty extra ship to support add/remove
         mActivity = activity;
         mListView = listView;
-        mEquippedShips = equippedShips;
+        mSquad = squad;
         mCallback = callback;
         updateLookup();
         mListView.setOnChildClickListener(this);
@@ -156,7 +182,7 @@ public class SquadListAdapter extends BaseExpandableListAdapter
     @Override
     public int getChildType(int groupPosition, int childPosition) {
         int headerResId = mShipLookup[groupPosition].get(childPosition).headerResId;
-        return headerResId == INVALID_HEADER_ID ? ITEM_TYPE_SLOT : ITEM_TYPE_HEADER;
+        return headerResId == INVALID_HEADER_ID ? 0 : 1;
     }
 
     @Override
@@ -166,7 +192,7 @@ public class SquadListAdapter extends BaseExpandableListAdapter
 
     @Override
     public int getGroupCount() {
-        return mEquippedShips.size();
+        return mSquad.getEquippedShips().size();
     }
 
     @Override
@@ -176,7 +202,7 @@ public class SquadListAdapter extends BaseExpandableListAdapter
 
     @Override
     public Object getGroup(int groupPosition) {
-        return mEquippedShips.get(groupPosition);
+        return getEquippedShip(groupPosition);
     }
 
     @Override
@@ -201,6 +227,7 @@ public class SquadListAdapter extends BaseExpandableListAdapter
             convertView = buildItem(parent, ITEM_TYPE_GROUP);
         }
         ((SquadListItemHolder)convertView.getTag()).reinitialize(groupPosition, -1, null);
+
         return convertView;
     }
 
@@ -243,16 +270,20 @@ public class SquadListAdapter extends BaseExpandableListAdapter
 
         int slotType = holder.mListItemLookup.slotType;
         int slotNumber = holder.mListItemLookup.slotNumber;
-        String currentEquipmentId = EquipHelper.getIdFromSlot(
-                mEquippedShips.get(groupPosition), slotType, slotNumber);
-        mCallback.onSlotSelected(groupPosition, slotType, slotNumber, currentEquipmentId);
+        EquippedUpgrade equippedUpgrade = getEquippedUpgrade(groupPosition, slotType, slotNumber);
+        String currentEquipmentId = equippedUpgrade.getUpgrade().getExternalId();
+
+        // Make upgrades with faction == ship faction most visible
+        String prefFaction = getEquippedShip(groupPosition).getShip().getFaction();
+
+        mCallback.onSlotSelected(groupPosition, slotType, slotNumber,
+                currentEquipmentId, prefFaction);
         return false;
     }
 
     public void onSetItemReturned(int equippedShipNumber, int slotType, int slotIndex,
-                String externalId) {
-        EquippedShip equippedShip = mEquippedShips.get(equippedShipNumber);
-        EquipHelper.insertItem(externalId, equippedShip, slotType, slotIndex);
+            String externalId) {
+        getEquippedShip(equippedShipNumber).equipUpgrade(slotType, slotIndex, externalId);
         notifyDataSetChanged();
     }
 }

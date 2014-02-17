@@ -5,4 +5,6 @@
 
     <dimen name="maneuver_grid_size">15dp</dimen>
     <dimen name="grid_size">117dp</dimen>
+
+    <dimen name="inset_shadow_width">8dp</dimen>
 </resources>

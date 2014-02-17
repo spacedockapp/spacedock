@@ -7,14 +7,14 @@
     android:orientation="horizontal"
     tools:context="com.funnyhatsoftware.spacedock.SquadBuildActivity">
 
-    <ExpandableListView
+    <com.funnyhatsoftware.spacedock.InsetExpandableListView
         android:id="@+id/squad_list"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:divider="@null"
         android:groupIndicator="@null">
-    </ExpandableListView>
+    </com.funnyhatsoftware.spacedock.InsetExpandableListView>
 
     <FrameLayout
         android:id="@+id/right_fragment_container"

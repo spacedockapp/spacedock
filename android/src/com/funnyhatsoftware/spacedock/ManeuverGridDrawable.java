@@ -136,8 +136,7 @@ public class ManeuverGridDrawable extends Drawable {
         mPathMap.put(name, p);
     }
 
-    public ManeuverGridDrawable(Context context) {
-        final Resources res = context.getResources();
+    public ManeuverGridDrawable(Resources res) {
         mGridSize = res.getDimensionPixelSize(R.dimen.maneuver_grid_size);
         mLineWidth = res.getDimensionPixelSize(R.dimen.maneuver_line_size);
         mLines = getLines();
