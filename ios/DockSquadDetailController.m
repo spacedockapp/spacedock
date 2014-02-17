@@ -336,6 +336,10 @@ enum {
         return row < shipCount;
     }
 
+    if (section == kDetailsSection) {
+        return  row == kResourceRow;
+    }
+
     return NO;
 }
 
