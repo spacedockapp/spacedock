@@ -52,8 +52,10 @@ static NSString* otherCost(DockSquad* targetSquad)
 @interface DockTextBox : NSObject
 @property (assign, nonatomic) NSInteger alignment;
 @property (assign, nonatomic) BOOL frame;
+@property (assign, nonatomic) BOOL centerVertically;
 @property (strong, nonatomic) UIColor* color;
 @property (strong, nonatomic) UIFont* font;
+@property (strong, nonatomic) NSStringDrawingContext* stringContext;
 @property (copy, nonatomic) NSString* text;
 
 -(id)initWithText:(NSString*)text;
@@ -74,6 +76,7 @@ static NSString* otherCost(DockSquad* targetSquad)
         _alignment = NSTextAlignmentLeft;
         _color = [UIColor blackColor];
         _font = [UIFont systemFontOfSize: 25];
+        _stringContext = [[NSStringDrawingContext alloc] init];
         self.text = text;
     }
     return self;
@@ -95,6 +98,13 @@ static NSString* otherCost(DockSquad* targetSquad)
         [framePath stroke];
     }
     bounds = CGRectInset(bounds, 4, 0);
+    if (_centerVertically) {
+        CGRect r = [_text boundingRectWithSize: bounds.size
+                            options: NSStringDrawingUsesLineFragmentOrigin
+                         attributes: _attributes
+                            context: _stringContext];
+        bounds.origin.y += (bounds.size.height - r.size.height)/2;
+    }
     [_text drawInRect: bounds withAttributes: _attributes];
 }
 
@@ -444,9 +454,11 @@ static NSString* otherCost(DockSquad* targetSquad)
             if (i == 0) {
                 labelTextBox.text = _labels[j];
                 labelTextBox.font = [UIFont fontWithName: kLabelFont size: kTotalSPLabelFontSize];
+                labelTextBox.centerVertically = YES;
             } else {
                 labelTextBox.font = [UIFont fontWithName: kFieldFont size: 11];
                 labelTextBox.text = _values[j];
+                labelTextBox.centerVertically = NO;
             }
             [labelTextBox draw: labelBox];
             labelBox.origin.y += rowHeight;
@@ -532,6 +544,7 @@ static NSString* otherCost(DockSquad* targetSquad)
     DockTextBox* labelTextBox = [[DockTextBox alloc] initWithText: @""];
     labelTextBox.alignment = NSTextAlignmentCenter;
     labelTextBox.font = [UIFont fontWithName: kLabelFontNarrow size: 8];
+    labelTextBox.centerVertically = YES;
     CGFloat margin = 0.05;
     for (int j = 0; j < _labels.count; ++j) {
         colWidth = _bounds.size.width * [_columnFractions[j] doubleValue];
@@ -544,6 +557,7 @@ static NSString* otherCost(DockSquad* targetSquad)
     }
 
     if (_numberRows) {
+        labelTextBox.centerVertically = NO;
         y = _bounds.origin.y + rowHeight*2;
         x = _bounds.origin.x;
         colWidth = _bounds.size.width * [_columnFractions[0] doubleValue];
@@ -745,6 +759,7 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
     box.color = [UIColor whiteColor];
     box.alignment = NSTextAlignmentCenter;
     box.font = [UIFont fontWithName: kLabelFont size:25.0];
+    box.centerVertically = YES;
     CGRect b = CGRectInset(blackBox, kDefaultMargin, kDefaultMargin);
     [box draw: b];
     
