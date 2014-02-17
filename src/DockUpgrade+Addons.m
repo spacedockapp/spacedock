@@ -346,7 +346,7 @@
     NSString* upgradeSpecial = upgrade.special;
 
     if ([upgrade isTalent]) {
-        if ([captainSpecial isEqualToString: @"BaselineTalentCostToThree"]) {
+        if ([captainSpecial isEqualToString: @"BaselineTalentCostToThree"] && self.isFederation) {
             cost = 3;
         }
     } else if ([upgrade isCrew]) {
