@@ -34,6 +34,8 @@ enum {
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* cpyBarItem;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* printBarItem;
 @property (assign, nonatomic) int targetRow;
+@property (assign, nonatomic) id oldTarget;
+@property (assign, nonatomic) SEL oldAction;
 @end
 
 @implementation DockSquadDetailController
@@ -51,6 +53,8 @@ enum {
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    _oldTarget = _printBarItem.target;
+    _oldAction = _printBarItem.action;
     if (!isOS7OrGreater()) {
         [_printBarItem setAction: @selector(explainCantPrint:)];
         [_printBarItem setTarget: self];
@@ -82,10 +86,24 @@ enum {
     [self.tableView reloadData];
 }
 
+-(void)validatePrinting
+{
+    if (isOS7OrGreater()) {
+        if (_squad.equippedShips.count > 4) {
+            [_printBarItem setAction: @selector(explainCantPrintThisSquad:)];
+            [_printBarItem setTarget: self];
+        } else {
+            [_printBarItem setAction: _oldAction];
+            [_printBarItem setTarget: _oldTarget];
+        }
+    }
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear: animated];
     [_squad addObserver: self forKeyPath: @"cost" options: 0 context: 0];
+    [self validatePrinting];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -305,6 +323,7 @@ enum {
     }
 
     [self.tableView endUpdates];
+    [self validatePrinting];
 }
 
 -(BOOL)tableView:(UITableView*)tableView shouldHighlightRowAtIndexPath:(NSIndexPath*)indexPath
@@ -604,6 +623,16 @@ enum {
 - (IBAction)explainCantPrint:(id)sender
 {
     presentUnsuppportedFeatureDialog();
+}
+
+- (IBAction)explainCantPrintThisSquad:(id)sender
+{
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle: @"Can't Print"
+                                                     message: @"This version of Space Dock cannot print build sheets for squads with more than four ships."
+                                                    delegate: nil
+                                           cancelButtonTitle: @"OK"
+                                           otherButtonTitles: nil];
+    [alert show];
 }
 
 @end
