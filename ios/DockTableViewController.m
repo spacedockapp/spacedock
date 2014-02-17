@@ -53,6 +53,19 @@
     return @[factionDescriptor, titleDescriptor];
 }
 
+- (NSPredicate *)makePredicateTemplate
+{
+    NSString* faction = self.faction;
+    NSArray* includedSets = self.includedSets;
+    NSPredicate *predicateTemplate;
+    if (faction != nil && [self useFactionFilter]) {
+        predicateTemplate = [NSPredicate predicateWithFormat: @"faction = %@ and any sets.externalId in %@", self.faction, includedSets];
+    } else {
+        predicateTemplate = [NSPredicate predicateWithFormat: @"any sets.externalId in %@", includedSets];
+    }
+    return predicateTemplate;
+}
+
 -(void)setupFetch:(NSFetchRequest*)fetchRequest context:(NSManagedObjectContext*)context
 {
     NSString* entityName = [self entityName];
@@ -62,13 +75,7 @@
     NSArray* includedSets = self.includedSets;
 
     if (includedSets.count > 0) {
-        NSPredicate* predicateTemplate = nil;
-        NSString* faction = self.faction;
-        if (faction != nil && [self useFactionFilter]) {
-            predicateTemplate = [NSPredicate predicateWithFormat: @"faction = %@ and any sets.externalId in %@", faction, includedSets];
-        } else {
-            predicateTemplate = [NSPredicate predicateWithFormat: @"any sets.externalId in %@", includedSets];
-        }
+        NSPredicate* predicateTemplate = [self makePredicateTemplate];
         [fetchRequest setPredicate: predicateTemplate];
     }
 }
