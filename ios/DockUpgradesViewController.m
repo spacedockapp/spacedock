@@ -244,6 +244,8 @@
                                                otherButtonTitles: @"Restore", @"Override", nil];
         alert.alertViewStyle = UIAlertViewStylePlainTextInput;
         UITextField* textField = [alert textFieldAtIndex: 0];
+        textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         textField.placeholder = @"cost";
         textField.textAlignment = NSTextAlignmentCenter;
         [alert show];
