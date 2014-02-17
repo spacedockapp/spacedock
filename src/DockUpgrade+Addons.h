@@ -15,6 +15,7 @@
 -(BOOL)isUnique;
 -(BOOL)isDominion;
 -(BOOL)isKlingon;
+-(BOOL)isFederation;
 -(NSComparisonResult)compareTo:(DockUpgrade*)other;
 -(int)limitForShip:(DockEquippedShip*)targetShip;
 -(int)additionalWeaponSlots;

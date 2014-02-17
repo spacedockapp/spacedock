@@ -248,7 +248,7 @@ static NSString* otherCost(DockSquad* targetSquad)
             return [NSString stringWithFormat: @"%d", [equippedUpgrade cost]];
         }
         
-        return equippedUpgrade.upgrade.title;
+        return [equippedUpgrade descriptionForBuildSheet];
     }
 
     return nil;

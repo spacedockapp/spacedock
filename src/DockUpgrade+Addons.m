@@ -168,6 +168,11 @@
     return [self.faction isEqualToString: @"Klingon"];
 }
 
+-(BOOL)isFederation
+{
+    return [self.faction isEqualToString: @"Federation"];
+}
+
 -(NSComparisonResult)compareTo:(DockUpgrade*)other
 {
     NSString* upTypeMe = [self upSortType];

@@ -133,7 +133,7 @@ NSAttributedString* headerText(NSString* string)
             return [NSNumber numberWithInt: [equippedUpgrade cost]];
         }
         
-        return equippedUpgrade.upgrade.title;
+        return [equippedUpgrade descriptionForBuildSheet];
     }
 
     return nil;
