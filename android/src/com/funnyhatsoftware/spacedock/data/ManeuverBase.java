@@ -18,9 +18,9 @@ public class ManeuverBase {
     public ManeuverBase setShipClassDetails(ShipClassDetails v) { mShipClassDetails = v; return this;}
 
     public void update(Map<String,Object> data) {
-        mColor = DataUtils.stringValue((String)data.get("Color"));
-        mKind = DataUtils.stringValue((String)data.get("Kind"));
-        mSpeed = DataUtils.intValue((String)data.get("Speed"));
+        mColor = DataUtils.stringValue((String)data.get("color"));
+        mKind = DataUtils.stringValue((String)data.get("kind"));
+        mSpeed = DataUtils.intValue((String)data.get("speed"));
     }
 
 }

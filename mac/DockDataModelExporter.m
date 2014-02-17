@@ -200,8 +200,14 @@ static NSString* makeXmlKey(NSString* propertyName)
     for (NSAttributeDescription* desc in [entity.attributesByName allValues]) {
         NSString* instanceName = propertyNameToJavaInstanceName(desc.name);
         if (![parentAttributes containsObject: desc.name]) {
+            NSString* attributeName = desc.name;
+            if ([name isEqualToString: @"Maneuver"]) {
+                attributeName = [attributeName lowercaseString];
+            } else {
+                attributeName = makeXmlKey(desc.name);
+            }
             [javaClass appendFormat: @"        %@ = %@((String)data.get(\"%@\"));\n",
-                    instanceName, attributeTypeToJavaConversion(desc.attributeType), makeXmlKey(desc.name)];
+                    instanceName, attributeTypeToJavaConversion(desc.attributeType), attributeName];
         }
     }
     [javaClass appendString: @"    }\n\n"];
