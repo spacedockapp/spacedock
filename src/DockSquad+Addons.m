@@ -623,7 +623,6 @@ static NSString* namePrefix(NSString* originalName)
         if ([resource isSideboard]) {
             [self addSideboard];
         }
-        
     }
 }
 
@@ -636,6 +635,16 @@ static NSString* namePrefix(NSString* originalName)
         }
     }
     return nil;
+}
+
+-(BOOL)flagshipIsNotAssigned
+{
+    if ([self.resource isFlagship]) {
+        if (self.flagship == nil) {
+            return YES;
+        }
+    }
+    return NO;
 }
 
 -(void)purgeUpgrade:(DockUpgrade*)upgrade

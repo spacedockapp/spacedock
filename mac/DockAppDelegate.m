@@ -1100,9 +1100,13 @@ NSString* kInspectorVisible = @"inspectorVisible";
 {
     DockSquad* squad = [self selectedSquad];
     if (squad.equippedShips.count > 4) {
-        [self whineToUser: @"This version of Space Dock cannot print build sheets for squads with more than four ships."];
+        [self whineToUser: kSquadTooLargeToPrint];
     } else {
-        [_fleetBuildSheet2 show: [self selectedSquad]];
+        if ([squad flagshipIsNotAssigned]) {
+            [self whineToUser: kFlagshipPrintingError];
+        } else {
+            [_fleetBuildSheet2 show: [self selectedSquad]];
+        }
     }
 }
 

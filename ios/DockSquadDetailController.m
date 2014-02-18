@@ -92,6 +92,9 @@ enum {
         if (_squad.equippedShips.count > 4) {
             [_printBarItem setAction: @selector(explainCantPrintThisSquad:)];
             [_printBarItem setTarget: self];
+        } else if ([_squad flagshipIsNotAssigned]) {
+            [_printBarItem setAction: @selector(explainNeedToAssignFlagship:)];
+            [_printBarItem setTarget: self];
         } else {
             [_printBarItem setAction: _oldAction];
             [_printBarItem setTarget: _oldTarget];
@@ -632,7 +635,17 @@ enum {
 - (IBAction)explainCantPrintThisSquad:(id)sender
 {
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle: @"Can't Print"
-                                                     message: @"This version of Space Dock cannot print build sheets for squads with more than four ships."
+                                                     message: kSquadTooLargeToPrint
+                                                    delegate: nil
+                                           cancelButtonTitle: @"OK"
+                                           otherButtonTitles: nil];
+    [alert show];
+}
+
+- (IBAction)explainNeedToAssignFlagship:(id)sender
+{
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle: @"Can't Print"
+                                                     message: kFlagshipPrintingError
                                                     delegate: nil
                                            cancelButtonTitle: @"OK"
                                            otherButtonTitles: nil];
