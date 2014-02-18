@@ -6,6 +6,7 @@
 #import "DockFlagship+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockResource+Addons.h"
+#import "DockSetItem+Addons.h"
 #import "DockSquad+Addons.h"
 
 @interface DockFleetBuildSheetShip : NSObject <NSTableViewDataSource>
@@ -23,23 +24,21 @@ const int kExtraRows = 3;
 
 -(void)setEquippedShip:(DockEquippedShip *)equippedShip
 {
-    if (_equippedShip != equippedShip) {
-        _equippedShip = equippedShip;
+    _equippedShip = equippedShip;
 
-        if (_equippedShip) {
-            NSArray* equippedUpgrades = equippedShip.sortedUpgrades;
-            _upgrades = [[NSMutableArray alloc] initWithCapacity: equippedUpgrades.count];
+    if (_equippedShip) {
+        NSArray* equippedUpgrades = equippedShip.sortedUpgrades;
+        _upgrades = [[NSMutableArray alloc] initWithCapacity: equippedUpgrades.count];
 
-            for (DockEquippedUpgrade* upgrade in equippedUpgrades) {
-                if (![upgrade isPlaceholder] && ![upgrade.upgrade isCaptain]) {
-                    [_upgrades addObject: upgrade];
-                }
+        for (DockEquippedUpgrade* upgrade in equippedUpgrades) {
+            if (![upgrade isPlaceholder] && ![upgrade.upgrade isCaptain]) {
+                [_upgrades addObject: upgrade];
             }
-        } else {
-            _upgrades = nil;
         }
-        [_totalSP setIntValue: _equippedShip.cost];
+    } else {
+        _upgrades = nil;
     }
+    [_totalSP setIntValue: _equippedShip.cost];
     [_shipGrid reloadData];
 }
 
@@ -135,7 +134,7 @@ NSAttributedString* headerText(NSString* string)
             return [NSNumber numberWithInt: [equippedUpgrade cost]];
         }
         
-        return equippedUpgrade.upgrade.title;
+        return [equippedUpgrade descriptionForBuildSheet];
     }
 
     return nil;

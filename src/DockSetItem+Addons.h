@@ -2,4 +2,5 @@
 
 @interface DockSetItem (Addons)
 -(NSString*)anySetExternalId;
+-(NSString*)factionCode;
 @end

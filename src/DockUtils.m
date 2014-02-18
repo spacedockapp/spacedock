@@ -38,6 +38,7 @@ NSSet* allAttributes(NSManagedObjectContext* context, NSString* entityName, NSSt
     return [NSSet setWithSet: allSpecials];
 }
 
+#if !TARGET_OS_IPHONE
 NSAttributedString* makeCentered(NSAttributedString* s)
 {
     NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithAttributedString: s];
@@ -46,4 +47,11 @@ NSAttributedString* makeCentered(NSAttributedString* s)
     NSRange r = NSMakeRange(0, s.length);
     [as addAttribute: NSParagraphStyleAttributeName value: ps range: r];
     return [[NSAttributedString alloc] initWithAttributedString: as];
+}
+#endif
+
+NSString* factionCode(id target)
+{
+    NSString* faction = [target faction];
+    return [faction substringToIndex: 3];
 }

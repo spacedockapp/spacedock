@@ -9,6 +9,7 @@
 #import "DockShip+Addons.h"
 #import "DockTalent.h"
 #import "DockTech.h"
+#import "DockUtils.h"
 #import "DockWeapon.h"
 
 @implementation DockUpgrade (Addons)
@@ -168,6 +169,11 @@
     return [self.faction isEqualToString: @"Klingon"];
 }
 
+-(BOOL)isFederation
+{
+    return [self.faction isEqualToString: @"Federation"];
+}
+
 -(NSComparisonResult)compareTo:(DockUpgrade*)other
 {
     NSString* upTypeMe = [self upSortType];
@@ -283,11 +289,6 @@
 
 }
 
--(NSString*)factionCode
-{
-    return [self.faction substringToIndex: 1];
-}
-
 -(NSString*)optionalAttack
 {
     if ([self isWeapon]) {
@@ -341,7 +342,7 @@
     NSString* upgradeSpecial = upgrade.special;
 
     if ([upgrade isTalent]) {
-        if ([captainSpecial isEqualToString: @"BaselineTalentCostToThree"]) {
+        if ([captainSpecial isEqualToString: @"BaselineTalentCostToThree"] && self.isFederation) {
             cost = 3;
         }
     } else if ([upgrade isCrew]) {

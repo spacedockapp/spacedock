@@ -398,29 +398,67 @@
                                     <action selector="toggleUnique:" target="-1" id="w03-6c-xGr"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="HcR-Jb-reU"/>
-                            <menuItem title="Add Upgrade to Ship" id="p9A-sR-L0Y">
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Upgrade" id="THT-yF-bak">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Upgrade" id="j2R-MG-C7a">
+                        <items>
+                            <menuItem title="Add Upgrade to Ship" id="UBo-QS-xBm">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="addSelectedUpgradeAction:" target="-1" id="5OQ-gx-5GV"/>
+                                    <action selector="addSelectedUpgradeAction:" target="-1" id="vQW-Nr-I2n"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Remove Upgrade from Ship" id="gdN-zW-zNH">
+                            <menuItem title="Remove Upgrade from Ship" id="Dmq-EC-7C9">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="deleteSelectedUpgradeAction:" target="-1" id="Zys-p2-rv8"/>
+                                    <action selector="deleteSelectedUpgradeAction:" target="-1" id="QOf-rG-qgc"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Override Upgrade Cost..." id="PWR-cd-Ubi">
+                            <menuItem title="Override Upgrade Cost..." id="eb4-QE-b4P">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="overrideCost:" target="494" id="Sgy-jY-LfZ"/>
+                                    <action selector="overrideCost:" target="-1" id="gdO-Qn-bCX"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Remove Upgrade Cost Override" id="83e-0L-Dtl">
+                            <menuItem title="Remove Upgrade Cost Override" id="5is-cq-TkO">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="removeOverride:" target="-1" id="QlM-vy-fZP"/>
+                                    <action selector="removeOverride:" target="-1" id="lFH-Dd-qWM"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="JGg-Rv-xa1"/>
+                            <menuItem title="Show All Upgrade Types" keyEquivalent="0" id="Rj9-Uh-Ar0">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="resetUpgradeFilter:" target="-1" id="I84-Vk-m9j"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="fhb-WX-Og2"/>
+                            <menuItem title="Crew" keyEquivalent="1" id="ceu-ZL-Ssx">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="filterToUpgradeType:" target="-1" id="eLU-Ay-tOr"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Talent" keyEquivalent="2" id="JLL-YH-008">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="filterToUpgradeType:" target="-1" id="sWk-5l-eZf"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Tech" keyEquivalent="3" id="QvR-Fg-J0S">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="filterToUpgradeType:" target="-1" id="w5U-Xa-CcG"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Weapon" keyEquivalent="4" id="GBZ-wm-qbc">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="filterToUpgradeType:" target="-1" id="iK4-Ib-snj"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -4017,7 +4055,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                     </customView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="t4p-6e-B3a">
-                        <rect key="frame" x="15" y="212" width="468" height="41"/>
+                        <rect key="frame" x="15" y="212.00002179785369" width="468" height="41"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" borderStyle="border" alignment="left" title="Notes" id="WQ9-sP-5ob">
                             <font key="font" size="13" name="CourierNewPSMT"/>

@@ -146,7 +146,7 @@ static NSString* intToString(int v)
 
 -(NSString*)factionCode
 {
-    return self.ship.factionCode;
+    return factionCode(self.ship);
 }
 
 -(int)baseCost
@@ -503,9 +503,9 @@ static NSString* intToString(int v)
                     return NSOrderedAscending;
                 }
 
-                return NSOrderedAscending;
+                return NSOrderedDescending;
             };
-            [allUpgrades sortedArrayUsingComparator: cmp];
+            [allUpgrades sortUsingComparator: cmp];
         }
 
     }

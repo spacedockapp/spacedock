@@ -1,6 +1,7 @@
 #import "DockSetItem+Addons.h"
 
 #import "DockSet+Addons.h"
+#import "DockUtils.h"
 
 @implementation DockSetItem (Addons)
 
@@ -8,6 +9,11 @@
 {
     DockSet* set = [self.sets anyObject];
     return set.externalId;
+}
+
+-(NSString*)factionCode
+{
+    return factionCode(self);
 }
 
 @end

@@ -130,11 +130,6 @@ NSString* asDegrees(NSString* textValue)
     return self.shipClass;
 }
 
--(NSString*)factionCode
-{
-    return [[self faction] substringToIndex: 1];
-}
-
 -(BOOL)isBreen
 {
     NSRange r = [self.shipClass rangeOfString: @"Breen" options: NSCaseInsensitiveSearch];

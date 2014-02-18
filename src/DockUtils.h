@@ -10,3 +10,4 @@ NSAttributedString* coloredString(NSString* text, NSColor* color, NSColor* backC
 NSSet* allAttributes(NSManagedObjectContext* context, NSString* entityName, NSString* attributeName);
 
 NSAttributedString* makeCentered(NSAttributedString* s);
+NSString* factionCode(id target);

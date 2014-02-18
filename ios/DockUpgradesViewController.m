@@ -9,6 +9,10 @@
 #import "DockUtilsMobile.h"
 
 @interface DockUpgradesViewController ()
+@property (assign, nonatomic) BOOL wasOverridden;
+@property (assign, nonatomic) BOOL overridden;
+@property (assign, nonatomic) BOOL restore;
+@property (assign, nonatomic) int overrideCost;
 @end
 
 @implementation DockUpgradesViewController
@@ -25,10 +29,11 @@
     [super viewWillAppear: animated];
     [self setTitle: _upgradeTypeName];
     NSIndexPath* indexPath = nil;
+    DockUpgrade* upgrade = _targetUpgrade.upgrade;
 
     if (_targetUpgrade) {
         if (![_targetUpgrade isPlaceholder]) {
-            indexPath = [self.fetchedResultsController indexPathForObject: _targetUpgrade];
+            indexPath = [self.fetchedResultsController indexPathForObject: upgrade];
         }
     }
 
@@ -111,7 +116,7 @@
     if (_targetShip) {
         BOOL canAdd = [_targetSquad canAddUpgrade: upgrade toShip: _targetShip error: nil];
 
-        if (!canAdd && (_targetUpgrade != upgrade)) {
+        if (!canAdd && (_targetUpgrade.upgrade != upgrade)) {
             cell.textLabel.textColor = [UIColor grayColor];
         } else {
             cell.textLabel.textColor = [UIColor blackColor];
@@ -137,7 +142,7 @@
         DockUpgrade* upgrade = [self.fetchedResultsController objectAtIndexPath: indexPath];
         NSError* error;
 
-        if (_targetUpgrade == upgrade || [_targetSquad canAddUpgrade: upgrade toShip: _targetShip error: &error]) {
+        if (_targetUpgrade.upgrade == upgrade || [_targetSquad canAddUpgrade: upgrade toShip: _targetShip error: &error]) {
             return YES;
         }
 
@@ -152,7 +157,7 @@
 {
     if (_targetSquad) {
         DockUpgrade* upgrade = [self.fetchedResultsController objectAtIndexPath: indexPath];
-        _onUpgradePicked(upgrade);
+        _onUpgradePicked(upgrade, _overridden, _overrideCost);
         [self clearTarget];
     } else {
         [self performSegueWithIdentifier: @"ShowUpgradeDetails" sender: self];
@@ -183,8 +188,9 @@
     [self targetSquad: squad ship: ship upgrade: nil onPicked: onPicked];
 }
 
--(void)targetSquad:(DockSquad*)squad ship:(DockEquippedShip*)ship upgrade:(DockUpgrade*)upgrade onPicked:(DockUpgradePicked)onPicked
+-(void)targetSquad:(DockSquad*)squad ship:(DockEquippedShip*)ship upgrade:(DockEquippedUpgrade*)upgrade onPicked:(DockUpgradePicked)onPicked
 {
+    _wasOverridden = [upgrade.overridden boolValue];
     _targetSquad = squad;
     _targetShip = ship;
     _targetUpgrade = upgrade;
@@ -208,6 +214,48 @@
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         DockUpgrade* upgrade = [self.fetchedResultsController objectAtIndexPath: indexPath];
         controller.upgrade = upgrade;
+    }
+}
+
+#pragma mark - Override Cost
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        _overridden = NO;
+        DockUpgrade* upgrade = _targetUpgrade.upgrade;
+        _onUpgradePicked(upgrade, false, 0);
+    } else if (buttonIndex == 2) {
+        _overridden = YES;
+        UITextField* textField = [alertView textFieldAtIndex: 0];
+        _overrideCost = [textField.text intValue];
+        DockUpgrade* upgrade = _targetUpgrade.upgrade;
+        _onUpgradePicked(upgrade, YES, _overrideCost);
+    }
+}
+
+-(IBAction)overrideCost:(id)sender
+{
+    if (isOS7OrGreater()) {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle: @"Override Cost"
+                                                         message: @""
+                                                        delegate: self
+                                               cancelButtonTitle: @"Cancel"
+                                               otherButtonTitles: @"Restore", @"Override", nil];
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        UITextField* textField = [alert textFieldAtIndex: 0];
+        textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        textField.placeholder = @"cost";
+        textField.textAlignment = NSTextAlignmentCenter;
+        [alert show];
+    } else {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle: @"Not Supported"
+                                                         message: @"This feature is only supported on iOS 7 or greater."
+                                                        delegate: nil
+                                               cancelButtonTitle: @"Cancel"
+                                               otherButtonTitles: nil];
+        [alert show];
     }
 }
 

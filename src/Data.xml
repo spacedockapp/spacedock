@@ -1,4 +1,4 @@
-<Data version="1.192">
+<Data version="1.193">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1842,7 +1842,7 @@
       <Attack>4</Attack>
       <Agility>1</Agility>
       <Hull>4</Hull>
-      <Shield>4</Shield>
+      <Shield>3</Shield>
       <Ability></Ability>
       <Cost>24</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
@@ -1998,7 +1998,7 @@
     <Ship>
       <Title>I.R.W. Gal Gath`thong</Title>
       <Unique>Y</Unique>
-      <ShipClass>Bird of Prey</ShipClass>
+      <ShipClass>Romulan Bird of Prey Class</ShipClass>
       <Faction>Romulan</Faction>
       <Attack>2</Attack>
       <Agility>2</Agility>
@@ -2021,7 +2021,7 @@
     <Ship>
       <Title>Romulan Starship</Title>
       <Unique>N</Unique>
-      <ShipClass>Bird of Prey</ShipClass>
+      <ShipClass>Romulan Bird of Prey Class</ShipClass>
       <Faction>Romulan</Faction>
       <Attack>2</Attack>
       <Agility>2</Agility>
@@ -4934,8 +4934,8 @@
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
+      <Attack>3</Attack>
+      <Range>1</Range>
       <Type>Weapon</Type>
       <Faction>Dominion</Faction>
       <Cost>5</Cost>

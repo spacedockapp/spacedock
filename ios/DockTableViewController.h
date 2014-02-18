@@ -8,4 +8,6 @@
 @property (strong, nonatomic) NSArray* includedSets;
 @property (strong, nonatomic) NSString* faction;
 -(void)clearFetch;
+-(BOOL)useFactionFilter;
+-(NSPredicate *)makePredicateTemplate;
 @end
