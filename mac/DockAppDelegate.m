@@ -35,6 +35,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 @property (strong, nonatomic) DockDataUpdater* updater;
 @property (strong, nonatomic) IBOutlet NSArrayController* setsController;
 @property (copy, nonatomic) NSArray* allSets;
+@property (strong, nonatomic) NSString* upType;
 @end
 
 @implementation DockAppDelegate
@@ -793,20 +794,40 @@ NSString* kInspectorVisible = @"inspectorVisible";
 {
     NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"any sets.externalId in %@", _includedSets];
     _resourcesController.fetchPredicate = predicateTemplate;
+    
+    NSMutableArray* upgradeFormatParts = [NSMutableArray arrayWithCapacity: 0];
+    NSMutableArray* upgradeArgumentParts = [NSMutableArray arrayWithCapacity: 0];
+
+    [upgradeArgumentParts addObject: _includedSets];
+    [upgradeFormatParts addObject: @"(not upType like 'Captain') and (not placeholder == YES) and (any sets.externalId in %@)"];
+
+    if (_factionName) {
+        [upgradeArgumentParts addObject: _factionName];
+        [upgradeFormatParts addObject: @"(faction = %@)"];
+    }
+
+    if (_upType) {
+        [upgradeArgumentParts addObject: _upType];
+        [upgradeFormatParts addObject: @"(upType = %@)"];
+    }
+    
+    NSString* upgradeFormatString = [upgradeFormatParts componentsJoinedByString: @" and "];
+    NSPredicate* upgradePredicateTemplate = [NSPredicate predicateWithFormat: upgradeFormatString argumentArray: upgradeArgumentParts];
+    _upgradesController.fetchPredicate = upgradePredicateTemplate;
 
     if (_factionName == nil) {
         _shipsController.fetchPredicate = predicateTemplate;
         _captainsController.fetchPredicate = predicateTemplate;
         _flagshipsController.fetchPredicate = predicateTemplate;
         _flagshipsController.fetchPredicate = predicateTemplate;
-        predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES and any sets.externalId in %@", _includedSets];
-        _upgradesController.fetchPredicate = predicateTemplate;
+        //predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES and any sets.externalId in %@", _includedSets];
+        //_upgradesController.fetchPredicate = predicateTemplate;
     } else {
         NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"faction = %@ and any sets.externalId in %@", _factionName, _includedSets];
         _shipsController.fetchPredicate = predicateTemplate;
         _captainsController.fetchPredicate = predicateTemplate;
-        predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES and faction = %@ and any sets.externalId in %@", _factionName, _includedSets];
-        _upgradesController.fetchPredicate = predicateTemplate;
+        //predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES and faction = %@ and any sets.externalId in %@", _factionName, _includedSets];
+        //_upgradesController.fetchPredicate = predicateTemplate;
         predicateTemplate = [NSPredicate predicateWithFormat: @"faction in %@ and any sets.externalId in %@", @[_factionName, @"Independent"], _includedSets];
         _flagshipsController.fetchPredicate = predicateTemplate;
     }
@@ -821,6 +842,18 @@ NSString* kInspectorVisible = @"inspectorVisible";
 -(IBAction)filterToFaction:(id)sender
 {
     _factionName = [sender title];
+    [self updatePredicates];
+}
+
+-(IBAction)resetUpgradeFilter:(id)sender
+{
+    _upType = nil;
+    [self updatePredicates];
+}
+
+-(IBAction)filterToUpgradeType:(id)sender
+{
+    _upType = [sender title];
     [self updatePredicates];
 }
 
