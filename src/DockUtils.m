@@ -37,3 +37,9 @@ NSSet* allAttributes(NSManagedObjectContext* context, NSString* entityName, NSSt
 
     return [NSSet setWithSet: allSpecials];
 }
+
+NSString* factionCode(id target)
+{
+    NSString* faction = [target faction];
+    return [faction substringToIndex: 3];
+}

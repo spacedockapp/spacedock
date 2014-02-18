@@ -10,6 +10,7 @@
 #import "DockFlagship+Addons.h"
 #import "DockResource+Addons.h"
 #import "DockSquad+Addons.h"
+#import "DockSetItem+Addons.h"
 
 NSString* kLabelFont = @"AvenirNext-Medium";
 NSString* kLabelFontNarrow = @"AvenirNextCondensed-Medium";

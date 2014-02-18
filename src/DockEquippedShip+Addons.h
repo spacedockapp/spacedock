@@ -37,8 +37,8 @@
 -(NSString*)plainDescription;
 -(NSString*)descriptiveTitle;
 -(NSString*)upgradesDescription;
--(NSDictionary*)asJSON;
 -(NSString*)factionCode;
+-(NSDictionary*)asJSON;
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
 -(DockEquippedUpgrade*)containsUpgradeWithName:(NSString*)theName;
 -(void)changeShip:(DockShip*)newShip;

@@ -146,7 +146,7 @@ static NSString* intToString(int v)
 
 -(NSString*)factionCode
 {
-    return self.ship.factionCode;
+    return factionCode(self.ship);
 }
 
 -(int)baseCost

@@ -9,6 +9,7 @@
 #import "DockShip+Addons.h"
 #import "DockTalent.h"
 #import "DockTech.h"
+#import "DockUtils.h"
 #import "DockWeapon.h"
 
 @implementation DockUpgrade (Addons)
@@ -286,11 +287,6 @@
 
     return @"?";
 
-}
-
--(NSString*)factionCode
-{
-    return [self.faction substringToIndex: 1];
 }
 
 -(NSString*)optionalAttack

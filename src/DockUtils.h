@@ -8,3 +8,4 @@ NSAttributedString* coloredString(NSString* text, NSColor* color, NSColor* backC
 #endif
 
 NSSet* allAttributes(NSManagedObjectContext* context, NSString* entityName, NSString* attributeName);
+NSString* factionCode(id target);
