@@ -2,11 +2,10 @@
 #import "DockAbilityDelegate.h"
 
 #import "DockAppDelegate.h"
-#import "DockShip+Addons.h"
 
 @interface DockAbilityDelegate ()
-@property (strong) IBOutlet NSArrayController* shipsController;
-@property (strong) IBOutlet NSTableView* shipsTable;
+@property (strong) IBOutlet NSArrayController* targetController;
+@property (strong) IBOutlet NSTableView* targetTable;
 @property (assign) CGFloat abilityWidth;
 @property (assign) BOOL expandedRows;
 @end
@@ -15,17 +14,17 @@
 
 -(void)updateRows
 {
-    NSArray* ships = _shipsController.arrangedObjects;
+    NSArray* targets = _targetController.arrangedObjects;
     NSMutableIndexSet* set = [[NSMutableIndexSet alloc] init];
     int index = 0;
-    for (DockShip* ship in ships) {
-        NSString* ability = ship.ability;
+    for (id target in targets) {
+        NSString* ability = [target valueForKey: @"ability"];
         if (ability.length > 0) {
             [set addIndex: index];
         }
         index += 1;
     }
-    [_shipsTable noteHeightOfRowsWithIndexesChanged: set];
+    [_targetTable noteHeightOfRowsWithIndexesChanged: set];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -62,10 +61,12 @@
     if (_expandedRows) {
         if (_abilityWidth == 0) {
             NSInteger columnIndex = [tableView columnWithIdentifier: @"ability"];
-            NSArray* allColumns = [tableView tableColumns];
-            NSTableColumn* col = allColumns[columnIndex];
-            _abilityWidth = col.width;
-            [self updateRows];
+            if (columnIndex != -1) {
+                NSArray* allColumns = [tableView tableColumns];
+                NSTableColumn* col = allColumns[columnIndex];
+                _abilityWidth = col.width;
+                [self updateRows];
+            }
         }
     }
 }
@@ -73,9 +74,9 @@
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
 {
     if (_expandedRows) {
-        NSArray* ships = _shipsController.arrangedObjects;
-        DockShip* ship = ships[row];
-        NSString* ability = ship.ability;
+        NSArray* targets = _targetController.arrangedObjects;
+        id target = targets[row];
+        NSString* ability = [target valueForKey: @"ability"];
         if (ability.length > 0) {
             NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
             [paragraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
