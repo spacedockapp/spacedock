@@ -30,12 +30,14 @@
 
 NSString* kWarnAboutUnhandledSpecials = @"warnAboutUnhandledSpecials";
 NSString* kInspectorVisible = @"inspectorVisible";
+NSString* kExpandedRows = @"expandedRows";
 
 @interface DockAppDelegate ()
 @property (strong, nonatomic) DockDataUpdater* updater;
 @property (strong, nonatomic) IBOutlet NSArrayController* setsController;
 @property (copy, nonatomic) NSArray* allSets;
 @property (strong, nonatomic) NSString* upType;
+@property (assign, nonatomic) BOOL expandedRows;
 @end
 
 @implementation DockAppDelegate
@@ -49,7 +51,8 @@ NSString* kInspectorVisible = @"inspectorVisible";
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary* appDefs = @{
         kWarnAboutUnhandledSpecials: @YES,
-        kInspectorVisible: @NO
+        kInspectorVisible: @NO,
+        kExpandedRows: @YES
     };
 
     [defaults registerDefaults: appDefs];
@@ -153,6 +156,8 @@ NSString* kInspectorVisible = @"inspectorVisible";
     if ([defaults boolForKey: kInspectorVisible]) {
         [_inspector show];
     }
+    
+    self.expandedRows = [defaults boolForKey: kExpandedRows];
 
 }
 
@@ -989,6 +994,8 @@ NSString* kInspectorVisible = @"inspectorVisible";
         NSString* pathToDataFile = [self pathToDataFile];
         NSString* appPath = [[DockAppDelegate applicationFilesDirectory] path];
         return [pathToDataFile hasPrefix: appPath];
+    } else if (action == @selector(toggleExpandedRows:)) {
+        [menuItem setState: _expandedRows ? NSOnState: NSOffState];
     }
 
     return YES;
@@ -1207,6 +1214,13 @@ NSString* kInspectorVisible = @"inspectorVisible";
     for (DockSet* set in selectedItems) {
         set.include = @NO;
     }
+}
+
+-(IBAction)toggleExpandedRows:(id)sender
+{
+    self.expandedRows = !self.expandedRows;
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool: _expandedRows forKey: kExpandedRows];
 }
 
 @end

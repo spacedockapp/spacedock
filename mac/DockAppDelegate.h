@@ -7,6 +7,7 @@
 @class DockOverrideEditor;
 
 extern NSString* kInspectorVisible;
+extern NSString* kExpandedRows;
 
 @interface DockAppDelegate : NSObject<NSApplicationDelegate>
 
