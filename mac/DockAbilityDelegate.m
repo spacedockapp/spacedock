@@ -1,17 +1,17 @@
 
-#import "DockShipsDelegate.h"
+#import "DockAbilityDelegate.h"
 
 #import "DockAppDelegate.h"
 #import "DockShip+Addons.h"
 
-@interface DockShipsDelegate ()
+@interface DockAbilityDelegate ()
 @property (strong) IBOutlet NSArrayController* shipsController;
 @property (strong) IBOutlet NSTableView* shipsTable;
 @property (assign) CGFloat abilityWidth;
 @property (assign) BOOL expandedRows;
 @end
 
-@implementation DockShipsDelegate
+@implementation DockAbilityDelegate
 
 -(void)updateRows
 {
