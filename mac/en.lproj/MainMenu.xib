@@ -579,7 +579,7 @@
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <tableView identifier="shipsTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveName="shipTable" headerView="wao-eF-ukD" viewBased="YES" id="sJW-5v-BIo" userLabel="ships">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="1183" height="175"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="1316" height="175"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -744,7 +744,7 @@
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.unique" id="YnF-Cu-bpe"/>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="cost" editable="NO" width="40" minWidth="40" maxWidth="1000" id="nkG-Xt-uEc" userLabel="cost">
+                                                                            <tableColumn identifier="cost" editable="NO" width="40" minWidth="40" maxWidth="40" id="nkG-Xt-uEc" userLabel="cost">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Cost">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -756,7 +756,6 @@
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="cost"/>
-                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="FvN-Ox-MMW">
                                                                                         <rect key="frame" x="453" y="1" width="40" height="17"/>
@@ -784,7 +783,7 @@
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.cost" id="dYU-u2-9wJ"/>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="attack" editable="NO" width="40" minWidth="40" maxWidth="1000" id="wRH-MM-8l5" userLabel="attack">
+                                                                            <tableColumn identifier="attack" editable="NO" width="40" minWidth="40" maxWidth="40" id="wRH-MM-8l5" userLabel="attack">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Atk">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -796,7 +795,6 @@
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="attack"/>
-                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="eFj-Gj-zw5">
                                                                                         <rect key="frame" x="496" y="1" width="40" height="17"/>
@@ -824,7 +822,7 @@
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.attack" id="ahq-15-uTg"/>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="agility" editable="NO" width="40" minWidth="40" maxWidth="1000" id="czZ-Ac-QPs" userLabel="agility">
+                                                                            <tableColumn identifier="agility" editable="NO" width="40" minWidth="40" maxWidth="40" id="czZ-Ac-QPs" userLabel="agility">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Agi">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -836,7 +834,6 @@
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="agility"/>
-                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="cQi-w7-x8v">
                                                                                         <rect key="frame" x="539" y="1" width="40" height="17"/>
@@ -868,7 +865,7 @@
                                                                                     </binding>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="hull" editable="NO" width="40" minWidth="40" maxWidth="1000" id="pH1-AZ-3Xf" userLabel="hull">
+                                                                            <tableColumn identifier="hull" editable="NO" width="40" minWidth="40" maxWidth="40" id="pH1-AZ-3Xf" userLabel="hull">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Hull">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -880,7 +877,6 @@
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="hull"/>
-                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="6ic-Ic-p0E">
                                                                                         <rect key="frame" x="582" y="1" width="40" height="17"/>
@@ -908,7 +904,7 @@
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.hull" id="cPz-Dm-gYt"/>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="shield" editable="NO" width="40" minWidth="40" maxWidth="1000" id="UGi-Lf-Ww8" userLabel="shield">
+                                                                            <tableColumn identifier="shield" editable="NO" width="40" minWidth="40" maxWidth="40" id="UGi-Lf-Ww8" userLabel="shield">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Shld">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -920,7 +916,6 @@
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="shield"/>
-                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="naR-O1-UrP">
                                                                                         <rect key="frame" x="625" y="1" width="40" height="17"/>
@@ -948,7 +943,7 @@
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.shield" id="Jkq-VF-Dci"/>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="evasiveManeuvers" editable="NO" width="40" minWidth="40" maxWidth="1000" id="FRM-s8-XLU" userLabel="evasiveManeuvers">
+                                                                            <tableColumn identifier="evasiveManeuvers" editable="NO" width="40" minWidth="40" maxWidth="40" id="FRM-s8-XLU" userLabel="evasiveManeuvers">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="EvaM">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -960,7 +955,6 @@
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="evasiveManeuvers"/>
-                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="g6k-s7-BrH">
                                                                                         <rect key="frame" x="668" y="1" width="40" height="17"/>
@@ -988,7 +982,7 @@
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.evasiveManeuvers" id="5Bf-qo-Yh6"/>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="lock" editable="NO" width="40" minWidth="40" maxWidth="1000" id="u8B-kp-Zgh" userLabel="lock">
+                                                                            <tableColumn identifier="lock" editable="NO" width="40" minWidth="40" maxWidth="40" id="u8B-kp-Zgh" userLabel="lock">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Lock">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1000,7 +994,6 @@
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="targetLock"/>
-                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="WOt-9f-BfA">
                                                                                         <rect key="frame" x="711" y="1" width="40" height="17"/>
@@ -1028,7 +1021,7 @@
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.targetLock" id="zr6-KR-0pk"/>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="scan" editable="NO" width="40" minWidth="40" maxWidth="1000" id="1b8-fm-j2h" userLabel="scan">
+                                                                            <tableColumn identifier="scan" editable="NO" width="40" minWidth="40" maxWidth="40" id="1b8-fm-j2h" userLabel="scan">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Scan">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1040,7 +1033,6 @@
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="scan"/>
-                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="5Br-kZ-kDA">
                                                                                         <rect key="frame" x="754" y="1" width="40" height="17"/>
@@ -1068,7 +1060,7 @@
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.scan" id="yPU-n8-Bo7"/>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="battleStations" editable="NO" width="40" minWidth="40" maxWidth="1000" id="B3b-F4-4E8" userLabel="battleStations">
+                                                                            <tableColumn identifier="battleStations" editable="NO" width="40" minWidth="40" maxWidth="40" id="B3b-F4-4E8" userLabel="battleStations">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="BStn">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1080,7 +1072,6 @@
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="battleStations"/>
-                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="xQX-ts-tQT">
                                                                                         <rect key="frame" x="797" y="1" width="40" height="17"/>
@@ -1108,7 +1099,7 @@
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.battleStations" id="zZR-kh-Tks"/>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="cloak" editable="NO" width="40" minWidth="40" maxWidth="1000" id="9gp-kQ-e69" userLabel="cloak">
+                                                                            <tableColumn identifier="cloak" editable="NO" width="40" minWidth="40" maxWidth="40" id="9gp-kQ-e69" userLabel="cloak">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Clk">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1120,7 +1111,6 @@
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="cloak"/>
-                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="1KE-b0-gEm">
                                                                                         <rect key="frame" x="840" y="1" width="40" height="17"/>
@@ -1148,7 +1138,7 @@
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.cloak" id="rLF-2c-u1j"/>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="sensorEcho" editable="NO" width="40" minWidth="40" maxWidth="1000" id="2vc-NF-inI" userLabel="sensorEcho">
+                                                                            <tableColumn identifier="sensorEcho" editable="NO" width="40" minWidth="40" maxWidth="40" id="2vc-NF-inI" userLabel="sensorEcho">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Echo">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1160,7 +1150,6 @@
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="sensorEcho"/>
-                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="dWH-Re-yPh">
                                                                                         <rect key="frame" x="883" y="1" width="40" height="17"/>
@@ -1188,7 +1177,7 @@
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.sensorEcho" id="I9X-zN-pjZ"/>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="tech" editable="NO" width="40" minWidth="40" maxWidth="1000" id="iXO-d6-OB6" userLabel="tech">
+                                                                            <tableColumn identifier="tech" editable="NO" width="40" minWidth="40" maxWidth="40" id="iXO-d6-OB6" userLabel="tech">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Tech">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1200,7 +1189,6 @@
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="tech"/>
-                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="g9z-oL-4Dq">
                                                                                         <rect key="frame" x="926" y="1" width="40" height="17"/>
@@ -1228,7 +1216,7 @@
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.tech" id="ltI-VS-w1e"/>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="weapon" editable="NO" width="40" minWidth="40" maxWidth="1000" id="amn-hy-KZ2" userLabel="weapon">
+                                                                            <tableColumn identifier="weapon" editable="NO" width="40" minWidth="40" maxWidth="40" id="amn-hy-KZ2" userLabel="weapon">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Wpns">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1240,7 +1228,6 @@
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="weapon"/>
-                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="Pc7-j6-X8c">
                                                                                         <rect key="frame" x="969" y="1" width="40" height="17"/>
@@ -1268,7 +1255,7 @@
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.weapon" id="Eqw-YD-fSi"/>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="crew" editable="NO" width="40" minWidth="40" maxWidth="1000" id="cWC-M8-0gJ" userLabel="crew">
+                                                                            <tableColumn identifier="crew" editable="NO" width="40" minWidth="40" maxWidth="40" id="cWC-M8-0gJ" userLabel="crew">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Crew">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1280,7 +1267,6 @@
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
                                                                                 <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="crew"/>
-                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="7n2-TC-JiH">
                                                                                         <rect key="frame" x="1012" y="1" width="40" height="17"/>
@@ -1432,6 +1418,30 @@
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.ability" id="1Ez-kx-Ave"/>
                                                                                 </connections>
                                                                             </tableColumn>
+                                                                            <tableColumn identifier="moveGrid" width="130" minWidth="130" maxWidth="130" id="v45-tG-dkN">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Moves">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="NVR-5V-6bl">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <prototypeCellViews>
+                                                                                    <tableCellView id="1Sw-1I-Txu">
+                                                                                        <rect key="frame" x="1184" y="1" width="130" height="17"/>
+                                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                        <subviews>
+                                                                                            <customView id="5Rz-hs-7oh" customClass="DockMoveGrid">
+                                                                                                <rect key="frame" x="5" y="5" width="120" height="120"/>
+                                                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                                            </customView>
+                                                                                        </subviews>
+                                                                                    </tableCellView>
+                                                                                </prototypeCellViews>
+                                                                            </tableColumn>
                                                                         </tableColumns>
                                                                         <connections>
                                                                             <binding destination="Gzr-Z0-87U" name="content" keyPath="arrangedObjects" id="VY9-KL-DX6"/>
@@ -1457,7 +1467,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
                                                             <tableHeaderView key="headerView" id="wao-eF-ukD">
-                                                                <rect key="frame" x="0.0" y="0.0" width="1183" height="17"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="1316" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </tableHeaderView>
                                                         </scrollView>
@@ -3449,7 +3459,7 @@
                 <outlet property="window" destination="yga-mt-nV7" id="e9P-pG-kLc"/>
             </connections>
         </customObject>
-        <customObject id="qhs-aU-NlW" userLabel="Ships Table Delegate" customClass="DockAbilityDelegate">
+        <customObject id="qhs-aU-NlW" userLabel="Ships Table Delegate" customClass="DockShipDelegate">
             <connections>
                 <outlet property="targetController" destination="Gzr-Z0-87U" id="z7x-Fq-Phk"/>
                 <outlet property="targetTable" destination="sJW-5v-BIo" id="JPF-X5-FGo"/>

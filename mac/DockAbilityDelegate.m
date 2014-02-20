@@ -4,15 +4,12 @@
 #import "DockAppDelegate.h"
 
 @interface DockAbilityDelegate ()
-@property (strong) IBOutlet NSArrayController* targetController;
-@property (strong) IBOutlet NSTableView* targetTable;
 @property (assign) CGFloat abilityWidth;
-@property (assign) BOOL expandedRows;
 @end
 
 @implementation DockAbilityDelegate
 
--(void)updateRows
+-(NSIndexSet*)rowsToChange
 {
     NSArray* targets = _targetController.arrangedObjects;
     NSMutableIndexSet* set = [[NSMutableIndexSet alloc] init];
@@ -24,7 +21,13 @@
         }
         index += 1;
     }
-    [_targetTable noteHeightOfRowsWithIndexesChanged: set];
+    return set;
+}
+
+-(void)updateRows
+{
+    [_targetTable reloadData];
+//    [_targetTable noteHeightOfRowsWithIndexesChanged: [self rowsToChange]];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
