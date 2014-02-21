@@ -64,4 +64,5 @@ extern NSString* kExpandedRows;
 -(IBAction)overrideCost:(id)sender;
 -(IBAction)includeSelectedSets:(id)sender;
 -(IBAction)excludeSelectedSets:(id)sender;
+-(IBAction)showInList:(id)sender;
 @end

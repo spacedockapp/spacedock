@@ -4,6 +4,7 @@
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockEquippedUpgrade.h"
+#import "DockEquippedFlagship.h"
 #import "DockFlagship+Addons.h"
 #import "DockResource+Addons.h"
 #import "DockShip+Addons.h"
@@ -79,11 +80,6 @@ static NSString* intToString(int v)
     [desc appendAttributedString: coloredString(intToString(self.hull), [NSColor blackColor], [NSColor yellowColor])];
     [desc appendAttributedString: space];
     [desc appendAttributedString: coloredString(intToString(self.shield), [NSColor whiteColor], [NSColor blueColor])];
-    DockFlagship* flagship = self.flagship;
-    if (flagship) {
-        NSString* flagshipTag = [NSString stringWithFormat: @" [%@]", flagship.plainDescription];
-        [desc appendAttributedString: [[NSAttributedString alloc] initWithString: flagshipTag]];
-    }
 #endif
     return desc;
 }
@@ -595,6 +591,12 @@ static NSString* intToString(int v)
 -(NSArray*)sortedUpgrades
 {
     NSArray* items = [self.upgrades allObjects];
+#if !TARGET_OS_IPHONE
+    if (self.flagship) {
+        DockEquippedFlagship* efs = [DockEquippedFlagship equippedFlagship: self.flagship forShip: self];
+        items = [@[efs] arrayByAddingObjectsFromArray: items];
+    }
+#endif
     return [items sortedArrayUsingComparator: ^(DockEquippedUpgrade* a, DockEquippedUpgrade* b) {
                 return [a compareTo: b];
             }

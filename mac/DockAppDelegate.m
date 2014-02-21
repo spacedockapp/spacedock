@@ -6,11 +6,13 @@
 #import "DockDataFileLoader.h"
 #import "DockDataLoader.h"
 #import "DockDataUpdater.h"
+#import "DockEquippedFlagship.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedShip.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockErrors.h"
 #import "DockFAQViewer.h"
+#import "DockFlagship+MacAddons.h"
 #import "DockFleetBuildSheet.h"
 #import "DockInspector.h"
 #import "DockNoteEditor.h"
@@ -501,6 +503,10 @@ NSString* kExpandedRows = @"expandedRows";
             return target;
         }
 
+        if ([target isKindOfClass: [DockEquippedFlagship class]]) {
+            return [target equippedShip];
+        }
+
         if ([target isMemberOfClass: [DockEquippedUpgrade class]]) {
             DockEquippedUpgrade* upgrade = target;
             return upgrade.equippedShip;
@@ -691,12 +697,10 @@ NSString* kExpandedRows = @"expandedRows";
     DockEquippedShip* targetShip = [self selectedEquippedShip];
 
     if (target == targetShip) {
-        if (targetShip.flagship != nil) {
-            [targetShip removeFlagship];
-        } else {
-            DockSquad* squad = [[_squadsController selectedObjects] objectAtIndex: 0];
-            [squad removeEquippedShip: targetShip];
-        }
+        DockSquad* squad = [[_squadsController selectedObjects] objectAtIndex: 0];
+        [squad removeEquippedShip: targetShip];
+    } else if ([target isKindOfClass: [DockEquippedFlagship class]]) {
+        [targetShip removeFlagship];
     } else {
         [targetShip removeUpgrade: target establishPlaceholders: YES];
         [self selectShip: targetShip];
@@ -996,6 +1000,9 @@ NSString* kExpandedRows = @"expandedRows";
         return [pathToDataFile hasPrefix: appPath];
     } else if (action == @selector(toggleExpandedRows:)) {
         [menuItem setState: _expandedRows ? NSOnState: NSOffState];
+    } else if (action == @selector(showInList:)) {
+        BOOL detailsIsFirstResponder = _squadDetailView.window.firstResponder == _squadDetailView;
+        return detailsIsFirstResponder && [_squadDetailController selectedObjects].count > 0;
     }
 
     return YES;
@@ -1221,6 +1228,10 @@ NSString* kExpandedRows = @"expandedRows";
     self.expandedRows = !self.expandedRows;
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool: _expandedRows forKey: kExpandedRows];
+}
+
+-(IBAction)showInList:(id)sender
+{
 }
 
 @end

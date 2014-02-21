@@ -349,6 +349,12 @@
                                     <action selector="toggleExpandedRows:" target="-1" id="xIA-y3-Eug"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="4Bi-fN-7QL"/>
+                            <menuItem title="Show in List" keyEquivalent="r" id="jrc-BF-C6n">
+                                <connections>
+                                    <action selector="showInList:" target="-1" id="J2d-TS-GNx"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
