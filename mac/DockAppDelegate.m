@@ -101,6 +101,8 @@ NSString* kExpandedRows = @"expandedRows";
                       expandChildren: YES];
         [_squadDetailController removeObserver: self
                                     forKeyPath: @"content"];
+    } else if (object == _squadsController) {
+        [self performSelector: @selector(expandAll:) withObject: nil afterDelay: 0];
     } else if ([object isMemberOfClass: [DockSet class]]) {
         [self updateForSelectedSets];
     } else {
@@ -139,6 +141,10 @@ NSString* kExpandedRows = @"expandedRows";
     [self updateForSelectedSets];
     [_squadDetailController addObserver: self
                              forKeyPath: @"content"
+                                options: 0
+                                context: nil];
+    [_squadsController addObserver: self
+                             forKeyPath: @"selectionIndexes"
                                 options: 0
                                 context: nil];
     NSSortDescriptor* defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"title" ascending: YES];
