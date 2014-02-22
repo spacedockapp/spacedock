@@ -919,6 +919,11 @@ NSString* kExpandedRows = @"expandedRows";
     } else if (action == @selector(filterToFaction:)) {
         BOOL isCurrentFilter = [menuItem.title isEqualToString: _factionName];
         [menuItem setState: isCurrentFilter ? NSOnState: NSOffState];
+    } else if (action == @selector(resetUpgradeFilter:)) {
+        [menuItem setState: _upType == nil ? NSOnState: NSOffState];
+    } else if (action == @selector(filterToUpgradeType:)) {
+        BOOL isCurrentFilter = [menuItem.title isEqualToString: _upType];
+        [menuItem setState: isCurrentFilter ? NSOnState: NSOffState];
     } else if (action == @selector(addSelectedShip:)) {
         DockShip* ship = [self selectedShip];
         DockSquad* squad = [self selectedSquad];
@@ -1230,8 +1235,93 @@ NSString* kExpandedRows = @"expandedRows";
     [defaults setBool: _expandedRows forKey: kExpandedRows];
 }
 
+static void doSelectIndex(NSInteger index, NSArrayController* controller, NSTableView* table)
+{
+    if (index != NSNotFound) {
+        [controller setSelectionIndex: index];
+        [table selectRowIndexes: [NSIndexSet indexSetWithIndex: index] byExtendingSelection: NO];
+        [table scrollRowToVisible: index];
+    }
+}
+
+-(void)showItemInternal:(NSDictionary*)d
+{
+    NSArrayController* controller = d[@"controller"];
+    NSTableView* table = d[@"table"];
+    NSInteger index = [d[@"index"] intValue];
+    doSelectIndex(index, controller, table);
+}
+
+-(void)showItemAfterReset:(NSDictionary*)d
+{
+    NSArrayController* controller = d[@"controller"];
+    NSTableView* table = d[@"table"];
+    id item = d[@"item"];
+    NSArray* objects = [controller arrangedObjects];
+    NSInteger index = [objects indexOfObject: item];
+    doSelectIndex(index, controller, table);
+}
+
+-(void)showItem:(id)item controller:(NSArrayController*)controller table:(NSTableView*)table
+{
+    NSArray* objects = [controller arrangedObjects];
+    NSInteger index = [objects indexOfObject: item];
+    if (index == NSNotFound) {
+        NSDictionary* d2 = @{
+            @"table" : table,
+            @"controller": controller,
+            @"item": item
+        };
+        [self performSelector: @selector(showItemAfterReset:) withObject: d2 afterDelay: 0];
+    }
+    
+    NSDictionary* d = @{
+        @"table" : table,
+        @"controller": controller,
+        @"index": [NSNumber numberWithInt: (int)index]
+    };
+    [self performSelector: @selector(showItemInternal:) withObject: d afterDelay: 0];
+}
+
 -(IBAction)showInList:(id)sender
 {
+    id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
+    DockEquippedShip* targetShip = [self selectedEquippedShip];
+
+    if (target == targetShip) {
+        DockShip* ship = targetShip.ship;
+        if (![_factionName isEqualToString: ship.faction]) {
+            [self resetFactionFilter: nil];
+        }
+        [_tabView selectTabViewItemWithIdentifier: @"ships"];
+        [self showItem: targetShip.ship controller: _shipsController table: _shipsTableView];
+    } else if ([target isKindOfClass: [DockEquippedFlagship class]]) {
+        [_tabView selectTabViewItemWithIdentifier: @"flagships"];
+        DockFlagship* flagship = [target flagship];
+        NSString* flagshipFaction = flagship.faction;
+        if (!([flagshipFaction isEqualToString: @"Independent"] || [flagshipFaction isEqualToString: _factionName])) {
+            [self resetFactionFilter: nil];
+        }
+        [self showItem: [target flagship] controller: _flagshipsController table: _flagshipsTableView];
+    } else {
+        DockEquippedUpgrade* eu = target;
+        DockUpgrade* upgrade = eu.upgrade;
+        if (![upgrade isPlaceholder]) {
+            if (![_factionName isEqualToString: upgrade.faction]) {
+                [self resetFactionFilter: nil];
+            }
+            if (![_upType isEqualToString: upgrade.upType]) {
+                [self resetUpgradeFilter: nil];
+            }
+            if (upgrade.isCaptain) {
+                [_tabView selectTabViewItemWithIdentifier: @"captains"];
+                [self showItem: upgrade controller: _captainsController table: _captainsTableView];
+            } else {
+                [_tabView selectTabViewItemWithIdentifier: @"upgrades"];
+                [self showItem: upgrade controller: _upgradesController table: _upgradesTableView];
+            }
+        }
+    }
 }
 
 @end
