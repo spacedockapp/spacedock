@@ -34,6 +34,7 @@
 -(int)shield;
 -(BOOL)isResourceSideboard;
 -(NSArray*)sortedUpgrades;
+-(NSArray*)sortedUpgradesWithFlagship;
 -(NSString*)plainDescription;
 -(NSString*)descriptiveTitle;
 -(NSString*)upgradesDescription;

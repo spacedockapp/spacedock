@@ -62,6 +62,11 @@
     return nil;
 }
 
+-(NSArray*)sortedUpgradesWithFlagship
+{
+    return nil;
+}
+
 -(NSArray*)upgrades
 {
     return nil;

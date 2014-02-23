@@ -1,5 +1,7 @@
 #import "DockUtils.h"
 
+#import "DockResource+Addons.h"
+#import "DockSquad+Addons.h"
 #import "DockUpgrade.h"
 
 #if !TARGET_OS_IPHONE
@@ -54,4 +56,25 @@ NSString* factionCode(id target)
 {
     NSString* faction = [target faction];
     return [faction substringToIndex: 3];
+}
+
+NSString* resourceCost(DockSquad* targetSquad)
+{
+    DockResource* res = targetSquad.resource;
+    if (res) {
+        if (res.isFlagship) {
+            return @"Flagship";
+        }
+        return [NSString stringWithFormat: @"%@", res.cost];
+    }
+    return @"";
+}
+
+NSString* otherCost(DockSquad* targetSquad)
+{
+    NSNumber* additionalPoints = targetSquad.additionalPoints;
+    if (additionalPoints && [additionalPoints intValue] > 0) {
+        return [NSString stringWithFormat: @"%@", additionalPoints];
+    }
+    return @"";
 }

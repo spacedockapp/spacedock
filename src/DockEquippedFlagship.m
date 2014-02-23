@@ -4,6 +4,8 @@
 #import "DockFlagship+MacAddons.h"
 #import "DockUtils.h"
 
+@class DockUpgade;
+
 @implementation DockEquippedFlagship
 
 +(DockEquippedFlagship*)equippedFlagship:(DockFlagship*)flagship forShip:(DockEquippedShip*)ship
@@ -24,6 +26,11 @@
     return nil;
 }
 
+-(NSArray*)sortedUpgradesWithFlagship
+{
+    return nil;
+}
+
 -(NSArray*)upgrades
 {
     return nil;
@@ -37,6 +44,11 @@
 -(NSComparisonResult)compareTo:(NSObject*)other
 {
     return NSOrderedAscending;
+}
+
+-(BOOL)isPlaceholder
+{
+    return NO;
 }
 
 @end

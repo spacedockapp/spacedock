@@ -6,7 +6,7 @@
 
 -(NSAttributedString*)formattedCost
 {
-    return coloredString(@"0", [NSColor blackColor], [NSColor clearColor]);
+    return coloredString(@"10", [NSColor blackColor], [NSColor clearColor]);
 }
 
 

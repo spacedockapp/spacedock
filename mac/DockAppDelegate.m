@@ -498,25 +498,54 @@ NSString* kExpandedRows = @"expandedRows";
     return [self selectedItem: @"upgrades" controller: _upgradesController];
 }
 
+-(DockEquippedShip*)equippedShipForTarget:(id)target
+{
+    if ([target isKindOfClass: [DockEquippedShip class]]) {
+        return target;
+    }
+
+    if ([target isKindOfClass: [DockEquippedFlagship class]]) {
+        return [target equippedShip];
+    }
+
+    if ([target isMemberOfClass: [DockEquippedUpgrade class]]) {
+        DockEquippedUpgrade* upgrade = target;
+        return upgrade.equippedShip;
+    }
+
+    return nil;
+}
+
 -(DockEquippedShip*)selectedEquippedShip
 {
     NSArray* selectedShips = [_squadDetailController selectedObjects];
 
     if (selectedShips.count > 0) {
         id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
+        
+        return [self equippedShipForTarget: target];
+    }
 
-        if ([target isKindOfClass: [DockEquippedShip class]]) {
-            return target;
-        }
+    return nil;
+}
 
-        if ([target isKindOfClass: [DockEquippedFlagship class]]) {
-            return [target equippedShip];
-        }
+-(id)clickedSquadItem
+{
+    NSInteger index = [_squadDetailView clickedRow];
+    if (index != -1) {
+        id item = [_squadDetailView itemAtRow: index];
+        return [item representedObject];
+    }
 
-        if ([target isMemberOfClass: [DockEquippedUpgrade class]]) {
-            DockEquippedUpgrade* upgrade = target;
-            return upgrade.equippedShip;
-        }
+    return nil;
+}
+
+-(DockEquippedShip*)clickedEquippedShip
+{
+    NSInteger index = [_squadDetailView clickedRow];
+    if (index != -1) {
+        id item = [_squadDetailView itemAtRow: index];
+        return [self equippedShipForTarget: [item representedObject]];
     }
 
     return nil;
@@ -697,11 +726,8 @@ NSString* kExpandedRows = @"expandedRows";
     }
 }
 
--(IBAction)deleteSelected:(id)sender
+-(IBAction)deleteTarget:(id)target targetShip:(DockEquippedShip*)targetShip
 {
-    id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
-    DockEquippedShip* targetShip = [self selectedEquippedShip];
-
     if (target == targetShip) {
         DockSquad* squad = [[_squadsController selectedObjects] objectAtIndex: 0];
         [squad removeEquippedShip: targetShip];
@@ -711,6 +737,13 @@ NSString* kExpandedRows = @"expandedRows";
         [targetShip removeUpgrade: target establishPlaceholders: YES];
         [self selectShip: targetShip];
     }
+}
+
+-(IBAction)deleteSelected:(id)sender
+{
+    id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
+    DockEquippedShip* targetShip = [self selectedEquippedShip];
+    [self deleteTarget: target targetShip: targetShip];
 }
 
 -(void)editNameOfSquad:(DockSquad*)theSquad
@@ -854,10 +887,15 @@ NSString* kExpandedRows = @"expandedRows";
     [self updatePredicates];
 }
 
+-(void)updateFactionFilter:(NSString*)faction
+{
+    _factionName = faction;
+    [self updatePredicates];
+}
+
 -(IBAction)filterToFaction:(id)sender
 {
-    _factionName = [sender title];
-    [self updatePredicates];
+    [self updateFactionFilter: [sender title]];
 }
 
 -(IBAction)resetUpgradeFilter:(id)sender
@@ -865,6 +903,13 @@ NSString* kExpandedRows = @"expandedRows";
     _upType = nil;
     [self updatePredicates];
 }
+
+-(void)updateUpgradeTypeFilter:(NSString*)upgradeType
+{
+    _upType = upgradeType;
+    [self updatePredicates];
+}
+
 
 -(IBAction)filterToUpgradeType:(id)sender
 {
@@ -916,6 +961,19 @@ NSString* kExpandedRows = @"expandedRows";
     }
 }
 
+-(BOOL)updateChangeShipItem:(NSMenuItem*)menuItem equippedShip:(DockEquippedShip*)equippedShip
+{
+    DockShip* ship = [self selectedShip];
+
+    if (ship && equippedShip) {
+        [menuItem setTitle: [NSString stringWithFormat: @"Change '%@' to '%@'", equippedShip.descriptiveTitle, ship.descriptiveTitle]];
+    } else {
+        [menuItem setTitle: @"Change Ship"];
+        return NO;
+    }
+    return YES;
+}
+
 -(BOOL)validateMenuItem:(NSMenuItem*)menuItem
 {
     SEL action = [menuItem action];
@@ -951,15 +1009,8 @@ NSString* kExpandedRows = @"expandedRows";
             return NO;
         }
     } else if (action == @selector(changeSelectedShip:)) {
-        DockShip* ship = [self selectedShip];
         DockEquippedShip* equippedShip = [self selectedEquippedShip];
-
-        if (ship && equippedShip) {
-            [menuItem setTitle: [NSString stringWithFormat: @"Change '%@' to '%@'", equippedShip.descriptiveTitle, ship.descriptiveTitle]];
-        } else {
-            [menuItem setTitle: @"Change Ship"];
-            return NO;
-        }
+        return [self updateChangeShipItem: menuItem equippedShip: equippedShip];
     } else if (action == @selector(addSelectedUpgradeAction:)) {
         DockEquippedShip* ship = [self selectedEquippedShip];
         DockUpgrade* upgrade = [self selectedUpgrade];
@@ -1289,11 +1340,8 @@ static void doSelectIndex(NSInteger index, NSArrayController* controller, NSTabl
     [self performSelector: @selector(showItemInternal:) withObject: d afterDelay: 0];
 }
 
--(IBAction)showInList:(id)sender
+-(void)showInList:(id)target targetShip:(DockEquippedShip*)targetShip
 {
-    id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
-    DockEquippedShip* targetShip = [self selectedEquippedShip];
-
     if (target == targetShip) {
         DockShip* ship = targetShip.ship;
         if (![_factionName isEqualToString: ship.faction]) {
@@ -1325,6 +1373,142 @@ static void doSelectIndex(NSInteger index, NSArrayController* controller, NSTabl
             } else {
                 [_tabView selectTabViewItemWithIdentifier: @"upgrades"];
                 [self showItem: upgrade controller: _upgradesController table: _upgradesTableView];
+            }
+        }
+    }
+}
+
+-(IBAction)showInList:(id)sender
+{
+    id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
+    DockEquippedShip* targetShip = [self selectedEquippedShip];
+    [self showInList: target targetShip: targetShip];
+}
+
+-(IBAction)showClickedInList:(id)sender
+{
+    id target = [self clickedSquadItem];
+    DockEquippedShip* targetShip = [self clickedEquippedShip];
+    [self showInList: target targetShip: targetShip];
+}
+
+-(IBAction)changeClickedShip:(id)sender
+{
+    DockEquippedShip* targetShip = [self clickedEquippedShip];
+    DockShip* ship = [self selectedShip];
+    [targetShip changeShip: ship];
+}
+
+-(IBAction)removeFlagship:(id)sender
+{
+    DockEquippedShip* targetShip = [self clickedEquippedShip];
+    [targetShip removeFlagship];
+}
+
+-(IBAction)deleteClicked:(id)sender
+{
+    [self deleteTarget: [self clickedSquadItem] targetShip: [self clickedEquippedShip]];
+}
+
+-(IBAction)filterToClickedFaction:(id)sender
+{
+    [self updateFactionFilter: [[[self clickedEquippedShip] ship] faction]];
+}
+
+-(IBAction)filterToClickedUpgradeType:(id)sender
+{
+    DockUpgrade* upgrade = [[self clickedSquadItem] upgrade];
+    [self updateUpgradeTypeFilter: [upgrade upType]];
+}
+
+-(IBAction)filterToClickedFactionAndUpgradeType:(id)sender
+{
+    [_tabView selectTabViewItemWithIdentifier: @"upgrades"];
+    [self filterToClickedFaction:sender];
+    [self filterToClickedUpgradeType:sender];
+}
+
+static void addDeleteItem(NSMenu* menu)
+{
+    NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: @"Delete" action: @selector(deleteClicked:) keyEquivalent: @""];
+    [menu addItem: menuItem];
+}
+
+static void addFilterToFactionItem(NSMenu* menu, NSString* faction)
+{
+    NSString* menuTitle = [NSString stringWithFormat: @"Filter to “%@”", faction];
+    NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: menuTitle action: @selector(filterToClickedFaction:) keyEquivalent: @""];
+    [menu addItem: menuItem];
+}
+
+static void addFilterToTypeItem(NSMenu* menu, NSString* upType)
+{
+    NSString* menuTitle = [NSString stringWithFormat: @"Filter to “%@”", upType];
+    NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: menuTitle action: @selector(filterToClickedUpgradeType:) keyEquivalent: @""];
+    [menu addItem: menuItem];
+}
+
+static void addFilterToFactionAndTypeItem(NSMenu* menu, NSString* faction, NSString* upType)
+{
+    NSString* menuTitle = [NSString stringWithFormat: @"Filter to “%@” and “%@”", faction, upType];
+    NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: menuTitle action: @selector(filterToClickedFactionAndUpgradeType:) keyEquivalent: @""];
+    [menu addItem: menuItem];
+}
+
+static void addShowDetailsItem(NSMenu* menu)
+{
+    NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: @"Show in List" action: @selector(showClickedInList:) keyEquivalent: @""];
+    [menu addItem: menuItem];
+}
+
+-(void)addChangeShipItem:(NSMenu *)menu
+{
+    DockEquippedShip* ship = [self clickedEquippedShip];
+    NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: @"Change Ship" action: @selector(changeClickedShip:) keyEquivalent: @""];
+    BOOL enabled = [self updateChangeShipItem: menuItem equippedShip: ship];
+    if (enabled) {
+        [menuItem setEnabled: enabled];
+        [menuItem setTarget: self];
+        [menu addItem: menuItem];
+    } else {
+        menuItem.target = nil;
+    }
+}
+
+void addRemoveFlagshipItem(NSMenu *menu)
+{
+    NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: @"Remove Flagship" action: @selector(removeFlagship:) keyEquivalent: @""];
+    [menu addItem: menuItem];
+    [menuItem setEnabled: YES];
+}
+
+- (void)menuNeedsUpdate:(NSMenu*)menu
+{
+    [menu removeAllItems];
+    id target = [self clickedSquadItem];
+    DockEquippedShip* targetShip = [self clickedEquippedShip];
+    if (target != nil) {
+        if (target == targetShip) {
+            [self addChangeShipItem:menu];
+            DockEquippedShip* ship = [self clickedEquippedShip];
+            addShowDetailsItem(menu);
+            addFilterToFactionItem(menu, ship.ship.faction);
+            addDeleteItem(menu);
+        } else if ([target isKindOfClass: [DockEquippedFlagship class]]) {
+            addShowDetailsItem(menu);
+            addRemoveFlagshipItem(menu);
+        } else {
+            DockEquippedUpgrade* eu = target;
+            if (!eu.isPlaceholder) {
+                addShowDetailsItem(menu);
+            }
+            addFilterToFactionItem(menu, eu.equippedShip.ship.faction);
+            if (!eu.upgrade.isCaptain) {
+                addFilterToTypeItem(menu, eu.upgrade.upType);
+                addFilterToFactionAndTypeItem(menu, eu.equippedShip.ship.faction, eu.upgrade.upType);
+            }
+            if (!eu.isPlaceholder) {
+                addDeleteItem(menu);
             }
         }
     }

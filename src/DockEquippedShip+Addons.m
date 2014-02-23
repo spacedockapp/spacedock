@@ -22,9 +22,14 @@
     return [NSSet setWithObjects: @"upgrades", @"ship", @"flagship", nil];
 }
 
++(NSSet*)keyPathsForValuesAffectingSortedUpgradesWithFlagship
+{
+    return [NSSet setWithObjects: @"upgrades", @"ship", @"flagship", nil];
+}
+
 +(NSSet*)keyPathsForValuesAffectingCost
 {
-    return [NSSet setWithObjects: @"upgrades", @"ship", nil];
+    return [NSSet setWithObjects: @"upgrades", @"ship", @"flagship", nil];
 }
 
 +(NSSet*)keyPathsForValuesAffectingStyledDescription
@@ -180,6 +185,10 @@ static NSString* intToString(int v)
 
     for (DockEquippedUpgrade* upgrade in self.upgrades) {
         cost += [upgrade cost];
+    }
+    
+    if (self.flagship != nil) {
+        cost += 10;
     }
 
     return cost;
@@ -589,6 +598,16 @@ static NSString* intToString(int v)
 }
 
 -(NSArray*)sortedUpgrades
+{
+    NSArray* items = [self.upgrades allObjects];
+    return [items sortedArrayUsingComparator: ^(DockEquippedUpgrade* a, DockEquippedUpgrade* b) {
+                return [a compareTo: b];
+            }
+
+    ];
+}
+
+-(NSArray*)sortedUpgradesWithFlagship
 {
     NSArray* items = [self.upgrades allObjects];
 #if !TARGET_OS_IPHONE
