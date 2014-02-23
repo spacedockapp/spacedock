@@ -1,5 +1,7 @@
 #import "DockUtils.h"
 
+#import "DockResource+Addons.h"
+#import "DockSquad+Addons.h"
 #import "DockUpgrade.h"
 
 #if !TARGET_OS_IPHONE
@@ -38,8 +40,41 @@ NSSet* allAttributes(NSManagedObjectContext* context, NSString* entityName, NSSt
     return [NSSet setWithSet: allSpecials];
 }
 
+#if !TARGET_OS_IPHONE
+NSAttributedString* makeCentered(NSAttributedString* s)
+{
+    NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithAttributedString: s];
+    NSMutableParagraphStyle *ps = [[NSMutableParagraphStyle alloc] init];
+    ps.alignment = NSCenterTextAlignment;
+    NSRange r = NSMakeRange(0, s.length);
+    [as addAttribute: NSParagraphStyleAttributeName value: ps range: r];
+    return [[NSAttributedString alloc] initWithAttributedString: as];
+}
+#endif
+
 NSString* factionCode(id target)
 {
     NSString* faction = [target faction];
     return [faction substringToIndex: 3];
+}
+
+NSString* resourceCost(DockSquad* targetSquad)
+{
+    DockResource* res = targetSquad.resource;
+    if (res) {
+        if (res.isFlagship) {
+            return @"Flagship";
+        }
+        return [NSString stringWithFormat: @"%@", res.cost];
+    }
+    return @"";
+}
+
+NSString* otherCost(DockSquad* targetSquad)
+{
+    NSNumber* additionalPoints = targetSquad.additionalPoints;
+    if (additionalPoints && [additionalPoints intValue] > 0) {
+        return [NSString stringWithFormat: @"%@", additionalPoints];
+    }
+    return @"";
 }

@@ -8,6 +8,7 @@
 #import "DockResource+Addons.h"
 #import "DockSetItem+Addons.h"
 #import "DockSquad+Addons.h"
+#import "DockUtils.h"
 
 @interface DockFleetBuildSheetShip : NSObject <NSTableViewDataSource>
 @property (nonatomic, strong) NSArray* topLevelObjects;
@@ -16,6 +17,7 @@
 @property (nonatomic, strong) IBOutlet NSTextField* totalSP;
 @property (nonatomic, strong) DockEquippedShip* equippedShip;
 @property (nonatomic, strong) NSMutableArray* upgrades;
+@property (nonatomic, assign) int extraRows;
 @end
 
 const int kExtraRows = 3;
@@ -25,6 +27,10 @@ const int kExtraRows = 3;
 -(void)setEquippedShip:(DockEquippedShip *)equippedShip
 {
     _equippedShip = equippedShip;
+    _extraRows = kExtraRows;
+    if (_equippedShip.flagship) {
+        _extraRows += 1;
+    }
 
     if (_equippedShip) {
         NSArray* equippedUpgrades = equippedShip.sortedUpgrades;
@@ -45,7 +51,7 @@ const int kExtraRows = 3;
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
     if (_upgrades) {
-        return _upgrades.count + kExtraRows;
+        return _upgrades.count + _extraRows;
     }
     return 0;
 }
@@ -93,6 +99,25 @@ NSAttributedString* headerText(NSString* string)
     }
     
     return [_equippedShip descriptiveTitle];
+}
+
+-(id)handleFlagship:(NSString*)identifier
+{
+    if ([identifier isEqualToString: @"type"]) {
+        return @"Flag";
+    }
+    
+    DockFlagship* fs = _equippedShip.flagship;
+    
+    if ([identifier isEqualToString: @"faction"]) {
+        return [fs factionCode];
+    }
+
+    if ([identifier isEqualToString: @"sp"]) {
+        return _equippedShip.squad.resource.cost;
+    }
+    
+    return [fs name];
 }
 
 -(id)handleCaptain:(NSString*)identifier
@@ -150,10 +175,19 @@ NSAttributedString* headerText(NSString* string)
             return [self handleShip: tableColumn.identifier];
             
         case 2:
+            if (_extraRows == 4) {
+                return [self handleFlagship: tableColumn.identifier];
+            }
             return [self handleCaptain: tableColumn.identifier];
             
+        case 3:
+            if (_extraRows == 4) {
+                return [self handleCaptain: tableColumn.identifier];
+            }
+            return [self handleUpgrade: tableColumn.identifier index: row - _extraRows];
+            
         default:
-            return [self handleUpgrade: tableColumn.identifier index: row - kExtraRows];
+            return [self handleUpgrade: tableColumn.identifier index: row - _extraRows];
     }
     return nil;
 }
@@ -305,20 +339,12 @@ static float heightForStringDrawing(NSString *targetString, NSFont *targetFont, 
 
 -(NSString*)resourceCost
 {
-    DockResource* res = _targetSquad.resource;
-    if (res) {
-        return [NSString stringWithFormat: @"%@", res.cost];
-    }
-    return @"";
+    return resourceCost(_targetSquad);
 }
 
 -(NSString*)otherCost
 {
-    NSNumber* additionalPoints = _targetSquad.additionalPoints;
-    if (additionalPoints) {
-        return [NSString stringWithFormat: @"%@", additionalPoints];
-    }
-    return @"";
+    return otherCost(_targetSquad);
 }
 
 -(NSString*)resourceTile

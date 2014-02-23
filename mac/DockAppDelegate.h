@@ -7,6 +7,7 @@
 @class DockOverrideEditor;
 
 extern NSString* kInspectorVisible;
+extern NSString* kExpandedRows;
 
 @interface DockAppDelegate : NSObject<NSApplicationDelegate>
 
@@ -63,4 +64,5 @@ extern NSString* kInspectorVisible;
 -(IBAction)overrideCost:(id)sender;
 -(IBAction)includeSelectedSets:(id)sender;
 -(IBAction)excludeSelectedSets:(id)sender;
+-(IBAction)showInList:(id)sender;
 @end

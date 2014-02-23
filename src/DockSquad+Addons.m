@@ -228,7 +228,8 @@
         }
     }
 
-    if (self.resource != nil) {
+    DockResource* resource = self.resource;
+    if (self.resource != nil && !resource.isFlagship) {
         cost += [self.resource.cost intValue];
     }
     
