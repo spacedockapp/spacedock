@@ -238,7 +238,7 @@ static NSString* otherCost(DockSquad* targetSquad)
         return @"Flag";
 
     case 2:
-        return _ship.flagship.faction;
+        return [_ship.flagship factionCode];
 
     case 3:
         return [NSString stringWithFormat: @"%@", _ship.squad.resource.cost];
