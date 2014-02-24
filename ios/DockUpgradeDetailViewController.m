@@ -1,6 +1,7 @@
 #import "DockUpgradeDetailViewController.h"
 
 #import "DockCaptain+Addons.h"
+#import "DockSetItem+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockWeapon+Addons.h"
 
@@ -23,7 +24,7 @@
 
 -(NSInteger)rowCount
 {
-    NSInteger rows = 6;
+    NSInteger rows = 7;
 
     if ([_upgrade isWeapon]) {
         rows += 2;
@@ -138,6 +139,14 @@
     return cell;
 }
 
+-(UITableViewCell*)cellForSet:(UITableView*)tableView
+{
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
+    cell.textLabel.text = @"Set";
+    cell.detailTextLabel.text = _upgrade.setName;
+    return cell;
+}
+
 -(UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
     NSInteger row = [indexPath indexAtPosition: 1];
@@ -164,6 +173,9 @@
 
         case 6:
             return [self cellForTalent: tableView];
+
+        case 7:
+            return [self cellForSet: tableView];
         }
         return [self cellForAbility: tableView];
     } else if ([_upgrade isWeapon]) {
@@ -188,6 +200,9 @@
 
         case 6:
             return [self cellForRange: tableView];
+
+        case 7:
+            return [self cellForSet: tableView];
         }
         return [self cellForAbility: tableView];
     } else {
@@ -206,6 +221,9 @@
 
         case 4:
             return [self cellForUnique: tableView];
+
+        case 5:
+            return [self cellForSet: tableView];
         }
     }
 

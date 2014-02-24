@@ -2,6 +2,7 @@
 
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
+#import "DockWeaponRange.h"
 
 @implementation DockWeapon (Addons)
 
@@ -34,6 +35,16 @@
     }
 
     return as;
+}
+
+-(DockWeaponRange*)weaponRange
+{
+    return [[DockWeaponRange alloc] initWithString: self.range];
+}
+
+-(NSString*)rangeAsString
+{
+    return self.range;
 }
 
 @end

@@ -429,4 +429,15 @@
     return 0;
 }
 
+-(NSString*)weaponRange
+{
+    return nil;
+}
+
+-(NSString*)rangeAsString
+{
+    return nil;
+}
+
+
 @end
