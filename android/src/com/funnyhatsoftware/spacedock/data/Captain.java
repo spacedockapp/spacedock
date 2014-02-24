@@ -22,7 +22,12 @@ public class Captain extends CaptainBase {
     }
 
     public static Upgrade zeroCostCaptain(String faction) {
-        return null;
+        for (Captain captain : Universe.getUniverse().captains.values()) {
+            if (captain.getFaction().equals(faction) && captain.isZeroCost()) {
+                return captain;
+            }
+        }
+        throw new IllegalStateException("No zero cost captain exists for faction " + faction);
     }
 
     public Upgrade captainForId(String externalId) {

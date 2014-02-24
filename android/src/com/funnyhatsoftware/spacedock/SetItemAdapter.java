@@ -102,7 +102,12 @@ public class SetItemAdapter extends ArrayAdapter<SetItemAdapter.SetItemWrapper> 
         }
         Collections.sort(items, new SetItemComparator(topFaction));
 
-        items.add(0, new PlaceholderWrapper(res.getString(R.string.clear_upgrade_slot)));
+        if (slotType != EquippedShip.SLOT_TYPE_SHIP
+                && slotType != EquippedShip.SLOT_TYPE_CAPTAIN) {
+            // Add a clear upgrade option at the top for most upgrade types.
+            // Ships don't have placeholders, and captains don't need them
+            items.add(0, new PlaceholderWrapper(res.getString(R.string.clear_upgrade_slot)));
+        }
         return items;
     }
 

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -16,7 +17,7 @@ import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
 import com.funnyhatsoftware.spacedock.data.Squad;
 
 public class SquadListAdapter extends BaseExpandableListAdapter
-        implements ExpandableListView.OnChildClickListener {
+        implements ExpandableListView.OnChildClickListener, AdapterView.OnItemClickListener {
     private static final int INVALID_HEADER_ID = 0;
 
     private static final int ITEM_TYPE_HEADER = 0;
@@ -94,6 +95,8 @@ public class SquadListAdapter extends BaseExpandableListAdapter
     private View buildItem(ViewGroup parent, int itemType) {
         LayoutInflater inflater = mActivity.getLayoutInflater();
         View item = inflater.inflate(LAYOUT_FOR_ITEM_TYPE[itemType], parent, false);
+
+        if (item == null) throw new IllegalStateException("View inflation failed!");
         item.setTag(new SquadListItemHolder(itemType, item));
         return item;
     }
@@ -171,7 +174,13 @@ public class SquadListAdapter extends BaseExpandableListAdapter
         mSquad = squad;
         mCallback = callback;
         updateLookup();
-        mListView.setOnChildClickListener(this);
+        mListView.setOnChildClickListener(this); // child clicks -> upgrade selection
+        mListView.setOnItemClickListener(this); // non-child/group footer clicks -> adding ships
+
+        // add footer for adding ships
+        LayoutInflater inflater = activity.getLayoutInflater();
+        View footer = inflater.inflate(R.layout.squad_list_add_ship, listView, false);
+        listView.addFooterView(footer);
     }
 
     @Override
@@ -226,7 +235,10 @@ public class SquadListAdapter extends BaseExpandableListAdapter
         if (convertView == null) {
             convertView = buildItem(parent, ITEM_TYPE_GROUP);
         }
-        ((SquadListItemHolder)convertView.getTag()).reinitialize(groupPosition, -1, null);
+
+        SquadListItemHolder holder = (SquadListItemHolder) convertView.getTag();
+        if (holder.mItemType != ITEM_TYPE_GROUP) throw new IllegalStateException();
+        holder.reinitialize(groupPosition, -1, null);
 
         return convertView;
     }
@@ -236,12 +248,14 @@ public class SquadListAdapter extends BaseExpandableListAdapter
             View convertView, ViewGroup parent) {
         ListItemLookup lookup = mShipLookup[groupPosition].get(childPosition);
         int itemType = lookup.headerResId == INVALID_HEADER_ID ? ITEM_TYPE_SLOT : ITEM_TYPE_HEADER;
-
         if (convertView == null) {
             convertView = buildItem(parent, itemType);
         }
+
         SquadListItemHolder holder = (SquadListItemHolder)convertView.getTag();
+        if (holder.mItemType != itemType) throw new IllegalStateException();
         holder.reinitialize(groupPosition, childPosition, lookup);
+
         return convertView;
     }
 
@@ -281,9 +295,19 @@ public class SquadListAdapter extends BaseExpandableListAdapter
         return false;
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        // any non group/child views are used for adding ships
+        mCallback.onSlotSelected(-1, EquippedShip.SLOT_TYPE_SHIP, 0, null, null);
+    }
+
     public void onSetItemReturned(int equippedShipNumber, int slotType, int slotIndex,
             String externalId) {
-        getEquippedShip(equippedShipNumber).equipUpgrade(slotType, slotIndex, externalId);
+        if (slotType == EquippedShip.SLOT_TYPE_SHIP) {
+            mSquad.addEquippedShip(externalId);
+        } else {
+            getEquippedShip(equippedShipNumber).equipUpgrade(slotType, slotIndex, externalId);
+        }
         notifyDataSetChanged();
     }
 }

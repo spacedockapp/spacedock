@@ -78,10 +78,10 @@ public class Squad extends SquadBase {
         }
 
         JSONArray ships = jsonObject.getJSONArray("ships");
-        EquippedShip currentShip = null;
         for (int i = 0; i < ships.length(); ++i) {
             JSONObject shipData = ships.getJSONObject(i);
             boolean shipIsSideboard = shipData.optBoolean("sideboard");
+            EquippedShip currentShip;
             if (shipIsSideboard) {
                 currentShip = getSideboard();
             } else {
@@ -92,6 +92,12 @@ public class Squad extends SquadBase {
             currentShip.importUpgrades(universe, shipData);
             addEquippedShip(currentShip);
         }
+    }
+
+    public void addEquippedShip(String shipId) {
+        EquippedShip es = new EquippedShip(Universe.getUniverse().getShip(shipId));
+        es.establishPlaceholders();
+        addEquippedShip(es);
     }
 
     public void addEquippedShip(EquippedShip ship) {
@@ -256,8 +262,4 @@ public class Squad extends SquadBase {
         }
         return null;
     }
-
-    /*
-     */
-
 }

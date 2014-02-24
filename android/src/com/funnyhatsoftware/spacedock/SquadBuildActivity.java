@@ -21,7 +21,6 @@ public class SquadBuildActivity extends FragmentActivity
     public static final int REQUEST_GET_SET_ITEM = 0;
 
     private static Squad sSquad;
-
     private SquadListAdapter mAdapter;
 
     @Override
@@ -42,6 +41,8 @@ public class SquadBuildActivity extends FragmentActivity
         }
 
         ExpandableListView listView = (ExpandableListView) findViewById(R.id.squad_list);
+
+        // setup adapter
         boolean isTwoPane = findViewById(R.id.right_fragment_container) != null;
         listView.setChoiceMode(isTwoPane
                 ? ListView.CHOICE_MODE_SINGLE

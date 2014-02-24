@@ -600,7 +600,8 @@ public class EquippedShip extends EquippedShipBase {
         }
     }
 
-    private void dump() {
+    @SuppressWarnings("unused")
+    void dump() {
         ArrayList<Class> classes = new ArrayList<Class>();
         for (Class c : CLASS_FOR_SLOT) {
             classes.add(c);
