@@ -10,6 +10,7 @@
 @property (nonatomic, readonly) NSString* faction;
 -(NSComparisonResult)compareTo:(DockEquippedUpgrade*)other;
 -(NSString*)typeCode;
+-(NSString*)descriptionForBuildSheet;
 -(int)baseCost;
 -(int)nonOverriddenCost;
 -(BOOL)costIsOverridden;

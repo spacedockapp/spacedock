@@ -26,6 +26,17 @@
     return @"Flagship";
 }
 
+- (NSPredicate *)makePredicateTemplate
+{
+    NSString* faction = self.faction;
+    if (faction != nil && [self useFactionFilter]) {
+        NSArray* includedSets = self.includedSets;
+        return [NSPredicate predicateWithFormat: @"faction in %@ and any sets.externalId in %@", @[faction, @"Independent"], includedSets];
+    }
+    return [super makePredicateTemplate];
+}
+
+
 // Customize the appearance of table view cells.
 -(void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {

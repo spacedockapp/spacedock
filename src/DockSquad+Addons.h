@@ -30,5 +30,6 @@
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
 -(DockEquippedShip*)addSideboard;
 -(DockFlagship*)flagship;
+-(BOOL)flagshipIsNotAssigned;
 -(void)purgeUpgrade:(DockUpgrade*)upgrade;
 @end

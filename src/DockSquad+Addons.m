@@ -228,7 +228,8 @@
         }
     }
 
-    if (self.resource != nil) {
+    DockResource* resource = self.resource;
+    if (self.resource != nil && !resource.isFlagship) {
         cost += [self.resource.cost intValue];
     }
     
@@ -623,7 +624,6 @@ static NSString* namePrefix(NSString* originalName)
         if ([resource isSideboard]) {
             [self addSideboard];
         }
-        
     }
 }
 
@@ -636,6 +636,16 @@ static NSString* namePrefix(NSString* originalName)
         }
     }
     return nil;
+}
+
+-(BOOL)flagshipIsNotAssigned
+{
+    if ([self.resource isFlagship]) {
+        if (self.flagship == nil) {
+            return YES;
+        }
+    }
+    return NO;
 }
 
 -(void)purgeUpgrade:(DockUpgrade*)upgrade

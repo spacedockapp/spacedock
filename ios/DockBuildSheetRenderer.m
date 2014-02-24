@@ -10,6 +10,7 @@
 #import "DockFlagship+Addons.h"
 #import "DockResource+Addons.h"
 #import "DockSquad+Addons.h"
+#import "DockSetItem+Addons.h"
 
 NSString* kLabelFont = @"AvenirNext-Medium";
 NSString* kLabelFontNarrow = @"AvenirNextCondensed-Medium";
@@ -34,6 +35,9 @@ static NSString* resourceCost(DockSquad* targetSquad)
 {
     DockResource* res = targetSquad.resource;
     if (res) {
+        if (res.isFlagship) {
+            return @"Flagship";
+        }
         return [NSString stringWithFormat: @"%@", res.cost];
     }
     return @"";
@@ -227,6 +231,22 @@ static NSString* otherCost(DockSquad* targetSquad)
     return captain.title;
 }
 
+-(NSString*)handleFlagship:(int)col
+{
+    switch(col) {
+    case 0:
+        return @"Flag";
+
+    case 2:
+        return [_ship.flagship factionCode];
+
+    case 3:
+        return [NSString stringWithFormat: @"%@", _ship.squad.resource.cost];
+    }
+    
+    return _ship.flagship.name;
+}
+
 -(NSString*)handleUpgrade:(int)col index:(long)index
 {
     if (index < _upgrades.count) {
@@ -248,7 +268,7 @@ static NSString* otherCost(DockSquad* targetSquad)
             return [NSString stringWithFormat: @"%d", [equippedUpgrade cost]];
         }
         
-        return equippedUpgrade.upgrade.title;
+        return [equippedUpgrade descriptionForBuildSheet];
     }
 
     return nil;
@@ -293,6 +313,10 @@ static NSString* otherCost(DockSquad* targetSquad)
     CGRect labelBox = CGRectMake(_bounds.origin.x, _bounds.origin.y, kFixedGridColumnWidth, rowHeight);
     x = _bounds.origin.x;
     y = _bounds.origin.y;
+    int extraLines = 3;
+    if (_ship.flagship) {
+        extraLines += 1;
+    }
     DockTextBox* labelTextBox = [[DockTextBox alloc] initWithText: @""];
     labelTextBox.alignment = NSTextAlignmentCenter;
     for (int j = 0; j < kGridRows; ++j) {
@@ -311,11 +335,23 @@ static NSString* otherCost(DockSquad* targetSquad)
                             break;
                             
                         case 2:
-                            s = [self handleCaptain: i];
+                            if (extraLines == 4) {
+                                s = [self handleFlagship: i];
+                            } else {
+                                s = [self handleCaptain: i];
+                            }
+                            break;
+                            
+                        case 3:
+                            if (extraLines == 4) {
+                                s = [self handleCaptain: i];
+                            } else {
+                                s = [self handleUpgrade: i index: j - extraLines];
+                            }
                             break;
                             
                         default:
-                            s = [self handleUpgrade: i index: j - 3];
+                            s = [self handleUpgrade: i index: j - extraLines];
                             break;
                     }
                     if (i == 1) {
