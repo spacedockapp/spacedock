@@ -10,8 +10,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 public class EquippedShip extends EquippedShipBase {
+
+    private static final String TAG = "EquippedShip";
 
     public EquippedShip() {
         super();
@@ -193,13 +196,11 @@ public class EquippedShip extends EquippedShipBase {
         return sortedUpgrades;
     }
 
-    public String factionCode()
-    {
+    public String factionCode() {
         return getShip().factionCode();
     }
 
-    public int getBaseCost()
-    {
+    public int getBaseCost() {
         if (getIsResourceSideboard()) {
             return getSquad().getResource().getCost();
         }
@@ -207,8 +208,7 @@ public class EquippedShip extends EquippedShipBase {
         return getShip().getCost();
     }
 
-    public int getAttack()
-    {
+    public int getAttack() {
         int v = 0;
         Ship ship = getShip();
         if (ship != null) {
@@ -221,8 +221,7 @@ public class EquippedShip extends EquippedShipBase {
         return v;
     }
 
-    public int getAgility()
-    {
+    public int getAgility() {
         int v = 0;
         Ship ship = getShip();
         if (ship != null) {
@@ -235,8 +234,7 @@ public class EquippedShip extends EquippedShipBase {
         return v;
     }
 
-    public int getHull()
-    {
+    public int getHull() {
         int v = 0;
         Ship ship = getShip();
         if (ship != null) {
@@ -249,8 +247,7 @@ public class EquippedShip extends EquippedShipBase {
         return v;
     }
 
-    public int getShield()
-    {
+    public int getShield() {
         int v = 0;
         Ship ship = getShip();
         if (ship != null) {
@@ -426,7 +423,6 @@ public class EquippedShip extends EquippedShipBase {
     public Explanation canAddUpgrade(Upgrade upgrade) {
         String msg = String.format("Can't add %s to %s", upgrade.getPlainDescription(),
                 getPlainDescription());
-        String expl = "";
         String upgradeSpecial = upgrade.getSpecial();
         if (upgradeSpecial.equals("OnlyJemHadarShips")) {
             if (!getShip().isJemhadar()) {
@@ -451,6 +447,7 @@ public class EquippedShip extends EquippedShipBase {
 
         int limit = upgrade.limitForShip(this);
         if (limit <= 0) {
+            String expl;
             if (upgrade.isTalent()) {
                 expl = String.format("This ship's captain has no %s upgrade symbols.",
                         upgrade.getUpType());
@@ -541,48 +538,84 @@ public class EquippedShip extends EquippedShipBase {
     // ////////////////////////////////////////////////////////////////
     // Slot management
     // ////////////////////////////////////////////////////////////////
+
+    public static final int SLOT_TYPE_INVALID = -1;
+    public static final int SLOT_TYPE_CAPTAIN = 0;
+    public static final int SLOT_TYPE_CREW = 1;
+    public static final int SLOT_TYPE_WEAPON = 2;
+    public static final int SLOT_TYPE_TECH = 3;
+    public static final int SLOT_TYPE_TALENT = 4;
+    public static final int SLOT_TYPE_SHIP = 1000;
+    public static Class[] CLASS_FOR_SLOT = new Class[] {
+            Captain.class,
+            Crew.class,
+            Weapon.class,
+            Tech.class,
+            Talent.class,
+    };
+
     private int getUpgradeIndexOfClass(Class slotClass, int slotIndex) {
         for (int i = 0; i < mUpgrades.size(); i++) {
             EquippedUpgrade equippedUpgrade = mUpgrades.get(i);
             if (equippedUpgrade.getUpgrade().getClass() == slotClass) {
                 slotIndex--;
-                if (slotIndex < 0)
+                if (slotIndex < 0) {
                     return i;
+                }
             }
         }
         return -1;
     }
 
-    public EquippedUpgrade getUpgradeAtSlot(Class slotClass, int slotIndex) {
+    public EquippedUpgrade getUpgradeAtSlot(int slotType, int slotIndex) {
+        Class<?> slotClass = CLASS_FOR_SLOT[slotType];
         int upgradeIndex = getUpgradeIndexOfClass(slotClass, slotIndex);
-        if (upgradeIndex < 0)
+        if (upgradeIndex < 0) {
             return null;
+        }
         return mUpgrades.get(upgradeIndex);
     }
 
-    public void equipUpgrade(Upgrade upgrade, int slotIndex) {
-        EquippedUpgrade eu = new EquippedUpgrade();
-        eu.setUpgrade(upgrade);
-        upgrade.mEquippedUpgrades.add(eu);
-
-        Class slotClass = upgrade.getClass();
-        int oldUpgradeIndex = getUpgradeIndexOfClass(slotClass, slotIndex);
-
-        if (oldUpgradeIndex >= 0) {
-            // replace old
-
-            EquippedUpgrade oldEu = mUpgrades.get(oldUpgradeIndex);
-            // existing upgrade to replace
-            Upgrade oldU = oldEu.getUpgrade();
-            oldU.getEquippedUpgrades().remove(oldEu);
-            oldEu.setEquippedShip(null);
-            oldEu.setUpgrade(null);
-
-            mUpgrades.set(oldUpgradeIndex, eu);
+    public void equipUpgrade(int slotType, int slotIndex, String externalId) {
+        Upgrade upgrade;
+        if (!externalId.isEmpty()) {
+            if (slotType == SLOT_TYPE_CAPTAIN) {
+                upgrade = Universe.getUniverse().getCaptain(externalId);
+            } else {
+                upgrade = Universe.getUniverse().getUpgrade(externalId);
+            }
         } else {
-            // simply add
-            mUpgrades.add(eu);
+            // No ID passed, use placeholder
+            upgrade = Upgrade.placeholder(CLASS_FOR_SLOT[slotType].getSimpleName());
+        }
+
+        EquippedUpgrade newEu = new EquippedUpgrade();
+        newEu.setUpgrade(upgrade);
+        EquippedUpgrade oldEu = getUpgradeAtSlot(slotType, slotIndex);
+        if (oldEu != null) {
+            // swap out old upgrade
+            mUpgrades.set(mUpgrades.indexOf(oldEu), newEu);
+        } else {
+            mUpgrades.add(newEu);
         }
     }
 
+    private void dump() {
+        ArrayList<Class> classes = new ArrayList<Class>();
+        for (Class c : CLASS_FOR_SLOT) {
+            classes.add(c);
+            int i = 0;
+            Log.d(TAG, "Equipped " + c.getSimpleName() + "s:");
+            for (EquippedUpgrade equippedUpgrade : mUpgrades) {
+                if (c.isInstance(equippedUpgrade.getUpgrade())) {
+                    if (equippedUpgrade.isPlaceholder()) {
+                        Log.d(TAG, "    " + i + ", PLACEHOLDER upgrade is " + equippedUpgrade.getTitle());
+                    } else {
+                        Log.d(TAG, "    " + i + ", upgrade is " + equippedUpgrade.getTitle());
+                    }
+                    i++;
+                }
+            }
+        }
+    }
 }
