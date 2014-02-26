@@ -52,6 +52,11 @@
     return [self.cost intValue] == 0;
 }
 
+-(BOOL)isKirk
+{
+    return [self.externalId isEqualToString: @"2011"];
+}
+
 -(int)additionalTechSlots
 {
     return [self.special isEqualToString: @"addonetechslot"] ? 1 : 0;

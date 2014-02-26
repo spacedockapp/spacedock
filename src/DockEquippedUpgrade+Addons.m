@@ -47,10 +47,9 @@
 
 -(NSString*)descriptionForBuildSheet
 {
-    NSString* captainId = self.equippedShip.captain.externalId;
-    if ([captainId isEqualToString: @"2011"]) {
+    if ([self.equippedShip.captain isKirk]) {
         DockUpgrade* upgrade = self.upgrade;
-        if (upgrade.isFederation) {
+        if (upgrade.isFederation && upgrade.isTalent) {
             return @"Federation Elite Talent";
         }
     }
