@@ -107,23 +107,6 @@
     return [NSString stringWithFormat: @"%@ (%@)", self.title, self.upType];
 }
 
--(NSAttributedString*)styledDescription
-{
-    NSString* s = [self plainDescription];
-
-    if ([self isPlaceholder]) {
-        NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithString: s];
-#if !TARGET_OS_IPHONE
-        NSRange r = NSMakeRange(0, s.length);
-        [as applyFontTraits: NSItalicFontMask range: r];
-#else
-#endif
-        return as;
-    }
-
-    return [[NSAttributedString alloc] initWithString: s];
-}
-
 -(BOOL)isTalent
 {
     return [self.upType isEqualToString: @"Talent"];

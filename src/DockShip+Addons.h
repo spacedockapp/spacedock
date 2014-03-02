@@ -4,7 +4,6 @@
 @class DockFlagship;
 
 @interface DockShip (Addons)
--(NSAttributedString*)styledDescription;
 +(DockShip*)shipForId:(NSString*)externalId context:(NSManagedObjectContext*)context;
 -(DockShip*)counterpart;
 -(NSString*)plainDescription;
