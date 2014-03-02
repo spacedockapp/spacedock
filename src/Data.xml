@@ -1,4 +1,4 @@
-<Data version="1.194">
+<Data version="1.195">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -4841,7 +4841,7 @@
     <Upgrade>
       <Title>Disobey Orders</Title>
       <Ability>You may discard this card at any time to replace 1 [EVASIVE][SCAN] or [BATTLESTATIONS] token next to your ship with a [EVASIVE][SCAN] or [BATTLESTATIONS] token. </Ability>
-      <Unique>Y</Unique>
+      <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
