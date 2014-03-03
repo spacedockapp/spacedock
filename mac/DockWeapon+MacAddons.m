@@ -1,6 +1,9 @@
 #import "DockWeapon+MacAddons.h"
 
+#import "DockUpgrade+Addons.h"
+#import "DockUpgrade+MacAddons.h"
 #import "DockUtilsMac.h"
+#import "DockWeapon+Addons.h"
 
 @implementation DockWeapon (MacAddons)
 

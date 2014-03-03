@@ -1,5 +1,7 @@
 #import "DockUpgrade+MacAddons.h"
 
+#import "DockUpgrade+Addons.h"
+
 @implementation DockUpgrade (MacAddons)
 
 -(NSAttributedString*)formattedAttack

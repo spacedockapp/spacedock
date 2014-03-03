@@ -1,5 +1,6 @@
 #import "DockEquippedUpgrade+MacAddons.h"
 
+#import "DockUpgrade+MacAddons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockUtilsMac.h"
 
@@ -14,6 +15,11 @@
     }
     
     return coloredString(costString, [NSColor blackColor], [NSColor clearColor]);
+}
+
+-(NSAttributedString*)styledDescription
+{
+    return self.upgrade.styledDescription;
 }
 
 @end

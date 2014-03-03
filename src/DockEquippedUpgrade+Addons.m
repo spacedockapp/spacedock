@@ -40,11 +40,6 @@
     return self.upgrade.plainDescription;
 }
 
--(NSAttributedString*)styledDescription
-{
-    return self.upgrade.styledDescription;
-}
-
 -(NSString*)descriptionForBuildSheet
 {
     if ([self.equippedShip.captain isKirk]) {
