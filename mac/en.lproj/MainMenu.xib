@@ -114,15 +114,6 @@
                             <menuItem isSeparatorItem="YES" id="Wmq-fm-HgB">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Check for New Data..." id="BhT-Sy-uW9">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="checkForNewDataFile:" target="-1" id="lEW-Q5-0nh"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="yyY-e2-lFG">
-                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                            </menuItem>
                             <menuItem title="Print Fleet Build..." keyEquivalent="p" id="vGz-t5-bBO">
                                 <connections>
                                     <action selector="printFleetBuildSheet:" target="-1" id="AmY-RV-Jkh"/>
