@@ -205,9 +205,6 @@
         [self updateFaction: nil];
         break;
 
-    case 1:
-        break;
-
     default:
         faction = [actionSheet buttonTitleAtIndex: buttonIndex];
         [self updateFaction: faction];
