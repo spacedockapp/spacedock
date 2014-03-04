@@ -42,10 +42,17 @@
 
 -(NSString*)descriptionForBuildSheet
 {
-    if ([self.equippedShip.captain isKirk]) {
+    DockCaptain* captain = self.equippedShip.captain;
+    if ([captain isKirk]) {
         DockUpgrade* upgrade = self.upgrade;
         if (upgrade.isFederation && upgrade.isTalent) {
             return @"Federation Elite Talent";
+        }
+    } else if ([captain.special isEqualToString: @"AddsHiddenTechSlot"]) {
+        DockEquippedUpgrade* most = [self.equippedShip mostExpensiveUpgradeOfFaction: nil upType: @"Tech"];
+
+        if (most.upgrade == self.upgrade) {
+            return @"Tech Upgrade";
         }
     }
     return self.upgrade.title;

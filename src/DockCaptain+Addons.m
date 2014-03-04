@@ -44,7 +44,11 @@
 
 -(int)additionalTechSlots
 {
-    return [self.special isEqualToString: @"addonetechslot"] ? 1 : 0;
+    NSString* special = self.special;
+    if ([special isEqualToString: @"addonetechslot"] || [special isEqualToString: @"AddsHiddenTechSlot"]) {
+        return 1;
+    }
+    return 0;
 }
 
 -(int)additionalCrewSlots

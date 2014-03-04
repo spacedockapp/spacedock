@@ -433,10 +433,10 @@
     return nil;
 }
 
--(DockEquippedUpgrade*)mostExpensiveUpgradeOfFaction:(NSString*)faction
+-(DockEquippedUpgrade*)mostExpensiveUpgradeOfFaction:(NSString*)faction upType:(NSString*)upType
 {
     DockEquippedUpgrade* mostExpensive = nil;
-    NSArray* allUpgrades = [self allUpgradesOfFaction: faction];
+    NSArray* allUpgrades = [self allUpgradesOfFaction: faction upType: upType];
 
     if (allUpgrades.count > 0) {
         mostExpensive = allUpgrades[0];
@@ -445,14 +445,17 @@
     return mostExpensive;
 }
 
--(NSArray*)allUpgradesOfFaction:(NSString*)faction
+-(NSArray*)allUpgradesOfFaction:(NSString*)faction upType:(NSString*)upType
 {
     NSMutableArray* allUpgrades = [[NSMutableArray alloc] init];
 
     for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
-        if (![eu.upgrade isCaptain]) {
-            if ([faction isEqualToString: eu.upgrade.faction]) {
-                [allUpgrades addObject: eu];
+        DockUpgrade* upgrade = eu.upgrade;
+        if (![upgrade isCaptain]) {
+            if (upType == nil || [upType isEqualToString: upgrade.upType]) {
+                if (faction == nil || [faction isEqualToString: upgrade.faction]) {
+                    [allUpgrades addObject: eu];
+                }
             }
         }
     }

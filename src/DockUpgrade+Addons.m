@@ -378,7 +378,7 @@
 
     if ([captainSpecial isEqualToString: @"OneDominionUpgradeCostsMinusTwo"]) {
         if ([upgrade isDominion]) {
-            DockEquippedUpgrade* most = [equippedShip mostExpensiveUpgradeOfFaction: @"Dominion"];
+            DockEquippedUpgrade* most = [equippedShip mostExpensiveUpgradeOfFaction: @"Dominion" upType: nil];
 
             if (most.upgrade == self) {
                 cost -= 2;
@@ -386,7 +386,7 @@
         }
     } else if ([captainSpecial isEqualToString: @"AddTwoCrewSlotsDominionCostBonus"]) {
         if ([upgrade isDominion]) {
-            NSArray* all = [equippedShip allUpgradesOfFaction: @"Dominion"];
+            NSArray* all = [equippedShip allUpgradesOfFaction: @"Dominion" upType: @"Crew"];
             
             id upgradeCheck = ^(id obj, NSUInteger idx, BOOL* stop) {
                 DockEquippedUpgrade* eu = obj;
@@ -398,6 +398,12 @@
             if (position != NSNotFound && position < 2) {
                 cost -= 1;
             }
+        }
+    } else if ([captainSpecial isEqualToString: @"AddsHiddenTechSlot"]) {
+        DockEquippedUpgrade* most = [equippedShip mostExpensiveUpgradeOfFaction: nil upType: @"Tech"];
+
+        if (most.upgrade == self) {
+            cost = 3;
         }
     }
 
