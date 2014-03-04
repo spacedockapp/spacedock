@@ -1,4 +1,4 @@
-<Data version="1.196">
+<Data version="">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -5399,7 +5399,7 @@ c) Exchange 1 Captain from his ship with 1 Captain from his Sideboard.
         <Set>OP4Participation</Set>
       </Resource>
       <Resource>
-        <Title>Hideki Class Attack Squadron</Title>
+        <Title>Hideki Class Attack Fighters</Title>
         <Unique>Y</Unique>
         <Ability>1. Players may only include 1 Attack Squadron when building their fleets for the tournament. This counts as their one resource for the tournament. Each Attack Squadron is comprised of one pre-painted miniature, a plastic base, two pegs, Ship Token, Maneuver Dial, Ship Card, A Maneuver Reference Card, 4 Attack Squadron tokens, two Attack Squadron ID tokens, and Shield Tokens (if applicable).
 
@@ -5419,6 +5419,28 @@ f. All critical damage sustained by an Attack Squadron is immediately converted 
         <Cost>20</Cost>
         <Id>hideki_class_attack_squadron_op5participation</Id>
         <Set>OP5Participation</Set>
+      </Resource>
+      <Resource>
+        <Title>Federation Attack Fighters</Title>
+        <Unique>Y</Unique>
+        <Ability>1. Players may only include 1 Attack Squadron when building their fleets for the tournament. This counts as their one resource for the tournament. Each Attack Squadron is comprised of one pre-painted miniature, a plastic base, two pegs, Ship Token, Maneuver Dial, Ship Card, A Maneuver Reference Card, 4 Attack Squadron tokens, two Attack Squadron ID tokens, and Shield Tokens (if applicable).
+
+2. Attack Squadrons are treated as normal ships with the following exceptions:
+
+a. Attack Squadrons can only attack enemy ships at a range 1-2.
+
+b. Attack Squadrons can not be equipped with any upgrades or captain cards.
+
+c. Each Attack Squadron Token has Primary Weapon, Agility, Hull, and Shield values, as well as a Captain Skill number on them. The Attack Squadron tokens are placed in a stack on top of the ship's card in descending order (from highest to lowest) of their Captain Skill values. NOTE: The value listed on the token at the top of the stack are always considered the Attack Squadron's current abilities and Captain Skill."	"d. When an Attack Squadron sustains damage to its Hull, do not draw The Damage Cards as normal. Instead, remove one token from the top of the stack. Tokens removed in this way are removed from the game and may not be restored. Once there are no tokens left in the stack, the Attack Squadron is destroyed. Note: Only 1 Attack Squadron token may be removed by any single attack, regardless of how much damage is dealt by the attack.
+
+e. If an Attack Squadron has Shields, the Shields are fully repaired and activated every time a new Attack Squadron token is revealed.
+
+f. All critical damage sustained by an Attack Squadron is immediately converted into normal damage.
+        </Ability>
+        <Type>Resource</Type>
+        <Cost>20</Cost>
+        <Id>federation_attack_fighters_op6participation</Id>
+        <Set>OP6Participation</Set>
       </Resource>
     </Resources>
     <Sets>
