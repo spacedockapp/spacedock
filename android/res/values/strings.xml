@@ -43,4 +43,10 @@
     <string name="title_activity_set_list">Sets</string>
     <string name="title_activity_flagship_list">Flagships</string>
 
+    <string name="menu_create_squad">Create Squad</string>
+    <string name="menu_share_squad">Share Squad</string>
+    <string name="menu_edit_squad">Edit Squad</string>
+    <string name="dialog_request_squad_name">Squad Name</string>
+    <string name="dialog_accept">OK</string>
+    <string name="dialog_reject">Cancel</string>
 </resources>

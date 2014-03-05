@@ -4,6 +4,7 @@ package com.funnyhatsoftware.spacedock.data;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -602,9 +603,7 @@ public class EquippedShip extends EquippedShipBase {
 
     @SuppressWarnings("unused")
     void dump() {
-        ArrayList<Class> classes = new ArrayList<Class>();
         for (Class c : CLASS_FOR_SLOT) {
-            classes.add(c);
             int i = 0;
             Log.d(TAG, "Equipped " + c.getSimpleName() + "s:");
             for (EquippedUpgrade equippedUpgrade : mUpgrades) {
@@ -617,6 +616,13 @@ public class EquippedShip extends EquippedShipBase {
                     i++;
                 }
             }
+        }
+    }
+
+    public void getFactions(HashSet<String> factions) {
+        factions.add(mShip.getFaction());
+        for (EquippedUpgrade eu : mUpgrades) {
+            factions.add(eu.getFaction());
         }
     }
 }

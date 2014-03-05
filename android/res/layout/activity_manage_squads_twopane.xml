@@ -6,19 +6,18 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:baselineAligned="false"
-    tools:context="com.funnyhatsoftware.spacedock.SquadBuildActivity">
+    tools:context="com.funnyhatsoftware.spacedock.ManageSquadsActivity">
 
     <FrameLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1">
-        <ExpandableListView
+        <ListView
             android:id="@+id/squad_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@null"
-            android:groupIndicator="@null"
-            tools:listitem="@layout/squad_list_group"/>
+            tools:listitem="@layout/squad_summary"/>
         <View
             android:layout_width="@dimen/inset_shadow_width"
             android:layout_height="match_parent"

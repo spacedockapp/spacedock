@@ -171,7 +171,7 @@ public class Squad extends SquadBase {
         return originalName;
     }
 
-    Squad duplicate() {
+    public Squad duplicate() {
         Squad squad = new Squad();
         String originalNamePrefix = namePrefix(mName);
         String newName = originalNamePrefix + " copy";
@@ -261,5 +261,11 @@ public class Squad extends SquadBase {
             }
         }
         return null;
+    }
+
+    public void getFactions(HashSet<String> factions) {
+        for (EquippedShip mEquippedShip : mEquippedShips) {
+            mEquippedShip.getFactions(factions);
+        }
     }
 }

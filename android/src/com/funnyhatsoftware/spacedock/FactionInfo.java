@@ -3,6 +3,13 @@ package com.funnyhatsoftware.spacedock;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.v4.util.ArrayMap;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.util.Log;
+
+import java.util.HashSet;
 
 public class FactionInfo {
     private static final ArrayMap<String, Integer> sMap = new ArrayMap<String, Integer>();
@@ -19,5 +26,22 @@ public class FactionInfo {
             return Color.BLACK;
         }
         return res.getColor(color);
+    }
+
+    public static Spannable buildSummarySpannable(Resources res, HashSet<String> factions) {
+        String string = "";
+        for (String faction : factions) {
+            if (faction == null) continue;
+            string += faction.charAt(0);
+        }
+        Spannable spannable = new SpannableString(string);
+        int index = 0;
+        for (String faction : factions) {
+            if (faction == null) continue;
+            ForegroundColorSpan span = new ForegroundColorSpan(getFactionColor(res, faction));
+            spannable.setSpan(span, index, index+1, 0);
+            index++;
+        }
+        return null;
     }
 }

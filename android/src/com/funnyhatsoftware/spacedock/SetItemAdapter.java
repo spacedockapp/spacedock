@@ -23,7 +23,6 @@ public class SetItemAdapter extends ArrayAdapter<SetItemAdapter.SetItemWrapper> 
         SetItemWrapper(SetItem item) {
             this.item = item;
         }
-        public boolean isPlaceholder() { return false; }
 
         public String getExternalId() { return item.getExternalId(); }
 
@@ -38,9 +37,6 @@ public class SetItemAdapter extends ArrayAdapter<SetItemAdapter.SetItemWrapper> 
             super(null);
             mTitle = title;
         }
-
-        @Override
-        public boolean isPlaceholder() { return true; }
 
         @Override
         public String getExternalId() { return ""; }

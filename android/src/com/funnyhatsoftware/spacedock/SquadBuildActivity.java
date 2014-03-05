@@ -52,11 +52,6 @@ public class SquadBuildActivity extends FragmentActivity
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
     public void onSlotSelected(int equippedShipNumber, int slotType, int slotNumber,
                 String currentEquipmentId, String prefFaction) {
         Bundle argsBundle = new Bundle();
