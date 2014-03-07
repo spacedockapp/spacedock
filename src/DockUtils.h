@@ -4,11 +4,7 @@
 
 extern NSString* DockErrorDomain;
 
-#if !TARGET_OS_IPHONE
-NSAttributedString* coloredString(NSString* text, NSColor* color, NSColor* backColor);
-
-#endif
-
+NSString* intToString(int v);
 NSSet* allAttributes(NSManagedObjectContext* context, NSString* entityName, NSString* attributeName);
 
 NSAttributedString* makeCentered(NSAttributedString* s);

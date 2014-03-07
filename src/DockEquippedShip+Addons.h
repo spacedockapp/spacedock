@@ -17,8 +17,8 @@
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace;
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace establishPlaceholders:(BOOL)establish;
 -(DockEquippedUpgrade*)firstUpgrade:(NSString*)upType;
--(DockEquippedUpgrade*)mostExpensiveUpgradeOfFaction:(NSString*)faction;
--(NSArray*)allUpgradesOfFaction:(NSString*)faction;
+-(DockEquippedUpgrade*)mostExpensiveUpgradeOfFaction:(NSString*)faction upType:(NSString*)upType;
+-(NSArray*)allUpgradesOfFaction:(NSString*)faction upType:(NSString*)upType;
 -(void)removeUpgrade:(DockEquippedUpgrade*)upgrade;
 -(void)removeUpgrade:(DockEquippedUpgrade*)upgrade establishPlaceholders:(BOOL)doEstablish;
 -(void)removeCaptain;

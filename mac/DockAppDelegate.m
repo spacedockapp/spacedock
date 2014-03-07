@@ -33,6 +33,7 @@
 
 NSString* kWarnAboutUnhandledSpecials = @"warnAboutUnhandledSpecials";
 NSString* kInspectorVisible = @"inspectorVisible";
+NSString* kExpandSquads = @"expandSquads";
 NSString* kExpandedRows = @"expandedRows";
 
 @interface DockAppDelegate ()
@@ -55,6 +56,7 @@ NSString* kExpandedRows = @"expandedRows";
     NSDictionary* appDefs = @{
         kWarnAboutUnhandledSpecials: @YES,
         kInspectorVisible: @NO,
+        kExpandSquads: @YES,
         kExpandedRows: @YES
     };
 
@@ -103,7 +105,10 @@ NSString* kExpandedRows = @"expandedRows";
         [_squadDetailController removeObserver: self
                                     forKeyPath: @"content"];
     } else if (object == _squadsController) {
-        [self performSelector: @selector(expandAll:) withObject: nil afterDelay: 0];
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        if ([defaults boolForKey: kExpandSquads]) {
+            [self performSelector: @selector(expandAll:) withObject: nil afterDelay: 0];
+        }
     } else if ([object isMemberOfClass: [DockSet class]]) {
         [self updateForSelectedSets];
     } else {
@@ -1546,6 +1551,11 @@ void addRemoveFlagshipItem(NSMenu *menu)
             }
         }
     }
+}
+
+-(IBAction)showPreferences:(id)sender
+{
+    [_preferencesWindow makeKeyAndOrderFront: sender];
 }
 
 @end

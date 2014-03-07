@@ -1,8 +1,25 @@
 #import "DockShip+MacAddons.h"
 
-#import "DockUtils.h"
+#import "DockShip+Addons.h"
+#import "DockUtilsMac.h"
 
 @implementation DockShip (MacAddons)
+
+-(NSAttributedString*)styledDescription
+{
+    NSMutableAttributedString* desc = [[NSMutableAttributedString alloc] initWithString: [self plainDescription]];
+    NSAttributedString* space = [[NSAttributedString alloc] initWithString: @" "];
+    [desc appendAttributedString: space];
+    [desc appendAttributedString: coloredString([self.attack stringValue], [NSColor whiteColor], [NSColor redColor])];
+    [desc appendAttributedString: space];
+    [desc appendAttributedString: coloredString([self.agility stringValue], [NSColor blackColor], [NSColor greenColor])];
+    [desc appendAttributedString: space];
+    [desc appendAttributedString: coloredString([self.hull stringValue], [NSColor blackColor], [NSColor yellowColor])];
+    [desc appendAttributedString: space];
+    [desc appendAttributedString: coloredString([self.shield stringValue], [NSColor whiteColor], [NSColor blueColor])];
+    return desc;
+}
+
 
 NSAttributedString* styledAttack(id ship)
 {

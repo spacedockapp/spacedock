@@ -107,23 +107,6 @@
     return [NSString stringWithFormat: @"%@ (%@)", self.title, self.upType];
 }
 
--(NSAttributedString*)styledDescription
-{
-    NSString* s = [self plainDescription];
-
-    if ([self isPlaceholder]) {
-        NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithString: s];
-#if !TARGET_OS_IPHONE
-        NSRange r = NSMakeRange(0, s.length);
-        [as applyFontTraits: NSItalicFontMask range: r];
-#else
-#endif
-        return as;
-    }
-
-    return [[NSAttributedString alloc] initWithString: s];
-}
-
 -(BOOL)isTalent
 {
     return [self.upType isEqualToString: @"Talent"];
@@ -395,7 +378,7 @@
 
     if ([captainSpecial isEqualToString: @"OneDominionUpgradeCostsMinusTwo"]) {
         if ([upgrade isDominion]) {
-            DockEquippedUpgrade* most = [equippedShip mostExpensiveUpgradeOfFaction: @"Dominion"];
+            DockEquippedUpgrade* most = [equippedShip mostExpensiveUpgradeOfFaction: @"Dominion" upType: nil];
 
             if (most.upgrade == self) {
                 cost -= 2;
@@ -403,7 +386,7 @@
         }
     } else if ([captainSpecial isEqualToString: @"AddTwoCrewSlotsDominionCostBonus"]) {
         if ([upgrade isDominion]) {
-            NSArray* all = [equippedShip allUpgradesOfFaction: @"Dominion"];
+            NSArray* all = [equippedShip allUpgradesOfFaction: @"Dominion" upType: @"Crew"];
             
             id upgradeCheck = ^(id obj, NSUInteger idx, BOOL* stop) {
                 DockEquippedUpgrade* eu = obj;
@@ -415,6 +398,12 @@
             if (position != NSNotFound && position < 2) {
                 cost -= 1;
             }
+        }
+    } else if ([captainSpecial isEqualToString: @"AddsHiddenTechSlot"]) {
+        DockEquippedUpgrade* most = [equippedShip mostExpensiveUpgradeOfFaction: nil upType: @"Tech"];
+
+        if (most.upgrade == self) {
+            cost = 3;
         }
     }
 
@@ -428,5 +417,16 @@
     }
     return 0;
 }
+
+-(NSString*)weaponRange
+{
+    return nil;
+}
+
+-(NSString*)rangeAsString
+{
+    return nil;
+}
+
 
 @end

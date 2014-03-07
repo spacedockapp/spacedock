@@ -103,24 +103,6 @@ NSString* asDegrees(NSString* textValue)
     return self.title;
 }
 
--(NSAttributedString*)styledDescription
-{
-    NSMutableAttributedString* desc = [[NSMutableAttributedString alloc] initWithString: [self plainDescription]];
-#if TARGET_OS_IPHONE
-#else
-    NSAttributedString* space = [[NSAttributedString alloc] initWithString: @" "];
-    [desc appendAttributedString: space];
-    [desc appendAttributedString: coloredString([self.attack stringValue], [NSColor whiteColor], [NSColor redColor])];
-    [desc appendAttributedString: space];
-    [desc appendAttributedString: coloredString([self.agility stringValue], [NSColor blackColor], [NSColor greenColor])];
-    [desc appendAttributedString: space];
-    [desc appendAttributedString: coloredString([self.hull stringValue], [NSColor blackColor], [NSColor yellowColor])];
-    [desc appendAttributedString: space];
-    [desc appendAttributedString: coloredString([self.shield stringValue], [NSColor whiteColor], [NSColor blueColor])];
-#endif
-    return desc;
-}
-
 -(NSString*)descriptiveTitle
 {
     if (self.isUnique) {

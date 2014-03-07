@@ -60,35 +60,6 @@
     return [self.ship plainDescription];
 }
 
-#if !TARGET_OS_IPHONE
-static NSString* intToString(int v)
-{
-    return [NSString stringWithFormat: @"%d", v];
-}
-#endif
-
--(NSAttributedString*)styledDescription
-{
-    if ([self isResourceSideboard]) {
-        return [[NSAttributedString alloc] initWithString: self.squad.resource.title];
-    }
-
-    NSMutableAttributedString* desc = [[NSMutableAttributedString alloc] initWithString: [self plainDescription]];
-#if TARGET_OS_IPHONE
-#else
-    NSAttributedString* space = [[NSAttributedString alloc] initWithString: @" "];
-    [desc appendAttributedString: space];
-    [desc appendAttributedString: coloredString(intToString(self.attack), [NSColor whiteColor], [NSColor redColor])];
-    [desc appendAttributedString: space];
-    [desc appendAttributedString: coloredString(intToString(self.agility), [NSColor blackColor], [NSColor greenColor])];
-    [desc appendAttributedString: space];
-    [desc appendAttributedString: coloredString(intToString(self.hull), [NSColor blackColor], [NSColor yellowColor])];
-    [desc appendAttributedString: space];
-    [desc appendAttributedString: coloredString(intToString(self.shield), [NSColor whiteColor], [NSColor blueColor])];
-#endif
-    return desc;
-}
-
 -(NSString*)descriptiveTitle
 {
     if ([self isResourceSideboard]) {
@@ -192,16 +163,6 @@ static NSString* intToString(int v)
     }
 
     return cost;
-}
-
--(NSAttributedString*)formattedCost
-{
-    NSString* costString = [NSString stringWithFormat: @"%d", self.cost];
-#if !TARGET_OS_IPHONE
-    return coloredString(costString, [NSColor textColor], [NSColor clearColor]);
-#else
-    return [[NSAttributedString alloc] initWithString: costString];
-#endif
 }
 
 -(DockEquippedUpgrade*)equippedCaptain
@@ -472,10 +433,10 @@ static NSString* intToString(int v)
     return nil;
 }
 
--(DockEquippedUpgrade*)mostExpensiveUpgradeOfFaction:(NSString*)faction
+-(DockEquippedUpgrade*)mostExpensiveUpgradeOfFaction:(NSString*)faction upType:(NSString*)upType
 {
     DockEquippedUpgrade* mostExpensive = nil;
-    NSArray* allUpgrades = [self allUpgradesOfFaction: faction];
+    NSArray* allUpgrades = [self allUpgradesOfFaction: faction upType: upType];
 
     if (allUpgrades.count > 0) {
         mostExpensive = allUpgrades[0];
@@ -484,14 +445,17 @@ static NSString* intToString(int v)
     return mostExpensive;
 }
 
--(NSArray*)allUpgradesOfFaction:(NSString*)faction
+-(NSArray*)allUpgradesOfFaction:(NSString*)faction upType:(NSString*)upType
 {
     NSMutableArray* allUpgrades = [[NSMutableArray alloc] init];
 
     for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
-        if (![eu.upgrade isCaptain]) {
-            if ([faction isEqualToString: eu.upgrade.faction]) {
-                [allUpgrades addObject: eu];
+        DockUpgrade* upgrade = eu.upgrade;
+        if (![upgrade isCaptain]) {
+            if (upType == nil || [upType isEqualToString: upgrade.upType]) {
+                if (faction == nil || [faction isEqualToString: upgrade.faction]) {
+                    [allUpgrades addObject: eu];
+                }
             }
         }
     }

@@ -456,6 +456,7 @@ static float heightForStringDrawing(NSString *targetString, NSFont *targetFont, 
 
 -(IBAction)print:(id)sender
 {
+    [_fleetBuildDetails endEditingFor: sender];
     [NSApp endSheet: _fleetBuildDetails];
     [self print];
 }

@@ -1,6 +1,6 @@
 #import "DockEquippedFlagship+MacAddons.h"
 
-#import "DockUtils.h"
+#import "DockUtilsMac.h"
 
 @implementation DockEquippedFlagship (MacAddons)
 

@@ -4,19 +4,10 @@
 #import "DockSquad+Addons.h"
 #import "DockUpgrade.h"
 
-#if !TARGET_OS_IPHONE
-NSAttributedString* coloredString(NSString* text, NSColor* color, NSColor* backColor)
+NSString* intToString(int v)
 {
-    id attr = @{
-        NSForegroundColorAttributeName: color,
-        NSBackgroundColorAttributeName : backColor,
-        NSExpansionAttributeName: @0.0
-    };
-    NSString* t = [NSString stringWithFormat: @" %@ ", text];
-    return [[NSAttributedString alloc] initWithString: t attributes: attr];
+    return [NSString stringWithFormat: @"%d", v];
 }
-
-#endif
 
 NSSet* allAttributes(NSManagedObjectContext* context, NSString* entityName, NSString* attributeName)
 {
@@ -40,17 +31,6 @@ NSSet* allAttributes(NSManagedObjectContext* context, NSString* entityName, NSSt
     return [NSSet setWithSet: allSpecials];
 }
 
-#if !TARGET_OS_IPHONE
-NSAttributedString* makeCentered(NSAttributedString* s)
-{
-    NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithAttributedString: s];
-    NSMutableParagraphStyle *ps = [[NSMutableParagraphStyle alloc] init];
-    ps.alignment = NSCenterTextAlignment;
-    NSRange r = NSMakeRange(0, s.length);
-    [as addAttribute: NSParagraphStyleAttributeName value: ps range: r];
-    return [[NSAttributedString alloc] initWithAttributedString: as];
-}
-#endif
 
 NSString* factionCode(id target)
 {

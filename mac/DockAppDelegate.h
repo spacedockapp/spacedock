@@ -8,6 +8,7 @@
 
 extern NSString* kInspectorVisible;
 extern NSString* kExpandedRows;
+extern NSString* kExpandSquads;
 
 @interface DockAppDelegate : NSObject<NSApplicationDelegate>
 
@@ -30,6 +31,7 @@ extern NSString* kExpandedRows;
 @property (assign) IBOutlet NSTableView* squadsTableView;
 @property (assign) IBOutlet NSTableView* flagshipsTableView;
 @property (assign) IBOutlet NSMenu* factionMenu;
+@property (assign) IBOutlet NSWindow* preferencesWindow;
 @property (assign) IBOutlet DockInspector* inspector;
 @property (assign) IBOutlet DockFleetBuildSheet* fleetBuildSheet2;
 @property (assign) IBOutlet DockFAQViewer* faqViewer;

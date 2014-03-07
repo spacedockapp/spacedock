@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
@@ -27,7 +27,11 @@
                             <menuItem isSeparatorItem="YES" id="236">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Preferences…" keyEquivalent="," id="129"/>
+                            <menuItem title="Preferences…" keyEquivalent="," id="129">
+                                <connections>
+                                    <action selector="showPreferences:" target="494" id="V3r-m3-23c"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="143">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
@@ -108,20 +112,6 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="Wmq-fm-HgB">
-                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                            </menuItem>
-                            <menuItem title="Check for New Data..." id="BhT-Sy-uW9">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="checkForNewDataFile:" target="-1" id="lEW-Q5-0nh"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Export Data Model" keyEquivalent="r" id="rz8-WM-uVB">
-                                <connections>
-                                    <action selector="exportDataModel:" target="-1" id="aCy-a9-dX5"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="yyY-e2-lFG">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
                             <menuItem title="Print Fleet Build..." keyEquivalent="p" id="vGz-t5-bBO">
@@ -1874,7 +1864,7 @@
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <tableView identifier="upgradeTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveName="upgradesTable" rowSizeStyle="automatic" headerView="u7D-PI-HNg" viewBased="YES" id="LbO-KE-GHl" userLabel="upgrades">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="721" height="175"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="887" height="175"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2065,6 +2055,78 @@
                                                                                     </tableCellView>
                                                                                 </prototypeCellViews>
                                                                             </tableColumn>
+                                                                            <tableColumn editable="NO" width="80" minWidth="80" maxWidth="80" id="jEa-eW-s8w" userLabel="attack">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Attack">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="asD-nv-pUw">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="attackValue"/>
+                                                                                <prototypeCellViews>
+                                                                                    <tableCellView id="HiB-Ys-NsI">
+                                                                                        <rect key="frame" x="496" y="1" width="80" height="17"/>
+                                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                        <subviews>
+                                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="P5i-BZ-V1a">
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="17"/>
+                                                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="hzJ-Pe-bbm">
+                                                                                                    <font key="font" metaFont="system"/>
+                                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                                                </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="HiB-Ys-NsI" name="value" keyPath="objectValue.formattedAttack" id="XJ3-zd-4Aw"/>
+                                                                                                </connections>
+                                                                                            </textField>
+                                                                                        </subviews>
+                                                                                        <connections>
+                                                                                            <outlet property="textField" destination="P5i-BZ-V1a" id="aDt-Fc-lML"/>
+                                                                                        </connections>
+                                                                                    </tableCellView>
+                                                                                </prototypeCellViews>
+                                                                            </tableColumn>
+                                                                            <tableColumn editable="NO" width="80" minWidth="80" maxWidth="80" id="T62-0x-gDa" userLabel="range">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Range">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="t26-AF-ayN">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="weaponRange"/>
+                                                                                <prototypeCellViews>
+                                                                                    <tableCellView id="WL6-pB-3gb">
+                                                                                        <rect key="frame" x="579" y="1" width="80" height="17"/>
+                                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                        <subviews>
+                                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="kvI-Fy-zzG">
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="17"/>
+                                                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="n7L-Ze-Eqo">
+                                                                                                    <font key="font" metaFont="system"/>
+                                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                                                </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="WL6-pB-3gb" name="value" keyPath="objectValue.rangeAsString" id="GYM-4B-Sb7"/>
+                                                                                                </connections>
+                                                                                            </textField>
+                                                                                        </subviews>
+                                                                                        <connections>
+                                                                                            <outlet property="textField" destination="kvI-Fy-zzG" id="PTm-Hs-NSC"/>
+                                                                                        </connections>
+                                                                                    </tableCellView>
+                                                                                </prototypeCellViews>
+                                                                            </tableColumn>
                                                                             <tableColumn identifier="ability" editable="NO" width="120" minWidth="100" maxWidth="10000" id="xeo-D4-4nP" userLabel="ability">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Ability">
                                                                                     <font key="font" metaFont="smallSystem"/>
@@ -2080,7 +2142,7 @@
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="fnP-qL-9Re">
-                                                                                        <rect key="frame" x="496" y="1" width="120" height="17"/>
+                                                                                        <rect key="frame" x="662" y="1" width="120" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="2Rv-MB-UZQ">
@@ -2117,7 +2179,7 @@
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="brF-mJ-ftf">
-                                                                                        <rect key="frame" x="619" y="1" width="100" height="17"/>
+                                                                                        <rect key="frame" x="785" y="1" width="100" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="Jb6-6h-bxd">
@@ -2164,7 +2226,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
                                                             <tableHeaderView key="headerView" id="u7D-PI-HNg">
-                                                                <rect key="frame" x="0.0" y="0.0" width="721" height="17"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="887" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </tableHeaderView>
                                                         </scrollView>
@@ -3543,6 +3605,7 @@
                 <outlet property="inspector" destination="L6P-6L-sOj" id="Emf-SV-SDs"/>
                 <outlet property="noteEditor" destination="H2Z-eg-yhQ" id="wKh-UP-vwa"/>
                 <outlet property="overrideEditor" destination="pOW-YK-TqM" id="5LW-1J-cds"/>
+                <outlet property="preferencesWindow" destination="y6I-Im-Zme" id="kpr-36-vRq"/>
                 <outlet property="resourcesController" destination="YPe-Zs-mE7" id="QpO-G6-Tot"/>
                 <outlet property="resourcesTableView" destination="v13-24-CCG" id="Rq7-QP-07h"/>
                 <outlet property="setsController" destination="a37-z6-clf" id="pez-f2-2w9"/>
@@ -4814,7 +4877,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                     </customView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="t4p-6e-B3a">
-                        <rect key="frame" x="15" y="212.00002179785369" width="468" height="41"/>
+                        <rect key="frame" x="15" y="212" width="468" height="41"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" borderStyle="border" alignment="left" title="Notes" id="WQ9-sP-5ob">
                             <font key="font" size="13" name="CourierNewPSMT"/>
@@ -5185,6 +5248,29 @@ Gw
                 <outlet property="delegate" destination="494" id="eqO-5y-ezp"/>
             </connections>
         </menu>
+        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="sd_preferences" animationBehavior="default" id="y6I-Im-Zme">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="283" y="348" width="467" height="131"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1578"/>
+            <view key="contentView" id="kKQ-Ng-nxt">
+                <rect key="frame" x="0.0" y="0.0" width="467" height="131"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button id="okM-Rn-7y6">
+                        <rect key="frame" x="18" y="95" width="444" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Expand squads when selected" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="JdZ-ZK-EiO">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <binding destination="ptf-Fd-SPq" name="value" keyPath="values.expandSquads" id="dkx-QA-3dk"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+        </window>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="8" height="8"/>

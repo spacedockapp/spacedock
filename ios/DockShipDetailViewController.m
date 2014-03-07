@@ -105,6 +105,7 @@ enum {
     kShipDetailRearArc,
     kShipDetailActions,
     kShipDetailMoves,
+    kShipDetailSet,
     kShipDetailAbility
 };
 
@@ -154,6 +155,9 @@ enum {
 
     case kShipDetailRearArc:
         return [self cell: tableView forKey: @"formattedRearArc" label: @"Rear Arc"];
+
+    case kShipDetailSet:
+        return [self cell: tableView forKey: @"setName" label: @"Set"];
 
     case kShipDetailMoves:
         return [self cell: tableView forKey: @"movesSummary" label: @"Key Moves" accessory: UITableViewCellAccessoryDetailDisclosureButton];

@@ -32,29 +32,23 @@
     return [DockUpgrade upgradeForId: externalId context: context];
 }
 
--(NSAttributedString*)styledDescription
-{
-    NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithAttributedString: [super styledDescription]];
-#if TARGET_OS_IPHONE
-#else
-    const double kRed = 0xd0 / 256.0;
-    const double kGreen = 0x9C / 256.0;
-    const double kBlue = 0x23 / 256.0;
-    NSColor* c = [NSColor colorWithDeviceRed: kRed green: kGreen blue: kBlue alpha: 1];
-    [as appendAttributedString: [[NSMutableAttributedString alloc] initWithString: @" "]];
-    [as appendAttributedString: coloredString([[self skill] stringValue], c, [NSColor clearColor])];
-#endif
-    return as;
-}
-
 -(BOOL)isZeroCost
 {
     return [self.cost intValue] == 0;
 }
 
+-(BOOL)isKirk
+{
+    return [self.externalId isEqualToString: @"2011"];
+}
+
 -(int)additionalTechSlots
 {
-    return [self.special isEqualToString: @"addonetechslot"] ? 1 : 0;
+    NSString* special = self.special;
+    if ([special isEqualToString: @"addonetechslot"] || [special isEqualToString: @"AddsHiddenTechSlot"]) {
+        return 1;
+    }
+    return 0;
 }
 
 -(int)additionalCrewSlots

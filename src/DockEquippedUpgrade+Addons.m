@@ -40,18 +40,19 @@
     return self.upgrade.plainDescription;
 }
 
--(NSAttributedString*)styledDescription
-{
-    return self.upgrade.styledDescription;
-}
-
 -(NSString*)descriptionForBuildSheet
 {
-    NSString* captainId = self.equippedShip.captain.externalId;
-    if ([captainId isEqualToString: @"2011"]) {
+    DockCaptain* captain = self.equippedShip.captain;
+    if ([captain isKirk]) {
         DockUpgrade* upgrade = self.upgrade;
-        if (upgrade.isFederation) {
+        if (upgrade.isFederation && upgrade.isTalent) {
             return @"Federation Elite Talent";
+        }
+    } else if ([captain.special isEqualToString: @"AddsHiddenTechSlot"]) {
+        DockEquippedUpgrade* most = [self.equippedShip mostExpensiveUpgradeOfFaction: nil upType: @"Tech"];
+
+        if (most.upgrade == self.upgrade) {
+            return @"Tech Upgrade";
         }
     }
     return self.upgrade.title;
@@ -97,21 +98,6 @@
     }
     
     return [self nonOverriddenCost];
-}
-
--(NSAttributedString*)formattedCost
-{
-    NSString* costString = [NSString stringWithFormat: @"%d", self.cost];
-
-#if !TARGET_OS_IPHONE
-    if ([self costIsOverridden]) {
-        return coloredString(costString, [NSColor redColor], [NSColor clearColor]);
-    }
-    
-    return coloredString(costString, [NSColor blackColor], [NSColor clearColor]);
-#else
-    return [[NSAttributedString alloc] initWithString: costString];
-#endif
 }
 
 -(int)rawCost

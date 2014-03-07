@@ -2,38 +2,18 @@
 
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
+#import "DockWeaponRange.h"
 
 @implementation DockWeapon (Addons)
 
--(NSAttributedString*)styledDescription
+-(DockWeaponRange*)weaponRange
 {
-    if ([self isPlaceholder]) {
-        return [super styledDescription];
-    }
+    return [[DockWeaponRange alloc] initWithString: self.range];
+}
 
-    NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithAttributedString: [super styledDescription]];
-    NSNumber* attack = [self attack];
-    int attackValue = [attack intValue];
-
-    if (attackValue != 0) {
-        [as appendAttributedString: [[NSMutableAttributedString alloc] initWithString: @" "]];
-#if TARGET_OS_IPHONE
-#else
-        [as appendAttributedString: coloredString([attack stringValue], [NSColor redColor], [NSColor blackColor])];
-#endif
-    }
-
-    NSString* range = [self range];
-
-    if (range != nil && range.length > 0) {
-        [as appendAttributedString: [[NSMutableAttributedString alloc] initWithString: @" "]];
-#if TARGET_OS_IPHONE
-#else
-        [as appendAttributedString: coloredString(range, [NSColor whiteColor], [NSColor blackColor])];
-#endif
-    }
-
-    return as;
+-(NSString*)rangeAsString
+{
+    return self.range;
 }
 
 @end
