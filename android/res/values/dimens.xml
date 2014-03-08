@@ -1,10 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <dimen name="listview_group_margin">40dp</dimen>
     <dimen name="listview_horizontal_padding">16dp</dimen>
     <dimen name="maneuver_line_size">2dp</dimen>
-
     <dimen name="maneuver_grid_size">15dp</dimen>
     <dimen name="grid_size">117dp</dimen>
-
     <dimen name="inset_shadow_width">8dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
 </resources>

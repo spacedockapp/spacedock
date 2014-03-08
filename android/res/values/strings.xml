@@ -11,10 +11,23 @@
     <string name="weapon_slot">Weaponry</string>
     <string name="tech_slot">Tech</string>
     <string name="talent_slot">Talent</string>
-
     <string name="clear_upgrade_slot">Clear upgrade slot</string>
     <string name="empty_upgrade_slot">EMPTY SLOT</string>
     <string name="indicator_not_applicable">-</string>
     <string name="indicator_unique">*</string>
+    <string name="title_activity_top_menu">Space Dock</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="squads">Squads</string>
+    <string name="ships">Ships</string>
+    <string name="crew">Crew</string>
+    <string name="captains">Captains</string>
+    <string name="talents">Talents</string>
+    <string name="tech">Tech</string>
+    <string name="weapons">Weapons</string>
+    <string name="resources">Resources</string>
+    <string name="flagships">Flagships</string>
+    <string name="sets">Sets</string>
+    <string name="title_activity_captains_list">CaptainsListActivity</string>
 
 </resources>
