@@ -1467,6 +1467,20 @@ static void doSelectIndex(NSInteger index, NSArrayController* controller, NSTabl
     [self filterToClickedUpgradeType:sender];
 }
 
+-(IBAction)overrideClickedCost:(id)sender
+{
+    DockEquippedUpgrade* upgrade = [self clickedSquadItem];
+    [_overrideEditor show: upgrade];
+}
+
+-(IBAction)removeClickedOverride:(id)sender
+{
+    DockEquippedUpgrade* upgrade = [self clickedSquadItem];
+    if (upgrade) {
+        [upgrade removeCostOverride];
+    }
+}
+
 static void addDeleteItem(NSMenu* menu)
 {
     NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: @"Delete" action: @selector(deleteClicked:) keyEquivalent: @""];
@@ -1497,6 +1511,14 @@ static void addFilterToFactionAndTypeItem(NSMenu* menu, NSString* faction, NSStr
 static void addShowDetailsItem(NSMenu* menu)
 {
     NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: @"Show in List" action: @selector(showClickedInList:) keyEquivalent: @""];
+    [menu addItem: menuItem];
+}
+
+static void addOverrideItems(NSMenu* menu)
+{
+    NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: @"Override Cost..." action: @selector(overrideClickedCost:) keyEquivalent: @""];
+    [menu addItem: menuItem];
+    menuItem = [[NSMenuItem alloc] initWithTitle: @"Remove Upgrade Cost Override" action: @selector(removeClickedOverride:) keyEquivalent: @""];
     [menu addItem: menuItem];
 }
 
@@ -1545,6 +1567,9 @@ void addRemoveFlagshipItem(NSMenu *menu)
             if (!eu.upgrade.isCaptain) {
                 addFilterToTypeItem(menu, eu.upgrade.upType);
                 addFilterToFactionAndTypeItem(menu, eu.equippedShip.ship.faction, eu.upgrade.upType);
+                if (!eu.isPlaceholder) {
+                    addOverrideItems(menu);
+                }
             }
             if (!eu.isPlaceholder) {
                 addDeleteItem(menu);
