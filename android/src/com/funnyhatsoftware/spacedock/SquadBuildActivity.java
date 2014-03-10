@@ -1,5 +1,10 @@
 package com.funnyhatsoftware.spacedock;
 
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.json.JSONException;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +15,6 @@ import android.widget.ListView;
 
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
-
-import org.json.JSONException;
-
-import java.io.IOException;
-import java.io.InputStream;
 
 public class SquadBuildActivity extends FragmentActivity
         implements SetItemListFragment.SetItemSelectCallback, SquadListAdapter.SlotSelectCallback {

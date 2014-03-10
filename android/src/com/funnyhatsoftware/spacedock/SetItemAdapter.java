@@ -1,5 +1,10 @@
 package com.funnyhatsoftware.spacedock;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.view.View;
@@ -10,11 +15,6 @@ import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.data.Upgrade;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 public class SetItemAdapter extends ArrayAdapter<SetItemAdapter.SetItemWrapper> {
 

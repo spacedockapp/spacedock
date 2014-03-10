@@ -1,6 +1,7 @@
 package com.funnyhatsoftware.spacedock;
 
-import android.content.Context;
+import java.util.ArrayList;
+
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -13,8 +14,6 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.util.ArrayMap;
 
 import com.funnyhatsoftware.spacedock.data.Maneuver;
-
-import java.util.ArrayList;
 
 public class ManeuverGridDrawable extends Drawable {
     private static final float HEAD_WIDTH = 0.5f;

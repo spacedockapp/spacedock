@@ -1,7 +1,6 @@
 package com.funnyhatsoftware.spacedock;
 
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,7 +9,6 @@ import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Ship;
 import com.funnyhatsoftware.spacedock.data.ShipClassDetails;
-import com.funnyhatsoftware.spacedock.data.Upgrade;
 
 public class SetItemHolder {
     static int getLayoutForSlot(int slotType) {

@@ -1,5 +1,7 @@
 package com.funnyhatsoftware.spacedock;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +14,6 @@ import android.widget.TextView;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
 import com.funnyhatsoftware.spacedock.data.Squad;
-
-import java.util.ArrayList;
 
 public class SquadListAdapter extends BaseExpandableListAdapter
         implements ExpandableListView.OnChildClickListener {

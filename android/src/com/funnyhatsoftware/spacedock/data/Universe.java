@@ -4,6 +4,8 @@ package com.funnyhatsoftware.spacedock.data;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.TreeSet;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -12,7 +14,8 @@ import org.xml.sax.SAXException;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.support.v4.util.ArrayMap;
-import android.util.Log;
+
+import com.funnyhatsoftware.spacedock.data.Captain.CaptainComparator;
 
 public class Universe {
     public ArrayMap<String, Ship> ships = new ArrayMap<String, Ship>();
@@ -26,10 +29,12 @@ public class Universe {
     public ArrayMap<String, Set> selectedSets = new ArrayMap<String, Set>();
     public ArrayMap<String, Upgrade> placeholders = new ArrayMap<String, Upgrade>();
     public ArrayList<Squad> squads = new ArrayList<Squad>();
+    private ArrayList<String> mAllFactions;
 
     static Universe sUniverse;
 
-    public static Universe getUniverse(Context context) throws ParserConfigurationException, SAXException, IOException {
+    public static Universe getUniverse(Context context) throws ParserConfigurationException,
+            SAXException, IOException {
         if (sUniverse == null) {
             Universe newUniverse = new Universe();
             AssetManager am = context.getAssets();
@@ -85,6 +90,12 @@ public class Universe {
         return shipsCopy;
     }
 
+    public ArrayList<Captain> getCaptains() {
+        ArrayList<Captain> captainsCopy = new ArrayList<Captain>();
+        captainsCopy.addAll(captains.values());
+        return captainsCopy;
+    }
+
     public Upgrade findOrCreatePlaceholder(String upType) {
         Upgrade placeholder = placeholders.get(upType);
         if (placeholder == null) {
@@ -111,7 +122,7 @@ public class Universe {
     public Flagship getFlagship(String flagshipId) {
         return flagships.get(flagshipId);
     }
-    
+
     public void addShipClassDetails(ShipClassDetails details) {
         shipClassDetails.put(details.getExternalId(), details);
         shipClassDetailsByName.put(details.getName(), details);
@@ -120,4 +131,31 @@ public class Universe {
     public ShipClassDetails getShipClassDetailsByName(String shipClass) {
         return shipClassDetailsByName.get(shipClass);
     }
+
+    public ArrayList<String> getAllFactions() {
+        if (mAllFactions == null) {
+            TreeSet<String> factions = new TreeSet<String>();
+
+            for (Ship ship : ships.values()) {
+                factions.add(ship.getFaction());
+            }
+            
+            mAllFactions = new ArrayList<String>();
+            mAllFactions.addAll(factions);
+        }
+        return mAllFactions;
+    }
+
+    public ArrayList<Captain> getCaptainsForFaction(String s) {
+        ArrayList<Captain> factionCaptains = new ArrayList<Captain>();
+        for (Captain captain : captains.values()) {
+            if (captain.getFaction().equals(s)) {
+                factionCaptains.add(captain);
+            }
+        }
+        
+        Collections.sort(factionCaptains, new CaptainComparator());
+        return factionCaptains;
+    }
+
 }
