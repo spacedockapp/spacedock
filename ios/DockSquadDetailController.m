@@ -537,9 +537,8 @@ enum {
         UIAlertView* view = [[UIAlertView alloc] initWithTitle: @"Can't send Squad"
                                                        message: @"This device is not configured to send mail."
                                                       delegate: nil
-                                             cancelButtonTitle: nil
-                                             otherButtonTitles: @"",
-                             nil];
+                                             cancelButtonTitle: @"OK"
+                                             otherButtonTitles: nil];
         [view show];
     }
 }
@@ -551,9 +550,8 @@ enum {
         UIAlertView* view = [[UIAlertView alloc] initWithTitle: @"Can't send Squad"
                                                        message: error.localizedDescription
                                                       delegate: nil
-                                             cancelButtonTitle: nil
-                                             otherButtonTitles: @"",
-                             nil];
+                                             cancelButtonTitle: @"OK"
+                                             otherButtonTitles: nil];
         [view show];
     }
 
