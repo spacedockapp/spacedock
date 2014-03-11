@@ -82,25 +82,27 @@ public class TopMenuActivity extends Activity {
 
     protected void showCrewList() {
         Intent intent = new Intent(this, UpgradeListActivity.class);
-        intent.putExtra("upType", "Crew");
+        intent.putExtra(UpgradeListActivity.UPTYPE_KEY, "Crew");
         startActivity(intent);
     }
 
     protected void showTalentsList() {
         Intent intent = new Intent(this, UpgradeListActivity.class);
-        intent.putExtra("upType", "Talent");
+        intent.putExtra(UpgradeListActivity.UPTYPE_KEY, "Talent");
+        intent.putExtra(UpgradeListActivity.LABEL_KEY, "Talents");
         startActivity(intent);
     }
 
     protected void showTechList() {
         Intent intent = new Intent(this, UpgradeListActivity.class);
-        intent.putExtra("upType", "Tech");
+        intent.putExtra(UpgradeListActivity.UPTYPE_KEY, "Tech");
         startActivity(intent);
     }
 
     protected void showWeaponsList() {
         Intent intent = new Intent(this, WeaponListActivity.class);
-        intent.putExtra("upType", "Weapon");
+        intent.putExtra(UpgradeListActivity.UPTYPE_KEY, "Weapon");
+        intent.putExtra(UpgradeListActivity.LABEL_KEY, "Weapons");
         startActivity(intent);
     }
 

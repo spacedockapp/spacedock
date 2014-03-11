@@ -108,7 +108,7 @@
         </activity>
         <activity
             android:name="com.funnyhatsoftware.spacedock.FlagshipListActivity"
-            android:label="@string/title_activity_crew_list"
+            android:label="@string/title_activity_flagship_list"
             android:parentActivityName="TopMenuActivity" >
         </activity>
         <activity

@@ -14,10 +14,20 @@ import com.funnyhatsoftware.spacedock.data.Upgrade;
 public class UpgradeListActivity extends ItemListActivity {
 
     protected String mUpType = "";
-    
+
+    static final String UPTYPE_KEY = "upType";
+    static final String LABEL_KEY = "actionBarLabel";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        mUpType = getIntent().getStringExtra("upType");
+        Intent intent = getIntent();
+        mUpType = intent.getStringExtra(UPTYPE_KEY);
+        String label = intent.getStringExtra(LABEL_KEY);
+        if (label != null) {
+            getActionBar().setTitle(label);
+        } else {
+            getActionBar().setTitle(mUpType);
+        }
         super.onCreate(savedInstanceState);
     }
 
