@@ -62,6 +62,12 @@ public class TopMenuActivity extends Activity {
                 showFlagshipsList();
             }
         });
+        Button setsButton = (Button) findViewById(R.id.sets_button);
+        setsButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                showSetsList();
+            }
+        });
     }
 
     protected void showShipsList() {
@@ -105,6 +111,11 @@ public class TopMenuActivity extends Activity {
 
     protected void showFlagshipsList() {
         Intent intent = new Intent(this, FlagshipListActivity.class);
+        startActivity(intent);
+    }
+
+    protected void showSetsList() {
+        Intent intent = new Intent(this, SetListActivity.class);
         startActivity(intent);
     }
 

@@ -1,11 +1,10 @@
 
 package com.funnyhatsoftware.spacedock.data;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-
 import java.util.ArrayList;
 import java.util.Comparator;
+
+import android.text.TextUtils;
 
 public class Flagship extends FlagshipBase {
 

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lint>
+    <issue id="DefaultLocale" severity="ignore" />
     <issue id="ViewConstructor">
         <ignore path="src/com/funnyhatsoftware/spacedock/CaptainsAdapter.java" />
         <ignore path="src/com/funnyhatsoftware/spacedock/FlagshipsAdapter.java" />
         <ignore path="src/com/funnyhatsoftware/spacedock/ResourcesAdapter.java" />
+        <ignore path="src/com/funnyhatsoftware/spacedock/SetsAdapter.java" />
         <ignore path="src/com/funnyhatsoftware/spacedock/ShipsAdapter.java" />
         <ignore path="src/com/funnyhatsoftware/spacedock/WeaponsAdapter.java" />
     </issue>

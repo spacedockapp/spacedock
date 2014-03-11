@@ -18,6 +18,7 @@ import android.support.v4.util.ArrayMap;
 import com.funnyhatsoftware.spacedock.data.Captain.CaptainComparator;
 import com.funnyhatsoftware.spacedock.data.Flagship.FlagshipComparator;
 import com.funnyhatsoftware.spacedock.data.Resource.ResourceComparator;
+import com.funnyhatsoftware.spacedock.data.Set.SetComparator;
 import com.funnyhatsoftware.spacedock.data.Ship.ShipComparator;
 import com.funnyhatsoftware.spacedock.data.Upgrade.UpgradeComparitor;
 
@@ -210,6 +211,13 @@ public class Universe {
         }
         Collections.sort(matchingFlagships, new FlagshipComparator());
         return matchingFlagships;
+    }
+
+    public ArrayList<Set> getSets() {
+        ArrayList<Set> setsCopy = new ArrayList<Set>();
+        setsCopy.addAll(sets.values());
+        Collections.sort(setsCopy, new SetComparator());
+        return setsCopy;
     }
 
 
