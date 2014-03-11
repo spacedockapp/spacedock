@@ -25,7 +25,6 @@ import com.funnyhatsoftware.spacedock.data.Universe;
 
 public abstract class ItemListActivity extends Activity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +37,9 @@ public abstract class ItemListActivity extends Activity {
         int listRowId = getListRowId();
         for (String s : factions) {
             BaseAdapter adapter = createSectionAdapter(universe, s, listRowId);
-            headerAdapter.addSection(s, adapter);
+            if (adapter.getCount() > 0) {
+                headerAdapter.addSection(s, adapter);
+            }
         }
         lv.setAdapter(headerAdapter);
         final Activity self = this;
@@ -56,7 +57,7 @@ public abstract class ItemListActivity extends Activity {
     }
 
     protected abstract BaseAdapter createSectionAdapter(Universe universe, String s, int listRowId);
-    
+
     protected abstract void handleClickedItem(SeparatedListAdapter headerAdapter, Activity self,
             int position);
 
@@ -83,7 +84,6 @@ public abstract class ItemListActivity extends Activity {
     public ItemListActivity() {
         super();
     }
-
 
     protected static class SeparatedListAdapter extends BaseAdapter
     {

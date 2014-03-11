@@ -32,6 +32,18 @@ public class TopMenuActivity extends Activity {
                 showTalentsList();
             }
         });
+        Button techButton = (Button) findViewById(R.id.tech_button);
+        techButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                showTechList();
+            }
+        });
+        Button weaponsButton = (Button) findViewById(R.id.weapons_button);
+        weaponsButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                showWeaponsList();
+            }
+        });
     }
 
     protected void showCaptainsList() {
@@ -40,12 +52,26 @@ public class TopMenuActivity extends Activity {
     }
 
     protected void showCrewList() {
-        Intent intent = new Intent(this, CrewListActivity.class);
+        Intent intent = new Intent(this, UpgradeListActivity.class);
+        intent.putExtra("upType", "Crew");
         startActivity(intent);
     }
 
     protected void showTalentsList() {
-        Intent intent = new Intent(this, TalentsListActivity.class);
+        Intent intent = new Intent(this, UpgradeListActivity.class);
+        intent.putExtra("upType", "Talent");
+        startActivity(intent);
+    }
+
+    protected void showTechList() {
+        Intent intent = new Intent(this, UpgradeListActivity.class);
+        intent.putExtra("upType", "Tech");
+        startActivity(intent);
+    }
+
+    protected void showWeaponsList() {
+        Intent intent = new Intent(this, WeaponListActivity.class);
+        intent.putExtra("upType", "Weapon");
         startActivity(intent);
     }
 

@@ -159,26 +159,23 @@ public class Universe {
         return factionCaptains;
     }
 
-    public ArrayList<Upgrade> getCrewForFaction(String faction) {
-        ArrayList<Upgrade> factionCrew = new ArrayList<Upgrade>();
+    public ArrayList<Upgrade> getUpgradesForFaction(String upType, String faction) {
+        ArrayList<Upgrade> matchingUpgrades = new ArrayList<Upgrade>();
         for (Upgrade upgrade: upgrades.values()) {
-            if (upgrade.isCrew() && faction.equals(upgrade.getFaction())) {
-                factionCrew.add(upgrade);
+            if ((upType == null || upgrade.getUpType().equals(upType)) && faction.equals(upgrade.getFaction())) {
+                matchingUpgrades.add(upgrade);
             }
         }
-        Collections.sort(factionCrew, new UpgradeComparitor());
-        return factionCrew;
+        Collections.sort(matchingUpgrades, new UpgradeComparitor());
+        return matchingUpgrades;
+    }
+
+    public ArrayList<Upgrade> getCrewForFaction(String faction) {
+        return getUpgradesForFaction("Crew", faction);
     }
 
     public ArrayList<Upgrade> getTalentsForFaction(String faction) {
-        ArrayList<Upgrade> factionCrew = new ArrayList<Upgrade>();
-        for (Upgrade upgrade: upgrades.values()) {
-            if (upgrade.isTalent() && faction.equals(upgrade.getFaction())) {
-                factionCrew.add(upgrade);
-            }
-        }
-        Collections.sort(factionCrew, new UpgradeComparitor());
-        return factionCrew;
+        return getUpgradesForFaction("Talent", faction);
     }
 
 

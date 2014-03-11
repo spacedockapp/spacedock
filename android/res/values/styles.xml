@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -14,6 +14,7 @@
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
+
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
         <item name="android:activatedBackgroundIndicator">@drawable/activated_background_indicator</item>
     </style>
@@ -38,6 +39,32 @@
         <item name="android:paddingLeft">@dimen/listview_horizontal_padding</item>
         <item name="android:paddingRight">@dimen/listview_horizontal_padding</item>
         <item name="android:background">?android:attr/activatedBackgroundIndicator</item>
+    </style>
+
+    <style name="ItemList">
+        <item name="android:dividerPadding">10dp</item>
+    </style>
+
+    <style name="ValueField">
+        <item name="android:layout_width">@dimen/value_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    </style>
+
+    <style name="AttackField" parent="ValueField">
+        <item name="android:background">@color/dark_red</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="RangeField" parent="ValueField">
+        <item name="android:layout_width">@dimen/range_width</item>
+    </style>
+
+    <style name="TitleField" parent="ValueField">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">0.8</item>
+        <item name="android:gravity">left</item>
     </style>
 
 </resources>

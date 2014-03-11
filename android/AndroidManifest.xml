@@ -50,30 +50,38 @@
                 android:value="com.funnyhatsoftware.spacedock.CaptainsListActivity" />
         </activity>
         <activity
-            android:name="com.funnyhatsoftware.spacedock.CrewListActivity"
+            android:name="com.funnyhatsoftware.spacedock.UpgradeListActivity"
             android:label="@string/title_activity_crew_list"
             android:parentActivityName="TopMenuActivity" >
         </activity>
         <activity
             android:name="com.funnyhatsoftware.spacedock.UpgradeDetailActivity"
             android:label="@string/title_activity_captain_detail"
-            android:parentActivityName="CrewListActivity" >
+            android:parentActivityName="UpgradeListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.funnyhatsoftware.spacedock.CrewListActivity" />
-        </activity>
-        <activity
-            android:name="com.funnyhatsoftware.spacedock.TalentsListActivity"
-            android:label="@string/title_activity_crew_list"
-            android:parentActivityName="TopMenuActivity" >
+                android:value="com.funnyhatsoftware.spacedock.UpgradeListActivity" />
         </activity>
         <activity
             android:name="com.funnyhatsoftware.spacedock.TalentDetailActivity"
             android:label="@string/title_activity_captain_detail"
-            android:parentActivityName="TalentListActivity" >
+            android:parentActivityName="UpgradeListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.funnyhatsoftware.spacedock.TalentListActivity" />
+                android:value="com.funnyhatsoftware.spacedock.UpgradeListActivity" />
+        </activity>
+        <activity
+            android:name="com.funnyhatsoftware.spacedock.WeaponListActivity"
+            android:label="@string/title_activity_crew_list"
+            android:parentActivityName="TopMenuActivity" >
+        </activity>
+        <activity
+            android:name="com.funnyhatsoftware.spacedock.WeaponDetailActivity"
+            android:label="@string/title_activity_captain_detail"
+            android:parentActivityName="WeaponListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.funnyhatsoftware.spacedock.WeaponListActivity" />
         </activity>
     </application>
 

@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" xmlns:tools="http://schemas.android.com/tools">
+    android:orientation="horizontal" >
 
     <TextView
         android:id="@+id/upgradeRowTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight=".9"
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        style="@style/TitleField" />
 
     <TextView
         android:id="@+id/upgradeRowCost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1"
+        style="@style/ValueField"
         android:text="1"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         tools:ignore="HardcodedText" />
 
 </LinearLayout>

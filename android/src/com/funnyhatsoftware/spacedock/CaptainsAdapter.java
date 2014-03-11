@@ -9,10 +9,9 @@ import android.widget.TextView;
 
 import com.funnyhatsoftware.spacedock.data.Captain;
 
-public class CaptainsAdapter extends ItemAdapter <Captain> {
+public class CaptainsAdapter extends ItemAdapter<Captain> {
     public CaptainsAdapter(Context context, int resource, List<Captain> objects) {
         super(context, resource, objects);
-        layoutResourceId = resource;
     }
 
     protected void setupView(int position, View convertView) {
