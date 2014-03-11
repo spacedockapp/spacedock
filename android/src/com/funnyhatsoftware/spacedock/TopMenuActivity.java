@@ -14,6 +14,12 @@ public class TopMenuActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top_menu);
+        Button shipsButton = (Button) findViewById(R.id.ships_button);
+        shipsButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                showShipsList();
+            }
+        });
         Button captainsButton = (Button) findViewById(R.id.captains_button);
         captainsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -44,6 +50,17 @@ public class TopMenuActivity extends Activity {
                 showWeaponsList();
             }
         });
+        Button resourcesButton = (Button) findViewById(R.id.resources_button);
+        resourcesButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                showResourcesList();
+            }
+        });
+    }
+
+    protected void showShipsList() {
+        Intent intent = new Intent(this, ShipListActivity.class);
+        startActivity(intent);
     }
 
     protected void showCaptainsList() {
@@ -72,6 +89,11 @@ public class TopMenuActivity extends Activity {
     protected void showWeaponsList() {
         Intent intent = new Intent(this, WeaponListActivity.class);
         intent.putExtra("upType", "Weapon");
+        startActivity(intent);
+    }
+
+    protected void showResourcesList() {
+        Intent intent = new Intent(this, ResourceListActivity.class);
         startActivity(intent);
     }
 

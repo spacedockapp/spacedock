@@ -49,4 +49,14 @@ public class DataUtils {
 
         return 0;
     }
+
+    public static int compareBool(boolean unique, boolean unique2) {
+        if (unique == unique2) {
+            return 0;
+        }
+        if (unique && !unique2) {
+            return 1;
+        }
+        return -1;
+    }
 }

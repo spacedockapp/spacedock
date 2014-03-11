@@ -37,6 +37,19 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.funnyhatsoftware.spacedock.ShipListActivity"
+            android:label="@string/title_activity_ships_list"
+            android:parentActivityName="TopMenuActivity" >
+        </activity>
+        <activity
+            android:name="com.funnyhatsoftware.spacedock.ShipDetailActivity"
+            android:label="@string/title_activity_captain_detail"
+            android:parentActivityName="ShipListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.funnyhatsoftware.spacedock.ShipListActivity" />
+        </activity>
+        <activity
             android:name="com.funnyhatsoftware.spacedock.CaptainsListActivity"
             android:label="@string/title_activity_captains_list"
             android:parentActivityName="TopMenuActivity" >
@@ -82,6 +95,19 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.funnyhatsoftware.spacedock.WeaponListActivity" />
+        </activity>
+        <activity
+            android:name="com.funnyhatsoftware.spacedock.ResourceListActivity"
+            android:label="@string/title_activity_crew_list"
+            android:parentActivityName="TopMenuActivity" >
+        </activity>
+            <activity
+            android:name="com.funnyhatsoftware.spacedock.ResourceDetailActivity"
+            android:label="@string/title_activity_captain_detail"
+            android:parentActivityName="ResourceListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.funnyhatsoftware.spacedock.ResourceListActivity" />
         </activity>
     </application>
 

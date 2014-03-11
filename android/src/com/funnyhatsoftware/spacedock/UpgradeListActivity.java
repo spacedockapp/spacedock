@@ -22,7 +22,7 @@ public class UpgradeListActivity extends ItemListActivity {
     }
 
     @Override
-    protected void handleClickedItem(SeparatedListAdapter headerAdapter, Activity self, int position) {
+    protected void handleClickedItem(BaseAdapter headerAdapter, Activity self, int position) {
         Upgrade upgrade = (Upgrade) headerAdapter.getItem(position);
         Intent intent = new Intent(self, UpgradeDetailActivity.class);
         intent.putExtra("externalId", upgrade.getExternalId());

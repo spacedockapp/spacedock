@@ -3,6 +3,7 @@ package com.funnyhatsoftware.spacedock.data;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.TreeSet;
 
 import android.text.TextUtils;
 
@@ -18,7 +19,7 @@ public class ShipClassDetails extends ShipClassDetailsBase {
     }
 
     public String getMovesSummary() {
-        ArrayList<String> specials = new ArrayList<String>();
+        TreeSet<String> specials = new TreeSet<String>();
         for (Maneuver m : mManeuvers) {
             if (m.mKind.equals("about")) {
                 specials.add("come about");

@@ -2,11 +2,31 @@
 package com.funnyhatsoftware.spacedock.data;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 public class Ship extends ShipBase {
+
+    static class ShipComparator implements Comparator<Ship> {
+        @Override
+        public int compare(Ship o1, Ship o2) {
+            int factionCompare = o1.getFaction().compareTo(o2.getFaction());
+            if (factionCompare == 0) {
+                int classCompare = o1.getShipClass().compareTo(o2.getShipClass());
+                if (classCompare == 0) {
+                    int uniqueCompare = DataUtils.compareBool(o2.getUnique(),o1.getUnique());
+                    if (uniqueCompare == 0) {
+                        int titleCompare = o1.getTitle().compareTo(o2.getTitle());
+                        return titleCompare;
+                    }
+                    return uniqueCompare;
+                }
+                return classCompare;
+            }
+            return factionCompare;
+        }
+    }
 
     public static Ship shipForId(String externalId) {
         return Universe.getUniverse().getShip(externalId);
@@ -75,7 +95,7 @@ public class Ship extends ShipBase {
     }
 
     public String getDescriptiveTitle() {
-        if (!getUnique()) {
+        if (getUnique()) {
             return mTitle;
         }
 

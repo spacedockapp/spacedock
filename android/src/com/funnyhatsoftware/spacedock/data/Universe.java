@@ -16,7 +16,9 @@ import android.content.res.AssetManager;
 import android.support.v4.util.ArrayMap;
 
 import com.funnyhatsoftware.spacedock.data.Captain.CaptainComparator;
+import com.funnyhatsoftware.spacedock.data.Ship.ShipComparator;
 import com.funnyhatsoftware.spacedock.data.Upgrade.UpgradeComparitor;
+import com.funnyhatsoftware.spacedock.data.Resource.ResourceComparator;
 
 public class Universe {
     public ArrayMap<String, Ship> ships = new ArrayMap<String, Ship>();
@@ -69,6 +71,14 @@ public class Universe {
         return resources.get(externalId);
     }
 
+    public ArrayList<Resource> getResources() {
+        ArrayList<Resource> resourcesCopy = new ArrayList<Resource>();
+        resourcesCopy.addAll(resources.values());
+        Collections.sort(resourcesCopy, new ResourceComparator());
+        return resourcesCopy;
+    }
+
+
     public Set getSet(String setId) {
         return sets.get(setId);
     }
@@ -88,6 +98,18 @@ public class Universe {
     public ArrayList<Ship> getShips() {
         ArrayList<Ship> shipsCopy = new ArrayList<Ship>();
         shipsCopy.addAll(ships.values());
+        return shipsCopy;
+    }
+
+    public ArrayList<Ship> getShipsForFaction(String faction) {
+        ArrayList<Ship> shipsCopy = new ArrayList<Ship>();
+        for (Ship ship : ships.values()) {
+            if (ship.getFaction().equals(faction)) {
+                shipsCopy.add(ship);
+            }
+        }
+        
+        Collections.sort(shipsCopy, new ShipComparator());
         return shipsCopy;
     }
 

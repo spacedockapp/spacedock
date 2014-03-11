@@ -24,7 +24,7 @@ public class CaptainsListActivity extends ItemListActivity {
         return adapter;
     }
 
-    protected void handleClickedItem(final SeparatedListAdapter headerAdapter,
+    protected void handleClickedItem(final BaseAdapter headerAdapter,
             final Activity self, int position) {
         Captain captain = (Captain)headerAdapter.getItem(position);
         Intent intent = new Intent(self, CaptainDetailActivity.class);

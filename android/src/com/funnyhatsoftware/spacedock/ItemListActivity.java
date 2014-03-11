@@ -32,33 +32,50 @@ public abstract class ItemListActivity extends Activity {
 
         ListView lv = (ListView) findViewById(R.id.itemList);
         Universe universe = Universe.getUniverse();
-        ArrayList<String> factions = universe.getAllFactions();
-        final SeparatedListAdapter headerAdapter = new SeparatedListAdapter(this);
         int listRowId = getListRowId();
-        for (String s : factions) {
-            BaseAdapter adapter = createSectionAdapter(universe, s, listRowId);
-            if (adapter.getCount() > 0) {
-                headerAdapter.addSection(s, adapter);
-            }
-        }
-        lv.setAdapter(headerAdapter);
-        final Activity self = this;
-        lv.setOnItemClickListener(new OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int viewType = headerAdapter.getItemViewType(position);
-                if (SeparatedListAdapter.TYPE_SECTION_HEADER != viewType) {
-                    handleClickedItem(headerAdapter, self, position);
+        if (usesFactions()) {
+            ArrayList<String> factions = universe.getAllFactions();
+            final SeparatedListAdapter headerAdapter = new SeparatedListAdapter(this);
+            for (String s : factions) {
+                BaseAdapter adapter = createSectionAdapter(universe, s, listRowId);
+                if (adapter.getCount() > 0) {
+                    headerAdapter.addSection(s, adapter);
                 }
             }
-        });
+            lv.setAdapter(headerAdapter);
+            final Activity self = this;
+            lv.setOnItemClickListener(new OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    int viewType = headerAdapter.getItemViewType(position);
+                    if (SeparatedListAdapter.TYPE_SECTION_HEADER != viewType) {
+                        handleClickedItem(headerAdapter, self, position);
+                    }
+                }
+            });
+        } else {
+            final BaseAdapter adapter = createSectionAdapter(universe, null, listRowId);
+            lv.setAdapter(adapter);
+            final Activity self = this;
+            lv.setOnItemClickListener(new OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    handleClickedItem(adapter, self, position);
+                }
+            });
+        }
         getActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    protected boolean usesFactions() {
+        return true;
     }
 
     protected abstract BaseAdapter createSectionAdapter(Universe universe, String s, int listRowId);
 
-    protected abstract void handleClickedItem(SeparatedListAdapter headerAdapter, Activity self,
+    protected abstract void handleClickedItem(BaseAdapter headerAdapter, Activity self,
             int position);
 
     protected abstract int getListRowId();

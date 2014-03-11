@@ -49,7 +49,7 @@
         <item name="android:layout_width">@dimen/value_width</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
     </style>
 
     <style name="AttackField" parent="ValueField">
