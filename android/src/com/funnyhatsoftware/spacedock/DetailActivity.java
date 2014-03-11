@@ -23,53 +23,53 @@ import com.funnyhatsoftware.spacedock.data.Universe;
 public abstract class DetailActivity extends Activity {
 
     protected static class Pair {
-            String label;
-            String value;
-    
-            Pair(String inLabel, String inValue) {
-                label = inLabel;
-                value = inValue;
-            }
-    
-            Pair(String inLabel, int inValue) {
-                label = inLabel;
-                value = Integer.toString(inValue);
-            }
-    
-            Pair(String inLabel, boolean inValue) {
-                label = inLabel;
-                value = inValue ? "Yes" : "No";
-            }
-    
-            public String toString() {
-                return label + ": " + value;
-            }
+        String label;
+        String value;
+
+        Pair(String inLabel, String inValue) {
+            label = inLabel;
+            value = inValue;
         }
+
+        Pair(String inLabel, int inValue) {
+            label = inLabel;
+            value = Integer.toString(inValue);
+        }
+
+        Pair(String inLabel, boolean inValue) {
+            label = inLabel;
+            value = inValue ? "Yes" : "No";
+        }
+
+        public String toString() {
+            return label + ": " + value;
+        }
+    }
 
     protected ArrayList<Pair> mValues = new ArrayList<Pair>();
 
     protected static class DetailAdapter extends ArrayAdapter<Pair> {
-            private int layoutResourceId;
-    
-            public DetailAdapter(Context context, int resource, List<Pair> objects) {
-                super(context, resource, objects);
-                layoutResourceId = resource;
-            }
-    
-            public View getView(int position, View convertView, ViewGroup parent) {
-                if (convertView == null) {
-                    Context context = getContext();
-                    LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-                    convertView = inflater.inflate(layoutResourceId, parent, false);
-                }
-                Pair item = getItem(position);
-                TextView label = (TextView) convertView.findViewById(R.id.detailLabel);
-                label.setText(item.label);
-                TextView value = (TextView) convertView.findViewById(R.id.detailValue);
-                value.setText(item.value);
-                return convertView;
-            }
+        private int layoutResourceId;
+
+        public DetailAdapter(Context context, int resource, List<Pair> objects) {
+            super(context, resource, objects);
+            layoutResourceId = resource;
         }
+
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                Context context = getContext();
+                LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+                convertView = inflater.inflate(layoutResourceId, parent, false);
+            }
+            Pair item = getItem(position);
+            TextView label = (TextView) convertView.findViewById(R.id.detailLabel);
+            label.setText(item.label);
+            TextView value = (TextView) convertView.findViewById(R.id.detailValue);
+            value.setText(item.value);
+            return convertView;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,13 +78,13 @@ public abstract class DetailActivity extends Activity {
         Universe universe = Universe.getUniverse();
         String captainId = getIntent().getStringExtra("externalId");
         String title = setupValues(universe, captainId);
-    
+
         ArrayAdapter<Pair> adapter = new DetailAdapter(this,
                 R.layout.detail_row, mValues);
-    
+
         ListView detailList = (ListView) findViewById(R.id.itemDetails);
         detailList.setAdapter(adapter);
-    
+
         // Show the Up button in the action bar.
         setupActionBar(title);
     }
@@ -98,7 +98,7 @@ public abstract class DetailActivity extends Activity {
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle(title);
-    
+
     }
 
     @Override
@@ -127,6 +127,10 @@ public abstract class DetailActivity extends Activity {
 
     public DetailActivity() {
         super();
+    }
+
+    protected void addPair(String label, int value) {
+        mValues.add(new Pair(label, value));
     }
 
 }

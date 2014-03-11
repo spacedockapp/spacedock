@@ -16,9 +16,10 @@ import android.content.res.AssetManager;
 import android.support.v4.util.ArrayMap;
 
 import com.funnyhatsoftware.spacedock.data.Captain.CaptainComparator;
+import com.funnyhatsoftware.spacedock.data.Flagship.FlagshipComparator;
+import com.funnyhatsoftware.spacedock.data.Resource.ResourceComparator;
 import com.funnyhatsoftware.spacedock.data.Ship.ShipComparator;
 import com.funnyhatsoftware.spacedock.data.Upgrade.UpgradeComparitor;
-import com.funnyhatsoftware.spacedock.data.Resource.ResourceComparator;
 
 public class Universe {
     public ArrayMap<String, Ship> ships = new ArrayMap<String, Ship>();
@@ -198,6 +199,17 @@ public class Universe {
 
     public ArrayList<Upgrade> getTalentsForFaction(String faction) {
         return getUpgradesForFaction("Talent", faction);
+    }
+
+    public ArrayList<Flagship> getFlagshipsForFaction(String faction) {
+        ArrayList<Flagship> matchingFlagships = new ArrayList<Flagship>();
+        for (Flagship fs: flagships.values()) {
+            if (faction.equals(fs.getFaction())) {
+                matchingFlagships.add(fs);
+            }
+        }
+        Collections.sort(matchingFlagships, new FlagshipComparator());
+        return matchingFlagships;
     }
 
 

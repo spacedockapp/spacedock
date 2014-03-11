@@ -57,6 +57,21 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
+    <style name="AgilityField" parent="ValueField">
+        <item name="android:background">@color/dark_green</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="HullField" parent="ValueField">
+        <item name="android:background">@color/dark_yellow</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="ShieldField" parent="ValueField">
+        <item name="android:background">@color/dark_blue</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
     <style name="RangeField" parent="ValueField">
         <item name="android:layout_width">@dimen/range_width</item>
     </style>
