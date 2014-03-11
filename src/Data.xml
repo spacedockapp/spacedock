@@ -1,4 +1,4 @@
-<Data version="1.198">
+<Data version="1.199">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -5299,7 +5299,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Nuclear Warhead</Title>
-      <Ability>ACTION: At the end of the Activation Phase, discard this card and place a Minefield Token within Range 1 of your ship, but not within your forward firing arc and not on to of another ship. If a ship enters the minefield on a future turn, roll 3 attack dice. Any [HIT] or [CRITICAL] damages the ship as normal. The affected ship does not roll any defense dice.</Ability>
+      <Ability>ACTION: At the end of the Activation Phase, discard this card and place a Minefield Token within Range 1 of your ship, but not within your forward firing arc and not on top of another ship. If a ship enters the minefield on a future turn, roll 3 attack dice. Any [HIT] or [CRITICAL] damages the ship as normal. The affected ship does not roll any defense dice.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
