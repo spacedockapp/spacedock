@@ -20,10 +20,32 @@ public class TopMenuActivity extends Activity {
                 showCaptainsList();
             }
         });
+        Button crewButton = (Button) findViewById(R.id.crew_button);
+        crewButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                showCrewList();
+            }
+        });
+        Button talentsButton = (Button) findViewById(R.id.talents_button);
+        talentsButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                showTalentsList();
+            }
+        });
     }
 
     protected void showCaptainsList() {
         Intent intent = new Intent(this, CaptainsListActivity.class);
+        startActivity(intent);
+    }
+
+    protected void showCrewList() {
+        Intent intent = new Intent(this, CrewListActivity.class);
+        startActivity(intent);
+    }
+
+    protected void showTalentsList() {
+        Intent intent = new Intent(this, TalentsListActivity.class);
         startActivity(intent);
     }
 

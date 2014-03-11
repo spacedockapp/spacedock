@@ -24,7 +24,7 @@ public class SetBase {
     public SetBase setItems(ArrayList<SetItem> v) { mItems = (ArrayList<SetItem>)v.clone(); return this;}
 
     public void update(Map<String,Object> data) {
-        mExternalId = DataUtils.stringValue((String)data.get("Id"));
+        mExternalId = DataUtils.stringValue((String)data.get("id"));
         mInclude = DataUtils.booleanValue((String)data.get("Include"));
         mName = DataUtils.stringValue((String)data.get("Name"));
         mProductName = DataUtils.stringValue((String)data.get("ProductName"));

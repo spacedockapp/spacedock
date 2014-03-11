@@ -23,6 +23,7 @@ public class Set extends SetBase {
             otherSet.remove(item);
         }
         mItems.add(item);
+        item.addToSet(this);
     }
 
     public void remove(SetItem item) {

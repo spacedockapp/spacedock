@@ -172,6 +172,8 @@ NSString* kExpandedRows = @"expandedRows";
     }
     
     self.expandedRows = [defaults boolForKey: kExpandedRows];
+    
+    [self exportDataModel: nil];
 
 }
 

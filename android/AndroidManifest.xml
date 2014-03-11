@@ -38,7 +38,42 @@
         </activity>
         <activity
             android:name="com.funnyhatsoftware.spacedock.CaptainsListActivity"
-            android:label="@string/title_activity_captains_list" >
+            android:label="@string/title_activity_captains_list"
+            android:parentActivityName="TopMenuActivity" >
+        </activity>
+        <activity
+            android:name="com.funnyhatsoftware.spacedock.CaptainDetailActivity"
+            android:label="@string/title_activity_captain_detail"
+            android:parentActivityName="CaptainsListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.funnyhatsoftware.spacedock.CaptainsListActivity" />
+        </activity>
+        <activity
+            android:name="com.funnyhatsoftware.spacedock.CrewListActivity"
+            android:label="@string/title_activity_crew_list"
+            android:parentActivityName="TopMenuActivity" >
+        </activity>
+        <activity
+            android:name="com.funnyhatsoftware.spacedock.UpgradeDetailActivity"
+            android:label="@string/title_activity_captain_detail"
+            android:parentActivityName="CrewListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.funnyhatsoftware.spacedock.CrewListActivity" />
+        </activity>
+        <activity
+            android:name="com.funnyhatsoftware.spacedock.TalentsListActivity"
+            android:label="@string/title_activity_crew_list"
+            android:parentActivityName="TopMenuActivity" >
+        </activity>
+        <activity
+            android:name="com.funnyhatsoftware.spacedock.TalentDetailActivity"
+            android:label="@string/title_activity_captain_detail"
+            android:parentActivityName="TalentListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.funnyhatsoftware.spacedock.TalentListActivity" />
         </activity>
     </application>
 

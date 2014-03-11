@@ -122,9 +122,12 @@ static NSString* entityNameToJavaBaseClassName(NSString* entityName)
     return [entityNameToJavaClassName(entityName) stringByAppendingString: @"Base"];
 }
 
-static NSString* makeXmlKey(NSString* propertyName)
+static NSString* makeXmlKey(NSString* propertyName, NSString* entityName)
 {
     if ([propertyName isEqualToString: @"externalId"]) {
+        if ([entityName isEqualToString: @"Set"]) {
+            return @"id";
+        }
         return @"Id";
     }
     if ([propertyName isEqualToString: @"battleStations"]) {
@@ -204,7 +207,7 @@ static NSString* makeXmlKey(NSString* propertyName)
             if ([name isEqualToString: @"Maneuver"]) {
                 attributeName = [attributeName lowercaseString];
             } else {
-                attributeName = makeXmlKey(desc.name);
+                attributeName = makeXmlKey(desc.name, name);
             }
             [javaClass appendFormat: @"        %@ = %@((String)data.get(\"%@\"));\n",
                     instanceName, attributeTypeToJavaConversion(desc.attributeType), attributeName];

@@ -391,7 +391,7 @@ public class DataLoader extends DefaultHandler {
 
                 if (currentText != null && localName.equals("Set")) {
                     String s = currentText.toString().trim();
-                    currentElement.put("ProduceName", s);
+                    currentElement.put("ProductName", s);
                 }
 
                 currentList.add(currentElement);

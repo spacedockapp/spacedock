@@ -1,6 +1,9 @@
 
 package com.funnyhatsoftware.spacedock.data;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 public class SetItem extends SetItemBase {
     public String anySetExternalId()
     {
@@ -8,10 +11,40 @@ public class SetItem extends SetItemBase {
         return set.getExternalId();
     }
 
-    public boolean getUnique() { return false; }
-    public String getFaction() { return null; }
-    public String getTitle() { return null; }
-    public int getCost() { return -1; }
-    public String getAbility() { return null; }
-    public String getExternalId() { return null; }
+    public String getSetName() {
+        ArrayList<Set> sets = getSets();
+        if (sets.size() > 0) {
+            Set set = sets.get(0);
+            return set.getProductName();
+        }
+        return "";
+    }
+
+    public boolean getUnique() {
+        return false;
+    }
+
+    public String getFaction() {
+        return null;
+    }
+
+    public String getTitle() {
+        return null;
+    }
+
+    public int getCost() {
+        return -1;
+    }
+
+    public String getAbility() {
+        return null;
+    }
+
+    public String getExternalId() {
+        return null;
+    }
+
+    public void addToSet(Set set) {
+        mSets.add(set);
+    }
 }
