@@ -143,6 +143,7 @@ NSString* kExpandedRows = @"expandedRows";
 -(void)applicationDidFinishLaunching:(NSNotification*)aNotification
 {
     [self loadData];
+    [DockSquad assignUUIDs: self.managedObjectContext];
     [self updateForSelectedSets];
     [_squadDetailController addObserver: self
                              forKeyPath: @"content"
@@ -301,6 +302,16 @@ NSString* kExpandedRows = @"expandedRows";
     }
 }
 
+-(void)saveSquadsToDisk
+{
+    NSString* targetDirectory = [[DockAppDelegate applicationFilesDirectory] path];
+    for (DockSquad* squad in [DockSquad allSquads: _managedObjectContext]) {
+        NSString* targetPath = [targetDirectory stringByAppendingPathComponent: [NSString stringWithFormat: @"%@_%@", squad.name, squad.uuid]];
+        targetPath = [targetPath stringByAppendingPathExtension: @"json"];
+        [squad checkAndUpdateFileAtPath: targetPath];
+    }
+}
+
 -(NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication*)sender
 {
     // Save changes in the application's managed object context before the application terminates.
@@ -313,6 +324,8 @@ NSString* kExpandedRows = @"expandedRows";
         NSLog(@"%@:%@ unable to commit editing to terminate", [self class], NSStringFromSelector(_cmd));
         return NSTerminateCancel;
     }
+    
+    [self saveSquadsToDisk];
 
     if (![[self managedObjectContext] hasChanges]) {
         return NSTerminateNow;

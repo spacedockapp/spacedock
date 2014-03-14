@@ -2,7 +2,7 @@
 //  DockSquad.m
 //  Space Dock
 //
-//  Created by Rob Tsuk on 1/7/14.
+//  Created by Rob Tsuk on 3/12/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -13,9 +13,10 @@
 
 @implementation DockSquad
 
+@dynamic additionalPoints;
 @dynamic name;
 @dynamic notes;
-@dynamic additionalPoints;
+@dynamic uuid;
 @dynamic equippedShips;
 @dynamic resource;
 
