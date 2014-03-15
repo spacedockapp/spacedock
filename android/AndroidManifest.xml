@@ -30,11 +30,6 @@
         <activity
             android:name="com.funnyhatsoftware.spacedock.TopMenuActivity"
             android:label="@string/title_activity_top_menu" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.funnyhatsoftware.spacedock.ShipListActivity"
