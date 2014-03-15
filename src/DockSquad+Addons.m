@@ -34,12 +34,19 @@
     return [NSSet setWithSet: allNames];
 }
 
-+(DockSquad*)import:(NSString*)name data:(NSString*)datFormatString context:(NSManagedObjectContext*)context
++(DockSquad*)squad:(NSManagedObjectContext*)context
 {
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Squad"
                                               inManagedObjectContext: context];
     DockSquad* squad = [[DockSquad alloc] initWithEntity: entity
                           insertIntoManagedObjectContext: context];
+    [squad assignNewUUID];
+    return squad;
+}
+
++(DockSquad*)import:(NSString*)name data:(NSString*)datFormatString context:(NSManagedObjectContext*)context
+{
+    DockSquad* squad = [DockSquad squad: context];
     squad.name = name;
 
     DockEquippedShip* currentShip = nil;
@@ -90,14 +97,15 @@
     NSError* error;
     NSData* data = [dataFormatString dataUsingEncoding: NSUTF8StringEncoding];
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData: data options: 0 error: &error];
-    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Squad"
-                                              inManagedObjectContext: context];
-    DockSquad* squad = [[DockSquad alloc] initWithEntity: entity
-                          insertIntoManagedObjectContext: context];
+    DockSquad* squad = [DockSquad squad: context];
     
     squad.name = json[@"name"];
     squad.additionalPoints = json[@"additionalPoints"];
     squad.notes = json[@"notes"];
+    squad.uuid = json[@"uuid"];
+    if (squad.uuid == nil) {
+        [squad assignNewUUID];
+    }
     BOOL hasSideboard = NO;
 
     NSString* resourceId = json[@"resource"];
@@ -150,6 +158,12 @@
             squad.uuid = [uuid UUIDString];
         }
     }
+}
+
+-(void)assignNewUUID
+{
+    NSUUID* uuid = [NSUUID UUID];
+    self.uuid = [uuid UUIDString];
 }
 
 -(void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void*)context
@@ -491,8 +505,7 @@ static NSString* namePrefix(NSString* originalName)
 -(DockSquad*)duplicate
 {
     NSManagedObjectContext* context = [self managedObjectContext];
-    NSEntityDescription* squadEntity = [NSEntityDescription entityForName: @"Squad" inManagedObjectContext: context];
-    DockSquad* squad = [[DockSquad alloc] initWithEntity: squadEntity insertIntoManagedObjectContext: context];
+    DockSquad* squad = [DockSquad squad: context];
     NSString* originalNamePrefix = namePrefix(self.name);
     NSString* newName = [originalNamePrefix stringByAppendingString: @" copy"];
     NSSet* allNames = [DockSquad allNames: context];

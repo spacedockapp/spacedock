@@ -304,11 +304,20 @@ NSString* kExpandedRows = @"expandedRows";
 
 -(void)saveSquadsToDisk
 {
+    NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
+    NSMutableArray* squadsForJSONArray = [NSMutableArray arrayWithCapacity: allSquads.count];
     NSString* targetDirectory = [[DockAppDelegate applicationFilesDirectory] path];
     for (DockSquad* squad in [DockSquad allSquads: _managedObjectContext]) {
-        NSString* targetPath = [targetDirectory stringByAppendingPathComponent: [NSString stringWithFormat: @"%@_%@", squad.name, squad.uuid]];
-        targetPath = [targetPath stringByAppendingPathExtension: @"json"];
-        [squad checkAndUpdateFileAtPath: targetPath];
+        [squadsForJSONArray addObject: [squad asJSON]];
+    }
+    NSString* targetPath = [targetDirectory stringByAppendingPathComponent: @"all_squads"];
+    targetPath = [targetPath stringByAppendingPathExtension: @"spacedock"];
+    NSError* error;
+    NSData* squadData = [NSJSONSerialization dataWithJSONObject: squadsForJSONArray options: NSJSONWritingPrettyPrinted error: &error];
+    if (squadData != nil) {
+        [squadData writeToFile: targetPath atomically: YES];
+    } else {
+        NSLog(@"error while saving squads %@", error);
     }
 }
 
