@@ -9,6 +9,7 @@ import java.util.TreeSet;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.json.JSONException;
 import org.xml.sax.SAXException;
 
 import android.content.Context;
@@ -47,6 +48,16 @@ public class Universe {
             DataLoader loader = new DataLoader(newUniverse, is);
             loader.load();
             sUniverse = newUniverse;
+
+            try {
+                // Temporary - populate squad list
+                is = context.getAssets().open("romulan_2_ship.spacedock");
+                Squad squad = new Squad();
+                squad.importFromStream(sUniverse, is);
+                sUniverse.squads.add(squad);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
         return sUniverse;
     }
@@ -219,6 +230,5 @@ public class Universe {
         Collections.sort(setsCopy, new SetComparator());
         return setsCopy;
     }
-
 
 }

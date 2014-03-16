@@ -49,4 +49,10 @@
     <string name="dialog_request_squad_name">Squad Name</string>
     <string name="dialog_accept">OK</string>
     <string name="dialog_reject">Cancel</string>
+
+    <!-- Action bar navigation spinner-->
+    <string-array name="action_spinner_list">
+        <item>Browse</item>
+        <item>Build</item>
+    </string-array>
 </resources>

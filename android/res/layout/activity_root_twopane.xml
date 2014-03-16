@@ -6,18 +6,25 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:baselineAligned="false"
-    tools:context="com.funnyhatsoftware.spacedock.ManageSquadsActivity">
+    tools:context="com.funnyhatsoftware.spacedock.ManageSquadsFragment">
 
     <FrameLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1">
+        <!--
         <ListView
             android:id="@+id/squad_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@null"
             tools:listitem="@layout/squad_summary"/>
+        -->
+        <FrameLayout
+            android:id="@+id/left_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
         <View
             android:layout_width="@dimen/inset_shadow_width"
             android:layout_height="match_parent"

@@ -18,28 +18,25 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name="com.funnyhatsoftware.spacedock.ManageSquadsActivity"
+            android:name=".RootActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="com.funnyhatsoftware.spacedock.SquadBuildActivity"
             android:label="@string/app_name" >
         </activity>
         <activity android:name="com.funnyhatsoftware.spacedock.SetItemListActivity" >
         </activity>
-        <activity
-            android:name="com.funnyhatsoftware.spacedock.TopMenuActivity"
-            android:label="@string/title_activity_top_menu" >
-        </activity>
+
         <activity
             android:name="com.funnyhatsoftware.spacedock.ShipListActivity"
             android:label="@string/title_activity_ships_list"
-            android:parentActivityName="TopMenuActivity" >
+            android:parentActivityName="RootActivity" >
         </activity>
         <activity
             android:name="com.funnyhatsoftware.spacedock.ShipDetailActivity"
@@ -52,7 +49,7 @@
         <activity
             android:name="com.funnyhatsoftware.spacedock.CaptainsListActivity"
             android:label="@string/title_activity_captains_list"
-            android:parentActivityName="TopMenuActivity" >
+            android:parentActivityName="RootActivity" >
         </activity>
         <activity
             android:name="com.funnyhatsoftware.spacedock.CaptainDetailActivity"
@@ -65,7 +62,7 @@
         <activity
             android:name="com.funnyhatsoftware.spacedock.UpgradeListActivity"
             android:label="@string/title_activity_crew_list"
-            android:parentActivityName="TopMenuActivity" >
+            android:parentActivityName="RootActivity" >
         </activity>
         <activity
             android:name="com.funnyhatsoftware.spacedock.UpgradeDetailActivity"
@@ -85,7 +82,7 @@
         <activity
             android:name="com.funnyhatsoftware.spacedock.WeaponListActivity"
             android:label="@string/title_activity_weapon_list"
-            android:parentActivityName="TopMenuActivity" >
+            android:parentActivityName="RootActivity" >
         </activity>
         <activity
             android:name="com.funnyhatsoftware.spacedock.WeaponDetailActivity"
@@ -97,7 +94,7 @@
         <activity
             android:name="com.funnyhatsoftware.spacedock.ResourceListActivity"
             android:label="@string/title_activity_resource_list"
-            android:parentActivityName="TopMenuActivity" >
+            android:parentActivityName="RootActivity" >
         </activity>
         <activity
             android:name="com.funnyhatsoftware.spacedock.ResourceDetailActivity"
@@ -109,7 +106,7 @@
         <activity
             android:name="com.funnyhatsoftware.spacedock.FlagshipListActivity"
             android:label="@string/title_activity_flagship_list"
-            android:parentActivityName="TopMenuActivity" >
+            android:parentActivityName="RootActivity" >
         </activity>
         <activity
             android:name="com.funnyhatsoftware.spacedock.FlagshipDetailActivity"
@@ -121,7 +118,7 @@
         <activity
             android:name="com.funnyhatsoftware.spacedock.SetListActivity"
             android:label="@string/title_activity_set_list"
-            android:parentActivityName="TopMenuActivity" >
+            android:parentActivityName="RootActivity" >
         </activity>
         </application>
 
