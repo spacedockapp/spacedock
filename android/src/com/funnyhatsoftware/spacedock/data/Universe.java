@@ -195,6 +195,8 @@ public class Universe {
     }
 
     public ArrayList<Upgrade> getUpgradesForFaction(String upType, String faction) {
+        if (faction == null) throw new IllegalArgumentException();
+
         ArrayList<Upgrade> matchingUpgrades = new ArrayList<Upgrade>();
         for (Upgrade upgrade: upgrades.values()) {
             if ((upType == null || upgrade.getUpType().equals(upType)) && faction.equals(upgrade.getFaction())) {

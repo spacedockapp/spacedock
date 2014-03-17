@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -18,10 +19,6 @@ import android.widget.SpinnerAdapter;
  */
 public class RootActivity extends FragmentActivity implements ActionBar.OnNavigationListener {
     private int mPosition;
-    private static Class[] sNavigationFragments = new Class[] {
-            BrowseListFragment.class,
-            ManageSquadsFragment.class,
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +30,8 @@ public class RootActivity extends FragmentActivity implements ActionBar.OnNaviga
                 getActionBar().getThemedContext(),
                 R.array.action_spinner_list,
                 android.R.layout.simple_spinner_dropdown_item);
-
-
         getActionBar().setListNavigationCallbacks(spinnerAdapter, this);
 
-        //Fragment leftFragment = new ManageSquadsFragment();
         Fragment leftFragment = new BrowseListFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.left_fragment_container, leftFragment)
@@ -67,16 +61,20 @@ public class RootActivity extends FragmentActivity implements ActionBar.OnNaviga
 
     @Override
     public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-        Fragment currentLeft = getSupportFragmentManager()
-                .findFragmentById(R.id.left_fragment_container);
-
         if (itemPosition == mPosition) return false;
 
         Fragment leftFragment = (itemPosition == 0)
                 ? new BrowseListFragment() : new ManageSquadsFragment();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.left_fragment_container, leftFragment)
-                .commit();
+        Fragment oldRightFragment = getSupportFragmentManager()
+                .findFragmentById(R.id.right_fragment_container);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.left_fragment_container, leftFragment);
+        if (oldRightFragment != null) {
+            transaction.remove(oldRightFragment);
+        }
+        transaction.commit();
+
         mPosition = itemPosition;
         return true;
     }

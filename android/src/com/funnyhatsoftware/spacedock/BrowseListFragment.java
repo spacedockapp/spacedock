@@ -1,49 +1,44 @@
 package com.funnyhatsoftware.spacedock;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.funnyhatsoftware.spacedock.holder.ItemHolderFactory;
+
+import java.util.ArrayList;
+
 public class BrowseListFragment extends ListFragment {
     ArrayAdapter<BrowseTarget> mAdapter;
     private class BrowseTarget {
-        final String mLabel;
-        final String mUpType;
-        final Class mActivityClass;
-        public BrowseTarget(String label, Class activityClass) {
-            mLabel = label;
-            mUpType = null;
-            mActivityClass = activityClass;
-        }
+        final String mItemType;
 
         /**
          * Upgrade constructor, with optional label parameter to override
          */
-        public BrowseTarget(String label, String upType) {
-            mLabel = label;
-            mUpType = upType;
-            mActivityClass = UpgradeListActivity.class;
+        public BrowseTarget(String upType) {
+            mItemType = upType;
         }
 
-        public void navigate(Context context) {
-            // TODO: trigger a fragment transaction in two pane
-            Intent intent = new Intent(context, mActivityClass);
-            if (mActivityClass == UpgradeListActivity.class) {
-                intent.putExtra(UpgradeListActivity.UPTYPE_KEY, mUpType);
-                intent.putExtra(UpgradeListActivity.LABEL_KEY, mLabel);
-            }
-            startActivity(intent);
+        public void navigate() {
+            Fragment rightFragment = new ItemListFragment();
+            Bundle arguments = new Bundle();
+            arguments.putString(ItemListFragment.ARG_ITEM_TYPE, mItemType);
+            rightFragment.setArguments(arguments);
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.right_fragment_container, rightFragment)
+                    .commit();
         }
 
         @Override
         public String toString() {
-            return mLabel;
+            // TODO: should load (plural) labels from resources
+            return mItemType;
         }
     }
 
@@ -51,18 +46,10 @@ public class BrowseListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final Resources res = getActivity().getResources();
-        BrowseTarget[] targets = new BrowseTarget[] {
-                new BrowseTarget(res.getString(R.string.ships), ShipListActivity.class),
-                new BrowseTarget(res.getString(R.string.captains), CaptainsListActivity.class),
-                new BrowseTarget(res.getString(R.string.crew), "Crew"),
-                new BrowseTarget(res.getString(R.string.talents), "Talent"),
-                new BrowseTarget(res.getString(R.string.tech), "Tech"),
-                new BrowseTarget(res.getString(R.string.weapons), "Weapon"),
-                new BrowseTarget(res.getString(R.string.resources), ResourceListActivity.class),
-                new BrowseTarget(res.getString(R.string.flagships), FlagshipListActivity.class),
-                new BrowseTarget(res.getString(R.string.sets), SetListActivity.class),
-        };
+        ArrayList<BrowseTarget> targets = new ArrayList<BrowseTarget>();
+        for (String itemType : ItemHolderFactory.getFactoryTypes()) {
+            targets.add(new BrowseTarget(itemType));
+        }
 
         mAdapter = new ArrayAdapter<BrowseTarget>(getActivity(),
                 android.R.layout.simple_list_item_activated_1, targets);
@@ -72,8 +59,7 @@ public class BrowseListFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        Log.d("SPACEDOCK", "onListItemClick " + position + ", " + mAdapter.getItem(position).toString());
         BrowseTarget target = mAdapter.getItem(position);
-        target.navigate(getActivity());
+        target.navigate();
     }
 }
