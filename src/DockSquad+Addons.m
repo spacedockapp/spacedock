@@ -128,9 +128,28 @@
     return squad;
 }
 
+-(void)checkAndUpdateFileAtPath:(NSString*)path
+{
+    NSData* json = [self asJSONData];
+    NSData* diskJson = [NSData dataWithContentsOfFile: path];
+    if (![json isEqualToData: diskJson]) {
+        [json writeToFile: path atomically: NO];
+    }
+}
+
 +(NSSet*)keyPathsForValuesAffectingCost
 {
     return [NSSet setWithObjects: @"equippedShips", @"resource", @"additionalPoints", nil];
+}
+
++(void)assignUUIDs:(NSManagedObjectContext*)context
+{
+    for(DockSquad* squad in [DockSquad allSquads: context]) {
+        if (squad.uuid == nil) {
+            NSUUID* uuid = [NSUUID UUID];
+            squad.uuid = [uuid UUIDString];
+        }
+    }
 }
 
 -(void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void*)context
@@ -420,6 +439,14 @@ static NSString* toDataFormat(NSString* label, id element)
         [selfData setNonNilObject: shipsArray forKey: @"ships"];
     }
     return [NSDictionary dictionaryWithDictionary: selfData];
+}
+
+-(NSData*)asJSONData
+{
+    NSError* error;
+    NSDictionary* json = [self asJSON];
+    NSData* jsonData = [NSJSONSerialization dataWithJSONObject: json options: NSJSONWritingPrettyPrinted error: &error];
+    return jsonData;
 }
 
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade

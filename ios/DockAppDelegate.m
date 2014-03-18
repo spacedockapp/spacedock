@@ -131,11 +131,24 @@
     [self saveContext];
 }
 
+-(void)saveSquadsToDisk
+{
+    NSString* targetDirectory = [self applicationDocumentsDirectory];
+    for (DockSquad* squad in [DockSquad allSquads: _managedObjectContext]) {
+        NSString* targetPath = [targetDirectory stringByAppendingPathComponent: [NSString stringWithFormat: @"%@_%@", squad.name, squad.uuid]];
+        targetPath = [targetPath stringByAppendingPathExtension: @"json"];
+        [squad checkAndUpdateFileAtPath: targetPath];
+    }
+}
+
 -(void)saveContext
 {
     NSError* error;
 
     if (_managedObjectContext != nil) {
+    
+        [self saveSquadsToDisk];
+        
         if ([_managedObjectContext hasChanges] && ![_managedObjectContext save: &error]) {
             /*
                Replace this implementation with code to handle the error appropriately.
@@ -146,6 +159,7 @@
             abort();
         }
     }
+    
 }
 
 #pragma mark - Core Data stack
