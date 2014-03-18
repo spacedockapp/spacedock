@@ -302,25 +302,6 @@ NSString* kExpandedRows = @"expandedRows";
     }
 }
 
--(void)saveSquadsToDisk
-{
-    NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
-    NSMutableArray* squadsForJSONArray = [NSMutableArray arrayWithCapacity: allSquads.count];
-    NSString* targetDirectory = [[DockAppDelegate applicationFilesDirectory] path];
-    for (DockSquad* squad in [DockSquad allSquads: _managedObjectContext]) {
-        [squadsForJSONArray addObject: [squad asJSON]];
-    }
-    NSString* targetPath = [targetDirectory stringByAppendingPathComponent: @"all_squads"];
-    targetPath = [targetPath stringByAppendingPathExtension: @"spacedock"];
-    NSError* error;
-    NSData* squadData = [NSJSONSerialization dataWithJSONObject: squadsForJSONArray options: NSJSONWritingPrettyPrinted error: &error];
-    if (squadData != nil) {
-        [squadData writeToFile: targetPath atomically: YES];
-    } else {
-        NSLog(@"error while saving squads %@", error);
-    }
-}
-
 -(NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication*)sender
 {
     // Save changes in the application's managed object context before the application terminates.
@@ -334,8 +315,6 @@ NSString* kExpandedRows = @"expandedRows";
         return NSTerminateCancel;
     }
     
-    [self saveSquadsToDisk];
-
     if (![[self managedObjectContext] hasChanges]) {
         return NSTerminateNow;
     }
@@ -1569,6 +1548,52 @@ void addRemoveFlagshipItem(NSMenu *menu)
 -(IBAction)showPreferences:(id)sender
 {
     [_preferencesWindow makeKeyAndOrderFront: sender];
+}
+
+-(void)saveAlertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
+{
+    [[alert window] orderOut: self];
+}
+
+-(void)saveSquadsToDisk:(NSString*)targetPath
+{
+    NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
+    NSMutableArray* squadsForJSONArray = [NSMutableArray arrayWithCapacity: allSquads.count];
+    for (DockSquad* squad in [DockSquad allSquads: _managedObjectContext]) {
+        [squadsForJSONArray addObject: [squad asJSON]];
+    }
+
+    NSError* error;
+    NSData* squadData = [NSJSONSerialization dataWithJSONObject: squadsForJSONArray options: NSJSONWritingPrettyPrinted error: &error];
+    if (squadData != nil) {
+        [squadData writeToFile: targetPath atomically: YES];
+    } else {
+        NSAlert* alert = [NSAlert alertWithError: error];
+        [alert beginSheetModalForWindow: [self window]
+                          modalDelegate: self
+                         didEndSelector: @selector(saveAlertDidEnd:returnCode:contextInfo:)
+                            contextInfo: nil];
+    }
+}
+
+
+-(IBAction)exportAllSquads:(id)sender
+{
+    _currentSavePanel = [NSSavePanel savePanel];
+    _currentSavePanel.allowedFileTypes = @[kSpaceDockSquadFileExtension];
+    NSString* defaultName = [@"All Squads" stringByAppendingPathExtension: kSpaceDockSquadFileExtension];
+    [_currentSavePanel setNameFieldStringValue: defaultName];
+
+    id completionHandler = ^(NSInteger v) {
+        if (v == NSFileHandlingPanelOKButton) {
+            NSURL* fileUrl = _currentSavePanel.URL;
+            [self saveSquadsToDisk: [fileUrl path]];
+        }
+        
+        _currentSavePanel = nil;
+    };
+    
+    [_currentSavePanel beginSheetModalForWindow: self.window completionHandler: completionHandler];
 }
 
 @end

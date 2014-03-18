@@ -92,30 +92,38 @@
     return squad;
 }
 
-+(DockSquad*)import:(NSString*)dataFormatString context:(NSManagedObjectContext*)context
++(void)import:(NSString*)dataFormatString context:(NSManagedObjectContext*)context
 {
     NSError* error;
     NSData* data = [dataFormatString dataUsingEncoding: NSUTF8StringEncoding];
-    NSDictionary* json = [NSJSONSerialization JSONObjectWithData: data options: 0 error: &error];
+    id json = [NSJSONSerialization JSONObjectWithData: data options: 0 error: &error];
+    if ([json isKindOfClass: [NSArray class]]) {
+    } else {
+        [DockSquad importOneSquad: json context: context];
+    }
+}
+
++(DockSquad*)importOneSquad:(NSDictionary*)squadData context:(NSManagedObjectContext*)context
+{
     DockSquad* squad = [DockSquad squad: context];
     
-    squad.name = json[@"name"];
-    squad.additionalPoints = json[@"additionalPoints"];
-    squad.notes = json[@"notes"];
-    squad.uuid = json[@"uuid"];
+    squad.name = squadData[@"name"];
+    squad.additionalPoints = squadData[@"additionalPoints"];
+    squad.notes = squadData[@"notes"];
+    squad.uuid = squadData[@"uuid"];
     if (squad.uuid == nil) {
         [squad assignNewUUID];
     }
     BOOL hasSideboard = NO;
 
-    NSString* resourceId = json[@"resource"];
+    NSString* resourceId = squadData[@"resource"];
     if (resourceId != nil) {
         DockResource* resource = [DockResource resourceForId: resourceId context: context];
         squad.resource = resource;
         hasSideboard = resource.isSideboard;
     }
 
-    NSArray* ships = json[@"ships"];
+    NSArray* ships = squadData[@"ships"];
 
     DockEquippedShip* currentShip = nil;
 

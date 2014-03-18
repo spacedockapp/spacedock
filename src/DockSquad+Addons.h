@@ -13,7 +13,8 @@
 +(NSArray*)allSquads:(NSManagedObjectContext*)context;
 +(NSSet*)allNames:(NSManagedObjectContext*)context;
 +(DockSquad*)import:(NSString*)name data:(NSString*)datFormatString context:(NSManagedObjectContext*)context;
-+(DockSquad*)import:(NSString*)datFormatString context:(NSManagedObjectContext*)context;
++(void)import:(NSString*)datFormatString context:(NSManagedObjectContext*)context;
++(DockSquad*)importOneSquad:(NSDictionary*)squadData context:(NSManagedObjectContext*)context;
 -(void)checkAndUpdateFileAtPath:(NSString*)path;
 -(void)addEquippedShip:(DockEquippedShip*)ship;
 -(void)removeEquippedShip:(DockEquippedShip*)ship;
