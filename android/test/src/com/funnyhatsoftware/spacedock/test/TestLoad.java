@@ -1,11 +1,18 @@
 
 package com.funnyhatsoftware.spacedock.test;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+import android.util.Log;
+
 import com.funnyhatsoftware.spacedock.data.Captain;
 import com.funnyhatsoftware.spacedock.data.Flagship;
 import com.funnyhatsoftware.spacedock.data.Maneuver;
 import com.funnyhatsoftware.spacedock.data.Resource;
 import com.funnyhatsoftware.spacedock.data.Set;
+import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Ship;
 import com.funnyhatsoftware.spacedock.data.ShipClassDetails;
 import com.funnyhatsoftware.spacedock.data.Upgrade;
@@ -16,7 +23,7 @@ public class TestLoad extends BaseTest {
     }
 
     public void testBasics() {
-        assertEquals("Ship count wrong", 59, universe.ships.size());
+        assertEquals("Ship count wrong", 61, universe.ships.size());
         Ship entD = universe.ships.get("1001");
         assertNotNull("Couldn't get ship", entD);
         assertEquals(4, entD.getAttack());
@@ -54,8 +61,18 @@ public class TestLoad extends BaseTest {
 
         Set coreSet = universe.sets.get("71120");
         assertNotNull("Couldn't get core set", coreSet);
-        assertEquals("Count of items in core set wrong", 30, coreSet.getItems()
-                .size());
+        ArrayList<SetItem> setItems = coreSet.getItems();
+        Comparator<SetItem> comparator = new Comparator<SetItem>() {
+            public int compare(SetItem arg0, SetItem arg1) {
+                return arg0.getTitle().compareTo(arg1.getTitle());
+            }
+
+        };
+        Collections.sort(setItems, comparator);
+        for (SetItem item : setItems) {
+            Log.i("spacedock", item.getTitle());
+        }
+        assertEquals("Count of items in core set wrong", 30, setItems.size());
 
         Set reliantSet = universe.sets.get("71121");
         assertNotNull("Couldn't get core set", reliantSet);

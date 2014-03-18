@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,6 +16,42 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 public class Squad extends SquadBase {
+
+    private static final String JSON_LABEL_SHIP_ID = "shipId";
+    private static final String JSON_LABEL_SIDEBOARD = "sideboard";
+    private static final String JSON_LABEL_SHIPS = "ships";
+    private static final String JSON_LABEL_RESOURCE = "resource";
+    private static final String JSON_LABEL_UUID = "uuid";
+    private static final String JSON_LABEL_ADDITIONAL_POINTS = "additionalPoints";
+    private static final String JSON_LABEL_NAME = "name";
+    private static final String JSON_LABEL_NOTES = "notes";
+
+    public Squad() {
+        setUUID(UUID.randomUUID().toString());
+    }
+    
+    
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+        
+        if (o.getClass() != Squad.class) {
+            return false;
+        }
+        
+        Squad os = (Squad)o;
+        
+        if (!mName.equals(os.mName)) {
+            return false;
+        }
+
+        return true;
+    }
+
+
 
     static String convertStreamToString(InputStream is) {
         java.util.Scanner s = new java.util.Scanner(is);
@@ -68,30 +105,51 @@ public class Squad extends SquadBase {
             throws JSONException {
         JSONTokener tokenizer = new JSONTokener(convertStreamToString(is));
         JSONObject jsonObject = new JSONObject(tokenizer);
-        setNotes(jsonObject.getString("notes"));
-        setName(jsonObject.getString("name"));
-        setAdditionalPoints(jsonObject.optInt("additionalPoints"));
-        String resourceId = jsonObject.optString("resource");
+        setNotes(jsonObject.getString(JSON_LABEL_NOTES));
+        setName(jsonObject.getString(JSON_LABEL_NAME));
+        setAdditionalPoints(jsonObject.optInt(JSON_LABEL_ADDITIONAL_POINTS));
+        setUUID(jsonObject.optString(JSON_LABEL_UUID, UUID.randomUUID().toString()));
+        String resourceId = jsonObject.optString(JSON_LABEL_RESOURCE);
         if (resourceId != null) {
             Resource resource = universe.resources.get(resourceId);
             setResource(resource);
         }
 
-        JSONArray ships = jsonObject.getJSONArray("ships");
+        JSONArray ships = jsonObject.getJSONArray(JSON_LABEL_SHIPS);
         for (int i = 0; i < ships.length(); ++i) {
             JSONObject shipData = ships.getJSONObject(i);
-            boolean shipIsSideboard = shipData.optBoolean("sideboard");
+            boolean shipIsSideboard = shipData.optBoolean(JSON_LABEL_SIDEBOARD);
             EquippedShip currentShip;
             if (shipIsSideboard) {
                 currentShip = getSideboard();
             } else {
-                String shipId = shipData.optString("shipId");
+                String shipId = shipData.optString(JSON_LABEL_SHIP_ID);
                 Ship targetShip = universe.getShip(shipId);
                 currentShip = new EquippedShip(targetShip);
             }
             currentShip.importUpgrades(universe, shipData);
             addEquippedShip(currentShip);
         }
+    }
+
+    public JSONObject asJSON() throws JSONException {
+        JSONObject o = new JSONObject();
+        o.put(JSON_LABEL_NAME, getName());
+        o.put(JSON_LABEL_NOTES, getNotes());
+        o.put(JSON_LABEL_ADDITIONAL_POINTS, getAdditionalPoints());
+        o.put(JSON_LABEL_UUID, getUUID());
+        Resource resource = getResource();
+        if (resource != null) {
+            o.put(JSON_LABEL_RESOURCE, resource.getExternalId());
+        }
+        ArrayList<EquippedShip> equippedShips = getEquippedShips();
+        JSONArray shipsArray = new JSONArray();
+        int index = 0;
+        for (EquippedShip ship : equippedShips) {
+            shipsArray.put(index++, ship.asJSON());
+        }
+        o.put(JSON_LABEL_SHIPS, shipsArray);
+        return o;
     }
 
     public void addEquippedShip(String shipId) {

@@ -14,6 +14,9 @@ public class SquadBase {
     String mNotes;
     public String getNotes() { return mNotes; }
     public SquadBase setNotes(String v) { mNotes = v; return this;}
+    String mUUID;
+    public String getUUID() { return mUUID; }
+    public SquadBase setUUID(String v) { mUUID = v; return this;}
     Resource mResource;
     public Resource getResource() { return mResource; }
     public SquadBase setResource(Resource v) { mResource = v; return this;}
