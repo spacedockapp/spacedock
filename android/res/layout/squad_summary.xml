@@ -3,7 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/SelectableListItem"
     android:orientation="horizontal"
-    android:minHeight="?android:attr/listPreferredItemHeight"
     android:gravity="center_vertical">
     <TextView
         android:id="@+id/title"

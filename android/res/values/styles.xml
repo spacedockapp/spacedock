@@ -29,15 +29,17 @@
     <style name="ListItem">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
         <item name="android:paddingLeft">@dimen/listview_horizontal_padding</item>
         <item name="android:paddingRight">@dimen/listview_horizontal_padding</item>
+        <item name="android:minHeight">?android:attr/listPreferredItemHeight</item>
+    </style>
+
+    <style name="SmallListItem" parent="ListItem">
+        <item name="android:minHeight">?android:attr/listPreferredItemHeightSmall</item>
     </style>
 
     <style name="SelectableListItem" parent="ListItem">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingLeft">@dimen/listview_horizontal_padding</item>
-        <item name="android:paddingRight">@dimen/listview_horizontal_padding</item>
         <item name="android:background">?android:attr/activatedBackgroundIndicator</item>
     </style>
 
@@ -47,7 +49,7 @@
 
     <style name="ValueField">
         <item name="android:layout_width">@dimen/value_width</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:gravity">center</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
     </style>
@@ -78,7 +80,8 @@
 
     <style name="TitleField" parent="ValueField">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_weight">0.8</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
         <item name="android:gravity">left</item>
     </style>
 
