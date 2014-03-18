@@ -72,7 +72,7 @@ public class ManageSquadsFragment extends ListFragment {
         if (itemId == R.id.menu_create) {
             getCreateName();
         } else if (itemId == R.id.menu_edit) {
-            Intent intent = new Intent(context, SquadBuildActivity.class);
+            Intent intent = new Intent(context, EditSquadActivity.class);
             startActivity(intent);
         } else if (itemId == R.id.menu_share) {
             Toast.makeText(context, "TODO: sharing.", Toast.LENGTH_SHORT).show();

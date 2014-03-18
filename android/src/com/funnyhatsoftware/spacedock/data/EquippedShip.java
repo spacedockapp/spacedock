@@ -602,7 +602,7 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     @SuppressWarnings("unused")
-    void dump() {
+    public void dump() {
         for (Class c : CLASS_FOR_SLOT) {
             int i = 0;
             Log.d(TAG, "Equipped " + c.getSimpleName() + "s:");

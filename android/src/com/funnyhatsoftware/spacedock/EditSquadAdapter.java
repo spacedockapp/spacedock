@@ -16,7 +16,7 @@ import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
 import com.funnyhatsoftware.spacedock.data.Squad;
 
-public class SquadListAdapter extends BaseExpandableListAdapter
+public class EditSquadAdapter extends BaseExpandableListAdapter
         implements ExpandableListView.OnChildClickListener, AdapterView.OnItemClickListener {
     private static final int INVALID_HEADER_ID = 0;
 
@@ -30,14 +30,10 @@ public class SquadListAdapter extends BaseExpandableListAdapter
             R.layout.squad_list_group,
     };
 
-    public interface SlotSelectCallback {
-        void onSlotSelected(int equippedShipNumber, int slotType, int slotNumber,
-                String currentEquipmentId, String prefFaction);
-    }
 
     private final Activity mActivity;
     private final ExpandableListView mListView;
-    private final SlotSelectCallback mCallback;
+    private final EditSquadFragment.SlotSelectCallback mCallback;
     private final Squad mSquad;
     private ArrayList<ListItemLookup>[] mShipLookup;
 
@@ -166,8 +162,8 @@ public class SquadListAdapter extends BaseExpandableListAdapter
         return getEquippedShip(shipIndex).getUpgradeAtSlot(slotType, slotNumber);
     }
 
-    public SquadListAdapter(Activity activity, ExpandableListView listView,
-            Squad squad, SlotSelectCallback callback) {
+    public EditSquadAdapter(Activity activity, ExpandableListView listView,
+                Squad squad, EditSquadFragment.SlotSelectCallback callback) {
         // TODO: always maintain one empty extra ship to support add/remove
         mActivity = activity;
         mListView = listView;

@@ -1,10 +1,8 @@
 package com.funnyhatsoftware.spacedock;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -26,13 +24,24 @@ public class BrowseListFragment extends ListFragment {
         }
 
         public void navigate() {
-            Fragment rightFragment = new ItemListFragment();
+            Fragment newFragment = new ItemListFragment();
             Bundle arguments = new Bundle();
             arguments.putString(ItemListFragment.ARG_ITEM_TYPE, mItemType);
-            rightFragment.setArguments(arguments);
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.right_fragment_container, rightFragment)
-                    .commit();
+            newFragment.setArguments(arguments);
+
+            boolean isTwoPane = getActivity().findViewById(R.id.secondary_fragment_container) != null;
+            if (isTwoPane) {
+                // two pane, replace secondary fragment
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.secondary_fragment_container, newFragment)
+                        .commit();
+            } else {
+                // single pane, add new fragment in place of main
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.primary_fragment_container, newFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
         }
 
         @Override

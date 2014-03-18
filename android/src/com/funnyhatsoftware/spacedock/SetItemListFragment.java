@@ -28,16 +28,23 @@ public class SetItemListFragment extends ListFragment {
     private int mSlotNumber = -1;
 
     /**
-     * Create a new instance of CountingFragment, providing "num"
-     * as an argument.
+     * Create a new instance of SetItemListFragment, providing ship to be equipped and slot
+     * as arguments.
+     *
+     * TODO: create content URIs for this
      */
-    static void setupArgs(Bundle args, int equippedShipNumber,
+    static SetItemListFragment newInstance(int equippedShipNumber,
             int slotType, int slotNumber, String currentEquipmentId, String prefFaction) {
+        SetItemListFragment fragment = new SetItemListFragment();
+
+        Bundle args = new Bundle();
         args.putInt(ARG_EQUIP_SHIP_NR, equippedShipNumber);
         args.putInt(ARG_SLOT_TYPE, slotType);
         args.putInt(ARG_SLOT_NUMBER, slotNumber);
         args.putString(ARG_CURRENT_EQUIP_ID, currentEquipmentId);
         args.putString(ARG_PREFERRED_FACTION, prefFaction);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     /**

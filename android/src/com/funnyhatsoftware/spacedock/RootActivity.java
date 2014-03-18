@@ -18,12 +18,13 @@ import android.widget.SpinnerAdapter;
  * and browsing items.
  */
 public class RootActivity extends FragmentActivity implements ActionBar.OnNavigationListener {
+    private final String SAVE_NAV_POSITION = "navPos";
     private int mPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_root_twopane); // TODO: single pane for phone
+        setContentView(R.layout.activity_onepane); // returns 2 pane on tablets
 
         getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
         SpinnerAdapter spinnerAdapter = ArrayAdapter.createFromResource(
@@ -32,11 +33,21 @@ public class RootActivity extends FragmentActivity implements ActionBar.OnNaviga
                 android.R.layout.simple_spinner_dropdown_item);
         getActionBar().setListNavigationCallbacks(spinnerAdapter, this);
 
-        Fragment leftFragment = new BrowseListFragment();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.left_fragment_container, leftFragment)
-                .commit();
-        mPosition = 0;
+        if (savedInstanceState == null) {
+            Fragment leftFragment = new BrowseListFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.primary_fragment_container, leftFragment)
+                    .commit();
+            mPosition = 0;
+        } else {
+            mPosition = savedInstanceState.getInt(SAVE_NAV_POSITION);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(SAVE_NAV_POSITION, mPosition);
     }
 
     @Override
@@ -63,15 +74,20 @@ public class RootActivity extends FragmentActivity implements ActionBar.OnNaviga
     public boolean onNavigationItemSelected(int itemPosition, long itemId) {
         if (itemPosition == mPosition) return false;
 
-        Fragment leftFragment = (itemPosition == 0)
+        boolean isTwoPane = findViewById(R.id.secondary_fragment_container) != null;
+
+        Fragment newPrimaryFragment = (itemPosition == 0)
                 ? new BrowseListFragment() : new ManageSquadsFragment();
-        Fragment oldRightFragment = getSupportFragmentManager()
-                .findFragmentById(R.id.right_fragment_container);
+        Fragment oldSecondaryFragment = null;
+        if (isTwoPane) {
+            oldSecondaryFragment = getSupportFragmentManager()
+                .findFragmentById(R.id.secondary_fragment_container);
+        }
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.left_fragment_container, leftFragment);
-        if (oldRightFragment != null) {
-            transaction.remove(oldRightFragment);
+        transaction.replace(R.id.primary_fragment_container, newPrimaryFragment);
+        if (oldSecondaryFragment != null) {
+            transaction.remove(oldSecondaryFragment);
         }
         transaction.commit();
 
