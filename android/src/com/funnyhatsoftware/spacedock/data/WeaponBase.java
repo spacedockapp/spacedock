@@ -17,4 +17,20 @@ public class WeaponBase extends Upgrade {
         mRange = DataUtils.stringValue((String)data.get("Range"));
     }
 
+
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (obj == this)
+            return false;
+        if (!(obj instanceof Weapon))
+            return false;
+        Weapon target = (Weapon)obj;
+        if (target.mAttack != mAttack)
+            return false;
+        if (DataUtils.compareObjects(target.mRange, mRange))
+            return false;
+        return true;
+    }
+
 }

@@ -14,9 +14,9 @@ public class SquadBase {
     String mNotes;
     public String getNotes() { return mNotes; }
     public SquadBase setNotes(String v) { mNotes = v; return this;}
-    String mUUID;
-    public String getUUID() { return mUUID; }
-    public SquadBase setUUID(String v) { mUUID = v; return this;}
+    String mUuid;
+    public String getUuid() { return mUuid; }
+    public SquadBase setUuid(String v) { mUuid = v; return this;}
     Resource mResource;
     public Resource getResource() { return mResource; }
     public SquadBase setResource(Resource v) { mResource = v; return this;}
@@ -30,6 +30,31 @@ public class SquadBase {
         mAdditionalPoints = DataUtils.intValue((String)data.get("AdditionalPoints"));
         mName = DataUtils.stringValue((String)data.get("Name"));
         mNotes = DataUtils.stringValue((String)data.get("Notes"));
+        mUuid = DataUtils.stringValue((String)data.get("Uuid"));
+    }
+
+
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (obj == this)
+            return false;
+        if (!(obj instanceof Squad))
+            return false;
+        Squad target = (Squad)obj;
+        if (target.mAdditionalPoints != mAdditionalPoints)
+            return false;
+        if (DataUtils.compareObjects(target.mName, mName))
+            return false;
+        if (DataUtils.compareObjects(target.mNotes, mNotes))
+            return false;
+        if (DataUtils.compareObjects(target.mUuid, mUuid))
+            return false;
+        if (!DataUtils.compareObjects(mResource, target.mResource))
+            return false;
+        if (!DataUtils.compareObjects(mEquippedShips, target.mEquippedShips))
+            return false;
+        return true;
     }
 
 }

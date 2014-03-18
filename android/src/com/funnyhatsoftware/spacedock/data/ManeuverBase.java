@@ -23,4 +23,24 @@ public class ManeuverBase {
         mSpeed = DataUtils.intValue((String)data.get("speed"));
     }
 
+
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (obj == this)
+            return false;
+        if (!(obj instanceof Maneuver))
+            return false;
+        Maneuver target = (Maneuver)obj;
+        if (DataUtils.compareObjects(target.mColor, mColor))
+            return false;
+        if (DataUtils.compareObjects(target.mKind, mKind))
+            return false;
+        if (target.mSpeed != mSpeed)
+            return false;
+        if (!DataUtils.compareObjects(mShipClassDetails, target.mShipClassDetails))
+            return false;
+        return true;
+    }
+
 }

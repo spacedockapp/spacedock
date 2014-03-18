@@ -51,4 +51,36 @@ public class UpgradeBase extends SetItem {
         mUpType = DataUtils.stringValue((String)data.get("Type"));
     }
 
+
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (obj == this)
+            return false;
+        if (!(obj instanceof Upgrade))
+            return false;
+        Upgrade target = (Upgrade)obj;
+        if (DataUtils.compareObjects(target.mAbility, mAbility))
+            return false;
+        if (target.mCost != mCost)
+            return false;
+        if (DataUtils.compareObjects(target.mExternalId, mExternalId))
+            return false;
+        if (DataUtils.compareObjects(target.mFaction, mFaction))
+            return false;
+        if (target.mPlaceholder != mPlaceholder)
+            return false;
+        if (DataUtils.compareObjects(target.mSpecial, mSpecial))
+            return false;
+        if (DataUtils.compareObjects(target.mTitle, mTitle))
+            return false;
+        if (target.mUnique != mUnique)
+            return false;
+        if (DataUtils.compareObjects(target.mUpType, mUpType))
+            return false;
+        if (!DataUtils.compareObjects(mEquippedUpgrades, target.mEquippedUpgrades))
+            return false;
+        return true;
+    }
+
 }

@@ -9,4 +9,15 @@ public class TalentBase extends Upgrade {
         super.update(data);
     }
 
+
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (obj == this)
+            return false;
+        if (!(obj instanceof Talent))
+            return false;
+        return true;
+    }
+
 }

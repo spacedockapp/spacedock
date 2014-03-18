@@ -91,6 +91,27 @@ static NSString* attributeTypeToJavaConversion(NSAttributeType attrType)
     return @"";
 }
 
+static NSString* attributeTypeToJavaComparison(NSAttributeType attrType, NSString* lhs, NSString* rhs)
+{
+    switch (attrType) {
+        case NSInteger16AttributeType:
+        case NSInteger32AttributeType:
+        case NSInteger64AttributeType:
+        case NSDecimalAttributeType:
+        case NSDoubleAttributeType:
+        case NSFloatAttributeType:
+        case NSBooleanAttributeType:
+            return [NSString stringWithFormat: @"%@ != %@", lhs, rhs];
+            break;
+            
+        case NSDateAttributeType:
+        case NSStringAttributeType:
+            return [NSString stringWithFormat: @"DataUtils.compareObjects(%@, %@)", lhs, rhs];
+            break;
+    }
+    return @"false";
+}
+
 static NSString* entityNameToJavaClassName(NSString* entityName)
 {
     return entityName;
@@ -140,6 +161,11 @@ static NSString* makeXmlKey(NSString* propertyName, NSString* entityName)
     NSString* upperFirst = [[propertyName substringToIndex: 1] uppercaseString];
     NSString* rest = [propertyName substringFromIndex: 1];
     return [upperFirst stringByAppendingString: rest];
+}
+
+void emitCastToTarget(NSString *javaClassName, NSMutableString *javaClass)
+{
+    [javaClass appendFormat: @"        %@ target = (%@)obj;\n", javaClassName, javaClassName];
 }
 
 -(BOOL)exportEntity:(NSString*)name error:(NSError**)error
@@ -196,6 +222,8 @@ static NSString* makeXmlKey(NSString* propertyName, NSString* entityName)
             }
         }
     }
+    
+    // update
     [javaClass appendString: @"\n    public void update(Map<String,Object> data) {\n"];
     if (parent) {
         [javaClass appendString: @"        super.update(data);\n"];
@@ -214,6 +242,50 @@ static NSString* makeXmlKey(NSString* propertyName, NSString* entityName)
         }
     }
     [javaClass appendString: @"    }\n\n"];
+
+    // equals
+    [javaClass appendString: @"\n    public boolean equals(Object obj) {\n"];
+    
+    [javaClass appendString: @"        if (obj == null)\n"];
+    [javaClass appendString: @"            return false;\n"];
+    [javaClass appendString: @"        if (obj == this)\n"];
+    [javaClass appendString: @"            return false;\n"];
+    [javaClass appendFormat: @"        if (!(obj instanceof %@))\n", javaClassName];
+    [javaClass appendString: @"            return false;\n"];
+    
+    BOOL emittedCast = NO;
+
+    for (NSAttributeDescription* desc in [entity.attributesByName allValues]) {
+        //NSString* instanceName = propertyNameToJavaInstanceName(desc.name);
+        if (![parentAttributes containsObject: desc.name]) {
+            if (!emittedCast) {
+                emitCastToTarget(javaClassName, javaClass);
+                emittedCast = YES;
+            }
+            
+            NSString* instanceName = propertyNameToJavaInstanceName(desc.name);
+            NSString* targetInstanceName = [@"target." stringByAppendingString: instanceName];
+            [javaClass appendFormat: @"        if (%@)\n", attributeTypeToJavaComparison(desc.attributeType, targetInstanceName, instanceName)];
+            [javaClass appendString: @"            return false;\n"];
+        }
+    }
+
+    for (NSRelationshipDescription* desc in [entity.relationshipsByName allValues]) {
+        if (![parentRelationships containsObject: desc.name]) {
+            if (!emittedCast) {
+                emitCastToTarget(javaClassName, javaClass);
+                emittedCast = YES;
+            }
+            NSString* instanceName = propertyNameToJavaInstanceName(desc.name);
+            NSString* targetInstanceName = [@"target." stringByAppendingString: instanceName];
+            [javaClass appendFormat: @"        if (!DataUtils.compareObjects(%@, %@))\n", instanceName, targetInstanceName];
+            [javaClass appendString: @"            return false;\n"];
+        }
+    }
+
+    [javaClass appendString: @"        return true;\n"];
+    [javaClass appendString: @"    }\n\n"];
+
     [javaClass appendString: @"}\n"];
     NSString* baseSourceFileName = [NSString stringWithFormat: @"%@.java", javaBaseClassName];
     NSString* baseClassFilePath = [_sourcePath stringByAppendingPathComponent: baseSourceFileName];

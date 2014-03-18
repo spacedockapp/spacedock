@@ -91,4 +91,56 @@ public class FlagshipBase extends SetItem {
         mWeapon = DataUtils.intValue((String)data.get("Weapon"));
     }
 
+
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (obj == this)
+            return false;
+        if (!(obj instanceof Flagship))
+            return false;
+        Flagship target = (Flagship)obj;
+        if (DataUtils.compareObjects(target.mAbility, mAbility))
+            return false;
+        if (target.mAgility != mAgility)
+            return false;
+        if (target.mAttack != mAttack)
+            return false;
+        if (target.mBattleStations != mBattleStations)
+            return false;
+        if (target.mCloak != mCloak)
+            return false;
+        if (target.mCost != mCost)
+            return false;
+        if (target.mCrew != mCrew)
+            return false;
+        if (target.mEvasiveManeuvers != mEvasiveManeuvers)
+            return false;
+        if (DataUtils.compareObjects(target.mExternalId, mExternalId))
+            return false;
+        if (DataUtils.compareObjects(target.mFaction, mFaction))
+            return false;
+        if (target.mHull != mHull)
+            return false;
+        if (target.mScan != mScan)
+            return false;
+        if (target.mSensorEcho != mSensorEcho)
+            return false;
+        if (target.mShield != mShield)
+            return false;
+        if (target.mTalent != mTalent)
+            return false;
+        if (target.mTargetLock != mTargetLock)
+            return false;
+        if (target.mTech != mTech)
+            return false;
+        if (DataUtils.compareObjects(target.mTitle, mTitle))
+            return false;
+        if (target.mWeapon != mWeapon)
+            return false;
+        if (!DataUtils.compareObjects(mShips, target.mShips))
+            return false;
+        return true;
+    }
+
 }

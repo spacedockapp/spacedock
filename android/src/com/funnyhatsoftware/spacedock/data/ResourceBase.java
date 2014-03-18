@@ -43,4 +43,32 @@ public class ResourceBase extends SetItem {
         mUnique = DataUtils.booleanValue((String)data.get("Unique"));
     }
 
+
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (obj == this)
+            return false;
+        if (!(obj instanceof Resource))
+            return false;
+        Resource target = (Resource)obj;
+        if (DataUtils.compareObjects(target.mAbility, mAbility))
+            return false;
+        if (target.mCost != mCost)
+            return false;
+        if (DataUtils.compareObjects(target.mExternalId, mExternalId))
+            return false;
+        if (DataUtils.compareObjects(target.mSpecial, mSpecial))
+            return false;
+        if (DataUtils.compareObjects(target.mTitle, mTitle))
+            return false;
+        if (DataUtils.compareObjects(target.mType, mType))
+            return false;
+        if (target.mUnique != mUnique)
+            return false;
+        if (!DataUtils.compareObjects(mSquad, target.mSquad))
+            return false;
+        return true;
+    }
+
 }

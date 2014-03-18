@@ -35,4 +35,28 @@ public class ShipClassDetailsBase {
         mRearArc = DataUtils.stringValue((String)data.get("RearArc"));
     }
 
+
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (obj == this)
+            return false;
+        if (!(obj instanceof ShipClassDetails))
+            return false;
+        ShipClassDetails target = (ShipClassDetails)obj;
+        if (DataUtils.compareObjects(target.mExternalId, mExternalId))
+            return false;
+        if (DataUtils.compareObjects(target.mFrontArc, mFrontArc))
+            return false;
+        if (DataUtils.compareObjects(target.mName, mName))
+            return false;
+        if (DataUtils.compareObjects(target.mRearArc, mRearArc))
+            return false;
+        if (!DataUtils.compareObjects(mManeuvers, target.mManeuvers))
+            return false;
+        if (!DataUtils.compareObjects(mShips, target.mShips))
+            return false;
+        return true;
+    }
+
 }

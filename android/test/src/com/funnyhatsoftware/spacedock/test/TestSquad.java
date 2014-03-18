@@ -46,12 +46,6 @@ public class TestSquad extends BaseTest {
         InputStream stream = new ByteArrayInputStream(jsonString.getBytes("UTF-8"));
         Squad newSquad = new Squad();
         newSquad.importFromStream(universe, stream);
-        assertEquals(newSquad.getName(), squad.getName());
-        assertEquals(newSquad.getUUID(), squad.getUUID());
-        assertEquals(newSquad.getAdditionalPoints(), squad.getAdditionalPoints());
-        assertEquals(newSquad.getNotes(), squad.getNotes());
-        ArrayList<EquippedShip> newSquadShips = newSquad.getEquippedShips();
-        ArrayList<EquippedShip> equippedShips = squad.getEquippedShips();
-        assertEquals(equippedShips.size(), newSquadShips.size());
+        assertEquals(squad, newSquad);
     }
 }

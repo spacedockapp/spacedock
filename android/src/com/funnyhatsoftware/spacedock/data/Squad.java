@@ -27,7 +27,7 @@ public class Squad extends SquadBase {
     private static final String JSON_LABEL_NOTES = "notes";
 
     public Squad() {
-        setUUID(UUID.randomUUID().toString());
+        setUuid(UUID.randomUUID().toString());
     }
     
     
@@ -108,7 +108,7 @@ public class Squad extends SquadBase {
         setNotes(jsonObject.getString(JSON_LABEL_NOTES));
         setName(jsonObject.getString(JSON_LABEL_NAME));
         setAdditionalPoints(jsonObject.optInt(JSON_LABEL_ADDITIONAL_POINTS));
-        setUUID(jsonObject.optString(JSON_LABEL_UUID, UUID.randomUUID().toString()));
+        setUuid(jsonObject.optString(JSON_LABEL_UUID, UUID.randomUUID().toString()));
         String resourceId = jsonObject.optString(JSON_LABEL_RESOURCE);
         if (resourceId != null) {
             Resource resource = universe.resources.get(resourceId);
@@ -137,7 +137,7 @@ public class Squad extends SquadBase {
         o.put(JSON_LABEL_NAME, getName());
         o.put(JSON_LABEL_NOTES, getNotes());
         o.put(JSON_LABEL_ADDITIONAL_POINTS, getAdditionalPoints());
-        o.put(JSON_LABEL_UUID, getUUID());
+        o.put(JSON_LABEL_UUID, getUuid());
         Resource resource = getResource();
         if (resource != null) {
             o.put(JSON_LABEL_RESOURCE, resource.getExternalId());

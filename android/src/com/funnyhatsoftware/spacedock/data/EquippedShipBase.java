@@ -23,4 +23,24 @@ public class EquippedShipBase {
     public void update(Map<String,Object> data) {
     }
 
+
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (obj == this)
+            return false;
+        if (!(obj instanceof EquippedShip))
+            return false;
+        EquippedShip target = (EquippedShip)obj;
+        if (!DataUtils.compareObjects(mFlagship, target.mFlagship))
+            return false;
+        if (!DataUtils.compareObjects(mShip, target.mShip))
+            return false;
+        if (!DataUtils.compareObjects(mSquad, target.mSquad))
+            return false;
+        if (!DataUtils.compareObjects(mUpgrades, target.mUpgrades))
+            return false;
+        return true;
+    }
+
 }
