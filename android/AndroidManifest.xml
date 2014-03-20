@@ -37,56 +37,8 @@
         </activity>
 
         <activity
-            android:name="com.funnyhatsoftware.spacedock.ShipDetailActivity"
-            android:label="@string/title_activity_captain_detail"
+            android:name=".DetailActivity"
             android:parentActivityName="RootActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.funnyhatsoftware.spacedock.ShipListActivity" />
-        </activity>
-        <activity
-            android:name="com.funnyhatsoftware.spacedock.CaptainDetailActivity"
-            android:label="@string/title_activity_captain_detail"
-            android:parentActivityName="RootActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.funnyhatsoftware.spacedock.CaptainsListActivity" />
-        </activity>
-        <activity
-            android:name="com.funnyhatsoftware.spacedock.UpgradeDetailActivity"
-            android:label="@string/title_activity_captain_detail"
-            android:parentActivityName="RootActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.funnyhatsoftware.spacedock.UpgradeListActivity" />
-        </activity>
-        <activity
-            android:name="com.funnyhatsoftware.spacedock.TalentDetailActivity"
-            android:parentActivityName="RootActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.funnyhatsoftware.spacedock.UpgradeListActivity" />
-        </activity>
-        <activity
-            android:name="com.funnyhatsoftware.spacedock.WeaponDetailActivity"
-            android:parentActivityName="RootActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.funnyhatsoftware.spacedock.WeaponListActivity" />
-        </activity>
-        <activity
-            android:name="com.funnyhatsoftware.spacedock.ResourceDetailActivity"
-            android:parentActivityName="RootActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.funnyhatsoftware.spacedock.ResourceListActivity" />
-        </activity>
-        <activity
-            android:name="com.funnyhatsoftware.spacedock.FlagshipDetailActivity"
-            android:parentActivityName="RootActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.funnyhatsoftware.spacedock.FlagshipListActivity" />
         </activity>
     </application>
 

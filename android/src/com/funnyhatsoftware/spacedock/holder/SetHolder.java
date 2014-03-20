@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.view.View;
 import android.widget.TextView;
 
+import com.funnyhatsoftware.spacedock.DetailActivity;
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.data.Set;
 import com.funnyhatsoftware.spacedock.data.Universe;
@@ -29,6 +30,11 @@ public class SetHolder extends ItemHolder {
             public List<?> getItemsForFaction(String faction) {
                 return Universe.getUniverse().getSets();
             }
+
+            @Override
+            public String getDetails(DetailActivity.DetailDataBuilder builder, String id) {
+                return null;
+            }
         };
     }
 
@@ -42,10 +48,5 @@ public class SetHolder extends ItemHolder {
     public void reinitialize(Resources res, Object item) {
         Set set = (Set) item;
         mTitle.setText(set.getProductName());
-    }
-
-    @Override
-    public void navigateToDetails(Context context, Object item) {
-        // TODO
     }
 }

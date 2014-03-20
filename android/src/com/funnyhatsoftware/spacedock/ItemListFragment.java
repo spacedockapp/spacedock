@@ -1,20 +1,24 @@
 package com.funnyhatsoftware.spacedock;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 
+import com.funnyhatsoftware.spacedock.data.Set;
+import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
-import com.funnyhatsoftware.spacedock.holder.ItemHolder;
 import com.funnyhatsoftware.spacedock.holder.ItemHolderFactory;
 import com.funnyhatsoftware.spacedock.holder.NewItemAdapter;
 
-public class ItemListFragment extends ListFragment {
+public class ItemListFragment extends ListFragment implements AdapterView.OnItemClickListener {
     public static final String ARG_ITEM_TYPE = "item_type";
+
     private BaseAdapter mAdapter;
+    private String mItemType;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,8 +29,8 @@ public class ItemListFragment extends ListFragment {
         }
 
         Context context = getActivity();
-        String key = getArguments().getString(ARG_ITEM_TYPE);
-        ItemHolderFactory itemHolderFactory = ItemHolderFactory.getHolderFactory(key);
+        mItemType = getArguments().getString(ARG_ITEM_TYPE);
+        ItemHolderFactory itemHolderFactory = ItemHolderFactory.getHolderFactory(mItemType);
         Universe universe = Universe.getUniverse();
 
         if (itemHolderFactory.usesFactions()) {
@@ -49,15 +53,24 @@ public class ItemListFragment extends ListFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        getListView().setOnItemClickListener(this);
+    }
 
-        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (view.getTag() == null) return;
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if (view.getTag() == null) return;
 
-                ItemHolder holder = (ItemHolder) view.getTag();
-                holder.navigateToDetails(getActivity(), mAdapter.getItem(position));
-            }
-        });
+        Context context = getActivity();
+        Object item = mAdapter.getItem(position);
+        String externalId;
+        if (item instanceof SetItem) {
+            externalId = ((SetItem) item).getExternalId();
+        } else {
+            externalId = ((Set) item).getExternalId();
+        }
+        Intent intent = new Intent(context, DetailActivity.class);
+        intent.putExtra(DetailActivity.EXTRA_ITEM_TYPE, mItemType);
+        intent.putExtra(DetailActivity.EXTRA_ITEM_ID, externalId);
+        context.startActivity(intent);
     }
 }

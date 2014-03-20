@@ -1,13 +1,11 @@
 package com.funnyhatsoftware.spacedock.holder;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.view.View;
 import android.widget.TextView;
 
+import com.funnyhatsoftware.spacedock.DetailActivity;
 import com.funnyhatsoftware.spacedock.R;
-import com.funnyhatsoftware.spacedock.WeaponDetailActivity;
-import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.data.Weapon;
 
@@ -25,6 +23,26 @@ public class WeaponHolder extends ItemHolder {
             @Override
             public List<?> getItemsForFaction(String faction) {
                 return Universe.getUniverse().getUpgradesForFaction(TYPE_STRING, faction);
+            }
+
+            @Override
+            public String getDetails(DetailActivity.DetailDataBuilder builder, String id) {
+                Weapon weapon = (Weapon) Universe.getUniverse().getUpgrade(id);
+
+                builder.addString("Name", weapon.getTitle())
+                        .addString("Faction", weapon.getFaction())
+                        .addString("Type", weapon.getUpType());
+                if (weapon.getAttack() > 0) {
+                    builder.addInt("Attack", weapon.getAttack());
+                }
+                if (!weapon.getRange().isEmpty()) {
+                    builder.addString("Range", weapon.getRange());
+                }
+                builder.addInt("Cost", weapon.getCost())
+                        .addBoolean("Unique", weapon.getUnique())
+                        .addString("Set", weapon.getSetName())
+                        .addString("Ability", weapon.getAbility());
+                return weapon.getTitle();
             }
         };
     }
@@ -49,10 +67,5 @@ public class WeaponHolder extends ItemHolder {
         setPositiveIntegerText(mAttack, weapon.getAttack());
         mRange.setText(weapon.getRange());
         mCost.setText(Integer.toString(weapon.getCost()));
-    }
-
-    @Override
-    public void navigateToDetails(Context context, Object item) {
-        navigateToDetailsActivity(context, (SetItem)item, WeaponDetailActivity.class);
     }
 }

@@ -1,14 +1,12 @@
 package com.funnyhatsoftware.spacedock.holder;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.view.View;
 import android.widget.TextView;
 
-import com.funnyhatsoftware.spacedock.FlagshipDetailActivity;
+import com.funnyhatsoftware.spacedock.DetailActivity;
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.data.Flagship;
-import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
 import java.util.List;
@@ -25,6 +23,20 @@ public class FlagshipHolder extends ItemHolder {
             @Override
             public List<?> getItemsForFaction(String faction) {
                 return Universe.getUniverse().getFlagshipsForFaction(faction);
+            }
+
+            @Override
+            public String getDetails(DetailActivity.DetailDataBuilder builder, String id) {
+                Flagship fs = Universe.getUniverse().getFlagship(id);
+                builder.addString("Name", fs.getTitle());
+                builder.addString("Faction", fs.getFaction());
+                builder.addInt("Attack", fs.getAttack());
+                builder.addInt("Agility", fs.getAgility());
+                builder.addInt("Hull", fs.getHull());
+                builder.addInt("Shield", fs.getShield());
+                builder.addString("Capabilities", fs.getCapabilities());
+                builder.addString("Ability", fs.getAbility());
+                return fs.getTitle();
             }
         };
     }
@@ -52,10 +64,5 @@ public class FlagshipHolder extends ItemHolder {
         setPositiveIntegerText(mAgility, flagship.getAgility());
         setPositiveIntegerText(mHull, flagship.getHull());
         setPositiveIntegerText(mShield, flagship.getShield());
-    }
-
-    @Override
-    public void navigateToDetails(Context context, Object item) {
-        navigateToDetailsActivity(context, (SetItem)item, FlagshipDetailActivity.class);
     }
 }

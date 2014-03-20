@@ -3,6 +3,9 @@ package com.funnyhatsoftware.spacedock.holder;
 import android.support.v4.util.ArrayMap;
 import android.view.View;
 
+import com.funnyhatsoftware.spacedock.DetailActivity;
+import com.funnyhatsoftware.spacedock.data.SetItem;
+
 import java.util.List;
 import java.util.Set;
 
@@ -62,7 +65,8 @@ public abstract class ItemHolderFactory {
     public int getSimpleLayoutResId() { return mSimpleLayoutResId; }
     public int getComplexLayoutResId() { return mComplexLayoutResId; }
 
-    public abstract ItemHolder createHolder(View view);
     public boolean usesFactions() { return true; }
+    public abstract ItemHolder createHolder(View view);
     public abstract List<?> getItemsForFaction(String faction);
+    public abstract String getDetails(DetailActivity.DetailDataBuilder builder, String id);
 }

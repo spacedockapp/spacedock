@@ -1,16 +1,12 @@
 package com.funnyhatsoftware.spacedock.holder;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.view.View;
 import android.widget.TextView;
 
-import com.funnyhatsoftware.spacedock.CaptainDetailActivity;
+import com.funnyhatsoftware.spacedock.DetailActivity;
 import com.funnyhatsoftware.spacedock.R;
-import com.funnyhatsoftware.spacedock.ShipDetailActivity;
 import com.funnyhatsoftware.spacedock.data.Captain;
-import com.funnyhatsoftware.spacedock.data.SetItem;
-import com.funnyhatsoftware.spacedock.data.Ship;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
 import java.util.List;
@@ -27,6 +23,21 @@ public class CaptainHolder extends ItemHolder {
             @Override
             public List<?> getItemsForFaction(String faction) {
                 return Universe.getUniverse().getCaptainsForFaction(faction);
+            }
+
+            @Override
+            public String getDetails(DetailActivity.DetailDataBuilder builder, String id) {
+                Captain captain = Universe.getUniverse().getCaptain(id);
+                builder.addString("Name", captain.getTitle());
+                builder.addString("Faction", captain.getFaction());
+                builder.addString("Type", captain.getUpType());
+                builder.addInt("Skill", captain.getSkill());
+                builder.addInt("Cost", captain.getCost());
+                builder.addBoolean("Unique", captain.getUnique());
+                builder.addInt("Talents", captain.getTalent());
+                builder.addString("Set", captain.getSetName());
+                builder.addString("Ability", captain.getAbility());
+                return captain.getTitle();
             }
         };
     }
@@ -47,10 +58,5 @@ public class CaptainHolder extends ItemHolder {
         mTitle.setText(captain.getTitle());
         mSkill.setText(Integer.toString(captain.getSkill()));
         mCost.setText(Integer.toString(captain.getCost()));
-    }
-
-    @Override
-    public void navigateToDetails(Context context, Object item) {
-        navigateToDetailsActivity(context, (SetItem)item, CaptainDetailActivity.class);
     }
 }

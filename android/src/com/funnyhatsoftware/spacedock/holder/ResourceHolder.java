@@ -1,15 +1,12 @@
 package com.funnyhatsoftware.spacedock.holder;
 
-import android.content.Context;
 import android.content.res.Resources;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.funnyhatsoftware.spacedock.DetailActivity;
 import com.funnyhatsoftware.spacedock.R;
-import com.funnyhatsoftware.spacedock.ResourceDetailActivity;
 import com.funnyhatsoftware.spacedock.data.Resource;
-import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
 import java.util.List;
@@ -32,6 +29,15 @@ public class ResourceHolder extends ItemHolder {
             public List<?> getItemsForFaction(String faction) {
                 return Universe.getUniverse().getResources();
             }
+
+            @Override
+            public String getDetails(DetailActivity.DetailDataBuilder builder, String id) {
+                Resource resource = Universe.getUniverse().getResource(id);
+                builder.addString("Name", resource.getTitle());
+                builder.addInt("Cost", resource.getCost());
+                builder.addString("Ability", resource.getAbility());
+                return resource.getTitle();
+            }
         };
     }
 
@@ -48,10 +54,5 @@ public class ResourceHolder extends ItemHolder {
         Resource resource = (Resource) item;
         mTitle.setText(resource.getTitle());
         mCost.setText(Integer.toString(resource.getCost()));
-    }
-
-    @Override
-    public void navigateToDetails(Context context, Object item) {
-        navigateToDetailsActivity(context, (SetItem) item, ResourceDetailActivity.class);
     }
 }

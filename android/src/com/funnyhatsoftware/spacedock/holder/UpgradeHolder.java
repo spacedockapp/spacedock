@@ -1,13 +1,11 @@
 package com.funnyhatsoftware.spacedock.holder;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.view.View;
 import android.widget.TextView;
 
+import com.funnyhatsoftware.spacedock.DetailActivity;
 import com.funnyhatsoftware.spacedock.R;
-import com.funnyhatsoftware.spacedock.UpgradeDetailActivity;
-import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.data.Upgrade;
 
@@ -28,6 +26,20 @@ public class UpgradeHolder extends ItemHolder {
             public List<?> getItemsForFaction(String faction) {
                 return Universe.getUniverse().getUpgradesForFaction(upType, faction);
             }
+
+            @Override
+            public String getDetails(DetailActivity.DetailDataBuilder builder, String id) {
+                Upgrade upgrade = Universe.getUniverse().getUpgrade(id);
+                builder.addString("Name", upgrade.getTitle());
+                builder.addString("Faction", upgrade.getFaction());
+                builder.addString("Type", upgrade.getUpType());
+                builder.addInt("Cost", upgrade.getCost());
+                builder.addBoolean("Unique", upgrade.getUnique());
+                builder.addString("Set", upgrade.getSetName());
+                builder.addString("Ability", upgrade.getAbility());
+                return upgrade.getTitle();
+
+            }
         };
     }
 
@@ -44,10 +56,5 @@ public class UpgradeHolder extends ItemHolder {
         Upgrade upgrade = (Upgrade) item;
         mTitle.setText(upgrade.getTitle());
         mCost.setText(Integer.toString(upgrade.getCost()));
-    }
-
-    @Override
-    public void navigateToDetails(Context context, Object item) {
-        navigateToDetailsActivity(context, (SetItem)item, UpgradeDetailActivity.class);
     }
 }

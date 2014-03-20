@@ -1,13 +1,12 @@
 package com.funnyhatsoftware.spacedock.holder;
 
-import android.content.Context;
 import android.content.res.Resources;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import com.funnyhatsoftware.spacedock.DetailActivity;
 import com.funnyhatsoftware.spacedock.R;
-import com.funnyhatsoftware.spacedock.ShipDetailActivity;
-import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Ship;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
@@ -26,6 +25,32 @@ public class ShipHolder extends ItemHolder {
             public List<?> getItemsForFaction(String faction) {
                 return Universe.getUniverse().getShipsForFaction(faction);
             }
+
+            @Override
+            public String getDetails(DetailActivity.DetailDataBuilder builder, String id) {
+                Ship ship = Universe.getUniverse().getShip(id);
+                builder.addString("Name", ship.getTitle());
+                builder.addString("Faction", ship.getFaction());
+                builder.addInt("Cost", ship.getCost());
+                builder.addBoolean("Unique", ship.getUnique());
+                builder.addInt("Attack", ship.getAttack());
+                builder.addInt("Agility", ship.getAgility());
+                builder.addInt("Hull", ship.getHull());
+                builder.addInt("Shields", ship.getShield());
+                builder.addInt("Crew", ship.getCrew());
+                builder.addInt("Tech", ship.getTech());
+                builder.addInt("Weapon", ship.getWeapon());
+                builder.addString("Front Arc", ship.formattedFrontArc());
+                builder.addString("Rear Arc", ship.formattedRearArc());
+                builder.addString("Actions", TextUtils.join(", ", ship.actionStrings()));
+                builder.addString("Key Moves", ship.movesSummary());
+                builder.addString("Set", ship.getSetName());
+                String ability = ship.getAbility();
+                if (!ability.isEmpty()) {
+                    builder.addString("Ability", ship.getAbility());
+                }
+                return ship.getTitle();
+            }
         };
     }
 
@@ -42,10 +67,5 @@ public class ShipHolder extends ItemHolder {
         Ship ship = (Ship) item;
         mTitle.setText(ship.getTitle());
         mCost.setText(Integer.toString(ship.getCost()));
-    }
-
-    @Override
-    public void navigateToDetails(Context context, Object item) {
-        navigateToDetailsActivity(context, (SetItem)item, ShipDetailActivity.class);
     }
 }
