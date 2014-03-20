@@ -68,7 +68,8 @@ public class ItemListFragment extends ListFragment implements AdapterView.OnItem
         if (item instanceof SetItem) {
             externalId = ((SetItem) item).getExternalId();
         } else {
-            externalId = ((Set) item).getExternalId();
+            // Sets don't support detail display
+            return;
         }
         Intent intent = new Intent(context, DetailActivity.class);
         intent.putExtra(DetailActivity.EXTRA_ITEM_TYPE, mItemType);
