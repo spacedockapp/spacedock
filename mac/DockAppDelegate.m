@@ -22,6 +22,7 @@
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockSquad.h"
+#import "DockSquadImporter.h"
 #import "DockTalent.h"
 #import "DockTech.h"
 #import "DockUpgrade+Addons.h"
@@ -172,7 +173,6 @@ NSString* kExpandedRows = @"expandedRows";
     }
     
     self.expandedRows = [defaults boolForKey: kExpandedRows];
-
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
@@ -1579,6 +1579,7 @@ void addRemoveFlagshipItem(NSMenu *menu)
 
 -(IBAction)exportAllSquads:(id)sender
 {
+    [self.managedObjectContext save: nil];
     _currentSavePanel = [NSSavePanel savePanel];
     _currentSavePanel.allowedFileTypes = @[kSpaceDockSquadFileExtension];
     NSString* defaultName = [@"All Squads" stringByAppendingPathExtension: kSpaceDockSquadFileExtension];
@@ -1595,5 +1596,24 @@ void addRemoveFlagshipItem(NSMenu *menu)
     
     [_currentSavePanel beginSheetModalForWindow: self.window completionHandler: completionHandler];
 }
+
+-(IBAction)importAllSquads:(id)sender
+{
+    NSOpenPanel* importPanel = [NSOpenPanel openPanel];
+    importPanel.allowedFileTypes = @[kSpaceDockSquadFileExtension];
+    [importPanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
+         if (v == NSFileHandlingPanelOKButton) {
+             NSURL* fileUrl = importPanel.URL;
+             DockSquadImporter* importer = [[DockSquadImporter alloc] initWithPath: [fileUrl path] context: self.managedObjectContext];
+             [importer examineImport: self.window];
+             if ([importer importOK]) {
+                [importer performImport];
+             }
+         }
+     }
+
+    ];
+}
+
 
 @end

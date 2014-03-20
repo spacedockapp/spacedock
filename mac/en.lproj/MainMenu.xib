@@ -105,6 +105,11 @@
                                     <action selector="exportAllSquads:" target="494" id="AD1-Ko-HIY"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Update Squads..." keyEquivalent="U" id="eRt-P7-hqt">
+                                <connections>
+                                    <action selector="importAllSquads:" target="494" id="mN0-jg-AeJ"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="Wmq-fm-HgB">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>

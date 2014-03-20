@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Captain" representedClassName="DockCaptain" parentEntity="Upgrade" syncable="YES">
         <attribute name="skill" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="talent" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -105,6 +105,7 @@
     <entity name="Sideboard" representedClassName="DockSideboard" parentEntity="EquippedShip" syncable="YES"/>
     <entity name="Squad" representedClassName="DockSquad" syncable="YES">
         <attribute name="additionalPoints" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="modified" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" defaultValueString="Untitled" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
@@ -130,22 +131,22 @@
         <attribute name="range" attributeType="String" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Captain" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Crew" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="EquippedShip" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="EquippedUpgrade" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Flagship" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Maneuver" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Resource" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Set" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="SetItem" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Ship" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ShipClassDetails" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Sideboard" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Squad" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Talent" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Tech" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Upgrade" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Weapon" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Captain" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="Crew" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="EquippedShip" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="EquippedUpgrade" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="Flagship" positionX="0" positionY="0" width="128" height="345"/>
+        <element name="Maneuver" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="Resource" positionX="0" positionY="0" width="128" height="165"/>
+        <element name="Set" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="SetItem" positionX="0" positionY="0" width="128" height="60"/>
+        <element name="Ship" positionX="0" positionY="0" width="128" height="375"/>
+        <element name="ShipClassDetails" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="Sideboard" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="Squad" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="Talent" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="Tech" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="Upgrade" positionX="0" positionY="0" width="128" height="195"/>
+        <element name="Weapon" positionX="0" positionY="0" width="128" height="75"/>
     </elements>
 </model>

@@ -787,6 +787,11 @@
     [self stopWatchingForCostChange];
 }
 
+-(void)willSave
+{
+    [self.squad updateModificationDate];
+}
+
 -(void)purgeUpgrade:(DockUpgrade*)upgrade
 {
     NSMutableSet* onesToRemove = [NSMutableSet setWithCapacity: 0];

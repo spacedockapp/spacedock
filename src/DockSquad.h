@@ -2,7 +2,7 @@
 //  DockSquad.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 3/12/14.
+//  Created by Rob Tsuk on 3/19/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * notes;
 @property (nonatomic, retain) NSString * uuid;
+@property (nonatomic, retain) NSDate * modified;
 @property (nonatomic, retain) NSOrderedSet *equippedShips;
 @property (nonatomic, retain) DockResource *resource;
 @end

@@ -20,6 +20,11 @@
     return [NSSet setWithObjects: @"cost", nil];
 }
 
+-(void)willSave
+{
+    [self.equippedShip.squad updateModificationDate];
+}
+
 -(NSString*)title
 {
     return self.upgrade.title;

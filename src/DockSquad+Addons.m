@@ -10,6 +10,7 @@
 #import "DockSideboard+Addons.h"
 #import "DockUpgrade+Addons.h"
 
+#import "ISO8601DateFormatter.h"
 #import "NSMutableDictionary+Addons.h"
 
 @implementation DockSquad (Addons)
@@ -114,6 +115,7 @@
     if (squad.uuid == nil) {
         [squad assignNewUUID];
     }
+    squad.modifiedAsString = squadData[@"modified"];
     BOOL hasSideboard = NO;
 
     NSString* resourceId = squadData[@"resource"];
@@ -287,6 +289,16 @@
     [self didChangeValueForKey: @"cost"];
 }
 
+-(void)updateModificationDate
+{
+    NSDate *now = [NSDate date];
+    NSDate* modified = self.modified;
+    if (modified == nil || [now timeIntervalSinceDate:modified] > 1.0) {
+        self.modified = now;
+        NSLog(@"updating date for %@ to %@", self.uuid, self.modified);
+    }
+}
+
 -(NSString*)shipsDescription
 {
     NSMutableArray* shipTitles = [NSMutableArray arrayWithCapacity: self.equippedShips.count];
@@ -452,6 +464,8 @@ static NSString* toDataFormat(NSString* label, id element)
     [selfData setNonNilObject: self.name forKey: @"name"];
     [selfData setNonNilObject: self.additionalPoints forKey: @"additionalPoints"];
     [selfData setNonNilObject: self.notes forKey: @"notes"];
+    [selfData setNonNilObject: self.uuid forKey: @"uuid"];
+    [selfData setNonNilObject: self.modifiedAsString forKey: @"modified"];
     NSOrderedSet* ships = self.equippedShips;
     if (ships.count > 0) {
         NSMutableArray* shipsArray = [[NSMutableArray alloc] initWithCapacity: ships.count];
@@ -700,6 +714,27 @@ static NSString* namePrefix(NSString* originalName)
 {
     for (DockEquippedShip* equippedShip in self.equippedShips) {
         [equippedShip purgeUpgrade: upgrade];
+    }
+}
+
+-(NSString*)modifiedAsString
+{
+    NSDate* modified = self.modified;
+    if (modified == nil) {
+        modified = [NSDate date];
+    }
+    ISO8601DateFormatter* formatter = [[ISO8601DateFormatter alloc] init];
+    formatter.includeTime = YES;
+    return [formatter stringFromDate: modified];
+}
+
+-(void)setModifiedAsString:(NSString *)modifiedAsString
+{
+    if (modifiedAsString == nil) {
+        self.modified = [NSDate date];
+    } else {
+        ISO8601DateFormatter* formatter = [[ISO8601DateFormatter alloc] init];
+        self.modified = [formatter dateFromString: modifiedAsString];
     }
 }
 

@@ -19,6 +19,7 @@
 -(void)addEquippedShip:(DockEquippedShip*)ship;
 -(void)removeEquippedShip:(DockEquippedShip*)ship;
 -(void)squadCompositionChanged;
+-(void)updateModificationDate;
 -(NSString*)shipsDescription;
 -(NSString*)asTextFormat;
 -(NSString*)asPlainTextFormat;
