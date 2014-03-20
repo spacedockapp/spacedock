@@ -3,8 +3,7 @@ package com.funnyhatsoftware.spacedock.holder;
 import android.support.v4.util.ArrayMap;
 import android.view.View;
 
-import com.funnyhatsoftware.spacedock.DetailActivity;
-import com.funnyhatsoftware.spacedock.data.SetItem;
+import com.funnyhatsoftware.spacedock.activity.DetailActivity;
 
 import java.util.List;
 import java.util.Set;

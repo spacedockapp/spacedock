@@ -1,7 +1,9 @@
-package com.funnyhatsoftware.spacedock;
+package com.funnyhatsoftware.spacedock.activity;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+
+import com.funnyhatsoftware.spacedock.R;
 
 public class SettingsActivity extends PreferenceActivity {
     @Override

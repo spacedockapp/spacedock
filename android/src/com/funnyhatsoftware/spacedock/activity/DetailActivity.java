@@ -1,5 +1,5 @@
 
-package com.funnyhatsoftware.spacedock;
+package com.funnyhatsoftware.spacedock.activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.holder.ItemHolderFactory;
 

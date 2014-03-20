@@ -1,4 +1,4 @@
-package com.funnyhatsoftware.spacedock;
+package com.funnyhatsoftware.spacedock.drawable;
 
 import java.util.ArrayList;
 
@@ -13,6 +13,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.support.v4.util.ArrayMap;
 
+import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.data.Maneuver;
 
 public class ManeuverGridDrawable extends Drawable {

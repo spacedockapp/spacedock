@@ -1,4 +1,4 @@
-package com.funnyhatsoftware.spacedock;
+package com.funnyhatsoftware.spacedock.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.holder.ItemHolderFactory;
 
 import java.util.ArrayList;

@@ -9,6 +9,8 @@ import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Ship;
 import com.funnyhatsoftware.spacedock.data.ShipClassDetails;
+import com.funnyhatsoftware.spacedock.drawable.ArcDrawable;
+import com.funnyhatsoftware.spacedock.drawable.ManeuverGridDrawable;
 
 public class SetItemHolder {
     static int getLayoutForSlot(int slotType) {

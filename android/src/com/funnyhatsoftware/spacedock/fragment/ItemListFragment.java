@@ -1,4 +1,4 @@
-package com.funnyhatsoftware.spacedock;
+package com.funnyhatsoftware.spacedock.fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 
+import com.funnyhatsoftware.spacedock.activity.DetailActivity;
+import com.funnyhatsoftware.spacedock.SeparatedListAdapter;
 import com.funnyhatsoftware.spacedock.data.Set;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;

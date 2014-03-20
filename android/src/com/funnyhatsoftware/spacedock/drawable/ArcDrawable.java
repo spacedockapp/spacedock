@@ -1,4 +1,4 @@
-package com.funnyhatsoftware.spacedock;
+package com.funnyhatsoftware.spacedock.drawable;
 
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -7,6 +7,8 @@ import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
+
+import com.funnyhatsoftware.spacedock.R;
 
 public class ArcDrawable extends Drawable {
     private int mFrontArc;

@@ -1,4 +1,4 @@
-package com.funnyhatsoftware.spacedock;
+package com.funnyhatsoftware.spacedock.fragment;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -19,6 +19,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.funnyhatsoftware.spacedock.activity.EditSquadActivity;
+import com.funnyhatsoftware.spacedock.FactionInfo;
+import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
 

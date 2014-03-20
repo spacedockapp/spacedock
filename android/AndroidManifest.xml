@@ -18,7 +18,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name=".RootActivity"
+            android:name=".activity.RootActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,18 +27,18 @@
         </activity>
 
         <activity
-            android:name=".EditSquadActivity" >
+            android:name=".activity.EditSquadActivity" >
         </activity>
 
         <activity
-            android:name=".SettingsActivity"
+            android:name=".activity.SettingsActivity"
             android:label="@string/title_settings"
-            android:parentActivityName="RootActivity" >
+            android:parentActivityName=".activity.RootActivity" >
         </activity>
 
         <activity
-            android:name=".DetailActivity"
-            android:parentActivityName="RootActivity" >
+            android:name=".activity.DetailActivity"
+            android:parentActivityName=".activity.RootActivity" >
         </activity>
     </application>
 

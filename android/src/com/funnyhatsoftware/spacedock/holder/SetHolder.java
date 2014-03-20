@@ -1,11 +1,10 @@
 package com.funnyhatsoftware.spacedock.holder;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.view.View;
 import android.widget.TextView;
 
-import com.funnyhatsoftware.spacedock.DetailActivity;
+import com.funnyhatsoftware.spacedock.activity.DetailActivity;
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.data.Set;
 import com.funnyhatsoftware.spacedock.data.Universe;

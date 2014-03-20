@@ -1,9 +1,13 @@
-package com.funnyhatsoftware.spacedock;
+package com.funnyhatsoftware.spacedock.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+
+import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.fragment.EditSquadFragment;
+import com.funnyhatsoftware.spacedock.fragment.SetItemListFragment;
 
 public class EditSquadActivity extends FragmentActivity
         implements SetItemListFragment.SetItemSelectCallback, EditSquadFragment.SlotSelectCallback {

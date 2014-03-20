@@ -1,4 +1,4 @@
-package com.funnyhatsoftware.spacedock;
+package com.funnyhatsoftware.spacedock.activity;
 
 import android.app.ActionBar;
 import android.content.Intent;
@@ -10,6 +10,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
+
+import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.fragment.BrowseListFragment;
+import com.funnyhatsoftware.spacedock.fragment.ManageSquadsFragment;
 
 /**
  * Base fragment managing Activity class, supporting ActionBar spinner navigation.

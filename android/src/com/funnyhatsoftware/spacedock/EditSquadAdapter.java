@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
 import com.funnyhatsoftware.spacedock.data.Squad;
+import com.funnyhatsoftware.spacedock.fragment.EditSquadFragment;
 
 public class EditSquadAdapter extends BaseExpandableListAdapter
         implements ExpandableListView.OnChildClickListener, AdapterView.OnItemClickListener {

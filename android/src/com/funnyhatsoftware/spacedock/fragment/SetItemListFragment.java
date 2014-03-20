@@ -1,9 +1,11 @@
-package com.funnyhatsoftware.spacedock;
+package com.funnyhatsoftware.spacedock.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ListView;
+
+import com.funnyhatsoftware.spacedock.SetItemAdapter;
 
 public class SetItemListFragment extends ListFragment {
     static final String ARG_EQUIP_SHIP_NR = "ship_id";
@@ -33,7 +35,7 @@ public class SetItemListFragment extends ListFragment {
      *
      * TODO: create content URIs for this
      */
-    static SetItemListFragment newInstance(int equippedShipNumber,
+    public static SetItemListFragment newInstance(int equippedShipNumber,
             int slotType, int slotNumber, String currentEquipmentId, String prefFaction) {
         SetItemListFragment fragment = new SetItemListFragment();
 
