@@ -544,9 +544,13 @@ public class EquippedShip extends EquippedShipBase {
         return -1;
     }
 
-    public EquippedUpgrade getUpgradeAtSlot(int slotType, int slotIndex) {
+    public int getUpgradeIndexAtSlot(int slotType, int slotIndex) {
         Class<?> slotClass = CLASS_FOR_SLOT[slotType];
-        int upgradeIndex = getUpgradeIndexOfClass(slotClass, slotIndex);
+        return getUpgradeIndexOfClass(slotClass, slotIndex);
+    }
+
+    public EquippedUpgrade getUpgradeAtSlot(int slotType, int slotIndex) {
+        int upgradeIndex = getUpgradeIndexAtSlot(slotType, slotIndex);
         if (upgradeIndex < 0) {
             return null;
         }
@@ -568,10 +572,11 @@ public class EquippedShip extends EquippedShipBase {
 
         EquippedUpgrade newEu = new EquippedUpgrade();
         newEu.setUpgrade(upgrade);
-        EquippedUpgrade oldEu = getUpgradeAtSlot(slotType, slotIndex);
-        if (oldEu != null) {
+        int oldEuIndex = getUpgradeIndexAtSlot(slotType, slotIndex);
+
+        if (oldEuIndex >= 0) {
             // swap out old upgrade
-            mUpgrades.set(mUpgrades.indexOf(oldEu), newEu);
+            mUpgrades.set(oldEuIndex, newEu);
         } else {
             mUpgrades.add(newEu);
         }
