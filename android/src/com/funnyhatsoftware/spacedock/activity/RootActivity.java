@@ -24,7 +24,9 @@ import com.funnyhatsoftware.spacedock.fragment.ManageSquadsFragment;
  * and browsing items.
  */
 public class RootActivity extends FragmentActivity implements ActionBar.OnNavigationListener,
-        BrowseListFragment.BrowseTypeSelectionListener, ItemListFragment.ItemSelectedListener {
+        BrowseListFragment.BrowseTypeSelectionListener,
+        ItemListFragment.ItemSelectedListener,
+        ManageSquadsFragment.SquadSelectListener {
     private final String SAVE_NAV_POSITION = "navPos";
     private int mPosition;
 
@@ -143,5 +145,17 @@ public class RootActivity extends FragmentActivity implements ActionBar.OnNaviga
                     .addToBackStack(null)
                     .commit();
         }
+    }
+
+    @Override
+    public void onSquadSelected(int squadIndex) {
+        // do nothing for now
+    }
+
+    @Override
+    public void onSquadEditAction(int squadIndex) {
+        Intent intent = new Intent(this, EditSquadActivity.class);
+        intent.putExtra(EditSquadActivity.EXTRA_SQUAD_INDEX, squadIndex);
+        startActivity(intent);
     }
 }

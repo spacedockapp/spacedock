@@ -11,6 +11,8 @@ import com.funnyhatsoftware.spacedock.fragment.SetItemListFragment;
 
 public class EditSquadActivity extends FragmentActivity
         implements SetItemListFragment.SetItemSelectCallback, EditSquadFragment.SlotSelectCallback {
+    public static final String EXTRA_SQUAD_INDEX = "squad_index";
+
     private static final String TAG_EDIT = "edit";
     private static final String TAG_FIND = "find";
 
@@ -20,7 +22,8 @@ public class EditSquadActivity extends FragmentActivity
         setContentView(R.layout.activity_onepane);
 
         if (savedInstanceState == null) {
-            Fragment editSquadFragment = new EditSquadFragment();
+            int squadIndex = getIntent().getIntExtra(EXTRA_SQUAD_INDEX, 0);
+            Fragment editSquadFragment = EditSquadFragment.newInstance(squadIndex);
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.primary_fragment_container, editSquadFragment, TAG_EDIT)
                     .commit();

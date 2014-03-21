@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.text.InputType;
 import android.text.Spannable;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -29,17 +30,15 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class ManageSquadsFragment extends ListFragment {
-    private static ArrayList<SquadWrapper> sSquads = new ArrayList<SquadWrapper>();
+    private static final String SAVE_KEY_SELECTED_SQUAD = "selected_squad";
 
-    private ArrayList<SquadWrapper> getSquads() {
-        if (sSquads.isEmpty()) {
-            for (Squad s : Universe.getUniverse().squads) {
-                sSquads.add(new SquadWrapper(s));
-                sSquads.add(new SquadWrapper(s)); // duplicate for testing
-            }
-        }
-        return sSquads;
+    public interface SquadSelectListener {
+        public void onSquadSelected(int squadIndex);
+        public void onSquadEditAction(int squadIndex);
     }
+
+    SquadAdapter mAdapter;
+    int mSquadIndex = -1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,7 +47,13 @@ public class ManageSquadsFragment extends ListFragment {
 
         // setup adapter
         final Context context = getActivity();
-        setListAdapter(new SquadAdapter(context, getSquads()));
+        ArrayList<Squad> squads = new ArrayList<Squad>(Universe.getUniverse().squads);
+        mAdapter = new SquadAdapter(context, squads);
+        setListAdapter(mAdapter);
+
+        if (savedInstanceState != null) {
+            mSquadIndex = savedInstanceState.getInt(SAVE_KEY_SELECTED_SQUAD);
+        }
     }
 
     @Override
@@ -59,6 +64,12 @@ public class ManageSquadsFragment extends ListFragment {
         getListView().setChoiceMode(isTwoPane
                 ? ListView.CHOICE_MODE_SINGLE
                 : ListView.CHOICE_MODE_NONE);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(SAVE_KEY_SELECTED_SQUAD, mSquadIndex);
     }
 
     @Override
@@ -75,11 +86,20 @@ public class ManageSquadsFragment extends ListFragment {
         if (itemId == R.id.menu_create) {
             getCreateName();
         } else if (itemId == R.id.menu_edit) {
-            Intent intent = new Intent(context, EditSquadActivity.class);
-            startActivity(intent);
+            ((SquadSelectListener)getActivity()).onSquadEditAction(mSquadIndex);
         } else if (itemId == R.id.menu_share) {
             Toast.makeText(context, "TODO: sharing.", Toast.LENGTH_SHORT).show();
         }
+        return true;
+    }
+
+    private boolean tryCreateEmptySquad(String name) {
+        if (name == null || name.isEmpty()) return false;
+
+        Squad squad = new Squad();
+        squad.setName(name);
+        Universe.getUniverse().squads.add(squad);
+        mAdapter.add(squad);
         return true;
     }
 
@@ -94,7 +114,11 @@ public class ManageSquadsFragment extends ListFragment {
         builder.setPositiveButton(R.string.dialog_accept, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(context, "success", Toast.LENGTH_SHORT).show();
+                String squadName = input.getText().toString();
+                if (!tryCreateEmptySquad(squadName)) {
+                    Toast.makeText(context, "Failed to create squad",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
         builder.setNegativeButton(R.string.dialog_reject, new DialogInterface.OnClickListener() {
@@ -106,39 +130,40 @@ public class ManageSquadsFragment extends ListFragment {
         builder.show();
     }
 
-    private static class SquadWrapper {
-        Squad squad;
-        SquadWrapper(Squad squad) {
-            this.squad = squad;
-        }
-
-        @Override
-        public String toString() {
-            return squad.getName();
-        }
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        mSquadIndex = position;
+        ((SquadSelectListener)getActivity()).onSquadSelected(mSquadIndex);
     }
 
-    private static class SquadAdapter extends ArrayAdapter<SquadWrapper> {
+    private class SquadAdapter extends ArrayAdapter<Squad> {
+        private static final int LAYOUT_RES_ID = R.layout.squad_summary;
         final HashSet<String> mHashSet = new HashSet<String>();
-        public SquadAdapter(Context context, ArrayList<SquadWrapper> squads) {
-            super(context, R.layout.squad_summary, R.id.title, squads);
+        public SquadAdapter(Context context, ArrayList<Squad> squads) {
+            super(context, LAYOUT_RES_ID, squads);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View listItem = super.getView(position, convertView, parent);
-            Squad squad = getItem(position).squad;
+            if (convertView == null) {
+                LayoutInflater inflater = getActivity().getLayoutInflater();
+                convertView = inflater.inflate(LAYOUT_RES_ID, parent, false);
+            }
+            Squad squad = getItem(position);
+
+            ((TextView) convertView.findViewById(R.id.title)).setText(squad.getName());
 
             mHashSet.clear();
             squad.getFactions(mHashSet);
             Spannable factionSummary = FactionInfo.buildSummarySpannable(
                     parent.getResources(), mHashSet);
-            ((TextView) listItem.findViewById(R.id.faction_summary)).setText(factionSummary);
+            ((TextView) convertView.findViewById(R.id.faction_summary)).setText(factionSummary);
 
             String costString = Integer.toString(squad.calculateCost());
-            ((TextView) listItem.findViewById(R.id.cost)).setText(costString);
+            ((TextView) convertView.findViewById(R.id.cost)).setText(costString);
 
-            return listItem;
+            return convertView;
         }
     }
 }

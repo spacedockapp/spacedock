@@ -4,7 +4,6 @@ package com.funnyhatsoftware.spacedock.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -60,19 +59,17 @@ public class DetailsFragment extends DialogFragment {
         }
     }
 
-    protected static class DetailAdapter extends ArrayAdapter<Pair> {
-        private int mLayoutResourceId;
+    protected class DetailAdapter extends ArrayAdapter<Pair> {
+        private static final int LAYOUT_RES_ID = R.layout.detail_row;
 
-        public DetailAdapter(Context context, int resource, List<Pair> objects) {
-            super(context, resource, objects);
-            mLayoutResourceId = resource;
+        public DetailAdapter(Context context, List<Pair> objects) {
+            super(context, LAYOUT_RES_ID, objects);
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                Context context = getContext();
-                LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-                convertView = inflater.inflate(mLayoutResourceId, parent, false);
+                LayoutInflater inflater = getActivity().getLayoutInflater();
+                convertView = inflater.inflate(LAYOUT_RES_ID, parent, false);
             }
             Pair item = getItem(position);
             TextView label = (TextView) convertView.findViewById(R.id.detailLabel);
@@ -100,10 +97,9 @@ public class DetailsFragment extends DialogFragment {
         String title = factory.getDetails(builder, itemId);
         getDialog().setTitle(title);
 
-        ArrayAdapter<Pair> adapter = new DetailAdapter(getActivity(),
-                R.layout.detail_row, builder.getValues());
+        ArrayAdapter<Pair> adapter = new DetailAdapter(getActivity(), builder.getValues());
 
-        ListView detailList = (ListView) view.findViewById(R.id.itemDetails);
+        ListView detailList = (ListView) view.findViewById(android.R.id.list);
         detailList.setAdapter(adapter);
     }
 }
