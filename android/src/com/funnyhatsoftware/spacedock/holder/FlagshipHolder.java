@@ -4,8 +4,8 @@ import android.content.res.Resources;
 import android.view.View;
 import android.widget.TextView;
 
-import com.funnyhatsoftware.spacedock.activity.DetailActivity;
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 import com.funnyhatsoftware.spacedock.data.Flagship;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
@@ -26,9 +26,8 @@ public class FlagshipHolder extends ItemHolder {
             }
 
             @Override
-            public String getDetails(DetailActivity.DetailDataBuilder builder, String id) {
+            public String getDetails(DetailsFragment.DetailDataBuilder builder, String id) {
                 Flagship fs = Universe.getUniverse().getFlagship(id);
-                builder.addString("Name", fs.getTitle());
                 builder.addString("Faction", fs.getFaction());
                 builder.addInt("Attack", fs.getAttack());
                 builder.addInt("Agility", fs.getAgility());

@@ -4,8 +4,8 @@ import android.content.res.Resources;
 import android.view.View;
 import android.widget.TextView;
 
-import com.funnyhatsoftware.spacedock.activity.DetailActivity;
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 import com.funnyhatsoftware.spacedock.data.Resource;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
@@ -31,9 +31,8 @@ public class ResourceHolder extends ItemHolder {
             }
 
             @Override
-            public String getDetails(DetailActivity.DetailDataBuilder builder, String id) {
+            public String getDetails(DetailsFragment.DetailDataBuilder builder, String id) {
                 Resource resource = Universe.getUniverse().getResource(id);
-                builder.addString("Name", resource.getTitle());
                 builder.addInt("Cost", resource.getCost());
                 builder.addString("Ability", resource.getAbility());
                 return resource.getTitle();

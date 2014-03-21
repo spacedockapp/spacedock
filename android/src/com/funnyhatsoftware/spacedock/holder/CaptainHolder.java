@@ -4,8 +4,8 @@ import android.content.res.Resources;
 import android.view.View;
 import android.widget.TextView;
 
-import com.funnyhatsoftware.spacedock.activity.DetailActivity;
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 import com.funnyhatsoftware.spacedock.data.Captain;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
@@ -26,9 +26,8 @@ public class CaptainHolder extends ItemHolder {
             }
 
             @Override
-            public String getDetails(DetailActivity.DetailDataBuilder builder, String id) {
+            public String getDetails(DetailsFragment.DetailDataBuilder builder, String id) {
                 Captain captain = Universe.getUniverse().getCaptain(id);
-                builder.addString("Name", captain.getTitle());
                 builder.addString("Faction", captain.getFaction());
                 builder.addString("Type", captain.getUpType());
                 builder.addInt("Skill", captain.getSkill());

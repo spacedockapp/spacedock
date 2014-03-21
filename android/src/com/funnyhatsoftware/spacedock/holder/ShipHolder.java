@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
-import com.funnyhatsoftware.spacedock.activity.DetailActivity;
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 import com.funnyhatsoftware.spacedock.data.Ship;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
@@ -27,9 +27,8 @@ public class ShipHolder extends ItemHolder {
             }
 
             @Override
-            public String getDetails(DetailActivity.DetailDataBuilder builder, String id) {
+            public String getDetails(DetailsFragment.DetailDataBuilder builder, String id) {
                 Ship ship = Universe.getUniverse().getShip(id);
-                builder.addString("Name", ship.getTitle());
                 builder.addString("Faction", ship.getFaction());
                 builder.addInt("Cost", ship.getCost());
                 builder.addBoolean("Unique", ship.getUnique());

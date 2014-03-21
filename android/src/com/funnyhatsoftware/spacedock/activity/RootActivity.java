@@ -13,15 +13,18 @@ import android.widget.SpinnerAdapter;
 
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.fragment.BrowseListFragment;
+import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
+import com.funnyhatsoftware.spacedock.fragment.ItemListFragment;
 import com.funnyhatsoftware.spacedock.fragment.ManageSquadsFragment;
 
 /**
  * Base fragment managing Activity class, supporting ActionBar spinner navigation.
  *
- * This activitymanages all of the fragment transitions to navigate between building squads
+ * This activity manages all of the fragment transitions to navigate between building squads
  * and browsing items.
  */
-public class RootActivity extends FragmentActivity implements ActionBar.OnNavigationListener {
+public class RootActivity extends FragmentActivity implements ActionBar.OnNavigationListener,
+        BrowseListFragment.BrowseTypeSelectionListener, ItemListFragment.ItemSelectedListener {
     private final String SAVE_NAV_POSITION = "navPos";
     private int mPosition;
 
@@ -74,16 +77,18 @@ public class RootActivity extends FragmentActivity implements ActionBar.OnNaviga
 
     }
 
+    private boolean isTwoPane() {
+        return findViewById(R.id.secondary_fragment_container) != null;
+    }
+
     @Override
     public boolean onNavigationItemSelected(int itemPosition, long itemId) {
         if (itemPosition == mPosition) return false;
 
-        boolean isTwoPane = findViewById(R.id.secondary_fragment_container) != null;
-
         Fragment newPrimaryFragment = (itemPosition == 0)
                 ? new BrowseListFragment() : new ManageSquadsFragment();
         Fragment oldSecondaryFragment = null;
-        if (isTwoPane) {
+        if (isTwoPane()) {
             oldSecondaryFragment = getSupportFragmentManager()
                 .findFragmentById(R.id.secondary_fragment_container);
         }
@@ -97,5 +102,46 @@ public class RootActivity extends FragmentActivity implements ActionBar.OnNaviga
 
         mPosition = itemPosition;
         return true;
+    }
+
+    @Override
+    public void onBrowseTypeSelected(String itemType) {
+        Fragment newFragment = ItemListFragment.newInstance(itemType);
+
+        if (isTwoPane()) {
+            // two pane, replace secondary fragment
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.secondary_fragment_container, newFragment)
+                    .commit();
+        } else {
+            // single pane, add new fragment in place of main
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.primary_fragment_container, newFragment)
+                    .addToBackStack(null)
+                    .commit();
+        }
+    }
+
+    @Override
+    public void onItemSelected(String itemType, String itemId) {
+        DetailsFragment fragment = DetailsFragment.newInstance(itemType, itemId);
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+        if (isTwoPane()) {
+            Fragment prev = getSupportFragmentManager().findFragmentByTag("dialog");
+            if (prev != null) {
+                ft.remove(prev);
+            }
+            ft.addToBackStack(null);
+
+            //show the dialog.
+            fragment.show(ft, "dialog");
+        } else {
+            // single pane, add new fragment in place of main
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.primary_fragment_container, fragment)
+                    .addToBackStack(null)
+                    .commit();
+        }
     }
 }

@@ -3,7 +3,7 @@ package com.funnyhatsoftware.spacedock.holder;
 import android.support.v4.util.ArrayMap;
 import android.view.View;
 
-import com.funnyhatsoftware.spacedock.activity.DetailActivity;
+import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 
 import java.util.List;
 import java.util.Set;
@@ -67,5 +67,5 @@ public abstract class ItemHolderFactory {
     public boolean usesFactions() { return true; }
     public abstract ItemHolder createHolder(View view);
     public abstract List<?> getItemsForFaction(String faction);
-    public abstract String getDetails(DetailActivity.DetailDataBuilder builder, String id);
+    public abstract String getDetails(DetailsFragment.DetailDataBuilder builder, String id);
 }

@@ -4,8 +4,8 @@ import android.content.res.Resources;
 import android.view.View;
 import android.widget.TextView;
 
-import com.funnyhatsoftware.spacedock.activity.DetailActivity;
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.data.Weapon;
 
@@ -26,11 +26,10 @@ public class WeaponHolder extends ItemHolder {
             }
 
             @Override
-            public String getDetails(DetailActivity.DetailDataBuilder builder, String id) {
+            public String getDetails(DetailsFragment.DetailDataBuilder builder, String id) {
                 Weapon weapon = (Weapon) Universe.getUniverse().getUpgrade(id);
 
-                builder.addString("Name", weapon.getTitle())
-                        .addString("Faction", weapon.getFaction())
+                builder.addString("Faction", weapon.getFaction())
                         .addString("Type", weapon.getUpType());
                 if (weapon.getAttack() > 0) {
                     builder.addInt("Attack", weapon.getAttack());

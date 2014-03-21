@@ -8,12 +8,11 @@ import android.widget.ListView;
 import com.funnyhatsoftware.spacedock.SetItemAdapter;
 
 public class SetItemListFragment extends ListFragment {
-    static final String ARG_EQUIP_SHIP_NR = "ship_id";
-    static final String ARG_SLOT_TYPE = "slot_type";
-    static final String ARG_SLOT_NUMBER = "slot_number";
-    static final String ARG_CURRENT_EQUIP_ID = "current_equip";
-    static final String ARG_RETURN_EQUIP_ID = "return_equip";
-    static final String ARG_PREFERRED_FACTION = "pref_faction";
+    private static final String ARG_EQUIP_SHIP_NR = "ship_id";
+    private static final String ARG_SLOT_TYPE = "slot_type";
+    private static final String ARG_SLOT_NUMBER = "slot_number";
+    private static final String ARG_CURRENT_EQUIP_ID = "current_equip";
+    private static final String ARG_PREFERRED_FACTION = "pref_faction";
 
     public static final String SAVE_KEY_ACTIVATED_POSITION = "activated_position";
 

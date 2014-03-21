@@ -4,8 +4,8 @@ import android.content.res.Resources;
 import android.view.View;
 import android.widget.TextView;
 
-import com.funnyhatsoftware.spacedock.activity.DetailActivity;
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.data.Upgrade;
 
@@ -28,9 +28,8 @@ public class UpgradeHolder extends ItemHolder {
             }
 
             @Override
-            public String getDetails(DetailActivity.DetailDataBuilder builder, String id) {
+            public String getDetails(DetailsFragment.DetailDataBuilder builder, String id) {
                 Upgrade upgrade = Universe.getUniverse().getUpgrade(id);
-                builder.addString("Name", upgrade.getTitle());
                 builder.addString("Faction", upgrade.getFaction());
                 builder.addString("Type", upgrade.getUpType());
                 builder.addInt("Cost", upgrade.getCost());
