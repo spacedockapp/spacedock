@@ -95,7 +95,11 @@ public class DetailsFragment extends DialogFragment {
 
         DetailDataBuilder builder = new DetailDataBuilder();
         String title = factory.getDetails(builder, itemId);
-        getDialog().setTitle(title);
+        if (getDialog() != null) {
+            getDialog().setTitle(title);
+        } else {
+            // TODO: single pane title
+        }
 
         ArrayAdapter<Pair> adapter = new DetailAdapter(getActivity(), builder.getValues());
 
