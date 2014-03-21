@@ -10,13 +10,19 @@ import android.widget.ArrayAdapter;
 import java.util.ArrayList;
 
 public class NewItemAdapter extends ArrayAdapter<Object> {
-
     private final ItemHolderFactory mItemHolderFactory;
+
     public NewItemAdapter(Context context, String faction,
             ItemHolderFactory itemHolderFactory) {
         super(context, itemHolderFactory.getSimpleLayoutResId(),
                 new ArrayList<Object>(itemHolderFactory.getItemsForFaction(faction)));
         mItemHolderFactory = itemHolderFactory;
+    }
+
+    @Override
+    public boolean isEnabled(int position) {
+        boolean isSetType = mItemHolderFactory.getType().equals("Set");
+        return !isSetType; // sets don't do anything on selection
     }
 
     @Override

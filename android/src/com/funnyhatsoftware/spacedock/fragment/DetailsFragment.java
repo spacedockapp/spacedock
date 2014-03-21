@@ -18,7 +18,7 @@ import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.holder.ItemHolderFactory;
 
 public class DetailsFragment extends DialogFragment {
-    private static final String ARG_ITEM_TYPE = "itemType";
+    private static final String ARG_ITEM_TYPE = "item_type";
     private static final String ARG_ITEM_ID = "id";
 
     public static DetailsFragment newInstance(String itemType, String itemId) {
@@ -65,6 +65,9 @@ public class DetailsFragment extends DialogFragment {
         public DetailAdapter(Context context, List<Pair> objects) {
             super(context, LAYOUT_RES_ID, objects);
         }
+
+        @Override
+        public boolean isEnabled(int position) { return false; }
 
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
