@@ -162,7 +162,7 @@ NSString* kExpandedRows = @"expandedRows";
     [_flagshipsTableView setSortDescriptors: @[defaultSortDescriptor]];
     defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"externalId" ascending: YES];
     [_setsTableView setSortDescriptors: @[defaultSortDescriptor]];
-    defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"name" ascending: YES];
+    defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"name" ascending: YES selector: @selector(localizedCaseInsensitiveCompare:)];
     [_squadsTableView setSortDescriptors: @[defaultSortDescriptor]];
     [self setupFactionMenu];
 
