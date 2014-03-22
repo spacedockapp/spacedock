@@ -4,7 +4,6 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,7 +22,7 @@ import com.funnyhatsoftware.spacedock.fragment.ManageSquadsFragment;
  * This activity manages all of the fragment transitions to navigate between building squads
  * and browsing items.
  */
-public class RootActivity extends FragmentActivity implements ActionBar.OnNavigationListener,
+public class RootActivity extends PanedFragmentActivity implements ActionBar.OnNavigationListener,
         BrowseListFragment.BrowseTypeSelectionListener,
         ItemListFragment.ItemSelectedListener,
         ManageSquadsFragment.SquadSelectListener {
@@ -79,10 +78,6 @@ public class RootActivity extends FragmentActivity implements ActionBar.OnNaviga
 
     }
 
-    private boolean isTwoPane() {
-        return findViewById(R.id.secondary_fragment_container) != null;
-    }
-
     @Override
     public boolean onNavigationItemSelected(int itemPosition, long itemId) {
         if (itemPosition == mPosition) return false;
@@ -108,20 +103,8 @@ public class RootActivity extends FragmentActivity implements ActionBar.OnNaviga
 
     @Override
     public void onBrowseTypeSelected(String itemType) {
-        Fragment newFragment = ItemListFragment.newInstance(itemType);
-
-        if (isTwoPane()) {
-            // two pane, replace secondary fragment
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.secondary_fragment_container, newFragment)
-                    .commit();
-        } else {
-            // single pane, add new fragment in place of main
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.primary_fragment_container, newFragment)
-                    .addToBackStack(null)
-                    .commit();
-        }
+        Fragment newFragment = ItemListFragment.newInstance(itemType, null, null);
+        navigateToSubFragment(newFragment, null);
     }
 
     @Override

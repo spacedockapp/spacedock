@@ -19,6 +19,12 @@ import com.funnyhatsoftware.spacedock.fragment.EditSquadFragment;
 
 public class EditSquadAdapter extends BaseExpandableListAdapter
         implements ExpandableListView.OnChildClickListener, AdapterView.OnItemClickListener {
+
+    public interface SlotSelectListener {
+        void onSlotSelected(int equippedShipNumber, int slotType, int slotNumber,
+                            String currentEquipmentId, String prefFaction);
+    }
+
     private static final int INVALID_HEADER_ID = 0;
 
     private static final int ITEM_TYPE_HEADER = 0;
@@ -31,10 +37,9 @@ public class EditSquadAdapter extends BaseExpandableListAdapter
             R.layout.squad_list_group,
     };
 
-
     private final Activity mActivity;
     private final ExpandableListView mListView;
-    private final EditSquadFragment.SlotSelectCallback mCallback;
+    private final SlotSelectListener mListener;
     private final Squad mSquad;
     private ArrayList<ListItemLookup>[] mShipLookup;
 
@@ -111,7 +116,6 @@ public class EditSquadAdapter extends BaseExpandableListAdapter
 
             mTitleTextView = (TextView) item.findViewById(R.id.title);
             mCostTextView = (TextView) item.findViewById(R.id.cost); // null for headers
-            mListItemLookup = null;
 
             if (mTitleTextView == null || (mCostTextView == null && mItemType != ITEM_TYPE_HEADER)) {
                 throw new IllegalStateException();
@@ -164,12 +168,12 @@ public class EditSquadAdapter extends BaseExpandableListAdapter
     }
 
     public EditSquadAdapter(Activity activity, ExpandableListView listView,
-                Squad squad, EditSquadFragment.SlotSelectCallback callback) {
+                Squad squad, SlotSelectListener listener) {
         // TODO: always maintain one empty extra ship to support add/remove
         mActivity = activity;
         mListView = listView;
         mSquad = squad;
-        mCallback = callback;
+        mListener = listener;
         updateLookup();
         mListView.setOnChildClickListener(this); // child clicks -> upgrade selection
         mListView.setOnItemClickListener(this); // non-child/group footer clicks -> adding ships
@@ -287,7 +291,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter
         // Make upgrades with faction == ship faction most visible
         String prefFaction = getEquippedShip(groupPosition).getShip().getFaction();
 
-        mCallback.onSlotSelected(groupPosition, slotType, slotNumber,
+        mListener.onSlotSelected(groupPosition, slotType, slotNumber,
                 currentEquipmentId, prefFaction);
         return false;
     }
@@ -295,10 +299,10 @@ public class EditSquadAdapter extends BaseExpandableListAdapter
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         // any non group/child views are used for adding ships
-        mCallback.onSlotSelected(-1, EquippedShip.SLOT_TYPE_SHIP, 0, null, null);
+        mListener.onSlotSelected(-1, EquippedShip.SLOT_TYPE_SHIP, 0, null, null);
     }
 
-    public void onSetItemReturned(int equippedShipNumber, int slotType, int slotIndex,
+    public void insertSetItem(int equippedShipNumber, int slotType, int slotIndex,
             String externalId) {
         if (slotType == EquippedShip.SLOT_TYPE_SHIP) {
             mSquad.addEquippedShip(externalId);

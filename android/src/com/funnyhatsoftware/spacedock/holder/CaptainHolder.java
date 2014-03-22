@@ -5,16 +5,17 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 import com.funnyhatsoftware.spacedock.data.Captain;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
 import java.util.List;
 
-public class CaptainHolder extends ItemHolder {
+public class CaptainHolder extends ItemHolder.BaseItemHolder {
     public static final String TYPE_STRING = "Captain";
     static ItemHolderFactory getFactory() {
-        return new ItemHolderFactory(TYPE_STRING, R.layout.captain_list_row, 0) {
+        return new ItemHolderFactory(TYPE_STRING) {
             @Override
             public ItemHolder createHolder(View view) {
                 return new CaptainHolder(view);
@@ -41,21 +42,16 @@ public class CaptainHolder extends ItemHolder {
         };
     }
 
-    final TextView mTitle;
     final TextView mSkill;
-    final TextView mCost;
 
     private CaptainHolder(View view) {
-        mTitle = (TextView) view.findViewById(R.id.captainRowTitle);
+        super(view, R.layout.item_captain_values);
         mSkill = (TextView) view.findViewById(R.id.captainRowSkill);
-        mCost = (TextView) view.findViewById(R.id.captainRowCost);
     }
 
     @Override
-    public void reinitialize(Resources res, Object item) {
+    public void reinitializeStubViews(Resources res, SetItem item) {
         Captain captain = (Captain) item;
-        mTitle.setText(captain.getTitle());
         mSkill.setText(Integer.toString(captain.getSkill()));
-        mCost.setText(Integer.toString(captain.getCost()));
     }
 }

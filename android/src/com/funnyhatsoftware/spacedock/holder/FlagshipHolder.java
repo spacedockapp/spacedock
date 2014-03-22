@@ -5,16 +5,17 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 import com.funnyhatsoftware.spacedock.data.Flagship;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
 import java.util.List;
 
-public class FlagshipHolder extends ItemHolder {
+public class FlagshipHolder extends ItemHolder.BaseItemHolder {
     public static final String TYPE_STRING = "Flagship";
     static ItemHolderFactory getFactory() {
-        return new ItemHolderFactory(TYPE_STRING, R.layout.flagship_list_row, 0) {
+        return new ItemHolderFactory(TYPE_STRING) {
             @Override
             public ItemHolder createHolder(View view) {
                 return new FlagshipHolder(view);
@@ -40,25 +41,25 @@ public class FlagshipHolder extends ItemHolder {
         };
     }
 
-    final TextView mTitle;
     final TextView mAttack;
     final TextView mAgility;
     final TextView mHull;
     final TextView mShield;
 
     private FlagshipHolder(View view) {
-        mTitle = (TextView) view.findViewById(R.id.flagshipRowTitle);
-        mAttack = (TextView) view.findViewById(R.id.flagshipRowAttack);
-        mAgility = (TextView) view.findViewById(R.id.flagshipRowAgility);
-        mHull = (TextView) view.findViewById(R.id.flagshipRowHull);
-        mShield = (TextView) view.findViewById(R.id.flagshipRowShield);
+        super(view, R.layout.item_flagship_values);
+        mAttack = (TextView) view.findViewById(R.id.attack);
+        mAgility = (TextView) view.findViewById(R.id.agility);
+        mHull = (TextView) view.findViewById(R.id.hull);
+        mShield = (TextView) view.findViewById(R.id.shield);
+
+        mUnique.setVisibility(View.GONE);
+        mCost.setVisibility(View.GONE);
     }
 
     @Override
-    public void reinitialize(Resources res, Object item) {
+    public void reinitializeStubViews(Resources res, SetItem item) {
         Flagship flagship = (Flagship) item;
-        mTitle.setText(flagship.getTitle());
-
         setPositiveIntegerText(mAttack, flagship.getAttack());
         setPositiveIntegerText(mAgility, flagship.getAgility());
         setPositiveIntegerText(mHull, flagship.getHull());

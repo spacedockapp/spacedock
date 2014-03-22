@@ -14,7 +14,7 @@ import java.util.List;
 public class SetHolder extends ItemHolder {
     public static final String TYPE_STRING = "Set";
     static ItemHolderFactory getFactory() {
-        return new ItemHolderFactory(TYPE_STRING, R.layout.set_list_row, 0) {
+        return new ItemHolderFactory(TYPE_STRING) {
             @Override
             public boolean usesFactions() {
                 return false;
@@ -40,7 +40,9 @@ public class SetHolder extends ItemHolder {
     final TextView mTitle;
 
     private SetHolder(View view) {
-        mTitle = (TextView) view.findViewById(R.id.setRowProductName);
+        mTitle = (TextView) view.findViewById(R.id.title);
+        view.findViewById(R.id.unique).setVisibility(View.GONE);
+        view.findViewById(R.id.cost).setVisibility(View.GONE);
     }
 
     @Override

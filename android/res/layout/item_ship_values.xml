@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:paddingRight="16dp">
+
+    <TextView
+        style="@style/ShipAttributeText"
+        android:id="@+id/attack"
+        android:textColor="@color/attack"/>
+
+    <TextView
+        style="@style/ShipAttributeText"
+        android:id="@+id/agility"
+        android:textColor="@color/agility"/>
+
+    <TextView
+        style="@style/ShipAttributeText"
+        android:id="@+id/hull"
+        android:textColor="@color/hull"/>
+
+    <TextView
+        style="@style/ShipAttributeText"
+        android:id="@+id/shield"
+        android:textColor="@color/shield"/>
+
+</LinearLayout>

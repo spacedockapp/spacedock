@@ -51,19 +51,12 @@ public abstract class ItemHolderFactory {
     }
 
     private final String mType;
-    private final int mSimpleLayoutResId;
-    private final int mComplexLayoutResId;
 
-    public ItemHolderFactory(String type, int simpleLayoutResId, int complexLayoutResId) {
+    public ItemHolderFactory(String type) {
         mType = type;
-        mSimpleLayoutResId = simpleLayoutResId;
-        mComplexLayoutResId = complexLayoutResId;
     }
 
     public String getType() { return mType; }
-    public int getSimpleLayoutResId() { return mSimpleLayoutResId; }
-    public int getComplexLayoutResId() { return mComplexLayoutResId; }
-
     public boolean usesFactions() { return true; }
     public abstract ItemHolder createHolder(View view);
     public abstract List<?> getItemsForFaction(String faction);

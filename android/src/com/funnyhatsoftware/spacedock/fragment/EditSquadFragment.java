@@ -10,14 +10,19 @@ import android.widget.ListView;
 
 import com.funnyhatsoftware.spacedock.EditSquadAdapter;
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
-public class EditSquadFragment extends Fragment {
+public class EditSquadFragment extends Fragment implements EditSquadAdapter.SlotSelectListener {
     private static final String ARG_SQUAD_INDEX = "squad_index";
-    public interface SlotSelectCallback {
-        void onSlotSelected(int equippedShipNumber, int slotType, int slotNumber,
-            String currentEquipmentId, String prefFaction);
+
+    private static final String SAVE_STATE_SHIP_NUMBER = "ship_num";
+    private static final String SAVE_STATE_SLOT_TYPE = "slot_type";
+    private static final String SAVE_STATE_SLOT_NUMBER = "slot_num";
+
+    public interface ItemRequestListener {
+        void onItemRequested(String itemType, String prioritizedFaction, String currentEquipmentId);
     }
 
     public static EditSquadFragment newInstance(int squadIndex) {
@@ -30,19 +35,48 @@ public class EditSquadFragment extends Fragment {
 
     EditSquadAdapter mAdapter;
 
+    /**
+     * These three ints store information associated with the current slot request, so that the
+     * fragment can tell its adapter where a returned item should be inserted
+     */
+    private int mEquippedShipNumber;
+    private int mSelectedSlotType;
+    private int mSelectedSlotNumber;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            mEquippedShipNumber = savedInstanceState.getInt(SAVE_STATE_SHIP_NUMBER);
+            mSelectedSlotType = savedInstanceState.getInt(SAVE_STATE_SLOT_TYPE);
+            mSelectedSlotNumber = savedInstanceState.getInt(SAVE_STATE_SLOT_NUMBER);
+        } else {
+            mEquippedShipNumber = -1;
+            mSelectedSlotType = -1;
+            mSelectedSlotNumber = -1;
+        }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(SAVE_STATE_SHIP_NUMBER, mEquippedShipNumber);
+        outState.putInt(SAVE_STATE_SLOT_TYPE, mSelectedSlotType);
+        outState.putInt(SAVE_STATE_SLOT_NUMBER, mSelectedSlotNumber);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater,
+            ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_edit_squad, container, false);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         ExpandableListView elv = (ExpandableListView) view.findViewById(R.id.list);
+
+        // TODO: better place to do this
         boolean isTwoPane = getActivity().findViewById(R.id.secondary_fragment_container) != null;
         elv.setChoiceMode(isTwoPane
                 ? ListView.CHOICE_MODE_SINGLE
@@ -50,13 +84,36 @@ public class EditSquadFragment extends Fragment {
 
         int squadIndex = getArguments().getInt(ARG_SQUAD_INDEX);
         Squad squad = Universe.getUniverse().squads.get(squadIndex);
-        mAdapter = new EditSquadAdapter(getActivity(), elv,
-                squad, (SlotSelectCallback)getActivity());
+        mAdapter = new EditSquadAdapter(getActivity(), elv, squad, this);
         elv.setAdapter(mAdapter);
     }
 
-    public void onSetItemReturned(int equippedShipNumber, int slotType, int slotNumber,
-            String externalId) {
-        mAdapter.onSetItemReturned(equippedShipNumber, slotType, slotNumber, externalId);
+    private static String[] slotNames = {
+            "Captain",
+            "Crew",
+            "Weapon",
+            "Tech",
+            "Talent",
+    };
+
+    @Override
+    public void onSlotSelected(int equippedShipNumber, int slotType, int slotNumber,
+            String currentEquipmentId, String prefFaction) {
+        final ItemRequestListener listener = ((ItemRequestListener)getActivity());
+
+        mEquippedShipNumber = equippedShipNumber;
+        mSelectedSlotType = slotType;
+        mSelectedSlotNumber = slotNumber;
+        if (mSelectedSlotType == EquippedShip.SLOT_TYPE_SHIP) {
+            listener.onItemRequested("Ship", prefFaction, null);
+        } else {
+            listener.onItemRequested(slotNames[slotType], prefFaction, currentEquipmentId);
+        }
+
+    }
+
+    public void onSetItemReturned(String externalId) {
+        mAdapter.insertSetItem(mEquippedShipNumber, mSelectedSlotType, mSelectedSlotNumber,
+                externalId);
     }
 }

@@ -5,16 +5,17 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.data.Weapon;
 
 import java.util.List;
 
-public class WeaponHolder extends ItemHolder {
+public class WeaponHolder extends ItemHolder.BaseItemHolder {
     public static final String TYPE_STRING = "Weapon";
     static ItemHolderFactory getFactory() {
-        return new ItemHolderFactory(TYPE_STRING, R.layout.weapon_list_row, 0) {
+        return new ItemHolderFactory(TYPE_STRING) {
             @Override
             public ItemHolder createHolder(View view) {
                 return new WeaponHolder(view);
@@ -46,25 +47,19 @@ public class WeaponHolder extends ItemHolder {
         };
     }
 
-    final TextView mTitle;
     final TextView mAttack;
     final TextView mRange;
-    final TextView mCost;
 
     private WeaponHolder(View view) {
-        mTitle = (TextView) view.findViewById(R.id.weaponRowTitle);
-        mAttack = (TextView) view.findViewById(R.id.weaponRowAttack);
-        mRange = (TextView) view.findViewById(R.id.weaponRowRange);
-        mCost = (TextView) view.findViewById(R.id.weaponRowCost);
+        super(view, R.layout.item_weapon_values);
+        mAttack = (TextView) view.findViewById(R.id.attack);
+        mRange = (TextView) view.findViewById(R.id.range);
     }
 
     @Override
-    public void reinitialize(Resources res, Object item) {
+    public void reinitializeStubViews(Resources res, SetItem item) {
         Weapon weapon = (Weapon) item;
-        mTitle.setText(weapon.getTitle());
-
         setPositiveIntegerText(mAttack, weapon.getAttack());
         mRange.setText(weapon.getRange());
-        mCost.setText(Integer.toString(weapon.getCost()));
     }
 }

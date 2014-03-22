@@ -1,22 +1,29 @@
-package com.funnyhatsoftware.spacedock.holder;
+package com.funnyhatsoftware.spacedock;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import com.funnyhatsoftware.spacedock.holder.ItemHolder;
+import com.funnyhatsoftware.spacedock.holder.ItemHolderFactory;
+
 import java.util.ArrayList;
 
-public class NewItemAdapter extends ArrayAdapter<Object> {
+public class ItemAdapter extends ArrayAdapter<Object> {
     private final ItemHolderFactory mItemHolderFactory;
+    private final int mLayoutResId;
 
-    public NewItemAdapter(Context context, String faction,
+    public ItemAdapter(Context context, String faction, int layoutResId,
             ItemHolderFactory itemHolderFactory) {
-        super(context, itemHolderFactory.getSimpleLayoutResId(),
+        super(context, layoutResId,
                 new ArrayList<Object>(itemHolderFactory.getItemsForFaction(faction)));
         mItemHolderFactory = itemHolderFactory;
+        mLayoutResId = layoutResId;
     }
 
     @Override
@@ -32,7 +39,7 @@ public class NewItemAdapter extends ArrayAdapter<Object> {
         if (convertView == null) {
             Context context = getContext();
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-            convertView = inflater.inflate(mItemHolderFactory.getSimpleLayoutResId(), parent, false);
+            convertView = inflater.inflate(mLayoutResId, parent, false);
             holder = mItemHolderFactory.createHolder(convertView);
             convertView.setTag(holder);
         } else {

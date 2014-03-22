@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/clazz"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/light_text"
+        android:text="Class"/>
+
+    <View
+        android:id="@+id/arc_display"
+        android:layout_width="@dimen/grid_size"
+        android:layout_height="@dimen/grid_size"
+        android:background="#ff00ff"
+        android:gravity="right"/>
+
+    <View
+        android:id="@+id/maneuver_display"
+        android:layout_width="@dimen/grid_size"
+        android:layout_height="@dimen/grid_size"
+        android:background="#00ff00"
+        android:gravity="right"/>
+
+</LinearLayout>

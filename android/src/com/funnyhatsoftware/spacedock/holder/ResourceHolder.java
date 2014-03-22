@@ -2,19 +2,18 @@ package com.funnyhatsoftware.spacedock.holder;
 
 import android.content.res.Resources;
 import android.view.View;
-import android.widget.TextView;
 
-import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 import com.funnyhatsoftware.spacedock.data.Resource;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
 import java.util.List;
 
-public class ResourceHolder extends ItemHolder {
+public class ResourceHolder extends ItemHolder.BaseItemHolder {
     public static final String TYPE_STRING = "Resource";
     static ItemHolderFactory getFactory() {
-        return new ItemHolderFactory(TYPE_STRING, R.layout.resource_list_row, 0) {
+        return new ItemHolderFactory(TYPE_STRING) {
             @Override
             public boolean usesFactions() {
                 return false;
@@ -39,19 +38,11 @@ public class ResourceHolder extends ItemHolder {
             }
         };
     }
-
-    final TextView mTitle;
-    final TextView mCost;
-
     private ResourceHolder(View view) {
-        mTitle = (TextView) view.findViewById(R.id.resourceRowTitle);
-        mCost = (TextView) view.findViewById(R.id.resourceRowCost);
+        super(view);
+        mUnique.setVisibility(View.GONE);
     }
 
     @Override
-    public void reinitialize(Resources res, Object item) {
-        Resource resource = (Resource) item;
-        mTitle.setText(resource.getTitle());
-        mCost.setText(Integer.toString(resource.getCost()));
-    }
+    public void reinitializeStubViews(Resources res, SetItem item) {}
 }
