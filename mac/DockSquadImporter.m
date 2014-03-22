@@ -5,6 +5,9 @@
 
 @interface DockSquadImporter () {
     NSString* _path;
+    NSMutableArray* _newData;
+    NSMutableArray* _existingData;
+    NSDictionary* _squadsByUUID;
     NSManagedObjectContext* _context;
     BOOL _importOK;
 }
@@ -18,8 +21,26 @@
     if (self != nil) {
         _path = path;
         _context = context;
+        _newData = [[NSMutableArray alloc] init];
+        _existingData = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+NSString* createAmountTermFormat(NSString* format1, NSString* format2, NSInteger count, NSString* actionVerb)
+{
+    if (count > 0) {
+        if (count == 1) {
+            return [NSString stringWithFormat: format1, actionVerb];
+        }
+        return [NSString stringWithFormat: format2, actionVerb, (int)count];
+    }
+    return nil;
+}
+
+NSString* createAmountTerm(NSInteger count, NSString* actionVerb)
+{
+    return createAmountTermFormat(@"%@ one squad", @"%@ %d squads", count, actionVerb);
 }
 
 -(void)examineImport:(NSWindow*)window
@@ -38,25 +59,52 @@
     }
     
     NSArray* currentSquads = [DockSquad allSquads: _context];
-    NSMutableDictionary* squadsByUUID = [NSMutableDictionary dictionaryWithCapacity: currentSquads.count];
+    NSMutableDictionary* squadsByUUIDMut = [NSMutableDictionary dictionaryWithCapacity: currentSquads.count];
     for (DockSquad* squad in currentSquads) {
-        squadsByUUID[squad.uuid] = squad;
+        squadsByUUIDMut[squad.uuid] = squad;
     }
+    
+    _squadsByUUID = [NSDictionary dictionaryWithDictionary: squadsByUUIDMut];
     
     for (NSDictionary* squadData in json) {
         NSString* uuid = squadData[@"uuid"];
-        DockSquad* existing = squadsByUUID[uuid];
+        DockSquad* existing = _squadsByUUID[uuid];
         if (existing != nil) {
-            NSLog(@"existing %@", squadData[@"uuid"]);
             NSDate* modified = existing.modified;
             NSString* modifiedInString = squadData[@"modified"];
             NSDate* modifiedIn = [[[ISO8601DateFormatter alloc] init] dateFromString: modifiedInString];
             if ([modifiedIn compare: modified] == NSOrderedDescending) {
-                NSLog(@"want to import %@", squadData[@"uuid"]);
+                [_existingData addObject: squadData];
             }
         } else {
-            NSLog(@"want to import %@", squadData[@"uuid"]);
+            [_newData addObject: squadData];
         }
+    }
+    
+    NSMutableArray* terms = [NSMutableArray arrayWithCapacity: 0];
+    NSString* amountTerm = createAmountTerm(_newData.count, @"create");
+    if (amountTerm) {
+        [terms addObject: amountTerm];
+    }
+    
+    amountTerm = createAmountTerm(_existingData.count, @"update");
+    if (amountTerm) {
+        [terms addObject: amountTerm];
+    }
+    
+    
+    if (terms.count > 0) {
+        NSString* importWarning = [NSString stringWithFormat: @"This import will %@.", [terms componentsJoinedByString: @" and "]];
+        NSAlert* airbag = [[NSAlert alloc] init];
+        airbag.messageText = importWarning;
+        [airbag addButtonWithTitle: @"Import"];
+        [airbag addButtonWithTitle: @"Cancel"];
+        id handler = ^(NSModalResponse returnCode) {
+            if (returnCode == NSAlertFirstButtonReturn) {
+                [self performImport];
+            }
+        };
+        [airbag beginSheetModalForWindow: window completionHandler: handler];
     }
 }
 
@@ -67,6 +115,16 @@
 
 -(void)performImport
 {
+    for (NSDictionary* squadData in _newData) {
+        [DockSquad importOneSquad: squadData context: _context];
+    }
+    
+    for (NSDictionary* squadData in _existingData) {
+        NSString* uuid = squadData[@"uuid"];
+        DockSquad* squad = [_squadsByUUID objectForKey: uuid];
+        [squad importIntoSquad: squadData replaceUUID: NO];
+    }
+    
 }
 
 @end

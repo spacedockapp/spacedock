@@ -1606,9 +1606,6 @@ void addRemoveFlagshipItem(NSMenu *menu)
              NSURL* fileUrl = importPanel.URL;
              DockSquadImporter* importer = [[DockSquadImporter alloc] initWithPath: [fileUrl path] context: self.managedObjectContext];
              [importer examineImport: self.window];
-             if ([importer importOK]) {
-                [importer performImport];
-             }
          }
      }
 

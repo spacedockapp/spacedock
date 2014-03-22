@@ -5,6 +5,4 @@
 @property (readonly, assign) int newCount;
 -(id)initWithPath:(NSString*)path context:(NSManagedObjectContext*)context;
 -(void)examineImport:(NSWindow*)window;
--(BOOL)importOK;
--(void)performImport;
 @end

@@ -15,6 +15,7 @@
 +(DockSquad*)import:(NSString*)name data:(NSString*)datFormatString context:(NSManagedObjectContext*)context;
 +(void)import:(NSString*)datFormatString context:(NSManagedObjectContext*)context;
 +(DockSquad*)importOneSquad:(NSDictionary*)squadData context:(NSManagedObjectContext*)context;
+-(void)importIntoSquad:(NSDictionary*)squadData replaceUUID:(BOOL)replaceUUID;
 -(void)checkAndUpdateFileAtPath:(NSString*)path;
 -(void)addEquippedShip:(DockEquippedShip*)ship;
 -(void)removeEquippedShip:(DockEquippedShip*)ship;

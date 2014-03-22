@@ -107,44 +107,60 @@
 +(DockSquad*)importOneSquad:(NSDictionary*)squadData context:(NSManagedObjectContext*)context
 {
     DockSquad* squad = [DockSquad squad: context];
+    [squad importIntoSquad: squadData replaceUUID: YES];
+    return squad;
+}
+
+-(void)importIntoSquad:(NSDictionary*)squadData replaceUUID:(BOOL)replaceUUID
+{
+    NSManagedObjectContext* context = self.managedObjectContext;
+    self.name = squadData[@"name"];
+    self.additionalPoints = squadData[@"additionalPoints"];
+    self.notes = squadData[@"notes"];
     
-    squad.name = squadData[@"name"];
-    squad.additionalPoints = squadData[@"additionalPoints"];
-    squad.notes = squadData[@"notes"];
-    squad.uuid = squadData[@"uuid"];
-    if (squad.uuid == nil) {
-        [squad assignNewUUID];
+    NSString* uuid = squadData[@"uuid"];
+    if (replaceUUID || uuid == nil) {
+        [self assignNewUUID];
+    } else {
+        self.uuid = uuid;
     }
-    squad.modifiedAsString = squadData[@"modified"];
+    self.modifiedAsString = squadData[@"modified"];
     BOOL hasSideboard = NO;
 
     NSString* resourceId = squadData[@"resource"];
     if (resourceId != nil) {
         DockResource* resource = [DockResource resourceForId: resourceId context: context];
-        squad.resource = resource;
+        self.resource = resource;
         hasSideboard = resource.isSideboard;
+    } else {
+        self.resource = nil;
     }
 
     NSArray* ships = squadData[@"ships"];
+    NSInteger existingCount = self.equippedShips.count;
+    if (existingCount > 0) {
+        NSIndexSet* allIndexes = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(0, self.equippedShips.count)];
+        [self removeEquippedShipsAtIndexes: allIndexes];
+    }
 
     DockEquippedShip* currentShip = nil;
 
     for (NSDictionary* esDict in ships) {
         if ([esDict[@"sideboard"] boolValue]) {
-            currentShip = [squad getSideboard];
+            currentShip = [self getSideboard];
             [currentShip importUpgrades: esDict];
         } else {
             currentShip = [DockEquippedShip import: esDict context: context];
             if (currentShip) {
-                [squad addEquippedShip: currentShip];
+                [self addEquippedShip: currentShip];
             }
         }
     }
     #if !TARGET_OS_IPHONE
     [context commitEditing];
     #endif
-    return squad;
 }
+
 
 -(void)checkAndUpdateFileAtPath:(NSString*)path
 {
@@ -174,6 +190,13 @@
 {
     NSUUID* uuid = [NSUUID UUID];
     self.uuid = [uuid UUIDString];
+}
+
+-(void)maybeAssignNewUUID
+{
+    if (self.uuid == nil) {
+        [self assignNewUUID];
+    }
 }
 
 -(void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void*)context
@@ -464,6 +487,7 @@ static NSString* toDataFormat(NSString* label, id element)
     [selfData setNonNilObject: self.name forKey: @"name"];
     [selfData setNonNilObject: self.additionalPoints forKey: @"additionalPoints"];
     [selfData setNonNilObject: self.notes forKey: @"notes"];
+    [self maybeAssignNewUUID];
     [selfData setNonNilObject: self.uuid forKey: @"uuid"];
     [selfData setNonNilObject: self.modifiedAsString forKey: @"modified"];
     NSOrderedSet* ships = self.equippedShips;
