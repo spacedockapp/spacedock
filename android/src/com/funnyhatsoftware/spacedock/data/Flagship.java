@@ -31,14 +31,18 @@ public class Flagship extends FlagshipBase {
     String getPlainDescription() {
         return "Flagship: " + mTitle;
     }
-
-    boolean compatibleWithShip(Ship targetShip)
-    {
+    
+    public boolean compatibleWithFaction(String faction) {
         if (mFaction.equals("Independent")) {
             return true;
         }
 
-        return mFaction.equals(targetShip.getFaction());
+        return mFaction.equals(faction);
+    }
+
+    public boolean compatibleWithShip(Ship targetShip)
+    {
+        return compatibleWithFaction(targetShip.getFaction());
     }
 
     private static void addCap(ArrayList<String> caps, String label, int value) {
