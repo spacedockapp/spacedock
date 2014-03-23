@@ -4,9 +4,6 @@ package com.funnyhatsoftware.spacedock.data;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 public class Upgrade extends UpgradeBase {
     
     static class UpgradeComparitor implements Comparator<Upgrade> {
@@ -23,9 +20,6 @@ public class Upgrade extends UpgradeBase {
             return factionCompare;
         }
     }
-
-    private static final String JSON_LABEL_UPGRADE_ID = null;
-    private static final String JSON_LABEL_UPGRADE_TITLE = null;
 
     public static Upgrade placeholder(String upType) {
         return Universe.getUniverse().findOrCreatePlaceholder(upType);

@@ -3,7 +3,7 @@ package com.funnyhatsoftware.spacedock.data;
 
 import java.util.Map;
 
-public class ManeuverBase {
+public class ManeuverBase extends Base {
     String mColor;
     public String getColor() { return mColor; }
     public ManeuverBase setColor(String v) { mColor = v; return this;}

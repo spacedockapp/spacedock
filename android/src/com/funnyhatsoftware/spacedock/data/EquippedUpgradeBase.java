@@ -3,7 +3,7 @@ package com.funnyhatsoftware.spacedock.data;
 
 import java.util.Map;
 
-public class EquippedUpgradeBase {
+public class EquippedUpgradeBase extends Base {
     boolean mOverridden;
     public boolean getOverridden() { return mOverridden; }
     public EquippedUpgradeBase setOverridden(boolean v) { mOverridden = v; return this;}

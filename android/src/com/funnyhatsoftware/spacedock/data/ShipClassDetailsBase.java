@@ -4,7 +4,7 @@ package com.funnyhatsoftware.spacedock.data;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class ShipClassDetailsBase {
+public class ShipClassDetailsBase extends Base {
     String mExternalId;
     public String getExternalId() { return mExternalId; }
     public ShipClassDetailsBase setExternalId(String v) { mExternalId = v; return this;}

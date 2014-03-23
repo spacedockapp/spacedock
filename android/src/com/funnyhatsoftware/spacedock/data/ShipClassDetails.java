@@ -72,6 +72,7 @@ public class ShipClassDetails extends ShipClassDetailsBase {
     public void update(Map<String, Object> data) {
         super.update(data);
 
+        @SuppressWarnings("unchecked")
         ArrayList<Map<String, Object>> maneuvers =
                 (ArrayList<Map<String, Object>>) data.get("Maneuvers");
         if (maneuvers != null) {

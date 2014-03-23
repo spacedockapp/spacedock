@@ -2,7 +2,6 @@
 package com.funnyhatsoftware.spacedock.data;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class SetItem extends SetItemBase {
     public String anySetExternalId()

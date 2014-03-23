@@ -4,7 +4,7 @@ package com.funnyhatsoftware.spacedock.data;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class UpgradeBase extends SetItem {
+public abstract class UpgradeBase extends SetItem {
     String mAbility;
     public String getAbility() { return mAbility; }
     public UpgradeBase setAbility(String v) { mAbility = v; return this;}

@@ -4,7 +4,7 @@ package com.funnyhatsoftware.spacedock.data;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class SetItemBase {
+public abstract class SetItemBase extends Base {
     ArrayList<Set> mSets = new ArrayList<Set>();
     @SuppressWarnings("unchecked")
     public ArrayList<Set> getSets() { return (ArrayList<Set>)mSets.clone(); }

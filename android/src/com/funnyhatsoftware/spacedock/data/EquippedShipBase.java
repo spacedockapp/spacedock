@@ -4,7 +4,7 @@ package com.funnyhatsoftware.spacedock.data;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class EquippedShipBase {
+public class EquippedShipBase extends Base {
     Flagship mFlagship;
     public Flagship getFlagship() { return mFlagship; }
     public EquippedShipBase setFlagship(Flagship v) { mFlagship = v; return this;}

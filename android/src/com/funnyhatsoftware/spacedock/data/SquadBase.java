@@ -4,7 +4,7 @@ package com.funnyhatsoftware.spacedock.data;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class SquadBase {
+public class SquadBase extends Base {
     int mAdditionalPoints;
     public int getAdditionalPoints() { return mAdditionalPoints; }
     public SquadBase setAdditionalPoints(int v) { mAdditionalPoints = v; return this;}

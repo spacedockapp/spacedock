@@ -177,12 +177,16 @@ void emitCastToTarget(NSString *javaClassName, NSMutableString *javaClass)
     NSSet* parentRelationships = nil;
     NSString* javaBaseClassName = entityNameToJavaBaseClassName(name);
     NSString* javaClassName = entityNameToJavaClassName(name);
+    NSString* abstractString = @"";
+    if (entity.isAbstract) {
+        abstractString = @"abstract ";
+    }
     if (parent) {
         parentAttributes = [NSSet setWithArray: [[parent attributesByName] allKeys]];
         parentRelationships = [NSSet setWithArray: [[parent relationshipsByName] allKeys]];
-        [javaClass appendFormat: @"public class %@ extends %@ {\n", javaBaseClassName, entityNameToJavaClassName(parent.name)];
+        [javaClass appendFormat: @"public %@class %@ extends %@ {\n", abstractString, javaBaseClassName, entityNameToJavaClassName(parent.name)];
     } else {
-        [javaClass appendFormat: @"public class %@ {\n", javaBaseClassName];
+        [javaClass appendFormat: @"public %@class %@ extends Base {\n", abstractString, javaBaseClassName];
     }
 
     for (NSAttributeDescription* desc in [entity.attributesByName allValues]) {
