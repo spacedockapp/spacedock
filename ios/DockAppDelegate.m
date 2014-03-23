@@ -133,7 +133,7 @@
 
 -(void)saveSquadsToDisk
 {
-    NSString* targetDirectory = [self applicationDocumentsDirectory];
+    NSString* targetDirectory = [[self applicationDocumentsDirectory] path];
     for (DockSquad* squad in [DockSquad allSquads: _managedObjectContext]) {
         NSString* targetPath = [targetDirectory stringByAppendingPathComponent: [NSString stringWithFormat: @"%@_%@", squad.name, squad.uuid]];
         targetPath = [targetPath stringByAppendingPathExtension: @"json"];
