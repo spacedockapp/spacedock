@@ -60,4 +60,17 @@
         <item>Browse</item>
         <item>Build</item>
     </string-array>
+    
+    <!-- List displayed in the Browse fragment so that the pluralization is correct and they are in the same order as other versions of Space Dock -->
+    <string-array name="browse_items_list">
+        <item>Ships</item>
+        <item>Captains</item>
+        <item>Crew</item>
+        <item>Talents</item>
+        <item>Tech</item>
+        <item>Weapons</item>
+        <item>Resources</item>
+        <item>Flagships</item>
+        <item>Sets</item>
+   </string-array>
 </resources>
