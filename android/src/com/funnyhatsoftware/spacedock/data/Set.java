@@ -20,10 +20,6 @@ public class Set extends SetBase {
         return Universe.getUniverse().getAllSets();
     }
 
-    public static ArrayList<Set> includedSets() {
-        return Universe.getUniverse().includedSets();
-    }
-
     public void addToSet(SetItem item) {
         mItems.add(item);
         item.addToSet(this);

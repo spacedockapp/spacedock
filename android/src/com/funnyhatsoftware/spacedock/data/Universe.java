@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.TreeSet;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -32,7 +33,7 @@ public class Universe {
     public ArrayMap<String, Resource> resources = new ArrayMap<String, Resource>();
     public ArrayMap<String, Flagship> flagships = new ArrayMap<String, Flagship>();
     public ArrayMap<String, Set> sets = new ArrayMap<String, Set>();
-    public ArrayMap<String, Set> selectedSets = new ArrayMap<String, Set>();
+    private java.util.Set<Set> mIncludedSets = new HashSet<Set>();
     public ArrayMap<String, Upgrade> placeholders = new ArrayMap<String, Upgrade>();
     public ArrayList<Squad> squads = new ArrayList<Squad>();
     private ArrayList<String> mAllFactions;
@@ -86,11 +87,14 @@ public class Universe {
 
     public ArrayList<Resource> getResources() {
         ArrayList<Resource> resourcesCopy = new ArrayList<Resource>();
-        resourcesCopy.addAll(resources.values());
+        for (Resource resource: resources.values()) {
+            if (isMemberOfIncludedSet(resource)) {
+                resourcesCopy.add(resource);
+            }
+        }
         Collections.sort(resourcesCopy, new ResourceComparator());
         return resourcesCopy;
     }
-
 
     public Set getSet(String setId) {
         return sets.get(setId);
@@ -102,26 +106,37 @@ public class Universe {
         return setsCopy;
     }
 
-    public ArrayList<Set> includedSets() {
-        ArrayList<Set> selectedSetsCopy = new ArrayList<Set>();
-        selectedSetsCopy.addAll(selectedSets.values());
-        return selectedSetsCopy;
+    public void includeAllSets() {
+        mIncludedSets.addAll(sets.values());
+    }
+
+    private boolean isMemberOfIncludedSet(SetItem item) {
+        for (Set set : item.getSets()) {
+            if (mIncludedSets.contains(set)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public ArrayList<Ship> getShips() {
         ArrayList<Ship> shipsCopy = new ArrayList<Ship>();
-        shipsCopy.addAll(ships.values());
+        for (Ship ship : ships.values()) {
+            if (isMemberOfIncludedSet(ship)) {
+                shipsCopy.add(ship);
+            }
+        }
         return shipsCopy;
     }
 
     public ArrayList<Ship> getShipsForFaction(String faction) {
         ArrayList<Ship> shipsCopy = new ArrayList<Ship>();
         for (Ship ship : ships.values()) {
-            if (ship.getFaction().equals(faction)) {
+            if (ship.getFaction().equals(faction) && isMemberOfIncludedSet(ship)) {
                 shipsCopy.add(ship);
             }
         }
-        
+
         Collections.sort(shipsCopy, new ShipComparator());
         return shipsCopy;
     }
@@ -175,7 +190,7 @@ public class Universe {
             for (Ship ship : ships.values()) {
                 factions.add(ship.getFaction());
             }
-            
+
             mAllFactions = new ArrayList<String>();
             mAllFactions.addAll(factions);
         }
@@ -185,21 +200,26 @@ public class Universe {
     public ArrayList<Captain> getCaptainsForFaction(String s) {
         ArrayList<Captain> factionCaptains = new ArrayList<Captain>();
         for (Captain captain : captains.values()) {
-            if (captain.getFaction().equals(s)) {
+            if (captain.getFaction().equals(s) && isMemberOfIncludedSet(captain)) {
                 factionCaptains.add(captain);
             }
         }
-        
+
         Collections.sort(factionCaptains, new CaptainComparator());
         return factionCaptains;
     }
 
     public ArrayList<Upgrade> getUpgradesForFaction(String upType, String faction) {
-        if (faction == null) throw new IllegalArgumentException();
+        if (faction == null)
+            throw new IllegalArgumentException();
 
         ArrayList<Upgrade> matchingUpgrades = new ArrayList<Upgrade>();
-        for (Upgrade upgrade: upgrades.values()) {
-            if ((upType == null || upgrade.getUpType().equals(upType)) && faction.equals(upgrade.getFaction())) {
+        for (Upgrade upgrade : upgrades.values()) {
+            if (!isMemberOfIncludedSet(upgrade)) {
+                continue;
+            }
+            if ((upType == null || upgrade.getUpType().equals(upType))
+                    && faction.equals(upgrade.getFaction())) {
                 matchingUpgrades.add(upgrade);
             }
         }
@@ -217,8 +237,8 @@ public class Universe {
 
     public ArrayList<Flagship> getFlagshipsForFaction(String faction) {
         ArrayList<Flagship> matchingFlagships = new ArrayList<Flagship>();
-        for (Flagship fs: flagships.values()) {
-            if (faction.equals(fs.getFaction())) {
+        for (Flagship fs : flagships.values()) {
+            if (faction.equals(fs.getFaction()) && isMemberOfIncludedSet(fs)) {
                 matchingFlagships.add(fs);
             }
         }
@@ -232,5 +252,4 @@ public class Universe {
         Collections.sort(setsCopy, new SetComparator());
         return setsCopy;
     }
-
 }

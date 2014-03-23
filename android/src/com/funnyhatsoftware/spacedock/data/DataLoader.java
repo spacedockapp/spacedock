@@ -246,6 +246,8 @@ public class DataLoader extends DefaultHandler {
             }
             set.update(oneData);
         }
+        
+        universe.includeAllSets();
     }
 
     interface ItemCreator {
