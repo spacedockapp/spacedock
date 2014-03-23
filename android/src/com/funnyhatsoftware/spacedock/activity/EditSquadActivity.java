@@ -2,6 +2,7 @@ package com.funnyhatsoftware.spacedock.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.fragment.EditSquadFragment;
@@ -40,6 +41,10 @@ public class EditSquadActivity extends PanedFragmentActivity
     public void onItemSelected(String itemType, String itemId) {
         EditSquadFragment editSquadFragment =
                 (EditSquadFragment) getSupportFragmentManager().findFragmentByTag(TAG_EDIT);
+
+        // in single pane mode, we'll have an select fragment on the back stack to remove
+        getSupportFragmentManager().popBackStack(TAG_SELECT,
+                FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         editSquadFragment.onSetItemReturned(itemId);
     }
