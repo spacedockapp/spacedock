@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 
 extern NSString* kSpaceDockSquadFileExtension;
+extern NSString* kSpaceDockSquadListFileExtension;
 extern NSString* kSpaceDockSquadOldFileExtension;
 extern NSString* kSpaceDockSquadWindowsFileExtension;
 extern NSString* kSpaceDockCurrentDataVersionKey;

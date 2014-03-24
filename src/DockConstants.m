@@ -1,6 +1,7 @@
 #import "DockConstants.h"
 
 NSString* kSpaceDockSquadFileExtension = @"spacedock";
+NSString* kSpaceDockSquadListFileExtension = @"spacedocksquads";
 NSString* kSpaceDockSquadOldFileExtension = @"stawsquad";
 NSString* kSpaceDockSquadWindowsFileExtension = @"dat";
 NSString* kSpaceDockCurrentDataVersionKey = @"currentDataVersion";

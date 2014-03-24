@@ -104,11 +104,16 @@
     }
 }
 
-+(DockSquad*)importOneSquad:(NSDictionary*)squadData context:(NSManagedObjectContext*)context
++(DockSquad*)importOneSquad:(NSDictionary*)squadData replaceUUID:(BOOL)replaceUUID context:(NSManagedObjectContext*)context;
 {
     DockSquad* squad = [DockSquad squad: context];
-    [squad importIntoSquad: squadData replaceUUID: YES];
+    [squad importIntoSquad: squadData replaceUUID: replaceUUID];
     return squad;
+}
+
++(DockSquad*)importOneSquad:(NSDictionary*)squadData context:(NSManagedObjectContext*)context
+{
+    return [self importOneSquad: squadData replaceUUID: YES context: context];
 }
 
 -(void)importIntoSquad:(NSDictionary*)squadData replaceUUID:(BOOL)replaceUUID

@@ -116,7 +116,7 @@ NSString* createAmountTerm(NSInteger count, NSString* actionVerb)
 -(void)performImport
 {
     for (NSDictionary* squadData in _newData) {
-        [DockSquad importOneSquad: squadData context: _context];
+        [DockSquad importOneSquad: squadData replaceUUID: NO context: _context];
     }
     
     for (NSDictionary* squadData in _existingData) {

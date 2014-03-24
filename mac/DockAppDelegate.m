@@ -1581,8 +1581,8 @@ void addRemoveFlagshipItem(NSMenu *menu)
 {
     [self.managedObjectContext save: nil];
     _currentSavePanel = [NSSavePanel savePanel];
-    _currentSavePanel.allowedFileTypes = @[kSpaceDockSquadFileExtension];
-    NSString* defaultName = [@"All Squads" stringByAppendingPathExtension: kSpaceDockSquadFileExtension];
+    _currentSavePanel.allowedFileTypes = @[kSpaceDockSquadListFileExtension];
+    NSString* defaultName = [@"All Squads" stringByAppendingPathExtension: kSpaceDockSquadListFileExtension];
     [_currentSavePanel setNameFieldStringValue: defaultName];
 
     id completionHandler = ^(NSInteger v) {
@@ -1600,7 +1600,7 @@ void addRemoveFlagshipItem(NSMenu *menu)
 -(IBAction)importAllSquads:(id)sender
 {
     NSOpenPanel* importPanel = [NSOpenPanel openPanel];
-    importPanel.allowedFileTypes = @[kSpaceDockSquadFileExtension];
+    importPanel.allowedFileTypes = @[kSpaceDockSquadListFileExtension];
     [importPanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
          if (v == NSFileHandlingPanelOKButton) {
              NSURL* fileUrl = importPanel.URL;
