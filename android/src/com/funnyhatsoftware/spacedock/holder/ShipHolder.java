@@ -18,12 +18,12 @@ import com.funnyhatsoftware.spacedock.data.Universe;
 
 import java.util.List;
 
-public class ShipHolder extends ItemHolder.BaseItemHolder {
+public class ShipHolder extends SetItemHolder {
     public static final String TYPE_STRING = "Ship";
-    static ItemHolderFactory getFactory() {
-        return new ItemHolderFactory(Ship.class, TYPE_STRING) {
+    static SetItemHolderFactory getFactory() {
+        return new SetItemHolderFactory(Ship.class, TYPE_STRING) {
             @Override
-            public ItemHolder createHolder(View view) {
+            public SetItemHolder createHolder(View view) {
                 return new ShipHolder(view);
             }
 

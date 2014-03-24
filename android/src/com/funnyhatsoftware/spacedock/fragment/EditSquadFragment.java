@@ -21,7 +21,7 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
     private static final String SAVE_STATE_SLOT_TYPE = "slot_type";
     private static final String SAVE_STATE_SLOT_NUMBER = "slot_num";
 
-    public interface ItemRequestListener {
+    public interface SetItemRequestListener {
         void onItemRequested(String itemType, String prioritizedFaction, String currentEquipmentId);
     }
 
@@ -99,7 +99,7 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
     @Override
     public void onSlotSelected(int equippedShipNumber, int slotType, int slotNumber,
             String currentEquipmentId, String prefFaction) {
-        final ItemRequestListener listener = ((ItemRequestListener)getActivity());
+        final SetItemRequestListener listener = ((SetItemRequestListener)getActivity());
 
         mEquippedShipNumber = equippedShipNumber;
         mSelectedSlotType = slotType;

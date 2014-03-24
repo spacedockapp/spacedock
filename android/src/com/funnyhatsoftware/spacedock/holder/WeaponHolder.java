@@ -12,12 +12,12 @@ import com.funnyhatsoftware.spacedock.data.Weapon;
 
 import java.util.List;
 
-public class WeaponHolder extends ItemHolder.BaseItemHolder {
+public class WeaponHolder extends SetItemHolder {
     public static final String TYPE_STRING = "Weapon";
-    static ItemHolderFactory getFactory() {
-        return new ItemHolderFactory(Weapon.class, TYPE_STRING) {
+    static SetItemHolderFactory getFactory() {
+        return new SetItemHolderFactory(Weapon.class, TYPE_STRING) {
             @Override
-            public ItemHolder createHolder(View view) {
+            public SetItemHolder createHolder(View view) {
                 return new WeaponHolder(view);
             }
 

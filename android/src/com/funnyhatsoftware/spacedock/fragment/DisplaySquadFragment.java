@@ -21,8 +21,8 @@ import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.data.Upgrade;
-import com.funnyhatsoftware.spacedock.holder.ItemHolder;
-import com.funnyhatsoftware.spacedock.holder.ItemHolderFactory;
+import com.funnyhatsoftware.spacedock.holder.SetItemHolder;
+import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
 
 import java.util.ArrayList;
 
@@ -102,7 +102,7 @@ public class DisplaySquadFragment extends ListFragment {
 
         @Override
         public int getViewTypeCount() {
-            return ItemHolderFactory.getFactoryTypes().size();
+            return SetItemHolderFactory.getFactoryTypes().size();
         }
 
         // Maps seen types->unique integers for recycling differentiation
@@ -121,18 +121,18 @@ public class DisplaySquadFragment extends ListFragment {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             Object item = getItem(position);
-            ItemHolder holder;
+            SetItemHolder holder;
             if (convertView == null) {
-                ItemHolderFactory itemHolderFactory =
-                        ItemHolderFactory.getHolderFactory(item.getClass());
+                SetItemHolderFactory setItemHolderFactory =
+                        SetItemHolderFactory.getHolderFactory(item.getClass());
 
                 Context context = getContext();
                 LayoutInflater inflater = ((Activity) context).getLayoutInflater();
                 convertView = inflater.inflate(LAYOUT_RES_ID, parent, false);
-                holder = itemHolderFactory.createHolder(convertView);
+                holder = setItemHolderFactory.createHolder(convertView);
                 convertView.setTag(holder);
             } else {
-                holder = (ItemHolder) convertView.getTag();
+                holder = (SetItemHolder) convertView.getTag();
             }
             holder.reinitialize(getContext().getResources(), item);
             return convertView;

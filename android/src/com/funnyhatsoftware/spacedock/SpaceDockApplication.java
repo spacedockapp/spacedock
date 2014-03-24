@@ -9,7 +9,7 @@ import org.xml.sax.SAXException;
 import android.app.Application;
 
 import com.funnyhatsoftware.spacedock.data.Universe;
-import com.funnyhatsoftware.spacedock.holder.ItemHolderFactory;
+import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
 
 public class SpaceDockApplication extends Application {
     @Override
@@ -27,6 +27,6 @@ public class SpaceDockApplication extends Application {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        ItemHolderFactory.initialize();
+        SetItemHolderFactory.initialize();
     }
 }

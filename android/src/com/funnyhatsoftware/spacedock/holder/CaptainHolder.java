@@ -10,15 +10,14 @@ import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 import com.funnyhatsoftware.spacedock.data.Captain;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class CaptainHolder extends ItemHolder.BaseItemHolder {
+public class CaptainHolder extends SetItemHolder {
     public static final String TYPE_STRING = "Captain";
-    static ItemHolderFactory getFactory() {
-        return new ItemHolderFactory(Captain.class, TYPE_STRING) {
+    static SetItemHolderFactory getFactory() {
+        return new SetItemHolderFactory(Captain.class, TYPE_STRING) {
             @Override
-            public ItemHolder createHolder(View view) {
+            public SetItemHolder createHolder(View view) {
                 return new CaptainHolder(view);
             }
 

@@ -10,17 +10,17 @@ import com.funnyhatsoftware.spacedock.data.Universe;
 
 import java.util.List;
 
-public class ResourceHolder extends ItemHolder.BaseItemHolder {
+public class ResourceHolder extends SetItemHolder {
     public static final String TYPE_STRING = "Resource";
-    static ItemHolderFactory getFactory() {
-        return new ItemHolderFactory(Resource.class, TYPE_STRING) {
+    static SetItemHolderFactory getFactory() {
+        return new SetItemHolderFactory(Resource.class, TYPE_STRING) {
             @Override
             public boolean usesFactions() {
                 return false;
             }
 
             @Override
-            public ItemHolder createHolder(View view) {
+            public SetItemHolder createHolder(View view) {
                 return new ResourceHolder(view);
             }
 

@@ -12,12 +12,12 @@ import com.funnyhatsoftware.spacedock.data.Universe;
 
 import java.util.List;
 
-public class FlagshipHolder extends ItemHolder.BaseItemHolder {
+public class FlagshipHolder extends SetItemHolder {
     public static final String TYPE_STRING = "Flagship";
-    static ItemHolderFactory getFactory() {
-        return new ItemHolderFactory(Flagship.class, TYPE_STRING) {
+    static SetItemHolderFactory getFactory() {
+        return new SetItemHolderFactory(Flagship.class, TYPE_STRING) {
             @Override
-            public ItemHolder createHolder(View view) {
+            public SetItemHolder createHolder(View view) {
                 return new FlagshipHolder(view);
             }
 

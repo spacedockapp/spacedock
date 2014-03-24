@@ -14,7 +14,7 @@ import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.fragment.BrowseListFragment;
 import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 import com.funnyhatsoftware.spacedock.fragment.DisplaySquadFragment;
-import com.funnyhatsoftware.spacedock.fragment.ItemListFragment;
+import com.funnyhatsoftware.spacedock.fragment.SetItemListFragment;
 import com.funnyhatsoftware.spacedock.fragment.ManageSquadsFragment;
 
 /**
@@ -25,7 +25,7 @@ import com.funnyhatsoftware.spacedock.fragment.ManageSquadsFragment;
  */
 public class RootActivity extends PanedFragmentActivity implements ActionBar.OnNavigationListener,
         BrowseListFragment.BrowseTypeSelectionListener,
-        ItemListFragment.ItemSelectedListener,
+        SetItemListFragment.SetItemSelectedListener,
         ManageSquadsFragment.SquadSelectListener,
         DisplaySquadFragment.SquadDisplayListener {
     private final String SAVE_NAV_POSITION = "navPos";
@@ -105,7 +105,7 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
 
     @Override
     public void onBrowseTypeSelected(String itemType) {
-        Fragment newFragment = ItemListFragment.newInstance(itemType, null, null);
+        Fragment newFragment = SetItemListFragment.newInstance(itemType, null, null);
         navigateToSubFragment(newFragment, null);
     }
 

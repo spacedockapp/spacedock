@@ -2,9 +2,7 @@ package com.funnyhatsoftware.spacedock.holder;
 
 import android.content.res.Resources;
 import android.view.View;
-import android.widget.TextView;
 
-import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 import com.funnyhatsoftware.spacedock.data.Universe;
@@ -12,14 +10,14 @@ import com.funnyhatsoftware.spacedock.data.Upgrade;
 
 import java.util.List;
 
-public class UpgradeHolder extends ItemHolder.BaseItemHolder {
+public class UpgradeHolder extends SetItemHolder {
     public static final String TYPE_STRING_CREW = "Crew";
     public static final String TYPE_STRING_TALENT = "Talent";
     public static final String TYPE_STRING_TECH = "Tech";
-    static ItemHolderFactory getFactory(Class upClass, final String upType) {
-        return new ItemHolderFactory(upClass, upType) {
+    static SetItemHolderFactory getFactory(Class upClass, final String upType) {
+        return new SetItemHolderFactory(upClass, upType) {
             @Override
-            public ItemHolder createHolder(View view) {
+            public SetItemHolder createHolder(View view) {
                 return new UpgradeHolder(view);
             }
 

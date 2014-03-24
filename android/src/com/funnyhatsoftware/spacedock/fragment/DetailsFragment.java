@@ -15,7 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.funnyhatsoftware.spacedock.R;
-import com.funnyhatsoftware.spacedock.holder.ItemHolderFactory;
+import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
 
 public class DetailsFragment extends DialogFragment {
     private static final String ARG_ITEM_TYPE = "item_type";
@@ -94,7 +94,7 @@ public class DetailsFragment extends DialogFragment {
 
         String itemType = getArguments().getString(ARG_ITEM_TYPE);
         String itemId = getArguments().getString(ARG_ITEM_ID);
-        ItemHolderFactory factory = ItemHolderFactory.getHolderFactory(itemType);
+        SetItemHolderFactory factory = SetItemHolderFactory.getHolderFactory(itemType);
 
         DetailDataBuilder builder = new DetailDataBuilder();
         String title = factory.getDetails(builder, itemId);

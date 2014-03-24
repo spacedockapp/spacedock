@@ -9,24 +9,23 @@ import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
-import com.funnyhatsoftware.spacedock.ItemAdapter;
+import com.funnyhatsoftware.spacedock.SetItemAdapter;
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.SeparatedListAdapter;
-import com.funnyhatsoftware.spacedock.data.Set;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
-import com.funnyhatsoftware.spacedock.holder.ItemHolderFactory;
+import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class ItemListFragment extends ListFragment {
+public class SetItemListFragment extends ListFragment {
     private static final String ARG_ITEM_TYPE = "item_type";
     private static final String ARG_PRIORITIZED_FACTION = "prior_faction";
     private static final String ARG_SELECTED_ID = "item_sel";
 
-    public interface ItemSelectedListener {
+    public interface SetItemSelectedListener {
         public void onItemSelected(String itemType, String itemId);
     }
 
@@ -34,15 +33,15 @@ public class ItemListFragment extends ListFragment {
     private String mItemType;
 
     /**
-     * Creates a ItemListFragment
+     * Creates a SetItemListFragment
      */
-    public static ItemListFragment newInstance(String itemType,
+    public static SetItemListFragment newInstance(String itemType,
             String prioritizedFaction, String currentId) {
-        ItemListFragment fragment = new ItemListFragment();
+        SetItemListFragment fragment = new SetItemListFragment();
         Bundle arguments = new Bundle();
-        arguments.putString(ItemListFragment.ARG_ITEM_TYPE, itemType);
-        arguments.putString(ItemListFragment.ARG_PRIORITIZED_FACTION, prioritizedFaction);
-        arguments.putString(ItemListFragment.ARG_SELECTED_ID, currentId);
+        arguments.putString(SetItemListFragment.ARG_ITEM_TYPE, itemType);
+        arguments.putString(SetItemListFragment.ARG_PRIORITIZED_FACTION, prioritizedFaction);
+        arguments.putString(SetItemListFragment.ARG_SELECTED_ID, currentId);
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -87,15 +86,15 @@ public class ItemListFragment extends ListFragment {
 
         final int layoutResId = getLayoutResId();
 
-        ItemHolderFactory itemHolderFactory = ItemHolderFactory.getHolderFactory(mItemType);
-        if (itemHolderFactory.usesFactions()) {
+        SetItemHolderFactory setItemHolderFactory = SetItemHolderFactory.getHolderFactory(mItemType);
+        if (setItemHolderFactory.usesFactions()) {
             // add a combination of faction-specific adapters together
             final SeparatedListAdapter multiAdapter = new SeparatedListAdapter(getActivity());
 
             ArrayList<String> factions = getOrderedFactions();
             for (String faction : factions) {
-                ItemAdapter factionAdapter = new ItemAdapter(context, faction,
-                        layoutResId, itemHolderFactory);
+                SetItemAdapter factionAdapter = new SetItemAdapter(context, faction,
+                        layoutResId, setItemHolderFactory);
                 if (factionAdapter.getCount() > 0) {
                     multiAdapter.addSection(faction, factionAdapter);
                 }
@@ -103,7 +102,7 @@ public class ItemListFragment extends ListFragment {
             mAdapter = multiAdapter;
         } else {
             // item type not split into factions, use a single adapter
-            mAdapter = new ItemAdapter(context, null, layoutResId, itemHolderFactory);
+            mAdapter = new SetItemAdapter(context, null, layoutResId, setItemHolderFactory);
         }
         setListAdapter(mAdapter);
     }
@@ -117,6 +116,6 @@ public class ItemListFragment extends ListFragment {
 
         SetItem item = (SetItem) mAdapter.getItem(position);
         String externalId = item.getExternalId();
-        ((ItemSelectedListener) getActivity()).onItemSelected(mItemType, externalId);
+        ((SetItemSelectedListener) getActivity()).onItemSelected(mItemType, externalId);
     }
 }

@@ -6,10 +6,11 @@ import android.support.v4.app.FragmentManager;
 
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.fragment.EditSquadFragment;
-import com.funnyhatsoftware.spacedock.fragment.ItemListFragment;
+import com.funnyhatsoftware.spacedock.fragment.SetItemListFragment;
 
 public class EditSquadActivity extends PanedFragmentActivity
-        implements ItemListFragment.ItemSelectedListener, EditSquadFragment.ItemRequestListener {
+        implements SetItemListFragment.SetItemSelectedListener,
+        EditSquadFragment.SetItemRequestListener {
     public static final String EXTRA_SQUAD_INDEX = "squad_index";
 
     private static final String TAG_EDIT = "edit";
@@ -32,7 +33,7 @@ public class EditSquadActivity extends PanedFragmentActivity
     @Override
     public void onItemRequested(String itemType, String prioritizedFaction,
             String currentEquipmentId) {
-        Fragment newFragment = ItemListFragment.newInstance(
+        Fragment newFragment = SetItemListFragment.newInstance(
                 itemType, prioritizedFaction, currentEquipmentId);
         navigateToSubFragment(newFragment, TAG_SELECT);
     }
