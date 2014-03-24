@@ -3,7 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <CheckBoxPreference
         android:key="pref_key_show_details"
-        android:summary="@string/pref_summary_show_item_details"
         android:title="@string/pref_title_show_item_details"
+        android:summary="@string/pref_summary_show_item_details"
         android:defaultValue="true" />
+    <com.funnyhatsoftware.spacedock.SetPreference
+        android:defaultValue="@array/empty"
+        android:key="pref_key_set_selection"
+        android:title="@string/pref_title_set_selection"
+        android:summary="@string/pref_summary_set_selection" />
 </PreferenceScreen>

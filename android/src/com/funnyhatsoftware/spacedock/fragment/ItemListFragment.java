@@ -115,13 +115,8 @@ public class ItemListFragment extends ListFragment {
 
         // TODO: move into callbacks into activity
 
-        Object item = mAdapter.getItem(position);
-        if (item instanceof Set) {
-            // Sets don't support activation
-            return;
-        }
-
-        String externalId = ((SetItem) item).getExternalId();
+        SetItem item = (SetItem) mAdapter.getItem(position);
+        String externalId = item.getExternalId();
         ((ItemSelectedListener) getActivity()).onItemSelected(mItemType, externalId);
     }
 }

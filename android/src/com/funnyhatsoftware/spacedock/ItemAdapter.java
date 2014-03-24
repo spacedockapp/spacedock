@@ -9,27 +9,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.holder.ItemHolder;
 import com.funnyhatsoftware.spacedock.holder.ItemHolderFactory;
 
 import java.util.ArrayList;
 
-public class ItemAdapter extends ArrayAdapter<Object> {
+public class ItemAdapter extends ArrayAdapter<SetItem> {
     private final ItemHolderFactory mItemHolderFactory;
     private final int mLayoutResId;
 
     public ItemAdapter(Context context, String faction, int layoutResId,
             ItemHolderFactory itemHolderFactory) {
         super(context, layoutResId,
-                new ArrayList<Object>(itemHolderFactory.getItemsForFaction(faction)));
+                new ArrayList<SetItem>(itemHolderFactory.getItemsForFaction(faction)));
         mItemHolderFactory = itemHolderFactory;
         mLayoutResId = layoutResId;
-    }
-
-    @Override
-    public boolean isEnabled(int position) {
-        boolean isSetType = mItemHolderFactory.getType().equals("Set");
-        return !isSetType; // sets don't do anything on selection
     }
 
     @Override

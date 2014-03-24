@@ -28,7 +28,7 @@ public class ShipHolder extends ItemHolder.BaseItemHolder {
             }
 
             @Override
-            public List<?> getItemsForFaction(String faction) {
+            public List<? extends SetItem> getItemsForFaction(String faction) {
                 return Universe.getUniverse().getShipsForFaction(faction);
             }
 

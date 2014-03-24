@@ -25,7 +25,7 @@ public class ResourceHolder extends ItemHolder.BaseItemHolder {
             }
 
             @Override
-            public List<?> getItemsForFaction(String faction) {
+            public List<? extends SetItem> getItemsForFaction(String faction) {
                 return Universe.getUniverse().getResources();
             }
 

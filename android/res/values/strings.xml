@@ -51,9 +51,11 @@
     <string name="dialog_accept">OK</string>
     <string name="dialog_reject">Cancel</string>
 
+    <string name="title_settings">Settings</string>
     <string name="pref_title_show_item_details">Show item details</string>
     <string name="pref_summary_show_item_details">Display as much item info as possible in lists.</string>
-    <string name="title_settings">Settings</string>
+    <string name="pref_title_set_selection">Select enabled sets</string>
+    <string name="pref_summary_set_selection">Only items from the selected sets are shown in the app.</string>
 
     <!-- Action bar navigation spinner-->
     <string-array name="action_spinner_list">
@@ -71,6 +73,6 @@
         <item>Weapons</item>
         <item>Resources</item>
         <item>Flagships</item>
-        <item>Sets</item>
    </string-array>
+    <string-array name="empty"/>
 </resources>

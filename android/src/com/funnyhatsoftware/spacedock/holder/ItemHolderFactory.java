@@ -4,6 +4,7 @@ import android.support.v4.util.ArrayMap;
 import android.view.View;
 
 import com.funnyhatsoftware.spacedock.data.Crew;
+import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Talent;
 import com.funnyhatsoftware.spacedock.data.Tech;
 import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
@@ -57,7 +58,6 @@ public abstract class ItemHolderFactory {
         registerHolderFactory(FlagshipHolder.getFactory());
         registerHolderFactory(WeaponHolder.getFactory());
         registerHolderFactory(ResourceHolder.getFactory());
-        registerHolderFactory(SetHolder.getFactory());
         registerHolderFactory(UpgradeHolder.getFactory(Crew.class, UpgradeHolder.TYPE_STRING_CREW));
         registerHolderFactory(UpgradeHolder.getFactory(Talent.class, UpgradeHolder.TYPE_STRING_TALENT));
         registerHolderFactory(UpgradeHolder.getFactory(Tech.class, UpgradeHolder.TYPE_STRING_TECH));
@@ -75,6 +75,6 @@ public abstract class ItemHolderFactory {
     public String getType() { return mType; }
     public boolean usesFactions() { return true; }
     public abstract ItemHolder createHolder(View view);
-    public abstract List<?> getItemsForFaction(String faction);
+    public abstract List<? extends SetItem> getItemsForFaction(String faction);
     public abstract String getDetails(DetailsFragment.DetailDataBuilder builder, String id);
 }

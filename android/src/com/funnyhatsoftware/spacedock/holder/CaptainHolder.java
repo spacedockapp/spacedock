@@ -10,6 +10,7 @@ import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 import com.funnyhatsoftware.spacedock.data.Captain;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CaptainHolder extends ItemHolder.BaseItemHolder {
@@ -22,7 +23,7 @@ public class CaptainHolder extends ItemHolder.BaseItemHolder {
             }
 
             @Override
-            public List<?> getItemsForFaction(String faction) {
+            public List<? extends SetItem> getItemsForFaction(String faction) {
                 return Universe.getUniverse().getCaptainsForFaction(faction);
             }
 
