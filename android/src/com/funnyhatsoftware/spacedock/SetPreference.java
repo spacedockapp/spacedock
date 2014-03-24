@@ -1,14 +1,15 @@
 package com.funnyhatsoftware.spacedock;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+
 import android.content.Context;
 import android.preference.MultiSelectListPreference;
 import android.util.AttributeSet;
 
 import com.funnyhatsoftware.spacedock.data.Set;
 import com.funnyhatsoftware.spacedock.data.Universe;
-
-import java.util.ArrayList;
-import java.util.HashSet;
 
 public class SetPreference extends MultiSelectListPreference {
     public SetPreference(Context context, AttributeSet attrs) {
@@ -18,7 +19,7 @@ public class SetPreference extends MultiSelectListPreference {
         String[] setLabels = new String[sets.size()];
         java.util.Set<String> defaultValues = new HashSet<String>();
 
-        // TODO: sort sets here (perhaps starter, expansions by date, OPs by date)
+        Collections.sort(sets, new Set.SetComparator());
 
         for (int i = 0; i < sets.size(); i++) {
             String preferenceLabel = sets.get(i).getProductName();
