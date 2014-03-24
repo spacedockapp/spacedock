@@ -74,7 +74,7 @@
     if (contents != nil) {
         NSString* extension = [url pathExtension];
         if ([extension isEqualToString: kSpaceDockSquadFileExtension]) {
-            newSquad = [DockSquad import: contents context: _managedObjectContext];
+            newSquad = [DockSquad importOneSquad: contents context: _managedObjectContext];
         } else {
             NSString* name = [[[url path] lastPathComponent] stringByDeletingPathExtension];
             newSquad = [DockSquad import: name data: contents context: _managedObjectContext];

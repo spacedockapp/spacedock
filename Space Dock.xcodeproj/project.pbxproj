@@ -43,7 +43,7 @@
 		D43D58B818D9E14B0005BE63 /* DockSquad.m in Sources */ = {isa = PBXBuildFile; fileRef = D43D58B718D9E14B0005BE63 /* DockSquad.m */; };
 		D43D58B918D9E14B0005BE63 /* DockSquad.m in Sources */ = {isa = PBXBuildFile; fileRef = D43D58B718D9E14B0005BE63 /* DockSquad.m */; };
 		D43D58C618D9E4DB0005BE63 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D43D58BF18D9E4DB0005BE63 /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		D43D58C718D9E4DB0005BE63 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D43D58BF18D9E4DB0005BE63 /* ISO8601DateFormatter.m */; };
+		D43D58C718D9E4DB0005BE63 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D43D58BF18D9E4DB0005BE63 /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D43FE80618C3A13D00AECA5F /* DockUpgrade+MacAddons.m in Sources */ = {isa = PBXBuildFile; fileRef = D43FE80518C3A13D00AECA5F /* DockUpgrade+MacAddons.m */; };
 		D43FE80918C3A16D00AECA5F /* DockWeapon+MacAddons.m in Sources */ = {isa = PBXBuildFile; fileRef = D43FE80818C3A16D00AECA5F /* DockWeapon+MacAddons.m */; };
 		D43FE80C18C3A6D400AECA5F /* DockUtilsMac.m in Sources */ = {isa = PBXBuildFile; fileRef = D43FE80B18C3A6D400AECA5F /* DockUtilsMac.m */; };
