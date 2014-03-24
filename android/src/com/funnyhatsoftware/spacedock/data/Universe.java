@@ -107,7 +107,17 @@ public class Universe {
     }
 
     public void includeAllSets() {
+        mIncludedSets.clear();
         mIncludedSets.addAll(sets.values());
+    }
+
+    public void includeSetsByName(java.util.Set<String> setNames) {
+        mIncludedSets.clear();
+        for (Set s : sets.values()) {
+            if (setNames.contains(s.getProductName())) {
+                mIncludedSets.add(s);
+            }
+        }
     }
 
     private boolean isMemberOfIncludedSet(SetItem item) {
