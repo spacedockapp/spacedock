@@ -16,8 +16,8 @@ public class UpgradeHolder extends ItemHolder.BaseItemHolder {
     public static final String TYPE_STRING_CREW = "Crew";
     public static final String TYPE_STRING_TALENT = "Talent";
     public static final String TYPE_STRING_TECH = "Tech";
-    static ItemHolderFactory getFactory(final String upType) {
-        return new ItemHolderFactory(upType) {
+    static ItemHolderFactory getFactory(Class upClass, final String upType) {
+        return new ItemHolderFactory(upClass, upType) {
             @Override
             public ItemHolder createHolder(View view) {
                 return new UpgradeHolder(view);

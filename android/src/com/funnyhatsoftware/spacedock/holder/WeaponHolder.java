@@ -15,7 +15,7 @@ import java.util.List;
 public class WeaponHolder extends ItemHolder.BaseItemHolder {
     public static final String TYPE_STRING = "Weapon";
     static ItemHolderFactory getFactory() {
-        return new ItemHolderFactory(TYPE_STRING) {
+        return new ItemHolderFactory(Weapon.class, TYPE_STRING) {
             @Override
             public ItemHolder createHolder(View view) {
                 return new WeaponHolder(view);

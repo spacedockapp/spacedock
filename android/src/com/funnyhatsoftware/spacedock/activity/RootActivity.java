@@ -13,6 +13,7 @@ import android.widget.SpinnerAdapter;
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.fragment.BrowseListFragment;
 import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
+import com.funnyhatsoftware.spacedock.fragment.DisplaySquadFragment;
 import com.funnyhatsoftware.spacedock.fragment.ItemListFragment;
 import com.funnyhatsoftware.spacedock.fragment.ManageSquadsFragment;
 
@@ -25,7 +26,8 @@ import com.funnyhatsoftware.spacedock.fragment.ManageSquadsFragment;
 public class RootActivity extends PanedFragmentActivity implements ActionBar.OnNavigationListener,
         BrowseListFragment.BrowseTypeSelectionListener,
         ItemListFragment.ItemSelectedListener,
-        ManageSquadsFragment.SquadSelectListener {
+        ManageSquadsFragment.SquadSelectListener,
+        DisplaySquadFragment.SquadDisplayListener {
     private final String SAVE_NAV_POSITION = "navPos";
     private int mPosition;
 
@@ -132,7 +134,8 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
 
     @Override
     public void onSquadSelected(int squadIndex) {
-        // do nothing for now
+        Fragment newFragment = DisplaySquadFragment.newInstance(squadIndex);
+        navigateToSubFragment(newFragment, null);
     }
 
     @Override

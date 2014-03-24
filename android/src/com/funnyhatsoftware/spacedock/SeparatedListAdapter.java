@@ -30,10 +30,12 @@ public class SeparatedListAdapter extends BaseAdapter {
             int size = adapter.getCount() + 1;
 
             // check if position inside this section
-            if (position == 0)
+            if (position == 0) {
                 return section;
-            if (position < size)
+            }
+            if (position < size) {
                 return adapter.getItem(position - 1);
+            }
 
             // otherwise jump into next section
             position -= size;
@@ -61,16 +63,17 @@ public class SeparatedListAdapter extends BaseAdapter {
     @Override
     public int getItemViewType(int position) {
         int type = 1;
-        for (Object section : mSections.keySet())
-        {
+        for (Object section : mSections.keySet()) {
             Adapter adapter = mSections.get(section);
             int size = adapter.getCount() + 1;
 
             // check if position inside this section
-            if (position == 0)
+            if (position == 0) {
                 return TYPE_SECTION_HEADER;
-            if (position < size)
+            }
+            if (position < size) {
                 return type + adapter.getItemViewType(position - 1);
+            }
 
             // otherwise jump into next section
             position -= size;
@@ -93,10 +96,12 @@ public class SeparatedListAdapter extends BaseAdapter {
             int size = adapter.getCount() + 1;
 
             // check if position inside this section
-            if (position == 0)
+            if (position == 0) {
                 return mHeaders.getView(sectionIndex, convertView, parent);
-            if (position < size)
+            }
+            if (position < size) {
                 return adapter.getView(position - 1, convertView, parent);
+            }
 
             // otherwise jump into next section
             position -= size;

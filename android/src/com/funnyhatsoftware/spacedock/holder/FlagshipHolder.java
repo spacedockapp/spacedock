@@ -15,7 +15,7 @@ import java.util.List;
 public class FlagshipHolder extends ItemHolder.BaseItemHolder {
     public static final String TYPE_STRING = "Flagship";
     static ItemHolderFactory getFactory() {
-        return new ItemHolderFactory(TYPE_STRING) {
+        return new ItemHolderFactory(Flagship.class, TYPE_STRING) {
             @Override
             public ItemHolder createHolder(View view) {
                 return new FlagshipHolder(view);

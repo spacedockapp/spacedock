@@ -3,6 +3,9 @@ package com.funnyhatsoftware.spacedock.holder;
 import android.support.v4.util.ArrayMap;
 import android.view.View;
 
+import com.funnyhatsoftware.spacedock.data.Crew;
+import com.funnyhatsoftware.spacedock.data.Talent;
+import com.funnyhatsoftware.spacedock.data.Tech;
 import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 
 import java.util.List;
@@ -14,48 +17,61 @@ import java.util.Set;
  * ItemHolder-managed ListView views.
  */
 public abstract class ItemHolderFactory {
-    private static final ArrayMap<String, ItemHolderFactory> mFactories =
+    private static final ArrayMap<Class, ItemHolderFactory> sFactoriesForClass =
+            new ArrayMap<Class, ItemHolderFactory>();
+    private static final ArrayMap<String, ItemHolderFactory> sFactoriesForType =
             new ArrayMap<String, ItemHolderFactory>();
 
     public static Set<String> getFactoryTypes() {
-        return mFactories.keySet();
+        return sFactoriesForType.keySet();
     }
 
     public static ItemHolderFactory getHolderFactory(String key) {
-        if (!mFactories.containsKey(key)) {
+        if (!sFactoriesForType.containsKey(key)) {
             throw new IllegalStateException("factory of type " + key + " missing");
         }
-        return mFactories.get(key);
+        return sFactoriesForType.get(key);
+    }
+
+    public static ItemHolderFactory getHolderFactory(Class key) {
+        if (!sFactoriesForClass.containsKey(key)) {
+            throw new IllegalStateException("factory of type " + key + " missing");
+        }
+        return sFactoriesForClass.get(key);
     }
 
     private static void registerHolderFactory(ItemHolderFactory factory) {
         String factoryType = factory.getType();
-        if (mFactories.containsKey(factoryType)) {
+        if (sFactoriesForType.containsKey(factoryType)) {
             throw new IllegalArgumentException(
                     "Error: factory with type " + factoryType + " already exists");
         }
-        mFactories.put(factory.getType(), factory);
+        sFactoriesForClass.put(factory.getItemClass(), factory);
+        sFactoriesForType.put(factory.getType(), factory);
     }
 
     public static void initialize() {
-        if (!mFactories.isEmpty()) throw new IllegalStateException("double init attempted");
+        if (!sFactoriesForType.isEmpty()) throw new IllegalStateException("double init attempted");
         registerHolderFactory(CaptainHolder.getFactory());
         registerHolderFactory(ShipHolder.getFactory());
         registerHolderFactory(FlagshipHolder.getFactory());
         registerHolderFactory(WeaponHolder.getFactory());
         registerHolderFactory(ResourceHolder.getFactory());
         registerHolderFactory(SetHolder.getFactory());
-        registerHolderFactory(UpgradeHolder.getFactory(UpgradeHolder.TYPE_STRING_CREW));
-        registerHolderFactory(UpgradeHolder.getFactory(UpgradeHolder.TYPE_STRING_TALENT));
-        registerHolderFactory(UpgradeHolder.getFactory(UpgradeHolder.TYPE_STRING_TECH));
+        registerHolderFactory(UpgradeHolder.getFactory(Crew.class, UpgradeHolder.TYPE_STRING_CREW));
+        registerHolderFactory(UpgradeHolder.getFactory(Talent.class, UpgradeHolder.TYPE_STRING_TALENT));
+        registerHolderFactory(UpgradeHolder.getFactory(Tech.class, UpgradeHolder.TYPE_STRING_TECH));
     }
 
+    private final Class mClazz;
     private final String mType;
 
-    public ItemHolderFactory(String type) {
+    public ItemHolderFactory(Class clazz, String type) {
+        mClazz = clazz;
         mType = type;
     }
 
+    public Class getItemClass() { return mClazz; }
     public String getType() { return mType; }
     public boolean usesFactions() { return true; }
     public abstract ItemHolder createHolder(View view);

@@ -14,7 +14,7 @@ import java.util.List;
 public class SetHolder extends ItemHolder {
     public static final String TYPE_STRING = "Set";
     static ItemHolderFactory getFactory() {
-        return new ItemHolderFactory(TYPE_STRING) {
+        return new ItemHolderFactory(Set.class, TYPE_STRING) {
             @Override
             public boolean usesFactions() {
                 return false;

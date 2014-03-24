@@ -13,7 +13,7 @@ import java.util.List;
 public class ResourceHolder extends ItemHolder.BaseItemHolder {
     public static final String TYPE_STRING = "Resource";
     static ItemHolderFactory getFactory() {
-        return new ItemHolderFactory(TYPE_STRING) {
+        return new ItemHolderFactory(Resource.class, TYPE_STRING) {
             @Override
             public boolean usesFactions() {
                 return false;

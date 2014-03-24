@@ -21,7 +21,7 @@ import java.util.List;
 public class ShipHolder extends ItemHolder.BaseItemHolder {
     public static final String TYPE_STRING = "Ship";
     static ItemHolderFactory getFactory() {
-        return new ItemHolderFactory(TYPE_STRING) {
+        return new ItemHolderFactory(Ship.class, TYPE_STRING) {
             @Override
             public ItemHolder createHolder(View view) {
                 return new ShipHolder(view);

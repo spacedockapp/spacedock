@@ -3,7 +3,6 @@ package com.funnyhatsoftware.spacedock.fragment;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.text.InputType;
@@ -20,7 +19,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.funnyhatsoftware.spacedock.activity.EditSquadActivity;
 import com.funnyhatsoftware.spacedock.FactionInfo;
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.data.Squad;
@@ -34,7 +32,6 @@ public class ManageSquadsFragment extends ListFragment {
 
     public interface SquadSelectListener {
         public void onSquadSelected(int squadIndex);
-        public void onSquadEditAction(int squadIndex);
     }
 
     SquadAdapter mAdapter;
@@ -75,22 +72,18 @@ public class ManageSquadsFragment extends ListFragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_manage, menu);
+        inflater.inflate(R.menu.menu_manage_squads, menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         final int itemId = item.getItemId();
-        final Context context = getActivity();
 
         if (itemId == R.id.menu_create) {
-            getCreateName();
-        } else if (itemId == R.id.menu_edit) {
-            ((SquadSelectListener)getActivity()).onSquadEditAction(mSquadIndex);
-        } else if (itemId == R.id.menu_share) {
-            Toast.makeText(context, "TODO: sharing.", Toast.LENGTH_SHORT).show();
+            startCreateSquad();
+            return true;
         }
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 
     private boolean tryCreateEmptySquad(String name) {
@@ -103,7 +96,7 @@ public class ManageSquadsFragment extends ListFragment {
         return true;
     }
 
-    private void getCreateName() {
+    private void startCreateSquad() {
         final Context context = getActivity();
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(R.string.dialog_request_squad_name);
