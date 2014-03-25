@@ -6,12 +6,15 @@ import java.util.HashSet;
 
 import android.content.Context;
 import android.preference.MultiSelectListPreference;
+import android.preference.Preference;
 import android.util.AttributeSet;
+import android.widget.Toast;
 
 import com.funnyhatsoftware.spacedock.data.Set;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
-public class SetPreference extends MultiSelectListPreference {
+public class SetPreference extends MultiSelectListPreference
+        implements Preference.OnPreferenceChangeListener {
     public SetPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
 
@@ -29,10 +32,18 @@ public class SetPreference extends MultiSelectListPreference {
         setEntries(setLabels);
         setEntryValues(setLabels);
         setDefaultValue(defaultValues);
+        setOnPreferenceChangeListener(this);
     }
 
     @Override
-    protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
-        super.onSetInitialValue(restoreValue, defaultValue);
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        java.util.Set<String> newSets = (java.util.Set<String>) newValue;
+        if (newSets == null || newSets.isEmpty()) {
+            Toast.makeText(getContext(),
+                    R.string.toast_invalid_set_selection, Toast.LENGTH_LONG).show();
+            return false; // disallow update
+        }
+        SpaceDockApplication.updateSetPreferences(newSets);
+        return true; // approve update, and allow it to be persisted
     }
 }

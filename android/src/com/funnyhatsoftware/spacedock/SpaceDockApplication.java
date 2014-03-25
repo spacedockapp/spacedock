@@ -35,11 +35,34 @@ public class SpaceDockApplication extends Application {
         loadSetPreferences(this);
     }
 
+    /**
+     * Load Set selection from shared preferences
+     *
+     * TODO: add never-before-seen sets automatically to pref_key_set_selection.
+     *
+     * This would involve:
+     *
+     * 1) When storing the preference, store all sets seen so far.
+     *
+     * 2) When loading the preference here, if the set of seen sets (ugh) is any different from
+     *    what's in the Universe, store a new value for the set preference that is:
+     *    (setsInUniverse - pref_previouslySeen) + (setsInUniverse & pref_setSelection)
+     *    and update the seen set of sets
+     */
     public static void loadSetPreferences(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         java.util.Set<String> setSelection = sharedPrefs.getStringSet(
                 "pref_key_set_selection", null);
+        updateSetPreferences(setSelection);
+    }
 
+    /**
+     * Push updates to set selection into Universe
+     *
+     * This must *only* be called at app startup, or when changes to user
+     * preferences are made by SetPreference changes.
+     */
+    public static void updateSetPreferences(java.util.Set<String> setSelection) {
         Universe universe = Universe.getUniverse();
         if (setSelection == null) {
             // no preference set, so default to all

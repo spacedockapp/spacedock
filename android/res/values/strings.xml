@@ -34,6 +34,8 @@
     <string name="pref_title_set_selection">Select enabled sets</string>
     <string name="pref_summary_set_selection">Only items from the selected sets are shown in the app.</string>
 
+    <string name="toast_invalid_set_selection">Set selection invalid. You must select at least one set to display.</string>
+
     <!-- Action bar navigation spinner-->
     <string-array name="action_spinner_list">
         <item>Browse</item>
