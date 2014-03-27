@@ -30,26 +30,4 @@ public class SetBase extends Base {
         mProductName = DataUtils.stringValue((String)data.get("ProductName"));
     }
 
-
-    public boolean equals(Object obj) {
-        if (obj == null)
-            return false;
-        if (obj == this)
-            return false;
-        if (!(obj instanceof Set))
-            return false;
-        Set target = (Set)obj;
-        if (DataUtils.compareObjects(target.mExternalId, mExternalId))
-            return false;
-        if (target.mInclude != mInclude)
-            return false;
-        if (DataUtils.compareObjects(target.mName, mName))
-            return false;
-        if (DataUtils.compareObjects(target.mProductName, mProductName))
-            return false;
-        if (!DataUtils.compareObjects(mItems, target.mItems))
-            return false;
-        return true;
-    }
-
 }

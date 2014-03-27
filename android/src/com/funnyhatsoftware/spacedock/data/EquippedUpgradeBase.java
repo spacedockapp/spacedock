@@ -22,24 +22,4 @@ public class EquippedUpgradeBase extends Base {
         mOverriddenCost = DataUtils.intValue((String)data.get("OverriddenCost"));
     }
 
-
-    public boolean equals(Object obj) {
-        if (obj == null)
-            return false;
-        if (obj == this)
-            return false;
-        if (!(obj instanceof EquippedUpgrade))
-            return false;
-        EquippedUpgrade target = (EquippedUpgrade)obj;
-        if (target.mOverridden != mOverridden)
-            return false;
-        if (target.mOverriddenCost != mOverriddenCost)
-            return false;
-        if (!DataUtils.compareObjects(mEquippedShip, target.mEquippedShip))
-            return false;
-        if (!DataUtils.compareObjects(mUpgrade, target.mUpgrade))
-            return false;
-        return true;
-    }
-
 }
