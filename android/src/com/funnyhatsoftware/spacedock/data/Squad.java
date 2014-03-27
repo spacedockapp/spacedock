@@ -27,31 +27,12 @@ public class Squad extends SquadBase {
     private static final String JSON_LABEL_NOTES = "notes";
 
     public Squad() {
+        assignNewUuid();
+    }
+
+    public void assignNewUuid() {
         setUuid(UUID.randomUUID().toString());
     }
-    
-    
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null) {
-            return false;
-        }
-        
-        if (o.getClass() != Squad.class) {
-            return false;
-        }
-        
-        Squad os = (Squad)o;
-        
-        if (!mName.equals(os.mName)) {
-            return false;
-        }
-
-        return true;
-    }
-
-
 
     static String convertStreamToString(InputStream is) {
         java.util.Scanner s = new java.util.Scanner(is);
@@ -101,14 +82,18 @@ public class Squad extends SquadBase {
         return sideboard;
     }
 
-    public void importFromStream(Universe universe, InputStream is)
+    public void importFromStream(Universe universe, InputStream is, boolean replaceUuid)
             throws JSONException {
         JSONTokener tokenizer = new JSONTokener(convertStreamToString(is));
         JSONObject jsonObject = new JSONObject(tokenizer);
         setNotes(jsonObject.getString(JSON_LABEL_NOTES));
         setName(jsonObject.getString(JSON_LABEL_NAME));
         setAdditionalPoints(jsonObject.optInt(JSON_LABEL_ADDITIONAL_POINTS));
-        setUuid(jsonObject.optString(JSON_LABEL_UUID, UUID.randomUUID().toString()));
+        if (replaceUuid) {
+            assignNewUuid();
+        } else {
+            setUuid(jsonObject.optString(JSON_LABEL_UUID, UUID.randomUUID().toString()));
+        }
         String resourceId = jsonObject.optString(JSON_LABEL_RESOURCE);
         if (resourceId != null) {
             Resource resource = universe.resources.get(resourceId);
@@ -127,8 +112,10 @@ public class Squad extends SquadBase {
                 Ship targetShip = universe.getShip(shipId);
                 currentShip = new EquippedShip(targetShip);
             }
-            currentShip.importUpgrades(universe, shipData);
-            addEquippedShip(currentShip);
+            if (currentShip != null) {
+                currentShip.importUpgrades(universe, shipData);
+                addEquippedShip(currentShip);
+            }
         }
     }
 
