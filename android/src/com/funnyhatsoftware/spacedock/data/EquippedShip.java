@@ -370,7 +370,7 @@ public class EquippedShip extends EquippedShipBase {
         }
 
         for (EquippedUpgrade eu : onesToRemove) {
-            removeUpgrade(eu);
+            removeUpgrade(eu, false);
         }
 
     }
