@@ -106,7 +106,7 @@ static NSString* attributeTypeToJavaComparison(NSAttributeType attrType, NSStrin
             
         case NSDateAttributeType:
         case NSStringAttributeType:
-            return [NSString stringWithFormat: @"DataUtils.compareObjects(%@, %@)", lhs, rhs];
+            return [NSString stringWithFormat: @"!DataUtils.compareObjects(%@, %@)", lhs, rhs];
             break;
     }
     return @"false";
@@ -247,6 +247,7 @@ void emitCastToTarget(NSString *javaClassName, NSMutableString *javaClass)
     }
     [javaClass appendString: @"    }\n\n"];
 
+#if 0
     // equals
     [javaClass appendString: @"\n    public boolean equals(Object obj) {\n"];
     
@@ -289,6 +290,7 @@ void emitCastToTarget(NSString *javaClassName, NSMutableString *javaClass)
 
     [javaClass appendString: @"        return true;\n"];
     [javaClass appendString: @"    }\n\n"];
+#endif
 
     [javaClass appendString: @"}\n"];
     NSString* baseSourceFileName = [NSString stringWithFormat: @"%@.java", javaBaseClassName];

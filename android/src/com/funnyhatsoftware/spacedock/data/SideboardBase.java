@@ -9,15 +9,4 @@ public class SideboardBase extends EquippedShip {
         super.update(data);
     }
 
-
-    public boolean equals(Object obj) {
-        if (obj == null)
-            return false;
-        if (obj == this)
-            return false;
-        if (!(obj instanceof Sideboard))
-            return false;
-        return true;
-    }
-
 }

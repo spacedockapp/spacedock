@@ -14,18 +14,4 @@ public abstract class SetItemBase extends Base {
     public void update(Map<String,Object> data) {
     }
 
-
-    public boolean equals(Object obj) {
-        if (obj == null)
-            return false;
-        if (obj == this)
-            return false;
-        if (!(obj instanceof SetItem))
-            return false;
-        SetItem target = (SetItem)obj;
-        if (!DataUtils.compareObjects(mSets, target.mSets))
-            return false;
-        return true;
-    }
-
 }

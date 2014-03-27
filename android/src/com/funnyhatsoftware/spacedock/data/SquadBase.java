@@ -33,28 +33,4 @@ public class SquadBase extends Base {
         mUuid = DataUtils.stringValue((String)data.get("Uuid"));
     }
 
-
-    public boolean equals(Object obj) {
-        if (obj == null)
-            return false;
-        if (obj == this)
-            return false;
-        if (!(obj instanceof Squad))
-            return false;
-        Squad target = (Squad)obj;
-        if (target.mAdditionalPoints != mAdditionalPoints)
-            return false;
-        if (DataUtils.compareObjects(target.mName, mName))
-            return false;
-        if (DataUtils.compareObjects(target.mNotes, mNotes))
-            return false;
-        if (DataUtils.compareObjects(target.mUuid, mUuid))
-            return false;
-        if (!DataUtils.compareObjects(mResource, target.mResource))
-            return false;
-        if (!DataUtils.compareObjects(mEquippedShips, target.mEquippedShips))
-            return false;
-        return true;
-    }
-
 }

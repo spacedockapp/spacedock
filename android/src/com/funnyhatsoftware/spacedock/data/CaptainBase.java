@@ -17,20 +17,4 @@ public class CaptainBase extends Upgrade {
         mTalent = DataUtils.intValue((String)data.get("Talent"));
     }
 
-
-    public boolean equals(Object obj) {
-        if (obj == null)
-            return false;
-        if (obj == this)
-            return false;
-        if (!(obj instanceof Captain))
-            return false;
-        Captain target = (Captain)obj;
-        if (target.mSkill != mSkill)
-            return false;
-        if (target.mTalent != mTalent)
-            return false;
-        return true;
-    }
-
 }
