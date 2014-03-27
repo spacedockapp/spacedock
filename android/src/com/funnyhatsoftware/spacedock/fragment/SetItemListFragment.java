@@ -72,18 +72,8 @@ public class SetItemListFragment extends ListFragment {
         }
     }
 
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        if ((getArguments() == null) || !getArguments().containsKey(ARG_ITEM_TYPE)) {
-            throw new IllegalArgumentException("Invalid fragment arguments, must contain type");
-        }
-
+    public void initializeAdapter() {
         Context context = getActivity();
-        mItemType = getArguments().getString(ARG_ITEM_TYPE);
-
         final int layoutResId = getLayoutResId();
 
         SetItemHolderFactory setItemHolderFactory = SetItemHolderFactory.getHolderFactory(mItemType);
@@ -105,6 +95,18 @@ public class SetItemListFragment extends ListFragment {
             mAdapter = new SetItemAdapter(context, null, layoutResId, setItemHolderFactory);
         }
         setListAdapter(mAdapter);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if ((getArguments() == null) || !getArguments().containsKey(ARG_ITEM_TYPE)) {
+            throw new IllegalArgumentException("Invalid fragment arguments, must contain type");
+        }
+
+        mItemType = getArguments().getString(ARG_ITEM_TYPE);
+        initializeAdapter();
     }
 
     @Override

@@ -1,10 +1,11 @@
 package com.funnyhatsoftware.spacedock.activity;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
-import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.fragment.EditSquadFragment;
 import com.funnyhatsoftware.spacedock.fragment.SetItemListFragment;
 
@@ -19,14 +20,15 @@ public class EditSquadActivity extends PanedFragmentActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_onepane);
+        final ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true); // TODO: navigate up without new activity
+
+        int squadIndex = getIntent().getIntExtra(EXTRA_SQUAD_INDEX, 0);
+        String title = Universe.getUniverse().squads.get(squadIndex).getName();
+        actionBar.setTitle(title);
 
         if (savedInstanceState == null) {
-            int squadIndex = getIntent().getIntExtra(EXTRA_SQUAD_INDEX, 0);
-            Fragment editSquadFragment = EditSquadFragment.newInstance(squadIndex);
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.primary_fragment_container, editSquadFragment, TAG_EDIT)
-                    .commit();
+            initializePrimaryFragment(EditSquadFragment.newInstance(squadIndex), TAG_EDIT);
         }
     }
 

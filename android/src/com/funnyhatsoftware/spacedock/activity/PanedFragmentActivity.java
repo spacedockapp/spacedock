@@ -19,6 +19,12 @@ public abstract class PanedFragmentActivity extends FragmentActivity {
         setContentView(R.layout.activity_onepane); // returns 2 pane on tablets
     }
 
+    protected void initializePrimaryFragment(Fragment newFragment, String tag) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.primary_fragment_container, newFragment, tag)
+                .commit();
+    }
+
     protected void navigateToSubFragment(Fragment newFragment, String tag) {
         final boolean isTwoPane = isTwoPane();
         int containerId = isTwoPane ? R.id.secondary_fragment_container

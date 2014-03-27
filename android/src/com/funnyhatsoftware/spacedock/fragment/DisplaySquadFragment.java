@@ -44,13 +44,8 @@ public class DisplaySquadFragment extends ListFragment {
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-
+    public void initializeAdapter() {
         Context context = getActivity();
-        mSquadIndex = getArguments().getInt(ARG_SQUAD_INDEX);
         Squad squad = Universe.getUniverse().squads.get(mSquadIndex);
         final SeparatedListAdapter multiAdapter = new SeparatedListAdapter(context) {
             @Override
@@ -69,9 +64,19 @@ public class DisplaySquadFragment extends ListFragment {
                     itemList.add(upgrade);
                 }
             }
-            multiAdapter.addSection(equippedShip.getTitle(), new MultiItemAdapter(context, itemList));
+            multiAdapter.addSection(equippedShip.getTitle(),
+                    new MultiItemAdapter(context, itemList));
         }
         setListAdapter(multiAdapter);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+
+        mSquadIndex = getArguments().getInt(ARG_SQUAD_INDEX);
+        initializeAdapter();
     }
 
     @Override

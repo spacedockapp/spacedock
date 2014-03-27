@@ -130,6 +130,10 @@ public class ManageSquadsFragment extends ListFragment {
         ((SquadSelectListener)getActivity()).onSquadSelected(mSquadIndex);
     }
 
+    public void notifyDataSetChanged() {
+        mAdapter.notifyDataSetChanged();
+    }
+
     private class SquadAdapter extends ArrayAdapter<Squad> {
         private static final int LAYOUT_RES_ID = R.layout.squad_summary;
         final HashSet<String> mHashSet = new HashSet<String>();

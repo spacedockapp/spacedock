@@ -31,10 +31,14 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
     private final String SAVE_NAV_POSITION = "navPos";
     private int mPosition;
 
+    private final String TAG_ITEM_LIST = "itemlist";
+    private final String TAG_DISPLAY_SQUAD = "displaysquad";
+    private final String TAG_MANAGE_SQUADS = "managesquads";
+    private final String TAG_BROWSE_LIST = "browselist";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_onepane); // returns 2 pane on tablets
 
         getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
         SpinnerAdapter spinnerAdapter = ArrayAdapter.createFromResource(
@@ -44,13 +48,36 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
         getActionBar().setListNavigationCallbacks(spinnerAdapter, this);
 
         if (savedInstanceState == null) {
-            Fragment leftFragment = new BrowseListFragment();
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.primary_fragment_container, leftFragment)
-                    .commit();
+            initializePrimaryFragment(new BrowseListFragment(), TAG_BROWSE_LIST);
             mPosition = 0;
         } else {
             mPosition = savedInstanceState.getInt(SAVE_NAV_POSITION);
+        }
+    }
+
+    private Fragment findFragmentByTag(String tag) {
+        return getSupportFragmentManager().findFragmentByTag(tag);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // TODO: don't notify fragments if data hasn't actually changed
+        Fragment fragment = findFragmentByTag(TAG_ITEM_LIST);
+        if (fragment != null) {
+            // content may have been changed by SetPreferences, reinitialize list
+            ((SetItemListFragment) fragment).initializeAdapter();
+        }
+        fragment = findFragmentByTag(TAG_DISPLAY_SQUAD);
+        if (fragment != null) {
+            // content may have been changed by EditSquadActivity, reinitialize list
+            ((DisplaySquadFragment) fragment).initializeAdapter();
+        }
+        fragment = findFragmentByTag(TAG_MANAGE_SQUADS);
+        if (fragment != null) {
+            // squad details may have been changed by EditSquadActivity, refresh data
+            ((ManageSquadsFragment) fragment).notifyDataSetChanged();
         }
     }
 
@@ -77,15 +104,21 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
         }
 
         return super.onOptionsItemSelected(item);
-
     }
 
     @Override
     public boolean onNavigationItemSelected(int itemPosition, long itemId) {
         if (itemPosition == mPosition) return false;
 
-        Fragment newPrimaryFragment = (itemPosition == 0)
-                ? new BrowseListFragment() : new ManageSquadsFragment();
+        Fragment newPrimaryFragment;
+        String tag;
+        if (itemPosition == 0) {
+            newPrimaryFragment = new BrowseListFragment();
+            tag = TAG_BROWSE_LIST;
+        } else {
+            newPrimaryFragment = new ManageSquadsFragment();
+            tag = TAG_MANAGE_SQUADS;
+        }
         Fragment oldSecondaryFragment = null;
         if (isTwoPane()) {
             oldSecondaryFragment = getSupportFragmentManager()
@@ -93,7 +126,7 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
         }
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.primary_fragment_container, newPrimaryFragment);
+        transaction.replace(R.id.primary_fragment_container, newPrimaryFragment, tag);
         if (oldSecondaryFragment != null) {
             transaction.remove(oldSecondaryFragment);
         }
@@ -106,7 +139,7 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
     @Override
     public void onBrowseTypeSelected(String itemType) {
         Fragment newFragment = SetItemListFragment.newInstance(itemType, null, null);
-        navigateToSubFragment(newFragment, null);
+        navigateToSubFragment(newFragment, TAG_ITEM_LIST);
     }
 
     @Override
@@ -135,7 +168,7 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
     @Override
     public void onSquadSelected(int squadIndex) {
         Fragment newFragment = DisplaySquadFragment.newInstance(squadIndex);
-        navigateToSubFragment(newFragment, null);
+        navigateToSubFragment(newFragment, TAG_DISPLAY_SQUAD);
     }
 
     @Override
