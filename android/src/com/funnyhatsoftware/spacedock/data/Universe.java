@@ -6,11 +6,14 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.TreeSet;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.xml.sax.SAXException;
 
 import android.content.Context;
@@ -25,7 +28,7 @@ import com.funnyhatsoftware.spacedock.data.Ship.ShipComparator;
 import com.funnyhatsoftware.spacedock.data.Upgrade.UpgradeComparitor;
 
 public class Universe {
-    public ArrayMap<String, Ship> ships = new ArrayMap<String, Ship>();
+    ArrayMap<String, Ship> ships = new ArrayMap<String, Ship>();
     public ArrayMap<String, ShipClassDetails> shipClassDetails = new ArrayMap<String, ShipClassDetails>();
     public ArrayMap<String, ShipClassDetails> shipClassDetailsByName = new ArrayMap<String, ShipClassDetails>();
     public ArrayMap<String, Captain> captains = new ArrayMap<String, Captain>();
@@ -54,13 +57,23 @@ public class Universe {
                 // Temporary - populate squad list
                 is = context.getAssets().open("romulan_2_ship.spacedock");
                 Squad squad = new Squad();
-                squad.importFromStream(sUniverse, is);
+                squad.importFromStream(sUniverse, is, true);
                 sUniverse.squads.add(squad);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
         return sUniverse;
+    }
+
+    public JSONArray allSquadsAsJSON() throws JSONException {
+        JSONArray squadsArray = new JSONArray();
+        int index = 0;
+        for (Squad squad : squads) {
+            JSONObject squadAsJSON = squad.asJSON();
+            squadsArray.put(index++, squadAsJSON);
+        }
+        return squadsArray;
     }
 
     public static Universe getUniverse() {
@@ -87,7 +100,7 @@ public class Universe {
 
     public ArrayList<Resource> getResources() {
         ArrayList<Resource> resourcesCopy = new ArrayList<Resource>();
-        for (Resource resource: resources.values()) {
+        for (Resource resource : resources.values()) {
             if (isMemberOfIncludedSet(resource)) {
                 resourcesCopy.add(resource);
             }
@@ -127,6 +140,10 @@ public class Universe {
             }
         }
         return false;
+    }
+    
+    public void addShip(Ship ship) {
+        ships.put(ship.getExternalId(), ship);
     }
 
     public ArrayList<Ship> getShips() {
@@ -262,4 +279,5 @@ public class Universe {
         Collections.sort(setsCopy, new SetComparator());
         return setsCopy;
     }
+
 }
