@@ -4,7 +4,6 @@ package com.funnyhatsoftware.spacedock.test;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,7 +20,7 @@ public class TestSquad extends BaseTest {
     public void testImport() throws IOException, JSONException {
         InputStream is = getContext().getAssets().open("romulan_2_ship.spacedock");
         Squad squad = new Squad();
-        squad.importFromStream(universe, is);
+        squad.importFromStream(universe, is, false);
         assertEquals("Wrong notes", "Unified Force (0) Strike Force (5)", squad.getNotes());
         assertEquals("Wrong name", "Romulan 2 Ship", squad.getName());
         assertEquals("Wrong ship count", 2, squad.getEquippedShips().size());
@@ -40,12 +39,12 @@ public class TestSquad extends BaseTest {
     public void testExport() throws IOException, JSONException {
         InputStream is = getContext().getAssets().open("romulan_2_ship.spacedock");
         Squad squad = new Squad();
-        squad.importFromStream(universe, is);
+        squad.importFromStream(universe, is, false);
         JSONObject o = squad.asJSON();
         String jsonString = o.toString(4);
         InputStream stream = new ByteArrayInputStream(jsonString.getBytes("UTF-8"));
         Squad newSquad = new Squad();
-        newSquad.importFromStream(universe, stream);
-        assertEquals(squad, newSquad);
+        newSquad.importFromStream(universe, stream, false);
+        assertEquals("Cost doesn't match", squad.calculateCost(), newSquad.calculateCost());
     }
 }
