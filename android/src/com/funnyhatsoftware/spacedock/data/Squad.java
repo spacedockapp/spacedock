@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.List;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -34,16 +35,8 @@ public class Squad extends SquadBase {
         setUuid(UUID.randomUUID().toString());
     }
 
-    static String convertStreamToString(InputStream is) {
-        java.util.Scanner s = new java.util.Scanner(is);
-        s.useDelimiter("\\A");
-        String value = s.hasNext() ? s.next() : "";
-        s.close();
-        return value;
-    }
-
     static private HashSet<String> allNames() {
-        ArrayList<Squad> allSquads = Universe.getUniverse().squads;
+        List<Squad> allSquads = Universe.getUniverse().getAllSquads();
         HashSet<String> names = new HashSet<String>();
         for (Squad squad : allSquads) {
             names.add(squad.getName());
@@ -82,10 +75,8 @@ public class Squad extends SquadBase {
         return sideboard;
     }
 
-    public void importFromStream(Universe universe, InputStream is, boolean replaceUuid)
+    public void importFromObject(Universe universe, boolean replaceUuid, JSONObject jsonObject)
             throws JSONException {
-        JSONTokener tokenizer = new JSONTokener(convertStreamToString(is));
-        JSONObject jsonObject = new JSONObject(tokenizer);
         setNotes(jsonObject.getString(JSON_LABEL_NOTES));
         setName(jsonObject.getString(JSON_LABEL_NAME));
         setAdditionalPoints(jsonObject.optInt(JSON_LABEL_ADDITIONAL_POINTS));
@@ -117,6 +108,13 @@ public class Squad extends SquadBase {
                 addEquippedShip(currentShip);
             }
         }
+    }
+
+    public void importFromStream(Universe universe, InputStream is, boolean replaceUuid)
+            throws JSONException {
+        JSONTokener tokenizer = new JSONTokener(DataUtils.convertStreamToString(is));
+        JSONObject jsonObject = new JSONObject(tokenizer);
+        importFromObject(universe, replaceUuid, jsonObject);
     }
 
     public JSONObject asJSON() throws JSONException {

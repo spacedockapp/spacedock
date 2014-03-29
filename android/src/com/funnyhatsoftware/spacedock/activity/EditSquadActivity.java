@@ -24,7 +24,7 @@ public class EditSquadActivity extends PanedFragmentActivity
         actionBar.setDisplayHomeAsUpEnabled(true); // TODO: navigate up without new activity
 
         int squadIndex = getIntent().getIntExtra(EXTRA_SQUAD_INDEX, 0);
-        String title = Universe.getUniverse().squads.get(squadIndex).getName();
+        String title = Universe.getUniverse().getSquad(squadIndex).getName();
         actionBar.setTitle(title);
 
         if (savedInstanceState == null) {

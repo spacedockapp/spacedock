@@ -44,7 +44,7 @@ public class ManageSquadsFragment extends ListFragment {
 
         // setup adapter
         final Context context = getActivity();
-        ArrayList<Squad> squads = new ArrayList<Squad>(Universe.getUniverse().squads);
+        ArrayList<Squad> squads = new ArrayList<Squad>(Universe.getUniverse().getAllSquads());
         mAdapter = new SquadAdapter(context, squads);
         setListAdapter(mAdapter);
 
@@ -91,7 +91,7 @@ public class ManageSquadsFragment extends ListFragment {
 
         Squad squad = new Squad();
         squad.setName(name);
-        Universe.getUniverse().squads.add(squad);
+        Universe.getUniverse().addSquad(squad);
         mAdapter.add(squad);
         return true;
     }

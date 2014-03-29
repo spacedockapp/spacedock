@@ -83,7 +83,7 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
                 : ListView.CHOICE_MODE_NONE);
 
         int squadIndex = getArguments().getInt(ARG_SQUAD_INDEX);
-        Squad squad = Universe.getUniverse().squads.get(squadIndex);
+        Squad squad = Universe.getUniverse().getSquad(squadIndex);
         mAdapter = new EditSquadAdapter(getActivity(), elv, squad, this);
         elv.setAdapter(mAdapter);
     }

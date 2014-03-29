@@ -1,5 +1,9 @@
 package com.funnyhatsoftware.spacedock.activity;
 
+import java.io.IOException;
+
+import org.json.JSONException;
+
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
 
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.fragment.BrowseListFragment;
 import com.funnyhatsoftware.spacedock.fragment.ChooseFactionDialog;
 import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
@@ -86,6 +91,18 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+                
+        try {
+            Universe universe = Universe.getUniverse();
+            universe.save(this);
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
         outState.putInt(SAVE_NAV_POSITION, mPosition);
     }
 

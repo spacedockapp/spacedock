@@ -1,9 +1,14 @@
 
 package com.funnyhatsoftware.spacedock.data;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -14,11 +19,13 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONTokener;
 import org.xml.sax.SAXException;
 
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.support.v4.util.ArrayMap;
+import android.util.Log;
 
 import com.funnyhatsoftware.spacedock.data.Captain.CaptainComparator;
 import com.funnyhatsoftware.spacedock.data.Flagship.FlagshipComparator;
@@ -28,6 +35,8 @@ import com.funnyhatsoftware.spacedock.data.Ship.ShipComparator;
 import com.funnyhatsoftware.spacedock.data.Upgrade.UpgradeComparitor;
 
 public class Universe {
+    private static final String SQUADS_FILE_NAME = "squads.spacedocksquads";
+
     ArrayMap<String, Ship> ships = new ArrayMap<String, Ship>();
     public ArrayMap<String, ShipClassDetails> shipClassDetails = new ArrayMap<String, ShipClassDetails>();
     public ArrayMap<String, ShipClassDetails> shipClassDetailsByName = new ArrayMap<String, ShipClassDetails>();
@@ -38,7 +47,7 @@ public class Universe {
     public ArrayMap<String, Set> sets = new ArrayMap<String, Set>();
     private java.util.Set<Set> mIncludedSets = new HashSet<Set>();
     public ArrayMap<String, Upgrade> placeholders = new ArrayMap<String, Upgrade>();
-    public ArrayList<Squad> squads = new ArrayList<Squad>();
+    private ArrayList<Squad> mSquads = new ArrayList<Squad>();
     private ArrayList<String> mAllFactions;
     private String mSelectedFaction;
 
@@ -55,11 +64,7 @@ public class Universe {
             sUniverse = newUniverse;
 
             try {
-                // Temporary - populate squad list
-                is = context.getAssets().open("romulan_2_ship.spacedock");
-                Squad squad = new Squad();
-                squad.importFromStream(sUniverse, is, true);
-                sUniverse.squads.add(squad);
+                sUniverse.restore(context);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -70,11 +75,42 @@ public class Universe {
     public JSONArray allSquadsAsJSON() throws JSONException {
         JSONArray squadsArray = new JSONArray();
         int index = 0;
-        for (Squad squad : squads) {
+        for (Squad squad : mSquads) {
             JSONObject squadAsJSON = squad.asJSON();
             squadsArray.put(index++, squadAsJSON);
         }
         return squadsArray;
+    }
+
+    private File getAllSquadsSaveFile(File filesDir) {
+        File file = new File(filesDir, SQUADS_FILE_NAME);
+        return file;
+    }
+
+    public void save(Context context) throws JSONException, IOException {
+        File filesDir = context.getFilesDir();
+        File file = getAllSquadsSaveFile(filesDir);
+        FileOutputStream outputStream = new FileOutputStream(file);
+        JSONArray allSquads = allSquadsAsJSON();
+        String jsonString = allSquads.toString();
+        outputStream.write(jsonString.getBytes());
+        outputStream.close();
+    }
+
+    public void restore(Context context) throws FileNotFoundException, JSONException {
+        File filesDir = context.getFilesDir();
+        File file = getAllSquadsSaveFile(filesDir);
+        FileInputStream inputStream = new FileInputStream(file);
+        String savedJSON = DataUtils.convertStreamToString(inputStream);
+        JSONTokener tokenizer = new JSONTokener(savedJSON);
+        JSONArray jsonArray = new JSONArray(tokenizer);
+        int count = jsonArray.length();
+        for (int i = 0; i < count; ++i) {
+            JSONObject oneSquad = jsonArray.getJSONObject(i);
+            Squad squad = new Squad();
+            squad.importFromObject(this, false, oneSquad);
+            mSquads.add(squad);
+        }
     }
 
     public static Universe getUniverse() {
@@ -142,7 +178,7 @@ public class Universe {
         }
         return false;
     }
-    
+
     public void addShip(Ship ship) {
         ships.put(ship.getExternalId(), ship);
     }
@@ -280,7 +316,7 @@ public class Universe {
         Collections.sort(setsCopy, new SetComparator());
         return setsCopy;
     }
-    
+
     public List<String> getSelectedFactions() {
         if (mSelectedFaction == null) {
             return getAllFactions();
@@ -289,9 +325,21 @@ public class Universe {
         l.add(mSelectedFaction);
         return l;
     }
-    
+
     public void setSelectedFaction(String faction) {
         mSelectedFaction = faction;
+    }
+
+    public Squad getSquad(int squadIndex) {
+        return mSquads.get(squadIndex);
+    }
+
+    public void addSquad(Squad squad) {
+        mSquads.add(squad);
+    }
+
+    public List<Squad> getAllSquads() {
+        return mSquads;
     }
 
 }

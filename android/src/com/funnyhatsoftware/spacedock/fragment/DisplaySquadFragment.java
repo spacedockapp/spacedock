@@ -46,7 +46,7 @@ public class DisplaySquadFragment extends ListFragment {
 
     public void initializeAdapter() {
         Context context = getActivity();
-        Squad squad = Universe.getUniverse().squads.get(mSquadIndex);
+        Squad squad = Universe.getUniverse().getSquad(mSquadIndex);
         final SeparatedListAdapter multiAdapter = new SeparatedListAdapter(context) {
             @Override
             public boolean isEnabled(int position) {

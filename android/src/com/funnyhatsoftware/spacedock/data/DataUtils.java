@@ -1,6 +1,8 @@
 
 package com.funnyhatsoftware.spacedock.data;
 
+import java.io.InputStream;
+
 public class DataUtils {
     public static int intValue(String v) {
         if (v == null) {
@@ -67,4 +69,13 @@ public class DataUtils {
         
         return o1.equals(o2);
     }
+
+    static public String convertStreamToString(InputStream is) {
+        java.util.Scanner s = new java.util.Scanner(is);
+        s.useDelimiter("\\A");
+        String value = s.hasNext() ? s.next() : "";
+        s.close();
+        return value;
+    }
+
 }
