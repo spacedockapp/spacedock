@@ -109,7 +109,6 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_root, menu);
         return true;
     }
@@ -126,7 +125,7 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
         if (itemId == R.id.menu_faction) {
             FragmentManager fm = getSupportFragmentManager();
             ChooseFactionDialog chooseFactionDialog = new ChooseFactionDialog();
-            chooseFactionDialog.show(fm, "framgment_faction_list");
+            chooseFactionDialog.show(fm, "fragment_faction_list");
             return true;
         }
 

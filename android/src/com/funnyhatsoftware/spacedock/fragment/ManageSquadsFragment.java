@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.funnyhatsoftware.spacedock.FactionInfo;
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.TextEntryDialog;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
@@ -44,7 +45,7 @@ public class ManageSquadsFragment extends ListFragment {
 
         // setup adapter
         final Context context = getActivity();
-        ArrayList<Squad> squads = new ArrayList<Squad>(Universe.getUniverse().getAllSquads());
+        ArrayList<Squad> squads = Universe.getUniverse().getAllSquads();
         mAdapter = new SquadAdapter(context, squads);
         setListAdapter(mAdapter);
 
@@ -86,41 +87,24 @@ public class ManageSquadsFragment extends ListFragment {
         return super.onOptionsItemSelected(item);
     }
 
-    private boolean tryCreateEmptySquad(String name) {
-        if (name == null || name.isEmpty()) return false;
-
+    private void tryCreateEmptySquad(String name) {
         Squad squad = new Squad();
         squad.setName(name);
         Universe.getUniverse().addSquad(squad);
-        mAdapter.add(squad);
-        return true;
+        mAdapter.notifyDataSetChanged();
     }
 
     private void startCreateSquad() {
         final Context context = getActivity();
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(R.string.dialog_request_squad_name);
-        final EditText input = new EditText(context);
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
-        builder.setView(input);
-
-        builder.setPositiveButton(R.string.dialog_accept, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String squadName = input.getText().toString();
-                if (!tryCreateEmptySquad(squadName)) {
-                    Toast.makeText(context, "Failed to create squad",
-                            Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-        builder.setNegativeButton(R.string.dialog_reject, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        builder.show();
+        TextEntryDialog.create(context, null,
+                R.string.dialog_request_squad_name,
+                R.string.dialog_error_empty_squad_name,
+                new TextEntryDialog.OnAcceptListener() {
+                    @Override
+                    public void onTextValueCommitted(String inputText) {
+                        tryCreateEmptySquad(inputText);
+                    }
+                });
     }
 
     @Override

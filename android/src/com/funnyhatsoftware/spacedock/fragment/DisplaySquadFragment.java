@@ -50,6 +50,13 @@ public class DisplaySquadFragment extends ListFragment {
 
     public void initializeAdapter() {
         Context context = getActivity();
+
+        if (mSquadIndex >= Universe.getUniverse().getAllSquads().size()) {
+            // fragment now invalid, detach
+            getFragmentManager().beginTransaction().remove(this).commit();
+            return;
+        }
+
         Squad squad = Universe.getUniverse().getSquad(mSquadIndex);
         final SeparatedListAdapter multiAdapter = new SeparatedListAdapter(context) {
             @Override

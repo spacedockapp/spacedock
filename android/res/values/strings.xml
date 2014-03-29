@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">Space Dock</string>
-    <string name="title_ship_detail">Ship Detail</string>
 
     <!-- Labels for configuration slots in each ship -->
     <string name="captain_slot">Captain</string>
@@ -23,10 +22,13 @@
     <string name="menu_create_squad">Create Squad</string>
     <string name="menu_share_squad">Share Squad</string>
     <string name="menu_edit_squad">Edit Squad</string>
+    <string name="menu_rename_squad">Rename Squad</string>
+    <string name="menu_delete_squad">Delete Squad</string>
 
     <string name="dialog_request_squad_name">Squad Name</string>
     <string name="dialog_accept">OK</string>
     <string name="dialog_reject">Cancel</string>
+    <string name="dialog_error_empty_squad_name">Squad name must not be empty.</string>
 
     <string name="title_settings">Settings</string>
     <string name="pref_title_show_item_details">Show item details</string>

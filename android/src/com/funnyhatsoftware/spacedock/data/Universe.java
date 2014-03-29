@@ -102,6 +102,7 @@ public class Universe {
         File file = getAllSquadsSaveFile(filesDir);
         FileInputStream inputStream = new FileInputStream(file);
         String savedJSON = DataUtils.convertStreamToString(inputStream);
+
         JSONTokener tokenizer = new JSONTokener(savedJSON);
         JSONArray jsonArray = new JSONArray(tokenizer);
         int count = jsonArray.length();
@@ -340,7 +341,7 @@ public class Universe {
         mSquads.add(squad);
     }
 
-    public List<Squad> getAllSquads() {
+    public ArrayList<Squad> getAllSquads() {
         return mSquads;
     }
 
