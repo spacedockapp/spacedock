@@ -37,6 +37,10 @@ public class DisplaySquadFragment extends ListFragment {
     private int mSquadIndex; // index of squad being displayed
 
     public static DisplaySquadFragment newInstance(int squadIndex) {
+        if (squadIndex >= Universe.getUniverse().getAllSquads().size()) {
+            throw new IllegalArgumentException("can't display missing squad " + squadIndex);
+        }
+
         DisplaySquadFragment fragment = new DisplaySquadFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SQUAD_INDEX, squadIndex);

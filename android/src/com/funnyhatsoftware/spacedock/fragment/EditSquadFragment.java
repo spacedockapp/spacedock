@@ -109,7 +109,6 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
         } else {
             listener.onItemRequested(slotNames[slotType], prefFaction, currentEquipmentId);
         }
-
     }
 
     public void onSetItemReturned(String externalId) {

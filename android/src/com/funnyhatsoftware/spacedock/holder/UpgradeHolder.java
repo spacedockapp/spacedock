@@ -36,7 +36,6 @@ public class UpgradeHolder extends SetItemHolder {
                 builder.addString("Set", upgrade.getSetName());
                 builder.addString("Ability", upgrade.getAbility());
                 return upgrade.getTitle();
-
             }
         };
     }

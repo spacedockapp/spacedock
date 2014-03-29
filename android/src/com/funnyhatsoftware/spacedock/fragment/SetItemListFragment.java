@@ -7,20 +7,25 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.BaseAdapter;
+import android.widget.HeaderViewListAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.funnyhatsoftware.spacedock.HeaderAdapter;
 import com.funnyhatsoftware.spacedock.SetItemAdapter;
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.SeparatedListAdapter;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
+import com.funnyhatsoftware.spacedock.holder.ShipHolder;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 public class SetItemListFragment extends ListFragment {
+    private static final String ARG_IS_SELECTING = "selection";
     private static final String ARG_ITEM_TYPE = "item_type";
     private static final String ARG_PRIORITIZED_FACTION = "prior_faction";
     private static final String ARG_SELECTED_ID = "item_sel";
@@ -29,19 +34,34 @@ public class SetItemListFragment extends ListFragment {
         public void onItemSelected(String itemType, String itemId);
     }
 
+    private boolean mSelectionMode;
     private BaseAdapter mAdapter;
     private String mItemType;
 
+
     /**
-     * Creates a SetItemListFragment
+     * Creates a SetItemListFragment for display
+     */
+    public static SetItemListFragment newInstance(String itemType) {
+        return newInstance(false, itemType, null, null);
+    }
+
+    /**
+     * Creates a SetItemListFragment for item selection
      */
     public static SetItemListFragment newInstance(String itemType,
             String prioritizedFaction, String currentId) {
+        return newInstance(true, itemType, prioritizedFaction, currentId);
+    }
+
+    private static SetItemListFragment newInstance(boolean selectionMode,
+            String itemType, String prioritizedFaction, String currentId) {
         SetItemListFragment fragment = new SetItemListFragment();
         Bundle arguments = new Bundle();
-        arguments.putString(SetItemListFragment.ARG_ITEM_TYPE, itemType);
-        arguments.putString(SetItemListFragment.ARG_PRIORITIZED_FACTION, prioritizedFaction);
-        arguments.putString(SetItemListFragment.ARG_SELECTED_ID, currentId);
+        arguments.putBoolean(ARG_IS_SELECTING, selectionMode);
+        arguments.putString(ARG_ITEM_TYPE, itemType);
+        arguments.putString(ARG_PRIORITIZED_FACTION, prioritizedFaction);
+        arguments.putString(ARG_SELECTED_ID, currentId);
         fragment.setArguments(arguments);
         return fragment;
     }
@@ -77,23 +97,35 @@ public class SetItemListFragment extends ListFragment {
         final int layoutResId = getLayoutResId();
 
         SetItemHolderFactory setItemHolderFactory = SetItemHolderFactory.getHolderFactory(mItemType);
-        if (setItemHolderFactory.usesFactions()) {
-            // add a combination of faction-specific adapters together
-            final SeparatedListAdapter multiAdapter = new SeparatedListAdapter(getActivity());
 
+        BaseAdapter contentAdapter;
+        if (setItemHolderFactory.usesFactions()) {
+            SeparatedListAdapter multiAdapter = new SeparatedListAdapter(getActivity());
+            // add a combination of faction-specific adapters together
             ArrayList<String> factions = getOrderedFactions();
             for (String faction : factions) {
-                SetItemAdapter factionAdapter = new SetItemAdapter(context, faction,
-                        layoutResId, setItemHolderFactory);
-                if (factionAdapter.getCount() > 0) {
+                SetItemAdapter factionAdapter = SetItemAdapter.CreateFactionAdapter(context,
+                        faction, layoutResId, setItemHolderFactory);
+                if (factionAdapter != null) {
                     multiAdapter.addSection(faction, factionAdapter);
                 }
             }
-            mAdapter = multiAdapter;
+            contentAdapter = multiAdapter;
         } else {
             // item type not split into factions, use a single adapter
-            mAdapter = new SetItemAdapter(context, null, layoutResId, setItemHolderFactory);
+            contentAdapter = SetItemAdapter.CreateFactionAdapter(context,
+                    null, layoutResId, setItemHolderFactory);
         }
+
+        if (mSelectionMode && !setItemHolderFactory.getType().equals(ShipHolder.TYPE_STRING)) {
+            // in selection mode, for non-ship selection, add a 'clear' item/placeholder at the top
+            BaseAdapter placeholderAdapter = SetItemAdapter.CreatePlaceholderAdapter(context,
+                    layoutResId, setItemHolderFactory);
+            mAdapter = new HeaderAdapter(placeholderAdapter, contentAdapter);
+        } else {
+            mAdapter = contentAdapter;
+        }
+
         setListAdapter(mAdapter);
     }
 
@@ -105,6 +137,7 @@ public class SetItemListFragment extends ListFragment {
             throw new IllegalArgumentException("Invalid fragment arguments, must contain type");
         }
 
+        mSelectionMode = getArguments().getBoolean(ARG_IS_SELECTING);
         mItemType = getArguments().getString(ARG_ITEM_TYPE);
         initializeAdapter();
     }
@@ -113,8 +146,6 @@ public class SetItemListFragment extends ListFragment {
     public void onListItemClick(ListView listView, View view, int position, long id) {
         super.onListItemClick(listView, view, position, id);
         if (view.getTag() == null) return;
-
-        // TODO: move into callbacks into activity
 
         SetItem item = (SetItem) mAdapter.getItem(position);
         String externalId = item.getExternalId();

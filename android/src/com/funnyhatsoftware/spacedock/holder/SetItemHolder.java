@@ -25,8 +25,7 @@ public abstract class SetItemHolder {
         this(view, stubReplaceLayoutId, 0);
     }
 
-    protected SetItemHolder(View view,
-                            int stubReplaceLayoutId, int stubDetailReplaceLayoutId) {
+    protected SetItemHolder(View view, int stubReplaceLayoutId, int stubDetailReplaceLayoutId) {
         mUnique = (TextView) view.findViewById(R.id.unique);
         mTitle = (TextView) view.findViewById(R.id.title);
         mCost = (TextView) view.findViewById(R.id.cost);
@@ -55,7 +54,11 @@ public abstract class SetItemHolder {
             mUnique.setText(null);
         }
 
-        mTitle.setText(setItem.getTitle());
+        if (setItem.isPlaceholder()) {
+            mTitle.setText(R.string.clear_upgrade_slot);
+        } else {
+            mTitle.setText(setItem.getTitle());
+        }
         mCost.setText(Integer.toString(setItem.getCost()));
 
         if (mAbility != null) {

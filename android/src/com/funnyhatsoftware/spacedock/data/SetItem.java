@@ -4,8 +4,7 @@ package com.funnyhatsoftware.spacedock.data;
 import java.util.ArrayList;
 
 public class SetItem extends SetItemBase {
-    public String anySetExternalId()
-    {
+    public String anySetExternalId() {
         Set set = mSets.get(0);
         return set.getExternalId();
     }
@@ -41,6 +40,10 @@ public class SetItem extends SetItemBase {
 
     public String getExternalId() {
         return null;
+    }
+
+    public boolean isPlaceholder() {
+        return false;
     }
 
     public void addToSet(Set set) {

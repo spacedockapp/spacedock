@@ -98,6 +98,7 @@ public class Upgrade extends UpgradeBase {
         return "";
     }
 
+    @Override
     public boolean isPlaceholder() {
         return getPlaceholder();
     }

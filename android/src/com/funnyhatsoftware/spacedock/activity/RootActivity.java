@@ -164,7 +164,7 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
 
     @Override
     public void onBrowseTypeSelected(String itemType) {
-        Fragment newFragment = SetItemListFragment.newInstance(itemType, null, null);
+        Fragment newFragment = SetItemListFragment.newInstance(itemType);
         navigateToSubFragment(newFragment, TAG_ITEM_LIST);
     }
 

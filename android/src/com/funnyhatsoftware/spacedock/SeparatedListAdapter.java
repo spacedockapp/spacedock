@@ -25,7 +25,7 @@ public class SeparatedListAdapter extends BaseAdapter {
     }
 
     public Object getItem(int position) {
-        for (Object section : mSections.keySet()) {
+        for (String section : mSections.keySet()) {
             Adapter adapter = mSections.get(section);
             int size = adapter.getCount() + 1;
 
@@ -55,15 +55,16 @@ public class SeparatedListAdapter extends BaseAdapter {
     public int getViewTypeCount() {
         // assume that headers count as one, then total all sections
         int total = 1;
-        for (Adapter adapter : mSections.values())
+        for (Adapter adapter : mSections.values()) {
             total += adapter.getViewTypeCount();
+        }
         return total;
     }
 
     @Override
     public int getItemViewType(int position) {
         int type = 1;
-        for (Object section : mSections.keySet()) {
+        for (String section : mSections.keySet()) {
             Adapter adapter = mSections.get(section);
             int size = adapter.getCount() + 1;
 
@@ -90,8 +91,7 @@ public class SeparatedListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         int sectionIndex = 0;
-        for (Object section : mSections.keySet())
-        {
+        for (String section : mSections.keySet()) {
             Adapter adapter = mSections.get(section);
             int size = adapter.getCount() + 1;
 

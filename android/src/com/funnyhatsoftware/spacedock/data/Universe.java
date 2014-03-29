@@ -224,6 +224,8 @@ public class Universe {
                 placeholder = new Captain();
             } else if (upType.equals("Crew")) {
                 placeholder = new Crew();
+            } else {
+                return null; // placeholder type not supported
             }
 
             placeholder.setTitle(upType);

@@ -8,19 +8,44 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import com.funnyhatsoftware.spacedock.data.SetItem;
+import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolder;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SetItemAdapter extends ArrayAdapter<SetItem> {
     private final SetItemHolderFactory mSetItemHolderFactory;
     private final int mLayoutResId;
 
-    public SetItemAdapter(Context context, String faction, int layoutResId,
-                          SetItemHolderFactory setItemHolderFactory) {
-        super(context, layoutResId,
-                new ArrayList<SetItem>(setItemHolderFactory.getItemsForFaction(faction)));
+    public static SetItemAdapter CreateFactionAdapter(Context context, String faction,
+            int layoutResId, SetItemHolderFactory factory) {
+        List<? extends SetItem> factionItemList = factory.getItemsForFaction(faction);
+
+        if (factionItemList == null || factionItemList.isEmpty()) return null;
+
+        ArrayList<SetItem> items = new ArrayList<SetItem>(factionItemList);
+        return new SetItemAdapter(context, layoutResId, factory, items);
+    }
+
+    public static SetItemAdapter CreatePlaceholderAdapter(Context context,
+            int layoutResId, SetItemHolderFactory factory) {
+        SetItem placeholder = Universe.getUniverse().findOrCreatePlaceholder(factory.getType());
+
+        if (placeholder == null) {
+            throw new IllegalStateException("missing placeholder of type " + factory.getType());
+        }
+
+        ArrayList<SetItem> items = new ArrayList<SetItem>(1);
+        items.add(placeholder);
+        return new SetItemAdapter(context, layoutResId, factory, items);
+
+    }
+
+    private SetItemAdapter(Context context, int layoutResId,
+            SetItemHolderFactory setItemHolderFactory, ArrayList<SetItem> items) {
+        super(context, layoutResId, items);
         mSetItemHolderFactory = setItemHolderFactory;
         mLayoutResId = layoutResId;
     }

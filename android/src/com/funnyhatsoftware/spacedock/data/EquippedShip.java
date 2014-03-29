@@ -559,7 +559,7 @@ public class EquippedShip extends EquippedShipBase {
 
     public void equipUpgrade(int slotType, int slotIndex, String externalId) {
         Upgrade upgrade;
-        if (!externalId.isEmpty()) {
+        if (externalId != null && !externalId.isEmpty()) {
             if (slotType == SLOT_TYPE_CAPTAIN) {
                 upgrade = Universe.getUniverse().getCaptain(externalId);
             } else {
@@ -590,9 +590,8 @@ public class EquippedShip extends EquippedShipBase {
             for (EquippedUpgrade equippedUpgrade : mUpgrades) {
                 if (c.isInstance(equippedUpgrade.getUpgrade())) {
                     if (equippedUpgrade.isPlaceholder()) {
-                        Log.d(TAG,
-                                "    " + i + ", PLACEHOLDER upgrade is "
-                                        + equippedUpgrade.getTitle());
+                        Log.d(TAG, "    " + i + ", PLACEHOLDER upgrade is "
+                                + equippedUpgrade.getTitle());
                     } else {
                         Log.d(TAG, "    " + i + ", upgrade is " + equippedUpgrade.getTitle());
                     }
@@ -609,7 +608,7 @@ public class EquippedShip extends EquippedShipBase {
         }
     }
 
-    private final String JSON_LABEL_SIDEBOARD = "sideboard";
+    private static final String JSON_LABEL_SIDEBOARD = "sideboard";
     private static final String JSON_LABEL_SHIP_ID = "shipId";
     private static final String JSON_LABEL_SHIP_TITLE = "shipTitle";
     private static final String JSON_LABEL_FLAGSHIP = "flagship";
