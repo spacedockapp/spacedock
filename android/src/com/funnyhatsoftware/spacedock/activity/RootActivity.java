@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,10 +13,11 @@ import android.widget.SpinnerAdapter;
 
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.fragment.BrowseListFragment;
+import com.funnyhatsoftware.spacedock.fragment.ChooseFactionDialog;
 import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 import com.funnyhatsoftware.spacedock.fragment.DisplaySquadFragment;
-import com.funnyhatsoftware.spacedock.fragment.SetItemListFragment;
 import com.funnyhatsoftware.spacedock.fragment.ManageSquadsFragment;
+import com.funnyhatsoftware.spacedock.fragment.SetItemListFragment;
 
 /**
  * Base fragment managing Activity class, supporting ActionBar spinner navigation.
@@ -100,6 +102,13 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
         if (itemId == R.id.menu_settings) {
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
+            return true;
+        }
+
+        if (itemId == R.id.menu_faction) {
+            FragmentManager fm = getSupportFragmentManager();
+            ChooseFactionDialog chooseFactionDialog = new ChooseFactionDialog();
+            chooseFactionDialog.show(fm, "framgment_faction_list");
             return true;
         }
 

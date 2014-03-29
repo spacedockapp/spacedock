@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.TreeSet;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -40,6 +40,7 @@ public class Universe {
     public ArrayMap<String, Upgrade> placeholders = new ArrayMap<String, Upgrade>();
     public ArrayList<Squad> squads = new ArrayList<Squad>();
     private ArrayList<String> mAllFactions;
+    private String mSelectedFaction;
 
     static Universe sUniverse;
 
@@ -278,6 +279,19 @@ public class Universe {
         setsCopy.addAll(sets.values());
         Collections.sort(setsCopy, new SetComparator());
         return setsCopy;
+    }
+    
+    public List<String> getSelectedFactions() {
+        if (mSelectedFaction == null) {
+            return getAllFactions();
+        }
+        ArrayList<String> l = new ArrayList<String>();
+        l.add(mSelectedFaction);
+        return l;
+    }
+    
+    public void setSelectedFaction(String faction) {
+        mSelectedFaction = faction;
     }
 
 }

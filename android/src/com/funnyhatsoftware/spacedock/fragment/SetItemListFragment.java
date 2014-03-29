@@ -47,7 +47,7 @@ public class SetItemListFragment extends ListFragment {
     }
 
     private ArrayList<String> getOrderedFactions() {
-        ArrayList<String> factions = new ArrayList<String>(Universe.getUniverse().getAllFactions());
+        ArrayList<String> factions = new ArrayList<String>(Universe.getUniverse().getSelectedFactions());
 
         final String prioritizedFaction = getArguments().getString(ARG_PRIORITIZED_FACTION);
         if (prioritizedFaction != null){
