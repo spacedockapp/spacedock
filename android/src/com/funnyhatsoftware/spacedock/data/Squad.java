@@ -77,7 +77,9 @@ public class Squad extends SquadBase {
 
     public void importFromObject(Universe universe, boolean replaceUuid, JSONObject jsonObject)
             throws JSONException {
-        setNotes(jsonObject.getString(JSON_LABEL_NOTES));
+        if (jsonObject.has(JSON_LABEL_NOTES)) {
+            setNotes(jsonObject.getString(JSON_LABEL_NOTES));
+        }
         setName(jsonObject.getString(JSON_LABEL_NAME));
         setAdditionalPoints(jsonObject.optInt(JSON_LABEL_ADDITIONAL_POINTS));
         if (replaceUuid) {
