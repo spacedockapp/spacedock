@@ -34,7 +34,8 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
         BrowseListFragment.BrowseTypeSelectionListener,
         SetItemListFragment.SetItemSelectedListener,
         ManageSquadsFragment.SquadSelectListener,
-        DisplaySquadFragment.SquadDisplayListener {
+        DisplaySquadFragment.SquadDisplayListener,
+        ChooseFactionDialog.FactionChoiceListener {
     private final String SAVE_NAV_POSITION = "navPos";
     private int mPosition;
 
@@ -202,5 +203,16 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
         Intent intent = new Intent(this, EditSquadActivity.class);
         intent.putExtra(EditSquadActivity.EXTRA_SQUAD_INDEX, squadIndex);
         startActivity(intent);
+    }
+
+    @Override
+    public void onFactionChoiceUpdated(String faction) {
+        Universe.getUniverse().setSelectedFaction(faction);
+
+        Fragment fragment = findFragmentByTag(TAG_ITEM_LIST);
+        if (fragment != null) {
+            // update SetItemListFragment to respect new faction choice
+            ((SetItemListFragment) fragment).initializeAdapter();
+        }
     }
 }

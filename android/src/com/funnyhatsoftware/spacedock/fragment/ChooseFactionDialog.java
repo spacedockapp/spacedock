@@ -19,11 +19,10 @@ import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
 public class ChooseFactionDialog extends DialogFragment {
-
-    public ChooseFactionDialog() {
-
+    public interface FactionChoiceListener {
+        /** @param faction Faction chosen, or null if all factions. */
+        public void onFactionChoiceUpdated(String faction);
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_faction_list, container);
@@ -39,14 +38,12 @@ public class ChooseFactionDialog extends DialogFragment {
         OnItemClickListener listener = new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Universe universe = Universe.getUniverse();
-                if (position == 0) {
-                    universe.setSelectedFaction(null);
-                } else {
-                    ArrayList<String> allFactions = universe.getAllFactions();
-                    String s = allFactions.get(position - 1);
-                    universe.setSelectedFaction(s);
+                String faction = null;
+                if (position > 0) {
+                    ArrayList<String> allFactions = Universe.getUniverse().getAllFactions();
+                    faction = allFactions.get(position - 1);
                 }
+                ((FactionChoiceListener) getActivity()).onFactionChoiceUpdated(faction);
                 dialog.dismiss();
             }
         };
