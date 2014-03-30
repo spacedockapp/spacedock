@@ -1663,7 +1663,7 @@
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                                 <connections>
-                                                                                                    <binding destination="iAm-Fg-Llc" name="value" keyPath="objectValue.talent" id="1Vi-L6-erg"/>
+                                                                                                    <binding destination="iAm-Fg-Llc" name="value" keyPath="objectValue.eliteTalent" id="Urr-KL-qjP"/>
                                                                                                 </connections>
                                                                                             </textField>
                                                                                         </subviews>
