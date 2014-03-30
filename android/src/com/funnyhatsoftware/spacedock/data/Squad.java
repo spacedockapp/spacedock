@@ -87,7 +87,7 @@ public class Squad extends SquadBase {
             setUuid(jsonObject.optString(JSON_LABEL_UUID, UUID.randomUUID().toString()));
         }
         String resourceId = jsonObject.optString(JSON_LABEL_RESOURCE, "");
-        if (resourceId.length() == 0) {
+        if (resourceId.length() > 0) {
             Resource resource = universe.resources.get(resourceId);
             setResource(resource);
         }

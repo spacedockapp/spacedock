@@ -9,6 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
+import com.funnyhatsoftware.spacedock.data.Resource;
 import com.funnyhatsoftware.spacedock.data.Ship;
 import com.funnyhatsoftware.spacedock.data.Squad;
 
@@ -24,6 +25,9 @@ public class TestSquad extends BaseTest {
         assertEquals("Wrong notes", "Unified Force (0) Strike Force (5)", squad.getNotes());
         assertEquals("Wrong name", "Romulan 2 Ship", squad.getName());
         assertEquals("Wrong ship count", 2, squad.getEquippedShips().size());
+        Resource resource = squad.getResource();
+        assertNotNull("Missing resource", resource);
+        assertEquals("Wrong resource", "4004", resource.getExternalId());
         EquippedShip es = squad.getEquippedShips().get(0);
         Ship ship = es.getShip();
         assertNotNull(ship);

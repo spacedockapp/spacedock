@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.json.JSONException;
 import org.xml.sax.SAXException;
 
 import android.app.Application;
@@ -19,7 +20,8 @@ public class SpaceDockApplication extends Application {
     public void onCreate() {
         super.onCreate();
         try {
-            Universe.getUniverse(getApplicationContext());
+            Universe universe = Universe.getUniverse(getApplicationContext());
+            universe.restore(this);
         } catch (ParserConfigurationException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -27,6 +29,9 @@ public class SpaceDockApplication extends Application {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }

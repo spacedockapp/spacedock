@@ -61,12 +61,6 @@ public class Universe {
             DataLoader loader = new DataLoader(newUniverse, is);
             loader.load();
             sUniverse = newUniverse;
-
-            try {
-                sUniverse.restore(context);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
         }
         return sUniverse;
     }
@@ -100,18 +94,7 @@ public class Universe {
         File filesDir = context.getFilesDir();
         File allSquadsFile = getAllSquadsSaveFile(filesDir);
         try {
-            FileInputStream inputStream = new FileInputStream(allSquadsFile);
-            String savedJSON = DataUtils.convertStreamToString(inputStream);
-
-            JSONTokener tokenizer = new JSONTokener(savedJSON);
-            JSONArray jsonArray = new JSONArray(tokenizer);
-            int count = jsonArray.length();
-            for (int i = 0; i < count; ++i) {
-                JSONObject oneSquad = jsonArray.getJSONObject(i);
-                Squad squad = new Squad();
-                squad.importFromObject(this, false, oneSquad);
-                mSquads.add(squad);
-            }
+            loadSquadsFromFile(allSquadsFile);
         } catch (Exception e) {
             worked = false;
         }
@@ -122,6 +105,21 @@ public class Universe {
             allSquadsFile.renameTo(brokenFile);
         }
         return worked;
+    }
+
+    public void loadSquadsFromFile(File squadsFile) throws FileNotFoundException, JSONException {
+        FileInputStream inputStream = new FileInputStream(squadsFile);
+        String savedJSON = DataUtils.convertStreamToString(inputStream);
+
+        JSONTokener tokenizer = new JSONTokener(savedJSON);
+        JSONArray jsonArray = new JSONArray(tokenizer);
+        int count = jsonArray.length();
+        for (int i = 0; i < count; ++i) {
+            JSONObject oneSquad = jsonArray.getJSONObject(i);
+            Squad squad = new Squad();
+            squad.importFromObject(this, false, oneSquad);
+            mSquads.add(squad);
+        }
     }
 
     public static Universe getUniverse() {
