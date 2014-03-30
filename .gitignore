@@ -3,3 +3,9 @@
 .DS_Store
 /build/
 /spacedocksite/Data.xml
+
+/android/bin/
+/android/gen/
+
+/android/test/bin/
+/android/test/gen/

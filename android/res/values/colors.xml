@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="default_text">#ff000000</color>
+    <color name="light_text">#ff555555</color>
+    <color name="cost">#ff555555</color>
+    <color name="header">#ff888888</color>
+    <color name="group_background">#ffe5e5e5</color>
+
+    <color name="dark_red">#ffe50000</color>
+    <color name="dark_green">#ff00b300</color>
+    <color name="dark_yellow">#ffb3b300</color>
+    <color name="dark_blue">#ff0000b3</color>
+    <color name="dark_purple">#ffb300b3</color>
+
+    <color name="attack">@color/dark_red</color>
+    <color name="agility">@color/dark_green</color>
+    <color name="hull">@color/dark_yellow</color>
+    <color name="shield">@color/dark_blue</color>
+
+    <color name="activated_background_light">#ffdddddd</color>
+    <color name="activated_background_dark">#ffbbbbbb</color>
+
+    <color name="inset_dark">#25000000</color>
+    <color name="captain_skill">#e2ba1c</color>
+</resources>

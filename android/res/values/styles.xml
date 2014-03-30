@@ -1,0 +1,88 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:activatedBackgroundIndicator">@drawable/activated_background_indicator</item>
+    </style>
+
+    <style name="ShipAttributeText">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+    <style name="ListItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/listview_horizontal_padding</item>
+        <item name="android:paddingRight">@dimen/listview_horizontal_padding</item>
+        <item name="android:minHeight">?android:attr/listPreferredItemHeight</item>
+    </style>
+
+    <style name="SmallListItem" parent="ListItem">
+        <item name="android:minHeight">?android:attr/listPreferredItemHeightSmall</item>
+    </style>
+
+    <style name="SelectableListItem" parent="ListItem">
+        <item name="android:background">?android:attr/activatedBackgroundIndicator</item>
+    </style>
+
+    <style name="ItemList">
+        <item name="android:dividerPadding">10dp</item>
+    </style>
+
+    <style name="ValueField">
+        <item name="android:layout_width">@dimen/value_width</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+    <style name="AttackField" parent="ValueField">
+        <item name="android:background">@color/dark_red</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="AgilityField" parent="ValueField">
+        <item name="android:background">@color/dark_green</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="HullField" parent="ValueField">
+        <item name="android:background">@color/dark_yellow</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="ShieldField" parent="ValueField">
+        <item name="android:background">@color/dark_blue</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="RangeField" parent="ValueField">
+        <item name="android:layout_width">@dimen/range_width</item>
+    </style>
+
+    <style name="TitleField" parent="ValueField">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+</resources>
