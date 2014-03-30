@@ -258,7 +258,7 @@ public class Squad extends SquadBase {
                 String result = String.format("Can't add %s to the selected squadron",
                         ship.getTitle());
                 String explanation = "This ship is unique and one with the same name already exists in the squadron.";
-                return new Explanation(false, result, explanation);
+                return new Explanation(result, explanation);
             }
         }
         return Explanation.SUCCESS;
@@ -276,7 +276,7 @@ public class Squad extends SquadBase {
                 String result = String.format("Can't add %s to the selected squadron",
                         captain.getTitle());
                 String explanation = "This Captain is unique and one with the same name already exists in the squadron.";
-                return new Explanation(false, result, explanation);
+                return new Explanation(result, explanation);
             }
         }
         return Explanation.SUCCESS;
@@ -291,7 +291,7 @@ public class Squad extends SquadBase {
                 String explanation = String
                         .format("This %s is unique and one with the same name already exists in the squadron.",
                                 upgrade.getUpType());
-                return new Explanation(false, result, explanation);
+                return new Explanation(result, explanation);
             }
         }
 

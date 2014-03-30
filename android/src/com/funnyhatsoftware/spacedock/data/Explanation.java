@@ -2,19 +2,21 @@
 package com.funnyhatsoftware.spacedock.data;
 
 public class Explanation {
-    public Explanation(boolean b) {
-        canAdd = b;
+    private Explanation() {
+        canAdd = true;
+        result = null;
+        explanation = null;
     }
 
-    public Explanation(boolean b, String inResult, String inExplanation) {
-        canAdd = b;
+    public Explanation(String inResult, String inExplanation) {
+        canAdd = false;
         result = inResult;
         explanation = inExplanation;
     }
 
-    public static final Explanation SUCCESS = new Explanation(true);
-    
-    public boolean canAdd;
-    public String result;
-    public String explanation;
+    public static final Explanation SUCCESS = new Explanation();
+
+    public final boolean canAdd;
+    public final String result;
+    public final String explanation;
 }

@@ -402,13 +402,13 @@ public class EquippedShip extends EquippedShipBase {
         String upgradeSpecial = upgrade.getSpecial();
         if (upgradeSpecial.equals("OnlyJemHadarShips")) {
             if (!getShip().isJemhadar()) {
-                return new Explanation(false, msg,
+                return new Explanation(msg,
                         "This upgrade can only be added to Jem'hadar ships.");
             }
         }
         if (upgradeSpecial.equals("OnlyForKlingonCaptain")) {
             if (!getCaptain().isKlingon()) {
-                return new Explanation(false, msg,
+                return new Explanation(msg,
                         "This upgrade can only be added to a Klingon Captain.");
             }
         }
@@ -416,7 +416,7 @@ public class EquippedShip extends EquippedShipBase {
                 || upgradeSpecial.equals("OnlyForRaptorClassShips")) {
             String legalShipClass = upgrade.targetShipClass();
             if (!legalShipClass.equals(getShip().getShipClass())) {
-                return new Explanation(false, msg, String.format(
+                return new Explanation(msg, String.format(
                         "This upgrade can only be installed on ships of class %s.", legalShipClass));
             }
         }
@@ -431,9 +431,9 @@ public class EquippedShip extends EquippedShipBase {
                 expl = String.format("This ship has no %s upgrade symbols on its ship card.",
                         upgrade.getUpType());
             }
-            return new Explanation(false, msg, expl);
+            return new Explanation(msg, expl);
         }
-        return new Explanation(true);
+        return Explanation.SUCCESS;
     }
 
     public EquippedUpgrade containsUpgrade(Upgrade theUpgrade) {
@@ -564,13 +564,13 @@ public class EquippedShip extends EquippedShipBase {
                 upgrade = Universe.getUniverse().getCaptain(externalId);
                 Explanation explanation = squad.canAddCaptain((Captain) upgrade, this);
                 if (!explanation.canAdd) {
-                    return explanation;
+                    return explanation; // disallowed, abort!
                 }
             } else {
                 upgrade = Universe.getUniverse().getUpgrade(externalId);
                 Explanation explanation = squad.canAddUpgrade(upgrade, this);
                 if (!explanation.canAdd) {
-                    return explanation;
+                    return explanation; // disallowed, abort!
                 }
             }
         } else {
