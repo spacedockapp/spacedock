@@ -1,6 +1,7 @@
 
 package com.funnyhatsoftware.spacedock.data;
 
+import com.funnyhatsoftware.spacedock.R;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -77,18 +78,16 @@ public class Squad extends SquadBase {
 
     public void importFromObject(Universe universe, boolean replaceUuid, JSONObject jsonObject)
             throws JSONException {
-        if (jsonObject.has(JSON_LABEL_NOTES)) {
-            setNotes(jsonObject.getString(JSON_LABEL_NOTES));
-        }
-        setName(jsonObject.getString(JSON_LABEL_NAME));
+        setNotes(jsonObject.optString(JSON_LABEL_NOTES, ""));
+        setName(jsonObject.optString(JSON_LABEL_NAME, "Untitled"));
         setAdditionalPoints(jsonObject.optInt(JSON_LABEL_ADDITIONAL_POINTS));
         if (replaceUuid) {
             assignNewUuid();
         } else {
             setUuid(jsonObject.optString(JSON_LABEL_UUID, UUID.randomUUID().toString()));
         }
-        String resourceId = jsonObject.optString(JSON_LABEL_RESOURCE);
-        if (resourceId != null) {
+        String resourceId = jsonObject.optString(JSON_LABEL_RESOURCE, "");
+        if (resourceId.length() == 0) {
             Resource resource = universe.resources.get(resourceId);
             setResource(resource);
         }
@@ -97,13 +96,15 @@ public class Squad extends SquadBase {
         for (int i = 0; i < ships.length(); ++i) {
             JSONObject shipData = ships.getJSONObject(i);
             boolean shipIsSideboard = shipData.optBoolean(JSON_LABEL_SIDEBOARD);
-            EquippedShip currentShip;
+            EquippedShip currentShip = null;
             if (shipIsSideboard) {
                 currentShip = getSideboard();
             } else {
                 String shipId = shipData.optString(JSON_LABEL_SHIP_ID);
                 Ship targetShip = universe.getShip(shipId);
-                currentShip = new EquippedShip(targetShip);
+                if (targetShip != null) {
+                    currentShip = new EquippedShip(targetShip);
+                }
             }
             if (currentShip != null) {
                 currentShip.importUpgrades(universe, shipData);

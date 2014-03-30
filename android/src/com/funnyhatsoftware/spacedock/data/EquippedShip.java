@@ -657,18 +657,25 @@ public class EquippedShip extends EquippedShipBase {
     public void importUpgrades(Universe universe, JSONObject shipData)
             throws JSONException {
         JSONObject captainObject = shipData.optJSONObject(JSON_LABEL_CAPTAIN);
-        String captainId = captainObject.optString(EquippedUpgrade.JSON_LABEL_UPGRADE_ID);
-        Captain captain = universe.getCaptain(captainId);
-        addUpgrade(captain, null, false);
-        JSONArray upgrades = shipData.getJSONArray(JSON_LABEL_UPGRADES);
-        for (int i = 0; i < upgrades.length(); ++i) {
-            JSONObject upgradeData = upgrades.getJSONObject(i);
-            String upgradeId = upgradeData.optString(EquippedUpgrade.JSON_LABEL_UPGRADE_ID);
-            Upgrade upgrade = universe.getUpgrade(upgradeId);
-            EquippedUpgrade eu = addUpgrade(upgrade, null, false);
-            if (upgradeData.optBoolean(EquippedUpgrade.JSON_LABEL_COST_IS_OVERRIDDEN)) {
-                eu.setOverridden(true);
-                eu.setOverriddenCost(upgradeData.optInt(EquippedUpgrade.JSON_LABEL_OVERRIDDEN_COST));
+        if (captainObject != null) {
+            String captainId = captainObject.optString(EquippedUpgrade.JSON_LABEL_UPGRADE_ID);
+            Captain captain = universe.getCaptain(captainId);
+            addUpgrade(captain, null, false);
+        }
+        JSONArray upgrades = shipData.optJSONArray(JSON_LABEL_UPGRADES);
+        if (upgrades != null) {
+            for (int i = 0; i < upgrades.length(); ++i) {
+                JSONObject upgradeData = upgrades.getJSONObject(i);
+                String upgradeId = upgradeData.optString(EquippedUpgrade.JSON_LABEL_UPGRADE_ID);
+                Upgrade upgrade = universe.getUpgrade(upgradeId);
+                if (upgrade != null) {
+                    EquippedUpgrade eu = addUpgrade(upgrade, null, false);
+                    if (upgradeData.optBoolean(EquippedUpgrade.JSON_LABEL_COST_IS_OVERRIDDEN)) {
+                        eu.setOverridden(true);
+                        eu.setOverriddenCost(upgradeData
+                                .optInt(EquippedUpgrade.JSON_LABEL_OVERRIDDEN_COST));
+                    }
+                }
             }
         }
         String flagshipId = shipData.optString(JSON_LABEL_FLAGSHIP);

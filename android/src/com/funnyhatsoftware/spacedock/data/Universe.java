@@ -8,7 +8,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -24,8 +23,8 @@ import org.xml.sax.SAXException;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.os.Environment;
 import android.support.v4.util.ArrayMap;
-import android.util.Log;
 
 import com.funnyhatsoftware.spacedock.data.Captain.CaptainComparator;
 import com.funnyhatsoftware.spacedock.data.Flagship.FlagshipComparator;
@@ -83,8 +82,7 @@ public class Universe {
     }
 
     private File getAllSquadsSaveFile(File filesDir) {
-        File file = new File(filesDir, SQUADS_FILE_NAME);
-        return file;
+        return new File(filesDir, SQUADS_FILE_NAME);
     }
 
     public void save(Context context) throws JSONException, IOException {
@@ -97,21 +95,33 @@ public class Universe {
         outputStream.close();
     }
 
-    public void restore(Context context) throws FileNotFoundException, JSONException {
+    public boolean restore(Context context) throws FileNotFoundException, JSONException {
+        boolean worked = true;
         File filesDir = context.getFilesDir();
-        File file = getAllSquadsSaveFile(filesDir);
-        FileInputStream inputStream = new FileInputStream(file);
-        String savedJSON = DataUtils.convertStreamToString(inputStream);
+        File allSquadsFile = getAllSquadsSaveFile(filesDir);
+        try {
+            FileInputStream inputStream = new FileInputStream(allSquadsFile);
+            String savedJSON = DataUtils.convertStreamToString(inputStream);
 
-        JSONTokener tokenizer = new JSONTokener(savedJSON);
-        JSONArray jsonArray = new JSONArray(tokenizer);
-        int count = jsonArray.length();
-        for (int i = 0; i < count; ++i) {
-            JSONObject oneSquad = jsonArray.getJSONObject(i);
-            Squad squad = new Squad();
-            squad.importFromObject(this, false, oneSquad);
-            mSquads.add(squad);
+            JSONTokener tokenizer = new JSONTokener(savedJSON);
+            JSONArray jsonArray = new JSONArray(tokenizer);
+            int count = jsonArray.length();
+            for (int i = 0; i < count; ++i) {
+                JSONObject oneSquad = jsonArray.getJSONObject(i);
+                Squad squad = new Squad();
+                squad.importFromObject(this, false, oneSquad);
+                mSquads.add(squad);
+            }
+        } catch (Exception e) {
+            worked = false;
         }
+        
+        if (!worked) {
+            File stashDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+            File brokenFile = new File(stashDir, "broken.spacedocksquads");
+            allSquadsFile.renameTo(brokenFile);
+        }
+        return worked;
     }
 
     public static Universe getUniverse() {
