@@ -557,13 +557,21 @@ public class EquippedShip extends EquippedShipBase {
         return mUpgrades.get(upgradeIndex);
     }
 
-    public void equipUpgrade(int slotType, int slotIndex, String externalId) {
+    public Explanation tryEquipUpgrade(Squad squad, int slotType, int slotIndex, String externalId) {
         Upgrade upgrade;
         if (externalId != null && !externalId.isEmpty()) {
             if (slotType == SLOT_TYPE_CAPTAIN) {
                 upgrade = Universe.getUniverse().getCaptain(externalId);
+                Explanation explanation = squad.canAddCaptain((Captain) upgrade, this);
+                if (!explanation.canAdd) {
+                    return explanation;
+                }
             } else {
                 upgrade = Universe.getUniverse().getUpgrade(externalId);
+                Explanation explanation = squad.canAddUpgrade(upgrade, this);
+                if (!explanation.canAdd) {
+                    return explanation;
+                }
             }
         } else {
             // No ID passed, use placeholder
@@ -584,6 +592,7 @@ public class EquippedShip extends EquippedShipBase {
             // on captain swap, add placeholders, or clear talent slots as needed
             establishPlaceholdersForType("Talent", getTalent());
         }
+        return Explanation.SUCCESS;
     }
 
     @SuppressWarnings("unused")

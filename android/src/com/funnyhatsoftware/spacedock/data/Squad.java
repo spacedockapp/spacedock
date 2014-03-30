@@ -139,10 +139,15 @@ public class Squad extends SquadBase {
         return o;
     }
 
-    public void addEquippedShip(String shipId) {
-        EquippedShip es = new EquippedShip(Universe.getUniverse().getShip(shipId));
-        es.establishPlaceholders();
-        addEquippedShip(es);
+    public Explanation tryAddEquippedShip(String shipId) {
+        Ship ship = Universe.getUniverse().getShip(shipId);
+        Explanation explanation = canAddShip(ship);
+        if (explanation.canAdd) {
+            EquippedShip es = new EquippedShip(ship);
+            es.establishPlaceholders();
+            addEquippedShip(es);
+        }
+        return explanation;
     }
 
     public void addEquippedShip(EquippedShip ship) {
@@ -207,6 +212,15 @@ public class Squad extends SquadBase {
         return null;
     }
 
+    boolean containsShipWithName(String theName) {
+        for (EquippedShip ship : mEquippedShips) {
+            if (ship.getShip().getTitle().equals(theName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private static String namePrefix(String originalName) {
         Pattern p = Pattern.compile(" copy *\\d*");
         Matcher matcher = p.matcher(originalName);
@@ -238,7 +252,19 @@ public class Squad extends SquadBase {
         return squad;
     }
 
-    Explanation addCaptain(Captain captain, EquippedShip targetShip) {
+    Explanation canAddShip(Ship ship) {
+        if (ship.getUnique()) {
+            if (containsShipWithName(ship.getTitle())) {
+                String result = String.format("Can't add %s to the selected squadron",
+                        ship.getTitle());
+                String explanation = "This ship is unique and one with the same name already exists in the squadron.";
+                return new Explanation(false, result, explanation);
+            }
+        }
+        return Explanation.SUCCESS;
+    }
+
+    Explanation canAddCaptain(Captain captain, EquippedShip targetShip) {
         Captain existingCaptain = targetShip.getCaptain();
         if (existingCaptain == captain) {
             return Explanation.SUCCESS;

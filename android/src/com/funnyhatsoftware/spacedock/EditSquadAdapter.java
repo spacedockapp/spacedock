@@ -11,9 +11,11 @@ import android.widget.AdapterView;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
+import com.funnyhatsoftware.spacedock.data.Explanation;
 import com.funnyhatsoftware.spacedock.data.Squad;
 
 public class EditSquadAdapter extends BaseExpandableListAdapter
@@ -303,11 +305,19 @@ public class EditSquadAdapter extends BaseExpandableListAdapter
 
     public void insertSetItem(int equippedShipNumber, int slotType, int slotIndex,
             String externalId) {
+        Explanation explanation;
         if (slotType == EquippedShip.SLOT_TYPE_SHIP) {
-            mSquad.addEquippedShip(externalId);
+            explanation = mSquad.tryAddEquippedShip(externalId);
         } else {
-            getEquippedShip(equippedShipNumber).equipUpgrade(slotType, slotIndex, externalId);
+            EquippedShip es = getEquippedShip(equippedShipNumber);
+            explanation = es.tryEquipUpgrade(mSquad, slotType, slotIndex, externalId);
         }
-        notifyDataSetChanged();
+        if (explanation.canAdd) {
+            notifyDataSetChanged();
+        } else {
+            // Show error message. This isn't a great way to do it, but works for now.
+            Toast.makeText(mActivity, explanation.result, Toast.LENGTH_SHORT).show();
+            Toast.makeText(mActivity, explanation.explanation, Toast.LENGTH_SHORT).show();
+        }
     }
 }
