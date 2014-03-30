@@ -90,11 +90,11 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-                
+    protected void onPause() {
+        super.onPause();
+
+        Universe universe = Universe.getUniverse();
         try {
-            Universe universe = Universe.getUniverse();
             universe.save(this);
         } catch (JSONException e) {
             // TODO Auto-generated catch block
@@ -103,7 +103,11 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
         outState.putInt(SAVE_NAV_POSITION, mPosition);
     }
 
