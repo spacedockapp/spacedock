@@ -62,6 +62,7 @@ public class Squad extends SquadBase {
         if (sideboard == null) {
             sideboard = new Sideboard();
             mEquippedShips.add(sideboard);
+            sideboard.setSquad(this);
         }
         return sideboard;
     }
@@ -71,6 +72,7 @@ public class Squad extends SquadBase {
 
         if (sideboard != null) {
             mEquippedShips.remove(sideboard);
+            sideboard.setSquad(null);
         }
 
         return sideboard;
@@ -174,6 +176,7 @@ public class Squad extends SquadBase {
 
     public void removeEquippedShip(EquippedShip ship) {
         mEquippedShips.remove(ship);
+        ship.setSquad(null);
     }
 
     public int calculateCost() {

@@ -12,10 +12,7 @@ public class EquippedUpgrade extends EquippedUpgradeBase {
     static final String JSON_LABEL_OVERRIDDEN_COST = "overriddenCost";
 
     public int calculateCost() {
-        if (mOverridden) {
-            return mOverriddenCost;
-        }
-        return mUpgrade.mCost;
+        return getCost();
     }
 
     public int compareTo(EquippedUpgrade arg1) {
@@ -49,6 +46,9 @@ public class EquippedUpgrade extends EquippedUpgradeBase {
 
     int getNonOverriddenCost() {
         EquippedShip equippedShip = getEquippedShip();
+        if (equippedShip == null) {
+            return mUpgrade.getCost();
+        }
         return mUpgrade.calculateCostForShip(equippedShip);
     }
 
