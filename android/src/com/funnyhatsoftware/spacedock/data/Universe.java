@@ -94,7 +94,9 @@ public class Universe {
         File filesDir = context.getFilesDir();
         File allSquadsFile = getAllSquadsSaveFile(filesDir);
         try {
-            loadSquadsFromFile(allSquadsFile);
+            FileInputStream inputStream = new FileInputStream(allSquadsFile);
+            loadSquadsFromStream(inputStream);
+            inputStream.close();
         } catch (Exception e) {
             worked = false;
         }
@@ -107,9 +109,8 @@ public class Universe {
         return worked;
     }
 
-    public void loadSquadsFromFile(File squadsFile) throws FileNotFoundException, JSONException {
-        FileInputStream inputStream = new FileInputStream(squadsFile);
-        String savedJSON = DataUtils.convertStreamToString(inputStream);
+    public void loadSquadsFromStream(InputStream is) throws JSONException {
+        String savedJSON = DataUtils.convertStreamToString(is);
 
         JSONTokener tokenizer = new JSONTokener(savedJSON);
         JSONArray jsonArray = new JSONArray(tokenizer);

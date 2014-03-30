@@ -4,6 +4,7 @@ package com.funnyhatsoftware.spacedock.test;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,6 +41,14 @@ public class TestSquad extends BaseTest {
         assertEquals("Wrong cost", 100, squad.calculateCost());
     }
 
+    public void testImportList() throws JSONException, IOException {
+        InputStream is = getContext().getAssets().open("squads_33.spacedocksquads");
+        universe.loadSquadsFromStream(is);
+        ArrayList<Squad> allSquads = universe.getAllSquads();
+        assertEquals(32, allSquads.size());
+    }
+    
+    
     public void testExport() throws IOException, JSONException {
         InputStream is = getContext().getAssets().open("romulan_2_ship.spacedock");
         Squad squad = new Squad();
@@ -51,4 +60,5 @@ public class TestSquad extends BaseTest {
         newSquad.importFromStream(universe, stream, false);
         assertEquals("Cost doesn't match", squad.calculateCost(), newSquad.calculateCost());
     }
+   
 }
