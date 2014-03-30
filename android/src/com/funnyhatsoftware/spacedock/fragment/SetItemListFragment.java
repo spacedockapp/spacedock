@@ -17,6 +17,7 @@ import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.SeparatedListAdapter;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
+import com.funnyhatsoftware.spacedock.holder.CaptainHolder;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
 import com.funnyhatsoftware.spacedock.holder.ShipHolder;
 
@@ -117,8 +118,10 @@ public class SetItemListFragment extends ListFragment {
                     null, layoutResId, setItemHolderFactory);
         }
 
-        if (mSelectionMode && !setItemHolderFactory.getType().equals(ShipHolder.TYPE_STRING)) {
-            // in selection mode, for non-ship selection, add a 'clear' item/placeholder at the top
+        if (mSelectionMode
+                && !setItemHolderFactory.getType().equals(ShipHolder.TYPE_STRING)
+                && !setItemHolderFactory.getType().equals(CaptainHolder.TYPE_STRING)) {
+            // when selecting upgrades (other than Captain) add a 'clear' item/placeholder at the top
             BaseAdapter placeholderAdapter = SetItemAdapter.CreatePlaceholderAdapter(context,
                     layoutResId, setItemHolderFactory);
             mAdapter = new HeaderAdapter(placeholderAdapter, contentAdapter);
