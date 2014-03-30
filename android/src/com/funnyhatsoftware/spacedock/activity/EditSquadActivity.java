@@ -1,12 +1,9 @@
 package com.funnyhatsoftware.spacedock.activity;
 
-import android.app.ActionBar;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -46,6 +43,7 @@ public class EditSquadActivity extends PanedFragmentActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.menu_edit_squad, menu);
         return true;
     }
@@ -72,7 +70,6 @@ public class EditSquadActivity extends PanedFragmentActivity
                     });
             return true;
         } else if (itemId == R.id.menu_delete) {
-
             Universe.getUniverse().getAllSquads().remove(mSquadIndex);
             Toast.makeText(this, "Deleted squad " + squad.getName(), Toast.LENGTH_SHORT).show();
             mSquadIndex = -1;

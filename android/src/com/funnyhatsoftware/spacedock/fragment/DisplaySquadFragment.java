@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.SeparatedListAdapter;
+import com.funnyhatsoftware.spacedock.activity.PanedFragmentActivity;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
 import com.funnyhatsoftware.spacedock.data.Squad;
@@ -26,7 +27,8 @@ import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
 
 import java.util.ArrayList;
 
-public class DisplaySquadFragment extends ListFragment {
+public class DisplaySquadFragment extends ListFragment
+        implements PanedFragmentActivity.DataFragment {
     private static final String ARG_SQUAD_INDEX = "squad_index";
 
     public interface SquadDisplayListener {
@@ -48,7 +50,7 @@ public class DisplaySquadFragment extends ListFragment {
         return fragment;
     }
 
-    public void initializeAdapter() {
+    private void initAdapter() {
         Context context = getActivity();
 
         if (mSquadIndex >= Universe.getUniverse().getAllSquads().size()) {
@@ -87,7 +89,7 @@ public class DisplaySquadFragment extends ListFragment {
         setHasOptionsMenu(true);
 
         mSquadIndex = getArguments().getInt(ARG_SQUAD_INDEX);
-        initializeAdapter();
+        initAdapter();
     }
 
     @Override
@@ -109,6 +111,12 @@ public class DisplaySquadFragment extends ListFragment {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void notifyDataSetChanged() {
+        // recreate adapter, since contents (including factions to display) may have changed
+        initAdapter();
     }
 
     private static class MultiItemAdapter extends ArrayAdapter<Object> {

@@ -1,11 +1,8 @@
 package com.funnyhatsoftware.spacedock.fragment;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
-import android.text.InputType;
 import android.text.Spannable;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,21 +11,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.funnyhatsoftware.spacedock.FactionInfo;
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.TextEntryDialog;
+import com.funnyhatsoftware.spacedock.activity.PanedFragmentActivity;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class ManageSquadsFragment extends ListFragment {
+public class ManageSquadsFragment extends ListFragment
+        implements PanedFragmentActivity.DataFragment {
     private static final String SAVE_KEY_SELECTED_SQUAD = "selected_squad";
 
     public interface SquadSelectListener {
@@ -114,7 +111,9 @@ public class ManageSquadsFragment extends ListFragment {
         ((SquadSelectListener)getActivity()).onSquadSelected(mSquadIndex);
     }
 
+    @Override
     public void notifyDataSetChanged() {
+        // don't need to recreate adapter, since adapter wraps Squad object directly
         mAdapter.notifyDataSetChanged();
     }
 

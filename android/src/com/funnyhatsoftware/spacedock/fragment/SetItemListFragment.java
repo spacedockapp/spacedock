@@ -4,17 +4,20 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.ListFragment;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.BaseAdapter;
-import android.widget.HeaderViewListAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.funnyhatsoftware.spacedock.HeaderAdapter;
 import com.funnyhatsoftware.spacedock.SetItemAdapter;
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.SeparatedListAdapter;
+import com.funnyhatsoftware.spacedock.activity.PanedFragmentActivity;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.holder.CaptainHolder;
@@ -25,11 +28,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class SetItemListFragment extends ListFragment {
+public class SetItemListFragment extends ListFragment
+        implements PanedFragmentActivity.DataFragment {
     private static final String ARG_IS_SELECTING = "selection";
     private static final String ARG_ITEM_TYPE = "item_type";
     private static final String ARG_PRIORITIZED_FACTION = "prior_faction";
     private static final String ARG_SELECTED_ID = "item_sel";
+
 
     public interface SetItemSelectedListener {
         public void onItemSelected(String itemType, String itemId);
@@ -38,7 +43,6 @@ public class SetItemListFragment extends ListFragment {
     private boolean mSelectionMode;
     private BaseAdapter mAdapter;
     private String mItemType;
-
 
     /**
      * Creates a SetItemListFragment for display
@@ -92,8 +96,7 @@ public class SetItemListFragment extends ListFragment {
             return R.layout.item_base;
         }
     }
-
-    public void initializeAdapter() {
+    private void initAdapter() {
         Context context = getActivity();
         final int layoutResId = getLayoutResId();
 
@@ -135,6 +138,7 @@ public class SetItemListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
 
         if ((getArguments() == null) || !getArguments().containsKey(ARG_ITEM_TYPE)) {
             throw new IllegalArgumentException("Invalid fragment arguments, must contain type");
@@ -142,7 +146,25 @@ public class SetItemListFragment extends ListFragment {
 
         mSelectionMode = getArguments().getBoolean(ARG_IS_SELECTING);
         mItemType = getArguments().getString(ARG_ITEM_TYPE);
-        initializeAdapter();
+        initAdapter();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_set_item_list, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final int itemId = item.getItemId();
+        if (itemId == R.id.menu_faction) {
+            FragmentManager fm = getFragmentManager();
+            ChooseFactionDialog chooseFactionDialog = new ChooseFactionDialog();
+            chooseFactionDialog.show(fm, "fragment_faction_list");
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -153,5 +175,11 @@ public class SetItemListFragment extends ListFragment {
         SetItem item = (SetItem) mAdapter.getItem(position);
         String externalId = item.getExternalId();
         ((SetItemSelectedListener) getActivity()).onItemSelected(mItemType, externalId);
+    }
+
+    @Override
+    public void notifyDataSetChanged() {
+        // recreate adapter, since contents (including factions to display) may have changed
+        initAdapter();
     }
 }

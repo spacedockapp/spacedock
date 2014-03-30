@@ -1,9 +1,5 @@
 package com.funnyhatsoftware.spacedock.activity;
 
-import java.io.IOException;
-
-import org.json.JSONException;
-
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +20,10 @@ import com.funnyhatsoftware.spacedock.fragment.DisplaySquadFragment;
 import com.funnyhatsoftware.spacedock.fragment.ManageSquadsFragment;
 import com.funnyhatsoftware.spacedock.fragment.SetItemListFragment;
 
+import org.json.JSONException;
+
+import java.io.IOException;
+
 /**
  * Base fragment managing Activity class, supporting ActionBar spinner navigation.
  *
@@ -34,8 +34,7 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
         BrowseListFragment.BrowseTypeSelectionListener,
         SetItemListFragment.SetItemSelectedListener,
         ManageSquadsFragment.SquadSelectListener,
-        DisplaySquadFragment.SquadDisplayListener,
-        ChooseFactionDialog.FactionChoiceListener {
+        DisplaySquadFragment.SquadDisplayListener {
     private final String SAVE_NAV_POSITION = "navPos";
     private int mPosition;
 
@@ -63,30 +62,20 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
         }
     }
 
-    private Fragment findFragmentByTag(String tag) {
-        return getSupportFragmentManager().findFragmentByTag(tag);
-    }
-
     @Override
     protected void onResume() {
         super.onResume();
 
         // TODO: don't notify fragments if data hasn't actually changed
-        Fragment fragment = findFragmentByTag(TAG_ITEM_LIST);
-        if (fragment != null) {
-            // content may have been changed by SetPreferences, reinitialize list
-            ((SetItemListFragment) fragment).initializeAdapter();
-        }
-        fragment = findFragmentByTag(TAG_DISPLAY_SQUAD);
-        if (fragment != null) {
-            // content may have been changed by EditSquadActivity, reinitialize list
-            ((DisplaySquadFragment) fragment).initializeAdapter();
-        }
-        fragment = findFragmentByTag(TAG_MANAGE_SQUADS);
-        if (fragment != null) {
-            // squad details may have been changed by EditSquadActivity, refresh data
-            ((ManageSquadsFragment) fragment).notifyDataSetChanged();
-        }
+
+        // content may have been changed by SetPreferences, reinitialize list
+        notifyDataFragment(TAG_ITEM_LIST);
+
+        // squad content may have been changed by EditSquadActivity, reinitialize list
+        notifyDataFragment(TAG_DISPLAY_SQUAD);
+
+        // squad details may have been changed by EditSquadActivity, refresh data
+        notifyDataFragment(TAG_MANAGE_SQUADS);
     }
 
     @Override
@@ -113,6 +102,7 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.menu_root, menu);
         return true;
     }
@@ -125,14 +115,6 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
             startActivity(intent);
             return true;
         }
-
-        if (itemId == R.id.menu_faction) {
-            FragmentManager fm = getSupportFragmentManager();
-            ChooseFactionDialog chooseFactionDialog = new ChooseFactionDialog();
-            chooseFactionDialog.show(fm, "fragment_faction_list");
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -206,16 +188,5 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
         Intent intent = new Intent(this, EditSquadActivity.class);
         intent.putExtra(EditSquadActivity.EXTRA_SQUAD_INDEX, squadIndex);
         startActivity(intent);
-    }
-
-    @Override
-    public void onFactionChoiceUpdated(String faction) {
-        Universe.getUniverse().setSelectedFaction(faction);
-
-        Fragment fragment = findFragmentByTag(TAG_ITEM_LIST);
-        if (fragment != null) {
-            // update SetItemListFragment to respect new faction choice
-            ((SetItemListFragment) fragment).initializeAdapter();
-        }
     }
 }
