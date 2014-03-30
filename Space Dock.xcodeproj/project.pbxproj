@@ -151,7 +151,6 @@
 		D47316B518182C4C00046428 /* DockUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D45AF1EF17FFE7F900C04F9A /* DockUtils.m */; };
 		D47316B618182C4C00046428 /* DockWeapon+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D437079D1800AFDF00622E7F /* DockWeapon+Addons.m */; };
 		D47316C418182E2F00046428 /* Space_Dock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */; };
-		D49263EE18D346A200517106 /* Dropbox.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D4DE20D318D3443300C31914 /* Dropbox.framework */; };
 		D49709FF1852E7B3001BC375 /* DockFAQViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = D49709FE1852E7B3001BC375 /* DockFAQViewer.m */; };
 		D4970A021852E8AE001BC375 /* DockFAQLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D4970A011852E8AE001BC375 /* DockFAQLoader.m */; };
 		D49985C9182C0C6E0035A2D1 /* DockResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49985C7182C0AF80035A2D1 /* DockResourcesViewController.m */; };
@@ -243,7 +242,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D49263EE18D346A200517106 /* Dropbox.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
