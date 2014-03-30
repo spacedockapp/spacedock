@@ -116,6 +116,20 @@
     return [self importOneSquad: squadData replaceUUID: YES context: context];
 }
 
++(DockSquad*)importOneSquadFromString:(NSString*)squadData context:(NSManagedObjectContext*)context
+{
+    DockSquad* squad = nil;
+    NSError* error;
+    NSData* data = [squadData dataUsingEncoding: NSUTF8StringEncoding];
+    id json = [NSJSONSerialization JSONObjectWithData: data options: 0 error: &error];
+    if ([json isKindOfClass: [NSArray class]]) {
+        json = [json objectAtIndex: 0];
+    }
+    squad = [DockSquad importOneSquad: json context: context];
+    return squad;
+}
+
+
 -(void)importIntoSquad:(NSDictionary*)squadData replaceUUID:(BOOL)replaceUUID
 {
     NSManagedObjectContext* context = self.managedObjectContext;
@@ -130,13 +144,11 @@
         self.uuid = uuid;
     }
     self.modifiedAsString = squadData[@"modified"];
-    BOOL hasSideboard = NO;
 
     NSString* resourceId = squadData[@"resource"];
     if (resourceId != nil) {
         DockResource* resource = [DockResource resourceForId: resourceId context: context];
         self.resource = resource;
-        hasSideboard = resource.isSideboard;
     } else {
         self.resource = nil;
     }

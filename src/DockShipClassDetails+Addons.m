@@ -46,7 +46,7 @@
 
     id compareData = ^(NSDictionary* a, NSDictionary* b) {
         NSArray* keys = @[@"speed", @"kind", @"color"];
-        NSComparisonResult r;
+        NSComparisonResult r = NSOrderedSame;
 
         for (NSString* key in keys) {
             id aValue = a[key];

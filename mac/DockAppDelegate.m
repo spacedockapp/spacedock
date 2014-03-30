@@ -1201,8 +1201,11 @@ NSString* kExpandedRows = @"expandedRows";
 {
     NSPasteboard* pasteboard = [NSPasteboard generalPasteboard];
     [pasteboard clearContents];
-    NSArray* objectsToCopy = @[[[self selectedSquad] asPlainTextFormat]];
-    [pasteboard writeObjects: objectsToCopy];
+    NSString* s = [[self selectedSquad] asPlainTextFormat];
+    if (s) {
+        NSArray* objectsToCopy = @[s];
+        [pasteboard writeObjects: objectsToCopy];
+    }
 }
 
 -(IBAction)showFAQ:(id)sender
@@ -1327,23 +1330,25 @@ static void doSelectIndex(NSInteger index, NSArrayController* controller, NSTabl
 
 -(void)showItem:(id)item controller:(NSArrayController*)controller table:(NSTableView*)table
 {
-    NSArray* objects = [controller arrangedObjects];
-    NSInteger index = [objects indexOfObject: item];
-    if (index == NSNotFound) {
-        NSDictionary* d2 = @{
+    if (controller && item && table) {
+        NSArray* objects = [controller arrangedObjects];
+        NSInteger index = [objects indexOfObject: item];
+        if (index == NSNotFound) {
+            NSDictionary* d2 = @{
+                @"table" : table,
+                @"controller": controller,
+                @"item": item
+            };
+            [self performSelector: @selector(showItemAfterReset:) withObject: d2 afterDelay: 0];
+        }
+        
+        NSDictionary* d = @{
             @"table" : table,
             @"controller": controller,
-            @"item": item
+            @"index": [NSNumber numberWithInt: (int)index]
         };
-        [self performSelector: @selector(showItemAfterReset:) withObject: d2 afterDelay: 0];
+        [self performSelector: @selector(showItemInternal:) withObject: d afterDelay: 0];
     }
-    
-    NSDictionary* d = @{
-        @"table" : table,
-        @"controller": controller,
-        @"index": [NSNumber numberWithInt: (int)index]
-    };
-    [self performSelector: @selector(showItemInternal:) withObject: d afterDelay: 0];
 }
 
 -(void)showInList:(id)target targetShip:(DockEquippedShip*)targetShip

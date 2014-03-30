@@ -74,7 +74,7 @@
     if (contents != nil) {
         NSString* extension = [url pathExtension];
         if ([extension isEqualToString: kSpaceDockSquadFileExtension]) {
-            newSquad = [DockSquad importOneSquad: contents context: _managedObjectContext];
+            newSquad = [DockSquad importOneSquadFromString: contents context: _managedObjectContext];
         } else {
             NSString* name = [[[url path] lastPathComponent] stringByDeletingPathExtension];
             newSquad = [DockSquad import: name data: contents context: _managedObjectContext];
@@ -133,7 +133,7 @@
 
 -(void)saveSquadsToDisk
 {
-    NSString* targetDirectory = [self applicationDocumentsDirectory];
+    NSString* targetDirectory = [[self applicationDocumentsDirectory] path];
     for (DockSquad* squad in [DockSquad allSquads: _managedObjectContext]) {
         NSString* targetPath = [targetDirectory stringByAppendingPathComponent: [NSString stringWithFormat: @"%@_%@", squad.name, squad.uuid]];
         targetPath = [targetPath stringByAppendingPathExtension: @"json"];
