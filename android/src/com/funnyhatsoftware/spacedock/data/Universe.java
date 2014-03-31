@@ -354,4 +354,8 @@ public class Universe {
         return mSquads;
     }
 
+    public void removeAllSquads() {
+        mSquads.clear();
+    }
+
 }

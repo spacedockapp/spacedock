@@ -22,6 +22,7 @@ public class BaseTest extends AndroidTestCase {
     public void setUp() throws ParserConfigurationException, SAXException, IOException {
         universe = Universe.getUniverse(getContext());
         universe.includeAllSets();
+        universe.removeAllSquads();
     }
 
 }
