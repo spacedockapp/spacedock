@@ -97,6 +97,7 @@
     } else {
         [json setObject: ship.externalId forKey: @"shipId"];
         [json setObject: ship.title forKey: @"shipTitle"];
+        [json setObject: [NSNumber numberWithInt: self.cost] forKey: @"calculatedCost"];
         DockFlagship* flagship = self.flagship;
         if (flagship != nil) {
             [json setObject: flagship.externalId forKey: @"flagship"];

@@ -117,6 +117,11 @@ public class EquippedShip extends EquippedShipBase {
         for (EquippedUpgrade eu : mUpgrades) {
             cost += eu.calculateCost();
         }
+
+        if (getFlagship() != null) {
+            cost += 10;
+        }
+
         return cost;
     }
 
@@ -174,6 +179,16 @@ public class EquippedShip extends EquippedShipBase {
         };
         Collections.sort(sortedUpgrades, comparator);
         return sortedUpgrades;
+    }
+
+    public ArrayList<EquippedUpgrade> getAllUpgradesExceptPlaceholders() {
+        ArrayList<EquippedUpgrade> np = new ArrayList<EquippedUpgrade>();
+        for (EquippedUpgrade eu : getUpgrades()) {
+            if (!eu.isCaptain() && !eu.isPlaceholder()) {
+                np.add(eu);
+            }
+        }
+        return np;
     }
 
     public String factionCode() {
@@ -252,6 +267,12 @@ public class EquippedShip extends EquippedShipBase {
         if (flagship != null) {
             v += flagship.getTech();
         }
+        
+        Captain captain = getCaptain();
+        if (captain != null) {
+            v += captain.additionalTechSlots();
+        }
+        
         return v;
     }
 
@@ -292,10 +313,14 @@ public class EquippedShip extends EquippedShipBase {
         if (flagship != null) {
             v += flagship.getCrew();
         }
+        Captain captain = getCaptain();
+        if (captain != null) {
+            v += captain.additionalCrewSlots();
+        }
         return v;
     }
 
-    EquippedUpgrade getEquippedCaptain() {
+    public EquippedUpgrade getEquippedCaptain() {
         for (EquippedUpgrade eu : getUpgrades()) {
             Upgrade upgrade = eu.getUpgrade();
 
@@ -306,7 +331,7 @@ public class EquippedShip extends EquippedShipBase {
         return null;
     }
 
-    Captain getCaptain() {
+    public Captain getCaptain() {
         EquippedUpgrade equippedCaptain = getEquippedCaptain();
         if (equippedCaptain == null) {
             return null;
@@ -483,12 +508,29 @@ public class EquippedShip extends EquippedShipBase {
         return allUpgrades.get(0);
     }
 
+    public EquippedUpgrade mostExpensiveUpgradeOfFactionAndType(String faction, String upType) {
+        ArrayList<EquippedUpgrade> allUpgrades = allUpgradesOfFactionAndType(faction, upType);
+        if (allUpgrades.isEmpty()) {
+            return null;
+        }
+        return allUpgrades.get(0);
+    }
+
     public ArrayList<EquippedUpgrade> allUpgradesOfFaction(
-            String string) {
+            String faction) {
+        return allUpgradesOfFactionAndType(faction, null);
+    }
+
+    public ArrayList<EquippedUpgrade> allUpgradesOfFactionAndType(
+            String faction, String upType) {
         ArrayList<EquippedUpgrade> allUpgrades = new ArrayList<EquippedUpgrade>();
         for (EquippedUpgrade eu : mUpgrades) {
             if (!eu.getUpgrade().isCaptain()) {
-                allUpgrades.add(eu);
+                if (upType == null || upType.equals(eu.getUpgrade().getUpType())) {
+                    if (faction == null || faction.equals(eu.getUpgrade().getFaction())) {
+                        allUpgrades.add(eu);
+                    }
+                }
             }
         }
 
@@ -629,27 +671,20 @@ public class EquippedShip extends EquippedShipBase {
         }
     }
 
-    private static final String JSON_LABEL_SIDEBOARD = "sideboard";
-    private static final String JSON_LABEL_SHIP_ID = "shipId";
-    private static final String JSON_LABEL_SHIP_TITLE = "shipTitle";
-    private static final String JSON_LABEL_FLAGSHIP = "flagship";
-    private static final String JSON_LABEL_CAPTAIN = "captain";
-    private static final String JSON_LABEL_UPGRADES = "upgrades";
-
     public JSONObject asJSON() throws JSONException {
         JSONObject o = new JSONObject();
         Ship ship = getShip();
         if (ship == null) {
-            o.put(JSON_LABEL_SIDEBOARD, true);
+            o.put(JSONLabels.JSON_LABEL_SIDEBOARD, true);
         } else {
-            o.put(JSON_LABEL_SHIP_ID, ship.getExternalId());
-            o.put(JSON_LABEL_SHIP_TITLE, ship.getTitle());
+            o.put(JSONLabels.JSON_LABEL_SHIP_ID, ship.getExternalId());
+            o.put(JSONLabels.JSON_LABEL_SHIP_TITLE, ship.getTitle());
             Flagship flagship = getFlagship();
             if (flagship != null) {
-                o.put(JSON_LABEL_FLAGSHIP, flagship.getExternalId());
+                o.put(JSONLabels.JSON_LABEL_FLAGSHIP, flagship.getExternalId());
             }
         }
-        o.put(JSON_LABEL_CAPTAIN, getEquippedCaptain().asJSON());
+        o.put(JSONLabels.JSON_LABEL_CAPTAIN, getEquippedCaptain().asJSON());
         ArrayList<EquippedUpgrade> sortedUpgrades = getSortedUpgrades();
         JSONArray upgrades = new JSONArray();
         int index = 0;
@@ -658,39 +693,49 @@ public class EquippedShip extends EquippedShipBase {
                 upgrades.put(index++, upgrade.asJSON());
             }
         }
-        o.put(JSON_LABEL_UPGRADES, upgrades);
+        o.put(JSONLabels.JSON_LABEL_UPGRADES, upgrades);
         return o;
     }
 
-    public void importUpgrades(Universe universe, JSONObject shipData)
+    public void importUpgrades(Universe universe, JSONObject shipData, boolean strict)
             throws JSONException {
-        JSONObject captainObject = shipData.optJSONObject(JSON_LABEL_CAPTAIN);
+        JSONObject captainObject = shipData.optJSONObject(JSONLabels.JSON_LABEL_CAPTAIN);
         if (captainObject != null) {
-            String captainId = captainObject.optString(EquippedUpgrade.JSON_LABEL_UPGRADE_ID);
+            String captainId = captainObject.optString(JSONLabels.JSON_LABEL_UPGRADE_ID);
             Captain captain = universe.getCaptain(captainId);
             addUpgrade(captain, null, false);
+        } else if (strict) {
+            throw new RuntimeException("Can't find captain object.");
         }
-        JSONArray upgrades = shipData.optJSONArray(JSON_LABEL_UPGRADES);
+
+        String flagshipId = shipData.optString(JSONLabels.JSON_LABEL_FLAGSHIP);
+        if (flagshipId.length() > 0) {
+            Flagship flagship = universe.getFlagship(flagshipId);
+            if (strict && flagship == null) {
+                throw new RuntimeException("Can't find flagship '" + flagshipId + "'");
+            }
+            setFlagship(flagship);
+        }
+
+        JSONArray upgrades = shipData.optJSONArray(JSONLabels.JSON_LABEL_UPGRADES);
         if (upgrades != null) {
             for (int i = 0; i < upgrades.length(); ++i) {
                 JSONObject upgradeData = upgrades.getJSONObject(i);
-                String upgradeId = upgradeData.optString(EquippedUpgrade.JSON_LABEL_UPGRADE_ID);
+                String upgradeId = upgradeData.optString(JSONLabels.JSON_LABEL_UPGRADE_ID);
                 Upgrade upgrade = universe.getUpgrade(upgradeId);
                 if (upgrade != null) {
                     EquippedUpgrade eu = addUpgrade(upgrade, null, false);
-                    if (upgradeData.optBoolean(EquippedUpgrade.JSON_LABEL_COST_IS_OVERRIDDEN)) {
+                    if (upgradeData.optBoolean(JSONLabels.JSON_LABEL_COST_IS_OVERRIDDEN)) {
                         eu.setOverridden(true);
                         eu.setOverriddenCost(upgradeData
-                                .optInt(EquippedUpgrade.JSON_LABEL_OVERRIDDEN_COST));
+                                .optInt(JSONLabels.JSON_LABEL_OVERRIDDEN_COST));
                     }
+                } else if (strict) {
+                    throw new RuntimeException("Can't find upgrade '" + upgrade + "'");
                 }
             }
         }
-        String flagshipId = shipData.optString(JSON_LABEL_FLAGSHIP);
-        if (flagshipId != null) {
-            Flagship flagship = universe.getFlagship(flagshipId);
-            setFlagship(flagship);
-        }
+
         establishPlaceholders();
     }
 }

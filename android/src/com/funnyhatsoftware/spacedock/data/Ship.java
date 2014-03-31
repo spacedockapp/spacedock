@@ -111,7 +111,7 @@ public class Ship extends ShipBase {
     }
 
     public boolean isJemhadar() {
-        return mShipClass.contains("Jem'hadar");
+        return mShipClass.toLowerCase().contains("jem'hadar");
     }
 
     public boolean isKeldon() {

@@ -6,11 +6,6 @@ import org.json.JSONObject;
 
 public class EquippedUpgrade extends EquippedUpgradeBase {
 
-    static final String JSON_LABEL_UPGRADE_ID = "upgradeId";
-    static final String JSON_LABEL_UPGRADE_TITLE = "upgradeTitle";
-    static final String JSON_LABEL_COST_IS_OVERRIDDEN = "costIsOverridden";
-    static final String JSON_LABEL_OVERRIDDEN_COST = "overriddenCost";
-
     public int calculateCost() {
         return getCost();
     }
@@ -71,11 +66,11 @@ public class EquippedUpgrade extends EquippedUpgradeBase {
     public JSONObject asJSON() throws JSONException {
         JSONObject o = new JSONObject();
         Upgrade upgrade = getUpgrade();
-        o.put(JSON_LABEL_UPGRADE_ID, upgrade.getExternalId());
-        o.put(JSON_LABEL_UPGRADE_TITLE, upgrade.getTitle());
+        o.put(JSONLabels.JSON_LABEL_UPGRADE_ID, upgrade.getExternalId());
+        o.put(JSONLabels.JSON_LABEL_UPGRADE_TITLE, upgrade.getTitle());
         if (getOverridden()) {
-            o.put(JSON_LABEL_COST_IS_OVERRIDDEN, true);
-            o.put(JSON_LABEL_OVERRIDDEN_COST, getOverriddenCost());
+            o.put(JSONLabels.JSON_LABEL_COST_IS_OVERRIDDEN, true);
+            o.put(JSONLabels.JSON_LABEL_OVERRIDDEN_COST, getOverriddenCost());
         }
         return o;
     }

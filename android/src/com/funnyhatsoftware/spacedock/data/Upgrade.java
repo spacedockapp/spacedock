@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class Upgrade extends UpgradeBase {
-    
+
     static class UpgradeComparitor implements Comparator<Upgrade> {
         @Override
         public int compare(Upgrade o1, Upgrade o2) {
@@ -24,7 +24,6 @@ public class Upgrade extends UpgradeBase {
     public static Upgrade placeholder(String upType) {
         return Universe.getUniverse().findOrCreatePlaceholder(upType);
     }
-
 
     public int limitForShip(EquippedShip targetShip) {
         if (isCaptain()) {
@@ -171,7 +170,8 @@ public class Upgrade extends UpgradeBase {
         String upgradeSpecial = getSpecial();
 
         if (isTalent()) {
-            if (captainSpecial.equals("BaselineTalentCostToThree") && upgradeFaction.equals("Federation")) {
+            if (captainSpecial.equals("BaselineTalentCostToThree")
+                    && upgradeFaction.equals("Federation")) {
                 cost = 3;
             }
         } else if (isCrew()) {
@@ -229,7 +229,8 @@ public class Upgrade extends UpgradeBase {
             }
         } else if (captainSpecial.equals("AddTwoCrewSlotsDominionCostBonus")) {
             if (isDominion()) {
-                ArrayList<EquippedUpgrade> all = equippedShip.allUpgradesOfFaction("Dominion");
+                ArrayList<EquippedUpgrade> all = equippedShip.allUpgradesOfFactionAndType(
+                        "Dominion", "Crew");
                 int index = -1;
                 for (int i = 0; i < all.size(); ++i) {
                     EquippedUpgrade eu = all.get(i);
@@ -244,10 +245,15 @@ public class Upgrade extends UpgradeBase {
                     cost -= 1;
                 }
             }
+        } else if (captainSpecial.equals("AddsHiddenTechSlot")) {
+            EquippedUpgrade most = equippedShip.mostExpensiveUpgradeOfFactionAndType(null, "Tech");
+            if (most.getUpgrade().getExternalId().equals(getExternalId())) {
+                cost = 3;
+            }
         }
 
         return cost;
 
     }
-    
+
 }

@@ -39,7 +39,7 @@ public class Captain extends CaptainBase {
     }
 
     public int additionalTechSlots() {
-        return mSpecial.equals("addonetechslot") ? 1 : 0;
+        return (mSpecial.equals("addonetechslot") || mSpecial.equals("AddsHiddenTechSlot")) ? 1 : 0;
     }
 
     public int additionalCrewSlots() {

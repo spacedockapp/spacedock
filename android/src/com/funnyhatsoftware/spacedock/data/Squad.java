@@ -1,7 +1,6 @@
 
 package com.funnyhatsoftware.spacedock.data;
 
-import com.funnyhatsoftware.spacedock.R;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,14 +18,19 @@ import org.json.JSONTokener;
 
 public class Squad extends SquadBase {
 
-    private static final String JSON_LABEL_SHIP_ID = "shipId";
-    private static final String JSON_LABEL_SIDEBOARD = "sideboard";
-    private static final String JSON_LABEL_SHIPS = "ships";
-    private static final String JSON_LABEL_RESOURCE = "resource";
-    private static final String JSON_LABEL_UUID = "uuid";
-    private static final String JSON_LABEL_ADDITIONAL_POINTS = "additionalPoints";
-    private static final String JSON_LABEL_NAME = "name";
-    private static final String JSON_LABEL_NOTES = "notes";
+    public static final String JSON_LABEL_SHIP_ID = "shipId";
+    public static final String JSON_LABEL_SIDEBOARD = "sideboard";
+    public static final String JSON_LABEL_SHIPS = "ships";
+    public static final String JSON_LABEL_RESOURCE = "resource";
+    public static final String JSON_LABEL_UUID = "uuid";
+    public static final String JSON_LABEL_ADDITIONAL_POINTS = "additionalPoints";
+    public static final String JSON_LABEL_NAME = "name";
+    public static final String JSON_LABEL_NOTES = "notes";
+    public static final String JSON_LABEL_COST = "cost";
+    public static final String JSON_LABEL_CAPTAIN = "captain";
+    public static final String JSON_LABEL_SHIP_TITLE = "shipTitle";
+    public static final String JSON_LABEL_FLAGSHIP = "flagship";
+    public static final String JSON_LABEL_UPGRADES = "upgrades";
 
     public Squad() {
         assignNewUuid();
@@ -78,7 +82,7 @@ public class Squad extends SquadBase {
         return sideboard;
     }
 
-    public void importFromObject(Universe universe, boolean replaceUuid, JSONObject jsonObject)
+    public void importFromObject(Universe universe, boolean replaceUuid, JSONObject jsonObject, boolean strict)
             throws JSONException {
         setNotes(jsonObject.optString(JSON_LABEL_NOTES, ""));
         setName(jsonObject.optString(JSON_LABEL_NAME, "Untitled"));
@@ -91,6 +95,9 @@ public class Squad extends SquadBase {
         String resourceId = jsonObject.optString(JSON_LABEL_RESOURCE, "");
         if (resourceId.length() > 0) {
             Resource resource = universe.resources.get(resourceId);
+            if (strict && resource == null) {
+                throw new RuntimeException("Can't find resource " + resourceId);
+            }
             setResource(resource);
         }
 
@@ -106,20 +113,22 @@ public class Squad extends SquadBase {
                 Ship targetShip = universe.getShip(shipId);
                 if (targetShip != null) {
                     currentShip = new EquippedShip(targetShip);
+                } else if (strict) {
+                    throw new RuntimeException("Can't find ship " + shipId);
                 }
             }
             if (currentShip != null) {
-                currentShip.importUpgrades(universe, shipData);
+                currentShip.importUpgrades(universe, shipData, strict);
                 addEquippedShip(currentShip);
             }
         }
     }
 
-    public void importFromStream(Universe universe, InputStream is, boolean replaceUuid)
+    public void importFromStream(Universe universe, InputStream is, boolean replaceUuid, boolean strict)
             throws JSONException {
         JSONTokener tokenizer = new JSONTokener(DataUtils.convertStreamToString(is));
         JSONObject jsonObject = new JSONObject(tokenizer);
-        importFromObject(universe, replaceUuid, jsonObject);
+        importFromObject(universe, replaceUuid, jsonObject, strict);
     }
 
     public JSONObject asJSON() throws JSONException {
@@ -183,7 +192,7 @@ public class Squad extends SquadBase {
         int cost = 0;
 
         Resource resource = getResource();
-        if (resource != null) {
+        if (resource != null && !resource.getIsFlagship()) {
             cost += resource.getCost();
         }
 

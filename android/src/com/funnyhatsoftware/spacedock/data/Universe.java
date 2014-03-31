@@ -95,7 +95,7 @@ public class Universe {
         File allSquadsFile = getAllSquadsSaveFile(filesDir);
         try {
             FileInputStream inputStream = new FileInputStream(allSquadsFile);
-            loadSquadsFromStream(inputStream);
+            loadSquadsFromStream(inputStream, true);
             inputStream.close();
         } catch (Exception e) {
             worked = false;
@@ -109,7 +109,7 @@ public class Universe {
         return worked;
     }
 
-    public void loadSquadsFromStream(InputStream is) throws JSONException {
+    public void loadSquadsFromStream(InputStream is, boolean strict) throws JSONException {
         String savedJSON = DataUtils.convertStreamToString(is);
 
         JSONTokener tokenizer = new JSONTokener(savedJSON);
@@ -118,7 +118,7 @@ public class Universe {
         for (int i = 0; i < count; ++i) {
             JSONObject oneSquad = jsonArray.getJSONObject(i);
             Squad squad = new Squad();
-            squad.importFromObject(this, false, oneSquad);
+            squad.importFromObject(this, false, oneSquad, strict);
             mSquads.add(squad);
         }
     }
@@ -344,6 +344,15 @@ public class Universe {
 
     public Squad getSquad(int squadIndex) {
         return mSquads.get(squadIndex);
+    }
+
+    public Squad getSquadByUUID(String uuid) {
+        for (Squad squad: mSquads) {
+            if (squad.getUuid().equals(uuid)) {
+                return squad;
+            }
+        }
+        return null;
     }
 
     public void addSquad(Squad squad) {
