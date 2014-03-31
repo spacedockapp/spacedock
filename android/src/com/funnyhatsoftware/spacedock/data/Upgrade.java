@@ -171,7 +171,7 @@ public class Upgrade extends UpgradeBase {
         String upgradeSpecial = getSpecial();
 
         if (isTalent()) {
-            if (captainSpecial.equals("BaselineTalentCostToThree")) {
+            if (captainSpecial.equals("BaselineTalentCostToThree") && upgradeFaction.equals("Federation")) {
                 cost = 3;
             }
         } else if (isCrew()) {
