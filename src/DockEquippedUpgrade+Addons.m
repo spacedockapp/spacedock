@@ -150,6 +150,7 @@
     
     json[@"upgradeId"] = self.upgrade.externalId;
     json[@"upgradeTitle"] = self.upgrade.title;
+    json[@"calculatedCost"] = [NSNumber numberWithInt: self.nonOverriddenCost];
     if ([self costIsOverridden]) {
         [json setObject: @YES forKey: @"costIsOverridden"];
         [json setObject: self.overriddenCost forKey: @"overriddenCost"];

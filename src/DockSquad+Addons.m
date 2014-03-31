@@ -503,6 +503,7 @@ static NSString* toDataFormat(NSString* label, id element)
     [selfData setNonNilObject: self.resource.externalId forKey: @"resource"];
     [selfData setNonNilObject: self.name forKey: @"name"];
     [selfData setNonNilObject: self.additionalPoints forKey: @"additionalPoints"];
+    [selfData setNonNilObject: [NSNumber numberWithInt: self.cost] forKey: @"cost"];
     [selfData setNonNilObject: self.notes forKey: @"notes"];
     [self maybeAssignNewUUID];
     [selfData setNonNilObject: self.uuid forKey: @"uuid"];
