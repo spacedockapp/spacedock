@@ -103,10 +103,12 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     private void removeUpgrade(EquippedUpgrade eu, boolean establishPlaceholders) {
-        mUpgrades.remove(eu);
-        eu.setEquippedShip(null);
-        if (establishPlaceholders) {
-            establishPlaceholders();
+        if (eu != null) {
+            mUpgrades.remove(eu);
+            eu.setEquippedShip(null);
+            if (establishPlaceholders) {
+                establishPlaceholders();
+            }
         }
     }
 
@@ -594,7 +596,8 @@ public class EquippedShip extends EquippedShipBase {
         }
         newEu.setEquippedShip(this);
         if (slotType == SLOT_TYPE_CAPTAIN) {
-            // on captain swap, add placeholders, or clear talent slots as needed
+            // on captain swap, add placeholders, or clear talent slots as
+            // needed
             establishPlaceholdersForType("Talent", getTalent());
         }
         return Explanation.SUCCESS;
