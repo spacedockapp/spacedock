@@ -151,6 +151,8 @@
 		D47316B518182C4C00046428 /* DockUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D45AF1EF17FFE7F900C04F9A /* DockUtils.m */; };
 		D47316B618182C4C00046428 /* DockWeapon+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D437079D1800AFDF00622E7F /* DockWeapon+Addons.m */; };
 		D47316C418182E2F00046428 /* Space_Dock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */; };
+		D485E08B18EA3F0800ACD8AD /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D485E08A18EA3F0800ACD8AD /* Sparkle.framework */; };
+		D485E08D18EA3F5E00ACD8AD /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D485E08A18EA3F0800ACD8AD /* Sparkle.framework */; };
 		D49709FF1852E7B3001BC375 /* DockFAQViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = D49709FE1852E7B3001BC375 /* DockFAQViewer.m */; };
 		D4970A021852E8AE001BC375 /* DockFAQLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D4970A011852E8AE001BC375 /* DockFAQLoader.m */; };
 		D49985C9182C0C6E0035A2D1 /* DockResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49985C7182C0AF80035A2D1 /* DockResourcesViewController.m */; };
@@ -242,6 +244,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D485E08D18EA3F5E00ACD8AD /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +402,7 @@
 		D472A41E187CC159004DAC07 /* DockOverrideEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockOverrideEditor.m; sourceTree = "<group>"; };
 		D47316A31818260E00046428 /* SpaceDock.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpaceDock.storyboard; sourceTree = "<group>"; };
 		D47316A618182BED00046428 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		D485E08A18EA3F0800ACD8AD /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Sparkle/Sparkle.framework; sourceTree = "<group>"; };
 		D49709FD1852E7B3001BC375 /* DockFAQViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockFAQViewer.h; sourceTree = "<group>"; };
 		D49709FE1852E7B3001BC375 /* DockFAQViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockFAQViewer.m; sourceTree = "<group>"; };
 		D4970A001852E8AE001BC375 /* DockFAQLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DockFAQLoader.h; path = ../src/DockFAQLoader.h; sourceTree = "<group>"; };
@@ -529,6 +533,7 @@
 				D4259EDF180F94E300BB02BA /* WebKit.framework in Frameworks */,
 				D4DE20D418D3443300C31914 /* Dropbox.framework in Frameworks */,
 				D42BD1F017EA134B0000598C /* Cocoa.framework in Frameworks */,
+				D485E08B18EA3F0800ACD8AD /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,6 +704,7 @@
 		D43D58BA18D9E4DB0005BE63 /* external */ = {
 			isa = PBXGroup;
 			children = (
+				D485E08A18EA3F0800ACD8AD /* Sparkle.framework */,
 				D43D58BB18D9E4DB0005BE63 /* ISO-8601-date-formatter */,
 			);
 			path = external;
@@ -1336,6 +1342,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/rob/Development/dropbox-osx-sync-sdk-2.1.0",
+					/Users/rob/Development/Sparkle,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mac/Space Dock-Prefix.pch";
@@ -1361,6 +1368,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/rob/Development/dropbox-osx-sync-sdk-2.1.0",
+					/Users/rob/Development/Sparkle,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mac/Space Dock-Prefix.pch";

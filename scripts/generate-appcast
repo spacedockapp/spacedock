@@ -1,0 +1,38 @@
+require "erb"
+
+APPCAST_TEMPLATE_SOURCE = <<-END_OF_TEMPLATE
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title><%= product_name %> Release Notes</title>
+    <link>http://spacedock.funnyhatsoftware.com/update.xml</link>
+    <description>Most recent changes with links to updates.</description>
+    <language>en</language>
+  <% items.each do |item| %>
+  <item>
+    <title>Version <%= item[:version] %> (<%= item[:build_number] %>)</title>
+    <sparkle:releaseNotesLink>http://spacedock.funnyhatsoftware.com/release-notes.html</sparkle:releaseNotesLink>
+    <pubDate><%= item[:date] %></pubDate>
+    <enclosure
+      url="http://spacedock.funnyhatsoftware.com/<%= item[:archive_name] %>"
+      sparkle:version="<%= item[:build_number] %>"
+      sparkle:shortVersionString="<%= item[:version] %>"
+      type="application/octet-stream"
+      length="<%= item.length %>"
+      sparkle:dsaSignature="<%= item[:signature] %>"
+    />
+  </item>
+  <% end %>
+  </channel>
+</rss>
+END_OF_TEMPLATE
+
+product_name = "bar"
+update_dir = ""
+
+items = [
+  {:version => "4", :length => 100, :build_number => 44, :archive_name => "foo"},
+  {:version => "3", :length => 100, :build_number => 44, :archive_name => "foo"}
+]
+appcast_template = ERB.new APPCAST_TEMPLATE_SOURCE
+puts appcast_template.result(binding)

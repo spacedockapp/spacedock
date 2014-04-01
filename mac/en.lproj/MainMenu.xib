@@ -32,6 +32,12 @@
                                     <action selector="showPreferences:" target="494" id="V3r-m3-23c"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Check for Updates..." id="NkP-Qx-STH">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="checkForUpdates:" target="lu0-nr-yfi" id="1xQ-jI-bnc"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="143">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
@@ -3592,6 +3598,7 @@
                 <outlet property="upgradesTable" destination="LbO-KE-GHl" id="Ggp-q6-eyB"/>
             </connections>
         </customObject>
+        <customObject id="lu0-nr-yfi" customClass="SUUpdater"/>
         <customObject id="494" customClass="DockAppDelegate">
             <connections>
                 <outlet property="captainsController" destination="0af-xY-vuT" id="lPO-O6-x8d"/>
