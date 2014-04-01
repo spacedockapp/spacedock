@@ -1,4 +1,5 @@
 require "erb"
+require "json"
 
 APPCAST_TEMPLATE_SOURCE = <<-END_OF_TEMPLATE
 <?xml version="1.0" encoding="utf-8"?>
@@ -18,8 +19,7 @@ APPCAST_TEMPLATE_SOURCE = <<-END_OF_TEMPLATE
       sparkle:version="<%= item[:build_number] %>"
       sparkle:shortVersionString="<%= item[:version] %>"
       type="application/octet-stream"
-      length="<%= item.length %>"
-      sparkle:dsaSignature="<%= item[:signature] %>"
+      length="<%= item[:length] %>"
     />
   </item>
   <% end %>
@@ -27,12 +27,72 @@ APPCAST_TEMPLATE_SOURCE = <<-END_OF_TEMPLATE
 </rss>
 END_OF_TEMPLATE
 
-product_name = "bar"
-update_dir = ""
+def create_new_version(versions, target)
+  puts versions.inspect
+  new_version = create_version_from_file target
+  versions.each do |v|
+    puts "Comparing #{v[:archive_name]} to #{new_version[:archive_name]}"
+    if v[:archive_name].to_s == new_version[:archive_name].to_s
+      return v
+    end
+  end
+  versions.unshift new_version
+  new_version
+end
 
-items = [
-  {:version => "4", :length => 100, :build_number => 44, :archive_name => "foo"},
-  {:version => "3", :length => 100, :build_number => 44, :archive_name => "foo"}
-]
+def say_and_do(cmd)
+  result = ""
+  IO.popen (cmd) { |f| result = f.read }
+  result.chomp
+end
+
+def create_version_from_file(path)
+  file_version = say_and_do("xattr -p sd-version #{path}")
+  parts = file_version.split("b")
+  info = File.stat(path)
+  {:version => parts[0], :archive_name => path.basename, :build_number=>parts[1].to_i, :length => info.size}
+end
+
+product_name = "Space Dock"
+
+script_path = Pathname.new(File.dirname(__FILE__))
+root_path = script_path.parent()
+parent_path = root_path.parent()
+config_path =  root_path.join("config")
+site_path =  root_path.join("spacedocksite")
+versions_path = config_path.join("versions.json")
+update_path = site_path.join("update.xml")
+
+versions = []
+
+max_build_number = 0
+
+update_xml_path = site_path.join("update.xml")
+
+if File.exists? versions_path
+  versions_text = File.read(versions_path)
+  if versions_text.length > 0
+    versions = JSON.parse(versions_text, :symbolize_names => true)
+  end
+end
+
+versions.each do |version|
+  if version[:build_number].to_i > max_build_number
+    max_build_number = version[:build_number]
+  end
+end
+
+new_release = ARGV[0]
+unless new_release
+  new_release = site_path.join("space_dock_b45.zip")
+else
+  new_release = new_release.realpath
+end
+
+create_new_version(versions, new_release)
+
+items = versions
+
 appcast_template = ERB.new APPCAST_TEMPLATE_SOURCE
-puts appcast_template.result(binding)
+File.write(update_path, appcast_template.result(binding))
+File.write(versions_path, versions.to_json())

@@ -151,8 +151,8 @@
 		D47316B518182C4C00046428 /* DockUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D45AF1EF17FFE7F900C04F9A /* DockUtils.m */; };
 		D47316B618182C4C00046428 /* DockWeapon+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D437079D1800AFDF00622E7F /* DockWeapon+Addons.m */; };
 		D47316C418182E2F00046428 /* Space_Dock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */; };
-		D485E08B18EA3F0800ACD8AD /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D485E08A18EA3F0800ACD8AD /* Sparkle.framework */; };
 		D485E08D18EA3F5E00ACD8AD /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D485E08A18EA3F0800ACD8AD /* Sparkle.framework */; };
+		D485E09118EA94ED00ACD8AD /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D485E08A18EA3F0800ACD8AD /* Sparkle.framework */; };
 		D49709FF1852E7B3001BC375 /* DockFAQViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = D49709FE1852E7B3001BC375 /* DockFAQViewer.m */; };
 		D4970A021852E8AE001BC375 /* DockFAQLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D4970A011852E8AE001BC375 /* DockFAQLoader.m */; };
 		D49985C9182C0C6E0035A2D1 /* DockResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49985C7182C0AF80035A2D1 /* DockResourcesViewController.m */; };
@@ -531,7 +531,7 @@
 			files = (
 				D4259EDF180F94E300BB02BA /* WebKit.framework in Frameworks */,
 				D42BD1F017EA134B0000598C /* Cocoa.framework in Frameworks */,
-				D485E08B18EA3F0800ACD8AD /* Sparkle.framework in Frameworks */,
+				D485E09118EA94ED00ACD8AD /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1339,17 +1339,13 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/rob/Development/dropbox-osx-sync-sdk-2.1.0",
-					/Users/rob/Development/Sparkle,
+					"$(PROJECT_DIR)/external/Sparkle",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mac/Space Dock-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/mac/Space Dock-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/rob/Projects/GRMustache/lib,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1365,17 +1361,13 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/rob/Development/dropbox-osx-sync-sdk-2.1.0",
-					/Users/rob/Development/Sparkle,
+					"$(PROJECT_DIR)/external/Sparkle",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mac/Space Dock-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/mac/Space Dock-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/rob/Projects/GRMustache/lib,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
