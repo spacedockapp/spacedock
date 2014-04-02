@@ -201,7 +201,9 @@ public class Upgrade extends UpgradeBase {
                 cost += 5;
             }
         } else if (upgradeSpecial.equals("PenaltyOnShipOtherThanKeldonClass")) {
-            cost += 5;
+            if (!ship.isKeldon()) {
+                cost += 5;
+            }
         }
 
         if (!shipFaction.equals(upgradeFaction) && !equippedShip.getIsResourceSideboard()
