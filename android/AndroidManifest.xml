@@ -16,21 +16,41 @@
         android:icon="@drawable/spacedock_icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
         <activity
             android:name=".activity.RootActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.EDIT" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="*"
+                    android:mimeType="application/octet-stream"
+                    android:pathPattern=".*\\.spacedocksquads" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.EDIT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="*"
+                    android:mimeType="application/spacedocksquads"
+                    android:pathPattern=".*\\.spacedocksquads" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.EditSquadActivity"
             android:parentActivityName=".activity.RootActivity" >
         </activity>
-
         <activity
             android:name=".activity.SettingsActivity"
             android:label="@string/title_settings"
