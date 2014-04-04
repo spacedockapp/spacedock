@@ -22,7 +22,7 @@
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockSquad.h"
-#import "DockSquadImporter.h"
+#import "DockSquadImporterMac.h"
 #import "DockTalent.h"
 #import "DockTech.h"
 #import "DockUpgrade+Addons.h"
@@ -1609,7 +1609,7 @@ void addRemoveFlagshipItem(NSMenu *menu)
     [importPanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
          if (v == NSFileHandlingPanelOKButton) {
              NSURL* fileUrl = importPanel.URL;
-             DockSquadImporter* importer = [[DockSquadImporter alloc] initWithPath: [fileUrl path] context: self.managedObjectContext];
+             DockSquadImporterMac* importer = [[DockSquadImporterMac alloc] initWithPath: [fileUrl path] context: self.managedObjectContext];
              [importer examineImport: self.window];
          }
      }

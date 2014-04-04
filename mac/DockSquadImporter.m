@@ -3,29 +3,10 @@
 #import "DockSquad+Addons.h"
 #import "ISO8601DateFormatter.h"
 
-@interface DockSquadImporter () {
-    NSString* _path;
-    NSMutableArray* _newData;
-    NSMutableArray* _existingData;
-    NSDictionary* _squadsByUUID;
-    NSManagedObjectContext* _context;
-    BOOL _importOK;
-}
+@interface DockSquadImporter ()
 @end
 
 @implementation DockSquadImporter
-
--(id)initWithPath:(NSString*)path context:(NSManagedObjectContext*)context
-{
-    self = [super init];
-    if (self != nil) {
-        _path = path;
-        _context = context;
-        _newData = [[NSMutableArray alloc] init];
-        _existingData = [[NSMutableArray alloc] init];
-    }
-    return self;
-}
 
 NSString* createAmountTermFormat(NSString* format1, NSString* format2, NSInteger count, NSString* actionVerb)
 {
@@ -43,69 +24,17 @@ NSString* createAmountTerm(NSInteger count, NSString* actionVerb)
     return createAmountTermFormat(@"%@ one squad", @"%@ %d squads", count, actionVerb);
 }
 
--(void)examineImport:(NSWindow*)window
+
+-(id)initWithPath:(NSString*)path context:(NSManagedObjectContext*)context
 {
-    NSData* data = [NSData dataWithContentsOfFile: _path];
-    NSError* error;
-    id json = [NSJSONSerialization JSONObjectWithData: data options: 0 error: &error];
-    if (json == nil) {
-        NSAlert* alert = [NSAlert alertWithError: error];
-        [alert beginSheetModalForWindow: window completionHandler: nil];
-        return;
+    self = [super init];
+    if (self != nil) {
+        _path = path;
+        _context = context;
+        _notExistingData = [[NSMutableArray alloc] init];
+        _existingData = [[NSMutableArray alloc] init];
     }
-    
-    if (![json isKindOfClass: [NSArray class]]) {
-        json = [NSArray arrayWithObject: json];
-    }
-    
-    NSArray* currentSquads = [DockSquad allSquads: _context];
-    NSMutableDictionary* squadsByUUIDMut = [NSMutableDictionary dictionaryWithCapacity: currentSquads.count];
-    for (DockSquad* squad in currentSquads) {
-        squadsByUUIDMut[squad.uuid] = squad;
-    }
-    
-    _squadsByUUID = [NSDictionary dictionaryWithDictionary: squadsByUUIDMut];
-    
-    for (NSDictionary* squadData in json) {
-        NSString* uuid = squadData[@"uuid"];
-        DockSquad* existing = _squadsByUUID[uuid];
-        if (existing != nil) {
-            NSDate* modified = existing.modified;
-            NSString* modifiedInString = squadData[@"modified"];
-            NSDate* modifiedIn = [[[ISO8601DateFormatter alloc] init] dateFromString: modifiedInString];
-            if ([modifiedIn compare: modified] == NSOrderedDescending) {
-                [_existingData addObject: squadData];
-            }
-        } else {
-            [_newData addObject: squadData];
-        }
-    }
-    
-    NSMutableArray* terms = [NSMutableArray arrayWithCapacity: 0];
-    NSString* amountTerm = createAmountTerm(_newData.count, @"create");
-    if (amountTerm) {
-        [terms addObject: amountTerm];
-    }
-    
-    amountTerm = createAmountTerm(_existingData.count, @"update");
-    if (amountTerm) {
-        [terms addObject: amountTerm];
-    }
-    
-    
-    if (terms.count > 0) {
-        NSString* importWarning = [NSString stringWithFormat: @"This import will %@.", [terms componentsJoinedByString: @" and "]];
-        NSAlert* airbag = [[NSAlert alloc] init];
-        airbag.messageText = importWarning;
-        [airbag addButtonWithTitle: @"Import"];
-        [airbag addButtonWithTitle: @"Cancel"];
-        id handler = ^(NSModalResponse returnCode) {
-            if (returnCode == NSAlertFirstButtonReturn) {
-                [self performImport];
-            }
-        };
-        [airbag beginSheetModalForWindow: window completionHandler: handler];
-    }
+    return self;
 }
 
 -(BOOL)importOK
@@ -115,7 +44,7 @@ NSString* createAmountTerm(NSInteger count, NSString* actionVerb)
 
 -(void)performImport
 {
-    for (NSDictionary* squadData in _newData) {
+    for (NSDictionary* squadData in _notExistingData) {
         [DockSquad importOneSquad: squadData replaceUUID: NO context: _context];
     }
     
@@ -125,6 +54,69 @@ NSString* createAmountTerm(NSInteger count, NSString* actionVerb)
         [squad importIntoSquad: squadData replaceUUID: NO];
     }
     
+}
+
+- (void)announceError:(NSError *)error window:(id)window
+{
+}
+
+- (void)showAirbag:(NSString *)importWarning window:(id)window
+{
+}
+
+-(void)examineImport:(id)window
+{
+    NSData* data = [NSData dataWithContentsOfFile: self.path];
+    NSError* error;
+    id json = [NSJSONSerialization JSONObjectWithData: data options: 0 error: &error];
+    if (json == nil) {
+        [self announceError:error window:window];
+        return;
+    }
+    
+    if (![json isKindOfClass: [NSArray class]]) {
+        json = [NSArray arrayWithObject: json];
+    }
+    
+    NSArray* currentSquads = [DockSquad allSquads: self.context];
+    NSMutableDictionary* squadsByUUIDMut = [NSMutableDictionary dictionaryWithCapacity: currentSquads.count];
+    for (DockSquad* squad in currentSquads) {
+        squadsByUUIDMut[squad.uuid] = squad;
+    }
+    
+    self.squadsByUUID = [NSDictionary dictionaryWithDictionary: squadsByUUIDMut];
+    
+    for (NSDictionary* squadData in json) {
+        NSString* uuid = squadData[@"uuid"];
+        DockSquad* existing = self.squadsByUUID[uuid];
+        if (existing != nil) {
+            NSDate* modified = existing.modified;
+            NSString* modifiedInString = squadData[@"modified"];
+            NSDate* modifiedIn = [[[ISO8601DateFormatter alloc] init] dateFromString: modifiedInString];
+            if ([modifiedIn compare: modified] == NSOrderedDescending) {
+                [self.existingData addObject: squadData];
+            }
+        } else {
+            [self.notExistingData addObject: squadData];
+        }
+    }
+    
+    NSMutableArray* terms = [NSMutableArray arrayWithCapacity: 0];
+    NSString* amountTerm = createAmountTerm(self.notExistingData.count, @"create");
+    if (amountTerm) {
+        [terms addObject: amountTerm];
+    }
+    
+    amountTerm = createAmountTerm(self.existingData.count, @"update");
+    if (amountTerm) {
+        [terms addObject: amountTerm];
+    }
+    
+    
+    if (terms.count > 0) {
+        NSString* importWarning = [NSString stringWithFormat: @"This import will %@.", [terms componentsJoinedByString: @" and "]];
+        [self showAirbag:importWarning window:window];
+    }
 }
 
 @end

@@ -103,7 +103,7 @@
     UIPrintInteractionCompletionHandler completionHandler =
     ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
         if(!completed && error){
-            NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+            NSLog(@"FAILED! due to error in domain %@ with error code %ld", error.domain, (long)error.code);
         } else {
             NSString* selectedPrinter = printController.printInfo.dictionaryRepresentation[@"UIPrintInfoPrinterIDKey"];
             NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
