@@ -155,7 +155,10 @@ public class Upgrade extends UpgradeBase {
         int cost = getCost();
 
         Ship ship = equippedShip.getShip();
-        String shipFaction = ship.getFaction();
+        String shipFaction = "";
+        if (ship != null) {
+            shipFaction = ship.getFaction();
+        }
         String upgradeFaction = mFaction;
         Captain captain = equippedShip.getCaptain();
 
