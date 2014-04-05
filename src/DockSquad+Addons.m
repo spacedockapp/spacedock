@@ -13,7 +13,24 @@
 #import "ISO8601DateFormatter.h"
 #import "NSMutableDictionary+Addons.h"
 
+static BOOL sIsImporting = NO;
+
 @implementation DockSquad (Addons)
+
++(void)startImport
+{
+    sIsImporting = YES;
+}
+
++(void)doneImport
+{
+    sIsImporting = NO;
+}
+
++(BOOL)sIsImporting
+{
+    return sIsImporting;
+}
 
 +(NSArray*)allSquads:(NSManagedObjectContext*)context
 {
@@ -358,11 +375,13 @@
 
 -(void)updateModificationDate
 {
-    NSDate *now = [NSDate date];
-    NSDate* modified = self.modified;
-    if (modified == nil || [now timeIntervalSinceDate:modified] > 1.0) {
-        self.modified = now;
-        NSLog(@"updating date for %@ to %@", self.uuid, self.modified);
+    if (![DockSquad sIsImporting]) {
+        NSDate *now = [NSDate date];
+        NSDate* modified = self.modified;
+        if (modified == nil || [now timeIntervalSinceDate:modified] > 1.0) {
+            self.modified = now;
+            NSLog(@"updating date for %@ to %@", self.uuid, self.modified);
+        }
     }
 }
 

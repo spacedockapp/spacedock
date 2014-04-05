@@ -19,6 +19,8 @@
 +(DockSquad*)importOneSquadFromString:(NSString*)squadData context:(NSManagedObjectContext*)context;
 +(NSError*)saveSquadsToDisk:(NSString*)targetPath context:(NSManagedObjectContext*)context;
 +(NSData *)allSquadsAsJSON:(NSManagedObjectContext *)context error:(NSError **)error;
++(void)startImport;
++(void)doneImport;
 -(void)importIntoSquad:(NSDictionary*)squadData replaceUUID:(BOOL)replaceUUID;
 -(void)checkAndUpdateFileAtPath:(NSString*)path;
 -(void)addEquippedShip:(DockEquippedShip*)ship;

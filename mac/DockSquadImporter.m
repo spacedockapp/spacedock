@@ -44,14 +44,21 @@ NSString* createAmountTerm(NSInteger count, NSString* actionVerb)
 
 -(void)performImport
 {
-    for (NSDictionary* squadData in _notExistingData) {
-        [DockSquad importOneSquad: squadData replaceUUID: NO context: _context];
+    [DockSquad startImport];
+    @try {
+        for (NSDictionary* squadData in _notExistingData) {
+            [DockSquad importOneSquad: squadData replaceUUID: NO context: _context];
+        }
+        
+        for (NSDictionary* squadData in _existingData) {
+            NSString* uuid = squadData[@"uuid"];
+            DockSquad* squad = [_squadsByUUID objectForKey: uuid];
+            [squad importIntoSquad: squadData replaceUUID: NO];
+        }
+        [_context save: nil];
     }
-    
-    for (NSDictionary* squadData in _existingData) {
-        NSString* uuid = squadData[@"uuid"];
-        DockSquad* squad = [_squadsByUUID objectForKey: uuid];
-        [squad importIntoSquad: squadData replaceUUID: NO];
+    @finally {
+        [DockSquad doneImport];
     }
     
 }
