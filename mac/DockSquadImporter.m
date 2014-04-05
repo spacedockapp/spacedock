@@ -64,6 +64,10 @@ NSString* createAmountTerm(NSInteger count, NSString* actionVerb)
 {
 }
 
+- (void)explainNothingToDo:(NSString *)explanation details:(NSString*)details window:(id)window
+{
+}
+
 -(void)examineImport:(id)window
 {
     NSData* data = [NSData dataWithContentsOfFile: self.path];
@@ -116,6 +120,8 @@ NSString* createAmountTerm(NSInteger count, NSString* actionVerb)
     if (terms.count > 0) {
         NSString* importWarning = [NSString stringWithFormat: @"This import will %@.", [terms componentsJoinedByString: @" and "]];
         [self showAirbag:importWarning window:window];
+    } else {
+        [self explainNothingToDo: @"Nothing to Import" details: @"All squads in the update file exist and are the same age or older than the ones in Space Dock." window: window];
     }
 }
 

@@ -26,4 +26,13 @@
     [airbag beginSheetModalForWindow: window completionHandler: handler];
 }
 
+- (void)explainNothingToDo:(NSString *)explanation details:(NSString*)details window:(id)window
+{
+    NSAlert* warning = [[NSAlert alloc] init];
+    warning.messageText = explanation;
+    warning.informativeText = details;
+    [warning beginSheetModalForWindow: window completionHandler: nil];
+}
+
+
 @end

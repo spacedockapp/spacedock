@@ -36,4 +36,14 @@
 }
 
 
+- (void)explainNothingToDo:(NSString *)explanation details:(NSString*)details window:(id)window
+{
+    UIAlertView* view = [[UIAlertView alloc] initWithTitle: explanation
+                                                   message: details
+                                                  delegate: nil
+                                         cancelButtonTitle: nil
+                                         otherButtonTitles: @"OK", nil];
+    [view show];
+}
+
 @end
