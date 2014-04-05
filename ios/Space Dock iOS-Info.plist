@@ -14,7 +14,7 @@
 				<string>staw-squad-icon-320</string>
 			</array>
 			<key>CFBundleTypeName</key>
-			<string>Star Trek Attack Wing Squad</string>
+			<string>Space Dock Squad</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>com.funnyhatsoftware.spacedocksquad</string>
@@ -26,10 +26,10 @@
 				<string>staw-squad-icon-320</string>
 			</array>
 			<key>CFBundleTypeName</key>
-			<string>Star Trek Attack Wing Squad</string>
+			<string>Space Dock Squad List</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.funnyhatsoftware.stawsquad</string>
+				<string>com.funnyhatsoftware.spacedocksquads</string>
 			</array>
 		</dict>
 	</array>
@@ -44,11 +44,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.3</string>
+	<string>1.0.4</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>28</string>
+	<string>29</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>
@@ -114,7 +114,7 @@
 			<key>UTTypeDescription</key>
 			<string>Star Trek Attack Wing Squad</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.funnyhatsoftware.stawsquad</string>
+			<string>com.funnyhatsoftware.spacedocksquads</string>
 			<key>UTTypeSize320IconFile</key>
 			<string>space-dock-icon-320</string>
 			<key>UTTypeSize64IconFile</key>
@@ -123,7 +123,7 @@
 			<dict>
 				<key>public.filename-extension</key>
 				<array>
-					<string>stawsquad</string>
+					<string>spacedocksquads</string>
 				</array>
 			</dict>
 		</dict>

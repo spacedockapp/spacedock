@@ -1,34 +1,39 @@
+
 package com.funnyhatsoftware.spacedock.activity;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.json.JSONException;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
+import android.widget.Toast;
 
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.fragment.BrowseListFragment;
-import com.funnyhatsoftware.spacedock.fragment.ChooseFactionDialog;
 import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 import com.funnyhatsoftware.spacedock.fragment.DisplaySquadFragment;
 import com.funnyhatsoftware.spacedock.fragment.ManageSquadsFragment;
 import com.funnyhatsoftware.spacedock.fragment.SetItemListFragment;
 
-import org.json.JSONException;
-
-import java.io.IOException;
-
 /**
- * Base fragment managing Activity class, supporting ActionBar spinner navigation.
- *
- * This activity manages all of the fragment transitions to navigate between building squads
- * and browsing items.
+ * Base fragment managing Activity class, supporting ActionBar spinner
+ * navigation. This activity manages all of the fragment transitions to navigate
+ * between building squads and browsing items.
  */
 public class RootActivity extends PanedFragmentActivity implements ActionBar.OnNavigationListener,
         BrowseListFragment.BrowseTypeSelectionListener,
@@ -60,6 +65,34 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
         } else {
             mPosition = savedInstanceState.getInt(SAVE_NAV_POSITION);
         }
+
+        Intent intent = getIntent();
+        Uri data = intent.getData();
+        if (data != null) {
+            boolean worked = false;
+            try {
+                Log.i("spacedock", "want to open " + data.getPath() + " " + data.getScheme());
+                String scheme = data.getScheme();
+                InputStream is = null;
+                if (scheme.equals("file")) {
+                    File squadFile = new File(data.getPath());
+                        is = new FileInputStream(squadFile);
+                } else if (scheme.equals("content")) {
+                    is = getContentResolver().openInputStream(data);
+                }
+                Universe.getUniverse().loadSquadsFromStream(is, true);
+                is.close();
+                worked = true;
+            } catch (FileNotFoundException e) {
+            } catch (JSONException e) {
+            } catch (IOException e) {
+            }
+            if (worked) {
+                Toast.makeText(this, "Imported squads.", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Failed to import squads.", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     @Override
@@ -71,10 +104,12 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
         // content may have been changed by SetPreferences, reinitialize list
         notifyDataFragment(TAG_ITEM_LIST);
 
-        // squad content may have been changed by EditSquadActivity, reinitialize list
+        // squad content may have been changed by EditSquadActivity,
+        // reinitialize list
         notifyDataFragment(TAG_DISPLAY_SQUAD);
 
-        // squad details may have been changed by EditSquadActivity, refresh data
+        // squad details may have been changed by EditSquadActivity, refresh
+        // data
         notifyDataFragment(TAG_MANAGE_SQUADS);
     }
 
@@ -120,7 +155,8 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
 
     @Override
     public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-        if (itemPosition == mPosition) return false;
+        if (itemPosition == mPosition)
+            return false;
 
         Fragment newPrimaryFragment;
         String tag;
@@ -134,7 +170,7 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
         Fragment oldSecondaryFragment = null;
         if (isTwoPane()) {
             oldSecondaryFragment = getSupportFragmentManager()
-                .findFragmentById(R.id.secondary_fragment_container);
+                    .findFragmentById(R.id.secondary_fragment_container);
         }
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -166,7 +202,7 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
             }
             ft.addToBackStack(null);
 
-            //show the dialog.
+            // show the dialog.
             fragment.show(ft, "dialog");
         } else {
             // single pane, add new fragment in place of main

@@ -155,7 +155,10 @@ public class Upgrade extends UpgradeBase {
         int cost = getCost();
 
         Ship ship = equippedShip.getShip();
-        String shipFaction = ship.getFaction();
+        String shipFaction = "";
+        if (ship != null) {
+            shipFaction = ship.getFaction();
+        }
         String upgradeFaction = mFaction;
         Captain captain = equippedShip.getCaptain();
 
@@ -201,7 +204,9 @@ public class Upgrade extends UpgradeBase {
                 cost += 5;
             }
         } else if (upgradeSpecial.equals("PenaltyOnShipOtherThanKeldonClass")) {
-            cost += 5;
+            if (!ship.isKeldon()) {
+                cost += 5;
+            }
         }
 
         if (!shipFaction.equals(upgradeFaction) && !equippedShip.getIsResourceSideboard()

@@ -6,6 +6,8 @@
 #import "DockDataFileLoader.h"
 #import "DockSet+Addons.h"
 #import "DockSquad+Addons.h"
+#import "DockSquadImporteriOS.h"
+#import "DockSquadsListController.h"
 #import "DockShip+Addons.h"
 #import "DockTopMenuViewController.h"
 #import "DockUpgrade+Addons.h"
@@ -15,6 +17,7 @@
 @property (nonatomic, strong, readonly) NSManagedObjectModel* managedObjectModel;
 @property (nonatomic, strong, readonly) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong, readonly) NSPersistentStoreCoordinator* persistentStoreCoordinator;
+@property (nonatomic, strong) DockSquadImporteriOS* squadImporter;
 
 -(NSURL*)applicationDocumentsDirectory;
 -(void)saveContext;
@@ -99,7 +102,7 @@
     return YES;
 }
 
--(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+-(BOOL)importOneSquad:(NSURL*)url
 {
     DockSquad* newSquad = [self importSquad: url];
     if (newSquad != nil) {
@@ -114,6 +117,34 @@
         }
     }
     return newSquad != nil;
+}
+
+-(BOOL)importSquadList:(NSURL*)url
+{
+    _squadImporter = [[DockSquadImporteriOS alloc] initWithPath: [url path] context: _managedObjectContext];
+    [_squadImporter examineImport: nil];
+#if 0
+    UINavigationController* navigationController = (UINavigationController*)self.window.rootViewController;
+    for (UIViewController* controller in navigationController.viewControllers) {
+        if ([controller isKindOfClass: [DockSquadsListController class]]) {
+            [navigationController popToViewController: controller animated: NO];
+            break;
+        }
+    }
+#endif
+    return YES;
+}
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    NSString* extension = [[[url path] pathExtension] lowercaseString];
+    if ([extension isEqualToString: @"spacedock"]) {
+        return [self importOneSquad: url];
+    }
+    if ([extension isEqualToString: @"spacedocksquads"]) {
+        return [self importSquadList: url];
+    }
+    return NO;
 }
 
 -(void)applicationWillTerminate:(UIApplication*)application

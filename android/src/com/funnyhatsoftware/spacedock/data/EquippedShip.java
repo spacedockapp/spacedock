@@ -113,7 +113,11 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public int calculateCost() {
-        int cost = mShip.getCost();
+        int cost = 0;
+        if (mShip != null) {
+            cost = mShip.getCost();
+        }
+        
         for (EquippedUpgrade eu : mUpgrades) {
             cost += eu.calculateCost();
         }
@@ -267,12 +271,12 @@ public class EquippedShip extends EquippedShipBase {
         if (flagship != null) {
             v += flagship.getTech();
         }
-        
+
         Captain captain = getCaptain();
         if (captain != null) {
             v += captain.additionalTechSlots();
         }
-        
+
         return v;
     }
 
@@ -665,9 +669,17 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public void getFactions(HashSet<String> factions) {
-        factions.add(mShip.getFaction());
-        for (EquippedUpgrade eu : mUpgrades) {
-            factions.add(eu.getFaction());
+        if (mShip != null) {
+            String faction = mShip.getFaction();
+            if (faction != null) {
+                factions.add(faction);
+            }
+            for (EquippedUpgrade eu : mUpgrades) {
+                faction = eu.getFaction();
+                if (faction != null) {
+                    factions.add(faction);
+                }
+            }
         }
     }
 

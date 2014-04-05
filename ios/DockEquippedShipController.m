@@ -69,7 +69,7 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
-    int sections = _upgradeBuckets.count + 1;
+    int sections = (int)_upgradeBuckets.count + 1;
     if ([_equippedShip.squad.resource isFlagship]) {
         sections += 1;
     }

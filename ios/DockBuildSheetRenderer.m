@@ -468,7 +468,7 @@ static NSString* otherCost(DockSquad* targetSquad)
     CGFloat bottom = top + _bounds.size.height;
     CGFloat colWidth = _bounds.size.width / _labels.count;
     CGFloat x = _bounds.origin.x + colWidth;
-    int horizDividers = _labels.count - 1;
+    int horizDividers = (int)_labels.count - 1;
     for (int i = 0; i < horizDividers; ++i) {
         UIBezierPath* p = [UIBezierPath bezierPath];
         [p moveToPoint: CGPointMake(x, top)];
@@ -564,7 +564,7 @@ static NSString* otherCost(DockSquad* targetSquad)
     CGFloat bottom = top + _bounds.size.height;
     CGFloat colWidth = _bounds.size.width * [_columnFractions[0] doubleValue];
     CGFloat x = _bounds.origin.x + colWidth;
-    int horizDividers = _labels.count - 1;
+    int horizDividers = (int)_labels.count - 1;
     for (int i = 0; i < horizDividers; ++i) {
         colWidth = _bounds.size.width * [_columnFractions[i+1] doubleValue];
         UIBezierPath* p = [UIBezierPath bezierPath];
