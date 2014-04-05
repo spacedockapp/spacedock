@@ -10,6 +10,7 @@
 
 @interface DockSquadsListController ()<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 @property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
+@property (nonatomic, strong) UIDocumentInteractionController* shareController;
 @end
 
 @implementation DockSquadsListController
@@ -230,7 +231,57 @@
     }
 }
 
--(IBAction)export:(id)sender
+- (void)documentInteractionController:(UIDocumentInteractionController *)controller didEndSendingToApplication:(NSString *)application
+{
+    NSURL* url = _shareController.URL;
+    [[NSFileManager defaultManager] removeItemAtURL: url error: nil];
+    _shareController = nil;
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
+{
+    switch(buttonIndex) {
+    case 0:
+        [self sendViaEmail];
+        break;
+    case 1:
+        [self openInOtherApp];
+        break;
+    }
+}
+
+-(IBAction)share:(id)sender
+{
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle: nil
+                                                       delegate: self
+                                              cancelButtonTitle: @"Cancel"
+                                         destructiveButtonTitle: nil
+                                              otherButtonTitles: @"Send a Copy", @"Open in Another App", nil];
+    [sheet showFromBarButtonItem: _shareItem animated: YES];
+}
+
+-(void)openInOtherApp
+{
+    NSString* tempSquads = NSTemporaryDirectory();
+    tempSquads = [tempSquads stringByAppendingPathComponent: @"all_squads.spacedocksquads"];
+    [DockSquad saveSquadsToDisk: tempSquads context: self.managedObjectContext];
+    NSURL* url = [[NSURL alloc] initFileURLWithPath: tempSquads];
+    _shareController = [UIDocumentInteractionController interactionControllerWithURL: url];
+    _shareController.delegate = self;
+    bool didShow = [_shareController presentOpenInMenuFromRect:self.view.bounds inView:self.view animated:YES];
+    if (!didShow)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Share"
+                                                        message:@"This squad list could not be shared."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+    }
+}
+
+
+-(void)sendViaEmail
 {
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController* picker = [[MFMailComposeViewController alloc] init];
@@ -242,11 +293,9 @@
         NSString* textFormat = @"Attached are squads for use with Space Dock on Mac or iOS.";
         [picker setMessageBody: textFormat isHTML: NO];
 
-        for (DockSquad* squad in self.fetchedResultsController.fetchedObjects) {
-            NSDictionary* json = [squad asJSON];
-            NSData* jsonData = [NSJSONSerialization dataWithJSONObject: json options: NSJSONWritingPrettyPrinted error: nil];
-            [picker addAttachmentData: jsonData mimeType: @"text/x-spacedock" fileName: [squad.name stringByAppendingPathExtension: kSpaceDockSquadFileExtension]];
-        }
+        NSError* error;
+        NSData* jsonData = [DockSquad allSquadsAsJSON: self.managedObjectContext error: &error];
+        [picker addAttachmentData: jsonData mimeType: @"text/x-spacedock" fileName: [kSpaceDockAllSquadsName stringByAppendingPathExtension: kSpaceDockSquadListFileExtension]];
 
         [self presentViewController: picker animated: YES completion: NULL];
     } else {

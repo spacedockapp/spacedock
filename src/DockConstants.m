@@ -2,6 +2,7 @@
 
 NSString* kSpaceDockSquadFileExtension = @"spacedock";
 NSString* kSpaceDockSquadListFileExtension = @"spacedocksquads";
+NSString* kSpaceDockAllSquadsName = @"all_squads";
 NSString* kSpaceDockSquadOldFileExtension = @"stawsquad";
 NSString* kSpaceDockSquadWindowsFileExtension = @"dat";
 NSString* kSpaceDockCurrentDataVersionKey = @"currentDataVersion";

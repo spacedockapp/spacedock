@@ -2,7 +2,8 @@
 
 @class DockSquad;
 
-@interface DockSquadsListController : UITableViewController<NSFetchedResultsControllerDelegate>
+@interface DockSquadsListController : UITableViewController<NSFetchedResultsControllerDelegate,UIDocumentInteractionControllerDelegate,UIActionSheetDelegate>
+@property (nonatomic, strong) IBOutlet UIBarButtonItem* shareItem;
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong) DockSquad* targetSquad;
 -(void)selectSquad:(DockSquad*)squad;

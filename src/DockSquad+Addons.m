@@ -129,6 +129,26 @@
     return squad;
 }
 
++ (NSData *)allSquadsAsJSON:(NSManagedObjectContext *)context error:(NSError **)error
+{
+    NSArray* allSquads = [DockSquad allSquads: context];
+    NSMutableArray* squadsForJSONArray = [NSMutableArray arrayWithCapacity: allSquads.count];
+    for (DockSquad* squad in [DockSquad allSquads: context]) {
+        [squadsForJSONArray addObject: [squad asJSON]];
+    }
+    
+    return [NSJSONSerialization dataWithJSONObject: squadsForJSONArray options: NSJSONWritingPrettyPrinted error: error];
+}
+
++(NSError*)saveSquadsToDisk:(NSString*)targetPath context:(NSManagedObjectContext*)context
+{
+    NSError *error;
+    NSData *squadData = [self allSquadsAsJSON:context error: &error];
+    if (squadData != nil) {
+        [squadData writeToFile: targetPath atomically: YES];
+    }
+    return error;
+}
 
 -(void)importIntoSquad:(NSDictionary*)squadData replaceUUID:(BOOL)replaceUUID
 {
@@ -154,11 +174,7 @@
     }
 
     NSArray* ships = squadData[@"ships"];
-    NSInteger existingCount = self.equippedShips.count;
-    if (existingCount > 0) {
-        NSIndexSet* allIndexes = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(0, self.equippedShips.count)];
-        [self removeEquippedShipsAtIndexes: allIndexes];
-    }
+    [self removeAllEquippedShips];
 
     DockEquippedShip* currentShip = nil;
 
@@ -299,6 +315,17 @@
 
     [ship removeObserver:  self forKeyPath: @"cost"];
     [self didChangeValueForKey: @"cost"];
+}
+
+- (void)removeAllEquippedShips
+{
+    NSInteger existingCount = self.equippedShips.count;
+    if (existingCount > 0) {
+        NSArray* theShips = [NSArray arrayWithArray: self.equippedShips.array];
+        for (DockEquippedShip *es in theShips) {
+            [self removeEquippedShip: es];
+        }
+    }
 }
 
 -(int)cost
