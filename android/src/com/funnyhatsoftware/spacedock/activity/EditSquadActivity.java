@@ -1,8 +1,11 @@
 package com.funnyhatsoftware.spacedock.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -24,10 +27,27 @@ public class EditSquadActivity extends PanedFragmentActivity
 
     private int mSquadIndex;
 
+    private String mPrevName = "";
+    private int mPrevCost = -1;
+    private ForegroundColorSpan mCostSpan = new ForegroundColorSpan(Color.GRAY);
+
     private void updateTitle() {
         mSquadIndex = getIntent().getIntExtra(EXTRA_SQUAD_INDEX, 0);
-        String title = Universe.getUniverse().getSquad(mSquadIndex).getName();
-        getActionBar().setTitle(title);
+        Squad squad = Universe.getUniverse().getSquad(mSquadIndex);
+        String name = squad.getName();
+        int cost = squad.calculateCost();
+
+        if (name.equals(mPrevName) && cost == mPrevCost) return;
+
+        // name or cost has changed, recompute title
+        String titleString = String.format("Editing %s, Cost: %3d", name, cost);
+        SpannableString titleSpannable= new SpannableString(titleString);
+        titleSpannable.setSpan(mCostSpan, 10 + name.length(), titleString.length(), 0);
+
+        getActionBar().setTitle(titleSpannable);
+
+        mPrevName = name;
+        mPrevCost = cost;
     }
 
     @Override
@@ -65,7 +85,7 @@ public class EditSquadActivity extends PanedFragmentActivity
                         @Override
                         public void onTextValueCommitted(String inputText) {
                             squad.setName(inputText);
-                            updateTitle();
+                            updateTitle(); // update title with new squad name
                         }
                     });
             return true;
@@ -97,5 +117,6 @@ public class EditSquadActivity extends PanedFragmentActivity
                 FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         editSquadFragment.onSetItemReturned(itemId);
+        updateTitle(); // update title with new cost
     }
 }
