@@ -10,16 +10,16 @@ APPCAST_TEMPLATE_SOURCE = <<-END_OF_TEMPLATE
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
   <channel>
     <title><%= product_name %> Release Notes</title>
-    <link>http://spacedock.funnyhatsoftware.com/update.xml</link>
+    <link>http://spacedockapp.org/update.xml</link>
     <description>Most recent changes with links to updates.</description>
     <language>en</language>
   <% items.each do |item| %>
   <item>
     <title>Version <%= item[:version] %></title>
-    <sparkle:releaseNotesLink>http://spacedock.funnyhatsoftware.com/release-notes.html</sparkle:releaseNotesLink>
+    <sparkle:releaseNotesLink>http://spacedockapp.org/release-notes.html</sparkle:releaseNotesLink>
     <pubDate><%= item[:date] %></pubDate>
     <enclosure
-      url="http://spacedock.funnyhatsoftware.com/<%= item[:archive_name] %>"
+      url="http://spacedockapp.org/<%= item[:archive_name] %>"
       sparkle:version="<%= item[:build_number] %>"
       sparkle:shortVersionString="<%= item[:version] %>"
       type="application/octet-stream"
@@ -32,10 +32,8 @@ APPCAST_TEMPLATE_SOURCE = <<-END_OF_TEMPLATE
 END_OF_TEMPLATE
 
 def create_new_version(versions, target)
-  puts versions.inspect
   new_version = create_version_from_file target
   versions.each do |v|
-    puts "Comparing #{v[:archive_name]} to #{new_version[:archive_name]}"
     if v[:archive_name].to_s == new_version[:archive_name].to_s
       return v
     end
@@ -52,7 +50,7 @@ end
 
 def create_version_from_file(path)
   file_version = say_and_do("xattr -p sd-version #{path}")
-  build_number = say_and_do("xattr -p sd-build-number #{path}")
+  build_number = say_and_do("xattr -p sd-build-number #{path}").to_i
   info = File.stat(path)
   {:version => file_version, :archive_name => path.basename, :build_number=>build_number, :length => info.size}
 end
@@ -74,20 +72,12 @@ update_path = site_path.join("update.xml")
 
 versions = []
 
-max_build_number = 0
-
 update_xml_path = site_path.join("update.xml")
 
 if File.exists? versions_path
   versions_text = File.read(versions_path)
   if versions_text.length > 0
     versions = JSON.parse(versions_text, :symbolize_names => true)
-  end
-end
-
-versions.each do |version|
-  if version[:build_number].to_i > max_build_number
-    max_build_number = version[:build_number]
   end
 end
 
@@ -109,4 +99,5 @@ say_and_do("kramdown #{release_notes_source_path} > #{release_notes_dest_path}")
 release_notes = File.read(release_notes_dest_path)
 index_template_source = File.read(index_template_source)
 index_template = ERB.new index_template_source
+max_build_number = versions[0][:build_number]
 File.write(index_dest_path, index_template.result(binding))

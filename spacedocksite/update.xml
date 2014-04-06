@@ -2,16 +2,29 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
   <channel>
     <title>Space Dock Release Notes</title>
-    <link>http://spacedock.funnyhatsoftware.com/update.xml</link>
+    <link>http://spacedockapp.org/update.xml</link>
     <description>Most recent changes with links to updates.</description>
     <language>en</language>
   
   <item>
-    <title>Version 1.0 (45)</title>
-    <sparkle:releaseNotesLink>http://spacedock.funnyhatsoftware.com/release-notes.html</sparkle:releaseNotesLink>
+    <title>Version 1.0 (46)</title>
+    <sparkle:releaseNotesLink>http://spacedockapp.org/release-notes.html</sparkle:releaseNotesLink>
     <pubDate></pubDate>
     <enclosure
-      url="http://spacedock.funnyhatsoftware.com/space_dock_b45.zip"
+      url="http://spacedockapp.org/space_dock_b46.zip"
+      sparkle:version="46"
+      sparkle:shortVersionString="1.0 (46)"
+      type="application/octet-stream"
+      length="1663641"
+    />
+  </item>
+  
+  <item>
+    <title>Version 1.0 (45)</title>
+    <sparkle:releaseNotesLink>http://spacedockapp.org/release-notes.html</sparkle:releaseNotesLink>
+    <pubDate></pubDate>
+    <enclosure
+      url="http://spacedockapp.org/space_dock_b45.zip"
       sparkle:version="45"
       sparkle:shortVersionString="1.0 (45)"
       type="application/octet-stream"

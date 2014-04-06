@@ -8,4 +8,4 @@ baseDir=`cd $baseDir; pwd`
 siteDir=$baseDir/spacedocksite
 siteDir=`cd $siteDir; pwd`
 
-rsync -e 'ssh -p 2222' -azv "$siteDir/" rob@gator4110.hostgator.com:/home2/rob/public_html/spacedock/
+rsync -e 'ssh -p 2222' -azv "$siteDir/" rob@gator4110.hostgator.com:/home2/rob/public_html/spacedockapp.org/
