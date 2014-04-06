@@ -1,6 +1,8 @@
 ### Version 1.0 build 45 (2014-4-5)
 
+* Add some advertising when copying a squad to text.
 * Include auto-updating via Sparkle.
+* Don't update modification dates when importing squads.
 
 ### Version 1.0 build 44 (2014-3-31)
 

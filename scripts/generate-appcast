@@ -15,7 +15,7 @@ APPCAST_TEMPLATE_SOURCE = <<-END_OF_TEMPLATE
     <language>en</language>
   <% items.each do |item| %>
   <item>
-    <title>Version <%= item[:version] %> (<%= item[:build_number] %>)</title>
+    <title>Version <%= item[:version] %></title>
     <sparkle:releaseNotesLink>http://spacedock.funnyhatsoftware.com/release-notes.html</sparkle:releaseNotesLink>
     <pubDate><%= item[:date] %></pubDate>
     <enclosure
@@ -52,9 +52,9 @@ end
 
 def create_version_from_file(path)
   file_version = say_and_do("xattr -p sd-version #{path}")
-  parts = file_version.split("b")
+  build_number = say_and_do("xattr -p sd-build-number #{path}")
   info = File.stat(path)
-  {:version => parts[0], :archive_name => path.basename, :build_number=>parts[1].to_i, :length => info.size}
+  {:version => file_version, :archive_name => path.basename, :build_number=>build_number, :length => info.size}
 end
 
 product_name = "Space Dock"

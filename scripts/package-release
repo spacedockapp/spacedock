@@ -11,10 +11,11 @@ version=$(defaults read "$baseDir/build/Space Dock.app/Contents/Info" CFBundleSh
 versionDash=$(echo $version | sed 's/\./-/g')
 build_number=$(defaults read "$baseDir/build/Space Dock.app/Contents/Info" CFBundleVersion)
 encodedName="space_dock_b$build_number"
-fullVersion=$version"b"$build_number
+fullVersion=$version
 archiveName=$encodedName.zip
 cd $baseDir/build
 zip --symlinks -r -q $archiveName "Space Dock".app
-xattr -w sd-version $fullVersion $archiveName
+xattr -w sd-version "$version" $archiveName
+xattr -w sd-build-number "$build_number" $archiveName
 cp $archiveName $siteDir/
 cp $baseDir/src/Data.xml $siteDir/
