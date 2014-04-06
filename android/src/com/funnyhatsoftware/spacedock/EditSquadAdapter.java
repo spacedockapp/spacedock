@@ -123,6 +123,17 @@ public class EditSquadAdapter extends BaseExpandableListAdapter
             }
         }
 
+        private void initCostTextColor(int baseCost, int calculatedCost) {
+            int colorResId = R.color.cost;
+            if (calculatedCost > baseCost) {
+                colorResId = R.color.dark_red; // more expensive, show red
+            } else if (calculatedCost < baseCost) {
+                colorResId = R.color.dark_green;
+            }
+            int color = mActivity.getResources().getColor(colorResId);
+            mCostTextView.setTextColor(color);
+        }
+
         public void reinitialize(int groupPosition, int childPosition,
                     ListItemLookup listItemLookup) {
             mGroupPosition = groupPosition;
@@ -144,9 +155,14 @@ public class EditSquadAdapter extends BaseExpandableListAdapter
                     if (upgrade.getUpgrade().isPlaceholder()) {
                         mTitleTextView.setText(R.string.empty_upgrade_slot);
                         mCostTextView.setText(R.string.indicator_not_applicable);
+                        initCostTextColor(0, 0);
                     } else {
                         mTitleTextView.setText(upgrade.getUpgrade().getTitle());
-                        mCostTextView.setText(Integer.toString(upgrade.calculateCost()));
+
+                        int calculatedCost = upgrade.calculateCost();
+                        mCostTextView.setText(Integer.toString(calculatedCost));
+                        int baseCost = upgrade.getUpgrade().getCost();
+                        initCostTextColor(baseCost, calculatedCost);
                     }
                     break;
                 case ITEM_TYPE_GROUP:
