@@ -364,7 +364,7 @@
 
     if (![shipFaction isEqualToString: upgradeFaction] && !equippedShip.isResourceSideboard && ![equippedShip.flagship.faction isEqualToString: upgradeFaction]) {
         if ([captainSpecial isEqualToString: @"UpgradesIgnoreFactionPenalty"] && ![upgrade isCaptain]) {
-        } else if ([captainSpecial isEqualToString: @"NoPenaltyOnFederationOrBajoranShip"]) {
+        } else if ([captainSpecial isEqualToString: @"NoPenaltyOnFederationOrBajoranShip"]  && [upgrade isCaptain]) {
             if (!([ship isFederation] || [ship isBajoran])) {
                 cost += 1;
             }
