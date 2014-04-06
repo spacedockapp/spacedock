@@ -1,17 +1,17 @@
 
 package com.funnyhatsoftware.spacedock.data;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
+import android.text.TextUtils;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.text.TextUtils;
-import android.util.Log;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
 
 public class EquippedShip extends EquippedShipBase {
 
@@ -509,7 +509,8 @@ public class EquippedShip extends EquippedShipBase {
         if (allUpgrades.isEmpty()) {
             return null;
         }
-        return allUpgrades.get(0);
+        EquippedUpgrade mostExpensive = allUpgrades.get(0);
+        return mostExpensive.isPlaceholder() ? null : mostExpensive;
     }
 
     public EquippedUpgrade mostExpensiveUpgradeOfFactionAndType(String faction, String upType) {
@@ -517,7 +518,8 @@ public class EquippedShip extends EquippedShipBase {
         if (allUpgrades.isEmpty()) {
             return null;
         }
-        return allUpgrades.get(0);
+        EquippedUpgrade mostExpensive = allUpgrades.get(0);
+        return mostExpensive.isPlaceholder() ? null : mostExpensive;
     }
 
     public ArrayList<EquippedUpgrade> allUpgradesOfFaction(
@@ -642,10 +644,11 @@ public class EquippedShip extends EquippedShipBase {
         }
         newEu.setEquippedShip(this);
         if (slotType == SLOT_TYPE_CAPTAIN) {
-            // on captain swap, add placeholders, or clear talent slots as
-            // needed
+            // on captain swap, add placeholders, or clear talent/tech slots as needed
             establishPlaceholdersForType("Talent", getTalent());
+            establishPlaceholdersForType("Tech", getTech());
         }
+
         return Explanation.SUCCESS;
     }
 

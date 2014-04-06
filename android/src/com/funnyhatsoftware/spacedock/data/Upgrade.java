@@ -228,7 +228,7 @@ public class Upgrade extends UpgradeBase {
         if (captainSpecial.equals("OneDominionUpgradeCostsMinusTwo")) {
             if (isDominion()) {
                 EquippedUpgrade most = equippedShip.mostExpensiveUpgradeOfFaction("Dominion");
-                if (this == most.getUpgrade()) {
+                if (most != null && this == most.getUpgrade()) {
                     cost -= 2;
                 }
             }
@@ -252,7 +252,7 @@ public class Upgrade extends UpgradeBase {
             }
         } else if (captainSpecial.equals("AddsHiddenTechSlot")) {
             EquippedUpgrade most = equippedShip.mostExpensiveUpgradeOfFactionAndType(null, "Tech");
-            if (most.getUpgrade().getExternalId().equals(getExternalId())) {
+            if (most != null && most.getUpgrade().getExternalId().equals(getExternalId())) {
                 cost = 3;
             }
         }
