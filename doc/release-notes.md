@@ -1,3 +1,7 @@
+### Version 1.0 build 46 (2014-4-6)
+
+* Add some advertising when printing.
+
 ### Version 1.0 build 45 (2014-4-5)
 
 * Add some advertising when copying a squad to text.

@@ -4419,7 +4419,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <scrollView borderType="line" autohidesScrollers="YES" horizontalLineScroll="16" horizontalPageScroll="10" verticalLineScroll="16" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" id="zKH-Dz-8MM" userLabel="before">
-                                    <rect key="frame" x="16" y="13" width="231" height="79"/>
+                                    <rect key="frame" x="16" y="21" width="231" height="79"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <clipView key="contentView" id="cfZ-xQ-3cK">
                                         <rect key="frame" x="1" y="1" width="229" height="77"/>
@@ -4491,7 +4491,7 @@
                                     </scroller>
                                 </scrollView>
                                 <scrollView identifier="after" borderType="line" autohidesScrollers="YES" horizontalLineScroll="16" horizontalPageScroll="10" verticalLineScroll="16" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" id="EHc-if-JKy" userLabel="after">
-                                    <rect key="frame" x="253" y="13" width="231" height="79"/>
+                                    <rect key="frame" x="253" y="21" width="231" height="79"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                     <clipView key="contentView" id="rvT-7P-HSb">
                                         <rect key="frame" x="1" y="1" width="229" height="77"/>
@@ -4576,7 +4576,7 @@
                                     </scroller>
                                 </scrollView>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="oKa-kU-Ldb">
-                                    <rect key="frame" x="14" y="100" width="235" height="17"/>
+                                    <rect key="frame" x="14" y="104" width="235" height="17"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Before Battle Starts:" id="CHF-xb-ao1">
                                         <font key="font" metaFont="system"/>
@@ -4585,11 +4585,20 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="NTR-RR-aj3">
-                                    <rect key="frame" x="251" y="100" width="235" height="17"/>
+                                    <rect key="frame" x="251" y="104" width="235" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="After Battle Ends:" id="NCh-mr-Ua6">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="uvG-g8-rCP">
+                                    <rect key="frame" x="14" y="5" width="472" height="11"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Printed by Space Dock - www.spacedockapp.org" id="hVg-zU-qgk">
+                                        <font key="font" metaFont="miniSystem"/>
+                                        <color key="textColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
