@@ -117,12 +117,14 @@ public class EquippedShip extends EquippedShipBase {
         if (mShip != null) {
             cost = mShip.getCost();
         }
-        
+
         for (EquippedUpgrade eu : mUpgrades) {
             cost += eu.calculateCost();
         }
 
-        if (false && getFlagship() != null) { // TODO: Remove this when flagships can be assigned to ships
+        if (false && getFlagship() != null) { // TODO: Remove this when
+                                              // flagships can be assigned to
+                                              // ships
             cost += 10;
         }
 
@@ -298,6 +300,13 @@ public class EquippedShip extends EquippedShipBase {
         Ship ship = getShip();
         if (ship != null) {
             v = ship.getWeapon();
+        }
+
+        for (EquippedUpgrade eu : getUpgrades()) {
+            Upgrade upgrade = eu.getUpgrade();
+            if (upgrade != null) {
+                v += upgrade.additionalWeaponSlots();
+            }
         }
 
         Flagship flagship = getFlagship();
@@ -644,7 +653,8 @@ public class EquippedShip extends EquippedShipBase {
         }
         newEu.setEquippedShip(this);
 
-        // slot counts may have changed, refresh placeholders + prune slots to new count
+        // slot counts may have changed, refresh placeholders + prune slots to
+        // new count
         establishPlaceholders();
 
         return Explanation.SUCCESS;

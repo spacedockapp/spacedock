@@ -280,5 +280,13 @@ public class Upgrade extends UpgradeBase {
         }
         return false;
     }
+    
+    public int additionalWeaponSlots() {
+        String special = getSpecial();
+        if (special != null && special.equalsIgnoreCase("AddTwoWeaponSlots")) {
+            return 2;
+        }
+        return 0;
+    }
 
 }
