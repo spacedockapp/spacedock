@@ -643,11 +643,9 @@ public class EquippedShip extends EquippedShipBase {
             mUpgrades.add(newEu);
         }
         newEu.setEquippedShip(this);
-        if (slotType == SLOT_TYPE_CAPTAIN) {
-            // on captain swap, add placeholders, or clear talent/tech slots as needed
-            establishPlaceholdersForType("Talent", getTalent());
-            establishPlaceholdersForType("Tech", getTech());
-        }
+
+        // slot counts may have changed, refresh placeholders + prune slots to new count
+        establishPlaceholders();
 
         return Explanation.SUCCESS;
     }
