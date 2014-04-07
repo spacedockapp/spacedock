@@ -1,30 +1,39 @@
 package com.funnyhatsoftware.spacedock;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.funnyhatsoftware.spacedock.activity.EditSquadActivity;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
 import com.funnyhatsoftware.spacedock.data.Explanation;
 import com.funnyhatsoftware.spacedock.data.Squad;
 
-public class EditSquadAdapter extends BaseExpandableListAdapter
-        implements ExpandableListView.OnChildClickListener, AdapterView.OnItemClickListener {
+import java.util.ArrayList;
 
+public class EditSquadAdapter extends BaseExpandableListAdapter implements
+        ExpandableListView.OnChildClickListener,
+        AdapterView.OnItemClickListener,
+        AdapterView.OnItemLongClickListener {
     public interface SlotSelectListener {
         void onSlotSelected(int equippedShipNumber, int slotType, int slotNumber,
                 String currentEquipmentId, String prefFaction);
     }
+
+    public static final int SELECT_MODE_SLOT_AND_CAB = 1;
+    public static final int SELECT_MODE_CAB_ONLY = 2;
 
     private static final int INVALID_HEADER_ID = 0;
 
@@ -41,6 +50,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter
     private final Activity mActivity;
     private final ExpandableListView mListView;
     private final SlotSelectListener mListener;
+    private final int mSelectionMode;
     private final Squad mSquad;
     private ArrayList<ListItemLookup>[] mShipLookup;
 
@@ -185,7 +195,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter
     }
 
     public EditSquadAdapter(Activity activity, ExpandableListView listView,
-                Squad squad, SlotSelectListener listener) {
+                int selectionMode, Squad squad, SlotSelectListener listener) {
         // TODO: always maintain one empty extra ship to support add/remove
         mActivity = activity;
         mListView = listView;
@@ -194,6 +204,9 @@ public class EditSquadAdapter extends BaseExpandableListAdapter
         updateLookup();
         mListView.setOnChildClickListener(this); // child clicks -> upgrade selection
         mListView.setOnItemClickListener(this); // non-child/group footer clicks -> adding ships
+        mListView.setOnItemLongClickListener(this);
+        mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        mSelectionMode = selectionMode;
 
         // add footer for adding ships
         LayoutInflater inflater = activity.getLayoutInflater();
@@ -291,7 +304,8 @@ public class EditSquadAdapter extends BaseExpandableListAdapter
                 groupPosition, childPosition);
 
         int index = mListView.getFlatListPosition(packedPosition);
-        if (mListView.getChoiceMode() != AbsListView.CHOICE_MODE_NONE) {
+        if (mActionMode != null) mActionMode.finish();
+        if (mSelectionMode != SELECT_MODE_CAB_ONLY) {
             if (packedPosition == mListView.getSelectedPosition()) {
                 return false; // do nothing for double select
             }
@@ -336,4 +350,74 @@ public class EditSquadAdapter extends BaseExpandableListAdapter
             Toast.makeText(mActivity, explanation.explanation, Toast.LENGTH_SHORT).show();
         }
     }
+
+    // TODO: consider moving the majority of this logic to EditSquadFragment
+    private int mSelectedShip = -1;
+    private ActionMode mActionMode;
+    @Override
+    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+        long packedPosition = mListView.getExpandableListPosition(position);
+        int childPosition = ExpandableListView.getPackedPositionChild(packedPosition);
+        if (childPosition >= 0) return false;
+        int groupPosition = ExpandableListView.getPackedPositionGroup(packedPosition);
+        if (groupPosition < 0) return false;
+
+        mSelectedShip = groupPosition;
+        mListView.setItemChecked(position, true);
+        ((EditSquadActivity)mActivity).onShipSelected(); // hides 2nd fragment TODO: cleanup
+
+        if (mActionMode == null) {
+            // start up action mode, if needed
+            mActionMode = mActivity.startActionMode(mActionModeCallback);
+        }
+
+        // TODO: remove secondary fragment in 2 pane
+        return true;
+    }
+
+    private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
+        // Called when the action mode is created; startActionMode() was called
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            // Inflate a menu resource providing context menu items
+            MenuInflater inflater = mode.getMenuInflater();
+            inflater.inflate(R.menu.menu_edit_ship, menu);
+            return true;
+        }
+
+        // Called each time the action mode is shown. Always called after onCreateActionMode, but
+        // may be called multiple times if the mode is invalidated.
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false; // Return false if nothing is done
+        }
+
+        // Called when the user selects a contextual menu item
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.menu_delete:
+                    mSquad.removeEquippedShip(mSquad.getEquippedShips().get(mSelectedShip));
+                    notifyDataSetChanged();
+                    ((EditSquadActivity)mActivity).onSquadMembershipChange(); // TODO: cleanup
+                    mode.finish(); // Action picked, so close the CAB
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        // Called when the user exits the action mode
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            if (mSelectedShip >= 0) {
+                long packedPosition = ExpandableListView.getPackedPositionForGroup(mSelectedShip);
+                int flatPosition = mListView.getFlatListPosition(packedPosition);
+                mListView.setItemChecked(flatPosition, false);
+
+                mSelectedShip = -1;
+            }
+            mActionMode = null;
+        }
+    };
 }

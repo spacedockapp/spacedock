@@ -15,6 +15,7 @@ import com.funnyhatsoftware.spacedock.ResourceSpinnerAdapter;
 import com.funnyhatsoftware.spacedock.TextEntryDialog;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
+import com.funnyhatsoftware.spacedock.fragment.DisplaySquadFragment;
 import com.funnyhatsoftware.spacedock.fragment.EditSquadFragment;
 import com.funnyhatsoftware.spacedock.fragment.SetItemListFragment;
 
@@ -22,6 +23,7 @@ public class EditSquadActivity extends PanedFragmentActivity
         implements SetItemListFragment.SetItemSelectedListener,
         EditSquadFragment.SetItemRequestListener,
         ResourceSpinnerAdapter.ResourceSelectListener {
+
     public static final String EXTRA_SQUAD_INDEX = "squad_index";
 
     private static final String TAG_EDIT = "edit";
@@ -125,5 +127,20 @@ public class EditSquadActivity extends PanedFragmentActivity
     @Override
     public void onResourceChanged() {
         updateTitle(); // update title with new cost
+    }
+
+    // TODO: The following are temporary, and should be cleaned up when convenient
+    public void onShipSelected() {
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(TAG_SELECT);
+        if (fragment != null) {
+            // remove selection fragment, since its actions will no longer be relevant
+            getSupportFragmentManager().beginTransaction()
+                    .remove(fragment)
+                    .commit();
+        }
+    }
+
+    public void onSquadMembershipChange() {
+        updateTitle();
     }
 }

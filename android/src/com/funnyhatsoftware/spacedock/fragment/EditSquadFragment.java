@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
 import android.widget.Spinner;
 
 import com.funnyhatsoftware.spacedock.EditSquadAdapter;
@@ -80,14 +79,15 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
 
         // TODO: better place to do this
         boolean isTwoPane = getActivity().findViewById(R.id.secondary_fragment_container) != null;
-        elv.setChoiceMode(isTwoPane
-                ? ListView.CHOICE_MODE_SINGLE
-                : ListView.CHOICE_MODE_NONE);
+        int selectionMode = isTwoPane
+                ? EditSquadAdapter.SELECT_MODE_SLOT_AND_CAB
+                : EditSquadAdapter.SELECT_MODE_CAB_ONLY;
 
         int squadIndex = getArguments().getInt(ARG_SQUAD_INDEX);
         Squad squad = Universe.getUniverse().getSquad(squadIndex);
-        mAdapter = new EditSquadAdapter(getActivity(), elv, squad, this);
+        mAdapter = new EditSquadAdapter(getActivity(), elv, selectionMode, squad, this);
         elv.setAdapter(mAdapter);
+        // TODO: clear ELV group selection across config change, since CAB doesn't persist
 
         Spinner resourceSpinner = (Spinner) view.findViewById(R.id.resource_spinner);
         ResourceSpinnerAdapter.createForSpinner(getActivity(), resourceSpinner, squad);
