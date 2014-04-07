@@ -261,4 +261,24 @@ public class Upgrade extends UpgradeBase {
 
     }
 
+    public boolean modifiesSlotsOfEquippedShip() {
+        String special = getSpecial();
+        if (special == null) {
+            return false;
+        }
+        if (special.equalsIgnoreCase("AddTwoWeaponSlots")) {
+            return true;
+        }
+        if (special.equalsIgnoreCase("AddsHiddenTechSlot")) {
+            return true;
+        }
+        if (special.equalsIgnoreCase("addonetechslot")) {
+            return true;
+        }
+        if (special.equalsIgnoreCase("AddTwoCrewSlotsDominionCostBonus")) {
+            return true;
+        }
+        return false;
+    }
+
 }
