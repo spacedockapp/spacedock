@@ -7,15 +7,24 @@ import android.annotation.SuppressLint;
 
 public class Captain extends CaptainBase {
     static class CaptainComparator implements Comparator<Captain> {
+        int compareZeroCost(Captain o1, Captain o2) {
+            if (o1.isZeroCost() == o2.isZeroCost()) return 0;
+            return o1.isZeroCost() ? -1 : 1;
+        }
+
         @Override
         public int compare(Captain o1, Captain o2) {
             int factionCompare = o1.getFaction().compareTo(o2.getFaction());
             if (factionCompare == 0) {
-                int titleCompare = o1.getTitle().compareTo(o2.getTitle());
-                if (titleCompare == 0) {
-                    return DataUtils.compareInt(o2.getCost(), o1.getCost());
+                int zeroCostCaptainCompare = compareZeroCost(o1, o2);
+                if (zeroCostCaptainCompare == 0) {
+                    int titleCompare = o1.getTitle().compareTo(o2.getTitle());
+                    if (titleCompare == 0) {
+                        return DataUtils.compareInt(o2.getCost(), o1.getCost());
+                    }
+                    return titleCompare;
                 }
-                return titleCompare;
+                return zeroCostCaptainCompare;
             }
             return factionCompare;
         }
