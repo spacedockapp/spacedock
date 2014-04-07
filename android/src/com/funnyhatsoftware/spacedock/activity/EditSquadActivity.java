@@ -1,11 +1,8 @@
 package com.funnyhatsoftware.spacedock.activity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -15,7 +12,6 @@ import com.funnyhatsoftware.spacedock.ResourceSpinnerAdapter;
 import com.funnyhatsoftware.spacedock.TextEntryDialog;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
-import com.funnyhatsoftware.spacedock.fragment.DisplaySquadFragment;
 import com.funnyhatsoftware.spacedock.fragment.EditSquadFragment;
 import com.funnyhatsoftware.spacedock.fragment.SetItemListFragment;
 
@@ -31,27 +27,13 @@ public class EditSquadActivity extends PanedFragmentActivity
 
     private int mSquadIndex;
 
-    private String mPrevName = "";
-    private int mPrevCost = -1;
-    private ForegroundColorSpan mCostSpan = new ForegroundColorSpan(Color.GRAY);
-
     private void updateTitle() {
         mSquadIndex = getIntent().getIntExtra(EXTRA_SQUAD_INDEX, 0);
         Squad squad = Universe.getUniverse().getSquad(mSquadIndex);
-        String name = squad.getName();
-        int cost = squad.calculateCost();
 
-        if (name.equals(mPrevName) && cost == mPrevCost) return;
-
-        // name or cost has changed, recompute title
-        String titleString = String.format("Editing %s, Cost: %3d", name, cost);
-        SpannableString titleSpannable= new SpannableString(titleString);
-        titleSpannable.setSpan(mCostSpan, 10 + name.length(), titleString.length(), 0);
-
-        getActionBar().setTitle(titleSpannable);
-
-        mPrevName = name;
-        mPrevCost = cost;
+        getActionBar().setTitle("Editing " + squad.getName());
+        String cost = Integer.toString(squad.calculateCost());
+        getActionBar().setSubtitle(cost + " total points");
     }
 
     @Override
