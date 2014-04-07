@@ -192,7 +192,9 @@ public class Squad extends SquadBase {
         int cost = 0;
 
         Resource resource = getResource();
-        if (resource != null && !resource.getIsFlagship()) {
+
+        // TODO: don't add flagship cost here once they can be added to ships in the UI
+        if (resource != null) { // && !resource.getIsFlagship()
             cost += resource.getCost();
         }
 

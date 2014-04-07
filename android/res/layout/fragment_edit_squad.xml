@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ExpandableListView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:divider="@null"
-    android:groupIndicator="@null">
-</ExpandableListView>
+    android:orientation="vertical">
+
+    <!-- Use minimum interaction height for now, consider moving into list -->
+    <Spinner
+        android:id="@+id/resource_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="44dp" />
+
+    <ExpandableListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:groupIndicator="@null" />
+</LinearLayout>

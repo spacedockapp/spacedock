@@ -7,9 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.funnyhatsoftware.spacedock.EditSquadAdapter;
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.ResourceSpinnerAdapter;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
@@ -86,6 +88,9 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
         Squad squad = Universe.getUniverse().getSquad(squadIndex);
         mAdapter = new EditSquadAdapter(getActivity(), elv, squad, this);
         elv.setAdapter(mAdapter);
+
+        Spinner resourceSpinner = (Spinner) view.findViewById(R.id.resource_spinner);
+        ResourceSpinnerAdapter.createForSpinner(getActivity(), resourceSpinner, squad);
     }
 
     private static String[] slotNames = {
