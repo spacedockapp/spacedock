@@ -122,7 +122,7 @@ public class EquippedShip extends EquippedShipBase {
             cost += eu.calculateCost();
         }
 
-        if (getFlagship() != null) {
+        if (false && getFlagship() != null) { // TODO: Remove this when flagships can be assigned to ships
             cost += 10;
         }
 
