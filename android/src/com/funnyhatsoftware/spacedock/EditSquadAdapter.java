@@ -24,6 +24,7 @@ import com.funnyhatsoftware.spacedock.data.Squad;
 import java.util.ArrayList;
 
 public class EditSquadAdapter extends BaseExpandableListAdapter implements
+        ExpandableListView.OnGroupClickListener,
         ExpandableListView.OnChildClickListener,
         AdapterView.OnItemClickListener,
         AdapterView.OnItemLongClickListener {
@@ -100,6 +101,13 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
     public void notifyDataSetChanged() {
         updateLookup();
         super.notifyDataSetChanged();
+        expandAllGroups();
+    }
+
+    private void expandAllGroups() {
+        for (int i = 0; i < getGroupCount(); i++) {
+            mListView.expandGroup(i);
+        }
     }
 
     //////////////////////////////////////////////////////////////////
@@ -202,6 +210,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         mSquad = squad;
         mListener = listener;
         updateLookup();
+        mListView.setOnGroupClickListener(this); // disable/ignore collapse/expand
         mListView.setOnChildClickListener(this); // child clicks -> upgrade selection
         mListView.setOnItemClickListener(this); // non-child/group footer clicks -> adding ships
         mListView.setOnItemLongClickListener(this);
@@ -212,6 +221,9 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         LayoutInflater inflater = activity.getLayoutInflater();
         View footer = inflater.inflate(R.layout.squad_list_add_ship, listView, false);
         listView.addFooterView(footer);
+
+        listView.setAdapter(this);
+        expandAllGroups();
     }
 
     @Override
@@ -298,6 +310,11 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
     }
 
     @Override
+    public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+        return true; // eat the click without expanding/collapsing
+    }
+
+    @Override
     public boolean onChildClick(ExpandableListView parent, View v,
             int groupPosition, int childPosition, long id) {
         long packedPosition = ExpandableListView.getPackedPositionForChild(
@@ -351,7 +368,10 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         }
     }
 
+    //////////////////////////////////////////////////////////////////
+    // Ship editing - long press and contextual action bar
     // TODO: consider moving the majority of this logic to EditSquadFragment
+    //////////////////////////////////////////////////////////////////
     private int mSelectedShip = -1;
     private ActionMode mActionMode;
     @Override

@@ -86,7 +86,6 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
         int squadIndex = getArguments().getInt(ARG_SQUAD_INDEX);
         Squad squad = Universe.getUniverse().getSquad(squadIndex);
         mAdapter = new EditSquadAdapter(getActivity(), elv, selectionMode, squad, this);
-        elv.setAdapter(mAdapter);
         // TODO: clear ELV group selection across config change, since CAB doesn't persist
 
         Spinner resourceSpinner = (Spinner) view.findViewById(R.id.resource_spinner);

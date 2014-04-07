@@ -28,7 +28,6 @@ public class EditSquadActivity extends PanedFragmentActivity
     private int mSquadIndex;
 
     private void updateTitle() {
-        mSquadIndex = getIntent().getIntExtra(EXTRA_SQUAD_INDEX, 0);
         Squad squad = Universe.getUniverse().getSquad(mSquadIndex);
 
         getActionBar().setTitle("Editing " + squad.getName());
@@ -40,6 +39,7 @@ public class EditSquadActivity extends PanedFragmentActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getActionBar().setDisplayHomeAsUpEnabled(true); // TODO: navigate up without new activity
+        mSquadIndex = getIntent().getIntExtra(EXTRA_SQUAD_INDEX, 0);
         updateTitle();
 
         if (savedInstanceState == null) {
