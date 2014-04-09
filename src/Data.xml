@@ -1,4 +1,4 @@
-<Data version="1.199">
+<Data version="">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -651,6 +651,52 @@
         </Maneuvers>
         <FrontArc>90</FrontArc>
         <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+        <Name>Federation Attack Fighter</Name>
+        <Id>federation_attack_fighter</Id>
+        <Maneuvers>
+            <Maneuver speed="3" kind="left-bank" color="white" />
+            <Maneuver speed="3" kind="straight" color="white" />
+            <Maneuver speed="3" kind="right-bank" color="white" />
+            <Maneuver speed="2" kind="left-turn" color="white" />
+            <Maneuver speed="2" kind="left-bank" color="green" />
+            <Maneuver speed="2" kind="straight" color="green" />
+            <Maneuver speed="2" kind="right-bank" color="green" />
+            <Maneuver speed="2" kind="right-turn" color="white" />
+            <Maneuver speed="2" kind="about" color="white" />
+            <Maneuver speed="1" kind="left-turn" color="white" />
+            <Maneuver speed="1" kind="left-bank" color="green" />
+            <Maneuver speed="1" kind="straight" color="green" />
+            <Maneuver speed="1" kind="right-bank" color="green" />
+            <Maneuver speed="1" kind="right-turn" color="white" />
+            <Maneuver speed="1" kind="about" color="white" />
+        </Maneuvers>
+        <FrontArc>90</FrontArc>
+        <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+        <Name>Hideki Class Attack Fighter</Name>
+        <Id>hideki_class_attack_fighter</Id>
+        <Maneuvers>
+            <Maneuver speed="4" kind="straight" color="white" />
+            <Maneuver speed="3" kind="left-bank" color="white" />
+            <Maneuver speed="3" kind="straight" color="white" />
+            <Maneuver speed="3" kind="right-bank" color="white" />
+            <Maneuver speed="2" kind="left-turn" color="white" />
+            <Maneuver speed="2" kind="left-bank" color="white" />
+            <Maneuver speed="2" kind="straight" color="green" />
+            <Maneuver speed="2" kind="right-bank" color="white" />
+            <Maneuver speed="2" kind="right-turn" color="white" />
+            <Maneuver speed="2" kind="about" color="red" />
+            <Maneuver speed="1" kind="left-turn" color="white" />
+            <Maneuver speed="1" kind="left-bank" color="green" />
+            <Maneuver speed="1" kind="straight" color="green" />
+            <Maneuver speed="1" kind="right-bank" color="green" />
+            <Maneuver speed="1" kind="right-turn" color="white" />
+        </Maneuvers>
+        <FrontArc>90</FrontArc>
+        <RearArc>90</RearArc>
     </ShipClassDetail>
   </ShipClassDetails>
   <Ships>
@@ -2155,6 +2201,52 @@
       <Crew>1</Crew>
       <Id>bajoran_starship_op6prize</Id>
       <Set>OP6Prize</Set>
+    </Ship>
+    <Ship>
+      <Title>Federation Attack Fighter</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Federation Attack Fighter</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>5</Attack>
+      <Agility>0</Agility>
+      <Hull>1</Hull>
+      <Shield>1</Shield>
+      <Ability>If you initiate an attack at Range 1, you may re-roll 1 of your attack dice. [Initial Captain skill 6]</Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan></Scan>
+      <Battlestations></Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech></Tech>
+      <Weapon></Weapon>
+      <Crew></Crew>
+      <Id>federation_attack_fighter_op6prize</Id>
+      <Set>OP6Participation</Set>
+    </Ship>
+    <Ship>
+      <Title>Hideki Class Attack Fighter</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Hideki Class Attack Fighter</ShipClass>
+      <Faction>Domminion</Faction>
+      <Attack>6</Attack>
+      <Agility>0</Agility>
+      <Hull>1</Hull>
+      <Shield>0</Shield>
+      <Ability>Instead of making a normal attack, you may make an attack with 2 dice from your rear firing arc. [Initial Captain skill 6]</Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan></Scan>
+      <Battlestations></Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech></Tech>
+      <Weapon></Weapon>
+      <Crew></Crew>
+      <Id>hideki_class_attack_fighter_op5prize</Id>
+      <Set>OP5Participation</Set>
     </Ship>
   </Ships>
   <Captains>

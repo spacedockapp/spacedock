@@ -33,6 +33,7 @@
 -(int)hull;
 -(int)shield;
 -(BOOL)isResourceSideboard;
+-(BOOL)isFighterSquadron;
 -(NSArray*)sortedUpgrades;
 -(NSArray*)sortedUpgradesWithFlagship;
 -(NSString*)plainDescription;

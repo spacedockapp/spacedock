@@ -168,6 +168,10 @@
 
 -(DockEquippedUpgrade*)equippedCaptain
 {
+    if (self.ship.isFighterSquadron) {
+        return nil;
+    }
+    
     for (DockEquippedUpgrade* eu in self.upgrades) {
         DockUpgrade* upgrade = eu.upgrade;
 
@@ -186,6 +190,11 @@
 -(BOOL)isResourceSideboard
 {
     return self.ship == nil;
+}
+
+-(BOOL)isFighterSquadron
+{
+    return [self.ship isFighterSquadron];
 }
 
 +(DockEquippedShip*)equippedShipWithShip:(DockShip*)ship
@@ -345,6 +354,10 @@
 
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade
 {
+    if ([self isFighterSquadron]) {
+        return NO;
+    }
+    
     NSString* upgradeSpecial = upgrade.special;
 
     if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
@@ -564,6 +577,10 @@
 
 -(NSArray*)sortedUpgrades
 {
+    if ([self isFighterSquadron]) {
+        return @[];
+    }
+    
     NSArray* items = [self.upgrades allObjects];
     return [items sortedArrayUsingComparator: ^(DockEquippedUpgrade* a, DockEquippedUpgrade* b) {
                 return [a compareTo: b];
@@ -574,6 +591,10 @@
 
 -(NSArray*)sortedUpgradesWithFlagship
 {
+    if ([self isFighterSquadron]) {
+        return @[];
+    }
+
     NSArray* items = [self.upgrades allObjects];
 #if !TARGET_OS_IPHONE
     if (self.flagship) {
@@ -685,38 +706,47 @@
 {
     NSString* msg = [NSString stringWithFormat: @"Can't add %@ to %@", [upgrade plainDescription], [self plainDescription]];
     NSString* info = @"";
-    int limit = [upgrade limitForShip: self];
-
-    if (limit == 0) {
-        NSString* targetClass = [upgrade targetShipClass];
-
-        if (targetClass != nil) {
-            info = [NSString stringWithFormat: @"This upgrade can only be installed on ships of class %@.", targetClass];
-        } else {
-            if ([upgrade isTalent]) {
-                info = [NSString stringWithFormat: @"This ship's captain has no %@ upgrade symbols.", [upgrade.upType lowercaseString]];
+    if ([self isFighterSquadron]) {
+        info = @"Fighter Squadrons cannot accept upgrades.";
+    } else {
+        int limit = [upgrade limitForShip: self];
+        
+        if (limit == 0) {
+            NSString* targetClass = [upgrade targetShipClass];
+            
+            if (targetClass != nil) {
+                info = [NSString stringWithFormat: @"This upgrade can only be installed on ships of class %@.", targetClass];
             } else {
-                info = [NSString stringWithFormat: @"This ship has no %@ upgrade symbols on its ship card.", [upgrade.upType lowercaseString]];
+                if ([upgrade isTalent]) {
+                    info = [NSString stringWithFormat: @"This ship's captain has no %@ upgrade symbols.", [upgrade.upType lowercaseString]];
+                } else {
+                    info = [NSString stringWithFormat: @"This ship has no %@ upgrade symbols on its ship card.", [upgrade.upType lowercaseString]];
+                }
+            }
+        } else {
+            NSString* upgradeSpecial = upgrade.special;
+            
+            if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
+                info = @"This upgrade can only be added to Jem'hadar ships.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyForKlingonCaptain"]) {
+                info = @"This upgrade can only be added to a Klingon Captain.";
             }
         }
-    } else {
-        NSString* upgradeSpecial = upgrade.special;
-
-        if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
-            info = @"This upgrade can only be added to Jem'hadar ships.";
-        } else if ([upgradeSpecial isEqualToString: @"OnlyForKlingonCaptain"]) {
-            info = @"This upgrade can only be added to a Klingon Captain.";
-        }
     }
-
+    
     return @{
-               @"info": info, @"message": msg
-    };
+             @"info": info, @"message": msg
+             };
 }
 
 -(NSDictionary*)becomeFlagship:(DockFlagship*)flagship
 {
     if (![flagship compatibleWithShip: self.ship]) {
+        if (self.ship.isFighterSquadron) {
+            NSString* msg = [NSString stringWithFormat: @"Can't add %@ to %@", [flagship plainDescription], [self.ship plainDescription]];
+            NSString* info = @"It is illogical to try to make a figher squadron into a flagship.";
+            return @{@"info": info, @"message": msg};
+        }
         NSString* msg = [NSString stringWithFormat: @"Can't add %@ to %@", [flagship plainDescription], [self.ship plainDescription]];
         NSString* info = @"The faction of the flagship must be independent or match the faction of the target ship.";
         return @{@"info": info, @"message": msg};

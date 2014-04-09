@@ -1,6 +1,7 @@
 #import "DockShip+Addons.h"
 
 #import "DockManeuver.h"
+#import "DockResource+Addons.h"
 #import "DockSetItem+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockShipClassDetails+Addons.h"
@@ -153,6 +154,31 @@ NSString* asDegrees(NSString* textValue)
 -(BOOL)isBajoran
 {
     return [self.faction isEqualToString: @"Bajoran"];
+}
+
+-(BOOL)isFighterSquadron
+{
+    NSString* shipClass = self.shipClass;
+    if ([shipClass isEqualToString: @"Federation Attack Fighter"]) {
+        return YES;
+    }
+    if ([shipClass isEqualToString: @"Hideki Class Attack Fighter"]) {
+        return YES;
+    }
+    return NO;
+}
+
+-(DockResource*)associatedResource
+{
+    NSString* shipClass = self.shipClass;
+    if ([shipClass isEqualToString: @"Federation Attack Fighter"]) {
+        return [DockResource resourceForId: @"federation_attack_fighters_op6participation" context: self.managedObjectContext];
+    }
+    if ([shipClass isEqualToString: @"Hideki Class Attack Fighter"]) {
+        return [DockResource resourceForId: @"hideki_class_attack_squadron_op5participation" context: self.managedObjectContext];
+    }
+    NSLog(@"No associated resource for %@", self);
+    return nil;
 }
 
 -(int)techCount

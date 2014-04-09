@@ -20,7 +20,7 @@
     [desc appendAttributedString: space];
     [desc appendAttributedString: coloredString(intToString(self.agility), [NSColor blackColor], [NSColor greenColor])];
     [desc appendAttributedString: space];
-    [desc appendAttributedString: coloredString(intToString(self.hull), [NSColor blackColor], [NSColor yellowColor])];
+    [desc appendAttributedString: coloredString(self.isFighterSquadron ? @" " : intToString(self.hull), [NSColor blackColor], [NSColor yellowColor])];
     [desc appendAttributedString: space];
     [desc appendAttributedString: coloredString(intToString(self.shield), [NSColor whiteColor], [NSColor blueColor])];
     return desc;

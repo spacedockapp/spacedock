@@ -48,7 +48,9 @@ NSAttributedString* styledAgility(id ship)
 NSAttributedString* styledHull(id ship)
 {
     NSMutableAttributedString* desc = [[NSMutableAttributedString alloc] initWithString: @""];
-    [desc appendAttributedString: makeCentered(coloredString([[ship hull] stringValue], [NSColor darkGrayColor], [NSColor yellowColor]))];
+    if (![ship isFighterSquadron]) {
+        [desc appendAttributedString: makeCentered(coloredString([[ship hull] stringValue], [NSColor darkGrayColor], [NSColor yellowColor]))];
+    }
     return desc;
 }
 

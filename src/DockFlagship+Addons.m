@@ -105,6 +105,10 @@
 
 -(BOOL)compatibleWithShip:(DockShip*)targetShip
 {
+    if (targetShip.isFighterSquadron) {
+        return NO;
+    }
+    
     NSString* myFaction = self.faction;
     
     if ([myFaction isEqualToString: @"Independent"]) {
@@ -112,6 +116,11 @@
     }
     
     return [myFaction isEqualToString: targetShip.faction];
+}
+
+-(BOOL)isFighterSquadron
+{
+    return NO;
 }
 
 @end

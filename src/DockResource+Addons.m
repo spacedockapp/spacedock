@@ -1,9 +1,12 @@
 #import "DockResource+Addons.h"
+#import "DockShip+Addons.h"
 
 @implementation DockResource (Addons)
 
 static NSString* kSideboardExternalId = @"4003";
 static NSString* kFlagshipExternalId = @"4004";
+static NSString* kFedFighterSquadronExternalId = @"federation_attack_fighters_op6participation";
+static NSString* kHidekiFighterSquadronExternalId = @"hideki_class_attack_squadron_op5participation";
 
 +(DockResource*)resourceForId:(NSString*)externalId context:(NSManagedObjectContext*)context
 {
@@ -46,5 +49,29 @@ static NSString* kFlagshipExternalId = @"4004";
 {
     return [self.externalId isEqualToString: kFlagshipExternalId];
 }
+
+-(BOOL)isFighterSquadron
+{
+    NSString* externalId = self.externalId;
+    return [externalId isEqualToString: kFedFighterSquadronExternalId] || [externalId isEqualToString: kHidekiFighterSquadronExternalId];
+}
+
+-(DockShip*)associatedShip
+{
+    if ([self isFighterSquadron]) {
+        NSString* externalId = self.externalId;
+        if ([externalId isEqualToString: kFedFighterSquadronExternalId]) {
+            DockShip* ship = [DockShip shipForId: @"federation_attack_fighter_op6prize" context: self.managedObjectContext];
+            return ship;
+        }
+        if ([externalId isEqualToString: kHidekiFighterSquadronExternalId]) {
+            DockShip* ship = [DockShip shipForId: @"hideki_class_attack_fighter_op5prize" context: self.managedObjectContext];
+            return ship;
+        }
+    }
+    NSLog(@"No associated ship for %@", self);
+    return nil;
+}
+
 
 @end

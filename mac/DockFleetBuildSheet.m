@@ -30,6 +30,8 @@ const int kExtraRows = 3;
     _extraRows = kExtraRows;
     if (_equippedShip.flagship) {
         _extraRows += 1;
+    } else if (_equippedShip.isFighterSquadron) {
+        _extraRows -= 1;
     }
 
     if (_equippedShip) {

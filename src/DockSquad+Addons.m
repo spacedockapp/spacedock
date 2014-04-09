@@ -201,7 +201,7 @@ static BOOL sIsImporting = NO;
             [currentShip importUpgrades: esDict];
         } else {
             currentShip = [DockEquippedShip import: esDict context: context];
-            if (currentShip) {
+            if (currentShip && !currentShip.isFighterSquadron) {
                 [self addEquippedShip: currentShip];
             }
         }
@@ -296,14 +296,24 @@ static BOOL sIsImporting = NO;
 -(void)addEquippedShip:(DockEquippedShip*)ship
 {
     id compareIsSideboard = ^(DockEquippedShip* a, DockEquippedShip* b) {
-        if (a.isResourceSideboard == b.isResourceSideboard) {
-            return NSOrderedSame;
-        }
-
         if (a.isResourceSideboard) {
+            if (b.isResourceSideboard) {
+                return NSOrderedSame;
+            }
             return NSOrderedDescending;
         }
-
+        
+        if (a.isFighterSquadron) {
+            if (b.isFighterSquadron) {
+                return NSOrderedSame;
+            }
+            return NSOrderedDescending;
+        }
+        
+        if (a.isFighterSquadron) {
+            return NSOrderedDescending;
+        }
+        
         return NSOrderedAscending;
     };
 
@@ -356,7 +366,7 @@ static BOOL sIsImporting = NO;
     }
 
     DockResource* resource = self.resource;
-    if (self.resource != nil && !resource.isFlagship) {
+    if (self.resource != nil && !resource.isFlagship && !resource.isFighterSquadron) {
         cost += [self.resource.cost intValue];
     }
     
@@ -560,7 +570,9 @@ static NSString* toDataFormat(NSString* label, id element)
     if (ships.count > 0) {
         NSMutableArray* shipsArray = [[NSMutableArray alloc] initWithCapacity: ships.count];
         for (DockEquippedShip* equippedShip in ships) {
-            [shipsArray addObject: [equippedShip asJSON]];
+            if (!equippedShip.isFighterSquadron) {
+                [shipsArray addObject: [equippedShip asJSON]];
+            }
         }
         [selfData setNonNilObject: shipsArray forKey: @"ships"];
     }
@@ -651,9 +663,27 @@ static NSString* namePrefix(NSString* originalName)
 
 -(BOOL)canAddCaptain:(DockCaptain*)captain toShip:(DockEquippedShip*)targetShip error:(NSError**)error
 {
+    if (targetShip.isFighterSquadron) {
+        if (error) {
+            NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", captain.title];
+            NSString* info = @"Fighter Squadrons cannot accept captains.";
+            NSDictionary* d = @{
+                NSLocalizedDescriptionKey: msg,
+                NSLocalizedFailureReasonErrorKey: info
+            };
+            *error = [NSError errorWithDomain: DockErrorDomain code: kUniqueConflict userInfo: d];
+        }
+
+        return NO;
+    }
+    
     DockCaptain* existingCaptain = [targetShip captain];
 
     if (captain == existingCaptain) {
+        return YES;
+    }
+
+    if ([captain.title isEqualToString: existingCaptain.title]) {
         return YES;
     }
 
@@ -681,6 +711,19 @@ static NSString* namePrefix(NSString* originalName)
 
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade toShip:(DockEquippedShip*)targetShip error:(NSError**)error
 {
+    if (![targetShip canAddUpgrade: upgrade]) {
+        if (error) {
+            NSDictionary* reasons = [targetShip explainCantAddUpgrade: upgrade];
+            NSDictionary* d = @{
+                NSLocalizedDescriptionKey: reasons[@"message"],
+                NSLocalizedFailureReasonErrorKey: reasons[@"info"]
+            };
+            *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
+        }
+
+        return NO;
+    }
+
     if ([upgrade isUnique]) {
         DockEquippedUpgrade* existing = [self containsUpgradeWithName: upgrade.title];
 
@@ -698,19 +741,6 @@ static NSString* namePrefix(NSString* originalName)
 
             return NO;
         }
-    }
-
-    if (![targetShip canAddUpgrade: upgrade]) {
-        if (error) {
-            NSDictionary* reasons = [targetShip explainCantAddUpgrade: upgrade];
-            NSDictionary* d = @{
-                NSLocalizedDescriptionKey: reasons[@"message"],
-                NSLocalizedFailureReasonErrorKey: reasons[@"info"]
-            };
-            *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
-        }
-
-        return NO;
     }
 
     return YES;
@@ -757,6 +787,42 @@ static NSString* namePrefix(NSString* originalName)
     }
 }
 
+-(DockEquippedShip*)getFighterSquadron
+{
+    DockEquippedShip* s = nil;
+
+    for (DockEquippedShip* target in self.equippedShips) {
+        if (target.isFighterSquadron) {
+            s = target;
+            break;
+        }
+    }
+    return s;
+}
+
+-(DockEquippedShip*)addFighterSquadron:(DockResource*)resource
+{
+    DockEquippedShip* s = [self getFighterSquadron];
+    if (s == nil) {
+        DockShip* fighters = [resource associatedShip];
+        s = [DockEquippedShip equippedShipWithShip: fighters];
+        [self addEquippedShip: s];
+    }
+    return s;
+}
+
+-(DockEquippedShip*)removeFighterSquadron
+{
+    DockEquippedShip* s = [self getFighterSquadron];
+
+    if (s) {
+        [self removeEquippedShip: s];
+    }
+
+    return s;
+}
+
+
 -(void)setResource:(DockResource*)resource
 {
     DockResource* oldResource = [self primitiveValueForKey: @"resource"];
@@ -767,6 +833,8 @@ static NSString* namePrefix(NSString* originalName)
             [self removeSideboard];
         } else if ([oldResource isFlagship]) {
             [self removeFlagship];
+        } else if ([oldResource isFighterSquadron]) {
+            [self removeFighterSquadron];
         }
 
         [self willChangeValueForKey: @"resource"];
@@ -775,6 +843,8 @@ static NSString* namePrefix(NSString* originalName)
 
         if ([resource isSideboard]) {
             [self addSideboard];
+        } else if ([resource isFighterSquadron]) {
+            [self addFighterSquadron: resource];
         }
     }
 }

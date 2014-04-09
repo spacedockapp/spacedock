@@ -444,19 +444,27 @@ NSString* kExpandedRows = @"expandedRows";
         NSArray* shipsToAdd = [_shipsController selectedObjects];
 
         for (DockShip* ship in shipsToAdd) {
-            if ([ship isUnique]) {
-                DockEquippedShip* existing = [squad containsShip: ship];
+            if (ship.isFighterSquadron) {
+                DockResource* resource = ship.associatedResource;
+                squad.resource = resource;
+            } else {
+                if ([ship isUnique]) {
+                    DockEquippedShip* existing = [squad containsShip: ship];
 
-                if (existing != nil) {
-                    [self selectShip: existing];
-                    [self explainCantAddShip: ship];
-                    continue;
+                    if (existing != nil) {
+                        [self selectShip: existing];
+                        [self explainCantAddShip: ship];
+                        continue;
+                    }
                 }
-            }
 
-            DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: ship];
-            [squad addEquippedShip: es];
-            [self selectShip: es];
+                DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: ship];
+                [squad addEquippedShip: es];
+                if (ship.isFighterSquadron) {
+                    squad.resource = ship.associatedResource;
+                }
+                [self selectShip: es];
+            }
         }
     }
 }
