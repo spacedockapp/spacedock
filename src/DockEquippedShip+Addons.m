@@ -343,7 +343,6 @@
     for (DockEquippedUpgrade* eu in self.upgrades) {
         if ([eu.upgrade isTalent]) {
             [onesToRemove addObject: eu];
-            [eu removeObserver: self forKeyPath: @"cost"];
         }
     }
 
@@ -388,7 +387,6 @@
 {
     [self willChangeValueForKey: @"cost"];
     [self addUpgrades: [NSSet setWithObject: equippedUpgrade]];
-    [equippedUpgrade addObserver: self forKeyPath: @"cost" options: 0 context: 0];
     [self didChangeValueForKey: @"cost"];
     return equippedUpgrade;
 }
@@ -505,7 +503,6 @@
 {
     [self willChangeValueForKey: @"cost"];
     [self removeUpgrades: [NSSet setWithObject: upgrade]];
-    [upgrade removeObserver: self forKeyPath: @"cost"];
     [self didChangeValueForKey: @"cost"];
 }
 
@@ -773,11 +770,42 @@
     }
 }
 
+-(void)handleNewInsertedOrReplaced:(NSDictionary*)change
+{
+    NSArray* newInsertedOrReplaced = [change objectForKey: NSKeyValueChangeNewKey];
+    for (DockEquippedUpgrade* upgrade in newInsertedOrReplaced) {
+        [upgrade addObserver: self forKeyPath: @"cost" options: 0 context: 0];
+    }
+}
+
+-(void)handleOldRemovedOrReplaced:(NSDictionary*)change
+{
+    NSArray* oldRemovedOrReplaced = [change objectForKey: NSKeyValueChangeOldKey];
+    for (DockEquippedUpgrade* upgrade in oldRemovedOrReplaced) {
+        [upgrade removeObserver: self forKeyPath: @"cost"];
+    }
+}
+
 -(void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void*)context
 {
     if (![self isFault]) {
-        [self willChangeValueForKey: @"cost"];
-        [self didChangeValueForKey: @"cost"];
+        if ([keyPath isEqualToString: @"cost"]) {
+            [self willChangeValueForKey: @"cost"];
+            [self didChangeValueForKey: @"cost"];
+        } else {
+            NSUInteger kind = [[change valueForKey: NSKeyValueChangeKindKey] integerValue];
+            switch (kind) {
+            case NSKeyValueChangeInsertion:
+                [self handleNewInsertedOrReplaced: change];
+                break;
+            case NSKeyValueChangeRemoval:
+                [self handleOldRemovedOrReplaced: change];
+                break;
+            default:
+                NSLog(@"unhandled kind in observeValueForKeyPath: %@", change);
+                break;
+            }
+        }
     }
 }
 
@@ -786,6 +814,7 @@
     for (DockEquippedUpgrade* upgrade in self.upgrades) {
         [upgrade addObserver: self forKeyPath: @"cost" options: 0 context: 0];
     }
+    [self addObserver: self forKeyPath: @"upgrades" options: NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context: 0];
 }
 
 -(void)stopWatchingForCostChange
@@ -793,6 +822,7 @@
     for (DockEquippedUpgrade* upgrade in self.upgrades) {
         [upgrade removeObserver: self forKeyPath: @"cost"];
     }
+    [self removeObserver: self forKeyPath: @"upgrades"];
 }
 
 -(void)awakeFromInsert

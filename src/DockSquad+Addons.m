@@ -249,10 +249,42 @@ static BOOL sIsImporting = NO;
     }
 }
 
+-(void)handleNewInsertedOrReplaced:(NSDictionary*)change
+{
+    NSArray* newInsertedOrReplaced = [change objectForKey: NSKeyValueChangeNewKey];
+    for (DockEquippedShip* es in newInsertedOrReplaced) {
+        [es addObserver: self forKeyPath: @"cost" options: 0 context: 0];
+    }
+}
+
+-(void)handleOldRemovedOrReplaced:(NSDictionary*)change
+{
+    NSArray* oldRemovedOrReplaced = [change objectForKey: NSKeyValueChangeOldKey];
+    for (DockEquippedShip* es in oldRemovedOrReplaced) {
+        [es removeObserver: self forKeyPath: @"cost"];
+    }
+}
+
+
 -(void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void*)context
 {
     if (![self isFault]) {
-        [self squadCompositionChanged];
+        if ([keyPath isEqualToString: @"cost"]) {
+            [self squadCompositionChanged];
+        } else {
+            NSUInteger kind = [[change valueForKey: NSKeyValueChangeKindKey] integerValue];
+            switch (kind) {
+            case NSKeyValueChangeInsertion:
+                [self handleNewInsertedOrReplaced: change];
+                break;
+            case NSKeyValueChangeRemoval:
+                [self handleOldRemovedOrReplaced: change];
+                break;
+            default:
+                NSLog(@"unhandled kind in observeValueForKeyPath: %@", change);
+                break;
+            }
+        }
     }
 }
 
@@ -261,6 +293,7 @@ static BOOL sIsImporting = NO;
     for (DockEquippedShip* es in self.equippedShips) {
         [es addObserver: self forKeyPath: @"cost" options: 0 context: 0];
     }
+    [self addObserver: self forKeyPath: @"equippedShips" options: NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context: 0];
 }
 
 -(void)stopWatchingForCostChange
@@ -268,6 +301,7 @@ static BOOL sIsImporting = NO;
     for (DockEquippedShip* es in self.equippedShips) {
         [es removeObserver: self forKeyPath: @"cost"];
     }
+    [self removeObserver: self forKeyPath: @"equippedShips"];
 }
 
 -(void)awakeFromInsert
@@ -323,7 +357,6 @@ static BOOL sIsImporting = NO;
     [tempSet sortUsingComparator: compareIsSideboard];
     self.equippedShips = tempSet;
     [self didChangeValueForKey: @"cost"];
-    [ship addObserver: self forKeyPath: @"cost" options: 0 context: 0];
 }
 
 -(void)removeEquippedShip:(DockEquippedShip*)ship
@@ -340,7 +373,6 @@ static BOOL sIsImporting = NO;
         [self didChange: NSKeyValueChangeRemoval valuesAtIndexes: indexes forKey: @"equippedShips"];
     }
 
-    [ship removeObserver:  self forKeyPath: @"cost"];
     [self didChangeValueForKey: @"cost"];
 }
 
