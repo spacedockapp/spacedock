@@ -10,6 +10,7 @@
 @interface DockSquad (Addons)
 @property (nonatomic, readonly) int cost;
 +(void)assignUUIDs:(NSManagedObjectContext*)context;
++(DockSquad*)squad:(NSManagedObjectContext*)context;
 +(NSArray*)allSquads:(NSManagedObjectContext*)context;
 +(NSSet*)allNames:(NSManagedObjectContext*)context;
 +(DockSquad*)import:(NSString*)name data:(NSString*)datFormatString context:(NSManagedObjectContext*)context;

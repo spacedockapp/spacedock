@@ -222,10 +222,7 @@
         editValue.valueName = @"Name";
         editValue.initialValue = @"";
         editValue.onSave = ^(NSString* newValue) {
-            NSEntityDescription* entity = [NSEntityDescription entityForName: @"Squad"
-                                                      inManagedObjectContext: _managedObjectContext];
-            DockSquad* newSquad = [[DockSquad alloc] initWithEntity: entity
-                                     insertIntoManagedObjectContext: _managedObjectContext];
+            DockSquad* newSquad = [DockSquad squad: _managedObjectContext];
             newSquad.name = newValue;
         };
     }

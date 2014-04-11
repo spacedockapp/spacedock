@@ -434,10 +434,7 @@ NSString* kExpandedRows = @"expandedRows";
 
 -(IBAction)addSquad:(id)sender
 {
-    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Squad"
-                                              inManagedObjectContext: _managedObjectContext];
-    DockSquad* squad = [[DockSquad alloc] initWithEntity: entity
-                          insertIntoManagedObjectContext: _managedObjectContext];
+    DockSquad* squad = [DockSquad squad: _managedObjectContext];
     [self performSelector: @selector(editNameOfSquad:) withObject: squad afterDelay: 0];
 }
 
