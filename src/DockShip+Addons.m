@@ -196,6 +196,14 @@ NSString* asDegrees(NSString* textValue)
     return [self.crew intValue];
 }
 
+-(int)captainCount
+{
+    if ([self isFighterSquadron]) {
+        return 0;
+    }
+    return 1;
+}
+
 -(NSArray*)actionStrings
 {
     NSMutableArray* actionStringParts = [NSMutableArray arrayWithCapacity: 0];

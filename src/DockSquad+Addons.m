@@ -252,16 +252,20 @@ static BOOL sIsImporting = NO;
 -(void)handleNewInsertedOrReplaced:(NSDictionary*)change
 {
     NSArray* newInsertedOrReplaced = [change objectForKey: NSKeyValueChangeNewKey];
-    for (DockEquippedShip* es in newInsertedOrReplaced) {
-        [es addObserver: self forKeyPath: @"cost" options: 0 context: 0];
+    if (newInsertedOrReplaced != (NSArray*)[NSNull null]) {
+        for (DockEquippedShip* es in newInsertedOrReplaced) {
+            [es addObserver: self forKeyPath: @"cost" options: 0 context: 0];
+        }
     }
 }
 
 -(void)handleOldRemovedOrReplaced:(NSDictionary*)change
 {
     NSArray* oldRemovedOrReplaced = [change objectForKey: NSKeyValueChangeOldKey];
-    for (DockEquippedShip* es in oldRemovedOrReplaced) {
-        [es removeObserver: self forKeyPath: @"cost"];
+    if (oldRemovedOrReplaced != (NSArray*)[NSNull null]) {
+        for (DockEquippedShip* es in oldRemovedOrReplaced) {
+            [es removeObserver: self forKeyPath: @"cost"];
+        }
     }
 }
 
@@ -278,6 +282,10 @@ static BOOL sIsImporting = NO;
                 [self handleNewInsertedOrReplaced: change];
                 break;
             case NSKeyValueChangeRemoval:
+                [self handleOldRemovedOrReplaced: change];
+                break;
+            case NSKeyValueChangeSetting:
+                [self handleNewInsertedOrReplaced: change];
                 [self handleOldRemovedOrReplaced: change];
                 break;
             default:
@@ -695,10 +703,10 @@ static NSString* namePrefix(NSString* originalName)
 
 -(BOOL)canAddCaptain:(DockCaptain*)captain toShip:(DockEquippedShip*)targetShip error:(NSError**)error
 {
-    if (targetShip.isFighterSquadron) {
+    if (targetShip.ship.captainCount < 1) {
         if (error) {
-            NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", captain.title];
-            NSString* info = @"Fighter Squadrons cannot accept captains.";
+            NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected ship.", captain.title];
+            NSString* info = @"The selected ship has no slot for a captain.";
             NSDictionary* d = @{
                 NSLocalizedDescriptionKey: msg,
                 NSLocalizedFailureReasonErrorKey: info

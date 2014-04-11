@@ -307,17 +307,19 @@
 
 -(void)establishPlaceholders
 {
-    DockCaptain* captain = [self captain];
+    if (self.captainCount > 0) {
+        DockCaptain* captain = [self captain];
 
-    if (captain == nil) {
-        NSString* faction = self.shipFaction;
+        if (captain == nil) {
+            NSString* faction = self.shipFaction;
 
-        if ([faction isEqualToString: @"Independent"] || [faction isEqualToString: @"Bajoran"]) {
-            faction = @"Federation";
+            if ([faction isEqualToString: @"Independent"] || [faction isEqualToString: @"Bajoran"]) {
+                faction = @"Federation";
+            }
+
+            DockUpgrade* zcc = [DockCaptain zeroCostCaptain: faction context: self.managedObjectContext];
+            [self addUpgrade: zcc maybeReplace: nil establishPlaceholders: NO];
         }
-
-        DockUpgrade* zcc = [DockCaptain zeroCostCaptain: faction context: self.managedObjectContext];
-        [self addUpgrade: zcc maybeReplace: nil establishPlaceholders: NO];
     }
 
     [self establishPlaceholdersForType: @"Talent" limit: self.talentCount];
@@ -353,10 +355,6 @@
 
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade
 {
-    if ([self isFighterSquadron]) {
-        return NO;
-    }
-    
     NSString* upgradeSpecial = upgrade.special;
 
     if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
@@ -574,10 +572,6 @@
 
 -(NSArray*)sortedUpgrades
 {
-    if ([self isFighterSquadron]) {
-        return @[];
-    }
-    
     NSArray* items = [self.upgrades allObjects];
     return [items sortedArrayUsingComparator: ^(DockEquippedUpgrade* a, DockEquippedUpgrade* b) {
                 return [a compareTo: b];
@@ -588,10 +582,6 @@
 
 -(NSArray*)sortedUpgradesWithFlagship
 {
-    if ([self isFighterSquadron]) {
-        return @[];
-    }
-
     NSArray* items = [self.upgrades allObjects];
 #if !TARGET_OS_IPHONE
     if (self.flagship) {
@@ -667,6 +657,11 @@
     return count;
 }
 
+-(int)captainCount
+{
+    return self.ship.captainCount;
+}
+
 -(NSString*)ability
 {
     return self.ship.ability;
@@ -703,7 +698,7 @@
 {
     NSString* msg = [NSString stringWithFormat: @"Can't add %@ to %@", [upgrade plainDescription], [self plainDescription]];
     NSString* info = @"";
-    if ([self isFighterSquadron]) {
+    if (false && [self isFighterSquadron]) {
         info = @"Fighter Squadrons cannot accept upgrades.";
     } else {
         int limit = [upgrade limitForShip: self];
@@ -773,16 +768,20 @@
 -(void)handleNewInsertedOrReplaced:(NSDictionary*)change
 {
     NSArray* newInsertedOrReplaced = [change objectForKey: NSKeyValueChangeNewKey];
-    for (DockEquippedUpgrade* upgrade in newInsertedOrReplaced) {
-        [upgrade addObserver: self forKeyPath: @"cost" options: 0 context: 0];
+    if (newInsertedOrReplaced != (NSArray*)[NSNull null]) {
+        for (DockEquippedUpgrade* upgrade in newInsertedOrReplaced) {
+            [upgrade addObserver: self forKeyPath: @"cost" options: 0 context: 0];
+        }
     }
 }
 
 -(void)handleOldRemovedOrReplaced:(NSDictionary*)change
 {
     NSArray* oldRemovedOrReplaced = [change objectForKey: NSKeyValueChangeOldKey];
-    for (DockEquippedUpgrade* upgrade in oldRemovedOrReplaced) {
-        [upgrade removeObserver: self forKeyPath: @"cost"];
+    if (oldRemovedOrReplaced != (NSArray*)[NSNull null]) {
+        for (DockEquippedUpgrade* upgrade in oldRemovedOrReplaced) {
+            [upgrade removeObserver: self forKeyPath: @"cost"];
+        }
     }
 }
 
@@ -799,6 +798,10 @@
                 [self handleNewInsertedOrReplaced: change];
                 break;
             case NSKeyValueChangeRemoval:
+                [self handleOldRemovedOrReplaced: change];
+                break;
+            case NSKeyValueChangeSetting:
+                [self handleNewInsertedOrReplaced: change];
                 [self handleOldRemovedOrReplaced: change];
                 break;
             default:

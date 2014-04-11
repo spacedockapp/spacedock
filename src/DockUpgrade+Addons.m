@@ -192,7 +192,7 @@
 -(int)limitForShip:(DockEquippedShip*)targetShip
 {
     if ([self isCaptain]) {
-        return 1;
+        return targetShip.ship.captainCount;
     }
 
     if ([self isTalent]) {

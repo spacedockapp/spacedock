@@ -24,6 +24,7 @@
 -(void)removeCaptain;
 -(int)talentCount;
 -(int)upgradeCount;
+-(int)captainCount;
 -(int)techCount;
 -(int)weaponCount;
 -(int)crewCount;

@@ -94,6 +94,15 @@ NSString* kExpandedRows = @"expandedRows";
     [setNames sortUsingSelector: @selector(compare:)];
 }
 
+- (void)handleSelectedSquadChanged:(NSDictionary*)change
+{
+    NSLog(@"selection change %@", change);
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults boolForKey: kExpandSquads]) {
+        [self performSelector: @selector(expandAll:) withObject: nil afterDelay: 0];
+    }
+}
+
 -(void)observeValueForKeyPath:(NSString*)keyPath
                      ofObject:(id)object
                        change:(NSDictionary*)change
@@ -105,10 +114,7 @@ NSString* kExpandedRows = @"expandedRows";
         [_squadDetailController removeObserver: self
                                     forKeyPath: @"content"];
     } else if (object == _squadsController) {
-        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-        if ([defaults boolForKey: kExpandSquads]) {
-            [self performSelector: @selector(expandAll:) withObject: nil afterDelay: 0];
-        }
+        [self handleSelectedSquadChanged: change];
     } else if ([object isMemberOfClass: [DockSet class]]) {
         [self updateForSelectedSets];
     } else {
@@ -152,7 +158,7 @@ NSString* kExpandedRows = @"expandedRows";
                                 context: nil];
     [_squadsController addObserver: self
                              forKeyPath: @"selectionIndexes"
-                                options: 0
+                                options: NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
                                 context: nil];
     NSSortDescriptor* defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"title" ascending: YES];
     [_shipsTableView setSortDescriptors: @[defaultSortDescriptor]];
