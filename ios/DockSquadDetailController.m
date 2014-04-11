@@ -285,6 +285,12 @@ enum {
     return NO;
 }
 
+-(void)reloadResouce
+{
+    NSIndexPath* resourceIndexPath = [NSIndexPath indexPathForRow: 2 inSection: 0];
+    [self.tableView reloadRowsAtIndexPaths: @[resourceIndexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
+}
+
 -(void)tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath
 {
     [self.tableView beginUpdates];
@@ -307,10 +313,9 @@ enum {
         if (editingStyle == UITableViewCellEditingStyleDelete) {
             DockEquippedShip* es = _squad.equippedShips[row];
 
-            if (es.isResourceSideboard) {
-                NSIndexPath* resourceIndexPath = [NSIndexPath indexPathForRow: 2 inSection: 1];
+            if (es.isResourceSideboard || es.isFighterSquadron) {
                 _squad.resource = nil;
-                [self.tableView reloadRowsAtIndexPaths: @[resourceIndexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
+                [self reloadResouce];
             } else {
                 [_squad removeEquippedShip: es];
             }
@@ -482,8 +487,13 @@ enum {
 -(void)addShip:(DockShip*)ship
 {
     [self.tableView beginUpdates];
-    DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: ship];
-    [_squad addEquippedShip: es];
+    if (ship.isFighterSquadron) {
+        _squad.resource = ship.associatedResource;
+        [self reloadResouce];
+    } else {
+        DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: ship];
+        [_squad addEquippedShip: es];
+    }
     [self.navigationController popViewControllerAnimated: YES];
     NSError* error;
 

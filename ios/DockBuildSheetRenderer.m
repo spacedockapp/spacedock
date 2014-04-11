@@ -11,6 +11,8 @@
 #import "DockResource+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockSetItem+Addons.h"
+#import "DockShip+Addons.h"
+#import "DockUtils.h"
 
 NSString* kLabelFont = @"AvenirNext-Medium";
 NSString* kLabelFontNarrow = @"AvenirNextCondensed-Medium";
@@ -30,28 +32,6 @@ NSString* kPlayerNameKey = @"playerName";
 NSString* kPlayerEmailKey = @"playerEmail";
 NSString* kEventFactionKey = @"eventFaction";
 NSString* kEventNameKey = @"eventName";
-
-static NSString* resourceCost(DockSquad* targetSquad)
-{
-    DockResource* res = targetSquad.resource;
-    if (res) {
-        if (res.isFlagship) {
-            return @"Flagship";
-        }
-        return [NSString stringWithFormat: @"%@", res.cost];
-    }
-    return @"";
-}
-
-static NSString* otherCost(DockSquad* targetSquad)
-{
-    NSNumber* additionalPoints = targetSquad.additionalPoints;
-    if (additionalPoints && [additionalPoints intValue] > 0) {
-        return [NSString stringWithFormat: @"%@", additionalPoints];
-    }
-    return @"";
-}
-
 
 @interface DockTextBox : NSObject
 @property (assign, nonatomic) NSInteger alignment;
@@ -214,6 +194,10 @@ static NSString* otherCost(DockSquad* targetSquad)
 
 -(NSString*)handleCaptain:(int)col
 {
+    if (_ship.isFighterSquadron) {
+        return @"";
+    }
+    
     DockEquippedUpgrade* equippedCaptain = [_ship equippedCaptain];
     DockCaptain* captain = (DockCaptain*)[equippedCaptain upgrade];
 
@@ -233,6 +217,10 @@ static NSString* otherCost(DockSquad* targetSquad)
 
 -(NSString*)handleFlagship:(int)col
 {
+    if (_ship.isFighterSquadron) {
+        return @"";
+    }
+
     switch(col) {
     case 0:
         return @"Flag";
@@ -249,6 +237,10 @@ static NSString* otherCost(DockSquad* targetSquad)
 
 -(NSString*)handleUpgrade:(int)col index:(long)index
 {
+    if (_ship.isFighterSquadron) {
+        return @"";
+    }
+
     if (index < _upgrades.count) {
         DockEquippedUpgrade* equippedUpgrade = _upgrades[index];
         if (equippedUpgrade.isPlaceholder) {
@@ -316,6 +308,8 @@ static NSString* otherCost(DockSquad* targetSquad)
     int extraLines = 3;
     if (_ship.flagship) {
         extraLines += 1;
+    } else if (_ship.isFighterSquadron) {
+        extraLines -= 1;
     }
     DockTextBox* labelTextBox = [[DockTextBox alloc] initWithText: @""];
     labelTextBox.alignment = NSTextAlignmentCenter;

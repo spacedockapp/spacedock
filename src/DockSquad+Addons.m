@@ -382,6 +382,9 @@ static BOOL sIsImporting = NO;
     }
 
     [self didChangeValueForKey: @"cost"];
+    if (ship.isFighterSquadron) {
+        self.resource = nil;
+    }
 }
 
 - (void)removeAllEquippedShips

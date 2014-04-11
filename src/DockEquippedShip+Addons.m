@@ -692,6 +692,11 @@
     self.ship = newShip;
     [self removeIllegalUpgrades];
     [self establishPlaceholders];
+    if (self.squad.resource.isFighterSquadron) {
+        self.squad.resource = nil;
+    } else if (newShip.isFighterSquadron) {
+        self.squad.resource = newShip.associatedResource;
+    }
 }
 
 -(NSDictionary*)explainCantAddUpgrade:(DockUpgrade*)upgrade
