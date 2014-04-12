@@ -229,6 +229,8 @@
 		D4EA87B318B6ECF20033EC4B /* NSString+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EA87B218B6ECF20033EC4B /* NSString+Addons.m */; };
 		D4EE8DBF181C2E4000E92DD6 /* DockSquadsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EE8DBE181C2E4000E92DD6 /* DockSquadsListController.m */; };
 		D4EE8DC2181C5EB500E92DD6 /* DockSquadDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EE8DC1181C5EB500E92DD6 /* DockSquadDetailController.m */; };
+		D4F6861B18F97D050019C067 /* platform.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4F6861A18F97D050019C067 /* platform.strings */; };
+		D4F6861D18F97D7D0019C067 /* platform.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4F6861C18F97D7D0019C067 /* platform.strings */; };
 		D4F7F1A91808DBB000157E32 /* DockSet+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F1A81808DBB000157E32 /* DockSet+Addons.m */; };
 		D4F7F40E17F2C95D00F5A808 /* Data.xml in Resources */ = {isa = PBXBuildFile; fileRef = D4F7F3EA17F2C95D00F5A808 /* Data.xml */; };
 		D4F7F41317F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F3F417F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m */; };
@@ -515,6 +517,8 @@
 		D4EE8DBE181C2E4000E92DD6 /* DockSquadsListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockSquadsListController.m; sourceTree = "<group>"; };
 		D4EE8DC0181C5EB500E92DD6 /* DockSquadDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockSquadDetailController.h; sourceTree = "<group>"; };
 		D4EE8DC1181C5EB500E92DD6 /* DockSquadDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockSquadDetailController.m; sourceTree = "<group>"; };
+		D4F6861A18F97D050019C067 /* platform.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = platform.strings; sourceTree = "<group>"; };
+		D4F6861C18F97D7D0019C067 /* platform.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = platform.strings; sourceTree = "<group>"; };
 		D4F7F1A71808DBB000157E32 /* DockSet+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockSet+Addons.h"; sourceTree = "<group>"; };
 		D4F7F1A81808DBB000157E32 /* DockSet+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockSet+Addons.m"; sourceTree = "<group>"; };
 		D4F7F3EA17F2C95D00F5A808 /* Data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Data.xml; sourceTree = "<group>"; };
@@ -704,6 +708,7 @@
 				D433FE10181503A20062731A /* InfoPlist.strings */,
 				D433FE13181503A20062731A /* main.m */,
 				D433FE15181503A20062731A /* Space Dock iOS-Prefix.pch */,
+				D4F6861A18F97D050019C067 /* platform.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -844,6 +849,7 @@
 				D43FE80818C3A16D00AECA5F /* DockWeapon+MacAddons.m */,
 				D4BCA3DC1814EC0900921183 /* Credits.rtf */,
 				D4BCA3DE1814EC0900921183 /* InfoPlist.strings */,
+				D4F6861C18F97D7D0019C067 /* platform.strings */,
 				D4BCA3E01814EC0900921183 /* MainMenu.xib */,
 				D4C8EED4186109F1007BBD1A /* ShipGrid.xib */,
 				D4BCA3E21814EC0900921183 /* main.m */,
@@ -1005,6 +1011,7 @@
 				D4408DC918446B84008BA352 /* red-right-bank.pdf in Resources */,
 				D4408DD918446C3A008BA352 /* green-about.pdf in Resources */,
 				D4408DD018446BEF008BA352 /* green-backup.pdf in Resources */,
+				D4F6861D18F97D7D0019C067 /* platform.strings in Resources */,
 				D4408DCD18446B84008BA352 /* red-straight.pdf in Resources */,
 				D4408DCB18446B84008BA352 /* red-right-turn.pdf in Resources */,
 				D4408DA018445AF2008BA352 /* white-straight.pdf in Resources */,
@@ -1066,6 +1073,7 @@
 				D4408DDA18446C3A008BA352 /* green-about.pdf in Resources */,
 				D4408DCC18446B84008BA352 /* red-right-turn.pdf in Resources */,
 				D47316A51818263500046428 /* SpaceDock.storyboard in Resources */,
+				D4F6861B18F97D050019C067 /* platform.strings in Resources */,
 				D4408DD118446BEF008BA352 /* green-backup.pdf in Resources */,
 				D4408DC818446B84008BA352 /* red-left-turn.pdf in Resources */,
 				D4408DA118445AF2008BA352 /* white-straight.pdf in Resources */,
