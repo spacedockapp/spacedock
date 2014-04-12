@@ -1,3 +1,8 @@
+### Version 1.0 build 47 (2014-4-11)
+
+* Show fighter squadrons in the various ships lists.
+* Print fighter squadrons as ships on the build sheet.
+
 ### Version 1.0 build 46 (2014-4-6)
 
 * Add some advertising when printing.

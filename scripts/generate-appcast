@@ -52,7 +52,7 @@ def create_version_from_file(path)
   file_version = say_and_do("xattr -p sd-version #{path}")
   build_number = say_and_do("xattr -p sd-build-number #{path}").to_i
   info = File.stat(path)
-  {:version => file_version, :archive_name => path.basename, :build_number=>build_number, :length => info.size}
+  {:version => "#{file_version} (#{build_number})", :archive_name => path.basename, :build_number=>build_number, :length => info.size}
 end
 
 product_name = "Space Dock"
