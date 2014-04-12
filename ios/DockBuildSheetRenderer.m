@@ -836,7 +836,7 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
     DockCostGrid* costGrid = [[DockCostGrid alloc] initWithBounds: costBox squad: _targetSquad];
     CGFloat costBottom = [costGrid draw];
     
-    costBottom += (kDefaultMargin * 3);
+    costBottom += (kDefaultMargin * 2);
     
     CGRect resultsBox = targetBounds;
     resultsBox.origin.y = costBottom;
@@ -852,8 +852,8 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
     CGFloat left = resultsBox.origin.x + kDefaultMargin;
     CGFloat center = resultsBox.origin.x + resultsBox.size.width / 2;
     CGFloat right = center - kDefaultMargin;
-    CGFloat top = resultsBox.origin.y + kDefaultMargin + 4 * kDefaultMargin;
-    CGFloat bottom = CGRectGetMaxY(resultsBox) - kDefaultMargin;
+    CGFloat top = resultsBox.origin.y + kDefaultMargin + 3 * kDefaultMargin;
+    CGFloat bottom = CGRectGetMaxY(resultsBox) - kDefaultMargin*3.5;
     
     CGRect beforeRect = CGRectMake(left, top,
                                      right - left, bottom - top);
@@ -872,6 +872,15 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
     afterGrid.labels = @[@"Your Result (W-L-B)", @"Your Fleet Points", @"Cumulative Fleet Points", @"Opponent's Initials (Verify Results)"];
     afterGrid.columnFractions = @[@0.25, @0.25, @0.25, @0.25];
     [afterGrid draw];
+    
+    NSString* pbsd = @"Printed by Space Dock - www.spacedockapp.org";
+    DockTextBox* box = [[DockTextBox alloc] initWithText: pbsd];
+    box.color = [UIColor whiteColor];
+    box.alignment = NSTextAlignmentCenter;
+    box.font = [UIFont fontWithName: kLabelFont size:9.0];
+    box.centerVertically = YES;
+    CGRect adBox = CGRectMake(resultsBox.origin.x, bottom, resultsBox.size.width, CGRectGetMaxY(resultsBox) - bottom);
+    [box draw: adBox];
 }
 
 @end
