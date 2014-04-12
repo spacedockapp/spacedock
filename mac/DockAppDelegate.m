@@ -96,7 +96,6 @@ NSString* kExpandedRows = @"expandedRows";
 
 - (void)handleSelectedSquadChanged:(NSDictionary*)change
 {
-    NSLog(@"selection change %@", change);
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults boolForKey: kExpandSquads]) {
         [self performSelector: @selector(expandAll:) withObject: nil afterDelay: 0];
@@ -1053,7 +1052,8 @@ NSString* kExpandedRows = @"expandedRows";
     } else if (action == @selector(toggleUnique:)) {
         DockEquippedShip* currentShip = [self selectedEquippedShip];
 
-        if (currentShip == nil) {
+        if (currentShip == nil || currentShip.isFighterSquadron) {
+            [menuItem setTitle: @"Demote"];
             return NO;
         }
 
