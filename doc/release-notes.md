@@ -1,3 +1,7 @@
+### Version 1.0 build 48 (2014-4-12)
+
+* Replace the missing version number in the data file.
+
 ### Version 1.0 build 47 (2014-4-11)
 
 * Show fighter squadrons in the various ships lists.
