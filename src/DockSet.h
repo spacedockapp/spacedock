@@ -2,8 +2,8 @@
 //  DockSet.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 12/18/13.
-//  Copyright (c) 2013 Rob Tsuk. All rights reserved.
+//  Created by Rob Tsuk on 4/12/14.
+//  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSNumber * include;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * productName;
+@property (nonatomic, retain) NSString * wave;
 @property (nonatomic, retain) NSSet *items;
 @end
 

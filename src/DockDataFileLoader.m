@@ -161,6 +161,10 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
             NSString* externalId = d[@"Id"];
             id c = existingItemsLookup[externalId];
 
+            if ([externalId isEqualToString: @"federation_attack_fighter_op6prize"]) {
+                NSLog(@"federation_attack_fighter_op6prize");
+            }
+
             if (c == nil) {
                 c = [[itemClass alloc] initWithEntity: entity insertIntoManagedObjectContext: _managedObjectContext];
             } else {
@@ -322,6 +326,9 @@ static NSString* makeKey(NSString* key)
 
 -(void)parser:(NSXMLParser*)parser didEndElement:(NSString*)elementName namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString*)qName
 {
+    if ([elementName isEqualToString: @"Captain"]) {
+        NSLog(@"Captain");
+    }
     if ([self isList: elementName]) {
         if (_currentList != nil) {
             if ([elementName isEqualToString: @"Maneuvers"]) {

@@ -2,8 +2,8 @@
 //  DockEquippedShip.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 12/18/13.
-//  Copyright (c) 2013 Rob Tsuk. All rights reserved.
+//  Created by Rob Tsuk on 4/12/14.
+//  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -13,10 +13,10 @@
 
 @interface DockEquippedShip : NSManagedObject
 
+@property (nonatomic, retain) DockFlagship *flagship;
 @property (nonatomic, retain) DockShip *ship;
 @property (nonatomic, retain) DockSquad *squad;
 @property (nonatomic, retain) NSSet *upgrades;
-@property (nonatomic, retain) DockFlagship *flagship;
 @end
 
 @interface DockEquippedShip (CoreDataGeneratedAccessors)

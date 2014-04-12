@@ -198,10 +198,7 @@ NSString* asDegrees(NSString* textValue)
 
 -(int)captainCount
 {
-    if ([self isFighterSquadron]) {
-        return 0;
-    }
-    return 1;
+    return [self.captainLimit intValue];
 }
 
 -(NSArray*)actionStrings

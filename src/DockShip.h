@@ -2,8 +2,8 @@
 //  DockShip.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 12/18/13.
-//  Copyright (c) 2013 Rob Tsuk. All rights reserved.
+//  Created by Rob Tsuk on 4/12/14.
+//  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -34,6 +34,10 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSNumber * unique;
 @property (nonatomic, retain) NSNumber * weapon;
+@property (nonatomic, retain) NSNumber * regenerate;
+@property (nonatomic, retain) NSNumber * borg;
+@property (nonatomic, retain) NSNumber * has360Arc;
+@property (nonatomic, retain) NSNumber * captainLimit;
 @property (nonatomic, retain) NSSet *equippedShips;
 @property (nonatomic, retain) DockShipClassDetails *shipClassDetails;
 @end
