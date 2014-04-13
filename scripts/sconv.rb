@@ -14,16 +14,10 @@ doc = Nokogiri::XML(xml_text)
 #	Name	Ship Type	Faction	Weapon	Agility	Hull	Shield	Ship Ability	Evasive Maneuvers	Target Lock	Scan	Battlestations	Cloak	Sensor Echo	Other	Tech	Weapon	Crew	Other	Cost	Set
 
 ship = <<-SHIPTEXT
-*	Rav Laerst	Breen Battle Cruiser	Dom	3	2	4	4	Action: Perform a [sensor echo] Action even if this ship is not Cloaked. You may only use the 1 [straight] Maneuver Template for this Action.	1	1	1					1	3	1		26	"OP 5 Prize"
-	Dominion Starship	Breen Battle Cruiser	Dom	3	2	4	3		1	1	1					1	2	1		24	"OP 5 Prize"
-*	U.S.S. Equinox	Nova Class	Fed	2	2	3	3	Action: Disable 1 of your Active Shields. During the End Phase this round, repair all of your damaged Shields.	1	1	1	1				1	1	2			#71276
-	Federation Starship	Nova Class	Fed	2	2	3	2		1	1	1	1				1	1	1			#71276
-*	I.K.S. Somraw	Raptor Class	Kli	3	1	3	2	Each time you defend, you may convert up to 2 of your [battle stations] results into [evade] results.	1	1	1					1	1	1			#71448
-	Klingon Starship	Raptor Class	Kli	3	1	3	1		1	1	1					1	1				#71448
-*	I.R.W. Gal Gath`thong	Bird of Prey	Rom	2	2	3	2	When initiating an attack while Cloaked, you may fire Plasma Torpedoes without needing a Target Lock.	1	1			1	1			2	2			#71278
-	Romulan Starship	Bird of Prey	Rom	2	2	3	1		1	1			1	1			2	1			#71278
-*	4th Division Battleship	Jem'Hadar Battleship	Dom	6	0	7	5	Each round, one other friendly Jem'Hadar ship within Range 1-2 of your ship may perform an Action on their Action Bar as a free Action.		1	1	1				1	3	2			#71279
-	Dominion Starship	Jem'Hadar Battleship	Dom	6	0	7	4			1	1	1				1	2	2			#71279
+4/9/2014 11:47:54	Bioship Alpha	Species 8472 Bioship	Unique	Species 8472	6	2	5	6	When you attack with your Primary Weapon, if you inflict at least 3 damage, place an Auxiliary Power Token beside the target ship.	Evasive, Regenerate, Scan, Target Lock	38	0	0	3	2
+4/9/2014 11:55:09	Borg Sphere 4270	Borg Sphere	Unique	Borg	6	0	7	7	Each time you attack with your Primary Weapon, you may divide your attack between 2 different ships.  You may divide your attack dice however you like, but you must roll at least 1 die against each ship.	Regenerate, Scan, Target Lock	40	2	1	1	1
+4/9/2014 11:58:30	Kazon Raider	Kazon Raider		Kazon	2	2	3	2		Battle Stations, Evasive, Target Lock	18	0	1	1	1
+4/9/2014 11:44:59	Nistrim Raider	Kazon Raider	Unique	Kazon	2	2	3	3	When attacking an enemy ship with a Scan token next to it with your Primary Weapon, roll +2 attack dice.	Battle Stations, Evasive, Target Lock	20	0	2	1	1
 SHIPTEXT
 
 
@@ -43,29 +37,39 @@ shipLines.each do |l|
     parts = l.split "\t"
     title = parts[1]
     shipClass = parts[2]
-    unique = parts[0] == "*" ? "Y" : "N"
-    faction = FACTION_LOOKUP[parts[3]]
+    unique = parts[3] == "Unique" ? "Y" : "N"
+    faction = parts[4]
     unless faction
       throw "Fo"
     end
-    attack = parts[4]
-    agility = parts[5]
-    hull = parts[6]
-    shield = parts[7]
-    ability = parts[8]
-    cost = parts[20]
-    evasiveManeuvers = parts[9]
-    targetLock = parts[10]
-    scan = parts[11]
-    battleStations = parts[12]
-    cloak = parts[13]
-    sensorEcho = parts[14]
-    tech = parts[16]
-    weapon = parts[17]
-    crew = parts[18]
-    setId = parts[21].gsub "#", ""
-    setId = setId.gsub " ", ""
-    setId = setId.gsub "\"", ""
+    attack = parts[5]
+    agility = parts[6]
+    hull = parts[7]
+    shield = parts[8]
+    ability = parts[9]
+    action_bar = parts[10].split(/,\s*/)
+    evasiveManeuvers = action_bar.include?("Evasive") ? 1 : 0
+    battleStations = action_bar.include?("Battle Stations") ? 1 : 0
+    cloak = action_bar.include?("Cloak") ? 1 : 0
+    sensorEcho = action_bar.include?("Sensor Echo") ? 1 : 0
+    targetLock = action_bar.include?("Target Lock") ? 1 : 0
+    scan = action_bar.include?("Scan") ? 1 : 0
+    regenerate = action_bar.include?("Regenerate") ? 1 : 0
+    cost = parts[11]
+    borg = parts[12]
+    crew = parts[13]
+    tech = parts[14]
+    weapon = parts[15]
+    setId = case faction
+    when "Species 8472"
+      "71281"
+    when "Federation"
+      "71280"
+    when "Borg"
+      "71283"
+    when "Kazon"
+      "71282"
+    end
     externalId = make_external_id(setId, title)
 	if cost.length == 0
 		cost = (agility.to_i + attack.to_i + hull.to_i + shield.to_i) * 2
@@ -88,6 +92,8 @@ shipLines.each do |l|
       <Battlestations>#{battleStations}</Battlestations>
       <Cloak>#{cloak}</Cloak>
       <SensorEcho>#{sensorEcho}</SensorEcho>
+      <Regenerate>#{regenerate}</Regenerate>
+      <Borg>#{borg}</Borg>
       <Tech>#{tech}</Tech>
       <Weapon>#{weapon}</Weapon>
       <Crew>#{crew}</Crew>

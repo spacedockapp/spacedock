@@ -1,126 +1,51 @@
     <Upgrade>
-      <Title>Invaluable Advice</Title>
-      <Ability>Before rolling your attack or defense dice, you may discard this card to place a [BATTLESTATIONS] Token beside your ship.</Ability>
+      <Title>Ablative Generator</Title>
+      <Ability>ACTION: Place or remove the Ablative Generator Token beside your ship. This Upgrade may only be purchased for the U.S.S. Voyager.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>10</Cost>
+      <Id>ablative_generator_71280</Id>
+      <Set>71280</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>B'elanna Torres</Title>
+      <Ability>Add 1 additional [WEAPON] icon and 1 additional [TECH] icon to your ship's Upgrade Bar.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Dominion</Faction>
-      <Cost>2</Cost>
-      <Id>invaluable_advice_op5prize</Id>
-      <Set>OP5Prize</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Breen Guards</Title>
-      <Ability>Action: If your ship is not Cloaked, disable all your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Disable Breen Guards and discard one [CREW] Upgrade of your choice on the target ship. </Ability>
-      <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
       <Type>Crew</Type>
-      <Faction>Dominion</Faction>
-      <Cost>5</Cost>
-      <Id>breen_guards_op5prize</Id>
-      <Set>OP5Prize</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Energy Dissipator</Title>
-      <Ability>Attack: Disable this card to perform this attack. If this attack hits, the target suffers no damage, receives 1 Energy Dampening Token, and you may immediately attack the same ship again with another weapon. This upgrade cost +5 Squadron Points for any non-Breen ship. </Ability>
-      <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Weapon</Type>
-      <Faction>Dominion</Faction>
-      <Cost>5</Cost>
-      <Id>energy_dissipator_op5prize</Id>
-      <Set>OP5Prize</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Cold Storage Unit</Title>
-      <Ability>Add 2 additional [weapon] icons to your ship's Upgrade Bar.</Ability>
-      <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Dominion</Faction>
+      <Faction>Federation</Faction>
       <Cost>4</Cost>
-      <Id>cold_storage_unit_op5prize</Id>
-      <Set>OP5Prize</Set>
+      <Id>b_elanna_torres_71280</Id>
+      <Set>71280</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Marla Gilmore</Title>
-      <Ability>Action: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields.  Disable this card and 1 [TECH] of your choice on the target ship.  You may then use that Upgrade's Action (if any) as a free action this round.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>2</Cost>
-      <Id>marla_gilmore_71276</Id>
-      <Set>71276</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Noah Lessing</Title>
-      <Ability>Action: Disable this card and any 1 of your [TECH] Upgrades to target a ship at Range 1-2. Disable 1 of the target ship's Active Shields.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>2</Cost>
-      <Id>noah_lessing_71276</Id>
-      <Set>71276</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Photon Torpedoes</Title>
-      <Ability>Attack: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Title>Bio-Electric Interference</Title>
+      <Ability>ACTION: Discard this card to target all other ships within range 1-3 of your ship. Target ships must discard all Tokens that are placed beside their ships except for Auxiliary Power Tokens. A ship that discards a [CLOAK] Token may immediately raise its Shields. In addition your ship cannot be target locked this round. This Upgrade may only be purchased for a Species 8472 ship.</Ability>
       <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>2-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>photon_torpedoes_71276</Id>
-      <Set>71276</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Emergency Medical Hologram</Title>
-      <Ability>This Upgrade counts as either a [CREW] Upgrade or a [TECH] Upgrade (your choice). When you use a [TECH] Upgrade that requires you to disable it, you may disable this card instead of that [TECH] Upgrade.</Ability>
-      <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>2</Cost>
-      <Id>emergency_medical_hologram_71276</Id>
-      <Set>71276</Set>
+      <Faction>Species 8472</Faction>
+      <Cost>6</Cost>
+      <Id>bio_electric_interference_71281</Id>
+      <Set>71281</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Navigational Deflector</Title>
-      <Ability>When taking damage, you may discard this card to cancel 1 [HIT] result. If the damage is from a minefield or an obstacle, disable this card instead of discarding it. If you disable this card, you may roll defense dice against obstacles or minefields.</Ability>
+      <Title>Bio-Neural Circuitry</Title>
+      <Ability>After your roll the dice for any reason, you may disable this Upgrade to re-roll the dice. You must re-roll all of the dice and keep the results of the second roll.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -129,262 +54,307 @@
       <Type>Tech</Type>
       <Faction>Federation</Faction>
       <Cost>5</Cost>
-      <Id>navigational_deflector_71276</Id>
-      <Set>71276</Set>
+      <Id>bio_neural_circuitry_71280</Id>
+      <Set>71280</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Klingon Honor</Title>
-      <Ability>Action: Disable this card to add +1 attack die and convert 1 [HIT] result into 1 [crit] result during any one attack you initiate this round. You cannot roll any defense dice this round. This Upgrade may only be purchased for a Klingon Captain.</Ability>
+      <Title>Borg Ablative Hull Armor</Title>
+      <Ability>When Defending, convert all of your opponents [CRITICAL] results info [HIT] and place all the damage cards that your ship receives beneath this card. Once there are 4 damage cards beneath this card, discard this Upgrade and all damage cards beneath it. All excess damage affects the ship as normal.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Borg</Type>
+      <Faction>Borg</Faction>
+      <Cost>10</Cost>
+      <Id>borg_ablative_hull_armor_71283</Id>
+      <Set>71283</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Borg Assimilation Tubules</Title>
+      <Ability>ACTION: disable this card and discard 1 Drone Token to target a ship at Range 1-2 Steal 1 (Crew, Tech, or Weapon). Upgrade form the target ship, even if it exceeds your ship's restrictions. Place a Disabled Upgrade Token on the assimilated Upgrade. You cannot steal a Species 8472 Upgrade with this Action.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Borg</Type>
+      <Faction>Borg</Faction>
+      <Cost>8</Cost>
+      <Id>borg_assimilation_tubules_71283</Id>
+      <Set>71283</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Borg Tractor Beam</Title>
+      <Ability>Action: Target a ship at Range 1. Place one white Borg Tractor Beam Token beside that ship and the corresponding green Borg Tractor Beam Token (the one that matches the white token's letter) beside your ship.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Borg</Type>
+      <Faction>Borg</Faction>
+      <Cost>7</Cost>
+      <Id>borg_tractor_beam_71283</Id>
+      <Set>71283</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Extraordinary Immune Response</Title>
+      <Ability>When you defend, you may discard this card to roll 1 extra defense die for every damage card that is by your Ship Card. This Upgrade may only be purchased for a Species 8472 ship.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Species 8472</Faction>
+      <Cost>5</Cost>
+      <Id>extraordinary_immune_response_71281</Id>
+      <Set>71281</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Feedback Pulse</Title>
+      <Ability>When defending, before any dice are rolled, you may discard this card to declare that half of the damage from this attack will be cancelled and the other half will be assigned to the attacker (round down); your receive no damage. the attacking ship connote receive critical damage from this effect. Place an Auxiliary Power Token decide your ship.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Borg</Faction>
+      <Cost>8</Cost>
+      <Id>feedback_pulse_71283</Id>
+      <Set>71283</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Harry Kim</Title>
+      <Ability>ACTION: Disable Harry to repair 1 Shield Token.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Klingon</Faction>
-      <Cost>5</Cost>
-      <Id>klingon_honor_71448</Id>
-      <Set>71448</Set>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>harry_kim_71280</Id>
+      <Set>71280</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Title>Kazon Raiding Party</Title>
+      <Ability>When attacking, if you inflict at least 2 damage you may discard this card to reduce the damage to exactly 1 critical damage that ignores the opposing ship's Shields. Disable 1 [TECH] Upgrade of your choice on the target ship and then steal that Upgrade, even if it exceeds your ship's requirements. This Upgrade may only be purchased for a Kazon ship.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>2-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Klingon</Faction>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Kazon</Faction>
+      <Cost>5</Cost>
+      <Id>kazon_raiding_party_71282</Id>
+      <Set>71282</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Masking Circuitry</Title>
+      <Ability>Instead of performing a normal Action, you may disable this card to perform the [CLOAK] Action. Place an Auxiliary Power Token beside your ship. While you have a [CLOAK] Token beside your ship, you may perform the [SENSOR ECHO] Action even if this card is disabled. This Upgrade cost +5 Squadron Points for any ship other than a Kazon ship.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Kazon</Faction>
       <Cost>3</Cost>
-      <Id>photon_torpedoes_71448</Id>
-      <Set>71448</Set>
+      <Id>masking_circuitry_71282</Id>
+      <Set>71282</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Bu`Kah</Title>
-      <Ability>If you performed a Green Maneuver this round, discard this card to repair up to 2 damage to your Hull.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Klingon</Faction>
-      <Cost>4</Cost>
-      <Id>bu_kah_71448</Id>
-      <Set>71448</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Shockwave</Title>
-      <Ability>Instead of moving normally during the Activation Phase, you may discard this card and disable 1 of your Torpedoes to disregard your chosen Maneuver and perform a Red [1 reverse] Full Astern Maneuver instead. This upgrade may only be purchased for a Raptor Class ship.</Ability>
+      <Title>Quantum Singularity</Title>
+      <Ability>ACTION: Discard this card to remove your ship from the play area and discard all Tokens that are beside your ship except for Auxiliary Power Tokens. During the End Phase, place your ship back in the play area. You cannot place your ship within Range 1-3 of any other ship. This Upgrade may only be purchased for a Species 8472 ship.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Klingon</Faction>
-      <Cost>2</Cost>
-      <Id>shockwave_71448</Id>
-      <Set>71448</Set>
+      <Faction>Species 8472</Faction>
+      <Cost>6</Cost>
+      <Id>quantum_singularity_71281</Id>
+      <Set>71281</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Tactical Sensors</Title>
-      <Ability>Action: Disable this card to place a [BATTLESTATIONS] token and a [SCAN] Token beside your ship. This upgrade may only be purchased for a Raptor class ship.</Ability>
-      <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Klingon</Faction>
-      <Cost>4</Cost>
-      <Id>tactical_sensors_71448</Id>
-      <Set>71448</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Centurion</Title>
-      <Ability>When one of your [CREW] upgrades or your Captain is to be disabled or discarded, you may discard this card instead.</Ability>
-      <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Romulan</Faction>
-      <Cost>4</Cost>
-      <Id>centurion_71278</Id>
-      <Set>71278</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Romulan Officer</Title>
-      <Ability>Action: Discard this card. If you initiate an attack while Cloaked this round, add +2 attack dice. You cannot roll any defense dice this round.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Romulan</Faction>
-      <Cost>5</Cost>
-      <Id>romulan_officer_71278</Id>
-      <Set>71278</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Decoy</Title>
-      <Ability>When defending, before any dice are rolled, you may discard this card and any of your [weapon] or [TECH] Upgrades to force your opponent to roll 3 less attack dice this round.</Ability>
+      <Title>Sacrifice</Title>
+      <Ability>Before rolling the dice during an attack or defense, you may discard this Upgrade and disable your Captain in order to choose the results of two dice. These dice cannot be re-rolled for the remainder of this attack.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Romulan</Faction>
-      <Cost>4</Cost>
-      <Id>decoy_71278</Id>
-      <Set>71278</Set>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>sacrifice_71280</Id>
+      <Set>71280</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Double Back</Title>
-      <Ability>After performing a [SENSOR ECHO] Action, you may discard this card to immediately perform a [reverse]1 or [reverse]2 Full Astern Maneuver.</Ability>
+      <Title>Seska</Title>
+      <Ability>Actions: Target a ship at Range 2-3 Disable Seska and 1 [CREW] Upgrade of your choice on the target ship. This ability can be used against a ship that is Cloaked.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Romulan</Faction>
-      <Cost>5</Cost>
-      <Id>double_back_71278</Id>
-      <Set>71278</Set>
+      <Type>Crew</Type>
+      <Faction>Kazon</Faction>
+      <Cost>4</Cost>
+      <Id>seska_71282</Id>
+      <Set>71282</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Plasma Torpedoes</Title>
-      <Ability>Attack: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may re-roll all your blank results one time. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Title>Seven of Nine</Title>
+      <Ability>Action: Disable this card to add up to 2 Drone Tokens yo your Captain Card. You may not exceed your starting number of Drone Tokens.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Borg</Type>
+      <Faction>Borg</Faction>
+      <Cost>4</Cost>
+      <Id>seven_of_nine_71283</Id>
+      <Set>71283</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Seven of Nine</Title>
+      <Ability>Action: Disable Seven of Nine to place 1 Adaptation Token on any [TECH] Upgrade on an enemy ship within Range 1-2. You cannot use this Action against a Species 8472 [TECH] Upgrade.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>seven_of_nine_71280</Id>
+      <Set>71280</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Tactical Drone</Title>
+      <Ability>At the start of the game, place 4 Drone Tokens on the card.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>4</Attack>
-      <Range>1-2</Range>
-      <Type>Weapon</Type>
-      <Faction>Romulan</Faction>
+      <Attack></Attack>
+      <Range></Range>
+      <Type></Type>
+      <Faction>Borg</Faction>
+      <Cost></Cost>
+      <Id>tactical_drone_71283</Id>
+      <Set>71283</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>3</Title>
+      <Ability></Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type></Type>
+      <Faction></Faction>
+      <Cost></Cost>
+      <Id>3_</Id>
+      <Set></Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>The Doctor</Title>
+      <Ability>The Doctor counts as either a [CREW] Upgrade or a [TECH] Upgrade (your choice). ACTION: Remove all Disabled Upgrade tokens from your [CREW] Upgrades.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
       <Cost>3</Cost>
-      <Id>plasma_torpedoes_71278</Id>
-      <Set>71278</Set>
+      <Id>the_doctor_71280</Id>
+      <Set>71280</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Nuclear Warhead</Title>
-      <Ability>Action: At the end of the Activation Phase, discard this card and place a Minefield Token within Range 1 of your ship, but not within your forward firing arc and not on to of another ship. If a ship enters the minefield on a future turn, roll 3 attack dice. Any [HIT] or [crit] damages the ship as normal. The affected ship does not roll any defense dice.</Ability>
-      <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Weapon</Type>
-      <Faction>Romulan</Faction>
-      <Cost>3</Cost>
-      <Id>nuclear_warhead_71278</Id>
-      <Set>71278</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Kudak'Etan</Title>
-      <Ability>Action: Target a ship at Range 1. Discard this card and disable 1 of your other [CREW] Upgrades to disable all [CREW] Upgrades on the target ship (even if that ships is Cloaked or has Active Shields). This Upgrade may only be purchased for a Jem'hadar ship.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Dominion</Faction>
-      <Cost>4</Cost>
-      <Id>kudak_etan_71279</Id>
-      <Set>71279</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Ixtana'Rax</Title>
-      <Ability>Action: Disable this card to flip over all Critical Damage cards assigned to your ship.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Dominion</Faction>
-      <Cost>2</Cost>
-      <Id>ixtana_rax_71279</Id>
-      <Set>71279</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Ikat'Ika</Title>
-      <Ability>When defending , you may discard this card to force one ship that attacks you this round to re-roll any number of their attack dice of your choice (once per die). This Upgrade costs +5 Squadron Points for any non-Jem'hadar ship.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Dominion</Faction>
-      <Cost>5</Cost>
-      <Id>ikat_ika_71279</Id>
-      <Set>71279</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. If fired from a Jem'Hadar Battleship add +2 attack dice.</Ability>
-      <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>2-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Dominion</Faction>
-      <Cost>5</Cost>
-      <Id>photon_torpedoes_71279</Id>
-      <Set>71279</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Ketracel-White</Title>
-      <Ability>Action: Discard this card to remove all Disabled Upgrade Tokens from all of your Dominion [CREW] Upgrades.</Ability>
+      <Title>The Weak Will Perish</Title>
+      <Ability>When attacking with your Primary Weapon, after rolling your attack dice, you may discard this card and disable your Captain Card to choose any number of your attack dice and re-roll them up to 2 times. This Upgrade cost +5 Squadron Points for any ship other than a Species 8472 ship.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Dominion</Faction>
-      <Cost>2</Cost>
-      <Id>ketracel_white_71279</Id>
-      <Set>71279</Set>
+      <Faction>Species 8472</Faction>
+      <Cost>5</Cost>
+      <Id>the_weak_will_perish_71281</Id>
+      <Set>71281</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Shroud</Title>
-      <Ability>If one of your Dominion [CREW] Upgrades is supposed to be discarded, discard this card instead.</Ability>
-      <Unique>N</Unique>
+      <Title>Tierna</Title>
+      <Ability>Action: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Discard Tierna and roll 2 attack dice. The target ship takes normal damage to its Hull for each [HIT] or [CRITICAL] result. The target ship does not roll any defense dice against this attack.</Ability>
+      <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Dominion</Faction>
-      <Cost>1</Cost>
-      <Id>shroud_71279</Id>
-      <Set>71279</Set>
+      <Type>Crew</Type>
+      <Faction>Kazon</Faction>
+      <Cost>3</Cost>
+      <Id>tierna_71282</Id>
+      <Set>71282</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Tom Paris</Title>
+      <Ability>When defending, your ship rolls 1 extra defense die.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>tom_paris_71280</Id>
+      <Set>71280</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Tuvok</Title>
+      <Ability>When firing a Secondary Weapon, you may disable Tuvok to toll 1 extra attack die.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>tuvok_71280</Id>
+      <Set>71280</Set>
       <Special></Special>
     </Upgrade>

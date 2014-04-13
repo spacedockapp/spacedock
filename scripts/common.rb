@@ -15,6 +15,13 @@ def convert_terms(upgrade)
   upgrade.gsub! /\(tech\)/i, "[TECH]"
   upgrade.gsub! /\(weapon\)/i, "[WEAPON]"
   upgrade.gsub! /\(scan\)/i, "[SCAN]"
+  upgrade.gsub! /\(cloaked\)/i, "[CLOAK]"
+  upgrade.gsub! /\(cloak\)/i, "[CLOAK]"
+  upgrade.gsub! /\(crit\)/i, "[CRITICAL]"
+  upgrade.gsub! /\(hit\)/i, "[HIT]"
+  upgrade.gsub! /\(hits\)/i, "[HIT]"
+  upgrade.gsub! /\(crew\)/i, "[CREW]"
+  upgrade.gsub! /\(sensor echo\)/i, "[SENSOR ECHO]"
   upgrade.gsub! /[\[(]straight[)\]]/i, "[STRAIGHT]"
   upgrade
 end
@@ -33,4 +40,17 @@ end
 
 def make_external_id(setId, title)
   "#{sanitize_title(title)}_#{setId}".downcase()
+end
+
+def set_id_from_faction(faction)
+  case faction
+  when "Species 8472"
+    "71281"
+  when "Federation"
+    "71280"
+  when "Borg"
+    "71283"
+  when "Kazon"
+    "71282"
+  end
 end
