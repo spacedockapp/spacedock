@@ -168,6 +168,26 @@ NSString* asDegrees(NSString* textValue)
     return NO;
 }
 
+-(BOOL)isSpecies8472
+{
+    return [self.faction isEqualToString: @"Species 8472"];
+}
+
+-(BOOL)isKazon
+{
+    return [self.faction isEqualToString: @"Kazon"];
+}
+
+-(BOOL)isBorg
+{
+    return [self.faction isEqualToString: @"Borg"];
+}
+
+-(BOOL)isVoyager
+{
+    return [self.title isEqualToString: @"U.S.S. Voyager"];
+}
+
 -(DockResource*)associatedResource
 {
     NSString* shipClass = self.shipClass;

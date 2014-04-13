@@ -159,6 +159,11 @@
     return [self.faction isEqualToString: @"Klingon"];
 }
 
+-(BOOL)isBajoran
+{
+    return [self.faction isEqualToString: @"Bajoran"];
+}
+
 -(BOOL)isFederation
 {
     return [self.faction isEqualToString: @"Federation"];
@@ -369,6 +374,14 @@
         }
     } else if ([upgradeSpecial isEqualToString: @"PenaltyOnShipOtherThanKeldonClass"]) {
         if (![ship isKeldon]) {
+            cost += 5;
+        }
+    } else if ([upgradeSpecial isEqualToString: @"PlusFiveOnNonSpecies8472"]) {
+        if (![ship isSpecies8472]) {
+            cost += 5;
+        }
+    } else if ([upgradeSpecial isEqualToString: @"PlusFiveForNonKazon"]) {
+        if (![ship isKazon]) {
             cost += 5;
         }
     }

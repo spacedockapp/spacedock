@@ -17,6 +17,10 @@
 -(BOOL)isFederation;
 -(BOOL)isBajoran;
 -(BOOL)isFighterSquadron;
+-(BOOL)isSpecies8472;
+-(BOOL)isKazon;
+-(BOOL)isBorg;
+-(BOOL)isVoyager;
 -(DockResource*)associatedResource;
 -(int)techCount;
 -(int)weaponCount;

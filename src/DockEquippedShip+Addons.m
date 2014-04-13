@@ -370,11 +370,41 @@
         }
     }
 
+    if ([upgradeSpecial isEqualToString: @"OnlyBajoranCaptain"]) {
+        if (![self.captain isBajoran]) {
+            return NO;
+        }
+    }
+
+    if ([upgradeSpecial isEqualToString: @"OnlySpecies8472Ship"]) {
+        if (![self.ship isSpecies8472]) {
+            return NO;
+        }
+    }
+
+    if ([upgradeSpecial isEqualToString: @"OnlyKazonShip"]) {
+        if (![self.ship isKazon]) {
+            return NO;
+        }
+    }
+
+    if ([upgradeSpecial isEqualToString: @"OnlyBorgShip"]) {
+        if (![self.ship isBorg]) {
+            return NO;
+        }
+    }
+
+    if ([upgradeSpecial isEqualToString: @"OnlyVoyager"]) {
+        if (![self.ship isVoyager]) {
+            return NO;
+        }
+    }
+
     if ([upgradeSpecial isEqualToString: @"OnlyForRomulanScienceVessel"] || [upgradeSpecial isEqualToString: @"OnlyForRaptorClassShips"]) {
         NSString* legalShipClass = upgrade.targetShipClass;
 
         if (![legalShipClass isEqualToString: self.ship.shipClass]) {
-            return 0;
+            return NO;
         }
     }
 
@@ -709,7 +739,7 @@
 {
     NSString* msg = [NSString stringWithFormat: @"Can't add %@ to %@", [upgrade plainDescription], [self plainDescription]];
     NSString* info = @"";
-    if (false && [self isFighterSquadron]) {
+    if ([self isFighterSquadron]) {
         info = @"Fighter Squadrons cannot accept upgrades.";
     } else {
         int limit = [upgrade limitForShip: self];
@@ -733,6 +763,16 @@
                 info = @"This upgrade can only be added to Jem'hadar ships.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyForKlingonCaptain"]) {
                 info = @"This upgrade can only be added to a Klingon Captain.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyBajoranCaptain"]) {
+                info = @"This upgrade can only be added to a Bajoran Captain.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlySpecies8472Ship"]) {
+                info = @"This upgrade can only be added to Species 8472 ships.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyKazonShip"]) {
+                info = @"This upgrade can only be added to Kazon ships.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyBorgShip"]) {
+                info = @"This upgrade can only be added to Borg ships.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyVoyager"]) {
+                info = @"This upgrade can only be added to Voyager.";
             }
         }
     }

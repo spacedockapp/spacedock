@@ -5913,6 +5913,7 @@
       <Cost>3</Cost>
       <Id>i_am_kohn_ma_op6prize</Id>
       <Set>OP6Prize</Set>
+      <Special>OnlyBajoranCaptain</Special>
     </Upgrade>
     <Upgrade>
       <Title>Li Nalas</Title>
@@ -5963,7 +5964,7 @@
       <Cost>10</Cost>
       <Id>ablative_generator_71280</Id>
       <Set>71280</Set>
-      <Special></Special>
+      <Special>OnlyVoyager</Special>
     </Upgrade>
     <Upgrade>
       <Title>B'elanna Torres</Title>
@@ -5993,7 +5994,7 @@
       <Cost>6</Cost>
       <Id>bio_electric_interference_71281</Id>
       <Set>71281</Set>
-      <Special></Special>
+      <Special>OnlySpecies8472Ship</Special>
     </Upgrade>
     <Upgrade>
       <Title>Bio-Neural Circuitry</Title>
@@ -6068,7 +6069,7 @@
       <Cost>5</Cost>
       <Id>extraordinary_immune_response_71281</Id>
       <Set>71281</Set>
-      <Special></Special>
+      <Special>OnlySpecies8472Ship</Special>
     </Upgrade>
     <Upgrade>
       <Title>Feedback Pulse</Title>
@@ -6113,7 +6114,7 @@
       <Cost>5</Cost>
       <Id>kazon_raiding_party_71282</Id>
       <Set>71282</Set>
-      <Special></Special>
+      <Special>OnlyKazonShip</Special>
     </Upgrade>
     <Upgrade>
       <Title>Masking Circuitry</Title>
@@ -6128,7 +6129,7 @@
       <Cost>3</Cost>
       <Id>masking_circuitry_71282</Id>
       <Set>71282</Set>
-      <Special></Special>
+      <Special>PlusFiveForNonKazon</Special>
     </Upgrade>
     <Upgrade>
       <Title>Quantum Singularity</Title>
@@ -6143,7 +6144,7 @@
       <Cost>6</Cost>
       <Id>quantum_singularity_71281</Id>
       <Set>71281</Set>
-      <Special></Special>
+      <Special>OnlySpecies8472Ship</Special>
     </Upgrade>
     <Upgrade>
       <Title>Sacrifice</Title>
@@ -6278,7 +6279,7 @@
       <Cost>5</Cost>
       <Id>the_weak_will_perish_71281</Id>
       <Set>71281</Set>
-      <Special></Special>
+      <Special>PlusFiveOnNonSpecies8472</Special>
     </Upgrade>
     <Upgrade>
       <Title>Tierna</Title>
@@ -6338,7 +6339,7 @@
       <Cost>5</Cost>
       <Id>biological_attack_71281</Id>
       <Set>71281</Set>
-      <Special></Special>
+      <Special>OnlySpecies8472Ship</Special>
     </Upgrade>
     <Upgrade>
       <Title>Cutting Beam</Title>
@@ -6353,7 +6354,7 @@
       <Cost>8</Cost>
       <Id>cutting_beam_71283</Id>
       <Set>71283</Set>
-      <Special></Special>
+      <Special>OnlyBorgShip</Special>
     </Upgrade>
     <Upgrade>
       <Title>Energy Blast</Title>
@@ -6383,7 +6384,7 @@
       <Cost>10</Cost>
       <Id>energy_focusing_ship_71281</Id>
       <Set>71281</Set>
-      <Special></Special>
+      <Special>OnlySpecies8472Ship</Special>
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>
@@ -6428,7 +6429,7 @@
       <Cost>10</Cost>
       <Id>transphasic_torpedoes_71280</Id>
       <Set>71280</Set>
-      <Special></Special>
+      <Special>OnlyVoyager</Special>
     </Upgrade>
   </Upgrades>
   <Resources>
