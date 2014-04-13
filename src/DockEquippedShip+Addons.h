@@ -28,6 +28,7 @@
 -(int)techCount;
 -(int)weaponCount;
 -(int)crewCount;
+-(int)borgCount;
 -(int)baseCost;
 -(int)attack;
 -(int)agility;

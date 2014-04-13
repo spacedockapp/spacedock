@@ -134,6 +134,11 @@
     return [self.upType isEqualToString: @"Tech"];
 }
 
+-(BOOL)isBorg
+{
+    return [self.upType isEqualToString: @"Borg"];
+}
+
 -(BOOL)isPlaceholder
 {
     return [[self placeholder] boolValue];
@@ -221,6 +226,10 @@
 
     if ([self isTech]) {
         return [targetShip techCount];
+    }
+
+    if ([self isBorg]) {
+        return [targetShip borgCount];
     }
 
     return 0;

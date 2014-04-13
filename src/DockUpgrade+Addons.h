@@ -10,6 +10,7 @@
 -(BOOL)isTalent;
 -(BOOL)isCrew;
 -(BOOL)isWeapon;
+-(BOOL)isBorg;
 -(BOOL)isCaptain;
 -(BOOL)isPlaceholder;
 -(BOOL)isUnique;
