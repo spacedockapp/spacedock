@@ -2,6 +2,7 @@
 
 #import <Foundation/NSXMLParser.h>
 
+#import "DockBorg.h"
 #import "DockCaptain.h"
 #import "DockCrew.h"
 #import "DockEquippedShip+Addons.h"
@@ -501,7 +502,7 @@ static NSString* makeKey(NSString* key)
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockTalent class] entityName: @"Talent" targetType: @"Talent"];
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockCrew class] entityName: @"Crew" targetType: @"Crew"];
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockTech class] entityName: @"Tech" targetType: @"Tech"];
-    [self loadItems: xmlData[@"Upgrades"] itemClass: [DockTech class] entityName: @"Upgrade" targetType: @"Borg"];
+    [self loadItems: xmlData[@"Upgrades"] itemClass: [DockBorg class] entityName: @"Borg" targetType: @"Borg"];
     [self loadItems: xmlData[@"Resources"] itemClass: [DockResource class] entityName: @"Resource" targetType: @"Resource"];
     [self loadItems: xmlData[@"Flagships"] itemClass: [DockFlagship class] entityName: @"Flagship" targetType: nil];
 
