@@ -124,12 +124,33 @@ NSString* kExpandedRows = @"expandedRows";
 -(void)setupFactionMenu
 {
     NSSet* factionsSet = [DockUpgrade allFactions: _managedObjectContext];
+    NSArray* originalFactions = @[
+        @"Bajoran",
+        @"Dominion",
+        @"Federation",
+        @"Ferengi",
+        @"Independent",
+        @"Klingon",
+        @"Romulan"
+    ];
+    NSSet* originalFactionsSet = [NSSet setWithArray: originalFactions];
     NSArray* factionsArray = [[factionsSet allObjects] sortedArrayUsingSelector: @selector(caseInsensitiveCompare:)];
-    int i = 1;
-
+    int originalShortcuts = 1;
+    int newShortcuts = (int)originalFactions.count + 1;
+    int shortcut = 0;
     for (NSString* factionName in factionsArray) {
-        [_factionMenu addItemWithTitle: factionName action: @selector(filterToFaction:) keyEquivalent: [NSString stringWithFormat: @"%d", i]];
-        i += 1;
+        if ([originalFactionsSet containsObject: factionName]) {
+            shortcut = originalShortcuts;
+            originalShortcuts += 1;
+        } else {
+            shortcut = newShortcuts;
+            newShortcuts += 1;
+        }
+        NSString* keyEquiv = @"";
+        if (shortcut < 10) {
+            keyEquiv = [NSString stringWithFormat: @"%d", shortcut];
+        }
+        [_factionMenu addItemWithTitle: factionName action: @selector(filterToFaction:) keyEquivalent: keyEquiv];
     }
 }
 

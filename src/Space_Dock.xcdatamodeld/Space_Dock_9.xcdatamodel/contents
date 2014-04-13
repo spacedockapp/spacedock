@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Borg" representedClassName="DockBorg" parentEntity="Upgrade" syncable="YES"/>
     <entity name="Captain" representedClassName="DockCaptain" parentEntity="Upgrade" syncable="YES">
         <attribute name="skill" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="talent" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -153,5 +154,6 @@
         <element name="Tech" positionX="0" positionY="0" width="128" height="45"/>
         <element name="Upgrade" positionX="0" positionY="0" width="128" height="195"/>
         <element name="Weapon" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="Borg" positionX="9" positionY="153" width="128" height="45"/>
     </elements>
 </model>

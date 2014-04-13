@@ -1,0 +1,150 @@
+  <Captain>
+    <Title>Kathryn Janeway</Title>
+    <Ability>When your ship performs an evade, scan, or battle stations Action, you may place an additional token of the appropriate type beside your ship. If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+    <Unique>Y</Unique>
+    <Skill>8</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
+    <Cost>5</Cost>
+    <Id>kathryn_janeway_71280</Id>
+    <Set>71280</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Chakotay</Title>
+    <Ability>Instead of performing a normal Action, you may disable Chakotay to allow two different crew Upgrades to perform their Actions during the same Round.</Ability>
+    <Unique>Y</Unique>
+    <Skill>5</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
+    <Cost>3</Cost>
+    <Id>chakotay_71280</Id>
+    <Set>71280</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Tactical Drone</Title>
+    <Ability>At the start of the game, place 4 Drone Tokens on this card. When attacking, you may spend 1 Drone Token to choose any number of your attack dice and re-roll them once.</Ability>
+    <Unique>N</Unique>
+    <Skill>4</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Borg</Faction>
+    <Cost>3</Cost>
+    <Id>tactical_drone_71283</Id>
+    <Set>71283</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Culluh</Title>
+    <Ability>After you move, you may discard 1 of your [CREW] Upgrades to perform one of the Actions listed on your Action Bar as a free Action this round.</Ability>
+    <Unique>Y</Unique>
+    <Skill>4</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Kazon</Faction>
+    <Cost>2</Cost>
+    <Id>culluh_71282</Id>
+    <Set>71282</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Rettik</Title>
+    <Ability>Each time you defend, you may re-roll 1 of your blank results one time.</Ability>
+    <Unique>Y</Unique>
+    <Skill>2</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Kazon</Faction>
+    <Cost>1</Cost>
+    <Id>rettik_71282</Id>
+    <Set>71282</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Bioship Alpha Pilot</Title>
+    <Ability>Each round during the Planning Phase, after all other players have chosen their Maneuvers, target a ship within Range 1 of your ship, look at that ship's chosen Maneuver, and then choose your Maneuver. the target ship's player cannot change the chosen Maneuver after you have looked at it. You may not perform any Actions the round you use this ability.</Ability>
+    <Unique>Y</Unique>
+    <Skill>7</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Species 8472</Faction>
+    <Cost>6</Cost>
+    <Id>bioship_alpha_pilot_71281</Id>
+    <Set>71281</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Drone</Title>
+    <Ability>At the start of the game, place 1 Drone Token on this card.</Ability>
+    <Unique>N</Unique>
+    <Skill>1</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Borg</Faction>
+    <Cost>0</Cost>
+    <Id>drone_71283</Id>
+    <Set>71283</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Federation Captain</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
+    <Skill>1</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
+    <Cost>0</Cost>
+    <Id>federation_captain_71280</Id>
+    <Set>71280</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Kazon Captain</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
+    <Skill>1</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Kazon</Faction>
+    <Cost>0</Cost>
+    <Id>kazon_captain_71282</Id>
+    <Set>71282</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Species 8472 Captain</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
+    <Skill>1</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Species 8472</Faction>
+    <Cost>0</Cost>
+    <Id>species_8472_captain_71281</Id>
+    <Set>71281</Set>
+    <Special></Special>
+  </Captain>

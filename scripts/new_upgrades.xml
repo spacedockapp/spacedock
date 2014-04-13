@@ -358,3 +358,108 @@
       <Set>71280</Set>
       <Special></Special>
     </Upgrade>
+    <Upgrade>
+      <Title>Biological Attack</Title>
+      <Ability>At the end of the Activation Phase, if your ship base is touching an enemy ship base, you may discard this Upgrade and disable your Captain Card to inflict 1 critical damage to the enemy ship's Hull (even if it has Active Shields). Then disable 1 [CREW] Upgrade of your choice on the enemy ship. This Upgrade may only be purchased for a Species 8472 ship.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Weapon</Type>
+      <Faction>Species 8472</Faction>
+      <Cost>5</Cost>
+      <Id>biological_attack_71281</Id>
+      <Set>71281</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Cutting Beam</Title>
+      <Ability>ATTACK. You must have the target ship held in a Borg Tractor Beam (i.e. the target ship must have the white Borg Tractor Beam Token beside its ship and your must have the corresponding green Borg Tractor Beam Token decide your ship) and disable this card to perform this attack. This Upgrade may only be purchased for a Borg Ship.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>10</Attack>
+      <Range>1</Range>
+      <Type>Weapon</Type>
+      <Faction>Borg</Faction>
+      <Cost>8</Cost>
+      <Id>cutting_beam_71283</Id>
+      <Set>71283</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Energy Blast</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. If fired from a Species 8472 Bioship, add +2 attack dice.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Species 8472</Faction>
+      <Cost>6</Cost>
+      <Id>energy_blast_71281</Id>
+      <Set>71281</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Energy Focusing Ship</Title>
+      <Ability>ATTACK: Discard this card to perform this attack. Target all friendly ships within Range 1 of your ship that have not yet attacked this round. Target ships cannot make a normal attack this round. Instead, add +2 attack dice to your attack roll for this attack for each targeted ship. Place an Auxiliary Power Token beside your ship and each of the target ships. This Upgrade may only be purchased for a Species 8472 ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>6</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Species 8472</Faction>
+      <Cost>10</Cost>
+      <Id>energy_focusing_ship_71281</Id>
+      <Set>71281</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photon Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 of your Battle Bridge results into a Crit result. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>photon_torpedoes_71280</Id>
+      <Set>71280</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photonic Charges</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. Place an Auxiliary Token beside the target ship if there at least 1 uncancelled [HIT] or [CRITICAL] result.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>3</Attack>
+      <Range>1-2</Range>
+      <Type>Weapon</Type>
+      <Faction>Kazon</Faction>
+      <Cost>3</Cost>
+      <Id>photonic_charges_71282</Id>
+      <Set>71282</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Transphasic Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and discard this card to perform this attack. You may fire this weapon from your forward or rear firing arcs. This Upgrade may only be purchased for the U.S.S. Voyager.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>10</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Federation</Faction>
+      <Cost>10</Cost>
+      <Id>transphasic_torpedoes_71280</Id>
+      <Set>71280</Set>
+      <Special></Special>
+    </Upgrade>

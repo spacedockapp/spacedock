@@ -39,18 +39,37 @@ When attacking, you may spend 1 Drone Token to close any number of your attack d
 4/9/2014 12:58:54	Unique	Tuvok	Federation	When firing a Secondary Weapon, you may disable Tuvok to toll 1 extra attack die.	Crew	5
 UPGRADETEXT
 
+captains_text = <<-CAPTAINSTEXT
+4/9/2014 13:30:26	Unique	Kathryn Janeway	8	Federation	When your ship performs an evade, scan, or battle stations Action, you may place an additional token of the appropriate type beside your ship. If you do so, place an Auxiliary Power Token beside your ship.	5	1
+4/9/2014 13:33:07	Unique	Chakotay	5	Federation	Instead of performing a normal Action, you may disable Chakotay to allow two different crew Upgrades to perform their Actions during the same Round.	3	0
+4/9/2014 13:34:48		Tactical Drone	4	Borg	At the start of the game, place 4 Drone Tokens on this card. When attacking, you may spend 1 Drone Token to choose any number of your attack dice and re-roll them once.	3	0
+4/11/2014 5:42:44	Unique	Culluh	4	Kazon	After you move, you may discard 1 of your (crew) Upgrades to perform one of the Actions listed on your Action Bar as a free Action this round.	2	0
+4/11/2014 5:43:29	Unique	Rettik	2	Kazon	Each time you defend, you may re-roll 1 of your blank results one time.	1	0
+4/11/2014 5:46:34	Unique	Bioship Alpha Pilot	7	Species 8472	Each round during the Planning Phase, after all other players have chosen their Maneuvers, target a ship within Range 1 of your ship, look at that ship's chosen Maneuver, and then choose your Maneuver. the target ship's player cannot change the chosen Maneuver after you have looked at it. You may not perform any Actions the round you use this ability.	6	1
+4/13/2014 12:09:36		Drone	1	Borg	At the start of the game, place 1 Drone Token on this card.	0	0
+4/13/2014 12:35:06		Federation Captain	1	Federation		0	0
+4/13/2014 12:35:24		Kazon Captain	1	Kazon		0	0
+4/13/2014 12:37:56		Species 8472 Captain	1	Species 8472		0	0
+CAPTAINSTEXT
+
+weapons_text = <<-WEAPONSTEXT
+4/11/2014 6:44:25		Biological Attack	Species 8472			At the end of the Activation Phase, if your ship base is touching an enemy ship base, you may discard this Upgrade and disable your Captain Card to inflict 1 critical damage to the enemy ship's Hull (even if it has Active Shields). Then disable 1 (crew) Upgrade of your choice on the enemy ship. This Upgrade may only be purchased for a Species 8472 ship.	5
+4/9/2014 12:37:52		Cutting Beam	Borg	10	1	ATTACK. You must have the target ship held in a Borg Tractor Beam (i.e. the target ship must have the white Borg Tractor Beam Token beside its ship and your must have the corresponding green Borg Tractor Beam Token decide your ship) and disable this card to perform this attack. This Upgrade may only be purchased for a Borg Ship.	8
+4/11/2014 6:36:45		Energy Blast	Species 8472	5	2-3	ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. If fired from a Species 8472 Bioship, add +2 attack dice.	6
+4/9/2014 12:34:05	Unique	Energy Focusing Ship	Species 8472	6	2-3	ATTACK: Discard this card to perform this attack. Target all friendly ships within Range 1 of your ship that have not yet attacked this round. Target ships cannot make a normal attack this round. Instead, add +2 attack dice to your attack roll for this attack for each targeted ship. Place an Auxiliary Power Token beside your ship and each of the target ships. This Upgrade may only be purchased for a Species 8472 ship.	10
+4/9/2014 13:06:24		Photon Torpedoes	Federation	5	2-3	ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 of your Battle Bridge results into a Crit result. You may fire this weapon from your forward or rear firing arcs.	5
+4/9/2014 12:17:42		Photonic Charges	Kazon	3	1-2	ATTACK: Disable this card to perform this attack. Place an Auxiliary Token beside the target ship if there at least 1 uncancelled [Hit] or [Critical] result.	3
+4/9/2014 13:08:55		Transphasic Torpedoes	Federation	10	2-3	ATTACK: [TARGET LOCK] Spend your target lock and discard this card to perform this attack. You may fire this weapon from your forward or rear firing arcs. This Upgrade may only be purchased for the U.S.S. Voyager.	10
+WEAPONSTEXT
+
 convert_terms(upgrade)
+convert_terms(captains_text)
+convert_terms(weapons_text)
 
 new_upgrades = File.open("new_upgrades.xml", "w")
 new_captains = File.open("new_captains.xml", "w")
 
-upgradeLines = upgrade.split "\n"
-FACTION_LOOKUP = {
-  "Fed" => "Federation",
-  "Kli" => "Klingon",
-  "Rom" => "Romulan",
-  "Dom" => "Dominion",
-}
+upgrade_lines = upgrade.split "\n"
 
 def no_quotes(a)
     a.gsub("\"", "")
@@ -64,7 +83,7 @@ def parse_set(setId)
   return setId.gsub(" ", "").gsub("\"", "")
 end
 
-upgradeLines.each do |l|
+upgrade_lines.each do |l|
     l = convert_line(l)
     # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
     parts = l.split "\t"
@@ -79,7 +98,7 @@ upgradeLines.each do |l|
     setId = set_id_from_faction(faction)
     externalId = make_external_id(setId, title)
     upgradeXml = <<-SHIPXML
-    <#{element_name}>
+    <Upgrade>
       <Title>#{title}</Title>
       <Ability>#{ability}</Ability>
       <Unique>#{unique}</Unique>
@@ -93,12 +112,80 @@ upgradeLines.each do |l|
       <Id>#{externalId}</Id>
       <Set>#{setId}</Set>
       <Special></Special>
-    </#{element_name}>
+    </Upgrade>
     SHIPXML
-    if upType == "Captain"
-      new_captains.puts upgradeXml
-    else
-      new_upgrades.puts upgradeXml
-    end
+    new_upgrades.puts upgradeXml
 end
 
+weapons_lines = weapons_text.split "\n"
+
+weapons_lines.each do |l|
+    l = convert_line(l)
+    # Timestamp		Weapon Name	Faction	Attack	Range	Ability	Cost
+    parts = l.split "\t"
+    parts.shift
+    unique = parts.shift == "Unique" ? "Y" : "N"
+    title = parts.shift
+    faction = parts.shift
+    attack = parts.shift
+    range = parts.shift
+    ability = parts.shift
+    upType = "Weapon"
+    cost = parts.shift
+    setId = set_id_from_faction(faction)
+    externalId = make_external_id(setId, title)
+    upgradeXml = <<-SHIPXML
+    <Upgrade>
+      <Title>#{title}</Title>
+      <Ability>#{ability}</Ability>
+      <Unique>#{unique}</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>#{attack}</Attack>
+      <Range>#{range}</Range>
+      <Type>#{upType}</Type>
+      <Faction>#{faction}</Faction>
+      <Cost>#{cost}</Cost>
+      <Id>#{externalId}</Id>
+      <Set>#{setId}</Set>
+      <Special></Special>
+    </Upgrade>
+    SHIPXML
+    new_upgrades.puts upgradeXml
+end
+
+captains_lines = captains_text.split "\n"
+captains_lines.each do |l|
+  l = convert_line(l)
+  # Timestamp		Captain Name	Skill	Faction	Ability	Cost	Talents
+  parts = l.split "\t"
+  parts.shift
+  unique = parts.shift == "Unique" ? "Y" : "N"
+  title = parts.shift
+  skill = parts.shift
+  faction = parts.shift
+  ability = parts.shift
+  upType = "Captain"
+  cost = parts.shift
+  talent = parts.shift
+  setId = set_id_from_faction(faction)
+  externalId = make_external_id(setId, title)
+  upgradeXml = <<-SHIPXML
+  <Captain>
+    <Title>#{title}</Title>
+    <Ability>#{ability}</Ability>
+    <Unique>#{unique}</Unique>
+    <Skill>#{skill}</Skill>
+    <Talent>#{talent}</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>#{upType}</Type>
+    <Faction>#{faction}</Faction>
+    <Cost>#{cost}</Cost>
+    <Id>#{externalId}</Id>
+    <Set>#{setId}</Set>
+    <Special></Special>
+  </Captain>
+  SHIPXML
+  new_captains.puts upgradeXml
+end
