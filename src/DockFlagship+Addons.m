@@ -61,6 +61,11 @@
     return [self.shield intValue];
 }
 
+-(NSNumber*)borg
+{
+    return @0;
+}
+
 -(NSString*)capabilities
 {
     NSMutableArray* caps = [[NSMutableArray alloc] initWithCapacity: 0];
@@ -69,6 +74,7 @@
         @"tech" : @"Tech",
         @"weapon" : @"Weap",
         @"crew" : @"Crew",
+        @"borg" : @"Borg",
         @"talent": @"Tale",
         @"sensorEcho": @"Echo",
         @"evasiveManeuvers": @"EvaM",

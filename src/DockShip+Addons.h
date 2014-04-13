@@ -22,6 +22,7 @@
 -(int)weaponCount;
 -(int)crewCount;
 -(int)captainCount;
+-(int)borgCount;
 -(NSArray*)actionStrings;
 -(void)updateShipClass:(NSString*)newShipClass;
 -(NSString*)descriptiveTitle;

@@ -74,6 +74,8 @@
             upClass = [DockCaptain class];
         } else if ([upType isEqualToString: @"Crew"]) {
             upClass = [DockCrew class];
+        } else if ([upType isEqualToString: @"Borg"]) {
+            upClass = [DockUpgrade class];
         }
 
         placeholderUpgrade = [[upClass alloc] initWithEntity: entity insertIntoManagedObjectContext: context];

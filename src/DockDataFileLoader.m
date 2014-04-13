@@ -161,10 +161,6 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
             NSString* externalId = d[@"Id"];
             id c = existingItemsLookup[externalId];
 
-            if ([externalId isEqualToString: @"federation_attack_fighter_op6prize"]) {
-                NSLog(@"federation_attack_fighter_op6prize");
-            }
-
             if (c == nil) {
                 c = [[itemClass alloc] initWithEntity: entity insertIntoManagedObjectContext: _managedObjectContext];
             } else {
@@ -326,9 +322,6 @@ static NSString* makeKey(NSString* key)
 
 -(void)parser:(NSXMLParser*)parser didEndElement:(NSString*)elementName namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString*)qName
 {
-    if ([elementName isEqualToString: @"Captain"]) {
-        NSLog(@"Captain");
-    }
     if ([self isList: elementName]) {
         if (_currentList != nil) {
             if ([elementName isEqualToString: @"Maneuvers"]) {
@@ -501,6 +494,7 @@ static NSString* makeKey(NSString* key)
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockTalent class] entityName: @"Talent" targetType: @"Talent"];
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockCrew class] entityName: @"Crew" targetType: @"Crew"];
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockTech class] entityName: @"Tech" targetType: @"Tech"];
+    [self loadItems: xmlData[@"Upgrades"] itemClass: [DockTech class] entityName: @"Upgrade" targetType: @"Borg"];
     [self loadItems: xmlData[@"Resources"] itemClass: [DockResource class] entityName: @"Resource" targetType: @"Resource"];
     [self loadItems: xmlData[@"Flagships"] itemClass: [DockFlagship class] entityName: @"Flagship" targetType: nil];
 

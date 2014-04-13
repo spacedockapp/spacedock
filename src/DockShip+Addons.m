@@ -201,6 +201,11 @@ NSString* asDegrees(NSString* textValue)
     return [self.captainLimit intValue];
 }
 
+-(int)borgCount
+{
+    return [self.borg intValue];
+}
+
 -(NSArray*)actionStrings
 {
     NSMutableArray* actionStringParts = [NSMutableArray arrayWithCapacity: 0];

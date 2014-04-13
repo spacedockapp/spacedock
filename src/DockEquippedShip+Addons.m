@@ -326,6 +326,7 @@
     [self establishPlaceholdersForType: @"Crew" limit: self.crewCount];
     [self establishPlaceholdersForType: @"Weapon" limit: self.weaponCount];
     [self establishPlaceholdersForType: @"Tech" limit: self.techCount];
+    [self establishPlaceholdersForType: @"Borg" limit: self.borgCount];
 }
 
 -(DockEquippedUpgrade*)findPlaceholder:(NSString*)upType
@@ -660,6 +661,11 @@
 -(int)captainCount
 {
     return self.ship.captainCount;
+}
+
+-(int)borgCount
+{
+    return self.ship.borgCount;
 }
 
 -(NSString*)ability
