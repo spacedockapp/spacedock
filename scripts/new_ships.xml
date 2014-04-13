@@ -1,29 +1,4 @@
     <Ship>
-      <Title>Bioship Alpha</Title>
-      <Unique>Y</Unique>
-      <ShipClass>Species 8472 Bioship</ShipClass>
-      <Faction>Species 8472</Faction>
-      <Attack>6</Attack>
-      <Agility>2</Agility>
-      <Hull>5</Hull>
-      <Shield>6</Shield>
-      <Ability>When you attack with your Primary Weapon, if you inflict at least 3 damage, place an Auxiliary Power Token beside the target ship.</Ability>
-      <Cost>38</Cost>
-      <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock>1</TargetLock>
-      <Scan>1</Scan>
-      <Battlestations>0</Battlestations>
-      <Cloak>0</Cloak>
-      <SensorEcho>0</SensorEcho>
-      <Regenerate>1</Regenerate>
-      <Borg>0</Borg>
-      <Tech>3</Tech>
-      <Weapon>2</Weapon>
-      <Crew>0</Crew>
-      <Id>bioship_alpha_71281</Id>
-      <Set>71281</Set>
-    </Ship>
-    <Ship>
       <Title>Borg Sphere 4270</Title>
       <Unique>Y</Unique>
       <ShipClass>Borg Sphere</ShipClass>
@@ -47,6 +22,106 @@
       <Crew>1</Crew>
       <Id>borg_sphere_4270_71283</Id>
       <Set>71283</Set>
+    </Ship>
+    <Ship>
+      <Title>Borg Sphere</Title>
+      <Unique>N</Unique>
+      <ShipClass>Borg Sphere</ShipClass>
+      <Faction>Borg</Faction>
+      <Attack>6</Attack>
+      <Agility>0</Agility>
+      <Hull>7</Hull>
+      <Shield>6</Shield>
+      <Ability></Ability>
+      <Cost>38</Cost>
+      <EvasiveManeuvers>0</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>1</Regenerate>
+      <Borg>1</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>borg_sphere_71283</Id>
+      <Set>71283</Set>
+    </Ship>
+    <Ship>
+      <Title>U.S.S. Voyager</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Intrepid Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>4</Attack>
+      <Agility>2</Agility>
+      <Hull>4</Hull>
+      <Shield>5</Shield>
+      <Ability>Instead of making a normal attack with your Primary Weapon, you may fire in any direction at Range 1-2 with 4 attack dice. If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+      <Cost>30</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>3</Crew>
+      <Id>u_s_s_voyager_71280</Id>
+      <Set>71280</Set>
+    </Ship>
+    <Ship>
+      <Title>Federation Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Intrepid Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>4</Attack>
+      <Agility>2</Agility>
+      <Hull>4</Hull>
+      <Shield>4</Shield>
+      <Ability></Ability>
+      <Cost>28</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
+      <Id>federation_starship_71280</Id>
+      <Set>71280</Set>
+    </Ship>
+    <Ship>
+      <Title>Nistrim Raider</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Kazon Raider</ShipClass>
+      <Faction>Kazon</Faction>
+      <Attack>2</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
+      <Shield>3</Shield>
+      <Ability>When attacking an enemy ship with a Scan token next to it with your Primary Weapon, roll +2 attack dice.</Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
+      <Id>nistrim_raider_71282</Id>
+      <Set>71282</Set>
     </Ship>
     <Ship>
       <Title>Kazon Raider</Title>
@@ -74,27 +149,52 @@
       <Set>71282</Set>
     </Ship>
     <Ship>
-      <Title>Nistrim Raider</Title>
+      <Title>Bioship Alpha</Title>
       <Unique>Y</Unique>
-      <ShipClass>Kazon Raider</ShipClass>
-      <Faction>Kazon</Faction>
-      <Attack>2</Attack>
+      <ShipClass>Species 8472 Bioship</ShipClass>
+      <Faction>Species 8472</Faction>
+      <Attack>6</Attack>
       <Agility>2</Agility>
-      <Hull>3</Hull>
-      <Shield>3</Shield>
-      <Ability>When attacking an enemy ship with a Scan token next to it with your Primary Weapon, roll +2 attack dice.</Ability>
-      <Cost>20</Cost>
+      <Hull>5</Hull>
+      <Shield>6</Shield>
+      <Ability>When you attack with your Primary Weapon, if you inflict at least 3 damage, place an Auxiliary Power Token beside the target ship.</Ability>
+      <Cost>38</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
-      <Scan>0</Scan>
-      <Battlestations>1</Battlestations>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
       <Cloak>0</Cloak>
       <SensorEcho>0</SensorEcho>
-      <Regenerate>0</Regenerate>
+      <Regenerate>1</Regenerate>
       <Borg>0</Borg>
-      <Tech>1</Tech>
-      <Weapon>1</Weapon>
-      <Crew>2</Crew>
-      <Id>nistrim_raider_71282</Id>
-      <Set>71282</Set>
+      <Tech>3</Tech>
+      <Weapon>2</Weapon>
+      <Crew>0</Crew>
+      <Id>bioship_alpha_71281</Id>
+      <Set>71281</Set>
+    </Ship>
+    <Ship>
+      <Title>Species 8472 Bioship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Species 8472 Bioship</ShipClass>
+      <Faction>Species 8472</Faction>
+      <Attack>6</Attack>
+      <Agility>2</Agility>
+      <Hull>5</Hull>
+      <Shield>5</Shield>
+      <Ability></Ability>
+      <Cost>36</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>1</Regenerate>
+      <Borg>0</Borg>
+      <Tech>2</Tech>
+      <Weapon>2</Weapon>
+      <Crew>0</Crew>
+      <Id>species_8472_bioship_71281</Id>
+      <Set>71281</Set>
     </Ship>

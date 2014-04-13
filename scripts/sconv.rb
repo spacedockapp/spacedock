@@ -14,10 +14,14 @@ doc = Nokogiri::XML(xml_text)
 #	Name	Ship Type	Faction	Weapon	Agility	Hull	Shield	Ship Ability	Evasive Maneuvers	Target Lock	Scan	Battlestations	Cloak	Sensor Echo	Other	Tech	Weapon	Crew	Other	Cost	Set
 
 ship = <<-SHIPTEXT
-4/9/2014 11:47:54	Bioship Alpha	Species 8472 Bioship	Unique	Species 8472	6	2	5	6	When you attack with your Primary Weapon, if you inflict at least 3 damage, place an Auxiliary Power Token beside the target ship.	Evasive, Regenerate, Scan, Target Lock	38	0	0	3	2
 4/9/2014 11:55:09	Borg Sphere 4270	Borg Sphere	Unique	Borg	6	0	7	7	Each time you attack with your Primary Weapon, you may divide your attack between 2 different ships.  You may divide your attack dice however you like, but you must roll at least 1 die against each ship.	Regenerate, Scan, Target Lock	40	2	1	1	1
-4/9/2014 11:58:30	Kazon Raider	Kazon Raider		Kazon	2	2	3	2		Battle Stations, Evasive, Target Lock	18	0	1	1	1
+4/9/2014 11:55:09	Borg Sphere	Borg Sphere		Borg	6	0	7	6		Regenerate, Scan, Target Lock	38	1	1	1	1
+4/13/2014 14:18:51	U.S.S. Voyager	Intrepid Class	Unique	Federation	4	2	4	5	Instead of making a normal attack with your Primary Weapon, you may fire in any direction at Range 1-2 with 4 attack dice. If you do so, place an Auxiliary Power Token beside your ship.	Battle Stations, Evasive, Scan, Target Lock	30	0	3	1	1
+4/13/2014 14:18:51	Federation Starship	Intrepid Class		Federation	4	2	4	4		Battle Stations, Evasive, Scan, Target Lock	28	0	2	1	1
 4/9/2014 11:44:59	Nistrim Raider	Kazon Raider	Unique	Kazon	2	2	3	3	When attacking an enemy ship with a Scan token next to it with your Primary Weapon, roll +2 attack dice.	Battle Stations, Evasive, Target Lock	20	0	2	1	1
+4/9/2014 11:58:30	Kazon Raider	Kazon Raider		Kazon	2	2	3	2		Battle Stations, Evasive, Target Lock	18	0	1	1	1
+4/9/2014 11:47:54	Bioship Alpha	Species 8472 Bioship	Unique	Species 8472	6	2	5	6	When you attack with your Primary Weapon, if you inflict at least 3 damage, place an Auxiliary Power Token beside the target ship.	Evasive, Regenerate, Scan, Target Lock	38	0	0	3	2
+4/9/2014 11:47:54	Species 8472 Bioship	Species 8472 Bioship		Species 8472	6	2	5	5		Evasive, Regenerate, Scan, Target Lock	36	0	0	2	2
 SHIPTEXT
 
 

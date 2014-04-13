@@ -2251,31 +2251,6 @@
       <Set>OP5Participation</Set>
     </Ship>
     <Ship>
-      <Title>Bioship Alpha</Title>
-      <Unique>Y</Unique>
-      <ShipClass>Species 8472 Bioship</ShipClass>
-      <Faction>Species 8472</Faction>
-      <Attack>6</Attack>
-      <Agility>2</Agility>
-      <Hull>5</Hull>
-      <Shield>6</Shield>
-      <Ability>When you attack with your Primary Weapon, if you inflict at least 3 damage, place an Auxiliary Power Token beside the target ship.</Ability>
-      <Cost>38</Cost>
-      <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock>1</TargetLock>
-      <Scan>1</Scan>
-      <Battlestations>0</Battlestations>
-      <Cloak>0</Cloak>
-      <SensorEcho>0</SensorEcho>
-      <Regenerate>1</Regenerate>
-      <Borg>0</Borg>
-      <Tech>3</Tech>
-      <Weapon>2</Weapon>
-      <Crew>0</Crew>
-      <Id>bioship_alpha_71281</Id>
-      <Set>71281</Set>
-    </Ship>
-    <Ship>
       <Title>Borg Sphere 4270</Title>
       <Unique>Y</Unique>
       <ShipClass>Borg Sphere</ShipClass>
@@ -2297,9 +2272,108 @@
       <Tech>1</Tech>
       <Weapon>1</Weapon>
       <Crew>1</Crew>
-      <Has360Arc>Y</Has360Arc>
       <Id>borg_sphere_4270_71283</Id>
       <Set>71283</Set>
+    </Ship>
+    <Ship>
+      <Title>Borg Sphere</Title>
+      <Unique>N</Unique>
+      <ShipClass>Borg Sphere</ShipClass>
+      <Faction>Borg</Faction>
+      <Attack>6</Attack>
+      <Agility>0</Agility>
+      <Hull>7</Hull>
+      <Shield>6</Shield>
+      <Ability></Ability>
+      <Cost>38</Cost>
+      <EvasiveManeuvers>0</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>1</Regenerate>
+      <Borg>1</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>borg_sphere_71283</Id>
+      <Set>71283</Set>
+    </Ship>
+    <Ship>
+      <Title>U.S.S. Voyager</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Intrepid Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>4</Attack>
+      <Agility>2</Agility>
+      <Hull>4</Hull>
+      <Shield>5</Shield>
+      <Ability>Instead of making a normal attack with your Primary Weapon, you may fire in any direction at Range 1-2 with 4 attack dice. If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+      <Cost>30</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>3</Crew>
+      <Id>u_s_s_voyager_71280</Id>
+      <Set>71280</Set>
+    </Ship>
+    <Ship>
+      <Title>Federation Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Intrepid Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>4</Attack>
+      <Agility>2</Agility>
+      <Hull>4</Hull>
+      <Shield>4</Shield>
+      <Ability></Ability>
+      <Cost>28</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
+      <Id>federation_starship_71280</Id>
+      <Set>71280</Set>
+    </Ship>
+    <Ship>
+      <Title>Nistrim Raider</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Kazon Raider</ShipClass>
+      <Faction>Kazon</Faction>
+      <Attack>2</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
+      <Shield>3</Shield>
+      <Ability>When attacking an enemy ship with a Scan token next to it with your Primary Weapon, roll +2 attack dice.</Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
+      <Id>nistrim_raider_71282</Id>
+      <Set>71282</Set>
     </Ship>
     <Ship>
       <Title>Kazon Raider</Title>
@@ -2327,29 +2401,54 @@
       <Set>71282</Set>
     </Ship>
     <Ship>
-      <Title>Nistrim Raider</Title>
+      <Title>Bioship Alpha</Title>
       <Unique>Y</Unique>
-      <ShipClass>Kazon Raider</ShipClass>
-      <Faction>Kazon</Faction>
-      <Attack>2</Attack>
+      <ShipClass>Species 8472 Bioship</ShipClass>
+      <Faction>Species 8472</Faction>
+      <Attack>6</Attack>
       <Agility>2</Agility>
-      <Hull>3</Hull>
-      <Shield>3</Shield>
-      <Ability>When attacking an enemy ship with a Scan token next to it with your Primary Weapon, roll +2 attack dice.</Ability>
-      <Cost>20</Cost>
+      <Hull>5</Hull>
+      <Shield>6</Shield>
+      <Ability>When you attack with your Primary Weapon, if you inflict at least 3 damage, place an Auxiliary Power Token beside the target ship.</Ability>
+      <Cost>38</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
-      <Scan>0</Scan>
-      <Battlestations>1</Battlestations>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
       <Cloak>0</Cloak>
       <SensorEcho>0</SensorEcho>
-      <Regenerate>0</Regenerate>
+      <Regenerate>1</Regenerate>
       <Borg>0</Borg>
-      <Tech>1</Tech>
-      <Weapon>1</Weapon>
-      <Crew>2</Crew>
-      <Id>nistrim_raider_71282</Id>
-      <Set>71282</Set>
+      <Tech>3</Tech>
+      <Weapon>2</Weapon>
+      <Crew>0</Crew>
+      <Id>bioship_alpha_71281</Id>
+      <Set>71281</Set>
+    </Ship>
+    <Ship>
+      <Title>Species 8472 Bioship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Species 8472 Bioship</ShipClass>
+      <Faction>Species 8472</Faction>
+      <Attack>6</Attack>
+      <Agility>2</Agility>
+      <Hull>5</Hull>
+      <Shield>5</Shield>
+      <Ability></Ability>
+      <Cost>36</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>1</Regenerate>
+      <Borg>0</Borg>
+      <Tech>2</Tech>
+      <Weapon>2</Weapon>
+      <Crew>0</Crew>
+      <Id>species_8472_bioship_71281</Id>
+      <Set>71281</Set>
     </Ship>
   </Ships>
   <Captains>
@@ -5478,6 +5577,21 @@
       <Special></Special>
     </Upgrade>
     <Upgrade>
+      <Title>Emergency Medical Hologram</Title>
+      <Ability>This Upgrade counts as either a [CREW] Upgrade or a [TECH] Upgrade (your choice). When you use a [TECH] Upgrade that requires you to disable it, you may disable this card instead of that [TECH] Upgrade.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>emergency_medical_hologram_tech_upgrade_lines71276</Id>
+      <Set>71276</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
       <Title>Navigational Deflector</Title>
       <Ability>When taking damage, you may discard this card to cancel 1 [HIT] result. If the damage is from a minefield or an obstacle, disable this card instead of discarding it. If you disable this card, you may roll defense dice against obstacles or minefields.</Ability>
       <Unique>N</Unique>
@@ -5928,7 +6042,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Borg Tractor Beam</Title>
-      <Ability>Action: Target a ship at Range 1. Place one white Borg Tractor Beam Token beside that ship and the corresponding green Borg Tractor Beam Token (the one that matches the white token's letter) beside your ship.</Ability>
+      <Ability>ACTION: Target a ship at Range 1. Place one white Borg Tractor Beam Token beside that ship and the corresponding green Borg Tractor Beam Token (the one that matches the white token's letter) beside your ship.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -6063,7 +6177,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Seven of Nine</Title>
-      <Ability>Action: Disable this card to add up to 2 Drone Tokens yo your Captain Card. You may not exceed your starting number of Drone Tokens.</Ability>
+      <Ability>ACTION: Disable this card to add up to 2 Drone Tokens yo your Captain Card. You may not exceed your starting number of Drone Tokens.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -6078,7 +6192,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Seven of Nine</Title>
-      <Ability>Action: Disable Seven of Nine to place 1 Adaptation Token on any [TECH] Upgrade on an enemy ship within Range 1-2. You cannot use this Action against a Species 8472 [TECH] Upgrade.</Ability>
+      <Ability>ACTION: Disable Seven of Nine to place 1 Adaptation Token on any [TECH] Upgrade on an enemy ship within Range 1-2. You cannot use this Action against a Species 8472 [TECH] Upgrade.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -6137,6 +6251,21 @@
       <Special></Special>
     </Upgrade>
     <Upgrade>
+      <Title>The Doctor</Title>
+      <Ability>The Doctor counts as either a [CREW] Upgrade or a [TECH] Upgrade (your choice). ACTION: Remove all Disabled Upgrade tokens from your [CREW] Upgrades.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>the_doctor_tech_71280</Id>
+      <Set>71280</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
       <Title>The Weak Will Perish</Title>
       <Ability>When attacking with your Primary Weapon, after rolling your attack dice, you may discard this card and disable your Captain Card to choose any number of your attack dice and re-roll them up to 2 times. This Upgrade cost +5 Squadron Points for any ship other than a Species 8472 ship.</Ability>
       <Unique>Y</Unique>
@@ -6153,7 +6282,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Tierna</Title>
-      <Ability>Action: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Discard Tierna and roll 2 attack dice. The target ship takes normal damage to its Hull for each [HIT] or [CRITICAL] result. The target ship does not roll any defense dice against this attack.</Ability>
+      <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Discard Tierna and roll 2 attack dice. The target ship takes normal damage to its Hull for each [HIT] or [CRITICAL] result. The target ship does not roll any defense dice against this attack.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
