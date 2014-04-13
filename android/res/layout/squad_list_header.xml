@@ -8,7 +8,6 @@
     android:layout_marginLeft="@dimen/listview_group_margin"
     android:paddingLeft="@dimen/listview_horizontal_padding"
     android:paddingRight="@dimen/listview_horizontal_padding"
-    android:minHeight="?android:attr/listPreferredItemHeightSmall"
     android:gravity="center_vertical"
     android:textAppearance="?android:attr/textAppearanceListItemSmall"
     android:textColor="@color/header"

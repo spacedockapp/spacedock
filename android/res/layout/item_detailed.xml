@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     style="@style/SmallListItem">
 
-    <include layout="@layout/item_base" />
+    <!--TODO: don't include base directly, share un-styled source-->
+    <include layout="@layout/item_base"/>
 
     <ViewStub
         android:id="@+id/stub_detail_row"
