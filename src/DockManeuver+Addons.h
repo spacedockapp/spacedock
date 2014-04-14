@@ -3,4 +3,5 @@
 @interface DockManeuver (Addons)
 -(NSString*)asString;
 -(NSComparisonResult)compareTo:(DockManeuver*)other;
+-(BOOL)isSpin;
 @end

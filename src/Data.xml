@@ -702,10 +702,22 @@
         <Name>Borg Sphere</Name>
         <Id>borg_sphere</Id>
         <Maneuvers>
+            <Maneuver speed="4" kind="left-spin" color="red" />
             <Maneuver speed="4" kind="straight" color="white" />
+            <Maneuver speed="4" kind="right-spin" color="red" />
+            
+            <Maneuver speed="3" kind="left-spin" color="white" />
             <Maneuver speed="3" kind="straight" color="green" />
+            <Maneuver speed="3" kind="right-spin" color="white" />
+
+            <Maneuver speed="2" kind="left-spin" color="white" />
             <Maneuver speed="2" kind="straight" color="green" />
+            <Maneuver speed="2" kind="right-spin" color="white" />
+
+            <Maneuver speed="1" kind="left-spin" color="white" />
             <Maneuver speed="1" kind="straight" color="green" />
+            <Maneuver speed="1" kind="right-spin" color="white" />
+
             <Maneuver speed="-1" kind="straight" color="white" />
             <Maneuver speed="-2" kind="straight" color="white" />
             <Maneuver speed="-3" kind="straight" color="red" />

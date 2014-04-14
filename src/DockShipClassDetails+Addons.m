@@ -1,6 +1,6 @@
 #import "DockShipClassDetails+Addons.h"
 
-#import "DockManeuver.h"
+#import "DockManeuver+Addons.h"
 
 @implementation DockShipClassDetails (Addons)
 
@@ -122,6 +122,16 @@
         [speeds addObject: m.speed];
     }
     return [NSSet setWithSet: speeds];
+}
+
+-(BOOL)hasSpins
+{
+    id finder = ^(id obj, NSUInteger idx, BOOL *stop) {
+        DockManeuver* m = obj;
+        return m.isSpin;
+    };
+    NSInteger index =  [self.maneuvers.allObjects indexOfObjectPassingTest: finder];
+    return index != NSNotFound;
 }
 
 @end

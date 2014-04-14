@@ -6,4 +6,5 @@
 -(DockManeuver*)getDockManeuver:(int)speed kind:(NSString*)kind;
 -(NSString*)movesSummary;
 -(NSSet*)speeds;
+-(BOOL)hasSpins;
 @end

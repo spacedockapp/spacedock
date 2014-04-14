@@ -12,4 +12,9 @@
     return [[self asString] compare: [other asString]];
 }
 
+-(BOOL)isSpin
+{
+    return [self.kind hasSuffix: @"spin"];
+}
+
 @end

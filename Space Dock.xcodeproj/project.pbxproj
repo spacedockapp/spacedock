@@ -124,6 +124,12 @@
 		D45E4CB6182E9B2500F0AA7D /* DockResourceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45E4CB5182E9B2500F0AA7D /* DockResourceDetailViewController.m */; };
 		D460664418FC226B007A1655 /* DockBorg+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D460664318FC226B007A1655 /* DockBorg+Addons.m */; };
 		D460664518FC226B007A1655 /* DockBorg+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D460664318FC226B007A1655 /* DockBorg+Addons.m */; };
+		D460664C18FC2C22007A1655 /* green-right-spin.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D460664618FC2C22007A1655 /* green-right-spin.pdf */; };
+		D460664D18FC2C22007A1655 /* green-left-spin.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D460664718FC2C22007A1655 /* green-left-spin.pdf */; };
+		D460664E18FC2C22007A1655 /* red-left-spin.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D460664818FC2C22007A1655 /* red-left-spin.pdf */; };
+		D460664F18FC2C22007A1655 /* red-right-spin.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D460664918FC2C22007A1655 /* red-right-spin.pdf */; };
+		D460665018FC2C22007A1655 /* white-right-spin.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D460664A18FC2C22007A1655 /* white-right-spin.pdf */; };
+		D460665118FC2C22007A1655 /* white-left-spin.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D460664B18FC2C22007A1655 /* white-left-spin.pdf */; };
 		D461E4BA182488C800F18FBC /* DockErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = D461E4B9182488C800F18FBC /* DockErrors.m */; };
 		D461E4BB182488C800F18FBC /* DockErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = D461E4B9182488C800F18FBC /* DockErrors.m */; };
 		D4641E70183D9B3A00121086 /* DockManeuver+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4641E6F183D9B3A00121086 /* DockManeuver+Addons.m */; };
@@ -393,6 +399,12 @@
 		D45E4CB5182E9B2500F0AA7D /* DockResourceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockResourceDetailViewController.m; sourceTree = "<group>"; };
 		D460664218FC226B007A1655 /* DockBorg+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockBorg+Addons.h"; sourceTree = "<group>"; };
 		D460664318FC226B007A1655 /* DockBorg+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockBorg+Addons.m"; sourceTree = "<group>"; };
+		D460664618FC2C22007A1655 /* green-right-spin.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "green-right-spin.pdf"; sourceTree = "<group>"; };
+		D460664718FC2C22007A1655 /* green-left-spin.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "green-left-spin.pdf"; sourceTree = "<group>"; };
+		D460664818FC2C22007A1655 /* red-left-spin.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "red-left-spin.pdf"; sourceTree = "<group>"; };
+		D460664918FC2C22007A1655 /* red-right-spin.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "red-right-spin.pdf"; sourceTree = "<group>"; };
+		D460664A18FC2C22007A1655 /* white-right-spin.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "white-right-spin.pdf"; sourceTree = "<group>"; };
+		D460664B18FC2C22007A1655 /* white-left-spin.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "white-left-spin.pdf"; sourceTree = "<group>"; };
 		D461E4B8182488C800F18FBC /* DockErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockErrors.h; sourceTree = "<group>"; };
 		D461E4B9182488C800F18FBC /* DockErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockErrors.m; sourceTree = "<group>"; };
 		D4641E61183D727700121086 /* Space_Dock_4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock_4.xcdatamodel; sourceTree = "<group>"; };
@@ -743,6 +755,12 @@
 		D4408D8C18445AF2008BA352 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D460664618FC2C22007A1655 /* green-right-spin.pdf */,
+				D460664718FC2C22007A1655 /* green-left-spin.pdf */,
+				D460664818FC2C22007A1655 /* red-left-spin.pdf */,
+				D460664918FC2C22007A1655 /* red-right-spin.pdf */,
+				D460664A18FC2C22007A1655 /* white-right-spin.pdf */,
+				D460664B18FC2C22007A1655 /* white-left-spin.pdf */,
 				D4409396184EBBF600385361 /* staw-squad-icon-64.png */,
 				D4409398184EBC0B00385361 /* staw-squad-icon-320.png */,
 				D4408D8D18445AF2008BA352 /* white-about.pdf */,
@@ -1026,7 +1044,9 @@
 				D4408DD018446BEF008BA352 /* green-backup.pdf in Resources */,
 				D4F6861D18F97D7D0019C067 /* platform.strings in Resources */,
 				D4408DCD18446B84008BA352 /* red-straight.pdf in Resources */,
+				D460664F18FC2C22007A1655 /* red-right-spin.pdf in Resources */,
 				D4408DCB18446B84008BA352 /* red-right-turn.pdf in Resources */,
+				D460664E18FC2C22007A1655 /* red-left-spin.pdf in Resources */,
 				D4408DA018445AF2008BA352 /* white-straight.pdf in Resources */,
 				D4408D9E18445AF2008BA352 /* white-right-turn.pdf in Resources */,
 				D4408DAF184468D5008BA352 /* green-straight.pdf in Resources */,
@@ -1039,14 +1059,18 @@
 				D4408DB6184469C4008BA352 /* green-left-bank.pdf in Resources */,
 				D4408DC318446B84008BA352 /* red-backup.pdf in Resources */,
 				D4C8EED5186109F1007BBD1A /* ShipGrid.xib in Resources */,
+				D460664C18FC2C22007A1655 /* green-right-spin.pdf in Resources */,
+				D460665118FC2C22007A1655 /* white-left-spin.pdf in Resources */,
 				D4408DD418446C03008BA352 /* green-left-turn.pdf in Resources */,
 				D4408D9818445AF2008BA352 /* white-left-bank.pdf in Resources */,
 				D4408D9A18445AF2008BA352 /* white-left-turn.pdf in Resources */,
 				D4408DC718446B84008BA352 /* red-left-turn.pdf in Resources */,
+				D460665018FC2C22007A1655 /* white-right-spin.pdf in Resources */,
 				D4408D9C18445AF2008BA352 /* white-right-bank.pdf in Resources */,
 				D4F7F40E17F2C95D00F5A808 /* Data.xml in Resources */,
 				D4408DC518446B84008BA352 /* red-left-bank.pdf in Resources */,
 				D4408DC118446B84008BA352 /* red-about.pdf in Resources */,
+				D460664D18FC2C22007A1655 /* green-left-spin.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
