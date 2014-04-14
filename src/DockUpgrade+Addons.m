@@ -439,6 +439,17 @@
     if ([self.special isEqualToString: @"AddTwoWeaponSlots"]) {
         return 2;
     }
+    if ([self.special isEqualToString: @"AddsOneWeaponOneTech"]) {
+        return 1;
+    }
+    return 0;
+}
+
+-(int)additionalTechSlots
+{
+    if ([self.special isEqualToString: @"AddsOneWeaponOneTech"]) {
+        return 1;
+    }
     return 0;
 }
 
