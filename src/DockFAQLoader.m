@@ -57,7 +57,7 @@
 
 -(NSString*)asHTML:(BOOL)andrewOnly
 {
-    NSMutableString* s = [[NSMutableString alloc] initWithString: @"<HTML>\n<HEAD>\n<meta charset=\"UTF-8\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"http://spacedock.funnyhatsoftware.com/css_for_faq.css\">\n</HEAD>\n<BODY>\n"];
+    NSMutableString* s = [[NSMutableString alloc] initWithString: @"<HTML>\n<HEAD>\n<meta charset=\"UTF-8\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"http://spacedockapp.org/css_for_faq.css\">\n</HEAD>\n<BODY>\n"];
     for (NSDictionary* d in _articles) {
         NSString* userName = d[@"username"];
         if (!andrewOnly || [userName isEqualToString: @"Andrew Parks"]) {
