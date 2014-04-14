@@ -1,4 +1,4 @@
-<Data version="1.201">
+<Data xversion="1.201">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -697,6 +697,21 @@
         </Maneuvers>
         <FrontArc>90</FrontArc>
         <RearArc>90</RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+        <Name>Borg Sphere</Name>
+        <Id>borg_sphere</Id>
+        <Maneuvers>
+            <Maneuver speed="4" kind="straight" color="white" />
+            <Maneuver speed="3" kind="straight" color="green" />
+            <Maneuver speed="2" kind="straight" color="green" />
+            <Maneuver speed="1" kind="straight" color="green" />
+            <Maneuver speed="-1" kind="straight" color="white" />
+            <Maneuver speed="-2" kind="straight" color="white" />
+            <Maneuver speed="-3" kind="straight" color="red" />
+        </Maneuvers>
+        <FrontArc></FrontArc>
+        <RearArc></RearArc>
     </ShipClassDetail>
   </ShipClassDetails>
   <Ships>
@@ -6178,13 +6193,13 @@
     </Upgrade>
     <Upgrade>
       <Title>Seven of Nine</Title>
-      <Ability>ACTION: Disable this card to add up to 2 Drone Tokens yo your Captain Card. You may not exceed your starting number of Drone Tokens.</Ability>
+      <Ability>ACTION: Disable this card to add up to 2 Drone Tokens your Captain Card. You may not exceed your starting number of Drone Tokens.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Borg</Type>
+      <Type>Crew</Type>
       <Faction>Borg</Faction>
       <Cost>4</Cost>
       <Id>seven_of_nine_71283</Id>

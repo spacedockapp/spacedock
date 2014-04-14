@@ -2,7 +2,7 @@
 
 #import <Foundation/NSXMLParser.h>
 
-#import "DockBorg.h"
+#import "DockBorg+Addons.h"
 #import "DockCaptain.h"
 #import "DockCrew.h"
 #import "DockEquippedShip+Addons.h"
@@ -442,6 +442,18 @@ static NSString* makeKey(NSString* key)
     return _parsedData;
 }
 
+-(void)fixErrors
+{
+    DockBorg* wrongSeven = [DockBorg borgForId: @"seven_of_nine_71283" context: _managedObjectContext];
+    if (wrongSeven != nil) {
+        NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
+        for (DockSquad* s in allSquads) {
+            [s purgeUpgrade: wrongSeven];
+        }
+        [_managedObjectContext deleteObject: wrongSeven];
+    }
+}
+
 -(NSSet*)validateSpecials
 {
     NSSet* specials = allAttributes(_managedObjectContext, @"Upgrade", @"Special");
@@ -483,6 +495,8 @@ static NSString* makeKey(NSString* key)
 -(BOOL)loadData:(NSString*)pathToDataFile force:(BOOL)force error:(NSError**)error;
 {
     _versionOnly = NO;
+    
+    [self fixErrors];
 
     NSDictionary* xmlData = [self loadDataFile: pathToDataFile force: force error:error];
 

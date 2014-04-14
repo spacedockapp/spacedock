@@ -122,6 +122,8 @@
 		D45AF1F017FFE7F900C04F9A /* DockUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D45AF1EF17FFE7F900C04F9A /* DockUtils.m */; };
 		D45E4CB3182E8FE400F0AA7D /* DockDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45E4CB2182E8FE400F0AA7D /* DockDetailViewController.m */; };
 		D45E4CB6182E9B2500F0AA7D /* DockResourceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D45E4CB5182E9B2500F0AA7D /* DockResourceDetailViewController.m */; };
+		D460664418FC226B007A1655 /* DockBorg+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D460664318FC226B007A1655 /* DockBorg+Addons.m */; };
+		D460664518FC226B007A1655 /* DockBorg+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D460664318FC226B007A1655 /* DockBorg+Addons.m */; };
 		D461E4BA182488C800F18FBC /* DockErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = D461E4B9182488C800F18FBC /* DockErrors.m */; };
 		D461E4BB182488C800F18FBC /* DockErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = D461E4B9182488C800F18FBC /* DockErrors.m */; };
 		D4641E70183D9B3A00121086 /* DockManeuver+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4641E6F183D9B3A00121086 /* DockManeuver+Addons.m */; };
@@ -389,6 +391,8 @@
 		D45E4CB2182E8FE400F0AA7D /* DockDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockDetailViewController.m; sourceTree = "<group>"; };
 		D45E4CB4182E9B2500F0AA7D /* DockResourceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockResourceDetailViewController.h; sourceTree = "<group>"; };
 		D45E4CB5182E9B2500F0AA7D /* DockResourceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockResourceDetailViewController.m; sourceTree = "<group>"; };
+		D460664218FC226B007A1655 /* DockBorg+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockBorg+Addons.h"; sourceTree = "<group>"; };
+		D460664318FC226B007A1655 /* DockBorg+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockBorg+Addons.m"; sourceTree = "<group>"; };
 		D461E4B8182488C800F18FBC /* DockErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockErrors.h; sourceTree = "<group>"; };
 		D461E4B9182488C800F18FBC /* DockErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockErrors.m; sourceTree = "<group>"; };
 		D4641E61183D727700121086 /* Space_Dock_4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock_4.xcdatamodel; sourceTree = "<group>"; };
@@ -877,6 +881,8 @@
 				D4AAA2B617F4C9B200A99383 /* Entities */,
 				D41B77E717FE13D1005A5DA8 /* DockBooleanFormatter.h */,
 				D41B77E817FE13D1005A5DA8 /* DockBooleanFormatter.m */,
+				D460664218FC226B007A1655 /* DockBorg+Addons.h */,
+				D460664318FC226B007A1655 /* DockBorg+Addons.m */,
 				D4D7BE6617F76FB50070D94D /* DockCaptain+Addons.h */,
 				D4D7BE6717F76FB50070D94D /* DockCaptain+Addons.m */,
 				D4B82240189AAA6700CD15AE /* DockCrew+Addons.h */,
@@ -1117,6 +1123,7 @@
 				D4BCA3ED1814EC0900921183 /* main.m in Sources */,
 				D4BCA3EE1814EC0900921183 /* NSTreeController+Additions.m in Sources */,
 				D4F6867118F995E90019C067 /* DockWeapon.m in Sources */,
+				D460664418FC226B007A1655 /* DockBorg+Addons.m in Sources */,
 				D4A66CAA18A1BB310050A37A /* DockShip+MacAddons.m in Sources */,
 				D4AD470518708E6600A9B451 /* DockDataLoader.m in Sources */,
 				D4F6868518F995EA0019C067 /* DockEquippedShip.m in Sources */,
@@ -1261,6 +1268,7 @@
 				D433FE18181503A20062731A /* DockAppDelegate.m in Sources */,
 				D4EE8DC2181C5EB500E92DD6 /* DockSquadDetailController.m in Sources */,
 				D406AC2118B0728B00E33650 /* DockEditNotesCell.m in Sources */,
+				D460664518FC226B007A1655 /* DockBorg+Addons.m in Sources */,
 				D47316B618182C4C00046428 /* DockWeapon+Addons.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
