@@ -429,7 +429,9 @@ NSString* kExpandedRows = @"expandedRows";
 
     NSAlert* alert = [[NSAlert alloc] init];
     NSString* msg = d[NSLocalizedDescriptionKey];
-    [alert setMessageText: msg];
+    if (msg) {
+        [alert setMessageText: msg];
+    }
     NSString* info = d[NSLocalizedFailureReasonErrorKey];
     [alert setInformativeText: info];
     [alert setAlertStyle: NSInformationalAlertStyle];
@@ -669,7 +671,9 @@ NSString* kExpandedRows = @"expandedRows";
 
         if (existing) {
             [self selectUpgrade: existing];
-            [self explainCantUniqueUpgrade: nil]; // fixme
+            NSError* error;
+            [squad canAddUpgrade: upgrade toShip: targetShip error: &error];
+            [self explainCantUniqueUpgrade: error];
             return nil;
         }
     }
