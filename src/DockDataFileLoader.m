@@ -3,7 +3,7 @@
 #import <Foundation/NSXMLParser.h>
 
 #import "DockBorg+Addons.h"
-#import "DockCaptain.h"
+#import "DockCaptain+Addons.h"
 #import "DockCrew.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedShip.h"
@@ -444,13 +444,20 @@ static NSString* makeKey(NSString* key)
 
 -(void)fixErrors
 {
+    NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
     DockBorg* wrongSeven = [DockBorg borgForId: @"seven_of_nine_71283" context: _managedObjectContext];
     if (wrongSeven != nil) {
-        NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
         for (DockSquad* s in allSquads) {
             [s purgeUpgrade: wrongSeven];
         }
         [_managedObjectContext deleteObject: wrongSeven];
+    }
+    DockUpgrade* extraFed = [DockCaptain captainForId: @"federation_captain_71280" context: _managedObjectContext];
+    if (extraFed != nil) {
+        for (DockSquad* s in allSquads) {
+            [s purgeUpgrade: extraFed];
+        }
+        [_managedObjectContext deleteObject: extraFed];
     }
 }
 

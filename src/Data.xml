@@ -1,4 +1,4 @@
-<Data xversion="1.201">
+<Data version="1.202">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -2596,7 +2596,7 @@
       <Faction>Federation</Faction>
       <Cost>0</Cost>
       <Id>2003</Id>
-      <Set>71120,71121,71122</Set>
+      <Set>71120,71121,71122,71268,71272,71276,71280</Set>
     </Captain>
     <Captain>
       <Title>Nu'Daq</Title>
@@ -3553,21 +3553,6 @@
       <Cost>0</Cost>
       <Id>drone_71283</Id>
       <Set>71283</Set>
-      <Special></Special>
-    </Captain>
-    <Captain>
-      <Title>Federation Captain</Title>
-      <Ability></Ability>
-      <Unique>N</Unique>
-      <Skill>1</Skill>
-      <Talent>0</Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Captain</Type>
-      <Faction>Federation</Faction>
-      <Cost>0</Cost>
-      <Id>federation_captain_71280</Id>
-      <Set>71280</Set>
       <Special></Special>
     </Captain>
     <Captain>

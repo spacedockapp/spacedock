@@ -23,6 +23,12 @@
 		D427CDE2184A50CF0086EB86 /* DockConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D427CDE1184A50CF0086EB86 /* DockConstants.m */; };
 		D427CDE3184A50CF0086EB86 /* DockConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D427CDE1184A50CF0086EB86 /* DockConstants.m */; };
 		D427FC3118320F2500D4CC83 /* DockEquippedShipCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D427FC3018320F2500D4CC83 /* DockEquippedShipCell.m */; };
+		D428F12318FCDE530007D963 /* white-right-spin.png in Resources */ = {isa = PBXBuildFile; fileRef = D428F11D18FCDE530007D963 /* white-right-spin.png */; };
+		D428F12418FCDE530007D963 /* white-left-spin.png in Resources */ = {isa = PBXBuildFile; fileRef = D428F11E18FCDE530007D963 /* white-left-spin.png */; };
+		D428F12518FCDE530007D963 /* red-right-spin.png in Resources */ = {isa = PBXBuildFile; fileRef = D428F11F18FCDE530007D963 /* red-right-spin.png */; };
+		D428F12618FCDE530007D963 /* red-left-spin.png in Resources */ = {isa = PBXBuildFile; fileRef = D428F12018FCDE530007D963 /* red-left-spin.png */; };
+		D428F12718FCDE530007D963 /* green-right-spin.png in Resources */ = {isa = PBXBuildFile; fileRef = D428F12118FCDE530007D963 /* green-right-spin.png */; };
+		D428F12818FCDE530007D963 /* green-left-spin.png in Resources */ = {isa = PBXBuildFile; fileRef = D428F12218FCDE530007D963 /* green-left-spin.png */; };
 		D42BD1F017EA134B0000598C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42BD1EF17EA134B0000598C /* Cocoa.framework */; };
 		D433E4F618B7C7B300FB6579 /* DockEquippedFlagship.m in Sources */ = {isa = PBXBuildFile; fileRef = D433E4F518B7C7B300FB6579 /* DockEquippedFlagship.m */; };
 		D433E4F718B7C7B300FB6579 /* DockEquippedFlagship.m in Sources */ = {isa = PBXBuildFile; fileRef = D433E4F518B7C7B300FB6579 /* DockEquippedFlagship.m */; };
@@ -292,6 +298,12 @@
 		D427CDE1184A50CF0086EB86 /* DockConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockConstants.m; sourceTree = "<group>"; };
 		D427FC2F18320F2500D4CC83 /* DockEquippedShipCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockEquippedShipCell.h; sourceTree = "<group>"; };
 		D427FC3018320F2500D4CC83 /* DockEquippedShipCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockEquippedShipCell.m; sourceTree = "<group>"; };
+		D428F11D18FCDE530007D963 /* white-right-spin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-right-spin.png"; path = "images/white-right-spin.png"; sourceTree = SOURCE_ROOT; };
+		D428F11E18FCDE530007D963 /* white-left-spin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-left-spin.png"; path = "images/white-left-spin.png"; sourceTree = SOURCE_ROOT; };
+		D428F11F18FCDE530007D963 /* red-right-spin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red-right-spin.png"; path = "images/red-right-spin.png"; sourceTree = SOURCE_ROOT; };
+		D428F12018FCDE530007D963 /* red-left-spin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red-left-spin.png"; path = "images/red-left-spin.png"; sourceTree = SOURCE_ROOT; };
+		D428F12118FCDE530007D963 /* green-right-spin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-right-spin.png"; path = "images/green-right-spin.png"; sourceTree = SOURCE_ROOT; };
+		D428F12218FCDE530007D963 /* green-left-spin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-left-spin.png"; path = "images/green-left-spin.png"; sourceTree = SOURCE_ROOT; };
 		D42BD1EC17EA134B0000598C /* Space Dock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Dock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42BD1EF17EA134B0000598C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D42BD1F217EA134B0000598C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -704,6 +716,12 @@
 		D433FE0E181503A20062731A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D428F11D18FCDE530007D963 /* white-right-spin.png */,
+				D428F11E18FCDE530007D963 /* white-left-spin.png */,
+				D428F11F18FCDE530007D963 /* red-right-spin.png */,
+				D428F12018FCDE530007D963 /* red-left-spin.png */,
+				D428F12118FCDE530007D963 /* green-right-spin.png */,
+				D428F12218FCDE530007D963 /* green-left-spin.png */,
 				D4408DE91845B3C5008BA352 /* green-about.png */,
 				D4408DEA1845B3C5008BA352 /* green-backup.png */,
 				D4408DEB1845B3C5008BA352 /* green-left-bank.png */,
@@ -1080,11 +1098,13 @@
 			files = (
 				D4408DCE18446B84008BA352 /* red-straight.pdf in Resources */,
 				D4408E0B1845B3C5008BA352 /* red-straight.png in Resources */,
+				D428F12318FCDE530007D963 /* white-right-spin.png in Resources */,
 				D4408DC418446B84008BA352 /* red-backup.pdf in Resources */,
 				D4408DB0184468D5008BA352 /* green-straight.pdf in Resources */,
 				D4408E071845B3C5008BA352 /* red-left-bank.png in Resources */,
 				D4409399184EBC0B00385361 /* staw-squad-icon-320.png in Resources */,
 				D4408E031845B3C5008BA352 /* green-right-turn.png in Resources */,
+				D428F12718FCDE530007D963 /* green-right-spin.png in Resources */,
 				D4408E0F1845B3C5008BA352 /* white-left-turn.png in Resources */,
 				D4409397184EBBF600385361 /* staw-squad-icon-64.png in Resources */,
 				D4408E051845B3C5008BA352 /* red-about.png in Resources */,
@@ -1115,12 +1135,16 @@
 				D4408DC818446B84008BA352 /* red-left-turn.pdf in Resources */,
 				D4408DA118445AF2008BA352 /* white-straight.pdf in Resources */,
 				D4408E091845B3C5008BA352 /* red-right-bank.png in Resources */,
+				D428F12618FCDE530007D963 /* red-left-spin.png in Resources */,
 				D4408D9D18445AF2008BA352 /* white-right-bank.pdf in Resources */,
 				D4408DD518446C03008BA352 /* green-left-turn.pdf in Resources */,
 				D4408DB9184469C4008BA352 /* green-right-bank.pdf in Resources */,
 				D4408DCA18446B84008BA352 /* red-right-bank.pdf in Resources */,
+				D428F12518FCDE530007D963 /* red-right-spin.png in Resources */,
+				D428F12418FCDE530007D963 /* white-left-spin.png in Resources */,
 				D4408E0C1845B3C5008BA352 /* white-about.png in Resources */,
 				D4408E061845B3C5008BA352 /* red-backup.png in Resources */,
+				D428F12818FCDE530007D963 /* green-left-spin.png in Resources */,
 				D4408D9F18445AF2008BA352 /* white-right-turn.pdf in Resources */,
 				D4408DD718446C03008BA352 /* green-right-turn.pdf in Resources */,
 				D4408D9518445AF2008BA352 /* white-about.pdf in Resources */,

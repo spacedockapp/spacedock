@@ -58,18 +58,27 @@
         y += rowSize;
     }
 
-    int moveValues[] = {
-        5, 4, 3, 2, 1, -1, -2
-    };
+    NSArray* moveValues = @[@5, @4, @3, @2, @1, @-1, @-2];
+    NSSet* speeds = _ship.shipClassDetails.speeds;
+    if ([speeds containsObject: @-3]) {
+        moveValues = [moveValues subarrayWithRange: NSMakeRange(1, moveValues.count - 1)];
+        moveValues = [moveValues arrayByAddingObject: @-3];
+    } else if ([speeds containsObject: @6]) {
+        moveValues = [moveValues subarrayWithRange: NSMakeRange(0, moveValues.count - 1)];
+        moveValues = [@[@6] arrayByAddingObjectsFromArray: moveValues];
+    }
+
     y = gridBox.origin.y + 1;
     UIFont* font = [UIFont fontWithName: @"Helvetica" size: fontSize];
     NSArray* kinds = @[@"left-turn", @"left-bank", @"straight", @"right-bank", @"right-turn", @"about"];
     DockShipClassDetails* details = _ship.shipClassDetails;
-    NSSet* speeds = details.speeds;
+    if (details.hasSpins) {
+        kinds = @[@"", @"left-spin", @"straight", @"right-spin", @"", @""];
+    }
 
     for (int i = 0; i < 7; ++i) {
         x = gridBox.origin.x;
-        int speed = moveValues[i];
+        int speed = [moveValues[i] intValue];
         NSNumber* speedNumber = [NSNumber numberWithInt: speed];
         BOOL hasSpeed = [speeds containsObject: speedNumber];
         int absSpeed = speed;
