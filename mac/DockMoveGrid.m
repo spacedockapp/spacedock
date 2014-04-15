@@ -70,6 +70,9 @@
     if ([speeds containsObject: @-3]) {
         moveValues = [moveValues subarrayWithRange: NSMakeRange(1, moveValues.count - 1)];
         moveValues = [moveValues arrayByAddingObject: @-3];
+    } else if ([speeds containsObject: @6]) {
+        moveValues = [moveValues subarrayWithRange: NSMakeRange(0, moveValues.count - 1)];
+        moveValues = [@[@6] arrayByAddingObjectsFromArray: moveValues];
     }
     
     y = gridBox.origin.y - 1;

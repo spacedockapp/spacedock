@@ -725,6 +725,75 @@
         <FrontArc></FrontArc>
         <RearArc></RearArc>
     </ShipClassDetail>
+    <ShipClassDetail>
+        <Name>Species 8472 Bioship</Name>
+        <Id>species_8472_bioship</Id>
+        <Maneuvers>
+          <Maneuver speed="4" kind="straight" color="white" />
+          <Maneuver speed="3" kind="left-turn" color="red" />
+          <Maneuver speed="3" kind="left-bank" color="white" />
+          <Maneuver speed="3" kind="straight" color="white" />
+          <Maneuver speed="3" kind="right-bank" color="white" />
+          <Maneuver speed="3" kind="right-turn" color="red" />
+          <Maneuver speed="3" kind="about" color="red" />
+          <Maneuver speed="2" kind="left-turn" color="white" />
+          <Maneuver speed="2" kind="left-bank" color="white" />
+          <Maneuver speed="2" kind="straight" color="green" />
+          <Maneuver speed="2" kind="right-bank" color="white" />
+          <Maneuver speed="2" kind="right-turn" color="white" />
+          <Maneuver speed="1" kind="left-bank" color="green" />
+          <Maneuver speed="1" kind="straight" color="green" />
+          <Maneuver speed="1" kind="right-bank" color="green" />
+        </Maneuvers>
+        <FrontArc>90</FrontArc>
+        <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+        <Name>Kazon Raider</Name>
+        <Id>kazon_raider</Id>
+        <Maneuvers>
+          <Maneuver speed="4" kind="straight" color="white" />
+          <Maneuver speed="3" kind="left-turn" color="red" />
+          <Maneuver speed="3" kind="left-bank" color="white" />
+          <Maneuver speed="3" kind="straight" color="white" />
+          <Maneuver speed="3" kind="right-bank" color="white" />
+          <Maneuver speed="3" kind="right-turn" color="red" />
+          <Maneuver speed="3" kind="about" color="red" />
+          <Maneuver speed="2" kind="left-turn" color="white" />
+          <Maneuver speed="2" kind="left-bank" color="white" />
+          <Maneuver speed="2" kind="straight" color="green" />
+          <Maneuver speed="2" kind="right-bank" color="white" />
+          <Maneuver speed="2" kind="right-turn" color="white" />
+          <Maneuver speed="1" kind="left-bank" color="green" />
+          <Maneuver speed="1" kind="straight" color="green" />
+          <Maneuver speed="1" kind="right-bank" color="green" />
+        </Maneuvers>
+        <FrontArc>180</FrontArc>
+        <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+        <Name>Intrepid Class</Name>
+        <Id>intrepid_class</Id>
+        <Maneuvers>
+          <Maneuver speed="6" kind="straight" color="white" />
+          <Maneuver speed="5" kind="straight" color="white" />
+          <Maneuver speed="4" kind="straight" color="white" />
+          <Maneuver speed="3" kind="left-turn" color="white" />
+          <Maneuver speed="3" kind="left-bank" color="white" />
+          <Maneuver speed="3" kind="straight" color="green" />
+          <Maneuver speed="3" kind="right-bank" color="white" />
+          <Maneuver speed="3" kind="right-turn" color="white" />
+          <Maneuver speed="2" kind="left-turn" color="white" />
+          <Maneuver speed="2" kind="left-bank" color="white" />
+          <Maneuver speed="2" kind="straight" color="green" />
+          <Maneuver speed="2" kind="right-bank" color="green" />
+          <Maneuver speed="2" kind="right-turn" color="white" />
+          <Maneuver speed="1" kind="left-bank" color="green" />
+          <Maneuver speed="1" kind="right-bank" color="green" />
+        </Maneuvers>
+        <FrontArc>90</FrontArc>
+        <RearArc>90</RearArc>
+    </ShipClassDetail>
   </ShipClassDetails>
   <Ships>
     <Ship>
@@ -2320,8 +2389,8 @@
       <Cloak>0</Cloak>
       <SensorEcho>0</SensorEcho>
       <Regenerate>1</Regenerate>
-      <Borg>1</Borg>
-      <Tech>1</Tech>
+      <Borg>2</Borg>
+      <Tech>0</Tech>
       <Weapon>1</Weapon>
       <Crew>1</Crew>
       <Id>borg_sphere_71283</Id>
@@ -2421,9 +2490,9 @@
       <SensorEcho>0</SensorEcho>
       <Regenerate>0</Regenerate>
       <Borg>0</Borg>
-      <Tech>1</Tech>
+      <Tech>0</Tech>
       <Weapon>1</Weapon>
-      <Crew>1</Crew>
+      <Crew>2</Crew>
       <Id>kazon_raider_71282</Id>
       <Set>71282</Set>
     </Ship>
@@ -2471,8 +2540,8 @@
       <SensorEcho>0</SensorEcho>
       <Regenerate>1</Regenerate>
       <Borg>0</Borg>
-      <Tech>2</Tech>
-      <Weapon>2</Weapon>
+      <Tech>3</Tech>
+      <Weapon>1</Weapon>
       <Crew>0</Crew>
       <Id>species_8472_bioship_71281</Id>
       <Set>71281</Set>
