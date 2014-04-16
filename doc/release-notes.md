@@ -1,3 +1,7 @@
+### Version 1.0.1 builds 49-51 (2014-4-12)
+
+* Add support for Wave 4.
+
 ### Version 1.0 build 48 (2014-4-12)
 
 * Replace the missing version number in the data file.
