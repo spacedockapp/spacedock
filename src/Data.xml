@@ -1,4 +1,4 @@
-<Data version="1.202">
+<Data version="1.203">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -2372,7 +2372,7 @@
       <Set>71283</Set>
     </Ship>
     <Ship>
-      <Title>Borg Sphere</Title>
+      <Title>Borg Starship</Title>
       <Unique>N</Unique>
       <ShipClass>Borg Sphere</ShipClass>
       <Faction>Borg</Faction>
@@ -2522,7 +2522,7 @@
       <Set>71281</Set>
     </Ship>
     <Ship>
-      <Title>Species 8472 Bioship</Title>
+      <Title>Species 8472 Starship</Title>
       <Unique>N</Unique>
       <ShipClass>Species 8472 Bioship</ShipClass>
       <Faction>Species 8472</Faction>
@@ -6109,7 +6109,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Borg Assimilation Tubules</Title>
-      <Ability>ACTION: disable this card and discard 1 Drone Token to target a ship at Range 1-2 Steal 1 (Crew, Tech, or Weapon). Upgrade form the target ship, even if it exceeds your ship's restrictions. Place a Disabled Upgrade Token on the assimilated Upgrade. You cannot steal a Species 8472 Upgrade with this Action.</Ability>
+      <Ability>ACTION: Disable this card and discard 1 Drone Token to target a ship at Range 1-2 Steal 1 [CREW], [TECH], or [WEAPON] Upgrade form the target ship, even if it exceeds your ship's restrictions. Place a Disabled Upgrade Token on the assimilated Upgrade. You cannot steal a Species 8472 Upgrade with this Action.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -6154,7 +6154,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Feedback Pulse</Title>
-      <Ability>When defending, before any dice are rolled, you may discard this card to declare that half of the damage from this attack will be cancelled and the other half will be assigned to the attacker (round down); your receive no damage. the attacking ship connote receive critical damage from this effect. Place an Auxiliary Power Token decide your ship.</Ability>
+      <Ability>When defending, before any dice are rolled, you may discard this card to declare that half of the damage from this attack will be cancelled and the other half will be assigned to the attacker (round down); you receive no damage. The attacking ship cannot receive critical damage from this effect. Place an Auxiliary Power Token beside your ship.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
