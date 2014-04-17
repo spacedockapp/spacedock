@@ -17,6 +17,12 @@ public class ShipBase extends SetItem {
     int mBattleStations;
     public int getBattleStations() { return mBattleStations; }
     public ShipBase setBattleStations(int v) { mBattleStations = v; return this;}
+    int mBorg;
+    public int getBorg() { return mBorg; }
+    public ShipBase setBorg(int v) { mBorg = v; return this;}
+    int mCaptainLimit;
+    public int getCaptainLimit() { return mCaptainLimit; }
+    public ShipBase setCaptainLimit(int v) { mCaptainLimit = v; return this;}
     int mCloak;
     public int getCloak() { return mCloak; }
     public ShipBase setCloak(int v) { mCloak = v; return this;}
@@ -35,9 +41,15 @@ public class ShipBase extends SetItem {
     String mFaction;
     public String getFaction() { return mFaction; }
     public ShipBase setFaction(String v) { mFaction = v; return this;}
+    boolean mHas360Arc;
+    public boolean getHas360Arc() { return mHas360Arc; }
+    public ShipBase setHas360Arc(boolean v) { mHas360Arc = v; return this;}
     int mHull;
     public int getHull() { return mHull; }
     public ShipBase setHull(int v) { mHull = v; return this;}
+    int mRegenerate;
+    public int getRegenerate() { return mRegenerate; }
+    public ShipBase setRegenerate(int v) { mRegenerate = v; return this;}
     int mScan;
     public int getScan() { return mScan; }
     public ShipBase setScan(int v) { mScan = v; return this;}
@@ -80,13 +92,17 @@ public class ShipBase extends SetItem {
         mAgility = DataUtils.intValue((String)data.get("Agility"));
         mAttack = DataUtils.intValue((String)data.get("Attack"));
         mBattleStations = DataUtils.intValue((String)data.get("Battlestations"));
+        mBorg = DataUtils.intValue((String)data.get("Borg"));
+        mCaptainLimit = DataUtils.intValue((String)data.get("CaptainLimit"));
         mCloak = DataUtils.intValue((String)data.get("Cloak"));
         mCost = DataUtils.intValue((String)data.get("Cost"));
         mCrew = DataUtils.intValue((String)data.get("Crew"));
         mEvasiveManeuvers = DataUtils.intValue((String)data.get("EvasiveManeuvers"));
         mExternalId = DataUtils.stringValue((String)data.get("Id"));
         mFaction = DataUtils.stringValue((String)data.get("Faction"));
+        mHas360Arc = DataUtils.booleanValue((String)data.get("Has360Arc"));
         mHull = DataUtils.intValue((String)data.get("Hull"));
+        mRegenerate = DataUtils.intValue((String)data.get("Regenerate"));
         mScan = DataUtils.intValue((String)data.get("Scan"));
         mSensorEcho = DataUtils.intValue((String)data.get("SensorEcho"));
         mShield = DataUtils.intValue((String)data.get("Shield"));

@@ -23,7 +23,7 @@ public class TestLoad extends BaseTest {
     }
 
     public void testBasics() {
-        assertEquals("Ship count wrong", 61, universe.getShips().size());
+        assertEquals("Ship count wrong", 69, universe.getShips().size());
         Ship entD = universe.getShip("1001");
         assertNotNull("Couldn't get ship", entD);
         assertEquals(4, entD.getAttack());

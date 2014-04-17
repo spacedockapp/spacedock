@@ -1,4 +1,4 @@
-<Data version="1.203">
+<Data version="1.204">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -6300,21 +6300,6 @@
       <Cost></Cost>
       <Id>tactical_drone_71283</Id>
       <Set>71283</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>3</Title>
-      <Ability></Ability>
-      <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type></Type>
-      <Faction></Faction>
-      <Cost></Cost>
-      <Id>3_</Id>
-      <Set></Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>

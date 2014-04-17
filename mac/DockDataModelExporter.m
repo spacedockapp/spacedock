@@ -81,7 +81,7 @@ static NSString* attributeTypeToJavaConversion(NSAttributeType attrType)
             break;
             
         case NSDateAttributeType:
-            return @"";
+            return @"DataUtils.dateValue";
             break;
             
         case NSStringAttributeType:
@@ -189,9 +189,14 @@ void emitCastToTarget(NSString *javaClassName, NSMutableString *javaClass)
         [javaClass appendFormat: @"public %@class %@ extends Base {\n", abstractString, javaBaseClassName];
     }
 
+    BOOL needsDate = NO;
+
     for (NSAttributeDescription* desc in [entity.attributesByName allValues]) {
         if (![parentAttributes containsObject: desc.name]) {
             NSString* instanceName = propertyNameToJavaInstanceName(desc.name);
+            if (desc.attributeType == NSDateAttributeType) {
+                needsDate = YES;
+            }
             [javaClass appendFormat: @"    %@ %@;\n", attributeTypeToJavaType(desc.attributeType), instanceName];
             [javaClass appendFormat: @"    public %@ %@() { return %@; }\n",
                 attributeTypeToJavaType(desc.attributeType), propertyNameToJavaGetterName(desc.name), instanceName];
@@ -302,6 +307,9 @@ void emitCastToTarget(NSString *javaClassName, NSMutableString *javaClass)
     [js appendFormat: @"package %@;\n\n", _packageNameData];
     if (needsArrayList) {
         [js appendString: @"import java.util.ArrayList;\n"];
+    }
+    if (needsDate) {
+        [js appendString: @"import java.util.Date;\n"];
     }
     [js appendString: @"import java.util.Map;\n\n"];
 

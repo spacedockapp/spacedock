@@ -17,6 +17,9 @@ public class SetBase extends Base {
     String mProductName;
     public String getProductName() { return mProductName; }
     public SetBase setProductName(String v) { mProductName = v; return this;}
+    String mWave;
+    public String getWave() { return mWave; }
+    public SetBase setWave(String v) { mWave = v; return this;}
     ArrayList<SetItem> mItems = new ArrayList<SetItem>();
     @SuppressWarnings("unchecked")
     public ArrayList<SetItem> getItems() { return (ArrayList<SetItem>)mItems.clone(); }
@@ -28,6 +31,7 @@ public class SetBase extends Base {
         mInclude = DataUtils.booleanValue((String)data.get("Include"));
         mName = DataUtils.stringValue((String)data.get("Name"));
         mProductName = DataUtils.stringValue((String)data.get("ProductName"));
+        mWave = DataUtils.stringValue((String)data.get("Wave"));
     }
 
 }

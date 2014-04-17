@@ -2,12 +2,16 @@
 package com.funnyhatsoftware.spacedock.data;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 
 public class SquadBase extends Base {
     int mAdditionalPoints;
     public int getAdditionalPoints() { return mAdditionalPoints; }
     public SquadBase setAdditionalPoints(int v) { mAdditionalPoints = v; return this;}
+    Date mModified;
+    public Date getModified() { return mModified; }
+    public SquadBase setModified(Date v) { mModified = v; return this;}
     String mName;
     public String getName() { return mName; }
     public SquadBase setName(String v) { mName = v; return this;}
@@ -28,6 +32,7 @@ public class SquadBase extends Base {
 
     public void update(Map<String,Object> data) {
         mAdditionalPoints = DataUtils.intValue((String)data.get("AdditionalPoints"));
+        mModified = DataUtils.dateValue((String)data.get("Modified"));
         mName = DataUtils.stringValue((String)data.get("Name"));
         mNotes = DataUtils.stringValue((String)data.get("Notes"));
         mUuid = DataUtils.stringValue((String)data.get("Uuid"));

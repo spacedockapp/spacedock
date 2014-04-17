@@ -2,6 +2,11 @@
 package com.funnyhatsoftware.spacedock.data;
 
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class DataUtils {
     public static int intValue(String v) {
@@ -40,6 +45,20 @@ public class DataUtils {
         return v;
     }
 
+    static public Date dateValue(String v) {
+        if (v == null) {
+            return new Date();
+        }
+        String s = v.replace("Z", "+00:00");
+        s = s.substring(0, 22) + s.substring(23); // to get rid of the ":"
+        try {
+            return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(s);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return new Date();
+    }
+
     static public int compareInt(int v1, int v2) {
         if (v1 > v2) {
             return 1;
@@ -61,12 +80,12 @@ public class DataUtils {
         }
         return -1;
     }
-    
+
     public static boolean compareObjects(Object o1, Object o2) {
         if (o1 == null) {
             return o2 == null;
         }
-        
+
         return o1.equals(o2);
     }
 

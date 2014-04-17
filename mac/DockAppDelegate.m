@@ -4,6 +4,7 @@
 #import "DockConstants.h"
 #import "DockCrew.h"
 #import "DockDataFileLoader.h"
+#import "DockDataModelExporter.h"
 #import "DockDataLoader.h"
 #import "DockDataUpdater.h"
 #import "DockEquippedFlagship.h"
@@ -199,6 +200,10 @@ NSString* kExpandedRows = @"expandedRows";
     }
     
     self.expandedRows = [defaults boolForKey: kExpandedRows];
+    
+#if 0
+    [self exportDataModel: nil];
+#endif
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
@@ -1653,5 +1658,37 @@ void addRemoveFlagshipItem(NSMenu *menu)
     ];
 }
 
+-(void)exportDataModelTo:(NSString*)targetFolder
+{
+    DockDataModelExporter* exporter = [[DockDataModelExporter alloc] initWithContext: _managedObjectContext];
+    NSError* error;
+    if (![exporter doExport: targetFolder error: &error]) {
+        [[NSApplication sharedApplication] presentError: error];
+    }
+}
+
+-(IBAction)exportDataModel:(id)sender
+{
+    NSString* kDataModelExportTargetFolder = @"dataModelExportTargetFolder";
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSString* targetFolder = [defaults stringForKey: kDataModelExportTargetFolder];
+    NSUInteger modifierFlags = [NSEvent modifierFlags];
+    if (targetFolder == nil || ((modifierFlags & NSAlternateKeyMask) != 0)) {
+        NSOpenPanel* openPanel = [NSOpenPanel openPanel];
+        openPanel.canChooseDirectories = YES;
+        openPanel.canChooseFiles = NO;
+        openPanel.canCreateDirectories = YES;
+        [openPanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
+            if (v == NSFileHandlingPanelOKButton) {
+                NSURL* fileUrl = openPanel.URL;
+                NSString* target = [fileUrl path];
+                [defaults setObject: target forKey: kDataModelExportTargetFolder];
+                [self exportDataModelTo: target];
+            }
+        }];
+    } else {
+        [self exportDataModelTo: targetFolder];
+    }
+}
 
 @end
