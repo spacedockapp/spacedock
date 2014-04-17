@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
+import com.funnyhatsoftware.spacedock.holder.FlagshipHolder;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolder;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
 
@@ -31,7 +32,12 @@ public class SetItemAdapter extends ArrayAdapter<SetItem> {
 
     public static SetItemAdapter CreatePlaceholderAdapter(Context context,
             int layoutResId, SetItemHolderFactory factory) {
-        SetItem placeholder = Universe.getUniverse().findOrCreatePlaceholder(factory.getType());
+        SetItem placeholder;
+        if (factory.getType().equals(FlagshipHolder.TYPE_STRING)) {
+            placeholder = Universe.getUniverse().getOrCreateFlagshipPlaceholder();
+        } else {
+            placeholder = Universe.getUniverse().findOrCreatePlaceholder(factory.getType());
+        }
 
         if (placeholder == null) {
             throw new IllegalStateException("missing placeholder of type " + factory.getType());

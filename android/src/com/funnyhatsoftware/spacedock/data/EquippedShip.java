@@ -122,9 +122,7 @@ public class EquippedShip extends EquippedShipBase {
             cost += eu.calculateCost();
         }
 
-        if (false && getFlagship() != null) { // TODO: Remove this when
-                                              // flagships can be assigned to
-                                              // ships
+        if (getFlagship() != null) {
             cost += 10;
         }
 
@@ -582,6 +580,7 @@ public class EquippedShip extends EquippedShipBase {
     public static final int SLOT_TYPE_WEAPON = 2;
     public static final int SLOT_TYPE_TECH = 3;
     public static final int SLOT_TYPE_TALENT = 4;
+    public static final int SLOT_TYPE_FLAGSHIP = 5;
     public static final int SLOT_TYPE_SHIP = 1000;
 
     public static Class[] CLASS_FOR_SLOT = new Class[] {
@@ -590,6 +589,7 @@ public class EquippedShip extends EquippedShipBase {
             Weapon.class,
             Tech.class,
             Talent.class,
+            Flagship.class,
     };
 
     private int getUpgradeIndexOfClass(Class slotClass, int slotIndex) {
@@ -616,6 +616,25 @@ public class EquippedShip extends EquippedShipBase {
             return null;
         }
         return mUpgrades.get(upgradeIndex);
+    }
+
+    public Explanation tryEquipFlagship(Squad squad, String externalId) {
+        if (externalId == null) {
+            squad.removeFlagship();
+        } else {
+            Flagship flagship = Universe.getUniverse().getFlagship(externalId);
+            if (!flagship.compatibleWithFaction(shipFaction())) {
+                return new Explanation("Failed to add Flagship.",
+                        flagship.getPlainDescription() + " not compatible with ship faction " + shipFaction());
+            }
+            squad.removeFlagship();
+            setFlagship(flagship);
+        }
+
+        // slot counts may have changed, refresh placeholders + prune slots to new count
+        establishPlaceholders();
+
+        return Explanation.SUCCESS;
     }
 
     public Explanation tryEquipUpgrade(Squad squad, int slotType, int slotIndex, String externalId) {

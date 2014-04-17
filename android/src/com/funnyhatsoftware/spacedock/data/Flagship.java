@@ -20,13 +20,20 @@ public class Flagship extends FlagshipBase {
         }
     }
 
-    String getName()
-    {
+    String getName() {
         if (mFaction.equals("Independent")) {
             return mTitle;
         }
         return mFaction;
     }
+
+    boolean mPlaceholder = false;
+    @Override
+    public boolean isPlaceholder() { return mPlaceholder; }
+    public void setPlaceholder(boolean v) { mPlaceholder = v;}
+
+    @Override
+    public int getCost() { return 10; } // TODO: make this more elegant
 
     String getPlainDescription() {
         return "Flagship: " + mTitle;
@@ -40,8 +47,7 @@ public class Flagship extends FlagshipBase {
         return mFaction.equals(faction);
     }
 
-    public boolean compatibleWithShip(Ship targetShip)
-    {
+    public boolean compatibleWithShip(Ship targetShip) {
         return compatibleWithFaction(targetShip.getFaction());
     }
 

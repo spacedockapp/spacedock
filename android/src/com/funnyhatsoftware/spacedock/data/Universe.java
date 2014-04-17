@@ -49,6 +49,7 @@ public class Universe {
     private ArrayList<Squad> mSquads = new ArrayList<Squad>();
     private ArrayList<String> mAllFactions;
     private String mSelectedFaction;
+    private Flagship mFlagshipPlaceholder;
 
     static Universe sUniverse;
 
@@ -242,6 +243,17 @@ public class Universe {
             placeholder.setUpType(upType);
             placeholder.setPlaceholder(true);
             placeholders.put(upType, placeholder);
+        }
+        return placeholder;
+    }
+
+    public Flagship getOrCreateFlagshipPlaceholder() {
+        Flagship placeholder = mFlagshipPlaceholder;
+        if (placeholder == null) {
+            placeholder = new Flagship();
+            placeholder.setTitle("");
+            placeholder.setPlaceholder(true);
+            mFlagshipPlaceholder = placeholder;
         }
         return placeholder;
     }

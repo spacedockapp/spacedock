@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.ResourceSpinnerAdapter;
 import com.funnyhatsoftware.spacedock.TextEntryDialog;
+import com.funnyhatsoftware.spacedock.data.Resource;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.fragment.EditSquadFragment;
@@ -107,8 +108,13 @@ public class EditSquadActivity extends PanedFragmentActivity
     }
 
     @Override
-    public void onResourceChanged() {
+    public void onResourceChanged(Resource previousResource, Resource selectedResource) {
         updateTitle(); // update title with new cost
+
+        if (previousResource != null && previousResource.getIsFlagship()
+                || selectedResource != null && selectedResource.getIsFlagship()) {
+            notifyDataFragment(TAG_EDIT);
+        }
     }
 
     // TODO: The following are temporary, and should be cleaned up when convenient

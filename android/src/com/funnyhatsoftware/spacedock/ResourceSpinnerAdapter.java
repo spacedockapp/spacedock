@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class ResourceSpinnerAdapter extends ArrayAdapter<ResourceSpinnerAdapter.ResourceWrapper>
         implements AdapterView.OnItemSelectedListener {
     public interface ResourceSelectListener {
-        public void onResourceChanged();
+        public void onResourceChanged(Resource previousResource, Resource selectedResource);
     }
 
     /**
@@ -42,7 +42,9 @@ public class ResourceSpinnerAdapter extends ArrayAdapter<ResourceSpinnerAdapter.
             if (mResource == null) {
                 mLabel = context.getResources().getString(R.string.no_resource);
             } else {
-                mLabel = mResource.getTitle() + " (" + mResource.getCost() + ")";
+                mLabel = resource.getIsFlagship()
+                        ? mResource.getTitle() // cost for flagship accounted when equipped to ship
+                        : mResource.getTitle() + " (" + mResource.getCost() + ")";
             }
         }
 
@@ -83,9 +85,10 @@ public class ResourceSpinnerAdapter extends ArrayAdapter<ResourceSpinnerAdapter.
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        Resource previousResource = mSquad.getResource();
         Resource selectedResource = getItem(position).mResource;
         mSquad.setResource(selectedResource);
-        mListener.onResourceChanged();
+        mListener.onResourceChanged(previousResource, selectedResource);
     }
 
     @Override

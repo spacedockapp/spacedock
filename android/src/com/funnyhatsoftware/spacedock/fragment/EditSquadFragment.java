@@ -11,11 +11,15 @@ import android.widget.Spinner;
 import com.funnyhatsoftware.spacedock.EditSquadAdapter;
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.ResourceSpinnerAdapter;
+import com.funnyhatsoftware.spacedock.activity.PanedFragmentActivity;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
+import com.funnyhatsoftware.spacedock.holder.FlagshipHolder;
+import com.funnyhatsoftware.spacedock.holder.ShipHolder;
 
-public class EditSquadFragment extends Fragment implements EditSquadAdapter.SlotSelectListener {
+public class EditSquadFragment extends Fragment implements PanedFragmentActivity.DataFragment,
+        EditSquadAdapter.SlotSelectListener {
     private static final String ARG_SQUAD_INDEX = "squad_index";
 
     private static final String SAVE_STATE_SHIP_NUMBER = "ship_num";
@@ -101,6 +105,12 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
     };
 
     @Override
+    public void notifyDataSetChanged() {
+        // Data has changed out from underneath adapter, signal it to update
+        mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
     public void onSlotSelected(int equippedShipNumber, int slotType, int slotNumber,
             String currentEquipmentId, String prefFaction) {
         final SetItemRequestListener listener = ((SetItemRequestListener)getActivity());
@@ -109,7 +119,9 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
         mSelectedSlotType = slotType;
         mSelectedSlotNumber = slotNumber;
         if (mSelectedSlotType == EquippedShip.SLOT_TYPE_SHIP) {
-            listener.onItemRequested("Ship", prefFaction, null);
+            listener.onItemRequested(ShipHolder.TYPE_STRING, prefFaction, null);
+        } else if (mSelectedSlotType == EquippedShip.SLOT_TYPE_FLAGSHIP) {
+            listener.onItemRequested(FlagshipHolder.TYPE_STRING, prefFaction, currentEquipmentId);
         } else {
             listener.onItemRequested(slotNames[slotType], prefFaction, currentEquipmentId);
         }

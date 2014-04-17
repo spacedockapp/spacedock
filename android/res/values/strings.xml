@@ -4,6 +4,7 @@
     <string name="app_name">Space Dock</string>
 
     <!-- Labels for configuration slots in each ship -->
+    <string name="flagship_slot">Flagship</string>
     <string name="captain_slot">Captain</string>
     <string name="ship_slot">Ship</string>
     <string name="crew_slot">Crew</string>
