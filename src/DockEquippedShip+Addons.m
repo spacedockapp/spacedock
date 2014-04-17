@@ -103,7 +103,10 @@
             [json setObject: flagship.externalId forKey: @"flagship"];
         }
     }
-    [json setObject: [self.equippedCaptain asJSON]  forKey: @"captain"];
+    DockEquippedUpgrade* equippedCaptain = self.equippedCaptain;
+    if (equippedCaptain) {
+        [json setObject: [equippedCaptain asJSON]  forKey: @"captain"];
+    }
     NSArray* upgrades = [self sortedUpgrades];
     if (upgrades.count > 0) {
         NSMutableArray* upgradesArray = [[NSMutableArray alloc] initWithCapacity: upgrades.count];
