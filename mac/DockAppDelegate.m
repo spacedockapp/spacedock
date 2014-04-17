@@ -1497,21 +1497,21 @@ static void addDeleteItem(NSMenu* menu)
 
 static void addFilterToFactionItem(NSMenu* menu, NSString* faction)
 {
-    NSString* menuTitle = [NSString stringWithFormat: @"Filter to “%@”", faction];
+    NSString* menuTitle = [NSString stringWithFormat: @"Filter to Faction “%@”", faction];
     NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: menuTitle action: @selector(filterToClickedFaction:) keyEquivalent: @""];
     [menu addItem: menuItem];
 }
 
 static void addFilterToTypeItem(NSMenu* menu, NSString* upType)
 {
-    NSString* menuTitle = [NSString stringWithFormat: @"Filter to “%@”", upType];
+    NSString* menuTitle = [NSString stringWithFormat: @"Filter to Type “%@”", upType];
     NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: menuTitle action: @selector(filterToClickedUpgradeType:) keyEquivalent: @""];
     [menu addItem: menuItem];
 }
 
 static void addFilterToFactionAndTypeItem(NSMenu* menu, NSString* faction, NSString* upType)
 {
-    NSString* menuTitle = [NSString stringWithFormat: @"Filter to “%@” and “%@”", faction, upType];
+    NSString* menuTitle = [NSString stringWithFormat: @"Filter to Faction “%@” and Type “%@”", faction, upType];
     NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: menuTitle action: @selector(filterToClickedFactionAndUpgradeType:) keyEquivalent: @""];
     [menu addItem: menuItem];
 }
