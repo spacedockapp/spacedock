@@ -54,6 +54,11 @@
     return 1;
 }
 
+-(int)captainCount
+{
+    return 1;
+}
+
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade
 {
     return YES;
