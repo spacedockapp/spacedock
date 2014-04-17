@@ -131,10 +131,10 @@ enum {
         return [self cellForUnique: tableView];
 
     case kShipDetailAttack:
-        return [self cell: tableView forKey: @"attack" label: @"Attack"];
+        return [self cell: tableView forKey: @"attackString" label: @"Attack"];
 
     case kShipDetailAgility:
-        return [self cell: tableView forKey: @"agility" label: @"Agility"];
+        return [self cell: tableView forKey: @"agilityString" label: @"Agility"];
 
     case kShipDetailHull:
         return [self cell: tableView forKey: @"hull" label: @"Hull"];

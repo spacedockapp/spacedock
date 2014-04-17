@@ -226,6 +226,23 @@ NSString* asDegrees(NSString* textValue)
     return [self.borg intValue];
 }
 
+-(NSString*)attackString
+{
+    if ([self isFighterSquadron]) {
+        int attackMax = [[self attack] intValue];
+        return [NSString stringWithFormat: @"%d/%d/%d/%d", attackMax, attackMax-1, attackMax-2, attackMax-3];
+    }
+    return [NSString stringWithFormat: @"%@", self.attack];
+}
+
+-(NSString*)agilityString
+{
+    if ([self isFighterSquadron]) {
+        return @"0/1/2/3";
+    }
+    return [NSString stringWithFormat: @"%@", self.attack];
+}
+
 -(NSArray*)actionStrings
 {
     NSMutableArray* actionStringParts = [NSMutableArray arrayWithCapacity: 0];
