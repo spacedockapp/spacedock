@@ -1,3 +1,7 @@
+### Version 1.0.2 builds 52 (2014-4-17)
+
+* Fix an error that prevented captains from being placed on the reinforcements sideboard.
+
 ### Version 1.0.1 builds 49-51 (2014-4-12)
 
 * Add support for Wave 4.
