@@ -35,7 +35,7 @@ public class DisplaySquadFragment extends ListFragment
         public void onSquadEditAction(int squadIndex);
     }
 
-    private static final int LAYOUT_RES_ID = R.layout.item_detailed; // force detailed in this view
+    private static final int LAYOUT_RES_ID = R.layout.item_with_details; // force detailed in this view
     private int mSquadIndex; // index of squad being displayed
 
     public static DisplaySquadFragment newInstance(int squadIndex) {

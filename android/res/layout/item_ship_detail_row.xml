@@ -8,6 +8,7 @@
 
     <TextView
         android:id="@+id/clazz"
+        android:paddingLeft="32dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

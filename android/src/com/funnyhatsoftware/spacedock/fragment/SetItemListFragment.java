@@ -91,9 +91,9 @@ public class SetItemListFragment extends ListFragment
     private int getLayoutResId() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         if (prefs.getBoolean("pref_key_show_details", true)) {
-            return R.layout.item_detailed;
+            return R.layout.item_with_details;
         } else {
-            return R.layout.item_base;
+            return R.layout.item_no_details;
         }
     }
     private void initAdapter() {

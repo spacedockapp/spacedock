@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/SmallListItem">
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
     <TextView
         android:id="@+id/unique"
-        android:layout_width="40dp"
+        android:layout_width="32dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="U"/>
@@ -24,4 +22,4 @@
         android:id="@+id/cost"
         style="@style/ValueField"
         android:text="0"/>
-</LinearLayout>
+</merge>

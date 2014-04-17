@@ -4,10 +4,15 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp"
     style="@style/SmallListItem">
 
-    <!--TODO: don't include base directly, share un-styled source-->
-    <include layout="@layout/item_base"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include layout="@layout/item_base"/>
+    </LinearLayout>
 
     <ViewStub
         android:id="@+id/stub_detail_row"
@@ -18,9 +23,10 @@
         android:id="@+id/ability"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="4dp"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        android:paddingBottom="16dp"
+        android:textColor="@color/deemphasized_text"
         android:textAppearance="?android:attr/textAppearanceMedium"/>
 
 </LinearLayout>
