@@ -99,6 +99,8 @@
     [defaults registerDefaults: appDefs];
 
     [self loadAppData];
+    [DockSquad assignUUIDs: self.managedObjectContext];
+
     return YES;
 }
 
