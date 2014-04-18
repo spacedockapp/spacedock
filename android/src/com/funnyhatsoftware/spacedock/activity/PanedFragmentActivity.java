@@ -69,6 +69,20 @@ public abstract class PanedFragmentActivity extends FragmentActivity
         transaction.commit();
     }
 
+    /**
+     * @return True if removed, false if not present.
+     */
+    protected boolean removeFragmentByTag(String tag) {
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(tag);
+        if (fragment != null) {
+            getSupportFragmentManager().beginTransaction()
+                    .remove(fragment)
+                    .commit();
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public void onFactionChoiceUpdated(String faction) {
         Universe.getUniverse().setSelectedFaction(faction);

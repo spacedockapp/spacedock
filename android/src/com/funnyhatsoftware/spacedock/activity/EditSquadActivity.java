@@ -115,17 +115,17 @@ public class EditSquadActivity extends PanedFragmentActivity
                 || selectedResource != null && selectedResource.getIsFlagship()) {
             notifyDataFragment(TAG_EDIT);
         }
+
+        // TODO: have editSquadFragment understand/maintain its selection ID correctly across data
+        // modification. Currently, WAR by just removing the select fragment, so that we don't show
+        // inconsistent selection options.
+        removeFragmentByTag(TAG_SELECT);
     }
 
     // TODO: The following are temporary, and should be cleaned up when convenient
     public void onShipSelected() {
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(TAG_SELECT);
-        if (fragment != null) {
-            // remove selection fragment, since its actions will no longer be relevant
-            getSupportFragmentManager().beginTransaction()
-                    .remove(fragment)
-                    .commit();
-        }
+        // remove selection fragment, since its actions will no longer be relevant
+        removeFragmentByTag(TAG_SELECT);
     }
 
     public void onSquadMembershipChange() {
