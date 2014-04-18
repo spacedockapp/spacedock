@@ -1,14 +1,6 @@
 
 package com.funnyhatsoftware.spacedock.activity;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-
-import org.json.JSONException;
-
 import android.app.ActionBar;
 import android.content.Intent;
 import android.net.Uri;
@@ -16,8 +8,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
@@ -29,6 +19,14 @@ import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 import com.funnyhatsoftware.spacedock.fragment.DisplaySquadFragment;
 import com.funnyhatsoftware.spacedock.fragment.ManageSquadsFragment;
 import com.funnyhatsoftware.spacedock.fragment.SetItemListFragment;
+
+import org.json.JSONException;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Base fragment managing Activity class, supporting ActionBar spinner
@@ -96,24 +94,6 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-
-        // TODO: don't notify fragments if data hasn't actually changed
-
-        // content may have been changed by SetPreferences, reinitialize list
-        notifyDataFragment(TAG_ITEM_LIST);
-
-        // squad content may have been changed by EditSquadActivity,
-        // reinitialize list
-        notifyDataFragment(TAG_DISPLAY_SQUAD);
-
-        // squad details may have been changed by EditSquadActivity, refresh
-        // data
-        notifyDataFragment(TAG_MANAGE_SQUADS);
-    }
-
-    @Override
     protected void onPause() {
         super.onPause();
 
@@ -133,24 +113,6 @@ public class RootActivity extends PanedFragmentActivity implements ActionBar.OnN
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(SAVE_NAV_POSITION, mPosition);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.menu_root, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        final int itemId = item.getItemId();
-        if (itemId == R.id.menu_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

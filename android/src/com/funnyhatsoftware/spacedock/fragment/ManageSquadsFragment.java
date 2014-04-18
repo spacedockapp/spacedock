@@ -17,15 +17,13 @@ import android.widget.TextView;
 import com.funnyhatsoftware.spacedock.FactionInfo;
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.TextEntryDialog;
-import com.funnyhatsoftware.spacedock.activity.PanedFragmentActivity;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class ManageSquadsFragment extends ListFragment
-        implements PanedFragmentActivity.DataFragment {
+public class ManageSquadsFragment extends ListFragment {
     private static final String SAVE_KEY_SELECTED_SQUAD = "selected_squad";
 
     public interface SquadSelectListener {
@@ -59,6 +57,14 @@ public class ManageSquadsFragment extends ListFragment
         getListView().setChoiceMode(isTwoPane
                 ? ListView.CHOICE_MODE_SINGLE
                 : ListView.CHOICE_MODE_NONE);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // notify adapter, since squad content may have changed since last display
+        mAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -101,7 +107,8 @@ public class ManageSquadsFragment extends ListFragment
                     public void onTextValueCommitted(String inputText) {
                         tryCreateEmptySquad(inputText);
                     }
-                });
+                }
+        );
     }
 
     @Override
@@ -109,12 +116,6 @@ public class ManageSquadsFragment extends ListFragment
         super.onListItemClick(l, v, position, id);
         mSquadIndex = position;
         ((SquadSelectListener)getActivity()).onSquadSelected(mSquadIndex);
-    }
-
-    @Override
-    public void notifyDataSetChanged() {
-        // don't need to recreate adapter, since adapter wraps Squad object directly
-        mAdapter.notifyDataSetChanged();
     }
 
     private class SquadAdapter extends ArrayAdapter<Squad> {

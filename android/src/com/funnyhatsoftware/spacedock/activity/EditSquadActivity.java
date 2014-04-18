@@ -113,7 +113,9 @@ public class EditSquadActivity extends PanedFragmentActivity
 
         if (previousResource != null && previousResource.getIsFlagship()
                 || selectedResource != null && selectedResource.getIsFlagship()) {
-            notifyDataFragment(TAG_EDIT);
+            EditSquadFragment editSquadFragment =
+                    (EditSquadFragment) getSupportFragmentManager().findFragmentByTag(TAG_EDIT);
+            editSquadFragment.notifyDataSetChanged();
         }
 
         // TODO: have editSquadFragment understand/maintain its selection ID correctly across data

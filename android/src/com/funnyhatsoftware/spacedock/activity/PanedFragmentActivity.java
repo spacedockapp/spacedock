@@ -1,9 +1,12 @@
 package com.funnyhatsoftware.spacedock.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.data.Universe;
@@ -12,22 +15,6 @@ import com.funnyhatsoftware.spacedock.fragment.SetItemListFragment;
 
 public abstract class PanedFragmentActivity extends FragmentActivity
         implements ChooseFactionDialog.FactionChoiceListener {
-    /**
-     * Fragment interface that allows Activities to update fragment data when Universe data
-     * updates should be reflected in other fragments.
-     */
-    public interface DataFragment {
-        /**
-         * Called when data Fragment is displaying should be updated.
-         * <p>
-         * If the fragment directly *references* raw Universe data, this can be
-         * handled as notifying the fragment's adapter.
-         * <p>
-         * If however the fragment's adapter was created with a copy of data from within
-         * the Universe, the adapter will likely need to be recreated.
-         */
-        public void notifyDataSetChanged();
-    }
 
     protected boolean isTwoPane() {
         return findViewById(R.id.secondary_fragment_container) != null;
@@ -40,14 +27,22 @@ public abstract class PanedFragmentActivity extends FragmentActivity
         setContentView(R.layout.activity_onepane); // returns 2 pane on tablets
     }
 
-    /**
-     * Call notifyDataSetChanged() on the fragment with the tag passed, if it exists.
-     */
-    protected void notifyDataFragment(String tag) {
-        DataFragment fragment = (DataFragment) getSupportFragmentManager().findFragmentByTag(tag);
-        if (fragment != null) {
-            fragment.notifyDataSetChanged();
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_root, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final int itemId = item.getItemId();
+        if (itemId == R.id.menu_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     protected void initializePrimaryFragment(Fragment newFragment, String tag) {
@@ -90,7 +85,7 @@ public abstract class PanedFragmentActivity extends FragmentActivity
         // update SetItemListFragments to respect new faction choice
         for (Fragment fragment : getSupportFragmentManager().getFragments()) {
             if (fragment instanceof SetItemListFragment) {
-                ((SetItemListFragment) fragment).notifyDataSetChanged();
+                ((SetItemListFragment) fragment).reinitAdapter();
             }
         }
     }

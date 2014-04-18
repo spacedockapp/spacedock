@@ -17,7 +17,6 @@ import com.funnyhatsoftware.spacedock.HeaderAdapter;
 import com.funnyhatsoftware.spacedock.SetItemAdapter;
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.SeparatedListAdapter;
-import com.funnyhatsoftware.spacedock.activity.PanedFragmentActivity;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.holder.CaptainHolder;
@@ -28,8 +27,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class SetItemListFragment extends ListFragment
-        implements PanedFragmentActivity.DataFragment {
+public class SetItemListFragment extends ListFragment {
     private static final String ARG_IS_SELECTING = "selection";
     private static final String ARG_ITEM_TYPE = "item_type";
     private static final String ARG_PRIORITIZED_FACTION = "prior_faction";
@@ -96,7 +94,8 @@ public class SetItemListFragment extends ListFragment
             return R.layout.item_no_details;
         }
     }
-    private void initAdapter() {
+
+    public void reinitAdapter() {
         Context context = getActivity();
         final int layoutResId = getLayoutResId();
 
@@ -146,7 +145,14 @@ public class SetItemListFragment extends ListFragment
 
         mSelectionMode = getArguments().getBoolean(ARG_IS_SELECTING);
         mItemType = getArguments().getString(ARG_ITEM_TYPE);
-        initAdapter();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // (re)initialize adapter here, since settings may have changed detail display
+        reinitAdapter();
     }
 
     @Override
@@ -175,11 +181,5 @@ public class SetItemListFragment extends ListFragment
         SetItem item = (SetItem) mAdapter.getItem(position);
         String externalId = item.getExternalId();
         ((SetItemSelectedListener) getActivity()).onItemSelected(mItemType, externalId);
-    }
-
-    @Override
-    public void notifyDataSetChanged() {
-        // recreate adapter, since contents (including factions to display) may have changed
-        initAdapter();
     }
 }

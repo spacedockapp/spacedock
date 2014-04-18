@@ -17,8 +17,7 @@ import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.holder.ShipHolder;
 
-public class EditSquadFragment extends Fragment implements PanedFragmentActivity.DataFragment,
-        EditSquadAdapter.SlotSelectListener {
+public class EditSquadFragment extends Fragment implements EditSquadAdapter.SlotSelectListener {
     private static final String ARG_SQUAD_INDEX = "squad_index";
 
     private static final String SAVE_STATE_SHIP_NUMBER = "ship_num";
@@ -95,7 +94,6 @@ public class EditSquadFragment extends Fragment implements PanedFragmentActivity
         ResourceSpinnerAdapter.createForSpinner(getActivity(), resourceSpinner, squad);
     }
 
-    @Override
     public void notifyDataSetChanged() {
         // Data has changed out from underneath adapter, signal it to update
         mAdapter.notifyDataSetChanged();
