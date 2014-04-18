@@ -1,4 +1,4 @@
-<Data version="1.204">
+<Data version="1.205">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -6244,7 +6244,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Seska</Title>
-      <Ability>Actions: Target a ship at Range 2-3 Disable Seska and 1 [CREW] Upgrade of your choice on the target ship. This ability can be used against a ship that is Cloaked.</Ability>
+      <Ability>ACTION: Target a ship at Range 2-3 Disable Seska and 1 [CREW] Upgrade of your choice on the target ship. This ability can be used against a ship that is Cloaked.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
