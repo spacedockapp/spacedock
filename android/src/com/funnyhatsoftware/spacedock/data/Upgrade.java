@@ -59,11 +59,19 @@ public class Upgrade extends UpgradeBase {
             return targetShip.getTech();
         }
 
+        if (isBorg()) {
+            return targetShip.getBorg();
+        }
+
         return 0;
     }
 
     public boolean isTech() {
         return mUpType.equals("Tech");
+    }
+
+    public boolean isBorg() {
+        return mUpType.equals("Borg");
     }
 
     public boolean isCrew() {

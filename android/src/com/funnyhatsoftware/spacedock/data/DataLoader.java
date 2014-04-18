@@ -156,6 +156,9 @@ public class DataLoader extends DefaultHandler {
                 if (type.equalsIgnoreCase("Tech")) {
                     return new Tech();
                 }
+                if (type.equalsIgnoreCase("Borg")) {
+                    return new Borg();
+                }
                 if (type.equalsIgnoreCase("Talent")) {
                     return new Talent();
                 }
