@@ -229,6 +229,8 @@ public class Universe {
                 placeholder = new Weapon();
             } else if (upType.equals("Tech")) {
                 placeholder = new Tech();
+            } else if (upType.equals("Borg")) {
+                placeholder = new Borg();
             } else if (upType.equals("Talent")) {
                 placeholder = new Talent();
             } else if (upType.equals("Captain")) {

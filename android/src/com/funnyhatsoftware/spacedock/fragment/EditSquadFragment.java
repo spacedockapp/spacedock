@@ -15,7 +15,6 @@ import com.funnyhatsoftware.spacedock.activity.PanedFragmentActivity;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
-import com.funnyhatsoftware.spacedock.holder.FlagshipHolder;
 import com.funnyhatsoftware.spacedock.holder.ShipHolder;
 
 public class EditSquadFragment extends Fragment implements PanedFragmentActivity.DataFragment,
@@ -96,14 +95,6 @@ public class EditSquadFragment extends Fragment implements PanedFragmentActivity
         ResourceSpinnerAdapter.createForSpinner(getActivity(), resourceSpinner, squad);
     }
 
-    private static String[] slotNames = {
-            "Captain",
-            "Crew",
-            "Weapon",
-            "Tech",
-            "Talent",
-    };
-
     @Override
     public void notifyDataSetChanged() {
         // Data has changed out from underneath adapter, signal it to update
@@ -120,10 +111,9 @@ public class EditSquadFragment extends Fragment implements PanedFragmentActivity
         mSelectedSlotNumber = slotNumber;
         if (mSelectedSlotType == EquippedShip.SLOT_TYPE_SHIP) {
             listener.onItemRequested(ShipHolder.TYPE_STRING, prefFaction, null);
-        } else if (mSelectedSlotType == EquippedShip.SLOT_TYPE_FLAGSHIP) {
-            listener.onItemRequested(FlagshipHolder.TYPE_STRING, prefFaction, currentEquipmentId);
         } else {
-            listener.onItemRequested(slotNames[slotType], prefFaction, currentEquipmentId);
+            String slotName = EquippedShip.CLASS_FOR_SLOT[slotType].getSimpleName();
+            listener.onItemRequested(slotName, prefFaction, currentEquipmentId);
         }
     }
 

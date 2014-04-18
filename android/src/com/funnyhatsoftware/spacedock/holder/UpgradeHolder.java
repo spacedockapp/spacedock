@@ -14,6 +14,7 @@ public class UpgradeHolder extends SetItemHolder {
     public static final String TYPE_STRING_CREW = "Crew";
     public static final String TYPE_STRING_TALENT = "Talent";
     public static final String TYPE_STRING_TECH = "Tech";
+    public static final String TYPE_STRING_BORG = "Borg";
     static SetItemHolderFactory getFactory(Class upClass, final String upType) {
         return new SetItemHolderFactory(upClass, upType) {
             @Override

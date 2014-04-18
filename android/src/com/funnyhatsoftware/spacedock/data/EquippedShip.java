@@ -280,6 +280,15 @@ public class EquippedShip extends EquippedShipBase {
         return v;
     }
 
+    public int getBorg() {
+        int v = 0;
+        Ship ship = getShip();
+        if (ship != null) {
+            v += ship.getBorg();
+        }
+        return v;
+    }
+
     public int getTalent() {
         int v = 0;
         Captain captain = getCaptain();
@@ -364,6 +373,7 @@ public class EquippedShip extends EquippedShipBase {
         establishPlaceholdersForType("Crew", getCrew());
         establishPlaceholdersForType("Weapon", getWeapon());
         establishPlaceholdersForType("Tech", getTech());
+        establishPlaceholdersForType("Borg", getBorg());
     }
 
     private void establishPlaceholdersForType(String upType, int limit) {
@@ -579,8 +589,9 @@ public class EquippedShip extends EquippedShipBase {
     public static final int SLOT_TYPE_CREW = 1;
     public static final int SLOT_TYPE_WEAPON = 2;
     public static final int SLOT_TYPE_TECH = 3;
-    public static final int SLOT_TYPE_TALENT = 4;
-    public static final int SLOT_TYPE_FLAGSHIP = 5;
+    public static final int SLOT_TYPE_BORG = 4;
+    public static final int SLOT_TYPE_TALENT = 5;
+    public static final int SLOT_TYPE_FLAGSHIP = 6;
     public static final int SLOT_TYPE_SHIP = 1000;
 
     public static Class[] CLASS_FOR_SLOT = new Class[] {
@@ -588,6 +599,7 @@ public class EquippedShip extends EquippedShipBase {
             Crew.class,
             Weapon.class,
             Tech.class,
+            Borg.class,
             Talent.class,
             Flagship.class,
     };

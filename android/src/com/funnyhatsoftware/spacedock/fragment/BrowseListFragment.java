@@ -20,7 +20,7 @@ public class BrowseListFragment extends ListFragment {
     }
 
     ArrayAdapter<String> mAdapter;
-    
+
     /* This list must be kept in sync with R.array.browse_items_list */
     static final String[] TYPE_MAP = {
         ShipHolder.TYPE_STRING,
@@ -28,6 +28,7 @@ public class BrowseListFragment extends ListFragment {
         UpgradeHolder.TYPE_STRING_CREW,
         UpgradeHolder.TYPE_STRING_TALENT,
         UpgradeHolder.TYPE_STRING_TECH,
+        UpgradeHolder.TYPE_STRING_BORG,
         WeaponHolder.TYPE_STRING,
         ResourceHolder.TYPE_STRING,
         FlagshipHolder.TYPE_STRING,

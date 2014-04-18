@@ -20,77 +20,77 @@ public class ManeuverGridDrawable extends Drawable {
     private static final float HEAD_WIDTH = 0.5f;
     private static final float BODY_WIDTH = 0.2f;
     private static final float HEAD_HEIGHT = 0.35f;
-    private static Path getStraight(float scale) {
+    private static Path getStraight() {
         Path path = new Path();
-        path.moveTo(-BODY_WIDTH / 2 * scale, scale);
-        path.lineTo(-BODY_WIDTH / 2 * scale, HEAD_HEIGHT * scale);
-        path.lineTo(-HEAD_WIDTH / 2 * scale, HEAD_HEIGHT * scale);
+        path.moveTo(-BODY_WIDTH / 2, 1);
+        path.lineTo(-BODY_WIDTH / 2, HEAD_HEIGHT);
+        path.lineTo(-HEAD_WIDTH / 2, HEAD_HEIGHT);
         path.lineTo(0, 0);
-        path.lineTo(HEAD_WIDTH / 2 * scale, HEAD_HEIGHT * scale);
-        path.lineTo(BODY_WIDTH / 2 * scale, HEAD_HEIGHT * scale);
-        path.lineTo(BODY_WIDTH / 2 * scale, scale);
+        path.lineTo(HEAD_WIDTH / 2, HEAD_HEIGHT);
+        path.lineTo(BODY_WIDTH / 2, HEAD_HEIGHT);
+        path.lineTo(BODY_WIDTH / 2, 1);
         return path;
     }
-    private static Path getAbout(float scale) {
+    private static Path getAbout() {
         final RectF rect = new RectF();
         Path path = new Path();
-        path.moveTo(-0.35f * scale, scale);
-        path.lineTo(-0.35f * scale, 0.5f * scale);
-        rect.set(-0.35f * scale, 0.15f * scale, 0.35f * scale, 0.85f * scale);
+        path.moveTo(-0.35f, 1);
+        path.lineTo(-0.35f, 0.5f);
+        rect.set(-0.35f, 0.15f, 0.35f, 0.85f);
         path.arcTo(rect, -180, 180);
-        path.lineTo(0.35f * scale, 0.65f * scale);
-        path.lineTo(0.5f * scale, 0.65f * scale);
-        path.lineTo(0.25f * scale, scale);
-        path.lineTo(0, 0.65f * scale);
-        path.lineTo(0.15f * scale, 0.65f * scale);
-        path.lineTo(0.15f * scale, 0.5f * scale);
-        rect.set(-0.15f * scale, 0.35f * scale, 0.15f * scale, 0.65f * scale);
+        path.lineTo(0.35f, 0.65f);
+        path.lineTo(0.5f, 0.65f);
+        path.lineTo(0.25f, 1);
+        path.lineTo(0, 0.65f);
+        path.lineTo(0.15f, 0.65f);
+        path.lineTo(0.15f, 0.5f);
+        rect.set(-0.15f, 0.35f, 0.15f, 0.65f);
         path.arcTo(rect, 0, -180);
-        path.lineTo(-0.15f * scale, scale);
-        path.lineTo(-0.35f * scale, scale);
+        path.lineTo(-0.15f, 1);
+        path.lineTo(-0.35f, 1);
         return path;
     }
-    private static Path getBank(float scale) {
-        final float diameter = 1.6f * scale;
+    private static Path getBank() {
+        final float diameter = 1.6f;
         final float theta = 70f;
         final RectF rect = new RectF();
         Path path = new Path();
 
         // outer arc
-        float boxSize = diameter + BODY_WIDTH * scale;
+        float boxSize = diameter + BODY_WIDTH;
         rect.set(0, 0, boxSize, boxSize);
-        rect.offset(-0.3f * scale, scale - boxSize / 2);
-        path.moveTo(-0.3f * scale, scale);
+        rect.offset(-0.3f, 1 - boxSize / 2);
+        path.moveTo(-0.3f, 1);
         path.arcTo(rect, 180, theta);
 
         // inner arc
-        boxSize = diameter - BODY_WIDTH * scale;
+        boxSize = diameter - BODY_WIDTH;
         rect.set(0, 0, boxSize, boxSize);
-        rect.offset((BODY_WIDTH - 0.3f) * scale, scale - boxSize / 2);
+        rect.offset((BODY_WIDTH - 0.3f), 1 - boxSize / 2);
         path.arcTo(rect, 180 + theta, -theta);
         path.close();
 
         // arrow head
-        path.moveTo((0.4f - HEAD_HEIGHT) * scale, 0.1f * scale);
-        path.lineTo(0.5f * scale, 0.2f * scale);
-        path.lineTo((0.6f - HEAD_HEIGHT) * scale, 0.6f * scale);
+        path.moveTo((0.4f - HEAD_HEIGHT), 0.1f);
+        path.lineTo(0.5f, 0.2f);
+        path.lineTo((0.6f - HEAD_HEIGHT), 0.6f);
         path.close();
         return path;
     }
-    private static Path getTurn(float scale) {
+    private static Path getTurn() {
         Path path = new Path();
 
         // arrow head
-        path.moveTo((0.5f - HEAD_HEIGHT) * scale, 0);
-        path.lineTo(0.5f * scale, 0.25f * scale);
-        path.lineTo((0.5f - HEAD_HEIGHT) * scale, 0.5f * scale);
+        path.moveTo((0.5f - HEAD_HEIGHT), 0);
+        path.lineTo(0.5f, 0.25f);
+        path.lineTo((0.5f - HEAD_HEIGHT), 0.5f);
         path.close();
 
         // body
-        path.addRect(-0.35f * scale, 0.15f * scale,
-                (0.5f - HEAD_HEIGHT) * scale, 0.35f * scale, Path.Direction.CW);
-        path.addRect(-0.35f * scale, 0.35f * scale,
-                -0.15f * scale, scale, Path.Direction.CW);
+        path.addRect(-0.35f, 0.15f,
+                (0.5f - HEAD_HEIGHT), 0.35f, Path.Direction.CW);
+        path.addRect(-0.35f, 0.35f,
+                -0.15f, 1, Path.Direction.CW);
         return path;
     }
 
@@ -127,12 +127,18 @@ public class ManeuverGridDrawable extends Drawable {
         mPaintMap.put(name, paint);
     }
 
-    private void addPath(String name, Path p, boolean horizontalFlip) {
-        if (horizontalFlip) {
-            Matrix matrix = new Matrix();
-            matrix.setScale(-1, 1);
-            p.transform(matrix);
+    private final int ROTATE_RIGHT_FLAG = 0x1;
+    private final int HORIZONTAL_FLIP_FLAG = 0x2;
+    private final Matrix mTempMatrix = new Matrix();
+    private void addPath(String name, Path p, int flags) {
+        mTempMatrix.setScale(mGridSize, mGridSize);
+        if ((flags & HORIZONTAL_FLIP_FLAG) != 0) {
+            mTempMatrix.preScale(-1, 1);
         }
+        if ((flags & ROTATE_RIGHT_FLAG) != 0) {
+            mTempMatrix.preRotate(90, 0, 0.5f);
+        }
+        p.transform(mTempMatrix);
         mPathMap.put(name, p);
     }
 
@@ -147,18 +153,20 @@ public class ManeuverGridDrawable extends Drawable {
         addPaintColor("red", res.getColor(R.color.dark_red));
         addPaintColor("green", res.getColor(R.color.dark_green));
         addPaintColor("white", Color.WHITE);
-        addPath("straight", getStraight(mGridSize), false);
-        addPath("right-bank", getBank(mGridSize), false);
-        addPath("left-bank", getBank(mGridSize), true);
-        addPath("right-turn", getTurn(mGridSize), false);
-        addPath("left-turn", getTurn(mGridSize), true);
-        addPath("about", getAbout(mGridSize), false);
+        addPath("straight", getStraight(), 0);
+        addPath("right-bank", getBank(), 0);
+        addPath("right-spin", getStraight(), ROTATE_RIGHT_FLAG);
+        addPath("left-bank", getBank(), HORIZONTAL_FLIP_FLAG);
+        addPath("left-spin", getStraight(), HORIZONTAL_FLIP_FLAG | ROTATE_RIGHT_FLAG);
+        addPath("right-turn", getTurn(), 0);
+        addPath("left-turn", getTurn(), HORIZONTAL_FLIP_FLAG);
+        addPath("about", getAbout(), 0);
     }
 
     private int getHorizontalPosition(String kind) {
         if (kind.equals("straight")) return 0;
-        if (kind.equals("right-bank")) return 1;
-        if (kind.equals("left-bank")) return -1;
+        if (kind.equals("right-bank") || kind.equals("right-spin")) return 1;
+        if (kind.equals("left-bank") || kind.equals("left-spin")) return -1;
         if (kind.equals("right-turn")) return 2;
         if (kind.equals("left-turn")) return -2;
         if (kind.equals("about")) return 3;
@@ -171,7 +179,6 @@ public class ManeuverGridDrawable extends Drawable {
         if (maneuvers != null) {
             mManeuvers.addAll(maneuvers);
         }
-        invalidateSelf(); // TODO: remove
     }
 
     @Override
