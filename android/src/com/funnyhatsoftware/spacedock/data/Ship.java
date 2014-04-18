@@ -15,7 +15,7 @@ public class Ship extends ShipBase {
             if (factionCompare == 0) {
                 int classCompare = o1.getShipClass().compareTo(o2.getShipClass());
                 if (classCompare == 0) {
-                    int uniqueCompare = DataUtils.compareBool(o2.getUnique(),o1.getUnique());
+                    int uniqueCompare = DataUtils.compareBool(o2.getUnique(), o1.getUnique());
                     if (uniqueCompare == 0) {
                         int titleCompare = o1.getTitle().compareTo(o2.getTitle());
                         return titleCompare;
@@ -107,11 +107,11 @@ public class Ship extends ShipBase {
     }
 
     public boolean isBreen() {
-        return mShipClass.contains("Breen");
+        return mShipClass.contains(Constants.BREEN);
     }
 
     public boolean isJemhadar() {
-        return mShipClass.toLowerCase().contains("jem'hadar");
+        return mShipClass.toLowerCase().contains(Constants.JEMHADAR_LC);
     }
 
     public boolean isKeldon() {
@@ -131,11 +131,27 @@ public class Ship extends ShipBase {
     }
 
     public boolean isFederation() {
-        return mFaction.equals("Federation");
+        return mFaction.equals(Constants.FEDERATION);
     }
 
     public boolean isBajoran() {
-        return mFaction.equals("Bajoran");
+        return mFaction.equals(Constants.BAJORAN);
+    }
+
+    public boolean isSpecies8472() {
+        return mFaction.equals(Constants.SPECIES_8472);
+    }
+
+    public boolean isBorg() {
+        return mFaction.equals(Constants.BORG);
+    }
+
+    public boolean isKazon() {
+        return mFaction.equals(Constants.KAZON);
+    }
+
+    public boolean isVoyager() {
+        return mTitle.equals("U.S.S. Voyager");
     }
 
     public ArrayList<String> actionStrings() {
@@ -169,4 +185,5 @@ public class Ship extends ShipBase {
         }
         return mShipClassDetails.getMovesSummary();
     }
+
 }

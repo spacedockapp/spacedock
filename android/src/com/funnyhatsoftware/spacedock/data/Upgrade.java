@@ -207,6 +207,14 @@ public class Upgrade extends UpgradeBase {
             if (!ship.isKeldon()) {
                 cost += 5;
             }
+        } else if (upgradeSpecial.equals("PlusFiveOnNonSpecies8472")) {
+            if (!ship.isSpecies8472()) {
+                cost += 5;
+            }
+        } else if (upgradeSpecial.equals("PlusFiveForNonKazon")) {
+            if (!ship.isKazon()) {
+                cost += 5;
+            }
         }
 
         if (!shipFaction.equals(upgradeFaction) && !equippedShip.getIsResourceSideboard()
@@ -283,8 +291,19 @@ public class Upgrade extends UpgradeBase {
     
     public int additionalWeaponSlots() {
         String special = getSpecial();
+        if (special != null && special.equalsIgnoreCase("AddsOneWeaponOneTech")) {
+            return 1;
+        }
         if (special != null && special.equalsIgnoreCase("AddTwoWeaponSlots")) {
             return 2;
+        }
+        return 0;
+    }
+
+    public int additionalTechSlots() {
+        String special = getSpecial();
+        if (special != null && special.equalsIgnoreCase("AddsOneWeaponOneTech")) {
+            return 1;
         }
         return 0;
     }

@@ -8,7 +8,8 @@ import android.annotation.SuppressLint;
 public class Captain extends CaptainBase {
     static class CaptainComparator implements Comparator<Captain> {
         int compareZeroCost(Captain o1, Captain o2) {
-            if (o1.isZeroCost() == o2.isZeroCost()) return 0;
+            if (o1.isZeroCost() == o2.isZeroCost())
+                return 0;
             return o1.isZeroCost() ? -1 : 1;
         }
 
@@ -56,7 +57,11 @@ public class Captain extends CaptainBase {
     }
 
     public boolean isKlingon() {
-        return getFaction().equals("Klingon");
+        return getFaction().equals(Constants.KLINGON);
+    }
+
+    public boolean isBajoran() {
+        return getFaction().equals(Constants.BAJORAN);
     }
 
     @SuppressLint("DefaultLocale")

@@ -277,6 +277,13 @@ public class EquippedShip extends EquippedShipBase {
             v += captain.additionalTechSlots();
         }
 
+        for (EquippedUpgrade eu : getUpgrades()) {
+            Upgrade upgrade = eu.getUpgrade();
+            if (upgrade != null) {
+                v += upgrade.additionalTechSlots();
+            }
+        }
+
         return v;
     }
 
@@ -460,6 +467,36 @@ public class EquippedShip extends EquippedShipBase {
             if (!getCaptain().isKlingon()) {
                 return new Explanation(msg,
                         "This upgrade can only be added to a Klingon Captain.");
+            }
+        }
+        if (upgradeSpecial.equals("OnlyBajoranCaptain")) {
+            if (!getCaptain().isBajoran()) {
+                return new Explanation(msg,
+                        "This upgrade can only be added to a Bajoran Captain.");
+            }
+        }
+        if (upgradeSpecial.equals("OnlySpecies8472Ship")) {
+            if (!getShip().isSpecies8472()) {
+                return new Explanation(msg,
+                        "This upgrade can only be added to Species 8472 ships.");
+            }
+        }
+        if (upgradeSpecial.equals("OnlyBorgShip")) {
+            if (!getShip().isBorg()) {
+                return new Explanation(msg,
+                        "This upgrade can only be added to Borg ships.");
+            }
+        }
+        if (upgradeSpecial.equals("OnlyKazonShip")) {
+            if (!getShip().isKazon()) {
+                return new Explanation(msg,
+                        "This upgrade can only be added to Kazon ships.");
+            }
+        }
+        if (upgradeSpecial.equals("OnlyVoyager")) {
+            if (!getShip().isVoyager()) {
+                return new Explanation(msg,
+                        "This upgrade can only be added to the U.S.S Voyager.");
             }
         }
         if (upgradeSpecial.equals("OnlyForRomulanScienceVessel")

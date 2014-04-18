@@ -101,9 +101,10 @@ public class Universe {
         } catch (Exception e) {
             worked = false;
         }
-        
+
         if (!worked) {
-            File stashDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+            File stashDir = Environment
+                    .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
             File brokenFile = new File(stashDir, "broken.spacedocksquads");
             allSquadsFile.renameTo(brokenFile);
         }
@@ -361,7 +362,7 @@ public class Universe {
     }
 
     public Squad getSquadByUUID(String uuid) {
-        for (Squad squad: mSquads) {
+        for (Squad squad : mSquads) {
             if (squad.getUuid().equals(uuid)) {
                 return squad;
             }
@@ -379,6 +380,23 @@ public class Universe {
 
     public void removeAllSquads() {
         mSquads.clear();
+    }
+
+    public TreeSet<String> getAllSpecials() {
+        TreeSet<String> allSpecials = new TreeSet<String>();
+        for (Upgrade upgrade : upgrades.values()) {
+            String s = upgrade.getSpecial();
+            if (s != null && s.length() > 0) {
+                allSpecials.add(s);
+            }
+        }
+        for (Captain captain : captains.values()) {
+            String s = captain.getSpecial();
+            if (s != null && s.length() > 0) {
+                allSpecials.add(s);
+            }
+        }
+        return allSpecials;
     }
 
 }

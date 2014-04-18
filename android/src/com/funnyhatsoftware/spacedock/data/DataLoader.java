@@ -4,10 +4,12 @@ package com.funnyhatsoftware.spacedock.data;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.TreeSet;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -19,6 +21,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 public class DataLoader extends DefaultHandler {
@@ -230,6 +233,8 @@ public class DataLoader extends DefaultHandler {
 
         loadDataItems("Resources", resourceHandler);
 
+        validateSpecials();
+
         return true;
     }
 
@@ -246,8 +251,51 @@ public class DataLoader extends DefaultHandler {
             }
             set.update(oneData);
         }
-        
+
         universe.includeAllSets();
+    }
+
+    public void validateSpecials() {
+        TreeSet<String> allSpecials = universe.getAllSpecials();
+
+        String[] handledSpecials = {
+                "BaselineTalentCostToThree",
+                "CrewUpgradesCostOneLess",
+                "costincreasedifnotromulansciencevessel",
+                "WeaponUpgradesCostOneLess",
+                "costincreasedifnotbreen",
+                "UpgradesIgnoreFactionPenalty",
+                "CaptainAndTalentsIgnoreFactionPenalty",
+                "PenaltyOnShipOtherThanDefiant",
+                "PlusFivePointsNonJemHadarShips",
+                "NoPenaltyOnFederationOrBajoranShip",
+                "OneDominionUpgradeCostsMinusTwo",
+                "OnlyJemHadarShips",
+                "PenaltyOnShipOtherThanKeldonClass",
+                "addonetechslot",
+                "OnlyForRomulanScienceVessel",
+                "OnlyForRaptorClassShips",
+                "OnlyForKlingonCaptain",
+                "AddTwoWeaponSlots",
+                "AddTwoCrewSlotsDominionCostBonus",
+                "AddsHiddenTechSlot",
+                "AddsOneWeaponOneTech",
+                "OnlyBajoranCaptain",
+                "OnlySpecies8472Ship",
+                "OnlyBorgShip",
+                "OnlyKazonShip",
+                "OnlyVoyager",
+                "PlusFiveForNonKazon",
+                "PlusFiveOnNonSpecies8472"
+
+        };
+
+        TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);
+        unhandledSpecials.removeAll(Arrays.asList(handledSpecials));
+        if (unhandledSpecials.size() > 0) {
+            Log.e("spacedock", "Unhandled specials: " + TextUtils.join(",", unhandledSpecials));
+        }
+
     }
 
     interface ItemCreator {
@@ -415,8 +463,10 @@ public class DataLoader extends DefaultHandler {
                     currentElement.put(localName, trimmed);
                 }
             } else {
-                Log.i("spacedock", "ending element " + localName
-                        + " before starting");
+                if (!localName.equals("Data")) {
+                    Log.i("spacedock", "ending element " + localName
+                            + " before starting");
+                }
             }
         }
 
