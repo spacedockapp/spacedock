@@ -39,14 +39,14 @@
     return [self description];
 }
 
--(NSString*)faction
-{
-    return @"";
-}
-
 -(NSString*)sortStringForSet
 {
-    return [self valueForKey: @"faction"];
+    @try {
+        return [self valueForKey: @"faction"];
+    } @catch (NSException *exception) {
+    } @finally {
+    }
+    return @"";
 }
 
 -(NSComparisonResult)compareForSet:(id)object

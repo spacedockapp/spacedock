@@ -1244,7 +1244,7 @@ NSString* kExpandedRows = @"expandedRows";
     NSMutableArray* lines = [NSMutableArray arrayWithCapacity: 0];
     NSArray* selectedItems = [_setsController selectedObjects];
     for (DockSet* set in selectedItems) {
-        [lines addObject: set.productName];
+        [lines addObject: [NSString stringWithFormat: @"%@ (%@)", set.productName, set.externalId]];
         [lines addObject: @""];
         NSArray* items = [set sortedSetItems];
         for (id item in items) {
