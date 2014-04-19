@@ -164,6 +164,11 @@
 		D47316B518182C4C00046428 /* DockUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D45AF1EF17FFE7F900C04F9A /* DockUtils.m */; };
 		D47316B618182C4C00046428 /* DockWeapon+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D437079D1800AFDF00622E7F /* DockWeapon+Addons.m */; };
 		D47316C418182E2F00046428 /* Space_Dock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */; };
+		D4757C271902CB0100CF173B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCA4211814F8DF00921183 /* XCTest.framework */; };
+		D4757C2D1902CB0100CF173B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4757C2B1902CB0100CF173B /* InfoPlist.strings */; };
+		D4757C2F1902CB0100CF173B /* SpaceDockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4757C2E1902CB0100CF173B /* SpaceDockTests.m */; };
+		D4757C371902CCAC00CF173B /* squads_for_test.spacedocksquads in Resources */ = {isa = PBXBuildFile; fileRef = D4757C361902CCAC00CF173B /* squads_for_test.spacedocksquads */; };
+		D4757C391902D9D200CF173B /* romulan_2_ship.spacedock in Resources */ = {isa = PBXBuildFile; fileRef = D4757C381902D9D200CF173B /* romulan_2_ship.spacedock */; };
 		D485E08D18EA3F5E00ACD8AD /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D485E08A18EA3F0800ACD8AD /* Sparkle.framework */; };
 		D485E09118EA94ED00ACD8AD /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D485E08A18EA3F0800ACD8AD /* Sparkle.framework */; };
 		D49709FF1852E7B3001BC375 /* DockFAQViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = D49709FE1852E7B3001BC375 /* DockFAQViewer.m */; };
@@ -257,6 +262,16 @@
 		D4F8B50C1837E4EC0051A486 /* DockSetsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F8B50B1837E4EC0051A486 /* DockSetsListViewController.m */; };
 		D4F8B50F1837EFF20051A486 /* DockSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F8B50E1837EFF20051A486 /* DockSetTableViewCell.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4757C311902CB0100CF173B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D42BD1E417EA134B0000598C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D42BD1EB17EA134B0000598C;
+			remoteInfo = "Space Dock";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		D49263ED18D3469400517106 /* CopyFiles */ = {
@@ -437,6 +452,13 @@
 		D472A41E187CC159004DAC07 /* DockOverrideEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockOverrideEditor.m; sourceTree = "<group>"; };
 		D47316A31818260E00046428 /* SpaceDock.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpaceDock.storyboard; sourceTree = "<group>"; };
 		D47316A618182BED00046428 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		D4757C261902CB0100CF173B /* Space Dock Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Space Dock Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4757C2A1902CB0100CF173B /* Space Dock Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Space Dock Tests-Info.plist"; sourceTree = "<group>"; };
+		D4757C2C1902CB0100CF173B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D4757C2E1902CB0100CF173B /* SpaceDockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaceDockTests.m; sourceTree = "<group>"; };
+		D4757C301902CB0100CF173B /* Space Dock Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Space Dock Tests-Prefix.pch"; sourceTree = "<group>"; };
+		D4757C361902CCAC00CF173B /* squads_for_test.spacedocksquads */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = squads_for_test.spacedocksquads; path = android/test/assets/squads_for_test.spacedocksquads; sourceTree = SOURCE_ROOT; };
+		D4757C381902D9D200CF173B /* romulan_2_ship.spacedock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = romulan_2_ship.spacedock; path = android/test/assets/romulan_2_ship.spacedock; sourceTree = SOURCE_ROOT; };
 		D485E08A18EA3F0800ACD8AD /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Sparkle/Sparkle.framework; sourceTree = "<group>"; };
 		D49709FD1852E7B3001BC375 /* DockFAQViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockFAQViewer.h; sourceTree = "<group>"; };
 		D49709FE1852E7B3001BC375 /* DockFAQViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockFAQViewer.m; sourceTree = "<group>"; };
@@ -594,6 +616,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D4757C231902CB0100CF173B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4757C271902CB0100CF173B /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -607,6 +637,7 @@
 				D433FE0D181503A20062731A /* ios */,
 				D42BD1EE17EA134B0000598C /* Frameworks */,
 				D42BD1ED17EA134B0000598C /* Products */,
+				D4757C281902CB0100CF173B /* Space Dock Tests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -615,6 +646,7 @@
 			children = (
 				D42BD1EC17EA134B0000598C /* Space Dock.app */,
 				D433FE09181503A20062731A /* Space Dock iOS.app */,
+				D4757C261902CB0100CF173B /* Space Dock Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -807,6 +839,27 @@
 				D4408DD318446C03008BA352 /* green-right-turn.pdf */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		D4757C281902CB0100CF173B /* Space Dock Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D4757C2E1902CB0100CF173B /* SpaceDockTests.m */,
+				D4757C291902CB0100CF173B /* Supporting Files */,
+			);
+			path = "Space Dock Tests";
+			sourceTree = "<group>";
+		};
+		D4757C291902CB0100CF173B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D4757C381902D9D200CF173B /* romulan_2_ship.spacedock */,
+				D4757C361902CCAC00CF173B /* squads_for_test.spacedocksquads */,
+				D4757C2A1902CB0100CF173B /* Space Dock Tests-Info.plist */,
+				D4757C2B1902CB0100CF173B /* InfoPlist.strings */,
+				D4757C301902CB0100CF173B /* Space Dock Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		D4AAA2B617F4C9B200A99383 /* Entities */ = {
@@ -1018,6 +1071,24 @@
 			productReference = D433FE09181503A20062731A /* Space Dock iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D4757C251902CB0100CF173B /* Space Dock Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4757C351902CB0100CF173B /* Build configuration list for PBXNativeTarget "Space Dock Tests" */;
+			buildPhases = (
+				D4757C221902CB0100CF173B /* Sources */,
+				D4757C231902CB0100CF173B /* Frameworks */,
+				D4757C241902CB0100CF173B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4757C321902CB0100CF173B /* PBXTargetDependency */,
+			);
+			name = "Space Dock Tests";
+			productName = "Space Dock Tests";
+			productReference = D4757C261902CB0100CF173B /* Space Dock Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1033,6 +1104,9 @@
 					};
 					D433FE08181503A20062731A = {
 						DevelopmentTeam = NM66XJZ7L9;
+					};
+					D4757C251902CB0100CF173B = {
+						TestTargetID = D42BD1EB17EA134B0000598C;
 					};
 				};
 			};
@@ -1051,6 +1125,7 @@
 			targets = (
 				D42BD1EB17EA134B0000598C /* Space Dock */,
 				D433FE08181503A20062731A /* Space Dock iOS */,
+				D4757C251902CB0100CF173B /* Space Dock Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -1156,6 +1231,16 @@
 				D4408E111845B3C5008BA352 /* white-right-turn.png in Resources */,
 				D4408E011845B3C5008BA352 /* green-left-turn.png in Resources */,
 				D4408E081845B3C5008BA352 /* red-left-turn.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4757C241902CB0100CF173B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4757C2D1902CB0100CF173B /* InfoPlist.strings in Resources */,
+				D4757C391902D9D200CF173B /* romulan_2_ship.spacedock in Resources */,
+				D4757C371902CCAC00CF173B /* squads_for_test.spacedocksquads in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1327,13 +1412,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D4757C221902CB0100CF173B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4757C2F1902CB0100CF173B /* SpaceDockTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4757C321902CB0100CF173B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D42BD1EB17EA134B0000598C /* Space Dock */;
+			targetProxy = D4757C311902CB0100CF173B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D433FE10181503A20062731A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D433FE11181503A20062731A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D4757C2B1902CB0100CF173B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4757C2C1902CB0100CF173B /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1536,6 +1645,63 @@
 			};
 			name = Release;
 		};
+		D4757C331902CB0100CF173B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Space Dock.app/Contents/MacOS/Space Dock";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Space Dock Tests/Space Dock Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "Space Dock Tests/Space Dock Tests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D4757C341902CB0100CF173B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Space Dock.app/Contents/MacOS/Space Dock";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Space Dock Tests/Space Dock Tests-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "Space Dock Tests/Space Dock Tests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1562,6 +1728,15 @@
 			buildConfigurations = (
 				D433FE3A181503A30062731A /* Debug */,
 				D433FE3B181503A30062731A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4757C351902CB0100CF173B /* Build configuration list for PBXNativeTarget "Space Dock Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4757C331902CB0100CF173B /* Debug */,
+				D4757C341902CB0100CF173B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

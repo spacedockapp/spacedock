@@ -10,6 +10,15 @@
 
 @implementation DockShip (Addons)
 
++(NSArray*)allShips:(NSManagedObjectContext*)context
+{
+    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Ship" inManagedObjectContext: context];
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSError* err;
+    return [context executeFetchRequest: request error: &err];
+}
+
 +(DockShip*)shipForId:(NSString*)externalId context:(NSManagedObjectContext*)context
 {
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Ship" inManagedObjectContext: context];

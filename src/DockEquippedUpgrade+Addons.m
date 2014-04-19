@@ -40,6 +40,11 @@
     return self.upgrade.isPlaceholder;
 }
 
+-(BOOL)isCaptain
+{
+    return self.upgrade.isCaptain;
+}
+
 -(NSString*)plainDescription
 {
     return self.upgrade.plainDescription;

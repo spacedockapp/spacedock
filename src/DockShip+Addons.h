@@ -5,6 +5,7 @@
 @class DockResource;
 
 @interface DockShip (Addons)
++(NSArray*)allShips:(NSManagedObjectContext*)context;
 +(DockShip*)shipForId:(NSString*)externalId context:(NSManagedObjectContext*)context;
 -(DockShip*)counterpart;
 -(NSString*)plainDescription;

@@ -38,6 +38,7 @@
 -(BOOL)isFighterSquadron;
 -(NSArray*)sortedUpgrades;
 -(NSArray*)sortedUpgradesWithFlagship;
+-(NSArray*)sortedUpgradesWithoutPlaceholders;
 -(NSString*)plainDescription;
 -(NSString*)descriptiveTitle;
 -(NSString*)upgradesDescription;

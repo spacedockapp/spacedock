@@ -630,6 +630,18 @@
     ];
 }
 
+-(NSArray*)sortedUpgradesWithoutPlaceholders
+{
+    NSMutableArray* result = [[NSMutableArray alloc] initWithCapacity: 0];
+    NSArray* sortedUpgrades = [self sortedUpgrades];
+    for (DockUpgrade* upgrade in sortedUpgrades) {
+        if (!upgrade.isPlaceholder && !upgrade.isCaptain) {
+            [result addObject: upgrade];
+        }
+    }
+    return [NSArray arrayWithArray: result];
+}
+
 -(void)removeCaptain
 {
     [self removeUpgrade: [self equippedCaptain]];

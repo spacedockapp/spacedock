@@ -226,6 +226,31 @@ static BOOL sIsImporting = NO;
     return [NSSet setWithObjects: @"equippedShips", @"resource", @"additionalPoints", nil];
 }
 
++(DockSquad*)squadForUUID:(NSString*)uuid context:(NSManagedObjectContext*)context
+{
+    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Squad" inManagedObjectContext: context];
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"uuid == %@", uuid];
+    [request setPredicate: predicateTemplate];
+    NSError* err;
+    NSArray* existingItems = [context executeFetchRequest: request error: &err];
+
+    if (existingItems.count > 0) {
+        return existingItems[0];
+    }
+
+    return nil;
+}
+
++(void)deleteAllSquads:(NSManagedObjectContext*)context
+{
+    NSArray* allSquads = [DockSquad allSquads: context];
+    for (DockSquad* squad in allSquads) {
+        [context deleteObject: squad];
+    }
+}
+
 +(void)assignUUIDs:(NSManagedObjectContext*)context
 {
     for(DockSquad* squad in [DockSquad allSquads: context]) {
