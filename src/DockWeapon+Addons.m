@@ -16,4 +16,10 @@
     return self.range;
 }
 
+-(NSString*)itemDescription
+{
+    return [NSString stringWithFormat: @"%@: %@ (%@ @ %@)", self.typeCode, self.title, self.attack, self.range];
+}
+
+
 @end

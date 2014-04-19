@@ -129,4 +129,9 @@
     return NO;
 }
 
+-(NSString*)itemDescription
+{
+    return [self plainDescription];
+}
+
 @end

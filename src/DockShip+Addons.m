@@ -313,4 +313,15 @@ NSString* asDegrees(NSString* textValue)
     return NSOrderedAscending;
 }
 
+-(NSString*)sortStringForSet
+{
+    return [NSString stringWithFormat: @"%@:a:%@:%@", self.faction, [self.unique boolValue] ? @"a" : @"z", self.title];
+}
+
+-(NSString*)itemDescription
+{
+    return self.title;
+}
+
+
 @end

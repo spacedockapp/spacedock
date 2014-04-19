@@ -20,6 +20,7 @@
 #import "DockOverrideEditor.h"
 #import "DockResource.h"
 #import "DockSet+Addons.h"
+#import "DockSetItem+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockSquad.h"
@@ -1247,7 +1248,7 @@ NSString* kExpandedRows = @"expandedRows";
         [lines addObject: @""];
         NSArray* items = [set sortedSetItems];
         for (id item in items) {
-            [lines addObject: [item title]];
+            [lines addObject: [item itemDescription]];
         }
         [lines addObject: @""];
         [lines addObject: @""];

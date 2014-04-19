@@ -73,5 +73,9 @@ static NSString* kHidekiFighterSquadronExternalId = @"hideki_class_attack_squadr
     return nil;
 }
 
+-(NSString*)itemDescription
+{
+    return [self plainDescription];
+}
 
 @end

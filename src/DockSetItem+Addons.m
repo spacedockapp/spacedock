@@ -34,14 +34,24 @@
     return [allSetNames componentsJoinedByString: @", "];
 }
 
--(NSString*)setSortString
+-(NSString*)itemDescription
+{
+    return [self description];
+}
+
+-(NSString*)faction
+{
+    return @"";
+}
+
+-(NSString*)sortStringForSet
 {
     return [self valueForKey: @"faction"];
 }
 
 -(NSComparisonResult)compareForSet:(id)object
 {
-    return [[self setSortString] compare: [object setSortString]];
+    return [[self sortStringForSet] compare: [object sortStringForSet]];
 }
 
 @end

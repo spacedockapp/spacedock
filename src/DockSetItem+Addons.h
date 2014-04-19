@@ -5,4 +5,5 @@
 -(NSString*)factionCode;
 -(NSString*)setName;
 -(NSComparisonResult)compareForSet:(id)object;
+-(NSString*)itemDescription;
 @end

@@ -61,4 +61,14 @@
     return [self talent];
 }
 
+-(NSString*)sortStringForSet
+{
+    return [NSString stringWithFormat: @"%@:b:%@:%c:%@", self.faction, self.upSortType, 'z' - [self.skill intValue], self.title];
+}
+
+-(NSString*)itemDescription
+{
+    return [NSString stringWithFormat: @"%@ (%@)", self.title, self.skill];
+}
+
 @end

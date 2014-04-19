@@ -266,9 +266,14 @@
     return self.upType;
 }
 
--(NSString*)setSortString
+-(NSString*)sortStringForSet
 {
-    return [NSString stringWithFormat: @"%@:%@:%@", self.faction, self.upSortType, self.title];
+    return [NSString stringWithFormat: @"%@:c:%@:%@", self.faction, self.upSortType, self.title];
+}
+
+-(NSString*)itemDescription
+{
+    return [NSString stringWithFormat: @"%@: %@", self.typeCode, self.title];
 }
 
 -(NSString*)typeCode
