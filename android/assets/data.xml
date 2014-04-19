@@ -1,4 +1,4 @@
-<Data version="1.205">
+<Data version="1.206">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -2548,7 +2548,7 @@
       <Faction>Federation</Faction>
       <Cost>0</Cost>
       <Id>2003</Id>
-      <Set>71120,71121,71122,71268,71272,71276,71280</Set>
+      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize</Set>
     </Captain>
     <Captain>
       <Title>Nu'Daq</Title>
@@ -2582,7 +2582,7 @@
       <Faction>Klingon</Faction>
       <Cost>0</Cost>
       <Id>2005</Id>
-      <Set>71120,71125,71126,OP2Prize,71269</Set>
+      <Set>71120,71125,71126,OP2Prize,71269,71273,71448</Set>
     </Captain>
     <Captain>
       <Title>Toreth</Title>
@@ -2615,7 +2615,7 @@
       <Faction>Romulan</Faction>
       <Cost>0</Cost>
       <Id>2007</Id>
-      <Set>71120,71123,71124,71270</Set>
+      <Set>71120,71123,71124,71270,71278,OP3Prize</Set>
     </Captain>
     <Captain>
       <Title>Khan Singh</Title>
@@ -2867,7 +2867,7 @@
       <Faction>Dominion</Faction>
       <Cost>0</Cost>
       <Id>2022</Id>
-      <Set>71127</Set>
+      <Set>71127,71275</Set>
     </Captain>
     <Captain>
       <Title>Thot Gor</Title>
@@ -2919,7 +2919,7 @@
       <Faction>Dominion</Faction>
       <Cost>0</Cost>
       <Id>2025</Id>
-      <Set>71128</Set>
+      <Set>71128,OP5Prize</Set>
     </Captain>
     <Captain>
       <Title>Daimon Tog</Title>
@@ -3124,7 +3124,7 @@
       <Faction>Dominion</Faction>
       <Cost>0</Cost>
       <Id>2036</Id>
-      <Set>71271</Set>
+      <Set>71271,71279</Set>
     </Captain>
     <Captain>
       <Title>Worf</Title>
@@ -6605,29 +6605,29 @@ f. All critical damage sustained by an Attack Squadron is immediately converted 
       <Set id="OP6Prize" overallSetName="Organized Play">Dominion War OP6 Competitive Prize</Set>
 
       <Set id="71120" overallSetName="Core">Starter Set</Set>
-      <Set id="71121" overallSetName="Wave 0">Federation U.S.S. Reliant Expansion Pack</Set>
-      <Set id="71122" overallSetName="Wave 0">Federation U.S.S. Enterprise Expansion Pack</Set>
-      <Set id="71123" overallSetName="Wave 0">Romulan I.R.W. Valdore Expansion Pack</Set>
-      <Set id="71124" overallSetName="Wave 0">Romulan R.I.S. Apnex Expansion Pack</Set>
-      <Set id="71125" overallSetName="Wave 0">Klingon I.K.S. Gr''oth Expansion Pack</Set>
-      <Set id="71126" overallSetName="Wave 0">Klingon I.K.S. Negh''var Expansion Pack</Set>
-      <Set id="71127" overallSetName="Wave 0">Dominion Kraxon Expansion Pack</Set>
-      <Set id="71128" overallSetName="Wave 0">Dominion Gor Portas Expansion Pack</Set>
+      <Set id="71121" overallSetName="Wave 0">U.S.S. Reliant Expansion</Set>
+      <Set id="71122" overallSetName="Wave 0">U.S.S. Enterprise Expansion</Set>
+      <Set id="71123" overallSetName="Wave 0">I.R.W. Valdore Expansion</Set>
+      <Set id="71124" overallSetName="Wave 0">R.I.S. Apnex Expansion</Set>
+      <Set id="71125" overallSetName="Wave 0">I.K.S. Gr''oth Expansion</Set>
+      <Set id="71126" overallSetName="Wave 0">I.K.S. Negh''var Expansion</Set>
+      <Set id="71127" overallSetName="Wave 0">Kraxon Expansion</Set>
+      <Set id="71128" overallSetName="Wave 0">Gor Portas Expansion</Set>
 
-      <Set id="71268" overallSetName="Wave 1">Federation U.S.S. Defiant Expansion Pack</Set>
-      <Set id="71269" overallSetName="Wave 1">Klingon I.K.S. Kronos One Expansion Pack</Set>
-      <Set id="71270" overallSetName="Wave 1">Romulan I.R.W. Praetus Expansion Pack</Set>
-      <Set id="71271" overallSetName="Wave 1">Dominion 5th Wing Patrol Ship 6 Expansion Pack</Set>
+      <Set id="71268" overallSetName="Wave 1">U.S.S. Defiant Expansion</Set>
+      <Set id="71269" overallSetName="Wave 1">I.K.S. Kronos One Expansion</Set>
+      <Set id="71270" overallSetName="Wave 1">I.R.W. Praetus Expansion</Set>
+      <Set id="71271" overallSetName="Wave 1">5th Wing Patrol Ship Expansion</Set>
 
-      <Set id="71272" overallSetName="Wave 2">Federation U.S.S. Excelsior Expansion Pack</Set>
-      <Set id="71273" overallSetName="Wave 2">Klingon I.K.S. Koraga Expansion Pack</Set>
-      <Set id="71274" overallSetName="Wave 2">Romulan R.I.S. Vo Expansion Pack</Set>
-      <Set id="71275" overallSetName="Wave 2">Dominion Koranak Expansion Pack</Set>
+      <Set id="71272" overallSetName="Wave 2">U.S.S. Excelsior Expansion</Set>
+      <Set id="71273" overallSetName="Wave 2">I.K.S. Koraga Expansion</Set>
+      <Set id="71274" overallSetName="Wave 2">R.I.S. Vo Expansion</Set>
+      <Set id="71275" overallSetName="Wave 2">Koranak Expansion</Set>
 
-      <Set id="71276" overallSetName="Wave 3">Federation U.S.S. Equinox Expansion Pack</Set>
-      <Set id="71448" overallSetName="Wave 3">Klingon I.K.S. Somraw Expansion Pack</Set>
-      <Set id="71278" overallSetName="Wave 3">Romulan R.I.S. Gal Gath'thong Expansion Pack</Set>
-      <Set id="71279" overallSetName="Wave 3">Dominion 4th Division Battleship Expansion Pack</Set>
+      <Set id="71276" overallSetName="Wave 3">U.S.S. Equinox Expansion</Set>
+      <Set id="71448" overallSetName="Wave 3">I.K.S. Somraw Expansion</Set>
+      <Set id="71278" overallSetName="Wave 3">R.I.S. Gal Gath'thong Expansion</Set>
+      <Set id="71279" overallSetName="Wave 3">4th Division Battleship Expansion</Set>
 
       <Set id="71280" overallSetName="Wave 4">U.S.S. Voyager Expansion</Set>
       <Set id="71281" overallSetName="Wave 4">Bioship Alpha Expansion</Set>
