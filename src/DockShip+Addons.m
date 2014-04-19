@@ -296,4 +296,21 @@ NSString* asDegrees(NSString* textValue)
     return details.movesSummary;
 }
 
+-(NSComparisonResult)compareTo:(id)object
+{
+    if (![object isMemberOfClass: [DockShip class]]) {
+        return NSOrderedDescending;
+    }
+    DockShip* otherShip = (DockShip*)object;
+    BOOL selfIsUnique = [self isUnique];
+    BOOL otherIsUnique = [otherShip isUnique];
+    if (selfIsUnique == otherIsUnique) {
+        return NSOrderedSame;
+    }
+    if (selfIsUnique) {
+        return NSOrderedDescending;
+    }
+    return NSOrderedAscending;
+}
+
 @end

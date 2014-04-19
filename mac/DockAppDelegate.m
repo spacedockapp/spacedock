@@ -1238,12 +1238,37 @@ NSString* kExpandedRows = @"expandedRows";
     [_noteEditor show: [self selectedSquad]];
 }
 
+-(NSString*)copySelectedSet
+{
+    NSMutableArray* lines = [NSMutableArray arrayWithCapacity: 0];
+    NSArray* selectedItems = [_setsController selectedObjects];
+    for (DockSet* set in selectedItems) {
+        [lines addObject: set.productName];
+        [lines addObject: @""];
+        NSArray* items = [set sortedSetItems];
+        for (id item in items) {
+            [lines addObject: [item title]];
+        }
+        [lines addObject: @""];
+        [lines addObject: @""];
+    }
+    
+    return [lines componentsJoinedByString: @"\n"];
+}
+
 -(IBAction)copy:(id)sender
 {
-    NSPasteboard* pasteboard = [NSPasteboard generalPasteboard];
-    [pasteboard clearContents];
-    NSString* s = [[self selectedSquad] asPlainTextFormat];
+    NSString* s = nil;
+    id responder = [_window firstResponder];
+    NSString* ident = [responder identifier];
+    if ([ident isEqualToString: @"setsTable"]) {
+        s = [self copySelectedSet];
+    } else {
+        s = [[self selectedSquad] asPlainTextFormat];
+    }
     if (s) {
+        NSPasteboard* pasteboard = [NSPasteboard generalPasteboard];
+        [pasteboard clearContents];
         NSArray* objectsToCopy = @[s];
         [pasteboard writeObjects: objectsToCopy];
     }

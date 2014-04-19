@@ -1,5 +1,7 @@
 #import "DockSet+Addons.h"
 
+#import "DockSetItem+Addons.h"
+
 @implementation DockSet (Addons)
 
 +(DockSet*)setForId:(NSString*)setId context:(NSManagedObjectContext*)context
@@ -37,6 +39,15 @@
     [request setPredicate: predicateTemplate];
     NSError* err;
     return [context executeFetchRequest: request error: &err];
+}
+
+-(NSArray*)sortedSetItems
+{
+    NSArray* unsortedItems = [self.items allObjects];
+    id compareSetItem = ^(DockSetItem* a, DockSetItem* b) {
+        return [a compareForSet: b];
+    };
+    return [unsortedItems sortedArrayUsingComparator: compareSetItem];
 }
 
 @end

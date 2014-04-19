@@ -4,4 +4,5 @@
 +(DockSet*)setForId:(NSString*)setId context:(NSManagedObjectContext*)context;
 +(NSArray*)allSets:(NSManagedObjectContext*)context;
 +(NSArray*)includedSets:(NSManagedObjectContext*)context;
+-(NSArray*)sortedSetItems;
 @end

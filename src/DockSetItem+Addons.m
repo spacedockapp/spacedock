@@ -1,6 +1,7 @@
 #import "DockSetItem+Addons.h"
 
 #import "DockSet+Addons.h"
+#import "DockShip+Addons.h"
 #import "DockUtils.h"
 
 @implementation DockSetItem (Addons)
@@ -33,5 +34,14 @@
     return [allSetNames componentsJoinedByString: @", "];
 }
 
+-(NSString*)setSortString
+{
+    return [self valueForKey: @"faction"];
+}
+
+-(NSComparisonResult)compareForSet:(id)object
+{
+    return [[self setSortString] compare: [object setSortString]];
+}
 
 @end

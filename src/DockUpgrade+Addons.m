@@ -255,11 +255,20 @@
 
 -(NSString*)upSortType
 {
+    if ([self isCaptain]) {
+        return @"AAACaptain";
+    }
+
     if ([self isTalent]) {
         return @"AATalent";
     }
 
     return self.upType;
+}
+
+-(NSString*)setSortString
+{
+    return [NSString stringWithFormat: @"%@:%@:%@", self.faction, self.upSortType, self.title];
 }
 
 -(NSString*)typeCode

@@ -4,4 +4,5 @@
 -(NSString*)anySetExternalId;
 -(NSString*)factionCode;
 -(NSString*)setName;
+-(NSComparisonResult)compareForSet:(id)object;
 @end
