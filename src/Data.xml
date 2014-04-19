@@ -2596,7 +2596,7 @@
       <Faction>Federation</Faction>
       <Cost>0</Cost>
       <Id>2003</Id>
-      <Set>71120,71121,71122,71268,71272,71276,71280</Set>
+      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize</Set>
     </Captain>
     <Captain>
       <Title>Nu'Daq</Title>
@@ -2630,7 +2630,7 @@
       <Faction>Klingon</Faction>
       <Cost>0</Cost>
       <Id>2005</Id>
-      <Set>71120,71125,71126,OP2Prize,71269</Set>
+      <Set>71120,71125,71126,OP2Prize,71269,71273,71448</Set>
     </Captain>
     <Captain>
       <Title>Toreth</Title>
@@ -2663,7 +2663,7 @@
       <Faction>Romulan</Faction>
       <Cost>0</Cost>
       <Id>2007</Id>
-      <Set>71120,71123,71124,71270</Set>
+      <Set>71120,71123,71124,71270,71278,OP3Prize</Set>
     </Captain>
     <Captain>
       <Title>Khan Singh</Title>
@@ -2915,7 +2915,7 @@
       <Faction>Dominion</Faction>
       <Cost>0</Cost>
       <Id>2022</Id>
-      <Set>71127</Set>
+      <Set>71127,71275</Set>
     </Captain>
     <Captain>
       <Title>Thot Gor</Title>
@@ -2967,7 +2967,7 @@
       <Faction>Dominion</Faction>
       <Cost>0</Cost>
       <Id>2025</Id>
-      <Set>71128</Set>
+      <Set>71128,OP5Prize</Set>
     </Captain>
     <Captain>
       <Title>Daimon Tog</Title>
@@ -3172,7 +3172,7 @@
       <Faction>Dominion</Faction>
       <Cost>0</Cost>
       <Id>2036</Id>
-      <Set>71271</Set>
+      <Set>71271,71279</Set>
     </Captain>
     <Captain>
       <Title>Worf</Title>
