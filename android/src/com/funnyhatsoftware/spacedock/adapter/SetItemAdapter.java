@@ -1,4 +1,4 @@
-package com.funnyhatsoftware.spacedock;
+package com.funnyhatsoftware.spacedock.adapter;
 
 import android.app.Activity;
 import android.content.Context;

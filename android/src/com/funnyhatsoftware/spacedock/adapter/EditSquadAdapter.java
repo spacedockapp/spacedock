@@ -1,4 +1,4 @@
-package com.funnyhatsoftware.spacedock;
+package com.funnyhatsoftware.spacedock.adapter;
 
 import android.app.Activity;
 import android.view.ActionMode;
@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.activity.EditSquadActivity;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;

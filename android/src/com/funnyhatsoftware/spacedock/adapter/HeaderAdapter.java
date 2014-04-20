@@ -1,4 +1,4 @@
-package com.funnyhatsoftware.spacedock;
+package com.funnyhatsoftware.spacedock.adapter;
 
 import android.view.View;
 import android.view.ViewGroup;

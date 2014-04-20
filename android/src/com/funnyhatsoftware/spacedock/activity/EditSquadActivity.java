@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.funnyhatsoftware.spacedock.R;
-import com.funnyhatsoftware.spacedock.ResourceSpinnerAdapter;
+import com.funnyhatsoftware.spacedock.adapter.ResourceSpinnerAdapter;
 import com.funnyhatsoftware.spacedock.TextEntryDialog;
 import com.funnyhatsoftware.spacedock.data.Resource;
 import com.funnyhatsoftware.spacedock.data.Squad;

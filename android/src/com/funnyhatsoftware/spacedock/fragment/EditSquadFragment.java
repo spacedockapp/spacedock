@@ -8,10 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.Spinner;
 
-import com.funnyhatsoftware.spacedock.EditSquadAdapter;
+import com.funnyhatsoftware.spacedock.adapter.EditSquadAdapter;
 import com.funnyhatsoftware.spacedock.R;
-import com.funnyhatsoftware.spacedock.ResourceSpinnerAdapter;
-import com.funnyhatsoftware.spacedock.activity.PanedFragmentActivity;
+import com.funnyhatsoftware.spacedock.adapter.ResourceSpinnerAdapter;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;

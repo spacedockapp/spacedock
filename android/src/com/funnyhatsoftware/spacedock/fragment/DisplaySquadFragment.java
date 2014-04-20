@@ -15,7 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.funnyhatsoftware.spacedock.R;
-import com.funnyhatsoftware.spacedock.SeparatedListAdapter;
+import com.funnyhatsoftware.spacedock.adapter.SeparatedListAdapter;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
 import com.funnyhatsoftware.spacedock.data.Squad;

@@ -13,10 +13,10 @@ import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
-import com.funnyhatsoftware.spacedock.HeaderAdapter;
-import com.funnyhatsoftware.spacedock.SetItemAdapter;
+import com.funnyhatsoftware.spacedock.adapter.HeaderAdapter;
+import com.funnyhatsoftware.spacedock.adapter.SetItemAdapter;
 import com.funnyhatsoftware.spacedock.R;
-import com.funnyhatsoftware.spacedock.SeparatedListAdapter;
+import com.funnyhatsoftware.spacedock.adapter.SeparatedListAdapter;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.holder.CaptainHolder;
