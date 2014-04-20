@@ -1,4 +1,4 @@
-<Data version="1.206">
+<Data version="1.207">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1709,7 +1709,7 @@
       <Agility>2</Agility>
       <Hull>3</Hull>
       <Shield>0</Shield>
-      <Ability>You may use the [CLOAK] Action even if you have no Active Shields. Whenever you choose the [CLOACK] Action, roll 1 attack die. On a [BATTLESTATIONS] result, your Hull sustains 1 Damage.</Ability>
+      <Ability>You may use the [CLOAK] Action even if you have no Active Shields. Whenever you choose the [CLOACK] Action, roll 1 attack die. On a [BATTLE STATIONS] result, your Hull sustains 1 Damage.</Ability>
       <Cost>14</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
@@ -2123,7 +2123,7 @@
       <Agility>1</Agility>
       <Hull>3</Hull>
       <Shield>2</Shield>
-      <Ability>Each time you defend, you may convert up to 2 of your [BATTLESTATIONS] results into [EVASIVE] results.</Ability>
+      <Ability>Each time you defend, you may convert up to 2 of your [BATTLE STATIONS] results into [EVASIVE] results.</Ability>
       <Cost>18</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
@@ -2550,7 +2550,7 @@
   <Captains>
     <Captain>
       <Title>Jean-Luc Picard</Title>
-      <Ability>Each round you may perform one of the following actions as a free action: [EVASIVE] [TARGET LOCK] [SCAN] [BATTLESTATIONS]. You may use this action even if your ship does not have it in the Action bar. </Ability>
+      <Ability>Each round you may perform one of the following actions as a free action: [EVASIVE] [TARGET LOCK] [SCAN] [BATTLE STATIONS]. You may use this action even if your ship does not have it in the Action bar. </Ability>
       <Unique>Y</Unique>
       <Skill>9</Skill>
       <Talent>1</Talent>
@@ -2601,7 +2601,7 @@
     <Captain>
       <Title>Nu'Daq</Title>
       <Unique>Y</Unique>
-      <Ability>When attacking, you may convert 1 [BATTLESTATIONS] result into a [DAMAGE] result. </Ability>
+      <Ability>When attacking, you may convert 1 [BATTLE STATIONS] result into a [DAMAGE] result. </Ability>
       <Skill>5</Skill>
       <Talent>
       </Talent>
@@ -2668,7 +2668,7 @@
     <Captain>
       <Title>Khan Singh</Title>
       <Unique>Y</Unique>
-      <Ability>You may use any Upgrades without paying a faction penalty. During an attack, if you spend a [BATTLESTATIONS] Token, each of your [BATTLESTATIONS] results become a [CRITICAL] instead of a [DAMAGE]. </Ability>
+      <Ability>You may use any Upgrades without paying a faction penalty. During an attack, if you spend a [BATTLE STATIONS] Token, each of your [BATTLE STATIONS] results become a [CRITICAL] instead of a [DAMAGE]. </Ability>
       <Skill>8</Skill>
       <Talent>1</Talent>
       <Attack>
@@ -3211,7 +3211,7 @@
     <Captain>
       <Title>Gul Dukat</Title>
       <Unique>Y</Unique>
-      <Ability>Your ship may perform an [EVASIVE] or a [BATTLESTATIONS] Action as a free Action each round.</Ability>
+      <Ability>Your ship may perform an [EVASIVE] or a [BATTLE STATIONS] Action as a free Action each round.</Ability>
       <Skill>7</Skill>
       <Talent>1</Talent>
       <Attack>
@@ -3392,7 +3392,7 @@
     </Captain>
     <Captain>
       <Title>Gelnon</Title>
-      <Ability>ACTION: Target an enemy ship in your forward firing arc within Range 1 and immediately roll 2 attack dice. The target ship does not toll any defense dice against this attack and sustains damage as normal for each [HIT] or [CRITICAL]. If you roll at least 1 [BATTLESTATIONS] result, place a [BATTLESTATIONS] Token beside your ship.</Ability>
+      <Ability>ACTION: Target an enemy ship in your forward firing arc within Range 1 and immediately roll 2 attack dice. The target ship does not toll any defense dice against this attack and sustains damage as normal for each [HIT] or [CRITICAL]. If you roll at least 1 [BATTLE STATIONS] result, place a [BATTLE STATIONS] Token beside your ship.</Ability>
       <Unique>Y</Unique>
       <Skill>5</Skill>
       <Talent></Talent>
@@ -3678,7 +3678,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 of your [BATTLE STATIONS] results into a [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -3985,7 +3985,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 of your [BATTLE STATIONS] results into a [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -4190,7 +4190,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 of your [BATTLE STATIONS] results into a [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -4392,7 +4392,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Klingon Boarding Party</Title>
-      <Ability>ACTION: If your ship is not Cloaked, disable all your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Discard this card to disable all Upgrades and remove all [BATTLESTATIONS] Tokens on the target ship. </Ability>
+      <Ability>ACTION: If your ship is not Cloaked, disable all your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Discard this card to disable all Upgrades and remove all [BATTLE STATIONS] Tokens on the target ship. </Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -4428,7 +4428,7 @@
     <Upgrade>
       <Title>Drex</Title>
       <Unique>Y</Unique>
-      <Ability>ACTION: When attacking this round, you may convert 1 [BATTLESTATIONS] result into 1 [CRITICAL] result and all of your other [BATTLESTATIONS] results into [DAMAGE] results. </Ability>
+      <Ability>ACTION: When attacking this round, you may convert 1 [BATTLE STATIONS] result into 1 [CRITICAL] result and all of your other [BATTLE STATIONS] results into [DAMAGE] results. </Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -4460,7 +4460,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Tractor Beam</Title>
-      <Ability>ACTION: Target a ship at Range 1 and roll 2 attack dice. For every [DAMAGE] result, that ship rolls 1 less defense die against your next attack. </Ability>
+      <Ability>ACTION: Target a ship at Range 1 and roll 2 attack dice. For every [DAMAGE] result, that ship rolls 1 less defense die against your next attack. </Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -4933,7 +4933,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 of your [BATTLE STATIONS] results into a [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -5148,7 +5148,7 @@
     <Upgrade>
       <Title>N'Garen</Title>
       <Unique>Y</Unique>
-      <Ability>ACTION: When attacking this round, you may convert 1 of your [BATTLESTATIONS] results into a [CRITICAL] result all all of your other [BATTLESTATIONS] results into [HIT] results.</Ability>
+      <Ability>ACTION: When attacking this round, you may convert 1 of your [BATTLE STATIONS] results into a [CRITICAL] result all all of your other [BATTLE STATIONS] results into [HIT] results.</Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -5165,7 +5165,7 @@
     <Upgrade>
       <Title>Alexander</Title>
       <Unique>Y</Unique>
-      <Ability>Each time your ship is hit for at least 1 damage, place 1 [BATTLESTATIONS] Token on this card. During the Activation Phase, you may take 1 [BATTLESTATIONS] Token off this card and place it beside your ship.</Ability>
+      <Ability>Each time your ship is hit for at least 1 damage, place 1 [BATTLE STATIONS] Token on this card. During the Activation Phase, you may take 1 [BATTLE STATIONS] Token off this card and place it beside your ship.</Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -5199,7 +5199,7 @@
     <Upgrade>
       <Title>Boheeka</Title>
       <Unique>Y</Unique>
-      <Ability>If you ship has a [BATTLESTATIONS] Token beside it when you attack, you may convert 1 blank result into 1 [HIT] result.</Ability>
+      <Ability>If you ship has a [BATTLE STATIONS] Token beside it when you attack, you may convert 1 blank result into 1 [HIT] result.</Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -5359,7 +5359,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one [BATTLE STATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -5404,7 +5404,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one [BATTLE STATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -5479,7 +5479,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Disobey Orders</Title>
-      <Ability>You may discard this card at any time to replace 1 [EVASIVE][SCAN] or [BATTLESTATIONS] token next to your ship with a [EVASIVE][SCAN] or [BATTLESTATIONS] token. </Ability>
+      <Ability>You may discard this card at any time to replace 1 [EVASIVE] [SCAN] or [BATTLE STATIONS] token next to your ship with a [EVASIVE] [SCAN] or [BATTLE STATIONS] token. </Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -5539,7 +5539,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Invaluable Advice</Title>
-      <Ability>Before rolling your attack or defense dice, you may discard this card to place a [BATTLESTATIONS] Token beside your ship.</Ability>
+      <Ability>Before rolling your attack or defense dice, you may discard this card to place a [BATTLE STATIONS] Token beside your ship.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -5629,7 +5629,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 of your [BATTLE STATIONS] results into a [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -5704,7 +5704,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one [BATTLESTATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one [BATTLE STATIONS] result into 1 [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs. </Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -5749,7 +5749,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Tactical Sensors</Title>
-      <Ability>ACTION: Disable this card to place a [BATTLESTATIONS] token and a [SCAN] Token beside your ship. This upgrade may only be purchased for a Raptor class ship.</Ability>
+      <Ability>ACTION: Disable this card to place a [BATTLE STATIONS] token and a [SCAN] Token beside your ship. This upgrade may only be purchased for a Raptor class ship.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -6454,7 +6454,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 of your Battle Bridge results into a Crit result. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 of your [BATTLE STATIONS] results into a [CRITICAL] result. You may fire this weapon from your forward or rear firing arcs.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -6504,7 +6504,7 @@
       <Unique>Y</Unique>
       <Ability>1) Once during every round, a player may choose to exchange 1 of their attack dice with the Elite Attack Die. Players may not roll this die more than once per round, regardless of how many ships they have in their fleet.
 
-2) The pips on the Elite Attack Die are [DOUBLE HIT], [CRITICAL], [CRITICAL], [HIT],[HIT],[HIT], [BATTLESTATIONS], [BATTLESTATIONS].
+2) The pips on the Elite Attack Die are [DOUBLE HIT], [CRITICAL], [CRITICAL], [HIT], [HIT], [HIT], [BATTLE STATIONS], [BATTLE STATIONS].
 
 3) The [DOUBLE HIT] result may be canceled by 1 [EVASIVE].
 
@@ -6525,7 +6525,7 @@
 
 COMMAND TOKENS:
 - Place a [EVASIVE] token beside your ship as a Free Action this Round.
-- Place a [BATTLESTATIONS] token beside your ship as a Free Action this Round.
+- Place a [BATTLE STATIONS] token beside your ship as a Free Action this Round.
 - Place a [SCAN] token beside your ship as a Free Action this Round.
 - You may [TARGET LOCK] 1 enemy ship as a Free Action this Round.
 - You may choose any number of your attack dice and re-roll them once. You must keep the results of the 2nd roll.
