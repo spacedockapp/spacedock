@@ -182,6 +182,8 @@ static BOOL sIsImporting = NO;
     }
     self.modifiedAsString = squadData[@"modified"];
 
+    [self removeAllEquippedShips];
+
     NSString* resourceId = squadData[@"resource"];
     if (resourceId != nil) {
         DockResource* resource = [DockResource resourceForId: resourceId context: context];
@@ -191,7 +193,6 @@ static BOOL sIsImporting = NO;
     }
 
     NSArray* ships = squadData[@"ships"];
-    [self removeAllEquippedShips];
 
     DockEquippedShip* currentShip = nil;
 
