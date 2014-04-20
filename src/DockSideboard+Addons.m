@@ -4,6 +4,7 @@
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockResource+Addons.h"
+#import "DockUpgrade+Addons.h"
 
 @implementation DockSideboard (Addons)
 
@@ -59,8 +60,16 @@
     return 1;
 }
 
+-(int)borgCount
+{
+    return 0;
+}
+
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade
 {
+    if ([upgrade isBorg]) {
+        return NO;
+    }
     return YES;
 }
 
