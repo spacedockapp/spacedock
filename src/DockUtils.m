@@ -42,7 +42,7 @@ NSString* resourceCost(DockSquad* targetSquad)
 {
     DockResource* res = targetSquad.resource;
     if (res) {
-        if (res.isFlagship || res.isFighterSquadron) {
+        if (res.isFlagship || res.isFighterSquadron || res.isSideboard) {
             return @"Inc";
         }
         return [NSString stringWithFormat: @"%@", res.cost];
