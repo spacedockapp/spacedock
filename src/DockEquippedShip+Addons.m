@@ -445,7 +445,7 @@
     int current = [self equipped: upType];
 
     if (current == limit) {
-        if (maybeReplace == nil) {
+        if (maybeReplace == nil || ![maybeReplace.upgrade.upType isEqualToString: upType]) {
             maybeReplace = [self firstUpgrade: upType];
         }
 
