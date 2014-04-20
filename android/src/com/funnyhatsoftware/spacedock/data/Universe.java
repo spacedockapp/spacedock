@@ -163,9 +163,36 @@ public class Universe {
     }
 
     public ArrayList<Set> getAllSets() {
-        ArrayList<Set> setsCopy = new ArrayList<Set>();
-        setsCopy.addAll(sets.values());
-        return setsCopy;
+        return new ArrayList<Set>(sets.values());
+    }
+
+    public java.util.Set<String> getAllSetIds() {
+        return new HashSet<String>(sets.keySet());
+    }
+
+    /**
+     * Builds a new java.util.Set of selected set ids, adding unseen Sets to the previous selection
+     */
+    public java.util.Set<String> getSetSelectionPlusNewSets(java.util.Set<String> prevSetIds,
+            java.util.Set<String> prevSeenIds) {
+        java.util.Set<String> newSetIds = new HashSet<String>();
+
+        // Previously selected, still valid Sets (setsInUniverse & prev_setSelection)
+        for (String prevSetId : prevSetIds) {
+            if (sets.containsKey(prevSetId)) {
+                // previous, valid set, add
+                newSetIds.add(prevSetId);
+            }
+        }
+
+        // Previously unseen Sets (setsInUniverse - previouslySeen)
+        for (String setId : sets.keySet()) {
+            if (!prevSeenIds.contains(setId)) {
+                // new set, add
+                newSetIds.add(setId);
+            }
+        }
+        return newSetIds;
     }
 
     public void includeAllSets() {
@@ -173,10 +200,10 @@ public class Universe {
         mIncludedSets.addAll(sets.values());
     }
 
-    public void includeSetsByName(java.util.Set<String> setNames) {
+    public void includeSetsById(java.util.Set<String> setIds) {
         mIncludedSets.clear();
         for (Set s : sets.values()) {
-            if (setNames.contains(s.getProductName())) {
+            if (setIds.contains(s.getExternalId())) {
                 mIncludedSets.add(s);
             }
         }

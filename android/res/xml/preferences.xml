@@ -8,7 +8,7 @@
         android:defaultValue="true" />
     <com.funnyhatsoftware.spacedock.SetPreference
         android:defaultValue="@array/empty"
-        android:key="pref_key_set_selection"
+        android:key="pref_key_set_id_selection"
         android:title="@string/pref_title_set_selection"
         android:summary="@string/pref_summary_set_selection" />
 </PreferenceScreen>
