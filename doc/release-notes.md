@@ -1,8 +1,15 @@
-### Version 1.0.2 builds 52 (2014-4-17)
+### Version 1.0.3 build 53 (2014-4-20)
+
+* Really fix an error that prevented captains from being placed on the reinforcements sideboard.
+* Fix an error where fighter squadrons were being lost during import.
+* Fix a bug where the wrong thing happened if you had an upgrade selected and tried to add a new one of a different type.
+* Fixed some data inconsistencies.
+
+### Version 1.0.2 build 52 (2014-4-17)
 
 * Fix an error that prevented captains from being placed on the reinforcements sideboard.
 
-### Version 1.0.1 builds 49-51 (2014-4-12)
+### Version 1.0.1 build 49-51 (2014-4-12)
 
 * Add support for Wave 4.
 
