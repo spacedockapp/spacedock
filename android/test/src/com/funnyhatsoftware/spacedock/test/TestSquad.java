@@ -120,10 +120,8 @@ public class TestSquad extends BaseTest {
                 assertEquals("cost mistmatch for " + shipLabel, cost, loadedShip.calculateCost());
             }
 
-            if (false) {
-                int cost = jsonObject.getInt(JSONLabels.JSON_LABEL_COST);
-                assertEquals("cost mistmatch for " + squadLabel, cost, loadedSquad.calculateCost());
-            }
+            int cost = jsonObject.getInt(JSONLabels.JSON_LABEL_COST);
+            assertEquals("cost mistmatch for " + squadLabel, cost, loadedSquad.calculateCost());
         }
     }
 

@@ -600,6 +600,12 @@ public class EquippedShip extends EquippedShipBase {
 
                     @Override
                     public int compare(EquippedUpgrade a, EquippedUpgrade b) {
+                        if (a.isPlaceholder() != b.isPlaceholder()) {
+                            if (a.isPlaceholder()) {
+                                return 1;
+                            }
+                            return 0;
+                        }
                         int aCost = a.getUpgrade().getCost();
                         int bCost = b.getUpgrade().getCost();
                         if (aCost == bCost) {
