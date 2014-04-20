@@ -732,7 +732,7 @@ static NSString* namePrefix(NSString* originalName)
 
 -(BOOL)canAddCaptain:(DockCaptain*)captain toShip:(DockEquippedShip*)targetShip error:(NSError**)error
 {
-    if (targetShip.ship.captainCount < 1) {
+    if (targetShip.captainCount < 1) {
         if (error) {
             NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected ship.", captain.title];
             NSString* info = @"The selected ship has no slot for a captain.";
