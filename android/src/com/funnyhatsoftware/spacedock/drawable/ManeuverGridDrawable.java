@@ -1,7 +1,5 @@
 package com.funnyhatsoftware.spacedock.drawable;
 
-import java.util.ArrayList;
-
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -15,6 +13,8 @@ import android.support.v4.util.ArrayMap;
 
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.data.Maneuver;
+
+import java.util.ArrayList;
 
 public class ManeuverGridDrawable extends Drawable {
     private static final float HEAD_WIDTH = 0.5f;
@@ -119,6 +119,7 @@ public class ManeuverGridDrawable extends Drawable {
     private final int mLineWidth;
     private final ArrayList<Maneuver> mManeuvers = new ArrayList<Maneuver>();
     private final float[] mLines;
+    private int mVerticalOffset;
 
     private void addPaintColor(String name, int color) {
         Paint paint = new Paint();
@@ -175,10 +176,29 @@ public class ManeuverGridDrawable extends Drawable {
     }
 
     public void setManeuvers(ArrayList<Maneuver> maneuvers) {
+        mVerticalOffset = 0;
         mManeuvers.clear();
+
         if (maneuvers != null) {
+            int minSpeed = Integer.MAX_VALUE;
+            int maxSpeed = Integer.MIN_VALUE;
             mManeuvers.addAll(maneuvers);
+            for (Maneuver m : maneuvers) {
+                minSpeed = Math.min(m.getSpeed(), minSpeed);
+                maxSpeed = Math.max(m.getSpeed(), maxSpeed);
+            }
+
+            if (maxSpeed > 5) {
+                mVerticalOffset = maxSpeed - 5;
+            }
+            if (minSpeed < -2) {
+                if (mVerticalOffset != 0) {
+                    throw new IllegalStateException("Maneuver range unsupported, too large");
+                }
+                mVerticalOffset = minSpeed + 2;
+            }
         }
+        invalidateSelf();
     }
 
     @Override
@@ -197,7 +217,7 @@ public class ManeuverGridDrawable extends Drawable {
         canvas.drawLines(mLines, mLinePaint);
         final float cellOffset = mGridSize + mLineWidth;
         final float xOffset = 3.5f * cellOffset - mLineWidth / 2;
-        final float yOffset = 5f * cellOffset;
+        final float yOffset = (5f + mVerticalOffset) * cellOffset;
         for (int i = 0; i < mManeuvers.size(); i++) {
             int save = canvas.save(Canvas.MATRIX_SAVE_FLAG);
             Maneuver m = mManeuvers.get(i);
