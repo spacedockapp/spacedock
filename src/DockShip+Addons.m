@@ -249,7 +249,7 @@ NSString* asDegrees(NSString* textValue)
     if ([self isFighterSquadron]) {
         return @"0/1/2/3";
     }
-    return [NSString stringWithFormat: @"%@", self.attack];
+    return [NSString stringWithFormat: @"%@", self.agility];
 }
 
 -(NSArray*)actionStrings
