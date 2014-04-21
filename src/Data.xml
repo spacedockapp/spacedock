@@ -1,4 +1,4 @@
-<Data version="1.207">
+<Data version="1.208">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -6379,7 +6379,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Tuvok</Title>
-      <Ability>When firing a Secondary Weapon, you may disable Tuvok to toll 1 extra attack die.</Ability>
+      <Ability>When firing a Secondary Weapon, you may disable Tuvok to roll 1 extra attack die.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
