@@ -152,7 +152,7 @@ enum {
         return [self cell: tableView forKey: @"weapon" label: @"Weapon"];
 
     case kShipDetailBorg:
-        return [self cell: tableView forKey: @"borg" label: @"Borg"];
+        return [self cell: tableView forKey: @"borgCount" label: @"Borg"];
 
     case kShipDetailFrontArc:
         return [self cell: tableView forKey: @"formattedFrontArc" label: @"Front Arc"];
