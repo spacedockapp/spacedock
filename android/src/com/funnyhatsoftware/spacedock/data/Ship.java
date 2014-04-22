@@ -154,6 +154,14 @@ public class Ship extends ShipBase {
         return mTitle.equals("U.S.S. Voyager");
     }
 
+    public boolean isFighterSquadron() {
+        String shipClass = getShipClass();
+        if (shipClass != null) {
+            return shipClass.equals(Constants.HIDEKIS) || shipClass.equals(Constants.FED_FIGHTERS);
+        }
+        return false;
+    }
+
     public ArrayList<String> actionStrings() {
         ArrayList<String> actions = new ArrayList<String>();
         if (mScan > 0) {

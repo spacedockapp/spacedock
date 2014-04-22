@@ -456,6 +456,10 @@ public class EquippedShip extends EquippedShipBase {
     public Explanation canAddUpgrade(Upgrade upgrade) {
         String msg = String.format("Can't add %s to %s", upgrade.getPlainDescription(),
                 getPlainDescription());
+        if (isFighterSquadron()) {
+            return new Explanation(msg,
+                    "Fighter Squadrons cannot accept upgrades.");
+        }
         String upgradeSpecial = upgrade.getSpecial();
         if (upgradeSpecial.equals("OnlyJemHadarShips")) {
             if (!getShip().isJemhadar()) {
@@ -540,7 +544,7 @@ public class EquippedShip extends EquippedShipBase {
         }
         return null;
     }
-
+    
     public EquippedShip duplicate() {
         // TODO need to implement duplicate
         throw new RuntimeException("Not yet implemented");
@@ -680,13 +684,15 @@ public class EquippedShip extends EquippedShipBase {
             Flagship flagship = Universe.getUniverse().getFlagship(externalId);
             if (!flagship.compatibleWithFaction(shipFaction())) {
                 return new Explanation("Failed to add Flagship.",
-                        flagship.getPlainDescription() + " not compatible with ship faction " + shipFaction());
+                        flagship.getPlainDescription() + " not compatible with ship faction "
+                                + shipFaction());
             }
             squad.removeFlagship();
             setFlagship(flagship);
         }
 
-        // slot counts may have changed, refresh placeholders + prune slots to new count
+        // slot counts may have changed, refresh placeholders + prune slots to
+        // new count
         establishPlaceholders();
 
         return Explanation.SUCCESS;
@@ -834,5 +840,9 @@ public class EquippedShip extends EquippedShipBase {
         }
 
         establishPlaceholders();
+    }
+
+    public boolean isFighterSquadron() {
+        return mShip != null && mShip.isFighterSquadron();
     }
 }

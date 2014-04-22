@@ -82,6 +82,39 @@ public class Squad extends SquadBase {
         return sideboard;
     }
 
+    public EquippedShip getFighterSquadron() {
+        EquippedShip fighters = null;
+
+        for (EquippedShip target : mEquippedShips) {
+            if (target.isFighterSquadron()) {
+                fighters = target;
+                break;
+            }
+        }
+        return fighters;
+    }
+
+    public EquippedShip addFighterSquadron() {
+        EquippedShip fighters = getFighterSquadron();
+        if (fighters == null) {
+            fighters = new Sideboard();
+            mEquippedShips.add(fighters);
+            fighters.setSquad(this);
+        }
+        return fighters;
+    }
+
+    EquippedShip removeFighterSquadron() {
+        EquippedShip fighters = getFighterSquadron();
+
+        if (fighters != null) {
+            mEquippedShips.remove(fighters);
+            fighters.setSquad(null);
+        }
+
+        return fighters;
+    }
+
     public void importFromObject(Universe universe, boolean replaceUuid, JSONObject jsonObject, boolean strict)
             throws JSONException {
         setNotes(jsonObject.optString(JSON_LABEL_NOTES, ""));

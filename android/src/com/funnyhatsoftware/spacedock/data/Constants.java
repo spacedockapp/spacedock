@@ -10,4 +10,7 @@ public class Constants {
     public static final String BREEN = "Breen";
     public static final String JEMHADAR_LC = "jem'hadar";
     public static final String KLINGON = "Klingon";
+    public static final String HIDEKIS = "Hideki Class Attack Fighter";
+    public static final String FED_FIGHTERS = "Federation Attack Fighter";
+    
 }
