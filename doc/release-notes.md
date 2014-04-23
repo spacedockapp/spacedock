@@ -1,3 +1,11 @@
+### Version 1.0.4 build 54 (2014-4-23)
+
+* Display ships that have Borg-style 360 arc as opposed to a front and/or rear arc.
+* Fix an error where captain's additional tech slots where counted twice.
+* Fix a display error with the number of Borg upgrades slots in a ship.
+* Fix a typo in Boheeka's ability text.
+* Fix a typo in Tuvok's ability.
+
 ### Version 1.0.3 build 53 (2014-4-20)
 
 * Really fix an error that prevented captains from being placed on the reinforcements sideboard.
