@@ -663,7 +663,6 @@
 -(int)techCount
 {
     int techCount = [self shipPropertyCount: @"tech"];
-    techCount += [self.captain additionalTechSlots];
     techCount += [self.flagship techAdd];
     for (DockEquippedUpgrade* eu in self.upgrades) {
         DockUpgrade* upgrade = eu.upgrade;
