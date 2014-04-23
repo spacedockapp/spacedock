@@ -88,6 +88,22 @@
     return [self cell: tableView forKey: key label: label accessory: UITableViewCellAccessoryNone];
 }
 
+-(UITableViewCell*)cellFor360Arc:(UITableView*)tableView
+{
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
+    cell.textLabel.text = @"360º Arc";
+    NSString* value = nil;
+
+    if ([[_ship has360Arc] boolValue]) {
+        value = @"Yes";
+    } else {
+        value = @"No";
+    }
+
+    cell.detailTextLabel.text = value;
+    return cell;
+}
+
 enum {
     kShipDetailTitle,
     kShipDetailClass,
@@ -104,6 +120,7 @@ enum {
     kShipDetailBorg,
     kShipDetailFrontArc,
     kShipDetailRearArc,
+    kShipDetail360Arc,
     kShipDetailActions,
     kShipDetailMoves,
     kShipDetailSet,
@@ -159,6 +176,9 @@ enum {
 
     case kShipDetailRearArc:
         return [self cell: tableView forKey: @"formattedRearArc" label: @"Rear Arc"];
+
+    case kShipDetail360Arc:
+        return [self cellFor360Arc: tableView];
 
     case kShipDetailSet:
         return [self cell: tableView forKey: @"setName" label: @"Set"];
