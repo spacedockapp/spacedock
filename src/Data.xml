@@ -1,4 +1,4 @@
-<Data version="1.208">
+<Data version="1.209">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -5199,7 +5199,7 @@
     <Upgrade>
       <Title>Boheeka</Title>
       <Unique>Y</Unique>
-      <Ability>If you ship has a [BATTLE STATIONS] Token beside it when you attack, you may convert 1 blank result into 1 [HIT] result.</Ability>
+      <Ability>If your ship has a [BATTLE STATIONS] Token beside it when you attack, you may convert 1 blank result into 1 [HIT] result.</Ability>
       <Skill>
       </Skill>
       <Talent>
