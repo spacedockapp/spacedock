@@ -1,4 +1,4 @@
-<Data version="1.209">
+<Data version="1.210">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -2368,6 +2368,7 @@
       <Tech>1</Tech>
       <Weapon>1</Weapon>
       <Crew>1</Crew>
+      <Has360Arc>Y</Has360Arc>
       <Id>borg_sphere_4270_71283</Id>
       <Set>71283</Set>
     </Ship>
@@ -2393,6 +2394,7 @@
       <Tech>0</Tech>
       <Weapon>1</Weapon>
       <Crew>1</Crew>
+      <Has360Arc>Y</Has360Arc>
       <Id>borg_sphere_71283</Id>
       <Set>71283</Set>
     </Ship>
