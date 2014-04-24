@@ -298,6 +298,10 @@
         return @"Cp";
     }
 
+    if ([self isBorg]) {
+        return @"B";
+    }
+
     return @"?";
 
 }
