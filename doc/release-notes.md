@@ -1,3 +1,7 @@
+### Version 1.0.5 build 55 (2014-4-23)
+
+* Fix faction code for Borg upgrades on build sheets.
+
 ### Version 1.0.4 build 54 (2014-4-23)
 
 * Display ships that have Borg-style 360 arc as opposed to a front and/or rear arc.
