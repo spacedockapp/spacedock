@@ -1,4 +1,4 @@
-<Data version="1.210">
+<Data version="1.211">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -6157,7 +6157,7 @@
     <Upgrade>
       <Title>Feedback Pulse</Title>
       <Ability>When defending, before any dice are rolled, you may discard this card to declare that half of the damage from this attack will be cancelled and the other half will be assigned to the attacker (round down); you receive no damage. The attacking ship cannot receive critical damage from this effect. Place an Auxiliary Power Token beside your ship.</Ability>
-      <Unique>N</Unique>
+      <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
