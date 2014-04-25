@@ -1,4 +1,4 @@
-<Data version="1.208">
+<Data version="1.211">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -786,7 +786,7 @@
           <Maneuver speed="2" kind="left-turn" color="white" />
           <Maneuver speed="2" kind="left-bank" color="white" />
           <Maneuver speed="2" kind="straight" color="green" />
-          <Maneuver speed="2" kind="right-bank" color="green" />
+          <Maneuver speed="2" kind="right-bank" color="white" />
           <Maneuver speed="2" kind="right-turn" color="white" />
           <Maneuver speed="1" kind="left-bank" color="green" />
           <Maneuver speed="1" kind="right-bank" color="green" />
@@ -2320,6 +2320,7 @@
       <Tech>1</Tech>
       <Weapon>1</Weapon>
       <Crew>1</Crew>
+      <Has360Arc>Y</Has360Arc>
       <Id>borg_sphere_4270_71283</Id>
       <Set>71283</Set>
     </Ship>
@@ -2345,6 +2346,7 @@
       <Tech>0</Tech>
       <Weapon>1</Weapon>
       <Crew>1</Crew>
+      <Has360Arc>Y</Has360Arc>
       <Id>borg_sphere_71283</Id>
       <Set>71283</Set>
     </Ship>
@@ -5151,7 +5153,7 @@
     <Upgrade>
       <Title>Boheeka</Title>
       <Unique>Y</Unique>
-      <Ability>If you ship has a [BATTLE STATIONS] Token beside it when you attack, you may convert 1 blank result into 1 [HIT] result.</Ability>
+      <Ability>If your ship has a [BATTLE STATIONS] Token beside it when you attack, you may convert 1 blank result into 1 [HIT] result.</Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -6061,7 +6063,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Borg Assimilation Tubules</Title>
-      <Ability>ACTION: Disable this card and discard 1 Drone Token to target a ship at Range 1-2 Steal 1 [CREW], [TECH], or [WEAPON] Upgrade form the target ship, even if it exceeds your ship's restrictions. Place a Disabled Upgrade Token on the assimilated Upgrade. You cannot steal a Species 8472 Upgrade with this Action.</Ability>
+      <Ability>ACTION: Disable this card and discard 1 Drone Token to target a ship at Range 1-2 Steal 1 [CREW], [TECH], or [WEAPON] Upgrade from the target ship, even if it exceeds your ship's restrictions. Place a Disabled Upgrade Token on the assimilated Upgrade. You cannot steal a Species 8472 Upgrade with this Action.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -6107,7 +6109,7 @@
     <Upgrade>
       <Title>Feedback Pulse</Title>
       <Ability>When defending, before any dice are rolled, you may discard this card to declare that half of the damage from this attack will be cancelled and the other half will be assigned to the attacker (round down); you receive no damage. The attacking ship cannot receive critical damage from this effect. Place an Auxiliary Power Token beside your ship.</Ability>
-      <Unique>N</Unique>
+      <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
