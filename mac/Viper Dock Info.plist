@@ -29,10 +29,12 @@
 	<key>NSHumanReadableCopyright</key>
 	<string></string>
 	<key>NSMainNibFile</key>
-	<string>MainMenu</string>
+	<string>ViperMainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
 	<string>http://spacedockapp.org/viper_update.xml</string>
+	<key>DockModelFileName</key>
+	<string>Space_Dock</string>
 </dict>
 </plist>
