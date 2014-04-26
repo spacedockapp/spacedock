@@ -34,5 +34,7 @@
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
 	<string>http://spacedockapp.org/update.xml</string>
+	<key>DockModelFileName</key>
+	<string>Space_Dock</string>
 </dict>
 </plist>

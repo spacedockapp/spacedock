@@ -208,11 +208,21 @@ NSString* kExpandedRows = @"expandedRows";
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
+
 +(NSURL*)applicationFilesDirectory
 {
     NSFileManager* fileManager = [NSFileManager defaultManager];
     NSURL* appSupportURL = [[fileManager URLsForDirectory: NSApplicationSupportDirectory inDomains: NSUserDomainMask] lastObject];
-    return [appSupportURL URLByAppendingPathComponent: @"com.funnyhatsoftware.Space_Dock"];
+    NSDictionary* d = [[NSBundle mainBundle] infoDictionary];
+    NSString* bundleId = d[@"CFBundleIdentifier"];
+    NSString* folderName = [bundleId stringByReplacingOccurrencesOfString: @"-" withString: @"_"];
+    return [appSupportURL URLByAppendingPathComponent: folderName];
+}
+
+-(NSString*)modelFileName
+{
+    NSDictionary* d = [[NSBundle mainBundle] infoDictionary];
+    return d[@"DockModelFileName"];
 }
 
 // Creates if necessary and returns the managed object model for the application.
@@ -222,7 +232,7 @@ NSString* kExpandedRows = @"expandedRows";
         return _managedObjectModel;
     }
 
-    NSURL* modelURL = [[NSBundle mainBundle] URLForResource: @"Space_Dock" withExtension: @"momd"];
+    NSURL* modelURL = [[NSBundle mainBundle] URLForResource: [self modelFileName] withExtension: @"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL: modelURL];
     return _managedObjectModel;
 }
@@ -272,7 +282,8 @@ NSString* kExpandedRows = @"expandedRows";
         }
     }
 
-    NSURL* url = [applicationFilesDirectory URLByAppendingPathComponent: @"Space_Dock.storedata"];
+    NSString* storeDataName = [[self modelFileName] stringByAppendingPathExtension: @"storedata"];
+    NSURL* url = [applicationFilesDirectory URLByAppendingPathComponent: storeDataName];
     NSPersistentStoreCoordinator* coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: mom];
 
     NSDictionary* options = @{
