@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Borg" representedClassName="DockBorg" parentEntity="Upgrade" syncable="YES"/>
     <entity name="Captain" representedClassName="DockCaptain" parentEntity="Upgrade" syncable="YES">
         <attribute name="skill" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -74,19 +74,26 @@
         <attribute name="battleStations" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="borg" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="captainLimit" optional="YES" attributeType="Integer 16" defaultValueString="1" syncable="YES"/>
+        <attribute name="carry" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cloak" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="cost" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="craftAttack" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="craftBonusArcs" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="craftRange" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="crew" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="evasiveManeuvers" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="externalId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="faction" optional="YES" attributeType="String" defaultValueString="Independent" syncable="YES"/>
         <attribute name="has360Arc" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="hull" attributeType="Integer 16" minValueString="1" defaultValueString="1" syncable="YES"/>
+        <attribute name="pivot" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="regenerate" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="scan" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="sensorEcho" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="shield" optional="YES" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="shipBonusArcs" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shipClass" attributeType="String" syncable="YES"/>
+        <attribute name="shipRange" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="targetLock" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="tech" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="title" attributeType="String" defaultValueString="Untitled" syncable="YES"/>
@@ -137,6 +144,7 @@
         <attribute name="range" attributeType="String" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Borg" positionX="9" positionY="153" width="128" height="45"/>
         <element name="Captain" positionX="0" positionY="0" width="128" height="75"/>
         <element name="Crew" positionX="0" positionY="0" width="128" height="45"/>
         <element name="EquippedShip" positionX="0" positionY="0" width="128" height="105"/>
@@ -146,7 +154,7 @@
         <element name="Resource" positionX="0" positionY="0" width="128" height="165"/>
         <element name="Set" positionX="0" positionY="0" width="128" height="133"/>
         <element name="SetItem" positionX="0" positionY="0" width="128" height="60"/>
-        <element name="Ship" positionX="0" positionY="0" width="128" height="433"/>
+        <element name="Ship" positionX="0" positionY="0" width="128" height="538"/>
         <element name="ShipClassDetails" positionX="0" positionY="0" width="128" height="135"/>
         <element name="Sideboard" positionX="0" positionY="0" width="128" height="45"/>
         <element name="Squad" positionX="0" positionY="0" width="128" height="150"/>
@@ -154,6 +162,5 @@
         <element name="Tech" positionX="0" positionY="0" width="128" height="45"/>
         <element name="Upgrade" positionX="0" positionY="0" width="128" height="195"/>
         <element name="Weapon" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="Borg" positionX="9" positionY="153" width="128" height="45"/>
     </elements>
 </model>

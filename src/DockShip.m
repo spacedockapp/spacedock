@@ -2,7 +2,7 @@
 //  DockShip.m
 //  Space Dock
 //
-//  Created by Rob Tsuk on 4/12/14.
+//  Created by Rob Tsuk on 4/27/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -17,13 +17,17 @@
 @dynamic agility;
 @dynamic attack;
 @dynamic battleStations;
+@dynamic borg;
+@dynamic captainLimit;
 @dynamic cloak;
 @dynamic cost;
 @dynamic crew;
 @dynamic evasiveManeuvers;
 @dynamic externalId;
 @dynamic faction;
+@dynamic has360Arc;
 @dynamic hull;
+@dynamic regenerate;
 @dynamic scan;
 @dynamic sensorEcho;
 @dynamic shield;
@@ -33,10 +37,13 @@
 @dynamic title;
 @dynamic unique;
 @dynamic weapon;
-@dynamic regenerate;
-@dynamic borg;
-@dynamic has360Arc;
-@dynamic captainLimit;
+@dynamic pivot;
+@dynamic shipRange;
+@dynamic craftAttack;
+@dynamic craftRange;
+@dynamic carry;
+@dynamic shipBonusArcs;
+@dynamic craftBonusArcs;
 @dynamic equippedShips;
 @dynamic shipClassDetails;
 

@@ -58,3 +58,40 @@ NSString* otherCost(DockSquad* targetSquad)
     }
     return @"";
 }
+
+NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* context, NSEntityDescription* entity)
+{
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSError* err;
+    NSArray* existingItems = [context executeFetchRequest: request error: &err];
+    NSMutableDictionary* existingItemsLookup = [NSMutableDictionary dictionaryWithCapacity: existingItems.count];
+
+    for (id existingItem in existingItems) {
+        NSString* externalId = [existingItem externalId];
+
+        if (externalId) {
+            existingItemsLookup[externalId] = existingItem;
+        }
+    }
+
+    return existingItemsLookup;
+}
+
+id processAttribute(id v, NSInteger aType)
+{
+    switch (aType) {
+    case NSInteger16AttributeType:
+        v = [NSNumber numberWithInt: [v intValue]];
+        break;
+
+    case NSBooleanAttributeType:
+        v = [NSNumber numberWithBool: [v isEqualToString: @"Y"]];
+        break;
+
+    case NSStringAttributeType:
+        v = [v stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        break;
+    }
+    return v;
+}
