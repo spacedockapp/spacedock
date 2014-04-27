@@ -57,15 +57,9 @@ public class DisplaySquadFragment extends ListFragment {
             return;
         }
 
+        // build adapters mapping each ship title to its list of ship + upgrades
         Squad squad = Universe.getUniverse().getSquad(mSquadIndex);
-        final SeparatedListAdapter multiAdapter = new SeparatedListAdapter(context) {
-            @Override
-            public boolean isEnabled(int position) {
-                // TODO: this is gross, have SeparatedListAdapter defer isEnabled() to subadapters
-                return false;
-            }
-        };
-
+        ArrayList<MultiItemAdapter> subAdapters = new ArrayList<MultiItemAdapter>();
         for (EquippedShip equippedShip : squad.getEquippedShips()) {
             ArrayList<Object> itemList = new ArrayList<Object>();
             itemList.add(equippedShip.getShip());
@@ -75,8 +69,38 @@ public class DisplaySquadFragment extends ListFragment {
                     itemList.add(upgrade);
                 }
             }
-            multiAdapter.addSection(equippedShip.getTitle(),
-                    new MultiItemAdapter(context, itemList));
+            subAdapters.add(new MultiItemAdapter(context, equippedShip.getTitle(), itemList));
+        }
+
+        final SeparatedListAdapter multiAdapter = new SeparatedListAdapter(context) {
+            @Override
+            public boolean isEnabled(int position) {
+                // TODO: this is gross, have SeparatedListAdapter defer isEnabled() to subadapters
+                return false;
+            }
+        };
+
+        // handle duplicate ship titles by appending unique indices on duplicates
+        for (int i = 0; i < subAdapters.size(); i++) {
+            MultiItemAdapter adapter = subAdapters.get(i);
+            int renameIndex = -1;
+            for (int j = i + 1; j < subAdapters.size(); j++) {
+                MultiItemAdapter otherAdapter = subAdapters.get(j);
+                if (adapter.getTitle().equals(otherAdapter.getTitle())) {
+                    if (renameIndex < 0) {
+                        // found 1st dupe, start labelling at index 2
+                        renameIndex = 2;
+                    }
+                    otherAdapter.appendTitleIndex(renameIndex);
+                    renameIndex++;
+                }
+            }
+            if (renameIndex >= 0) {
+                // now rename the original ship
+                adapter.appendTitleIndex(1);
+            }
+
+            multiAdapter.addSection(adapter.getTitle(), adapter);
         }
         setListAdapter(multiAdapter);
     }
@@ -119,8 +143,13 @@ public class DisplaySquadFragment extends ListFragment {
     }
 
     private static class MultiItemAdapter extends ArrayAdapter<Object> {
-        public MultiItemAdapter(Context context, ArrayList<Object> items) {
+        private String mTitle;
+        public String getTitle() { return mTitle; }
+        public void appendTitleIndex(int index) { mTitle += " " + Integer.toString(index); }
+
+        public MultiItemAdapter(Context context, String title, ArrayList<Object> items) {
             super(context, 0, items);
+            mTitle = title;
         }
 
         @Override
