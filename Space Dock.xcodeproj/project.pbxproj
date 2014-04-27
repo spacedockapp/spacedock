@@ -204,9 +204,10 @@
 		D4C8EF1E1863425B007BBD1A /* DockFlagship+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8EF1C1863425B007BBD1A /* DockFlagship+Addons.m */; };
 		D4C9B346190B56B40076546D /* ViperCredits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D4C9B342190B56B40076546D /* ViperCredits.rtf */; };
 		D4C9B347190B56B40076546D /* ViperMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C9B344190B56B40076546D /* ViperMainMenu.xib */; };
-		D4C9B352190BFA0D0076546D /* Viper_Dock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4C9B34E190B5C9D0076546D /* Viper_Dock.xcdatamodeld */; };
 		D4C9B355190BFB950076546D /* DockViperAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C9B354190BFB950076546D /* DockViperAppDelegate.m */; };
 		D4C9B356190BFC650076546D /* Space_Dock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */; };
+		D4C9B359190BFDF30076546D /* DockViperDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C9B358190BFDF30076546D /* DockViperDataLoader.m */; };
+		D4C9B35C190D79160076546D /* DockShip+Viper.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C9B35B190D79160076546D /* DockShip+Viper.m */; };
 		D4CCF849188AEF4A000A2C44 /* NSMutableDictionary+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CCF848188AEF4A000A2C44 /* NSMutableDictionary+Addons.m */; };
 		D4CCF84A188AEF4A000A2C44 /* NSMutableDictionary+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CCF848188AEF4A000A2C44 /* NSMutableDictionary+Addons.m */; };
 		D4CEF4E118602B6E007FA6F4 /* DockFleetBuildSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CEF4E018602B6E007FA6F4 /* DockFleetBuildSheet.m */; };
@@ -639,9 +640,12 @@
 		D4C8EF1C1863425B007BBD1A /* DockFlagship+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockFlagship+Addons.m"; sourceTree = "<group>"; };
 		D4C9B343190B56B40076546D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/ViperCredits.rtf; sourceTree = "<group>"; };
 		D4C9B345190B56B40076546D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViperMainMenu.xib; sourceTree = "<group>"; };
-		D4C9B34F190B5C9D0076546D /* Viper_Dock.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Viper_Dock.xcdatamodel; sourceTree = "<group>"; };
 		D4C9B353190BFB950076546D /* DockViperAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockViperAppDelegate.h; sourceTree = "<group>"; };
 		D4C9B354190BFB950076546D /* DockViperAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockViperAppDelegate.m; sourceTree = "<group>"; };
+		D4C9B357190BFDF30076546D /* DockViperDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockViperDataLoader.h; sourceTree = "<group>"; };
+		D4C9B358190BFDF30076546D /* DockViperDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockViperDataLoader.m; sourceTree = "<group>"; };
+		D4C9B35A190D79160076546D /* DockShip+Viper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockShip+Viper.h"; sourceTree = "<group>"; };
+		D4C9B35B190D79160076546D /* DockShip+Viper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockShip+Viper.m"; sourceTree = "<group>"; };
 		D4CCF847188AEF4A000A2C44 /* NSMutableDictionary+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Addons.h"; sourceTree = "<group>"; };
 		D4CCF848188AEF4A000A2C44 /* NSMutableDictionary+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Addons.m"; sourceTree = "<group>"; };
 		D4CEF4DF18602B6E007FA6F4 /* DockFleetBuildSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockFleetBuildSheet.h; sourceTree = "<group>"; };
@@ -772,10 +776,10 @@
 			children = (
 				D43D58BA18D9E4DB0005BE63 /* external */,
 				D4408D8C18445AF2008BA352 /* images */,
+				D4C9B340190B56790076546D /* viper */,
 				D4BCA3D71814EC0900921183 /* mac */,
 				D4F7F3E917F2C95D00F5A808 /* src */,
 				D433FE0D181503A20062731A /* ios */,
-				D4C9B340190B56790076546D /* viper */,
 				D42BD1EE17EA134B0000598C /* Frameworks */,
 				D42BD1ED17EA134B0000598C /* Products */,
 				D4757C281902CB0100CF173B /* Space Dock Tests */,
@@ -1114,7 +1118,6 @@
 		D4C9B340190B56790076546D /* viper */ = {
 			isa = PBXGroup;
 			children = (
-				D4C9B348190B5BA60076546D /* src */,
 				D4C9B341190B56790076546D /* mac */,
 			);
 			path = viper;
@@ -1126,18 +1129,14 @@
 				D4E936F91909F9E500CAE779 /* Viper Dock Info.plist */,
 				D4C9B342190B56B40076546D /* ViperCredits.rtf */,
 				D4C9B344190B56B40076546D /* ViperMainMenu.xib */,
+				D4C9B35A190D79160076546D /* DockShip+Viper.h */,
+				D4C9B35B190D79160076546D /* DockShip+Viper.m */,
 				D4C9B353190BFB950076546D /* DockViperAppDelegate.h */,
 				D4C9B354190BFB950076546D /* DockViperAppDelegate.m */,
+				D4C9B357190BFDF30076546D /* DockViperDataLoader.h */,
+				D4C9B358190BFDF30076546D /* DockViperDataLoader.m */,
 			);
 			path = mac;
-			sourceTree = "<group>";
-		};
-		D4C9B348190B5BA60076546D /* src */ = {
-			isa = PBXGroup;
-			children = (
-				D4C9B34E190B5C9D0076546D /* Viper_Dock.xcdatamodeld */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		D4F7F3E917F2C95D00F5A808 /* src */ = {
@@ -1690,7 +1689,9 @@
 				D4E9369E1909F96C00CAE779 /* DockErrors.m in Sources */,
 				D4E9369F1909F96C00CAE779 /* DockEquippedFlagship.m in Sources */,
 				D4E936A01909F96C00CAE779 /* DockFAQLoader.m in Sources */,
+				D4C9B359190BFDF30076546D /* DockViperDataLoader.m in Sources */,
 				D4E936A11909F96C00CAE779 /* DockBorg.m in Sources */,
+				D4C9B35C190D79160076546D /* DockShip+Viper.m in Sources */,
 				D4E936A21909F96C00CAE779 /* DockUpgrade.m in Sources */,
 				D4E936A31909F96C00CAE779 /* DockUtils.m in Sources */,
 				D4E936A41909F96C00CAE779 /* DockSquadImporterMac.m in Sources */,
@@ -1714,7 +1715,6 @@
 				D4E936B61909F96C00CAE779 /* DockFlagship+MacAddons.m in Sources */,
 				D4E936B71909F96C00CAE779 /* DockEquippedShip+Addons.m in Sources */,
 				D4E936B81909F96C00CAE779 /* DockFleetBuildSheet.m in Sources */,
-				D4C9B352190BFA0D0076546D /* Viper_Dock.xcdatamodeld in Sources */,
 				D4E936B91909F96C00CAE779 /* DockInspector.m in Sources */,
 				D4E936BA1909F96C00CAE779 /* DockCaptain+MacAddons.m in Sources */,
 				D4E936BB1909F96C00CAE779 /* DockSetItem.m in Sources */,
@@ -2127,16 +2127,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D4C9B34E190B5C9D0076546D /* Viper_Dock.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D4C9B34F190B5C9D0076546D /* Viper_Dock.xcdatamodel */,
-			);
-			currentVersion = D4C9B34F190B5C9D0076546D /* Viper_Dock.xcdatamodel */;
-			path = Viper_Dock.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

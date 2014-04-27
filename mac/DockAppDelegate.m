@@ -127,13 +127,6 @@ NSString* kExpandedRows = @"expandedRows";
 {
     NSSet* factionsSet = [DockUpgrade allFactions: _managedObjectContext];
     NSArray* originalFactions = @[
-        @"Bajoran",
-        @"Dominion",
-        @"Federation",
-        @"Ferengi",
-        @"Independent",
-        @"Klingon",
-        @"Romulan"
     ];
     NSSet* originalFactionsSet = [NSSet setWithArray: originalFactions];
     NSArray* factionsArray = [[factionsSet allObjects] sortedArrayUsingSelector: @selector(caseInsensitiveCompare:)];
@@ -922,7 +915,7 @@ NSString* kExpandedRows = @"expandedRows";
     _upgradesController.fetchPredicate = upgradePredicateTemplate;
 
     if (_factionName == nil) {
-        _shipsController.fetchPredicate = predicateTemplate;
+        //_shipsController.fetchPredicate = predicateTemplate;
         _captainsController.fetchPredicate = predicateTemplate;
         _flagshipsController.fetchPredicate = predicateTemplate;
         _flagshipsController.fetchPredicate = predicateTemplate;
