@@ -9,12 +9,12 @@ import com.funnyhatsoftware.spacedock.FactionInfo;
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.data.DataUtils;
 import com.funnyhatsoftware.spacedock.data.SetItem;
+import com.funnyhatsoftware.spacedock.data.Ship;
 import com.funnyhatsoftware.spacedock.data.ShipClassDetails;
+import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.drawable.ArcDrawable;
 import com.funnyhatsoftware.spacedock.drawable.ManeuverGridDrawable;
 import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
-import com.funnyhatsoftware.spacedock.data.Ship;
-import com.funnyhatsoftware.spacedock.data.Universe;
 
 import java.util.List;
 
@@ -105,10 +105,14 @@ public class ShipHolder extends SetItemHolder {
             ShipClassDetails details = ship.getShipClassDetails();
             int factionColor = FactionInfo.getFactionColor(
                     mClass.getResources(), ship.getFaction());
-            int frontArc = DataUtils.intValue(details.getFrontArc());
-            int rearArc = DataUtils.intValue(details.getRearArc());
+            if (ship.getHas360Arc()) {
+                mArcDrawable.set360Arc(factionColor);
+            } else {
+                int frontArc = DataUtils.intValue(details.getFrontArc());
+                int rearArc = DataUtils.intValue(details.getRearArc());
+                mArcDrawable.setArc(factionColor, frontArc, rearArc);
+            }
             mClass.setText(ship.getShipClass());
-            mArcDrawable.setArc(factionColor, frontArc, rearArc);
             mManeuverGridDrawable.setManeuvers(details.getManeuvers());
         }
     }
