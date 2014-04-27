@@ -380,6 +380,11 @@ public class Universe {
         return l;
     }
 
+    /** Null indicates all factions */
+    public String getSelectedFaction() {
+        return mSelectedFaction;
+    }
+
     public void setSelectedFaction(String faction) {
         mSelectedFaction = faction;
     }

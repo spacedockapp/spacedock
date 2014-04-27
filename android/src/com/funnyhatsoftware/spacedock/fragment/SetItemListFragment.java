@@ -4,14 +4,16 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.ListFragment;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.funnyhatsoftware.spacedock.adapter.HeaderAdapter;
 import com.funnyhatsoftware.spacedock.adapter.SetItemAdapter;
@@ -159,18 +161,51 @@ public class SetItemListFragment extends ListFragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_set_item_list, menu);
+        MenuItem item = menu.findItem(R.id.menu_faction_spinner);
+        setupFactionSpinner((Spinner) item.getActionView());
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        final int itemId = item.getItemId();
-        if (itemId == R.id.menu_faction) {
-            FragmentManager fm = getFragmentManager();
-            ChooseFactionDialog chooseFactionDialog = new ChooseFactionDialog();
-            chooseFactionDialog.show(fm, "fragment_faction_list");
-            return true;
+    private static boolean stringEquals(String a, String b) {
+        // I love you, Java.
+        if (a == null || b == null) {
+            return a == null && b == null;
         }
-        return super.onOptionsItemSelected(item);
+        return a.equals(b);
+    }
+
+    private void setupFactionSpinner(Spinner spinner) {
+        // Note: this assumes only a single SetItemListFragment, and faction spinner
+        ArrayList<String> factions = new ArrayList<String>();
+        factions.addAll(Universe.getUniverse().getAllFactions());
+        factions.add(0, getActivity().getString(R.string.all_factions));
+
+        // TODO: don't show factions with 0 items, will need to recreate adapter in reinitAdapter
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                getActivity().getActionBar().getThemedContext(),
+                android.R.layout.simple_list_item_1, android.R.id.text1, factions);
+        spinner.setAdapter(arrayAdapter);
+
+        // preselect Universe's current selection
+        String selectedFaction = Universe.getUniverse().getSelectedFaction();
+        spinner.setSelection(selectedFaction == null ? 0 : factions.indexOf(selectedFaction));
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String faction = null;
+                if (position > 0) {
+                    faction = arrayAdapter.getItem(position);
+                }
+
+                String currentFaction = Universe.getUniverse().getSelectedFaction();
+                if (!stringEquals(faction, currentFaction)) {
+                    Universe.getUniverse().setSelectedFaction(faction);
+                    reinitAdapter();
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {}
+        });
     }
 
     @Override

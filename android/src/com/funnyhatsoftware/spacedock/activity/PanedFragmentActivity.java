@@ -9,12 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.funnyhatsoftware.spacedock.R;
-import com.funnyhatsoftware.spacedock.data.Universe;
-import com.funnyhatsoftware.spacedock.fragment.ChooseFactionDialog;
-import com.funnyhatsoftware.spacedock.fragment.SetItemListFragment;
 
-public abstract class PanedFragmentActivity extends FragmentActivity
-        implements ChooseFactionDialog.FactionChoiceListener {
+public abstract class PanedFragmentActivity extends FragmentActivity {
 
     protected boolean isTwoPane() {
         return findViewById(R.id.secondary_fragment_container) != null;
@@ -76,17 +72,5 @@ public abstract class PanedFragmentActivity extends FragmentActivity
             return true;
         }
         return false;
-    }
-
-    @Override
-    public void onFactionChoiceUpdated(String faction) {
-        Universe.getUniverse().setSelectedFaction(faction);
-
-        // update SetItemListFragments to respect new faction choice
-        for (Fragment fragment : getSupportFragmentManager().getFragments()) {
-            if (fragment instanceof SetItemListFragment) {
-                ((SetItemListFragment) fragment).reinitAdapter();
-            }
-        }
     }
 }
