@@ -2,6 +2,7 @@
 
 #import "DockEquippedShip+Addons.h"
 #import "DockResource+Addons.h"
+#import "DockShip+MacAddons.h"
 #import "DockSquad+Addons.h"
 #import "DockUtilsMac.h"
 
@@ -13,17 +14,7 @@
         return [[NSAttributedString alloc] initWithString: self.squad.resource.title];
     }
 
-    NSMutableAttributedString* desc = [[NSMutableAttributedString alloc] initWithString: [self plainDescription]];
-    NSAttributedString* space = [[NSAttributedString alloc] initWithString: @" "];
-    [desc appendAttributedString: space];
-    [desc appendAttributedString: coloredString(intToString(self.attack), [NSColor whiteColor], [NSColor redColor])];
-    [desc appendAttributedString: space];
-    [desc appendAttributedString: coloredString(intToString(self.agility), [NSColor blackColor], [NSColor greenColor])];
-    [desc appendAttributedString: space];
-    [desc appendAttributedString: coloredString(self.isFighterSquadron ? @" " : intToString(self.hull), [NSColor blackColor], [NSColor yellowColor])];
-    [desc appendAttributedString: space];
-    [desc appendAttributedString: coloredString(intToString(self.shield), [NSColor whiteColor], [NSColor blueColor])];
-    return desc;
+    return [self.ship styledDescription];
 }
 
 -(NSAttributedString*)formattedCost

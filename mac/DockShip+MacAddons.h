@@ -6,5 +6,5 @@ extern NSAttributedString* styledHull(id ship);
 extern NSAttributedString* styledShield(id ship);
 
 @interface DockShip (MacAddons)
--(NSAttributedString*)styledAttack;
+-(NSAttributedString*)styledDescription;
 @end

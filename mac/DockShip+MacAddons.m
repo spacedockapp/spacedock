@@ -10,13 +10,13 @@
     NSMutableAttributedString* desc = [[NSMutableAttributedString alloc] initWithString: [self plainDescription]];
     NSAttributedString* space = [[NSAttributedString alloc] initWithString: @" "];
     [desc appendAttributedString: space];
-    [desc appendAttributedString: coloredString([self.attack stringValue], [NSColor whiteColor], [NSColor redColor])];
+    [desc appendAttributedString: styledAttack(self)];
     [desc appendAttributedString: space];
-    [desc appendAttributedString: coloredString([self.agility stringValue], [NSColor blackColor], [NSColor greenColor])];
+    [desc appendAttributedString: styledAgility(self)];
     [desc appendAttributedString: space];
-    [desc appendAttributedString: coloredString([self.hull stringValue], [NSColor blackColor], [NSColor yellowColor])];
+    [desc appendAttributedString: styledHull(self)];
     [desc appendAttributedString: space];
-    [desc appendAttributedString: coloredString([self.shield stringValue], [NSColor whiteColor], [NSColor blueColor])];
+    [desc appendAttributedString: styledShield(self)];
     return desc;
 }
 
@@ -48,7 +48,9 @@ NSAttributedString* styledAgility(id ship)
 NSAttributedString* styledHull(id ship)
 {
     NSMutableAttributedString* desc = [[NSMutableAttributedString alloc] initWithString: @""];
-    if (![ship isFighterSquadron]) {
+    if ([ship isFighterSquadron]) {
+        [desc appendAttributedString: makeCentered(coloredString(@"*", [NSColor darkGrayColor], [NSColor yellowColor]))];
+    } else {
         [desc appendAttributedString: makeCentered(coloredString([[ship hull] stringValue], [NSColor darkGrayColor], [NSColor yellowColor]))];
     }
     return desc;
