@@ -276,6 +276,10 @@ NSString* asDegrees(NSString* textValue)
         [actionStringParts addObject: @"Lock"];
     }
 
+    if ([self.regenerate intValue]) {
+        [actionStringParts addObject: @"Regen"];
+    }
+
     return [NSArray arrayWithArray: actionStringParts];
 }
 
