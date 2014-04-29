@@ -30,7 +30,7 @@ static NSString* makeKey(NSString* key)
         return @"title";
     } else if ([key isEqualToString: @"Evade"]) {
         return @"evasiveManeuvers";
-    } else if ([key isEqualToString: @"Type"]) {
+    } else if ([key isEqualToString: @"Class"]) {
         return @"shipClass";
     } else if ([key isEqualToString: @"Armor"]) {
         return @"shield";
@@ -145,14 +145,22 @@ static NSString* makeKey(NSString* key)
                 }
                 
                 for (NSString* key in d) {
-                    if ([key isEqualToString: @"maneuvers"]) {
-                        DockShipClassDetails* shipClassDetails = (DockShipClassDetails*)c;
+                    if ([key isEqualToString: @"moves"]) {
+                        NSString* shipClass = d[@"shipClass"];
+                        DockShip* ship = (DockShip*)c;
+                        DockShipClassDetails* shipClassDetails = ship.shipClassDetails;
+                        if (shipClassDetails == nil) {
+                            [ship updateShipClass: shipClass];
+                            shipClassDetails = ship.shipClassDetails;
+                        }
                         NSArray* m =  [d valueForKey: key];
                         [shipClassDetails updateManeuvers: m];
                     } else if ([key isEqualToString: @"shipClass"]) {
                         DockShip* ship = (DockShip*)c;
                         NSString* shipClass =  [d valueForKey: key];
-                        [ship updateShipClass: shipClass];
+                        if (shipClass.length > 0) {
+                            [ship updateShipClass: shipClass];
+                        }
                     }
                 }
                 

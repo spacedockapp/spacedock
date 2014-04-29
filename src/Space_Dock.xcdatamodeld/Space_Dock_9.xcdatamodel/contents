@@ -97,6 +97,7 @@
         <attribute name="targetLock" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="tech" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="title" attributeType="String" defaultValueString="Untitled" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="unique" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="weapon" optional="YES" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <relationship name="equippedShips" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EquippedShip" inverseName="ship" inverseEntity="EquippedShip" syncable="YES"/>
@@ -154,7 +155,7 @@
         <element name="Resource" positionX="0" positionY="0" width="128" height="165"/>
         <element name="Set" positionX="0" positionY="0" width="128" height="133"/>
         <element name="SetItem" positionX="0" positionY="0" width="128" height="60"/>
-        <element name="Ship" positionX="0" positionY="0" width="128" height="538"/>
+        <element name="Ship" positionX="0" positionY="0" width="128" height="555"/>
         <element name="ShipClassDetails" positionX="0" positionY="0" width="128" height="135"/>
         <element name="Sideboard" positionX="0" positionY="0" width="128" height="45"/>
         <element name="Squad" positionX="0" positionY="0" width="128" height="150"/>
