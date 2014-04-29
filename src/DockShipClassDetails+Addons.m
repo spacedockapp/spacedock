@@ -21,6 +21,18 @@
     return nil;
 }
 
++(DockShipClassDetails*)findOrCreate:(NSString*)shipClass context:(NSManagedObjectContext*)context;
+{
+    DockShipClassDetails* found = [DockShipClassDetails find: shipClass context: context];
+    if (found == nil) {
+        NSEntityDescription* entity = [NSEntityDescription entityForName: @"ShipClassDetails" inManagedObjectContext: context];
+        found = [[DockShipClassDetails alloc] initWithEntity: entity insertIntoManagedObjectContext: context];
+        found.name = shipClass;
+        found.externalId = [[NSUUID UUID] UUIDString];
+    }
+    return found;
+}
+
 -(void)removeAllManeuvers
 {
     [self setManeuvers: [NSSet set]];
