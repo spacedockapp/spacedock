@@ -1,3 +1,9 @@
+### Version 1.0.6 build 56 (2014-4-30)
+
+* Fix display of hull for fighters.
+* Fix an error in Voyager's maneuver grid.
+* Feedback Pulse should be unique.
+
 ### Version 1.0.5 build 55 (2014-4-23)
 
 * Fix faction code for Borg upgrades on build sheets.
