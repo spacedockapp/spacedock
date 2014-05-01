@@ -744,10 +744,11 @@
 
 -(void)changeShip:(DockShip*)newShip
 {
+    BOOL wasFighter = [self isFighterSquadron];
     self.ship = newShip;
     [self removeIllegalUpgrades];
     [self establishPlaceholders];
-    if (self.squad.resource.isFighterSquadron) {
+    if (wasFighter) {
         self.squad.resource = nil;
     } else if (newShip.isFighterSquadron) {
         self.squad.resource = newShip.associatedResource;
