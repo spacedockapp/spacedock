@@ -80,6 +80,16 @@ NSString* asDegrees(NSString* textValue)
     return asDegrees(self.shipClassDetails.rearArc);
 }
 
+-(NSString*)carry
+{
+    int minCarry = [[self minCarry] intValue];
+    int maxCarry = [[self maxCarry] intValue];
+    if (maxCarry > minCarry) {
+        return [NSString stringWithFormat: @"%d-%d", minCarry, maxCarry];
+    }
+    return @"";
+}
+
 -(NSString*)capabilities
 {
     NSMutableArray* caps = [[NSMutableArray alloc] initWithCapacity: 0];

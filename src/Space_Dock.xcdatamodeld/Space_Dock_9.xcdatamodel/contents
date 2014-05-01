@@ -74,7 +74,6 @@
         <attribute name="battleStations" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="borg" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="captainLimit" optional="YES" attributeType="Integer 16" defaultValueString="1" syncable="YES"/>
-        <attribute name="carry" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cloak" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="cost" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="craftAttack" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -85,7 +84,10 @@
         <attribute name="externalId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="faction" optional="YES" attributeType="String" defaultValueString="Independent" syncable="YES"/>
         <attribute name="has360Arc" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <attribute name="hull" attributeType="Integer 16" minValueString="1" defaultValueString="1" syncable="YES"/>
+        <attribute name="hull" attributeType="Integer 16" minValueString="0" defaultValueString="1" syncable="YES"/>
+        <attribute name="isCraft" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="maxCarry" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="minCarry" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="pivot" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="regenerate" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="scan" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
@@ -155,7 +157,7 @@
         <element name="Resource" positionX="0" positionY="0" width="128" height="165"/>
         <element name="Set" positionX="0" positionY="0" width="128" height="133"/>
         <element name="SetItem" positionX="0" positionY="0" width="128" height="60"/>
-        <element name="Ship" positionX="0" positionY="0" width="128" height="555"/>
+        <element name="Ship" positionX="0" positionY="0" width="128" height="585"/>
         <element name="ShipClassDetails" positionX="0" positionY="0" width="128" height="135"/>
         <element name="Sideboard" positionX="0" positionY="0" width="128" height="45"/>
         <element name="Squad" positionX="0" positionY="0" width="128" height="150"/>

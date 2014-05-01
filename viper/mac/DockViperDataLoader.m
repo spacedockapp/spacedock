@@ -28,6 +28,8 @@ static NSString* makeKey(NSString* key)
         return @"";
     } else if ([key isEqualToString: @"Name"]) {
         return @"title";
+    } else if ([key isEqualToString: @"ID"]) {
+        return @"externalId";
     } else if ([key isEqualToString: @"Evade"]) {
         return @"evasiveManeuvers";
     } else if ([key isEqualToString: @"Class"]) {
@@ -96,13 +98,23 @@ static NSString* makeKey(NSString* key)
                     }
                     
                     if (key) {
-                        d[key] = parts[keyIndex];
+                        if ([key isEqualToString: @"carry"]) {
+                            int minCarry = 0;
+                            int maxCarry = 0;
+                            NSArray* carryParts = [parts[keyIndex] componentsSeparatedByString: @"-"];
+                            if (carryParts.count > 1) {
+                                minCarry = [carryParts[0] intValue];
+                                maxCarry = [carryParts[1] intValue];
+                            }
+                            d[@"carry"] = @{@"min": [NSNumber numberWithInt: minCarry], @"max": [NSNumber numberWithInt: maxCarry]};
+                        } else {
+                            d[key] = parts[keyIndex];
+                        }
                     }
                 }
             }
         }
         d[@"set"] = @"core";
-        d[@"externalId"] = d[@"title"];
         [items addObject: d];
     }
     NSLog(@"item = %@", items);
@@ -117,68 +129,63 @@ static NSString* makeKey(NSString* key)
     NSDictionary* attributes = [NSDictionary dictionaryWithDictionary: [entity attributesByName]];
     
     for (NSDictionary* d in items) {
-        NSString* nodeType = d[@"Type"];
-        
-        if (targetType == nil || [nodeType isEqualToString: targetType]) {
-            NSString* externalId = d[@"externalId"];
-            if (externalId.length > 0) {
-                id c = existingItemsLookup[externalId];
+        NSString* externalId = d[@"externalId"];
+        if (externalId.length > 0) {
+            id c = existingItemsLookup[externalId];
+            
+            if (c == nil) {
+                c = [[itemClass alloc] initWithEntity: entity insertIntoManagedObjectContext: _managedObjectContext];
+            } else {
+                [existingItemsLookup removeObjectForKey: externalId];
+            }
+            
+            [c setIsCraft: [targetType isEqualToString: @"craft"] ? @YES : @NO];
+            
+            for (NSString* key in d) {
+                NSString* modifiedKey = key;
                 
-                if (c == nil) {
-                    c = [[itemClass alloc] initWithEntity: entity insertIntoManagedObjectContext: _managedObjectContext];
-                } else {
-                    [existingItemsLookup removeObjectForKey: externalId];
+                NSAttributeDescription* desc = [attributes objectForKey: modifiedKey];
+                
+                if (desc != nil) {
+                    id v = [d valueForKey: key];
+                    NSInteger aType = [desc attributeType];
+                    v = processAttribute(v, aType);
+                    [c setValue: v forKey: modifiedKey];
                 }
                 
-                for (NSString* key in d) {
-                    NSString* modifiedKey = key;
-                    
-                    NSAttributeDescription* desc = [attributes objectForKey: modifiedKey];
-                    
-                    if (desc != nil) {
-                        id v = [d valueForKey: key];
-                        NSInteger aType = [desc attributeType];
-                        v = processAttribute(v, aType);
-                        [c setValue: v forKey: modifiedKey];
+            }
+            
+            for (NSString* key in d) {
+                if ([key isEqualToString: @"moves"]) {
+                    NSString* shipClass = d[@"shipClass"];
+                    DockShip* ship = (DockShip*)c;
+                    DockShipClassDetails* shipClassDetails = ship.shipClassDetails;
+                    if (shipClassDetails == nil) {
+                        [ship updateShipClass: shipClass];
+                        shipClassDetails = ship.shipClassDetails;
                     }
-                    
-                }
-                
-                for (NSString* key in d) {
-                    if ([key isEqualToString: @"moves"]) {
-                        NSString* shipClass = d[@"shipClass"];
-                        DockShip* ship = (DockShip*)c;
-                        DockShipClassDetails* shipClassDetails = ship.shipClassDetails;
-                        if (shipClassDetails == nil) {
-                            [ship updateShipClass: shipClass];
-                            shipClassDetails = ship.shipClassDetails;
-                        }
-                        NSArray* m =  [d valueForKey: key];
-                        [shipClassDetails updateManeuvers: m];
-                    } else if ([key isEqualToString: @"shipClass"]) {
-                        DockShip* ship = (DockShip*)c;
-                        NSString* shipClass =  [d valueForKey: key];
-                        if (shipClass.length > 0) {
-                            [ship updateShipClass: shipClass];
-                        }
+                    NSArray* m =  [d valueForKey: key];
+                    [shipClassDetails updateManeuvers: m];
+                } else if ([key isEqualToString: @"shipClass"]) {
+                    DockShip* ship = (DockShip*)c;
+                    NSString* shipClass =  [d valueForKey: key];
+                    if (shipClass.length > 0) {
+                        [ship updateShipClass: shipClass];
                     }
-                }
-                
-                if ([c isKindOfClass: [DockSetItem class]]) {
-                    NSString* setValue = [d objectForKey: @"set"];
-                    NSArray* sets = [setValue componentsSeparatedByString: @","];
-                    
-                    NSSet* existingSets = [NSSet setWithSet: [c sets]];
-                    for (DockSet* set in existingSets) {
-                        if (![sets containsObject: set.externalId]) {
-                            [set removeItemsObject: c];
+                } else if ([key isEqualToString: @"carry"]) {
+                    id v = [d valueForKey: key];
+                    [c setMinCarry: [v valueForKey:@"min"]];
+                    [c setMaxCarry: [v valueForKey:@"max"]];
+                } else if ([key isEqualToString: @"wingStrength"]) {
+                    NSString* wingStrength = [d valueForKey: key];
+                    NSString* title = [c title];
+                    if (wingStrength.length > 0) {
+                        [c setTitle: [NSString stringWithFormat: @"%@ (%@)", title, wingStrength]];
+                        if ([[c cost] intValue] == 0) {
+                            NSString* calcCostString = [d valueForKey: @"calcCost"];
+                            NSNumber* calcCost = [NSNumber numberWithInt: [calcCostString intValue]];
+                            [c setCost: calcCost];
                         }
-                    }
-                    
-                    for (NSString* rawSet in sets) {
-                        NSString* setId = [rawSet stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-                        DockSet* theSet = [DockSet setForId: setId context: _managedObjectContext];
-                        [theSet addItemsObject: c];
                     }
                 }
             }
@@ -190,7 +197,14 @@ static NSString* makeKey(NSString* key)
 -(BOOL)loadShips:(NSError**)error
 {
     NSArray* items = [self loadTabSeparatedFile: @"ships" error: error];
-    [self loadItems: items itemClass:[DockShip class] entityName: @"Ship" targetType: nil];
+    [self loadItems: items itemClass:[DockShip class] entityName: @"Ship" targetType: @"ship"];
+    return YES;
+}
+
+-(BOOL)loadCraft:(NSError**)error
+{
+    NSArray* items = [self loadTabSeparatedFile: @"craft" error: error];
+    [self loadItems: items itemClass:[DockShip class] entityName: @"Ship" targetType: @"craft"];
     return YES;
 }
 
@@ -210,6 +224,9 @@ static NSString* makeKey(NSString* key)
 {
     [self createSet];
     if (![self loadShips: error]) {
+        return NO;
+    }
+    if (![self loadCraft: error]) {
         return NO;
     }
     return YES;

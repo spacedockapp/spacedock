@@ -16,6 +16,7 @@ extern NSString* kExpandSquads;
 @property (assign) IBOutlet NSTabView* tabView;
 @property (assign) IBOutlet NSOutlineView* squadDetailView;
 @property (assign) IBOutlet NSArrayController* shipsController;
+@property (assign) IBOutlet NSArrayController* craftController;
 @property (assign) IBOutlet NSArrayController* squadsController;
 @property (assign) IBOutlet NSArrayController* captainsController;
 @property (assign) IBOutlet NSArrayController* upgradesController;
