@@ -1,3 +1,7 @@
+### Version 1.0.7 build 57 (2014-4-30)
+
+* Fix an error that caused the fighter squadrons to disappear whenever you changed a ship.
+
 ### Version 1.0.6 build 56 (2014-4-30)
 
 * Fix display of hull for fighters.
