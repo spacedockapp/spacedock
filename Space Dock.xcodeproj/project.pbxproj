@@ -141,6 +141,9 @@
 		D461E4BB182488C800F18FBC /* DockErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = D461E4B9182488C800F18FBC /* DockErrors.m */; };
 		D4641E70183D9B3A00121086 /* DockManeuver+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4641E6F183D9B3A00121086 /* DockManeuver+Addons.m */; };
 		D4641E71183D9B3A00121086 /* DockManeuver+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4641E6F183D9B3A00121086 /* DockManeuver+Addons.m */; };
+		D4664FEB19135599009AE19D /* ViperMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4664FE919135599009AE19D /* ViperMainMenu.xib */; };
+		D4664FED191355C9009AE19D /* Viper Dock.icns in Resources */ = {isa = PBXBuildFile; fileRef = D4664FEC191355C9009AE19D /* Viper Dock.icns */; };
+		D4664FEF191355DA009AE19D /* Viper Dock.icns in Resources */ = {isa = PBXBuildFile; fileRef = D4664FEE191355DA009AE19D /* Viper Dock.icns */; };
 		D46E95EB182C8BC20060DCD7 /* DockShipDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46E95EA182C8BC20060DCD7 /* DockShipDetailViewController.m */; };
 		D46FB28E1821F20100E7017D /* DockUpgradesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46FB28D1821F20100E7017D /* DockUpgradesViewController.m */; };
 		D4711F6D18427CA300EFF34B /* DockShipClassDetails+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4711F6C18427CA300EFF34B /* DockShipClassDetails+Addons.m */; };
@@ -562,6 +565,9 @@
 		D4641E61183D727700121086 /* Space_Dock_4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock_4.xcdatamodel; sourceTree = "<group>"; };
 		D4641E6E183D9B3A00121086 /* DockManeuver+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockManeuver+Addons.h"; sourceTree = "<group>"; };
 		D4641E6F183D9B3A00121086 /* DockManeuver+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockManeuver+Addons.m"; sourceTree = "<group>"; };
+		D4664FEA19135599009AE19D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = mac/en.lproj/ViperMainMenu.xib; sourceTree = "<group>"; };
+		D4664FEC191355C9009AE19D /* Viper Dock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "Viper Dock.icns"; sourceTree = "<group>"; };
+		D4664FEE191355DA009AE19D /* Viper Dock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "Viper Dock.icns"; sourceTree = "<group>"; };
 		D46E95E9182C8BC20060DCD7 /* DockShipDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockShipDetailViewController.h; sourceTree = "<group>"; };
 		D46E95EA182C8BC20060DCD7 /* DockShipDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockShipDetailViewController.m; sourceTree = "<group>"; };
 		D46FB28C1821F20100E7017D /* DockUpgradesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockUpgradesViewController.h; sourceTree = "<group>"; };
@@ -772,6 +778,7 @@
 		D42BD1E317EA134B0000598C = {
 			isa = PBXGroup;
 			children = (
+				D4664FEE191355DA009AE19D /* Viper Dock.icns */,
 				D43D58BA18D9E4DB0005BE63 /* external */,
 				D4408D8C18445AF2008BA352 /* images */,
 				D4C9B340190B56790076546D /* viper */,
@@ -1116,6 +1123,7 @@
 		D4C9B340190B56790076546D /* viper */ = {
 			isa = PBXGroup;
 			children = (
+				D4664FE919135599009AE19D /* ViperMainMenu.xib */,
 				D4C9B341190B56790076546D /* mac */,
 			);
 			path = viper;
@@ -1124,6 +1132,7 @@
 		D4C9B341190B56790076546D /* mac */ = {
 			isa = PBXGroup;
 			children = (
+				D4664FEC191355C9009AE19D /* Viper Dock.icns */,
 				D4E936F91909F9E500CAE779 /* Viper Dock Info.plist */,
 				D4C9B342190B56B40076546D /* ViperCredits.rtf */,
 				D4C9B344190B56B40076546D /* ViperMainMenu.xib */,
@@ -1440,6 +1449,7 @@
 				D4E936D01909F96C00CAE779 /* green-right-bank.pdf in Resources */,
 				D4E936D21909F96C00CAE779 /* red-right-bank.pdf in Resources */,
 				D4E936D31909F96C00CAE779 /* green-about.pdf in Resources */,
+				D4664FEF191355DA009AE19D /* Viper Dock.icns in Resources */,
 				D4E936D41909F96C00CAE779 /* green-backup.pdf in Resources */,
 				D4E936D51909F96C00CAE779 /* platform.strings in Resources */,
 				D4E936D61909F96C00CAE779 /* red-straight.pdf in Resources */,
@@ -1457,8 +1467,10 @@
 				D4E936E11909F96C00CAE779 /* space_dock.icns in Resources */,
 				D4E936E21909F96C00CAE779 /* Credits.rtf in Resources */,
 				D4E936E31909F96C00CAE779 /* green-left-bank.pdf in Resources */,
+				D4664FED191355C9009AE19D /* Viper Dock.icns in Resources */,
 				D4E936E41909F96C00CAE779 /* red-backup.pdf in Resources */,
 				D4C9B347190B56B40076546D /* ViperMainMenu.xib in Resources */,
+				D4664FEB19135599009AE19D /* ViperMainMenu.xib in Resources */,
 				D4E936E51909F96C00CAE779 /* ShipGrid.xib in Resources */,
 				D4E936E61909F96C00CAE779 /* green-right-spin.pdf in Resources */,
 				D4E936E71909F96C00CAE779 /* white-left-spin.pdf in Resources */,
@@ -1749,6 +1761,14 @@
 				D433FE11181503A20062731A /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D4664FE919135599009AE19D /* ViperMainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4664FEA19135599009AE19D /* en */,
+			);
+			name = ViperMainMenu.xib;
 			sourceTree = "<group>";
 		};
 		D4757C2B1902CB0100CF173B /* InfoPlist.strings */ = {
