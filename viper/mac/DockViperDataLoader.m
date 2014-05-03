@@ -1,9 +1,14 @@
 #import "DockViperDataLoader.h"
 
+#import "DockCaptain.h"
+#import "DockCrew+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockShipClassDetails+Addons.h"
 #import "DockSet+Addons.h"
+#import "DockTalent.h"
+#import "DockTech.h"
 #import "DockUtils.h"
+#import "DockWeapon.h"
 
 @interface DockViperDataLoader ()
 @property (readonly, weak, nonatomic) NSManagedObjectContext* managedObjectContext;
@@ -38,6 +43,8 @@ static NSString* makeKey(NSString* key)
         return @"shield";
     } else if ([key isEqualToString: @"Ship Attack"]) {
         return @"attack";
+    } else if ([key isEqualToString: @"Type"]) {
+        return @"upType";
     }
     key = [key stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString* lowerFirst = [[key substringToIndex: 1] lowercaseString];
@@ -107,6 +114,10 @@ static NSString* makeKey(NSString* key)
                                 maxCarry = [carryParts[1] intValue];
                             }
                             d[@"carry"] = @{@"min": [NSNumber numberWithInt: minCarry], @"max": [NSNumber numberWithInt: maxCarry]};
+                        } else if ([key isEqualToString: @"upType"]) {
+                            NSString* typeWithTags = parts[keyIndex];
+                            NSArray* typeParts = [typeWithTags componentsSeparatedByString: @" - "];
+                            d[key] = typeParts[0];
                         } else {
                             d[key] = parts[keyIndex];
                         }
@@ -117,7 +128,6 @@ static NSString* makeKey(NSString* key)
         d[@"set"] = @"core";
         [items addObject: d];
     }
-    NSLog(@"item = %@", items);
     return [NSArray arrayWithArray: items];
 }
 
@@ -193,6 +203,44 @@ static NSString* makeKey(NSString* key)
     }
 }
 
+-(void)loadUpgrades:(NSArray*)items itemClass:(Class)itemClass entityName:(NSString*)entityName targetType:(NSString*)targetType
+{
+    NSEntityDescription* entity = [NSEntityDescription entityForName: entityName inManagedObjectContext: _managedObjectContext];
+    NSMutableDictionary* existingItemsLookup = createExistingItemsLookup(_managedObjectContext, entity);
+    
+    NSDictionary* attributes = [NSDictionary dictionaryWithDictionary: [entity attributesByName]];
+    
+    for (NSDictionary* d in items) {
+        NSString* externalId = d[@"externalId"];
+        if (externalId.length > 0) {
+            NSString* type = d[@"upType"];
+            if ([type isEqualToString: targetType]) {
+                id c = existingItemsLookup[externalId];
+                
+                if (c == nil) {
+                    c = [[itemClass alloc] initWithEntity: entity insertIntoManagedObjectContext: _managedObjectContext];
+                } else {
+                    [existingItemsLookup removeObjectForKey: externalId];
+                }
+                
+                for (NSString* key in d) {
+                    NSString* modifiedKey = key;
+                    
+                    NSAttributeDescription* desc = [attributes objectForKey: modifiedKey];
+                    
+                    if (desc != nil) {
+                        id v = [d valueForKey: key];
+                        NSInteger aType = [desc attributeType];
+                        v = processAttribute(v, aType);
+                        [c setValue: v forKey: modifiedKey];
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+
 
 -(BOOL)loadShips:(NSError**)error
 {
@@ -205,6 +253,22 @@ static NSString* makeKey(NSString* key)
 {
     NSArray* items = [self loadTabSeparatedFile: @"craft" error: error];
     [self loadItems: items itemClass:[DockShip class] entityName: @"Ship" targetType: @"craft"];
+    return YES;
+}
+
+-(BOOL)loadUpgrades:(NSError**)error
+{
+    for (NSString* fileName in @[@"col_ship_upgrades", @"cylon_ship_upgrades"]) {
+        NSArray* items = [self loadTabSeparatedFile: fileName error: error];
+        if (items == nil) {
+            return NO;
+        }
+        [self loadUpgrades: items itemClass:[DockCaptain class] entityName: @"Captain" targetType: @"Captain"];
+        [self loadUpgrades: items itemClass:[DockTalent class] entityName: @"Talent" targetType: @"Talent"];
+        [self loadUpgrades: items itemClass:[DockCrew class] entityName: @"Crew" targetType: @"Crew"];
+        [self loadUpgrades: items itemClass:[DockTech class] entityName: @"Tech" targetType: @"Tech"];
+        [self loadUpgrades: items itemClass:[DockWeapon class] entityName: @"Weapon" targetType: @"Weapon"];
+    }
     return YES;
 }
 
@@ -227,6 +291,9 @@ static NSString* makeKey(NSString* key)
         return NO;
     }
     if (![self loadCraft: error]) {
+        return NO;
+    }
+    if (![self loadUpgrades: error]) {
         return NO;
     }
     return YES;

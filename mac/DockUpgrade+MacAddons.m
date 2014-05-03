@@ -28,4 +28,9 @@
     return [[NSAttributedString alloc] initWithString: s];
 }
 
+-(NSString*)shipRange
+{
+    return @"";
+}
+
 @end

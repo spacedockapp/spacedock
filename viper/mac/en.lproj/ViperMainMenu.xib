@@ -480,12 +480,6 @@
                                     <action selector="filterToUpgradeType:" target="-1" id="iK4-Ib-snj"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Borg" keyEquivalent="5" id="yAk-b8-23z">
-                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                <connections>
-                                    <action selector="filterToUpgradeType:" target="-1" id="PYQ-Mv-7c4"/>
-                                </connections>
-                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
