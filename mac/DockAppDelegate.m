@@ -218,6 +218,12 @@ NSString* kExpandedRows = @"expandedRows";
     return d[@"DockModelFileName"];
 }
 
+-(NSString*)dataFileName
+{
+    NSDictionary* d = [[NSBundle mainBundle] infoDictionary];
+    return d[@"DockDataFileName"];
+}
+
 // Creates if necessary and returns the managed object model for the application.
 -(NSManagedObjectModel*)managedObjectModel
 {
@@ -275,7 +281,7 @@ NSString* kExpandedRows = @"expandedRows";
         }
     }
 
-    NSString* storeDataName = [[self modelFileName] stringByAppendingPathExtension: @"storedata"];
+    NSString* storeDataName = [[self dataFileName] stringByAppendingPathExtension: @"storedata"];
     NSURL* url = [applicationFilesDirectory URLByAppendingPathComponent: storeDataName];
     NSPersistentStoreCoordinator* coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: mom];
 
@@ -897,8 +903,7 @@ NSString* kExpandedRows = @"expandedRows";
     NSMutableArray* upgradeFormatParts = [NSMutableArray arrayWithCapacity: 0];
     NSMutableArray* upgradeArgumentParts = [NSMutableArray arrayWithCapacity: 0];
 
-    [upgradeArgumentParts addObject: _includedSets];
-    [upgradeFormatParts addObject: @"(not upType like 'Captain') and (not placeholder == YES) and (any sets.externalId in %@)"];
+    [upgradeFormatParts addObject: @"(not upType like 'Captain') and (not placeholder == YES)"];
 
     if (_factionName) {
         [upgradeArgumentParts addObject: _factionName];
@@ -919,9 +924,7 @@ NSString* kExpandedRows = @"expandedRows";
         _shipsController.fetchPredicate = shipsPredicateTemplate;
         NSPredicate* craftPredicateTemplate = [NSPredicate predicateWithFormat: @"isCraft = YES"];
         _craftController.fetchPredicate = craftPredicateTemplate;
-        _captainsController.fetchPredicate = predicateTemplate;
-        _flagshipsController.fetchPredicate = predicateTemplate;
-        _flagshipsController.fetchPredicate = predicateTemplate;
+        //_captainsController.fetchPredicate = predicateTemplate;
         //predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES and any sets.externalId in %@", _includedSets];
         //_upgradesController.fetchPredicate = predicateTemplate;
     } else {
@@ -931,8 +934,6 @@ NSString* kExpandedRows = @"expandedRows";
         _captainsController.fetchPredicate = predicateTemplate;
         //predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES and faction = %@ and any sets.externalId in %@", _factionName, _includedSets];
         //_upgradesController.fetchPredicate = predicateTemplate;
-        predicateTemplate = [NSPredicate predicateWithFormat: @"faction in %@ and any sets.externalId in %@", @[_factionName, @"Independent"], _includedSets];
-        _flagshipsController.fetchPredicate = predicateTemplate;
     }
 }
 
