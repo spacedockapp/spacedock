@@ -13,12 +13,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
         <userDefaultsController representsSharedInstance="YES" id="bL5-PZ-HTY"/>
-        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="140" viewBased="YES" floatsGroupRows="NO" id="bj3-0H-g0q" customClass="DockPaginatedTableView">
-            <rect key="frame" x="0.0" y="0.0" width="738" height="1"/>
+        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="140" viewBased="YES" floatsGroupRows="NO" id="bj3-0H-g0q" customClass="DockPaginatedTableView">
+            <rect key="frame" x="0.0" y="0.0" width="738" height="0.0"/>
             <autoresizingMask key="autoresizingMask"/>
             <size key="intercellSpacing" width="3" height="2"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <tableViewGridLines key="gridStyleMask" vertical="YES" horizontal="YES"/>
             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
             <tableColumns>
                 <tableColumn identifier="col1" width="120" minWidth="120" maxWidth="120" id="YL4-Ij-QrB">

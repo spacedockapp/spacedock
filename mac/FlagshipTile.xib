@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
@@ -12,11 +12,11 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
-        <customView id="acu-B8-hX4">
+        <customView id="acu-B8-hX4" customClass="DockBoxView">
             <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Qc-of-Jmx">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="0Qc-of-Jmx">
                     <rect key="frame" x="-2" y="103" width="124" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="MKA-M3-Oz3">
@@ -28,9 +28,9 @@
                         <binding destination="-2" name="value" keyPath="self.flagship.title" id="WaF-0s-vN0"/>
                     </connections>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hqx-kE-TME" userLabel="hull">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="hqx-kE-TME" userLabel="hull">
                     <rect key="frame" x="-1" y="40" width="29" height="19"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" id="BQU-Ke-VtI">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -40,9 +40,9 @@
                         <binding destination="-2" name="value" keyPath="self.flagship.styledHull" id="dyr-Uo-jSw"/>
                     </connections>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E37-cW-NKq" userLabel="shield">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="E37-cW-NKq" userLabel="shield">
                     <rect key="frame" x="-1" y="19" width="29" height="19"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" id="GHB-eM-zzE">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -52,9 +52,9 @@
                         <binding destination="-2" name="value" keyPath="self.flagship.styledShield" id="aOt-4H-T6w"/>
                     </connections>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bvm-18-neG" userLabel="agility">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="bvm-18-neG" userLabel="agility">
                     <rect key="frame" x="-1" y="61" width="29" height="19"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" id="i03-1A-fd6">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -64,9 +64,9 @@
                         <binding destination="-2" name="value" keyPath="self.flagship.styledAgility" id="Jdt-Pd-wRl"/>
                     </connections>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lnv-sO-TOO" userLabel="attack">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="lnv-sO-TOO" userLabel="attack">
                     <rect key="frame" x="-1" y="82" width="29" height="19"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" id="nbk-xe-fcY">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -76,9 +76,9 @@
                         <binding destination="-2" name="value" keyPath="self.flagship.styledAttack" id="tWY-D1-BMb"/>
                     </connections>
                 </textField>
-                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CBQ-K5-gkB">
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="CBQ-K5-gkB">
                     <rect key="frame" x="24" y="27" width="92" height="73"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Multiline Label" id="Qww-kg-qUG">
                         <font key="font" metaFont="system" size="6"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -88,9 +88,9 @@
                         <binding destination="-2" name="value" keyPath="self.flagship.ability" id="2wi-UO-yjP"/>
                     </connections>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oa4-8a-JBl">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="oa4-8a-JBl">
                     <rect key="frame" x="-2" y="0.0" width="124" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="tTU-Y1-hZP">
                         <font key="font" metaFont="system" size="7"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
