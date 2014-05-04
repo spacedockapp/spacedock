@@ -115,7 +115,8 @@ public class Squad extends SquadBase {
         return fighters;
     }
 
-    public void importFromObject(Universe universe, boolean replaceUuid, JSONObject jsonObject, boolean strict)
+    public void importFromObject(Universe universe, boolean replaceUuid, JSONObject jsonObject,
+            boolean strict)
             throws JSONException {
         setNotes(jsonObject.optString(JSON_LABEL_NOTES, ""));
         setName(jsonObject.optString(JSON_LABEL_NAME, "Untitled"));
@@ -150,14 +151,15 @@ public class Squad extends SquadBase {
                     throw new RuntimeException("Can't find ship " + shipId);
                 }
             }
-            if (currentShip != null) {
+            if (currentShip != null && !currentShip.isFighterSquadron()) {
                 currentShip.importUpgrades(universe, shipData, strict);
                 addEquippedShip(currentShip);
             }
         }
     }
 
-    public void importFromStream(Universe universe, InputStream is, boolean replaceUuid, boolean strict)
+    public void importFromStream(Universe universe, InputStream is, boolean replaceUuid,
+            boolean strict)
             throws JSONException {
         JSONTokener tokenizer = new JSONTokener(DataUtils.convertStreamToString(is));
         JSONObject jsonObject = new JSONObject(tokenizer);
@@ -178,7 +180,9 @@ public class Squad extends SquadBase {
         JSONArray shipsArray = new JSONArray();
         int index = 0;
         for (EquippedShip ship : equippedShips) {
-            shipsArray.put(index++, ship.asJSON());
+            if (!ship.isFighterSquadron()) {
+                shipsArray.put(index++, ship.asJSON());
+            }
         }
         o.put(JSON_LABEL_SHIPS, shipsArray);
         return o;
@@ -197,16 +201,25 @@ public class Squad extends SquadBase {
 
     public void addEquippedShip(EquippedShip ship) {
         mEquippedShips.add(ship);
+        if (ship.isFighterSquadron()) {
+            setResource(ship.getShip().getAssociatedResource());
+        }
         ship.setSquad(this);
         // Sort to make sure the sideboard is always the last ship
         Comparator<EquippedShip> comparator = new Comparator<EquippedShip>() {
             @Override
             public int compare(EquippedShip arg0, EquippedShip arg1) {
-                if (arg0.getIsResourceSideboard() == arg1.getIsResourceSideboard()) {
-                    return 0;
+                if (arg0.getIsResourceSideboard()) {
+                    if (arg1.getIsResourceSideboard()) {
+                        return 0;
+                    }
+                    return 1;
                 }
 
-                if (arg0.getIsResourceSideboard()) {
+                if (arg0.isFighterSquadron()) {
+                    if (arg1.isFighterSquadron()) {
+                        return 0;
+                    }
                     return 1;
                 }
 
@@ -218,6 +231,9 @@ public class Squad extends SquadBase {
 
     public void removeEquippedShip(EquippedShip ship) {
         mEquippedShips.remove(ship);
+        if (ship.getShip().isFighterSquadron()) {
+            setResource(null);
+        }
         ship.setSquad(null);
     }
 
@@ -226,8 +242,9 @@ public class Squad extends SquadBase {
 
         Resource resource = getResource();
 
-        if (resource != null && !resource.getIsFlagship()) {
+        if (resource != null && !resource.getIsFlagship() && !resource.getIsFighterSquadron()) {
             // flagship cost taken into account when assigned to EquippedShip
+            // Fighters appear as ships
             cost += resource.getCost();
         }
 
@@ -354,13 +371,19 @@ public class Squad extends SquadBase {
                     removeSideboard();
                 } else if (oldResource.getIsFlagship()) {
                     removeFlagship();
+                } else if (oldResource.getIsFighterSquadron()) {
+                    removeFighterSquadron();
                 }
             }
 
             super.setResource(resource);
 
-            if (resource != null && resource.getIsSideboard()) {
-                addSideboard();
+            if (resource != null) {
+                if (resource.getIsSideboard()) {
+                    addSideboard();
+                } else if (resource.getIsFighterSquadron()) {
+                    addFighterSquadron();
+                }
             }
         }
         return this;

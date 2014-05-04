@@ -71,24 +71,24 @@ public class FlagshipBase extends SetItem {
     public void update(Map<String,Object> data) {
         super.update(data);
         mAbility = DataUtils.stringValue((String)data.get("Ability"));
-        mAgility = DataUtils.intValue((String)data.get("Agility"));
-        mAttack = DataUtils.intValue((String)data.get("Attack"));
-        mBattleStations = DataUtils.intValue((String)data.get("Battlestations"));
-        mCloak = DataUtils.intValue((String)data.get("Cloak"));
-        mCost = DataUtils.intValue((String)data.get("Cost"));
-        mCrew = DataUtils.intValue((String)data.get("Crew"));
-        mEvasiveManeuvers = DataUtils.intValue((String)data.get("EvasiveManeuvers"));
+        mAgility = DataUtils.intValue((String)data.get("Agility"), 0);
+        mAttack = DataUtils.intValue((String)data.get("Attack"), 0);
+        mBattleStations = DataUtils.intValue((String)data.get("Battlestations"), 0);
+        mCloak = DataUtils.intValue((String)data.get("Cloak"), 0);
+        mCost = DataUtils.intValue((String)data.get("Cost"), 0);
+        mCrew = DataUtils.intValue((String)data.get("Crew"), 0);
+        mEvasiveManeuvers = DataUtils.intValue((String)data.get("EvasiveManeuvers"), 0);
         mExternalId = DataUtils.stringValue((String)data.get("Id"));
         mFaction = DataUtils.stringValue((String)data.get("Faction"));
-        mHull = DataUtils.intValue((String)data.get("Hull"));
-        mScan = DataUtils.intValue((String)data.get("Scan"));
-        mSensorEcho = DataUtils.intValue((String)data.get("SensorEcho"));
-        mShield = DataUtils.intValue((String)data.get("Shield"));
-        mTalent = DataUtils.intValue((String)data.get("Talent"));
-        mTargetLock = DataUtils.intValue((String)data.get("TargetLock"));
-        mTech = DataUtils.intValue((String)data.get("Tech"));
+        mHull = DataUtils.intValue((String)data.get("Hull"), 0);
+        mScan = DataUtils.intValue((String)data.get("Scan"), 0);
+        mSensorEcho = DataUtils.intValue((String)data.get("SensorEcho"), 0);
+        mShield = DataUtils.intValue((String)data.get("Shield"), 0);
+        mTalent = DataUtils.intValue((String)data.get("Talent"), 0);
+        mTargetLock = DataUtils.intValue((String)data.get("TargetLock"), 0);
+        mTech = DataUtils.intValue((String)data.get("Tech"), 0);
         mTitle = DataUtils.stringValue((String)data.get("Title"));
-        mWeapon = DataUtils.intValue((String)data.get("Weapon"));
+        mWeapon = DataUtils.intValue((String)data.get("Weapon"), 0);
     }
 
 }

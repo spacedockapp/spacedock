@@ -204,7 +204,7 @@ NSString* kExpandedRows = @"expandedRows";
     
     self.expandedRows = [defaults boolForKey: kExpandedRows];
     
-#if 0
+#if 1
     [self exportDataModel: nil];
 #endif
 }
@@ -1721,6 +1721,7 @@ void addRemoveFlagshipItem(NSMenu *menu)
 
 -(IBAction)printBuildMat:(id)sender
 {
+    [self exportDataModel: sender]; return;
     _buildMat = [[DockBuildMat alloc] initWithSquad: [self selectedSquad]];
     [_buildMat print];
 }

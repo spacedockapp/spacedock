@@ -13,8 +13,8 @@ public class CaptainBase extends Upgrade {
 
     public void update(Map<String,Object> data) {
         super.update(data);
-        mSkill = DataUtils.intValue((String)data.get("Skill"));
-        mTalent = DataUtils.intValue((String)data.get("Talent"));
+        mSkill = DataUtils.intValue((String)data.get("Skill"), 0);
+        mTalent = DataUtils.intValue((String)data.get("Talent"), 0);
     }
 
 }

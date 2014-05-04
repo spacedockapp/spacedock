@@ -35,7 +35,7 @@ public class ResourceBase extends SetItem {
     public void update(Map<String,Object> data) {
         super.update(data);
         mAbility = DataUtils.stringValue((String)data.get("Ability"));
-        mCost = DataUtils.intValue((String)data.get("Cost"));
+        mCost = DataUtils.intValue((String)data.get("Cost"), 1);
         mExternalId = DataUtils.stringValue((String)data.get("Id"));
         mSpecial = DataUtils.stringValue((String)data.get("Special"));
         mTitle = DataUtils.stringValue((String)data.get("Title"));

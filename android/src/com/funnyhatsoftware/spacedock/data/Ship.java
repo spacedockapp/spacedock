@@ -162,6 +162,17 @@ public class Ship extends ShipBase {
         return false;
     }
 
+    public Resource getAssociatedResource() {
+        String shipClass = getShipClass();
+        if (shipClass.equals(Constants.FED_FIGHTERS)) {
+            return Universe.getUniverse().getResource(Constants.FED_FIGHTER_RESOURCE_ID);
+        }
+        if (shipClass.equals(Constants.HIDEKIS)) {
+            return Universe.getUniverse().getResource(Constants.HIDEKIS_RESOURCE_ID);
+        }
+        return null;
+    }
+
     public ArrayList<String> actionStrings() {
         ArrayList<String> actions = new ArrayList<String>();
         if (mScan > 0) {

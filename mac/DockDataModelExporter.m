@@ -246,8 +246,25 @@ void emitCastToTarget(NSString *javaClassName, NSMutableString *javaClass)
             } else {
                 attributeName = makeXmlKey(desc.name, name);
             }
-            [javaClass appendFormat: @"        %@ = %@((String)data.get(\"%@\"));\n",
-                    instanceName, attributeTypeToJavaConversion(desc.attributeType), attributeName];
+            NSAttributeType attrType = desc.attributeType;
+            switch (attrType) {
+                case NSInteger16AttributeType:
+                case NSInteger32AttributeType:
+                case NSInteger64AttributeType:
+                    [javaClass appendFormat: @"        %@ = %@((String)data.get(\"%@\"), %d);\n",
+                     instanceName, attributeTypeToJavaConversion(desc.attributeType), attributeName, [desc.defaultValue intValue]];
+                    
+                    break;
+                    
+                case NSStringAttributeType:
+                    [javaClass appendFormat: @"        %@ = %@((String)data.get(\"%@\"), \"%@\");\n",
+                     instanceName, attributeTypeToJavaConversion(desc.attributeType), attributeName, [desc.defaultValue stringValue]];
+                     break;
+                default:
+                    [javaClass appendFormat: @"        %@ = %@((String)data.get(\"%@\"));\n",
+                     instanceName, attributeTypeToJavaConversion(desc.attributeType), attributeName];
+                    break;
+            }
         }
     }
     [javaClass appendString: @"    }\n\n"];

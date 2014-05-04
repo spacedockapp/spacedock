@@ -367,13 +367,12 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public void establishPlaceholders() {
-        if (getCaptain() == null) {
-            String faction = shipFaction();
-            if (faction.equals("Federation") || faction.equals("Bajoran")) {
-                faction = "Federation";
+        if (getShip().getCaptainLimit() > 0) {
+            if (getCaptain() == null) {
+                String faction = shipFaction();
+                Upgrade zcc = Captain.zeroCostCaptain(faction);
+                addUpgrade(zcc, null, false);
             }
-            Upgrade zcc = Captain.zeroCostCaptain(faction);
-            addUpgrade(zcc, null, false);
         }
 
         establishPlaceholdersForType("Talent", getTalent());
@@ -544,7 +543,7 @@ public class EquippedShip extends EquippedShipBase {
         }
         return null;
     }
-    
+
     public EquippedShip duplicate() {
         // TODO need to implement duplicate
         throw new RuntimeException("Not yet implemented");
@@ -845,4 +844,5 @@ public class EquippedShip extends EquippedShipBase {
     public boolean isFighterSquadron() {
         return mShip != null && mShip.isFighterSquadron();
     }
+
 }
