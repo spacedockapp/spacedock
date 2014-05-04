@@ -1,5 +1,6 @@
 #import "DockBuildMat.h"
 
+#import "DockCaptain+Addons.h"
 #import "DockEquippedFlagship.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
@@ -172,11 +173,26 @@
 -(void)update
 {
     [_rows removeAllObjects];
-    NSUInteger rowCount = _targetSquad.equippedShips.count;
+    NSComparator c = ^(id a, id b) {
+        DockEquippedShip* shipA = a;
+        DockCaptain* captainA = shipA.captain;
+        DockEquippedShip* shipB = b;
+        DockCaptain* captainB = shipB.captain;
+        NSComparisonResult res = [captainA.skill compare: captainB.skill];
+        if (res == NSOrderedSame) {
+            res = [shipA.plainDescription compare: shipB.plainDescription];
+        }
+        if (res == NSOrderedSame) {
+            res = [captainA.title compare: captainB.plainDescription];
+        }
+        return res;
+    };
+    NSArray* sortedShips = [_targetSquad.equippedShips sortedArrayUsingComparator: c];
+    NSUInteger rowCount = sortedShips.count;
     for (NSUInteger i = 0; i < rowCount; ++i) {
         NSMutableArray* oneRow = [[NSMutableArray alloc] initWithCapacity: 6];
         [_rows addObject: oneRow];
-        DockEquippedShip* equippedShip = _targetSquad.equippedShips[i];
+        DockEquippedShip* equippedShip = sortedShips[i];
         DockShip* ship = equippedShip.ship;
         DockMoveGridTile* moveTile = [[DockMoveGridTile alloc] initWithShip: ship];
         [oneRow addObject: moveTile];
