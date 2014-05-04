@@ -86,6 +86,24 @@
 
 @end
 
+@interface DockFlagshipTile : DockBuildMatTile
+@property (strong, nonatomic) DockFlagship* flagship;
+-(id)initWithFlagship:(DockFlagship*)flagship;
+@end
+
+@implementation DockFlagshipTile
+
+-(id)initWithFlagship:(DockFlagship*)flagship
+{
+    self = [super initWithNib: @"FlagshipTile"];
+    if (self != nil) {
+        self.flagship = flagship;
+    }
+    return self;
+}
+
+@end
+
 @interface DockBuildMat () <NSTableViewDataSource>
 @property (strong, nonatomic) NSArray* topLevelObjects;
 @property (nonatomic, strong) NSMutableArray* rows;
@@ -144,6 +162,11 @@
         [oneRow addObject: moveTile];
         DockShipTile* shipTile = [[DockShipTile alloc] initWithShip: ship];
         [oneRow addObject: shipTile];
+        DockFlagship* flagship = equippedShip.flagship;
+        if (flagship) {
+            DockFlagshipTile* flagshipTile = [[DockFlagshipTile alloc] initWithFlagship: flagship];
+            [oneRow addObject: flagshipTile];
+        }
         for (DockEquippedUpgrade* equippedUpgrade in equippedShip.sortedUpgrades) {
             DockUpgrade* upgrade = equippedUpgrade.upgrade;
             if (upgrade.isCaptain) {
