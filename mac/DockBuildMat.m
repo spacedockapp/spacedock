@@ -174,11 +174,19 @@
 {
     [_rows removeAllObjects];
     NSComparator c = ^(id a, id b) {
+        NSNumber* skillA = @6;
+        NSNumber* skillB = @6;
         DockEquippedShip* shipA = a;
         DockCaptain* captainA = shipA.captain;
+        if (captainA) {
+            skillA = captainA.skill;
+        }
         DockEquippedShip* shipB = b;
         DockCaptain* captainB = shipB.captain;
-        NSComparisonResult res = [captainA.skill compare: captainB.skill];
+        if (captainB) {
+            skillB = captainB.skill;
+        }
+        NSComparisonResult res = [skillA compare: skillB];
         if (res == NSOrderedSame) {
             res = [shipA.plainDescription compare: shipB.plainDescription];
         }
