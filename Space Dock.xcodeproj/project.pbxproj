@@ -205,6 +205,7 @@
 		D4CCF849188AEF4A000A2C44 /* NSMutableDictionary+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CCF848188AEF4A000A2C44 /* NSMutableDictionary+Addons.m */; };
 		D4CCF84A188AEF4A000A2C44 /* NSMutableDictionary+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CCF848188AEF4A000A2C44 /* NSMutableDictionary+Addons.m */; };
 		D4CEF4E118602B6E007FA6F4 /* DockFleetBuildSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CEF4E018602B6E007FA6F4 /* DockFleetBuildSheet.m */; };
+		D4D2BD19191683F300ADA866 /* CaptainTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D2BD18191683F300ADA866 /* CaptainTile.xib */; };
 		D4D32EB918EF08E70055B015 /* DockSquadImporteriOS.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D32EB818EF08E70055B015 /* DockSquadImporteriOS.m */; };
 		D4D7092F1825F9F8004F4F1E /* DockUpgradeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D7092D1825F770004F4F1E /* DockUpgradeDetailViewController.m */; };
 		D4D7BE6817F76FB50070D94D /* DockCaptain+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D7BE6717F76FB50070D94D /* DockCaptain+Addons.m */; };
@@ -521,6 +522,7 @@
 		D4CCF848188AEF4A000A2C44 /* NSMutableDictionary+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Addons.m"; sourceTree = "<group>"; };
 		D4CEF4DF18602B6E007FA6F4 /* DockFleetBuildSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockFleetBuildSheet.h; sourceTree = "<group>"; };
 		D4CEF4E018602B6E007FA6F4 /* DockFleetBuildSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockFleetBuildSheet.m; sourceTree = "<group>"; };
+		D4D2BD18191683F300ADA866 /* CaptainTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CaptainTile.xib; sourceTree = "<group>"; };
 		D4D32EB718EF08E70055B015 /* DockSquadImporteriOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockSquadImporteriOS.h; sourceTree = "<group>"; };
 		D4D32EB818EF08E70055B015 /* DockSquadImporteriOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockSquadImporteriOS.m; sourceTree = "<group>"; };
 		D4D7092C1825F770004F4F1E /* DockUpgradeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockUpgradeDetailViewController.h; sourceTree = "<group>"; };
@@ -915,12 +917,11 @@
 		D4BCA3D71814EC0900921183 /* mac */ = {
 			isa = PBXGroup;
 			children = (
+				D4D2BD1719167FBE00ADA866 /* Build Mat */,
 				D4A66CA518A08C060050A37A /* DockAbilityDelegate.h */,
 				D4A66CA618A08C060050A37A /* DockAbilityDelegate.m */,
 				D4BCA3D81814EC0900921183 /* DockAppDelegate.h */,
 				D4BCA3D91814EC0900921183 /* DockAppDelegate.m */,
-				D4EF855C191592260049235E /* DockBuildMat.h */,
-				D4EF855D191592260049235E /* DockBuildMat.m */,
 				D43FE81018C3A85A00AECA5F /* DockCaptain+MacAddons.h */,
 				D43FE81118C3A85A00AECA5F /* DockCaptain+MacAddons.m */,
 				D428F12F18FD74E90007D963 /* DockDataModelExporter.h */,
@@ -964,10 +965,8 @@
 				D4BCA3DC1814EC0900921183 /* Credits.rtf */,
 				D4BCA3DE1814EC0900921183 /* InfoPlist.strings */,
 				D4F6861C18F97D7D0019C067 /* platform.strings */,
-				D4EF855A191591CC0049235E /* BuildMat.xib */,
 				D4BCA3E01814EC0900921183 /* MainMenu.xib */,
 				D4C8EED4186109F1007BBD1A /* ShipGrid.xib */,
-				D4EF85611915E7620049235E /* ShipTile.xib */,
 				D4BCA3E21814EC0900921183 /* main.m */,
 				D4EA87B118B6ECF20033EC4B /* NSString+Addons.h */,
 				D4EA87B218B6ECF20033EC4B /* NSString+Addons.m */,
@@ -978,6 +977,18 @@
 				D4BCA3E71814EC0900921183 /* space_dock.icns */,
 			);
 			path = mac;
+			sourceTree = "<group>";
+		};
+		D4D2BD1719167FBE00ADA866 /* Build Mat */ = {
+			isa = PBXGroup;
+			children = (
+				D4EF855C191592260049235E /* DockBuildMat.h */,
+				D4EF855D191592260049235E /* DockBuildMat.m */,
+				D4EF855A191591CC0049235E /* BuildMat.xib */,
+				D4D2BD18191683F300ADA866 /* CaptainTile.xib */,
+				D4EF85611915E7620049235E /* ShipTile.xib */,
+			);
+			name = "Build Mat";
 			sourceTree = "<group>";
 		};
 		D4F7F3E917F2C95D00F5A808 /* src */ = {
@@ -1181,6 +1192,7 @@
 				D4F7F40E17F2C95D00F5A808 /* Data.xml in Resources */,
 				D4408DC518446B84008BA352 /* red-left-bank.pdf in Resources */,
 				D4408DC118446B84008BA352 /* red-about.pdf in Resources */,
+				D4D2BD19191683F300ADA866 /* CaptainTile.xib in Resources */,
 				D460664D18FC2C22007A1655 /* green-left-spin.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

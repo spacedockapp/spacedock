@@ -1,29 +1,27 @@
 #import "DockBuildMat.h"
 
+#import "DockEquippedFlagship.h"
 #import "DockEquippedShip+Addons.h"
+#import "DockEquippedUpgrade+Addons.h"
 #import "DockMoveGrid.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
+#import "DockUpgrade+Addons.h"
 
-@interface DockShipTile : NSObject
--(id)initWithShip:(DockShip*)ship;
-@end
-
-@interface DockShipTile ()
-@property (assign, nonatomic) IBOutlet NSView* view;
+@interface DockBuildMatTile : NSObject
+@property (strong, nonatomic) IBOutlet NSView* view;
 @property (strong, nonatomic) NSArray* topLevelObjects;
-@property (strong, nonatomic) DockShip* ship;
+-(id)initWithNib:(NSString*)nibName;
 @end
 
-@implementation DockShipTile
+@implementation DockBuildMatTile
 
--(id)initWithShip:(DockShip*)ship
+-(id)initWithNib:(NSString*)nibName
 {
     self = [super init];
     if (self != nil) {
-        self.ship = ship;
         NSArray* tla;
-        [[NSBundle mainBundle] loadNibNamed: @"ShipTile" owner: self topLevelObjects: &tla];
+        [[NSBundle mainBundle] loadNibNamed: nibName owner: self topLevelObjects: &tla];
         self.topLevelObjects = tla;
     }
     return self;
@@ -31,9 +29,66 @@
 
 @end
 
+@interface DockShipTile : DockBuildMatTile
+@property (strong, nonatomic) DockShip* ship;
+-(id)initWithShip:(DockShip*)ship;
+@end
+
+@implementation DockShipTile
+
+-(id)initWithShip:(DockShip*)ship
+{
+    self = [super initWithNib: @"ShipTile"];
+    if (self != nil) {
+        self.ship = ship;
+    }
+    return self;
+}
+
+@end
+
+@interface DockMoveGridTile : DockBuildMatTile
+@property (strong, nonatomic) DockShip* ship;
+-(id)initWithShip:(DockShip*)ship;
+@end
+
+@implementation DockMoveGridTile
+
+-(id)initWithShip:(DockShip*)ship
+{
+    self = [super init];
+    if (self != nil) {
+        self.ship = ship;
+        DockMoveGrid* grid = [[DockMoveGrid alloc] init];
+        grid.ship = ship;
+        self.view = grid;
+    }
+    return self;
+}
+
+@end
+
+@interface DockCaptainTile : DockBuildMatTile
+@property (strong, nonatomic) DockCaptain* captain;
+-(id)initWithCaptain:(DockCaptain*)captain;
+@end
+
+@implementation DockCaptainTile
+
+-(id)initWithCaptain:(DockCaptain*)captain
+{
+    self = [super initWithNib: @"CaptainTile"];
+    if (self != nil) {
+        self.captain = captain;
+    }
+    return self;
+}
+
+@end
+
 @interface DockBuildMat () <NSTableViewDataSource>
-@property (nonatomic, strong) NSArray* topLevelObjects;
-@property (nonatomic, strong) NSMutableArray* tiles;
+@property (strong, nonatomic) NSArray* topLevelObjects;
+@property (nonatomic, strong) NSMutableArray* rows;
 @property (nonatomic, strong) DockSquad* targetSquad;
 @property (nonatomic, strong) NSArrayController* squadsController;
 @property (nonatomic, strong) IBOutlet NSWindow* window;
@@ -46,6 +101,7 @@
 {
     self = [super init];
     if (self != nil) {
+        _rows = [[NSMutableArray alloc] initWithCapacity: 0];
         self.squadsController = squadsController;
         [_squadsController addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     }
@@ -77,32 +133,47 @@
 
 -(void)update
 {
-    [_tiles removeAllObjects];
+    [_rows removeAllObjects];
+    NSUInteger rowCount = _targetSquad.equippedShips.count;
+    for (NSUInteger i = 0; i < rowCount; ++i) {
+        NSMutableArray* oneRow = [[NSMutableArray alloc] initWithCapacity: 6];
+        [_rows addObject: oneRow];
+        DockEquippedShip* equippedShip = _targetSquad.equippedShips[i];
+        DockShip* ship = equippedShip.ship;
+        DockMoveGridTile* moveTile = [[DockMoveGridTile alloc] initWithShip: ship];
+        [oneRow addObject: moveTile];
+        DockShipTile* shipTile = [[DockShipTile alloc] initWithShip: ship];
+        [oneRow addObject: shipTile];
+        for (DockEquippedUpgrade* equippedUpgrade in equippedShip.sortedUpgrades) {
+            DockUpgrade* upgrade = equippedUpgrade.upgrade;
+            if (upgrade.isCaptain) {
+                DockCaptainTile* captainTile = [[DockCaptainTile alloc] initWithCaptain: equippedShip.captain];
+                [oneRow addObject: captainTile];
+            }
+            if (oneRow.count > 5) {
+                oneRow = [[NSMutableArray alloc] initWithCapacity: 6];
+                [_rows addObject: oneRow];
+            }
+        }
+    }
     [_tableView reloadData];
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
-    return _targetSquad.equippedShips.count;
+    return _rows.count;
 }
 
 -(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    DockEquippedShip* equippedShip = _targetSquad.equippedShips[row];
-    DockShip* ship = equippedShip.ship;
     NSUInteger column = [[tableView tableColumns] indexOfObject: tableColumn];
     NSRect c = [tableView rectOfColumn: column];
     NSRect r = [tableView rectOfRow: row];
     NSRect cellRect = NSIntersectionRect(c, r);
-    if (column == 0) {
-        DockMoveGrid* grid = [[DockMoveGrid alloc] initWithFrame: cellRect];
-        grid.ship = ship;
-        return grid;
-    }
-    if (column == 1) {
-        DockShipTile* shipTile = [[DockShipTile alloc] initWithShip: ship];
-        [_tiles addObject: shipTile];
-        return shipTile.view;
+    NSArray* oneRow = _rows[row];
+    if (column < oneRow.count) {
+        DockBuildMatTile* tile = oneRow[column];
+        return tile.view;
     }
     return [[NSView alloc] initWithFrame: cellRect];
 }
