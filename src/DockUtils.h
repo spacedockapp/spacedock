@@ -11,3 +11,4 @@ NSAttributedString* makeCentered(NSAttributedString* s);
 NSString* factionCode(id target);
 NSString* resourceCost(DockSquad* targetSquad);
 NSString* otherCost(DockSquad* targetSquad);
+NSArray* actionStrings(id target);

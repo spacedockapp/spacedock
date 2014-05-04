@@ -1,6 +1,7 @@
 #import "DockUtils.h"
 
 #import "DockResource+Addons.h"
+#import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockUpgrade.h"
 
@@ -58,3 +59,39 @@ NSString* otherCost(DockSquad* targetSquad)
     }
     return @"";
 }
+
+NSArray* actionStrings(id target)
+{
+    NSMutableArray* actionStringParts = [NSMutableArray arrayWithCapacity: 0];
+
+    if ([[target scan] intValue]) {
+        [actionStringParts addObject: @"Scan"];
+    }
+
+    if ([[target cloak] intValue]) {
+        [actionStringParts addObject: @"Cloak"];
+    }
+
+    if ([[target sensorEcho] intValue]) {
+        [actionStringParts addObject: @"Echo"];
+    }
+
+    if ([[target battleStations] intValue]) {
+        [actionStringParts addObject: @"Battle"];
+    }
+
+    if ([[target evasiveManeuvers] intValue]) {
+        [actionStringParts addObject: @"Evasive"];
+    }
+
+    if ([[target targetLock] intValue]) {
+        [actionStringParts addObject: @"Lock"];
+    }
+
+    if ([[target regenerate] intValue]) {
+        [actionStringParts addObject: @"Regen"];
+    }
+
+    return [NSArray arrayWithArray: actionStringParts];
+}
+

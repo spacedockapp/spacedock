@@ -254,33 +254,7 @@ NSString* asDegrees(NSString* textValue)
 
 -(NSArray*)actionStrings
 {
-    NSMutableArray* actionStringParts = [NSMutableArray arrayWithCapacity: 0];
-
-    if ([self.scan intValue]) {
-        [actionStringParts addObject: @"Scan"];
-    }
-
-    if ([self.cloak intValue]) {
-        [actionStringParts addObject: @"Cloak"];
-    }
-
-    if ([self.battleStations intValue]) {
-        [actionStringParts addObject: @"Battle"];
-    }
-
-    if ([self.evasiveManeuvers intValue]) {
-        [actionStringParts addObject: @"Evade"];
-    }
-
-    if ([self.targetLock intValue]) {
-        [actionStringParts addObject: @"Lock"];
-    }
-
-    if ([self.regenerate intValue]) {
-        [actionStringParts addObject: @"Regen"];
-    }
-
-    return [NSArray arrayWithArray: actionStringParts];
+    return actionStrings(self);
 }
 
 -(NSString*)actionString
