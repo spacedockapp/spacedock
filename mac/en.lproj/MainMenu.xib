@@ -124,6 +124,12 @@
                                     <action selector="printFleetBuildSheet:" target="-1" id="AmY-RV-Jkh"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Print Build Mat..." keyEquivalent="b" id="KdJ-Ar-Nv4">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="printBuildMat:" target="494" id="Ssr-a5-FV2"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
@@ -522,12 +528,6 @@
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="showInspector:" target="-1" id="aHY-2Z-7dM"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Show Build Mat" keyEquivalent="b" id="WMA-JW-kC6">
-                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                <connections>
-                                    <action selector="showBuildMat:" target="494" id="QWz-UY-NSI"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Show FAQ" id="K6d-CG-Rxh">

@@ -154,45 +154,19 @@
 @property (strong, nonatomic) NSArray* topLevelObjects;
 @property (nonatomic, strong) NSMutableArray* rows;
 @property (nonatomic, strong) DockSquad* targetSquad;
-@property (nonatomic, strong) NSArrayController* squadsController;
-@property (nonatomic, strong) IBOutlet NSWindow* window;
 @property (nonatomic, strong) IBOutlet NSTableView* tableView;
 @end
 
 @implementation DockBuildMat
 
--(id)initWithSquads:(NSArrayController*)squadsController
+-(id)initWithSquad:(DockSquad*)targetSquad
 {
     self = [super init];
     if (self != nil) {
+        self.targetSquad = targetSquad;
         _rows = [[NSMutableArray alloc] initWithCapacity: 0];
-        self.squadsController = squadsController;
-        [_squadsController addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     }
     return self;
-}
-
--(void)show
-{
-    if (_window == nil) {
-        NSArray* a;
-        NSBundle* mainBundle = [NSBundle mainBundle];
-        [mainBundle loadNibNamed: @"BuildMat" owner: self topLevelObjects: &a];
-        _topLevelObjects = a;
-        self.targetSquad = _squadsController.selectedObjects.firstObject;
-        [self update];
-    }
-    [_window makeKeyAndOrderFront: nil];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    NSArray* selected = _squadsController.selectedObjects;
-    DockSquad* target = selected.firstObject;
-    if (_targetSquad != target) {
-        self.targetSquad = target;
-        [self update];
-    }
 }
 
 -(void)update
@@ -256,6 +230,32 @@
         return tile.view;
     }
     return [[NSView alloc] initWithFrame: cellRect];
+}
+
+-(void)print
+{
+    if (_tableView == nil) {
+        NSArray* a;
+        NSBundle* mainBundle = [NSBundle mainBundle];
+        [mainBundle loadNibNamed: @"BuildMat" owner: self topLevelObjects: &a];
+        _topLevelObjects = a;
+    }
+    [self update];
+    NSPrintInfo* info = [NSPrintInfo sharedPrintInfo];
+    info.leftMargin = 0;
+    info.rightMargin = 0;
+    info.topMargin = 0;
+    info.bottomMargin = 0;
+    NSMutableDictionary* dict = [info dictionary];
+    dict[NSPrintHorizontalPagination] = [NSNumber numberWithInt: NSFitPagination];
+    dict[NSPrintVerticalPagination] = [NSNumber numberWithInt: NSAutoPagination];
+    dict[NSPrintHorizontallyCentered] = [NSNumber numberWithBool: YES];
+    dict[NSPrintVerticallyCentered] = [NSNumber numberWithBool: YES];
+    dict[NSPrintOrientation] = [NSNumber numberWithInt: NSLandscapeOrientation];
+    NSRect r = [info imageablePageBounds];
+    [_tableView setFrameSize: r.size];
+    [_tableView sizeToFit];
+    [[NSPrintOperation printOperationWithView: _tableView] runOperation];
 }
 
 @end

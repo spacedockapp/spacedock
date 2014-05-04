@@ -1,6 +1,8 @@
 #import <Foundation/Foundation.h>
 
+@class DockSquad;
+
 @interface DockBuildMat : NSObject
--(id)initWithSquads:(NSArrayController*)squadsController;
--(void)show;
+-(id)initWithSquad:(DockSquad*)targetSquad;
+-(void)print;
 @end

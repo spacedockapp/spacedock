@@ -171,6 +171,7 @@
 		D4757C391902D9D200CF173B /* romulan_2_ship.spacedock in Resources */ = {isa = PBXBuildFile; fileRef = D4757C381902D9D200CF173B /* romulan_2_ship.spacedock */; };
 		D475C66A19168CFF00275EF1 /* UpgradeTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = D475C66919168CFF00275EF1 /* UpgradeTile.xib */; };
 		D475C66C19169C1700275EF1 /* WeaponTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = D475C66B19169C1700275EF1 /* WeaponTile.xib */; };
+		D475C66F1916B6E600275EF1 /* DockPaginatedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D475C66E1916B6E600275EF1 /* DockPaginatedTableView.m */; };
 		D485E08D18EA3F5E00ACD8AD /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D485E08A18EA3F0800ACD8AD /* Sparkle.framework */; };
 		D485E09118EA94ED00ACD8AD /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D485E08A18EA3F0800ACD8AD /* Sparkle.framework */; };
 		D49709FF1852E7B3001BC375 /* DockFAQViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = D49709FE1852E7B3001BC375 /* DockFAQViewer.m */; };
@@ -468,6 +469,8 @@
 		D4757C381902D9D200CF173B /* romulan_2_ship.spacedock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = romulan_2_ship.spacedock; path = android/test/assets/romulan_2_ship.spacedock; sourceTree = SOURCE_ROOT; };
 		D475C66919168CFF00275EF1 /* UpgradeTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpgradeTile.xib; sourceTree = "<group>"; };
 		D475C66B19169C1700275EF1 /* WeaponTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeaponTile.xib; sourceTree = "<group>"; };
+		D475C66D1916B6E600275EF1 /* DockPaginatedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockPaginatedTableView.h; sourceTree = "<group>"; };
+		D475C66E1916B6E600275EF1 /* DockPaginatedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockPaginatedTableView.m; sourceTree = "<group>"; };
 		D485E08A18EA3F0800ACD8AD /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Sparkle/Sparkle.framework; sourceTree = "<group>"; };
 		D49709FD1852E7B3001BC375 /* DockFAQViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockFAQViewer.h; sourceTree = "<group>"; };
 		D49709FE1852E7B3001BC375 /* DockFAQViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockFAQViewer.m; sourceTree = "<group>"; };
@@ -990,6 +993,8 @@
 			children = (
 				D4EF855C191592260049235E /* DockBuildMat.h */,
 				D4EF855D191592260049235E /* DockBuildMat.m */,
+				D475C66D1916B6E600275EF1 /* DockPaginatedTableView.h */,
+				D475C66E1916B6E600275EF1 /* DockPaginatedTableView.m */,
 				D4EF855A191591CC0049235E /* BuildMat.xib */,
 				D4D2BD18191683F300ADA866 /* CaptainTile.xib */,
 				D4D2BD1A191687FA00ADA866 /* FlagshipTile.xib */,
@@ -1348,6 +1353,7 @@
 				D4F6869918F995EA0019C067 /* DockSetItem.m in Sources */,
 				D43D58C618D9E4DB0005BE63 /* ISO8601DateFormatter.m in Sources */,
 				D41BA80817F67FE0005266E6 /* DockShip+Addons.m in Sources */,
+				D475C66F1916B6E600275EF1 /* DockPaginatedTableView.m in Sources */,
 				D4AAA28B17F408D400A99383 /* DockUpgrade+Addons.m in Sources */,
 				D43FE80618C3A13D00AECA5F /* DockUpgrade+MacAddons.m in Sources */,
 				D472A41F187CC159004DAC07 /* DockOverrideEditor.m in Sources */,

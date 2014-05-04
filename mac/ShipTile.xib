@@ -25,7 +25,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="-2" name="value" keyPath="self.ship.title" id="4gO-iV-g7C"/>
+                        <binding destination="-2" name="value" keyPath="self.ship.plainDescription" id="Min-ho-uih"/>
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="P2Q-rk-yWM" userLabel="hull">
@@ -78,7 +78,7 @@
                 </textField>
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="Uxs-GT-ozH">
                     <rect key="frame" x="24" y="27" width="92" height="73"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Multiline Label" id="GhM-2m-lEa">
                         <font key="font" metaFont="system" size="6"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -90,7 +90,7 @@
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="hhZ-kV-TUJ">
                     <rect key="frame" x="-2" y="0.0" width="124" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="hOt-w5-yVN">
                         <font key="font" metaFont="system" size="7"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>

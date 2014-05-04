@@ -1719,12 +1719,10 @@ void addRemoveFlagshipItem(NSMenu *menu)
     }
 }
 
--(IBAction)showBuildMat:(id)sender
+-(IBAction)printBuildMat:(id)sender
 {
-    if (_buildMat == nil) {
-        _buildMat = [[DockBuildMat alloc] initWithSquads: _squadsController];
-    }
-    [_buildMat show];
+    _buildMat = [[DockBuildMat alloc] initWithSquad: [self selectedSquad]];
+    [_buildMat print];
 }
 
 @end
