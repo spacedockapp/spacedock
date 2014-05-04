@@ -1,5 +1,6 @@
 #import "DockAppDelegate.h"
 
+#import "DockBuildMat.h"
 #import "DockCaptain.h"
 #import "DockConstants.h"
 #import "DockCrew.h"
@@ -44,6 +45,7 @@ NSString* kExpandedRows = @"expandedRows";
 @property (copy, nonatomic) NSArray* allSets;
 @property (strong, nonatomic) NSString* upType;
 @property (assign, nonatomic) BOOL expandedRows;
+@property (strong, nonatomic) DockBuildMat* buildMat;
 @end
 
 @implementation DockAppDelegate
@@ -1715,6 +1717,14 @@ void addRemoveFlagshipItem(NSMenu *menu)
     } else {
         [self exportDataModelTo: targetFolder];
     }
+}
+
+-(IBAction)showBuildMat:(id)sender
+{
+    if (_buildMat == nil) {
+        _buildMat = [[DockBuildMat alloc] initWithSquads: _squadsController];
+    }
+    [_buildMat show];
 }
 
 @end

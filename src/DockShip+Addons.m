@@ -283,6 +283,12 @@ NSString* asDegrees(NSString* textValue)
     return [NSArray arrayWithArray: actionStringParts];
 }
 
+-(NSString*)actionString
+{
+    return [[self actionStrings] componentsJoinedByString: @", "];
+}
+
+
 -(void)updateShipClass:(NSString*)newShipClass
 {
     if (self.shipClassDetails == nil || ![self.shipClass isEqualToString: newShipClass]) {

@@ -524,6 +524,12 @@
                                     <action selector="showInspector:" target="-1" id="aHY-2Z-7dM"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Show Build Mat" keyEquivalent="b" id="WMA-JW-kC6">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="showBuildMat:" target="494" id="QWz-UY-NSI"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Show FAQ" id="K6d-CG-Rxh">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES"/>
                                 <connections>
@@ -4641,7 +4647,7 @@
                                                 <tableViewGridLines key="gridStyleMask" vertical="YES" horizontal="YES"/>
                                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                 <tableColumns>
-                                                    <tableColumn identifier="result" width="65" maxWidth="9999" id="wei-vF-ghd">
+                                                    <tableColumn identifier="result" width="67" maxWidth="9999" id="wei-vF-ghd">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Round">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -4654,7 +4660,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="fp" width="35" maxWidth="9999" id="sSZ-So-3lC">
+                                                    <tableColumn identifier="fp" width="33" maxWidth="9999" id="sSZ-So-3lC">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Opponents Name">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -4667,7 +4673,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="cfp" width="50" maxWidth="9999" id="tKZ-05-bF5">
+                                                    <tableColumn identifier="cfp" width="48" maxWidth="9999" id="tKZ-05-bF5">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -4680,7 +4686,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="initials" width="66.5" maxWidth="9999" id="vLw-H6-RFc">
+                                                    <tableColumn identifier="initials" width="68.5" maxWidth="9999" id="vLw-H6-RFc">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
