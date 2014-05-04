@@ -7,6 +7,7 @@
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"
+#import "DockWeapon+Addons.h"
 
 @interface DockBuildMatTile : NSObject
 @property (strong, nonatomic) IBOutlet NSView* view;
@@ -23,6 +24,15 @@
         NSArray* tla;
         [[NSBundle mainBundle] loadNibNamed: nibName owner: self topLevelObjects: &tla];
         self.topLevelObjects = tla;
+    }
+    return self;
+}
+
+-(id)init
+{
+    self = [super init];
+    if (self != nil) {
+        self.view = [[NSView alloc] init];
     }
     return self;
 }
@@ -104,6 +114,42 @@
 
 @end
 
+@interface DockUpgradeTile : DockBuildMatTile
+@property (strong, nonatomic) DockUpgrade* upgrade;
+-(id)initWithUpgrade:(DockUpgrade*)upgrade;
+@end
+
+@implementation DockUpgradeTile
+
+-(id)initWithUpgrade:(DockUpgrade*)upgrade
+{
+    self = [super initWithNib: @"UpgradeTile"];
+    if (self != nil) {
+        self.upgrade = upgrade;
+    }
+    return self;
+}
+
+@end
+
+@interface DockWeaponTile : DockBuildMatTile
+@property (strong, nonatomic) DockWeapon* weapon;
+-(id)initWithWeapon:(DockWeapon*)weapon;
+@end
+
+@implementation DockWeaponTile
+
+-(id)initWithWeapon:(DockWeapon*)weapon
+{
+    self = [super initWithNib: @"WeaponTile"];
+    if (self != nil) {
+        self.weapon = weapon;
+    }
+    return self;
+}
+
+@end
+
 @interface DockBuildMat () <NSTableViewDataSource>
 @property (strong, nonatomic) NSArray* topLevelObjects;
 @property (nonatomic, strong) NSMutableArray* rows;
@@ -168,14 +214,25 @@
             [oneRow addObject: flagshipTile];
         }
         for (DockEquippedUpgrade* equippedUpgrade in equippedShip.sortedUpgrades) {
+            DockBuildMatTile* tile = nil;
             DockUpgrade* upgrade = equippedUpgrade.upgrade;
             if (upgrade.isCaptain) {
-                DockCaptainTile* captainTile = [[DockCaptainTile alloc] initWithCaptain: equippedShip.captain];
-                [oneRow addObject: captainTile];
+                tile = [[DockCaptainTile alloc] initWithCaptain: equippedShip.captain];
+            } else if (!upgrade.isPlaceholder) {
+                if (upgrade.isWeapon) {
+                    tile = [[DockWeaponTile alloc] initWithWeapon: (DockWeapon*)upgrade];
+                } else {
+                    tile = [[DockUpgradeTile alloc] initWithUpgrade: upgrade];
+                }
             }
-            if (oneRow.count > 5) {
-                oneRow = [[NSMutableArray alloc] initWithCapacity: 6];
-                [_rows addObject: oneRow];
+            
+            if (tile != nil) {
+                if (oneRow.count > 5) {
+                    oneRow = [[NSMutableArray alloc] initWithCapacity: 6];
+                    [_rows addObject: oneRow];
+                    [oneRow addObject: [[DockBuildMatTile alloc] init]];
+                }
+                [oneRow addObject: tile];
             }
         }
     }

@@ -16,6 +16,16 @@
     return makeCentered(coloredString(intToString([self.attack intValue]), [NSColor whiteColor], [NSColor redColor]));
 }
 
+-(NSAttributedString*)formattedRange
+{
+    NSString* range = [self range];
+
+    if (range != nil && range.length > 0) {
+        return makeCentered(coloredString(range, [NSColor whiteColor], [NSColor blackColor]));
+    }
+    return nil;
+}
+
 -(int)attackValue
 {
     return [self.attack intValue];

@@ -169,6 +169,8 @@
 		D4757C2F1902CB0100CF173B /* SpaceDockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4757C2E1902CB0100CF173B /* SpaceDockTests.m */; };
 		D4757C371902CCAC00CF173B /* squads_for_test.spacedocksquads in Resources */ = {isa = PBXBuildFile; fileRef = D4757C361902CCAC00CF173B /* squads_for_test.spacedocksquads */; };
 		D4757C391902D9D200CF173B /* romulan_2_ship.spacedock in Resources */ = {isa = PBXBuildFile; fileRef = D4757C381902D9D200CF173B /* romulan_2_ship.spacedock */; };
+		D475C66A19168CFF00275EF1 /* UpgradeTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = D475C66919168CFF00275EF1 /* UpgradeTile.xib */; };
+		D475C66C19169C1700275EF1 /* WeaponTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = D475C66B19169C1700275EF1 /* WeaponTile.xib */; };
 		D485E08D18EA3F5E00ACD8AD /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D485E08A18EA3F0800ACD8AD /* Sparkle.framework */; };
 		D485E09118EA94ED00ACD8AD /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D485E08A18EA3F0800ACD8AD /* Sparkle.framework */; };
 		D49709FF1852E7B3001BC375 /* DockFAQViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = D49709FE1852E7B3001BC375 /* DockFAQViewer.m */; };
@@ -464,6 +466,8 @@
 		D4757C301902CB0100CF173B /* Space Dock Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Space Dock Tests-Prefix.pch"; sourceTree = "<group>"; };
 		D4757C361902CCAC00CF173B /* squads_for_test.spacedocksquads */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = squads_for_test.spacedocksquads; path = android/test/assets/squads_for_test.spacedocksquads; sourceTree = SOURCE_ROOT; };
 		D4757C381902D9D200CF173B /* romulan_2_ship.spacedock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = romulan_2_ship.spacedock; path = android/test/assets/romulan_2_ship.spacedock; sourceTree = SOURCE_ROOT; };
+		D475C66919168CFF00275EF1 /* UpgradeTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpgradeTile.xib; sourceTree = "<group>"; };
+		D475C66B19169C1700275EF1 /* WeaponTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeaponTile.xib; sourceTree = "<group>"; };
 		D485E08A18EA3F0800ACD8AD /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Sparkle/Sparkle.framework; sourceTree = "<group>"; };
 		D49709FD1852E7B3001BC375 /* DockFAQViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockFAQViewer.h; sourceTree = "<group>"; };
 		D49709FE1852E7B3001BC375 /* DockFAQViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockFAQViewer.m; sourceTree = "<group>"; };
@@ -990,6 +994,8 @@
 				D4D2BD18191683F300ADA866 /* CaptainTile.xib */,
 				D4D2BD1A191687FA00ADA866 /* FlagshipTile.xib */,
 				D4EF85611915E7620049235E /* ShipTile.xib */,
+				D475C66919168CFF00275EF1 /* UpgradeTile.xib */,
+				D475C66B19169C1700275EF1 /* WeaponTile.xib */,
 			);
 			name = "Build Mat";
 			sourceTree = "<group>";
@@ -1175,6 +1181,7 @@
 				D4408D9E18445AF2008BA352 /* white-right-turn.pdf in Resources */,
 				D4408DAF184468D5008BA352 /* green-straight.pdf in Resources */,
 				D4BCA3EB1814EC0900921183 /* InfoPlist.strings in Resources */,
+				D475C66C19169C1700275EF1 /* WeaponTile.xib in Resources */,
 				D4408D9418445AF2008BA352 /* white-about.pdf in Resources */,
 				D4408DD618446C03008BA352 /* green-right-turn.pdf in Resources */,
 				D4408D9618445AF2008BA352 /* white-backup.pdf in Resources */,
@@ -1185,6 +1192,7 @@
 				D4C8EED5186109F1007BBD1A /* ShipGrid.xib in Resources */,
 				D460664C18FC2C22007A1655 /* green-right-spin.pdf in Resources */,
 				D460665118FC2C22007A1655 /* white-left-spin.pdf in Resources */,
+				D475C66A19168CFF00275EF1 /* UpgradeTile.xib in Resources */,
 				D4408DD418446C03008BA352 /* green-left-turn.pdf in Resources */,
 				D4EF855B191591CC0049235E /* BuildMat.xib in Resources */,
 				D4408D9818445AF2008BA352 /* white-left-bank.pdf in Resources */,

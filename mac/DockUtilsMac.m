@@ -10,6 +10,16 @@ NSAttributedString* makeCentered(NSAttributedString* s)
     return [[NSAttributedString alloc] initWithAttributedString: as];
 }
 
+NSAttributedString* makeRightAligned(NSAttributedString* s)
+{
+    NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithAttributedString: s];
+    NSMutableParagraphStyle *ps = [[NSMutableParagraphStyle alloc] init];
+    ps.alignment = NSRightTextAlignment;
+    NSRange r = NSMakeRange(0, s.length);
+    [as addAttribute: NSParagraphStyleAttributeName value: ps range: r];
+    return [[NSAttributedString alloc] initWithAttributedString: as];
+}
+
 NSAttributedString* coloredString(NSString* text, NSColor* color, NSColor* backColor)
 {
     id attr = @{
