@@ -175,6 +175,20 @@
 		D475C6721916BD9B00275EF1 /* DockBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = D475C6711916BD9B00275EF1 /* DockBoxView.m */; };
 		D485E08D18EA3F5E00ACD8AD /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D485E08A18EA3F0800ACD8AD /* Sparkle.framework */; };
 		D485E09118EA94ED00ACD8AD /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D485E08A18EA3F0800ACD8AD /* Sparkle.framework */; };
+		D490D9721916C68E00E59234 /* DockBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = D475C6711916BD9B00275EF1 /* DockBoxView.m */; };
+		D490D9731916C68E00E59234 /* DockBuildMat.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EF855D191592260049235E /* DockBuildMat.m */; };
+		D490D9741916C68E00E59234 /* DockPaginatedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D475C66E1916B6E600275EF1 /* DockPaginatedTableView.m */; };
+		D490D9751916C68E00E59234 /* BuildMat.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EF855A191591CC0049235E /* BuildMat.xib */; };
+		D490D9771916C68E00E59234 /* FlagshipTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D2BD1A191687FA00ADA866 /* FlagshipTile.xib */; };
+		D490D9781916C68E00E59234 /* ShipTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EF85611915E7620049235E /* ShipTile.xib */; };
+		D490D9791916C68E00E59234 /* UpgradeTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = D475C66919168CFF00275EF1 /* UpgradeTile.xib */; };
+		D490D97A1916C68E00E59234 /* WeaponTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = D475C66B19169C1700275EF1 /* WeaponTile.xib */; };
+		D490D9891916C72400E59234 /* DockShip+Viper.m in Sources */ = {isa = PBXBuildFile; fileRef = D490D97E1916C72400E59234 /* DockShip+Viper.m */; };
+		D490D98A1916C72400E59234 /* DockViperAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D490D9801916C72400E59234 /* DockViperAppDelegate.m */; };
+		D490D98B1916C72400E59234 /* DockViperDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D490D9821916C72400E59234 /* DockViperDataLoader.m */; };
+		D490D98C1916C72400E59234 /* ViperCredits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D490D9831916C72400E59234 /* ViperCredits.rtf */; };
+		D490D98D1916C72400E59234 /* ViperMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D490D9851916C72400E59234 /* ViperMainMenu.xib */; };
+		D490D98E1916C72400E59234 /* Viper Dock.icns in Resources */ = {isa = PBXBuildFile; fileRef = D490D9871916C72400E59234 /* Viper Dock.icns */; };
 		D49709FF1852E7B3001BC375 /* DockFAQViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = D49709FE1852E7B3001BC375 /* DockFAQViewer.m */; };
 		D4970A021852E8AE001BC375 /* DockFAQLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D4970A011852E8AE001BC375 /* DockFAQLoader.m */; };
 		D49985C9182C0C6E0035A2D1 /* DockResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49985C7182C0AF80035A2D1 /* DockResourcesViewController.m */; };
@@ -293,8 +307,6 @@
 		D4E936CD1909F96C00CAE779 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42BD1EF17EA134B0000598C /* Cocoa.framework */; };
 		D4E936CE1909F96C00CAE779 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D485E08A18EA3F0800ACD8AD /* Sparkle.framework */; };
 		D4E936D01909F96C00CAE779 /* green-right-bank.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D4408DB5184469C4008BA352 /* green-right-bank.pdf */; };
-		D4E936D11909F96C00CAE779 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4BCA3E01814EC0900921183 /* MainMenu.xib */; };
-		D4E936D21909F96C00CAE779 /* red-right-bank.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D4408DBE18446B84008BA352 /* red-right-bank.pdf */; };
 		D4E936D31909F96C00CAE779 /* green-about.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D4408DD818446C3A008BA352 /* green-about.pdf */; };
 		D4E936D41909F96C00CAE779 /* green-backup.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D4408DCF18446BEF008BA352 /* green-backup.pdf */; };
 		D4E936D51909F96C00CAE779 /* platform.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4F6861C18F97D7D0019C067 /* platform.strings */; };
@@ -595,6 +607,15 @@
 		D475C6701916BD9B00275EF1 /* DockBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockBoxView.h; sourceTree = "<group>"; };
 		D475C6711916BD9B00275EF1 /* DockBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockBoxView.m; sourceTree = "<group>"; };
 		D485E08A18EA3F0800ACD8AD /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Sparkle/Sparkle.framework; sourceTree = "<group>"; };
+		D490D97D1916C72400E59234 /* DockShip+Viper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockShip+Viper.h"; sourceTree = "<group>"; };
+		D490D97E1916C72400E59234 /* DockShip+Viper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockShip+Viper.m"; sourceTree = "<group>"; };
+		D490D97F1916C72400E59234 /* DockViperAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockViperAppDelegate.h; sourceTree = "<group>"; };
+		D490D9801916C72400E59234 /* DockViperAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockViperAppDelegate.m; sourceTree = "<group>"; };
+		D490D9811916C72400E59234 /* DockViperDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockViperDataLoader.h; sourceTree = "<group>"; };
+		D490D9821916C72400E59234 /* DockViperDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockViperDataLoader.m; sourceTree = "<group>"; };
+		D490D9841916C72400E59234 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/ViperCredits.rtf; sourceTree = "<group>"; };
+		D490D9861916C72400E59234 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViperMainMenu.xib; sourceTree = "<group>"; };
+		D490D9871916C72400E59234 /* Viper Dock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "Viper Dock.icns"; sourceTree = "<group>"; };
 		D49709FD1852E7B3001BC375 /* DockFAQViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockFAQViewer.h; sourceTree = "<group>"; };
 		D49709FE1852E7B3001BC375 /* DockFAQViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockFAQViewer.m; sourceTree = "<group>"; };
 		D4970A001852E8AE001BC375 /* DockFAQLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DockFAQLoader.h; path = ../src/DockFAQLoader.h; sourceTree = "<group>"; };
@@ -785,6 +806,7 @@
 			children = (
 				D43D58BA18D9E4DB0005BE63 /* external */,
 				D4408D8C18445AF2008BA352 /* images */,
+				D490D97B1916C72400E59234 /* viper */,
 				D4BCA3D71814EC0900921183 /* mac */,
 				D4F7F3E917F2C95D00F5A808 /* src */,
 				D433FE0D181503A20062731A /* ios */,
@@ -1014,6 +1036,38 @@
 				D4757C301902CB0100CF173B /* Space Dock Tests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D490D97B1916C72400E59234 /* viper */ = {
+			isa = PBXGroup;
+			children = (
+				D490D97C1916C72400E59234 /* mac */,
+				D490D9881916C72400E59234 /* src */,
+			);
+			path = viper;
+			sourceTree = "<group>";
+		};
+		D490D97C1916C72400E59234 /* mac */ = {
+			isa = PBXGroup;
+			children = (
+				D490D97D1916C72400E59234 /* DockShip+Viper.h */,
+				D490D97E1916C72400E59234 /* DockShip+Viper.m */,
+				D490D97F1916C72400E59234 /* DockViperAppDelegate.h */,
+				D490D9801916C72400E59234 /* DockViperAppDelegate.m */,
+				D490D9811916C72400E59234 /* DockViperDataLoader.h */,
+				D490D9821916C72400E59234 /* DockViperDataLoader.m */,
+				D490D9831916C72400E59234 /* ViperCredits.rtf */,
+				D490D9851916C72400E59234 /* ViperMainMenu.xib */,
+				D490D9871916C72400E59234 /* Viper Dock.icns */,
+			);
+			path = mac;
+			sourceTree = "<group>";
+		};
+		D490D9881916C72400E59234 /* src */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		D4AAA2B617F4C9B200A99383 /* Entities */ = {
@@ -1452,30 +1506,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4E936D01909F96C00CAE779 /* green-right-bank.pdf in Resources */,
-				D4E936D11909F96C00CAE779 /* MainMenu.xib in Resources */,
-				D4E936D21909F96C00CAE779 /* red-right-bank.pdf in Resources */,
 				D4E936D31909F96C00CAE779 /* green-about.pdf in Resources */,
+				D490D9781916C68E00E59234 /* ShipTile.xib in Resources */,
 				D4E936D41909F96C00CAE779 /* green-backup.pdf in Resources */,
 				D4E936D51909F96C00CAE779 /* platform.strings in Resources */,
 				D4E936D61909F96C00CAE779 /* red-straight.pdf in Resources */,
 				D4E936D71909F96C00CAE779 /* red-right-spin.pdf in Resources */,
 				D4E936D81909F96C00CAE779 /* red-right-turn.pdf in Resources */,
 				D4E936D91909F96C00CAE779 /* red-left-spin.pdf in Resources */,
+				D490D98E1916C72400E59234 /* Viper Dock.icns in Resources */,
 				D4E936DA1909F96C00CAE779 /* white-straight.pdf in Resources */,
 				D4E936DB1909F96C00CAE779 /* white-right-turn.pdf in Resources */,
 				D4E936DC1909F96C00CAE779 /* green-straight.pdf in Resources */,
+				D490D97A1916C68E00E59234 /* WeaponTile.xib in Resources */,
+				D490D9771916C68E00E59234 /* FlagshipTile.xib in Resources */,
 				D4E936DD1909F96C00CAE779 /* InfoPlist.strings in Resources */,
 				D4E936DE1909F96C00CAE779 /* white-about.pdf in Resources */,
 				D4E936DF1909F96C00CAE779 /* green-right-turn.pdf in Resources */,
 				D4E936E01909F96C00CAE779 /* white-backup.pdf in Resources */,
+				D490D98C1916C72400E59234 /* ViperCredits.rtf in Resources */,
 				D4E936E11909F96C00CAE779 /* space_dock.icns in Resources */,
 				D4E936E21909F96C00CAE779 /* Credits.rtf in Resources */,
 				D4E936E31909F96C00CAE779 /* green-left-bank.pdf in Resources */,
 				D4E936E41909F96C00CAE779 /* red-backup.pdf in Resources */,
 				D4E936E51909F96C00CAE779 /* ShipGrid.xib in Resources */,
+				D490D9791916C68E00E59234 /* UpgradeTile.xib in Resources */,
+				D490D98D1916C72400E59234 /* ViperMainMenu.xib in Resources */,
 				D4E936E61909F96C00CAE779 /* green-right-spin.pdf in Resources */,
 				D4E936E71909F96C00CAE779 /* white-left-spin.pdf in Resources */,
 				D4E936E81909F96C00CAE779 /* green-left-turn.pdf in Resources */,
+				D490D9751916C68E00E59234 /* BuildMat.xib in Resources */,
 				D4E936E91909F96C00CAE779 /* white-left-bank.pdf in Resources */,
 				D4E936EA1909F96C00CAE779 /* white-left-turn.pdf in Resources */,
 				D4E936EB1909F96C00CAE779 /* red-left-turn.pdf in Resources */,
@@ -1682,13 +1742,16 @@
 				D4E9368B1909F96C00CAE779 /* main.m in Sources */,
 				D4E9368C1909F96C00CAE779 /* NSTreeController+Additions.m in Sources */,
 				D4E9368D1909F96C00CAE779 /* DockWeapon.m in Sources */,
+				D490D98A1916C72400E59234 /* DockViperAppDelegate.m in Sources */,
 				D4E9368E1909F96C00CAE779 /* DockBorg+Addons.m in Sources */,
 				D4E9368F1909F96C00CAE779 /* DockShip+MacAddons.m in Sources */,
 				D4E936901909F96C00CAE779 /* DockDataLoader.m in Sources */,
 				D4E936911909F96C00CAE779 /* DockEquippedShip.m in Sources */,
+				D490D98B1916C72400E59234 /* DockViperDataLoader.m in Sources */,
 				D4E936921909F96C00CAE779 /* DockSquad.m in Sources */,
 				D4E936931909F96C00CAE779 /* DockWeapon+MacAddons.m in Sources */,
 				D4E936941909F96C00CAE779 /* DockEquippedUpgrade+MacAddons.m in Sources */,
+				D490D9741916C68E00E59234 /* DockPaginatedTableView.m in Sources */,
 				D4E936951909F96C00CAE779 /* DockManeuver.m in Sources */,
 				D4E936961909F96C00CAE779 /* DockSquadImporter.m in Sources */,
 				D4E936971909F96C00CAE779 /* DockManeuver+Addons.m in Sources */,
@@ -1701,7 +1764,9 @@
 				D4E9369E1909F96C00CAE779 /* DockErrors.m in Sources */,
 				D4E9369F1909F96C00CAE779 /* DockEquippedFlagship.m in Sources */,
 				D4E936A01909F96C00CAE779 /* DockFAQLoader.m in Sources */,
+				D490D9721916C68E00E59234 /* DockBoxView.m in Sources */,
 				D4E936A11909F96C00CAE779 /* DockBorg.m in Sources */,
+				D490D9891916C72400E59234 /* DockShip+Viper.m in Sources */,
 				D4E936A21909F96C00CAE779 /* DockUpgrade.m in Sources */,
 				D4E936A31909F96C00CAE779 /* DockUtils.m in Sources */,
 				D4E936A41909F96C00CAE779 /* DockSquadImporterMac.m in Sources */,
@@ -1718,6 +1783,7 @@
 				D4E936AF1909F96C00CAE779 /* DockCaptain.m in Sources */,
 				D4E936B01909F96C00CAE779 /* NSString+Addons.m in Sources */,
 				D4E936B11909F96C00CAE779 /* DockAbilityDelegate.m in Sources */,
+				D490D9731916C68E00E59234 /* DockBuildMat.m in Sources */,
 				D4E936B21909F96C00CAE779 /* DockFlagship.m in Sources */,
 				D4E936B31909F96C00CAE779 /* DockEquippedUpgrade+Addons.m in Sources */,
 				D4E936B41909F96C00CAE779 /* DockSetItem+Addons.m in Sources */,
@@ -1771,6 +1837,22 @@
 				D4757C2C1902CB0100CF173B /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D490D9831916C72400E59234 /* ViperCredits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D490D9841916C72400E59234 /* en */,
+			);
+			name = ViperCredits.rtf;
+			sourceTree = "<group>";
+		};
+		D490D9851916C72400E59234 /* ViperMainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D490D9861916C72400E59234 /* en */,
+			);
+			name = ViperMainMenu.xib;
 			sourceTree = "<group>";
 		};
 		D4BCA3DC1814EC0900921183 /* Credits.rtf */ = {

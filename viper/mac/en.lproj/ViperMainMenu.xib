@@ -124,6 +124,12 @@
                                     <action selector="printFleetBuildSheet:" target="-1" id="AmY-RV-Jkh"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Print Build Mat..." keyEquivalent="b" id="5Hv-If-5DQ">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="printBuildMat:" target="494" id="ICL-du-Ymd"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
