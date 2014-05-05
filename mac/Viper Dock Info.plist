@@ -17,15 +17,15 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
-	<key>DockModelFileName</key>
-	<string>Space_Dock</string>
+	<string>2</string>
 	<key>DockDataFileName</key>
 	<string>Viper_Dock</string>
+	<key>DockModelFileName</key>
+	<string>Space_Dock</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>

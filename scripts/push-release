@@ -7,5 +7,8 @@ baseDir=$scriptDir/..
 baseDir=`cd $baseDir; pwd`
 siteDir=$baseDir/spacedocksite
 siteDir=`cd $siteDir; pwd`
+viperSiteDir=$siteDir/viper
+viperSiteDir=`cd $viperSiteDir; pwd`
 
-rsync -e 'ssh -p 2222' -azv "$siteDir/" rob@gator4110.hostgator.com:/home2/rob/public_html/spacedockapp.org/
+rsync -e 'ssh -p 2222' -azv "$viperSiteDir/" rob@gator4110.hostgator.com:/home2/rob/public_html/spacedockapp.org/viper
+rsync -e 'ssh -p 2222' -azv "$siteDir/viper_update.xml" rob@gator4110.hostgator.com:/home2/rob/public_html/spacedockapp.org/viper_update.xml

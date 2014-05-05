@@ -164,6 +164,7 @@
 		D47316B518182C4C00046428 /* DockUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D45AF1EF17FFE7F900C04F9A /* DockUtils.m */; };
 		D47316B618182C4C00046428 /* DockWeapon+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D437079D1800AFDF00622E7F /* DockWeapon+Addons.m */; };
 		D47316C418182E2F00046428 /* Space_Dock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */; };
+		D4740A5C1917E1D200CBB978 /* red-right-bank.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D4408DBE18446B84008BA352 /* red-right-bank.pdf */; };
 		D4757C271902CB0100CF173B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCA4211814F8DF00921183 /* XCTest.framework */; };
 		D4757C2D1902CB0100CF173B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4757C2B1902CB0100CF173B /* InfoPlist.strings */; };
 		D4757C2F1902CB0100CF173B /* SpaceDockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4757C2E1902CB0100CF173B /* SpaceDockTests.m */; };
@@ -1515,6 +1516,7 @@
 				D4E936D81909F96C00CAE779 /* red-right-turn.pdf in Resources */,
 				D4E936D91909F96C00CAE779 /* red-left-spin.pdf in Resources */,
 				D490D98E1916C72400E59234 /* Viper Dock.icns in Resources */,
+				D4740A5C1917E1D200CBB978 /* red-right-bank.pdf in Resources */,
 				D4E936DA1909F96C00CAE779 /* white-straight.pdf in Resources */,
 				D4E936DB1909F96C00CAE779 /* white-right-turn.pdf in Resources */,
 				D4E936DC1909F96C00CAE779 /* green-straight.pdf in Resources */,

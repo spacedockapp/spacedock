@@ -17,4 +17,4 @@ cd $baseDir/build
 zip --symlinks -r -q $archiveName "Viper Dock".app
 xattr -w sd-version "$version" $archiveName
 xattr -w sd-build-number "$build_number" $archiveName
-cp $archiveName $siteDir/
+cp $archiveName $siteDir/viper/

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Viper Dock Release Notes</title>
+    <link>http://spacedockapp.org/viper_update.xml</link>
+    <description>Most recent changes with links to updates.</description>
+    <language>en</language>
+  
+  <item>
+    <title>Version 1.0.1 (2)</title>
+    <sparkle:releaseNotesLink>http://spacedockapp.org/viper/release-notes.html</sparkle:releaseNotesLink>
+    <pubDate></pubDate>
+    <enclosure
+      url="http://spacedockapp.org/viper/viper_dock_b2.zip"
+      sparkle:version="2"
+      sparkle:shortVersionString="1.0.1 (2)"
+      type="application/octet-stream"
+      length="1870425"
+    />
+  </item>
+  
+  </channel>
+</rss>

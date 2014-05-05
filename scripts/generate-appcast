@@ -10,16 +10,16 @@ APPCAST_TEMPLATE_SOURCE = <<-END_OF_TEMPLATE
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
   <channel>
     <title><%= product_name %> Release Notes</title>
-    <link>http://spacedockapp.org/update.xml</link>
+    <link>http://spacedockapp.org/viper_update.xml</link>
     <description>Most recent changes with links to updates.</description>
     <language>en</language>
   <% items.each do |item| %>
   <item>
     <title>Version <%= item[:version] %></title>
-    <sparkle:releaseNotesLink>http://spacedockapp.org/release-notes.html</sparkle:releaseNotesLink>
+    <sparkle:releaseNotesLink>http://spacedockapp.org/viper/release-notes.html</sparkle:releaseNotesLink>
     <pubDate><%= item[:date] %></pubDate>
     <enclosure
-      url="http://spacedockapp.org/<%= item[:archive_name] %>"
+      url="http://spacedockapp.org/viper/<%= item[:archive_name] %>"
       sparkle:version="<%= item[:build_number] %>"
       sparkle:shortVersionString="<%= item[:version] %>"
       type="application/octet-stream"
@@ -55,7 +55,7 @@ def create_version_from_file(path)
   {:version => "#{file_version} (#{build_number})", :archive_name => path.basename, :build_number=>build_number, :length => info.size}
 end
 
-product_name = "Space Dock"
+product_name = "Viper Dock"
 
 script_path = Pathname.new(File.dirname(__FILE__))
 root_path = script_path.parent()
@@ -66,14 +66,13 @@ release_notes_source_path = doc_path.join("release-notes.md")
 release_notes_template_path = doc_path.join("release-notes.html.erb")
 index_template_source = doc_path.join("index.html.erb")
 site_path =  root_path.join("spacedocksite")
-release_notes_dest_path = site_path.join("release-notes.html")
-index_dest_path = site_path.join("index.html")
+viper_site_path =  site_path.join("viper")
+release_notes_dest_path = viper_site_path.join("release-notes.html")
+index_dest_path = viper_site_path.join("index.html")
 versions_path = config_path.join("versions.json")
-update_path = site_path.join("update.xml")
+update_path = site_path.join("viper_update.xml")
 
 versions = []
-
-update_xml_path = site_path.join("update.xml")
 
 if File.exists? versions_path
   versions_text = File.read(versions_path)
@@ -84,7 +83,7 @@ end
 
 new_release = ARGV[0]
 unless new_release
-  new_release = Pathname.new(site_path.join("space_dock_b45.zip"))
+  new_release = Pathname.new(site_path.join("viper_dock_b2.zip"))
 else
   new_release = Pathname.new(new_release).realpath
 end
