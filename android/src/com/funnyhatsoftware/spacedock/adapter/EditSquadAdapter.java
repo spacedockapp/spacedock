@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.funnyhatsoftware.spacedock.R;
-import com.funnyhatsoftware.spacedock.activity.EditSquadActivity;
+import com.funnyhatsoftware.spacedock.activity.SquadTabActivity;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
 import com.funnyhatsoftware.spacedock.data.Explanation;
@@ -426,7 +426,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
 
         mSelectedShip = groupPosition;
         mListView.setItemChecked(position, true);
-        ((EditSquadActivity)mActivity).onShipSelected(); // hides 2nd fragment TODO: cleanup
+        ((SquadTabActivity)mActivity).onShipSelected(); // hides 2nd fragment TODO: cleanup
 
         if (mActionMode == null) {
             // start up action mode, if needed
@@ -461,7 +461,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
                 case R.id.menu_delete:
                     mSquad.removeEquippedShip(mSquad.getEquippedShips().get(mSelectedShip));
                     notifyDataSetChanged();
-                    ((EditSquadActivity)mActivity).onSquadMembershipChange(); // TODO: cleanup
+                    ((SquadTabActivity)mActivity).onSquadMembershipChange(); // TODO: cleanup
                     mode.finish(); // Action picked, so close the CAB
                     return true;
                 default:

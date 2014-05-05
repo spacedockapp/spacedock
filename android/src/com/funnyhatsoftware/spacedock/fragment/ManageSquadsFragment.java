@@ -27,16 +27,20 @@ public class ManageSquadsFragment extends ListFragment {
     private static final String SAVE_KEY_SELECTED_SQUAD = "selected_squad";
 
     public interface SquadSelectListener {
-        public void onSquadSelected(int squadIndex);
+        public void onSquadSelected(String squadUuid);
     }
 
     SquadAdapter mAdapter;
-    int mSquadIndex = -1;
+    String mSquadUuid = null;
+    SquadSelectListener mSelectListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+        mSelectListener = (SquadSelectListener) getActivity();
+        if (mSelectListener == null) throw new IllegalStateException();
 
         // setup adapter
         final Context context = getActivity();
@@ -45,16 +49,14 @@ public class ManageSquadsFragment extends ListFragment {
         setListAdapter(mAdapter);
 
         if (savedInstanceState != null) {
-            mSquadIndex = savedInstanceState.getInt(SAVE_KEY_SELECTED_SQUAD);
+            mSquadUuid = savedInstanceState.getString(SAVE_KEY_SELECTED_SQUAD);
         }
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        boolean isTwoPane = true; // TODO
-        getListView().setChoiceMode(isTwoPane
+        getListView().setChoiceMode(getResources().getBoolean(R.bool.use_two_pane)
                 ? ListView.CHOICE_MODE_SINGLE
                 : ListView.CHOICE_MODE_NONE);
     }
@@ -70,7 +72,7 @@ public class ManageSquadsFragment extends ListFragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(SAVE_KEY_SELECTED_SQUAD, mSquadIndex);
+        outState.putString(SAVE_KEY_SELECTED_SQUAD, mSquadUuid);
     }
 
     @Override
@@ -114,8 +116,9 @@ public class ManageSquadsFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        mSquadIndex = position;
-        ((SquadSelectListener)getActivity()).onSquadSelected(mSquadIndex);
+        Squad squad = Universe.getUniverse().getSquadByIndex(position);
+        mSquadUuid = squad.getUuid();
+        mSelectListener.onSquadSelected(mSquadUuid);
     }
 
     private class SquadAdapter extends ArrayAdapter<Squad> {

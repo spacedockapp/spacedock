@@ -27,23 +27,20 @@ import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
 import java.util.ArrayList;
 
 public class DisplaySquadFragment extends ListFragment {
-    private static final String ARG_SQUAD_INDEX = "squad_index";
-
-    public interface SquadDisplayListener {
-        public void onSquadEditAction(int squadIndex);
-    }
+    private static final String ARG_SQUAD_UUID = "squad_index";
 
     private static final int LAYOUT_RES_ID = R.layout.item_with_details; // force detailed in this view
-    private int mSquadIndex; // index of squad being displayed
 
-    public static DisplaySquadFragment newInstance(int squadIndex) {
-        if (squadIndex >= Universe.getUniverse().getAllSquads().size()) {
-            throw new IllegalArgumentException("can't display missing squad " + squadIndex);
+    String mSquadUuid;
+
+    public static DisplaySquadFragment newInstance(String squadUuid) {
+        if (squadUuid == null) {
+            throw new IllegalArgumentException("squad uuid required");
         }
 
         DisplaySquadFragment fragment = new DisplaySquadFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_SQUAD_INDEX, squadIndex);
+        args.putString(ARG_SQUAD_UUID, squadUuid);
         fragment.setArguments(args);
         return fragment;
     }
@@ -51,14 +48,16 @@ public class DisplaySquadFragment extends ListFragment {
     private void initAdapter() {
         Context context = getActivity();
 
-        if (mSquadIndex >= Universe.getUniverse().getAllSquads().size()) {
+        Squad squad = Universe.getUniverse().getSquadByUUID(mSquadUuid);
+        if (squad == null) {
             // fragment now invalid, detach
-            getFragmentManager().beginTransaction().remove(this).commit();
+            getFragmentManager().beginTransaction()
+                    .remove(this)
+                    .commit();
             return;
         }
 
         // build adapters mapping each ship title to its list of ship + upgrades
-        Squad squad = Universe.getUniverse().getSquad(mSquadIndex);
         ArrayList<MultiItemAdapter> subAdapters = new ArrayList<MultiItemAdapter>();
         for (EquippedShip equippedShip : squad.getEquippedShips()) {
             ArrayList<Object> itemList = new ArrayList<Object>();
@@ -110,7 +109,7 @@ public class DisplaySquadFragment extends ListFragment {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
 
-        mSquadIndex = getArguments().getInt(ARG_SQUAD_INDEX);
+        mSquadUuid = getArguments().getString(ARG_SQUAD_UUID);
     }
 
     @Override
@@ -132,10 +131,11 @@ public class DisplaySquadFragment extends ListFragment {
         final int itemId = item.getItemId();
         final Context context = getActivity();
 
-        if (itemId == R.id.menu_edit) {
-            ((SquadDisplayListener)getActivity()).onSquadEditAction(mSquadIndex);
+        if (itemId == R.id.menu_duplicate) {
+            Toast.makeText(context, "TODO: duplication.", Toast.LENGTH_SHORT).show();
             return true;
-        } else if (itemId == R.id.menu_share) {
+        }
+        if (itemId == R.id.menu_share) {
             Toast.makeText(context, "TODO: sharing.", Toast.LENGTH_SHORT).show();
             return true;
         }

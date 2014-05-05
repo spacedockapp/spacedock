@@ -15,10 +15,10 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import com.funnyhatsoftware.spacedock.adapter.HeaderAdapter;
-import com.funnyhatsoftware.spacedock.adapter.SetItemAdapter;
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.adapter.HeaderAdapter;
 import com.funnyhatsoftware.spacedock.adapter.SeparatedListAdapter;
+import com.funnyhatsoftware.spacedock.adapter.SetItemAdapter;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.holder.CaptainHolder;
@@ -43,6 +43,7 @@ public class SetItemListFragment extends ListFragment {
     private boolean mSelectionMode;
     private BaseAdapter mAdapter;
     private String mItemType;
+    private SetItemSelectedListener mListener;
 
     /**
      * Creates a SetItemListFragment for display
@@ -61,6 +62,9 @@ public class SetItemListFragment extends ListFragment {
 
     private static SetItemListFragment newInstance(boolean selectionMode,
             String itemType, String prioritizedFaction, String currentId) {
+        if (itemType == null) {
+            throw new IllegalArgumentException("fragment must be given item type");
+        }
         SetItemListFragment fragment = new SetItemListFragment();
         Bundle arguments = new Bundle();
         arguments.putBoolean(ARG_IS_SELECTING, selectionMode);
@@ -147,6 +151,13 @@ public class SetItemListFragment extends ListFragment {
 
         mSelectionMode = getArguments().getBoolean(ARG_IS_SELECTING);
         mItemType = getArguments().getString(ARG_ITEM_TYPE);
+
+        if (getParentFragment() != null) {
+            mListener = (SetItemSelectedListener) getParentFragment();
+        } else {
+            mListener = (SetItemSelectedListener) getActivity();
+        }
+        if (mListener == null) throw new IllegalStateException();
     }
 
     @Override
@@ -160,6 +171,7 @@ public class SetItemListFragment extends ListFragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
+        if (getParentFragment() != null && !getParentFragment().isMenuVisible()) { return; } // WAR
         inflater.inflate(R.menu.menu_set_item_list, menu);
         MenuItem item = menu.findItem(R.id.menu_faction_spinner);
         setupFactionSpinner((Spinner) item.getActionView());
@@ -215,6 +227,6 @@ public class SetItemListFragment extends ListFragment {
 
         SetItem item = (SetItem) mAdapter.getItem(position);
         String externalId = item.getExternalId();
-        ((SetItemSelectedListener) getActivity()).onItemSelected(mItemType, externalId);
+        mListener.onItemSelected(mItemType, externalId);
     }
 }

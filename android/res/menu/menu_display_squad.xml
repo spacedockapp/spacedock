@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
+        android:id="@+id/menu_duplicate"
+        android:icon="@drawable/ic_action_copy"
+        android:showAsAction="ifRoom"
+        android:title="@string/menu_copy_squad"
+        android:visible="true"/>
+    <item
         android:id="@+id/menu_share"
         android:icon="@drawable/ic_action_share"
         android:showAsAction="ifRoom"
         android:title="@string/menu_share_squad"
-        android:visible="true"/>
-    <item
-        android:id="@+id/menu_edit"
-        android:icon="@drawable/ic_action_edit"
-        android:showAsAction="ifRoom"
-        android:title="@string/menu_edit_squad"
         android:visible="true"/>
 </menu>

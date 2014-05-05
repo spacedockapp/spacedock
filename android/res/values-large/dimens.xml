@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Device too fat for single pane. Give it two. -->
-    <item type="layout" name="activity_onepane">@layout/activity_twopane</item>
+    <bool name="use_two_pane">true</bool>
 </resources>
