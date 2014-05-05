@@ -97,6 +97,8 @@ static NSString* makeKey(NSString* key)
                                     [moves addObject: @{@"kind" : @"about", @"speed": [NSNumber numberWithInt: speed], @"color": colorMap[color]}];
                                 } else if ([kind isEqualToString: @"reverse"]){
                                     [moves addObject: @{@"kind" : @"straight", @"speed": [NSNumber numberWithInt: -speed], @"color": colorMap[color]}];
+                                } else if ([kind isEqualToString: @"straight"]){
+                                    [moves addObject: @{@"kind" : @"straight", @"speed": [NSNumber numberWithInt: speed], @"color": colorMap[color]}];
                                 }
                             }
                             key = nil;
