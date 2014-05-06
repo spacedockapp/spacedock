@@ -1,4 +1,4 @@
-<Data version="1.212">
+<Data version="1.213">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -793,6 +793,29 @@
         </Maneuvers>
         <FrontArc>90</FrontArc>
         <RearArc>90</RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+        <Name>Tholian Vessel</Name>
+        <Id>tholian_vessel</Id>
+        <Maneuvers>
+            <Maneuver speed="3" kind="left-bank" color="white" />
+            <Maneuver speed="3" kind="straight" color="white" />
+            <Maneuver speed="3" kind="right-bank" color="white" />
+            <Maneuver speed="2" kind="left-turn" color="white" />
+            <Maneuver speed="2" kind="left-bank" color="green" />
+            <Maneuver speed="2" kind="straight" color="green" />
+            <Maneuver speed="2" kind="right-bank" color="green" />
+            <Maneuver speed="2" kind="right-turn" color="white" />
+            <Maneuver speed="2" kind="about" color="white" />
+            <Maneuver speed="1" kind="left-turn" color="white" />
+            <Maneuver speed="1" kind="left-bank" color="green" />
+            <Maneuver speed="1" kind="straight" color="green" />
+            <Maneuver speed="1" kind="right-bank" color="green" />
+            <Maneuver speed="1" kind="right-turn" color="white" />
+            <Maneuver speed="1" kind="about" color="white" />
+        </Maneuvers>
+        <FrontArc>90</FrontArc>
+        <RearArc></RearArc>
     </ShipClassDetail>
   </ShipClassDetails>
   <Ships>
@@ -2548,6 +2571,56 @@
       <Id>species_8472_bioship_71281</Id>
       <Set>71281</Set>
     </Ship>
+    <Ship>
+      <Title>Tholia One</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Tholian Vessel</ShipClass>
+      <Faction>Independent</Faction>
+      <Attack>2</Attack>
+      <Agility>2</Agility>
+      <Hull>2</Hull>
+      <Shield>2</Shield>
+      <Ability>You may perform the Action listed on the "Energy Web" Upgrade card as a free Action.</Ability>
+      <Cost>16</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>2</Weapon>
+      <Crew>0</Crew>
+      <Id>tholia_one_opwebprize</Id>
+      <Set>OPWebPrize</Set>
+    </Ship>
+    <Ship>
+      <Title>Tholian Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Tholian Vessel</ShipClass>
+      <Faction>Independent</Faction>
+      <Attack>2</Attack>
+      <Agility>2</Agility>
+      <Hull>2</Hull>
+      <Shield>1</Shield>
+      <Ability></Ability>
+      <Cost>14</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>1</Weapon>
+      <Crew>0</Crew>
+      <Id>tholian_vessel_opwebprize</Id>
+      <Set>OPWebPrize</Set>
+    </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -3585,6 +3658,36 @@
       <Cost>0</Cost>
       <Id>species_8472_captain_71281</Id>
       <Set>71281</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Loskene</Title>
+      <Ability>ACTION: Target 1 friendly ship that is not within Range 1-3 of your ship and whose Captain has a lower Skill than Loskene's.  Target ship may immediately perform an additional 1 or 2 Maneuver (straight, bank or turn).  The additional Maneuver must be on the target ship's Maneuver Dial.</Ability>
+      <Unique>Y</Unique>
+      <Skill>4</Skill>
+      <Talent>3</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Independent</Faction>
+      <Cost>1</Cost>
+      <Id>loskene_opwebprize</Id>
+      <Set>OPWebPrize</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Tholian</Title>
+      <Ability></Ability>
+      <Unique>N</Unique>
+      <Skill>1</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Independent</Faction>
+      <Cost>0</Cost>
+      <Id>tholian_opwebprize</Id>
+      <Set>OPWebPrize</Set>
       <Special></Special>
     </Captain>
   </Captains>
@@ -6499,6 +6602,51 @@
       <Set>71280</Set>
       <Special>OnlyVoyager</Special>
     </Upgrade>
+    <Upgrade>
+      <Title>Tholian Punctuality</Title>
+      <Ability>When you initiate an attack,  you may discard this card to gain +1 attack die for that attack.  This upgrade may only be purchased by Loskene or any other Tholian Captain.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Independent</Faction>
+      <Cost>4</Cost>
+      <Id>tholian_punctuality_opwebprize</Id>
+      <Set>OPWebPrize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Plasma Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack.  You may re-roll all of your blank results one time.  You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>4</Attack>
+      <Range>1-2</Range>
+      <Type>Weapon</Type>
+      <Faction>Independent</Faction>
+      <Cost>3</Cost>
+      <Id>plasma_torpedoes_opwebprize</Id>
+      <Set>OPWebPrize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Red Alert</Title>
+      <Ability>When you spend a [BATTLE STATIONS] Token, you may discard this card instead of returning the [BATTLE STATIONS] Token to the Action Token supply.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>red_alert_opwebparticipation</Id>
+      <Set>OPWebParticipation</Set>
+      <Special></Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -6640,6 +6788,24 @@ f. All critical damage sustained by an Attack Squadron is immediately converted 
         <Id>federation_attack_fighters_op6participation</Id>
         <Set>OP6Participation</Set>
       </Resource>
+      <Resource>
+        <Title>Skilled Helmsman</Title>
+        <Unique>Y</Unique>
+        <Ability>Players receive the 1 Full About Maneuver Template and place it on one of their Ship Cards. For the duration of the battle, the chosen ship (and only that chose ship) may perform the Full About Maneuver.
+
+The Full About Maneuver follows the normal movement rules with the following exceptions:
+
+1) During the Activation Phase, if the player reveals a Red Maneuver on the chosen ship's Maneuver Dial, that ship may disregard its chosen maneuver and instead use the Full About Maneuver.
+
+2) The player chooses to turn to the right of to the left, places the Full About Maneuver Template accordingly and then finishes performing the maneuver as normal.
+
+3) After a ship performs the Full About Maneuver, place an Auxiliary Power Token beside that ship. If that ship does not have the Come About Maneuver as one of its normal maneuvers, place a 2nd Auxiliary power Token beside the ship.
+        </Ability>
+        <Type>Resource</Type>
+        <Cost>5</Cost>
+        <Id>skilled_helmsman_opwebparticipation</Id>
+        <Set>OPWebParticipation</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -6657,6 +6823,8 @@ f. All critical damage sustained by an Attack Squadron is immediately converted 
       <Set id="OP5Prize" overallSetName="Organized Play">Dominion War OP5 Competitive Prize</Set>
       <Set id="OP6Participation" overallSetName="Organized Play">Dominion War OP6 Participation Prize</Set>
       <Set id="OP6Prize" overallSetName="Organized Play">Dominion War OP6 Competitive Prize</Set>
+      <Set id="OPWebParticipation" overallSetName="Organized Play">Tholian Web Participation Prize</Set>
+      <Set id="OPWebPrize" overallSetName="Organized Play">Tholian Web Competitive Prize</Set>
 
       <Set id="71120" overallSetName="Core">Starter Set</Set>
       <Set id="71121" overallSetName="Wave 0">U.S.S. Reliant Expansion</Set>
