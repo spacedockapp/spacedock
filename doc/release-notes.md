@@ -1,3 +1,7 @@
+### Version 1.0.9 build 59 (2014-5-4)
+
+* Add the Tholian Web participation and competitive prizes.
+
 ### Version 1.0.8 build 58 (2014-5-4)
 
 * Add a feature to print build mats so you can play without having to drag out all your cards.
