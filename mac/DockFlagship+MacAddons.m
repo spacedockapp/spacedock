@@ -7,22 +7,22 @@
 
 -(NSAttributedString*)styledAttack
 {
-    return styledAttack(self);
+    return styledAttack([[self attack] stringValue]);
 }
 
 -(NSAttributedString*)styledAgility
 {
-    return styledAgility(self);
+    return styledAgility([[self agility] stringValue]);
 }
 
 -(NSAttributedString*)styledHull
 {
-    return styledHull(self);
+    return styledHull([[self hull] stringValue]);
 }
 
 -(NSAttributedString*)styledShield
 {
-    return styledShield(self);
+    return styledShield([[self shield] stringValue]);
 }
 
 @end
