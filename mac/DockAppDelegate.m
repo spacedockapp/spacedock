@@ -512,6 +512,32 @@ NSString* kExpandedRows = @"expandedRows";
     }
 }
 
+-(void)addSelectedCraft
+{
+    NSArray* selectedSquad = [_squadsController selectedObjects];
+
+    if (selectedSquad.count > 0) {
+        DockSquad* squad = selectedSquad[0];
+        NSArray* craftToAdd = [_craftController selectedObjects];
+
+        for (DockShip* ship in craftToAdd) {
+            if ([ship isUnique]) {
+                DockEquippedShip* existing = [squad containsShip: ship];
+
+                if (existing != nil) {
+                    [self selectShip: existing];
+                    [self explainCantAddShip: ship];
+                    continue;
+                }
+            }
+
+            DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: ship];
+            [squad addEquippedShip: es];
+            [self selectShip: es];
+        }
+    }
+}
+
 -(void)addSelectedShip:(id)sender
 {
     [self addSelectedShip];
@@ -747,6 +773,8 @@ NSString* kExpandedRows = @"expandedRows";
 
     if ([identifier isEqualToString: @"ships"]) {
         [self addSelectedShip];
+    } else if ([identifier isEqualToString: @"craft"]) {
+        [self addSelectedCraft];
     } else if ([identifier isEqualToString: @"resources"]) {
         [self addSelectedResource];
     } else {
@@ -772,7 +800,7 @@ NSString* kExpandedRows = @"expandedRows";
                 [self selectUpgrade: equippedUpgrade];
             }
         } else {
-            NSAlert* alert = [NSAlert alertWithMessageText: @"You must select a ship before adding a captain or upgrade or designating a flagship."
+            NSAlert* alert = [NSAlert alertWithMessageText: @"You must select a vessel before adding a captain or upgrade."
                                              defaultButton: @"OK"
                                            alternateButton: @""
                                                otherButton: @""
@@ -926,16 +954,18 @@ NSString* kExpandedRows = @"expandedRows";
         _shipsController.fetchPredicate = shipsPredicateTemplate;
         NSPredicate* craftPredicateTemplate = [NSPredicate predicateWithFormat: @"isCraft = YES"];
         _craftController.fetchPredicate = craftPredicateTemplate;
-        //_captainsController.fetchPredicate = predicateTemplate;
-        //predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES and any sets.externalId in %@", _includedSets];
-        //_upgradesController.fetchPredicate = predicateTemplate;
-    } else {
-        NSPredicate* shipsPredicateTemplate = [NSPredicate predicateWithFormat: @"isCraft == YES and faction = %@ and any sets.externalId in %@", _factionName, _includedSets];
-        _shipsController.fetchPredicate = shipsPredicateTemplate;
-        NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"faction = %@ and any sets.externalId in %@", _factionName, _includedSets];
         _captainsController.fetchPredicate = predicateTemplate;
-        //predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES and faction = %@ and any sets.externalId in %@", _factionName, _includedSets];
-        //_upgradesController.fetchPredicate = predicateTemplate;
+        predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES"];
+        _upgradesController.fetchPredicate = predicateTemplate;
+    } else {
+        NSPredicate* shipsPredicateTemplate = [NSPredicate predicateWithFormat: @"isCraft == NO and faction = %@", _factionName];
+        _shipsController.fetchPredicate = shipsPredicateTemplate;
+        NSPredicate* craftPredicateTemplate = [NSPredicate predicateWithFormat: @"isCraft == YES and faction = %@", _factionName];
+        _craftController.fetchPredicate = craftPredicateTemplate;
+        NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"faction = %@", _factionName];
+        _captainsController.fetchPredicate = predicateTemplate;
+        predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES and faction = %@", _factionName];
+        _upgradesController.fetchPredicate = predicateTemplate;
     }
 }
 

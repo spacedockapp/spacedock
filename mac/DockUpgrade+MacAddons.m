@@ -33,4 +33,8 @@
     return @"";
 }
 
+-(NSAttributedString*)formattedRange
+{
+    return nil;
+}
 @end

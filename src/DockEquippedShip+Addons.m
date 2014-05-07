@@ -134,6 +134,11 @@
     return [self.ship.cost intValue];
 }
 
+-(NSString*)isCraftString
+{
+    return [self.ship.isCraft boolValue] ? @"N" : @"Y";
+}
+
 -(int)attack
 {
     return [self.ship.attack intValue] + [self.flagship attackAdd];

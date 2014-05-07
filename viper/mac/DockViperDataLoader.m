@@ -128,6 +128,9 @@ static NSString* makeKey(NSString* key)
             }
         }
         d[@"set"] = @"core";
+        if ([d[@"faction"] length] == 0) {
+            d[@"faction"] = @"Colonial";
+        }
         [items addObject: d];
     }
     return [NSArray arrayWithArray: items];

@@ -164,4 +164,9 @@
     return [NSDictionary dictionaryWithDictionary: json];
 }
 
+-(NSString*)isCraftString
+{
+    return @"";
+}
+
 @end
