@@ -320,6 +320,7 @@ static float heightForStringDrawing(NSString *targetString, NSFont *targetFont, 
     dict[NSPrintVerticalPagination] = [NSNumber numberWithInt: NSFitPagination];
     dict[NSPrintHorizontallyCentered] = [NSNumber numberWithBool: YES];
     dict[NSPrintVerticallyCentered] = [NSNumber numberWithBool: YES];
+    dict[NSPrintOrientation] = [NSNumber numberWithInt: NSPortraitOrientation];
     NSRect r = [info imageablePageBounds];
     [_sheetBox setFrameSize: r.size];
     [[NSPrintOperation printOperationWithView: _sheetBox] runOperation];
