@@ -1,6 +1,11 @@
 def convert_terms(upgrade)
+  upgrade.gsub! /\[Regenerate\]/i, "[REGENERATE]"
   upgrade.gsub! /\[evade\]/i, "[EVADE]"
   upgrade.gsub! /\[cloak\]/i, "[CLOAK]"
+  upgrade.gsub! /\[forward\]/i, "[STRAIGHT]"
+  upgrade.gsub! /\[left straight\]/i, "[LEFT SPIN]"
+  upgrade.gsub! /\[right straight\]/i, "[RIGHT SPIN]"
+  upgrade.gsub! /\[1 straight\]/i, "[1 STRAIGHT]"
   upgrade.gsub! /\[Sensor Echo\]/i, "[SENSOR ECHO]"
   upgrade.gsub! /\[scan\]/i, "[SCAN]"
   upgrade.gsub! /\[tech\]/i, "[TECH]"
