@@ -1,4 +1,4 @@
-<Data version="1.213">
+<Data version="1.214">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -3670,7 +3670,7 @@
       <Range></Range>
       <Type>Captain</Type>
       <Faction>Independent</Faction>
-      <Cost>1</Cost>
+      <Cost>3</Cost>
       <Id>loskene_opwebprize</Id>
       <Set>OPWebPrize</Set>
       <Special></Special>
