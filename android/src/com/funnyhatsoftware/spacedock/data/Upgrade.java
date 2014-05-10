@@ -191,7 +191,9 @@ public class Upgrade extends UpgradeBase {
             }
 
             if (upgradeSpecial.equals("costincreasedifnotromulansciencevessel")) {
-                cost += 5;
+            	if (!ship.isRomulanScienceVessel()) {
+            		cost += 5;
+            	}
             }
         } else if (isWeapon()) {
             if (captainSpecial.equals("WeaponUpgradesCostOneLess")) {
