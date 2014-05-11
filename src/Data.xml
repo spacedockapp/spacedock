@@ -1,4 +1,4 @@
-<Data version="1.214">
+<Data version="1.215">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -3665,7 +3665,7 @@
       <Ability>ACTION: Target 1 friendly ship that is not within Range 1-3 of your ship and whose Captain has a lower Skill than Loskene's.  Target ship may immediately perform an additional 1 or 2 Maneuver (straight, bank or turn).  The additional Maneuver must be on the target ship's Maneuver Dial.</Ability>
       <Unique>Y</Unique>
       <Skill>4</Skill>
-      <Talent>3</Talent>
+      <Talent>1</Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Captain</Type>
@@ -6615,7 +6615,22 @@
       <Cost>4</Cost>
       <Id>tholian_punctuality_opwebprize</Id>
       <Set>OPWebPrize</Set>
-      <Special></Special>
+      <Special>OnlyTholianCaptain</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Energy Web</Title>
+      <Ability>ACTION: If you performed a 1 [STRAIGHT] Maneuver this round, you may place 1 Energy Web Token in the play area behind your ship. This upgrade may only be purchased for a Tholian Ship.</Ability>
+      <Unique></Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Weapon</Type>
+      <Faction>Independent</Faction>
+      <Cost>5</Cost>
+      <Id>energy_web_opwebprize</Id>
+      <Set>OPWebPrize</Set>
+      <Special>OnlyTholianShip</Special>
     </Upgrade>
     <Upgrade>
       <Title>Plasma Torpedoes</Title>

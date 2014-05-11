@@ -42,6 +42,11 @@
     return [self.externalId isEqualToString: @"2011"];
 }
 
+-(BOOL)isTholian
+{
+    return [self.externalId isEqualToString: @"tholian_opwebprize"] || [self.externalId isEqualToString: @"loskene_opwebprize"];
+}
+
 -(int)additionalTechSlots
 {
     NSString* special = self.special;

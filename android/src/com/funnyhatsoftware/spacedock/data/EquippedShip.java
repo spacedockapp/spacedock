@@ -475,6 +475,14 @@ public class EquippedShip extends EquippedShipBase {
                         "This upgrade can only be added to a Bajoran Captain.");
             }
         }
+
+        if (upgradeSpecial.equals("OnlyTholianCaptain")) {
+            if (!getCaptain().isTholian()) {
+                return new Explanation(msg,
+                        "This upgrade can only be added to a Tholian Captain.");
+            }
+        }
+
         if (upgradeSpecial.equals("OnlySpecies8472Ship")) {
             if (!getShip().isSpecies8472()) {
                 return new Explanation(msg,
@@ -491,6 +499,12 @@ public class EquippedShip extends EquippedShipBase {
             if (!getShip().isKazon()) {
                 return new Explanation(msg,
                         "This upgrade can only be added to Kazon ships.");
+            }
+        }
+        if (upgradeSpecial.equals("OnlyTholianShip")) {
+            if (!getShip().isTholian()) {
+                return new Explanation(msg,
+                        "This upgrade can only be added to Tholian ships.");
             }
         }
         if (upgradeSpecial.equals("OnlyVoyager")) {

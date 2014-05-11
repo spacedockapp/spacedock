@@ -10,4 +10,6 @@ public class Constants {
     public static final String BREEN = "Breen";
     public static final String JEMHADAR_LC = "jem'hadar";
     public static final String KLINGON = "Klingon";
+	public static final Object LOSKENE = "loskene_opwebprize";
+	public static final Object ZERO_COST_THOLIAN_CAPTAIN = "captain_opwebprize";
 }

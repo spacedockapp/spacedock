@@ -289,8 +289,9 @@ public class DataLoader extends DefaultHandler {
                 "OnlyKazonShip",
                 "OnlyVoyager",
                 "PlusFiveForNonKazon",
-                "PlusFiveOnNonSpecies8472"
-
+                "PlusFiveOnNonSpecies8472",
+                "OnlyTholianShip",
+                "OnlyTholianCaptain"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);

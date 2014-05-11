@@ -64,6 +64,11 @@ public class Captain extends CaptainBase {
         return getFaction().equals(Constants.BAJORAN);
     }
 
+    public boolean isTholian() {
+    	String externalId = getExternalId();
+        return externalId.equals(Constants.LOSKENE) || externalId.equals(Constants.ZERO_COST_THOLIAN_CAPTAIN);
+    }
+
     @SuppressLint("DefaultLocale")
     public String toString() {
         return String.format("%s-%d (%d)", getTitle(), getSkill(), getCost());
