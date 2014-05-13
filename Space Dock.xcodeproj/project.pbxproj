@@ -13,6 +13,8 @@
 		D402A00F1865003D0012B4D7 /* DockFlagshipDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D402A00E1865003D0012B4D7 /* DockFlagshipDetailViewController.m */; };
 		D406AC1E18B06D9900E33650 /* DockEditStringTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D406AC1D18B06D9900E33650 /* DockEditStringTableCell.m */; };
 		D406AC2118B0728B00E33650 /* DockEditNotesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D406AC2018B0728B00E33650 /* DockEditNotesCell.m */; };
+		D40F36B31921CF7900E07A9E /* DockDialView.m in Sources */ = {isa = PBXBuildFile; fileRef = D40F36B21921CF7900E07A9E /* DockDialView.m */; };
+		D40F36B61922746900E07A9E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40F36B51922746900E07A9E /* QuartzCore.framework */; };
 		D4135E8B182F71A100DBF750 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4135E8A182F71A100DBF750 /* MessageUI.framework */; };
 		D415E170186683B800D3B25D /* DockSetItem+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D415E16F186683B800D3B25D /* DockSetItem+Addons.m */; };
 		D415E171186683B800D3B25D /* DockSetItem+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D415E16F186683B800D3B25D /* DockSetItem+Addons.m */; };
@@ -442,6 +444,9 @@
 		D406AC1F18B0728B00E33650 /* DockEditNotesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockEditNotesCell.h; sourceTree = "<group>"; };
 		D406AC2018B0728B00E33650 /* DockEditNotesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockEditNotesCell.m; sourceTree = "<group>"; };
 		D40AF35A1802FB36000B9FF3 /* Space_Dock_2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock_2.xcdatamodel; sourceTree = "<group>"; };
+		D40F36B11921CF7900E07A9E /* DockDialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockDialView.h; sourceTree = "<group>"; };
+		D40F36B21921CF7900E07A9E /* DockDialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockDialView.m; sourceTree = "<group>"; };
+		D40F36B51922746900E07A9E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D4135E8A182F71A100DBF750 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
 		D415E16E186683B800D3B25D /* DockSetItem+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockSetItem+Addons.h"; sourceTree = "<group>"; };
 		D415E16F186683B800D3B25D /* DockSetItem+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockSetItem+Addons.m"; sourceTree = "<group>"; };
@@ -793,6 +798,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D40F36B61922746900E07A9E /* QuartzCore.framework in Frameworks */,
 				D4E936CC1909F96C00CAE779 /* WebKit.framework in Frameworks */,
 				D4E936CD1909F96C00CAE779 /* Cocoa.framework in Frameworks */,
 				D4E936CE1909F96C00CAE779 /* Sparkle.framework in Frameworks */,
@@ -831,6 +837,7 @@
 		D42BD1EE17EA134B0000598C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D40F36B51922746900E07A9E /* QuartzCore.framework */,
 				D4DE20D318D3443300C31914 /* Dropbox.framework */,
 				D4135E8A182F71A100DBF750 /* MessageUI.framework */,
 				D47316A618182BED00046428 /* CoreData.framework */,
@@ -1057,6 +1064,8 @@
 				D490D9801916C72400E59234 /* DockViperAppDelegate.m */,
 				D490D9811916C72400E59234 /* DockViperDataLoader.h */,
 				D490D9821916C72400E59234 /* DockViperDataLoader.m */,
+				D40F36B11921CF7900E07A9E /* DockDialView.h */,
+				D40F36B21921CF7900E07A9E /* DockDialView.m */,
 				D490D9831916C72400E59234 /* ViperCredits.rtf */,
 				D490D9851916C72400E59234 /* ViperMainMenu.xib */,
 				D490D9871916C72400E59234 /* Viper Dock.icns */,
@@ -1746,6 +1755,7 @@
 				D4E9368D1909F96C00CAE779 /* DockWeapon.m in Sources */,
 				D490D98A1916C72400E59234 /* DockViperAppDelegate.m in Sources */,
 				D4E9368E1909F96C00CAE779 /* DockBorg+Addons.m in Sources */,
+				D40F36B31921CF7900E07A9E /* DockDialView.m in Sources */,
 				D4E9368F1909F96C00CAE779 /* DockShip+MacAddons.m in Sources */,
 				D4E936901909F96C00CAE779 /* DockDataLoader.m in Sources */,
 				D4E936911909F96C00CAE779 /* DockEquippedShip.m in Sources */,
