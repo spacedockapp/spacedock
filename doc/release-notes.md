@@ -1,3 +1,7 @@
+### Version 1.0.4 build 5 (2014-5-14)
+
+* Print out move dials.
+
 ### Version 1.0.3 build 4 (2014-5-13)
 
 * Added a temporary window that shows the maneuver dial for the selected ship (not crafts) for testing and review purposes.
