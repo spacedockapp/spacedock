@@ -1,3 +1,7 @@
+### Version 1.0.5 build 6 (2014-5-15)
+
+* Tweak margins.
+
 ### Version 1.0.4 build 5 (2014-5-14)
 
 * Print out move dials.
