@@ -748,7 +748,6 @@ public class EquippedShip extends EquippedShipBase {
         return Explanation.SUCCESS;
     }
 
-    @SuppressWarnings("unused")
     public void dump() {
         for (Class c : CLASS_FOR_SLOT) {
             int i = 0;

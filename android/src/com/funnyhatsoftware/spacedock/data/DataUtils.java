@@ -1,12 +1,11 @@
 
 package com.funnyhatsoftware.spacedock.data;
 
+import android.annotation.SuppressLint;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 public class DataUtils {
     public static int intValue(String v) {
@@ -45,6 +44,7 @@ public class DataUtils {
         return v;
     }
 
+    @SuppressLint("SimpleDateFormat")
     static public Date dateValue(String v) {
         if (v == null) {
             return new Date();
