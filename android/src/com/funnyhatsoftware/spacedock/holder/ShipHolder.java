@@ -54,7 +54,7 @@ public class ShipHolder extends SetItemHolder {
                 if (!ability.isEmpty()) {
                     builder.addString("Ability", ship.getAbility());
                 }
-                return ship.getTitle();
+                return ship.getDescriptiveTitle();
             }
         };
     }
@@ -112,7 +112,11 @@ public class ShipHolder extends SetItemHolder {
                 int rearArc = DataUtils.intValue(details.getRearArc());
                 mArcDrawable.setArc(factionColor, frontArc, rearArc);
             }
-            mClass.setText(ship.getShipClass());
+            if (ship.isUnique()) {
+                mClass.setText(ship.getShipClass());
+            } else {
+                mClass.setText("");
+            }
             mManeuverGridDrawable.setManeuvers(details.getManeuvers());
         }
     }

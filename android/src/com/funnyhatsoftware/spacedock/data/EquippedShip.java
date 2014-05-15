@@ -134,7 +134,7 @@ public class EquippedShip extends EquippedShipBase {
             return getSquad().getResource().getTitle();
         }
 
-        return getShip().getTitle();
+        return getShip().getDescriptiveTitle();
     }
 
     public String getPlainDescription() {

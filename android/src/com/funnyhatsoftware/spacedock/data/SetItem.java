@@ -30,6 +30,10 @@ public class SetItem extends SetItemBase {
         return null;
     }
 
+    public String getDescriptiveTitle() {
+        return null;
+    }
+
     public int getCost() {
         return -1;
     }
