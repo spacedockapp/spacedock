@@ -104,11 +104,10 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         for (int i = 0; i < mSquad.getEquippedShips().size(); i++) {
             ArrayList<ListItemLookup> l = new ArrayList<ListItemLookup>();
             EquippedShip s = ships.get(i);
-            if (s.getShip() == null) throw new IllegalStateException();
             if (i == flagshipIndex || flagshipUnassigned) {
                 populateLookup(l, 1, R.string.flagship_slot, EquippedShip.SLOT_TYPE_FLAGSHIP);
             }
-            if (s.getShip().getCaptainLimit() > 0) {
+            if (s.getCaptainLimit() > 0) {
                 populateLookup(l, 1, R.string.captain_slot, EquippedShip.SLOT_TYPE_CAPTAIN);
             }
             populateLookup(l, s.getTalent(), R.string.talent_slot, EquippedShip.SLOT_TYPE_TALENT);

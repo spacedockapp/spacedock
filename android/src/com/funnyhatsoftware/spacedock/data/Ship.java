@@ -159,9 +159,9 @@ public class Ship extends ShipBase {
     }
 
     public boolean isFighterSquadron() {
-        String shipClass = getShipClass();
-        if (shipClass != null) {
-            return shipClass.equals(Constants.HIDEKIS) || shipClass.equals(Constants.FED_FIGHTERS);
+        String shipId = getExternalId();
+        if (shipId != null) {
+            return shipId.equals(Constants.HIDEKIS) || shipId.equals(Constants.FED_FIGHTERS);
         }
         return false;
     }

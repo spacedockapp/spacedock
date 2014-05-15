@@ -296,6 +296,17 @@ public class EquippedShip extends EquippedShipBase {
         return v;
     }
 
+    public int getCaptainLimit() {
+        int v = 0;
+        Ship ship = getShip();
+        if (ship != null) {
+            v += ship.getCaptainLimit();
+        } else {
+            v = 1;
+        }
+        return v;
+    }
+
     public int getTalent() {
         int v = 0;
         Captain captain = getCaptain();
@@ -367,9 +378,8 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public void establishPlaceholders() {
-        if (getShip().getCaptainLimit() > 0) {
+        if (getCaptainLimit() > 0) {
             if (getCaptain() == null) {
-                String faction = shipFaction();
                 Upgrade zcc = Captain.zeroCostCaptainForShip(getShip());
                 addUpgrade(zcc, null, false);
             }

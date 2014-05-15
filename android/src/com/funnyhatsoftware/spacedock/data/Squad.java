@@ -94,10 +94,10 @@ public class Squad extends SquadBase {
         return fighters;
     }
 
-    public EquippedShip addFighterSquadron() {
+    public EquippedShip addFighterSquadron(Resource resource) {
         EquippedShip fighters = getFighterSquadron();
         if (fighters == null) {
-            fighters = new Sideboard();
+            fighters = new EquippedShip(resource.associatedShip());
             mEquippedShips.add(fighters);
             fighters.setSquad(this);
         }
@@ -382,7 +382,7 @@ public class Squad extends SquadBase {
                 if (resource.getIsSideboard()) {
                     addSideboard();
                 } else if (resource.getIsFighterSquadron()) {
-                    addFighterSquadron();
+                    addFighterSquadron(resource);
                 }
             }
         }
