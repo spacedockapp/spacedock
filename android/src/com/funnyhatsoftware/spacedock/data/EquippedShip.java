@@ -372,7 +372,7 @@ public class EquippedShip extends EquippedShipBase {
             if (faction.equals("Federation") || faction.equals("Bajoran")) {
                 faction = "Federation";
             }
-            Upgrade zcc = Captain.zeroCostCaptain(faction);
+            Upgrade zcc = Captain.zeroCostCaptainForShip(getShip());
             addUpgrade(zcc, null, false);
         }
 

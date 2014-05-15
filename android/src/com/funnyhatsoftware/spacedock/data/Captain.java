@@ -1,6 +1,7 @@
 
 package com.funnyhatsoftware.spacedock.data;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 
 import android.annotation.SuppressLint;
@@ -40,6 +41,21 @@ public class Captain extends CaptainBase {
         throw new IllegalStateException("No zero cost captain exists for faction " + faction);
     }
 
+    public static Upgrade zeroCostCaptainForShip(Ship targetShip) {
+        ArrayList<Set> targetShipSets = targetShip.getSets();
+        String targetFaction = targetShip.getFaction();
+        for (Captain captain : Universe.getUniverse().captains.values()) {
+            if (captain.isZeroCost() && targetFaction.equals(captain.getFaction())) {
+                for (Set set : targetShipSets) {
+                    if (captain.isInSet(set)) {
+                        return captain;
+                    }
+                }
+            }
+        }
+        return zeroCostCaptain(targetShip.getFaction());
+    }
+
     public Upgrade captainForId(String externalId) {
         return Universe.getUniverse().getCaptain(externalId);
     }
@@ -65,8 +81,9 @@ public class Captain extends CaptainBase {
     }
 
     public boolean isTholian() {
-    	String externalId = getExternalId();
-        return externalId.equals(Constants.LOSKENE) || externalId.equals(Constants.ZERO_COST_THOLIAN_CAPTAIN);
+        String externalId = getExternalId();
+        return externalId.equals(Constants.LOSKENE)
+                || externalId.equals(Constants.ZERO_COST_THOLIAN_CAPTAIN);
     }
 
     @SuppressLint("DefaultLocale")
