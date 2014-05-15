@@ -320,7 +320,7 @@
                 faction = @"Federation";
             }
 
-            DockUpgrade* zcc = [DockCaptain zeroCostCaptain: faction context: self.managedObjectContext];
+            DockUpgrade* zcc = [DockCaptain zeroCostCaptainForShip: self.ship];
             [self addUpgrade: zcc maybeReplace: nil establishPlaceholders: NO];
         }
     }
