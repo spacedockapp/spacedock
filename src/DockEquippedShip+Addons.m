@@ -320,7 +320,7 @@
                 faction = @"Federation";
             }
 
-            DockUpgrade* zcc = [DockCaptain zeroCostCaptain: faction context: self.managedObjectContext];
+            DockUpgrade* zcc = [DockCaptain zeroCostCaptainForShip: self.ship];
             [self addUpgrade: zcc maybeReplace: nil establishPlaceholders: NO];
         }
     }
@@ -367,6 +367,12 @@
         }
     }
 
+    if ([upgradeSpecial isEqualToString: @"OnlyTholianShip"]) {
+        if (![self.ship isTholian]) {
+            return NO;
+        }
+    }
+
     if ([upgradeSpecial isEqualToString: @"OnlyForKlingonCaptain"]) {
         if (![self.captain isKlingon]) {
             return NO;
@@ -375,6 +381,12 @@
 
     if ([upgradeSpecial isEqualToString: @"OnlyBajoranCaptain"]) {
         if (![self.captain isBajoran]) {
+            return NO;
+        }
+    }
+
+    if ([upgradeSpecial isEqualToString: @"OnlyTholianCaptain"]) {
+        if (![self.captain isTholian]) {
             return NO;
         }
     }
@@ -793,6 +805,10 @@
                 info = @"This upgrade can only be added to Borg ships.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyVoyager"]) {
                 info = @"This upgrade can only be added to Voyager.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyTholianShip"]) {
+                info = @"This upgrade can only be added to a Tholian ship.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyTholianCaptain"]) {
+                info = @"This upgrade can only be added to a Tholian captian.";
             }
         }
     }

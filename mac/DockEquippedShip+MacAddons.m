@@ -14,7 +14,17 @@
         return [[NSAttributedString alloc] initWithString: self.squad.resource.title];
     }
 
-    return [self.ship styledDescription];
+    NSMutableAttributedString* desc = [[NSMutableAttributedString alloc] initWithString: [self plainDescription]];
+    NSAttributedString* space = [[NSAttributedString alloc] initWithString: @" "];
+    [desc appendAttributedString: space];
+    [desc appendAttributedString: styledAttack(toString([self attack]))];
+    [desc appendAttributedString: space];
+    [desc appendAttributedString: styledAgility(toString([self agility]))];
+    [desc appendAttributedString: space];
+    [desc appendAttributedString: styledHull(toString([self hull]))];
+    [desc appendAttributedString: space];
+    [desc appendAttributedString: styledShield(toString([self shield]))];
+    return desc;
 }
 
 -(NSAttributedString*)formattedCost

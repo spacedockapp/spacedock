@@ -145,6 +145,12 @@ NSString* asDegrees(NSString* textValue)
     return [self.shipClass isEqualToString: @"Romulan Science Vessel"];
 }
 
+-(BOOL)isTholian
+{
+    NSRange r = [self.shipClass rangeOfString: @"Tholian" options: NSCaseInsensitiveSearch];
+    return r.location != NSNotFound;
+}
+
 -(BOOL)isDefiant
 {
     return [self.title isEqualToString: @"U.S.S. Defiant"];

@@ -30,6 +30,10 @@ public class SetItem extends SetItemBase {
         return null;
     }
 
+    public String getDescriptiveTitle() {
+        return null;
+    }
+
     public int getCost() {
         return -1;
     }
@@ -48,5 +52,9 @@ public class SetItem extends SetItemBase {
 
     public void addToSet(Set set) {
         mSets.add(set);
+    }
+    
+    public boolean isInSet(Set set) {
+        return mSets.contains(set);
     }
 }

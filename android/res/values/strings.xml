@@ -23,9 +23,11 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_create_squad">Create Squad</string>
     <string name="menu_share_squad">Share Squad</string>
+    <string name="menu_copy_squad">Duplicate Squad</string>
     <string name="menu_edit_squad">Edit Squad</string>
     <string name="menu_rename_squad">Rename Squad</string>
     <string name="menu_delete_squad">Delete Squad</string>
+    <string name="menu_delete_ship">Delete ship</string>
 
     <string name="dialog_request_squad_name">Squad Name</string>
     <string name="dialog_accept">OK</string>
@@ -40,9 +42,15 @@
 
     <string name="toast_invalid_set_selection">Set selection invalid. You must select at least one set to display.</string>
 
-    <!-- Action bar navigation spinner-->
-    <string-array name="action_spinner_list">
-        <item>Browse</item>
+    <!-- Root action bar tabs -->
+    <string-array name="root_tab_labels">
+        <item>My Fleet</item>
+        <item>Library</item>
+    </string-array>
+
+    <!-- Squad action bar tabs -->
+    <string-array name="squad_tab_labels">
+        <item>Inspect</item>
         <item>Build</item>
     </string-array>
     
@@ -62,5 +70,4 @@
     <string name="faction">Faction</string>
     <string name="all_factions">All Factions</string>
     <string name="no_resource">No resource</string>
-    <string name="menu_delete_ship">Delete ship</string>
 </resources>

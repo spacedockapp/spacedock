@@ -21,6 +21,7 @@
 -(BOOL)isSpecies8472;
 -(BOOL)isKazon;
 -(BOOL)isBorg;
+-(BOOL)isTholian;
 -(BOOL)isVoyager;
 -(DockResource*)associatedResource;
 -(int)techCount;

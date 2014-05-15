@@ -150,6 +150,10 @@ public class Ship extends ShipBase {
         return mFaction.equals(Constants.KAZON);
     }
 
+    public boolean isTholian() {
+        return mShipClass.contains("Tholian");
+    }
+
     public boolean isVoyager() {
         return mTitle.equals("U.S.S. Voyager");
     }

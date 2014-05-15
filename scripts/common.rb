@@ -52,5 +52,7 @@ def set_id_from_faction(faction)
     "71283"
   when "Kazon"
     "71282"
+  when "Independent"
+    "OPWebPrize"
   end
 end

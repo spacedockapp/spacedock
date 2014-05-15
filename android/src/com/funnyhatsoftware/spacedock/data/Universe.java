@@ -389,7 +389,8 @@ public class Universe {
         mSelectedFaction = faction;
     }
 
-    public Squad getSquad(int squadIndex) {
+    @Deprecated
+    public Squad getSquadByIndex(int squadIndex) {
         return mSquads.get(squadIndex);
     }
 

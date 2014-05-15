@@ -1,15 +1,25 @@
 package com.funnyhatsoftware.spacedock.fragment;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
-import com.funnyhatsoftware.spacedock.adapter.EditSquadAdapter;
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.TextEntryDialog;
+import com.funnyhatsoftware.spacedock.activity.SetItemListActivity;
+import com.funnyhatsoftware.spacedock.activity.SquadTabActivity;
+import com.funnyhatsoftware.spacedock.adapter.EditSquadAdapter;
 import com.funnyhatsoftware.spacedock.adapter.ResourceSpinnerAdapter;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.Squad;
@@ -17,20 +27,22 @@ import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.holder.ShipHolder;
 
 public class EditSquadFragment extends Fragment implements EditSquadAdapter.SlotSelectListener {
-    private static final String ARG_SQUAD_INDEX = "squad_index";
+    private static final String ARG_SQUAD_UUID = "squad_uuid";
 
     private static final String SAVE_STATE_SHIP_NUMBER = "ship_num";
     private static final String SAVE_STATE_SLOT_TYPE = "slot_type";
     private static final String SAVE_STATE_SLOT_NUMBER = "slot_num";
 
+    private static final int REQUEST_ITEM = 0;
+
     public interface SetItemRequestListener {
         void onItemRequested(String itemType, String prioritizedFaction, String currentEquipmentId);
     }
 
-    public static EditSquadFragment newInstance(int squadIndex) {
+    public static EditSquadFragment newInstance(String squadUuid) {
         EditSquadFragment fragment = new EditSquadFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_SQUAD_INDEX, squadIndex);
+        args.putString(ARG_SQUAD_UUID, squadUuid);
         fragment.setArguments(args);
         return fragment;
     }
@@ -48,6 +60,7 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
 
         if (savedInstanceState != null) {
             mEquippedShipNumber = savedInstanceState.getInt(SAVE_STATE_SHIP_NUMBER);
@@ -76,21 +89,62 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         ExpandableListView elv = (ExpandableListView) view.findViewById(R.id.list);
 
         // TODO: better place to do this
-        boolean isTwoPane = getActivity().findViewById(R.id.secondary_fragment_container) != null;
-        int selectionMode = isTwoPane
+        int selectionMode = getResources().getBoolean(R.bool.use_two_pane)
                 ? EditSquadAdapter.SELECT_MODE_SLOT_AND_CAB
                 : EditSquadAdapter.SELECT_MODE_CAB_ONLY;
 
-        int squadIndex = getArguments().getInt(ARG_SQUAD_INDEX);
-        Squad squad = Universe.getUniverse().getSquad(squadIndex);
+        String squadUuid = getArguments().getString(ARG_SQUAD_UUID);
+        Squad squad = Universe.getUniverse().getSquadByUUID(squadUuid);
         mAdapter = new EditSquadAdapter(getActivity(), elv, selectionMode, squad, this);
         // TODO: clear ELV group selection across config change, since CAB doesn't persist
 
         Spinner resourceSpinner = (Spinner) view.findViewById(R.id.resource_spinner);
         ResourceSpinnerAdapter.createForSpinner(getActivity(), resourceSpinner, squad);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        if (getParentFragment() != null && !getParentFragment().isMenuVisible()) { return; } // WAR
+        inflater.inflate(R.menu.menu_edit_squad, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final int itemId = item.getItemId();
+
+        String squadUuid = getArguments().getString(ARG_SQUAD_UUID);
+        final Squad squad = Universe.getUniverse().getSquadByUUID(squadUuid);
+        if (squad == null) {
+            throw new IllegalStateException("Editing invalid squad");
+        }
+
+        Context context = getActivity();
+        if (itemId == R.id.menu_rename) {
+            TextEntryDialog.create(context, squad.getName(),
+                    R.string.dialog_request_squad_name,
+                    R.string.dialog_error_empty_squad_name,
+                    new TextEntryDialog.OnAcceptListener() {
+                        @Override
+                        public void onTextValueCommitted(String inputText) {
+                            squad.setName(inputText);
+                            ((SquadTabActivity)getActivity()).updateTitle(); // TODO: clean this up
+                        }
+                    }
+            );
+            return true;
+        } else if (itemId == R.id.menu_delete) {
+            Universe.getUniverse().getAllSquads().remove(squad);
+            Toast.makeText(context, "Deleted squad " + squad.getName(),
+                    Toast.LENGTH_SHORT).show();
+            getActivity().finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void notifyDataSetChanged() {
@@ -101,21 +155,54 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
     @Override
     public void onSlotSelected(int equippedShipNumber, int slotType, int slotNumber,
             String currentEquipmentId, String prefFaction) {
-        final SetItemRequestListener listener = ((SetItemRequestListener)getActivity());
 
         mEquippedShipNumber = equippedShipNumber;
         mSelectedSlotType = slotType;
         mSelectedSlotNumber = slotNumber;
-        if (mSelectedSlotType == EquippedShip.SLOT_TYPE_SHIP) {
-            listener.onItemRequested(ShipHolder.TYPE_STRING, prefFaction, null);
+
+        Fragment parentFragment = getParentFragment();
+        if (parentFragment == null) {
+            // No parent fragment, handle directly
+            Intent intent;
+            if (mSelectedSlotType == EquippedShip.SLOT_TYPE_SHIP) {
+                intent = SetItemListActivity.SelectActivity.getIntent(
+                        getActivity(),
+                        ShipHolder.TYPE_STRING,
+                        prefFaction,
+                        null);
+            } else {
+                intent = SetItemListActivity.SelectActivity.getIntent(
+                        getActivity(),
+                        EquippedShip.CLASS_FOR_SLOT[slotType].getSimpleName(),
+                        prefFaction,
+                        currentEquipmentId);
+            }
+            startActivityForResult(intent, REQUEST_ITEM);
         } else {
-            String slotName = EquippedShip.CLASS_FOR_SLOT[slotType].getSimpleName();
-            listener.onItemRequested(slotName, prefFaction, currentEquipmentId);
+            // delegate to containing fragment
+            SetItemRequestListener listener = (SetItemRequestListener) parentFragment;
+            if (mSelectedSlotType == EquippedShip.SLOT_TYPE_SHIP) {
+                listener.onItemRequested(ShipHolder.TYPE_STRING, prefFaction, null);
+            } else {
+                String slotName = EquippedShip.CLASS_FOR_SLOT[slotType].getSimpleName();
+                listener.onItemRequested(slotName, prefFaction, currentEquipmentId);
+            }
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_ITEM && resultCode == Activity.RESULT_OK) {
+            String itemId = data.getStringExtra(SetItemListActivity.EXTRA_ITEM_RESULT_ID);
+            onSetItemReturned(itemId);
         }
     }
 
     public void onSetItemReturned(String externalId) {
-        mAdapter.insertSetItem(mEquippedShipNumber, mSelectedSlotType, mSelectedSlotNumber,
-                externalId);
+        if (mAdapter != null) {
+            mAdapter.insertSetItem(mEquippedShipNumber, mSelectedSlotType, mSelectedSlotNumber,
+                    externalId);
+        }
+        ((SquadTabActivity)getActivity()).updateTitle(); // TODO: clean this up
     }
 }
