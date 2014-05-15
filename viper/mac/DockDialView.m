@@ -120,7 +120,7 @@ const CGFloat kDegrees270 = kDegrees180 + kDegrees90;
                         } else {
                             [image drawInRect: moveRect fromRect: NSZeroRect operation: NSCompositeSourceOver fraction: 1.0];
                         }
-                        CGContextTranslateCTM(context, 0, -imageSize-minDim/10);
+                        CGContextTranslateCTM(context, 0, -imageSize-3);
                         NSString* move = [NSString stringWithFormat: @"%d", absSpeed];
                         NSSize moveStringSize = [move sizeWithAttributes: attr];
                         moveRect = NSMakeRect(-floor(moveStringSize.width/2), 0, moveStringSize.width, moveStringSize.height);
