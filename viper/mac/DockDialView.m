@@ -21,37 +21,6 @@ const CGFloat kDegrees90 = M_PI/2;
 const CGFloat kDegrees45 = M_PI/4;
 const CGFloat kDegrees270 = kDegrees180 + kDegrees90;
 
--(DockShip*)selectedShip
-{
-    NSArray* selected = [_shipsController selectedObjects];
-
-    if (selected.count > 0) {
-        return selected[0];
-    }
-    return nil;
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    @try {
-        DockShip* ship = _ship;
-        DockShip* selectedShip = [self selectedShip];
-        if (ship != selectedShip) {
-            self.ship = [self selectedShip];
-            [self.shipName setStringValue: self.ship.descriptiveTitle];
-            [self setNeedsDisplay: YES];
-        }
-    } @catch (NSException *exception) {
-        NSLog(@"caught exception %@", exception);
-    } @finally {
-    }
-}
-
--(void)awakeFromNib
-{
-    [_shipsController addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
-}
-
 - (void)drawRect:(NSRect)dirtyRect
 {
     [super drawRect:dirtyRect];
@@ -65,7 +34,7 @@ const CGFloat kDegrees270 = kDegrees180 + kDegrees90;
     CGFloat halfWidth = floor(bounds.size.width/2);
     CGFloat halfHeight = floor(bounds.size.height/2);
     CGFloat minDim = MIN(halfWidth, halfHeight);
-    CGFloat imageSize = floor(minDim/5);
+    CGFloat imageSize = floor(minDim/4);
     CGFloat r = minDim - imageSize;
     CGContextTranslateCTM(context, halfWidth, bounds.size.height - halfWidth);
     NSInteger count = _ship.shipClassDetails.maneuvers.count;
@@ -89,8 +58,8 @@ const CGFloat kDegrees270 = kDegrees180 + kDegrees90;
         kinds = @[@"", @"left-spin", @"straight", @"right-spin", @"", @""];
     }
 
-    CGFloat fontSize = minDim / 9;
-    NSFont* font = [NSFont fontWithName: @"Helvetica" size: fontSize];
+    CGFloat fontSize = minDim / 6;
+    NSFont* font = [NSFont fontWithName: @"Helvetica Bold" size: fontSize];
     NSDictionary* attr = @{
         NSForegroundColorAttributeName: [NSColor blackColor],
         NSFontAttributeName: font
@@ -151,7 +120,7 @@ const CGFloat kDegrees270 = kDegrees180 + kDegrees90;
                         } else {
                             [image drawInRect: moveRect fromRect: NSZeroRect operation: NSCompositeSourceOver fraction: 1.0];
                         }
-                        CGContextTranslateCTM(context, 0, -imageSize);
+                        CGContextTranslateCTM(context, 0, -imageSize-minDim/10);
                         NSString* move = [NSString stringWithFormat: @"%d", absSpeed];
                         NSSize moveStringSize = [move sizeWithAttributes: attr];
                         moveRect = NSMakeRect(-floor(moveStringSize.width/2), 0, moveStringSize.width, moveStringSize.height);
@@ -164,6 +133,23 @@ const CGFloat kDegrees270 = kDegrees180 + kDegrees90;
         }
     }
     CGContextRestoreGState(context);
+    CGFloat titleFontSize = minDim / 5;
+    NSFont* titleFont = [NSFont fontWithName: @"Helvetica Bold" size: titleFontSize];
+    NSMutableParagraphStyle* paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.alignment = NSCenterTextAlignment;
+    NSDictionary* titleAttr = @{
+        NSForegroundColorAttributeName: [NSColor blackColor],
+        NSFontAttributeName: titleFont,
+        NSParagraphStyleAttributeName: paragraphStyle
+    };
+    NSString* title = _ship.descriptiveTitle;
+    NSRect titleRect = self.bounds;
+    NSSize titleStringSize = [title sizeWithAttributes: titleAttr];
+    titleRect.size.height = titleStringSize.height;
+    titleRect.origin.y = 10;
+    [title drawInRect: titleRect withAttributes: titleAttr];
+    [[NSColor blackColor] set];
+    [NSBezierPath strokeRect: bounds];
 }
 
 @end

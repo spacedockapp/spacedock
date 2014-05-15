@@ -48,6 +48,7 @@
 		D43431DA18A5F2D300BFDF65 /* DockBuildSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43431D918A5F2D300BFDF65 /* DockBuildSheetViewController.m */; };
 		D43431DD18A5F70800BFDF65 /* DockBuildSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = D43431DC18A5F70800BFDF65 /* DockBuildSheetView.m */; };
 		D43431E018A6878E00BFDF65 /* DockBuildSheetRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = D43431DF18A6878E00BFDF65 /* DockBuildSheetRenderer.m */; };
+		D434FB341923BD7D00A2CD75 /* DockDialPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = D434FB321923B78F00A2CD75 /* DockDialPrinter.m */; };
 		D437079E1800AFDF00622E7F /* DockWeapon+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D437079D1800AFDF00622E7F /* DockWeapon+Addons.m */; };
 		D43D58C618D9E4DB0005BE63 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D43D58BF18D9E4DB0005BE63 /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D43D58C718D9E4DB0005BE63 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D43D58BF18D9E4DB0005BE63 /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -497,6 +498,8 @@
 		D43431DC18A5F70800BFDF65 /* DockBuildSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockBuildSheetView.m; sourceTree = "<group>"; };
 		D43431DE18A6878E00BFDF65 /* DockBuildSheetRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockBuildSheetRenderer.h; sourceTree = "<group>"; };
 		D43431DF18A6878E00BFDF65 /* DockBuildSheetRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockBuildSheetRenderer.m; sourceTree = "<group>"; };
+		D434FB311923B78F00A2CD75 /* DockDialPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockDialPrinter.h; sourceTree = "<group>"; };
+		D434FB321923B78F00A2CD75 /* DockDialPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockDialPrinter.m; sourceTree = "<group>"; };
 		D437079C1800AFDF00622E7F /* DockWeapon+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockWeapon+Addons.h"; sourceTree = "<group>"; };
 		D437079D1800AFDF00622E7F /* DockWeapon+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockWeapon+Addons.m"; sourceTree = "<group>"; };
 		D439357618084DB600096EDA /* Space_Dock_3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock_3.xcdatamodel; sourceTree = "<group>"; };
@@ -1064,6 +1067,8 @@
 				D490D9801916C72400E59234 /* DockViperAppDelegate.m */,
 				D490D9811916C72400E59234 /* DockViperDataLoader.h */,
 				D490D9821916C72400E59234 /* DockViperDataLoader.m */,
+				D434FB311923B78F00A2CD75 /* DockDialPrinter.h */,
+				D434FB321923B78F00A2CD75 /* DockDialPrinter.m */,
 				D40F36B11921CF7900E07A9E /* DockDialView.h */,
 				D40F36B21921CF7900E07A9E /* DockDialView.m */,
 				D490D9831916C72400E59234 /* ViperCredits.rtf */,
@@ -1769,6 +1774,7 @@
 				D4E936971909F96C00CAE779 /* DockManeuver+Addons.m in Sources */,
 				D4E936981909F96C00CAE779 /* DockDataFileLoader.m in Sources */,
 				D4E936991909F96C00CAE779 /* DockCaptain+Addons.m in Sources */,
+				D434FB341923BD7D00A2CD75 /* DockDialPrinter.m in Sources */,
 				D4E9369A1909F96C00CAE779 /* DockMoveGrid.m in Sources */,
 				D4E9369B1909F96C00CAE779 /* DockWeaponRange.m in Sources */,
 				D4E9369C1909F96C00CAE779 /* DockDataUpdater.m in Sources */,
