@@ -10,6 +10,23 @@
 
 @implementation DockShip (Addons)
 
++(NSSet*)keyPathsForValuesAffectingActionString
+{
+    return [NSSet setWithObjects:
+        @"afterburner",
+        @"barrelRoll",
+        @"battleStations",
+        @"cloak",
+        @"evasiveManeuvers",
+        @"pivot",
+        @"regenerate",
+        @"scan",
+        @"sensorEcho",
+        @"spin",
+        @"targetLock",
+    nil];
+}
+
 +(NSArray*)allShips:(NSManagedObjectContext*)context
 {
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Ship" inManagedObjectContext: context];
@@ -288,6 +305,18 @@ NSString* asDegrees(NSString* textValue)
 
     if ([self.regenerate intValue]) {
         [actionStringParts addObject: @"Regen"];
+    }
+
+    if ([self.spin intValue]) {
+        [actionStringParts addObject: @"Spin"];
+    }
+
+    if ([self.barrelRoll intValue]) {
+        [actionStringParts addObject: @"Roll"];
+    }
+
+    if ([self.afterburner intValue]) {
+        [actionStringParts addObject: @"Burn"];
     }
 
     return [NSArray arrayWithArray: actionStringParts];

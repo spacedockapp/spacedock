@@ -2,7 +2,7 @@
 //  DockShip.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 5/1/14.
+//  Created by Rob Tsuk on 5/16/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -48,6 +48,9 @@
 @property (nonatomic, retain) NSString * type;
 @property (nonatomic, retain) NSNumber * unique;
 @property (nonatomic, retain) NSNumber * weapon;
+@property (nonatomic, retain) NSNumber * barrelRoll;
+@property (nonatomic, retain) NSNumber * spin;
+@property (nonatomic, retain) NSNumber * afterburner;
 @property (nonatomic, retain) NSSet *equippedShips;
 @property (nonatomic, retain) DockShipClassDetails *shipClassDetails;
 @end

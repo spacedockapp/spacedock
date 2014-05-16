@@ -2,7 +2,7 @@
 //  DockShip.m
 //  Space Dock
 //
-//  Created by Rob Tsuk on 5/1/14.
+//  Created by Rob Tsuk on 5/16/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -47,6 +47,9 @@
 @dynamic type;
 @dynamic unique;
 @dynamic weapon;
+@dynamic barrelRoll;
+@dynamic spin;
+@dynamic afterburner;
 @dynamic equippedShips;
 @dynamic shipClassDetails;
 

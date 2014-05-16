@@ -27,7 +27,7 @@
     return self;
 }
 
-static NSString* makeKey(NSString* key)
+static NSString* makeKey(NSString* key, BOOL forUpgrades)
 {
     if (key.length < 1) {
         return @"";
@@ -43,7 +43,7 @@ static NSString* makeKey(NSString* key)
         return @"shield";
     } else if ([key isEqualToString: @"Ship Attack"]) {
         return @"attack";
-    } else if ([key isEqualToString: @"Type"]) {
+    } else if ([key isEqualToString: @"Type"] && forUpgrades) {
         return @"upType";
     }
     key = [key stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -53,7 +53,7 @@ static NSString* makeKey(NSString* key)
 }
 
 
--(NSArray*)loadTabSeparatedFile:(NSString*)fileName error:(NSError**)error
+-(NSArray*)loadTabSeparatedFile:(NSString*)fileName forUpgrades:(BOOL)forUpgrades error:(NSError**)error
 {
     NSDictionary* colorMap = @{
         @"R":  @"red",
@@ -70,7 +70,7 @@ static NSString* makeKey(NSString* key)
     NSArray* columnTitles = [columnTitlesLine componentsSeparatedByString: @"\t"];
     NSMutableArray* itemKeys = [[NSMutableArray alloc] initWithCapacity: 0];
     for (NSString* title in columnTitles) {
-        [itemKeys addObject: makeKey(title)];
+        [itemKeys addObject: makeKey(title, forUpgrades)];
     }
     NSMutableArray* items = [NSMutableArray arrayWithCapacity: 0];
     for (NSInteger index = 1; index < lines.count; ++index) {
@@ -249,22 +249,28 @@ static NSString* makeKey(NSString* key)
 
 -(BOOL)loadShips:(NSError**)error
 {
-    NSArray* items = [self loadTabSeparatedFile: @"ships" error: error];
+    NSArray* items = [self loadTabSeparatedFile: @"Viper%20Wing%20-%20Flight%20Path%20Battlestar%20Galactica%20-%20Ships" forUpgrades: NO error: error];
     [self loadItems: items itemClass:[DockShip class] entityName: @"Ship" targetType: @"ship"];
     return YES;
 }
 
 -(BOOL)loadCraft:(NSError**)error
 {
-    NSArray* items = [self loadTabSeparatedFile: @"craft" error: error];
+    NSArray* items = [self loadTabSeparatedFile: @"Viper%20Wing%20-%20Flight%20Path%20Battlestar%20Galactica%20-%20Craft" forUpgrades: NO error: error];
     [self loadItems: items itemClass:[DockShip class] entityName: @"Ship" targetType: @"craft"];
     return YES;
 }
 
 -(BOOL)loadUpgrades:(NSError**)error
 {
-    for (NSString* fileName in @[@"col_ship_upgrades", @"cylon_ship_upgrades"]) {
-        NSArray* items = [self loadTabSeparatedFile: fileName error: error];
+    NSArray* fileNames = @[
+        @"Viper%20Wing%20-%20Flight%20Path%20Battlestar%20Galactica%20-%20Colonial%20Craft%20Upgrades",
+        @"Viper%20Wing%20-%20Flight%20Path%20Battlestar%20Galactica%20-%20Cylon%20Craft%20Upgrades",
+        @"Viper%20Wing%20-%20Flight%20Path%20Battlestar%20Galactica%20-%20Cylon%20Ship%20Upgrades",
+        @"Viper%20Wing%20-%20Flight%20Path%20Battlestar%20Galactica%20-%20Colonial%20Ship%20Upgrades"
+    ];
+    for (NSString* fileName in fileNames) {
+        NSArray* items = [self loadTabSeparatedFile: fileName forUpgrades: YES error: error];
         if (items == nil) {
             return NO;
         }
