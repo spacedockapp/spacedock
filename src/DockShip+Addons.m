@@ -10,6 +10,20 @@
 
 @implementation DockShip (Addons)
 
++(NSSet*)keyPathsForValuesAffectingActionString
+{
+    return [NSSet setWithObjects:
+        @"battleStations",
+        @"cloak",
+        @"evasiveManeuvers",
+        @"regenerate",
+        @"scan",
+        @"sensorEcho",
+        @"targetLock",
+    nil];
+}
+
+
 +(NSArray*)allShips:(NSManagedObjectContext*)context
 {
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Ship" inManagedObjectContext: context];
