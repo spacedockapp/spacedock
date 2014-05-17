@@ -68,4 +68,5 @@ extern NSString* kExpandSquads;
 -(IBAction)includeSelectedSets:(id)sender;
 -(IBAction)excludeSelectedSets:(id)sender;
 -(IBAction)showInList:(id)sender;
+-(void)saveSquadsToDisk:(NSString*)targetPath;
 @end
