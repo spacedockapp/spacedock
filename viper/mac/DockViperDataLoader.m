@@ -63,7 +63,12 @@ static NSString* makeKey(NSString* key, BOOL forUpgrades)
     NSString* pathToDataFile = [_pathToDataFiles stringByAppendingPathComponent: [fileName stringByAppendingPathExtension: @"tsv"]];
     NSString* dataFileContents = [NSString stringWithContentsOfFile: pathToDataFile encoding: NSUTF8StringEncoding error: error];
     if (dataFileContents == nil) {
-        return nil;
+        NSString* otherWay = [fileName stringByReplacingOccurrencesOfString: @"%20" withString: @" "];
+        pathToDataFile = [_pathToDataFiles stringByAppendingPathComponent: [otherWay stringByAppendingPathExtension: @"tsv"]];
+        dataFileContents = [NSString stringWithContentsOfFile: pathToDataFile encoding: NSUTF8StringEncoding error: error];
+        if (dataFileContents == nil) {
+            return nil;
+        }
     }
     NSArray* lines = [dataFileContents componentsSeparatedByString: @"\n"];
     NSString* columnTitlesLine = lines.firstObject;
