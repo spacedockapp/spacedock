@@ -1,3 +1,10 @@
+### Version 1.0.6 build 7 (2014-5-17)
+
+* Made the file name expected format match what Google Docs spits out from the current tab names.
+* Add new Action Type Columns: Pivot, Afterburners, Spin.
+* Craft attack values are printed on the mat.
+* Squads are automatically exported to a file in the Viper Dock folder on application exit.
+
 ### Version 1.0.5 build 6 (2014-5-15)
 
 * Tweak margins.
