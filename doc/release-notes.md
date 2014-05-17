@@ -1,3 +1,7 @@
+### Version 1.0.7 build 8 (2014-5-17)
+
+* Chrome and Safari cannot agree about anything.
+
 ### Version 1.0.6 build 7 (2014-5-17)
 
 * Made the file name expected format match what Google Docs spits out from the current tab names.
