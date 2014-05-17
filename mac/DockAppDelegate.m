@@ -954,7 +954,7 @@ NSString* kExpandedRows = @"expandedRows";
         _shipsController.fetchPredicate = shipsPredicateTemplate;
         NSPredicate* craftPredicateTemplate = [NSPredicate predicateWithFormat: @"isCraft = YES"];
         _craftController.fetchPredicate = craftPredicateTemplate;
-        _captainsController.fetchPredicate = predicateTemplate;
+        _captainsController.fetchPredicate = nil;
         predicateTemplate = [NSPredicate predicateWithFormat: @"not upType like 'Captain' and not placeholder == YES"];
         _upgradesController.fetchPredicate = predicateTemplate;
     } else {
