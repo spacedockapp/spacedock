@@ -6,6 +6,7 @@
 #import "DockSquadsListController.h"
 #import "DockUpgradesViewController.h"
 #import "DockFlagshipsViewController.h"
+#import "DockReferenceViewController.h"
 
 @interface DockTopMenuViewController ()
 
@@ -75,6 +76,10 @@
     } else if ([[segue identifier] isEqualToString: @"GoToSets"]) {
         id destination = [segue destinationViewController];
         DockSetsListViewController* controller = (DockSetsListViewController*)destination;
+        controller.managedObjectContext = self.managedObjectContext;
+    } else if ([[segue identifier] isEqualToString: @"GoToReference"]) {
+        id destination = [segue destinationViewController];
+        DockReferenceViewController* controller = (DockReferenceViewController*)destination;
         controller.managedObjectContext = self.managedObjectContext;
     }
     _targetSquad = nil;

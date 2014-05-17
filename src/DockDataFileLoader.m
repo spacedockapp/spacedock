@@ -10,6 +10,7 @@
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockFlagship.h"
 #import "DockResource.h"
+#import "DockReference.h"
 #import "DockSet+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockShipClassDetails+Addons.h"
@@ -56,8 +57,8 @@
 
 -(void)reset
 {
-    _listElementNames = [NSSet setWithArray: @[@"Sets", @"Upgrades", @"Captains", @"Ships", @"Resources", @"Maneuvers", @"ShipClassDetails", @"Flagships"]];
-    _itemElementNames = [NSSet setWithArray: @[@"Set", @"Upgrade", @"Captain", @"Ship", @"Resource", @"Maneuver", @"ShipClassDetail", @"Flagship"]];
+    _listElementNames = [NSSet setWithArray: @[@"Sets", @"Upgrades", @"Captains", @"Ships", @"Resources", @"Maneuvers", @"ShipClassDetails", @"Flagships", @"ReferenceItems"]];
+    _itemElementNames = [NSSet setWithArray: @[@"Set", @"Upgrade", @"Captain", @"Ship", @"Resource", @"Maneuver", @"ShipClassDetail", @"Flagship", @"Reference"]];
     _elementNameStack = [[NSMutableArray alloc] initWithCapacity: 0];
     _listStack = [[NSMutableArray alloc] initWithCapacity: 0];
     _elementStack = [[NSMutableArray alloc] initWithCapacity: 0];
@@ -175,7 +176,7 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                     modifiedKey = @"externalId";
                 } else if ([key isEqualToString: @"Battlestations"]) {
                     modifiedKey = @"battleStations";
-                } else if ([key isEqualToString: @"Type"]) {
+                } else if ([key isEqualToString: @"Type"] && [c isKindOfClass: [DockUpgrade class]]) {
                     modifiedKey = @"upType";
                 } else {
                     modifiedKey = makeKey(key);
@@ -529,6 +530,7 @@ static NSString* makeKey(NSString* key)
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockBorg class] entityName: @"Borg" targetType: @"Borg"];
     [self loadItems: xmlData[@"Resources"] itemClass: [DockResource class] entityName: @"Resource" targetType: @"Resource"];
     [self loadItems: xmlData[@"Flagships"] itemClass: [DockFlagship class] entityName: @"Flagship" targetType: nil];
+    [self loadItems: xmlData[@"ReferenceItems"] itemClass: [DockReference class] entityName: @"Reference" targetType: nil];
 
     return [self.managedObjectContext save: error];
 }
