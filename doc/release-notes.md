@@ -1,3 +1,8 @@
+### Version 1.0.8 build 9 (2014-5-17)
+
+* Chrome and Safari cannot agree about anything.
+* Don't calculate cost from wing strength.
+
 ### Version 1.0.7 build 8 (2014-5-17)
 
 * Chrome and Safari cannot agree about anything.

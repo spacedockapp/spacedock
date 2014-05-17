@@ -196,17 +196,6 @@ static NSString* makeKey(NSString* key, BOOL forUpgrades)
                     id v = [d valueForKey: key];
                     [c setMinCarry: [v valueForKey:@"min"]];
                     [c setMaxCarry: [v valueForKey:@"max"]];
-                } else if ([key isEqualToString: @"wingStrength"]) {
-                    NSString* wingStrength = [d valueForKey: key];
-                    NSString* title = [c title];
-                    if (wingStrength.length > 0) {
-                        [c setTitle: [NSString stringWithFormat: @"%@ (%@)", title, wingStrength]];
-                        if ([[c cost] intValue] == 0) {
-                            NSString* calcCostString = [d valueForKey: @"calcCost"];
-                            NSNumber* calcCost = [NSNumber numberWithInt: [calcCostString intValue]];
-                            [c setCost: calcCost];
-                        }
-                    }
                 }
             }
         }
