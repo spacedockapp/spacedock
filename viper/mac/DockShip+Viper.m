@@ -1,6 +1,7 @@
 #import "DockShip+Viper.h"
 
 #import "DockShip+MacAddons.h"
+#import "DockUtilsMac.h"
 #import "DockWeaponRange.h"
 
 @implementation DockShip (Viper)
@@ -17,7 +18,9 @@
 
 -(NSAttributedString*)styledCraftAttack
 {
-    return styledAttack(self);
+    NSMutableAttributedString* desc = [[NSMutableAttributedString alloc] initWithString: @""];
+    [desc appendAttributedString: makeCentered(coloredString([[self craftAttack] stringValue], [NSColor whiteColor], [NSColor redColor]))];
+    return desc;
 }
 
 -(NSString*)plainDescription
