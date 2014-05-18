@@ -13,6 +13,12 @@
 
 @implementation DockInspector
 
++(NSSet*)keyPathsForValuesAffectingCurrentSetName
+{
+    return [NSSet setWithObjects: @"currentCaptain", @"currentUpgrade", @"currentShip", @"currentResource", @"currentFlagship", @"currentReference", nil];
+}
+
+
 static id extractSelectedItem(id controller)
 {
     NSArray* selectedItems = [controller selectedObjects];
@@ -93,6 +99,19 @@ static id extractSelectedItem(id controller)
     }
 }
 
+-(void)updateReference:(DockReference*)reference
+{
+    if (reference == nil) {
+        [_tabView selectTabViewItemWithIdentifier: @"blank"];
+        [self clearSet];
+    } else {
+        if (reference != _currentReference) {
+            self.currentReference = reference;
+        }
+        [self updateSet: nil];
+    }
+}
+
 -(void)updateInspectorTabForItem:(id)selectedItem changeTab:(BOOL)changeTab
 {
     if ([selectedItem isMemberOfClass: [DockEquippedShip class]]) {
@@ -127,6 +146,13 @@ static id extractSelectedItem(id controller)
     [self updateInspectorTabForItem: selectedItem changeTab: NO];
 }
 
+-(void)selectTabIfBlank:(NSString*)newTab
+{
+    if ([[[_tabView selectedTabViewItem] identifier] isEqualToString: @"blank"]) {
+        [_tabView selectTabViewItemWithIdentifier: newTab];
+    }
+}
+
 -(void)observeValueForKeyPath:(NSString*)keyPath
                      ofObject:(id)object
                        change:(NSDictionary*)change
@@ -158,6 +184,10 @@ static id extractSelectedItem(id controller)
                 [_tabView selectTabViewItemWithIdentifier: @"flagship"];
                 [self updateFlagship: extractSelectedItem(_flagships)];
                 [self updateSet: self.currentFlagship];
+            } else if ([ident isEqualToString: @"referenceTable"]) {
+                [_tabView selectTabViewItemWithIdentifier: @"reference"];
+                [self updateReference: extractSelectedItem(_reference)];
+                [self clearSet];
             } else {
                 [_tabView selectTabViewItemWithIdentifier: @"blank"];
                 [self clearSet];
@@ -169,8 +199,10 @@ static id extractSelectedItem(id controller)
             }
         } else if (object == _captains) {
             [self updateCaptain: extractSelectedItem(_captains)];
+            [self selectTabIfBlank: @"captain"];
         } else if (object == _ships) {
             [self updateShip: extractSelectedItem(_ships)];
+            [self selectTabIfBlank: @"ship"];
         } else if (object == _flagships) {
             [self updateFlagship: extractSelectedItem(_flagships)];
         } else if (object == _upgrades) {
@@ -178,6 +210,9 @@ static id extractSelectedItem(id controller)
         } else if (object == _resources) {
             self.currentResource = extractSelectedItem(_resources);
             [self updateSet: self.currentResource];
+        } else if (object == _reference) {
+            self.currentReference = extractSelectedItem(_reference);
+            [self clearSet];
         }
     }
     @catch (NSException *exception) {
@@ -198,6 +233,7 @@ static id extractSelectedItem(id controller)
     [_upgrades addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     [_resources addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     [_flagships addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
+    [_reference addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     [_squadDetail addObserver: self forKeyPath: @"selectionIndexPath" options: 0 context: 0];
 }
 

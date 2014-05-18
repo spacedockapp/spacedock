@@ -3915,6 +3915,7 @@
                 <outlet property="inspector" destination="h3B-q6-zJy" id="nzl-G2-VQy"/>
                 <outlet property="mainWindow" destination="371" id="Zwt-et-1M2"/>
                 <outlet property="moveGrid" destination="XsD-d6-3SQ" id="xEO-WR-jfX"/>
+                <outlet property="reference" destination="a37-z6-clf" id="TVG-yv-Z8i"/>
                 <outlet property="resources" destination="YPe-Zs-mE7" id="2o6-hy-Ap1"/>
                 <outlet property="resourcesTable" destination="v13-24-CCG" id="QAi-kK-Wzn"/>
                 <outlet property="setLabel" destination="ZGj-ZZ-ieE" id="gr3-Xf-kLc"/>
@@ -4622,6 +4623,50 @@
                                     </subviews>
                                 </view>
                             </tabViewItem>
+                            <tabViewItem label="Reference" identifier="reference" id="cxt-3V-R8b">
+                                <view key="view" id="jev-4V-0ci">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="aJt-Tv-Oq8" userLabel="ability">
+                                            <rect key="frame" x="14" y="20" width="172" height="191"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <textFieldCell key="cell" controlSize="mini" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="border" alignment="left" title="Multiline Label" drawsBackground="YES" id="8Fs-bA-rZk">
+                                                <font key="font" metaFont="system" size="10"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentReference.ability" id="DCn-3r-isS"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="bMs-9j-hZS">
+                                            <rect key="frame" x="12" y="229" width="176" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" sendsActionOnEndEditing="YES" alignment="center" title="title" id="Mtf-J1-xtm">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="currentReference.title" id="YsW-I2-afm"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="gQ3-YL-mOa">
+                                            <rect key="frame" x="12" y="211" width="176" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" lineBreakMode="truncatingHead" selectable="YES" sendsActionOnEndEditing="YES" alignment="center" title="set" id="FY8-f8-N0X">
+                                                <font key="font" metaFont="miniSystem"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="L6P-6L-sOj" name="value" keyPath="self.currentReference.type" id="OFQ-T6-eeH"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
                             <tabViewItem label="Blank" identifier="blank" id="biD-ag-b1Y">
                                 <view key="view" id="ylw-cf-s3E">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
@@ -4846,7 +4891,7 @@
                                                 <tableViewGridLines key="gridStyleMask" vertical="YES" horizontal="YES"/>
                                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                 <tableColumns>
-                                                    <tableColumn identifier="result" width="71" maxWidth="9999" id="wei-vF-ghd">
+                                                    <tableColumn identifier="result" width="72" maxWidth="9999" id="wei-vF-ghd">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Round">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -4859,7 +4904,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="fp" width="29" maxWidth="9999" id="sSZ-So-3lC">
+                                                    <tableColumn identifier="fp" width="28" maxWidth="9999" id="sSZ-So-3lC">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Opponents Name">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -4872,7 +4917,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="cfp" width="44" maxWidth="9999" id="tKZ-05-bF5">
+                                                    <tableColumn identifier="cfp" width="43" maxWidth="9999" id="tKZ-05-bF5">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -4885,7 +4930,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="initials" width="72.5" maxWidth="9999" id="vLw-H6-RFc">
+                                                    <tableColumn identifier="initials" width="73.5" maxWidth="9999" id="vLw-H6-RFc">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>

@@ -6,6 +6,7 @@
 @class DockResource;
 @class DockShip;
 @class DockMoveGrid;
+@class DockReference;
 
 @interface DockInspector : NSObject
 @property (assign) IBOutlet NSPanel* inspector;
@@ -16,6 +17,7 @@
 @property (assign) IBOutlet NSArrayController* ships;
 @property (assign) IBOutlet NSArrayController* resources;
 @property (assign) IBOutlet NSArrayController* flagships;
+@property (assign) IBOutlet NSArrayController* reference;
 @property (assign) IBOutlet NSTreeController* squadDetail;
 @property (assign) IBOutlet DockMoveGrid* moveGrid;
 @property (strong, nonatomic) NSString* targetKind;
@@ -24,6 +26,7 @@
 @property (strong, nonatomic) DockShip* currentShip;
 @property (strong, nonatomic) DockResource* currentResource;
 @property (strong, nonatomic) DockFlagship* currentFlagship;
+@property (strong, nonatomic) DockReference* currentReference;
 @property (strong, nonatomic) NSString* shipDetailTab;
 @property (strong, nonatomic) NSString* currentSetName;
 
