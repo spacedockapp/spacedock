@@ -82,15 +82,16 @@ public class Squad extends SquadBase {
         return sideboard;
     }
 
-    public void importFromObject(Universe universe, boolean replaceUuid, JSONObject jsonObject, boolean strict)
-            throws JSONException {
+    public void importFromObject(Universe universe, boolean replaceUuid,
+            JSONObject jsonObject, boolean strict) throws JSONException {
         setNotes(jsonObject.optString(JSON_LABEL_NOTES, ""));
         setName(jsonObject.optString(JSON_LABEL_NAME, "Untitled"));
         setAdditionalPoints(jsonObject.optInt(JSON_LABEL_ADDITIONAL_POINTS));
         if (replaceUuid) {
             assignNewUuid();
         } else {
-            setUuid(jsonObject.optString(JSON_LABEL_UUID, UUID.randomUUID().toString()));
+            setUuid(jsonObject.optString(JSON_LABEL_UUID, UUID.randomUUID()
+                    .toString()));
         }
         String resourceId = jsonObject.optString(JSON_LABEL_RESOURCE, "");
         if (resourceId.length() > 0) {
@@ -124,9 +125,10 @@ public class Squad extends SquadBase {
         }
     }
 
-    public void importFromStream(Universe universe, InputStream is, boolean replaceUuid, boolean strict)
-            throws JSONException {
-        JSONTokener tokenizer = new JSONTokener(DataUtils.convertStreamToString(is));
+    public void importFromStream(Universe universe, InputStream is,
+            boolean replaceUuid, boolean strict) throws JSONException {
+        JSONTokener tokenizer = new JSONTokener(
+                DataUtils.convertStreamToString(is));
         JSONObject jsonObject = new JSONObject(tokenizer);
         importFromObject(universe, replaceUuid, jsonObject, strict);
     }
@@ -169,7 +171,8 @@ public class Squad extends SquadBase {
         Comparator<EquippedShip> comparator = new Comparator<EquippedShip>() {
             @Override
             public int compare(EquippedShip arg0, EquippedShip arg1) {
-                if (arg0.getIsResourceSideboard() == arg1.getIsResourceSideboard()) {
+                if (arg0.getIsResourceSideboard() == arg1
+                        .getIsResourceSideboard()) {
                     return 0;
                 }
 
@@ -270,7 +273,8 @@ public class Squad extends SquadBase {
     Explanation canAddShip(Ship ship) {
         if (ship.getUnique()) {
             if (containsShipWithName(ship.getTitle())) {
-                String result = String.format("Can't add %s to the selected squadron",
+                String result = String.format(
+                        "Can't add %s to the selected squadron",
                         ship.getTitle());
                 String explanation = "This ship is unique and one with the same name already exists in the squadron.";
                 return new Explanation(result, explanation);
@@ -286,9 +290,11 @@ public class Squad extends SquadBase {
         }
 
         if (captain.getUnique()) {
-            EquippedUpgrade existing = containsUpgradeWithName(captain.getTitle());
+            EquippedUpgrade existing = containsUpgradeWithName(captain
+                    .getTitle());
             if (existing != null) {
-                String result = String.format("Can't add %s to the selected squadron",
+                String result = String.format(
+                        "Can't add %s to the selected squadron",
                         captain.getTitle());
                 String explanation = "This Captain is unique and one with the same name already exists in the squadron.";
                 return new Explanation(result, explanation);
@@ -299,9 +305,11 @@ public class Squad extends SquadBase {
 
     Explanation canAddUpgrade(Upgrade upgrade, EquippedShip targetShip) {
         if (upgrade.getUnique()) {
-            EquippedUpgrade existing = containsUpgradeWithName(upgrade.getTitle());
+            EquippedUpgrade existing = containsUpgradeWithName(upgrade
+                    .getTitle());
             if (existing != null) {
-                String result = String.format("Can't add %s to the selected squadron",
+                String result = String.format(
+                        "Can't add %s to the selected squadron",
                         upgrade.getTitle());
                 String explanation = String
                         .format("This %s is unique and one with the same name already exists in the squadron.",
@@ -353,5 +361,55 @@ public class Squad extends SquadBase {
         for (EquippedShip mEquippedShip : mEquippedShips) {
             mEquippedShip.getFactions(factions);
         }
+    }
+
+    public String asPlainTextFormat() {
+        StringBuilder sb = new StringBuilder();
+        Resource resource = getResource();
+        for (EquippedShip es : getEquippedShips()) {
+            sb.append(String.format("%s (%d)\n", es.getPlainDescription(),
+                    es.getBaseCost()));
+            Flagship flagship = es.getFlagship();
+            if (flagship != null) {
+                sb.append(String.format("%s (%d)\n",
+                        flagship.getPlainDescription(), flagship.getCost()));
+            }
+            for (EquippedUpgrade eu : es.getSortedUpgrades()) {
+                if (!eu.isPlaceholder()) {
+                    if (eu.getOverridden()) {
+                        sb.append(String.format("%s (%d overridden to %d)\n",
+                                eu.getTitle(),
+                                eu.getNonOverriddenCost(), eu.getCost()));
+                    } else {
+                        sb.append(String.format("%s (%d)\n",
+                                eu.getTitle(), eu.getCost()));
+                    }
+                }
+            }
+            if (!es.getIsResourceSideboard()) {
+                sb.append(String.format("Total (%d)\n", es.calculateCost()));
+            }
+            sb.append("\n");
+        }
+
+        if (resource != null && !resource.getIsFlagship()) {
+            sb.append(String.format("%s (%s)\n\n", resource.getTitle(), resource.getCost()));
+        }
+
+        String notes = getNotes();
+        if (notes != null && notes.length() > 0) {
+            sb.append(notes);
+            sb.append("\n\n");
+        }
+
+        int otherCost = getAdditionalPoints();
+        if (otherCost > 0) {
+            sb.append(String.format("Other cost: %d\n\n", otherCost));
+        }
+
+        sb.append(String.format("Fleet total: %d\n\n", calculateCost()));
+
+        sb.append("Generated by Space Dock for Android\nhttp://spacedockapp.org\n");
+        return sb.toString();
     }
 }

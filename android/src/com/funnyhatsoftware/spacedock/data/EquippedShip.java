@@ -171,7 +171,7 @@ public class EquippedShip extends EquippedShipBase {
         return TextUtils.join(", ", upgradeTitles);
     }
 
-    private ArrayList<EquippedUpgrade> getSortedUpgrades() {
+    public ArrayList<EquippedUpgrade> getSortedUpgrades() {
         ArrayList<EquippedUpgrade> sortedUpgrades = getUpgrades();
         Comparator<EquippedUpgrade> comparator = new Comparator<EquippedUpgrade>() {
 
@@ -694,13 +694,15 @@ public class EquippedShip extends EquippedShipBase {
             Flagship flagship = Universe.getUniverse().getFlagship(externalId);
             if (!flagship.compatibleWithFaction(shipFaction())) {
                 return new Explanation("Failed to add Flagship.",
-                        flagship.getPlainDescription() + " not compatible with ship faction " + shipFaction());
+                        flagship.getPlainDescription() + " not compatible with ship faction "
+                                + shipFaction());
             }
             squad.removeFlagship();
             setFlagship(flagship);
         }
 
-        // slot counts may have changed, refresh placeholders + prune slots to new count
+        // slot counts may have changed, refresh placeholders + prune slots to
+        // new count
         establishPlaceholders();
 
         return Explanation.SUCCESS;
