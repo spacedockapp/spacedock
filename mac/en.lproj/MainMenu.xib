@@ -3937,6 +3937,7 @@
                 <outlet property="captainsTableView" destination="pbE-Lg-pvF" id="hWe-nR-T6n"/>
                 <outlet property="factionMenu" destination="jzV-EA-Bef" id="s0C-A5-mcz"/>
                 <outlet property="faqViewer" destination="fzH-hA-dLG" id="hGA-Hc-kbp"/>
+                <outlet property="fileMenu" destination="81" id="TGd-PL-0Q3"/>
                 <outlet property="flagshipsController" destination="Akm-Zf-Blb" id="y5T-L6-ti5"/>
                 <outlet property="flagshipsTableView" destination="fgU-tR-2vJ" id="MPh-Ek-V1X"/>
                 <outlet property="fleetBuildSheet2" destination="Izs-mh-ARI" id="H4b-K4-PBX"/>
@@ -3946,7 +3947,7 @@
                 <outlet property="preferencesWindow" destination="y6I-Im-Zme" id="kpr-36-vRq"/>
                 <outlet property="resourcesController" destination="YPe-Zs-mE7" id="QpO-G6-Tot"/>
                 <outlet property="resourcesTableView" destination="v13-24-CCG" id="Rq7-QP-07h"/>
-                <outlet property="setsController" destination="a37-z6-clf" id="pez-f2-2w9"/>
+                <outlet property="setsController" destination="wcL-UX-c6a" id="dI4-Dz-lVE"/>
                 <outlet property="shipsController" destination="Gzr-Z0-87U" id="5vW-HI-mUc"/>
                 <outlet property="shipsTableView" destination="sJW-5v-BIo" id="ln7-xP-Eyt"/>
                 <outlet property="squadDetailController" destination="REc-Lj-a6S" id="Ujp-f8-UcS"/>
@@ -4891,7 +4892,7 @@
                                                 <tableViewGridLines key="gridStyleMask" vertical="YES" horizontal="YES"/>
                                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                 <tableColumns>
-                                                    <tableColumn identifier="result" width="72" maxWidth="9999" id="wei-vF-ghd">
+                                                    <tableColumn identifier="result" width="74" maxWidth="9999" id="wei-vF-ghd">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Round">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -4904,7 +4905,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="fp" width="28" maxWidth="9999" id="sSZ-So-3lC">
+                                                    <tableColumn identifier="fp" width="26" maxWidth="9999" id="sSZ-So-3lC">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Opponents Name">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -4917,7 +4918,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="cfp" width="43" maxWidth="9999" id="tKZ-05-bF5">
+                                                    <tableColumn identifier="cfp" width="41" maxWidth="9999" id="tKZ-05-bF5">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -4930,7 +4931,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="initials" width="73.5" maxWidth="9999" id="vLw-H6-RFc">
+                                                    <tableColumn identifier="initials" width="75.5" maxWidth="9999" id="vLw-H6-RFc">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>

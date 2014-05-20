@@ -31,6 +31,7 @@ extern NSString* kExpandSquads;
 @property (assign) IBOutlet NSTableView* squadsTableView;
 @property (assign) IBOutlet NSTableView* flagshipsTableView;
 @property (assign) IBOutlet NSMenu* factionMenu;
+@property (assign) IBOutlet NSMenu* fileMenu;
 @property (assign) IBOutlet NSWindow* preferencesWindow;
 @property (assign) IBOutlet DockInspector* inspector;
 @property (assign) IBOutlet DockFleetBuildSheet* fleetBuildSheet2;

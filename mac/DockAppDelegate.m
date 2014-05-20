@@ -38,6 +38,7 @@ NSString* kWarnAboutUnhandledSpecials = @"warnAboutUnhandledSpecials";
 NSString* kInspectorVisible = @"inspectorVisible";
 NSString* kExpandSquads = @"expandSquads";
 NSString* kExpandedRows = @"expandedRows";
+NSString* kShowDataModelExport = @"showDataModelExport";
 
 @interface DockAppDelegate ()
 @property (strong, nonatomic) DockDataUpdater* updater;
@@ -158,6 +159,16 @@ NSString* kExpandedRows = @"expandedRows";
     }
 }
 
+-(void)setupFileMenu
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults boolForKey: kShowDataModelExport]) {
+        NSString* keyEquiv = @"";
+        [_fileMenu addItem: [NSMenuItem separatorItem]];
+        [_fileMenu addItemWithTitle: @"Export Data Model" action: @selector(exportDataModel:) keyEquivalent: keyEquiv];
+    }
+}
+
 -(NSString*)pathToDataFile
 {
     NSString* appData = [[DockAppDelegate applicationFilesDirectory] path];
@@ -195,6 +206,7 @@ NSString* kExpandedRows = @"expandedRows";
     defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"name" ascending: YES selector: @selector(localizedCaseInsensitiveCompare:)];
     [_squadsTableView setSortDescriptors: @[defaultSortDescriptor]];
     [self setupFactionMenu];
+    [self setupFileMenu];
 
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
 
@@ -203,10 +215,6 @@ NSString* kExpandedRows = @"expandedRows";
     }
     
     self.expandedRows = [defaults boolForKey: kExpandedRows];
-    
-#if 0
-    [self exportDataModel: nil];
-#endif
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
