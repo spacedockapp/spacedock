@@ -12,6 +12,8 @@
     [desc appendAttributedString: space];
     [desc appendAttributedString: styledAttack(self)];
     [desc appendAttributedString: space];
+    [desc appendAttributedString: styledCraftAttack(self)];
+    [desc appendAttributedString: space];
     [desc appendAttributedString: styledAgility(self)];
     [desc appendAttributedString: space];
     [desc appendAttributedString: styledHull(self)];
@@ -25,6 +27,13 @@ NSAttributedString* styledAttack(id ship)
 {
     NSMutableAttributedString* desc = [[NSMutableAttributedString alloc] initWithString: @""];
     [desc appendAttributedString: makeCentered(coloredString([[ship attack] stringValue], [NSColor whiteColor], [NSColor redColor]))];
+    return desc;
+}
+
+NSAttributedString* styledCraftAttack(id ship)
+{
+    NSMutableAttributedString* desc = [[NSMutableAttributedString alloc] initWithString: @""];
+    [desc appendAttributedString: makeCentered(coloredString([[ship craftAttack] stringValue], [NSColor whiteColor], [NSColor redColor]))];
     return desc;
 }
 
