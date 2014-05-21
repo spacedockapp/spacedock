@@ -1,5 +1,6 @@
 #import "DockViperAppDelegate.h"
 
+#import "DockSquad+Addons.h"
 #import "DockViperDataLoader.h"
 
 @implementation DockViperAppDelegate
@@ -29,9 +30,12 @@
 
 -(NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication*)sender
 {
-    NSString* viperDockFiles = [self viperDockDirectory];
-    NSString* allSquadsPath = [viperDockFiles stringByAppendingPathComponent: @"All Squads.spacedocksquads"];
-    [self saveSquadsToDisk: allSquadsPath];
+    NSArray* allSquads = [DockSquad allSquads: self.managedObjectContext];
+    if (allSquads.count > 0) {
+        NSString* viperDockFiles = [self viperDockDirectory];
+        NSString* allSquadsPath = [viperDockFiles stringByAppendingPathComponent: @"All Squads.spacedocksquads"];
+        [self saveSquadsToDisk: allSquadsPath];
+    }
     return [super applicationShouldTerminate: sender];
 }
 @end
