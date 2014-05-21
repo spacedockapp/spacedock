@@ -3,7 +3,7 @@ package com.funnyhatsoftware.spacedock.data;
 
 import java.util.Map;
 
-public class ReferenceBase extends Base {
+public class ReferenceBase extends SetItem {
     String mAbility;
     public String getAbility() { return mAbility; }
     public ReferenceBase setAbility(String v) { mAbility = v; return this;}
@@ -18,6 +18,7 @@ public class ReferenceBase extends Base {
     public ReferenceBase setType(String v) { mType = v; return this;}
 
     public void update(Map<String,Object> data) {
+        super.update(data);
         mAbility = DataUtils.stringValue((String)data.get("Ability"));
         mExternalId = DataUtils.stringValue((String)data.get("Id"));
         mTitle = DataUtils.stringValue((String)data.get("Title"));

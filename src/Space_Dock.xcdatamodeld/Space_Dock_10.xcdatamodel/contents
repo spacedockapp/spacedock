@@ -46,7 +46,7 @@
         <attribute name="speed" attributeType="Integer 16" defaultValueString="1" syncable="YES"/>
         <relationship name="shipClassDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShipClassDetails" inverseName="maneuvers" inverseEntity="ShipClassDetails" syncable="YES"/>
     </entity>
-    <entity name="Reference" representedClassName="DockReference" syncable="YES">
+    <entity name="Reference" representedClassName="DockReference" parentEntity="SetItem" syncable="YES">
         <attribute name="ability" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="externalId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -150,7 +150,7 @@
         <element name="EquippedUpgrade" positionX="0" positionY="0" width="128" height="105"/>
         <element name="Flagship" positionX="0" positionY="0" width="128" height="345"/>
         <element name="Maneuver" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="Reference" positionX="9" positionY="153" width="128" height="103"/>
+        <element name="Reference" positionX="9" positionY="153" width="128" height="105"/>
         <element name="Resource" positionX="0" positionY="0" width="128" height="165"/>
         <element name="Set" positionX="0" positionY="0" width="128" height="133"/>
         <element name="SetItem" positionX="0" positionY="0" width="128" height="60"/>
