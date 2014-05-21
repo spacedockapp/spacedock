@@ -1,3 +1,8 @@
+### Version 1.0.9 build 10 (2014-5-21)
+
+* Don't automatically write out zero length squad files.
+* Add craft attack for styledDescription.
+
 ### Version 1.0.8 build 9 (2014-5-17)
 
 * Chrome and Safari cannot agree about anything.
