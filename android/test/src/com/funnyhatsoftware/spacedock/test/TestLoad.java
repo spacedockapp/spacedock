@@ -72,7 +72,7 @@ public class TestLoad extends BaseTest {
         for (SetItem item : setItems) {
             Log.i("spacedock", item.getTitle());
         }
-        assertEquals("Count of items in core set wrong", 30, setItems.size());
+        assertEquals("Count of items in core set wrong", 32, setItems.size());
 
         Set reliantSet = universe.sets.get("71121");
         assertNotNull("Couldn't get core set", reliantSet);

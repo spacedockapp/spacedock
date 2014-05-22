@@ -21,6 +21,7 @@ extern NSString* kExpandSquads;
 @property (assign) IBOutlet NSArrayController* upgradesController;
 @property (assign) IBOutlet NSArrayController* resourcesController;
 @property (assign) IBOutlet NSArrayController* flagshipsController;
+@property (assign) IBOutlet NSArrayController* referenceController;
 @property (assign) IBOutlet NSTreeController* squadDetailController;
 @property (assign) IBOutlet NSPopUpButton* exportFormatPopup;
 @property (assign) IBOutlet NSTableView* shipsTableView;
