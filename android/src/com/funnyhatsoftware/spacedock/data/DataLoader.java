@@ -48,12 +48,12 @@ public class DataLoader extends DefaultHandler {
         xmlInput = xmlTargetInput;
         String[] a = {
                 "Sets", "Upgrades", "Captains", "Ships", "Resources",
-                "Maneuvers", "ShipClassDetails", "Flagships"
+                "Maneuvers", "ShipClassDetails", "Flagships", "ReferenceItems"
         };
         Collections.addAll(listElementNames, a);
         String[] b = {
                 "Set", "Upgrade", "Captain", "Ship", "Resource",
-                "Maneuver", "ShipClassDetail", "Flagship"
+                "Maneuver", "ShipClassDetail", "Flagship", "Reference"
         };
         Collections.addAll(itemElementNames, b);
 
@@ -235,6 +235,31 @@ public class DataLoader extends DefaultHandler {
         };
 
         loadDataItems("Resources", resourceHandler);
+
+        ItemCreator referenceHandler = new ItemCreator() {
+
+            @Override
+            public SetItem create(String type) {
+                return new Reference();
+            }
+
+            @Override
+            public SetItem get(String externalId) {
+                return universe.resources.get(externalId);
+            }
+
+            @Override
+            public void put(String externalId, SetItem s) {
+                universe.referenceItems.put(externalId, (Reference) s);
+            }
+
+            @Override
+            public void afterUpdate(SetItem s) {
+            }
+
+        };
+
+        loadDataItems("ReferenceItems", referenceHandler);
 
         validateSpecials();
 

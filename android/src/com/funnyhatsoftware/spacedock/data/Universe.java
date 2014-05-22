@@ -43,6 +43,7 @@ public class Universe {
     public ArrayMap<String, Upgrade> upgrades = new ArrayMap<String, Upgrade>();
     public ArrayMap<String, Resource> resources = new ArrayMap<String, Resource>();
     public ArrayMap<String, Flagship> flagships = new ArrayMap<String, Flagship>();
+    public ArrayMap<String, Reference> referenceItems = new ArrayMap<String, Reference>();
     public ArrayMap<String, Set> sets = new ArrayMap<String, Set>();
     private java.util.Set<Set> mIncludedSets = new HashSet<Set>();
     public ArrayMap<String, Upgrade> placeholders = new ArrayMap<String, Upgrade>();
@@ -430,6 +431,10 @@ public class Universe {
             }
         }
         return allSpecials;
+    }
+    
+    public Reference getReference(String externalId) {
+        return referenceItems.get(externalId);
     }
 
 }
