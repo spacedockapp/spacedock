@@ -1,4 +1,4 @@
-<Data version="1.217">
+<Data version="1.218">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1251,7 +1251,7 @@
       <Agility>1</Agility>
       <Hull>6</Hull>
       <Shield>3</Shield>
-      <Ability>ACTION: Target a ship within your firing arc at Range 1-2 and roll 3 attack dice. For each [DAMAGE] result disable 1 of that ship's Shields. If possible, you may play Klingon Boarding Party as a free action this turn. </Ability>
+      <Ability>ACTION: Target a ship within your firing arc at Range 1-2 and roll 3 attack dice. For each [HIT] result disable 1 of that ship's Shields. If possible, you may play Klingon Boarding Party as a free action this turn. </Ability>
       <Cost>30</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
@@ -1732,7 +1732,7 @@
       <Agility>2</Agility>
       <Hull>3</Hull>
       <Shield>0</Shield>
-      <Ability>You may use the [CLOAK] Action even if you have no Active Shields. Whenever you choose the [CLOACK] Action, roll 1 attack die. On a [BATTLE STATIONS] result, your Hull sustains 1 Damage.</Ability>
+      <Ability>You may use the [CLOAK] Action even if you have no Active Shields. Whenever you choose the [CLOAK] Action, roll 1 attack die. On a [BATTLE STATIONS] result, your Hull sustains 1 Damage.</Ability>
       <Cost>14</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
@@ -2642,7 +2642,7 @@
     <Captain>
       <Title>William T. Riker</Title>
       <Unique>Y</Unique>
-      <Ability>ACTION: If you are attacked this round at Range 1, Roll 2 attack dice. Any [DAMAGE] or [CRITICAL] result damages the attacking ship as normal, even if your ship is destroyed by their attack. The attacking ship does not roll any defense dice. </Ability>
+      <Ability>ACTION: If you are attacked this round at Range 1, Roll 2 attack dice. Any [HIT] or [CRITICAL] result damages the attacking ship as normal, even if your ship is destroyed by their attack. The attacking ship does not roll any defense dice. </Ability>
       <Skill>6</Skill>
       <Talent>
       </Talent>
@@ -2676,7 +2676,7 @@
     <Captain>
       <Title>Nu'Daq</Title>
       <Unique>Y</Unique>
-      <Ability>When attacking, you may convert 1 [BATTLE STATIONS] result into a [DAMAGE] result. </Ability>
+      <Ability>When attacking, you may convert 1 [BATTLE STATIONS] result into a [HIT] result. </Ability>
       <Skill>5</Skill>
       <Talent>
       </Talent>
@@ -2710,7 +2710,7 @@
     <Captain>
       <Title>Toreth</Title>
       <Unique>Y</Unique>
-      <Ability>When attacking, you may convert 1 [DAMAGE] result into a [CRITICAL] result. </Ability>
+      <Ability>When attacking, you may convert 1 [HIT] result into a [CRITICAL] result. </Ability>
       <Skill>7</Skill>
       <Talent>1</Talent>
       <Attack>
@@ -2743,7 +2743,7 @@
     <Captain>
       <Title>Khan Singh</Title>
       <Unique>Y</Unique>
-      <Ability>You may use any Upgrades without paying a faction penalty. During an attack, if you spend a [BATTLE STATIONS] Token, each of your [BATTLE STATIONS] results become a [CRITICAL] instead of a [DAMAGE]. </Ability>
+      <Ability>You may use any Upgrades without paying a faction penalty. During an attack, if you spend a [BATTLE STATIONS] Token, each of your [BATTLE STATIONS] results become a [CRITICAL] instead of a [HIT]. </Ability>
       <Skill>8</Skill>
       <Talent>1</Talent>
       <Attack>
@@ -3317,7 +3317,7 @@
     </Captain>
     <Captain>
       <Title>Data</Title>
-      <Ability>ACTION: Disable one of your crew upgrades and one of your weapon upgrades to target all cloaked ship at range 1-3. They immediately flip their cloak tokens to the red side. </Ability>
+      <Ability>ACTION: Disable one of your [CREW] upgrades and one of your [WEAPON] upgrades to target all cloaked ship at range 1-3. They immediately flip their cloak tokens to the red side. </Ability>
       <Unique>Y</Unique>
       <Skill>4</Skill>
       <Talent>1</Talent>
@@ -3497,7 +3497,7 @@
     </Captain>
     <Captain>
       <Title>Tahna Los</Title>
-      <Ability>Add 1 [TECH] icon to your ships upgrade bar. One of the [TECH] upgrades you purchase for Tahna Los's ship costs exactly 3 squadron points and is placed face down beside his card; this upgrade cannot refer to a specific ship or class of ship. This upgrade remains face down until you decide to use it, and then it is turned face up for the rest of the game.</Ability>
+      <Ability>Add 1 [TECH] icon to your ship's upgrade bar. One of the [TECH] upgrades you purchase for Tahna Los's ship costs exactly 3 squadron points and is placed face down beside his card; this upgrade cannot refer to a specific ship or class of ship. This upgrade remains face down until you decide to use it, and then it is turned face up for the rest of the game.</Ability>
       <Unique>Y</Unique>
       <Skill>5</Skill>
       <Talent>1</Talent>
@@ -3527,7 +3527,7 @@
     </Captain>
     <Captain>
       <Title>Kathryn Janeway</Title>
-      <Ability>When your ship performs an evade, scan, or battle stations Action, you may place an additional token of the appropriate type beside your ship. If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+      <Ability>When your ship performs an [EVASIVE], [SCAN] or [BATTLE STATIONS] Action, you may place an additional token of the appropriate type beside your ship. If you do so, place an Auxiliary Power Token beside your ship.</Ability>
       <Unique>Y</Unique>
       <Skill>8</Skill>
       <Talent>1</Talent>
@@ -3798,7 +3798,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Antimatter Mines</Title>
-      <Ability>ATTACK: Discard this card and place a Minefield Token in your rear firing arc at Range 1. If you place this token on a ship, or if a ship enters the minefield, roll 4 attack dice. Any [DAMAGE] or [CRITICAL] damages the ship as normal. The affected ship does not roll any defense dice. </Ability>
+      <Ability>ATTACK: Discard this card and place a Minefield Token in your rear firing arc at Range 1. If you place this token on a ship, or if a ship enters the minefield, roll 4 attack dice. Any [HIT] or [CRITICAL] damages the ship as normal. The affected ship does not roll any defense dice. </Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -3866,7 +3866,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Tractor Beam</Title>
-      <Ability>ACTION: Target a ship at Range 1 and roll 2 attack dice. For every [DAMAGE] result, that ship rolls 1 less defense die against your next attack. </Ability>
+      <Ability>ACTION: Target a ship at Range 1 and roll 2 attack dice. For every [HIT] result, that ship rolls 1 less defense die against your next attack. </Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -4362,7 +4362,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Interphase Generator</Title>
-      <Ability>When defending while you are Cloaked, you may discard this card after all the dice have been rolled to reduce the damage from a single attack to exactly 1 [DAMAGE]. </Ability>
+      <Ability>When defending while you are Cloaked, you may discard this card after all the dice have been rolled to reduce the damage from a single attack to exactly 1 [HIT]. </Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -4533,7 +4533,7 @@
     <Upgrade>
       <Title>Drex</Title>
       <Unique>Y</Unique>
-      <Ability>ACTION: When attacking this round, you may convert 1 [BATTLE STATIONS] result into 1 [CRITICAL] result and all of your other [BATTLE STATIONS] results into [DAMAGE] results. </Ability>
+      <Ability>ACTION: When attacking this round, you may convert 1 [BATTLE STATIONS] result into 1 [CRITICAL] result and all of your other [BATTLE STATIONS] results into [HIT] results. </Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -4565,7 +4565,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Tractor Beam</Title>
-      <Ability>ACTION: Target a ship at Range 1 and roll 2 attack dice. For every [DAMAGE] result, that ship rolls 1 less defense die against your next attack. </Ability>
+      <Ability>ACTION: Target a ship at Range 1 and roll 2 attack dice. For every [HIT] result, that ship rolls 1 less defense die against your next attack. </Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -4649,7 +4649,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Breen Aide</Title>
-      <Ability>If your ship has a [SCAN] Token beside it when you attack, you may convert 1 blank result into [DAMAGE] result. </Ability>
+      <Ability>If your ship has a [SCAN] Token beside it when you attack, you may convert 1 blank result into [HIT] result. </Ability>
       <Skill>
       </Skill>
       <Talent>
@@ -6689,7 +6689,7 @@
 3) When a Command Token is used, it is flipped over and may not be used again in that Battle.
 
 COMMAND TOKENS:
-- Place a [EVASIVE] token beside your ship as a Free Action this Round.
+- Place an [EVASIVE] token beside your ship as a Free Action this Round.
 - Place a [BATTLE STATIONS] token beside your ship as a Free Action this Round.
 - Place a [SCAN] token beside your ship as a Free Action this Round.
 - You may [TARGET LOCK] 1 enemy ship as a Free Action this Round.
@@ -6812,7 +6812,7 @@ The Full About Maneuver follows the normal movement rules with the following exc
 
 1) During the Activation Phase, if the player reveals a Red Maneuver on the chosen ship's Maneuver Dial, that ship may disregard its chosen maneuver and instead use the Full About Maneuver.
 
-2) The player chooses to turn to the right of to the left, places the Full About Maneuver Template accordingly and then finishes performing the maneuver as normal.
+2) The player chooses to turn to the right or to the left, places the Full About Maneuver Template accordingly and then finishes performing the maneuver as normal.
 
 3) After a ship performs the Full About Maneuver, place an Auxiliary Power Token beside that ship. If that ship does not have the Come About Maneuver as one of its normal maneuvers, place a 2nd Auxiliary power Token beside the ship.
         </Ability>
