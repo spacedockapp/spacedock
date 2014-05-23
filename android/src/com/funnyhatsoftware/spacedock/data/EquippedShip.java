@@ -37,6 +37,13 @@ public class EquippedShip extends EquippedShipBase {
     public boolean getIsResourceSideboard() {
         return getShip() == null;
     }
+    
+    public String getShipExternalId() {
+        if (mShip == null) {
+            return "[sideboard]";
+        }
+        return mShip.getExternalId();
+    }
 
     public EquippedUpgrade addUpgrade(Upgrade upgrade) {
         return addUpgrade(upgrade, null, true);

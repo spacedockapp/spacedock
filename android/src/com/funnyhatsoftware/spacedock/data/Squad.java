@@ -210,19 +210,16 @@ public class Squad extends SquadBase {
         Comparator<EquippedShip> comparator = new Comparator<EquippedShip>() {
             @Override
             public int compare(EquippedShip arg0, EquippedShip arg1) {
-                if (arg0.getIsResourceSideboard() == arg1
-                        .getIsResourceSideboard()) {
-                    return 0;
-                }
-
-                if (arg0.isFighterSquadron()) {
-                    if (arg1.isFighterSquadron()) {
+                if (arg0.getIsResourceSideboard()) {
+                    if (arg1.getIsResourceSideboard()) {
                         return 0;
                     }
                     return 1;
                 }
-
-                return -1;
+                if (arg1.getIsResourceSideboard()) {
+                    return -1;
+                }
+                return 0;
             }
         };
         Collections.sort(mEquippedShips, comparator);

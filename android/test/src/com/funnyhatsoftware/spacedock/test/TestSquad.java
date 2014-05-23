@@ -86,8 +86,7 @@ public class TestSquad extends BaseTest {
                 EquippedShip loadedShip = equippedShips.get(shipIndex);
 
                 String shipId = shipData.getString(JSONLabels.JSON_LABEL_SHIP_ID);
-                assertEquals("ship id mismatch " + shipLabel, shipId, loadedShip.getShip()
-                        .getExternalId());
+                assertEquals("ship id mismatch " + shipLabel, shipId, loadedShip.getShipExternalId());
 
                 boolean shipIsSideboard = shipData.optBoolean(JSONLabels.JSON_LABEL_SIDEBOARD);
                 assertEquals("sideboard mismatch " + shipLabel, shipIsSideboard,
