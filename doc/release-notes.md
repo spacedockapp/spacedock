@@ -1,3 +1,11 @@
+### Version 1.0.11 build 61 (2014-5-18)
+
+* Fix an error that prevented the sideboard from being added to a squadron.
+
+### Version 1.0.10 build 60 (2014-5-15)
+
+* Allow text in the inspector to be selected and copied to the clipboard.
+
 ### Version 1.0.9 build 59 (2014-5-4)
 
 * Add the Tholian Web participation and competitive prizes.

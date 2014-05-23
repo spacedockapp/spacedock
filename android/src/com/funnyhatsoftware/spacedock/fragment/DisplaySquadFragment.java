@@ -1,6 +1,10 @@
 package com.funnyhatsoftware.spacedock.fragment;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -23,8 +27,6 @@ import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.data.Upgrade;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolder;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
-
-import java.util.ArrayList;
 
 public class DisplaySquadFragment extends ListFragment {
     private static final String ARG_SQUAD_UUID = "squad_index";
@@ -126,13 +128,24 @@ public class DisplaySquadFragment extends ListFragment {
         inflater.inflate(R.menu.menu_display_squad, menu);
     }
 
+	private void copySquadToClipboard() {
+		Squad squad = Universe.getUniverse().getSquadByUUID(mSquadUuid);
+		if (squad != null) {
+			ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+			ClipData newPlainText = ClipData.newPlainText("squad as text", squad.asPlainTextFormat());
+			clipboard.setPrimaryClip(newPlainText);
+		}
+	}
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         final int itemId = item.getItemId();
         final Context context = getActivity();
 
         if (itemId == R.id.menu_duplicate) {
-            Toast.makeText(context, "TODO: duplication.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Text description of squad copied to clipboard.",
+                    Toast.LENGTH_SHORT).show();
+            copySquadToClipboard();
             return true;
         }
         if (itemId == R.id.menu_share) {

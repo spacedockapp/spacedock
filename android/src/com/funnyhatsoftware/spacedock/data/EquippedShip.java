@@ -171,7 +171,7 @@ public class EquippedShip extends EquippedShipBase {
         return TextUtils.join(", ", upgradeTitles);
     }
 
-    private ArrayList<EquippedUpgrade> getSortedUpgrades() {
+    public ArrayList<EquippedUpgrade> getSortedUpgrades() {
         ArrayList<EquippedUpgrade> sortedUpgrades = getUpgrades();
         Comparator<EquippedUpgrade> comparator = new Comparator<EquippedUpgrade>() {
 
