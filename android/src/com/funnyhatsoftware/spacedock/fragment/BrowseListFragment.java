@@ -1,7 +1,6 @@
 package com.funnyhatsoftware.spacedock.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -11,6 +10,7 @@ import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.activity.SetItemListActivity;
 import com.funnyhatsoftware.spacedock.holder.CaptainHolder;
 import com.funnyhatsoftware.spacedock.holder.FlagshipHolder;
+import com.funnyhatsoftware.spacedock.holder.ReferenceHolder;
 import com.funnyhatsoftware.spacedock.holder.ResourceHolder;
 import com.funnyhatsoftware.spacedock.holder.ShipHolder;
 import com.funnyhatsoftware.spacedock.holder.UpgradeHolder;
@@ -35,6 +35,7 @@ public class BrowseListFragment extends ListFragment {
         WeaponHolder.TYPE_STRING,
         ResourceHolder.TYPE_STRING,
         FlagshipHolder.TYPE_STRING,
+        ReferenceHolder.TYPE_STRING,
     };
 
     @Override

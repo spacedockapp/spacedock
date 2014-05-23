@@ -28,6 +28,7 @@ import android.support.v4.util.ArrayMap;
 
 import com.funnyhatsoftware.spacedock.data.Captain.CaptainComparator;
 import com.funnyhatsoftware.spacedock.data.Flagship.FlagshipComparator;
+import com.funnyhatsoftware.spacedock.data.Reference.ReferenceComparator;
 import com.funnyhatsoftware.spacedock.data.Resource.ResourceComparator;
 import com.funnyhatsoftware.spacedock.data.Set.SetComparator;
 import com.funnyhatsoftware.spacedock.data.Ship.ShipComparator;
@@ -435,6 +436,17 @@ public class Universe {
     
     public Reference getReference(String externalId) {
         return referenceItems.get(externalId);
+    }
+
+    public List<Reference> getReferenceItems() {
+        ArrayList<Reference> referenceItemsCopy = new ArrayList<Reference>();
+        for (Reference resource : referenceItems.values()) {
+            if (isMemberOfIncludedSet(resource)) {
+                referenceItemsCopy.add(resource);
+            }
+        }
+        Collections.sort(referenceItemsCopy, new ReferenceComparator());
+        return referenceItemsCopy;
     }
 
 }

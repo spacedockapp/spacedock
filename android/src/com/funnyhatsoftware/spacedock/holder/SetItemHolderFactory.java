@@ -59,6 +59,7 @@ public abstract class SetItemHolderFactory {
         registerHolderFactory(FlagshipHolder.getFactory());
         registerHolderFactory(WeaponHolder.getFactory());
         registerHolderFactory(ResourceHolder.getFactory());
+        registerHolderFactory(ReferenceHolder.getFactory());
         registerHolderFactory(UpgradeHolder.getFactory(Crew.class, UpgradeHolder.TYPE_STRING_CREW));
         registerHolderFactory(UpgradeHolder.getFactory(Talent.class, UpgradeHolder.TYPE_STRING_TALENT));
         registerHolderFactory(UpgradeHolder.getFactory(Tech.class, UpgradeHolder.TYPE_STRING_TECH));

@@ -65,7 +65,8 @@
         <item>Weapons</item>
         <item>Resources</item>
         <item>Flagships</item>
-   </string-array>
+        <item>Reference</item>
+    </string-array>
     <string-array name="empty"/>
     <string name="faction">Faction</string>
     <string name="all_factions">All Factions</string>
