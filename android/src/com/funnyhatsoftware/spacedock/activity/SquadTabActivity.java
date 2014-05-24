@@ -97,8 +97,8 @@ public class SquadTabActivity extends FragmentTabActivity implements
     @Override
     public void onResourceChanged(Resource previousResource, Resource selectedResource) {
         updateTitle(); // update title with new cost
-        if ((previousResource != null && previousResource.getIsFlagship())
-                || (selectedResource != null && selectedResource.getIsFlagship())) {
+        if ((previousResource != null && (previousResource.getIsFlagship() || previousResource.getIsFighterSquadron()))
+                || (selectedResource != null && (selectedResource.getIsFlagship() || selectedResource.getIsFighterSquadron()))) {
             notifyEditSquadFragment(getSupportFragmentManager());
         }
     }

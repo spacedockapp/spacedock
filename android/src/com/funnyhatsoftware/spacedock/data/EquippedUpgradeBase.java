@@ -19,7 +19,7 @@ public class EquippedUpgradeBase extends Base {
 
     public void update(Map<String,Object> data) {
         mOverridden = DataUtils.booleanValue((String)data.get("Overridden"));
-        mOverriddenCost = DataUtils.intValue((String)data.get("OverriddenCost"));
+        mOverriddenCost = DataUtils.intValue((String)data.get("OverriddenCost"), 0);
     }
 
 }

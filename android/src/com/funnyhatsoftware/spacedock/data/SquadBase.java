@@ -31,7 +31,7 @@ public class SquadBase extends Base {
     public SquadBase setEquippedShips(ArrayList<EquippedShip> v) { mEquippedShips = (ArrayList<EquippedShip>)v.clone(); return this;}
 
     public void update(Map<String,Object> data) {
-        mAdditionalPoints = DataUtils.intValue((String)data.get("AdditionalPoints"));
+        mAdditionalPoints = DataUtils.intValue((String)data.get("AdditionalPoints"), 0);
         mModified = DataUtils.dateValue((String)data.get("Modified"));
         mName = DataUtils.stringValue((String)data.get("Name"));
         mNotes = DataUtils.stringValue((String)data.get("Notes"));

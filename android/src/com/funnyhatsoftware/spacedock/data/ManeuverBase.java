@@ -20,7 +20,7 @@ public class ManeuverBase extends Base {
     public void update(Map<String,Object> data) {
         mColor = DataUtils.stringValue((String)data.get("color"));
         mKind = DataUtils.stringValue((String)data.get("kind"));
-        mSpeed = DataUtils.intValue((String)data.get("speed"));
+        mSpeed = DataUtils.intValue((String)data.get("speed"), 1);
     }
 
 }

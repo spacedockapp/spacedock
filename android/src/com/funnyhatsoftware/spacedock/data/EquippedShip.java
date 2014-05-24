@@ -37,6 +37,13 @@ public class EquippedShip extends EquippedShipBase {
     public boolean getIsResourceSideboard() {
         return getShip() == null;
     }
+    
+    public String getShipExternalId() {
+        if (mShip == null) {
+            return "[sideboard]";
+        }
+        return mShip.getExternalId();
+    }
 
     public EquippedUpgrade addUpgrade(Upgrade upgrade) {
         return addUpgrade(upgrade, null, true);
@@ -296,6 +303,17 @@ public class EquippedShip extends EquippedShipBase {
         return v;
     }
 
+    public int getCaptainLimit() {
+        int v = 0;
+        Ship ship = getShip();
+        if (ship != null) {
+            v += ship.getCaptainLimit();
+        } else {
+            v = 1;
+        }
+        return v;
+    }
+
     public int getTalent() {
         int v = 0;
         Captain captain = getCaptain();
@@ -367,13 +385,11 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public void establishPlaceholders() {
-        if (getCaptain() == null) {
-            String faction = shipFaction();
-            if (faction.equals("Federation") || faction.equals("Bajoran")) {
-                faction = "Federation";
+        if (getCaptainLimit() > 0) {
+            if (getCaptain() == null) {
+                Upgrade zcc = Captain.zeroCostCaptainForShip(getShip());
+                addUpgrade(zcc, null, false);
             }
-            Upgrade zcc = Captain.zeroCostCaptainForShip(getShip());
-            addUpgrade(zcc, null, false);
         }
 
         establishPlaceholdersForType("Talent", getTalent());
@@ -456,6 +472,10 @@ public class EquippedShip extends EquippedShipBase {
     public Explanation canAddUpgrade(Upgrade upgrade) {
         String msg = String.format("Can't add %s to %s", upgrade.getPlainDescription(),
                 getPlainDescription());
+        if (isFighterSquadron()) {
+            return new Explanation(msg,
+                    "Fighter Squadrons cannot accept upgrades.");
+        }
         String upgradeSpecial = upgrade.getSpecial();
         if (upgradeSpecial.equals("OnlyJemHadarShips")) {
             if (!getShip().isJemhadar()) {
@@ -850,4 +870,9 @@ public class EquippedShip extends EquippedShipBase {
 
         establishPlaceholders();
     }
+
+    public boolean isFighterSquadron() {
+        return mShip != null && mShip.isFighterSquadron();
+    }
+
 }

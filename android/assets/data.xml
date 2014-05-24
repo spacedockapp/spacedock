@@ -2322,6 +2322,54 @@
       <Set>OP6Prize</Set>
     </Ship>
     <Ship>
+      <Title>Federation Attack Fighter</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Federation Attack Fighter</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>5</Attack>
+      <Agility>0</Agility>
+      <Hull>1</Hull>
+      <Shield>1</Shield>
+      <Ability>If you initiate an attack at Range 1, you may re-roll 1 of your attack dice. [Initial Captain skill 6]</Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan></Scan>
+      <Battlestations></Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech></Tech>
+      <Weapon></Weapon>
+      <Crew></Crew>
+      <CaptainLimit>0</CaptainLimit>
+      <Id>federation_attack_fighter_op6prize</Id>
+      <Set>OP6Participation</Set>
+    </Ship>
+    <Ship>
+      <Title>Hideki Class Attack Fighter</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Hideki Class Attack Fighter</ShipClass>
+      <Faction>Dominion</Faction>
+      <Attack>6</Attack>
+      <Agility>0</Agility>
+      <Hull>1</Hull>
+      <Shield>0</Shield>
+      <Ability>Instead of making a normal attack, you may make an attack with 2 dice from your rear firing arc. [Initial Captain skill 6]</Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan></Scan>
+      <Battlestations></Battlestations>
+      <Cloak></Cloak>
+      <SensorEcho></SensorEcho>
+      <Tech></Tech>
+      <Weapon></Weapon>
+      <Crew></Crew>
+      <CaptainLimit>0</CaptainLimit>
+      <Id>hideki_class_attack_fighter_op5prize</Id>
+      <Set>OP5Participation</Set>
+    </Ship>
+    <Ship>
       <Title>Borg Sphere 4270</Title>
       <Unique>Y</Unique>
       <ShipClass>Borg Sphere</ShipClass>

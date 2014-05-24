@@ -8,46 +8,62 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DataUtils {
-    public static int intValue(String v) {
+    public static int intValue(String v, int defaultValue) {
         if (v == null) {
-            return 0;
+            return defaultValue;
         }
         try {
             return Integer.valueOf(v);
         } catch (Exception e) {
         }
-        return 0;
+        return defaultValue;
     }
 
-    static double doubleValue(String v) {
+    public static int intValue(String v) {
+        return intValue(v, 0);
+    }
+
+    static double doubleValue(String v, double defaultValue) {
         if (v == null) {
-            return 0;
+            return defaultValue;
         }
         try {
             return Double.valueOf(v);
         } catch (Exception e) {
         }
-        return 0;
+        return defaultValue;
     }
 
-    static boolean booleanValue(String v) {
+    static double doubleValue(String v) {
+        return doubleValue(v, 0);
+    }
+
+    static boolean booleanValue(String v, boolean defaultValue) {
         if (v == null) {
-            return false;
+            return defaultValue;
         }
         return v.equalsIgnoreCase("Y");
     }
 
-    public static String stringValue(String v) {
+    static boolean booleanValue(String v) {
+        return booleanValue(v, false);
+    }
+
+    public static String stringValue(String v, String defaultValue) {
         if (v == null) {
-            return "";
+            return defaultValue;
         }
         return v;
     }
 
+    public static String stringValue(String v) {
+        return stringValue(v, "");
+    }
+
     @SuppressLint("SimpleDateFormat")
-    static public Date dateValue(String v) {
+    static public Date dateValue(String v, Date defaultValue) {
         if (v == null) {
-            return new Date();
+            return defaultValue;
         }
         String s = v.replace("Z", "+00:00");
         s = s.substring(0, 22) + s.substring(23); // to get rid of the ":"
@@ -56,7 +72,11 @@ public class DataUtils {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return new Date();
+        return defaultValue;
+    }
+
+    static public Date dateValue(String v) {
+        return dateValue(v, new Date());
     }
 
     static public int compareInt(int v1, int v2) {
