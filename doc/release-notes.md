@@ -1,3 +1,7 @@
+### Version 1.0.12 build 62 (2014-5-23)
+
+* Added a reference tab to show information about tokens and such.
+
 ### Version 1.0.11 build 61 (2014-5-18)
 
 * Fix an error that prevented the sideboard from being added to a squadron.
