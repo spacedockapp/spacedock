@@ -65,12 +65,22 @@
     return 0;
 }
 
+-(BOOL)upgradeWouldExceedCostLimit:(DockUpgrade*)upgrade
+{
+    int currentCost = [self baseCost];
+    if (currentCost + [[upgrade cost] intValue] > 20) {
+        return YES;
+    }
+    return NO;
+}
+
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade
 {
     if ([upgrade isBorg]) {
         return NO;
     }
-    return YES;
+
+    return ![self upgradeWouldExceedCostLimit: upgrade];
 }
 
 -(int)baseCost
@@ -81,6 +91,18 @@
         cost += [upgrade baseCost];
     }
     return cost;
+}
+
+-(NSDictionary*)explainCantAddUpgrade:(DockUpgrade*)upgrade
+{
+    if ([self upgradeWouldExceedCostLimit: upgrade]) {
+        NSString* msg = [NSString stringWithFormat: @"Can't add %@ to %@", [upgrade plainDescription], [self plainDescription]];
+        NSString* info = [NSString stringWithFormat: @"Adding an item of cost %@ would exceed limit of 20.", [upgrade cost]];
+        return @{
+                 @"info": info, @"message": msg
+                 };
+    }
+    return [super explainCantAddUpgrade: upgrade];
 }
 
 -(NSString*)factionCode
