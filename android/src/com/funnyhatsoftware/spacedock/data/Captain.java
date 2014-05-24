@@ -42,6 +42,9 @@ public class Captain extends CaptainBase {
     }
 
     public static Upgrade zeroCostCaptainForShip(Ship targetShip) {
+        if (targetShip == null) {
+            return zeroCostCaptain("Federation");
+        }
         ArrayList<Set> targetShipSets = targetShip.getSets();
         String targetFaction = targetShip.getFaction();
         for (Captain captain : Universe.getUniverse().captains.values()) {

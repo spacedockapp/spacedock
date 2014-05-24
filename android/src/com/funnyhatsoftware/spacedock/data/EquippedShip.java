@@ -387,8 +387,13 @@ public class EquippedShip extends EquippedShipBase {
     public void establishPlaceholders() {
         if (getCaptainLimit() > 0) {
             if (getCaptain() == null) {
-                Upgrade zcc = Captain.zeroCostCaptainForShip(getShip());
-                addUpgrade(zcc, null, false);
+                if (getIsResourceSideboard()) {
+                    Upgrade zcc = Captain.zeroCostCaptain("Federation");
+                    addUpgrade(zcc, null, false);
+                } else {
+                    Upgrade zcc = Captain.zeroCostCaptainForShip(getShip());
+                    addUpgrade(zcc, null, false);
+                }
             }
         }
 
@@ -801,6 +806,13 @@ public class EquippedShip extends EquippedShipBase {
                 }
             }
         }
+    }
+    
+    public String getFaction() {
+        if (mShip == null) {
+            return "";
+        }
+        return mShip.getFaction();
     }
 
     public JSONObject asJSON() throws JSONException {

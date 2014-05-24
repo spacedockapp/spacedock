@@ -9,7 +9,8 @@ public class Sideboard extends SideboardBase {
         return sideboard;
     }
 
-    public int cost() {
+    @Override
+    public int calculateCost() {
         Resource r = Resource.sideboardResource();
         return r.getCost();
     }
@@ -35,7 +36,44 @@ public class Sideboard extends SideboardBase {
     }
 
     @Override
+    public int getBorg() {
+        return 0;
+    }
+
+    @Override
+    public int getCaptainLimit() {
+        return 1;
+    }
+
+    public int calculateBaseCost() {
+        int cost = 0;
+
+        for (EquippedUpgrade eu : mUpgrades) {
+            cost += eu.getCost();
+        }
+
+        return cost;
+    }
+
+    @Override
     public Explanation canAddUpgrade(Upgrade upgrade) {
+        int currentCost = calculateBaseCost();
+        if (currentCost + upgrade.getCost() > 20) {
+            String msg = String.format("Can't add %s to %s", upgrade.getPlainDescription(),
+                    getPlainDescription());
+            String expl;
+            expl = String.format("Adding an item of cost %d would exceed limit of 20.",
+                    upgrade.getCost());
+            return new Explanation(msg, expl);
+        }
+        if (upgrade.getUpType().equals("Borg")) {
+            String msg = String.format("Can't add %s to %s", upgrade.getPlainDescription(),
+                    getPlainDescription());
+            String expl;
+            expl = String.format("This ship has no %s upgrade symbols on its ship card.",
+                    upgrade.getUpType());
+            return new Explanation(msg, expl);
+        }
         return Explanation.SUCCESS;
     }
 
@@ -50,4 +88,26 @@ public class Sideboard extends SideboardBase {
     public String factionCode() {
         return "";
     }
+
+    @Override
+    public EquippedShipBase setFlagship(Flagship v) {
+        if (v != null) {
+            throw new RuntimeException("Can't add a flagship to the sideboard.");
+        }
+        return super.setFlagship(v);
+    }
+
+    @Override
+    public boolean getIsResourceSideboard() {
+        return true;
+    }
+
+    @Override
+    public EquippedShipBase setShip(Ship v) {
+        if (v != null) {
+            throw new RuntimeException("You can't add a ship to the sideboard.");
+        }
+        return super.setShip(v);
+    }
+
 }

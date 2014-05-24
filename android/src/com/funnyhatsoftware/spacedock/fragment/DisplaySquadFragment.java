@@ -22,6 +22,7 @@ import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.adapter.SeparatedListAdapter;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
+import com.funnyhatsoftware.spacedock.data.Ship;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.data.Upgrade;
@@ -63,7 +64,10 @@ public class DisplaySquadFragment extends ListFragment {
         ArrayList<MultiItemAdapter> subAdapters = new ArrayList<MultiItemAdapter>();
         for (EquippedShip equippedShip : squad.getEquippedShips()) {
             ArrayList<Object> itemList = new ArrayList<Object>();
-            itemList.add(equippedShip.getShip());
+            Ship ship = equippedShip.getShip();
+            if (ship != null) {
+                itemList.add(ship);
+            }
             for (EquippedUpgrade equippedUpgrade : equippedShip.getUpgrades()) {
                 Upgrade upgrade = equippedUpgrade.getUpgrade();
                 if (!upgrade.isPlaceholder()) {
@@ -176,7 +180,8 @@ public class DisplaySquadFragment extends ListFragment {
 
         @Override
         public int getItemViewType(int position) {
-            Class clazz = getItem(position).getClass();
+            Object item = getItem(position);
+            Class clazz = item.getClass();
             if (!mTypeMap.containsKey(clazz)) {
                 mTypeMap.put(clazz, mTypeMap.size());
             }

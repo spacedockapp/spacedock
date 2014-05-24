@@ -27,7 +27,7 @@ public class Upgrade extends UpgradeBase {
 
     public int limitForShip(EquippedShip targetShip) {
         if (isCaptain()) {
-            return 1;
+            return targetShip.getCaptainLimit();
         }
 
         if (isTalent()) {

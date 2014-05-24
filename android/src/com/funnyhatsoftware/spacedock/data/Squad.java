@@ -65,6 +65,7 @@ public class Squad extends SquadBase {
         EquippedShip sideboard = getSideboard();
         if (sideboard == null) {
             sideboard = new Sideboard();
+            sideboard.establishPlaceholders();
             mEquippedShips.add(sideboard);
             sideboard.setSquad(this);
         }

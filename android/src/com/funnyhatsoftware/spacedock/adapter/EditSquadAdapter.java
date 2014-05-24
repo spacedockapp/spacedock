@@ -376,7 +376,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         }
 
         // Make upgrades with faction == ship faction most visible
-        String prefFaction = getEquippedShip(groupPosition).getShip().getFaction();
+        String prefFaction = getEquippedShip(groupPosition).getFaction();
 
         mListener.onSlotSelected(groupPosition, slotType, slotNumber,
                 currentEquipmentId, prefFaction);
