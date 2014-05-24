@@ -4,7 +4,9 @@ import java.util.List;
 
 import android.content.res.Resources;
 import android.view.View;
+import android.widget.TextView;
 
+import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.data.Reference;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
@@ -37,12 +39,19 @@ public class ReferenceHolder extends SetItemHolder {
             }
         };
     }
+    
     private ReferenceHolder(View view) {
-        super(view);
+        super(view, R.layout.item_reference_values);
         mUnique.setVisibility(View.GONE);
         mCost.setVisibility(View.GONE);
+        mType = (TextView) view.findViewById(R.id.referenceType);
     }
 
+    final TextView mType;
+
     @Override
-    public void reinitializeStubViews(Resources res, SetItem item) {}
+    public void reinitializeStubViews(Resources res, SetItem item) {
+        Reference reference = (Reference) item;
+        mType.setText(reference.getType());
+    }
 }
