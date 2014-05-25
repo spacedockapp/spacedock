@@ -1,11 +1,15 @@
+
 package com.funnyhatsoftware.spacedock.fragment;
 
 import java.util.ArrayList;
+
+import org.json.JSONException;
 
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.support.v4.util.ArrayMap;
@@ -32,7 +36,11 @@ import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
 public class DisplaySquadFragment extends ListFragment {
     private static final String ARG_SQUAD_UUID = "squad_index";
 
-    private static final int LAYOUT_RES_ID = R.layout.item_with_details; // force detailed in this view
+    private static final int LAYOUT_RES_ID = R.layout.item_with_details; // force
+                                                                         // detailed
+                                                                         // in
+                                                                         // this
+                                                                         // view
 
     String mSquadUuid;
 
@@ -80,12 +88,14 @@ public class DisplaySquadFragment extends ListFragment {
         final SeparatedListAdapter multiAdapter = new SeparatedListAdapter(context) {
             @Override
             public boolean isEnabled(int position) {
-                // TODO: this is gross, have SeparatedListAdapter defer isEnabled() to subadapters
+                // TODO: this is gross, have SeparatedListAdapter defer
+                // isEnabled() to subadapters
                 return false;
             }
         };
 
-        // handle duplicate ship titles by appending unique indices on duplicates
+        // handle duplicate ship titles by appending unique indices on
+        // duplicates
         for (int i = 0; i < subAdapters.size(); i++) {
             MultiItemAdapter adapter = subAdapters.get(i);
             int renameIndex = -1;
@@ -132,14 +142,34 @@ public class DisplaySquadFragment extends ListFragment {
         inflater.inflate(R.menu.menu_display_squad, menu);
     }
 
-	private void copySquadToClipboard() {
-		Squad squad = Universe.getUniverse().getSquadByUUID(mSquadUuid);
-		if (squad != null) {
-			ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-			ClipData newPlainText = ClipData.newPlainText("squad as text", squad.asPlainTextFormat());
-			clipboard.setPrimaryClip(newPlainText);
-		}
-	}
+    private void copySquadToClipboard() {
+        Squad squad = Universe.getUniverse().getSquadByUUID(mSquadUuid);
+        if (squad != null) {
+            ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(
+                    Context.CLIPBOARD_SERVICE);
+            ClipData newPlainText = ClipData.newPlainText("squad as text",
+                    squad.asPlainTextFormat());
+            clipboard.setPrimaryClip(newPlainText);
+        }
+    }
+
+    private void shareSquad() {
+        Squad squad = Universe.getUniverse().getSquadByUUID(mSquadUuid);
+        if (squad != null) {
+            try {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, squad.asJSON().toString(2));
+                String fullName = String.format("%s.spacedock", squad.getName());
+                sendIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, fullName);
+                sendIntent.setType("application/spacedock");
+                startActivity(Intent.createChooser(sendIntent, "Save squad to:"));
+            } catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -153,7 +183,7 @@ public class DisplaySquadFragment extends ListFragment {
             return true;
         }
         if (itemId == R.id.menu_share) {
-            Toast.makeText(context, "TODO: sharing.", Toast.LENGTH_SHORT).show();
+            shareSquad();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -161,8 +191,14 @@ public class DisplaySquadFragment extends ListFragment {
 
     private static class MultiItemAdapter extends ArrayAdapter<Object> {
         private String mTitle;
-        public String getTitle() { return mTitle; }
-        public void appendTitleIndex(int index) { mTitle += " " + Integer.toString(index); }
+
+        public String getTitle() {
+            return mTitle;
+        }
+
+        public void appendTitleIndex(int index) {
+            mTitle += " " + Integer.toString(index);
+        }
 
         public MultiItemAdapter(Context context, String title, ArrayList<Object> items) {
             super(context, 0, items);

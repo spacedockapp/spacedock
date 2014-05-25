@@ -6,4 +6,10 @@
         android:showAsAction="ifRoom|collapseActionView"
         android:title="@string/menu_create_squad"
         android:visible="true" />
+    <item
+        android:id="@+id/menu_share_all_squads"
+        android:icon="@drawable/ic_action_share"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:title="@string/menu_share_all_squads"
+        android:visible="true" />
 </menu>
