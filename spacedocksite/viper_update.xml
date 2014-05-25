@@ -7,6 +7,19 @@
     <language>en</language>
   
   <item>
+    <title>Version 1.0.10 (11)</title>
+    <sparkle:releaseNotesLink>http://spacedockapp.org/viper/release-notes.html</sparkle:releaseNotesLink>
+    <pubDate></pubDate>
+    <enclosure
+      url="http://spacedockapp.org/viper/viper_dock_b11.zip"
+      sparkle:version="11"
+      sparkle:shortVersionString="1.0.10 (11)"
+      type="application/octet-stream"
+      length="1917897"
+    />
+  </item>
+  
+  <item>
     <title>Version 1.0.9 (10)</title>
     <sparkle:releaseNotesLink>http://spacedockapp.org/viper/release-notes.html</sparkle:releaseNotesLink>
     <pubDate></pubDate>

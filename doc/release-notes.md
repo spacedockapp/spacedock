@@ -1,3 +1,8 @@
+### Version 1.0.10 build 11 (2014-5-25)
+
+* Print move grids with white background to save ink.
+* Build mat print changes.
+
 ### Version 1.0.9 build 10 (2014-5-21)
 
 * Don't automatically write out zero length squad files.
