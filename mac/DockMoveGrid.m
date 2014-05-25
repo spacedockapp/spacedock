@@ -4,6 +4,12 @@
 #import "DockShip+Addons.h"
 #import "DockShipClassDetails+Addons.h"
 
+#import <QuartzCore/QuartzCore.h>
+
+@interface DockMoveGrid ()
+@property (nonatomic, strong) NSMutableDictionary* filteredImages;
+@end
+
 @implementation DockMoveGrid
 
 -(id)initWithFrame:(NSRect)frame
@@ -11,7 +17,7 @@
     self = [super initWithFrame: frame];
 
     if (self) {
-        // Initialization code here.
+        _filteredImages = [[NSMutableDictionary alloc] initWithCapacity: 0];
     }
 
     return self;
@@ -36,11 +42,12 @@
 
     NSRect blackBox = NSMakeRect(offsetX, offsetY, availableSpace, availableSpace);
 
-
-    [[NSColor blackColor] set];
+    NSColor* bgColor = _whiteBackground ? [NSColor whiteColor] : [NSColor blackColor];
+    NSColor* fgColor = _whiteBackground ? [NSColor blackColor] : [NSColor whiteColor];
+    [bgColor set];
     [NSBezierPath setDefaultLineWidth: lineWidth];
     [NSBezierPath fillRect: blackBox];
-    [[NSColor whiteColor] set];
+    [fgColor set];
     CGFloat inset = lineWidth * 5;
     NSRect gridBox = NSInsetRect(blackBox, inset, inset);
     [NSBezierPath strokeRect: gridBox];
@@ -78,7 +85,7 @@
     y = gridBox.origin.y - 1;
     NSFont* font = [NSFont fontWithName: @"Helvetica" size: fontSize];
     NSDictionary* attr = @{
-        NSForegroundColorAttributeName: [NSColor whiteColor],
+        NSForegroundColorAttributeName: fgColor,
         NSFontAttributeName: font
     };
 
@@ -123,7 +130,28 @@
 
                     if (image) {
                         NSRect moveRect = NSMakeRect(x, y, rowSize, rowSize);
-                        [image drawInRect: moveRect fromRect: NSZeroRect operation: NSCompositeSourceOver fraction: 1.0];
+                        if (_whiteBackground && [color isEqualToString: @"white"]) {
+                            CIImage* output = [_filteredImages objectForKey: fileName];
+                            if (output == nil) {
+                                CIImage* ciImage = [[CIImage alloc] initWithData:[image TIFFRepresentation]];
+                                if ([image isFlipped])
+                                {
+                                    CGRect cgRect    = [ciImage extent];
+                                    CGAffineTransform transform;
+                                    transform = CGAffineTransformMakeTranslation(0.0,cgRect.size.height);
+                                    transform = CGAffineTransformScale(transform, 1.0, -1.0);
+                                    ciImage   = [ciImage imageByApplyingTransform:transform];
+                                }
+                                CIFilter* filter = [CIFilter filterWithName:@"CIColorInvert"];
+                                [filter setDefaults];
+                                [filter setValue:ciImage forKey:@"inputImage"];
+                                output = [filter valueForKey:@"outputImage"];
+                                [_filteredImages setObject: output forKey: fileName];
+                            }
+                            [output drawInRect: moveRect fromRect: NSRectFromCGRect([output extent]) operation: NSCompositeSourceOver fraction: 1.0];
+                        } else {
+                            [image drawInRect: moveRect fromRect: NSZeroRect operation: NSCompositeSourceOver fraction: 1.0];
+                        }
                     }
                 }
             }

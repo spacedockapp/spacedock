@@ -205,6 +205,7 @@
 		D4BCA3EE1814EC0900921183 /* NSTreeController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA3E41814EC0900921183 /* NSTreeController+Additions.m */; };
 		D4BCA3F01814EC0900921183 /* space_dock.icns in Resources */ = {isa = PBXBuildFile; fileRef = D4BCA3E71814EC0900921183 /* space_dock.icns */; };
 		D4BCA3F31814EC5100921183 /* DockDataFileLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCA3F21814EC5100921183 /* DockDataFileLoader.m */; };
+		D4C46A241932A98E004FECC2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C46A231932A98D004FECC2 /* QuartzCore.framework */; };
 		D4C8EED5186109F1007BBD1A /* ShipGrid.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C8EED4186109F1007BBD1A /* ShipGrid.xib */; };
 		D4C8EF1D1863425B007BBD1A /* DockFlagship+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8EF1C1863425B007BBD1A /* DockFlagship+Addons.m */; };
 		D4C8EF1E1863425B007BBD1A /* DockFlagship+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8EF1C1863425B007BBD1A /* DockFlagship+Addons.m */; };
@@ -534,6 +535,7 @@
 		D4BCA4001814F8DF00921183 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D4BCA4211814F8DF00921183 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D4BEF86E191BBAB3003E24A2 /* Space_Dock_10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock_10.xcdatamodel; sourceTree = "<group>"; };
+		D4C46A231932A98D004FECC2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D4C8EED4186109F1007BBD1A /* ShipGrid.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShipGrid.xib; sourceTree = "<group>"; };
 		D4C8EED6186268B6007BBD1A /* Space_Dock_6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock_6.xcdatamodel; sourceTree = "<group>"; };
 		D4C8EF1B1863425B007BBD1A /* DockFlagship+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockFlagship+Addons.h"; sourceTree = "<group>"; };
@@ -630,6 +632,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4C46A241932A98E004FECC2 /* QuartzCore.framework in Frameworks */,
 				D4259EDF180F94E300BB02BA /* WebKit.framework in Frameworks */,
 				D42BD1F017EA134B0000598C /* Cocoa.framework in Frameworks */,
 				D485E09118EA94ED00ACD8AD /* Sparkle.framework in Frameworks */,
@@ -686,6 +689,7 @@
 		D42BD1EE17EA134B0000598C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4C46A231932A98D004FECC2 /* QuartzCore.framework */,
 				D4DE20D318D3443300C31914 /* Dropbox.framework */,
 				D4135E8A182F71A100DBF750 /* MessageUI.framework */,
 				D47316A618182BED00046428 /* CoreData.framework */,
