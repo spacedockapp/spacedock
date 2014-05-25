@@ -43,8 +43,8 @@ public class ResourceSpinnerAdapter extends ArrayAdapter<ResourceSpinnerAdapter.
             if (mResource == null) {
                 mLabel = context.getResources().getString(R.string.no_resource);
             } else {
-                mLabel = resource.getIsFlagship()
-                        ? mResource.getTitle() // cost for flagship accounted when equipped to ship
+                mLabel = resource.equippedIntoSquad()
+                        ? mResource.getTitle() // cost built into Squad when used
                         : mResource.getTitle() + " (" + mResource.getCost() + ")";
             }
         }

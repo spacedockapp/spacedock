@@ -31,7 +31,7 @@ public class SquadTabActivity extends FragmentTabActivity implements
         return intent;
     }
 
-    public void updateTitle() {
+    public void updateTitleAndCost() {
         Squad squad = Universe.getUniverse().getSquadByUUID(mSquadUuid);
 
         getActionBar().setTitle(squad.getName());
@@ -47,7 +47,7 @@ public class SquadTabActivity extends FragmentTabActivity implements
         if (mSquadUuid == null) {
             throw new IllegalArgumentException("Squad uuid required for squad");
         }
-        updateTitle();
+        updateTitleAndCost();
     }
 
 
@@ -96,9 +96,10 @@ public class SquadTabActivity extends FragmentTabActivity implements
 
     @Override
     public void onResourceChanged(Resource previousResource, Resource selectedResource) {
-        updateTitle(); // update title with new cost
-        if ((previousResource != null && (previousResource.getIsFlagship() || previousResource.getIsFighterSquadron()))
-                || (selectedResource != null && (selectedResource.getIsFlagship() || selectedResource.getIsFighterSquadron()))) {
+        updateTitleAndCost();
+        if (previousResource != null && previousResource.equippedIntoSquad()
+                || selectedResource != null && selectedResource.equippedIntoSquad()) {
+            // one of the resources changes the ships/upgrades displayed. notify the edit fragment.
             notifyEditSquadFragment(getSupportFragmentManager());
         }
     }
@@ -119,6 +120,6 @@ public class SquadTabActivity extends FragmentTabActivity implements
     }
 
     public void onSquadMembershipChange() {
-        updateTitle();
+        updateTitleAndCost();
     }
 }

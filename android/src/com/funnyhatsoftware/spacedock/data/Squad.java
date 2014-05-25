@@ -239,7 +239,7 @@ public class Squad extends SquadBase {
 
         Resource resource = getResource();
 
-        if (resource != null && !resource.getIsFlagship() && !resource.getIsFighterSquadron()) {
+        if (resource != null && !resource.equippedIntoSquad()) {
             // flagship cost taken into account when assigned to EquippedShip
             // Fighters appear as ships
             cost += resource.getCost();

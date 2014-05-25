@@ -49,8 +49,7 @@ public class Resource extends ResourceBase {
         return mExternalId.equals(kHidekiExternalId) || mExternalId.equals(kFedFighterExternalId);
     }
 
-    public Ship associatedShip()
-    {
+    public Ship associatedShip() {
         Ship associated = null;
         if (getIsFighterSquadron()) {
             String externalId = getExternalId();
@@ -64,5 +63,17 @@ public class Resource extends ResourceBase {
             }
         }
         return associated;
+    }
+
+    /**
+     * Returns true if the Resource is built into Squad as either a ship, or an upgrade
+     * (TODO: better name)
+     *
+     * Resources that return true do not need to be cost counted separately
+     */
+    public boolean equippedIntoSquad() {
+        return getIsFlagship()
+                || getIsSideboard()
+                || getIsFighterSquadron();
     }
 }

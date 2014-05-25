@@ -132,7 +132,7 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
                         @Override
                         public void onTextValueCommitted(String inputText) {
                             squad.setName(inputText);
-                            ((SquadTabActivity)getActivity()).updateTitle(); // TODO: clean this up
+                            ((SquadTabActivity)getActivity()).updateTitleAndCost(); // TODO: clean this up
                         }
                     }
             );
@@ -203,6 +203,6 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
             mAdapter.insertSetItem(mEquippedShipNumber, mSelectedSlotType, mSelectedSlotNumber,
                     externalId);
         }
-        ((SquadTabActivity)getActivity()).updateTitle(); // TODO: clean this up
+        ((SquadTabActivity)getActivity()).updateTitleAndCost(); // TODO: clean this up
     }
 }
