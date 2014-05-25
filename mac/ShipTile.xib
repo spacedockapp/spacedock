@@ -16,6 +16,18 @@
             <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="Uxs-GT-ozH">
+                    <rect key="frame" x="18" y="41" width="86" height="57"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Multiline Label" id="GhM-2m-lEa">
+                        <font key="font" metaFont="system" size="6"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="self.ship.ability" id="aRV-cC-gs8"/>
+                    </connections>
+                </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="U24-i2-wnG">
                     <rect key="frame" x="-2" y="103" width="124" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -28,8 +40,20 @@
                         <binding destination="-2" name="value" keyPath="self.ship.plainDescription" id="Min-ho-uih"/>
                     </connections>
                 </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="IrG-zm-67w">
+                    <rect key="frame" x="-2" y="92" width="124" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="ES3-4T-Rtp">
+                        <font key="font" metaFont="systemBold" size="7"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="self.ship.classStrength" id="19a-79-BsT"/>
+                    </connections>
+                </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="P2Q-rk-yWM" userLabel="hull">
-                    <rect key="frame" x="-1" y="40" width="29" height="19"/>
+                    <rect key="frame" x="-3" y="32" width="29" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" id="L59-hw-OtP">
                         <font key="font" metaFont="system"/>
@@ -41,7 +65,7 @@
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="KjT-nz-25g" userLabel="shield">
-                    <rect key="frame" x="-1" y="19" width="29" height="19"/>
+                    <rect key="frame" x="-3" y="11" width="29" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" id="Qig-0V-DKZ">
                         <font key="font" metaFont="system"/>
@@ -53,7 +77,7 @@
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Um0-az-M2n" userLabel="agility">
-                    <rect key="frame" x="-1" y="61" width="29" height="19"/>
+                    <rect key="frame" x="-3" y="53" width="29" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" id="KS7-Kh-QM9">
                         <font key="font" metaFont="system"/>
@@ -65,7 +89,7 @@
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="v4W-Ph-PRN" userLabel="attack">
-                    <rect key="frame" x="-1" y="82" width="29" height="19"/>
+                    <rect key="frame" x="-3" y="95" width="29" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" id="DrB-Fp-dyl">
                         <font key="font" metaFont="system"/>
@@ -77,7 +101,7 @@
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="7Zf-4Q-HD0" userLabel="craft attack">
-                    <rect key="frame" x="18" y="82" width="29" height="19"/>
+                    <rect key="frame" x="-3" y="73" width="29" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="3" id="Dr1-ho-gh6">
                         <font key="font" metaFont="system"/>
@@ -88,19 +112,7 @@
                         <binding destination="-2" name="value" keyPath="self.ship.styledCraftAttack" id="XBJ-4M-w7W"/>
                     </connections>
                 </textField>
-                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="Uxs-GT-ozH">
-                    <rect key="frame" x="24" y="27" width="92" height="73"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Multiline Label" id="GhM-2m-lEa">
-                        <font key="font" metaFont="system" size="6"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                    <connections>
-                        <binding destination="-2" name="value" keyPath="self.ship.ability" id="aRV-cC-gs8"/>
-                    </connections>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="hhZ-kV-TUJ">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="hhZ-kV-TUJ" userLabel="slots">
                     <rect key="frame" x="-2" y="0.0" width="124" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="hOt-w5-yVN">
@@ -109,7 +121,19 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="-2" name="value" keyPath="self.ship.actionString" id="Uul-vf-Un5"/>
+                        <binding destination="-2" name="value" keyPath="self.ship.capabilities" id="MFQ-bg-6So"/>
+                    </connections>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dzp-fc-kHC" userLabel="actions">
+                    <rect key="frame" x="8" y="22" width="110" height="8"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="dKO-aU-Mhy">
+                        <font key="font" metaFont="system" size="7"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="self.ship.actionString" id="PPN-xO-PgC"/>
                     </connections>
                 </textField>
             </subviews>

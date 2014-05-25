@@ -2,7 +2,7 @@
 //  DockShip.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 5/16/14.
+//  Created by Rob Tsuk on 5/25/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -15,8 +15,10 @@
 @interface DockShip : DockSetItem
 
 @property (nonatomic, retain) NSString * ability;
+@property (nonatomic, retain) NSNumber * afterburner;
 @property (nonatomic, retain) NSNumber * agility;
 @property (nonatomic, retain) NSNumber * attack;
+@property (nonatomic, retain) NSNumber * barrelRoll;
 @property (nonatomic, retain) NSNumber * battleStations;
 @property (nonatomic, retain) NSNumber * borg;
 @property (nonatomic, retain) NSNumber * captainLimit;
@@ -42,15 +44,15 @@
 @property (nonatomic, retain) NSString * shipBonusArcs;
 @property (nonatomic, retain) NSString * shipClass;
 @property (nonatomic, retain) NSString * shipRange;
+@property (nonatomic, retain) NSNumber * spin;
 @property (nonatomic, retain) NSNumber * targetLock;
 @property (nonatomic, retain) NSNumber * tech;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * type;
 @property (nonatomic, retain) NSNumber * unique;
 @property (nonatomic, retain) NSNumber * weapon;
-@property (nonatomic, retain) NSNumber * barrelRoll;
-@property (nonatomic, retain) NSNumber * spin;
-@property (nonatomic, retain) NSNumber * afterburner;
+@property (nonatomic, retain) NSNumber * step;
+@property (nonatomic, retain) NSString * wingStrength;
 @property (nonatomic, retain) NSSet *equippedShips;
 @property (nonatomic, retain) DockShipClassDetails *shipClassDetails;
 @end

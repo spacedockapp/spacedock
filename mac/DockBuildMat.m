@@ -6,6 +6,7 @@
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockMoveGrid.h"
 #import "DockShip+Addons.h"
+#import "DockShip+Viper.h"
 #import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockWeapon+Addons.h"
@@ -199,6 +200,13 @@
         [oneRow addObject: moveTile];
         DockShipTile* shipTile = [[DockShipTile alloc] initWithShip: ship];
         [oneRow addObject: shipTile];
+        int step = [ship.step intValue];
+        while (step > 1) {
+            step -= 1;
+            DockShip* reduced = [ship stepReduction: step];
+            shipTile = [[DockShipTile alloc] initWithShip: reduced];
+            [oneRow addObject: shipTile];
+        }
         DockFlagship* flagship = equippedShip.flagship;
         if (flagship) {
             DockFlagshipTile* flagshipTile = [[DockFlagshipTile alloc] initWithFlagship: flagship];

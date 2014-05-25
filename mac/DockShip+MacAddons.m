@@ -32,14 +32,23 @@ NSAttributedString* styledAttack(id ship)
 
 NSAttributedString* styledCraftAttack(id ship)
 {
+    static NSColor* craftAttackBgColor = nil;
+    if (craftAttackBgColor == nil) {
+        craftAttackBgColor = [NSColor colorWithDeviceHue: 19.0/360.0 saturation: 0.81 brightness: 0.86 alpha: 1];
+    }
     NSMutableAttributedString* desc = [[NSMutableAttributedString alloc] initWithString: @""];
-    [desc appendAttributedString: makeCentered(coloredString([[ship craftAttack] stringValue], [NSColor whiteColor], [NSColor redColor]))];
+    [desc appendAttributedString: makeCentered(coloredString([[ship craftAttack] stringValue], [NSColor whiteColor], craftAttackBgColor))];
     return desc;
 }
 
 -(NSAttributedString*)styledAttack
 {
     return styledAttack(self);
+}
+
+-(NSAttributedString*)styledCraftAttack
+{
+    return styledCraftAttack(self);
 }
 
 NSAttributedString* styledAgility(id ship)

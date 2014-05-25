@@ -9,5 +9,5 @@
 #import "DockShip.h"
 
 @interface DockShip (Viper)
-
+-(DockShip*)stepReduction:(int)step;
 @end

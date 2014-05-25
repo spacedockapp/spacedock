@@ -2,7 +2,7 @@
 //  DockShip.m
 //  Space Dock
 //
-//  Created by Rob Tsuk on 5/16/14.
+//  Created by Rob Tsuk on 5/25/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -14,8 +14,10 @@
 @implementation DockShip
 
 @dynamic ability;
+@dynamic afterburner;
 @dynamic agility;
 @dynamic attack;
+@dynamic barrelRoll;
 @dynamic battleStations;
 @dynamic borg;
 @dynamic captainLimit;
@@ -41,15 +43,15 @@
 @dynamic shipBonusArcs;
 @dynamic shipClass;
 @dynamic shipRange;
+@dynamic spin;
 @dynamic targetLock;
 @dynamic tech;
 @dynamic title;
 @dynamic type;
 @dynamic unique;
 @dynamic weapon;
-@dynamic barrelRoll;
-@dynamic spin;
-@dynamic afterburner;
+@dynamic step;
+@dynamic wingStrength;
 @dynamic equippedShips;
 @dynamic shipClassDetails;
 
