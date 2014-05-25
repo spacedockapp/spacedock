@@ -73,6 +73,7 @@
         DockMoveGrid* grid = [[DockMoveGrid alloc] init];
         grid.ship = ship;
         self.view = grid;
+        grid.whiteBackground = YES;
     }
     return self;
 }
