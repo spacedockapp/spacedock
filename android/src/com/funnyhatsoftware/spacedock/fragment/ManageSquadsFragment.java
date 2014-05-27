@@ -23,7 +23,7 @@ import com.funnyhatsoftware.spacedock.data.Universe;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class ManageSquadsFragment extends ListFragment {
+public class ManageSquadsFragment extends FullscreenListFragment {
     private static final String SAVE_KEY_SELECTED_SQUAD = "selected_squad";
 
     public interface SquadSelectListener {

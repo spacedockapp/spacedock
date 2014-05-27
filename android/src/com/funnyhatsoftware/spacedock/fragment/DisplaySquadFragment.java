@@ -1,17 +1,12 @@
 
 package com.funnyhatsoftware.spacedock.fragment;
 
-import java.util.ArrayList;
-
-import org.json.JSONException;
-
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
 import android.support.v4.util.ArrayMap;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -33,14 +28,15 @@ import com.funnyhatsoftware.spacedock.data.Upgrade;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolder;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
 
-public class DisplaySquadFragment extends ListFragment {
+import org.json.JSONException;
+
+import java.util.ArrayList;
+
+public class DisplaySquadFragment extends FullscreenListFragment {
     private static final String ARG_SQUAD_UUID = "squad_index";
 
-    private static final int LAYOUT_RES_ID = R.layout.item_with_details; // force
-                                                                         // detailed
-                                                                         // in
-                                                                         // this
-                                                                         // view
+    // force detailed item display in this view
+    private static final int LAYOUT_RES_ID = R.layout.item_with_details;
 
     String mSquadUuid;
 
