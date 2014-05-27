@@ -1,6 +1,13 @@
 package com.funnyhatsoftware.spacedock.fragment;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.view.LayoutInflater;
@@ -80,12 +87,32 @@ public class ManageSquadsFragment extends FullscreenListFragment {
         inflater.inflate(R.menu.menu_manage_squads, menu);
     }
 
+    private void shareAllSquads() {
+        try {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            JSONArray allSquadsAsJSON = Universe.getUniverse().allSquadsAsJSON();
+            sendIntent.putExtra(Intent.EXTRA_TEXT, allSquadsAsJSON.toString(2));
+            String fullName = getActivity().getString(R.string.all_squads_spacedocksquads);
+            sendIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, fullName);
+            sendIntent.setType("application/spacedocksquads");
+            startActivity(Intent.createChooser(sendIntent, getActivity().getString(R.string.save_all_squads_to)));
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         final int itemId = item.getItemId();
 
         if (itemId == R.id.menu_create) {
             startCreateSquad();
+            return true;
+        }
+        if (itemId == R.id.menu_share_all_squads) {
+            shareAllSquads();
             return true;
         }
         return super.onOptionsItemSelected(item);
