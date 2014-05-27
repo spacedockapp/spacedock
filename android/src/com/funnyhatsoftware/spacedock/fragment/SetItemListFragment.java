@@ -126,12 +126,12 @@ public class SetItemListFragment extends ListFragment {
                     null, layoutResId, setItemHolderFactory);
         }
 
-        if (mSelectionMode
-                && !setItemHolderFactory.getType().equals(ShipHolder.TYPE_STRING)
-                && !setItemHolderFactory.getType().equals(CaptainHolder.TYPE_STRING)) {
-            // when selecting upgrades (other than Captain) add a 'clear' item/placeholder at the top
+        String currentSelectionId = getArguments().getString(ARG_SELECTED_ID);
+
+        if (mSelectionMode && !setItemHolderFactory.getType().equals(CaptainHolder.TYPE_STRING)) {
+            // Selecting upgrade (other than Captain): add a 'clear' item/placeholder at the top
             BaseAdapter placeholderAdapter = SetItemAdapter.CreatePlaceholderAdapter(context,
-                    layoutResId, setItemHolderFactory);
+                        layoutResId, setItemHolderFactory);
             mAdapter = new HeaderAdapter(placeholderAdapter, contentAdapter);
         } else {
             mAdapter = contentAdapter;

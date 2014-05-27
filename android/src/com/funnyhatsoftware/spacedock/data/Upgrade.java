@@ -227,7 +227,7 @@ public class Upgrade extends UpgradeBase {
             }
         }
 
-        if (!shipFaction.equals(upgradeFaction) && !equippedShip.getIsResourceSideboard()
+        if (!shipFaction.equals(upgradeFaction) && !equippedShip.isResourceSideboard()
                 && !equippedShip.getFlagshipFaction().equals(upgradeFaction)) {
             if (captainSpecial.equals("UpgradesIgnoreFactionPenalty") && !isCaptain()) {
                 // do nothing

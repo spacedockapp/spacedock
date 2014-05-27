@@ -12,6 +12,7 @@ import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.holder.FlagshipHolder;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolder;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
+import com.funnyhatsoftware.spacedock.holder.ShipHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,9 @@ public class SetItemAdapter extends ArrayAdapter<SetItem> {
     public static SetItemAdapter CreatePlaceholderAdapter(Context context,
             int layoutResId, SetItemHolderFactory factory) {
         SetItem placeholder;
-        if (factory.getType().equals(FlagshipHolder.TYPE_STRING)) {
+        if (factory.getType().equals(ShipHolder.TYPE_STRING)) {
+            placeholder = Universe.getUniverse().getOrCreateShipPlaceholder();
+        } else if (factory.getType().equals(FlagshipHolder.TYPE_STRING)) {
             placeholder = Universe.getUniverse().getOrCreateFlagshipPlaceholder();
         } else {
             placeholder = Universe.getUniverse().findOrCreatePlaceholder(factory.getType());
@@ -46,7 +49,6 @@ public class SetItemAdapter extends ArrayAdapter<SetItem> {
         ArrayList<SetItem> items = new ArrayList<SetItem>(1);
         items.add(placeholder);
         return new SetItemAdapter(context, layoutResId, factory, items);
-
     }
 
     private SetItemAdapter(Context context, int layoutResId,

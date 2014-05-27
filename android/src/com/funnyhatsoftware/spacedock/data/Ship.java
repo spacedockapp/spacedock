@@ -52,7 +52,7 @@ public class Ship extends ShipBase {
         if (textValue.length() == 0) {
             return "";
         }
-        return textValue + "¼";
+        return textValue + "Â°";
     }
 
     public String formattedFrontArc() {
@@ -100,6 +100,16 @@ public class Ship extends ShipBase {
         }
 
         return mShipClass;
+    }
+
+    private boolean mIsPlaceholder = false;
+
+    @Override
+    public boolean isPlaceholder() {
+        return mIsPlaceholder;
+    }
+    /*package*/ void setIsPlaceholder(boolean isPlaceholder) {
+        mIsPlaceholder = isPlaceholder;
     }
 
     public String factionCode() {

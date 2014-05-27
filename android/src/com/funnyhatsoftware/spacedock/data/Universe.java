@@ -51,6 +51,7 @@ public class Universe {
     private ArrayList<Squad> mSquads = new ArrayList<Squad>();
     private ArrayList<String> mAllFactions;
     private String mSelectedFaction;
+    private Ship mShipPlaceholder;
     private Flagship mFlagshipPlaceholder;
 
     static Universe sUniverse;
@@ -279,12 +280,23 @@ public class Universe {
         return placeholder;
     }
 
+    public Ship getOrCreateShipPlaceholder() {
+        Ship placeholder = mShipPlaceholder;
+        if (placeholder == null) {
+            placeholder = new Ship();
+            placeholder.setTitle("");
+            placeholder.setIsPlaceholder(true);
+            mShipPlaceholder = placeholder;
+        }
+        return placeholder;
+    }
+
     public Flagship getOrCreateFlagshipPlaceholder() {
         Flagship placeholder = mFlagshipPlaceholder;
         if (placeholder == null) {
             placeholder = new Flagship();
             placeholder.setTitle("");
-            placeholder.setPlaceholder(true);
+            placeholder.setIsPlaceholder(true);
             mFlagshipPlaceholder = placeholder;
         }
         return placeholder;

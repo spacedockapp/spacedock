@@ -98,7 +98,7 @@ public class Sideboard extends SideboardBase {
     }
 
     @Override
-    public boolean getIsResourceSideboard() {
+    public boolean isResourceSideboard() {
         return true;
     }
 

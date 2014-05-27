@@ -2,7 +2,6 @@ package com.funnyhatsoftware.spacedock.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
 import android.text.Spannable;
 import android.view.LayoutInflater;
 import android.view.Menu;

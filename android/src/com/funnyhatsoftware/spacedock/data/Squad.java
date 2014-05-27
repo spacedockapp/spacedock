@@ -53,7 +53,7 @@ public class Squad extends SquadBase {
         EquippedShip sideboard = null;
 
         for (EquippedShip target : mEquippedShips) {
-            if (target.getIsResourceSideboard()) {
+            if (target.isResourceSideboard()) {
                 sideboard = target;
                 break;
             }
@@ -211,13 +211,13 @@ public class Squad extends SquadBase {
         Comparator<EquippedShip> comparator = new Comparator<EquippedShip>() {
             @Override
             public int compare(EquippedShip arg0, EquippedShip arg1) {
-                if (arg0.getIsResourceSideboard()) {
-                    if (arg1.getIsResourceSideboard()) {
+                if (arg0.isResourceSideboard()) {
+                    if (arg1.isResourceSideboard()) {
                         return 0;
                     }
                     return 1;
                 }
-                if (arg1.getIsResourceSideboard()) {
+                if (arg1.isResourceSideboard()) {
                     return -1;
                 }
                 return 0;
@@ -436,7 +436,7 @@ public class Squad extends SquadBase {
                     }
                 }
             }
-            if (!es.getIsResourceSideboard()) {
+            if (!es.isResourceSideboard()) {
                 sb.append(String.format("Total (%d)\n", es.calculateCost()));
             }
             sb.append("\n");

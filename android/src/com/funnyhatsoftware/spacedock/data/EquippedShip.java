@@ -34,7 +34,7 @@ public class EquippedShip extends EquippedShipBase {
         mShip = inShip;
     }
 
-    public boolean getIsResourceSideboard() {
+    public boolean isResourceSideboard() {
         return getShip() == null;
     }
     
@@ -137,7 +137,7 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public String getTitle() {
-        if (getIsResourceSideboard()) {
+        if (isResourceSideboard()) {
             return getSquad().getResource().getTitle();
         }
 
@@ -145,7 +145,7 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public String getPlainDescription() {
-        if (getIsResourceSideboard()) {
+        if (isResourceSideboard()) {
             return getSquad().getResource().getTitle();
         }
 
@@ -153,7 +153,7 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     String getDescriptiveTitle() {
-        if (getIsResourceSideboard()) {
+        if (isResourceSideboard()) {
             return getSquad().getResource().getTitle();
         }
 
@@ -207,7 +207,7 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public int getBaseCost() {
-        if (getIsResourceSideboard()) {
+        if (isResourceSideboard()) {
             return getSquad().getResource().getCost();
         }
 
@@ -387,7 +387,7 @@ public class EquippedShip extends EquippedShipBase {
     public void establishPlaceholders() {
         if (getCaptainLimit() > 0) {
             if (getCaptain() == null) {
-                if (getIsResourceSideboard()) {
+                if (isResourceSideboard()) {
                     Upgrade zcc = Captain.zeroCostCaptain("Federation");
                     addUpgrade(zcc, null, false);
                 } else {
@@ -712,6 +712,31 @@ public class EquippedShip extends EquippedShipBase {
         return mUpgrades.get(upgradeIndex);
     }
 
+    public Explanation trySetShip(Squad squad, String externalId) {
+        if (externalId == null) {
+            // Abandon ship!
+            squad.removeEquippedShip(this);
+            return Explanation.SUCCESS;
+        }
+
+        if (externalId.equals(getShip().getExternalId())) {
+            // nothing to do
+            return Explanation.SUCCESS;
+        }
+
+        Ship ship = Universe.getUniverse().getShip(externalId);
+        Explanation explanation = squad.canAddShip(ship);
+        if (!explanation.canAdd) {
+            return explanation; // disallowed, abort!
+        }
+        setShip(ship);
+
+        // TODO: consider swapping zero cost captain for new faction?
+        establishPlaceholders();
+
+        return Explanation.SUCCESS;
+    }
+
     public Explanation tryEquipFlagship(Squad squad, String externalId) {
         if (externalId == null) {
             squad.removeFlagship();
@@ -768,8 +793,7 @@ public class EquippedShip extends EquippedShipBase {
         }
         newEu.setEquippedShip(this);
 
-        // slot counts may have changed, refresh placeholders + prune slots to
-        // new count
+        // slot counts may have changed, refresh placeholders + prune slots to new count
         establishPlaceholders();
 
         return Explanation.SUCCESS;

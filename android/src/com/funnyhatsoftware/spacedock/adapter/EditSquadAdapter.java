@@ -1,11 +1,7 @@
 package com.funnyhatsoftware.spacedock.adapter;
 
 import android.app.Activity;
-import android.view.ActionMode;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -16,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.funnyhatsoftware.spacedock.R;
-import com.funnyhatsoftware.spacedock.activity.SquadTabActivity;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
 import com.funnyhatsoftware.spacedock.data.Explanation;
@@ -28,15 +23,11 @@ import java.util.ArrayList;
 public class EditSquadAdapter extends BaseExpandableListAdapter implements
         ExpandableListView.OnGroupClickListener,
         ExpandableListView.OnChildClickListener,
-        AdapterView.OnItemClickListener,
-        AdapterView.OnItemLongClickListener {
+        AdapterView.OnItemClickListener {
     public interface SlotSelectListener {
         void onSlotSelected(int equippedShipNumber, int slotType, int slotNumber,
                 String currentEquipmentId, String prefFaction);
     }
-
-    public static final int SELECT_MODE_SLOT_AND_CAB = 1;
-    public static final int SELECT_MODE_CAB_ONLY = 2;
 
     private static final int INVALID_HEADER_ID = 0;
 
@@ -53,7 +44,6 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
     private final Activity mActivity;
     private final ExpandableListView mListView;
     private final SlotSelectListener mListener;
-    private final int mSelectionMode;
     private final Squad mSquad;
     private ArrayList<ListItemLookup>[] mShipLookup;
 
@@ -107,9 +97,8 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
             if (i == flagshipIndex || flagshipUnassigned) {
                 populateLookup(l, 1, R.string.flagship_slot, EquippedShip.SLOT_TYPE_FLAGSHIP);
             }
-            if (s.getCaptainLimit() > 0) {
-                populateLookup(l, 1, R.string.captain_slot, EquippedShip.SLOT_TYPE_CAPTAIN);
-            }
+            populateLookup(l, s.getCaptainLimit(), R.string.captain_slot,
+                    EquippedShip.SLOT_TYPE_CAPTAIN);
             populateLookup(l, s.getTalent(), R.string.talent_slot, EquippedShip.SLOT_TYPE_TALENT);
             populateLookup(l, s.getCrew(), R.string.crew_slot, EquippedShip.SLOT_TYPE_CREW);
             populateLookup(l, s.getWeapon(), R.string.weapon_slot, EquippedShip.SLOT_TYPE_WEAPON);
@@ -189,6 +178,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
                     break;
                 case ITEM_TYPE_SLOT:
                     // Slot, set title & cost
+                    initCostTextColor(0, 0); // set default text color
                     if (mListItemLookup.slotType == EquippedShip.SLOT_TYPE_FLAGSHIP) {
                         Flagship flagship = es.getFlagship();
                         if (flagship == null) {
@@ -198,14 +188,12 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
                             mTitleTextView.setText(flagship.getTitle());
                             mCostTextView.setText(Integer.toString(flagship.getCost()));
                         }
-                        initCostTextColor(0, 0);
                     } else {
                         EquippedUpgrade upgrade = es.getUpgradeAtSlot(
                                 mListItemLookup.slotType, mListItemLookup.slotNumber);
                         if (upgrade.getUpgrade().isPlaceholder()) {
                             mTitleTextView.setText(R.string.empty_upgrade_slot);
                             mCostTextView.setText(R.string.indicator_not_applicable);
-                            initCostTextColor(0, 0);
                         } else {
                             mTitleTextView.setText(upgrade.getUpgrade().getTitle());
 
@@ -236,19 +224,17 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
     }
 
     public EditSquadAdapter(Activity activity, ExpandableListView listView,
-                int selectionMode, Squad squad, SlotSelectListener listener) {
+            Squad squad, SlotSelectListener listener) {
         // TODO: always maintain one empty extra ship to support add/remove
         mActivity = activity;
         mListView = listView;
         mSquad = squad;
         mListener = listener;
         updateLookup();
-        mListView.setOnGroupClickListener(this); // disable/ignore collapse/expand
+        mListView.setOnGroupClickListener(this); // group clicks - ship selection
         mListView.setOnChildClickListener(this); // child clicks -> upgrade selection
         mListView.setOnItemClickListener(this); // non-child/group footer clicks -> adding ships
-        mListView.setOnItemLongClickListener(this);
         mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        mSelectionMode = selectionMode;
 
         // add footer for adding ships
         LayoutInflater inflater = activity.getLayoutInflater();
@@ -343,8 +329,32 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
     }
 
     @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        // any non group/child views are used for adding ships
+        mListener.onSlotSelected(-1, EquippedShip.SLOT_TYPE_SHIP, 0, null, null);
+    }
+
+    @Override
     public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-        return true; // eat the click without expanding/collapsing
+        long packedPosition = ExpandableListView.getPackedPositionForGroup(groupPosition);
+        int index = mListView.getFlatListPosition(packedPosition);
+        if (packedPosition == mListView.getSelectedPosition()) {
+            return false; // do nothing for double select
+        }
+
+        // Ship slot selected, call back to listener
+        EquippedShip equippedShip = getEquippedShip(groupPosition);
+
+        if (equippedShip.isFighterSquadron() || equippedShip.isResourceSideboard()) {
+            // don't support changing ships for these
+            return false;
+        }
+
+        mListView.setItemChecked(index, true);
+        String currentEquipmentId = equippedShip.getShip().getExternalId();
+        mListener.onSlotSelected(groupPosition, EquippedShip.SLOT_TYPE_SHIP, 0,
+                currentEquipmentId, equippedShip.getFaction());
+        return true;
     }
 
     @Override
@@ -352,23 +362,20 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
             int groupPosition, int childPosition, long id) {
         long packedPosition = ExpandableListView.getPackedPositionForChild(
                 groupPosition, childPosition);
-
         int index = mListView.getFlatListPosition(packedPosition);
-        if (mActionMode != null) mActionMode.finish();
-        if (mSelectionMode != SELECT_MODE_CAB_ONLY) {
-            if (packedPosition == mListView.getSelectedPosition()) {
-                return false; // do nothing for double select
-            }
-            mListView.setItemChecked(index, true);
+        if (packedPosition == mListView.getSelectedPosition()) {
+            return false; // do nothing for double select
         }
-
+        mListView.setItemChecked(index, true);
         SquadListItemHolder holder = (SquadListItemHolder) v.getTag();
 
+        // Upgrade slot selected, call back to listener with slot info
         int slotType = holder.mListItemLookup.slotType;
         int slotNumber = holder.mListItemLookup.slotNumber;
         String currentEquipmentId;
+        EquippedShip equippedShip = getEquippedShip(groupPosition);
         if (slotType == EquippedShip.SLOT_TYPE_FLAGSHIP) {
-            Flagship flagship = getEquippedShip(groupPosition).getFlagship();
+            Flagship flagship = equippedShip.getFlagship();
             currentEquipmentId = (flagship == null) ? null : flagship.getExternalId();
         } else {
             EquippedUpgrade equippedUpgrade = getEquippedUpgrade(groupPosition, slotType, slotNumber);
@@ -376,24 +383,23 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         }
 
         // Make upgrades with faction == ship faction most visible
-        String prefFaction = getEquippedShip(groupPosition).getFaction();
+        String prefFaction = equippedShip.getFaction();
 
         mListener.onSlotSelected(groupPosition, slotType, slotNumber,
                 currentEquipmentId, prefFaction);
-        return false;
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        // any non group/child views are used for adding ships
-        mListener.onSlotSelected(-1, EquippedShip.SLOT_TYPE_SHIP, 0, null, null);
+        return true;
     }
 
     public void insertSetItem(int equippedShipNumber, int slotType, int slotIndex,
             String externalId) {
         Explanation explanation;
         if (slotType == EquippedShip.SLOT_TYPE_SHIP) {
-            explanation = mSquad.tryAddEquippedShip(externalId);
+            if (equippedShipNumber >= 0) {
+                EquippedShip es = getEquippedShip(equippedShipNumber);
+                explanation = es.trySetShip(mSquad, externalId);
+            } else {
+                explanation = mSquad.tryAddEquippedShip(externalId);
+            }
         } else {
             EquippedShip es = getEquippedShip(equippedShipNumber);
             if (slotType == EquippedShip.SLOT_TYPE_FLAGSHIP) {
@@ -410,77 +416,4 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
             Toast.makeText(mActivity, explanation.explanation, Toast.LENGTH_SHORT).show();
         }
     }
-
-    //////////////////////////////////////////////////////////////////
-    // Ship editing - long press and contextual action bar
-    // TODO: consider moving the majority of this logic to EditSquadFragment
-    //////////////////////////////////////////////////////////////////
-    private int mSelectedShip = -1;
-    private ActionMode mActionMode;
-    @Override
-    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-        long packedPosition = mListView.getExpandableListPosition(position);
-        int childPosition = ExpandableListView.getPackedPositionChild(packedPosition);
-        if (childPosition >= 0) return false;
-        int groupPosition = ExpandableListView.getPackedPositionGroup(packedPosition);
-        if (groupPosition < 0) return false;
-
-        mSelectedShip = groupPosition;
-        mListView.setItemChecked(position, true);
-        ((SquadTabActivity)mActivity).onShipSelected(); // hides 2nd fragment TODO: cleanup
-
-        if (mActionMode == null) {
-            // start up action mode, if needed
-            mActionMode = mActivity.startActionMode(mActionModeCallback);
-        }
-
-        // TODO: remove secondary fragment in 2 pane
-        return true;
-    }
-
-    private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
-        // Called when the action mode is created; startActionMode() was called
-        @Override
-        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            // Inflate a menu resource providing context menu items
-            MenuInflater inflater = mode.getMenuInflater();
-            inflater.inflate(R.menu.menu_edit_ship, menu);
-            return true;
-        }
-
-        // Called each time the action mode is shown. Always called after onCreateActionMode, but
-        // may be called multiple times if the mode is invalidated.
-        @Override
-        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-            return false; // Return false if nothing is done
-        }
-
-        // Called when the user selects a contextual menu item
-        @Override
-        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.menu_delete:
-                    mSquad.removeEquippedShip(mSquad.getEquippedShips().get(mSelectedShip));
-                    notifyDataSetChanged();
-                    ((SquadTabActivity)mActivity).onSquadMembershipChange(); // TODO: cleanup
-                    mode.finish(); // Action picked, so close the CAB
-                    return true;
-                default:
-                    return false;
-            }
-        }
-
-        // Called when the user exits the action mode
-        @Override
-        public void onDestroyActionMode(ActionMode mode) {
-            if (mSelectedShip >= 0) {
-                long packedPosition = ExpandableListView.getPackedPositionForGroup(mSelectedShip);
-                int flatPosition = mListView.getFlatListPosition(packedPosition);
-                mListView.setItemChecked(flatPosition, false);
-
-                mSelectedShip = -1;
-            }
-            mActionMode = null;
-        }
-    };
 }

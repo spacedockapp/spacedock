@@ -92,15 +92,9 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
         super.onViewCreated(view, savedInstanceState);
         ExpandableListView elv = (ExpandableListView) view.findViewById(R.id.list);
 
-        // TODO: better place to do this
-        int selectionMode = getResources().getBoolean(R.bool.use_two_pane)
-                ? EditSquadAdapter.SELECT_MODE_SLOT_AND_CAB
-                : EditSquadAdapter.SELECT_MODE_CAB_ONLY;
-
         String squadUuid = getArguments().getString(ARG_SQUAD_UUID);
         Squad squad = Universe.getUniverse().getSquadByUUID(squadUuid);
-        mAdapter = new EditSquadAdapter(getActivity(), elv, selectionMode, squad, this);
-        // TODO: clear ELV group selection across config change, since CAB doesn't persist
+        mAdapter = new EditSquadAdapter(getActivity(), elv, squad, this);
 
         Spinner resourceSpinner = (Spinner) view.findViewById(R.id.resource_spinner);
         ResourceSpinnerAdapter.createForSpinner(getActivity(), resourceSpinner, squad);
@@ -155,7 +149,6 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
     @Override
     public void onSlotSelected(int equippedShipNumber, int slotType, int slotNumber,
             String currentEquipmentId, String prefFaction) {
-
         mEquippedShipNumber = equippedShipNumber;
         mSelectedSlotType = slotType;
         mSelectedSlotNumber = slotNumber;
@@ -169,7 +162,7 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
                         getActivity(),
                         ShipHolder.TYPE_STRING,
                         prefFaction,
-                        null);
+                        currentEquipmentId);
             } else {
                 intent = SetItemListActivity.SelectActivity.getIntent(
                         getActivity(),
@@ -182,7 +175,7 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
             // delegate to containing fragment
             SetItemRequestListener listener = (SetItemRequestListener) parentFragment;
             if (mSelectedSlotType == EquippedShip.SLOT_TYPE_SHIP) {
-                listener.onItemRequested(ShipHolder.TYPE_STRING, prefFaction, null);
+                listener.onItemRequested(ShipHolder.TYPE_STRING, prefFaction, currentEquipmentId);
             } else {
                 String slotName = EquippedShip.CLASS_FOR_SLOT[slotType].getSimpleName();
                 listener.onItemRequested(slotName, prefFaction, currentEquipmentId);

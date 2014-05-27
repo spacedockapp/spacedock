@@ -61,6 +61,10 @@ public abstract class SetItemHolder {
         }
         mCost.setText(Integer.toString(setItem.getCost()));
 
+        // TODO: don't use placeholders to display the empty slots, since this doesn't scale to
+        // added secondary views. instead, use custom views + adapters.
+        if (setItem.isPlaceholder()) return;
+
         if (mAbility != null) {
             String ability = setItem.getAbility();
             boolean hasAbility = ability != null && !ability.isEmpty();

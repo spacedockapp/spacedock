@@ -90,7 +90,7 @@ public class TestSquad extends BaseTest {
 
                 boolean shipIsSideboard = shipData.optBoolean(JSONLabels.JSON_LABEL_SIDEBOARD);
                 assertEquals("sideboard mismatch " + shipLabel, shipIsSideboard,
-                        loadedShip.getIsResourceSideboard());
+                        loadedShip.isResourceSideboard());
 
                 JSONObject captainData = shipData.getJSONObject(JSONLabels.JSON_LABEL_CAPTAIN);
                 EquippedUpgrade ec = loadedShip.getEquippedCaptain();

@@ -27,10 +27,14 @@ public class Flagship extends FlagshipBase {
         return mFaction;
     }
 
-    boolean mPlaceholder = false;
+    private boolean mIsPlaceholder = false;
     @Override
-    public boolean isPlaceholder() { return mPlaceholder; }
-    public void setPlaceholder(boolean v) { mPlaceholder = v;}
+    public boolean isPlaceholder() {
+        return mIsPlaceholder;
+    }
+    /*package*/ void setIsPlaceholder(boolean isPlaceholder) {
+        mIsPlaceholder = isPlaceholder;
+    }
 
     @Override
     public int getCost() { return 10; } // TODO: make this more elegant
