@@ -169,6 +169,12 @@
     return [self.faction isEqualToString: @"Federation"];
 }
 
+-(BOOL)isVulcan
+{
+    return [self.faction isEqualToString: @"Vulcan"];
+}
+
+
 -(NSComparisonResult)compareTo:(DockUpgrade*)other
 {
     NSString* upTypeMe = [self upSortType];
@@ -402,6 +408,10 @@
         if (![ship isKazon]) {
             cost += 5;
         }
+    } else if ([upgradeSpecial isEqualToString: @"PhaserStrike"] || [upgradeSpecial isEqualToString: @"CostPlusFiveExceptBajoranInterceptor"]) {
+        if (![ship isBajoranInterceptor]) {
+            cost += 5;
+        }
     }
 
     if (![shipFaction isEqualToString: upgradeFaction] && !equippedShip.isResourceSideboard && ![equippedShip.flagship.faction isEqualToString: upgradeFaction]) {
@@ -466,6 +476,23 @@
 -(int)additionalTechSlots
 {
     if ([self.special isEqualToString: @"AddsOneWeaponOneTech"]) {
+        return 1;
+    }
+    if ([self.externalId isEqualToString: @"vulcan_high_command_2_0_71446"]) {
+        return 2;
+    }
+    if ([self.externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
+        return 1;
+    }
+    return 0;
+}
+
+-(int)additionalCrewSlots
+{
+    if ([self.externalId isEqualToString: @"vulcan_high_command_0_2_71446"]) {
+        return 2;
+    }
+    if ([self.externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
         return 1;
     }
     return 0;

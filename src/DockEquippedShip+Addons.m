@@ -396,6 +396,12 @@
         }
     }
 
+    if ([upgradeSpecial isEqualToString: @"OnlyBorgCaptain"]) {
+        if (![self.captain.faction isEqualToString: @"Borg"]) {
+            return NO;
+        }
+    }
+
     if ([upgradeSpecial isEqualToString: @"OnlySpecies8472Ship"]) {
         if (![self.ship isSpecies8472]) {
             return NO;
@@ -420,6 +426,18 @@
         }
     }
 
+    if ([upgradeSpecial isEqualToString: @"VulcanHighCommand"]) {
+        if (![self.ship isVulcan] || ![self.captain isVulcan]) {
+            return NO;
+        }
+    }
+
+    if ([upgradeSpecial isEqualToString: @"PhaserStrike"]) {
+        if ([[self.ship hull] intValue] > 3) {
+            return NO;
+        }
+    }
+
     if ([upgradeSpecial isEqualToString: @"OnlyForRomulanScienceVessel"] || [upgradeSpecial isEqualToString: @"OnlyForRaptorClassShips"]) {
         NSString* legalShipClass = upgrade.targetShipClass;
 
@@ -430,6 +448,63 @@
 
     int limit = [upgrade limitForShip: self];
     return limit > 0;
+}
+
+-(NSDictionary*)explainCantAddUpgrade:(DockUpgrade*)upgrade
+{
+    NSString* msg = [NSString stringWithFormat: @"Can't add %@ to %@", [upgrade plainDescription], [self plainDescription]];
+    NSString* info = @"";
+    if ([self isFighterSquadron]) {
+        info = @"Fighter Squadrons cannot accept upgrades.";
+    } else {
+        int limit = [upgrade limitForShip: self];
+        
+        if (limit == 0) {
+            NSString* targetClass = [upgrade targetShipClass];
+            
+            if (targetClass != nil) {
+                info = [NSString stringWithFormat: @"This upgrade can only be installed on ships of class %@.", targetClass];
+            } else {
+                if ([upgrade isTalent]) {
+                    info = [NSString stringWithFormat: @"This ship's captain has no %@ upgrade symbols.", [upgrade.upType lowercaseString]];
+                } else {
+                    info = [NSString stringWithFormat: @"This ship has no %@ upgrade symbols on its ship card.", [upgrade.upType lowercaseString]];
+                }
+            }
+        } else {
+            NSString* upgradeSpecial = upgrade.special;
+            
+            if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
+                info = @"This upgrade can only be added to Jem'hadar ships.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyForKlingonCaptain"]) {
+                info = @"This upgrade can only be added to a Klingon Captain.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyBajoranCaptain"]) {
+                info = @"This upgrade can only be added to a Bajoran Captain.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlySpecies8472Ship"]) {
+                info = @"This upgrade can only be added to Species 8472 ships.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyKazonShip"]) {
+                info = @"This upgrade can only be added to Kazon ships.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyBorgShip"]) {
+                info = @"This upgrade can only be added to Borg ships.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyVoyager"]) {
+                info = @"This upgrade can only be added to Voyager.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyTholianShip"]) {
+                info = @"This upgrade can only be added to a Tholian ship.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyTholianCaptain"]) {
+                info = @"This upgrade can only be added to a Tholian captain.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyBorgCaptain"]) {
+                info = @"This upgrade may only be purchased for a Borg Captain.";
+            } else if ([upgradeSpecial isEqualToString: @"VulcanHighCommand"]) {
+                info = @"This upgrade can only be added to a Vulcan captain on a Vulcan ship.";
+            } else if ([upgradeSpecial isEqualToString: @"PhaserStrike"]) {
+                info = @"This upgrade may only be purchased for a ship with a Hull value of 3 or less.";
+            }
+        }
+    }
+    
+    return @{
+             @"info": info, @"message": msg
+             };
 }
 
 -(DockEquippedUpgrade*)addUpgradeInternal:(DockEquippedUpgrade *)equippedUpgrade
@@ -706,7 +781,11 @@
 {
     int crewCount = [self shipPropertyCount: @"crew"];
     crewCount += [self.flagship crewAdd];
-    crewCount += [self.captain additionalCrewSlots];
+    for (DockEquippedUpgrade* eu in self.upgrades) {
+        DockUpgrade* upgrade = eu.upgrade;
+        crewCount += [upgrade additionalCrewSlots];
+    }
+
     return crewCount;
 }
 
@@ -770,57 +849,6 @@
     } else if (newShip.isFighterSquadron) {
         self.squad.resource = newShip.associatedResource;
     }
-}
-
--(NSDictionary*)explainCantAddUpgrade:(DockUpgrade*)upgrade
-{
-    NSString* msg = [NSString stringWithFormat: @"Can't add %@ to %@", [upgrade plainDescription], [self plainDescription]];
-    NSString* info = @"";
-    if ([self isFighterSquadron]) {
-        info = @"Fighter Squadrons cannot accept upgrades.";
-    } else {
-        int limit = [upgrade limitForShip: self];
-        
-        if (limit == 0) {
-            NSString* targetClass = [upgrade targetShipClass];
-            
-            if (targetClass != nil) {
-                info = [NSString stringWithFormat: @"This upgrade can only be installed on ships of class %@.", targetClass];
-            } else {
-                if ([upgrade isTalent]) {
-                    info = [NSString stringWithFormat: @"This ship's captain has no %@ upgrade symbols.", [upgrade.upType lowercaseString]];
-                } else {
-                    info = [NSString stringWithFormat: @"This ship has no %@ upgrade symbols on its ship card.", [upgrade.upType lowercaseString]];
-                }
-            }
-        } else {
-            NSString* upgradeSpecial = upgrade.special;
-            
-            if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
-                info = @"This upgrade can only be added to Jem'hadar ships.";
-            } else if ([upgradeSpecial isEqualToString: @"OnlyForKlingonCaptain"]) {
-                info = @"This upgrade can only be added to a Klingon Captain.";
-            } else if ([upgradeSpecial isEqualToString: @"OnlyBajoranCaptain"]) {
-                info = @"This upgrade can only be added to a Bajoran Captain.";
-            } else if ([upgradeSpecial isEqualToString: @"OnlySpecies8472Ship"]) {
-                info = @"This upgrade can only be added to Species 8472 ships.";
-            } else if ([upgradeSpecial isEqualToString: @"OnlyKazonShip"]) {
-                info = @"This upgrade can only be added to Kazon ships.";
-            } else if ([upgradeSpecial isEqualToString: @"OnlyBorgShip"]) {
-                info = @"This upgrade can only be added to Borg ships.";
-            } else if ([upgradeSpecial isEqualToString: @"OnlyVoyager"]) {
-                info = @"This upgrade can only be added to Voyager.";
-            } else if ([upgradeSpecial isEqualToString: @"OnlyTholianShip"]) {
-                info = @"This upgrade can only be added to a Tholian ship.";
-            } else if ([upgradeSpecial isEqualToString: @"OnlyTholianCaptain"]) {
-                info = @"This upgrade can only be added to a Tholian captian.";
-            }
-        }
-    }
-    
-    return @{
-             @"info": info, @"message": msg
-             };
 }
 
 -(NSDictionary*)becomeFlagship:(DockFlagship*)flagship

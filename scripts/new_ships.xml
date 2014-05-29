@@ -1,50 +1,50 @@
     <Ship>
-      <Title>Tholia One</Title>
+      <Title>S'Gorn</Title>
       <Unique>Y</Unique>
-      <ShipClass>Tholian Vessel</ShipClass>
+      <ShipClass>Gorn Raider</ShipClass>
       <Faction>Independent</Faction>
-      <Attack>2</Attack>
-      <Agility>2</Agility>
-      <Hull>2</Hull>
-      <Shield>2</Shield>
-      <Ability>You may perform the Action listed on the "Energy Web" Upgrade card as a free Action.</Ability>
-      <Cost>16</Cost>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>3</Hull>
+      <Shield>4</Shield>
+      <Ability>When attacking with your Primary Weapon, if you inflict at least 1 Critical Damage to the enemy ship's hull, that ship must also discard 1 [CREW] Upgrade (of its choice).</Ability>
+      <Cost>22</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
       <Scan>1</Scan>
-      <Battlestations>0</Battlestations>
+      <Battlestations>1</Battlestations>
       <Cloak>0</Cloak>
       <SensorEcho>0</SensorEcho>
       <Regenerate>0</Regenerate>
       <Borg>0</Borg>
-      <Tech>0</Tech>
-      <Weapon>2</Weapon>
-      <Crew>0</Crew>
-      <Id>tholia_one_opwebprize</Id>
-      <Set>OPWebPrize</Set>
+      <Tech>2</Tech>
+      <Weapon>0</Weapon>
+      <Crew>1</Crew>
+      <Id>s_gorn_oparenaprize</Id>
+      <Set>OPArenaPrize</Set>
     </Ship>
     <Ship>
-      <Title>Tholian Vessel</Title>
+      <Title>Gorn Starship</Title>
       <Unique>N</Unique>
-      <ShipClass>Tholian Vessel</ShipClass>
+      <ShipClass>Gorn Raider</ShipClass>
       <Faction>Independent</Faction>
-      <Attack>2</Attack>
-      <Agility>2</Agility>
-      <Hull>2</Hull>
-      <Shield>1</Shield>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>3</Hull>
+      <Shield>3</Shield>
       <Ability></Ability>
-      <Cost>14</Cost>
+      <Cost>20</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
       <Scan>1</Scan>
-      <Battlestations>0</Battlestations>
+      <Battlestations>1</Battlestations>
       <Cloak>0</Cloak>
       <SensorEcho>0</SensorEcho>
       <Regenerate>0</Regenerate>
       <Borg>0</Borg>
-      <Tech>0</Tech>
-      <Weapon>1</Weapon>
-      <Crew>0</Crew>
-      <Id>tholian_vessel_opwebprize</Id>
-      <Set>OPWebPrize</Set>
+      <Tech>1</Tech>
+      <Weapon>0</Weapon>
+      <Crew>1</Crew>
+      <Id>gorn_starship_oparenaprize</Id>
+      <Set>OPArenaPrize</Set>
     </Ship>

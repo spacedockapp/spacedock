@@ -6,16 +6,18 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-5/5/2014 12:36:06	Unique	Tholian Punctuality	Independent	When you initiate an attack,  you may discard this card to gain +1 attack die for that attack.  This upgrade may only be purchased by Loskene or any other Tholian Captain.	Talent	4
+5/27/2014 20:17:51		Jammed Communications	Independent	ACTION: All ships within Range 1-3 of your ship (including your own) cannot provide or benefit from any text abilities that affect other friendly ships this round.  Place an Auxiliary Power Token beside your ship.	Tech	5
+5/27/2014 20:20:03	Unique	Gorn Pilot	Independent	ACTION: If you performed a straight Maneuver this round, you may disable this card to immediately perform an additional 1 [STRAIGHT] Maneuver.	Crew	3
+5/27/2014 20:21:54		Impulse Overload	Independent	ACTION: Discard this card to target a ship at Range 1 of your ship and roll 3 attack dice.  If you roll at least 1 [HIT] or [CRIT] result, the target ship must discard 1 [TECH] Upgrade (of its choice).	Tech	2
+5/27/2014 20:25:57	Unique	Faked Messages	Independent	During the planning phase, after every ship's maneuver has been chosen, you may discard this card to target 1 enemy ship that is not within Range 1-3 of your ship.  Force that ship to change its chosen maneuver to a 1 [STRAIGHT] Maneuver.	Talent	5
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-5/5/2014 12:30:29	Unique	Loskene	4	Independent	ACTION: Target 1 friendly ship that is not within Range 1-3 of your ship and whose Captain has a lower Skill than Loskene's.  Target ship may immediately perform an additional 1 or 2 Maneuver (straight, bank or turn).  The additional Maneuver must be on the target ship's Maneuver Dial.	1	3
-5/5/2014 12:36:29		Tholian	1	Independent		0	0
+5/27/2014 20:15:17	Unique	Gorn Commander	4	Independent	When attacking, you may convert 1 blank result into 1 [HIT] result.	1	3
+5/27/2014 20:16:18		Gorn	1	Independent		0	0
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-5/5/2014 12:33:43		Plasma Torpedoes	Independent	4	1-2	ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack.  You may re-roll all of your blank results one time.  You may fire this weapon from your forward or rear firing arcs.	3
 WEAPONSTEXT
 
 convert_terms(upgrade)

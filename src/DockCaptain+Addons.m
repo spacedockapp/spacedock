@@ -85,7 +85,11 @@
 
 -(int)additionalCrewSlots
 {
-    return [self.special isEqualToString: @"AddTwoCrewSlotsDominionCostBonus"] ? 2 : 0;
+    NSString* special = self.special;
+    if ([special isEqualToString: @"Add_Crew_1"]) {
+        return 1;
+    }
+    return [special isEqualToString: @"AddTwoCrewSlotsDominionCostBonus"] ? 2 : 0;
 }
 
 -(NSNumber*)eliteTalent

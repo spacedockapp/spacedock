@@ -217,6 +217,13 @@ NSString* asDegrees(NSString* textValue)
     return [self.title isEqualToString: @"U.S.S. Voyager"];
 }
 
+-(BOOL)isBajoranInterceptor
+{
+    return [self.shipClass isEqualToString: @"Bajoran Interceptor"];
+}
+
+
+
 -(DockResource*)associatedResource
 {
     NSString* shipClass = self.shipClass;
@@ -228,6 +235,11 @@ NSString* asDegrees(NSString* textValue)
     }
     NSLog(@"No associated resource for %@", self);
     return nil;
+}
+
+-(BOOL)isVulcan
+{
+    return [self.faction isEqualToString: @"Vulcan"];
 }
 
 -(int)techCount

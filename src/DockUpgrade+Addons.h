@@ -18,10 +18,12 @@
 -(BOOL)isKlingon;
 -(BOOL)isBajoran;
 -(BOOL)isFederation;
+-(BOOL)isVulcan;
 -(NSComparisonResult)compareTo:(DockUpgrade*)other;
 -(int)limitForShip:(DockEquippedShip*)targetShip;
 -(int)additionalWeaponSlots;
 -(int)additionalTechSlots;
+-(int)additionalCrewSlots;
 -(NSString*)targetShipClass;
 -(NSString*)upSortType;
 -(NSString*)typeCode;

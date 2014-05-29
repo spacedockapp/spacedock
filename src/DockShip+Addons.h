@@ -23,6 +23,8 @@
 -(BOOL)isBorg;
 -(BOOL)isTholian;
 -(BOOL)isVoyager;
+-(BOOL)isVulcan;
+-(BOOL)isBajoranInterceptor;
 -(DockResource*)associatedResource;
 -(int)techCount;
 -(int)weaponCount;

@@ -1,4 +1,4 @@
-<Data version="1.218">
+<Data version="1.219">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -816,6 +816,102 @@
         </Maneuvers>
         <FrontArc>90</FrontArc>
         <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+        <Name>D'Kyr Class</Name>
+        <Id>d_kyr_class</Id>
+        <Maneuvers>
+            <Maneuver speed="4" kind="straight" color="white" />
+            <Maneuver speed="3" kind="left-turn" color="red" />
+            <Maneuver speed="3" kind="left-bank" color="white" />
+            <Maneuver speed="3" kind="straight" color="white" />
+            <Maneuver speed="3" kind="right-bank" color="white" />
+            <Maneuver speed="3" kind="right-turn" color="red" />
+            <Maneuver speed="2" kind="left-turn" color="red" />
+            <Maneuver speed="2" kind="left-bank" color="white" />
+            <Maneuver speed="2" kind="straight" color="green" />
+            <Maneuver speed="2" kind="right-bank" color="white" />
+            <Maneuver speed="2" kind="right-turn" color="red" />
+            <Maneuver speed="1" kind="left-bank" color="green" />
+            <Maneuver speed="1" kind="straight" color="green" />
+            <Maneuver speed="1" kind="right-bank" color="green" />
+            <Maneuver speed="-1" kind="straight" color="red" />
+        </Maneuvers>
+        <FrontArc>180</FrontArc>
+        <RearArc>90</RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+        <Name>Bajoran Interceptor</Name>
+        <Id>bajoran_interceptor</Id>
+        <Maneuvers>
+            <Maneuver speed="3" kind="left-bank" color="white" />
+            <Maneuver speed="3" kind="straight" color="white" />
+            <Maneuver speed="3" kind="right-bank" color="white" />
+            <Maneuver speed="2" kind="left-turn" color="white" />
+            <Maneuver speed="2" kind="left-bank" color="green" />
+            <Maneuver speed="2" kind="straight" color="green" />
+            <Maneuver speed="2" kind="right-bank" color="green" />
+            <Maneuver speed="2" kind="right-turn" color="white" />
+            <Maneuver speed="2" kind="about" color="white" />
+            <Maneuver speed="1" kind="left-turn" color="white" />
+            <Maneuver speed="1" kind="left-bank" color="green" />
+            <Maneuver speed="1" kind="straight" color="green" />
+            <Maneuver speed="1" kind="right-bank" color="green" />
+            <Maneuver speed="1" kind="right-turn" color="white" />
+            <Maneuver speed="1" kind="about" color="white" />
+        </Maneuvers>
+        <FrontArc>90</FrontArc>
+        <RearArc></RearArc>
+        <ShipClassDetail>
+            <Name>Borg Tactical Cube</Name>
+            <Id>borg_tactical_cube</Id>
+            <Maneuvers>
+                <Maneuver speed="4" kind="left-spin" color="red" />
+                <Maneuver speed="4" kind="straight" color="white" />
+                <Maneuver speed="4" kind="right-spin" color="red" />
+
+                <Maneuver speed="3" kind="left-spin" color="white" />
+                <Maneuver speed="3" kind="straight" color="white" />
+                <Maneuver speed="3" kind="right-spin" color="white" />
+
+                <Maneuver speed="2" kind="left-spin" color="white" />
+                <Maneuver speed="2" kind="straight" color="green" />
+                <Maneuver speed="2" kind="right-spin" color="white" />
+
+                <Maneuver speed="1" kind="left-spin" color="white" />
+                <Maneuver speed="1" kind="straight" color="green" />
+                <Maneuver speed="1" kind="right-spin" color="white" />
+
+                <Maneuver speed="-1" kind="straight" color="white" />
+                <Maneuver speed="-2" kind="straight" color="red" />
+                <Maneuver speed="-3" kind="straight" color="red" />
+            </Maneuvers>
+            <FrontArc></FrontArc>
+            <RearArc></RearArc>
+        </ShipClassDetail>
+    </ShipClassDetail>
+    <ShipClassDetail>
+      <Name>Gorn Raider</Name>
+      <Id>gorn_raider</Id>
+      <Maneuvers>
+        <Maneuver speed="4" kind="straight" color="white" />
+        <Maneuver speed="3" kind="left-turn" color="red" />
+        <Maneuver speed="3" kind="left-bank" color="white" />
+        <Maneuver speed="3" kind="straight" color="white" />
+        <Maneuver speed="3" kind="right-bank" color="white" />
+        <Maneuver speed="3" kind="right-turn" color="red" />
+        <Maneuver speed="3" kind="about" color="red" />
+        <Maneuver speed="2" kind="left-turn" color="white" />
+        <Maneuver speed="2" kind="left-bank" color="white" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-bank" color="white" />
+        <Maneuver speed="2" kind="right-turn" color="white" />
+        <Maneuver speed="1" kind="left-bank" color="green" />
+        <Maneuver speed="1" kind="straight" color="green" />
+        <Maneuver speed="1" kind="right-bank" color="green" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
+      <RearArc></RearArc>
     </ShipClassDetail>
   </ShipClassDetails>
   <Ships>
@@ -2621,6 +2717,208 @@
       <Id>tholian_vessel_opwebprize</Id>
       <Set>OPWebPrize</Set>
     </Ship>
+    <Ship>
+      <Title>D'Kyr</Title>
+      <Unique>Y</Unique>
+      <ShipClass>D'Kyr Class</ShipClass>
+      <Faction>Vulcan</Faction>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>4</Shield>
+      <Ability>Whenever you initiate an attack against an enemy ship at Range 3, gain +1 attack die.</Ability>
+      <Cost>26</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>2</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>d_kyr_71446</Id>
+      <Set>71446</Set>
+    </Ship>
+    <Ship>
+      <Title>Interceptor 5</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Bajoran Interceptor</ShipClass>
+      <Faction>Bajoran</Faction>
+      <Attack>2</Attack>
+      <Agility>3</Agility>
+      <Hull>3</Hull>
+      <Shield>0</Shield>
+      <Ability>You do not lose your "Perform Actions" step or take damage when you overlap a planet, obstacle or ship base. You may roll defense dice against any minefield.</Ability>
+      <Cost>16</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>interceptor_5_71445</Id>
+      <Set>71445</Set>
+    </Ship>
+    <Ship>
+      <Title>Tactical Cube 138</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Borg Tactical Cube</ShipClass>
+      <Faction>Borg</Faction>
+      <Attack>6</Attack>
+      <Agility>0</Agility>
+      <Hull>9</Hull>
+      <Shield>8</Shield>
+      <Ability>The Borg Ablative Hull Armor [BORG] Upgrade costs -3 SP to equip to this ship.</Ability>
+      <Cost>46</Cost>
+      <EvasiveManeuvers>0</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>1</Regenerate>
+      <Borg>2</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <Has360Arc>Y</Has360Arc>
+      <Id>tactical_cube_138_71444</Id>
+      <Set>71444</Set>
+    </Ship>
+    <Ship>
+      <Title>Borg Tactical Cube</Title>
+      <Unique>N</Unique>
+      <ShipClass>Borg Tactical Cube</ShipClass>
+      <Faction>Borg</Faction>
+      <Attack>6</Attack>
+      <Agility>0</Agility>
+      <Hull>9</Hull>
+      <Shield>7</Shield>
+      <Ability></Ability>
+      <Cost>44</Cost>
+      <EvasiveManeuvers>0</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>1</Regenerate>
+      <Borg>2</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Has360Arc>Y</Has360Arc>
+      <Id>borg_tactical_cube_71444</Id>
+      <Set>71444</Set>
+    </Ship>
+    <Ship>
+      <Title>Bajoran Interceptor</Title>
+      <Unique>N</Unique>
+      <ShipClass>Bajoran Interceptor</ShipClass>
+      <Faction>Bajoran</Faction>
+      <Attack>2</Attack>
+      <Agility>3</Agility>
+      <Hull>3</Hull>
+      <Shield>0</Shield>
+      <Ability></Ability>
+      <Cost>16</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>0</Crew>
+      <Id>bajoran_interceptor_71445</Id>
+      <Set>71445</Set>
+    </Ship>
+    <Ship>
+      <Title>D'Kyr Class</Title>
+      <Unique>N</Unique>
+      <ShipClass>D'Kyr Class</ShipClass>
+      <Faction>Vulcan</Faction>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>3</Shield>
+      <Ability></Ability>
+      <Cost>24</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>d_kyr_class_71446</Id>
+      <Set>71446</Set>
+    </Ship>
+    <Ship>
+      <Title>S'Gorn</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Gorn Raider</ShipClass>
+      <Faction>Independent</Faction>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>3</Hull>
+      <Shield>4</Shield>
+      <Ability>When attacking with your Primary Weapon, if you inflict at least 1 Critical Damage to the enemy ship's hull, that ship must also discard 1 [CREW] Upgrade (of its choice).</Ability>
+      <Cost>22</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>2</Tech>
+      <Weapon>0</Weapon>
+      <Crew>1</Crew>
+      <Id>s_gorn_oparenaprize</Id>
+      <Set>OPArenaPrize</Set>
+    </Ship>
+    <Ship>
+      <Title>Gorn Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Gorn Raider</ShipClass>
+      <Faction>Independent</Faction>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>3</Hull>
+      <Shield>3</Shield>
+      <Ability></Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>0</Weapon>
+      <Crew>1</Crew>
+      <Id>gorn_starship_oparenaprize</Id>
+      <Set>OPArenaPrize</Set>
+    </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -3522,7 +3820,7 @@
       <Faction>Bajoran</Faction>
       <Cost>0</Cost>
       <Id>bajoran_captain_op6prize</Id>
-      <Set>OP6Prize</Set>
+      <Set>OP6Prize,71445</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -3627,7 +3925,7 @@
       <Faction>Borg</Faction>
       <Cost>0</Cost>
       <Id>drone_71283</Id>
-      <Set>71283</Set>
+      <Set>71283,71444</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -3688,6 +3986,141 @@
       <Cost>0</Cost>
       <Id>tholian_opwebprize</Id>
       <Set>OPWebPrize</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Soval</Title>
+      <Ability>ACTION: Target a ship within Range 1-2. Remove 1 [SCAN] or [BATTLESTATIONS] Token from beside the target ship. Place an Auxiliary Power Token beside your ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>4</Cost>
+      <Id>soval_71446</Id>
+      <Set>71446</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Tavek</Title>
+      <Ability>Add 1 [CREW] Upgrade slot to your Upgrade Bar.</Ability>
+      <Unique>Y</Unique>
+      <Skill>3</Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>2</Cost>
+      <Id>tavek_71446</Id>
+      <Set>71446</Set>
+      <Special>Add_Crew_1</Special>
+    </Captain>
+    <Captain>
+      <Title>Vulcan Captain</Title>
+      <Ability></Ability>
+      <Unique>N</Unique>
+      <Skill>1</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>0</Cost>
+      <Id>vulcan_captain_71446</Id>
+      <Set>71446</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Lenaris Holem</Title>
+      <Ability>Each time you are attacked, if you have an [EVASIVE] Token beside your ship, you may re-roll 1 of your defense dice.</Ability>
+      <Unique>Y</Unique>
+      <Skill>3</Skill>
+      <Talent>2</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Bajoran</Faction>
+      <Cost>0</Cost>
+      <Id>lenaris_holem_71445</Id>
+      <Set>71445</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Hazar</Title>
+      <Ability>If your ship is within Range 1 of a Planet Token or an Obstacle, all attacks made against your ship are at -1 attack die.</Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Bajoran</Faction>
+      <Cost>4</Cost>
+      <Id>hazar_71445</Id>
+      <Set>71445</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Tactical Drone</Title>
+      <Ability>At the start of the game, place 6 Drone Tokens on this card.  After you spend a [TARGET LOCK] Token to re-roll your dice, you may spend 3 Drone Tokens to maintain your Target Lock on the target ship (i.e., do not remove the [TARGET LOCK] Tokens from beside either ship).</Ability>
+      <Unique>N</Unique>
+      <Skill>6</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Borg</Faction>
+      <Cost>4</Cost>
+      <Id>tactical_drone_71444</Id>
+      <Set>71444</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Borg Queen</Title>
+      <Ability>At the start of the game, place 8 Drone Tokens on this card.  Once per round, you may discard 1 Drone Token to perform 1 Action from your ship's Action Bar as a free Action.  If another Borg ship is in your fleet when your ship is destroyed, you may replace that ship's Captain Card with this card.  If you do so, discard that Captain Card and all Drone Tokens from both cards.  Then place 8 Drone Tokens on this card.</Ability>
+      <Unique>Y</Unique>
+      <Skill>8</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Borg</Faction>
+      <Cost>6</Cost>
+      <Id>borg_queen_71444</Id>
+      <Set>71444</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Gorn Commander</Title>
+      <Ability>When attacking, you may convert 1 blank result into 1 [HIT] result.</Ability>
+      <Unique>Y</Unique>
+      <Skill>4</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Independent</Faction>
+      <Cost>3</Cost>
+      <Id>gorn_commander_oparenaprize</Id>
+      <Set>OPArenaPrize</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Gorn</Title>
+      <Ability></Ability>
+      <Unique>N</Unique>
+      <Skill>1</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Independent</Faction>
+      <Cost>0</Cost>
+      <Id>gorn_oparenaprize</Id>
+      <Set>OPArenaPrize</Set>
       <Special></Special>
     </Captain>
   </Captains>
@@ -6209,7 +6642,7 @@
       <Faction>Borg</Faction>
       <Cost>10</Cost>
       <Id>borg_ablative_hull_armor_71283</Id>
-      <Set>71283</Set>
+      <Set>71283,71444</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -6239,7 +6672,7 @@
       <Faction>Borg</Faction>
       <Cost>7</Cost>
       <Id>borg_tractor_beam_71283</Id>
-      <Set>71283</Set>
+      <Set>71283,71444</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -6524,7 +6957,7 @@
       <Faction>Borg</Faction>
       <Cost>8</Cost>
       <Id>cutting_beam_71283</Id>
-      <Set>71283</Set>
+      <Set>71283,71444</Set>
       <Special>OnlyBorgShip</Special>
     </Upgrade>
     <Upgrade>
@@ -6660,6 +7093,396 @@
       <Cost>2</Cost>
       <Id>red_alert_opwebparticipation</Id>
       <Set>OPWebParticipation</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Muroc</Title>
+      <Ability>ACTION: Discard this card to target a ship at Range 1-2 and roll 2 attack dice. For every [HIT] and [CRITICAL] result, disable 1 Active Shield on the target ship. If the target ship is Cloaked, a [HIT] result flips that ship's [CLOAK] Token over to its red side.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>4</Cost>
+      <Id>muroc_71446</Id>
+      <Set>71446</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>T'Pol</Title>
+      <Ability>When defending, if you have a [SCAN] Token beside your ship, you may spend that token to re-roll up to 2 of your defense dice.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>3</Cost>
+      <Id>t_pol_71446</Id>
+      <Set>71446</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Auxiliary Control Room</Title>
+      <Ability>At any time, you may disable this card to remove 1 Auxiliary Power Token from beside your ship.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>3</Cost>
+      <Id>auxiliary_control_room_71446</Id>
+      <Set>71446</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Sensor Grid</Title>
+      <Ability>ACTION: Discard this card to target one other friendly ship within Range 1-3 of your ship. Place a [SCAN] Token and an Auxiliary Power Token beside your ship and the target ship. If you do so, every Cloaked enemy ship that is within Range 1-2 of your ship must immediately flip its [CLOAK] Token over to its red side.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>5</Cost>
+      <Id>sensor_grid_71446</Id>
+      <Set>71446</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Vulcan High Command (2/0)</Title>
+      <Ability>Add 2 [TECH] Upgrade slots to your Upgrade Bar. The additional Upgrade slots may be either [CREW] or [TECH] Upgrades. This Upgrade may only be purchased for a Vulcan Captain on a Vulcan ship. If the Vulcan Captain Card is every removed from your ship, discard this Upgrade and then discard Upgrades from your ship one at a time until all of your Upgrades are supported by your ship's Upgrade Bar.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>5</Cost>
+      <Id>vulcan_high_command_2_0_71446</Id>
+      <Set>71446</Set>
+      <Special>VulcanHighCommand</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Vulcan High Command (1/1)</Title>
+      <Ability>Add 1 [TECH] and 1 [CREW] Upgrade slots to your Upgrade Bar. The additional Upgrade slots may be either [CREW] or [TECH] Upgrades. This Upgrade may only be purchased for a Vulcan Captain on a Vulcan ship. If the Vulcan Captain Card is every removed from your ship, discard this Upgrade and then discard Upgrades from your ship one at a time until all of your Upgrades are supported by your ship's Upgrade Bar.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>5</Cost>
+      <Id>vulcan_high_command_1_1_71446</Id>
+      <Set>71446</Set>
+      <Special>VulcanHighCommand</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Vulcan High Command (0/2)</Title>
+      <Ability>Add 2 [CREW] Upgrade slots to your Upgrade Bar. The additional Upgrade slots may be either [CREW] or [TECH] Upgrades. This Upgrade may only be purchased for a Vulcan Captain on a Vulcan ship. If the Vulcan Captain Card is every removed from your ship, discard this Upgrade and then discard Upgrades from your ship one at a time until all of your Upgrades are supported by your ship's Upgrade Bar.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>5</Cost>
+      <Id>vulcan_high_command_0_2_71446</Id>
+      <Set>71446</Set>
+      <Special>VulcanHighCommand</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Neela</Title>
+      <Ability>ACTION: Target a ship at Range 1-3 and roll 3 attack dice. If you roll at least 1 [CRITICAL] result, inflict 1 critical damage to the target ship's Hull. If you damaged the target ship with this Action, discard this card. If you did not damage the target ship with this Action, disable this card.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Bajoran</Faction>
+      <Cost>5</Cost>
+      <Id>neela_71445</Id>
+      <Set>71445</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Anara</Title>
+      <Ability>ACTION: Discard this card to repair 1 damage to your Hull</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Bajoran</Faction>
+      <Cost>3</Cost>
+      <Id>anara_71445</Id>
+      <Set>71445</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Warp Drive Refit</Title>
+      <Ability>During the Activation Phase, if you reveal a 3 [STRAIGHT] Maneuver, you may use a 4 [STRAIGHT] Maneuver instead. This Upgrade may only be purchased for a ship that does not have a 4 or higher on its Maneuver Dial.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Bajoran</Faction>
+      <Cost>2</Cost>
+      <Id>warp_drive_refit_71445</Id>
+      <Set>71445</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Maneuverability</Title>
+      <Ability>During the Activation Phase, if you reveal a 1 [TURN RIGHT], a 1 [TURN LEFT] or a [COME ABOUT] Maneuver, you may use the Full About [FULL ABOUT] Maneuver Template instead. If you do so, treat this as a Red Maneuver. After performing any maneuver, you may overlap a Planet Token (i.e. you do not move back along your Maneuver Template). While you are overlapping a Planet Token, you can still perform Actions, attack without penalty, and be attacked (although you roll +1 defense die). This Upgrade costs +5 SP for any ship other than a Bajoran Interceptor.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Bajoran</Faction>
+      <Cost>5</Cost>
+      <Id>maneuverability_71445</Id>
+      <Set>71445</Set>
+      <Special>CostPlusFiveExceptBajoranInterceptor</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Militia</Title>
+      <Ability>At the start of the Combat Phase, you may discard this card to place a [BATTLESTATIONS] Token beside your ship (even if there is already one there). In addition, if this Upgrade is equipped to a Bajoran ship with a Bajoran Captain, you gain +2 attack dice to your first attack made during the round in which you use this Upgrade.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Bajoran</Faction>
+      <Cost>3</Cost>
+      <Id>militia_71445</Id>
+      <Set>71445</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Four of Twelve</Title>
+      <Ability>ACTION: Discard this card and 1 of your Drone Tokens to target a ship within Range 1-3.  Remove any 1 Token ([EVASIVE], [SCAN], [BATTLESTATIONS], or blue [TARGET LOCK]) from beside your ship.  If you removed a blue [TARGET LOCK] Token with this Action, also remove the corresponding red [TARGET LOCK] Token from the play area as well.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Borg</Faction>
+      <Cost>2</Cost>
+      <Id>four_of_twelve_71444</Id>
+      <Set>71444</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Borg Alcove</Title>
+      <Ability>ACTION: Add 1 Drone Token to your Captain Card.  You cannot exceed your Captain's starting number of Drone Tokens.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Borg</Type>
+      <Faction>Borg</Faction>
+      <Cost>4</Cost>
+      <Id>borg_alcove_71444</Id>
+      <Set>71444</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Assimilated Access Codes</Title>
+      <Ability>ACTION: Discard this card to target a ship at Range 2-3, and then discard up to 3 Drone Tokens from your Captain Card.  Disable a number of Active Shields on the target ship equal to the number of Drone Tokens that you discarded with this Action.  If the target ship is Cloaked, you may instead discard 2 Drone Tokens to flip the target ship's [CLOAK] Token over to its red side.  This Upgrade may only be purchased for a Borg Captain.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Borg</Faction>
+      <Cost>5</Cost>
+      <Id>assimilated_access_codes_71444</Id>
+      <Set>71444</Set>
+      <Special>OnlyBorgCaptain</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Self Destruct Sequence</Title>
+      <Ability>ACTION: You cannot attack this round.  During the next Activation Phase, you cannot move or take any Actions (including free Actions).  At the end of the next Activation Phase, after all ships have moved, destroy your ship and roll a number of attack dice equal to your Hull value to damage every ship within Range 1-3 of your ship.  A ship does not roll defense dice against this attack unless that ship has a [SCAN] Token beside it.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Borg</Faction>
+      <Cost>5</Cost>
+      <Id>self_destruct_sequence_71444</Id>
+      <Set>71444</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photonic Weapon</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may re-roll one of your blank results. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>4</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>3</Cost>
+      <Id>photonic_weapon_71446</Id>
+      <Set>71446</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Aft Particle Beam</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. You may only fire this weapon from your rear firing arc.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>3</Attack>
+      <Range>1-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>1</Cost>
+      <Id>aft_particle_beam_71446</Id>
+      <Set>71446</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Phaser Strike</Title>
+      <Ability>ACTION: During the Combat Phase, you may attack with this Weapon as if you had a Captain Skill of 10. ATTACK: Disable this card to perform this attack. Range combat bonuses apply to this attack. This upgrade may only be purchased for a ship with a Hull value of 3 or less and costs +5 SP for any ship other than a Bajoran Interceptor.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>3</Attack>
+      <Range>1-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Bajoran</Faction>
+      <Cost>4</Cost>
+      <Id>phaser_strike_71445</Id>
+      <Set>71445</Set>
+      <Special>PhaserStrike</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Full Assault</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. You must divide this attack between 2 or 3 different ships; you may divide your attack dice however you like, but you must roll at least 2 attack dice against each ship.  If fired from a Borg Tactical Cube, add +3 attack dice.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>6</Attack>
+      <Range>1-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Borg</Faction>
+      <Cost>6</Cost>
+      <Id>full_assault_71444</Id>
+      <Set>71444</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Borg Missile</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. The target ship does not sustain normal damage from this attack.  Instead, place 1 Auxillary Power Token beside the target ship AND destroy 1 of its Active Shields for each [HIT] or [CRIT] result. The target ship does not roll defense dice against this attack. This Upgrade may only be purchased for a Borg ship.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>4</Attack>
+      <Range>1-2</Range>
+      <Type>Weapon</Type>
+      <Faction>Borg</Faction>
+      <Cost>6</Cost>
+      <Id>borg_missile_71444</Id>
+      <Set>71444</Set>
+      <Special>OnlyBorgShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Jammed Communications</Title>
+      <Ability>ACTION: All ships within Range 1-3 of your ship (including your own) cannot provide or benefit from any text abilities that affect other friendly ships this round.  Place an Auxiliary Power Token beside your ship.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Independent</Faction>
+      <Cost>5</Cost>
+      <Id>jammed_communications_oparenaprize</Id>
+      <Set>OPArenaPrize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Gorn Pilot</Title>
+      <Ability>ACTION: If you performed a straight Maneuver this round, you may disable this card to immediately perform an additional 1 [STRAIGHT] Maneuver.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Independent</Faction>
+      <Cost>3</Cost>
+      <Id>gorn_pilot_oparenaprize</Id>
+      <Set>OPArenaPrize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Impulse Overload</Title>
+      <Ability>ACTION: Discard this card to target a ship at Range 1 of your ship and roll 3 attack dice.  If you roll at least 1 [HIT] or [CRIT] result, the target ship must discard 1 [TECH] Upgrade (of its choice).</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Independent</Faction>
+      <Cost>2</Cost>
+      <Id>impulse_overload_oparenaprize</Id>
+      <Set>OPArenaPrize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Faked Messages</Title>
+      <Ability>During the planning phase, after every ship's maneuver has been chosen, you may discard this card to target 1 enemy ship that is not within Range 1-3 of your ship.  Force that ship to change its chosen maneuver to a 1 [STRAIGHT] Maneuver.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Independent</Faction>
+      <Cost>5</Cost>
+      <Id>faked_messages_oparenaprize</Id>
+      <Set>OPArenaPrize</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Full Alert</Title>
+      <Ability>Full Alert: Action: Discard this card to place 1 [EVASIVE] Token, 1 [SCAN] Token, 1 [BATTLESTATIONS] Token, and 1 Auxiliary Power Token beside your ship. Your ship cannot perform any free Actions during the same round that you perform this Action (either before or after you perform this Action).</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>full_alert_oparenaprize</Id>
+      <Set>OPArenaParticipation</Set>
       <Special></Special>
     </Upgrade>
   </Upgrades>
@@ -6821,6 +7644,26 @@ The Full About Maneuver follows the normal movement rules with the following exc
         <Id>skilled_helmsman_opwebparticipation</Id>
         <Set>OPWebParticipation</Set>
       </Resource>
+      <Resource>
+        <Title>Chief Engineer</Title>
+        <Unique>Y</Unique>
+        <Ability>Players receive 5 Chief Engineer Tokens and place them beside their Ship Cards. A player may only use Chief Engineer Tokens for his/her ships.
+
+Once per round, during the Combat Phase, a player may spend 1 Chief Engineer Token to gain one of the following effects:
+
+1) During the 'Modify Attack Dice' step of your attack, disable 2 Active Shields to add 1 [HIT] result to your attack this round.
+
+OR
+
+2) During the 'Modify Defense Dice' step of an opponent's attack, if your ship is defending and has at least 1 Active Shield, place an Auxiliary Power Token beside your ship and add 1 [EVASIVE] result to your defense this round.
+
+When a Chief Engineer Token is spent, it is removed from the game and cannot be used again in that Battle.
+        </Ability>
+        <Type>Resource</Type>
+        <Cost>5</Cost>
+        <Id>chief_engineer_oparenaparticipation</Id>
+        <Set>OPArenaParticipation</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -6840,6 +7683,8 @@ The Full About Maneuver follows the normal movement rules with the following exc
       <Set id="OP6Prize" overallSetName="Organized Play">Dominion War OP6 Competitive Prize</Set>
       <Set id="OPWebParticipation" overallSetName="Organized Play">Tholian Web Participation Prize</Set>
       <Set id="OPWebPrize" overallSetName="Organized Play">Tholian Web Competitive Prize</Set>
+      <Set id="OPArenaParticipation" overallSetName="Organized Play">Arena Participation Prize</Set>
+      <Set id="OPArenaPrize" overallSetName="Organized Play">Arena Competitive Prize</Set>
 
       <Set id="71120" overallSetName="Core">Starter Set</Set>
       <Set id="71121" overallSetName="Wave 0">U.S.S. Reliant Expansion</Set>
@@ -6871,6 +7716,9 @@ The Full About Maneuver follows the normal movement rules with the following exc
       <Set id="71282" overallSetName="Wave 4">Nistrim Raider Expansion</Set>
       <Set id="71283" overallSetName="Wave 4">Borg Sphere 4270 Expansion</Set>
 
+      <Set id="71444" overallSetName="Wave 5">Tactical Cube Expansion</Set>
+      <Set id="71445" overallSetName="Wave 5">Interceptor Five Expansion</Set>
+      <Set id="71446" overallSetName="Wave 5">D’Kyr Expansion</Set>
     </Sets>
     <Flagships>
         <Flagship>
@@ -7149,7 +7997,7 @@ While the Strike Force Order is a part of your fleet:
 4) At the end of the Activation Phase, if the ship is no longer within Range 1 of the ship with the corresponding BTBT (the one that matches the white token's letter), remove the BTBTs from both ships.</Ability>
           <Type>Token</Type>
           <Id>borg_tractor_beam_token_reference</Id>
-          <Set>71283</Set>
+          <Set>71283,71444</Set>
         </Reference>
         <Reference>
           <Title>Drone Tokens</Title>
@@ -7162,7 +8010,7 @@ When a Drone Token is used, remove one Token from the top of the stack and flip 
 NOTE: The Captain Skill that is listed  on the Token beside the ship should always be equal to the number of Drone Tokens left on the Captain Card.</Ability>
           <Type>Mechanic</Type>
           <Id>drone_tokens_reference</Id>
-          <Set>71283</Set>
+          <Set>71283,71444</Set>
         </Reference>
         <Reference>
           <Title>Regenerate</Title>
@@ -7173,7 +8021,7 @@ A Ship the performs the [REGENERATE] Action immediately repairs 1 damage of its 
 A ship cannot attack during the round that it performs the [REGENERATE] Action.</Ability>
           <Type>Action</Type>
           <Id>regenerate_reference</Id>
-          <Set>71283,71281</Set>
+          <Set>71283,71281,71444</Set>
         </Reference>
         <Reference>
           <Title>Spin Maneuver</Title>
@@ -7186,7 +8034,7 @@ Then, rotate the ship 90° (either right or left depending on the selected maneu
 After rotating the ship, complete the selected maneuver as normal using the appropriate maneuver template.</Ability>
           <Type>Mechanic</Type>
           <Id>spin_maneuver_reference</Id>
-          <Set>71283</Set>
+          <Set>71283,71444</Set>
         </Reference>
     </ReferenceItems>
 </Data>

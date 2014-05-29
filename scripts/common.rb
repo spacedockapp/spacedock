@@ -49,15 +49,13 @@ end
 
 def set_id_from_faction(faction)
   case faction
-  when "Species 8472"
-    "71281"
-  when "Federation"
-    "71280"
+  when "Vulcan"
+    "71446"
   when "Borg"
-    "71283"
-  when "Kazon"
-    "71282"
+    "71444"
+  when "Bajoran"
+    "71445"
   when "Independent"
-    "OPWebPrize"
+    "OPArenaPrize"
   end
 end

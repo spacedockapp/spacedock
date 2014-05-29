@@ -6,8 +6,8 @@ require_relative "common"
 
 #Timestamp		Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots
 ship = <<-SHIPTEXT
-5/5/2014 12:44:57	Unique	Tholia One	Independent	Tholian Vessel	2	2	2	2	You may perform the Action listed on the "Energy Web" Upgrade card as a free Action.	Evasive, Scan, Target Lock	16	0	0	0	2
-5/5/2014 12:48:42		Tholian Vessel	Independent	Tholian Vessel	2	2	2	1		Evasive, Scan, Target Lock	14	0	0	0	1
+5/27/2014 20:13:14	Unique	S'Gorn	Independent	Gorn Raider	3	1	3	4	When attacking with your Primary Weapon, if you inflict at least 1 Critical Damage to the enemy ship's hull, that ship must also discard 1 [CREW] Upgrade (of its choice).	Battle Stations, Evasive, Scan, Target Lock	22	0	1	2	0
+5/27/2014 20:13:47		Gorn Starship	Independent	Gorn Raider	3	1	3	3		Battle Stations, Evasive, Scan, Target Lock	20	0	1	1	0
 SHIPTEXT
 
 
@@ -16,13 +16,6 @@ convert_terms(ship)
 new_ships = File.open("new_ships.xml", "w")
 
 shipLines = ship.split "\n"
-externalId = 5000
-FACTION_LOOKUP = {
-  "Fed" => "Federation",
-  "Kli" => "Klingon",
-  "Rom" => "Romulan",
-  "Dom" => "Dominion",
-}
 shipLines.each do |l|
     parts = l.split "\t"
     title = parts[2]
