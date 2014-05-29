@@ -19,7 +19,7 @@
 #import "DockInspector.h"
 #import "DockNoteEditor.h"
 #import "DockOverrideEditor.h"
-#import "DockResource.h"
+#import "DockResource+Addons.h"
 #import "DockSet+Addons.h"
 #import "DockSetItem+Addons.h"
 #import "DockShip+Addons.h"
@@ -1230,7 +1230,7 @@ NSString* kShowDataModelExport = @"showDataModelExport";
 -(IBAction)printFleetBuildSheet:(id)sender
 {
     DockSquad* squad = [self selectedSquad];
-    if (squad.equippedShips.count > 4) {
+    if (squad.equippedShips.count > 4 && ![squad.resource isFighterSquadron]) {
         [self whineToUser: kSquadTooLargeToPrint];
     } else {
         if ([squad flagshipIsNotAssigned]) {
