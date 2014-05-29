@@ -37,7 +37,7 @@ public class EquippedShip extends EquippedShipBase {
     public boolean isResourceSideboard() {
         return getShip() == null;
     }
-    
+
     public String getShipExternalId() {
         if (mShip == null) {
             return "[sideboard]";
@@ -279,11 +279,6 @@ public class EquippedShip extends EquippedShipBase {
             v += flagship.getTech();
         }
 
-        Captain captain = getCaptain();
-        if (captain != null) {
-            v += captain.additionalTechSlots();
-        }
-
         for (EquippedUpgrade eu : getUpgrades()) {
             Upgrade upgrade = eu.getUpgrade();
             if (upgrade != null) {
@@ -358,9 +353,11 @@ public class EquippedShip extends EquippedShipBase {
         if (flagship != null) {
             v += flagship.getCrew();
         }
-        Captain captain = getCaptain();
-        if (captain != null) {
-            v += captain.additionalCrewSlots();
+        for (EquippedUpgrade eu : getUpgrades()) {
+            Upgrade upgrade = eu.getUpgrade();
+            if (upgrade != null) {
+                v += upgrade.additionalCrewSlots();
+            }
         }
         return v;
     }
@@ -482,66 +479,90 @@ public class EquippedShip extends EquippedShipBase {
                     "Fighter Squadrons cannot accept upgrades.");
         }
         String upgradeSpecial = upgrade.getSpecial();
+        Ship ship = getShip();
         if (upgradeSpecial.equals("OnlyJemHadarShips")) {
-            if (!getShip().isJemhadar()) {
+            if (!ship.isJemhadar()) {
                 return new Explanation(msg,
                         "This upgrade can only be added to Jem'hadar ships.");
             }
         }
+        Captain captain = getCaptain();
         if (upgradeSpecial.equals("OnlyForKlingonCaptain")) {
-            if (!getCaptain().isKlingon()) {
+            if (!captain.isKlingon()) {
                 return new Explanation(msg,
                         "This upgrade can only be added to a Klingon Captain.");
             }
         }
         if (upgradeSpecial.equals("OnlyBajoranCaptain")) {
-            if (!getCaptain().isBajoran()) {
+            if (!captain.isBajoran()) {
                 return new Explanation(msg,
                         "This upgrade can only be added to a Bajoran Captain.");
             }
         }
 
         if (upgradeSpecial.equals("OnlyTholianCaptain")) {
-            if (!getCaptain().isTholian()) {
+            if (!captain.isTholian()) {
                 return new Explanation(msg,
                         "This upgrade can only be added to a Tholian Captain.");
             }
         }
 
         if (upgradeSpecial.equals("OnlySpecies8472Ship")) {
-            if (!getShip().isSpecies8472()) {
+            if (!ship.isSpecies8472()) {
                 return new Explanation(msg,
                         "This upgrade can only be added to Species 8472 ships.");
             }
         }
-        if (upgradeSpecial.equals("OnlyBorgShip")) {
-            if (!getShip().isBorg()) {
+
+        if (upgradeSpecial.equals("OnlySpecies8472Ship")) {
+            if (!ship.isSpecies8472()) {
                 return new Explanation(msg,
-                        "This upgrade can only be added to Borg ships.");
+                        "This upgrade can only be added to Species 8472 ships.");
+            }
+        }
+
+        if (upgradeSpecial.equals("OnlyBorgCaptain")) {
+            if (!captain.isBorgFaction()) {
+                return new Explanation(msg,
+                        "This Upgrade may only be purchased for a Borg Captain.");
             }
         }
         if (upgradeSpecial.equals("OnlyKazonShip")) {
-            if (!getShip().isKazon()) {
+            if (!ship.isKazon()) {
                 return new Explanation(msg,
                         "This upgrade can only be added to Kazon ships.");
             }
         }
         if (upgradeSpecial.equals("OnlyTholianShip")) {
-            if (!getShip().isTholian()) {
+            if (!ship.isTholian()) {
                 return new Explanation(msg,
                         "This upgrade can only be added to Tholian ships.");
             }
         }
         if (upgradeSpecial.equals("OnlyVoyager")) {
-            if (!getShip().isVoyager()) {
+            if (!ship.isVoyager()) {
                 return new Explanation(msg,
                         "This upgrade can only be added to the U.S.S Voyager.");
             }
         }
+        if (upgradeSpecial.equals("PhaserStrike")) {
+            if (ship.getHull() > 3) {
+                return new Explanation(msg,
+                        "This upgrade may only be purchased for a ship with a Hull value of 3 or less.");
+            }
+        }
+
+        if (upgradeSpecial.equals("VulcanHighCommand")) {
+            if (!ship.isVulcan() || !captain.isVulcan()) {
+                return new Explanation(msg,
+                        "This upgrade may only be purchased for a Vulcan Captain on a Vulcan ship.");
+            }
+        }
+
         if (upgradeSpecial.equals("OnlyForRomulanScienceVessel")
                 || upgradeSpecial.equals("OnlyForRaptorClassShips")) {
             String legalShipClass = upgrade.targetShipClass();
-            if (!legalShipClass.equals(getShip().getShipClass())) {
+            if (!legalShipClass.equals(ship.getShipClass())) {
                 return new Explanation(msg, String.format(
                         "This upgrade can only be installed on ships of class %s.", legalShipClass));
             }
@@ -793,7 +814,8 @@ public class EquippedShip extends EquippedShipBase {
         }
         newEu.setEquippedShip(this);
 
-        // slot counts may have changed, refresh placeholders + prune slots to new count
+        // slot counts may have changed, refresh placeholders + prune slots to
+        // new count
         establishPlaceholders();
 
         return Explanation.SUCCESS;
@@ -831,7 +853,7 @@ public class EquippedShip extends EquippedShipBase {
             }
         }
     }
-    
+
     public String getFaction() {
         if (mShip == null) {
             return "";

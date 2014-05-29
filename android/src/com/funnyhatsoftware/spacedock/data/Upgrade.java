@@ -94,6 +94,14 @@ public class Upgrade extends UpgradeBase {
         return getFaction().equals("Dominion");
     }
 
+    public boolean isBorgFaction() {
+        return getFaction().equals(Constants.BORG);
+    }
+
+    public boolean isVulcan() {
+        return getFaction().equals(Constants.VULCAN);
+    }
+
     public String targetShipClass() {
 
         if (mSpecial.equals("OnlyForRomulanScienceVessel")) {
@@ -191,9 +199,9 @@ public class Upgrade extends UpgradeBase {
             }
 
             if (upgradeSpecial.equals("costincreasedifnotromulansciencevessel")) {
-            	if (!ship.isRomulanScienceVessel()) {
-            		cost += 5;
-            	}
+                if (!ship.isRomulanScienceVessel()) {
+                    cost += 5;
+                }
             }
         } else if (isWeapon()) {
             if (captainSpecial.equals("WeaponUpgradesCostOneLess")) {
@@ -223,6 +231,11 @@ public class Upgrade extends UpgradeBase {
             }
         } else if (upgradeSpecial.equals("PlusFiveForNonKazon")) {
             if (!ship.isKazon()) {
+                cost += 5;
+            }
+        } else if (upgradeSpecial.equals("CostPlusFiveExceptBajoranInterceptor")
+                || upgradeSpecial.equals("PhaserStrike")) {
+            if (!ship.isBajoranInterceptor()) {
                 cost += 5;
             }
         }
@@ -296,9 +309,15 @@ public class Upgrade extends UpgradeBase {
         if (special.equalsIgnoreCase("AddTwoCrewSlotsDominionCostBonus")) {
             return true;
         }
+        if (special.equalsIgnoreCase("VulcanHighCommand")) {
+            return true;
+        }
+        if (special.equalsIgnoreCase("Add_Crew_1")) {
+            return true;
+        }
         return false;
     }
-    
+
     public int additionalWeaponSlots() {
         String special = getSpecial();
         if (special != null && special.equalsIgnoreCase("AddsOneWeaponOneTech")) {
@@ -310,10 +329,40 @@ public class Upgrade extends UpgradeBase {
         return 0;
     }
 
+    public int additionalCrewSlots() {
+        String special = getSpecial();
+        if (special != null) {
+            if (special.equalsIgnoreCase("Add_Crew_1")) {
+                return 1;
+            }
+            String externalId = getExternalId();
+            if (externalId != null) {
+                if (externalId.equals("vulcan_high_command_0_2_71446")) {
+                    return 2;
+                }
+                if (externalId.equals("vulcan_high_command_1_1_71446")) {
+                    return 1;
+                }
+            }
+        }
+        return 0;
+    }
+
     public int additionalTechSlots() {
         String special = getSpecial();
-        if (special != null && special.equalsIgnoreCase("AddsOneWeaponOneTech")) {
-            return 1;
+        if (special != null) {
+            if (special.equalsIgnoreCase("AddsOneWeaponOneTech")) {
+                return 1;
+            }
+            String externalId = getExternalId();
+            if (externalId != null) {
+                if (externalId.equals("vulcan_high_command_2_0_71446")) {
+                    return 2;
+                }
+                if (externalId.equals("vulcan_high_command_1_1_71446")) {
+                    return 1;
+                }
+            }
         }
         return 0;
     }

@@ -108,7 +108,8 @@ public class Ship extends ShipBase {
     public boolean isPlaceholder() {
         return mIsPlaceholder;
     }
-    /*package*/ void setIsPlaceholder(boolean isPlaceholder) {
+
+    /* package */void setIsPlaceholder(boolean isPlaceholder) {
         mIsPlaceholder = isPlaceholder;
     }
 
@@ -130,6 +131,10 @@ public class Ship extends ShipBase {
 
     public boolean isRomulanScienceVessel() {
         return mShipClass.equals("Romulan Science Vessel");
+    }
+
+    public boolean isBajoranInterceptor() {
+        return mShipClass.equals("Bajoran Interceptor");
     }
 
     public boolean isDefiant() {
@@ -162,6 +167,10 @@ public class Ship extends ShipBase {
 
     public boolean isTholian() {
         return mShipClass.contains("Tholian");
+    }
+
+    public boolean isVulcan() {
+        return mFaction.equals(Constants.VULCAN);
     }
 
     public boolean isVoyager() {

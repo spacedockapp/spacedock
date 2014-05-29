@@ -72,7 +72,10 @@ public class Captain extends CaptainBase {
     }
 
     public int additionalCrewSlots() {
-        return mSpecial.equals("AddTwoCrewSlotsDominionCostBonus") ? 2 : 0;
+        if (mSpecial.equals("AddTwoCrewSlotsDominionCostBonus")) {
+            return 2;
+        }
+        return super.additionalCrewSlots();
     }
 
     public boolean isKlingon() {
@@ -93,4 +96,5 @@ public class Captain extends CaptainBase {
     public String toString() {
         return String.format("%s-%d (%d)", getTitle(), getSkill(), getCost());
     }
+
 }

@@ -316,7 +316,12 @@ public class DataLoader extends DefaultHandler {
                 "PlusFiveForNonKazon",
                 "PlusFiveOnNonSpecies8472",
                 "OnlyTholianShip",
-                "OnlyTholianCaptain"
+                "OnlyTholianCaptain",
+                "PhaserStrike",
+                "CostPlusFiveExceptBajoranInterceptor",
+                "Add_Crew_1",
+                "OnlyBorgCaptain",
+                "VulcanHighCommand"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);
