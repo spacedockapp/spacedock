@@ -83,14 +83,18 @@ public class Universe {
         return new File(filesDir, SQUADS_FILE_NAME);
     }
 
-    public void save(Context context) throws JSONException, IOException {
-        File filesDir = context.getFilesDir();
-        File file = getAllSquadsSaveFile(filesDir);
-        FileOutputStream outputStream = new FileOutputStream(file);
+    public void save(Context context, File targetFile) throws JSONException, IOException {
+        FileOutputStream outputStream = new FileOutputStream(targetFile);
         JSONArray allSquads = allSquadsAsJSON();
         String jsonString = allSquads.toString();
         outputStream.write(jsonString.getBytes());
         outputStream.close();
+    }
+    
+    public void save(Context context) throws JSONException, IOException {
+        File filesDir = context.getFilesDir();
+        File file = getAllSquadsSaveFile(filesDir);
+        save(context, file);
     }
 
     public boolean restore(Context context) throws FileNotFoundException, JSONException {

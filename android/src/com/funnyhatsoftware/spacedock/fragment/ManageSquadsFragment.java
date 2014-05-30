@@ -1,5 +1,7 @@
 package com.funnyhatsoftware.spacedock.fragment;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -8,7 +10,10 @@ import org.json.JSONException;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.content.FileProvider;
 import android.text.Spannable;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,9 +30,6 @@ import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.TextEntryDialog;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
-
-import java.util.ArrayList;
-import java.util.HashSet;
 
 public class ManageSquadsFragment extends FullscreenListFragment {
     private static final String SAVE_KEY_SELECTED_SQUAD = "selected_squad";
@@ -89,15 +91,23 @@ public class ManageSquadsFragment extends FullscreenListFragment {
 
     private void shareAllSquads() {
         try {
+            FragmentActivity activity = getActivity();
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
-            JSONArray allSquadsAsJSON = Universe.getUniverse().allSquadsAsJSON();
-            sendIntent.putExtra(Intent.EXTRA_TEXT, allSquadsAsJSON.toString(2));
+            File sharedSquads = new File(activity.getFilesDir(), "shared_squads");
+            sharedSquads.mkdirs();
             String fullName = getActivity().getString(R.string.all_squads_spacedocksquads);
+            File allSquads = new File(sharedSquads, fullName);
+            Universe.getUniverse().save(activity, allSquads);
+            Uri contentUri = FileProvider.getUriForFile(activity, "com.funnyhatsoftware.spacedock", allSquads);
+            sendIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
             sendIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, fullName);
-            sendIntent.setType("application/spacedocksquads");
+            sendIntent.setType("*/*");
             startActivity(Intent.createChooser(sendIntent, getActivity().getString(R.string.save_all_squads_to)));
         } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }

@@ -17,4 +17,5 @@ public class Constants {
     public static final String LOSKENE = "loskene_opwebprize";
     public static final String ZERO_COST_THOLIAN_CAPTAIN = "captain_opwebprize";
     public static final String VULCAN = "Vulcan";
+    public static final String ALL_SQUADS_EXPORT_NAME = "all_squds.spacedocksquads";
 }

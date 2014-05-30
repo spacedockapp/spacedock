@@ -22,12 +22,15 @@
             android:launchMode="singleTop" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.EDIT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data
                     android:host="*"
                     android:mimeType="application/octet-stream"
@@ -36,7 +39,9 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.EDIT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data
                     android:host="*"
                     android:mimeType="application/spacedocksquads"
@@ -47,6 +52,7 @@
             android:name=".activity.SquadTabActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".activity.RootTabActivity" >
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -58,6 +64,7 @@
             android:name=".activity.SetItemListActivity$BrowseActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".activity.RootTabActivity" >
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -66,6 +73,7 @@
         <activity
             android:name=".activity.DetailsActivity"
             android:parentActivityName=".activity.SetItemListActivity$BrowseActivity" >
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -77,6 +85,7 @@
             android:name=".activity.SetItemListActivity$SelectActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".activity.SquadTabActivity" >
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -88,12 +97,22 @@
             android:name=".activity.SettingsActivity"
             android:label="@string/title_settings"
             android:parentActivityName=".activity.RootTabActivity" >
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.RootTabActivity" />
         </activity>
 
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.funnyhatsoftware.spacedock"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>
