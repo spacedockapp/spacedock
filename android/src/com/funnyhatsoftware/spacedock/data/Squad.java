@@ -32,12 +32,27 @@ public class Squad extends SquadBase {
     public static final String JSON_LABEL_FLAGSHIP = "flagship";
     public static final String JSON_LABEL_UPGRADES = "upgrades";
 
+    static class SquadComparator implements Comparator<Squad> {
+        @Override
+        public int compare(Squad o1, Squad o2) {
+            return o1.getName().compareToIgnoreCase(o2.getName());
+        }
+    }
+
     public Squad() {
         assignNewUuid();
     }
 
     public void assignNewUuid() {
         setUuid(UUID.randomUUID().toString());
+    }
+    
+    
+    @Override
+    public SquadBase setName(String v) {
+        SquadBase self = super.setName(v);
+        Universe.getUniverse().sortSquads();
+        return self;
     }
 
     static private HashSet<String> allNames() {
@@ -119,6 +134,7 @@ public class Squad extends SquadBase {
     public void importFromObject(Universe universe, boolean replaceUuid, JSONObject jsonObject,
             boolean strict)
             throws JSONException {
+        removeAllEquippedShips();
         setNotes(jsonObject.optString(JSON_LABEL_NOTES, ""));
         setName(jsonObject.optString(JSON_LABEL_NAME, "Untitled"));
         setAdditionalPoints(jsonObject.optInt(JSON_LABEL_ADDITIONAL_POINTS));
@@ -228,10 +244,17 @@ public class Squad extends SquadBase {
 
     public void removeEquippedShip(EquippedShip ship) {
         mEquippedShips.remove(ship);
-        if (ship.getShip().isFighterSquadron()) {
+        if (ship.isFighterSquadron()) {
             setResource(null);
         }
         ship.setSquad(null);
+    }
+    
+    public void removeAllEquippedShips() {
+        ArrayList<EquippedShip> equippedShips = new ArrayList<EquippedShip>(mEquippedShips);
+        for (EquippedShip ship: equippedShips) {
+            removeEquippedShip(ship);
+        }
     }
 
     public int calculateCost() {

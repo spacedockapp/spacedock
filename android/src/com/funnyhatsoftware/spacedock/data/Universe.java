@@ -32,6 +32,7 @@ import com.funnyhatsoftware.spacedock.data.Reference.ReferenceComparator;
 import com.funnyhatsoftware.spacedock.data.Resource.ResourceComparator;
 import com.funnyhatsoftware.spacedock.data.Set.SetComparator;
 import com.funnyhatsoftware.spacedock.data.Ship.ShipComparator;
+import com.funnyhatsoftware.spacedock.data.Squad.SquadComparator;
 import com.funnyhatsoftware.spacedock.data.Upgrade.UpgradeComparitor;
 
 public class Universe {
@@ -90,7 +91,7 @@ public class Universe {
         outputStream.write(jsonString.getBytes());
         outputStream.close();
     }
-    
+
     public void save(Context context) throws JSONException, IOException {
         File filesDir = context.getFilesDir();
         File file = getAllSquadsSaveFile(filesDir);
@@ -115,6 +116,7 @@ public class Universe {
             File brokenFile = new File(stashDir, "broken.spacedocksquads");
             allSquadsFile.renameTo(brokenFile);
         }
+        Collections.sort(mSquads, new SquadComparator());
         return worked;
     }
 
@@ -126,10 +128,20 @@ public class Universe {
         int count = jsonArray.length();
         for (int i = 0; i < count; ++i) {
             JSONObject oneSquad = jsonArray.getJSONObject(i);
-            Squad squad = new Squad();
+            String squadUUID = oneSquad.optString("uuid");
+            
+            Squad squad = null;
+            if (squadUUID.length() > 0) {
+                squad = getSquadByUUID(squadUUID);
+            }
+
+            if (squad == null) {
+                squad = new Squad();
+                mSquads.add(squad);
+            }
             squad.importFromObject(this, false, oneSquad, strict);
-            mSquads.add(squad);
         }
+        
     }
 
     public static Universe getUniverse() {
@@ -178,13 +190,15 @@ public class Universe {
     }
 
     /**
-     * Builds a new java.util.Set of selected set ids, adding unseen Sets to the previous selection
+     * Builds a new java.util.Set of selected set ids, adding unseen Sets to the
+     * previous selection
      */
     public java.util.Set<String> getSetSelectionPlusNewSets(java.util.Set<String> prevSetIds,
             java.util.Set<String> prevSeenIds) {
         java.util.Set<String> newSetIds = new HashSet<String>();
 
-        // Previously selected, still valid Sets (setsInUniverse & prev_setSelection)
+        // Previously selected, still valid Sets (setsInUniverse &
+        // prev_setSelection)
         for (String prevSetId : prevSetIds) {
             if (sets.containsKey(prevSetId)) {
                 // previous, valid set, add
@@ -423,6 +437,7 @@ public class Universe {
 
     public void addSquad(Squad squad) {
         mSquads.add(squad);
+        sortSquads();
     }
 
     public ArrayList<Squad> getAllSquads() {
@@ -431,6 +446,10 @@ public class Universe {
 
     public void removeAllSquads() {
         mSquads.clear();
+    }
+    
+    public void sortSquads() {
+        Collections.sort(mSquads, new SquadComparator());
     }
 
     public TreeSet<String> getAllSpecials() {
@@ -449,7 +468,7 @@ public class Universe {
         }
         return allSpecials;
     }
-    
+
     public Reference getReference(String externalId) {
         return referenceItems.get(externalId);
     }
