@@ -1,3 +1,10 @@
+### Version 1.0.12 build 63 (2014-5-31)
+
+* Added Wave 5 and Arena OP data.
+* Allow printing of squads that have four ships plus fighters.
+* Use a white background for the move grid on the build mat to save ink.
+* Enforce the 20 point limit for the sideboard.
+
 ### Version 1.0.12 build 62 (2014-5-23)
 
 * Added a reference tab to show information about tokens and such.
