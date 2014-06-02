@@ -5,6 +5,7 @@
 
 @interface DockAbilityDelegate ()
 @property (assign) CGFloat abilityWidth;
+@property (strong, nonatomic) NSDictionary* textAttributes;
 @end
 
 @implementation DockAbilityDelegate
@@ -81,13 +82,15 @@
         id target = targets[row];
         NSString* ability = [target valueForKey: @"ability"];
         if (ability.length > 0) {
-            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-            [paragraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
-            NSDictionary *attributes = @{
-                                         NSParagraphStyleAttributeName : paragraphStyle,
-                                         NSFontAttributeName: [NSFont systemFontOfSize: 13]
-                                         };
-            NSAttributedString* as = [[NSAttributedString alloc] initWithString: ability attributes: attributes];
+            if (_textAttributes == nil) {
+                NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+                [paragraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
+                _textAttributes = @{
+                                             NSParagraphStyleAttributeName : paragraphStyle,
+                                             NSFontAttributeName: [NSFont systemFontOfSize: 13]
+                                             };
+            }
+            NSAttributedString* as = [[NSAttributedString alloc] initWithString: ability attributes: _textAttributes];
             NSRect r = [as boundingRectWithSize: NSMakeSize(_abilityWidth, 10000) options: NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingTruncatesLastVisibleLine];
             return r.size.height;
         }
