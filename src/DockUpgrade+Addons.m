@@ -459,6 +459,12 @@
         }
     }
 
+    if ([[upgrade externalId] isEqualToString: @"borg_ablative_hull_armor_71283"]) {
+        if ([[ship externalId] isEqualToString: @"tactical_cube_138_71444"]) {
+            cost = 7;
+        }
+    }
+
     return cost;
 }
 

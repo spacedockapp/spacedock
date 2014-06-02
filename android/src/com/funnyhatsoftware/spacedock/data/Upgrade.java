@@ -287,6 +287,10 @@ public class Upgrade extends UpgradeBase {
                 cost = 3;
             }
         }
+        
+        if (ship != null && ship.getExternalId().equals(Constants.TACTICAL_CUBE_138) && getExternalId().equals(Constants.BORG_ABLATIVE_ARMOR)) {
+            cost = 7;
+        }
 
         return cost;
 
