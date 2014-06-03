@@ -57,6 +57,9 @@ static NSString* attributeTypeToJavaType(NSAttributeType attrType)
         case NSStringAttributeType:
             return @"String";
             break;
+        
+        default:
+            return @"void";
     }
     return @"void";
 }
@@ -68,25 +71,23 @@ static NSString* attributeTypeToJavaConversion(NSAttributeType attrType)
         case NSInteger32AttributeType:
         case NSInteger64AttributeType:
             return @"DataUtils.intValue";
-            break;
             
         case NSDecimalAttributeType:
         case NSDoubleAttributeType:
         case NSFloatAttributeType:
             return @"DataUtils.doubleValue";
-            break;
             
         case NSBooleanAttributeType:
             return @"DataUtils.booleanValue";
-            break;
             
         case NSDateAttributeType:
             return @"DataUtils.dateValue";
-            break;
             
         case NSStringAttributeType:
             return @"DataUtils.stringValue";
-            break;
+            
+        default:
+            return @"";
     }
     return @"";
 }
@@ -102,12 +103,13 @@ static NSString* attributeTypeToJavaComparison(NSAttributeType attrType, NSStrin
         case NSFloatAttributeType:
         case NSBooleanAttributeType:
             return [NSString stringWithFormat: @"%@ != %@", lhs, rhs];
-            break;
             
         case NSDateAttributeType:
         case NSStringAttributeType:
             return [NSString stringWithFormat: @"!DataUtils.compareObjects(%@, %@)", lhs, rhs];
-            break;
+            
+        default:
+            return @"false";
     }
     return @"false";
 }

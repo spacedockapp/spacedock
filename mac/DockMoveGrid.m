@@ -134,6 +134,7 @@
                             CIImage* output = [_filteredImages objectForKey: fileName];
                             if (output == nil) {
                                 CIImage* ciImage = [[CIImage alloc] initWithData:[image TIFFRepresentation]];
+                                #if 0
                                 if ([image isFlipped])
                                 {
                                     CGRect cgRect    = [ciImage extent];
@@ -142,6 +143,7 @@
                                     transform = CGAffineTransformScale(transform, 1.0, -1.0);
                                     ciImage   = [ciImage imageByApplyingTransform:transform];
                                 }
+                                #endif
                                 CIFilter* filter = [CIFilter filterWithName:@"CIColorInvert"];
                                 [filter setDefaults];
                                 [filter setValue:ciImage forKey:@"inputImage"];
