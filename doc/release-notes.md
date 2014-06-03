@@ -1,4 +1,9 @@
-### Version 1.0.12 build 63 (2014-5-31)
+### Version 1.0.14 build 64 (2014-6-2)
+
+* Implemented the discount for Tactical Cube 138.
+* Print two pages for fleets with more than four ships.
+
+### Version 1.0.13 build 63 (2014-5-31)
 
 * Added Wave 5 and Arena OP data.
 * Allow printing of squads that have four ships plus fighters.
