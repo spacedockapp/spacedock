@@ -10,6 +10,45 @@
 #import "DockSquad+Addons.h"
 #import "DockUtils.h"
 
+@interface DockTwoPageSheet : NSView {
+    NSRect _pageBounds;
+}
+-(id)initWithFrame:(NSRect)frameRect pageBounds:(NSRect)pageBounds;
+@end
+
+@implementation DockTwoPageSheet
+
+-(id)initWithFrame:(NSRect)frameRect pageBounds:(NSRect)pageBounds
+{
+    self = [super initWithFrame: frameRect];
+    if (self != nil) {
+        _pageBounds = pageBounds;
+    }
+    return self;
+}
+
+- (BOOL)knowsPageRange:(NSRangePointer)range
+{
+    range->location = 1;
+    range->length = 2;
+    return YES;
+}
+
+- (NSRect)rectForPage:(NSInteger)page
+{
+    NSRect bounds = [self bounds];
+    float pageHeight = [self calculatePrintHeight];
+    return NSMakeRect( NSMinX(bounds), NSMaxY(bounds) - page * pageHeight,
+                      NSWidth(bounds), pageHeight );
+}
+
+- (float)calculatePrintHeight
+{
+    return _pageBounds.size.height;
+}
+
+@end
+
 @interface DockFleetBuildSheetShip : NSObject <NSTableViewDataSource>
 @property (nonatomic, strong) NSArray* topLevelObjects;
 @property (nonatomic, strong) IBOutlet NSView* gridContainer;
@@ -206,10 +245,17 @@ NSAttributedString* headerText(NSString* string)
 @property (strong, nonatomic) IBOutlet NSWindow* mainWindow;
 @property (strong, nonatomic) IBOutlet NSWindow* fleetBuildDetails;
 @property (strong, nonatomic) IBOutlet NSBox* sheetBox;
+@property (strong, nonatomic) IBOutlet NSBox* sheetBox2;
 @property (strong, nonatomic) IBOutlet NSView* box1;
 @property (strong, nonatomic) IBOutlet NSView* box2;
 @property (strong, nonatomic) IBOutlet NSView* box3;
 @property (strong, nonatomic) IBOutlet NSView* box4;
+@property (strong, nonatomic) IBOutlet NSView* box5;
+@property (strong, nonatomic) IBOutlet NSView* box6;
+@property (strong, nonatomic) IBOutlet NSView* box7;
+@property (strong, nonatomic) IBOutlet NSView* box8;
+@property (strong, nonatomic) IBOutlet NSView* box9;
+@property (strong, nonatomic) IBOutlet NSView* box10;
 @property (strong, nonatomic) IBOutlet NSTextField* resourceTitleField;
 @property (strong, nonatomic) IBOutlet NSTextField* resourceCostField;
 @property (strong, nonatomic) IBOutlet NSTextField* nameField;
@@ -230,9 +276,9 @@ NSAttributedString* headerText(NSString* string)
 {
     self.eventDate = [NSDate date];
     _buildShips = [[NSMutableArray alloc] init];
-    NSArray* views = @[_box1, _box2, _box3, _box4];
+    NSArray* views = @[_box1, _box2, _box3, _box4, _box5, _box6, _box7, _box8, _box9, _box10];
     NSBundle* mainBundle = [NSBundle mainBundle];
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < views.count; ++i) {
         DockFleetBuildSheetShip* ship = [[DockFleetBuildSheetShip alloc] init];
         NSArray* a;
         [mainBundle loadNibNamed: @"ShipGrid" owner: ship topLevelObjects: &a];
@@ -296,9 +342,10 @@ static float heightForStringDrawing(NSString *targetString, NSFont *targetFont, 
 -(void)print
 {
     NSOrderedSet* equippedShips = _targetSquad.equippedShips;
-    for (int i = 0; i < 4; ++i) {
+    NSUInteger shipCount = equippedShips.count;
+    for (int i = 0; i < 10; ++i) {
         DockEquippedShip* equippedShip = nil;
-        if (i < equippedShips.count) {
+        if (i < shipCount) {
             equippedShip = equippedShips[i];
         }
         DockFleetBuildSheetShip* buildSheetShip = _buildShips[i];
@@ -316,14 +363,24 @@ static float heightForStringDrawing(NSString *targetString, NSFont *targetFont, 
     info.topMargin = 0;
     info.bottomMargin = 0;
     NSMutableDictionary* dict = [info dictionary];
-    dict[NSPrintHorizontalPagination] = [NSNumber numberWithInt: NSFitPagination];
+    dict[NSPrintHorizontalPagination] = [NSNumber numberWithInt: shipCount > 4 ? NSAutoPagination : NSFitPagination];
     dict[NSPrintVerticalPagination] = [NSNumber numberWithInt: NSFitPagination];
     dict[NSPrintHorizontallyCentered] = [NSNumber numberWithBool: YES];
     dict[NSPrintVerticallyCentered] = [NSNumber numberWithBool: YES];
     dict[NSPrintOrientation] = [NSNumber numberWithInt: NSPortraitOrientation];
     NSRect r = [info imageablePageBounds];
     [_sheetBox setFrameSize: r.size];
-    [[NSPrintOperation printOperationWithView: _sheetBox] runOperation];
+    if (shipCount > 4) {
+        NSRect twoPageBounds = NSMakeRect(0, 0, r.size.width, 2*r.size.height);
+        [_sheetBox2 setFrameSize: r.size];
+        NSView* twoPageView = [[DockTwoPageSheet alloc] initWithFrame: twoPageBounds pageBounds: r];
+        [twoPageView addSubview: _sheetBox];
+        [twoPageView addSubview: _sheetBox2];
+        [_sheetBox setFrameOrigin: NSMakePoint(0, r.size.height)];
+        [[NSPrintOperation printOperationWithView: twoPageView] runOperation];
+    } else {
+        [[NSPrintOperation printOperationWithView: _sheetBox] runOperation];
+    }
 }
 
 -(NSString*)shipCost:(int)index
@@ -347,6 +404,15 @@ static float heightForStringDrawing(NSString *targetString, NSFont *targetFont, 
 
 -(NSString*)otherCost
 {
+    NSOrderedSet* equippedShips = _targetSquad.equippedShips;
+    if (equippedShips.count > 4) {
+        int otherPageCost = [[_targetSquad additionalPoints] intValue];
+        for (int secondPageIndex = 4; secondPageIndex < equippedShips.count; ++secondPageIndex) {
+            DockEquippedShip* equippedShip = equippedShips[secondPageIndex];
+            otherPageCost += equippedShip.cost;
+        }
+        return [NSString stringWithFormat: @"%d", otherPageCost];
+    }
     return otherCost(_targetSquad);
 }
 

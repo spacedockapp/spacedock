@@ -1230,7 +1230,7 @@ NSString* kShowDataModelExport = @"showDataModelExport";
 -(IBAction)printFleetBuildSheet:(id)sender
 {
     DockSquad* squad = [self selectedSquad];
-    if (squad.equippedShips.count > 4 && ![squad.resource isFighterSquadron]) {
+    if (squad.equippedShips.count > 10) {
         [self whineToUser: kSquadTooLargeToPrint];
     } else {
         if ([squad flagshipIsNotAssigned]) {
