@@ -404,15 +404,6 @@ static float heightForStringDrawing(NSString *targetString, NSFont *targetFont, 
 
 -(NSString*)otherCost
 {
-    NSOrderedSet* equippedShips = _targetSquad.equippedShips;
-    if (equippedShips.count > 4) {
-        int otherPageCost = [[_targetSquad additionalPoints] intValue];
-        for (int secondPageIndex = 4; secondPageIndex < equippedShips.count; ++secondPageIndex) {
-            DockEquippedShip* equippedShip = equippedShips[secondPageIndex];
-            otherPageCost += equippedShip.cost;
-        }
-        return [NSString stringWithFormat: @"%d", otherPageCost];
-    }
     return otherCost(_targetSquad);
 }
 

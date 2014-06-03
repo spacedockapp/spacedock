@@ -1,5 +1,6 @@
 #import "DockUtils.h"
 
+#import "DockEquippedShip+Addons.h"
 #import "DockResource+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
@@ -53,6 +54,15 @@ NSString* resourceCost(DockSquad* targetSquad)
 
 NSString* otherCost(DockSquad* targetSquad)
 {
+    NSOrderedSet* equippedShips = targetSquad.equippedShips;
+    if (equippedShips.count > 4) {
+        int otherPageCost = [[targetSquad additionalPoints] intValue];
+        for (int secondPageIndex = 4; secondPageIndex < equippedShips.count; ++secondPageIndex) {
+            DockEquippedShip* equippedShip = equippedShips[secondPageIndex];
+            otherPageCost += equippedShip.cost;
+        }
+        return [NSString stringWithFormat: @"%d", otherPageCost];
+    }
     NSNumber* additionalPoints = targetSquad.additionalPoints;
     if (additionalPoints && [additionalPoints intValue] > 0) {
         return [NSString stringWithFormat: @"%@", additionalPoints];

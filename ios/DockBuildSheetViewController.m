@@ -2,6 +2,8 @@
 
 #import "DockBuildSheetRenderer.h"
 #import "DockBuildSheetView.h"
+#import "DockEquippedShip+Addons.h"
+#import "DockSquad+Addons.h"
 
 @interface DockBuildSheetPrintRenderer : UIPrintPageRenderer {
     DockSquad* _squad;
@@ -27,6 +29,9 @@
 
 - (NSInteger)numberOfPages
 {
+    if (_squad.equippedShips.count > 4) {
+        return 2;
+    }
     return 1;
 }
 
@@ -38,6 +43,7 @@
     renderer.faction = _faction;
     renderer.event = _event;
     renderer.date = _date;
+    renderer.pageIndex = pageIndex;
     [renderer draw: contentRect];
 }
 

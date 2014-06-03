@@ -627,18 +627,25 @@ NSString* kEventNameKey = @"eventName";
 
 - (CGRect)drawShipGrids:(CGFloat)fieldWidth gridTop:(CGFloat)gridTop left:(CGFloat)left right:(CGFloat)right center:(CGFloat)center
 {
+    int startIndex = 0;
+    int endIndex = 4;
+    if (_pageIndex > 0) {
+        startIndex += endIndex;
+        endIndex += endIndex;
+        endIndex += 2;
+    }
     CGFloat gridWith = fieldWidth - 5 * kDefaultMargin;
     NSOrderedSet* ships = _targetSquad.equippedShips;
     NSInteger shipCount = ships.count;
     DockEquippedShip* ship = nil;
     CGFloat x, y, minX, maxX;
-    for (int i = 0; i < 4; ++i) {
+    for (int i = startIndex; i < endIndex; ++i) {
         if (i < shipCount) {
             ship = [ships objectAtIndex: i];
         } else {
             ship = nil;
         }
-        switch(i) {
+        switch(i - startIndex) {
             case 0:
                 minX = x = left + center - gridWith - 2*kDefaultMargin;
                 y = gridTop;
@@ -652,9 +659,18 @@ NSString* kEventNameKey = @"eventName";
                 x = left + center - gridWith - 2*kDefaultMargin;
                 y = gridTop + kShipGridHeight + 16;
                 break;
-            default:
+            case 3:
                 x = right - gridWith - 2*kDefaultMargin;
                 y = gridTop + kShipGridHeight + 16;
+                break;
+            case 4:
+                x = left + center - gridWith - 2*kDefaultMargin;
+                y = gridTop + kShipGridHeight*2 + 32;
+                break;
+            case 5:
+            default:
+                x = right - gridWith - 2*kDefaultMargin;
+                y = gridTop + kShipGridHeight*2 + 32;
                 break;
         }
         CGRect gridBox = CGRectMake(x, y, gridWith, kShipGridHeight);
@@ -785,6 +801,9 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
     [blackBoxPath fill];
     
     NSString* fbs = @"Fleet Build Sheet";
+    if (_pageIndex > 0) {
+        fbs = @"Fleet Build Sheet (cont)";
+    }
     DockTextBox* box = [[DockTextBox alloc] initWithText: fbs];
     box.color = [UIColor whiteColor];
     box.alignment = NSTextAlignmentCenter;
@@ -822,26 +841,28 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
     [self drawFields:fieldBox fields: rightFields];
     
     CGRect shipGridBox = [self drawShipGrids:fieldWidth gridTop:fieldBottom left:left right:right center:halfWidth];
-
-    fieldBox = CGRectMake(shipGridBox.origin.x, shipGridBox.origin.y + kDefaultMargin,
-                                     shipGridBox.size.width, 40);
-    CGFloat notesBottom = [self drawNotes:fieldBox];
-
-    CGRect resourceBox = CGRectMake(shipGridBox.origin.x, notesBottom + kDefaultMargin,
-                                     shipGridBox.size.width, 40);
-    CGFloat resourcesBottom = [self drawResources:resourceBox shipGridBox:shipGridBox];
-
-    CGRect costBox = CGRectMake(shipGridBox.origin.x, resourcesBottom + kDefaultMargin*3,
-                                     shipGridBox.size.width, 40);
-    DockCostGrid* costGrid = [[DockCostGrid alloc] initWithBounds: costBox squad: _targetSquad];
-    CGFloat costBottom = [costGrid draw];
     
-    costBottom += (kDefaultMargin * 2);
-    
-    CGRect resultsBox = targetBounds;
-    resultsBox.origin.y = costBottom;
-    resultsBox.size.height-= costBottom;
-    [self drawResultGrids: resultsBox];
+    if (_pageIndex == 0) {
+        fieldBox = CGRectMake(shipGridBox.origin.x, shipGridBox.origin.y + kDefaultMargin,
+                                         shipGridBox.size.width, 40);
+        CGFloat notesBottom = [self drawNotes:fieldBox];
+
+        CGRect resourceBox = CGRectMake(shipGridBox.origin.x, notesBottom + kDefaultMargin,
+                                         shipGridBox.size.width, 40);
+        CGFloat resourcesBottom = [self drawResources:resourceBox shipGridBox:shipGridBox];
+
+        CGRect costBox = CGRectMake(shipGridBox.origin.x, resourcesBottom + kDefaultMargin*3,
+                                         shipGridBox.size.width, 40);
+        DockCostGrid* costGrid = [[DockCostGrid alloc] initWithBounds: costBox squad: _targetSquad];
+        CGFloat costBottom = [costGrid draw];
+        
+        costBottom += (kDefaultMargin * 2);
+        
+        CGRect resultsBox = targetBounds;
+        resultsBox.origin.y = costBottom;
+        resultsBox.size.height-= costBottom;
+        [self drawResultGrids: resultsBox];
+    }
 }
 
 - (void)drawResultGrids:(CGRect)resultsBox

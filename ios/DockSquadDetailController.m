@@ -89,7 +89,7 @@ enum {
 -(void)validatePrinting
 {
     if (isOS7OrGreater()) {
-        if (_squad.equippedShips.count > 4 && ![_squad.resource isFighterSquadron]) {
+        if (_squad.equippedShips.count > 10) {
             [_printBarItem setAction: @selector(explainCantPrintThisSquad:)];
             [_printBarItem setTarget: self];
         } else if ([_squad flagshipIsNotAssigned]) {
