@@ -1,4 +1,4 @@
-<Data version="1.219">
+<Data version="1.220">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -4038,12 +4038,12 @@
       <Ability>Each time you are attacked, if you have an [EVASIVE] Token beside your ship, you may re-roll 1 of your defense dice.</Ability>
       <Unique>Y</Unique>
       <Skill>3</Skill>
-      <Talent>2</Talent>
+      <Talent>0</Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Captain</Type>
       <Faction>Bajoran</Faction>
-      <Cost>0</Cost>
+      <Cost>2</Cost>
       <Id>lenaris_holem_71445</Id>
       <Set>71445</Set>
       <Special></Special>
