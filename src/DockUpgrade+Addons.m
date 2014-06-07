@@ -414,20 +414,6 @@
         }
     }
 
-    if (![shipFaction isEqualToString: upgradeFaction] && !equippedShip.isResourceSideboard && ![equippedShip.flagship.faction isEqualToString: upgradeFaction]) {
-        if ([captainSpecial isEqualToString: @"UpgradesIgnoreFactionPenalty"] && ![upgrade isCaptain]) {
-        } else if ([captainSpecial isEqualToString: @"NoPenaltyOnFederationOrBajoranShip"]  && [upgrade isCaptain]) {
-            if (!([ship isFederation] || [ship isBajoran])) {
-                cost += 1;
-            }
-        } else if ([captainSpecial isEqualToString: @"CaptainAndTalentsIgnoreFactionPenalty"] &&
-                   ([upgrade isTalent] || [upgrade isCaptain])) {
-        } else {
-            cost += 1;
-        }
-
-    }
-
     if ([captainSpecial isEqualToString: @"OneDominionUpgradeCostsMinusTwo"]) {
         if ([upgrade isDominion]) {
             DockEquippedUpgrade* most = [equippedShip mostExpensiveUpgradeOfFaction: @"Dominion" upType: nil];
@@ -452,11 +438,47 @@
             }
         }
     } else if ([captainSpecial isEqualToString: @"AddsHiddenTechSlot"]) {
-        DockEquippedUpgrade* most = [equippedShip mostExpensiveUpgradeOfFaction: nil upType: @"Tech"];
+        NSArray* allTech = [equippedShip allUpgradesOfFaction: nil upType: @"Tech"];
+        NSSet* ineligibleTechUpgrades = [NSSet setWithArray: @[
+                                                               @"OnlyVoyager",
+                                                               @"OnlySpecies8472Ship",
+                                                               @"PenaltyOnShipOtherThanDefiant",
+                                                               @"PenaltyOnShipOtherThanKeldonClass",
+                                                               @"OnlySpecies8472Ship",
+                                                               @"CostPlusFiveExceptBajoranInterceptor",
+                                                               @"PlusFiveForNonKazon",
+                                                               @"OnlyForRomulanScienceVessel",
+                                                               @"OnlyForRaptorClassShips",
+                                                               @"OnlyJemHadarShips",
+                                                               @"OnlyForRaptorClassShips"
+                                                               ]];
+        DockEquippedUpgrade* most = nil;
 
+        for (DockEquippedUpgrade* eu in allTech) {
+            NSString* techSpecial = eu.upgrade.special;
+            if (techSpecial == nil || ![ineligibleTechUpgrades containsObject: techSpecial]) {
+                most = eu;
+                break;
+            }
+        }
+        
         if (most.upgrade == self) {
             cost = 3;
         }
+    }
+
+    if (![shipFaction isEqualToString: upgradeFaction] && !equippedShip.isResourceSideboard && ![equippedShip.flagship.faction isEqualToString: upgradeFaction]) {
+        if ([captainSpecial isEqualToString: @"UpgradesIgnoreFactionPenalty"] && ![upgrade isCaptain]) {
+        } else if ([captainSpecial isEqualToString: @"NoPenaltyOnFederationOrBajoranShip"]  && [upgrade isCaptain]) {
+            if (!([ship isFederation] || [ship isBajoran])) {
+                cost += 1;
+            }
+        } else if ([captainSpecial isEqualToString: @"CaptainAndTalentsIgnoreFactionPenalty"] &&
+                   ([upgrade isTalent] || [upgrade isCaptain])) {
+        } else {
+            cost += 1;
+        }
+
     }
 
     if ([[upgrade externalId] isEqualToString: @"borg_ablative_hull_armor_71283"]) {

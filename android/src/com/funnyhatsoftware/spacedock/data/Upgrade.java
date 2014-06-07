@@ -2,9 +2,30 @@
 package com.funnyhatsoftware.spacedock.data;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
+import java.util.TreeSet;
 
 public class Upgrade extends UpgradeBase {
+
+    private static java.util.Set<String> sIneligibleTechUpgrades = new TreeSet<String>();
+
+    static {
+        String[] ineligibleTechUpgradeSpecials = {
+                "OnlyVoyager",
+                "OnlySpecies8472Ship",
+                "PenaltyOnShipOtherThanDefiant",
+                "PenaltyOnShipOtherThanKeldonClass",
+                "OnlySpecies8472Ship",
+                "CostPlusFiveExceptBajoranInterceptor",
+                "PlusFiveForNonKazon",
+                "OnlyForRomulanScienceVessel",
+                "OnlyForRaptorClassShips",
+                "OnlyJemHadarShips",
+                "OnlyForRaptorClassShips"
+        };
+        sIneligibleTechUpgrades.addAll(Arrays.asList(ineligibleTechUpgradeSpecials));
+    }
 
     static class UpgradeComparitor implements Comparator<Upgrade> {
         @Override
@@ -240,22 +261,6 @@ public class Upgrade extends UpgradeBase {
             }
         }
 
-        if (!shipFaction.equals(upgradeFaction) && !equippedShip.isResourceSideboard()
-                && !equippedShip.getFlagshipFaction().equals(upgradeFaction)) {
-            if (captainSpecial.equals("UpgradesIgnoreFactionPenalty") && !isCaptain()) {
-                // do nothing
-            } else if (captainSpecial.equals("NoPenaltyOnFederationOrBajoranShip") && isCaptain()) {
-                if (!(ship.isFederation() || ship.isBajoran())) {
-                    cost += 1;
-                }
-            } else if (captainSpecial.equals("CaptainAndTalentsIgnoreFactionPenalty")
-                    && (isTalent() || isCaptain())) {
-                // do nothing
-            } else {
-                cost += 1;
-            }
-        }
-
         if (captainSpecial.equals("OneDominionUpgradeCostsMinusTwo")) {
             if (isDominion()) {
                 EquippedUpgrade most = equippedShip.mostExpensiveUpgradeOfFaction("Dominion");
@@ -281,14 +286,43 @@ public class Upgrade extends UpgradeBase {
                     cost -= 1;
                 }
             }
-        } else if (captainSpecial.equals("AddsHiddenTechSlot")) {
-            EquippedUpgrade most = equippedShip.mostExpensiveUpgradeOfFactionAndType(null, "Tech");
-            if (most != null && most.getUpgrade().getExternalId().equals(getExternalId())) {
+        } else if (captainSpecial.equals("AddsHiddenTechSlot") && this.isTech()) {
+            ArrayList<EquippedUpgrade> allTechUpgrades = equippedShip.allUpgradesOfFactionAndType(
+                    null, "Tech");
+            EquippedUpgrade most = null;
+            for (EquippedUpgrade eu : allTechUpgrades) {
+                Upgrade targetTechUpgrade = eu.getUpgrade();
+                if (targetTechUpgrade != null) {
+                    String targetSpecial = targetTechUpgrade.getSpecial();
+                    if (targetSpecial == null || !sIneligibleTechUpgrades.contains(targetSpecial)) {
+                        most = eu;
+                        break;
+                    }
+                }
+            }
+            if (most != null && most.isEqualToUpgrade(this)) {
                 cost = 3;
             }
         }
-        
-        if (ship != null && ship.getExternalId().equals(Constants.TACTICAL_CUBE_138) && getExternalId().equals(Constants.BORG_ABLATIVE_ARMOR)) {
+
+        if (!shipFaction.equals(upgradeFaction) && !equippedShip.isResourceSideboard()
+                && !equippedShip.getFlagshipFaction().equals(upgradeFaction)) {
+            if (captainSpecial.equals("UpgradesIgnoreFactionPenalty") && !isCaptain()) {
+                // do nothing
+            } else if (captainSpecial.equals("NoPenaltyOnFederationOrBajoranShip") && isCaptain()) {
+                if (!(ship.isFederation() || ship.isBajoran())) {
+                    cost += 1;
+                }
+            } else if (captainSpecial.equals("CaptainAndTalentsIgnoreFactionPenalty")
+                    && (isTalent() || isCaptain())) {
+                // do nothing
+            } else {
+                cost += 1;
+            }
+        }
+
+        if (ship != null && ship.getExternalId().equals(Constants.TACTICAL_CUBE_138)
+                && getExternalId().equals(Constants.BORG_ABLATIVE_ARMOR)) {
             cost = 7;
         }
 

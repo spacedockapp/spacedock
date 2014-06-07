@@ -298,8 +298,8 @@ public class Squad extends SquadBase {
     }
 
     boolean containsShipWithName(String theName) {
-        for (EquippedShip ship : mEquippedShips) {
-            if (ship.getShip().getTitle().equals(theName)) {
+        for (EquippedShip equippedShip : mEquippedShips) {
+            if (equippedShip.getTitle().equals(theName)) {
                 return true;
             }
         }

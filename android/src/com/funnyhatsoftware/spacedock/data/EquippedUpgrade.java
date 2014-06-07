@@ -62,6 +62,15 @@ public class EquippedUpgrade extends EquippedUpgradeBase {
     public boolean isCaptain() {
         return mUpgrade.isCaptain();
     }
+    
+    public boolean isEqualToUpgrade(Upgrade upgrade) {
+        if (upgrade.isPlaceholder() != isPlaceholder()) {
+            return false;
+        }
+        
+        return getUpgrade().getExternalId().equals(upgrade.getExternalId());
+        
+    }
 
     public JSONObject asJSON() throws JSONException {
         JSONObject o = new JSONObject();

@@ -1405,7 +1405,7 @@
     "additionalPoints" : 0,
     "ships" : [
       {
-        "calculatedCost" : 27,
+        "calculatedCost" : 28,
         "shipId" : "akorem_op6prize",
         "upgrades" : [
           {
@@ -1416,7 +1416,7 @@
           {
             "upgradeId" : "3119",
             "upgradeTitle" : "Advanced Weapon System",
-            "calculatedCost" : 3
+            "calculatedCost" : 4
           }
         ],
         "shipTitle" : "Akorem",
@@ -1429,7 +1429,7 @@
     ],
     "name" : "Tana Los",
     "modified" : "2014-03-30T23:28:12-0700",
-    "cost" : 27
+    "cost" : 28
   },
   {
     "ships" : [
