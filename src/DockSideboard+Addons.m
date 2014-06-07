@@ -88,7 +88,7 @@
     int cost = 0;
 
     for (DockEquippedUpgrade* upgrade in self.sortedUpgrades) {
-        cost += [upgrade baseCost];
+        cost += [upgrade.upgrade costForShip: self];
     }
     return cost;
 }
