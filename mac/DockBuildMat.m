@@ -192,7 +192,11 @@
             res = [shipA.plainDescription compare: shipB.plainDescription];
         }
         if (res == NSOrderedSame) {
-            res = [captainA.title compare: captainB.plainDescription];
+            NSString* bTitle = captainB.plainDescription;
+            if (bTitle == nil) {
+                return NSOrderedAscending;
+            }
+            res = [captainA.title compare: bTitle];
         }
         return res;
     };
