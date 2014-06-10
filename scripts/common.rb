@@ -49,13 +49,15 @@ end
 
 def set_id_from_faction(faction)
   case faction
-  when "Vulcan"
-    "71446"
-  when "Borg"
-    "71444"
-  when "Bajoran"
-    "71445"
+  when "Federation"
+    "u_s_s_yaeger"
+  when "Dominion"
+    "3rd_wing_attack_ship"
+  when "Romulan"
+    "i_r_w_vorta_vor"
   when "Independent"
-    "OPArenaPrize"
+    "gavroche"
+  when "Klingon"
+    "i_k_s_b_moth"
   end
 end

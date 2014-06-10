@@ -6,7 +6,7 @@ require "pathname"
 
 script_path = Pathname.new(File.dirname(__FILE__))
 
-url = "http://www.boardgamegeek.com/xmlapi2/thread?id=1031156&count=1"
+url = "http://www.boardgamegeek.com/xmlapi2/thread?id=1166819&count=1"
 
 uri = URI.parse(url)
 response = Net::HTTP.get_response uri
