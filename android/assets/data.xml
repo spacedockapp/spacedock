@@ -1,4 +1,4 @@
-<Data version="1.220">
+<Data version="1.221">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -900,6 +900,52 @@
         <Maneuver speed="3" kind="straight" color="white" />
         <Maneuver speed="3" kind="right-bank" color="white" />
         <Maneuver speed="3" kind="right-turn" color="red" />
+        <Maneuver speed="3" kind="about" color="red" />
+        <Maneuver speed="2" kind="left-turn" color="white" />
+        <Maneuver speed="2" kind="left-bank" color="white" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-bank" color="white" />
+        <Maneuver speed="2" kind="right-turn" color="white" />
+        <Maneuver speed="1" kind="left-bank" color="green" />
+        <Maneuver speed="1" kind="straight" color="green" />
+        <Maneuver speed="1" kind="right-bank" color="green" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
+      <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+      <Name>Saber Class</Name>
+      <Id>saber_class</Id>
+      <Maneuvers>
+        <Maneuver speed="4" kind="straight" color="white" />
+        <Maneuver speed="3" kind="left-turn" color="white" />
+        <Maneuver speed="3" kind="left-bank" color="white" />
+        <Maneuver speed="3" kind="straight" color="white" />
+        <Maneuver speed="3" kind="right-bank" color="white" />
+        <Maneuver speed="3" kind="right-turn" color="white" />
+        <Maneuver speed="3" kind="about" color="red" />
+        <Maneuver speed="2" kind="left-turn" color="white" />
+        <Maneuver speed="2" kind="left-bank" color="white" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-bank" color="white" />
+        <Maneuver speed="2" kind="right-turn" color="white" />
+        <Maneuver speed="1" kind="left-bank" color="green" />
+        <Maneuver speed="1" kind="straight" color="green" />
+        <Maneuver speed="1" kind="right-bank" color="green" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
+      <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+      <Name>Maquis Raider</Name>
+      <Id>maquis_raider</Id>
+      <Maneuvers>
+        <Maneuver speed="4" kind="straight" color="white" />
+        <Maneuver speed="3" kind="left-turn" color="white" />
+        <Maneuver speed="3" kind="left-bank" color="white" />
+        <Maneuver speed="3" kind="straight" color="white" />
+        <Maneuver speed="3" kind="right-bank" color="white" />
+        <Maneuver speed="3" kind="right-turn" color="white" />
         <Maneuver speed="3" kind="about" color="red" />
         <Maneuver speed="2" kind="left-turn" color="white" />
         <Maneuver speed="2" kind="left-bank" color="white" />
@@ -2474,7 +2520,7 @@
       <Agility>0</Agility>
       <Hull>7</Hull>
       <Shield>7</Shield>
-      <Ability>Each time you attack with your Primary Weapon, you may divide your attack between 2 different ships.  You may divide your attack dice however you like, but you must roll at least 1 die against each ship.</Ability>
+      <Ability>Each time you attack with your Primary Weapon, you may divide your attack between 2 different ships. You may divide your attack dice however you like, but you must roll at least 1 die against each ship.</Ability>
       <Cost>40</Cost>
       <EvasiveManeuvers>0</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
@@ -2919,6 +2965,256 @@
       <Id>gorn_starship_oparenaprize</Id>
       <Set>OPArenaPrize</Set>
     </Ship>
+    <Ship>
+      <Title>I.K.S. B'Moth</Title>
+      <Unique>Y</Unique>
+      <ShipClass>K'T'Inga Class</ShipClass>
+      <Faction>Klingon</Faction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>3</Shield>
+      <Ability>You can perform a Red Maneuver while there is an Auxiliary Power Token beside your ship.</Ability>
+      <Cost>24</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <Id>i_k_s_b_moth_i_k_s_b_moth</Id>
+      <Set>i_k_s_b_moth</Set>
+    </Ship>
+    <Ship>
+      <Title>K'T'Inga Class</Title>
+      <Unique>N</Unique>
+      <ShipClass>K'T'Inga Class</ShipClass>
+      <Faction>Klingon</Faction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>22</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>k_t_inga_class_i_k_s_b_moth</Id>
+      <Set>i_k_s_b_moth</Set>
+    </Ship>
+    <Ship>
+      <Title>Gavroche</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Maquis Raider</ShipClass>
+      <Faction>Independent</Faction>
+      <Attack>2</Attack>
+      <Agility>3</Agility>
+      <Hull>3</Hull>
+      <Shield>3</Shield>
+      <Ability>ACTION: Disable up to 2 of your [CREW] Upgrades and add +1 attack die to each of your attacks this round for each [CREW] Upgrade you disabled with this Action.</Ability>
+      <Cost>22</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
+      <Id>gavroche_gavroche</Id>
+      <Set>gavroche</Set>
+    </Ship>
+    <Ship>
+      <Title>Maquis Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Maquis Raider</ShipClass>
+      <Faction>Independent</Faction>
+      <Attack>2</Attack>
+      <Agility>3</Agility>
+      <Hull>3</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>maquis_starship_gavroche</Id>
+      <Set>gavroche</Set>
+    </Ship>
+    <Ship>
+      <Title>I.R.W. Vorta Vor</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Romulan Bird of Prey Class</ShipClass>
+      <Faction>Romulan</Faction>
+      <Attack>2</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
+      <Shield>2</Shield>
+      <Ability>While you are Cloaked, after you perform a Green Maneuver, you may perform a [SENSOR ECHO] Action as a free Action.</Ability>
+      <Cost>18</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <Id>i_r_w_vorta_vor_i_r_w_vorta_vor</Id>
+      <Set>i_r_w_vorta_vor</Set>
+    </Ship>
+    <Ship>
+      <Title>Romulan Bird of Prey Class</Title>
+      <Unique>N</Unique>
+      <ShipClass>Romulan Bird of Prey Class</ShipClass>
+      <Faction>Romulan</Faction>
+      <Attack>2</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
+      <Shield>1</Shield>
+      <Ability></Ability>
+      <Cost>16</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>romulan_bird_of_prey_class_i_r_w_vorta_vor</Id>
+      <Set>i_r_w_vorta_vor</Set>
+    </Ship>
+    <Ship>
+      <Title>3rd Wing Attack Ship</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Jem'Hadar Attack Ship</ShipClass>
+      <Faction>Dominion</Faction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
+      <Shield>3</Shield>
+      <Ability>When attacking with your Primary Weapon, during the Roll Attack Dice step of the Combat Phase you may disable one of your [CREW] Upgrades to add +1 attack die to your attack.</Ability>
+      <Cost>22</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
+      <Id>3rd_wing_attack_ship_3rd_wing_attack_ship</Id>
+      <Set>3rd_wing_attack_ship</Set>
+    </Ship>
+    <Ship>
+      <Title>Jem'Hadar Attack Ship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Jem'Hadar Attack Ship</ShipClass>
+      <Faction>Dominion</Faction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>jem_hadar_attack_ship_3rd_wing_attack_ship</Id>
+      <Set>3rd_wing_attack_ship</Set>
+    </Ship>
+    <Ship>
+      <Title>U.S.S. Yaeger</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Saber Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
+      <Shield>3</Shield>
+      <Ability>When attacking with Photon Torpedoes, you do not need to disable the Photon Torpedoes.</Ability>
+      <Cost>22</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>2</Weapon>
+      <Crew>2</Crew>
+      <Id>u_s_s_yaeger_u_s_s_yaeger</Id>
+      <Set>u_s_s_yaeger</Set>
+    </Ship>
+    <Ship>
+      <Title>Federation Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Saber Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <Id>federation_starship_u_s_s_yaeger</Id>
+      <Set>u_s_s_yaeger</Set>
+    </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -2969,7 +3265,7 @@
       <Faction>Federation</Faction>
       <Cost>0</Cost>
       <Id>2003</Id>
-      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize</Set>
+      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger</Set>
     </Captain>
     <Captain>
       <Title>Nu'Daq</Title>
@@ -3003,7 +3299,7 @@
       <Faction>Klingon</Faction>
       <Cost>0</Cost>
       <Id>2005</Id>
-      <Set>71120,71125,71126,OP2Prize,71269,71273,71448</Set>
+      <Set>71120,71125,71126,OP2Prize,71269,71273,71448,i_k_s_b_moth</Set>
     </Captain>
     <Captain>
       <Title>Toreth</Title>
@@ -3036,7 +3332,7 @@
       <Faction>Romulan</Faction>
       <Cost>0</Cost>
       <Id>2007</Id>
-      <Set>71120,71123,71124,71270,71278,OP3Prize</Set>
+      <Set>71120,71123,71124,71270,71278,OP3Prize,i_r_w_vorta_vor</Set>
     </Captain>
     <Captain>
       <Title>Khan Singh</Title>
@@ -3545,7 +3841,7 @@
       <Faction>Dominion</Faction>
       <Cost>0</Cost>
       <Id>2036</Id>
-      <Set>71271,71279</Set>
+      <Set>71271,71279,3rd_wing_attack_ship</Set>
     </Captain>
     <Captain>
       <Title>Worf</Title>
@@ -3960,7 +4256,7 @@
     </Captain>
     <Captain>
       <Title>Loskene</Title>
-      <Ability>ACTION: Target 1 friendly ship that is not within Range 1-3 of your ship and whose Captain has a lower Skill than Loskene's.  Target ship may immediately perform an additional 1 or 2 Maneuver (straight, bank or turn).  The additional Maneuver must be on the target ship's Maneuver Dial.</Ability>
+      <Ability>ACTION: Target 1 friendly ship that is not within Range 1-3 of your ship and whose Captain has a lower Skill than Loskene's. Target ship may immediately perform an additional 1 or 2 Maneuver (straight, bank or turn). The additional Maneuver must be on the target ship's Maneuver Dial.</Ability>
       <Unique>Y</Unique>
       <Skill>4</Skill>
       <Talent>1</Talent>
@@ -4065,7 +4361,7 @@
     </Captain>
     <Captain>
       <Title>Tactical Drone</Title>
-      <Ability>At the start of the game, place 6 Drone Tokens on this card.  After you spend a [TARGET LOCK] Token to re-roll your dice, you may spend 3 Drone Tokens to maintain your Target Lock on the target ship (i.e., do not remove the [TARGET LOCK] Tokens from beside either ship).</Ability>
+      <Ability>At the start of the game, place 6 Drone Tokens on this card. After you spend a [TARGET LOCK] Token to re-roll your dice, you may spend 3 Drone Tokens to maintain your Target Lock on the target ship (i.e., do not remove the [TARGET LOCK] Tokens from beside either ship).</Ability>
       <Unique>N</Unique>
       <Skill>6</Skill>
       <Talent>0</Talent>
@@ -4080,7 +4376,7 @@
     </Captain>
     <Captain>
       <Title>Borg Queen</Title>
-      <Ability>At the start of the game, place 8 Drone Tokens on this card.  Once per round, you may discard 1 Drone Token to perform 1 Action from your ship's Action Bar as a free Action.  If another Borg ship is in your fleet when your ship is destroyed, you may replace that ship's Captain Card with this card.  If you do so, discard that Captain Card and all Drone Tokens from both cards.  Then place 8 Drone Tokens on this card.</Ability>
+      <Ability>At the start of the game, place 8 Drone Tokens on this card. Once per round, you may discard 1 Drone Token to perform 1 Action from your ship's Action Bar as a free Action. If another Borg ship is in your fleet when your ship is destroyed, you may replace that ship's Captain Card with this card. If you do so, discard that Captain Card and all Drone Tokens from both cards. Then place 8 Drone Tokens on this card.</Ability>
       <Unique>Y</Unique>
       <Skill>8</Skill>
       <Talent>1</Talent>
@@ -4121,6 +4417,96 @@
       <Cost>0</Cost>
       <Id>gorn_oparenaprize</Id>
       <Set>OPArenaPrize</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>K'Nera</Title>
+      <Ability>ACTION: Target a ship at Range 1-2. The target ship may choose to disable one of its [CREW] Upgrades (of its choice). If the target ship chooses not to disable 1 of its [CREW] Upgrades or if it has no [CREW] Upgrades that are not already disabled, you gain +1 attack die to all of your attacks against that ship this round.</Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>k_nera_i_k_s_b_moth</Id>
+      <Set>i_k_s_b_moth</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Liviana Charvanek</Title>
+      <Ability>Whenever one of your [CREW] Upgrades is supposed to be disabled, roll 1 defense die. If you roll a [BATTLESTATIONS] result, that Upgrade is not disabled. If you are disabling the [CREW] Upgrade to perform its Action or ability, that Action or ability is still performed even if the Upgrade does not disable.</Ability>
+      <Unique>Y</Unique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>liviana_charvanek_i_r_w_vorta_vor</Id>
+      <Set>i_r_w_vorta_vor</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Michael Eddington</Title>
+      <Ability>At the start of the game, place 3 Mission Tokens on this card. ACTION: Target a ship a Range 1-3 and discard 1 Mission Token from this card. Target ship rolls -2 attack dice against your ship for each of its attacks this round.</Ability>
+      <Unique>Y</Unique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Independent</Faction>
+      <Cost>4</Cost>
+      <Id>michael_eddington_gavroche</Id>
+      <Set>gavroche</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Gul Damar</Title>
+      <Ability>All attacks made against your ship with Secondary Weapons are at -1 attack die. All attacks made against your ship with Minefields are at -2 attack dice.</Ability>
+      <Unique>Y</Unique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>4</Cost>
+      <Id>gul_damar_3rd_wing_attack_ship</Id>
+      <Set>3rd_wing_attack_ship</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Benjamin Maxwell</Title>
+      <Ability>Immediately before you move, you may change your Maneuver. If you do so, discard t his card during the End Phase.</Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>benjamin_maxwell_u_s_s_yaeger</Id>
+      <Set>u_s_s_yaeger</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Maquis Captain</Title>
+      <Ability></Ability>
+      <Unique>N</Unique>
+      <Skill>1</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Independent</Faction>
+      <Cost>0</Cost>
+      <Id>maquis_gavroche</Id>
+      <Set>gavroche</Set>
       <Special></Special>
     </Captain>
   </Captains>
@@ -6137,7 +6523,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Marla Gilmore</Title>
-      <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields.  Disable this card and 1 [TECH] of your choice on the target ship.  You may then use that Upgrade's Action (if any) as a free action this round.</Ability>
+      <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Disable this card and 1 [TECH] of your choice on the target ship. You may then use that Upgrade's Action (if any) as a free action this round.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -7037,7 +7423,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Tholian Punctuality</Title>
-      <Ability>When you initiate an attack,  you may discard this card to gain +1 attack die for that attack.  This upgrade may only be purchased by Loskene or any other Tholian Captain.</Ability>
+      <Ability>When you initiate an attack,  you may discard this card to gain +1 attack die for that attack. This upgrade may only be purchased by Loskene or any other Tholian Captain.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -7067,7 +7453,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Plasma Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack.  You may re-roll all of your blank results one time.  You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may re-roll all of your blank results one time. You may fire this weapon from your forward or rear firing arcs.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -7277,7 +7663,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Four of Twelve</Title>
-      <Ability>ACTION: Discard this card and 1 of your Drone Tokens to target a ship within Range 1-3.  Remove any 1 Token ([EVASIVE], [SCAN], [BATTLESTATIONS], or blue [TARGET LOCK]) from beside your ship.  If you removed a blue [TARGET LOCK] Token with this Action, also remove the corresponding red [TARGET LOCK] Token from the play area as well.</Ability>
+      <Ability>ACTION: Discard this card and 1 of your Drone Tokens to target a ship within Range 1-3. Remove any 1 Token ([EVASIVE], [SCAN], [BATTLESTATIONS], or blue [TARGET LOCK]) from beside your ship. If you removed a blue [TARGET LOCK] Token with this Action, also remove the corresponding red [TARGET LOCK] Token from the play area as well.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -7292,7 +7678,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Borg Alcove</Title>
-      <Ability>ACTION: Add 1 Drone Token to your Captain Card.  You cannot exceed your Captain's starting number of Drone Tokens.</Ability>
+      <Ability>ACTION: Add 1 Drone Token to your Captain Card. You cannot exceed your Captain's starting number of Drone Tokens.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -7307,7 +7693,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Assimilated Access Codes</Title>
-      <Ability>ACTION: Discard this card to target a ship at Range 2-3, and then discard up to 3 Drone Tokens from your Captain Card.  Disable a number of Active Shields on the target ship equal to the number of Drone Tokens that you discarded with this Action.  If the target ship is Cloaked, you may instead discard 2 Drone Tokens to flip the target ship's [CLOAK] Token over to its red side.  This Upgrade may only be purchased for a Borg Captain.</Ability>
+      <Ability>ACTION: Discard this card to target a ship at Range 2-3, and then discard up to 3 Drone Tokens from your Captain Card. Disable a number of Active Shields on the target ship equal to the number of Drone Tokens that you discarded with this Action. If the target ship is Cloaked, you may instead discard 2 Drone Tokens to flip the target ship's [CLOAK] Token over to its red side. This Upgrade may only be purchased for a Borg Captain.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -7322,7 +7708,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Self Destruct Sequence</Title>
-      <Ability>ACTION: You cannot attack this round.  During the next Activation Phase, you cannot move or take any Actions (including free Actions).  At the end of the next Activation Phase, after all ships have moved, destroy your ship and roll a number of attack dice equal to your Hull value to damage every ship within Range 1-3 of your ship.  A ship does not roll defense dice against this attack unless that ship has a [SCAN] Token beside it.</Ability>
+      <Ability>ACTION: You cannot attack this round. During the next Activation Phase, you cannot move or take any Actions (including free Actions). At the end of the next Activation Phase, after all ships have moved, destroy your ship and roll a number of attack dice equal to your Hull value to damage every ship within Range 1-3 of your ship. A ship does not roll defense dice against this attack unless that ship has a [SCAN] Token beside it.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -7382,7 +7768,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Full Assault</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. You must divide this attack between 2 or 3 different ships; you may divide your attack dice however you like, but you must roll at least 2 attack dice against each ship.  If fired from a Borg Tactical Cube, add +3 attack dice.</Ability>
+      <Ability>ATTACK: Disable this card to perform this attack. You must divide this attack between 2 or 3 different ships; you may divide your attack dice however you like, but you must roll at least 2 attack dice against each ship. If fired from a Borg Tactical Cube, add +3 attack dice.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -7397,7 +7783,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Borg Missile</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. The target ship does not sustain normal damage from this attack.  Instead, place 1 Auxillary Power Token beside the target ship AND destroy 1 of its Active Shields for each [HIT] or [CRIT] result. The target ship does not roll defense dice against this attack. This Upgrade may only be purchased for a Borg ship.</Ability>
+      <Ability>ATTACK: Disable this card to perform this attack. The target ship does not sustain normal damage from this attack. Instead, place 1 Auxillary Power Token beside the target ship AND destroy 1 of its Active Shields for each [HIT] or [CRIT] result. The target ship does not roll defense dice against this attack. This Upgrade may only be purchased for a Borg ship.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -7412,7 +7798,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Jammed Communications</Title>
-      <Ability>ACTION: All ships within Range 1-3 of your ship (including your own) cannot provide or benefit from any text abilities that affect other friendly ships this round.  Place an Auxiliary Power Token beside your ship.</Ability>
+      <Ability>ACTION: All ships within Range 1-3 of your ship (including your own) cannot provide or benefit from any text abilities that affect other friendly ships this round. Place an Auxiliary Power Token beside your ship.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -7442,7 +7828,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Impulse Overload</Title>
-      <Ability>ACTION: Discard this card to target a ship at Range 1 of your ship and roll 3 attack dice.  If you roll at least 1 [HIT] or [CRIT] result, the target ship must discard 1 [TECH] Upgrade (of its choice).</Ability>
+      <Ability>ACTION: Discard this card to target a ship at Range 1 of your ship and roll 3 attack dice. If you roll at least 1 [HIT] or [CRIT] result, the target ship must discard 1 [TECH] Upgrade (of its choice).</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -7457,7 +7843,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Faked Messages</Title>
-      <Ability>During the planning phase, after every ship's maneuver has been chosen, you may discard this card to target 1 enemy ship that is not within Range 1-3 of your ship.  Force that ship to change its chosen maneuver to a 1 [STRAIGHT] Maneuver.</Ability>
+      <Ability>During the planning phase, after every ship's maneuver has been chosen, you may discard this card to target 1 enemy ship that is not within Range 1-3 of your ship. Force that ship to change its chosen maneuver to a 1 [STRAIGHT] Maneuver.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -7483,6 +7869,306 @@
       <Cost>5</Cost>
       <Id>full_alert_oparenaprize</Id>
       <Set>OPArenaParticipation</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Kunivas</Title>
+      <Ability>During the Modify Attack Dice step of the Combat Phase, you may discard this card to add 1 additional [HIT] result.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Klingon</Faction>
+      <Cost>2</Cost>
+      <Id>kunivas_i_k_s_b_moth</Id>
+      <Set>i_k_s_b_moth</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Qapla'</Title>
+      <Ability>During the Roll Attack Dice step of the Combat Phase, before rolling any of your attack dice, you may discard this card to select one of your attack dice and set it on the side of your choice. That die cannot be rolled or re-rolled during the round in which you use this Upgrade.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Klingon</Faction>
+      <Cost>2</Cost>
+      <Id>qapla__i_k_s_b_moth</Id>
+      <Set>i_k_s_b_moth</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Tritium Intermix</Title>
+      <Ability>ACTION: Discard this card to flip all of your critical damage cards face down and then repair 1 damage to your ship's Hull. You may perform an [EVASIVE] Action as a free Action this round.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>tritium_intermix_i_k_s_b_moth</Id>
+      <Set>i_k_s_b_moth</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Tal</Title>
+      <Ability>When attacking a ship with a [SCAN] Token beside it, during the Roll Attack Dice step of the Combat Phase, you may disable this card to gain +1 attack die.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
+      <Cost>2</Cost>
+      <Id>tal_i_r_w_vorta_vor</Id>
+      <Set>i_r_w_vorta_vor</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Advanced Cloaking</Title>
+      <Ability>When attacking while you are Cloaked, if there are no Auxiliary Power Tokens beside your ship, you may place an Auxiliary Power Token beside your ship before rolling any dice to keep your [CLOAK] Token from flipping to its red side.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>advanced_cloaking_i_r_w_vorta_vor</Id>
+      <Set>i_r_w_vorta_vor</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Lon Suder</Title>
+      <Ability>During the Roll Attack Dice step of the Combat Phase, you may disable this card and spend a [BATTLESTATIONS] Token to add +1 additional attack die to your attack.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Independent</Faction>
+      <Cost>2</Cost>
+      <Id>lon_suder_gavroche</Id>
+      <Set>gavroche</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Direct Command</Title>
+      <Ability>ACTION: Discard this card and spend your Target Lock to gain +2 attack dice this round.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Romulan</Faction>
+      <Cost>2</Cost>
+      <Id>direct_command_i_r_w_vorta_vor</Id>
+      <Set>i_r_w_vorta_vor</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Sakonna</Title>
+      <Ability>Add 1 additional [WEAPON] Updrade slot to your Upgrade Bar. All of your [WEAPON] Upgrades with a cost of 5 or less cost -2 SP.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Independent</Faction>
+      <Cost>2</Cost>
+      <Id>sakonna_gavroche</Id>
+      <Set>gavroche</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Hijack</Title>
+      <Ability>ACTION: Discard t his card to target a ship at Range 1-2 that is not cloaked and has no Active Shields. Disable all of your remaining Shields an 1 [CREW] Upgrade on the target ship. Then steal 1 face up [TECH] or [WEAPON] Upgrade Card of your choice from t hat ship, even if the Upgrade exceeds your ship's restrictions.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Independent</Faction>
+      <Cost>4</Cost>
+      <Id>hijack_gavroche</Id>
+      <Set>gavroche</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Seskal</Title>
+      <Ability>If all your Shields have been destroyed, during the Roll Attack Dice step of the Combat Phase you may disable this card to gain +2 attack dice.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Dominion</Faction>
+      <Cost>4</Cost>
+      <Id>seskal_3rd_wing_attack_ship</Id>
+      <Set>3rd_wing_attack_ship</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>First Strike</Title>
+      <Ability>During the Combat Phase, if you have 2 or more enemy ships in your forward firing arc within Range 1-3, you may discard this card to treat your Captain's Skill Number as a 10 until the End Phase. This Upgrade may only be purchased for a ship with a Hull Value of 3 or less.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Dominion</Faction>
+      <Cost>2</Cost>
+      <Id>first_strike_3rd_wing_attack_ship</Id>
+      <Set>3rd_wing_attack_ship</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Ion Thrusters</Title>
+      <Ability>During the Activation Phase, after you reveal a straight Maneuver, you may disable this card to add +1 to the Maneuver's number (i.e. a 2 becomes a 3, a 3 becomes a 4, etc). No ship may be equipped with more than 1 Ion Thrusters Upgrade.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Dominion</Faction>
+      <Cost>2</Cost>
+      <Id>ion_thrusters_3rd_wing_attack_ship</Id>
+      <Set>3rd_wing_attack_ship</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Preemptive Strike</Title>
+      <Ability>ACTION: Discard this card to target a ship at Range 2-3 in forward firing arc and roll 3 attack dice. Any [HIT] or [CRIT] damages the target ship as normal. The target ship rolls defense dice against this attack.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>preemptive_strike_u_s_s_yaeger</Id>
+      <Set>u_s_s_yaeger</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Elizabeth Shelby</Title>
+      <Ability>During the Modify Defense Dice step of the Combat Phase, you may re-roll one of your blank results. If you are defending against an attack from a Borg ship, you roll +1 defense die during the Roll Defense Dice step and you may re-roll all of your blank results during the Modify Defense Dice step.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>elizabeth_shelby_u_s_s_yaeger</Id>
+      <Set>u_s_s_yaeger</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Reginald Barclay</Title>
+      <Ability>ACTION: Disable this card and roll 3 defense dice. For each [EVADE] result, repair 1 damage to your Hull. If you repair 2 or more damage with this Action in a single round, place an Auxiliary Power Token beside your ship. If you repair 3 damage with this Action in a single round, discard this card.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>reginald_barclay_u_s_s_yaeger</Id>
+      <Set>u_s_s_yaeger</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photon Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>photon_torpedoes_i_k_s_b_moth</Id>
+      <Set>i_k_s_b_moth</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Plasma Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>4</Attack>
+      <Range>1-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>plasma_torpedoes_i_r_w_vorta_vor</Id>
+      <Set>i_r_w_vorta_vor</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Focused Particle Beam</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. During the Roll Attack Dice step of the Combat Phase, if you roll a [HIT] or [CRIT] result on each one of your dice with this attack, continue rolling 1 additional attack die, one-at-a-time, until you do not roll a [HIT] or [CRIT] result (max 3 additional dice). Add all [HIT] or [CRIT] results from the additional dice to your total for this attack. Any Black or [BATTLESTATIONS] results from the additional dice are not added.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>3</Attack>
+      <Range>1-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Independent</Faction>
+      <Cost>4</Cost>
+      <Id>focused_particle_beam_gavroche</Id>
+      <Set>gavroche</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photon Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Dominion</Faction>
+      <Cost>4</Cost>
+      <Id>photon_torpedoes_3rd_wing_attack_ship</Id>
+      <Set>3rd_wing_attack_ship</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photon Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>photon_torpedoes_u_s_s_yaeger</Id>
+      <Set>u_s_s_yaeger</Set>
       <Special></Special>
     </Upgrade>
   </Upgrades>
@@ -7685,6 +8371,11 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
       <Set id="OPWebPrize" overallSetName="Organized Play">Tholian Web Competitive Prize</Set>
       <Set id="OPArenaParticipation" overallSetName="Organized Play">Arena Participation Prize</Set>
       <Set id="OPArenaPrize" overallSetName="Organized Play">Arena Competitive Prize</Set>
+      <Set id="i_k_s_b_moth" overallSetName="The Collective Boosters">I.K.S. B'Moth Expansion</Set>
+      <Set id="gavroche" overallSetName="The Collective Boosters">Gavroche Expansion</Set>
+      <Set id="i_r_w_vorta_vor" overallSetName="The Collective Boosters">I.R.W. Vorta Vor Expansion</Set>
+      <Set id="3rd_wing_attack_ship" overallSetName="The Collective Boosters">3rd Wing Attack Ship Expansion</Set>
+      <Set id="u_s_s_yaeger" overallSetName="The Collective Boosters">U.S.S. Yaeger Expansion</Set>
 
       <Set id="71120" overallSetName="Core">Starter Set</Set>
       <Set id="71121" overallSetName="Wave 0">U.S.S. Reliant Expansion</Set>
