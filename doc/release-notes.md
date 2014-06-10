@@ -1,3 +1,10 @@
+### Version 1.0.15 build 65 (2014-6-9)
+
+* Add data from The Collective boosters.
+* Fixed the discount calculation for Tana Los.
+* Correctly calculate the cost of items installed in the sideboard.
+* Fixed data for Lenaris Holem.
+
 ### Version 1.0.14 build 64 (2014-6-2)
 
 * Implemented the discount for Tactical Cube 138.

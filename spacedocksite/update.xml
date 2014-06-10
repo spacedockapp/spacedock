@@ -7,6 +7,19 @@
     <language>en</language>
   
   <item>
+    <title>Version 1.0.15 (65)</title>
+    <sparkle:releaseNotesLink>http://spacedockapp.org/release-notes.html</sparkle:releaseNotesLink>
+    <pubDate></pubDate>
+    <enclosure
+      url="http://spacedockapp.org/space_dock_b65.zip"
+      sparkle:version="65"
+      sparkle:shortVersionString="1.0.15 (65)"
+      type="application/octet-stream"
+      length="1802304"
+    />
+  </item>
+  
+  <item>
     <title>Version 1.0.14 (64)</title>
     <sparkle:releaseNotesLink>http://spacedockapp.org/release-notes.html</sparkle:releaseNotesLink>
     <pubDate></pubDate>
