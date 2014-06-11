@@ -1,4 +1,4 @@
-<Data version="1.221">
+<Data version="1.222">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -3166,7 +3166,7 @@
       <Set>3rd_wing_attack_ship</Set>
     </Ship>
     <Ship>
-      <Title>U.S.S. Yaeger</Title>
+      <Title>U.S.S. Yeager</Title>
       <Unique>Y</Unique>
       <ShipClass>Saber Class</ShipClass>
       <Faction>Federation</Faction>
@@ -8375,7 +8375,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
       <Set id="gavroche" overallSetName="The Collective Boosters">Gavroche Expansion</Set>
       <Set id="i_r_w_vorta_vor" overallSetName="The Collective Boosters">I.R.W. Vorta Vor Expansion</Set>
       <Set id="3rd_wing_attack_ship" overallSetName="The Collective Boosters">3rd Wing Attack Ship Expansion</Set>
-      <Set id="u_s_s_yaeger" overallSetName="The Collective Boosters">U.S.S. Yaeger Expansion</Set>
+      <Set id="u_s_s_yaeger" overallSetName="The Collective Boosters">U.S.S. Yeager Expansion</Set>
 
       <Set id="71120" overallSetName="Core">Starter Set</Set>
       <Set id="71121" overallSetName="Wave 0">U.S.S. Reliant Expansion</Set>
