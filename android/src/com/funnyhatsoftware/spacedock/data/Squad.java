@@ -165,7 +165,7 @@ public class Squad extends SquadBase {
                 Ship targetShip = universe.getShip(shipId);
                 if (targetShip != null) {
                     currentShip = new EquippedShip(targetShip);
-                } else if (strict) {
+                } else if (strict && !shipId.isEmpty()) {
                     throw new RuntimeException("Can't find ship " + shipId);
                 }
             }

@@ -1,12 +1,30 @@
 
 package com.funnyhatsoftware.spacedock.data;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 public class Sideboard extends SideboardBase {
+    
+    private static Ship sNullShip;
 
     public static Sideboard sideboard() {
         Sideboard sideboard = new Sideboard();
         sideboard.establishPlaceholders();
         return sideboard;
+    }
+
+    @Override
+    public Ship getShip() {
+        if (sNullShip == null) {
+            sNullShip = new Ship();
+            Map<String, Object> data = new TreeMap<String, Object>();
+            sNullShip.update(data);
+            ShipClassDetails nullDetails = new ShipClassDetails();
+            nullDetails.update(data);
+            sNullShip.setShipClassDetails(nullDetails);
+        }
+        return sNullShip;
     }
 
     @Override
