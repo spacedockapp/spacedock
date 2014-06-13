@@ -31,9 +31,13 @@
 -(int)borgCount;
 -(int)baseCost;
 -(int)attack;
+-(NSString*)attackString;
 -(int)agility;
+-(NSString*)agilityString;
 -(int)hull;
+-(NSString*)hullString;
 -(int)shield;
+-(NSString*)shieldString;
 -(BOOL)isResourceSideboard;
 -(BOOL)isFighterSquadron;
 -(NSArray*)sortedUpgrades;

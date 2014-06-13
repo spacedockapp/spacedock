@@ -33,5 +33,27 @@
     return coloredString(costString, [NSColor textColor], [NSColor clearColor]);
 }
 
+-(NSAttributedString*)styledAttack
+{
+    return styledAttack([self attackString]);
+}
+
+-(NSAttributedString*)styledAgility
+{
+    return styledAgility([self agilityString]);
+}
+
+-(NSAttributedString*)styledHull
+{
+    if ([self isFighterSquadron]) {
+        return styledHull(@"*");
+    }
+    return styledHull([self hullString]);
+}
+
+-(NSAttributedString*)styledShield
+{
+    return styledShield([self shieldString]);
+}
 
 @end

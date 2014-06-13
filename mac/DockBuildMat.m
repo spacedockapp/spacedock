@@ -41,13 +41,13 @@
 @end
 
 @interface DockShipTile : DockBuildMatTile
-@property (strong, nonatomic) DockShip* ship;
--(id)initWithShip:(DockShip*)ship;
+@property (strong, nonatomic) DockEquippedShip* ship;
+-(id)initWithShip:(DockEquippedShip*)ship;
 @end
 
 @implementation DockShipTile
 
--(id)initWithShip:(DockShip*)ship
+-(id)initWithShip:(DockEquippedShip*)ship
 {
     self = [super initWithNib: @"ShipTile"];
     if (self != nil) {
@@ -209,7 +209,7 @@
         DockShip* ship = equippedShip.ship;
         DockMoveGridTile* moveTile = [[DockMoveGridTile alloc] initWithShip: ship];
         [oneRow addObject: moveTile];
-        DockShipTile* shipTile = [[DockShipTile alloc] initWithShip: ship];
+        DockShipTile* shipTile = [[DockShipTile alloc] initWithShip: equippedShip];
         [oneRow addObject: shipTile];
         DockFlagship* flagship = equippedShip.flagship;
         if (flagship) {

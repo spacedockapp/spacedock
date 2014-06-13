@@ -154,6 +154,26 @@
     return [self.ship.shield intValue] + [self.flagship shieldAdd];
 }
 
+-(NSString*)attackString
+{
+    return [[NSNumber numberWithInt: self.attack] stringValue];
+}
+
+-(NSString*)agilityString
+{
+    return [[NSNumber numberWithInt: self.agility] stringValue];
+}
+
+-(NSString*)hullString
+{
+    return [[NSNumber numberWithInt: self.hull] stringValue];
+}
+
+-(NSString*)shieldString
+{
+    return [[NSNumber numberWithInt: self.shield] stringValue];
+}
+
 -(int)cost
 {
     int cost = [self.ship.cost intValue];
