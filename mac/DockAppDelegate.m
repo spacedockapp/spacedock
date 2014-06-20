@@ -679,6 +679,9 @@ NSString* kShowDataModelExport = @"showDataModelExport";
 -(DockEquippedUpgrade*)addSelectedUpgrade:(DockEquippedShip*)targetShip maybeReplace:(DockEquippedUpgrade*)maybeReplace
 {
     NSArray* upgradeToAdd = [_upgradesController selectedObjects];
+    if (upgradeToAdd.count == 0) {
+        return nil;
+    }
     DockUpgrade* upgrade = upgradeToAdd[0];
 
     if ([upgrade isUnique]) {
