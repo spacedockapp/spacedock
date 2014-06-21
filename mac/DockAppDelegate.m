@@ -1538,6 +1538,12 @@ static void addDeleteItem(NSMenu* menu)
 
 static void addFilterToFactionItem(NSMenu* menu, NSString* faction)
 {
+    if (faction == nil) {
+        NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: @"Filter to Faction" action: 0 keyEquivalent: @""];
+        [menuItem setEnabled: NO];
+        [menu addItem: menuItem];
+        return;
+    }
     NSString* menuTitle = [NSString stringWithFormat: @"Filter to Faction “%@”", faction];
     NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: menuTitle action: @selector(filterToClickedFaction:) keyEquivalent: @""];
     [menu addItem: menuItem];
@@ -1552,6 +1558,12 @@ static void addFilterToTypeItem(NSMenu* menu, NSString* upType)
 
 static void addFilterToFactionAndTypeItem(NSMenu* menu, NSString* faction, NSString* upType)
 {
+    if (faction == nil) {
+        NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: @"Filter to Faction and Type" action: 0 keyEquivalent: @""];
+        [menuItem setEnabled: NO];
+        [menu addItem: menuItem];
+        return;
+    }
     NSString* menuTitle = [NSString stringWithFormat: @"Filter to Faction “%@” and Type “%@”", faction, upType];
     NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: menuTitle action: @selector(filterToClickedFactionAndUpgradeType:) keyEquivalent: @""];
     [menu addItem: menuItem];
