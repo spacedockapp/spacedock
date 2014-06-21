@@ -65,6 +65,11 @@
     return 0;
 }
 
+-(DockEquippedUpgrade*)equippedCaptain
+{
+    return [super equippedCaptain];
+}
+
 -(BOOL)upgradeWouldExceedCostLimit:(DockUpgrade*)upgrade
 {
     int currentCost = [self baseCost];

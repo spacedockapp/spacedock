@@ -352,6 +352,7 @@
     NSString* shipFaction = ship.faction;
     NSString* upgradeFaction = upgrade.faction;
     DockCaptain* captain = equippedShip.captain;
+    BOOL isSideboard = [equippedShip isResourceSideboard];
 
     if ([upgrade isCaptain]) {
         captain = (DockCaptain*)upgrade;
@@ -365,11 +366,11 @@
     NSString* upgradeSpecial = upgrade.special;
 
     if ([upgrade isTalent]) {
-        if ([captainSpecial isEqualToString: @"BaselineTalentCostToThree"] && self.isFederation) {
+        if ([captainSpecial isEqualToString: @"BaselineTalentCostToThree"] && self.isFederation && !isSideboard) {
             cost = 3;
         }
     } else if ([upgrade isCrew]) {
-        if ([captainSpecial isEqualToString: @"CrewUpgradesCostOneLess"]) {
+        if ([captainSpecial isEqualToString: @"CrewUpgradesCostOneLess"] && !isSideboard) {
             cost -= 1;
         }
 
@@ -414,7 +415,7 @@
         }
     }
 
-    if ([captainSpecial isEqualToString: @"OneDominionUpgradeCostsMinusTwo"]) {
+    if ([captainSpecial isEqualToString: @"OneDominionUpgradeCostsMinusTwo"] && !isSideboard) {
         if ([upgrade isDominion]) {
             DockEquippedUpgrade* most = [equippedShip mostExpensiveUpgradeOfFaction: @"Dominion" upType: nil];
 
@@ -422,7 +423,7 @@
                 cost -= 2;
             }
         }
-    } else if ([captainSpecial isEqualToString: @"AddTwoCrewSlotsDominionCostBonus"]) {
+    } else if ([captainSpecial isEqualToString: @"AddTwoCrewSlotsDominionCostBonus"] && !isSideboard) {
         if ([upgrade isDominion]) {
             NSArray* all = [equippedShip allUpgradesOfFaction: @"Dominion" upType: @"Crew"];
             
@@ -437,7 +438,7 @@
                 cost -= 1;
             }
         }
-    } else if ([captainSpecial isEqualToString: @"AddsHiddenTechSlot"]) {
+    } else if ([captainSpecial isEqualToString: @"AddsHiddenTechSlot"] && !isSideboard) {
         NSArray* allTech = [equippedShip allUpgradesOfFaction: nil upType: @"Tech"];
         NSSet* ineligibleTechUpgrades = [NSSet setWithArray: @[
                                                                @"OnlyVoyager",
@@ -487,6 +488,9 @@
         }
     }
 
+    if (cost < 0) {
+        cost = 0;
+    }
     return cost;
 }
 

@@ -163,10 +163,10 @@ static NSManagedObjectContext* getManagedObjectContext()
     XCTAssertEqual(squad.cost, newSquad.cost);
 }
 
--(void)testLoadList
+-(void)listTester:(NSString*)squadfileName
 {
     NSBundle* testBundle = [NSBundle bundleForClass: [self class]];
-    NSString* allSquadsPath = [testBundle pathForResource: @"squads_for_test" ofType: @"spacedocksquads"];
+    NSString* allSquadsPath = [testBundle pathForResource: squadfileName ofType: @"spacedocksquads"];
     XCTAssertNotNil(allSquadsPath);
     NSData* allSquadsData = [NSData dataWithContentsOfFile: allSquadsPath];
     XCTAssertNotNil(allSquadsData);
@@ -207,9 +207,9 @@ static NSManagedObjectContext* getManagedObjectContext()
             NSDictionary* captainData = shipData[@"captain"];
             XCTAssertNotNil(captainData);
             DockCaptain* captain = [loadedShip captain];
-            XCTAssertEqualObjects(captainData[@"upgradeId"], captain.externalId);
+            XCTAssertEqualObjects(captainData[@"upgradeId"], captain.externalId, @"on squad %@", name);
             int cost = [captainData[@"calculatedCost"] intValue];
-            XCTAssertEqual(cost, loadedShip.equippedCaptain.cost);
+            XCTAssertEqual(cost, loadedShip.equippedCaptain.cost, @"on squad %@", name);
             
             NSArray* upgradeDataArray = shipData[@"upgrades"];
             NSArray* upgrades = loadedShip.sortedUpgradesWithoutPlaceholders;
@@ -217,15 +217,28 @@ static NSManagedObjectContext* getManagedObjectContext()
             for (int upgradeIndex = 0; upgradeIndex < limit; ++upgradeIndex) {
                 NSDictionary* upgradeData = upgradeDataArray[upgradeIndex];
                 DockEquippedUpgrade* upgrade = upgrades[upgradeIndex];
-                XCTAssertEqualObjects(upgrade.upgrade.externalId, upgradeData[@"upgradeId"]);
+                XCTAssertEqualObjects(upgrade.upgrade.externalId, upgradeData[@"upgradeId"], @"on squad %@", name);
+                int equippedUpgradeCost = [upgrade.upgrade costForShip: loadedShip];
+                int expectedEquippedUpgradeCost = [upgradeData[@"calculatedCost"] intValue];
+                XCTAssertEqual(expectedEquippedUpgradeCost, equippedUpgradeCost, @"on squad %@", name);
             }
             XCTAssertEqual(upgrades.count, upgradeDataArray.count);
             int shipCost = [shipData[@"calculatedCost"] intValue];
-            XCTAssertEqual(shipCost, loadedShip.cost);
+            XCTAssertEqual(shipCost, loadedShip.cost, @"on squad %@", name);
         }
         int squadCost = [jsonObject[@"cost"] intValue];
-        XCTAssertEqual(squadCost, loadedSquad.cost);
+        XCTAssertEqual(squadCost, loadedSquad.cost, @"on squad %@", name);
     }
+}
+
+-(void)testLoadList
+{
+    [self listTester: @"squads_for_test"];
+}
+
+-(void)testSpecials
+{
+    [self listTester: @"specials"];
 }
 
 @end

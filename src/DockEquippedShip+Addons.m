@@ -97,12 +97,12 @@
     } else {
         [json setObject: ship.externalId forKey: @"shipId"];
         [json setObject: ship.title forKey: @"shipTitle"];
-        [json setObject: [NSNumber numberWithInt: self.cost] forKey: @"calculatedCost"];
         DockFlagship* flagship = self.flagship;
         if (flagship != nil) {
             [json setObject: flagship.externalId forKey: @"flagship"];
         }
     }
+    [json setObject: [NSNumber numberWithInt: self.cost] forKey: @"calculatedCost"];
     DockEquippedUpgrade* equippedCaptain = self.equippedCaptain;
     if (equippedCaptain) {
         [json setObject: [equippedCaptain asJSON]  forKey: @"captain"];
@@ -247,6 +247,7 @@
 
 -(void)importUpgrades:(NSDictionary*)esDict
 {
+    [self removeAllUpgrades];
     NSManagedObjectContext* context = self.managedObjectContext;
     NSDictionary* upgradeDict = esDict[@"captain"];
     NSString* captainId = upgradeDict[@"upgradeId"];
@@ -272,6 +273,7 @@
     DockEquippedShip* newShip;
     if (self.isResourceSideboard) {
         newShip = [DockSideboard sideboard: self.managedObjectContext];
+        [newShip removeAllUpgrades];
     } else {
         newShip = [DockEquippedShip equippedShipWithShip: self.ship];
         newShip.flagship = self.flagship;
@@ -375,6 +377,19 @@
         if ([eu.upgrade isTalent]) {
             [onesToRemove addObject: eu];
         }
+    }
+
+    for (DockEquippedUpgrade* eu in onesToRemove) {
+        [self removeUpgradeInternal: eu];
+    }
+}
+
+-(void)removeAllUpgrades
+{
+    NSMutableSet* onesToRemove = [NSMutableSet setWithCapacity: 0];
+
+    for (DockEquippedUpgrade* eu in self.upgrades) {
+        [onesToRemove addObject: eu];
     }
 
     for (DockEquippedUpgrade* eu in onesToRemove) {
