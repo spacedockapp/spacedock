@@ -35,7 +35,7 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public boolean isResourceSideboard() {
-        return getShip() == null;
+        return false;
     }
 
     public String getShipExternalId() {

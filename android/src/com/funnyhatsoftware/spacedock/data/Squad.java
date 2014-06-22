@@ -16,6 +16,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import android.util.Log;
+
 public class Squad extends SquadBase {
 
     public static final String JSON_LABEL_SHIP_ID = "shipId";
@@ -46,8 +48,7 @@ public class Squad extends SquadBase {
     public void assignNewUuid() {
         setUuid(UUID.randomUUID().toString());
     }
-    
-    
+
     @Override
     public SquadBase setName(String v) {
         SquadBase self = super.setName(v);
@@ -171,7 +172,9 @@ public class Squad extends SquadBase {
             }
             if (currentShip != null && !currentShip.isFighterSquadron()) {
                 currentShip.importUpgrades(universe, shipData, strict);
-                addEquippedShip(currentShip);
+                if (!shipIsSideboard) {
+                    addEquippedShip(currentShip);
+                }
             }
         }
     }
@@ -249,10 +252,10 @@ public class Squad extends SquadBase {
         }
         ship.setSquad(null);
     }
-    
+
     public void removeAllEquippedShips() {
         ArrayList<EquippedShip> equippedShips = new ArrayList<EquippedShip>(mEquippedShips);
-        for (EquippedShip ship: equippedShips) {
+        for (EquippedShip ship : equippedShips) {
             removeEquippedShip(ship);
         }
     }

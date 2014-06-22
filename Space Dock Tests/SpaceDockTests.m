@@ -188,14 +188,15 @@ static NSManagedObjectContext* getManagedObjectContext()
         NSString* name = jsonObject[@"name"];
         XCTAssertNotNil(name);
         DockSquad* loadedSquad = [DockSquad squadForUUID: uuid context: _context];
-        XCTAssertNotNil(loadedSquad);
-        XCTAssertEqualObjects(loadedSquad.name, name);
-        XCTAssertEqualObjects(loadedSquad.notes, jsonObject[@"notes"]);
+        XCTAssertNotNil(loadedSquad, @"on squad %@", name);
+        XCTAssertEqualObjects(loadedSquad.name, name, @"on squad %@", name);
+        XCTAssertEqualObjects(loadedSquad.notes, jsonObject[@"notes"], @"on squad %@", name);
         NSString* resourceId = loadedSquad.resource.externalId;
-        XCTAssertEqualObjects(resourceId, jsonObject[@"resource"]);
-        XCTAssertEqualObjects(loadedSquad.additionalPoints, jsonObject[@"additionalPoints"]);
+        XCTAssertEqualObjects(resourceId, jsonObject[@"resource"], @"on squad %@", name);
+        XCTAssertEqualObjects(loadedSquad.additionalPoints, jsonObject[@"additionalPoints"], @"on squad %@", name);
         NSArray* jsonShips = jsonObject[@"ships"];
         NSOrderedSet* equippedShips = loadedSquad.equippedShips;
+        XCTAssertEqual(jsonShips.count, equippedShips.count, @"on squad %@", name);
         for (int i = 0; i < jsonShips.count; ++i) {
             NSDictionary* shipData = jsonShips[i];
             DockEquippedShip* loadedShip = equippedShips[i];

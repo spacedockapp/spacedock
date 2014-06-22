@@ -196,6 +196,7 @@ public class Upgrade extends UpgradeBase {
         if (ship != null) {
             shipFaction = ship.getFaction();
         }
+        boolean shipIsSideboard = equippedShip.isResourceSideboard();
         String upgradeFaction = mFaction;
         Captain captain = equippedShip.getCaptain();
 
@@ -211,11 +212,11 @@ public class Upgrade extends UpgradeBase {
 
         if (isTalent()) {
             if (captainSpecial.equals("BaselineTalentCostToThree")
-                    && upgradeFaction.equals("Federation")) {
+                    && upgradeFaction.equals("Federation") && !shipIsSideboard) {
                 cost = 3;
             }
         } else if (isCrew()) {
-            if (captainSpecial.equals("CrewUpgradesCostOneLess")) {
+            if (captainSpecial.equals("CrewUpgradesCostOneLess") && !shipIsSideboard) {
                 cost -= 1;
             }
 
@@ -261,14 +262,14 @@ public class Upgrade extends UpgradeBase {
             }
         }
 
-        if (captainSpecial.equals("OneDominionUpgradeCostsMinusTwo")) {
+        if (captainSpecial.equals("OneDominionUpgradeCostsMinusTwo") && !shipIsSideboard) {
             if (isDominion()) {
                 EquippedUpgrade most = equippedShip.mostExpensiveUpgradeOfFaction("Dominion");
                 if (most != null && this == most.getUpgrade()) {
                     cost -= 2;
                 }
             }
-        } else if (captainSpecial.equals("AddTwoCrewSlotsDominionCostBonus")) {
+        } else if (captainSpecial.equals("AddTwoCrewSlotsDominionCostBonus") && !shipIsSideboard) {
             if (isDominion()) {
                 ArrayList<EquippedUpgrade> all = equippedShip.allUpgradesOfFactionAndType(
                         "Dominion", "Crew");
@@ -286,7 +287,7 @@ public class Upgrade extends UpgradeBase {
                     cost -= 1;
                 }
             }
-        } else if (captainSpecial.equals("AddsHiddenTechSlot") && this.isTech()) {
+        } else if (captainSpecial.equals("AddsHiddenTechSlot") && this.isTech() && !shipIsSideboard) {
             ArrayList<EquippedUpgrade> allTechUpgrades = equippedShip.allUpgradesOfFactionAndType(
                     null, "Tech");
             EquippedUpgrade most = null;
@@ -326,6 +327,10 @@ public class Upgrade extends UpgradeBase {
             cost = 7;
         }
 
+        if (cost < 0) {
+            cost = 0;
+        }
+        
         return cost;
 
     }

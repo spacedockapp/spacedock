@@ -1356,51 +1356,6 @@
     "name" : "Boarding Party"
   },
   {
-    "ships" : [
-      {
-        "calculatedCost" : 34,
-        "shipId" : "1001",
-        "upgrades" : [
-
-        ],
-        "shipTitle" : "U.S.S. Enterprise-D",
-        "captain" : {
-          "upgradeId" : "2001",
-          "upgradeTitle" : "Jean-Luc Picard",
-          "calculatedCost" : 6
-        }
-      },
-      {
-        "calculatedCost" : 47,
-        "shipId" : "dominion_starship_71279",
-        "upgrades" : [
-          {
-            "upgradeId" : "ikat_ika_71279",
-            "upgradeTitle" : "Ikat'Ika",
-            "calculatedCost" : 4
-          },
-          {
-            "upgradeId" : "3084",
-            "upgradeTitle" : "Toman'Torax",
-            "calculatedCost" : 4
-          }
-        ],
-        "shipTitle" : "Dominion Starship",
-        "captain" : {
-          "upgradeId" : "weyoun_71279",
-          "upgradeTitle" : "Weyoun",
-          "calculatedCost" : 5
-        }
-      }
-    ],
-    "cost" : 91,
-    "resource" : "4003",
-    "uuid" : "A916E51A-FC16-4342-B1D2-2643E299BA3B",
-    "additionalPoints" : 0,
-    "modified" : "2014-03-30T23:28:17-0700",
-    "name" : "test"
-  },
-  {
     "uuid" : "A52EAF86-25D8-4018-B6F1-D56928FB7C5C",
     "additionalPoints" : 0,
     "ships" : [

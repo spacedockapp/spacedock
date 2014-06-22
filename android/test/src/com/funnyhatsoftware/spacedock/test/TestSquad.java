@@ -11,6 +11,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import android.util.Log;
+
 import com.funnyhatsoftware.spacedock.data.Captain;
 import com.funnyhatsoftware.spacedock.data.DataUtils;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
@@ -47,11 +49,12 @@ public class TestSquad extends BaseTest {
         assertEquals("Wrong cost", 100, squad.calculateCost());
     }
 
-    public void testImportList() throws JSONException, IOException {
-        InputStream is = getContext().getAssets().open("squads_for_test.spacedocksquads");
+    private void listTester(String fileName) throws IOException, JSONException {
+        String fileNameWithExtension = String.format("%s.spacedocksquads", fileName);
+        InputStream is = getContext().getAssets().open(fileNameWithExtension);
         universe.loadSquadsFromStream(is, true);
         is.close();
-        is = getContext().getAssets().open("squads_for_test.spacedocksquads");
+        is = getContext().getAssets().open(fileNameWithExtension);
         String savedJSON = DataUtils.convertStreamToString(is);
         JSONTokener tokenizer = new JSONTokener(savedJSON);
         JSONArray jsonArray = new JSONArray(tokenizer);
@@ -64,6 +67,7 @@ public class TestSquad extends BaseTest {
             String name = jsonObject.getString(JSONLabels.JSON_LABEL_NAME);
             Squad loadedSquad = universe.getSquadByUUID(uuid);
             String squadLabel = name + " [" + uuid + "]";
+            Log.i("spacedock", "testing " + squadLabel);
             assertNotNull("Can't find squad " + squadLabel, loadedSquad);
             assertEquals("name mismatch", name, loadedSquad.getName());
             assertEquals("notes mismatch " + squadLabel,
@@ -80,17 +84,22 @@ public class TestSquad extends BaseTest {
                     loadedSquad.getAdditionalPoints());
             JSONArray ships = jsonObject.getJSONArray(JSONLabels.JSON_LABEL_SHIPS);
             ArrayList<EquippedShip> equippedShips = loadedSquad.getEquippedShips();
+            assertEquals("ship count mismatch " + squadLabel, ships.length(),
+                    equippedShips.size());
             for (int shipIndex = 0; shipIndex < ships.length(); ++shipIndex) {
                 String shipLabel = squadLabel + ": ship #" + shipIndex;
                 JSONObject shipData = ships.getJSONObject(shipIndex);
                 EquippedShip loadedShip = equippedShips.get(shipIndex);
 
-                String shipId = shipData.getString(JSONLabels.JSON_LABEL_SHIP_ID);
-                assertEquals("ship id mismatch " + shipLabel, shipId, loadedShip.getShipExternalId());
-
                 boolean shipIsSideboard = shipData.optBoolean(JSONLabels.JSON_LABEL_SIDEBOARD);
                 assertEquals("sideboard mismatch " + shipLabel, shipIsSideboard,
                         loadedShip.isResourceSideboard());
+
+                if (!shipIsSideboard) {
+                    String shipId = shipData.getString(JSONLabels.JSON_LABEL_SHIP_ID);
+                    assertEquals("ship id mismatch " + shipLabel, shipId,
+                            loadedShip.getShipExternalId());
+                }
 
                 JSONObject captainData = shipData.getJSONObject(JSONLabels.JSON_LABEL_CAPTAIN);
                 EquippedUpgrade ec = loadedShip.getEquippedCaptain();
@@ -111,17 +120,39 @@ public class TestSquad extends BaseTest {
                     assertEquals("upgrade mistmatch for " + upgradeLabel,
                             upgradeData.getString(JSONLabels.JSON_LABEL_UPGRADE_ID),
                             equippedUpgrade.getUpgrade().getExternalId());
+                    boolean expectedOverridden = upgradeData
+                            .optBoolean(JSONLabels.JSON_LABEL_COST_IS_OVERRIDDEN);
+                    boolean overridden = equippedUpgrade.getOverridden();
+                    assertEquals("upgrade overridden mistmatch for " + upgradeLabel,
+                            expectedOverridden,
+                            overridden);
+                    if (overridden) {
+                    } else {
+                        cost = upgradeData.getInt("calculatedCost");
+                        int calculatedCost = equippedUpgrade.calculateCost();
+                        assertEquals("cost mistmatch for " + upgradeLabel, cost, calculatedCost);
+                    }
                 }
                 assertEquals("upgrade count mismatch for " + shipLabel, upgradeListData.length(),
                         upgrades.size());
 
                 cost = shipData.getInt("calculatedCost");
-                assertEquals("cost mistmatch for " + shipLabel, cost, loadedShip.calculateCost());
+                int calculatedCost = loadedShip.calculateCost();
+                assertEquals("cost mistmatch for " + shipLabel, cost, calculatedCost);
             }
 
             int cost = jsonObject.getInt(JSONLabels.JSON_LABEL_COST);
-            assertEquals("cost mistmatch for " + squadLabel, cost, loadedSquad.calculateCost());
+            int calculatedCost = loadedSquad.calculateCost();
+            assertEquals("cost mistmatch for " + squadLabel, cost, calculatedCost);
         }
+    }
+
+    public void testImportList() throws JSONException, IOException {
+        listTester("squads_for_test");
+    }
+
+    public void testSpecials() throws JSONException, IOException {
+        listTester("specials");
     }
 
     public void testExport() throws IOException, JSONException {
