@@ -210,20 +210,23 @@
 -(int)limitForShip:(DockEquippedShip*)targetShip
 {
     if ([self isCaptain]) {
-        return targetShip.ship.captainCount;
+        return [targetShip captainCount];
     }
 
     if ([self isTalent]) {
         return [targetShip talentCount];
     }
 
-    NSString* special = self.special;
 
-    if ([special isEqualToString: @"OnlyForRomulanScienceVessel"] || [special isEqualToString: @"OnlyForRaptorClassShips"]) {
-        NSString* shipClass = targetShip.ship.shipClass;
+    if (![targetShip isResourceSideboard]) {
+        NSString* special = self.special;
 
-        if (![shipClass isEqualToString: self.targetShipClass]) {
-            return 0;
+        if ([special isEqualToString: @"OnlyForRomulanScienceVessel"] || [special isEqualToString: @"OnlyForRaptorClassShips"]) {
+            NSString* shipClass = targetShip.ship.shipClass;
+
+            if (![shipClass isEqualToString: self.targetShipClass]) {
+                return 0;
+            }
         }
     }
 

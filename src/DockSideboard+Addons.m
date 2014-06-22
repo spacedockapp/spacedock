@@ -85,7 +85,7 @@
         return NO;
     }
 
-    return ![self upgradeWouldExceedCostLimit: upgrade];
+    return YES;
 }
 
 -(int)baseCost
