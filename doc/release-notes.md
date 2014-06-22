@@ -1,3 +1,8 @@
+### Version 1.0.16 build 66 (2014-6-22)
+
+* Fix a few sideboard-releated bugs.
+* Fix cost caculation error for Lauran.
+
 ### Version 1.0.15 build 65 (2014-6-9)
 
 * Add data from The Collective boosters.
