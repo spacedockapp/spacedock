@@ -333,5 +333,19 @@
     [self.navigationController popViewControllerAnimated: YES];
 }
 
+- (IBAction)enterEditMode:(id)sender
+{
+    UIBarButtonItem* editButton = sender;
+    if ([self.tableView isEditing]) {
+        editButton.style = UIBarButtonItemStylePlain;
+        editButton.title = @"Edit";
+        [self.tableView setEditing: NO animated:YES];
+    } else {
+        editButton.style = UIBarButtonItemStyleDone;
+        editButton.title = @"Done";
+        [self.tableView setEditing:YES animated:YES];
+    }
+}
+
 
 @end

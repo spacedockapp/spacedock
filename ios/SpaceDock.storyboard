@@ -790,7 +790,14 @@
                             <outlet property="delegate" destination="WHg-GX-8r1" id="BlS-Bj-thO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="FEB-hX-VsH"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="FEB-hX-VsH">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="wDI-fX-ren">
+                            <connections>
+                                <action selector="enterEditMode:" destination="WHg-GX-8r1" id="5sm-SV-dxi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHF-WC-cI7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1595,9 +1602,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wnY-uM-0L3"/>
-        <segue reference="TwX-09-xdF"/>
-        <segue reference="me1-T8-16w"/>
+        <segue reference="AYA-Tq-E0B"/>
+        <segue reference="4En-j0-M2p"/>
+        <segue reference="Edb-dE-lUZ"/>
         <segue reference="YvD-5N-V1B"/>
     </inferredMetricsTieBreakers>
 </document>
