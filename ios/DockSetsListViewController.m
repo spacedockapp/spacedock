@@ -5,7 +5,7 @@
 #import "DockUtilsMobile.h"
 
 @interface DockSetsListViewController ()
-
+@property (strong, nonatomic) NSDateFormatter* dateFormatter;
 @end
 
 @implementation DockSetsListViewController
@@ -13,6 +13,9 @@
 -(void)viewDidLoad
 {
     self.cellIdentifer = @"Set";
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    self.dateFormatter.timeStyle = NSDateFormatterNoStyle;
+    self.dateFormatter.dateStyle = NSDateFormatterShortStyle;
     [super viewDidLoad];
 }
 
@@ -41,7 +44,7 @@
 
 -(NSString*)sectionNameKeyPath
 {
-    return nil;
+    return @"releaseDate";
 }
 
 -(BOOL)useSetFilter
@@ -56,8 +59,10 @@
 
 -(NSArray*)sortDescriptors
 {
-    NSSortDescriptor* titleDescriptor = [[NSSortDescriptor alloc] initWithKey: @"externalId" ascending: YES];
-    return @[titleDescriptor];
+    NSSortDescriptor* releaseDateDescriptor = [[NSSortDescriptor alloc] initWithKey: @"releaseDate" ascending: YES];
+    NSSortDescriptor* titleDescriptor = [[NSSortDescriptor alloc] initWithKey: @"productName" ascending: YES];
+    NSSortDescriptor* nameDescriptor = [[NSSortDescriptor alloc] initWithKey: @"name" ascending: YES];
+    return @[releaseDateDescriptor, nameDescriptor, titleDescriptor];
 }
 
 -(void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
@@ -75,6 +80,13 @@
     if (!saveItem(set, &error)) {
         presentError(error);
     }
+}
+
+-(NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSIndexPath* firstObjectIndex = [NSIndexPath indexPathForRow: 0 inSection: section];
+    DockSet* set = [self.fetchedResultsController objectAtIndexPath: firstObjectIndex];
+    return [self.dateFormatter stringFromDate: set.releaseDate];
 }
 
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath

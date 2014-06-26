@@ -201,7 +201,7 @@ NSString* kShowDataModelExport = @"showDataModelExport";
     [_upgradesTableView setSortDescriptors: @[defaultSortDescriptor]];
     [_resourcesTableView setSortDescriptors: @[defaultSortDescriptor]];
     [_flagshipsTableView setSortDescriptors: @[defaultSortDescriptor]];
-    defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"externalId" ascending: YES];
+    defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"releaseDate" ascending: YES];
     [_setsTableView setSortDescriptors: @[defaultSortDescriptor]];
     defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"name" ascending: YES selector: @selector(localizedCaseInsensitiveCompare:)];
     [_squadsTableView setSortDescriptors: @[defaultSortDescriptor]];

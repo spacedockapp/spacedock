@@ -1,4 +1,4 @@
-<Data version="1.222">
+<Data version="1.223">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -8353,63 +8353,71 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
     </Resources>
     <Sets>
 
-      <Set id="GenCon2013Promo" overallSetName="Promo Card">Khan Singh GenCon 2013 Promo</Set>
+      <Set id="GenCon2013Promo" overallSetName="Promo Card" releaseDate="2013-08-15">Khan Singh GenCon 2013 Promo</Set>
 
-      <Set id="OP1Participation" overallSetName="Organized Play">Dominion War OP1 Participation Prize</Set>
-      <Set id="OP1Prize" overallSetName="Organized Play">Dominion War OP1 Competitive Prize</Set>
-      <Set id="OP2Participation" overallSetName="Organized Play">Dominion War OP2 Participation Prize</Set>
-      <Set id="OP2Prize" overallSetName="Organized Play">Dominion War OP2 Competitive Prize</Set>
-      <Set id="OP3Participation" overallSetName="Organized Play">Dominion War OP3 Participation Prize</Set>
-      <Set id="OP3Prize" overallSetName="Organized Play">Dominion War OP3 Competitive Prize</Set>
-      <Set id="OP4Participation" overallSetName="Organized Play">Dominion War OP4 Participation Prize</Set>
-      <Set id="OP4Prize" overallSetName="Organized Play">Dominion War OP4 Competitive Prize</Set>
-      <Set id="OP5Participation" overallSetName="Organized Play">Dominion War OP5 Participation Prize</Set>
-      <Set id="OP5Prize" overallSetName="Organized Play">Dominion War OP5 Competitive Prize</Set>
-      <Set id="OP6Participation" overallSetName="Organized Play">Dominion War OP6 Participation Prize</Set>
-      <Set id="OP6Prize" overallSetName="Organized Play">Dominion War OP6 Competitive Prize</Set>
-      <Set id="OPWebParticipation" overallSetName="Organized Play">Tholian Web Participation Prize</Set>
-      <Set id="OPWebPrize" overallSetName="Organized Play">Tholian Web Competitive Prize</Set>
-      <Set id="OPArenaParticipation" overallSetName="Organized Play">Arena Participation Prize</Set>
-      <Set id="OPArenaPrize" overallSetName="Organized Play">Arena Competitive Prize</Set>
-      <Set id="i_k_s_b_moth" overallSetName="The Collective Boosters">I.K.S. B'Moth Expansion</Set>
-      <Set id="gavroche" overallSetName="The Collective Boosters">Gavroche Expansion</Set>
-      <Set id="i_r_w_vorta_vor" overallSetName="The Collective Boosters">I.R.W. Vorta Vor Expansion</Set>
-      <Set id="3rd_wing_attack_ship" overallSetName="The Collective Boosters">3rd Wing Attack Ship Expansion</Set>
-      <Set id="u_s_s_yaeger" overallSetName="The Collective Boosters">U.S.S. Yeager Expansion</Set>
+      <Set id="OP1Participation" overallSetName="Organized Play" releaseDate="2013-09-15">Dominion War OP1 Participation Prize</Set>
+      <Set id="OP1Prize"         overallSetName="Organized Play" releaseDate="2013-09-15">Dominion War OP1 Competitive Prize</Set>
 
-      <Set id="71120" overallSetName="Core">Starter Set</Set>
-      <Set id="71121" overallSetName="Wave 0">U.S.S. Reliant Expansion</Set>
-      <Set id="71122" overallSetName="Wave 0">U.S.S. Enterprise Expansion</Set>
-      <Set id="71123" overallSetName="Wave 0">I.R.W. Valdore Expansion</Set>
-      <Set id="71124" overallSetName="Wave 0">R.I.S. Apnex Expansion</Set>
-      <Set id="71125" overallSetName="Wave 0">I.K.S. Gr''oth Expansion</Set>
-      <Set id="71126" overallSetName="Wave 0">I.K.S. Negh''var Expansion</Set>
-      <Set id="71127" overallSetName="Wave 0">Kraxon Expansion</Set>
-      <Set id="71128" overallSetName="Wave 0">Gor Portas Expansion</Set>
+      <Set id="OP2Participation" overallSetName="Organized Play" releaseDate="2013-10-15">Dominion War OP2 Participation Prize</Set>
+      <Set id="OP2Prize"         overallSetName="Organized Play" releaseDate="2013-10-15">Dominion War OP2 Competitive Prize</Set>
 
-      <Set id="71268" overallSetName="Wave 1">U.S.S. Defiant Expansion</Set>
-      <Set id="71269" overallSetName="Wave 1">I.K.S. Kronos One Expansion</Set>
-      <Set id="71270" overallSetName="Wave 1">I.R.W. Praetus Expansion</Set>
-      <Set id="71271" overallSetName="Wave 1">5th Wing Patrol Ship Expansion</Set>
+      <Set id="OP3Participation" overallSetName="Organized Play" releaseDate="2013-11-15">Dominion War OP3 Participation Prize</Set>
+      <Set id="OP3Prize"         overallSetName="Organized Play" releaseDate="2013-11-15">Dominion War OP3 Competitive Prize</Set>
 
-      <Set id="71272" overallSetName="Wave 2">U.S.S. Excelsior Expansion</Set>
-      <Set id="71273" overallSetName="Wave 2">I.K.S. Koraga Expansion</Set>
-      <Set id="71274" overallSetName="Wave 2">R.I.S. Vo Expansion</Set>
-      <Set id="71275" overallSetName="Wave 2">Koranak Expansion</Set>
+      <Set id="OP4Participation" overallSetName="Organized Play" releaseDate="2013-12-15">Dominion War OP4 Participation Prize</Set>
+      <Set id="OP4Prize"         overallSetName="Organized Play" releaseDate="2013-12-15">Dominion War OP4 Competitive Prize</Set>
 
-      <Set id="71276" overallSetName="Wave 3">U.S.S. Equinox Expansion</Set>
-      <Set id="71448" overallSetName="Wave 3">I.K.S. Somraw Expansion</Set>
-      <Set id="71278" overallSetName="Wave 3">R.I.S. Gal Gath'thong Expansion</Set>
-      <Set id="71279" overallSetName="Wave 3">4th Division Battleship Expansion</Set>
+      <Set id="OP5Participation" overallSetName="Organized Play" releaseDate="2014-02-15">Dominion War OP5 Participation Prize</Set>
+      <Set id="OP5Prize"         overallSetName="Organized Play" releaseDate="2014-02-15">Dominion War OP5 Competitive Prize</Set>
 
-      <Set id="71280" overallSetName="Wave 4">U.S.S. Voyager Expansion</Set>
-      <Set id="71281" overallSetName="Wave 4">Bioship Alpha Expansion</Set>
-      <Set id="71282" overallSetName="Wave 4">Nistrim Raider Expansion</Set>
-      <Set id="71283" overallSetName="Wave 4">Borg Sphere 4270 Expansion</Set>
+      <Set id="OP6Participation" overallSetName="Organized Play" releaseDate="2014-03-15">Dominion War OP6 Participation Prize</Set>
+      <Set id="OP6Prize"         overallSetName="Organized Play" releaseDate="2014-03-15">Dominion War OP6 Competitive Prize</Set>
 
-      <Set id="71444" overallSetName="Wave 5">Tactical Cube Expansion</Set>
-      <Set id="71445" overallSetName="Wave 5">Interceptor Five Expansion</Set>
-      <Set id="71446" overallSetName="Wave 5">D’Kyr Expansion</Set>
+      <Set id="OPWebParticipation" overallSetName="Organized Play" releaseDate="2014-04-15">Tholian Web Participation Prize</Set>
+      <Set id="OPWebPrize"         overallSetName="Organized Play" releaseDate="2014-04-15">Tholian Web Competitive Prize</Set>
+
+      <Set id="OPArenaParticipation" overallSetName="Organized Play" releaseDate="2014-05-28">Arena Participation Prize</Set>
+      <Set id="OPArenaPrize"         overallSetName="Organized Play" releaseDate="2014-05-28">Arena Competitive Prize</Set>
+
+      <Set id="i_k_s_b_moth" overallSetName="The Collective Boosters" releaseDate="2014-07-25">I.K.S. B'Moth Expansion</Set>
+      <Set id="gavroche" overallSetName="The Collective Boosters" releaseDate="2014-07-25">Gavroche Expansion</Set>
+      <Set id="i_r_w_vorta_vor" overallSetName="The Collective Boosters" releaseDate="2014-07-25">I.R.W. Vorta Vor Expansion</Set>
+      <Set id="3rd_wing_attack_ship" overallSetName="The Collective Boosters" releaseDate="2014-07-25">3rd Wing Attack Ship Expansion</Set>
+      <Set id="u_s_s_yaeger" overallSetName="The Collective Boosters" releaseDate="2014-07-25">U.S.S. Yeager Expansion</Set>
+
+      <Set id="71120" overallSetName="Core" releaseDate="2013-08-01">Starter Set</Set>
+      <Set id="71121" overallSetName="Wave 0" releaseDate="2013-08-01">U.S.S. Reliant Expansion</Set>
+      <Set id="71122" overallSetName="Wave 0" releaseDate="2013-08-01">U.S.S. Enterprise Expansion</Set>
+      <Set id="71123" overallSetName="Wave 0" releaseDate="2013-08-01">I.R.W. Valdore Expansion</Set>
+      <Set id="71124" overallSetName="Wave 0" releaseDate="2013-08-01">R.I.S. Apnex Expansion</Set>
+      <Set id="71125" overallSetName="Wave 0" releaseDate="2013-08-01">I.K.S. Gr''oth Expansion</Set>
+      <Set id="71126" overallSetName="Wave 0" releaseDate="2013-08-01">I.K.S. Negh''var Expansion</Set>
+      <Set id="71127" overallSetName="Wave 0" releaseDate="2013-08-01">Kraxon Expansion</Set>
+      <Set id="71128" overallSetName="Wave 0" releaseDate="2013-08-01">Gor Portas Expansion</Set>
+
+      <Set id="71268" overallSetName="Wave 1" releaseDate="2013-10-01">U.S.S. Defiant Expansion</Set>
+      <Set id="71269" overallSetName="Wave 1" releaseDate="2013-10-01">I.K.S. Kronos One Expansion</Set>
+      <Set id="71270" overallSetName="Wave 1" releaseDate="2013-10-01">I.R.W. Praetus Expansion</Set>
+      <Set id="71271" overallSetName="Wave 1" releaseDate="2013-10-01">5th Wing Patrol Ship Expansion</Set>
+
+      <Set id="71272" overallSetName="Wave 2" releaseDate="2013-12-01">U.S.S. Excelsior Expansion</Set>
+      <Set id="71273" overallSetName="Wave 2" releaseDate="2013-12-01">I.K.S. Koraga Expansion</Set>
+      <Set id="71274" overallSetName="Wave 2" releaseDate="2013-12-01">R.I.S. Vo Expansion</Set>
+      <Set id="71275" overallSetName="Wave 2" releaseDate="2013-12-01">Koranak Expansion</Set>
+
+      <Set id="71276" overallSetName="Wave 3" releaseDate="2014-02-01">U.S.S. Equinox Expansion</Set>
+      <Set id="71448" overallSetName="Wave 3" releaseDate="2014-02-01">I.K.S. Somraw Expansion</Set>
+      <Set id="71278" overallSetName="Wave 3" releaseDate="2014-02-01">R.I.S. Gal Gath'thong Expansion</Set>
+      <Set id="71279" overallSetName="Wave 3" releaseDate="2014-02-01">4th Division Battleship Expansion</Set>
+
+      <Set id="71280" overallSetName="Wave 4" releaseDate="2014-04-01">U.S.S. Voyager Expansion</Set>
+      <Set id="71281" overallSetName="Wave 4" releaseDate="2014-04-01">Bioship Alpha Expansion</Set>
+      <Set id="71282" overallSetName="Wave 4" releaseDate="2014-04-01">Nistrim Raider Expansion</Set>
+      <Set id="71283" overallSetName="Wave 4" releaseDate="2014-04-01">Borg Sphere 4270 Expansion</Set>
+
+      <Set id="71444" overallSetName="Wave 5" releaseDate="2014-06-01">Tactical Cube Expansion</Set>
+      <Set id="71445" overallSetName="Wave 5" releaseDate="2014-06-01">Interceptor Five Expansion</Set>
+      <Set id="71446" overallSetName="Wave 5" releaseDate="2014-06-01">D’Kyr Expansion</Set>
     </Sets>
     <Flagships>
         <Flagship>

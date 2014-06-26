@@ -2,7 +2,7 @@
 //  DockSet.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 4/12/14.
+//  Created by Rob Tsuk on 6/25/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSNumber * include;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * productName;
+@property (nonatomic, retain) NSDate * releaseDate;
 @property (nonatomic, retain) NSString * wave;
 @property (nonatomic, retain) NSSet *items;
 @end

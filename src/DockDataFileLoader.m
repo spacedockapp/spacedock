@@ -21,6 +21,7 @@
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
 #import "DockWeapon.h"
+#import "ISO8601DateFormatter.h"
 
 @interface DockDataFileLoader () {
     BOOL _force;
@@ -237,6 +238,7 @@ static NSString* makeKey(NSString* key)
 {
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Set" inManagedObjectContext: _managedObjectContext];
     NSMutableDictionary* existingItemsLookup = createExistingItemsLookup(_managedObjectContext, entity);
+    ISO8601DateFormatter* dateFormatter = [[ISO8601DateFormatter alloc] init];
 
     for (NSDictionary* oneSet in sets) {
         NSString* externalId = [oneSet objectForKey: @"id"];
@@ -249,6 +251,9 @@ static NSString* makeKey(NSString* key)
         [c setExternalId: externalId];
         [c setProductName: [oneSet objectForKey: @"ProductName"]];
         [c setName: [oneSet objectForKey: @"overallSetName"]];
+        NSString* releaseDateString = [oneSet objectForKey: @"releaseDate"];
+        NSDate* releaseDate = [dateFormatter dateFromString: releaseDateString];
+        [c setReleaseDate: releaseDate];
     }
 }
 
