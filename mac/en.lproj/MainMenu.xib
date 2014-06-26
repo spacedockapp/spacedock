@@ -3321,11 +3321,11 @@
                                                             <rect key="frame" x="0.0" y="5" width="605" height="200"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <clipView key="contentView" id="BMb-r8-d6u">
-                                                                <rect key="frame" x="1" y="17" width="603" height="167"/>
+                                                                <rect key="frame" x="1" y="17" width="603" height="182"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
-                                                                    <tableView identifier="setsTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" emptySelection="NO" autosaveColumns="NO" headerView="1mc-JA-eEq" id="j2a-Sg-4hV" userLabel="sets">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="616" height="167"/>
+                                                                    <tableView identifier="setsTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" emptySelection="NO" autosaveColumns="NO" headerView="1mc-JA-eEq" id="j2a-Sg-4hV" userLabel="sets">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="603" height="182"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3346,28 +3346,7 @@
                                                                                     <binding destination="wcL-UX-c6a" name="value" keyPath="arrangedObjects.include" id="8DP-Ue-6Uw"/>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn editable="NO" width="300" minWidth="40" maxWidth="1000" id="OR6-B6-nyr" userLabel="product name">
-                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Product Name">
-                                                                                    <font key="font" metaFont="smallSystem"/>
-                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                </tableHeaderCell>
-                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="t2a-F6-c2x">
-                                                                                    <font key="font" metaFont="system"/>
-                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                                </textFieldCell>
-                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="productName"/>
-                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                                                <connections>
-                                                                                    <binding destination="wcL-UX-c6a" name="value" keyPath="arrangedObjects.productName" id="1XE-6P-jEE">
-                                                                                        <dictionary key="options">
-                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
-                                                                                        </dictionary>
-                                                                                    </binding>
-                                                                                </connections>
-                                                                            </tableColumn>
-                                                                            <tableColumn editable="NO" width="200" minWidth="40" maxWidth="1000" id="LGB-EZ-Hys" userLabel="set name">
+                                                                            <tableColumn identifier="set_name" editable="NO" width="247" minWidth="40" maxWidth="1000" id="LGB-EZ-Hys" userLabel="set name">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Set">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -3378,7 +3357,7 @@
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
-                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="name"/>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="productName"/>
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <connections>
                                                                                     <binding destination="wcL-UX-c6a" name="value" keyPath="arrangedObjects.productName" id="sTD-lA-je2">
@@ -3388,7 +3367,7 @@
                                                                                     </binding>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="productName" editable="NO" width="41" minWidth="10" maxWidth="3.4028234663852886e+38" id="q4L-Ie-ASM" userLabel="productName">
+                                                                            <tableColumn identifier="group_name" editable="NO" width="147" minWidth="100" maxWidth="400" id="q4L-Ie-ASM" userLabel="group_name">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Group">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -3399,7 +3378,7 @@
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
-                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="externalId"/>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="name"/>
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <connections>
                                                                                     <binding destination="wcL-UX-c6a" name="value" keyPath="arrangedObjects.name" id="iJb-Fp-poK">
@@ -3409,7 +3388,7 @@
                                                                                     </binding>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn editable="NO" width="10" minWidth="10" maxWidth="3.4028234663852886e+38" id="sDC-eX-ryN">
+                                                                            <tableColumn identifier="release_date" editable="NO" width="147" minWidth="100" maxWidth="400" id="sDC-eX-ryN" userLabel="release date">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Release Date">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -3442,7 +3421,7 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </clipView>
-                                                            <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="MKO-rA-6fx">
+                                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="MKO-rA-6fx">
                                                                 <rect key="frame" x="1" y="184" width="603" height="15"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
@@ -3451,7 +3430,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
                                                             <tableHeaderView key="headerView" id="1mc-JA-eEq">
-                                                                <rect key="frame" x="0.0" y="0.0" width="616" height="17"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="603" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </tableHeaderView>
                                                         </scrollView>
@@ -3971,6 +3950,7 @@
                 <outlet property="resourcesController" destination="YPe-Zs-mE7" id="QpO-G6-Tot"/>
                 <outlet property="resourcesTableView" destination="v13-24-CCG" id="Rq7-QP-07h"/>
                 <outlet property="setsController" destination="wcL-UX-c6a" id="dI4-Dz-lVE"/>
+                <outlet property="setsTableView" destination="j2a-Sg-4hV" id="Dhk-ML-vAt"/>
                 <outlet property="shipsController" destination="Gzr-Z0-87U" id="5vW-HI-mUc"/>
                 <outlet property="shipsTableView" destination="sJW-5v-BIo" id="ln7-xP-Eyt"/>
                 <outlet property="squadDetailController" destination="REc-Lj-a6S" id="Ujp-f8-UcS"/>
