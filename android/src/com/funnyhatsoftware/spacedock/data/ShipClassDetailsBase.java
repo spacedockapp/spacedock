@@ -29,10 +29,10 @@ public class ShipClassDetailsBase extends Base {
     public ShipClassDetailsBase setShips(ArrayList<Ship> v) { mShips = (ArrayList<Ship>)v.clone(); return this;}
 
     public void update(Map<String,Object> data) {
-        mExternalId = DataUtils.stringValue((String)data.get("Id"));
-        mFrontArc = DataUtils.stringValue((String)data.get("FrontArc"));
-        mName = DataUtils.stringValue((String)data.get("Name"));
-        mRearArc = DataUtils.stringValue((String)data.get("RearArc"));
+        mExternalId = DataUtils.stringValue((String)data.get("Id"), "");
+        mFrontArc = DataUtils.stringValue((String)data.get("FrontArc"), "");
+        mName = DataUtils.stringValue((String)data.get("Name"), "");
+        mRearArc = DataUtils.stringValue((String)data.get("RearArc"), "");
     }
 
 }

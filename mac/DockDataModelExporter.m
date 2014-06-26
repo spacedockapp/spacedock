@@ -170,6 +170,15 @@ void emitCastToTarget(NSString *javaClassName, NSMutableString *javaClass)
     [javaClass appendFormat: @"        %@ target = (%@)obj;\n", javaClassName, javaClassName];
 }
 
+NSString* defaultStringValue(NSAttributeDescription* desc)
+{
+    NSString* dv = [desc defaultValue];
+    if (dv == nil) {
+        return @"";
+    }
+    return dv;
+}
+
 -(BOOL)exportEntity:(NSString*)name error:(NSError**)error
 {
     NSEntityDescription* entity = [NSEntityDescription entityForName: name inManagedObjectContext: _context];
@@ -260,7 +269,7 @@ void emitCastToTarget(NSString *javaClassName, NSMutableString *javaClass)
                     
                 case NSStringAttributeType:
                     [javaClass appendFormat: @"        %@ = %@((String)data.get(\"%@\"), \"%@\");\n",
-                     instanceName, attributeTypeToJavaConversion(desc.attributeType), attributeName, [desc.defaultValue stringValue]];
+                     instanceName, attributeTypeToJavaConversion(desc.attributeType), attributeName, defaultStringValue(desc)];
                      break;
                 default:
                     [javaClass appendFormat: @"        %@ = %@((String)data.get(\"%@\"));\n",

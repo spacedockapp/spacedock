@@ -18,8 +18,8 @@ public class ManeuverBase extends Base {
     public ManeuverBase setShipClassDetails(ShipClassDetails v) { mShipClassDetails = v; return this;}
 
     public void update(Map<String,Object> data) {
-        mColor = DataUtils.stringValue((String)data.get("color"));
-        mKind = DataUtils.stringValue((String)data.get("kind"));
+        mColor = DataUtils.stringValue((String)data.get("color"), "white");
+        mKind = DataUtils.stringValue((String)data.get("kind"), "straight");
         mSpeed = DataUtils.intValue((String)data.get("speed"), 1);
     }
 

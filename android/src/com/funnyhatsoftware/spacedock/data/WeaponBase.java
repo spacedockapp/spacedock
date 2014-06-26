@@ -14,7 +14,7 @@ public class WeaponBase extends Upgrade {
     public void update(Map<String,Object> data) {
         super.update(data);
         mAttack = DataUtils.intValue((String)data.get("Attack"), 1);
-        mRange = DataUtils.stringValue((String)data.get("Range"));
+        mRange = DataUtils.stringValue((String)data.get("Range"), "0");
     }
 
 }

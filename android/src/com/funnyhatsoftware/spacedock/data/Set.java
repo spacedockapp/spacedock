@@ -8,7 +8,11 @@ public class Set extends SetBase {
     public static class SetComparator implements Comparator<Set> {
         @Override
         public int compare(Set o1, Set o2) {
-            return o1.getExternalId().compareTo(o2.getExternalId());
+            int v = o1.getReleaseDate().compareTo(o2.getReleaseDate());
+            if (v == 0) {
+                v = o1.getProductName().compareToIgnoreCase(o2.getProductName());
+            }
+            return v;
         }
     }
 

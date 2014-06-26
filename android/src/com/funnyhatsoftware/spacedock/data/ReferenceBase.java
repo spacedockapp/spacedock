@@ -19,10 +19,10 @@ public class ReferenceBase extends SetItem {
 
     public void update(Map<String,Object> data) {
         super.update(data);
-        mAbility = DataUtils.stringValue((String)data.get("Ability"));
-        mExternalId = DataUtils.stringValue((String)data.get("Id"));
-        mTitle = DataUtils.stringValue((String)data.get("Title"));
-        mType = DataUtils.stringValue((String)data.get("Type"));
+        mAbility = DataUtils.stringValue((String)data.get("Ability"), "");
+        mExternalId = DataUtils.stringValue((String)data.get("Id"), "");
+        mTitle = DataUtils.stringValue((String)data.get("Title"), "");
+        mType = DataUtils.stringValue((String)data.get("Type"), "");
     }
 
 }

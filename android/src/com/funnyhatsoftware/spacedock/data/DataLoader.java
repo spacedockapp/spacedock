@@ -413,6 +413,9 @@ public class DataLoader extends DefaultHandler {
             for (int i = 0; i < attributes.getLength(); i++) {
                 String aName = attributes.getLocalName(i);
                 String aValue = attributes.getValue(i);
+                if (aName.equals("releaseDate")) {
+                    aName = "ReleaseDate";
+                }
                 currentAttributes.put(aName, aValue);
             }
         } else {

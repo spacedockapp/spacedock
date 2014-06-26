@@ -70,7 +70,7 @@ public class FlagshipBase extends SetItem {
 
     public void update(Map<String,Object> data) {
         super.update(data);
-        mAbility = DataUtils.stringValue((String)data.get("Ability"));
+        mAbility = DataUtils.stringValue((String)data.get("Ability"), "");
         mAgility = DataUtils.intValue((String)data.get("Agility"), 0);
         mAttack = DataUtils.intValue((String)data.get("Attack"), 0);
         mBattleStations = DataUtils.intValue((String)data.get("Battlestations"), 0);
@@ -78,8 +78,8 @@ public class FlagshipBase extends SetItem {
         mCost = DataUtils.intValue((String)data.get("Cost"), 0);
         mCrew = DataUtils.intValue((String)data.get("Crew"), 0);
         mEvasiveManeuvers = DataUtils.intValue((String)data.get("EvasiveManeuvers"), 0);
-        mExternalId = DataUtils.stringValue((String)data.get("Id"));
-        mFaction = DataUtils.stringValue((String)data.get("Faction"));
+        mExternalId = DataUtils.stringValue((String)data.get("Id"), "");
+        mFaction = DataUtils.stringValue((String)data.get("Faction"), "Independent");
         mHull = DataUtils.intValue((String)data.get("Hull"), 0);
         mScan = DataUtils.intValue((String)data.get("Scan"), 0);
         mSensorEcho = DataUtils.intValue((String)data.get("SensorEcho"), 0);
@@ -87,7 +87,7 @@ public class FlagshipBase extends SetItem {
         mTalent = DataUtils.intValue((String)data.get("Talent"), 0);
         mTargetLock = DataUtils.intValue((String)data.get("TargetLock"), 0);
         mTech = DataUtils.intValue((String)data.get("Tech"), 0);
-        mTitle = DataUtils.stringValue((String)data.get("Title"));
+        mTitle = DataUtils.stringValue((String)data.get("Title"), "");
         mWeapon = DataUtils.intValue((String)data.get("Weapon"), 0);
     }
 

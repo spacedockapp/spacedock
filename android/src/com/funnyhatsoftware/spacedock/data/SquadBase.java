@@ -33,9 +33,9 @@ public class SquadBase extends Base {
     public void update(Map<String,Object> data) {
         mAdditionalPoints = DataUtils.intValue((String)data.get("AdditionalPoints"), 0);
         mModified = DataUtils.dateValue((String)data.get("Modified"));
-        mName = DataUtils.stringValue((String)data.get("Name"));
-        mNotes = DataUtils.stringValue((String)data.get("Notes"));
-        mUuid = DataUtils.stringValue((String)data.get("Uuid"));
+        mName = DataUtils.stringValue((String)data.get("Name"), "Untitled");
+        mNotes = DataUtils.stringValue((String)data.get("Notes"), "");
+        mUuid = DataUtils.stringValue((String)data.get("Uuid"), "");
     }
 
 }

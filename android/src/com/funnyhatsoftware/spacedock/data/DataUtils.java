@@ -65,9 +65,17 @@ public class DataUtils {
         if (v == null) {
             return defaultValue;
         }
-        String s = v.replace("Z", "+00:00");
-        s = s.substring(0, 22) + s.substring(23); // to get rid of the ":"
+        if (!v.contains("T")) {
+            try {
+                return new SimpleDateFormat("yyyy-MM-dd").parse(v);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            return defaultValue;
+        }
         try {
+            String s = v.replace("Z", "+00:00");
+            s = s.substring(0, 22) + s.substring(23); // to get rid of the ":"
             return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(s);
         } catch (ParseException e) {
             e.printStackTrace();
