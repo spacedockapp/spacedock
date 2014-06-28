@@ -25,6 +25,23 @@
 }
 
 
+-(NSIndexPath*)indexPathForUpgrade:(DockUpgrade*)upgrade
+{
+    NSArray* sectionLists = self.sectionLists;
+    NSInteger sectionCount = sectionLists.count;
+    for (int sectionIndex = 0; sectionIndex < sectionCount; ++sectionIndex) {
+        NSArray* sectionObjects = sectionLists[sectionIndex];
+        NSInteger sectionObjectCount = sectionObjects.count;
+        for (int itemIndex = 0; itemIndex < sectionObjectCount; ++itemIndex) {
+            DockUpgrade* u = sectionObjects[itemIndex];
+            if (u == upgrade) {
+                return [NSIndexPath indexPathForItem: itemIndex inSection: sectionIndex];
+            }
+        }
+    }
+    return nil;
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear: animated];
@@ -34,7 +51,7 @@
 
     if (_targetUpgrade) {
         if (![_targetUpgrade isPlaceholder]) {
-            indexPath = [self.fetchedResultsController indexPathForObject: upgrade];
+            indexPath = [self indexPathForUpgrade: upgrade];
         }
     }
 
@@ -48,7 +65,7 @@
 
     if (indexPath == nil && _targetShip) {
         NSString* faction = _targetShip.ship.faction;
-        NSArray* sectionTitles = self.fetchedResultsController.sections;
+        NSArray* sectionTitles = self.sections;
         id titleCheck = ^(id obj, NSUInteger idx, BOOL* stop) {
             id<NSFetchedResultsSectionInfo> sectionInfo = obj;
             return [[sectionInfo name] isEqualToString: faction];
@@ -77,6 +94,25 @@
     self.fetchedResultsController = nil;
 }
 
+-(NSArray*)filterForCost:(NSArray*)rawList
+{
+    int requiredCost = self.cost;
+    if (self.cost == 0) {
+        return [NSArray arrayWithArray: rawList];
+    }
+    NSMutableArray* filtered = [NSMutableArray arrayWithCapacity: rawList.count];
+    for (DockUpgrade* upgrade in rawList) {
+        int upgradeCost = [[upgrade cost] intValue];
+        if (_targetShip) {
+            upgradeCost = [upgrade costForShip: _targetShip];
+        }
+        if (upgradeCost == requiredCost) {
+            [filtered addObject: upgrade];
+        }
+    }
+    return [NSArray arrayWithArray: filtered];
+}
+
 -(void)setupFetch:(NSFetchRequest*)fetchRequest context:(NSManagedObjectContext*)context
 {
     [super setupFetch: fetchRequest context: context];
@@ -99,12 +135,6 @@
     if (faction != nil && [self useFactionFilter]) {
         [predicateTerms addObject: @"faction = %@"];
         [predicateValues addObject: faction];
-    }
-
-    int cost = self.cost;
-    if (cost != 0 && [self useCostFilter]) {
-        [predicateTerms addObject: @"cost = %@"];
-        [predicateValues addObject: [NSNumber numberWithInt: cost]];
     }
 
     NSString* predicateTermString = [predicateTerms componentsJoinedByString: @" and "];
@@ -130,7 +160,7 @@
 {
 
     // Configure the cell to show the book's title
-    DockUpgrade* upgrade = [self.fetchedResultsController objectAtIndexPath: indexPath];
+    DockUpgrade* upgrade = [self objectAtIndexPath: indexPath];
     cell.textLabel.text = [upgrade title];
 
     if (_targetShip) {
@@ -159,7 +189,7 @@
 -(BOOL)tableView:(UITableView*)tableView shouldHighlightRowAtIndexPath:(NSIndexPath*)indexPath
 {
     if (_targetSquad) {
-        DockUpgrade* upgrade = [self.fetchedResultsController objectAtIndexPath: indexPath];
+        DockUpgrade* upgrade = [self objectAtIndexPath: indexPath];
         NSError* error;
 
         if (_targetUpgrade.upgrade == upgrade || [_targetSquad canAddUpgrade: upgrade toShip: _targetShip error: &error]) {
@@ -176,7 +206,7 @@
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
     if (_targetSquad) {
-        DockUpgrade* upgrade = [self.fetchedResultsController objectAtIndexPath: indexPath];
+        DockUpgrade* upgrade = [self objectAtIndexPath: indexPath];
         _onUpgradePicked(upgrade, _overridden, _overrideCost);
         [self clearTarget];
     } else {
@@ -232,7 +262,7 @@
     if ([identifier isEqualToString: @"ShowUpgradeDetails"]) {
         DockUpgradeDetailViewController* controller = (DockUpgradeDetailViewController*)destination;
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
-        DockUpgrade* upgrade = [self.fetchedResultsController objectAtIndexPath: indexPath];
+        DockUpgrade* upgrade = [self objectAtIndexPath: indexPath];
         controller.upgrade = upgrade;
     }
 }

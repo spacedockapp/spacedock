@@ -99,6 +99,13 @@
     }
 }
 
+-(id)objectAtIndexPath:(NSIndexPath*)indexPath
+{
+    NSInteger sectionIndex = indexPath.section;
+    NSArray* sectionObjects = self.sectionLists[sectionIndex];
+    return sectionObjects[indexPath.item];
+}
+
 -(void)updateSelectedSets
 {
     NSArray* includedSets = [DockSet includedSets: _managedObjectContext];
@@ -142,6 +149,11 @@
     [self.tableView reloadData];
 }
 
+-(NSArray*)filterForCost:(NSArray*)rawList
+{
+    return [NSArray arrayWithArray: rawList];
+}
+
 -(void)performFetch
 {
     NSError* error;
@@ -149,6 +161,23 @@
     if (![[self fetchedResultsController] performFetch: &error]) {
         presentError(error);
     }
+    NSArray* originalSections = [self.fetchedResultsController sections];
+    NSMutableArray* sectionLists = [NSMutableArray arrayWithCapacity: originalSections.count];
+    for (id<NSFetchedResultsSectionInfo> sectionInfo in originalSections) {
+        NSArray* sectionObjects = [self filterForCost: sectionInfo.objects];
+        [sectionLists addObject: sectionObjects];
+    }
+    NSMutableArray* finalSections = [NSMutableArray arrayWithCapacity: sectionLists.count];
+    NSMutableArray* finalSectionLists = [NSMutableArray arrayWithCapacity: sectionLists.count];
+    for (int sectionIndex = 0; sectionIndex < sectionLists.count; ++sectionIndex) {
+        NSArray* sectionObjects = sectionLists[sectionIndex];
+        if (sectionObjects.count > 0) {
+            [finalSectionLists addObject: sectionObjects];
+            [finalSections addObject: originalSections[sectionIndex]];
+        }
+    }
+    self.sections = [NSArray arrayWithArray: finalSections];
+    self.sectionLists = [NSArray arrayWithArray: finalSectionLists];
 }
 
 #pragma mark - Table view data source methods
@@ -159,16 +188,15 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
-    NSInteger sectionCount = [[self.fetchedResultsController sections] count];
+    NSInteger sectionCount = [self.sections count];
     return sectionCount;
 }
 
 // Customize the number of rows in the table view.
 -(NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-
-    id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex: section];
-    return [sectionInfo numberOfObjects];
+    NSArray* sectionObjectList = [[self sectionLists] objectAtIndex: section];
+    return [sectionObjectList count];
 }
 
 // Customize the appearance of table view cells.
@@ -188,9 +216,7 @@
 
 -(NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
 {
-
-    // Display the authors' names as section headings.
-    return [[[self.fetchedResultsController sections] objectAtIndex: section] name];
+    return [[self.sections objectAtIndex: section] name];
 }
 
 -(IBAction)faction:(id)sender
