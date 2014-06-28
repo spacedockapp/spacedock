@@ -265,7 +265,7 @@
 {
     NSString* sheetTitle = actionSheet.title;
     if ([sheetTitle isEqualToString: @"Cost"]) {
-        [self updateCost: buttonIndex];
+        [self updateCost: (int)buttonIndex];
     } else {
         NSString* faction;
         switch (buttonIndex) {
