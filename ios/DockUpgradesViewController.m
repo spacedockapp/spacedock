@@ -13,6 +13,7 @@
 @property (assign, nonatomic) BOOL overridden;
 @property (assign, nonatomic) BOOL restore;
 @property (assign, nonatomic) int overrideCost;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem* overrideBarItem;
 @end
 
 @implementation DockUpgradesViewController
@@ -35,6 +36,14 @@
         if (![_targetUpgrade isPlaceholder]) {
             indexPath = [self.fetchedResultsController indexPathForObject: upgrade];
         }
+    }
+
+    if (_targetShip) {
+        _overrideBarItem.enabled = YES;
+        _overrideBarItem.title = @"Override";
+    } else {
+        _overrideBarItem.enabled = NO;
+        _overrideBarItem.title = nil;
     }
 
     if (indexPath == nil && _targetShip) {
@@ -71,24 +80,35 @@
 -(void)setupFetch:(NSFetchRequest*)fetchRequest context:(NSManagedObjectContext*)context
 {
     [super setupFetch: fetchRequest context: context];
-    NSPredicate* predicateTemplate;
     NSArray* includedSets = self.includedSets;
 
     NSString* faction = self.faction;
-    if (faction != nil) {
-        if (includedSets) {
-            predicateTemplate = [NSPredicate predicateWithFormat: @"(upType = %@) and (faction = %@) and (not placeholder == YES) and (any sets.externalId in %@)", _upType, faction, includedSets];
-        } else {
-            predicateTemplate = [NSPredicate predicateWithFormat: @"upType = %@ and faction = %@ and not placeholder == YES", _upType, faction];
-        }
-    } else {
-        if (includedSets) {
-            predicateTemplate = [NSPredicate predicateWithFormat: @"upType = %@ and not placeholder == YES and any sets.externalId in %@", _upType, includedSets];
-        } else {
-            predicateTemplate = [NSPredicate predicateWithFormat: @"upType = %@ and not placeholder == YES", _upType];
-        }
+
+    NSMutableArray* predicateTerms = [NSMutableArray arrayWithCapacity: 0];
+    NSMutableArray* predicateValues = [NSMutableArray arrayWithCapacity: 0];
+
+    [predicateTerms addObject: @"(not placeholder == YES)"];
+    [predicateTerms addObject: @"(upType = %@)"];
+    [predicateValues addObject: _upType];
+
+    if (includedSets) {
+        [predicateTerms addObject: @"any sets.externalId in %@"];
+        [predicateValues addObject: includedSets];
     }
 
+    if (faction != nil && [self useFactionFilter]) {
+        [predicateTerms addObject: @"faction = %@"];
+        [predicateValues addObject: faction];
+    }
+
+    int cost = self.cost;
+    if (cost != 0 && [self useCostFilter]) {
+        [predicateTerms addObject: @"cost = %@"];
+        [predicateValues addObject: [NSNumber numberWithInt: cost]];
+    }
+
+    NSString* predicateTermString = [predicateTerms componentsJoinedByString: @" and "];
+    NSPredicate *predicateTemplate = [NSPredicate predicateWithFormat: predicateTermString argumentArray: predicateValues];
     [fetchRequest setPredicate: predicateTemplate];
 }
 

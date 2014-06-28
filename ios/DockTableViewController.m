@@ -7,6 +7,7 @@
 
 @interface DockTableViewController () <UIActionSheetDelegate>
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* factionBarItem;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem* costBarItem;
 @end
 
 @implementation DockTableViewController
@@ -27,6 +28,11 @@
 }
 
 -(BOOL)useFactionFilter
+{
+    return YES;
+}
+
+-(BOOL)useCostFilter
 {
     return YES;
 }
@@ -57,12 +63,25 @@
 {
     NSString* faction = self.faction;
     NSArray* includedSets = self.includedSets;
-    NSPredicate *predicateTemplate;
+    NSMutableArray* predicateTerms = [NSMutableArray arrayWithCapacity: 0];
+    NSMutableArray* predicateValues = [NSMutableArray arrayWithCapacity: 0];
+
+    [predicateTerms addObject: @"any sets.externalId in %@"];
+    [predicateValues addObject: includedSets];
     if (faction != nil && [self useFactionFilter]) {
-        predicateTemplate = [NSPredicate predicateWithFormat: @"faction = %@ and any sets.externalId in %@", self.faction, includedSets];
-    } else {
-        predicateTemplate = [NSPredicate predicateWithFormat: @"any sets.externalId in %@", includedSets];
+        [predicateTerms addObject: @"faction = %@"];
+        [predicateValues addObject: faction];
     }
+
+    int cost = self.cost;
+    if (cost != 0 && [self useCostFilter]) {
+        [predicateTerms addObject: @"cost = %@"];
+        [predicateValues addObject: [NSNumber numberWithInt: cost]];
+    }
+
+    NSString* predicateTermString = [predicateTerms componentsJoinedByString: @" and "];
+    NSPredicate *predicateTemplate = [NSPredicate predicateWithFormat: predicateTermString argumentArray: predicateValues];
+
     return predicateTemplate;
 }
 
@@ -189,6 +208,19 @@
     [sheet showFromBarButtonItem: _factionBarItem animated: YES];
 }
 
+-(IBAction)cost:(id)sender
+{
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle: @"Cost"
+                                                       delegate: self
+                                              cancelButtonTitle: nil
+                                         destructiveButtonTitle: nil
+                                              otherButtonTitles: @"All", nil];
+    for (int i = 1; i < 8; ++i) {
+        [sheet addButtonWithTitle: [NSString stringWithFormat: @"%d", i]];
+    }
+    [sheet showFromBarButtonItem: _costBarItem animated: YES];
+}
+
 -(void)updateFaction:(NSString*)faction
 {
     _faction = faction;
@@ -197,18 +229,29 @@
     [self clearFetch];
 }
 
+-(void)updateCost:(int)cost
+{
+    self.cost = cost;
+    [self clearFetch];
+}
+
 -(void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSString* faction;
-    switch (buttonIndex) {
-    case 0:
-        [self updateFaction: nil];
-        break;
+    NSString* sheetTitle = actionSheet.title;
+    if ([sheetTitle isEqualToString: @"Cost"]) {
+        [self updateCost: buttonIndex];
+    } else {
+        NSString* faction;
+        switch (buttonIndex) {
+        case 0:
+            [self updateFaction: nil];
+            break;
 
-    default:
-        faction = [actionSheet buttonTitleAtIndex: buttonIndex];
-        [self updateFaction: faction];
-        break;
+        default:
+            faction = [actionSheet buttonTitleAtIndex: buttonIndex];
+            [self updateFaction: faction];
+            break;
+        }
     }
 }
 

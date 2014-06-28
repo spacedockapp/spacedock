@@ -56,6 +56,11 @@
     return NO;
 }
 
+-(BOOL)useCostFilter
+{
+    return NO;
+}
+
 -(void)setupFetch:(NSFetchRequest*)fetchRequest context:(NSManagedObjectContext*)context
 {
     [super setupFetch: fetchRequest context: context];

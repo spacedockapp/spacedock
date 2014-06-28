@@ -98,6 +98,11 @@
                                 <action selector="faction:" destination="ItA-jp-4hr" id="CJR-aP-bNo"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem title="Cost" id="Xri-Jo-QKS">
+                            <connections>
+                                <action selector="cost:" destination="ItA-jp-4hr" id="4ap-ah-1Uq"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Qw6-gB-Qua"/>
                         <barButtonItem title="Override" id="f9C-2x-CG7">
                             <connections>
@@ -107,7 +112,9 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Upgrade" id="11d-kb-pRr"/>
                     <connections>
+                        <outlet property="costBarItem" destination="Xri-Jo-QKS" id="ENR-u8-Qha"/>
                         <outlet property="factionBarItem" destination="hOj-NS-uDd" id="ZP2-7J-5f8"/>
+                        <outlet property="overrideBarItem" destination="f9C-2x-CG7" id="uN2-TT-I4p"/>
                         <segue destination="Lre-O3-tmx" kind="push" identifier="ShowUpgradeDetails" id="tMG-Zk-kkS"/>
                     </connections>
                 </tableViewController>
