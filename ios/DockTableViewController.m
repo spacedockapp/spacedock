@@ -5,7 +5,7 @@
 #import "DockUpgrade+Addons.h"
 #import "DockUtilsMobile.h"
 
-@interface DockTableViewController () <UIActionSheetDelegate>
+@interface DockTableViewController () <UIActionSheetDelegate,UISearchBarDelegate>
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* factionBarItem;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* costBarItem;
 @end
@@ -77,6 +77,12 @@
     if (cost != 0 && [self useCostFilter]) {
         [predicateTerms addObject: @"cost = %@"];
         [predicateValues addObject: [NSNumber numberWithInt: cost]];
+    }
+
+    NSString* searchTerm = self.searchTerm;
+    if (searchTerm != nil) {
+        [predicateTerms addObject: @"title CONTAINS[CD] %@"];
+        [predicateValues addObject: searchTerm];
     }
 
     NSString* predicateTermString = [predicateTerms componentsJoinedByString: @" and "];
@@ -281,5 +287,30 @@
     }
 }
 
+#pragma mark - Search Bar methods
+
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchText.length > 0) {
+        self.searchTerm = searchText;
+    } else {
+        self.searchTerm = nil;
+    }
+    [self clearFetch];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
+{
+    searchBar.text = nil;
+    self.searchTerm = nil;
+    [self clearFetch];
+    [searchBar resignFirstResponder];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *) searchBar
+{
+    [searchBar resignFirstResponder];
+}
 
 @end

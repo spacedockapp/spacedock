@@ -137,6 +137,12 @@
         [predicateValues addObject: faction];
     }
 
+    NSString* searchTerm = self.searchTerm;
+    if (searchTerm != nil) {
+        [predicateTerms addObject: @"title CONTAINS[cd] %@"];
+        [predicateValues addObject: searchTerm];
+    }
+
     NSString* predicateTermString = [predicateTerms componentsJoinedByString: @" and "];
     NSPredicate *predicateTemplate = [NSPredicate predicateWithFormat: predicateTermString argumentArray: predicateValues];
     [fetchRequest setPredicate: predicateTemplate];
