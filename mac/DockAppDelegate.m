@@ -2,6 +2,7 @@
 
 #import "DockBuildMat.h"
 #import "DockCaptain.h"
+#import "DockCompilationExporter.h"
 #import "DockConstants.h"
 #import "DockCrew.h"
 #import "DockDataFileLoader.h"
@@ -1743,6 +1744,29 @@ void addRemoveFlagshipItem(NSMenu *menu)
 {
     _buildMat = [[DockBuildMat alloc] initWithSquad: [self selectedSquad]];
     [_buildMat print];
+}
+
+-(IBAction)exportCompilationFile:(id)sender
+{
+    _currentSavePanel = [NSSavePanel savePanel];
+    _currentSavePanel.allowedFileTypes = @[kSpaceDockCompilationFileExtension];
+    NSString* defaultName = @"Untitled";
+    [_currentSavePanel setNameFieldStringValue: defaultName];
+
+    id completionHandler = ^(NSInteger v) {
+        if (v == NSFileHandlingPanelOKButton) {
+            NSURL* fileUrl = _currentSavePanel.URL;
+            DockCompilationExporter* selectionExporter = [[DockCompilationExporter alloc] initWithPath: [fileUrl path]];
+            NSError* error;
+            if (![selectionExporter export: self.managedObjectContext error: &error]) {
+                [[NSApplication sharedApplication] presentError: error];
+            }
+        }
+        
+        _currentSavePanel = nil;
+    };
+    
+    [_currentSavePanel beginSheetModalForWindow: self.window completionHandler: completionHandler];
 }
 
 @end

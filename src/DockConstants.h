@@ -2,6 +2,7 @@
 
 extern NSString* kSpaceDockSquadFileExtension;
 extern NSString* kSpaceDockSquadListFileExtension;
+extern NSString* kSpaceDockCompilationFileExtension;
 extern NSString* kSpaceDockAllSquadsName;
 extern NSString* kSpaceDockSquadOldFileExtension;
 extern NSString* kSpaceDockSquadWindowsFileExtension;
