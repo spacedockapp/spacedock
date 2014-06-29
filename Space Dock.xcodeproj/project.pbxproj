@@ -487,6 +487,7 @@
 		D475C6711916BD9B00275EF1 /* DockBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockBoxView.m; sourceTree = "<group>"; };
 		D47E0DA6196045200086EB39 /* DockReference+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockReference+Addons.h"; sourceTree = "<group>"; };
 		D47E0DA7196045200086EB39 /* DockReference+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockReference+Addons.m"; sourceTree = "<group>"; };
+		D47E0DA919605D740086EB39 /* Space_Dock_12.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock_12.xcdatamodel; sourceTree = "<group>"; };
 		D485E08A18EA3F0800ACD8AD /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Sparkle/Sparkle.framework; sourceTree = "<group>"; };
 		D4962835192839EE007EFE5A /* DockReferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockReferenceViewController.h; sourceTree = "<group>"; };
 		D4962836192839EE007EFE5A /* DockReferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockReferenceViewController.m; sourceTree = "<group>"; };
@@ -1837,6 +1838,7 @@
 		D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D47E0DA919605D740086EB39 /* Space_Dock_12.xcdatamodel */,
 				D4676231195BD2E500476F49 /* Space_Dock_11.xcdatamodel */,
 				D4BEF86E191BBAB3003E24A2 /* Space_Dock_10.xcdatamodel */,
 				D4F6861E18F993190019C067 /* Space_Dock_9.xcdatamodel */,
@@ -1849,7 +1851,7 @@
 				D40AF35A1802FB36000B9FF3 /* Space_Dock_2.xcdatamodel */,
 				D4F7F40D17F2C95D00F5A808 /* Space_Dock.xcdatamodel */,
 			);
-			currentVersion = D4676231195BD2E500476F49 /* Space_Dock_11.xcdatamodel */;
+			currentVersion = D47E0DA919605D740086EB39 /* Space_Dock_12.xcdatamodel */;
 			path = Space_Dock.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
