@@ -343,6 +343,11 @@
 
 -(int)costForShip:(DockEquippedShip*)equippedShip
 {
+    return [self costForShip: equippedShip equippedUpgade: nil];
+}
+
+-(int)costForShip:(DockEquippedShip*)equippedShip equippedUpgade:(DockEquippedUpgrade*)equippedUpgrade
+{
     DockUpgrade* upgrade = self;
 
     if ([upgrade isPlaceholder]) {
@@ -422,7 +427,7 @@
         if ([upgrade isDominion]) {
             DockEquippedUpgrade* most = [equippedShip mostExpensiveUpgradeOfFaction: @"Dominion" upType: nil];
 
-            if (most.upgrade == self) {
+            if (most.upgrade == self && (equippedUpgrade == nil || equippedUpgrade == most)) {
                 cost -= 2;
             }
         }
@@ -433,7 +438,7 @@
             id upgradeCheck = ^(id obj, NSUInteger idx, BOOL* stop) {
                 DockEquippedUpgrade* eu = obj;
                 DockUpgrade* upgradeToTest = eu.upgrade;
-                return upgradeToTest == self;
+                return (upgradeToTest == self && (equippedUpgrade == nil || equippedUpgrade == eu));
             };
             NSInteger position = [all indexOfObjectPassingTest: upgradeCheck];
 

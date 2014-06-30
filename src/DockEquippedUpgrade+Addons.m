@@ -98,7 +98,7 @@
 {
     DockEquippedShip* equippedShip = self.equippedShip;
     DockUpgrade* upgrade = self.upgrade;
-    return [upgrade costForShip: equippedShip];
+    return [upgrade costForShip: equippedShip equippedUpgade: self];
 }
 
 -(int)cost
