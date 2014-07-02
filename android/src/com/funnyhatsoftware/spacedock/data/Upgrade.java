@@ -1,6 +1,8 @@
 
 package com.funnyhatsoftware.spacedock.data;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -184,7 +186,7 @@ public class Upgrade extends UpgradeBase {
         return String.format("%s (%s)", getTitle(), getUpType());
     }
 
-    public int calculateCostForShip(EquippedShip equippedShip) {
+    public int calculateCostForShip(EquippedShip equippedShip, EquippedUpgrade equippedUpgrade) {
         if (isPlaceholder()) {
             return 0;
         }
@@ -265,7 +267,7 @@ public class Upgrade extends UpgradeBase {
         if (captainSpecial.equals("OneDominionUpgradeCostsMinusTwo") && !shipIsSideboard) {
             if (isDominion()) {
                 EquippedUpgrade most = equippedShip.mostExpensiveUpgradeOfFaction("Dominion");
-                if (most != null && this == most.getUpgrade()) {
+                if (most != null && this == most.getUpgrade() && most == equippedUpgrade) {
                     cost -= 2;
                 }
             }
@@ -277,7 +279,7 @@ public class Upgrade extends UpgradeBase {
                 for (int i = 0; i < all.size(); ++i) {
                     EquippedUpgrade eu = all.get(i);
                     Upgrade upgradeToTest = eu.getUpgrade();
-                    if (this == upgradeToTest) {
+                    if (this == upgradeToTest && eu == equippedUpgrade) {
                         index = i;
                         break;
                     }
@@ -330,7 +332,7 @@ public class Upgrade extends UpgradeBase {
         if (cost < 0) {
             cost = 0;
         }
-        
+
         return cost;
 
     }
