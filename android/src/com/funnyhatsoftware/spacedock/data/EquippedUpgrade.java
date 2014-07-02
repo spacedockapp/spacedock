@@ -44,7 +44,7 @@ public class EquippedUpgrade extends EquippedUpgradeBase {
         if (equippedShip == null) {
             return mUpgrade.getCost();
         }
-        return mUpgrade.calculateCostForShip(equippedShip,this);
+        return mUpgrade.calculateCostForShip(equippedShip);
     }
 
     int getCost() {
@@ -62,14 +62,14 @@ public class EquippedUpgrade extends EquippedUpgradeBase {
     public boolean isCaptain() {
         return mUpgrade.isCaptain();
     }
-
+    
     public boolean isEqualToUpgrade(Upgrade upgrade) {
         if (upgrade.isPlaceholder() != isPlaceholder()) {
             return false;
         }
-
+        
         return getUpgrade().getExternalId().equals(upgrade.getExternalId());
-
+        
     }
 
     public JSONObject asJSON() throws JSONException {
