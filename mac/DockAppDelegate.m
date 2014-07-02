@@ -32,6 +32,7 @@
 #import "DockUtils.h"
 #import "DockWeapon.h"
 
+#import "NSFileManager+Addons.h"
 #import "NSTreeController+Additions.h"
 
 NSString* kWarnAboutUnhandledSpecials = @"warnAboutUnhandledSpecials";
@@ -182,6 +183,14 @@ NSString* kShowDataModelExport = @"showDataModelExport";
     return [[NSBundle mainBundle] pathForResource: @"Data" ofType: @"xml"];
 }
 
+-(NSString*)backupDirectory
+{
+    NSString* appData = [[DockAppDelegate applicationFilesDirectory] path];
+    NSString* backupPath = [appData stringByAppendingPathComponent: @"backup"];
+    backupPath = [backupPath stringByAppendingPathExtension: kSpaceDockSquadListFileExtension];
+    return backupPath;
+}
+
 -(void)applicationDidFinishLaunching:(NSNotification*)aNotification
 {
     [self loadData];
@@ -215,6 +224,9 @@ NSString* kShowDataModelExport = @"showDataModelExport";
     }
     
     self.expandedRows = [defaults boolForKey: kExpandedRows];
+
+    NSArray* contents = [[NSFileManager defaultManager] sortedContentsOfDirectoryAtPath: @"/Users/rob/Desktop" error: nil];
+    NSLog(@"contents = %@", contents);
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
