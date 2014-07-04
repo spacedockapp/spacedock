@@ -1,5 +1,6 @@
 #import "DockSquad+Addons.h"
 
+#import "DockBackupManager.h"
 #import "DockCaptain+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
@@ -159,7 +160,7 @@ static BOOL sIsImporting = NO;
 
 +(NSError*)saveSquadsToDisk:(NSString*)targetPath context:(NSManagedObjectContext*)context
 {
-    NSError *error;
+    NSError *error = nil;
     NSData *squadData = [self allSquadsAsJSON:context error: &error];
     if (squadData != nil) {
         [squadData writeToFile: targetPath atomically: YES];
@@ -459,7 +460,7 @@ static BOOL sIsImporting = NO;
         NSDate* modified = self.modified;
         if (modified == nil || [now timeIntervalSinceDate:modified] > 1.0) {
             self.modified = now;
-            NSLog(@"updating date for %@ to %@", self.uuid, self.modified);
+            [[DockBackupManager sharedBackupManager] setSquadHasChanged: YES];
         }
     }
 }

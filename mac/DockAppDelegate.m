@@ -1,5 +1,6 @@
 #import "DockAppDelegate.h"
 
+#import "DockBackupManager.h"
 #import "DockBuildMat.h"
 #import "DockCaptain.h"
 #import "DockConstants.h"
@@ -224,9 +225,6 @@ NSString* kShowDataModelExport = @"showDataModelExport";
     }
     
     self.expandedRows = [defaults boolForKey: kExpandedRows];
-
-    NSArray* contents = [[NSFileManager defaultManager] sortedContentsOfDirectoryAtPath: @"/Users/rob/Desktop" error: nil];
-    NSLog(@"contents = %@", contents);
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
@@ -234,7 +232,7 @@ NSString* kShowDataModelExport = @"showDataModelExport";
 {
     NSFileManager* fileManager = [NSFileManager defaultManager];
     NSURL* appSupportURL = [[fileManager URLsForDirectory: NSApplicationSupportDirectory inDomains: NSUserDomainMask] lastObject];
-    return [appSupportURL URLByAppendingPathComponent: @"com.funnyhatsoftware.Space_Dock"];
+    return [appSupportURL URLByAppendingPathComponent: kDockBundleIdentifier];
 }
 
 // Creates if necessary and returns the managed object model for the application.
@@ -374,8 +372,15 @@ NSString* kShowDataModelExport = @"showDataModelExport";
     }
 
     NSError* error = nil;
+    
+    BOOL coreDataSave = [[self managedObjectContext] save: &error];
 
-    if (![[self managedObjectContext] save: &error]) {
+    DockBackupManager* backupManager = [DockBackupManager sharedBackupManager];
+    if (backupManager.squadHasChanged) {
+        [backupManager backupNow: self.managedObjectContext error: nil];
+    }
+
+    if (!coreDataSave) {
 
         // Customize this code block to include application-specific recovery steps.
         BOOL result = [sender presentError: error];

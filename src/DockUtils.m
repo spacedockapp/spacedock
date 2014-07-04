@@ -1,5 +1,6 @@
 #import "DockUtils.h"
 
+#import "DockConstants.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockResource+Addons.h"
 #import "DockShip+Addons.h"
@@ -105,3 +106,9 @@ NSArray* actionStrings(id target)
     return [NSArray arrayWithArray: actionStringParts];
 }
 
+NSURL* applicationFilesDirectory()
+{
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    NSURL* appSupportURL = [[fileManager URLsForDirectory: NSApplicationSupportDirectory inDomains: NSUserDomainMask] lastObject];
+    return [appSupportURL URLByAppendingPathComponent: kDockBundleIdentifier];
+}

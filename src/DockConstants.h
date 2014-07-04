@@ -10,3 +10,5 @@ extern NSString* kSpaceDockFactionFilterKey;
 
 extern NSString* kSquadTooLargeToPrint;
 extern NSString* kFlagshipPrintingError;
+
+extern NSString* kDockBundleIdentifier;

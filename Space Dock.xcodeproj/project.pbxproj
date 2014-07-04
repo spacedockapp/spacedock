@@ -917,8 +917,6 @@
 		D4AAA2B617F4C9B200A99383 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				D4C1A7A8196309C50070005E /* DockBackupManager.h */,
-				D4C1A7A9196309C50070005E /* DockBackupManager.m */,
 				D41B6A2D195BD6E600AF2848 /* DockSet.h */,
 				D41B6A2E195BD6E600AF2848 /* DockSet.m */,
 				D4D7C321192D003000FEABDF /* DockReference.h */,
@@ -1049,6 +1047,8 @@
 			isa = PBXGroup;
 			children = (
 				D4AAA2B617F4C9B200A99383 /* Entities */,
+				D4C1A7A8196309C50070005E /* DockBackupManager.h */,
+				D4C1A7A9196309C50070005E /* DockBackupManager.m */,
 				D41B77E717FE13D1005A5DA8 /* DockBooleanFormatter.h */,
 				D41B77E817FE13D1005A5DA8 /* DockBooleanFormatter.m */,
 				D460664218FC226B007A1655 /* DockBorg+Addons.h */,

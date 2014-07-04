@@ -1,5 +1,6 @@
 #import "DockAppDelegate.h"
 
+#import "DockBackupManager.h"
 #import "DockBuildSheetRenderer.h"
 #import "DockConstants.h"
 #import "DockDataLoader.h"
@@ -149,6 +150,20 @@
     return NO;
 }
 
+-(void)cleanupSavedSquads
+{
+    NSString* targetDirectory = [[self applicationDocumentsDirectory] path];
+    NSFileManager* fm = [NSFileManager defaultManager];
+    NSArray* files = [fm contentsOfDirectoryAtPath: targetDirectory error: nil];
+    for (NSString* oneFileName in files) {
+        NSString* extension = [oneFileName pathExtension];
+        if ([extension isEqualToString: @"json"]) {
+            NSString* oneTargetPath = [targetDirectory stringByAppendingPathComponent: oneFileName];
+            [fm removeItemAtPath: oneTargetPath error: nil];
+        }
+    }
+}
+
 -(void)applicationWillTerminate:(UIApplication*)application
 {
     [self saveContext];
@@ -177,19 +192,28 @@
 -(void)saveContext
 {
     NSError* error;
+    
+    [self cleanupSavedSquads];
 
     if (_managedObjectContext != nil) {
-    
-        [self saveSquadsToDisk];
         
-        if ([_managedObjectContext hasChanges] && ![_managedObjectContext save: &error]) {
-            /*
-               Replace this implementation with code to handle the error appropriately.
-
-               abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-             */
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
+        DockBackupManager* backupManager = [DockBackupManager sharedBackupManager];
+        if (backupManager.squadHasChanged) {
+            [backupManager backupNow: self.managedObjectContext error: nil];
+        }
+        
+        if ([_managedObjectContext hasChanges]) {
+            BOOL contextSaved = [_managedObjectContext save: &error];
+            
+            if (!contextSaved) {
+                /*
+                 Replace this implementation with code to handle the error appropriately.
+                 
+                 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                 */
+                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                abort();
+            }
         }
     }
     

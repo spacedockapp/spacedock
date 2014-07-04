@@ -12,7 +12,6 @@
         if (d == nil) {
             return nil;
         }
-        NSLog(@"d = %@", d);
         fileDates[itemName] = d[NSFileModificationDate];
     }
     id byDate = ^(NSString* a, NSString* b) {
