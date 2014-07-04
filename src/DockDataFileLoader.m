@@ -58,8 +58,8 @@
 
 -(void)reset
 {
-    _listElementNames = [NSSet setWithArray: @[@"Sets", @"Upgrades", @"Captains", @"Ships", @"Resources", @"Maneuvers", @"ShipClassDetails", @"Flagships", @"ReferenceItems"]];
-    _itemElementNames = [NSSet setWithArray: @[@"Set", @"Upgrade", @"Captain", @"Ship", @"Resource", @"Maneuver", @"ShipClassDetail", @"Flagship", @"Reference"]];
+    _listElementNames = [NSSet setWithArray: @[@"Sets", @"Upgrades", @"Captains", @"Admirals", @"Ships", @"Resources", @"Maneuvers", @"ShipClassDetails", @"Flagships", @"ReferenceItems"]];
+    _itemElementNames = [NSSet setWithArray: @[@"Set", @"Upgrade", @"Captain", @"Admiral", @"Ship", @"Resource", @"Maneuver", @"ShipClassDetail", @"Flagship", @"Reference"]];
     _elementNameStack = [[NSMutableArray alloc] initWithCapacity: 0];
     _listStack = [[NSMutableArray alloc] initWithCapacity: 0];
     _elementStack = [[NSMutableArray alloc] initWithCapacity: 0];

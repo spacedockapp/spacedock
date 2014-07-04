@@ -1,0 +1,38 @@
+  <Admiral>
+    <Title>James T. Kirk</Title>
+    <Ability>ACTION: Target a ship at Range 1.  Disable one Upgrade of your choice on the target ship.</Ability>
+    <Unique>Y</Unique>
+    <Skill>8</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
+    <Cost>5</Cost>
+    <Id>james_t_kirk_71523</Id>
+    <Set>71523</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: Target a ship at Range 1.  Disable one Upgrade of your choice on the target ship.</AdmiralAbility>
+    <AdmiralCost>5</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>2</SkillModifier>
+  </Admiral>
+  <Admiral>
+    <Title>Gul Dukat</Title>
+    <Ability>ACTION: When attacking with your Primary Weapon this round, gain +1 attack die.</Ability>
+    <Unique>Y</Unique>
+    <Skill>8</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Dominion</Faction>
+    <Cost>5</Cost>
+    <Id>gul_dukat_71524</Id>
+    <Set>71524</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: When attacking with your Primary Weapon this round, gain +1 attack die.</AdmiralAbility>
+    <AdmiralCost>5</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
+  </Admiral>
