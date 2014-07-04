@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Admiral" representedClassName="DockAdmiral" parentEntity="Captain" syncable="YES">
+        <attribute name="admiralAbility" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="admiralCost" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="admiralTalent" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="skillModifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="Borg" representedClassName="DockBorg" parentEntity="Upgrade" syncable="YES"/>
     <entity name="Captain" representedClassName="DockCaptain" parentEntity="Upgrade" syncable="YES">
         <attribute name="skill" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -144,9 +150,9 @@
         <attribute name="range" attributeType="String" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Borg" positionX="9" positionY="153" width="128" height="45"/>
+        <element name="Borg" positionX="9" positionY="153" width="128" height="43"/>
         <element name="Captain" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="Crew" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="Crew" positionX="0" positionY="0" width="128" height="43"/>
         <element name="EquippedShip" positionX="0" positionY="0" width="128" height="105"/>
         <element name="EquippedUpgrade" positionX="0" positionY="0" width="128" height="105"/>
         <element name="Flagship" positionX="0" positionY="0" width="128" height="345"/>
@@ -157,11 +163,12 @@
         <element name="SetItem" positionX="0" positionY="0" width="128" height="60"/>
         <element name="Ship" positionX="0" positionY="0" width="128" height="433"/>
         <element name="ShipClassDetails" positionX="0" positionY="0" width="128" height="135"/>
-        <element name="Sideboard" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="Sideboard" positionX="0" positionY="0" width="128" height="43"/>
         <element name="Squad" positionX="0" positionY="0" width="128" height="150"/>
-        <element name="Talent" positionX="0" positionY="0" width="128" height="45"/>
-        <element name="Tech" positionX="0" positionY="0" width="128" height="45"/>
+        <element name="Talent" positionX="0" positionY="0" width="128" height="43"/>
+        <element name="Tech" positionX="0" positionY="0" width="128" height="43"/>
         <element name="Upgrade" positionX="0" positionY="0" width="128" height="195"/>
         <element name="Weapon" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="Admiral" positionX="27" positionY="225" width="128" height="103"/>
     </elements>
 </model>
