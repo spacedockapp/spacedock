@@ -548,5 +548,10 @@
     return nil;
 }
 
+-(NSString*)combinedFactions
+{
+    return combinedFactionString(self);
+}
+
 
 @end

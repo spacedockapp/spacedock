@@ -156,10 +156,19 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
     NSEntityDescription* entity = [NSEntityDescription entityForName: entityName inManagedObjectContext: _managedObjectContext];
     NSMutableDictionary* existingItemsLookup = createExistingItemsLookup(_managedObjectContext, entity);
 
-    NSDictionary* attributes = [NSDictionary dictionaryWithDictionary: [entity attributesByName]];
+    NSMutableDictionary* attributes = [NSMutableDictionary dictionaryWithDictionary: [entity attributesByName]];
+    NSEntityDescription* superEntity = entity.superentity;
+    while (superEntity != nil) {
+        NSDictionary* superAttributes = [NSDictionary dictionaryWithDictionary: [superEntity attributesByName]];
+        [attributes addEntriesFromDictionary: superAttributes];
+        superEntity = superEntity.superentity;
+    }
 
     for (NSDictionary* d in items) {
         NSString* nodeType = d[@"Type"];
+        if ([d valueForKey: @"AdditonalFaction"]) {
+            NSLog(@"here's one");
+        }
 
         if (targetType == nil || [nodeType isEqualToString: targetType]) {
             NSString* externalId = d[@"Id"];

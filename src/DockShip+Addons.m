@@ -348,5 +348,9 @@ NSString* asDegrees(NSString* textValue)
     return self.title;
 }
 
+-(NSString*)combinedFactions
+{
+    return combinedFactionString(self);
+}
 
 @end

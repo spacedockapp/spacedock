@@ -1,4 +1,4 @@
-<Data xversion="1.224">
+<Data xversion="1.225">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1664,10 +1664,11 @@
       <Set>OP1Prize</Set>
     </Ship>
     <Ship>
-      <Title>Deep Space 9 (Federation)</Title>
+      <Title>Deep Space 9</Title>
       <Unique>Y</Unique>
       <ShipClass>Nor Class Orbital Space Station</ShipClass>
       <Faction>Federation</Faction>
+      <AdditionalFaction>Bajoran</AdditionalFaction>
       <Attack>5</Attack>
       <Agility>0</Agility>
       <Hull>8</Hull>
@@ -1688,33 +1689,6 @@
       <Weapon>3</Weapon>
       <Crew>3</Crew>
       <Id>1025</Id>
-      <Set>OP1Participation</Set>
-    </Ship>
-    <Ship>
-      <Title>Deep Space 9 (Bajoran)</Title>
-      <Unique>Y</Unique>
-      <ShipClass>Nor Class Orbital Space Station</ShipClass>
-      <Faction>Bajoran</Faction>
-      <Attack>5</Attack>
-      <Agility>0</Agility>
-      <Hull>8</Hull>
-      <Shield>8</Shield>
-      <Ability>When firing any torpedoes, do not disable the torpedoes.</Ability>
-      <Cost>44</Cost>
-      <EvasiveManeuvers>
-      </EvasiveManeuvers>
-      <TargetLock>1</TargetLock>
-      <Scan>1</Scan>
-      <Battlestations>1</Battlestations>
-      <Cloak>
-      </Cloak>
-      <SensorEcho>
-      </SensorEcho>
-      <Tech>
-      </Tech>
-      <Weapon>3</Weapon>
-      <Crew>3</Crew>
-      <Id>1026</Id>
       <Set>OP1Participation</Set>
     </Ship>
     <Ship>
@@ -3339,6 +3313,7 @@
       <Unique>Y</Unique>
       <ShipClass>Borg Type 03</ShipClass>
       <Faction>Borg</Faction>
+      <AdditionalFaction>Independent</AdditionalFaction>
       <Attack>6</Attack>
       <Agility>1</Agility>
       <Hull>7</Hull>
@@ -4769,8 +4744,8 @@
       <Type>Captain</Type>
       <Faction>Independent</Faction>
       <Cost>2</Cost>
-      <Id>hugh_</Id>
-      <Set></Set>
+      <Id>hugh_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -4784,8 +4759,8 @@
       <Type>Captain</Type>
       <Faction>Independent</Faction>
       <Cost>4</Cost>
-      <Id>lore_</Id>
-      <Set></Set>
+      <Id>lore_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -8665,9 +8640,10 @@
       <Range></Range>
       <Type>Crew</Type>
       <Faction>Borg</Faction>
+      <AdditionalFaction>Independent</AdditionalFaction>
       <Cost>1</Cost>
-      <Id>goval_</Id>
-      <Set></Set>
+      <Id>goval_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -8680,9 +8656,10 @@
       <Range></Range>
       <Type>Crew</Type>
       <Faction>Borg</Faction>
+      <AdditionalFaction>Independent</AdditionalFaction>
       <Cost>2</Cost>
-      <Id>bosus_</Id>
-      <Set></Set>
+      <Id>bosus_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -8695,9 +8672,10 @@
       <Range></Range>
       <Type>Crew</Type>
       <Faction>Borg</Faction>
+      <AdditionalFaction>Independent</AdditionalFaction>
       <Cost>5</Cost>
-      <Id>crosis_</Id>
-      <Set></Set>
+      <Id>crosis_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -8710,9 +8688,10 @@
       <Range></Range>
       <Type>Crew</Type>
       <Faction>Borg</Faction>
+      <AdditionalFaction>Independent</AdditionalFaction>
       <Cost>2</Cost>
-      <Id>torsus_</Id>
-      <Set></Set>
+      <Id>torsus_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -8726,8 +8705,8 @@
       <Type>Talent</Type>
       <Faction>Independent</Faction>
       <Cost>5</Cost>
-      <Id>diversionary_tactics_</Id>
-      <Set></Set>
+      <Id>diversionary_tactics_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>

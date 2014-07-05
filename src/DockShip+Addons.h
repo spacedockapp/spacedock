@@ -1,10 +1,12 @@
 #import "DockShip.h"
 
+#import "DockFactioned.h"
+
 @class DockManeuver;
 @class DockFlagship;
 @class DockResource;
 
-@interface DockShip (Addons)
+@interface DockShip (Addons)<DockFactioned>
 +(NSArray*)allShips:(NSManagedObjectContext*)context;
 +(DockShip*)shipForId:(NSString*)externalId context:(NSManagedObjectContext*)context;
 -(DockShip*)counterpart;
