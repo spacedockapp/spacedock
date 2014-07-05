@@ -139,7 +139,7 @@ enum {
         return [self cell: tableView forKey: @"shipClass" label: @"Class"];
 
     case kShipDetailFaction:
-        return [self cell: tableView forKey: @"faction" label: @"Faction"];
+        return [self cell: tableView forKey: @"combinedFactions" label: @"Faction"];
 
     case kShipDetailCost:
         return [self cell: tableView forKey: @"cost" label: @"Cost"];

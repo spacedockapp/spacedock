@@ -3,6 +3,7 @@
 #import "DockCaptain+Addons.h"
 #import "DockSetItem+Addons.h"
 #import "DockUpgrade+Addons.h"
+#import "DockUtils.h"
 #import "DockWeapon+Addons.h"
 
 @interface DockUpgradeDetailViewController ()
@@ -67,7 +68,7 @@
 {
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
     cell.textLabel.text = @"Faction";
-    cell.detailTextLabel.text = _upgrade.faction;
+    cell.detailTextLabel.text = combinedFactionString(_upgrade);
     return cell;
 }
 
