@@ -357,8 +357,6 @@
     int cost = [upgrade.cost intValue];
 
     DockShip* ship = equippedShip.ship;
-    NSString* shipFaction = ship.faction;
-    NSString* upgradeFaction = upgrade.faction;
     DockCaptain* captain = equippedShip.captain;
     BOOL isSideboard = [equippedShip isResourceSideboard];
 
@@ -476,7 +474,7 @@
         }
     }
 
-    if (![shipFaction isEqualToString: upgradeFaction] && !equippedShip.isResourceSideboard && ![equippedShip.flagship.faction isEqualToString: upgradeFaction]) {
+    if (!factionsMatch(ship, self) && !equippedShip.isResourceSideboard && !factionsMatch(self, equippedShip.flagship)) {
         if ([captainSpecial isEqualToString: @"UpgradesIgnoreFactionPenalty"] && ![upgrade isCaptain]) {
         } else if ([captainSpecial isEqualToString: @"NoPenaltyOnFederationOrBajoranShip"]  && [upgrade isCaptain]) {
             if (!([ship isFederation] || [ship isBajoran])) {

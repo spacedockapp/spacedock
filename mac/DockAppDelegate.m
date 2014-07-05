@@ -929,7 +929,8 @@ NSString* kShowDataModelExport = @"showDataModelExport";
 
     if (_factionName) {
         [upgradeArgumentParts addObject: _factionName];
-        [upgradeFormatParts addObject: @"(faction = %@)"];
+        [upgradeArgumentParts addObject: _factionName];
+        [upgradeFormatParts addObject: @"(faction = %@ or additionalFaction = %@)"];
     }
 
     if (_upType) {
@@ -947,7 +948,8 @@ NSString* kShowDataModelExport = @"showDataModelExport";
         _flagshipsController.fetchPredicate = predicateTemplate;
         _flagshipsController.fetchPredicate = predicateTemplate;
     } else {
-        NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"faction = %@ and any sets.externalId in %@", _factionName, _includedSets];
+        NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"(faction = %@ or additionalFaction = %@) and any sets.externalId in %@",
+        _factionName, _factionName, _includedSets];
         _shipsController.fetchPredicate = predicateTemplate;
         _captainsController.fetchPredicate = predicateTemplate;
         predicateTemplate = [NSPredicate predicateWithFormat: @"faction in %@ and any sets.externalId in %@", @[_factionName, @"Independent"], _includedSets];
