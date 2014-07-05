@@ -133,7 +133,8 @@
     }
 
     if (faction != nil && [self useFactionFilter]) {
-        [predicateTerms addObject: @"faction = %@"];
+        [predicateTerms addObject: @"(faction = %@ or additionalFaction = %@)"];
+        [predicateValues addObject: faction];
         [predicateValues addObject: faction];
     }
 

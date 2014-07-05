@@ -69,7 +69,8 @@
     [predicateTerms addObject: @"any sets.externalId in %@"];
     [predicateValues addObject: includedSets];
     if (faction != nil && [self useFactionFilter]) {
-        [predicateTerms addObject: @"faction = %@"];
+        [predicateTerms addObject: @"(faction = %@ or additionalFaction = %@)"];
+        [predicateValues addObject: faction];
         [predicateValues addObject: faction];
     }
 
