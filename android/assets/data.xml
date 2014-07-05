@@ -959,6 +959,75 @@
       <FrontArc>90</FrontArc>
       <RearArc></RearArc>
     </ShipClassDetail>
+    <ShipClassDetail>
+      <Name>Constitution Refit Class</Name>
+      <Id>constitution_refit_class</Id>
+      <Maneuvers>
+        <Maneuver speed="4" kind="straight" color="white" />
+        <Maneuver speed="3" kind="left-turn" color="red" />
+        <Maneuver speed="3" kind="left-bank" color="white" />
+        <Maneuver speed="3" kind="straight" color="white" />
+        <Maneuver speed="3" kind="right-bank" color="white" />
+        <Maneuver speed="3" kind="right-turn" color="red" />
+        <Maneuver speed="2" kind="left-turn" color="white" />
+        <Maneuver speed="2" kind="left-bank" color="green" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-bank" color="green" />
+        <Maneuver speed="2" kind="right-turn" color="white" />
+        <Maneuver speed="1" kind="left-bank" color="green" />
+        <Maneuver speed="1" kind="straight" color="green" />
+        <Maneuver speed="1" kind="right-bank" color="green" />
+        <Maneuver speed="-2" kind="straight" color="red" />
+      </Maneuvers>
+      <FrontArc>180</FrontArc>
+      <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+      <Name>Jem'Hadar Battle Cruiser</Name>
+      <Id>jem_hadar_battle_cruiser</Id>
+      <Maneuvers>
+        <Maneuver speed="4" kind="straight" color="white" />
+        <Maneuver speed="4" kind="about" color="red" />
+        <Maneuver speed="3" kind="left-turn" color="red" />
+        <Maneuver speed="3" kind="left-bank" color="white" />
+        <Maneuver speed="3" kind="straight" color="white" />
+        <Maneuver speed="3" kind="right-bank" color="white" />
+        <Maneuver speed="3" kind="right-turn" color="red" />
+        <Maneuver speed="2" kind="left-turn" color="white" />
+        <Maneuver speed="2" kind="left-bank" color="white" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-bank" color="white" />
+        <Maneuver speed="2" kind="right-turn" color="white" />
+        <Maneuver speed="1" kind="left-bank" color="green" />
+        <Maneuver speed="1" kind="straight" color="green" />
+        <Maneuver speed="1" kind="right-bank" color="green" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
+      <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+      <Name>Borg Type 03</Name>
+      <Id>borg_type_03</Id>
+      <Maneuvers>
+        <Maneuver speed="6" kind="straight" color="red" />
+        <Maneuver speed="5" kind="straight" color="white" />
+        <Maneuver speed="4" kind="left-bank" color="white" />
+        <Maneuver speed="4" kind="straight" color="white" />
+        <Maneuver speed="4" kind="right-bank" color="white" />
+        <Maneuver speed="4" kind="about" color="red" />
+        <Maneuver speed="3" kind="left-turn" color="red" />
+        <Maneuver speed="3" kind="left-bank" color="white" />
+        <Maneuver speed="3" kind="straight" color="green" />
+        <Maneuver speed="3" kind="right-bank" color="white" />
+        <Maneuver speed="3" kind="right-turn" color="red" />
+        <Maneuver speed="2" kind="left-bank" color="green" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-bank" color="green" />
+        <Maneuver speed="1" kind="straight" color="green" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
+      <RearArc></RearArc>
+    </ShipClassDetail>
   </ShipClassDetails>
   <Ships>
     <Ship>
@@ -8595,7 +8664,7 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Borg, Independent</Faction>
+      <Faction>Borg</Faction>
       <Cost>1</Cost>
       <Id>goval_</Id>
       <Set></Set>
@@ -8610,7 +8679,7 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Borg, Independent</Faction>
+      <Faction>Borg</Faction>
       <Cost>2</Cost>
       <Id>bosus_</Id>
       <Set></Set>
@@ -8625,7 +8694,7 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Borg, Independent</Faction>
+      <Faction>Borg</Faction>
       <Cost>5</Cost>
       <Id>crosis_</Id>
       <Set></Set>
@@ -8640,7 +8709,7 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Borg, Independent</Faction>
+      <Faction>Borg</Faction>
       <Cost>2</Cost>
       <Id>torsus_</Id>
       <Set></Set>
@@ -9119,9 +9188,9 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
       <Set id="71445" overallSetName="Wave 5" releaseDate="2014-06-01">Interceptor Five Expansion</Set>
       <Set id="71446" overallSetName="Wave 5" releaseDate="2014-06-01">D’Kyr Expansion</Set>
 
-      <Set id="71523" overallSetName="Wave 6" releaseDate="2014-07-01">U.S.S. Enterprise (Refit)</Set>
-      <Set id="71524" overallSetName="Wave 6" releaseDate="2014-07-01">Soong Expansion</Set>
-      <Set id="71522" overallSetName="Wave 6" releaseDate="2014-07-01">Battle Cruiser</Set>
+      <Set id="71523" overallSetName="Wave 6" releaseDate="2014-07-01">U.S.S. Enterprise (Refit) Expansion</Set>
+      <Set id="71522" overallSetName="Wave 6" releaseDate="2014-07-01">Soong Expansion</Set>
+      <Set id="71524" overallSetName="Wave 6" releaseDate="2014-07-01">Battle Cruiser Expansion</Set>
     </Sets>
     <Flagships>
         <Flagship>
