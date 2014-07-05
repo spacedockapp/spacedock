@@ -41,6 +41,7 @@ public class Universe {
     ArrayMap<String, Ship> ships = new ArrayMap<String, Ship>();
     public ArrayMap<String, ShipClassDetails> shipClassDetails = new ArrayMap<String, ShipClassDetails>();
     public ArrayMap<String, ShipClassDetails> shipClassDetailsByName = new ArrayMap<String, ShipClassDetails>();
+    public ArrayMap<String, Admiral> admirals = new ArrayMap<String, Admiral>();
     public ArrayMap<String, Captain> captains = new ArrayMap<String, Captain>();
     public ArrayMap<String, Upgrade> upgrades = new ArrayMap<String, Upgrade>();
     public ArrayMap<String, Resource> resources = new ArrayMap<String, Resource>();
@@ -148,6 +149,10 @@ public class Universe {
         if (sUniverse == null)
             throw new IllegalStateException();
         return sUniverse;
+    }
+    
+    public Admiral getAdmiral(String admiralId) {
+    	return admirals.get(admiralId);
     }
 
     public Captain getCaptain(String captainId) {
@@ -265,6 +270,12 @@ public class Universe {
         return shipsCopy;
     }
 
+    public ArrayList<Admiral> getAdmirals() {
+        ArrayList<Admiral> admiralsCopy = new ArrayList<Admiral>();
+        admiralsCopy.addAll(admirals.values());
+        return admiralsCopy;
+    }
+    
     public ArrayList<Captain> getCaptains() {
         ArrayList<Captain> captainsCopy = new ArrayList<Captain>();
         captainsCopy.addAll(captains.values());
@@ -347,6 +358,18 @@ public class Universe {
         return mAllFactions;
     }
 
+    public ArrayList<Admiral> getAdmiralsForFaction(String s) {
+        ArrayList<Admiral> factionAdmirals = new ArrayList<Admiral>();
+        for (Admiral admiral : admirals.values()) {
+            if (admiral.getFaction().equals(s) && isMemberOfIncludedSet(admiral)) {
+            	factionAdmirals.add(admiral);
+            }
+        }
+
+        Collections.sort(factionAdmirals, new CaptainComparator());
+        return factionAdmirals;
+    }
+    
     public ArrayList<Captain> getCaptainsForFaction(String s) {
         ArrayList<Captain> factionCaptains = new ArrayList<Captain>();
         for (Captain captain : captains.values()) {
@@ -462,6 +485,12 @@ public class Universe {
         }
         for (Captain captain : captains.values()) {
             String s = captain.getSpecial();
+            if (s != null && s.length() > 0) {
+                allSpecials.add(s);
+            }
+        }
+        for (Admiral admiral : admirals.values()){
+        	String s = admiral.getSpecial();
             if (s != null && s.length() > 0) {
                 allSpecials.add(s);
             }

@@ -1,4 +1,4 @@
-<Data xversion="1.224">
+<Data version="1.224">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -4700,8 +4700,8 @@
       <Type>Captain</Type>
       <Faction>Independent</Faction>
       <Cost>2</Cost>
-      <Id>hugh_</Id>
-      <Set></Set>
+      <Id>hugh_71524</Id>
+      <Set>71524</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -4715,8 +4715,8 @@
       <Type>Captain</Type>
       <Faction>Independent</Faction>
       <Cost>4</Cost>
-      <Id>lore_</Id>
-      <Set></Set>
+      <Id>lore_71524</Id>
+      <Set>71524</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -4730,8 +4730,8 @@
       <Type>Captain</Type>
       <Faction>Dominion</Faction>
       <Cost>2</Cost>
-      <Id>keevan_71524</Id>
-      <Set>71524</Set>
+      <Id>keevan_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -4745,8 +4745,8 @@
       <Type>Captain</Type>
       <Faction>Dominion</Faction>
       <Cost>5</Cost>
-      <Id>weyoun_71524</Id>
-      <Set>71524</Set>
+      <Id>weyoun_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
     </Captain>
   </Captains>
@@ -4781,8 +4781,8 @@
       <Type>Captain</Type>
       <Faction>Dominion</Faction>
       <Cost>5</Cost>
-      <Id>gul_dukat_71524</Id>
-      <Set>71524</Set>
+      <Id>gul_dukat_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
       <AdmiralAbility>FLEET ACTION: When attacking with your Primary Weapon this round, gain +1 attack die.</AdmiralAbility>
       <AdmiralCost>5</AdmiralCost>
@@ -8597,8 +8597,8 @@
       <Type>Crew</Type>
       <Faction>Borg, Independent</Faction>
       <Cost>1</Cost>
-      <Id>goval_</Id>
-      <Set></Set>
+      <Id>goval_71524</Id>
+      <Set>71524</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -8612,8 +8612,8 @@
       <Type>Crew</Type>
       <Faction>Borg, Independent</Faction>
       <Cost>2</Cost>
-      <Id>bosus_</Id>
-      <Set></Set>
+      <Id>bosus_71524</Id>
+      <Set>71524</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -8627,8 +8627,8 @@
       <Type>Crew</Type>
       <Faction>Borg, Independent</Faction>
       <Cost>5</Cost>
-      <Id>crosis_</Id>
-      <Set></Set>
+      <Id>crosis_71524</Id>
+      <Set>71524</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -8642,8 +8642,8 @@
       <Type>Crew</Type>
       <Faction>Borg, Independent</Faction>
       <Cost>2</Cost>
-      <Id>torsus_</Id>
-      <Set></Set>
+      <Id>torsus_71524</Id>
+      <Set>71524</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -8657,8 +8657,8 @@
       <Type>Talent</Type>
       <Faction>Independent</Faction>
       <Cost>5</Cost>
-      <Id>diversionary_tactics_</Id>
-      <Set></Set>
+      <Id>diversionary_tactics_71524</Id>
+      <Set>71524</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -8717,8 +8717,8 @@
       <Type>Talent</Type>
       <Faction>Dominion</Faction>
       <Cost>5</Cost>
-      <Id>unnecessary_bloodshed_71524</Id>
-      <Set>71524</Set>
+      <Id>unnecessary_bloodshed_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -8732,8 +8732,8 @@
       <Type>Crew</Type>
       <Faction>Dominion</Faction>
       <Cost>2</Cost>
-      <Id>lamat_ukan_71524</Id>
-      <Set>71524</Set>
+      <Id>lamat_ukan_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -8747,8 +8747,8 @@
       <Type>Crew</Type>
       <Faction>Dominion</Faction>
       <Cost>4</Cost>
-      <Id>remata_klan_71524</Id>
-      <Set>71524</Set>
+      <Id>remata_klan_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -8762,8 +8762,8 @@
       <Type>Crew</Type>
       <Faction>Dominion</Faction>
       <Cost>3</Cost>
-      <Id>amat_igan_71524</Id>
-      <Set>71524</Set>
+      <Id>amat_igan_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -8777,8 +8777,8 @@
       <Type>Tech</Type>
       <Faction>Dominion</Faction>
       <Cost>3</Cost>
-      <Id>sensor_array_71524</Id>
-      <Set>71524</Set>
+      <Id>sensor_array_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -8837,8 +8837,8 @@
       <Type>Weapon</Type>
       <Faction>Dominion</Faction>
       <Cost>6</Cost>
-      <Id>volley_of_torpedoes_71524</Id>
-      <Set>71524</Set>
+      <Id>volley_of_torpedoes_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -8852,8 +8852,8 @@
       <Type>Weapon</Type>
       <Faction>Dominion</Faction>
       <Cost>5</Cost>
-      <Id>phased_polaron_beam_71524</Id>
-      <Set>71524</Set>
+      <Id>phased_polaron_beam_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -8867,8 +8867,8 @@
       <Type>Weapon</Type>
       <Faction>Dominion</Faction>
       <Cost>5</Cost>
-      <Id>photon_torpedoes_71524</Id>
-      <Set>71524</Set>
+      <Id>photon_torpedoes_71522</Id>
+      <Set>71522</Set>
       <Special></Special>
     </Upgrade>
   </Upgrades>
