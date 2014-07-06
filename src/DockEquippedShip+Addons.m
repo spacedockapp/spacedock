@@ -1,5 +1,6 @@
 #import "DockEquippedShip+Addons.h"
 
+#import "DockAdmiral+Addons.h"
 #import "DockCaptain+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
@@ -208,6 +209,11 @@
 -(DockCaptain*)captain
 {
     return (DockCaptain*)[[self equippedCaptain] upgrade];
+}
+
+-(DockAdmiral*)admiral
+{
+    return (DockAdmiral*)[[self equippedAdmiral] upgrade];
 }
 
 -(BOOL)isResourceSideboard
@@ -778,6 +784,8 @@
 {
     DockCaptain* captain = [self captain];
     int talentCount = [captain talentCount];
+    DockAdmiral* admiral = [self admiral];
+    talentCount += admiral.admiralTalentCount;
     talentCount += [self.flagship talentAdd];
     return talentCount;
 }
@@ -1009,6 +1017,36 @@
 -(void)willSave
 {
     [self.squad updateModificationDate];
+}
+
+-(DockEquippedUpgrade*)addAdmiral:(DockAdmiral*)admiral
+{
+    [self removeAdmiral];
+    return [self addUpgrade: admiral];
+}
+
+-(void)removeAdmiral
+{
+    DockEquippedUpgrade* admiral = [self equippedAdmiral];
+    if (admiral != nil) {
+        [self removeUpgrade: admiral];
+    }
+}
+
+-(DockEquippedUpgrade*)equippedAdmiral
+{
+    if (self.ship.isFighterSquadron) {
+        return nil;
+    }
+    
+    for (DockEquippedUpgrade* eu in self.upgrades) {
+        DockUpgrade* upgrade = eu.upgrade;
+
+        if ([upgrade.upType isEqualToString: @"Admiral"]) {
+            return eu;
+        }
+    }
+    return nil;
 }
 
 -(void)purgeUpgrade:(DockUpgrade*)upgrade

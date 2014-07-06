@@ -1,5 +1,6 @@
 #import "DockSquad.h"
 
+@class DockAdmiral;
 @class DockEquippedShip;
 @class DockEquippedUpgrade;
 @class DockFlagship;
@@ -42,6 +43,8 @@
 -(DockSquad*)duplicate;
 -(BOOL)canAddCaptain:(DockCaptain*)captain toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
 -(DockEquippedUpgrade*)addCaptain:(DockCaptain*)captain toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
+-(BOOL)canAddAdmiral:(DockAdmiral*)admiral toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
+-(DockEquippedUpgrade*)addAdmiral:(DockAdmiral*)admiral toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
 -(DockEquippedShip*)addSideboard;
 -(DockFlagship*)flagship;

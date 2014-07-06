@@ -129,6 +129,11 @@
     return [self.upType isEqualToString: @"Captain"];
 }
 
+-(BOOL)isAdmiral
+{
+    return [self.upType isEqualToString: @"Admiral"];
+}
+
 -(BOOL)isTech
 {
     return [self.upType isEqualToString: @"Tech"];
@@ -264,6 +269,10 @@
 
 -(NSString*)upSortType
 {
+    if ([self isAdmiral]) {
+        return @"AAAAAdmiral";
+    }
+
     if ([self isCaptain]) {
         return @"AAACaptain";
     }
