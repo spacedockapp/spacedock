@@ -78,7 +78,6 @@ public class EquippedShip extends EquippedShipBase {
 		if (establishPlaceholders) {
 			establishPlaceholders();
 		}
-
 		return eu;
 	}
 
@@ -309,17 +308,6 @@ public class EquippedShip extends EquippedShipBase {
 		return v;
 	}
 
-	public int getAdmiralLimit() {
-		int v = 1;
-		Ship ship = getShip();
-		if (null != ship) {
-			v = ship.getAdmiralLimit();
-		} else {
-			v = 1;
-		}
-		return v;
-	}
-
 	public int getTalent() {
 		int v = 0;
 		Captain captain = getCaptain();
@@ -426,11 +414,8 @@ public class EquippedShip extends EquippedShipBase {
 					addUpgrade(zcc, null, false);
 				}
 			}
+			establishPlaceholdersForType("Admiral", getCaptainLimit());
 		}
-		if (0 < getAdmiralLimit()) {
-			establishPlaceholdersForType("Admiral", getAdmiralLimit());
-		}
-
 		establishPlaceholdersForType("Talent", getTalent());
 		establishPlaceholdersForType("Crew", getCrew());
 		establishPlaceholdersForType("Weapon", getWeapon());
@@ -833,7 +818,9 @@ public class EquippedShip extends EquippedShipBase {
 					return explanation; // disallowed, abort!
 				}
 			} else {
-				upgrade = Universe.getUniverse().getUpgrade(externalId);
+				upgrade = SLOT_TYPE_ADMIRAL == slotType ? Universe
+						.getUniverse().getAdmiral(externalId) : Universe
+						.getUniverse().getUpgrade(externalId);
 				Explanation explanation = squad.canAddUpgrade(upgrade, this);
 				if (!explanation.canAdd) {
 					return explanation; // disallowed, abort!

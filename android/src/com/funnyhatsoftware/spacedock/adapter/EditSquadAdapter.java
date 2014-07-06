@@ -1,5 +1,7 @@
 package com.funnyhatsoftware.spacedock.adapter;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +20,6 @@ import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
 import com.funnyhatsoftware.spacedock.data.Explanation;
 import com.funnyhatsoftware.spacedock.data.Flagship;
 import com.funnyhatsoftware.spacedock.data.Squad;
-
-import java.util.ArrayList;
 
 public class EditSquadAdapter extends BaseExpandableListAdapter implements
         ExpandableListView.OnGroupClickListener,
@@ -105,7 +105,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
             populateLookup(l, s.getWeapon(), R.string.weapon_slot, EquippedShip.SLOT_TYPE_WEAPON);
             populateLookup(l, s.getTech(), R.string.tech_slot, EquippedShip.SLOT_TYPE_TECH);
             populateLookup(l, s.getBorg(), R.string.borg_slot, EquippedShip.SLOT_TYPE_BORG);
-            populateLookup(l, s.getAdmiralLimit(), R.string.admiral_slot, EquippedShip.SLOT_TYPE_ADMIRAL);
+            populateLookup(l, s.getCaptainLimit(), R.string.admiral_slot, EquippedShip.SLOT_TYPE_ADMIRAL);
             mShipLookup[i] = l;
         }
     }
@@ -190,15 +190,6 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
                             mTitleTextView.setText(flagship.getTitle());
                             mCostTextView.setText(Integer.toString(flagship.getCost()));
                         }
-                    } else if (mListItemLookup.slotType == EquippedShip.SLOT_TYPE_ADMIRAL){
-                    	Admiral admiral = es.getAdmiral();
-                    	if (null == admiral){
-                    		mTitleTextView.setText(R.string.empty_upgrade_slot);
-                            mCostTextView.setText(R.string.indicator_not_applicable);
-                        } else {
-                            mTitleTextView.setText(admiral.getTitle());
-                            mCostTextView.setText(Integer.toString(admiral.getCost()));
-                    	}
                     } else {
                         EquippedUpgrade upgrade = es.getUpgradeAtSlot(
                                 mListItemLookup.slotType, mListItemLookup.slotNumber);
@@ -420,6 +411,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
                 explanation = es.tryEquipFlagship(mSquad, externalId);
             } else {
                 explanation = es.tryEquipUpgrade(mSquad, slotType, slotIndex, externalId);
+                
             }
         }
         if (explanation.canAdd) {

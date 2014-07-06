@@ -23,9 +23,6 @@ public class ShipBase extends SetItem {
     int mCaptainLimit;
     public int getCaptainLimit() { return mCaptainLimit; }
     public ShipBase setCaptainLimit(int v) { mCaptainLimit = v; return this;}
-    int mAdmiralLimit;
-    public int getAdmiralLimit() {return mAdmiralLimit;}
-    public ShipBase setAdmiralLimit(int v) { mAdmiralLimit = v; return this;}
     int mCloak;
     public int getCloak() { return mCloak; }
     public ShipBase setCloak(int v) { mCloak = v; return this;}

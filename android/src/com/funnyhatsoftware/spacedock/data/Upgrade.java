@@ -51,7 +51,7 @@ public class Upgrade extends UpgradeBase {
             return targetShip.getCaptainLimit();
         }
         if (isAdmiral()){
-        	return targetShip.getAdmiralLimit();
+        	return targetShip.getCaptainLimit();
         }
 
         if (isTalent()) {
@@ -324,6 +324,8 @@ public class Upgrade extends UpgradeBase {
             } else if (captainSpecial.equals("CaptainAndTalentsIgnoreFactionPenalty")
                     && (isTalent() || isCaptain())) {
                 // do nothing
+            } else if (isAdmiral()){
+            	cost += 3;
             } else {
                 cost += 1;
             }
