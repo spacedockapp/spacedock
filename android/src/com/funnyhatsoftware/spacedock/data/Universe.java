@@ -55,6 +55,7 @@ public class Universe {
     private String mSelectedFaction;
     private Ship mShipPlaceholder;
     private Flagship mFlagshipPlaceholder;
+    private Admiral mAdmiralPlaceholder;
 
     static Universe sUniverse;
 
@@ -149,6 +150,17 @@ public class Universe {
         if (sUniverse == null)
             throw new IllegalStateException();
         return sUniverse;
+    }
+    
+    public Admiral getOrCreateAdmiralPlaceholder() {
+    	Admiral placeholder = mAdmiralPlaceholder;
+        if (placeholder == null) {
+            placeholder = new Admiral();
+            placeholder.setTitle("");
+            placeholder.setPlaceholder(true);
+            mAdmiralPlaceholder = placeholder;
+        }
+        return placeholder;
     }
     
     public Admiral getAdmiral(String admiralId) {
@@ -297,7 +309,9 @@ public class Universe {
                 placeholder = new Captain();
             } else if (upType.equals("Crew")) {
                 placeholder = new Crew();
-            } else {
+            } else if (upType.equals("Admiral")){
+            	placeholder = new Admiral();
+            }else {
                 return null; // placeholder type not supported
             }
 

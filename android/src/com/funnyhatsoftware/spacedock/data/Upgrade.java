@@ -50,6 +50,9 @@ public class Upgrade extends UpgradeBase {
         if (isCaptain()) {
             return targetShip.getCaptainLimit();
         }
+        if (isAdmiral()){
+        	return targetShip.getAdmiralLimit();
+        }
 
         if (isTalent()) {
             return targetShip.getTalent();
@@ -111,6 +114,10 @@ public class Upgrade extends UpgradeBase {
         return mUpType.equals("Captain");
     }
 
+    public boolean isAdmiral() {
+        return mUpType.equals("Admiral");
+    }
+    
     private boolean isDominion() {
         return getFaction().equals("Dominion");
     }

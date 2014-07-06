@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.activity.SetItemListActivity;
+import com.funnyhatsoftware.spacedock.holder.AdmiralHolder;
 import com.funnyhatsoftware.spacedock.holder.CaptainHolder;
 import com.funnyhatsoftware.spacedock.holder.FlagshipHolder;
 import com.funnyhatsoftware.spacedock.holder.ReferenceHolder;
@@ -27,6 +28,7 @@ public class BrowseListFragment extends ListFragment {
     /* This list must be kept in sync with R.array.browse_items_list */
     static final String[] TYPE_MAP = {
         ShipHolder.TYPE_STRING,
+        AdmiralHolder.TYPE_STRING,
         CaptainHolder.TYPE_STRING,
         UpgradeHolder.TYPE_STRING_CREW,
         UpgradeHolder.TYPE_STRING_TALENT,

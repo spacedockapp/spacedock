@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.data.Admiral;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
 import com.funnyhatsoftware.spacedock.data.Explanation;
@@ -104,6 +105,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
             populateLookup(l, s.getWeapon(), R.string.weapon_slot, EquippedShip.SLOT_TYPE_WEAPON);
             populateLookup(l, s.getTech(), R.string.tech_slot, EquippedShip.SLOT_TYPE_TECH);
             populateLookup(l, s.getBorg(), R.string.borg_slot, EquippedShip.SLOT_TYPE_BORG);
+            populateLookup(l, s.getAdmiralLimit(), R.string.admiral_slot, EquippedShip.SLOT_TYPE_ADMIRAL);
             mShipLookup[i] = l;
         }
     }
@@ -188,6 +190,15 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
                             mTitleTextView.setText(flagship.getTitle());
                             mCostTextView.setText(Integer.toString(flagship.getCost()));
                         }
+                    } else if (mListItemLookup.slotType == EquippedShip.SLOT_TYPE_ADMIRAL){
+                    	Admiral admiral = es.getAdmiral();
+                    	if (null == admiral){
+                    		mTitleTextView.setText(R.string.empty_upgrade_slot);
+                            mCostTextView.setText(R.string.indicator_not_applicable);
+                        } else {
+                            mTitleTextView.setText(admiral.getTitle());
+                            mCostTextView.setText(Integer.toString(admiral.getCost()));
+                    	}
                     } else {
                         EquippedUpgrade upgrade = es.getUpgradeAtSlot(
                                 mListItemLookup.slotType, mListItemLookup.slotNumber);
@@ -377,7 +388,10 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         if (slotType == EquippedShip.SLOT_TYPE_FLAGSHIP) {
             Flagship flagship = equippedShip.getFlagship();
             currentEquipmentId = (flagship == null) ? null : flagship.getExternalId();
-        } else {
+        } else if (slotType == EquippedShip.SLOT_TYPE_ADMIRAL) {
+            Admiral admiral = equippedShip.getAdmiral();
+            currentEquipmentId = (null == admiral) ? null : admiral.getExternalId();
+        }else {
             EquippedUpgrade equippedUpgrade = getEquippedUpgrade(groupPosition, slotType, slotNumber);
             currentEquipmentId = equippedUpgrade.getUpgrade().getExternalId();
         }

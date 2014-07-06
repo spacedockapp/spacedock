@@ -2484,6 +2484,7 @@
       <Weapon></Weapon>
       <Crew></Crew>
       <CaptainLimit>0</CaptainLimit>
+      <AdmiralLimit>0</AdmiralLimit>
       <Id>federation_attack_fighter_op6prize</Id>
       <Set>OP6Participation</Set>
     </Ship>
@@ -2508,6 +2509,7 @@
       <Weapon></Weapon>
       <Crew></Crew>
       <CaptainLimit>0</CaptainLimit>
+      <AdmiralLimit>0</AdmiralLimit>
       <Id>hideki_class_attack_fighter_op5prize</Id>
       <Set>OP5Participation</Set>
     </Ship>
