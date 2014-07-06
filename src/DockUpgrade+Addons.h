@@ -14,6 +14,7 @@
 -(BOOL)isWeapon;
 -(BOOL)isBorg;
 -(BOOL)isCaptain;
+-(BOOL)isAdmiral;
 -(BOOL)isPlaceholder;
 -(BOOL)isUnique;
 -(BOOL)isDominion;

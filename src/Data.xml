@@ -1,4 +1,4 @@
-<Data version="1.226">
+<Data xversion="1.226">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -4803,7 +4803,7 @@
       <Talent>1</Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Captain</Type>
+      <Type>Admiral</Type>
       <Faction>Federation</Faction>
       <Cost>5</Cost>
       <Id>james_t_kirk_71523</Id>
@@ -4822,7 +4822,7 @@
       <Talent>1</Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Captain</Type>
+      <Type>Admiral</Type>
       <Faction>Dominion</Faction>
       <Cost>5</Cost>
       <Id>gul_dukat_71524</Id>

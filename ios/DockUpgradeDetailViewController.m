@@ -1,5 +1,6 @@
 #import "DockUpgradeDetailViewController.h"
 
+#import "DockAdmiral+Addons.h"
 #import "DockCaptain+Addons.h"
 #import "DockSetItem+Addons.h"
 #import "DockUpgrade+Addons.h"
@@ -33,6 +34,10 @@
 
     if ([_upgrade isCaptain]) {
         rows += 2;
+    }
+
+    if ([_upgrade isAdmiral]) {
+        rows = 8;
     }
 
     if (_upgrade.ability.length == 0) {
@@ -97,12 +102,30 @@
     return cell;
 }
 
+-(UITableViewCell*)cellForSkillModifier:(UITableView*)tableView
+{
+    DockAdmiral* admiral = (DockAdmiral*)_upgrade;
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
+    cell.textLabel.text = @"Skill Modifier";
+    cell.detailTextLabel.text = [NSString stringWithFormat: @"+%@", admiral.skillModifier];
+    return cell;
+}
+
 -(UITableViewCell*)cellForTalent:(UITableView*)tableView
 {
     DockCaptain* captain = (DockCaptain*)_upgrade;
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
     cell.textLabel.text = @"Talent";
     cell.detailTextLabel.text = [captain.talent stringValue];
+    return cell;
+}
+
+-(UITableViewCell*)cellForAdmiralTalent:(UITableView*)tableView
+{
+    DockAdmiral* admiral = (DockAdmiral*)_upgrade;
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
+    cell.textLabel.text = @"Adm. Talent";
+    cell.detailTextLabel.text = [admiral.admiralTalent stringValue];
     return cell;
 }
 
@@ -152,7 +175,31 @@
 {
     NSInteger row = [indexPath indexAtPosition: 1];
 
-    if ([_upgrade isCaptain]) {
+    if ([_upgrade isAdmiral]) {
+        switch (row) {
+        case 0:
+            return [self cellForTitle: tableView];
+
+        case 1:
+            return [self cellForFaction: tableView];
+
+        case 2:
+            return [self cellForSkill: tableView];
+
+        case 3:
+            return [self cellForSkillModifier: tableView];
+
+        case 4:
+            return [self cellForCost: tableView];
+
+        case 5:
+            return [self cellForAdmiralTalent: tableView];
+
+        case 6:
+            return [self cellForSet: tableView];
+        }
+        return [self cellForAbility: tableView];
+    } else if ([_upgrade isCaptain]) {
         switch (row) {
         case 0:
             return [self cellForTitle: tableView];

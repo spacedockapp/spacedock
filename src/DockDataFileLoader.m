@@ -543,7 +543,7 @@ static NSString* makeKey(NSString* key)
     [self loadItems: xmlData[@"ShipClassDetails"] itemClass: [DockShipClassDetails class] entityName: @"ShipClassDetails" targetType: nil];
     [self loadItems: xmlData[@"Ships"] itemClass: [DockShip class] entityName: @"Ship" targetType: nil];
     [self loadItems: xmlData[@"Captains"] itemClass: [DockCaptain class] entityName: @"Captain" targetType: nil];
-    [self loadItems: xmlData[@"Admirals"] itemClass: [DockAdmiral class] entityName: @"Admiral" targetType: nil];
+    [self loadItems: xmlData[@"Admirals"] itemClass: [DockAdmiral class] entityName: @"Admiral" targetType: @"Admiral"];
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockWeapon class] entityName: @"Weapon" targetType: @"Weapon"];
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockTalent class] entityName: @"Talent" targetType: @"Talent"];
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockCrew class] entityName: @"Crew" targetType: @"Crew"];
