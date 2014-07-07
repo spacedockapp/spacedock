@@ -3,31 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Space Dock</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <h1>Space Dock</h1>
         <h2>About</h1>
         <p class="lead">
-        Space Dock is a Macintosh, <a href="https://itunes.apple.com/us/app/st-space-dock/id740765008?ls=1&mt=8">iOS</a> and Android application for putting together squadrons 
+        Space Dock is an application for Macintosh, iOS and Android for putting together squadrons 
         for <a href="http://wizkidsgames.com">WizK!d's</a> excellent <a href="http://wizkidsgames.com/startrek/star-trek-attack-wing">Star Trek: Attack Wing</a> game.
         </p>
-        <p>Space Dock is very early software. While it is useful in its current form it is not very well tested. Make sure to export your most valuable squad designs for safe keeping.</p>
+        <p>Modest efforts are made to make sure Space Dock is working correctly when released but glitches happen. Make sure to export your most valuable squad designs for safe keeping.</p>
         <p>Space Dock Mac requires a Mac running OS X 10.8 or later due to a dependency on application development features available in that version or later.</p>
         <p>Space Dock iOS requires iOS version 6 or later.</p>
-        <p>Space Dock Android is in early testing. If you'd like to help test please visit the <a href="https://plus.sandbox.google.com/communities/101516757258980614422">testing Google+ community</a> and ask to join. Once joined
-          you can download the alpha test version from <a href="https://play.google.com/apps/testing/com.funnyhatsoftware.spacedock">the Google Play store</a>.</p>
+        <p>Space Dock Android requires Android version 4.0 or later.</p>
         <p>Questions about Space Dock? Comment? Email me at <a href="mailto:rob@tsuk.com">rob@tsuk.com</a>.</p>
-        <p>Questions about Star Trek: Attack Wing? Read the <a href="andrew_faq.html">FAQ thread limited to answers by the designer</a> or the <a href="full_faq.html">full FAQ thread</a> both on Board Game Geek.</p>
-        <img src="sd_main_window.png">
         <h2>Download</h1>
-            <a class="btn btn-large btn-primary" href="space_dock_b<%= max_build_number %>.zip">Download Space Dock</a>
-        <h2>Change History<h2>
+          <p>
+            <a href="https://itunes.apple.com/us/app/st-space-dock/id740765008?mt=8&uo=4" target="itunes_store" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_appstore-lrg.png) no-repeat;width:135px;height:40px;@media only screen{background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_appstore-lrg.svg);}"></a>
+          </p>
+          <p>
+            <a href="https://play.google.com/store/apps/details?id=com.funnyhatsoftware.spacedock">
+              <img alt="Get it on Google Play"
+                   src="en_generic_rgb_wo_45.png" />
+            </a>
+          </p>
+          <p>
+            <a class="btn btn-large btn-primary" href="space_dock_b<%= max_build_number %>.zip">Download for Mac</a>
+          </p>
+          <h2>Testing</h1>
+          <p>If you'd like to help test versions of Space Dock for iOS before they are released to the store please visit <a href="https://www.testflightapp.com/install/bc30b610b55233bf7eab914f389c1461-MTE4NzY1MzU/">this page at TestFlight</a>. Since test devices are limited to 100 please only sign up if you will actually install and use test versions.</p>
+            <p>If you'd like to help test versions of Space Dock for Android before they are released to the store please join <a href="https://plus.sandbox.google.com/communities/101516757258980614422">testing Google+ community</a> and ask to join. Once joined
+              you can download the alpha test version from <a href="https://play.google.com/apps/testing/com.funnyhatsoftware.spacedock">the Google Play store</a>.</p>
+              <p>If you'd like to help test versions of Space Dock for Mac before they are released please email me at <a href="mailto:rob@tsuk.com">rob@tsuk.com</a>. If there's enough interest I'll set up a Mac test group.</p>
+        <h2>Development</h1>
+          Space Dock is open source software. If you're interested in perusing the source code or helping out with development you can visit the <a href="https://github.com/rtsuk/spacedock">repository on GitHub</a>.
+        <h2>Macintosh Change History<h2>
           <%= release_notes %>
     </div>
+<a href="https://github.com/rtsuk/spacedock"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
 </body>
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
