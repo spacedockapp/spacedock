@@ -122,8 +122,15 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Upgrade" id="11d-kb-pRr"/>
+                    <navigationItem key="navigationItem" title="Upgrade" id="11d-kb-pRr">
+                        <barButtonItem key="rightBarButtonItem" title="Admirals" id="9N3-MT-AuE">
+                            <connections>
+                                <action selector="toggleAdmiral:" destination="ItA-jp-4hr" id="4ic-c4-UAd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="captainAdmiralSwitch" destination="9N3-MT-AuE" id="ujn-zS-B8g"/>
                         <outlet property="costBarItem" destination="Xri-Jo-QKS" id="ENR-u8-Qha"/>
                         <outlet property="factionBarItem" destination="hOj-NS-uDd" id="ZP2-7J-5f8"/>
                         <outlet property="overrideBarItem" destination="f9C-2x-CG7" id="uN2-TT-I4p"/>
@@ -1652,8 +1659,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="QGP-gf-Q6H"/>
-        <segue reference="TwX-09-xdF"/>
-        <segue reference="me1-T8-16w"/>
+        <segue reference="EVA-Ha-95D"/>
+        <segue reference="4En-j0-M2p"/>
         <segue reference="YvD-5N-V1B"/>
     </inferredMetricsTieBreakers>
 </document>

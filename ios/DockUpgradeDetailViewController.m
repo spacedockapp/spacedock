@@ -33,7 +33,7 @@
     }
 
     if ([_upgrade isCaptain]) {
-        rows += 2;
+        rows = 9;
     }
 
     if ([_upgrade isAdmiral]) {

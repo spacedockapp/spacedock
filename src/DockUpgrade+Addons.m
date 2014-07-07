@@ -218,6 +218,10 @@
         return [targetShip captainCount];
     }
 
+    if ([self isAdmiral]) {
+        return [targetShip captainCount];
+    }
+
     if ([self isTalent]) {
         return [targetShip talentCount];
     }
