@@ -65,6 +65,11 @@
     return 0;
 }
 
+-(int)admiralCount
+{
+    return 0;
+}
+
 -(DockEquippedUpgrade*)equippedCaptain
 {
     return [super equippedCaptain];

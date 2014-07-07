@@ -57,7 +57,7 @@
 -(void)updateCaptainAdmiralSwitch
 {
     BOOL visible = NO;
-    if (_targetShip) {
+    if (_showAdmirals && _targetShip) {
         if ([_upType isEqualToString: @"Captain"]) {
             visible = YES;
             _captainAdmiralSwitch.title = @"Admirals";

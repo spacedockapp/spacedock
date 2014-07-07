@@ -851,6 +851,11 @@
     return self.ship.captainCount;
 }
 
+-(int)admiralCount
+{
+    return self.ship.admiralCount;
+}
+
 -(int)borgCount
 {
     return self.ship.borgCount;

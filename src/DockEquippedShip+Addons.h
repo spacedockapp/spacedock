@@ -26,6 +26,7 @@
 -(int)talentCount;
 -(int)upgradeCount;
 -(int)captainCount;
+-(int)admiralCount;
 -(int)techCount;
 -(int)weaponCount;
 -(int)crewCount;

@@ -734,6 +734,9 @@ static NSString* namePrefix(NSString* originalName)
 
 -(BOOL)canAddCaptain:(DockCaptain*)captain toShip:(DockEquippedShip*)targetShip error:(NSError**)error
 {
+    if (captain.isAdmiral) {
+        return [self canAddAdmiral: (DockAdmiral*)captain toShip: targetShip error: error];
+    }
     if (targetShip.captainCount < 1) {
         if (error) {
             NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected ship.", captain.title];
@@ -782,7 +785,7 @@ static NSString* namePrefix(NSString* originalName)
 
 -(BOOL)canAddAdmiral:(DockAdmiral*)admiral toShip:(DockEquippedShip*)targetShip error:(NSError**)error
 {
-    if (targetShip.captainCount < 1) {
+    if (targetShip.admiralCount < 1) {
         if (error) {
             NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected ship.", admiral.title];
             NSString* info = @"The selected ship has no slot for an admiral.";
@@ -844,6 +847,12 @@ static NSString* namePrefix(NSString* originalName)
 
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade toShip:(DockEquippedShip*)targetShip error:(NSError**)error
 {
+    if (upgrade.isAdmiral) {
+        return [self canAddAdmiral: (DockAdmiral*)upgrade toShip: targetShip error: error];
+    }
+    if (upgrade.isCaptain) {
+        return [self canAddCaptain: (DockCaptain*)upgrade toShip: targetShip error: error];
+    }
     if (![targetShip canAddUpgrade: upgrade]) {
         if (error) {
             NSDictionary* reasons = [targetShip explainCantAddUpgrade: upgrade];
