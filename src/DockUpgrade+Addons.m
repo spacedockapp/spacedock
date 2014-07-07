@@ -496,7 +496,11 @@
         } else if ([captainSpecial isEqualToString: @"CaptainAndTalentsIgnoreFactionPenalty"] &&
                    ([upgrade isTalent] || [upgrade isCaptain])) {
         } else {
-            cost += 1;
+            if (upgrade.isAdmiral) {
+                cost += 3;
+            } else {
+                cost += 1;
+            }
         }
 
     }
