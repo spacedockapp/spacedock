@@ -320,6 +320,10 @@
         return @"Cp";
     }
 
+    if ([self isAdmiral]) {
+        return @"A";
+    }
+
     if ([self isBorg]) {
         return @"B";
     }
