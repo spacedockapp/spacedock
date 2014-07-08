@@ -229,8 +229,12 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
 
                 for (NSString* rawSet in sets) {
                     NSString* setId = [rawSet stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-                    DockSet* theSet = [DockSet setForId: setId context: _managedObjectContext];
-                    [theSet addItemsObject: c];
+                    DockSet* theSet = [_allSets objectForKey: setId];
+                    if (theSet != nil) {
+                        [theSet addItemsObject: c];
+                    } else {
+                        NSLog(@"Failed to find set for id %@", setId);
+                    }
                 }
             }
         }
@@ -265,6 +269,13 @@ static NSString* makeKey(NSString* key)
         NSDate* releaseDate = [dateFormatter dateFromString: releaseDateString];
         [c setReleaseDate: releaseDate];
     }
+
+    NSArray* allSets = [DockSet allSets: _managedObjectContext];
+    NSMutableDictionary* allSetsDictionary = [[NSMutableDictionary alloc] initWithCapacity: sets.count];
+    for(DockSet* set in allSets) {
+        [allSetsDictionary setObject: set forKey: set.externalId];
+    }
+    _allSets = [NSDictionary dictionaryWithDictionary: allSetsDictionary];
 }
 
 -(void)parserDidStartDocument:(NSXMLParser*)parser;

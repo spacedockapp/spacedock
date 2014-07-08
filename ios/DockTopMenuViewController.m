@@ -9,12 +9,39 @@
 #import "DockReferenceViewController.h"
 
 @interface DockTopMenuViewController ()
-
+@property (strong, nonatomic) UIAlertView* loadingAlert;
 @end
 
 @implementation DockTopMenuViewController
 
+#pragma mark - Appearing
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear: animated];
+    if (_managedObjectContext == nil) {
+        _loadingAlert = [[UIAlertView alloc] initWithTitle:@"Loading Data" message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+        [_loadingAlert show];
+        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        indicator.center = CGPointMake(_loadingAlert.bounds.size.width / 2, _loadingAlert.bounds.size.height - 50);
+        [indicator startAnimating];
+        [_loadingAlert addSubview:indicator];
+    }
+}
+
+-(void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+{
+    _managedObjectContext = managedObjectContext;
+    [_loadingAlert dismissWithClickedButtonIndex: 0 animated: YES];
+    _loadingAlert = nil;
+}
+
 #pragma mark - Segue management
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    return _managedObjectContext != nil;
+}
 
 -(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {

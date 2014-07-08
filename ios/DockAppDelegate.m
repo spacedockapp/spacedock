@@ -3,6 +3,7 @@
 #import "DockBackupManager.h"
 #import "DockBuildSheetRenderer.h"
 #import "DockConstants.h"
+#import "DockCoreDataManager.h"
 #import "DockDataLoader.h"
 #import "DockDataFileLoader.h"
 #import "DockSet+Addons.h"
@@ -15,9 +16,9 @@
 
 @interface DockAppDelegate ()
 
-@property (nonatomic, strong, readonly) NSManagedObjectModel* managedObjectModel;
-@property (nonatomic, strong, readonly) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, strong, readonly) NSPersistentStoreCoordinator* persistentStoreCoordinator;
+@property (atomic, strong) DockCoreDataManager* coreDataManager;
+@property (atomic, strong) NSManagedObjectContext* managedObjectContext;
+@property (atomic, strong) NSOperationQueue* loaderQueue;
 @property (nonatomic, strong) DockSquadImporteriOS* squadImporter;
 
 -(NSURL*)applicationDocumentsDirectory;
@@ -26,8 +27,6 @@
 @end
 
 @implementation DockAppDelegate
-
-@synthesize managedObjectModel = _managedObjectModel, managedObjectContext = _managedObjectContext, persistentStoreCoordinator = _persistentStoreCoordinator;
 
 #pragma mark - Application lifecycle
 
@@ -53,21 +52,29 @@
     return nil;
 }
 
--(void)loadAppDataNow
-{
-    DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: self.managedObjectContext];
-    NSError* error = nil;
-    [loader loadData: &error];
-    [loader cleanupDatabase];
-}
-
 -(void)loadAppData
 {
-    [self loadAppDataNow];
-    UINavigationController* navigationController = (UINavigationController*)self.window.rootViewController;
-    id controller = [navigationController topViewController];
-    DockTopMenuViewController* topMenuViewController = (DockTopMenuViewController*)controller;
-    topMenuViewController.managedObjectContext = self.managedObjectContext;
+    id finishLoadBlock = ^() {
+        NSError* error;
+        _managedObjectContext = [_coreDataManager createContext: NSMainQueueConcurrencyType error: &error];
+        UINavigationController* navigationController = (UINavigationController*)self.window.rootViewController;
+        id controller = [navigationController topViewController];
+        DockTopMenuViewController* topMenuViewController = (DockTopMenuViewController*)controller;
+        topMenuViewController.managedObjectContext = self.managedObjectContext;
+    };
+
+    id loadBlock = ^() {
+        NSError* error;
+        NSManagedObjectContext* moc = [_coreDataManager createContext: 1 error: &error];
+        DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: moc];
+        [loader loadData: &error];
+        [loader cleanupDatabase];
+        [DockSquad assignUUIDs: moc];
+        [[NSOperationQueue mainQueue] addOperationWithBlock: finishLoadBlock];
+    };
+
+    _coreDataManager = [[DockCoreDataManager alloc] initWithStore: [self storeURL] model: [self modelURL]];
+    [_loaderQueue addOperationWithBlock: loadBlock];
 }
 
 -(DockSquad*)importSquad:(NSURL*)url
@@ -89,6 +96,8 @@
 
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    _loaderQueue = [[NSOperationQueue alloc] init];
+
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary* appDefs = @{
         kPlayerNameKey: @"",
@@ -100,7 +109,6 @@
     [defaults registerDefaults: appDefs];
 
     [self loadAppData];
-    [DockSquad assignUUIDs: self.managedObjectContext];
 
     return YES;
 }
@@ -221,39 +229,6 @@
 
 #pragma mark - Core Data stack
 
-/*
-   Returns the managed object context for the application.
-   If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
- */
--(NSManagedObjectContext*)managedObjectContext
-{
-    if (_managedObjectContext != nil) {
-        return _managedObjectContext;
-    }
-
-    NSPersistentStoreCoordinator* coordinator = [self persistentStoreCoordinator];
-
-    if (coordinator != nil) {
-        _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType: NSMainQueueConcurrencyType];
-        [_managedObjectContext setPersistentStoreCoordinator: coordinator];
-    }
-
-    return _managedObjectContext;
-}
-
-// Returns the managed object model for the application.
-// If the model doesn't already exist, it is created from the application's model.
--(NSManagedObjectModel*)managedObjectModel
-{
-    if (_managedObjectModel != nil) {
-        return _managedObjectModel;
-    }
-
-    NSURL* modelURL = [[NSBundle mainBundle] URLForResource: @"Space_Dock" withExtension: @"momd"];
-    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL: modelURL];
-    return _managedObjectModel;
-}
-
 static NSString* kSpaceDockFileName = @"SpaceDock2.CDBStore";
 
 -(NSURL*)storeURL
@@ -261,60 +236,13 @@ static NSString* kSpaceDockFileName = @"SpaceDock2.CDBStore";
     return [[self applicationDocumentsDirectory] URLByAppendingPathComponent: kSpaceDockFileName];
 }
 
--(NSPersistentStore*)createStore:(NSURL*)storeURL error:(NSError**)error
+-(NSURL*)modelURL
 {
-    NSDictionary* options = @{
-                              NSMigratePersistentStoresAutomaticallyOption: @YES, NSInferMappingModelAutomaticallyOption: @YES
-                              };
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
-    
-    NSPersistentStore* store = [_persistentStoreCoordinator addPersistentStoreWithType: NSBinaryStoreType
-                                                     configuration: nil
-                                                               URL: storeURL
-                                                           options: options error: error];
-    return store;
-}
-
-/*
-   Returns the persistent store coordinator for the application.
-   If the coordinator doesn't already exist, it is created and the application's store added to it.
- */
--(NSPersistentStoreCoordinator*)persistentStoreCoordinator
-{
-    if (_persistentStoreCoordinator != nil) {
-        return _persistentStoreCoordinator;
-    }
-
-    NSFileManager* fileManager = [NSFileManager defaultManager];
-
-    NSURL* oldStoreURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent: @"SpaceDock.CDBStore"];
-    if ([fileManager fileExistsAtPath: [oldStoreURL path]]) {
-        [fileManager removeItemAtURL: oldStoreURL error: nil];
-    }
-
-    NSURL* storeURL = [self storeURL];
-    NSError* error;
-    NSPersistentStore* store = [self createStore: storeURL error: &error];
-    if (store == nil) {
-        NSString* explanation = @"Something has gone wrong with the Space Dock data store and the application cannot continue without discarding your data. Preset 'Reset Data' to reset.";
-        UIAlertView* view = [[UIAlertView alloc] initWithTitle: @"Error reading data"
-                                                       message: explanation
-                                                      delegate: self
-                                             cancelButtonTitle: nil
-                                             otherButtonTitles: @"Reset Data", nil];
-        [view show];
-    }
-
-    return _persistentStoreCoordinator;
+    return [[NSBundle mainBundle] URLForResource: @"Space_Dock" withExtension: @"momd"];
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    
-    NSFileManager* fileManager = [NSFileManager defaultManager];
-    NSURL* storeURL = [self storeURL];
-    [fileManager removeItemAtURL: storeURL error: nil];
-    [self persistentStoreCoordinator];
 }
 
 #pragma mark - Application's documents directory
@@ -328,27 +256,6 @@ static NSString* kSpaceDockFileName = @"SpaceDock2.CDBStore";
 -(NSURL*)updatedDataURL
 {
     return [[self applicationDocumentsDirectory] URLByAppendingPathComponent: @"Data.xml"];
-}
-
--(void)installData:(NSData*)data
-{
-    NSURL* appDataPath = [self updatedDataURL];
-    [data writeToURL: appDataPath atomically: NO];
-    [self loadAppDataNow];
-}
-
--(void)revertData
-{
-    NSURL* appDataPath = [self updatedDataURL];
-    [[NSFileManager defaultManager] removeItemAtURL: appDataPath error: nil];
-    [self loadAppDataNow];
-}
-
--(BOOL)hasUpdatedData
-{
-    NSString* pathToDataFile = [self pathToDataFile];
-    NSString* appDocsPath = [[self applicationDocumentsDirectory] path];
-    return [pathToDataFile hasPrefix: appDocsPath];
 }
 
 @end

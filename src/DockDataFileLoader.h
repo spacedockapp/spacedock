@@ -4,6 +4,7 @@
 @property (strong, nonatomic) NSMutableDictionary* parsedData;
 @property (strong, nonatomic) NSMutableDictionary* currentElement;
 @property (strong, nonatomic) NSDictionary* currentAttributes;
+@property (strong, nonatomic) NSDictionary* allSets;
 @property (strong, nonatomic) NSMutableArray* currentList;
 @property (strong, nonatomic) NSMutableArray* elementNameStack;
 @property (strong, nonatomic) NSMutableArray* listStack;
