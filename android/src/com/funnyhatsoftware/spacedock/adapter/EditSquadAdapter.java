@@ -107,19 +107,19 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
             if (i == flagshipIndex || flagshipUnassigned) {
                 populateLookup(l, 1, R.string.flagship_slot, EquippedShip.SLOT_TYPE_FLAGSHIP);
             }
+            if (!s.isResourceSideboard()) {
+				if (i == admiralIndex || 0 > admiralIndex) {
+					populateLookup(l, s.getCaptainLimit(), R.string.admiral_slot,
+							EquippedShip.SLOT_TYPE_ADMIRAL);
+	            }
+			}
             populateLookup(l, s.getCaptainLimit(), R.string.captain_slot,
                     EquippedShip.SLOT_TYPE_CAPTAIN);
             populateLookup(l, s.getTalent(), R.string.talent_slot, EquippedShip.SLOT_TYPE_TALENT);
             populateLookup(l, s.getCrew(), R.string.crew_slot, EquippedShip.SLOT_TYPE_CREW);
             populateLookup(l, s.getWeapon(), R.string.weapon_slot, EquippedShip.SLOT_TYPE_WEAPON);
             populateLookup(l, s.getTech(), R.string.tech_slot, EquippedShip.SLOT_TYPE_TECH);
-			if (!s.isResourceSideboard()) {
-				populateLookup(l, s.getBorg(), R.string.borg_slot, EquippedShip.SLOT_TYPE_BORG);
-				if (i == admiralIndex || 0 > admiralIndex) {
-					populateLookup(l, s.getCaptainLimit(), R.string.admiral_slot,
-							EquippedShip.SLOT_TYPE_ADMIRAL);
-	            }
-			}
+            populateLookup(l, s.getBorg(), R.string.borg_slot, EquippedShip.SLOT_TYPE_BORG);
             mShipLookup[i] = l;
         }
     }
@@ -393,10 +393,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         if (slotType == EquippedShip.SLOT_TYPE_FLAGSHIP) {
             Flagship flagship = equippedShip.getFlagship();
             currentEquipmentId = (flagship == null) ? null : flagship.getExternalId();
-        } else if (slotType == EquippedShip.SLOT_TYPE_ADMIRAL) {
-            Admiral admiral = equippedShip.getAdmiral();
-            currentEquipmentId = (null == admiral) ? null : admiral.getExternalId();
-        }else {
+        } else {
             EquippedUpgrade equippedUpgrade = getEquippedUpgrade(groupPosition, slotType, slotNumber);
             currentEquipmentId = equippedUpgrade.getUpgrade().getExternalId();
         }

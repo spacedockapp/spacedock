@@ -41,9 +41,6 @@ public class SetItemAdapter extends ArrayAdapter<SetItem> {
 		} else if (factory.getType().equals(FlagshipHolder.TYPE_STRING)) {
 			placeholder = Universe.getUniverse()
 					.getOrCreateFlagshipPlaceholder();
-//		} else if (factory.getType().equals(AdmiralHolder.TYPE_STRING)) {
-//			placeholder = Universe.getUniverse()
-//					.getOrCreateAdmiralPlaceholder();
 		} else {
 			placeholder = Universe.getUniverse().findOrCreatePlaceholder(
 					factory.getType());
