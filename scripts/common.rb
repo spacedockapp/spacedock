@@ -49,11 +49,9 @@ end
 
 def set_id_from_faction(faction)
   case faction
-  when "Federation"
-    "71523"
-  when "Dominion"
-    "71524"
-  when "Borg"
-    "71522"
+  when "Vulcan"
+    "71508"
+  else
+    throw "unknown set id"
   end
 end

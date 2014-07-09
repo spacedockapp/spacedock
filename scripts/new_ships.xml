@@ -1,39 +1,14 @@
     <Ship>
-      <Title>U.S.S. Enterprise</Title>
+      <Title>Ti'Mur</Title>
       <Unique>Y</Unique>
-      <ShipClass>Constitution Refit Class</ShipClass>
-      <Faction>Federation</Faction>
-      <Attack>3</Attack>
-      <Agility>1</Agility>
-      <Hull>4</Hull>
-      <Shield>4</Shield>
-      <Ability>ACTION: Disable up to 2 of your Active Shields.  For each Shield you disabled with this Action, gain +1 attack die for all of your attacks with your Primary Weapon this round.</Ability>
-      <Cost>24</Cost>
-      <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock>1</TargetLock>
-      <Scan>1</Scan>
-      <Battlestations>1</Battlestations>
-      <Cloak>0</Cloak>
-      <SensorEcho>0</SensorEcho>
-      <Regenerate>0</Regenerate>
-      <Borg>0</Borg>
-      <Tech>0</Tech>
-      <Weapon>1</Weapon>
-      <Crew>4</Crew>
-      <Id>u_s_s_enterprise_71523</Id>
-      <Set>71523</Set>
-    </Ship>
-    <Ship>
-      <Title>Federation Starship</Title>
-      <Unique>N</Unique>
-      <ShipClass>Constitution Refit Class</ShipClass>
-      <Faction>Federation</Faction>
-      <Attack>3</Attack>
+      <ShipClass>Suurok Class</ShipClass>
+      <Faction>Vulcan</Faction>
+      <Attack>2</Attack>
       <Agility>1</Agility>
       <Hull>4</Hull>
       <Shield>3</Shield>
-      <Ability></Ability>
-      <Cost>22</Cost>
+      <Ability>Whenever you initiate an attack, you may disable one of your non-disabled [TECH] Upgrades to add +1 attack die.</Ability>
+      <Cost>20</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
       <Scan>1</Scan>
@@ -42,98 +17,23 @@
       <SensorEcho>0</SensorEcho>
       <Regenerate>0</Regenerate>
       <Borg>0</Borg>
-      <Tech>0</Tech>
-      <Weapon>1</Weapon>
-      <Crew>3</Crew>
-      <Id>federation_starship_71523</Id>
-      <Set>71523</Set>
-    </Ship>
-    <Ship>
-      <Title>Soong</Title>
-      <Unique>Y</Unique>
-      <ShipClass>Borg Type 03</ShipClass>
-      <Faction>Borg</Faction>
-      <Attack>6</Attack>
-      <Agility>1</Agility>
-      <Hull>7</Hull>
-      <Shield>5</Shield>
-      <Ability>After performing a 5 [STRAIGHT] Maneuver, if there are no enemy ships in your forward firing arc, you may perform an [EVASIVE MANEUVERS] Action as a free Action.</Ability>
-      <Cost>38</Cost>
-      <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock>1</TargetLock>
-      <Scan>1</Scan>
-      <Battlestations>0</Battlestations>
-      <Cloak>0</Cloak>
-      <SensorEcho>0</SensorEcho>
-      <Regenerate>0</Regenerate>
-      <Borg>1</Borg>
-      <Tech>1</Tech>
-      <Weapon>1</Weapon>
-      <Crew>2</Crew>
-      <Id>soong_71522</Id>
-      <Set>71522</Set>
-    </Ship>
-    <Ship>
-      <Title>Borg Starship</Title>
-      <Unique>N</Unique>
-      <ShipClass>Borg Type 03</ShipClass>
-      <Faction>Borg</Faction>
-      <Attack>6</Attack>
-      <Agility>1</Agility>
-      <Hull>7</Hull>
-      <Shield>4</Shield>
-      <Ability></Ability>
-      <Cost>36</Cost>
-      <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock>1</TargetLock>
-      <Scan>1</Scan>
-      <Battlestations>0</Battlestations>
-      <Cloak>0</Cloak>
-      <SensorEcho>0</SensorEcho>
-      <Regenerate>0</Regenerate>
-      <Borg>1</Borg>
-      <Tech>1</Tech>
-      <Weapon>1</Weapon>
+      <Tech>2</Tech>
+      <Weapon>0</Weapon>
       <Crew>1</Crew>
-      <Id>borg_starship_71522</Id>
-      <Set>71522</Set>
+      <Id>ti_mur_71508</Id>
+      <Set>71508</Set>
     </Ship>
     <Ship>
-      <Title>2nd Division Cruiser</Title>
-      <Unique>Y</Unique>
-      <ShipClass>Jem'Hadar Battle Cruiser</ShipClass>
-      <Faction>Dominion</Faction>
-      <Attack>5</Attack>
-      <Agility>1</Agility>
-      <Hull>6</Hull>
-      <Shield>5</Shield>
-      <Ability>Each time you defend, if you are within Range 1-2 of at least one friendly Jem'Hadar Attack Ship, roll 1 extra defense die.</Ability>
-      <Cost>34</Cost>
-      <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock>1</TargetLock>
-      <Scan>1</Scan>
-      <Battlestations>1</Battlestations>
-      <Cloak>0</Cloak>
-      <SensorEcho>0</SensorEcho>
-      <Regenerate>0</Regenerate>
-      <Borg>0</Borg>
-      <Tech>1</Tech>
-      <Weapon>2</Weapon>
-      <Crew>2</Crew>
-      <Id>2nd_division_cruiser_71524</Id>
-      <Set>71524</Set>
-    </Ship>
-    <Ship>
-      <Title>Dominion Starship</Title>
+      <Title>Vulcan Starship</Title>
       <Unique>N</Unique>
-      <ShipClass>Jem'Hadar Battle Cruiser</ShipClass>
-      <Faction>Dominion</Faction>
-      <Attack>5</Attack>
+      <ShipClass>Suurok Class</ShipClass>
+      <Faction>Vulcan</Faction>
+      <Attack>2</Attack>
       <Agility>1</Agility>
-      <Hull>6</Hull>
-      <Shield>4</Shield>
+      <Hull>4</Hull>
+      <Shield>2</Shield>
       <Ability></Ability>
-      <Cost>32</Cost>
+      <Cost>18</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
       <Scan>1</Scan>
@@ -143,8 +43,8 @@
       <Regenerate>0</Regenerate>
       <Borg>0</Borg>
       <Tech>1</Tech>
-      <Weapon>2</Weapon>
+      <Weapon>0</Weapon>
       <Crew>1</Crew>
-      <Id>dominion_starship_71524</Id>
-      <Set>71524</Set>
+      <Id>vulcan_starship_71508</Id>
+      <Set>71508</Set>
     </Ship>

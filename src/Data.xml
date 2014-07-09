@@ -1,4 +1,4 @@
-<Data xversion="1.226">
+<Data version="1.228">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1026,6 +1026,29 @@
         <Maneuver speed="1" kind="straight" color="green" />
       </Maneuvers>
       <FrontArc>90</FrontArc>
+      <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+      <Name>Suurok Class</Name>
+      <Id>suurok_class</Id>
+      <Maneuvers>
+        <Maneuver speed="4" kind="straight" color="white" />
+        <Maneuver speed="3" kind="left-turn" color="red" />
+        <Maneuver speed="3" kind="left-bank" color="white" />
+        <Maneuver speed="3" kind="straight" color="white" />
+        <Maneuver speed="3" kind="right-bank" color="white" />
+        <Maneuver speed="3" kind="right-turn" color="red" />
+        <Maneuver speed="2" kind="left-turn" color="white" />
+        <Maneuver speed="2" kind="left-bank" color="white" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-bank" color="white" />
+        <Maneuver speed="2" kind="right-turn" color="white" />
+        <Maneuver speed="1" kind="left-bank" color="green" />
+        <Maneuver speed="1" kind="straight" color="green" />
+        <Maneuver speed="1" kind="right-bank" color="green" />
+        <Maneuver speed="-1" kind="straight" color="red" />
+      </Maneuvers>
+      <FrontArc>180</FrontArc>
       <RearArc></RearArc>
     </ShipClassDetail>
   </ShipClassDetails>
@@ -3409,6 +3432,56 @@
       <Id>dominion_starship_71524</Id>
       <Set>71524</Set>
     </Ship>
+    <Ship>
+      <Title>Ti'Mur</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Suurok Class</ShipClass>
+      <Faction>Vulcan</Faction>
+      <Attack>2</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>3</Shield>
+      <Ability>Whenever you initiate an attack, you may disable one of your non-disabled [TECH] Upgrades to add +1 attack die.</Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>2</Tech>
+      <Weapon>0</Weapon>
+      <Crew>1</Crew>
+      <Id>ti_mur_71508</Id>
+      <Set>71508</Set>
+    </Ship>
+    <Ship>
+      <Title>Vulcan Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Suurok Class</ShipClass>
+      <Faction>Vulcan</Faction>
+      <Attack>2</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>18</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>0</Weapon>
+      <Crew>1</Crew>
+      <Id>vulcan_starship_71508</Id>
+      <Set>71508</Set>
+    </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -3459,7 +3532,7 @@
       <Faction>Federation</Faction>
       <Cost>0</Cost>
       <Id>2003</Id>
-      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger</Set>
+      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523</Set>
     </Captain>
     <Captain>
       <Title>Nu'Daq</Title>
@@ -4035,7 +4108,7 @@
       <Faction>Dominion</Faction>
       <Cost>0</Cost>
       <Id>2036</Id>
-      <Set>71271,71279,3rd_wing_attack_ship</Set>
+      <Set>71271,71279,3rd_wing_attack_ship,71524</Set>
     </Captain>
     <Captain>
       <Title>Worf</Title>
@@ -4415,7 +4488,7 @@
       <Faction>Borg</Faction>
       <Cost>0</Cost>
       <Id>drone_71283</Id>
-      <Set>71283,71444</Set>
+      <Set>71283,71444,71522</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -4520,7 +4593,7 @@
       <Faction>Vulcan</Faction>
       <Cost>0</Cost>
       <Id>vulcan_captain_71446</Id>
-      <Set>71446</Set>
+      <Set>71446,71508</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -4792,6 +4865,21 @@
       <Id>weyoun_71524</Id>
       <Set>71524</Set>
       <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Vanik</Title>
+      <Ability>All of your Vulcan and Federation [TECH] Upgrades cost -2 SP.</Ability>
+      <Unique>Y</Unique>
+      <Skill>5</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>3</Cost>
+      <Id>vanik_71508</Id>
+      <Set>71508</Set>
+      <Special>VulcanAndTechUpgradesMinus2</Special>
     </Captain>
   </Captains>
   <Admirals>
@@ -9126,6 +9214,8 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
 
       <Set id="OPArenaParticipation" overallSetName="Organized Play" releaseDate="2014-05-28">Arena Participation Prize</Set>
       <Set id="OPArenaPrize"         overallSetName="Organized Play" releaseDate="2014-05-28">Arena Competitive Prize</Set>
+
+      <Set id="71508"             overallSetName="Organized Play" releaseDate="2014-06-25">Ti'Mur Competitive Prize</Set>
 
       <Set id="i_k_s_b_moth" overallSetName="The Collective Boosters" releaseDate="2014-07-25">I.K.S. B'Moth Expansion</Set>
       <Set id="gavroche" overallSetName="The Collective Boosters" releaseDate="2014-07-25">Gavroche Expansion</Set>

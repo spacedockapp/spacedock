@@ -1,90 +1,30 @@
   <Captain>
-    <Title>Mr. Spock</Title>
-    <Ability>Your ship may perform a [TARGET LOCK] or [SCAN] Action as a free Action each round.</Ability>
+    <Title>Vanik</Title>
+    <Ability>All of your Vulcan and Federation [TECH] Upgrades cost -2 SP.</Ability>
     <Unique>Y</Unique>
-    <Skill>6</Skill>
+    <Skill>5</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>4</Cost>
-    <Id>mr_spock_71523</Id>
-    <Set>71523</Set>
+    <Faction>Vulcan</Faction>
+    <Cost>3</Cost>
+    <Id>vanik_71508</Id>
+    <Set>71508</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Will Decker</Title>
-    <Ability>During the Modify Attack Dice step of the Combat Phase, you may destroy one of your Active Shields to add 1 additional [CRIT] result to your attack roll.</Ability>
-    <Unique>Y</Unique>
-    <Skill>3</Skill>
+    <Title>Vulcan</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
+    <Skill>1</Skill>
     <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>2</Cost>
-    <Id>will_decker_71523</Id>
-    <Set>71523</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Hugh</Title>
-    <Ability>All of your [CREW] Upgrades cost -1 SP.  You do not pay a Faction penalty when assigning any Borg Upgrades to your ship.</Ability>
-    <Unique>Y</Unique>
-    <Skill>4</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Independent</Faction>
-    <Cost>2</Cost>
-    <Id>hugh_</Id>
-    <Set></Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Lore</Title>
-    <Ability>Add 1 [CREW] Upgrade slot to your Upgrade Bar.  During the Roll Attack Dice step of the Combat Phase, you may discard 1 of your [CREW] Upgrades to gain +1 attack die for that attack.  You may assign any [ELITE TALENT] Upgrade to your ship, regardless of Faction restriction, and you do not pay a Faction penalty when assigning any [ELITE TALENT] Upgrade to your ship.</Ability>
-    <Unique>Y</Unique>
-    <Skill>7</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Independent</Faction>
-    <Cost>4</Cost>
-    <Id>lore_</Id>
-    <Set></Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Keevan</Title>
-    <Ability>ACTION: Target 1 enemy ship at Range 1-2 in your forward firing arc.  Your ship cannot attack any other ship this round and must attack that ship, if possible.  During the Combat Phase, if your ship attacks with its Primary Weapon, it resolves its attack immediately before the target ship, as if it had a higher Captain Skill than that ship.  If the target ship attacks  your ship this round, it gains +4 attack dice.</Ability>
-    <Unique>Y</Unique>
-    <Skill>4</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Dominion</Faction>
-    <Cost>2</Cost>
-    <Id>keevan_71524</Id>
-    <Set>71524</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Weyoun</Title>
-    <Ability>At the start of the game, place 2 Mission Tokens on this card.  ACTION: Spend 1 Mission Token from this card to target a ship within Range 1-3 of your ship.  Target ship cannot attack your ship this round.  You cannot attack this round.</Ability>
-    <Unique>Y</Unique>
-    <Skill>8</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Dominion</Faction>
-    <Cost>5</Cost>
-    <Id>weyoun_71524</Id>
-    <Set>71524</Set>
+    <Faction>Vulcan</Faction>
+    <Cost>0</Cost>
+    <Id>vulcan_71508</Id>
+    <Set>71508</Set>
     <Special></Special>
   </Captain>

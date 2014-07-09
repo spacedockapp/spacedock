@@ -1,420 +1,60 @@
     <Upgrade>
-      <Title>The Needs of the Many...</Title>
-      <Ability>ACTION: Discard this card and one of your [CREW] Upgrades with an SP cost of 3 or higher to repair up to 3 of your Shields.</Ability>
+      <Title>Combat Vessel Variant</Title>
+      <Ability>Your Primary Weapon and Hull values are each at +1.  In addition, during the Activation Phase, if you reveal a 4 [STRAIGHT] Maneuver, you may perform a 5 [STRAIGHT] Maneuver instead.  If you do so, place an Auxiliary Power Token beside your ship.  This Upgrade may only be purchased for a Suurok Class ship.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>the_needs_of_the_many__71523</Id>
-      <Set>71523</Set>
+      <Type>Tech</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>6</Cost>
+      <Id>combat_vessel_variant_71508</Id>
+      <Set>71508</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Leonard McCoy</Title>
-      <Ability>ACTION: Remove 2 Disabled Upgrade Tokens from your [CREW] Upgrades.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>2</Cost>
-      <Id>leonard_mccoy_71523</Id>
-      <Set>71523</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Saavik</Title>
-      <Ability>You may disable this card at any time to replace 1 [SCAN] or [BATTLESTATIONS] Token that is beside your ship with 1 [EVADE] Token.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>saavik_71523</Id>
-      <Set>71523</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Ilia</Title>
-      <Ability>You do not lose your Perform Actions step when you overlap another ship's base.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>ilia_71523</Id>
-      <Set>71523</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Hikaru Sulu</Title>
-      <Ability>ACTION: If your ship is not Cloaked and you performed a Green Maneuver this round, perform a [SENSOR ECHO] Action.  You may use this Action even if your ship does not have the [SENSOR ECHO] Action on its Action Bar.  You may only use the 1 [STRAIGHT] Maneuver Template for this Action.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>hikaru_sulu_71523</Id>
-      <Set>71523</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Self-Destruct Sequence</Title>
-      <Ability>ACTION: You cannot attack this round.  At the end of the next Activation Phase, after all ships have moved, destroy your ship and roll a number of attack dice equal to your Hull value to damage every ship within Range 1 of your ship.  These ships do not roll defense dice against this damage.  You cannot use the Cheat Death [ELITE TALENT] Upgrade in conjunction with this Action.  This Upgrade may only be purchased for a Federation ship.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>self_destruct_sequence_71523</Id>
-      <Set>71523</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Montgomery Scott</Title>
-      <Ability>At any time, you may disable this card to prevent 1 Auxiliary Power Token from being placed beside your ship.  OR  ACTION: Discard this card to immediately repair up to 2 damage to your ship's Hull.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>montgomery_scott_71523</Id>
-      <Set>71523</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Pavel Chekov</Title>
-      <Ability>When attacking with your Primary Weapon, during the Modify Attack Dice step of the Combat Phase, you may disable this card to re-roll all of your blank results.  You must keep the results of the second roll.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>pavel_chekov_71523</Id>
-      <Set>71523</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Nyota Uhura</Title>
-      <Ability>At the start of the Activation Phase, you may disable this card to add +2 to your Captain's Skill Number until the End Phase.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>nyota_uhura_71523</Id>
-      <Set>71523</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Goval</Title>
-      <Ability>Discard this card at any time to prevent 1 of your other [CREW] Upgrades from being discarded or disabled.  If this Upgrade is deployed to a ship with a Borg Captain, you must spend 1 Drone Token to use this ability.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Borg, Independent</Faction>
-      <Cost>1</Cost>
-      <Id>goval_</Id>
-      <Set></Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Bosus</Title>
-      <Ability>If an enemy ship causes any of your [CREW] Upgrades to be discarded, place those Upgrades face down beneath this card.  ACTION: Discard this card and all the cards beneath it.  For each card that was discarded by this Action (including this card), you gain +1 attack die when attacking with your Primary Weapon this round.  If this Upgrade is deployed to a ship with a Borg Captain, you must spend 2 Drone Tokens to use this Action.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Borg, Independent</Faction>
-      <Cost>2</Cost>
-      <Id>bosus_</Id>
-      <Set></Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Crosis</Title>
-      <Ability>ACTION: Discard this card to target a ship at Range 1. Disable 1 [CREW] or 1 [TECH] Upgrade of your choice on the target ship.  Then steal 1 [CREW] Upgrade of your choice from that ship, even if the Upgrade exceeds your ship's restrictions.  If this Upgrade is deployed to a ship with a Borg Captain,  you must spend 2 Drone Tokens to perform this Action.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Borg, Independent</Faction>
-      <Cost>5</Cost>
-      <Id>crosis_</Id>
-      <Set></Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Torsus</Title>
-      <Ability>ACTION: Discard this card to increase your Captain's Skill Number by +2 until the End Phase.  If this Upgrade is deployed to a ship with a Borg Captain, you must spend 1 Drone Token to perform this Action.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Borg, Independent</Faction>
-      <Cost>2</Cost>
-      <Id>torsus_</Id>
-      <Set></Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Diversionary Tactics</Title>
-      <Ability>ACTION: Discard this card and one of your [CREW] Upgrades to target a ship that is within Range 1-2 of your ship and not in your forward firing arc.  Target ship must discard 1 of its [CREW] Upgrades (of its choice) and cannot attack your ship this round.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Independent</Faction>
-      <Cost>5</Cost>
-      <Id>diversionary_tactics_</Id>
-      <Set></Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Experimental Link</Title>
-      <Ability>During the Modify Attack Dice step of the Combat Phase, you may discard this card and either spend up to 3 of your Drone Tokens OR disable up to 3 of your [CREW] Upgrades to re-roll a number of your attack dice equal to the number of Drone Tokens you spend or [CREW] Upgrades you disabled with this card.  This Upgrade may only be purchased for a Borg Captain.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Borg</Faction>
-      <Cost>5</Cost>
-      <Id>experimental_link_71522</Id>
-      <Set>71522</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Subspace Distortion</Title>
-      <Ability>ACTION: Discard this card to perform this Action.  Each time you defend this round, instead of rolling your normal defense dice, roll a number of defense dice equal to your starting Shield value.  During the Modify Defense Dice step of the Combat Phase, you may re-roll a number of your blank results equal to your Active Shields.  You cannot attack this round.</Ability>
+      <Title>Tractor Beam</Title>
+      <Ability>If you are attacked at Range 1, you may disable this card to force the attacking ship to re-roll up to 2 attack dice of your choice.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Borg</Faction>
-      <Cost>6</Cost>
-      <Id>subspace_distortion_71522</Id>
-      <Set>71522</Set>
+      <Faction>Vulcan</Faction>
+      <Cost>2</Cost>
+      <Id>tractor_beam_71508</Id>
+      <Set>71508</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Transwarp Conduit</Title>
-      <Ability>ACTION: Discard this card to remove your ship from the play area and discard all Tokens that are beside your ship except Auxiliary Power Tokens.  During the End Phase, place your ship back in the play area.  You cannot place your ship within Range 1-3 of any enemy ship.  This Upgrade may only be purchased for a Borg ship.</Ability>
-      <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Borg</Type>
-      <Faction>Borg</Faction>
-      <Cost>6</Cost>
-      <Id>transwarp_conduit_71522</Id>
-      <Set>71522</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Unnecessary Bloodshed</Title>
-      <Ability>ACTION: Discard this card to target every friendly ship within Range 1-3 (and your ship). During the Roll Attack Dice step of the Combat Phase, each target ship chooses one of its attack dice and places it on a [HIT] result.  These dice may not be rolled or re-rolled this round.  This Upgrade may only be purchased for a Dominion Captain.</Ability>
+      <Title>Diplomacy</Title>
+      <Ability>ACTION: Discard this card to target 1 enemy ship within Range 1-3.  Discard all Tokens from beside your ship and the target ship (except for Auxiliary Power Tokens).  Both your ship and the target ship cannot attack or be attacked this round.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Dominion</Faction>
+      <Faction>Vulcan</Faction>
       <Cost>5</Cost>
-      <Id>unnecessary_bloodshed_71524</Id>
-      <Set>71524</Set>
+      <Id>diplomacy_71508</Id>
+      <Set>71508</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Lamat'Ukan</Title>
-      <Ability>If your ship has already acquired a Target Lock on an enemy ship, during the Declare Target step of the Combat Phase, you may discard this card to remove your [TARGET LOCK] Tokens and acquire a Target Lock on a different enemy ship as a free Action.  Normal Target Lock rules apply.</Ability>
+      <Title>Koss</Title>
+      <Ability>While Koss is on your ship, none of your other Upgrades can be affected by your opponents.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Dominion</Faction>
+      <Faction>Vulcan</Faction>
       <Cost>2</Cost>
-      <Id>lamat_ukan_71524</Id>
-      <Set>71524</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Remata'Klan</Title>
-      <Ability>At the end of the Activation Phase, if your ship is in the forward firing arcs of at least 2 enemy ships within Range 1-3 of your ship, you may discard this card to add +2 to your Captain's Skill Number until the End Phase.  Gain +2 attack dice for all of your attacks during the round in which you use this Upgrade.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Dominion</Faction>
-      <Cost>4</Cost>
-      <Id>remata_klan_71524</Id>
-      <Set>71524</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Amat'Igan</Title>
-      <Ability>Each time you defend, roll +1 defense dice.  Whenever an enemy Upgrade would cause one of your other [CREW] Upgrades to be discarded, you must discard this card instead.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Dominion</Faction>
-      <Cost>3</Cost>
-      <Id>amat_igan_71524</Id>
-      <Set>71524</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Sensor Array</Title>
-      <Ability>During the Modify Attack Dice step of the Combat Phase, you may spend your [SCAN] Token to force 1 enemy ship to re-roll one of its attack dice of your choice.</Ability>
-      <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Dominion</Faction>
-      <Cost>3</Cost>
-      <Id>sensor_array_71524</Id>
-      <Set>71524</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack.  You may fire this weapon from your forward or rear firing arcs.</Ability>
-      <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>2-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>photon_torpedoes_71523</Id>
-      <Set>71523</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK [TARGET LOCK]: Spend your target lock and disable this card to perform this attack.  If the target ship is damaged by this attack, destroy 1 additional Active Shield on that ship (if possible).  If fired from a Borg ship, add +1 attack die.</Ability>
-      <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>2-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Borg</Faction>
-      <Cost>6</Cost>
-      <Id>photon_torpedoes_71522</Id>
-      <Set>71522</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Forward Weapons Array</Title>
-      <Ability>ATTACK: Discard this card to target up to 3 ships in your forward firing arc.  Make a separate attack with this weapon against each of those ships.  If you attack 1 ship with this weapon, add +3 attack dice to that attack.  If you attack 2 ships with this weapon, add +1 die to each attack.  This Upgrade costs +5 SP if purchased for any non-Borg ship.</Ability>
-      <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>3</Attack>
-      <Range>1-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Borg</Faction>
-      <Cost>6</Cost>
-      <Id>forward_weapons_array_71522</Id>
-      <Set>71522</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Volley of Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and discard this card to perform this attack.  You may disable 1 of your other Dominion Torpedo Upgrades and make one additional attack with it.  You do not need to have the 2nd ship target locked or spend a 2nd target lock to make this extra attack.  Both attacks must be made against different targets in your forward or rear firing arcs.  This Upgrade may only be purchased for a Jem'Hadar Battle Cruiser or Battleship.</Ability>
-      <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>1-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Dominion</Faction>
-      <Cost>6</Cost>
-      <Id>volley_of_torpedoes_71524</Id>
-      <Set>71524</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Phased Polaron Beam</Title>
-      <Ability>ATTACK: Disable this card to perform this attack.  All damage inflicted by this attack ignores the opposing ship's Shields.  This Upgrade costs +5 Squadron Points for any non-Jem'Hadar ship.</Ability>
-      <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>4</Attack>
-      <Range>1</Range>
-      <Type>Weapon</Type>
-      <Faction>Dominion</Faction>
-      <Cost>5</Cost>
-      <Id>phased_polaron_beam_71524</Id>
-      <Set>71524</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack.  If fired from a Jem'Hadar Battle Cruiser, add +1 attack die.  You may fire this weapon from your forward or rear firing arcs.</Ability>
-      <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>2-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Dominion</Faction>
-      <Cost>5</Cost>
-      <Id>photon_torpedoes_71524</Id>
-      <Set>71524</Set>
+      <Id>koss_71508</Id>
+      <Set>71508</Set>
       <Special></Special>
     </Upgrade>

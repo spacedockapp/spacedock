@@ -6,12 +6,8 @@ require_relative "common"
 
 #Timestamp		Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots
 ship = <<-SHIPTEXT
-6/30/2014 8:30:38	Unique	U.S.S. Enterprise	Federation	Constitution Class (Refit)	3	1	4	4	ACTION: Disable up to 2 of your Active Shields.  For each Shield you disabled with this Action, gain +1 attack die for all of your attacks with your Primary Weapon this round.	Battle Stations, Evasive, Scan, Target Lock	24	0	4	0	1										
-6/30/2014 8:31:16		Federation Starship	Federation	Constitution Class (Refit)	3	1	4	3		Battle Stations, Evasive, Scan, Target Lock	22	0	3	0	1										
-6/30/2014 8:50:30	Unique	Soong	Borg	Borg Type 03	6	1	7	5	After performing a 5 [STRAIGHT] Maneuver, if there are no enemy ships in your forward firing arc, you may perform an [EVASIVE MANEUVERS] Action as a free Action.	Evasive, Scan, Target Lock	38	1	2	1	1										
-6/30/2014 8:51:05		Borg Starship	Borg	Borg Type 03	6	1	7	4		Evasive, Scan, Target Lock	36	1	1	1	1										
-6/30/2014 9:08:42	Unique	2nd Division Cruiser	Dominion	Jem'Hadar Battle Cruiser	5	1	6	5	Each time you defend, if you are within Range 1-2 of at least one friendly Jem'Hadar Attack Ship, roll 1 extra defense die.	Battle Stations, Evasive, Scan, Target Lock	34	0	2	1	2										
-6/30/2014 9:09:36		Dominion Starship	Dominion	Jem'Hadar Battle Cruiser	5	1	6	4		Battle Stations, Evasive, Scan, Target Lock	32	0	1	1	2
+6/30/2014 9:41:10	Unique	Ti'Mur	Vulcan	Suurok Class	2	1	4	3	Whenever you initiate an attack, you may disable one of your non-disabled [TECH] Upgrades to add +1 attack die.	Battle Stations, Evasive, Scan, Target Lock	20	0	1	2	0					
+6/30/2014 9:41:59		Vulcan Starship	Vulcan	Suurok Class	2	1	4	2		Battle Stations, Evasive, Scan, Target Lock	18	0	1	1	0					
 SHIPTEXT
 
 
