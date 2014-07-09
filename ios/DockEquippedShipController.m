@@ -256,8 +256,13 @@
         DockUpgradesViewController* controller = (DockUpgradesViewController*)destination;
         controller.managedObjectContext = _equippedShip.managedObjectContext;
         controller.upType = [[[self selectedUpgrade] upgrade] upType];
+        controller.showAdmirals = (_equippedShip.admiralCount > 0);
         id onPick = ^(DockUpgrade* upgrade, BOOL override, int overrideCost) {
-            [self addUpgrade: upgrade replacing: oneToReplace override: override overriddenCost: overrideCost];
+            DockEquippedUpgrade* localOneToReplace = oneToReplace;
+            if (![localOneToReplace.upgrade.upType isEqualToString: upgrade.upType]) {
+                localOneToReplace = nil;
+            }
+            [self addUpgrade: upgrade replacing: localOneToReplace override: override overriddenCost: overrideCost];
         };
         [controller targetSquad: _equippedShip.squad ship: _equippedShip upgrade: oneToReplace onPicked: onPick];
     } else if ([sequeIdentifier isEqualToString: @"PickFlagship"]) {

@@ -1,8 +1,10 @@
 #import "DockUpgrade.h"
 
+#import "DockFactioned.h"
+
 @class DockEquippedShip;
 
-@interface DockUpgrade (Addons)
+@interface DockUpgrade (Addons) <DockFactioned>
 +(NSSet*)allFactions:(NSManagedObjectContext*)context;
 +(DockUpgrade*)placeholder:(NSString*)upType inContext:(NSManagedObjectContext*)context;
 +(DockUpgrade*)upgradeForId:(NSString*)externalId context:(NSManagedObjectContext*)context;
@@ -12,6 +14,7 @@
 -(BOOL)isWeapon;
 -(BOOL)isBorg;
 -(BOOL)isCaptain;
+-(BOOL)isAdmiral;
 -(BOOL)isPlaceholder;
 -(BOOL)isUnique;
 -(BOOL)isDominion;

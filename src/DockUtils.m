@@ -106,6 +106,30 @@ NSArray* actionStrings(id target)
     return [NSArray arrayWithArray: actionStringParts];
 }
 
+BOOL targetHasFaction(NSString* faction, id<DockFactioned> target)
+{
+    return [target.faction isEqualToString: faction] || [target.additionalFaction isEqualToString: faction];
+}
+
+BOOL factionsMatch(id<DockFactioned> a, id<DockFactioned> b)
+{
+    if (targetHasFaction(a.faction, b)) {
+        return true;
+    }
+    
+    return targetHasFaction(a.additionalFaction, b);
+}
+
+NSString* combinedFactionString(id<DockFactioned> a)
+{
+    NSString* faction = a.faction;
+    NSString* additionalFaction = a.additionalFaction;
+    if (additionalFaction.length > 0) {
+        return [NSString stringWithFormat: @"%@, %@", faction, additionalFaction];
+    }
+    return faction;
+}
+
 NSURL* applicationFilesDirectory()
 {
     NSFileManager* fileManager = [NSFileManager defaultManager];

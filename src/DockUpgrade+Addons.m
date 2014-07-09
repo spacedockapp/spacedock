@@ -129,6 +129,11 @@
     return [self.upType isEqualToString: @"Captain"];
 }
 
+-(BOOL)isAdmiral
+{
+    return [self.upType isEqualToString: @"Admiral"];
+}
+
 -(BOOL)isTech
 {
     return [self.upType isEqualToString: @"Tech"];
@@ -213,6 +218,10 @@
         return [targetShip captainCount];
     }
 
+    if ([self isAdmiral]) {
+        return [targetShip admiralCount];
+    }
+
     if ([self isTalent]) {
         return [targetShip talentCount];
     }
@@ -264,6 +273,10 @@
 
 -(NSString*)upSortType
 {
+    if ([self isAdmiral]) {
+        return @"AAAAAdmiral";
+    }
+
     if ([self isCaptain]) {
         return @"AAACaptain";
     }
@@ -305,6 +318,10 @@
 
     if ([self isCaptain]) {
         return @"Cp";
+    }
+
+    if ([self isAdmiral]) {
+        return @"A";
     }
 
     if ([self isBorg]) {
@@ -357,8 +374,6 @@
     int cost = [upgrade.cost intValue];
 
     DockShip* ship = equippedShip.ship;
-    NSString* shipFaction = ship.faction;
-    NSString* upgradeFaction = upgrade.faction;
     DockCaptain* captain = equippedShip.captain;
     BOOL isSideboard = [equippedShip isResourceSideboard];
 
@@ -476,7 +491,7 @@
         }
     }
 
-    if (![shipFaction isEqualToString: upgradeFaction] && !equippedShip.isResourceSideboard && ![equippedShip.flagship.faction isEqualToString: upgradeFaction]) {
+    if (!factionsMatch(ship, self) && !equippedShip.isResourceSideboard && !factionsMatch(self, equippedShip.flagship)) {
         if ([captainSpecial isEqualToString: @"UpgradesIgnoreFactionPenalty"] && ![upgrade isCaptain]) {
         } else if ([captainSpecial isEqualToString: @"NoPenaltyOnFederationOrBajoranShip"]  && [upgrade isCaptain]) {
             if (!([ship isFederation] || [ship isBajoran])) {
@@ -485,7 +500,11 @@
         } else if ([captainSpecial isEqualToString: @"CaptainAndTalentsIgnoreFactionPenalty"] &&
                    ([upgrade isTalent] || [upgrade isCaptain])) {
         } else {
-            cost += 1;
+            if (upgrade.isAdmiral) {
+                cost += 3;
+            } else {
+                cost += 1;
+            }
         }
 
     }
@@ -546,6 +565,11 @@
 -(NSString*)rangeAsString
 {
     return nil;
+}
+
+-(NSString*)combinedFactions
+{
+    return combinedFactionString(self);
 }
 
 

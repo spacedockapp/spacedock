@@ -19,6 +19,7 @@ extern NSString* kExpandSquads;
 @property (assign) IBOutlet NSArrayController* squadsController;
 @property (assign) IBOutlet NSArrayController* captainsController;
 @property (assign) IBOutlet NSArrayController* upgradesController;
+@property (assign) IBOutlet NSArrayController* admiralsController;
 @property (assign) IBOutlet NSArrayController* resourcesController;
 @property (assign) IBOutlet NSArrayController* flagshipsController;
 @property (assign) IBOutlet NSArrayController* referenceController;

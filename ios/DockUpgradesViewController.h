@@ -16,6 +16,7 @@ typedef void (^ DockUpgradePicked)(DockUpgrade*, BOOL override, int overrideCost
 @property (nonatomic, weak) DockSquad* targetSquad;
 @property (nonatomic, weak) DockEquippedShip* targetShip;
 @property (nonatomic, weak) DockEquippedUpgrade* targetUpgrade;
+@property (nonatomic, assign) BOOL showAdmirals;
 -(void)targetSquad:(DockSquad*)squad onPicked:(DockUpgradePicked)onPicked;
 -(void)targetSquad:(DockSquad*)squad ship:(DockEquippedShip*)ship onPicked:(DockUpgradePicked)onPicked;
 -(void)targetSquad:(DockSquad*)squad ship:(DockEquippedShip*)ship upgrade:(DockEquippedUpgrade*)upgrade onPicked:(DockUpgradePicked)onPicked;

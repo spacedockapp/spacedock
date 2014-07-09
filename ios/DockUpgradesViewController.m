@@ -14,6 +14,7 @@
 @property (assign, nonatomic) BOOL restore;
 @property (assign, nonatomic) int overrideCost;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* overrideBarItem;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem* captainAdmiralSwitch;
 @end
 
 @implementation DockUpgradesViewController
@@ -22,6 +23,8 @@
 {
     self.cellIdentifer = @"Upgrade";
     [super viewDidLoad];
+    self.captainAdmiralSwitch.target = self;
+    self.captainAdmiralSwitch.action = @selector(toggleAdmiral:);
 }
 
 
@@ -42,9 +45,36 @@
     return nil;
 }
 
+-(void)setCaptainAdmiralSwitchVisible:(BOOL)visible
+{
+    if (visible) {
+        self.navigationItem.rightBarButtonItems = @[_captainAdmiralSwitch];
+    } else {
+        self.navigationItem.rightBarButtonItems = @[];
+    }
+}
+
+-(void)updateCaptainAdmiralSwitch
+{
+    BOOL visible = NO;
+    if (_showAdmirals && _targetShip) {
+        if ([_upType isEqualToString: @"Captain"]) {
+            visible = YES;
+            _captainAdmiralSwitch.title = @"Admirals";
+        } else if ([_upType isEqualToString: @"Admiral"]) {
+            visible = YES;
+            _captainAdmiralSwitch.title = @"Captains";
+        }
+    }
+    [self setCaptainAdmiralSwitchVisible: visible];
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear: animated];
+    
+    [self updateCaptainAdmiralSwitch];
+
     [self setTitle: _upgradeTypeName];
     NSIndexPath* indexPath = nil;
     DockUpgrade* upgrade = _targetUpgrade.upgrade;
@@ -77,6 +107,7 @@
     if (indexPath != nil) {
         [self.tableView selectRowAtIndexPath: indexPath animated: YES scrollPosition: UITableViewScrollPositionMiddle];
     }
+
 }
 
 -(NSString*)entityName
@@ -91,6 +122,7 @@
         self.navigationController.title = upType;
     }
 
+    [self updateCaptainAdmiralSwitch];
     self.fetchedResultsController = nil;
 }
 
@@ -133,7 +165,8 @@
     }
 
     if (faction != nil && [self useFactionFilter]) {
-        [predicateTerms addObject: @"faction = %@"];
+        [predicateTerms addObject: @"(faction = %@ or additionalFaction = %@)"];
+        [predicateValues addObject: faction];
         [predicateValues addObject: faction];
     }
 
@@ -313,6 +346,16 @@
                                                otherButtonTitles: nil];
         [alert show];
     }
+}
+
+-(IBAction)toggleAdmiral:(id)sender
+{
+    if ([_upType isEqualToString: @"Admiral"]) {
+        [self setUpType: @"Captain"];
+    } else {
+        [self setUpType: @"Admiral"];
+    }
+    [self clearFetch];
 }
 
 @end

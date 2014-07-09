@@ -2,6 +2,7 @@
 
 #import <Foundation/NSXMLParser.h>
 
+#import "DockAdmiral.h"
 #import "DockBorg+Addons.h"
 #import "DockCaptain+Addons.h"
 #import "DockCrew.h"
@@ -58,8 +59,8 @@
 
 -(void)reset
 {
-    _listElementNames = [NSSet setWithArray: @[@"Sets", @"Upgrades", @"Captains", @"Ships", @"Resources", @"Maneuvers", @"ShipClassDetails", @"Flagships", @"ReferenceItems"]];
-    _itemElementNames = [NSSet setWithArray: @[@"Set", @"Upgrade", @"Captain", @"Ship", @"Resource", @"Maneuver", @"ShipClassDetail", @"Flagship", @"Reference"]];
+    _listElementNames = [NSSet setWithArray: @[@"Sets", @"Upgrades", @"Captains", @"Admirals", @"Ships", @"Resources", @"Maneuvers", @"ShipClassDetails", @"Flagships", @"ReferenceItems"]];
+    _itemElementNames = [NSSet setWithArray: @[@"Set", @"Upgrade", @"Captain", @"Admiral", @"Ship", @"Resource", @"Maneuver", @"ShipClassDetail", @"Flagship", @"Reference"]];
     _elementNameStack = [[NSMutableArray alloc] initWithCapacity: 0];
     _listStack = [[NSMutableArray alloc] initWithCapacity: 0];
     _elementStack = [[NSMutableArray alloc] initWithCapacity: 0];
@@ -155,10 +156,19 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
     NSEntityDescription* entity = [NSEntityDescription entityForName: entityName inManagedObjectContext: _managedObjectContext];
     NSMutableDictionary* existingItemsLookup = createExistingItemsLookup(_managedObjectContext, entity);
 
-    NSDictionary* attributes = [NSDictionary dictionaryWithDictionary: [entity attributesByName]];
+    NSMutableDictionary* attributes = [NSMutableDictionary dictionaryWithDictionary: [entity attributesByName]];
+    NSEntityDescription* superEntity = entity.superentity;
+    while (superEntity != nil) {
+        NSDictionary* superAttributes = [NSDictionary dictionaryWithDictionary: [superEntity attributesByName]];
+        [attributes addEntriesFromDictionary: superAttributes];
+        superEntity = superEntity.superentity;
+    }
 
     for (NSDictionary* d in items) {
         NSString* nodeType = d[@"Type"];
+        if ([d valueForKey: @"AdditonalFaction"]) {
+            NSLog(@"here's one");
+        }
 
         if (targetType == nil || [nodeType isEqualToString: targetType]) {
             NSString* externalId = d[@"Id"];
@@ -533,6 +543,7 @@ static NSString* makeKey(NSString* key)
     [self loadItems: xmlData[@"ShipClassDetails"] itemClass: [DockShipClassDetails class] entityName: @"ShipClassDetails" targetType: nil];
     [self loadItems: xmlData[@"Ships"] itemClass: [DockShip class] entityName: @"Ship" targetType: nil];
     [self loadItems: xmlData[@"Captains"] itemClass: [DockCaptain class] entityName: @"Captain" targetType: nil];
+    [self loadItems: xmlData[@"Admirals"] itemClass: [DockAdmiral class] entityName: @"Admiral" targetType: @"Admiral"];
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockWeapon class] entityName: @"Weapon" targetType: @"Weapon"];
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockTalent class] entityName: @"Talent" targetType: @"Talent"];
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockCrew class] entityName: @"Crew" targetType: @"Crew"];

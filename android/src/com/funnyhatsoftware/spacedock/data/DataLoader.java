@@ -48,12 +48,12 @@ public class DataLoader extends DefaultHandler {
         xmlInput = xmlTargetInput;
         String[] a = {
                 "Sets", "Upgrades", "Captains", "Ships", "Resources",
-                "Maneuvers", "ShipClassDetails", "Flagships", "ReferenceItems"
+                "Maneuvers", "ShipClassDetails", "Flagships", "ReferenceItems", "Admirals"
         };
         Collections.addAll(listElementNames, a);
         String[] b = {
                 "Set", "Upgrade", "Captain", "Ship", "Resource",
-                "Maneuver", "ShipClassDetail", "Flagship", "Reference"
+                "Maneuver", "ShipClassDetail", "Flagship", "Reference", "Admiral"
         };
         Collections.addAll(itemElementNames, b);
 
@@ -148,7 +148,31 @@ public class DataLoader extends DefaultHandler {
         };
 
         loadDataItems("Captains", captainHandler);
+        
+        ItemCreator admiralHandler = new ItemCreator() {
 
+            @Override
+            public SetItem create(String type) {
+                return new Admiral();
+            }
+
+            @Override
+            public SetItem get(String externalId) {
+                return universe.admirals.get(externalId);
+            }
+
+            @Override
+            public void put(String externalId, SetItem s) {
+            	universe.admirals.put(externalId, (Admiral) s);
+                universe.captains.put(externalId, (Captain) s);
+            }
+
+			@Override
+            public void afterUpdate(SetItem s) {
+            }
+
+        };
+        loadDataItems("Admirals", admiralHandler);
         ItemCreator upgradeHandler = new ItemCreator() {
 
             @Override

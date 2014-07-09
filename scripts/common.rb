@@ -50,14 +50,10 @@ end
 def set_id_from_faction(faction)
   case faction
   when "Federation"
-    "u_s_s_yaeger"
+    "71523"
   when "Dominion"
-    "3rd_wing_attack_ship"
-  when "Romulan"
-    "i_r_w_vorta_vor"
-  when "Independent"
-    "gavroche"
-  when "Klingon"
-    "i_k_s_b_moth"
+    "71524"
+  when "Borg"
+    "71522"
   end
 end

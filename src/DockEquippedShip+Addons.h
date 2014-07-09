@@ -1,7 +1,8 @@
 #import "DockEquippedShip.h"
 
-@class DockUpgrade;
+@class DockAdmiral;
 @class DockCaptain;
+@class DockUpgrade;
 
 @interface DockEquippedShip (Addons)
 @property (nonatomic, readonly) NSString* title;
@@ -25,6 +26,7 @@
 -(int)talentCount;
 -(int)upgradeCount;
 -(int)captainCount;
+-(int)admiralCount;
 -(int)techCount;
 -(int)weaponCount;
 -(int)crewCount;
@@ -55,5 +57,8 @@
 -(void)establishPlaceholders;
 -(NSDictionary*)becomeFlagship:(DockFlagship*)flagship;
 -(void)removeFlagship;
+-(DockEquippedUpgrade*)addAdmiral:(DockAdmiral*)admiral;
+-(void)removeAdmiral;
+-(DockEquippedUpgrade*)equippedAdmiral;
 -(void)purgeUpgrade:(DockUpgrade*)upgrade;
 @end

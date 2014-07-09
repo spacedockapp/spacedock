@@ -693,6 +693,29 @@ NSString* kShowDataModelExport = @"showDataModelExport";
     return nil;
 }
 
+-(DockEquippedUpgrade*)addSelectedAdmiral:(DockEquippedShip*)targetShip
+{
+    NSArray* admiralsToAdd = [_admiralsController selectedObjects];
+
+    if (admiralsToAdd.count < 1) {
+    } else {
+        DockAdmiral* admiral = admiralsToAdd[0];
+        DockSquad* squad = [self selectedSquad];
+        NSError* error;
+
+        if ([squad canAddAdmiral: admiral toShip: targetShip error: &error]) {
+            return [squad addAdmiral: admiral toShip: targetShip error: nil];
+        } else {
+            [self explainCantUniqueUpgrade: error];
+        }
+
+        return nil;
+
+    }
+
+    return nil;
+}
+
 -(DockEquippedUpgrade*)addSelectedUpgrade:(DockEquippedShip*)targetShip maybeReplace:(DockEquippedUpgrade*)maybeReplace
 {
     NSArray* upgradeToAdd = [_upgradesController selectedObjects];
@@ -780,6 +803,10 @@ NSString* kShowDataModelExport = @"showDataModelExport";
             
             if ([identifier isEqualToString: @"captains"]) {
                 equippedUpgrade = [self addSelectedCaptain: selectedShip];
+            }
+
+            if ([identifier isEqualToString: @"admirals"]) {
+                equippedUpgrade = [self addSelectedAdmiral: selectedShip];
             }
 
             if ([identifier isEqualToString: @"upgrades"]) {
@@ -929,7 +956,8 @@ NSString* kShowDataModelExport = @"showDataModelExport";
 
     if (_factionName) {
         [upgradeArgumentParts addObject: _factionName];
-        [upgradeFormatParts addObject: @"(faction = %@)"];
+        [upgradeArgumentParts addObject: _factionName];
+        [upgradeFormatParts addObject: @"(faction = %@ or additionalFaction = %@)"];
     }
 
     if (_upType) {
@@ -947,7 +975,8 @@ NSString* kShowDataModelExport = @"showDataModelExport";
         _flagshipsController.fetchPredicate = predicateTemplate;
         _flagshipsController.fetchPredicate = predicateTemplate;
     } else {
-        NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"faction = %@ and any sets.externalId in %@", _factionName, _includedSets];
+        NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"(faction = %@ or additionalFaction = %@) and any sets.externalId in %@",
+        _factionName, _factionName, _includedSets];
         _shipsController.fetchPredicate = predicateTemplate;
         _captainsController.fetchPredicate = predicateTemplate;
         predicateTemplate = [NSPredicate predicateWithFormat: @"faction in %@ and any sets.externalId in %@", @[_factionName, @"Independent"], _includedSets];

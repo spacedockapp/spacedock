@@ -1,105 +1,90 @@
   <Captain>
-    <Title>K'Nera</Title>
-    <Ability>ACTION: Target a ship at Range 1-2. The target ship may choose to disable one of its [CREW] Upgrades (of its choice). If the target ship chooses not to disable 1 of its [CREW] Upgrades or if it has no [CREW] Upgrades that are not already disabled, you gain +1 attack die to all of your attacks against that ship this round.</Ability>
+    <Title>Mr. Spock</Title>
+    <Ability>Your ship may perform a [TARGET LOCK] or [SCAN] Action as a free Action each round.</Ability>
+    <Unique>Y</Unique>
+    <Skill>6</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
+    <Cost>4</Cost>
+    <Id>mr_spock_71523</Id>
+    <Set>71523</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Will Decker</Title>
+    <Ability>During the Modify Attack Dice step of the Combat Phase, you may destroy one of your Active Shields to add 1 additional [CRIT] result to your attack roll.</Ability>
+    <Unique>Y</Unique>
+    <Skill>3</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
+    <Cost>2</Cost>
+    <Id>will_decker_71523</Id>
+    <Set>71523</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Hugh</Title>
+    <Ability>All of your [CREW] Upgrades cost -1 SP.  You do not pay a Faction penalty when assigning any Borg Upgrades to your ship.</Ability>
+    <Unique>Y</Unique>
+    <Skill>4</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Independent</Faction>
+    <Cost>2</Cost>
+    <Id>hugh_</Id>
+    <Set></Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Lore</Title>
+    <Ability>Add 1 [CREW] Upgrade slot to your Upgrade Bar.  During the Roll Attack Dice step of the Combat Phase, you may discard 1 of your [CREW] Upgrades to gain +1 attack die for that attack.  You may assign any [ELITE TALENT] Upgrade to your ship, regardless of Faction restriction, and you do not pay a Faction penalty when assigning any [ELITE TALENT] Upgrade to your ship.</Ability>
     <Unique>Y</Unique>
     <Skill>7</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Klingon</Faction>
-    <Cost>4</Cost>
-    <Id>k_nera_i_k_s_b_moth</Id>
-    <Set>i_k_s_b_moth</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Liviana Charvanek</Title>
-    <Ability>Whenever one of your [CREW] Upgrades is supposed to be disabled, roll 1 defense die. If you roll a [BATTLESTATIONS] result, that Upgrade is not disabled. If you are disabling the [CREW] Upgrade to perform its Action or ability, that Action or ability is still performed even if the Upgrade does not disable.</Ability>
-    <Unique>Y</Unique>
-    <Skill>6</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Romulan</Faction>
-    <Cost>4</Cost>
-    <Id>liviana_charvanek_i_r_w_vorta_vor</Id>
-    <Set>i_r_w_vorta_vor</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Michael Eddington</Title>
-    <Ability>At the start of the game, place 3 Mission Tokens on this card.  ACTION: Target a ship a Range 1-3 and discard 1 Mission Token from this card. Target ship rolls -2 attack dice against your ship for each of its attacks this round.</Ability>
-    <Unique>Y</Unique>
-    <Skill>6</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
     <Faction>Independent</Faction>
     <Cost>4</Cost>
-    <Id>michael_eddington_gavroche</Id>
-    <Set>gavroche</Set>
+    <Id>lore_</Id>
+    <Set></Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Gul Damar</Title>
-    <Ability>All attacks made against your ship with Secondary Weapons are at -1 attack die.  All attacks made against your ship with Minefields are at -2 attack dice.</Ability>
+    <Title>Keevan</Title>
+    <Ability>ACTION: Target 1 enemy ship at Range 1-2 in your forward firing arc.  Your ship cannot attack any other ship this round and must attack that ship, if possible.  During the Combat Phase, if your ship attacks with its Primary Weapon, it resolves its attack immediately before the target ship, as if it had a higher Captain Skill than that ship.  If the target ship attacks  your ship this round, it gains +4 attack dice.</Ability>
     <Unique>Y</Unique>
-    <Skill>6</Skill>
+    <Skill>4</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Dominion</Faction>
+    <Cost>2</Cost>
+    <Id>keevan_71524</Id>
+    <Set>71524</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Weyoun</Title>
+    <Ability>At the start of the game, place 2 Mission Tokens on this card.  ACTION: Spend 1 Mission Token from this card to target a ship within Range 1-3 of your ship.  Target ship cannot attack your ship this round.  You cannot attack this round.</Ability>
+    <Unique>Y</Unique>
+    <Skill>8</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
     <Faction>Dominion</Faction>
-    <Cost>4</Cost>
-    <Id>gul_damar_3rd_wing_attack_ship</Id>
-    <Set>3rd_wing_attack_ship</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Benjamin Maxwell</Title>
-    <Ability>Immediately before you move, you may change your Maneuver.  If you do so, discard t his card during the End Phase.</Ability>
-    <Unique>Y</Unique>
-    <Skill>7</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>4</Cost>
-    <Id>benjamin_maxwell_u_s_s_yaeger</Id>
-    <Set>u_s_s_yaeger</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Federation</Title>
-    <Ability></Ability>
-    <Unique>N</Unique>
-    <Skill>1</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>0</Cost>
-    <Id>federation_u_s_s_yaeger</Id>
-    <Set>u_s_s_yaeger</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Maquis</Title>
-    <Ability></Ability>
-    <Unique>N</Unique>
-    <Skill>1</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Independent</Faction>
-    <Cost>0</Cost>
-    <Id>maquis_gavroche</Id>
-    <Set>gavroche</Set>
+    <Cost>5</Cost>
+    <Id>weyoun_71524</Id>
+    <Set>71524</Set>
     <Special></Special>
   </Captain>

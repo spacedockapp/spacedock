@@ -1,8 +1,10 @@
 #import "DockFlagship.h"
 
+#import "DockFactioned.h"
+
 @class DockShip;
 
-@interface DockFlagship (Addons)
+@interface DockFlagship (Addons) <DockFactioned>
 +(DockFlagship*)flagshipForId:(NSString*)flagshipId context:(NSManagedObjectContext*)context;
 -(int)agilityAdd;
 -(int)hullAdd;

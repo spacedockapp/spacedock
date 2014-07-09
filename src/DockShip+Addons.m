@@ -262,6 +262,14 @@ NSString* asDegrees(NSString* textValue)
     return [self.captainLimit intValue];
 }
 
+-(int)admiralCount
+{
+    if (self.isFighterSquadron) {
+        return 0;
+    }
+    return 1;
+}
+
 -(int)borgCount
 {
     return [self.borg intValue];
@@ -348,5 +356,9 @@ NSString* asDegrees(NSString* textValue)
     return self.title;
 }
 
+-(NSString*)combinedFactions
+{
+    return combinedFactionString(self);
+}
 
 @end

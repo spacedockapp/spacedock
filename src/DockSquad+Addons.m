@@ -1,5 +1,6 @@
 #import "DockSquad+Addons.h"
 
+#import "DockAdmiral.h"
 #import "DockBackupManager.h"
 #import "DockCaptain+Addons.h"
 #import "DockEquippedShip+Addons.h"
@@ -733,6 +734,9 @@ static NSString* namePrefix(NSString* originalName)
 
 -(BOOL)canAddCaptain:(DockCaptain*)captain toShip:(DockEquippedShip*)targetShip error:(NSError**)error
 {
+    if (captain.isAdmiral) {
+        return [self canAddAdmiral: (DockAdmiral*)captain toShip: targetShip error: error];
+    }
     if (targetShip.captainCount < 1) {
         if (error) {
             NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected ship.", captain.title];
@@ -763,7 +767,7 @@ static NSString* namePrefix(NSString* originalName)
         if (existing) {
             if (error) {
                 NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", captain.title];
-                NSString* info = @"This Captain is unique and one with the same name already exists in the squadron.";
+                NSString* info = @"This Captain is unique and an item with the same name already exists in the squadron.";
                 NSDictionary* d = @{
                     NSLocalizedDescriptionKey: msg,
                     NSLocalizedFailureReasonErrorKey: info,
@@ -779,8 +783,76 @@ static NSString* namePrefix(NSString* originalName)
     return YES;
 }
 
+-(BOOL)canAddAdmiral:(DockAdmiral*)admiral toShip:(DockEquippedShip*)targetShip error:(NSError**)error
+{
+    if (targetShip.admiralCount < 1) {
+        if (error) {
+            NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected ship.", admiral.title];
+            NSString* info = @"The selected ship has no slot for an admiral.";
+            NSDictionary* d = @{
+                NSLocalizedDescriptionKey: msg,
+                NSLocalizedFailureReasonErrorKey: info
+            };
+            *error = [NSError errorWithDomain: DockErrorDomain code: kUniqueConflict userInfo: d];
+        }
+
+        return NO;
+    }
+    
+    DockEquippedUpgrade* existingInstalledAdmiral = [self equippedAdmiral];
+    DockAdmiral* existingAdmiral = (DockAdmiral*)[existingInstalledAdmiral upgrade];
+
+    if (admiral == existingAdmiral) {
+        return YES;
+    }
+
+    if ([admiral.title isEqualToString: existingAdmiral.title]) {
+        return YES;
+    }
+
+    if ([admiral isUnique]) {
+        DockEquippedUpgrade* existing = [self containsUpgradeWithName: admiral.title];
+
+        if (existing) {
+            if (error) {
+                NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", admiral.title];
+                NSString* info = @"This Admiral is unique and an item with the same name already exists in the squadron.";
+                NSDictionary* d = @{
+                    NSLocalizedDescriptionKey: msg,
+                    NSLocalizedFailureReasonErrorKey: info,
+                    DockExistingUpgradeKey: existing
+                };
+                *error = [NSError errorWithDomain: DockErrorDomain code: kUniqueConflict userInfo: d];
+            }
+
+            return NO;
+        }
+    }
+
+    return YES;
+}
+
+-(DockEquippedUpgrade*)addAdmiral:(DockAdmiral*)admiral toShip:(DockEquippedShip*)targetShip error:(NSError**)error
+{
+    if (![self canAddAdmiral: admiral toShip: targetShip error: error]) {
+        return nil;
+    }
+
+    for (DockEquippedShip* ship in self.equippedShips) {
+        [ship removeAdmiral];
+    }
+    
+    return [targetShip addAdmiral: admiral];
+}
+
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade toShip:(DockEquippedShip*)targetShip error:(NSError**)error
 {
+    if (upgrade.isAdmiral) {
+        return [self canAddAdmiral: (DockAdmiral*)upgrade toShip: targetShip error: error];
+    }
+    if (upgrade.isCaptain) {
+        return [self canAddCaptain: (DockCaptain*)upgrade toShip: targetShip error: error];
+    }
     if (![targetShip canAddUpgrade: upgrade]) {
         if (error) {
             NSDictionary* reasons = [targetShip explainCantAddUpgrade: upgrade];
@@ -939,6 +1011,18 @@ static NSString* namePrefix(NSString* originalName)
     }
     return NO;
 }
+
+-(DockEquippedUpgrade*)equippedAdmiral
+{
+    for (DockEquippedShip* equippedShip in self.equippedShips) {
+        DockEquippedUpgrade* equippedAdmiral = equippedShip.equippedAdmiral;
+        if (equippedAdmiral != nil) {
+            return equippedAdmiral;
+        }
+    }
+    return nil;
+}
+
 
 -(void)purgeUpgrade:(DockUpgrade*)upgrade
 {

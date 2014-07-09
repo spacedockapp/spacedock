@@ -6,16 +6,12 @@ require_relative "common"
 
 #Timestamp		Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots
 ship = <<-SHIPTEXT
-6/9/2014 15:55:35	Unique	I.K.S. B'Moth	Klingon	K'T'Inga Class	4	1	4	3	You can perform a Red Maneuver while there is an Auxiliary Power Token beside your ship.	Cloak, Evasive, Sensor Echo, Target Lock	24	0	1	1	2
-6/9/2014 15:56:07		K'T'Inga Class	Klingon	K'T'Inga Class	4	1	4	2		Cloak, Evasive, Sensor Echo, Target Lock	22	0	1	1	1
-6/9/2014 16:06:48	Unique	Gavroche	Independent	Maquis Raider	2	3	3	3	ACTION: Disable up to 2 of your [CREW] Upgrades and add +1 attack die to each of your attacks this round for each [CREW] Upgrade you disabled with this Action.	Battle Stations, Evasive, Scan, Target Lock	22	0	2	0	1
-6/9/2014 16:06:57	Unique	I.R.W. Vorta Vor	Romulan	Romulan Bird of Prey Class	2	2	3	2	While you are Cloaked, after you perform a Green Maneuver, you may perform a [SENSOR ECHO] Action as a free Action.	Cloak, Evasive, Sensor Echo, Target Lock	18	0	1	1	2
-6/9/2014 16:07:59		Romulan Bird of Prey Class	Romulan	Romulan Bird of Prey Class	2	2	3	1		Cloak, Evasive, Sensor Echo, Target Lock	16	0	1	1	1
-6/9/2014 16:21:03	Unique	3rd Wing Attack Ship	Dominion	Jem'Hadar Attack Ship	3	2	3	3	When attacking with your Primary Weapon, during the Roll Attack Dice step of the Combat Phase you may disable one of your [CREW] Upgrades to add +1 attack die to your attack.	Battle Stations, Evasive, Scan, Target Lock	22	0	2	1	1
-6/9/2014 16:22:05		Jem'Hadar Attack Ship	Dominion	Jem'Hadar Attack Ship	3	2	3	2		Battle Stations, Evasive, Scan, Target Lock	20	0	1	1	1
-6/9/2014 16:25:01	Unique	U.S.S. Yaeger	Federation	Saber Class	3	2	3	3	When attacking with Photon Torpedoes, you do not need to disable the Photon Torpedoes.	Battle Stations, Evasive, Scan, Target Lock	22	0	2	0	2
-6/9/2014 16:29:16		Federation Starship	Federation	Saber Class	3	2	3	2		Battle Stations, Evasive, Scan, Target Lock	20	0	1	0	2
-6/9/2014 16:39:17		Maquis Starship	Independent	Maquis Raider	2	3	3	2		Battle Stations, Evasive, Scan, Target Lock	20	0	1	0	1
+6/30/2014 8:30:38	Unique	U.S.S. Enterprise	Federation	Constitution Class (Refit)	3	1	4	4	ACTION: Disable up to 2 of your Active Shields.  For each Shield you disabled with this Action, gain +1 attack die for all of your attacks with your Primary Weapon this round.	Battle Stations, Evasive, Scan, Target Lock	24	0	4	0	1										
+6/30/2014 8:31:16		Federation Starship	Federation	Constitution Class (Refit)	3	1	4	3		Battle Stations, Evasive, Scan, Target Lock	22	0	3	0	1										
+6/30/2014 8:50:30	Unique	Soong	Borg	Borg Type 03	6	1	7	5	After performing a 5 [STRAIGHT] Maneuver, if there are no enemy ships in your forward firing arc, you may perform an [EVASIVE MANEUVERS] Action as a free Action.	Evasive, Scan, Target Lock	38	1	2	1	1										
+6/30/2014 8:51:05		Borg Starship	Borg	Borg Type 03	6	1	7	4		Evasive, Scan, Target Lock	36	1	1	1	1										
+6/30/2014 9:08:42	Unique	2nd Division Cruiser	Dominion	Jem'Hadar Battle Cruiser	5	1	6	5	Each time you defend, if you are within Range 1-2 of at least one friendly Jem'Hadar Attack Ship, roll 1 extra defense die.	Battle Stations, Evasive, Scan, Target Lock	34	0	2	1	2										
+6/30/2014 9:09:36		Dominion Starship	Dominion	Jem'Hadar Battle Cruiser	5	1	6	4		Battle Stations, Evasive, Scan, Target Lock	32	0	1	1	2
 SHIPTEXT
 
 

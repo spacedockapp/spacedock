@@ -122,8 +122,15 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Upgrade" id="11d-kb-pRr"/>
+                    <navigationItem key="navigationItem" title="Upgrade" id="11d-kb-pRr">
+                        <barButtonItem key="rightBarButtonItem" title="Admirals" id="9N3-MT-AuE">
+                            <connections>
+                                <action selector="toggleAdmiral:" destination="ItA-jp-4hr" id="4ic-c4-UAd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="captainAdmiralSwitch" destination="9N3-MT-AuE" id="ujn-zS-B8g"/>
                         <outlet property="costBarItem" destination="Xri-Jo-QKS" id="ENR-u8-Qha"/>
                         <outlet property="factionBarItem" destination="hOj-NS-uDd" id="ZP2-7J-5f8"/>
                         <outlet property="overrideBarItem" destination="f9C-2x-CG7" id="uN2-TT-I4p"/>
@@ -562,8 +569,29 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="Pfq-gY-WG1">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="304-lz-BFy">
                                         <rect key="frame" x="0.0" y="400" width="320" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="304-lz-BFy" id="Crs-Ys-k4M">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="beW-0g-wO0">
+                                                    <rect key="frame" x="20" y="3" width="280" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" title="Admirals">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="ItA-jp-4hr" kind="push" identifier="GoToAdmirals" id="QGP-gf-Q6H"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="Pfq-gY-WG1">
+                                        <rect key="frame" x="0.0" y="450" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pfq-gY-WG1" id="9WG-vI-Ptl">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -584,7 +612,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="OIF-Uq-MqL">
-                                        <rect key="frame" x="0.0" y="450" width="320" height="50"/>
+                                        <rect key="frame" x="0.0" y="500" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OIF-Uq-MqL" id="Gt3-QQ-2Ah">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -605,7 +633,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="OKG-qr-0lO">
-                                        <rect key="frame" x="0.0" y="500" width="320" height="50"/>
+                                        <rect key="frame" x="0.0" y="550" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OKG-qr-0lO" id="WiQ-uG-Dyv">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -625,14 +653,14 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="304-lz-BFy">
-                                        <rect key="frame" x="0.0" y="550" width="320" height="50"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="ZvO-Et-HPa">
+                                        <rect key="frame" x="0.0" y="600" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="304-lz-BFy" id="Crs-Ys-k4M">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZvO-Et-HPa" id="zOj-Cb-H5d">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="beW-0g-wO0">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IXy-Fo-gfu">
                                                     <rect key="frame" x="20" y="3" width="280" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -640,7 +668,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="lIy-5D-2lF" kind="push" identifier="GoToReference" id="4ix-pg-kGZ"/>
+                                                        <segue destination="lIy-5D-2lF" kind="push" identifier="GoToReference" id="LIM-Rk-KLX"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1633,9 +1661,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="AYA-Tq-E0B"/>
-        <segue reference="4En-j0-M2p"/>
-        <segue reference="Edb-dE-lUZ"/>
+        <segue reference="TwX-09-xdF"/>
+        <segue reference="me1-T8-16w"/>
+        <segue reference="xuh-dp-0tA"/>
         <segue reference="YvD-5N-V1B"/>
     </inferredMetricsTieBreakers>
 </document>
