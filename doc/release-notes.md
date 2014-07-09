@@ -1,3 +1,8 @@
+### Version 1.0.17 build 67 (2014-6-22)
+
+* Added support for Wave 6, including proper support for dual-faction items.
+* Added support for Admirals in building and printing build sheets. Build mats are still to be done.
+
 ### Version 1.0.16 build 66 (2014-6-22)
 
 * Fix a few sideboard-releated bugs.

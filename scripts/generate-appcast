@@ -67,6 +67,7 @@ release_notes_template_path = doc_path.join("release-notes.html.erb")
 index_template_source = doc_path.join("index.html.erb")
 site_path =  root_path.join("spacedocksite")
 release_notes_dest_path = site_path.join("release-notes.html")
+release_notes_temp_path = "/tmp/release-notes.html"
 index_dest_path = site_path.join("index.html")
 versions_path = config_path.join("versions.json")
 update_path = site_path.join("update.xml")
@@ -97,7 +98,8 @@ appcast_template = ERB.new APPCAST_TEMPLATE_SOURCE
 File.write(update_path, appcast_template.result(binding))
 File.write(versions_path, versions.to_json())
 say_and_do("kramdown --template #{release_notes_template_path} #{release_notes_source_path} > #{release_notes_dest_path}")
-release_notes = File.read(release_notes_dest_path)
+say_and_do("kramdown #{release_notes_source_path} > #{release_notes_temp_path}")
+release_notes = File.read(release_notes_temp_path)
 index_template_source = File.read(index_template_source)
 index_template = ERB.new index_template_source
 max_build_number = versions[0][:build_number]
