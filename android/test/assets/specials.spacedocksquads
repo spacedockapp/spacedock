@@ -1,937 +1,5 @@
 [
   {
-    "uuid" : "FF5F9F82-C95B-41C3-84A0-E3A210029E04",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 45,
-        "shipId" : "1042",
-        "upgrades" : [
-          {
-            "upgradeId" : "the_weak_will_perish_71281",
-            "upgradeTitle" : "The Weak Will Perish",
-            "calculatedCost" : 11
-          }
-        ],
-        "shipTitle" : "P.W.B. Aj'Rmr",
-        "captain" : {
-          "upgradeId" : "3121",
-          "upgradeTitle" : "Alidar Jarok",
-          "calculatedCost" : 4
-        }
-      }
-    ],
-    "name" : "The Weak Will Perish",
-    "modified" : "2014-06-20T10:20:29-0700",
-    "cost" : 45
-  },
-  {
-    "uuid" : "363D3221-6752-4A7D-9104-66F629BBB7A2",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 20,
-        "shipId" : "bajoran_interceptor_71445",
-        "upgrades" : [
-          {
-            "upgradeId" : "phaser_strike_71445",
-            "upgradeTitle" : "Phaser Strike",
-            "calculatedCost" : 4
-          }
-        ],
-        "shipTitle" : "Bajoran Interceptor",
-        "captain" : {
-          "upgradeId" : "bajoran_captain_op6prize",
-          "upgradeTitle" : "Bajoran Captain",
-          "calculatedCost" : 0
-        }
-      },
-      {
-        "calculatedCost" : 20,
-        "shipId" : "interceptor_5_71445",
-        "upgrades" : [
-          {
-            "upgradeId" : "phaser_strike_71445",
-            "upgradeTitle" : "Phaser Strike",
-            "calculatedCost" : 4
-          }
-        ],
-        "shipTitle" : "Interceptor 5",
-        "captain" : {
-          "upgradeId" : "bajoran_captain_op6prize",
-          "upgradeTitle" : "Bajoran Captain",
-          "calculatedCost" : 0
-        }
-      },
-      {
-        "calculatedCost" : 26,
-        "shipId" : "tholia_one_opwebprize",
-        "upgrades" : [
-          {
-            "upgradeId" : "phaser_strike_71445",
-            "upgradeTitle" : "Phaser Strike",
-            "calculatedCost" : 10
-          }
-        ],
-        "shipTitle" : "Tholia One",
-        "captain" : {
-          "upgradeId" : "tholian_opwebprize",
-          "upgradeTitle" : "Tholian",
-          "calculatedCost" : 0
-        }
-      }
-    ],
-    "name" : "Phaser Strike",
-    "modified" : "2014-06-21T06:50:02-0700",
-    "cost" : 66
-  },
-  {
-    "uuid" : "DED7D1D0-3845-4CF0-B117-DFC66D584C17",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 26,
-        "shipId" : "interceptor_5_71445",
-        "upgrades" : [
-          {
-            "upgradeId" : "3068",
-            "upgradeTitle" : "Cloaking Device",
-            "calculatedCost" : 10
-          }
-        ],
-        "shipTitle" : "Interceptor 5",
-        "captain" : {
-          "upgradeId" : "bajoran_captain_op6prize",
-          "upgradeTitle" : "Bajoran Captain",
-          "calculatedCost" : 0
-        }
-      },
-      {
-        "calculatedCost" : 28,
-        "shipId" : "1030",
-        "upgrades" : [
-          {
-            "upgradeId" : "3068",
-            "upgradeTitle" : "Cloaking Device",
-            "calculatedCost" : 4
-          }
-        ],
-        "shipTitle" : "U.S.S. Defiant",
-        "captain" : {
-          "upgradeId" : "2003",
-          "upgradeTitle" : "Federation Captain",
-          "calculatedCost" : 0
-        }
-      },
-      {
-        "calculatedCost" : 31,
-        "shipId" : "1031",
-        "upgrades" : [
-          {
-            "upgradeId" : "3068",
-            "upgradeTitle" : "Cloaking Device",
-            "calculatedCost" : 9
-          }
-        ],
-        "shipTitle" : "Federation Starship",
-        "captain" : {
-          "upgradeId" : "2003",
-          "upgradeTitle" : "Federation Captain",
-          "calculatedCost" : 0
-        }
-      }
-    ],
-    "name" : "Defiant Cloaking Device",
-    "modified" : "2014-06-20T10:25:16-0700",
-    "cost" : 85
-  },
-  {
-    "uuid" : "F5BDAA13-0D7F-46FF-A449-E91A1FE38CD0",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 39,
-        "shipId" : "dominion_starship_71279",
-        "upgrades" : [
-          {
-            "upgradeId" : "ikat_ika_71279",
-            "upgradeTitle" : "Ikat'Ika",
-            "calculatedCost" : 5
-          }
-        ],
-        "shipTitle" : "Dominion Starship",
-        "captain" : {
-          "upgradeId" : "2036",
-          "upgradeTitle" : "Dominion Captain",
-          "calculatedCost" : 0
-        }
-      }
-    ],
-    "name" : "Ikat'Ika no penalty",
-    "modified" : "2014-06-20T10:16:45-0700",
-    "cost" : 39
-  },
-  {
-    "uuid" : "4C2C6834-4F73-4245-93DE-5D375088A583",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 17,
-        "shipId" : "1014",
-        "upgrades" : [
-          {
-            "upgradeId" : "3039",
-            "upgradeTitle" : "Varel",
-            "calculatedCost" : 5
-          }
-        ],
-        "shipTitle" : "Romulan Science Vessel",
-        "captain" : {
-          "upgradeId" : "2007",
-          "upgradeTitle" : "Romulan Captain",
-          "calculatedCost" : 0
-        }
-      }
-    ],
-    "name" : "Varel no penalty",
-    "modified" : "2014-06-20T10:18:01-0700",
-    "cost" : 17
-  },
-  {
-    "uuid" : "FC545F9D-3922-4E1D-8832-5432FD9CF5A5",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 39,
-        "shipId" : "1009",
-        "upgrades" : [
-          {
-            "upgradeId" : "3025",
-            "upgradeTitle" : "Cheat Death",
-            "calculatedCost" : 3
-          },
-          {
-            "upgradeId" : "3072",
-            "upgradeTitle" : "Once More Unto The Breach",
-            "calculatedCost" : 6
-          },
-          {
-            "upgradeId" : "emergency_medical_hologram_71276",
-            "upgradeTitle" : "Emergency Medical Hologram",
-            "calculatedCost" : 2
-          }
-        ],
-        "shipTitle" : "U.S.S. Enterprise",
-        "captain" : {
-          "upgradeId" : "2011",
-          "upgradeTitle" : "James T. Kirk",
-          "calculatedCost" : 6
-        }
-      }
-    ],
-    "name" : "kirk on enterprise",
-    "modified" : "2014-06-19T16:43:04-0700",
-    "cost" : 39
-  },
-  {
-    "uuid" : "71A3A6FF-6D47-4A42-80E6-05368317BB13",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 26,
-        "shipId" : "1030",
-        "upgrades" : [
-
-        ],
-        "shipTitle" : "U.S.S. Defiant",
-        "captain" : {
-          "upgradeId" : "2030",
-          "upgradeTitle" : "Kira Nerys",
-          "calculatedCost" : 2
-        }
-      }
-    ],
-    "name" : "kira on fed",
-    "modified" : "2014-06-19T16:53:06-0700",
-    "cost" : 26
-  },
-  {
-    "uuid" : "1BCB7D52-D641-4310-AEB7-9B43458332BD",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 45,
-        "shipId" : "4th_division_battleship_71279",
-        "upgrades" : [
-          {
-            "upgradeId" : "neela_71445",
-            "upgradeTitle" : "Neela",
-            "calculatedCost" : 6
-          },
-          {
-            "upgradeId" : "3097",
-            "upgradeTitle" : "Dorsal Weapons Array",
-            "calculatedCost" : 1
-          }
-        ],
-        "shipTitle" : "4th Division Battleship",
-        "captain" : {
-          "upgradeId" : "2035",
-          "upgradeTitle" : "Luaran",
-          "calculatedCost" : 2
-        }
-      }
-    ],
-    "name" : "lauran on battleship weapon",
-    "modified" : "2014-06-20T09:45:48-0700",
-    "cost" : 45
-  },
-  {
-    "uuid" : "D6F5F724-070D-4EC4-B280-69197A63232D",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 64,
-        "shipId" : "u_s_s_voyager_71280",
-        "upgrades" : [
-          {
-            "upgradeId" : "3093",
-            "upgradeTitle" : "Alexander",
-            "calculatedCost" : 4
-          },
-          {
-            "upgradeId" : "anara_71445",
-            "upgradeTitle" : "Anara",
-            "calculatedCost" : 4
-          },
-          {
-            "upgradeId" : "b_elanna_torres_71280",
-            "upgradeTitle" : "B'elanna Torres",
-            "calculatedCost" : 4
-          },
-          {
-            "upgradeId" : "ablative_generator_71280",
-            "upgradeTitle" : "Ablative Generator",
-            "calculatedCost" : 10
-          },
-          {
-            "upgradeId" : "advanced_cloaking_i_r_w_vorta_vor",
-            "upgradeTitle" : "Advanced Cloaking",
-            "calculatedCost" : 5
-          },
-          {
-            "upgradeId" : "3103",
-            "upgradeTitle" : "Additional Weapons Array",
-            "calculatedCost" : 5
-          },
-          {
-            "upgradeId" : "aft_particle_beam_71446",
-            "upgradeTitle" : "Aft Particle Beam",
-            "calculatedCost" : 2
-          }
-        ],
-        "shipTitle" : "U.S.S. Voyager",
-        "captain" : {
-          "upgradeId" : "2003",
-          "upgradeTitle" : "Federation Captain",
-          "calculatedCost" : 0
-        }
-      }
-    ],
-    "name" : "B'elanna Torres",
-    "modified" : "2014-06-20T10:13:57-0700",
-    "cost" : 64
-  },
-  {
-    "uuid" : "2DFA9F0F-D989-4B66-ADDC-D0C40A4F6849",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 21,
-        "shipId" : "1015",
-        "upgrades" : [
-
-        ],
-        "shipTitle" : "I.K.S. Gr'oth",
-        "captain" : {
-          "upgradeId" : "2030",
-          "upgradeTitle" : "Kira Nerys",
-          "calculatedCost" : 3
-        }
-      }
-    ],
-    "name" : "kira on klingon",
-    "modified" : "2014-06-19T16:53:06-0700",
-    "cost" : 21
-  },
-  {
-    "uuid" : "76D450FB-2489-4EB8-B067-8BE2499D0836",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 40,
-        "shipId" : "1021",
-        "upgrades" : [
-          {
-            "upgradeId" : "ikat_ika_71279",
-            "upgradeTitle" : "Ikat'Ika",
-            "calculatedCost" : 9
-          }
-        ],
-        "shipTitle" : "Gor Portas",
-        "captain" : {
-          "upgradeId" : "2012",
-          "upgradeTitle" : "Christopher Pike",
-          "calculatedCost" : 5
-        }
-      }
-    ],
-    "name" : "Ikat'Ika",
-    "modified" : "2014-06-20T10:16:45-0700",
-    "cost" : 40
-  },
-  {
-    "uuid" : "19F2B8FF-02CC-4F77-A9A1-A714FE07041F",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 42,
-        "shipId" : "1009",
-        "upgrades" : [
-          {
-            "upgradeId" : "3026",
-            "upgradeTitle" : "Cochrane Deceleration Maneuver",
-            "calculatedCost" : 5
-          },
-          {
-            "upgradeId" : "3062",
-            "upgradeTitle" : "Farek",
-            "calculatedCost" : 3
-          },
-          {
-            "upgradeId" : "3029",
-            "upgradeTitle" : "Hikaru Sulu",
-            "calculatedCost" : 2
-          },
-          {
-            "upgradeId" : "3109",
-            "upgradeTitle" : "Janice Rand",
-            "calculatedCost" : 1
-          },
-          {
-            "upgradeId" : "3028",
-            "upgradeTitle" : "Leonard McCoy",
-            "calculatedCost" : 2
-          },
-          {
-            "upgradeId" : "3033",
-            "upgradeTitle" : "Photon Torpedoes",
-            "calculatedCost" : 3
-          }
-        ],
-        "shipTitle" : "U.S.S. Enterprise",
-        "captain" : {
-          "upgradeId" : "2012",
-          "upgradeTitle" : "Christopher Pike",
-          "calculatedCost" : 4
-        }
-      }
-    ],
-    "name" : "pike on enterpise",
-    "modified" : "2014-06-19T16:41:04-0700",
-    "cost" : 42
-  },
-  {
-    "uuid" : "70092B70-25B3-44C3-9BFB-400F1D7965CC",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 32,
-        "shipId" : "1034",
-        "upgrades" : [
-          {
-            "upgradeId" : "3068",
-            "upgradeTitle" : "Cloaking Device",
-            "calculatedCost" : 10
-          },
-          {
-            "upgradeId" : "feedback_pulse_71283",
-            "upgradeTitle" : "Feedback Pulse",
-            "calculatedCost" : 4
-          }
-        ],
-        "shipTitle" : "I.R.W. Praetus",
-        "captain" : {
-          "upgradeId" : "tahna_los_op6prize",
-          "upgradeTitle" : "Tahna Los",
-          "calculatedCost" : 4
-        }
-      }
-    ],
-    "name" : "tana los",
-    "modified" : "2014-06-20T09:49:22-0700",
-    "cost" : 32
-  },
-  {
-    "ships" : [
-      {
-        "calculatedCost" : 10,
-        "upgrades" : [
-          {
-            "upgradeId" : "feedback_pulse_71283",
-            "upgradeTitle" : "Feedback Pulse",
-            "calculatedCost" : 8
-          }
-        ],
-        "sideboard" : true,
-        "captain" : {
-          "upgradeId" : "tahna_los_op6prize",
-          "upgradeTitle" : "Tahna Los",
-          "calculatedCost" : 3
-        }
-      }
-    ],
-    "cost" : 10,
-    "resource" : "4003",
-    "uuid" : "96BACAD9-A850-4F8A-A4D6-2B3FAE334BEA",
-    "additionalPoints" : 0,
-    "modified" : "2014-06-21T11:26:23-0700",
-    "name" : "tana los on sideboard"
-  },
-  {
-    "ships" : [
-      {
-        "calculatedCost" : 10,
-        "upgrades" : [
-          {
-            "upgradeId" : "3019",
-            "upgradeTitle" : "Superior Intellect",
-            "calculatedCost" : 5
-          }
-        ],
-        "sideboard" : true,
-        "captain" : {
-          "upgradeId" : "2009",
-          "upgradeTitle" : "Khan Singh",
-          "calculatedCost" : 4
-        }
-      }
-    ],
-    "cost" : 10,
-    "resource" : "4003",
-    "uuid" : "234E3372-F75A-482E-A53E-A7D8E0F19A1B",
-    "additionalPoints" : 0,
-    "modified" : "2014-06-19T16:51:18-0700",
-    "name" : "genkhan on sideboard"
-  },
-  {
-    "uuid" : "1ABFBD73-F1A0-48AE-9CD0-8502BE9411FC",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 36,
-        "shipId" : "1007",
-        "upgrades" : [
-          {
-            "upgradeId" : "3086",
-            "upgradeTitle" : "Defense Condition One",
-            "calculatedCost" : 5
-          },
-          {
-            "upgradeId" : "ixtana_rax_71279",
-            "upgradeTitle" : "Ixtana'Rax",
-            "calculatedCost" : 3
-          },
-          {
-            "upgradeId" : "3003",
-            "upgradeTitle" : "Miles O'Brien",
-            "calculatedCost" : 2
-          },
-          {
-            "upgradeId" : "aft_particle_beam_71446",
-            "upgradeTitle" : "Aft Particle Beam",
-            "calculatedCost" : 2
-          }
-        ],
-        "shipTitle" : "U.S.S. Reliant",
-        "captain" : {
-          "upgradeId" : "2009",
-          "upgradeTitle" : "Khan Singh",
-          "calculatedCost" : 4
-        }
-      }
-    ],
-    "name" : "genkhan",
-    "modified" : "2014-06-19T16:49:38-0700",
-    "cost" : 36
-  },
-  {
-    "ships" : [
-      {
-        "calculatedCost" : 10,
-        "upgrades" : [
-          {
-            "upgradeId" : "faked_messages_oparenaprize",
-            "upgradeTitle" : "Faked Messages",
-            "calculatedCost" : 5
-          },
-          {
-            "upgradeId" : "plasma_torpedoes_i_r_w_vorta_vor",
-            "upgradeTitle" : "Plasma Torpedoes",
-            "calculatedCost" : 4
-          }
-        ],
-        "sideboard" : true,
-        "captain" : {
-          "upgradeId" : "2008",
-          "upgradeTitle" : "Khan Singh",
-          "calculatedCost" : 5
-        }
-      }
-    ],
-    "cost" : 10,
-    "resource" : "4003",
-    "uuid" : "5A767FA2-5271-49FD-BC41-404D2B3A2F5E",
-    "additionalPoints" : 0,
-    "modified" : "2014-06-19T16:51:18-0700",
-    "name" : "critkhan on sideboard"
-  },
-  {
-    "ships" : [
-      {
-        "calculatedCost" : 10,
-        "upgrades" : [
-          {
-            "upgradeId" : "3095",
-            "upgradeTitle" : "Boheeka",
-            "calculatedCost" : 2
-          },
-          {
-            "upgradeId" : "3096",
-            "upgradeTitle" : "Enhanced Weaponry",
-            "calculatedCost" : 5
-          }
-        ],
-        "sideboard" : true,
-        "captain" : {
-          "upgradeId" : "2035",
-          "upgradeTitle" : "Luaran",
-          "calculatedCost" : 2
-        }
-      }
-    ],
-    "cost" : 10,
-    "resource" : "4003",
-    "uuid" : "921A7939-4826-48D4-967F-05D1C6BB4AE6",
-    "additionalPoints" : 0,
-    "modified" : "2014-06-21T11:21:51-0700",
-    "name" : "lauran on sideboard"
-  },
-  {
-    "uuid" : "887F7FBF-60F8-4003-BE7E-D5CE3F285F80",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 49,
-        "shipId" : "bioship_alpha_71281",
-        "upgrades" : [
-          {
-            "upgradeId" : "the_weak_will_perish_71281",
-            "upgradeTitle" : "The Weak Will Perish",
-            "calculatedCost" : 5
-          }
-        ],
-        "shipTitle" : "Bioship Alpha",
-        "captain" : {
-          "upgradeId" : "bioship_alpha_pilot_71281",
-          "upgradeTitle" : "Bioship Alpha Pilot",
-          "calculatedCost" : 6
-        }
-      }
-    ],
-    "name" : "The Weak Will Perish no penalty",
-    "modified" : "2014-06-20T10:20:29-0700",
-    "cost" : 49
-  },
-  {
-    "uuid" : "BACD4859-ECF9-461E-9F1D-87F815CBED1A",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 34,
-        "shipId" : "gorn_starship_oparenaprize",
-        "upgrades" : [
-          {
-            "upgradeId" : "cold_storage_unit_op5prize",
-            "upgradeTitle" : "Cold Storage Unit",
-            "calculatedCost" : 5
-          },
-          {
-            "upgradeId" : "3046",
-            "upgradeTitle" : "Magnetic Pulse",
-            "calculatedCost" : 5
-          },
-          {
-            "upgradeId" : "3063",
-            "upgradeTitle" : "Missile Launchers",
-            "calculatedCost" : 4
-          }
-        ],
-        "shipTitle" : "Gorn Starship",
-        "captain" : {
-          "upgradeId" : "gorn_oparenaprize",
-          "upgradeTitle" : "Gorn",
-          "calculatedCost" : 0
-        }
-      }
-    ],
-    "name" : "cold storage",
-    "modified" : "2014-06-21T06:50:02-0700",
-    "cost" : 34
-  },
-  {
-    "uuid" : "B5ADD32D-59B1-4723-8CFD-CFCB3E929D48",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 46,
-        "shipId" : "1021",
-        "upgrades" : [
-          {
-            "upgradeId" : "aft_particle_beam_71446",
-            "upgradeTitle" : "Aft Particle Beam",
-            "calculatedCost" : 1
-          },
-          {
-            "upgradeId" : "3059",
-            "upgradeTitle" : "Energy Dissipator",
-            "calculatedCost" : 4
-          },
-          {
-            "upgradeId" : "photon_torpedoes_71279",
-            "upgradeTitle" : "Photon Torpedoes",
-            "calculatedCost" : 5
-          },
-          {
-            "upgradeId" : "3067",
-            "upgradeTitle" : "Quantum Torpedoes",
-            "calculatedCost" : 6
-          }
-        ],
-        "shipTitle" : "Gor Portas",
-        "captain" : {
-          "upgradeId" : "2023",
-          "upgradeTitle" : "Thot Gor",
-          "calculatedCost" : 4
-        }
-      }
-    ],
-    "name" : "thot gor",
-    "modified" : "2014-06-20T10:09:15-0700",
-    "cost" : 46
-  },
-  {
-    "uuid" : "E9AADA7B-8D35-48EE-A788-BD40CA328614",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 52,
-        "shipId" : "4th_division_battleship_71279",
-        "upgrades" : [
-          {
-            "upgradeId" : "3095",
-            "upgradeTitle" : "Boheeka",
-            "calculatedCost" : 1
-          },
-          {
-            "upgradeId" : "3057",
-            "upgradeTitle" : "Breen Aide",
-            "calculatedCost" : 2
-          },
-          {
-            "upgradeId" : "3053",
-            "upgradeTitle" : "Glinn Telle",
-            "calculatedCost" : 2
-          },
-          {
-            "upgradeId" : "neela_71445",
-            "upgradeTitle" : "Neela",
-            "calculatedCost" : 6
-          }
-        ],
-        "shipTitle" : "4th Division Battleship",
-        "captain" : {
-          "upgradeId" : "weyoun_71279",
-          "upgradeTitle" : "Weyoun",
-          "calculatedCost" : 5
-        }
-      }
-    ],
-    "name" : "weyoun (7)",
-    "modified" : "2014-06-20T10:12:02-0700",
-    "cost" : 52
-  },
-  {
-    "uuid" : "D845F843-370D-4732-81E4-5C60A0306224",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 44,
-        "shipId" : "4th_division_battleship_71279",
-        "upgrades" : [
-          {
-            "upgradeId" : "3095",
-            "upgradeTitle" : "Boheeka",
-            "calculatedCost" : 0
-          },
-          {
-            "upgradeId" : "neela_71445",
-            "upgradeTitle" : "Neela",
-            "calculatedCost" : 6
-          }
-        ],
-        "shipTitle" : "4th Division Battleship",
-        "captain" : {
-          "upgradeId" : "2035",
-          "upgradeTitle" : "Luaran",
-          "calculatedCost" : 2
-        }
-      }
-    ],
-    "name" : "lauran on battleship crew",
-    "modified" : "2014-06-20T09:42:15-0700",
-    "cost" : 44
-  },
-  {
-    "uuid" : "445464E7-EC1D-430F-A6AD-B5BC6280B62E",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 32,
-        "shipId" : "1036",
-        "upgrades" : [
-          {
-            "upgradeId" : "energy_dissipator_op5prize",
-            "upgradeTitle" : "Energy Dissipator",
-            "calculatedCost" : 10
-          }
-        ],
-        "shipTitle" : "5th Wing Patrol Ship",
-        "captain" : {
-          "upgradeId" : "2036",
-          "upgradeTitle" : "Dominion Captain",
-          "calculatedCost" : 0
-        }
-      },
-      {
-        "calculatedCost" : 31,
-        "shipId" : "rav_laerst_op5prize",
-        "upgrades" : [
-          {
-            "upgradeId" : "energy_dissipator_op5prize",
-            "upgradeTitle" : "Energy Dissipator",
-            "calculatedCost" : 5
-          }
-        ],
-        "shipTitle" : "Rav Laerst",
-        "captain" : {
-          "upgradeId" : "2025",
-          "upgradeTitle" : "Breen Captain",
-          "calculatedCost" : 0
-        }
-      }
-    ],
-    "name" : "Energy Dissipator",
-    "modified" : "2014-06-21T06:50:02-0700",
-    "cost" : 63
-  },
-  {
-    "uuid" : "FA3935A0-47C1-4E62-91F2-B1D0DF105E82",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 47,
-        "shipId" : "bioship_alpha_71281",
-        "upgrades" : [
-          {
-            "upgradeId" : "3030",
-            "upgradeTitle" : "Mr. Spock",
-            "calculatedCost" : 6
-          }
-        ],
-        "shipTitle" : "Bioship Alpha",
-        "captain" : {
-          "upgradeId" : "tavek_71446",
-          "upgradeTitle" : "Tavek",
-          "calculatedCost" : 3
-        }
-      }
-    ],
-    "name" : "tavek",
-    "modified" : "2014-06-20T10:09:15-0700",
-    "cost" : 47
-  },
-  {
-    "uuid" : "DC1576CF-0DCA-4736-8519-59F6715F32EA",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 25,
-        "shipId" : "bajoran_interceptor_71445",
-        "upgrades" : [
-          {
-            "upgradeId" : "masking_circuitry_71282",
-            "upgradeTitle" : "Masking Circuitry",
-            "calculatedCost" : 9
-          }
-        ],
-        "shipTitle" : "Bajoran Interceptor",
-        "captain" : {
-          "upgradeId" : "bajoran_captain_op6prize",
-          "upgradeTitle" : "Bajoran Captain",
-          "calculatedCost" : 0
-        }
-      },
-      {
-        "calculatedCost" : 21,
-        "shipId" : "interceptor_5_71445",
-        "upgrades" : [
-          {
-            "upgradeId" : "maneuverability_71445",
-            "upgradeTitle" : "Maneuverability",
-            "calculatedCost" : 5
-          }
-        ],
-        "shipTitle" : "Interceptor 5",
-        "captain" : {
-          "upgradeId" : "bajoran_captain_op6prize",
-          "upgradeTitle" : "Bajoran Captain",
-          "calculatedCost" : 0
-        }
-      },
-      {
-        "calculatedCost" : 35,
-        "shipId" : "1030",
-        "upgrades" : [
-          {
-            "upgradeId" : "maneuverability_71445",
-            "upgradeTitle" : "Maneuverability",
-            "calculatedCost" : 11
-          }
-        ],
-        "shipTitle" : "U.S.S. Defiant",
-        "captain" : {
-          "upgradeId" : "2003",
-          "upgradeTitle" : "Federation Captain",
-          "calculatedCost" : 0
-        }
-      }
-    ],
-    "name" : "Maneuverability",
-    "modified" : "2014-06-21T06:50:02-0700",
-    "cost" : 81
-  },
-  {
     "uuid" : "538AB4B9-1F15-490A-A9B9-EC3567CB7709",
     "additionalPoints" : 0,
     "ships" : [
@@ -997,56 +65,252 @@
         "calculatedCost" : 10,
         "upgrades" : [
           {
-            "upgradeId" : "3005",
-            "upgradeTitle" : "Data",
-            "calculatedCost" : 3
+            "upgradeId" : "3095",
+            "upgradeTitle" : "Boheeka",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "3096",
+            "upgradeTitle" : "Enhanced Weaponry",
+            "calculatedCost" : 5
           }
         ],
         "sideboard" : true,
         "captain" : {
-          "upgradeId" : "2012",
-          "upgradeTitle" : "Christopher Pike",
-          "calculatedCost" : 4
+          "upgradeId" : "2035",
+          "upgradeTitle" : "Luaran",
+          "calculatedCost" : 2
         }
       }
     ],
     "cost" : 10,
     "resource" : "4003",
-    "uuid" : "2440C37C-CE80-47CA-8C8D-B5F4AC5721EF",
+    "uuid" : "921A7939-4826-48D4-967F-05D1C6BB4AE6",
     "additionalPoints" : 0,
-    "modified" : "2014-06-19T16:41:04-0700",
-    "name" : "pike on sideboard"
+    "modified" : "2014-06-21T11:21:51-0700",
+    "name" : "lauran on sideboard"
   },
   {
-    "uuid" : "C6A45654-C10C-4CC8-BA1C-72D6E260E66C",
+    "uuid" : "FF5F9F82-C95B-41C3-84A0-E3A210029E04",
     "additionalPoints" : 0,
     "ships" : [
       {
-        "calculatedCost" : 35,
-        "shipId" : "1044",
+        "calculatedCost" : 45,
+        "shipId" : "1042",
         "upgrades" : [
           {
-            "upgradeId" : "navigational_deflector_71276",
-            "upgradeTitle" : "Navigational Deflector",
-            "calculatedCost" : 5
-          },
-          {
-            "upgradeId" : "3112",
-            "upgradeTitle" : "Positron Beam",
-            "calculatedCost" : 2
+            "upgradeId" : "the_weak_will_perish_71281",
+            "upgradeTitle" : "The Weak Will Perish",
+            "calculatedCost" : 11
           }
         ],
-        "shipTitle" : "U.S.S. Excelsior",
+        "shipTitle" : "P.W.B. Aj'Rmr",
         "captain" : {
-          "upgradeId" : "3106",
-          "upgradeTitle" : "Styles",
-          "calculatedCost" : 2
+          "upgradeId" : "3121",
+          "upgradeTitle" : "Alidar Jarok",
+          "calculatedCost" : 4
         }
       }
     ],
-    "name" : "styles",
-    "modified" : "2014-06-20T09:47:13-0700",
-    "cost" : 35
+    "name" : "The Weak Will Perish",
+    "modified" : "2014-06-20T10:20:29-0700",
+    "cost" : 45
+  },
+  {
+    "uuid" : "DED7D1D0-3845-4CF0-B117-DFC66D584C17",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 26,
+        "shipId" : "interceptor_5_71445",
+        "upgrades" : [
+          {
+            "upgradeId" : "3068",
+            "upgradeTitle" : "Cloaking Device",
+            "calculatedCost" : 10
+          }
+        ],
+        "shipTitle" : "Interceptor 5",
+        "captain" : {
+          "upgradeId" : "bajoran_captain_op6prize",
+          "upgradeTitle" : "Bajoran Captain",
+          "calculatedCost" : 0
+        }
+      },
+      {
+        "calculatedCost" : 28,
+        "shipId" : "1030",
+        "upgrades" : [
+          {
+            "upgradeId" : "3068",
+            "upgradeTitle" : "Cloaking Device",
+            "calculatedCost" : 4
+          }
+        ],
+        "shipTitle" : "U.S.S. Defiant",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
+          "calculatedCost" : 0
+        }
+      },
+      {
+        "calculatedCost" : 31,
+        "shipId" : "1031",
+        "upgrades" : [
+          {
+            "upgradeId" : "3068",
+            "upgradeTitle" : "Cloaking Device",
+            "calculatedCost" : 9
+          }
+        ],
+        "shipTitle" : "Federation Starship",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "Defiant Cloaking Device",
+    "modified" : "2014-06-20T10:25:16-0700",
+    "cost" : 85
+  },
+  {
+    "uuid" : "4C2C6834-4F73-4245-93DE-5D375088A583",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 17,
+        "shipId" : "1014",
+        "upgrades" : [
+          {
+            "upgradeId" : "3039",
+            "upgradeTitle" : "Varel",
+            "calculatedCost" : 5
+          }
+        ],
+        "shipTitle" : "Romulan Science Vessel",
+        "captain" : {
+          "upgradeId" : "2007",
+          "upgradeTitle" : "Romulan Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "Varel no penalty",
+    "modified" : "2014-06-20T10:18:01-0700",
+    "cost" : 17
+  },
+  {
+    "uuid" : "AC0AF840-56E1-46A2-8C7D-380BDEB0081E",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 23,
+        "shipId" : "nistrim_raider_71282",
+        "upgrades" : [
+          {
+            "upgradeId" : "masking_circuitry_71282",
+            "upgradeTitle" : "Masking Circuitry",
+            "calculatedCost" : 3
+          }
+        ],
+        "shipTitle" : "Nistrim Raider",
+        "captain" : {
+          "upgradeId" : "kazon_captain_71282",
+          "upgradeTitle" : "Kazon Captain",
+          "calculatedCost" : 0
+        }
+      },
+      {
+        "calculatedCost" : 29,
+        "shipId" : "1024",
+        "upgrades" : [
+          {
+            "upgradeId" : "masking_circuitry_71282",
+            "upgradeTitle" : "Masking Circuitry",
+            "calculatedCost" : 9
+          }
+        ],
+        "shipTitle" : "Ferengi Marauder",
+        "captain" : {
+          "upgradeId" : "2027",
+          "upgradeTitle" : "Ferengi Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "Masking Circuitry",
+    "modified" : "2014-06-21T06:50:02-0700",
+    "cost" : 52
+  },
+  {
+    "uuid" : "E9AADA7B-8D35-48EE-A788-BD40CA328614",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 52,
+        "shipId" : "4th_division_battleship_71279",
+        "upgrades" : [
+          {
+            "upgradeId" : "3095",
+            "upgradeTitle" : "Boheeka",
+            "calculatedCost" : 1
+          },
+          {
+            "upgradeId" : "3057",
+            "upgradeTitle" : "Breen Aide",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "3053",
+            "upgradeTitle" : "Glinn Telle",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "neela_71445",
+            "upgradeTitle" : "Neela",
+            "calculatedCost" : 6
+          }
+        ],
+        "shipTitle" : "4th Division Battleship",
+        "captain" : {
+          "upgradeId" : "weyoun_71279",
+          "upgradeTitle" : "Weyoun",
+          "calculatedCost" : 5
+        }
+      }
+    ],
+    "name" : "weyoun (7)",
+    "modified" : "2014-06-20T10:12:02-0700",
+    "cost" : 52
+  },
+  {
+    "uuid" : "F5BDAA13-0D7F-46FF-A449-E91A1FE38CD0",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 39,
+        "shipId" : "dominion_starship_71279",
+        "upgrades" : [
+          {
+            "upgradeId" : "ikat_ika_71279",
+            "upgradeTitle" : "Ikat'Ika",
+            "calculatedCost" : 5
+          }
+        ],
+        "shipTitle" : "Dominion Starship",
+        "captain" : {
+          "upgradeId" : "2036",
+          "upgradeTitle" : "Dominion Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "Ikat'Ika no penalty",
+    "modified" : "2014-06-20T10:16:45-0700",
+    "cost" : 39
   },
   {
     "uuid" : "3CE7889C-541B-49DB-9029-482BA881E4C3",
@@ -1109,6 +373,32 @@
     "cost" : 91
   },
   {
+    "uuid" : "FA3935A0-47C1-4E62-91F2-B1D0DF105E82",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 47,
+        "shipId" : "bioship_alpha_71281",
+        "upgrades" : [
+          {
+            "upgradeId" : "3030",
+            "upgradeTitle" : "Mr. Spock",
+            "calculatedCost" : 6
+          }
+        ],
+        "shipTitle" : "Bioship Alpha",
+        "captain" : {
+          "upgradeId" : "tavek_71446",
+          "upgradeTitle" : "Tavek",
+          "calculatedCost" : 3
+        }
+      }
+    ],
+    "name" : "tavek",
+    "modified" : "2014-06-20T10:09:15-0700",
+    "cost" : 47
+  },
+  {
     "uuid" : "308B6733-8265-4A14-807E-4E71D7B87619",
     "additionalPoints" : 0,
     "ships" : [
@@ -1160,61 +450,90 @@
     "cost" : 65
   },
   {
-    "uuid" : "72E96492-4F2A-414E-BDD6-07D2E0AF324A",
-    "additionalPoints" : 0,
     "ships" : [
       {
-        "calculatedCost" : 44,
-        "shipId" : "4th_division_battleship_71279",
+        "calculatedCost" : 10,
         "upgrades" : [
           {
-            "upgradeId" : "neela_71445",
-            "upgradeTitle" : "Neela",
-            "calculatedCost" : 6
-          },
-          {
-            "upgradeId" : "shroud_71279",
-            "upgradeTitle" : "Shroud",
-            "calculatedCost" : 0
+            "upgradeId" : "3019",
+            "upgradeTitle" : "Superior Intellect",
+            "calculatedCost" : 5
           }
         ],
-        "shipTitle" : "4th Division Battleship",
+        "sideboard" : true,
         "captain" : {
-          "upgradeId" : "2035",
-          "upgradeTitle" : "Luaran",
-          "calculatedCost" : 2
+          "upgradeId" : "2009",
+          "upgradeTitle" : "Khan Singh",
+          "calculatedCost" : 4
         }
       }
     ],
-    "name" : "lauran on battleship tech",
-    "modified" : "2014-06-20T09:45:48-0700",
-    "cost" : 44
+    "cost" : 10,
+    "resource" : "4003",
+    "uuid" : "234E3372-F75A-482E-A53E-A7D8E0F19A1B",
+    "additionalPoints" : 0,
+    "modified" : "2014-06-19T16:51:18-0700",
+    "name" : "genkhan on sideboard"
   },
   {
-    "uuid" : "65A537AB-F9B3-4537-8AA2-6A3BEEEA8AA4",
+    "uuid" : "DC1576CF-0DCA-4736-8519-59F6715F32EA",
     "additionalPoints" : 0,
     "ships" : [
       {
-        "calculatedCost" : 40,
-        "shipId" : "1042",
+        "calculatedCost" : 25,
+        "shipId" : "bajoran_interceptor_71445",
         "upgrades" : [
           {
-            "upgradeId" : "3039",
-            "upgradeTitle" : "Varel",
-            "calculatedCost" : 10
+            "upgradeId" : "masking_circuitry_71282",
+            "upgradeTitle" : "Masking Circuitry",
+            "calculatedCost" : 9
           }
         ],
-        "shipTitle" : "P.W.B. Aj'Rmr",
+        "shipTitle" : "Bajoran Interceptor",
         "captain" : {
-          "upgradeId" : "2007",
-          "upgradeTitle" : "Romulan Captain",
+          "upgradeId" : "bajoran_captain_op6prize",
+          "upgradeTitle" : "Bajoran Captain",
+          "calculatedCost" : 0
+        }
+      },
+      {
+        "calculatedCost" : 21,
+        "shipId" : "interceptor_5_71445",
+        "upgrades" : [
+          {
+            "upgradeId" : "maneuverability_71445",
+            "upgradeTitle" : "Maneuverability",
+            "calculatedCost" : 5
+          }
+        ],
+        "shipTitle" : "Interceptor 5",
+        "captain" : {
+          "upgradeId" : "bajoran_captain_op6prize",
+          "upgradeTitle" : "Bajoran Captain",
+          "calculatedCost" : 0
+        }
+      },
+      {
+        "calculatedCost" : 35,
+        "shipId" : "1030",
+        "upgrades" : [
+          {
+            "upgradeId" : "maneuverability_71445",
+            "upgradeTitle" : "Maneuverability",
+            "calculatedCost" : 11
+          }
+        ],
+        "shipTitle" : "U.S.S. Defiant",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
           "calculatedCost" : 0
         }
       }
     ],
-    "name" : "Varel",
-    "modified" : "2014-06-20T10:18:01-0700",
-    "cost" : 40
+    "name" : "Maneuverability",
+    "modified" : "2014-06-21T06:50:02-0700",
+    "cost" : 81
   },
   {
     "ships" : [
@@ -1250,46 +569,765 @@
     "name" : "lauran on battleship talent"
   },
   {
-    "uuid" : "AC0AF840-56E1-46A2-8C7D-380BDEB0081E",
+    "ships" : [
+      {
+        "calculatedCost" : 38,
+        "shipId" : "ti_mur_71508",
+        "upgrades" : [
+          {
+            "upgradeId" : "auxiliary_control_room_71446",
+            "upgradeTitle" : "Auxiliary Control Room",
+            "calculatedCost" : 1
+          },
+          {
+            "upgradeId" : "3079",
+            "upgradeTitle" : "Long Range Tachyon Scan",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "3112",
+            "upgradeTitle" : "Positron Beam",
+            "calculatedCost" : 1
+          }
+        ],
+        "shipTitle" : "Ti'Mur",
+        "flagship" : "6008",
+        "captain" : {
+          "upgradeId" : "vanik_71508",
+          "upgradeTitle" : "Vanik",
+          "calculatedCost" : 3
+        }
+      }
+    ],
+    "cost" : 38,
+    "resource" : "4004",
+    "uuid" : "677E402B-F734-43F2-9D04-006994D931FA",
+    "additionalPoints" : 0,
+    "modified" : "2014-07-09T06:56:29-0700",
+    "name" : "vanik"
+  },
+  {
+    "uuid" : "71A3A6FF-6D47-4A42-80E6-05368317BB13",
     "additionalPoints" : 0,
     "ships" : [
       {
-        "calculatedCost" : 23,
-        "shipId" : "nistrim_raider_71282",
+        "calculatedCost" : 26,
+        "shipId" : "1030",
+        "upgrades" : [
+
+        ],
+        "shipTitle" : "U.S.S. Defiant",
+        "captain" : {
+          "upgradeId" : "2030",
+          "upgradeTitle" : "Kira Nerys",
+          "calculatedCost" : 2
+        }
+      }
+    ],
+    "name" : "kira on fed",
+    "modified" : "2014-06-19T16:53:06-0700",
+    "cost" : 26
+  },
+  {
+    "uuid" : "70092B70-25B3-44C3-9BFB-400F1D7965CC",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 32,
+        "shipId" : "1034",
         "upgrades" : [
           {
-            "upgradeId" : "masking_circuitry_71282",
-            "upgradeTitle" : "Masking Circuitry",
+            "upgradeId" : "3068",
+            "upgradeTitle" : "Cloaking Device",
+            "calculatedCost" : 10
+          },
+          {
+            "upgradeId" : "feedback_pulse_71283",
+            "upgradeTitle" : "Feedback Pulse",
+            "calculatedCost" : 4
+          }
+        ],
+        "shipTitle" : "I.R.W. Praetus",
+        "captain" : {
+          "upgradeId" : "tahna_los_op6prize",
+          "upgradeTitle" : "Tahna Los",
+          "calculatedCost" : 4
+        }
+      }
+    ],
+    "name" : "tana los",
+    "modified" : "2014-06-20T09:49:22-0700",
+    "cost" : 32
+  },
+  {
+    "uuid" : "72E96492-4F2A-414E-BDD6-07D2E0AF324A",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 44,
+        "shipId" : "4th_division_battleship_71279",
+        "upgrades" : [
+          {
+            "upgradeId" : "neela_71445",
+            "upgradeTitle" : "Neela",
+            "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "shroud_71279",
+            "upgradeTitle" : "Shroud",
+            "calculatedCost" : 0
+          }
+        ],
+        "shipTitle" : "4th Division Battleship",
+        "captain" : {
+          "upgradeId" : "2035",
+          "upgradeTitle" : "Luaran",
+          "calculatedCost" : 2
+        }
+      }
+    ],
+    "name" : "lauran on battleship tech",
+    "modified" : "2014-06-20T09:45:48-0700",
+    "cost" : 44
+  },
+  {
+    "uuid" : "2DFA9F0F-D989-4B66-ADDC-D0C40A4F6849",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 21,
+        "shipId" : "1015",
+        "upgrades" : [
+
+        ],
+        "shipTitle" : "I.K.S. Gr'oth",
+        "captain" : {
+          "upgradeId" : "2030",
+          "upgradeTitle" : "Kira Nerys",
+          "calculatedCost" : 3
+        }
+      }
+    ],
+    "name" : "kira on klingon",
+    "modified" : "2014-06-19T16:53:06-0700",
+    "cost" : 21
+  },
+  {
+    "uuid" : "C6A45654-C10C-4CC8-BA1C-72D6E260E66C",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 35,
+        "shipId" : "1044",
+        "upgrades" : [
+          {
+            "upgradeId" : "navigational_deflector_71276",
+            "upgradeTitle" : "Navigational Deflector",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "3112",
+            "upgradeTitle" : "Positron Beam",
+            "calculatedCost" : 2
+          }
+        ],
+        "shipTitle" : "U.S.S. Excelsior",
+        "captain" : {
+          "upgradeId" : "3106",
+          "upgradeTitle" : "Styles",
+          "calculatedCost" : 2
+        }
+      }
+    ],
+    "name" : "styles",
+    "modified" : "2014-06-20T09:47:13-0700",
+    "cost" : 35
+  },
+  {
+    "uuid" : "B5ADD32D-59B1-4723-8CFD-CFCB3E929D48",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 46,
+        "shipId" : "1021",
+        "upgrades" : [
+          {
+            "upgradeId" : "aft_particle_beam_71446",
+            "upgradeTitle" : "Aft Particle Beam",
+            "calculatedCost" : 1
+          },
+          {
+            "upgradeId" : "3059",
+            "upgradeTitle" : "Energy Dissipator",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "photon_torpedoes_71279",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "3067",
+            "upgradeTitle" : "Quantum Torpedoes",
+            "calculatedCost" : 6
+          }
+        ],
+        "shipTitle" : "Gor Portas",
+        "captain" : {
+          "upgradeId" : "2023",
+          "upgradeTitle" : "Thot Gor",
+          "calculatedCost" : 4
+        }
+      }
+    ],
+    "name" : "thot gor",
+    "modified" : "2014-06-20T10:09:15-0700",
+    "cost" : 46
+  },
+  {
+    "uuid" : "1BCB7D52-D641-4310-AEB7-9B43458332BD",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 45,
+        "shipId" : "4th_division_battleship_71279",
+        "upgrades" : [
+          {
+            "upgradeId" : "neela_71445",
+            "upgradeTitle" : "Neela",
+            "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "3097",
+            "upgradeTitle" : "Dorsal Weapons Array",
+            "calculatedCost" : 1
+          }
+        ],
+        "shipTitle" : "4th Division Battleship",
+        "captain" : {
+          "upgradeId" : "2035",
+          "upgradeTitle" : "Luaran",
+          "calculatedCost" : 2
+        }
+      }
+    ],
+    "name" : "lauran on battleship weapon",
+    "modified" : "2014-06-20T09:45:48-0700",
+    "cost" : 45
+  },
+  {
+    "uuid" : "887F7FBF-60F8-4003-BE7E-D5CE3F285F80",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 49,
+        "shipId" : "bioship_alpha_71281",
+        "upgrades" : [
+          {
+            "upgradeId" : "the_weak_will_perish_71281",
+            "upgradeTitle" : "The Weak Will Perish",
+            "calculatedCost" : 5
+          }
+        ],
+        "shipTitle" : "Bioship Alpha",
+        "captain" : {
+          "upgradeId" : "bioship_alpha_pilot_71281",
+          "upgradeTitle" : "Bioship Alpha Pilot",
+          "calculatedCost" : 6
+        }
+      }
+    ],
+    "name" : "The Weak Will Perish no penalty",
+    "modified" : "2014-06-20T10:20:29-0700",
+    "cost" : 49
+  },
+  {
+    "ships" : [
+      {
+        "calculatedCost" : 10,
+        "upgrades" : [
+          {
+            "upgradeId" : "3005",
+            "upgradeTitle" : "Data",
             "calculatedCost" : 3
           }
         ],
-        "shipTitle" : "Nistrim Raider",
+        "sideboard" : true,
         "captain" : {
-          "upgradeId" : "kazon_captain_71282",
-          "upgradeTitle" : "Kazon Captain",
-          "calculatedCost" : 0
+          "upgradeId" : "2012",
+          "upgradeTitle" : "Christopher Pike",
+          "calculatedCost" : 4
         }
-      },
+      }
+    ],
+    "cost" : 10,
+    "resource" : "4003",
+    "uuid" : "2440C37C-CE80-47CA-8C8D-B5F4AC5721EF",
+    "additionalPoints" : 0,
+    "modified" : "2014-06-19T16:41:04-0700",
+    "name" : "pike on sideboard"
+  },
+  {
+    "uuid" : "76D450FB-2489-4EB8-B067-8BE2499D0836",
+    "additionalPoints" : 0,
+    "ships" : [
       {
-        "calculatedCost" : 29,
-        "shipId" : "1024",
+        "calculatedCost" : 40,
+        "shipId" : "1021",
         "upgrades" : [
           {
-            "upgradeId" : "masking_circuitry_71282",
-            "upgradeTitle" : "Masking Circuitry",
+            "upgradeId" : "ikat_ika_71279",
+            "upgradeTitle" : "Ikat'Ika",
             "calculatedCost" : 9
           }
         ],
-        "shipTitle" : "Ferengi Marauder",
+        "shipTitle" : "Gor Portas",
         "captain" : {
-          "upgradeId" : "2027",
-          "upgradeTitle" : "Ferengi Captain",
+          "upgradeId" : "2012",
+          "upgradeTitle" : "Christopher Pike",
+          "calculatedCost" : 5
+        }
+      }
+    ],
+    "name" : "Ikat'Ika",
+    "modified" : "2014-06-20T10:16:45-0700",
+    "cost" : 40
+  },
+  {
+    "uuid" : "D845F843-370D-4732-81E4-5C60A0306224",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 44,
+        "shipId" : "4th_division_battleship_71279",
+        "upgrades" : [
+          {
+            "upgradeId" : "3095",
+            "upgradeTitle" : "Boheeka",
+            "calculatedCost" : 0
+          },
+          {
+            "upgradeId" : "neela_71445",
+            "upgradeTitle" : "Neela",
+            "calculatedCost" : 6
+          }
+        ],
+        "shipTitle" : "4th Division Battleship",
+        "captain" : {
+          "upgradeId" : "2035",
+          "upgradeTitle" : "Luaran",
+          "calculatedCost" : 2
+        }
+      }
+    ],
+    "name" : "lauran on battleship crew",
+    "modified" : "2014-06-20T09:42:15-0700",
+    "cost" : 44
+  },
+  {
+    "uuid" : "65A537AB-F9B3-4537-8AA2-6A3BEEEA8AA4",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 40,
+        "shipId" : "1042",
+        "upgrades" : [
+          {
+            "upgradeId" : "3039",
+            "upgradeTitle" : "Varel",
+            "calculatedCost" : 10
+          }
+        ],
+        "shipTitle" : "P.W.B. Aj'Rmr",
+        "captain" : {
+          "upgradeId" : "2007",
+          "upgradeTitle" : "Romulan Captain",
           "calculatedCost" : 0
         }
       }
     ],
-    "name" : "Masking Circuitry",
+    "name" : "Varel",
+    "modified" : "2014-06-20T10:18:01-0700",
+    "cost" : 40
+  },
+  {
+    "uuid" : "FC545F9D-3922-4E1D-8832-5432FD9CF5A5",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 39,
+        "shipId" : "1009",
+        "upgrades" : [
+          {
+            "upgradeId" : "3025",
+            "upgradeTitle" : "Cheat Death",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "3072",
+            "upgradeTitle" : "Once More Unto The Breach",
+            "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "emergency_medical_hologram_71276",
+            "upgradeTitle" : "Emergency Medical Hologram",
+            "calculatedCost" : 2
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise",
+        "captain" : {
+          "upgradeId" : "2011",
+          "upgradeTitle" : "James T. Kirk",
+          "calculatedCost" : 6
+        }
+      }
+    ],
+    "name" : "kirk on enterprise",
+    "modified" : "2014-06-19T16:43:04-0700",
+    "cost" : 39
+  },
+  {
+    "ships" : [
+      {
+        "calculatedCost" : 10,
+        "upgrades" : [
+          {
+            "upgradeId" : "feedback_pulse_71283",
+            "upgradeTitle" : "Feedback Pulse",
+            "calculatedCost" : 8
+          }
+        ],
+        "sideboard" : true,
+        "captain" : {
+          "upgradeId" : "tahna_los_op6prize",
+          "upgradeTitle" : "Tahna Los",
+          "calculatedCost" : 3
+        }
+      }
+    ],
+    "cost" : 10,
+    "resource" : "4003",
+    "uuid" : "96BACAD9-A850-4F8A-A4D6-2B3FAE334BEA",
+    "additionalPoints" : 0,
+    "modified" : "2014-06-21T11:26:23-0700",
+    "name" : "tana los on sideboard"
+  },
+  {
+    "ships" : [
+      {
+        "calculatedCost" : 10,
+        "upgrades" : [
+          {
+            "upgradeId" : "faked_messages_oparenaprize",
+            "upgradeTitle" : "Faked Messages",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "plasma_torpedoes_i_r_w_vorta_vor",
+            "upgradeTitle" : "Plasma Torpedoes",
+            "calculatedCost" : 4
+          }
+        ],
+        "sideboard" : true,
+        "captain" : {
+          "upgradeId" : "2008",
+          "upgradeTitle" : "Khan Singh",
+          "calculatedCost" : 5
+        }
+      }
+    ],
+    "cost" : 10,
+    "resource" : "4003",
+    "uuid" : "5A767FA2-5271-49FD-BC41-404D2B3A2F5E",
+    "additionalPoints" : 0,
+    "modified" : "2014-06-19T16:51:18-0700",
+    "name" : "critkhan on sideboard"
+  },
+  {
+    "uuid" : "1ABFBD73-F1A0-48AE-9CD0-8502BE9411FC",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 36,
+        "shipId" : "1007",
+        "upgrades" : [
+          {
+            "upgradeId" : "3086",
+            "upgradeTitle" : "Defense Condition One",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "ixtana_rax_71279",
+            "upgradeTitle" : "Ixtana'Rax",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "3003",
+            "upgradeTitle" : "Miles O'Brien",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "aft_particle_beam_71446",
+            "upgradeTitle" : "Aft Particle Beam",
+            "calculatedCost" : 2
+          }
+        ],
+        "shipTitle" : "U.S.S. Reliant",
+        "captain" : {
+          "upgradeId" : "2009",
+          "upgradeTitle" : "Khan Singh",
+          "calculatedCost" : 4
+        }
+      }
+    ],
+    "name" : "genkhan",
+    "modified" : "2014-06-19T16:49:38-0700",
+    "cost" : 36
+  },
+  {
+    "uuid" : "D6F5F724-070D-4EC4-B280-69197A63232D",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 64,
+        "shipId" : "u_s_s_voyager_71280",
+        "upgrades" : [
+          {
+            "upgradeId" : "3093",
+            "upgradeTitle" : "Alexander",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "anara_71445",
+            "upgradeTitle" : "Anara",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "b_elanna_torres_71280",
+            "upgradeTitle" : "B'elanna Torres",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "ablative_generator_71280",
+            "upgradeTitle" : "Ablative Generator",
+            "calculatedCost" : 10
+          },
+          {
+            "upgradeId" : "advanced_cloaking_i_r_w_vorta_vor",
+            "upgradeTitle" : "Advanced Cloaking",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "3103",
+            "upgradeTitle" : "Additional Weapons Array",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "aft_particle_beam_71446",
+            "upgradeTitle" : "Aft Particle Beam",
+            "calculatedCost" : 2
+          }
+        ],
+        "shipTitle" : "U.S.S. Voyager",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "B'elanna Torres",
+    "modified" : "2014-06-20T10:13:57-0700",
+    "cost" : 64
+  },
+  {
+    "uuid" : "445464E7-EC1D-430F-A6AD-B5BC6280B62E",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 32,
+        "shipId" : "1036",
+        "upgrades" : [
+          {
+            "upgradeId" : "energy_dissipator_op5prize",
+            "upgradeTitle" : "Energy Dissipator",
+            "calculatedCost" : 10
+          }
+        ],
+        "shipTitle" : "5th Wing Patrol Ship",
+        "captain" : {
+          "upgradeId" : "2036",
+          "upgradeTitle" : "Dominion Captain",
+          "calculatedCost" : 0
+        }
+      },
+      {
+        "calculatedCost" : 31,
+        "shipId" : "rav_laerst_op5prize",
+        "upgrades" : [
+          {
+            "upgradeId" : "energy_dissipator_op5prize",
+            "upgradeTitle" : "Energy Dissipator",
+            "calculatedCost" : 5
+          }
+        ],
+        "shipTitle" : "Rav Laerst",
+        "captain" : {
+          "upgradeId" : "2025",
+          "upgradeTitle" : "Breen Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "Energy Dissipator",
     "modified" : "2014-06-21T06:50:02-0700",
-    "cost" : 52
+    "cost" : 63
+  },
+  {
+    "uuid" : "363D3221-6752-4A7D-9104-66F629BBB7A2",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 20,
+        "shipId" : "bajoran_interceptor_71445",
+        "upgrades" : [
+          {
+            "upgradeId" : "phaser_strike_71445",
+            "upgradeTitle" : "Phaser Strike",
+            "calculatedCost" : 4
+          }
+        ],
+        "shipTitle" : "Bajoran Interceptor",
+        "captain" : {
+          "upgradeId" : "bajoran_captain_op6prize",
+          "upgradeTitle" : "Bajoran Captain",
+          "calculatedCost" : 0
+        }
+      },
+      {
+        "calculatedCost" : 20,
+        "shipId" : "interceptor_5_71445",
+        "upgrades" : [
+          {
+            "upgradeId" : "phaser_strike_71445",
+            "upgradeTitle" : "Phaser Strike",
+            "calculatedCost" : 4
+          }
+        ],
+        "shipTitle" : "Interceptor 5",
+        "captain" : {
+          "upgradeId" : "bajoran_captain_op6prize",
+          "upgradeTitle" : "Bajoran Captain",
+          "calculatedCost" : 0
+        }
+      },
+      {
+        "calculatedCost" : 26,
+        "shipId" : "tholia_one_opwebprize",
+        "upgrades" : [
+          {
+            "upgradeId" : "phaser_strike_71445",
+            "upgradeTitle" : "Phaser Strike",
+            "calculatedCost" : 10
+          }
+        ],
+        "shipTitle" : "Tholia One",
+        "captain" : {
+          "upgradeId" : "tholian_opwebprize",
+          "upgradeTitle" : "Tholian",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "Phaser Strike",
+    "modified" : "2014-06-21T06:50:02-0700",
+    "cost" : 66
+  },
+  {
+    "uuid" : "19F2B8FF-02CC-4F77-A9A1-A714FE07041F",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 42,
+        "shipId" : "1009",
+        "upgrades" : [
+          {
+            "upgradeId" : "3026",
+            "upgradeTitle" : "Cochrane Deceleration Maneuver",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "3062",
+            "upgradeTitle" : "Farek",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "3029",
+            "upgradeTitle" : "Hikaru Sulu",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "3109",
+            "upgradeTitle" : "Janice Rand",
+            "calculatedCost" : 1
+          },
+          {
+            "upgradeId" : "3028",
+            "upgradeTitle" : "Leonard McCoy",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "3033",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 3
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise",
+        "captain" : {
+          "upgradeId" : "2012",
+          "upgradeTitle" : "Christopher Pike",
+          "calculatedCost" : 4
+        }
+      }
+    ],
+    "name" : "pike on enterpise",
+    "modified" : "2014-06-19T16:41:04-0700",
+    "cost" : 42
+  },
+  {
+    "uuid" : "BACD4859-ECF9-461E-9F1D-87F815CBED1A",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 34,
+        "shipId" : "gorn_starship_oparenaprize",
+        "upgrades" : [
+          {
+            "upgradeId" : "cold_storage_unit_op5prize",
+            "upgradeTitle" : "Cold Storage Unit",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "3046",
+            "upgradeTitle" : "Magnetic Pulse",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "3063",
+            "upgradeTitle" : "Missile Launchers",
+            "calculatedCost" : 4
+          }
+        ],
+        "shipTitle" : "Gorn Starship",
+        "captain" : {
+          "upgradeId" : "gorn_oparenaprize",
+          "upgradeTitle" : "Gorn",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "cold storage",
+    "modified" : "2014-06-21T06:50:02-0700",
+    "cost" : 34
   }
 ]

@@ -446,6 +446,10 @@
                 cost -= 2;
             }
         }
+    } else if ([captainSpecial isEqualToString: @"VulcanAndFedTechUpgradesMinus2"] && !isSideboard) {
+        if ([upgrade isTech] && ([upgrade isFederation] || [upgrade isVulcan])) {
+            cost -= 2;
+        }
     } else if ([captainSpecial isEqualToString: @"AddTwoCrewSlotsDominionCostBonus"] && !isSideboard) {
         if ([upgrade isDominion]) {
             NSArray* all = [equippedShip allUpgradesOfFaction: @"Dominion" upType: @"Crew"];
