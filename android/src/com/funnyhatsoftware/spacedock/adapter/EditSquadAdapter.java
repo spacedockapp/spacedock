@@ -92,6 +92,15 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         }
         final boolean flagshipUnassigned = squadHasFlagship && flagshipIndex < 0;
 
+        int admiralIndex = -1;
+        for (int i = 0; i < ships.size(); i++) {
+            Admiral admiral = ships.get(i).getAdmiral();
+			if (null != admiral && !admiral.isPlaceholder()) {
+            	admiralIndex = i;
+                break;
+            }
+        }
+        
         for (int i = 0; i < mSquad.getEquippedShips().size(); i++) {
             ArrayList<ListItemLookup> l = new ArrayList<ListItemLookup>();
             EquippedShip s = ships.get(i);
@@ -104,8 +113,13 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
             populateLookup(l, s.getCrew(), R.string.crew_slot, EquippedShip.SLOT_TYPE_CREW);
             populateLookup(l, s.getWeapon(), R.string.weapon_slot, EquippedShip.SLOT_TYPE_WEAPON);
             populateLookup(l, s.getTech(), R.string.tech_slot, EquippedShip.SLOT_TYPE_TECH);
-            populateLookup(l, s.getBorg(), R.string.borg_slot, EquippedShip.SLOT_TYPE_BORG);
-            populateLookup(l, s.getCaptainLimit(), R.string.admiral_slot, EquippedShip.SLOT_TYPE_ADMIRAL);
+			if (!s.isResourceSideboard()) {
+				populateLookup(l, s.getBorg(), R.string.borg_slot, EquippedShip.SLOT_TYPE_BORG);
+				if (i == admiralIndex || 0 > admiralIndex) {
+					populateLookup(l, s.getCaptainLimit(), R.string.admiral_slot,
+							EquippedShip.SLOT_TYPE_ADMIRAL);
+	            }
+			}
             mShipLookup[i] = l;
         }
     }

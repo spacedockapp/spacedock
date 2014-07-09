@@ -387,8 +387,7 @@ public class EquippedShip extends EquippedShipBase {
 	public EquippedUpgrade getEquippedAdmiral() {
 		for (EquippedUpgrade eu : getUpgrades()) {
 			Upgrade upgrade = eu.getUpgrade();
-
-			if (upgrade.getUpType().equals("Admiral")) {
+			if (upgrade.isAdmiral()) {
 				return eu;
 			}
 		}

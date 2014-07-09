@@ -115,7 +115,7 @@ public class Upgrade extends UpgradeBase {
     }
 
     public boolean isAdmiral() {
-        return mUpType.equals("Admiral");
+        return isCaptain() && this instanceof Admiral;
     }
     
     private boolean isDominion() {

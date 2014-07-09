@@ -45,7 +45,7 @@ public class TestSquad extends BaseTest {
         assertEquals(3, es.getCrew());
         assertEquals(1, es.getTech());
         assertEquals(2, es.getWeapon());
-        assertEquals("Wrong upgrade count", 8, es.getUpgrades().size());
+        assertEquals("Wrong upgrade count", 9, es.getUpgrades().size());
         assertEquals("Wrong cost", 100, squad.calculateCost());
     }
 

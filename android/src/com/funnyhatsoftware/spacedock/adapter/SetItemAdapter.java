@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
-import com.funnyhatsoftware.spacedock.holder.AdmiralHolder;
 import com.funnyhatsoftware.spacedock.holder.FlagshipHolder;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolder;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
