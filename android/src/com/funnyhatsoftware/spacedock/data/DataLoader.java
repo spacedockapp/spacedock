@@ -345,7 +345,8 @@ public class DataLoader extends DefaultHandler {
                 "CostPlusFiveExceptBajoranInterceptor",
                 "Add_Crew_1",
                 "OnlyBorgCaptain",
-                "VulcanHighCommand"
+                "VulcanHighCommand",
+                "VulcanAndFedTechUpgradesMinus2"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);

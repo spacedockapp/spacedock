@@ -246,47 +246,6 @@
     "cost" : 52
   },
   {
-    "uuid" : "E9AADA7B-8D35-48EE-A788-BD40CA328614",
-    "additionalPoints" : 0,
-    "ships" : [
-      {
-        "calculatedCost" : 52,
-        "shipId" : "4th_division_battleship_71279",
-        "upgrades" : [
-          {
-            "upgradeId" : "3095",
-            "upgradeTitle" : "Boheeka",
-            "calculatedCost" : 1
-          },
-          {
-            "upgradeId" : "3057",
-            "upgradeTitle" : "Breen Aide",
-            "calculatedCost" : 2
-          },
-          {
-            "upgradeId" : "3053",
-            "upgradeTitle" : "Glinn Telle",
-            "calculatedCost" : 2
-          },
-          {
-            "upgradeId" : "neela_71445",
-            "upgradeTitle" : "Neela",
-            "calculatedCost" : 6
-          }
-        ],
-        "shipTitle" : "4th Division Battleship",
-        "captain" : {
-          "upgradeId" : "weyoun_71279",
-          "upgradeTitle" : "Weyoun",
-          "calculatedCost" : 5
-        }
-      }
-    ],
-    "name" : "weyoun (7)",
-    "modified" : "2014-06-20T10:12:02-0700",
-    "cost" : 52
-  },
-  {
     "uuid" : "F5BDAA13-0D7F-46FF-A449-E91A1FE38CD0",
     "additionalPoints" : 0,
     "ships" : [

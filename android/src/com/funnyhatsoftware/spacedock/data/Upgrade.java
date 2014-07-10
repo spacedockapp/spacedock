@@ -236,6 +236,11 @@ public class Upgrade extends UpgradeBase {
             if (captainSpecial.equals("WeaponUpgradesCostOneLess")) {
                 cost -= 1;
             }
+        } else if (isTech()) {
+            if ("VulcanAndFedTechUpgradesMinus2".equals(captainSpecial) &&
+                    ("Federation".equals(upgradeFaction) || "Vulcan".equals(upgradeFaction))) {
+                cost -= 2;
+            }
         }
 
         if (upgradeSpecial.equals("costincreasedifnotbreen")) {
