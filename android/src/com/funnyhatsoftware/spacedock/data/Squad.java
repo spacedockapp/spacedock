@@ -16,8 +16,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import android.util.Log;
-
 public class Squad extends SquadBase {
 
     public static final String JSON_LABEL_SHIP_ID = "shipId";

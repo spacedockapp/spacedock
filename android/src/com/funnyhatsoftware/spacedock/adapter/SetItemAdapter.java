@@ -1,3 +1,4 @@
+
 package com.funnyhatsoftware.spacedock.adapter;
 
 import android.app.Activity;
@@ -21,11 +22,13 @@ public class SetItemAdapter extends ArrayAdapter<SetItem> {
     private final SetItemHolderFactory mSetItemHolderFactory;
     private final int mLayoutResId;
 
-    public static SetItemAdapter CreateFactionAdapter(Context context, String faction,
-            int layoutResId, SetItemHolderFactory factory) {
-        List<? extends SetItem> factionItemList = factory.getItemsForFaction(faction);
+    public static SetItemAdapter CreateFactionAdapter(Context context,
+            String faction, int layoutResId, SetItemHolderFactory factory) {
+        List<? extends SetItem> factionItemList = factory
+                .getItemsForFaction(faction);
 
-        if (factionItemList == null || factionItemList.isEmpty()) return null;
+        if (factionItemList == null || factionItemList.isEmpty())
+            return null;
 
         ArrayList<SetItem> items = new ArrayList<SetItem>(factionItemList);
         return new SetItemAdapter(context, layoutResId, factory, items);
@@ -37,13 +40,16 @@ public class SetItemAdapter extends ArrayAdapter<SetItem> {
         if (factory.getType().equals(ShipHolder.TYPE_STRING)) {
             placeholder = Universe.getUniverse().getOrCreateShipPlaceholder();
         } else if (factory.getType().equals(FlagshipHolder.TYPE_STRING)) {
-            placeholder = Universe.getUniverse().getOrCreateFlagshipPlaceholder();
+            placeholder = Universe.getUniverse()
+                    .getOrCreateFlagshipPlaceholder();
         } else {
-            placeholder = Universe.getUniverse().findOrCreatePlaceholder(factory.getType());
+            placeholder = Universe.getUniverse().findOrCreatePlaceholder(
+                    factory.getType());
         }
 
         if (placeholder == null) {
-            throw new IllegalStateException("missing placeholder of type " + factory.getType());
+            throw new IllegalStateException("missing placeholder of type "
+                    + factory.getType());
         }
 
         ArrayList<SetItem> items = new ArrayList<SetItem>(1);

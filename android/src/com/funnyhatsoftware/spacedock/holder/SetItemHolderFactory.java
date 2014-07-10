@@ -57,6 +57,7 @@ public abstract class SetItemHolderFactory {
         registerHolderFactory(CaptainHolder.getFactory());
         registerHolderFactory(ShipHolder.getFactory());
         registerHolderFactory(FlagshipHolder.getFactory());
+        registerHolderFactory(AdmiralHolder.getFactory());
         registerHolderFactory(WeaponHolder.getFactory());
         registerHolderFactory(ResourceHolder.getFactory());
         registerHolderFactory(ReferenceHolder.getFactory());

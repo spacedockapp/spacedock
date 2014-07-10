@@ -1,5 +1,7 @@
 package com.funnyhatsoftware.spacedock.adapter;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,13 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.data.Admiral;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
 import com.funnyhatsoftware.spacedock.data.Explanation;
 import com.funnyhatsoftware.spacedock.data.Flagship;
 import com.funnyhatsoftware.spacedock.data.Squad;
-
-import java.util.ArrayList;
 
 public class EditSquadAdapter extends BaseExpandableListAdapter implements
         ExpandableListView.OnGroupClickListener,
@@ -91,12 +92,27 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         }
         final boolean flagshipUnassigned = squadHasFlagship && flagshipIndex < 0;
 
+        int admiralIndex = -1;
+        for (int i = 0; i < ships.size(); i++) {
+            Admiral admiral = ships.get(i).getAdmiral();
+			if (null != admiral && !admiral.isPlaceholder()) {
+            	admiralIndex = i;
+                break;
+            }
+        }
+        
         for (int i = 0; i < mSquad.getEquippedShips().size(); i++) {
             ArrayList<ListItemLookup> l = new ArrayList<ListItemLookup>();
             EquippedShip s = ships.get(i);
             if (i == flagshipIndex || flagshipUnassigned) {
                 populateLookup(l, 1, R.string.flagship_slot, EquippedShip.SLOT_TYPE_FLAGSHIP);
             }
+            if (!s.isResourceSideboard()) {
+				if (i == admiralIndex || 0 > admiralIndex) {
+					populateLookup(l, s.getCaptainLimit(), R.string.admiral_slot,
+							EquippedShip.SLOT_TYPE_ADMIRAL);
+	            }
+			}
             populateLookup(l, s.getCaptainLimit(), R.string.captain_slot,
                     EquippedShip.SLOT_TYPE_CAPTAIN);
             populateLookup(l, s.getTalent(), R.string.talent_slot, EquippedShip.SLOT_TYPE_TALENT);
@@ -406,6 +422,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
                 explanation = es.tryEquipFlagship(mSquad, externalId);
             } else {
                 explanation = es.tryEquipUpgrade(mSquad, slotType, slotIndex, externalId);
+                
             }
         }
         if (explanation.canAdd) {

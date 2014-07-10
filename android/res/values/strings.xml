@@ -5,6 +5,7 @@
 
     <!-- Labels for configuration slots in each ship -->
     <string name="flagship_slot">Flagship</string>
+    <string name="admiral_slot">Admiral</string>
     <string name="captain_slot">Captain</string>
     <string name="ship_slot">Ship</string>
     <string name="crew_slot">Crew</string>
@@ -57,6 +58,7 @@
     <!-- List displayed in the Browse fragment so that the pluralization is correct and they are in the same order as other versions of Space Dock -->
     <string-array name="browse_items_list">
         <item>Ships</item>
+        <item>Admirals</item>
         <item>Captains</item>
         <item>Crew</item>
         <item>Talents</item>

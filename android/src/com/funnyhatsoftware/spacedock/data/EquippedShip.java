@@ -49,8 +49,8 @@ public class EquippedShip extends EquippedShipBase {
         return addUpgrade(upgrade, null, true);
     }
 
-    public EquippedUpgrade addUpgrade(Upgrade upgrade, EquippedUpgrade maybeReplace,
-            boolean establishPlaceholders) {
+    public EquippedUpgrade addUpgrade(Upgrade upgrade,
+            EquippedUpgrade maybeReplace, boolean establishPlaceholders) {
         EquippedUpgrade eu = new EquippedUpgrade();
         if (upgrade == null) {
             return eu;
@@ -79,7 +79,6 @@ public class EquippedShip extends EquippedShipBase {
         if (establishPlaceholders) {
             establishPlaceholders();
         }
-
         return eu;
     }
 
@@ -97,7 +96,8 @@ public class EquippedShip extends EquippedShipBase {
     private EquippedUpgrade findPlaceholder(String upType) {
 
         for (EquippedUpgrade eu : mUpgrades) {
-            if (eu.isPlaceholder() && upType.equals(eu.getUpgrade().getUpType())) {
+            if (eu.isPlaceholder()
+                    && upType.equals(eu.getUpgrade().getUpType())) {
                 return eu;
             }
         }
@@ -315,6 +315,10 @@ public class EquippedShip extends EquippedShipBase {
         if (captain != null) {
             v = captain.getTalent();
         }
+        Admiral admiral = getAdmiral();
+        if (null != admiral) {
+            v += admiral.getTalent();
+        }
         Flagship flagship = getFlagship();
         if (flagship != null) {
             v += flagship.getTalent();
@@ -381,6 +385,24 @@ public class EquippedShip extends EquippedShipBase {
         return (Captain) equippedCaptain.getUpgrade();
     }
 
+    public EquippedUpgrade getEquippedAdmiral() {
+        for (EquippedUpgrade eu : getUpgrades()) {
+            Upgrade upgrade = eu.getUpgrade();
+            if (upgrade.isAdmiral()) {
+                return eu;
+            }
+        }
+        return null;
+    }
+
+    public Admiral getAdmiral() {
+        EquippedUpgrade eu = getEquippedAdmiral();
+        if (eu == null) {
+            return null;
+        }
+        return (Admiral) eu.getUpgrade();
+    }
+
     public void establishPlaceholders() {
         if (getCaptainLimit() > 0) {
             if (getCaptain() == null) {
@@ -392,8 +414,8 @@ public class EquippedShip extends EquippedShipBase {
                     addUpgrade(zcc, null, false);
                 }
             }
+            establishPlaceholdersForType("Admiral", getCaptainLimit());
         }
-
         establishPlaceholdersForType("Talent", getTalent());
         establishPlaceholdersForType("Crew", getCrew());
         establishPlaceholdersForType("Weapon", getWeapon());
@@ -423,7 +445,8 @@ public class EquippedShip extends EquippedShipBase {
         ArrayList<EquippedUpgrade> upgrades = getSortedUpgrades();
 
         for (EquippedUpgrade eu : upgrades) {
-            if (eu.isPlaceholder() && upType.equals(eu.getUpgrade().getUpType())) {
+            if (eu.isPlaceholder()
+                    && upType.equals(eu.getUpgrade().getUpType())) {
                 onesToRemove.add(eu);
             }
 
@@ -472,8 +495,8 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public Explanation canAddUpgrade(Upgrade upgrade) {
-        String msg = String.format("Can't add %s to %s", upgrade.getPlainDescription(),
-                getPlainDescription());
+        String msg = String.format("Can't add %s to %s",
+                upgrade.getPlainDescription(), getPlainDescription());
         if (isFighterSquadron()) {
             return new Explanation(msg,
                     "Fighter Squadrons cannot accept upgrades.");
@@ -563,8 +586,11 @@ public class EquippedShip extends EquippedShipBase {
                 || upgradeSpecial.equals("OnlyForRaptorClassShips")) {
             String legalShipClass = upgrade.targetShipClass();
             if (!legalShipClass.equals(ship.getShipClass())) {
-                return new Explanation(msg, String.format(
-                        "This upgrade can only be installed on ships of class %s.", legalShipClass));
+                return new Explanation(
+                        msg,
+                        String.format(
+                                "This upgrade can only be installed on ships of class %s.",
+                                legalShipClass));
             }
         }
 
@@ -572,11 +598,13 @@ public class EquippedShip extends EquippedShipBase {
         if (limit <= 0) {
             String expl;
             if (upgrade.isTalent()) {
-                expl = String.format("This ship's captain has no %s upgrade symbols.",
+                expl = String.format(
+                        "This ship's captain has no %s upgrade symbols.",
                         upgrade.getUpType());
             } else {
-                expl = String.format("This ship has no %s upgrade symbols on its ship card.",
-                        upgrade.getUpType());
+                expl = String
+                        .format("This ship has no %s upgrade symbols on its ship card.",
+                                upgrade.getUpType());
             }
             return new Explanation(msg, expl);
         }
@@ -627,8 +655,10 @@ public class EquippedShip extends EquippedShipBase {
         return mostExpensive.isPlaceholder() ? null : mostExpensive;
     }
 
-    public EquippedUpgrade mostExpensiveUpgradeOfFactionAndType(String faction, String upType) {
-        ArrayList<EquippedUpgrade> allUpgrades = allUpgradesOfFactionAndType(faction, upType);
+    public EquippedUpgrade mostExpensiveUpgradeOfFactionAndType(String faction,
+            String upType) {
+        ArrayList<EquippedUpgrade> allUpgrades = allUpgradesOfFactionAndType(
+                faction, upType);
         if (allUpgrades.isEmpty()) {
             return null;
         }
@@ -636,8 +666,7 @@ public class EquippedShip extends EquippedShipBase {
         return mostExpensive.isPlaceholder() ? null : mostExpensive;
     }
 
-    public ArrayList<EquippedUpgrade> allUpgradesOfFaction(
-            String faction) {
+    public ArrayList<EquippedUpgrade> allUpgradesOfFaction(String faction) {
         return allUpgradesOfFactionAndType(faction, null);
     }
 
@@ -646,8 +675,10 @@ public class EquippedShip extends EquippedShipBase {
         ArrayList<EquippedUpgrade> allUpgrades = new ArrayList<EquippedUpgrade>();
         for (EquippedUpgrade eu : mUpgrades) {
             if (!eu.getUpgrade().isCaptain()) {
-                if (upType == null || upType.equals(eu.getUpgrade().getUpType())) {
-                    if (faction == null || faction.equals(eu.getUpgrade().getFaction())) {
+                if (upType == null
+                        || upType.equals(eu.getUpgrade().getUpType())) {
+                    if (faction == null
+                            || faction.equals(eu.getUpgrade().getFaction())) {
                         allUpgrades.add(eu);
                     }
                 }
@@ -695,16 +726,13 @@ public class EquippedShip extends EquippedShipBase {
     public static final int SLOT_TYPE_BORG = 4;
     public static final int SLOT_TYPE_TALENT = 5;
     public static final int SLOT_TYPE_FLAGSHIP = 6;
+    public static final int SLOT_TYPE_ADMIRAL = 7;
     public static final int SLOT_TYPE_SHIP = 1000;
 
     public static Class[] CLASS_FOR_SLOT = new Class[] {
             Captain.class,
-            Crew.class,
-            Weapon.class,
-            Tech.class,
-            Borg.class,
-            Talent.class,
-            Flagship.class,
+            Crew.class, Weapon.class, Tech.class, Borg.class, Talent.class,
+            Flagship.class, Admiral.class
     };
 
     private int getUpgradeIndexOfClass(Class slotClass, int slotIndex) {
@@ -765,7 +793,8 @@ public class EquippedShip extends EquippedShipBase {
             Flagship flagship = Universe.getUniverse().getFlagship(externalId);
             if (!flagship.compatibleWithFaction(shipFaction())) {
                 return new Explanation("Failed to add Flagship.",
-                        flagship.getPlainDescription() + " not compatible with ship faction "
+                        flagship.getPlainDescription()
+                                + " not compatible with ship faction "
                                 + shipFaction());
             }
             squad.removeFlagship();
@@ -779,17 +808,21 @@ public class EquippedShip extends EquippedShipBase {
         return Explanation.SUCCESS;
     }
 
-    public Explanation tryEquipUpgrade(Squad squad, int slotType, int slotIndex, String externalId) {
+    public Explanation tryEquipUpgrade(Squad squad, int slotType,
+            int slotIndex, String externalId) {
         Upgrade upgrade;
         if (externalId != null && !externalId.isEmpty()) {
             if (slotType == SLOT_TYPE_CAPTAIN) {
                 upgrade = Universe.getUniverse().getCaptain(externalId);
-                Explanation explanation = squad.canAddCaptain((Captain) upgrade, this);
+                Explanation explanation = squad.canAddCaptain(
+                        (Captain) upgrade, this);
                 if (!explanation.canAdd) {
                     return explanation; // disallowed, abort!
                 }
             } else {
-                upgrade = Universe.getUniverse().getUpgrade(externalId);
+                upgrade = SLOT_TYPE_ADMIRAL == slotType ? Universe
+                        .getUniverse().getAdmiral(externalId) : Universe
+                        .getUniverse().getUpgrade(externalId);
                 Explanation explanation = squad.canAddUpgrade(upgrade, this);
                 if (!explanation.canAdd) {
                     return explanation; // disallowed, abort!
@@ -797,7 +830,8 @@ public class EquippedShip extends EquippedShipBase {
             }
         } else {
             // No ID passed, use placeholder
-            upgrade = Upgrade.placeholder(CLASS_FOR_SLOT[slotType].getSimpleName());
+            upgrade = Upgrade.placeholder(CLASS_FOR_SLOT[slotType]
+                    .getSimpleName());
         }
 
         EquippedUpgrade newEu = new EquippedUpgrade();
@@ -831,7 +865,8 @@ public class EquippedShip extends EquippedShipBase {
                         Log.d(TAG, "    " + i + ", PLACEHOLDER upgrade is "
                                 + equippedUpgrade.getTitle());
                     } else {
-                        Log.d(TAG, "    " + i + ", upgrade is " + equippedUpgrade.getTitle());
+                        Log.d(TAG, "    " + i + ", upgrade is "
+                                + equippedUpgrade.getTitle());
                     }
                     i++;
                 }
@@ -887,11 +922,13 @@ public class EquippedShip extends EquippedShipBase {
         return o;
     }
 
-    public void importUpgrades(Universe universe, JSONObject shipData, boolean strict)
-            throws JSONException {
-        JSONObject captainObject = shipData.optJSONObject(JSONLabels.JSON_LABEL_CAPTAIN);
+    public void importUpgrades(Universe universe, JSONObject shipData,
+            boolean strict) throws JSONException {
+        JSONObject captainObject = shipData
+                .optJSONObject(JSONLabels.JSON_LABEL_CAPTAIN);
         if (captainObject != null) {
-            String captainId = captainObject.optString(JSONLabels.JSON_LABEL_UPGRADE_ID);
+            String captainId = captainObject
+                    .optString(JSONLabels.JSON_LABEL_UPGRADE_ID);
             Captain captain = universe.getCaptain(captainId);
             addUpgrade(captain, null, false);
         } else if (strict) {
@@ -902,26 +939,31 @@ public class EquippedShip extends EquippedShipBase {
         if (flagshipId.length() > 0) {
             Flagship flagship = universe.getFlagship(flagshipId);
             if (strict && flagship == null) {
-                throw new RuntimeException("Can't find flagship '" + flagshipId + "'");
+                throw new RuntimeException("Can't find flagship '" + flagshipId
+                        + "'");
             }
             setFlagship(flagship);
         }
 
-        JSONArray upgrades = shipData.optJSONArray(JSONLabels.JSON_LABEL_UPGRADES);
+        JSONArray upgrades = shipData
+                .optJSONArray(JSONLabels.JSON_LABEL_UPGRADES);
         if (upgrades != null) {
             for (int i = 0; i < upgrades.length(); ++i) {
                 JSONObject upgradeData = upgrades.getJSONObject(i);
-                String upgradeId = upgradeData.optString(JSONLabels.JSON_LABEL_UPGRADE_ID);
+                String upgradeId = upgradeData
+                        .optString(JSONLabels.JSON_LABEL_UPGRADE_ID);
                 Upgrade upgrade = universe.getUpgrade(upgradeId);
                 if (upgrade != null) {
                     EquippedUpgrade eu = addUpgrade(upgrade, null, false);
-                    if (upgradeData.optBoolean(JSONLabels.JSON_LABEL_COST_IS_OVERRIDDEN)) {
+                    if (upgradeData
+                            .optBoolean(JSONLabels.JSON_LABEL_COST_IS_OVERRIDDEN)) {
                         eu.setOverridden(true);
                         eu.setOverriddenCost(upgradeData
                                 .optInt(JSONLabels.JSON_LABEL_OVERRIDDEN_COST));
                     }
                 } else if (strict) {
-                    throw new RuntimeException("Can't find upgrade '" + upgrade + "'");
+                    throw new RuntimeException("Can't find upgrade '" + upgrade
+                            + "'");
                 }
             }
         }
