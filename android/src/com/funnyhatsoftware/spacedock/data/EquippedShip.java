@@ -309,6 +309,10 @@ public class EquippedShip extends EquippedShipBase {
         return v;
     }
 
+    public int getAdmiralLimit() {
+        return getCaptainLimit();
+    }
+
     public int getTalent() {
         int v = 0;
         Captain captain = getCaptain();

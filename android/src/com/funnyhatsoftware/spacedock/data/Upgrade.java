@@ -50,8 +50,8 @@ public class Upgrade extends UpgradeBase {
         if (isCaptain()) {
             return targetShip.getCaptainLimit();
         }
-        if (isAdmiral()){
-        	return targetShip.getCaptainLimit();
+        if (isAdmiral()) {
+            return targetShip.getAdmiralLimit();
         }
 
         if (isTalent()) {
@@ -115,9 +115,9 @@ public class Upgrade extends UpgradeBase {
     }
 
     public boolean isAdmiral() {
-        return isCaptain() && this instanceof Admiral;
+        return mUpType.equals("Admiral");
     }
-    
+
     private boolean isDominion() {
         return getFaction().equals("Dominion");
     }
@@ -324,8 +324,8 @@ public class Upgrade extends UpgradeBase {
             } else if (captainSpecial.equals("CaptainAndTalentsIgnoreFactionPenalty")
                     && (isTalent() || isCaptain())) {
                 // do nothing
-            } else if (isAdmiral()){
-            	cost += 3;
+            } else if (isAdmiral()) {
+                cost += 3;
             } else {
                 cost += 1;
             }
