@@ -1,4 +1,8 @@
-### Version 1.0.17 build 67 (2014-6-22)
+### Version 1.0.18 build 68 (2014-7-11)
+
+* Added in the Ti'Mur prize ship.
+
+### Version 1.0.17 build 67 (2014-7-8)
 
 * Added support for Wave 6, including proper support for dual-faction items.
 * Added support for Admirals in building and printing build sheets. Build mats are still to be done.
