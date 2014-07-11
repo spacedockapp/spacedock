@@ -1,5 +1,6 @@
 #import "DockBuildMat.h"
 
+#import "DockAdmiral+MacAddons.h"
 #import "DockCaptain+Addons.h"
 #import "DockEquippedFlagship.h"
 #import "DockEquippedShip+Addons.h"
@@ -94,6 +95,29 @@
         self.captain = captain;
     }
     return self;
+}
+
+@end
+
+@interface DockAdmiralTile : DockBuildMatTile
+@property (strong, nonatomic) DockAdmiral* admiral;
+-(id)initWithAdmiral:(DockAdmiral*)admiral;
+@end
+
+@implementation DockAdmiralTile
+
+-(id)initWithAdmiral:(DockAdmiral*)admiral
+{
+    self = [super initWithNib: @"AdmiralTile"];
+    if (self != nil) {
+        self.admiral = admiral;
+    }
+    return self;
+}
+
+-(NSAttributedString*)styledSkillModifier
+{
+    return self.admiral.styledSkillModifier;
 }
 
 @end
@@ -221,6 +245,11 @@
             DockUpgrade* upgrade = equippedUpgrade.upgrade;
             if (upgrade.isCaptain) {
                 tile = [[DockCaptainTile alloc] initWithCaptain: equippedShip.captain];
+            } else if (upgrade.isAdmiral) {
+                DockAdmiral* admiral = (DockAdmiral*)upgrade;
+                tile = [[DockAdmiralTile alloc] initWithAdmiral: admiral];
+                [oneRow addObject: tile];
+                tile = [[DockCaptainTile alloc] initWithCaptain: admiral];
             } else if (!upgrade.isPlaceholder) {
                 if (upgrade.isWeapon) {
                     tile = [[DockWeaponTile alloc] initWithWeapon: (DockWeapon*)upgrade];
