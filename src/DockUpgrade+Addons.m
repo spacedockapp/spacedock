@@ -228,12 +228,13 @@
 
 
     if (![targetShip isResourceSideboard]) {
-        NSString* special = self.special;
 
-        if ([special isEqualToString: @"OnlyForRomulanScienceVessel"] || [special isEqualToString: @"OnlyForRaptorClassShips"]) {
+        NSString* targetShipClass = self.targetShipClass;
+
+        if (targetShipClass != nil) {
             NSString* shipClass = targetShip.ship.shipClass;
 
-            if (![shipClass isEqualToString: self.targetShipClass]) {
+            if (![shipClass isEqualToString: targetShipClass]) {
                 return 0;
             }
         }
@@ -266,6 +267,8 @@
         return @"Romulan Science Vessel";
     } else if ([special isEqualToString: @"OnlyForRaptorClassShips"]) {
         return @"Raptor Class";
+    } else if ([special isEqualToString: @"combat_vessel_variant_71508"]) {
+        return @"Suurok Class";
     }
 
     return nil;
@@ -556,6 +559,22 @@
         return 2;
     }
     if ([self.externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
+        return 1;
+    }
+    return 0;
+}
+
+-(int)additionalHull
+{
+    if ([self.externalId isEqualToString: @"combat_vessel_variant_71508"]) {
+        return 1;
+    }
+    return 0;
+}
+
+-(int)additionalAttack
+{
+    if ([self.externalId isEqualToString: @"combat_vessel_variant_71508"]) {
         return 1;
     }
     return 0;

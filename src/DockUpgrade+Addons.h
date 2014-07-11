@@ -27,6 +27,8 @@
 -(int)additionalWeaponSlots;
 -(int)additionalTechSlots;
 -(int)additionalCrewSlots;
+-(int)additionalHull;
+-(int)additionalAttack;
 -(NSString*)targetShipClass;
 -(NSString*)upSortType;
 -(NSString*)typeCode;

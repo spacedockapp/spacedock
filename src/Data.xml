@@ -1,4 +1,4 @@
-<Data version="1.228">
+<Data version="1.229">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -9005,6 +9005,66 @@
       <Cost>5</Cost>
       <Id>photon_torpedoes_71524</Id>
       <Set>71524</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Combat Vessel Variant</Title>
+      <Ability>Your Primary Weapon and Hull values are each at +1.  In addition, during the Activation Phase, if you reveal a 4 [STRAIGHT] Maneuver, you may perform a 5 [STRAIGHT] Maneuver instead.  If you do so, place an Auxiliary Power Token beside your ship.  This Upgrade may only be purchased for a Suurok Class ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>6</Cost>
+      <Id>combat_vessel_variant_71508</Id>
+      <Set>71508</Set>
+      <Special>combat_vessel_variant_71508</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Tractor Beam</Title>
+      <Ability>If you are attacked at Range 1, you may disable this card to force the attacking ship to re-roll up to 2 attack dice of your choice.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>2</Cost>
+      <Id>tractor_beam_71508</Id>
+      <Set>71508</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Diplomacy</Title>
+      <Ability>ACTION: Discard this card to target 1 enemy ship within Range 1-3.  Discard all Tokens from beside your ship and the target ship (except for Auxiliary Power Tokens).  Both your ship and the target ship cannot attack or be attacked this round.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>5</Cost>
+      <Id>diplomacy_71508</Id>
+      <Set>71508</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Koss</Title>
+      <Ability>While Koss is on your ship, none of your other Upgrades can be affected by your opponents.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>2</Cost>
+      <Id>koss_71508</Id>
+      <Set>71508</Set>
       <Special></Special>
     </Upgrade>
   </Upgrades>

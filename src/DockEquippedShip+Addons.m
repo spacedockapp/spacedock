@@ -137,7 +137,12 @@
 
 -(int)attack
 {
-    return [self.ship.attack intValue] + [self.flagship attackAdd];
+    int attack = [self.ship.attack intValue] + [self.flagship attackAdd];
+    for (DockEquippedUpgrade* eu in self.upgrades) {
+        DockUpgrade* upgrade = eu.upgrade;
+        attack += [upgrade additionalAttack];
+    }
+    return attack;
 }
 
 -(int)agility
@@ -147,7 +152,12 @@
 
 -(int)hull
 {
-    return [self.ship.hull intValue] + [self.flagship hullAdd];
+    int hull = [self.ship.hull intValue] + [self.flagship hullAdd];
+    for (DockEquippedUpgrade* eu in self.upgrades) {
+        DockUpgrade* upgrade = eu.upgrade;
+        hull += [upgrade additionalHull];
+    }
+    return hull;
 }
 
 -(int)shield
