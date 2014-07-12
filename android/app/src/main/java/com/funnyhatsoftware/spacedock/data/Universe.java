@@ -131,7 +131,7 @@ public class Universe {
         for (int i = 0; i < count; ++i) {
             JSONObject oneSquad = jsonArray.getJSONObject(i);
             String squadUUID = oneSquad.optString("uuid");
-            
+
             Squad squad = null;
             if (squadUUID.length() > 0) {
                 squad = getSquadByUUID(squadUUID);
@@ -143,7 +143,7 @@ public class Universe {
             }
             squad.importFromObject(this, false, oneSquad, strict);
         }
-        
+
     }
 
     public static Universe getUniverse() {
@@ -164,7 +164,7 @@ public class Universe {
     }
     
     public Admiral getAdmiral(String admiralId) {
-    	return admirals.get(admiralId);
+        return admirals.get(admiralId);
     }
 
     public Captain getCaptain(String captainId) {
@@ -273,7 +273,8 @@ public class Universe {
     public ArrayList<Ship> getShipsForFaction(String faction) {
         ArrayList<Ship> shipsCopy = new ArrayList<Ship>();
         for (Ship ship : ships.values()) {
-            if (ship.getFaction().equals(faction) && isMemberOfIncludedSet(ship)) {
+            if ((ship.getFaction().equals(faction) || faction.equals(ship.getAdditionalFaction()))
+                    && isMemberOfIncludedSet(ship)) {
                 shipsCopy.add(ship);
             }
         }
@@ -287,7 +288,7 @@ public class Universe {
         admiralsCopy.addAll(admirals.values());
         return admiralsCopy;
     }
-    
+
     public ArrayList<Captain> getCaptains() {
         ArrayList<Captain> captainsCopy = new ArrayList<Captain>();
         captainsCopy.addAll(captains.values());
@@ -311,7 +312,7 @@ public class Universe {
                 placeholder = new Crew();
             } else if (upType.equals("Admiral")){
             	placeholder = new Admiral();
-            }else {
+            } else {
                 return null; // placeholder type not supported
             }
 
@@ -376,18 +377,19 @@ public class Universe {
         ArrayList<Admiral> factionAdmirals = new ArrayList<Admiral>();
         for (Admiral admiral : admirals.values()) {
             if (admiral.getFaction().equals(s) && isMemberOfIncludedSet(admiral)) {
-            	factionAdmirals.add(admiral);
+                factionAdmirals.add(admiral);
             }
         }
 
         Collections.sort(factionAdmirals, new CaptainComparator());
         return factionAdmirals;
     }
-    
+
     public ArrayList<Captain> getCaptainsForFaction(String s) {
         ArrayList<Captain> factionCaptains = new ArrayList<Captain>();
         for (Captain captain : captains.values()) {
-            if (captain.getFaction().equals(s) && isMemberOfIncludedSet(captain)) {
+            if ((captain.getFaction().equals(s) || captain.getAdditionalFaction().equals(s))
+                    && isMemberOfIncludedSet(captain)) {
                 factionCaptains.add(captain);
             }
         }
@@ -406,7 +408,8 @@ public class Universe {
                 continue;
             }
             if ((upType == null || upgrade.getUpType().equals(upType))
-                    && faction.equals(upgrade.getFaction())) {
+                    && (faction.equals(upgrade.getFaction())
+                    || faction.equals(upgrade.getAdditionalFaction()))) {
                 matchingUpgrades.add(upgrade);
             }
         }
@@ -484,7 +487,7 @@ public class Universe {
     public void removeAllSquads() {
         mSquads.clear();
     }
-    
+
     public void sortSquads() {
         Collections.sort(mSquads, new SquadComparator());
     }
@@ -503,8 +506,8 @@ public class Universe {
                 allSpecials.add(s);
             }
         }
-        for (Admiral admiral : admirals.values()){
-        	String s = admiral.getSpecial();
+        for (Admiral admiral : admirals.values()) {
+            String s = admiral.getSpecial();
             if (s != null && s.length() > 0) {
                 allSpecials.add(s);
             }

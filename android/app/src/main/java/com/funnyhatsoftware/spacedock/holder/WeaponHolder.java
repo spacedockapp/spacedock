@@ -29,9 +29,12 @@ public class WeaponHolder extends SetItemHolder {
             @Override
             public String getDetails(DetailsFragment.DetailDataBuilder builder, String id) {
                 Weapon weapon = (Weapon) Universe.getUniverse().getUpgrade(id);
-
-                builder.addString("Faction", weapon.getFaction())
-                        .addString("Type", weapon.getUpType());
+                String faction = weapon.getFaction();
+                if (!"".equals(weapon.getAdditionalFaction())) {
+                    faction += ", " + weapon.getAdditionalFaction();
+                }
+                builder.addString("Faction", faction);
+                builder.addString("Type", weapon.getUpType());
                 if (weapon.getAttack() > 0) {
                     builder.addInt("Attack", weapon.getAttack());
                 }
