@@ -494,8 +494,8 @@
 		D4757C2C1902CB0100CF173B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D4757C2E1902CB0100CF173B /* SpaceDockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaceDockTests.m; sourceTree = "<group>"; };
 		D4757C301902CB0100CF173B /* Space Dock Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Space Dock Tests-Prefix.pch"; sourceTree = "<group>"; };
-		D4757C361902CCAC00CF173B /* squads_for_test.spacedocksquads */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = squads_for_test.spacedocksquads; path = android/test/assets/squads_for_test.spacedocksquads; sourceTree = SOURCE_ROOT; };
-		D4757C381902D9D200CF173B /* romulan_2_ship.spacedock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = romulan_2_ship.spacedock; path = android/test/assets/romulan_2_ship.spacedock; sourceTree = SOURCE_ROOT; };
+		D4757C361902CCAC00CF173B /* squads_for_test.spacedocksquads */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = squads_for_test.spacedocksquads; path = test_data/squads_for_test.spacedocksquads; sourceTree = SOURCE_ROOT; };
+		D4757C381902D9D200CF173B /* romulan_2_ship.spacedock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = romulan_2_ship.spacedock; path = test_data/romulan_2_ship.spacedock; sourceTree = SOURCE_ROOT; };
 		D475C66919168CFF00275EF1 /* UpgradeTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpgradeTile.xib; sourceTree = "<group>"; };
 		D475C66B19169C1700275EF1 /* WeaponTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeaponTile.xib; sourceTree = "<group>"; };
 		D475C66D1916B6E600275EF1 /* DockPaginatedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockPaginatedTableView.h; sourceTree = "<group>"; };
@@ -585,7 +585,7 @@
 		D4DE20D318D3443300C31914 /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dropbox.framework; path = "../../Development/dropbox-osx-sync-sdk-2.1.0/Dropbox.framework"; sourceTree = "<group>"; };
 		D4E4868C18DB424900D3BAB8 /* DockSquadImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DockSquadImporter.h; path = ../mac/DockSquadImporter.h; sourceTree = "<group>"; };
 		D4E4868D18DB424900D3BAB8 /* DockSquadImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DockSquadImporter.m; path = ../mac/DockSquadImporter.m; sourceTree = "<group>"; };
-		D4E8E7B61955C6950098D12A /* specials.spacedocksquads */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = specials.spacedocksquads; path = android/test/assets/specials.spacedocksquads; sourceTree = SOURCE_ROOT; };
+		D4E8E7B61955C6950098D12A /* specials.spacedocksquads */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = specials.spacedocksquads; path = test_data/specials.spacedocksquads; sourceTree = SOURCE_ROOT; };
 		D4E94BA81853F8A300AE415D /* DockDataUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockDataUpdater.h; sourceTree = "<group>"; };
 		D4E94BA91853F8A300AE415D /* DockDataUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockDataUpdater.m; sourceTree = "<group>"; };
 		D4EA87B118B6ECF20033EC4B /* NSString+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Addons.h"; sourceTree = "<group>"; };
