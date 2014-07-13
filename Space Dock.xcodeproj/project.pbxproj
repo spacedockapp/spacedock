@@ -22,6 +22,8 @@
 		D41B77E617FDCF91005A5DA8 /* DockResource+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B77E517FDCF91005A5DA8 /* DockResource+Addons.m */; };
 		D41B77E917FE13D1005A5DA8 /* DockBooleanFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B77E817FE13D1005A5DA8 /* DockBooleanFormatter.m */; };
 		D41BA80817F67FE0005266E6 /* DockShip+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D41BA80717F67FE0005266E6 /* DockShip+Addons.m */; };
+		D421E4D7197044690055566E /* AdmiralTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = D421E4D6197044690055566E /* AdmiralTile.xib */; };
+		D421E4DA197045650055566E /* DockAdmiral+MacAddons.m in Sources */ = {isa = PBXBuildFile; fileRef = D421E4D9197045650055566E /* DockAdmiral+MacAddons.m */; };
 		D4259EDF180F94E300BB02BA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4259EDE180F94E300BB02BA /* WebKit.framework */; };
 		D427CDE2184A50CF0086EB86 /* DockConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D427CDE1184A50CF0086EB86 /* DockConstants.m */; };
 		D427CDE3184A50CF0086EB86 /* DockConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D427CDE1184A50CF0086EB86 /* DockConstants.m */; };
@@ -337,6 +339,9 @@
 		D41B77E817FE13D1005A5DA8 /* DockBooleanFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockBooleanFormatter.m; sourceTree = "<group>"; };
 		D41BA80617F67FE0005266E6 /* DockShip+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockShip+Addons.h"; sourceTree = "<group>"; };
 		D41BA80717F67FE0005266E6 /* DockShip+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockShip+Addons.m"; sourceTree = "<group>"; };
+		D421E4D6197044690055566E /* AdmiralTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdmiralTile.xib; sourceTree = "<group>"; };
+		D421E4D8197045650055566E /* DockAdmiral+MacAddons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockAdmiral+MacAddons.h"; sourceTree = "<group>"; };
+		D421E4D9197045650055566E /* DockAdmiral+MacAddons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockAdmiral+MacAddons.m"; sourceTree = "<group>"; };
 		D4259EDE180F94E300BB02BA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		D427CDE0184A50CF0086EB86 /* DockConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockConstants.h; sourceTree = "<group>"; };
 		D427CDE1184A50CF0086EB86 /* DockConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockConstants.m; sourceTree = "<group>"; };
@@ -981,6 +986,8 @@
 				D4D2BD1719167FBE00ADA866 /* Build Mat */,
 				D4A66CA518A08C060050A37A /* DockAbilityDelegate.h */,
 				D4A66CA618A08C060050A37A /* DockAbilityDelegate.m */,
+				D421E4D8197045650055566E /* DockAdmiral+MacAddons.h */,
+				D421E4D9197045650055566E /* DockAdmiral+MacAddons.m */,
 				D4F85A55196985350062A0CE /* DockAdmiralsTableController.h */,
 				D4F85A56196985350062A0CE /* DockAdmiralsTableController.m */,
 				D4BCA3D81814EC0900921183 /* DockAppDelegate.h */,
@@ -1052,6 +1059,7 @@
 				D475C66D1916B6E600275EF1 /* DockPaginatedTableView.h */,
 				D475C66E1916B6E600275EF1 /* DockPaginatedTableView.m */,
 				D4EF855A191591CC0049235E /* BuildMat.xib */,
+				D421E4D6197044690055566E /* AdmiralTile.xib */,
 				D4D2BD18191683F300ADA866 /* CaptainTile.xib */,
 				D4D2BD1A191687FA00ADA866 /* FlagshipTile.xib */,
 				D4EF85611915E7620049235E /* ShipTile.xib */,
@@ -1258,6 +1266,7 @@
 				D4408DB6184469C4008BA352 /* green-left-bank.pdf in Resources */,
 				D4408DC318446B84008BA352 /* red-backup.pdf in Resources */,
 				D4C8EED5186109F1007BBD1A /* ShipGrid.xib in Resources */,
+				D421E4D7197044690055566E /* AdmiralTile.xib in Resources */,
 				D460664C18FC2C22007A1655 /* green-right-spin.pdf in Resources */,
 				D460665118FC2C22007A1655 /* white-left-spin.pdf in Resources */,
 				D475C66A19168CFF00275EF1 /* UpgradeTile.xib in Resources */,
@@ -1369,6 +1378,7 @@
 				D4BCA3EE1814EC0900921183 /* NSTreeController+Additions.m in Sources */,
 				D4F6867118F995E90019C067 /* DockWeapon.m in Sources */,
 				D460664418FC226B007A1655 /* DockBorg+Addons.m in Sources */,
+				D421E4DA197045650055566E /* DockAdmiral+MacAddons.m in Sources */,
 				D4A66CAA18A1BB310050A37A /* DockShip+MacAddons.m in Sources */,
 				D4AD470518708E6600A9B451 /* DockDataLoader.m in Sources */,
 				D4F6868518F995EA0019C067 /* DockEquippedShip.m in Sources */,

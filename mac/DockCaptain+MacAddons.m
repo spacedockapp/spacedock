@@ -7,7 +7,7 @@
 
 @implementation DockCaptain (MacAddons)
 
--(NSColor*)captainSkillColor
++(NSColor*)captainSkillColor
 {
     const double kRed = 0xd0 / 256.0;
     const double kGreen = 0x9C / 256.0;
@@ -19,7 +19,7 @@
 -(NSAttributedString*)styledDescription
 {
     NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithAttributedString: [super styledDescription]];
-    NSColor* c = [self captainSkillColor];
+    NSColor* c = [DockCaptain captainSkillColor];
     [as appendAttributedString: [[NSMutableAttributedString alloc] initWithString: @" "]];
     [as appendAttributedString: coloredString([[self skill] stringValue], c, [NSColor clearColor])];
     return as;
@@ -27,7 +27,7 @@
 
 -(NSAttributedString*)styledSkill
 {
-    NSColor* c = [self captainSkillColor];
+    NSColor* c = [DockCaptain captainSkillColor];
     return makeCentered(coloredString([[self skill] stringValue], c, [NSColor clearColor]));
 }
 
