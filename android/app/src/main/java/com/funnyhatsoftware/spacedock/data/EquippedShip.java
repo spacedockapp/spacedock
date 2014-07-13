@@ -544,8 +544,13 @@ public class EquippedShip extends EquippedShipBase {
                 );
             }
         }
+        if ("transwarp_conduit_71522".equals(upgradeSpecial)) {
+            if (!ship.isBorg()) {
+                return new Explanation(msg, "This upgrade can only be added to Borg ships.");
+            }
+        }
         Captain captain = getCaptain();
-        if (!"lore_71522".equals(captain.getSpecial()) && !upgrade.isTalent()) {
+        if (!"lore_71522".equals(captain.getSpecial()) || !upgrade.isTalent()) {
             if (upgradeSpecial.equals("OnlyForKlingonCaptain")) {
                 if (!captain.isKlingon()) {
                     return new Explanation(msg,
@@ -566,7 +571,7 @@ public class EquippedShip extends EquippedShipBase {
                 }
             }
 
-            if (upgradeSpecial.equals("OnlyBorgCaptain")) {
+            if (upgradeSpecial.equals("OnlyBorgCaptain") || "experimental_link_71522".equals(upgradeSpecial)) {
                 if (!captain.isBorgFaction()) {
                     return new Explanation(msg,
                             "This Upgrade may only be purchased for a Borg Captain.");
