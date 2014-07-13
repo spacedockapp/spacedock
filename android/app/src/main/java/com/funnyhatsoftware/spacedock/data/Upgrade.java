@@ -225,7 +225,8 @@ public class Upgrade extends UpgradeBase {
                 cost = 3;
             }
         } else if (isCrew()) {
-            if (captainSpecial.equals("CrewUpgradesCostOneLess") && !shipIsSideboard) {
+            if ((captainSpecial.equals("CrewUpgradesCostOneLess") || captainSpecial.equals("hugh_71522"))
+                    && !shipIsSideboard) {
                 cost -= 1;
             }
 
@@ -330,6 +331,10 @@ public class Upgrade extends UpgradeBase {
                 }
             } else if (captainSpecial.equals("CaptainAndTalentsIgnoreFactionPenalty")
                     && (isTalent() || isCaptain())) {
+                // do nothing
+            } else if (captainSpecial.equals("lore_71522") && isTalent()) {
+                // do nothing
+            } else if (captainSpecial.equals("hugh_71522") && upgradeFaction.equals("Borg")) {
                 // do nothing
             } else if (isAdmiral()) {
                 cost += 3;
