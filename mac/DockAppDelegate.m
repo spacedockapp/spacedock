@@ -1699,6 +1699,14 @@ void addRemoveFlagshipItem(NSMenu *menu)
 -(void)saveSquadsToDisk:(NSString*)targetPath
 {
     NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
+    id squadExportComparator = ^(DockSquad* a, DockSquad* b) {
+        NSComparisonResult result = [a.name caseInsensitiveCompare: b.name];
+        if (result == NSOrderedSame) {
+            result = [a.uuid compare: b.uuid];
+        }
+        return result;
+    };
+    allSquads = [allSquads sortedArrayUsingComparator: squadExportComparator];
     NSMutableArray* squadsForJSONArray = [NSMutableArray arrayWithCapacity: allSquads.count];
     for (DockSquad* squad in [DockSquad allSquads: _managedObjectContext]) {
         [squadsForJSONArray addObject: [squad asJSON]];
