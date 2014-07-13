@@ -615,18 +615,28 @@
   {
     "ships" : [
       {
-        "calculatedCost" : 54,
+        "calculatedCost" : 60,
         "shipId" : "4th_division_battleship_71279",
         "upgrades" : [
-          {
-            "upgradeId" : "first_strike_3rd_wing_attack_ship",
-            "upgradeTitle" : "First Strike",
-            "calculatedCost" : 0
-          },
           {
             "upgradeId" : "neela_71445",
             "upgradeTitle" : "Neela",
             "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "sensor_array_71524",
+            "upgradeTitle" : "Sensor Array",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "shroud_71279",
+            "upgradeTitle" : "Shroud",
+            "calculatedCost" : 1
+          },
+          {
+            "upgradeId" : "photon_torpedoes_3rd_wing_attack_ship",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 2
           }
         ],
         "shipTitle" : "4th Division Battleship",
@@ -638,11 +648,11 @@
         }
       }
     ],
-    "cost" : 54,
+    "cost" : 60,
     "resource" : "4004",
     "uuid" : "4222CFA9-7326-4711-ABD2-E3AADCBA9988",
     "additionalPoints" : 0,
-    "modified" : "2014-06-20T09:45:48-0700",
+    "modified" : "2014-07-13T14:07:07-0700",
     "name" : "lauran on battleship talent"
   },
   {
