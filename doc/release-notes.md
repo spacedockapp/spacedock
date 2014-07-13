@@ -1,3 +1,8 @@
+### Version 1.0.19 build 69 (2014-7-13)
+
+* Implemented a number of items' special handling, including Sakonna, First Strike, Hugh, Lore, Experimental Link, Unnecessary Bloodshed, Forward Weapons Array, Ion Thrusters and Volley of Torpedoes.
+* More work on Admirals and battle mats.
+
 ### Version 1.0.18 build 68 (2014-7-11)
 
 * Added in the Ti'Mur prize ship.
