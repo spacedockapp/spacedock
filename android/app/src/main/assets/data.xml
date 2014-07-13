@@ -1,4 +1,4 @@
-<Data version="1.230">
+<Data version="1.231">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -8446,7 +8446,7 @@
       <Cost>2</Cost>
       <Id>first_strike_3rd_wing_attack_ship</Id>
       <Set>3rd_wing_attack_ship</Set>
-      <Special></Special>
+      <Special>first_strike_3rd_wing_attack_ship</Special>
     </Upgrade>
     <Upgrade>
       <Title>Ion Thrusters</Title>
