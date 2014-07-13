@@ -1,0 +1,27 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 20
+    buildToolsVersion "20.0.0"
+
+    defaultConfig {
+        applicationId "com.funnyhatsoftware.spacedock"
+        minSdkVersion 14
+        targetSdkVersion 19
+
+        testApplicationId "com.funnyhatsoftware.spacedock.test"
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    //noinspection GradleDependency
+    compile 'com.android.support:support-v4:19.+'
+}

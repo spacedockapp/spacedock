@@ -1,0 +1,12 @@
+# IDEA/Android Studio project files, because
+# the project can be imported from settings.gradle
+*.iws
+*.iml
+.idea/
+build/
+app/build/
+
+local.properties
+
+.gradle/
+gradle/

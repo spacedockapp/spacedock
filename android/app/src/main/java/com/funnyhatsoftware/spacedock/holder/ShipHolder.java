@@ -35,7 +35,11 @@ public class ShipHolder extends SetItemHolder {
             @Override
             public String getDetails(DetailsFragment.DetailDataBuilder builder, String id) {
                 Ship ship = Universe.getUniverse().getShip(id);
-                builder.addString("Faction", ship.getFaction());
+                String faction = ship.getFaction();
+                if (!"".equals(ship.getAdditionalFaction())) {
+                    faction += ", " + ship.getAdditionalFaction();
+                }
+                builder.addString("Faction", faction);
                 builder.addInt("Cost", ship.getCost());
                 builder.addBoolean("Unique", ship.getUnique());
                 builder.addInt("Attack", ship.getAttack());
