@@ -513,53 +513,7 @@ public class EquippedShip extends EquippedShipBase {
                         "This upgrade can only be added to Jem'hadar ships.");
             }
         }
-        Captain captain = getCaptain();
-        if (upgradeSpecial.equals("OnlyForKlingonCaptain")) {
-            if (!captain.isKlingon()) {
-                return new Explanation(msg,
-                        "This upgrade can only be added to a Klingon Captain.");
-            }
-        }
-        if (upgradeSpecial.equals("OnlyBajoranCaptain")) {
-            if (!captain.isBajoran()) {
-                return new Explanation(msg,
-                        "This upgrade can only be added to a Bajoran Captain.");
-            }
-        }
 
-        if (upgradeSpecial.equals("OnlyTholianCaptain")) {
-            if (!captain.isTholian()) {
-                return new Explanation(msg,
-                        "This upgrade can only be added to a Tholian Captain.");
-            }
-        }
-
-        if (upgradeSpecial.equals("OnlySpecies8472Ship")) {
-            if (!ship.isSpecies8472()) {
-                return new Explanation(msg,
-                        "This upgrade can only be added to Species 8472 ships.");
-            }
-        }
-
-        if (upgradeSpecial.equals("OnlySpecies8472Ship")) {
-            if (!ship.isSpecies8472()) {
-                return new Explanation(msg,
-                        "This upgrade can only be added to Species 8472 ships.");
-            }
-        }
-
-        if (upgradeSpecial.equals("OnlyBorgCaptain")) {
-            if (!captain.isBorgFaction()) {
-                return new Explanation(msg,
-                        "This Upgrade may only be purchased for a Borg Captain.");
-            }
-        }
-        if (upgradeSpecial.equals("OnlyKazonShip")) {
-            if (!ship.isKazon()) {
-                return new Explanation(msg,
-                        "This upgrade can only be added to Kazon ships.");
-            }
-        }
         if (upgradeSpecial.equals("OnlyTholianShip")) {
             if (!ship.isTholian()) {
                 return new Explanation(msg,
@@ -578,14 +532,6 @@ public class EquippedShip extends EquippedShipBase {
                         "This upgrade may only be purchased for a ship with a Hull value of 3 or less.");
             }
         }
-
-        if (upgradeSpecial.equals("VulcanHighCommand")) {
-            if (!ship.isVulcan() || !captain.isVulcan()) {
-                return new Explanation(msg,
-                        "This upgrade may only be purchased for a Vulcan Captain on a Vulcan ship.");
-            }
-        }
-
         if (upgradeSpecial.equals("OnlyForRomulanScienceVessel")
                 || upgradeSpecial.equals("OnlyForRaptorClassShips")) {
             String legalShipClass = upgrade.targetShipClass();
@@ -594,7 +540,57 @@ public class EquippedShip extends EquippedShipBase {
                         msg,
                         String.format(
                                 "This upgrade can only be installed on ships of class %s.",
-                                legalShipClass));
+                                legalShipClass)
+                );
+            }
+        }
+        Captain captain = getCaptain();
+        if (!"lore_71522".equals(captain.getSpecial()) && !upgrade.isTalent()) {
+            if (upgradeSpecial.equals("OnlyForKlingonCaptain")) {
+                if (!captain.isKlingon()) {
+                    return new Explanation(msg,
+                            "This upgrade can only be added to a Klingon Captain.");
+                }
+            }
+            if (upgradeSpecial.equals("OnlyBajoranCaptain")) {
+                if (!captain.isBajoran()) {
+                    return new Explanation(msg,
+                            "This upgrade can only be added to a Bajoran Captain.");
+                }
+            }
+
+            if (upgradeSpecial.equals("OnlySpecies8472Ship")) {
+                if (!ship.isSpecies8472()) {
+                    return new Explanation(msg,
+                            "This upgrade can only be added to Species 8472 ships.");
+                }
+            }
+
+            if (upgradeSpecial.equals("OnlyBorgCaptain")) {
+                if (!captain.isBorgFaction()) {
+                    return new Explanation(msg,
+                            "This Upgrade may only be purchased for a Borg Captain.");
+                }
+            }
+            if (upgradeSpecial.equals("OnlyKazonShip")) {
+                if (!ship.isKazon()) {
+                    return new Explanation(msg,
+                            "This upgrade can only be added to Kazon ships.");
+                }
+            }
+
+            if (upgradeSpecial.equals("VulcanHighCommand")) {
+                if (!ship.isVulcan() || !captain.isVulcan()) {
+                    return new Explanation(msg,
+                            "This upgrade may only be purchased for a Vulcan Captain on a Vulcan ship.");
+                }
+            }
+        }
+
+        if (upgradeSpecial.equals("OnlyTholianCaptain")) {
+            if (!captain.isTholian()) {
+                return new Explanation(msg,
+                        "This upgrade can only be added to a Tholian Captain.");
             }
         }
 

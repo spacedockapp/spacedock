@@ -334,7 +334,7 @@ public class Upgrade extends UpgradeBase {
                 // do nothing
             } else if (captainSpecial.equals("lore_71522") && isTalent()) {
                 // do nothing
-            } else if (captainSpecial.equals("hugh_71522") && upgradeFaction.equals("Borg")) {
+            } else if (captainSpecial.equals("hugh_71522") && isBorgFaction()) {
                 // do nothing
             } else if (isAdmiral()) {
                 cost += 3;
