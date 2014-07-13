@@ -186,7 +186,11 @@
 
 -(BOOL)isRestrictedOnlyByFaction
 {
-    // Right now there aren't any talents restricted by ship class, but who knows.
+    NSString* upgradeId = self.externalId;
+
+    if ([upgradeId isEqualToString: @"tholian_punctuality_opwebprize"] || [upgradeId isEqualToString: @"first_strike_3rd_wing_attack_ship"]) {
+        return NO;
+    }
     return YES;
 }
 
