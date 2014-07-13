@@ -30,7 +30,11 @@ public class UpgradeHolder extends SetItemHolder {
             @Override
             public String getDetails(DetailsFragment.DetailDataBuilder builder, String id) {
                 Upgrade upgrade = Universe.getUniverse().getUpgrade(id);
-                builder.addString("Faction", upgrade.getFaction());
+                String faction = upgrade.getFaction();
+                if (null != upgrade.getAdditionalFaction() && !"".equals(upgrade.getAdditionalFaction())) {
+                    faction += ", " + upgrade.getAdditionalFaction();
+                }
+                builder.addString("Faction", faction);
                 builder.addString("Type", upgrade.getUpType());
                 builder.addInt("Cost", upgrade.getCost());
                 builder.addBoolean("Unique", upgrade.getUnique());

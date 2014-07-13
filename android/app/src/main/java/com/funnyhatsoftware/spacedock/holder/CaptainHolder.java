@@ -29,7 +29,11 @@ public class CaptainHolder extends SetItemHolder {
             @Override
             public String getDetails(DetailsFragment.DetailDataBuilder builder, String id) {
                 Captain captain = Universe.getUniverse().getCaptain(id);
-                builder.addString("Faction", captain.getFaction());
+                String faction = captain.getFaction();
+                if (!"".equals(captain.getAdditionalFaction())) {
+                    faction += ", " + captain.getAdditionalFaction();
+                }
+                builder.addString("Faction", faction);
                 builder.addString("Type", captain.getUpType());
                 builder.addInt("Skill", captain.getSkill());
                 builder.addInt("Cost", captain.getCost());

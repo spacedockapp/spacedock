@@ -200,8 +200,10 @@ public class Upgrade extends UpgradeBase {
 
         Ship ship = equippedShip.getShip();
         String shipFaction = "";
+        String additionalShipFaction = "";
         if (ship != null) {
             shipFaction = ship.getFaction();
+            additionalShipFaction = ship.getAdditionalFaction();
         }
         boolean shipIsSideboard = equippedShip.isResourceSideboard();
         String upgradeFaction = mFaction;
@@ -317,8 +319,8 @@ public class Upgrade extends UpgradeBase {
                 cost = 3;
             }
         }
-
-        if (!shipFaction.equals(upgradeFaction) && !equippedShip.isResourceSideboard()
+        if (!shipFaction.equals(upgradeFaction) && !additionalShipFaction.equals(upgradeFaction)
+                && !equippedShip.isResourceSideboard()
                 && !equippedShip.getFlagshipFaction().equals(upgradeFaction)) {
             if (captainSpecial.equals("UpgradesIgnoreFactionPenalty") && !isCaptain()) {
                 // do nothing

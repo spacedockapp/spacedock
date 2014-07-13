@@ -29,7 +29,11 @@ public class AdmiralHolder extends SetItemHolder{
             @Override
             public String getDetails(DetailsFragment.DetailDataBuilder builder, String id) {
                 Admiral admiral = Universe.getUniverse().getAdmiral(id);
-                builder.addString("Faction", admiral.getFaction());
+                String faction = admiral.getFaction();
+                if (!"".equals(admiral.getAdditionalFaction())) {
+                    faction += ", " + admiral.getAdditionalFaction();
+                }
+                builder.addString("Faction", faction);
                 builder.addString("Type", admiral.getUpType());
                 builder.addInt("Skill", admiral.getSkillModifier());
                 builder.addInt("Cost", admiral.getAdmiralCost());
