@@ -1,4 +1,4 @@
-<Data version="1.229">
+<Data version="1.230">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -4819,7 +4819,7 @@
       <Cost>2</Cost>
       <Id>hugh_71522</Id>
       <Set>71522</Set>
-      <Special></Special>
+      <Special>hugh_71522</Special>
     </Captain>
     <Captain>
       <Title>Lore</Title>
@@ -4834,7 +4834,7 @@
       <Cost>4</Cost>
       <Id>lore_71522</Id>
       <Set>71522</Set>
-      <Special></Special>
+      <Special>lore_71522</Special>
     </Captain>
     <Captain>
       <Title>Keevan</Title>
