@@ -384,7 +384,8 @@
         return 0;
     }
 
-    int cost = [upgrade.cost intValue];
+    int originalCost = [upgrade.cost intValue];
+    int cost = originalCost;
 
     DockShip* ship = equippedShip.ship;
     DockCaptain* captain = equippedShip.captain;
@@ -443,6 +444,10 @@
         }
     } else if ([upgradeSpecial isEqualToString: @"PlusFiveForNonKazon"]) {
         if (![ship isKazon]) {
+            cost += 5;
+        }
+    } else if ([upgradeSpecial isEqualToString: @"PlusFiveIfNotBorgShip"]) {
+        if (![ship isBorg]) {
             cost += 5;
         }
     } else if ([upgradeSpecial isEqualToString: @"PhaserStrike"] || [upgradeSpecial isEqualToString: @"CostPlusFiveExceptBajoranInterceptor"]) {
@@ -536,18 +541,31 @@
         }
     }
 
+    if ([upgrade isWeapon] && [equippedShip containsUpgradeWithId: @"sakonna_gavroche"] != nil) {
+        if (cost <= 5) {
+            cost -= 2;
+        }
+    }
+
+
     if (cost < 0) {
         cost = 0;
     }
+    
     return cost;
 }
 
 -(int)additionalWeaponSlots
 {
-    if ([self.special isEqualToString: @"AddTwoWeaponSlots"]) {
+    NSString* special = self.special;
+
+    if ([special isEqualToString: @"AddTwoWeaponSlots"]) {
         return 2;
     }
-    if ([self.special isEqualToString: @"AddsOneWeaponOneTech"]) {
+    if ([special isEqualToString: @"AddsOneWeaponOneTech"]) {
+        return 1;
+    }
+    if ([special isEqualToString: @"sakonna_gavroche"]) {
         return 1;
     }
     return 0;

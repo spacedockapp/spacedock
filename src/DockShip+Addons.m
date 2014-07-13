@@ -154,6 +154,12 @@ NSString* asDegrees(NSString* textValue)
     return r.location != NSNotFound;
 }
 
+-(BOOL)isBattleship
+{
+    NSRange r = [self.shipClass rangeOfString: @"Battleship" options: NSCaseInsensitiveSearch];
+    return r.location != NSNotFound;
+}
+
 -(BOOL)isRomulanScienceVessel
 {
     return [self.shipClass isEqualToString: @"Romulan Science Vessel"];
@@ -222,7 +228,11 @@ NSString* asDegrees(NSString* textValue)
     return [self.shipClass isEqualToString: @"Bajoran Interceptor"];
 }
 
-
+-(BOOL)isBattleshipOrCruiser
+{
+    NSString* shipClass = self.shipClass;
+    return [shipClass isEqualToString: @"Jem'Hadar Battle Cruiser"] || [shipClass isEqualToString: @"Jem'Hadar Battleship"];
+}
 
 -(DockResource*)associatedResource
 {

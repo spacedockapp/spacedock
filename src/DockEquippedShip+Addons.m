@@ -448,6 +448,12 @@
         }
     }
 
+    if ([upgradeSpecial isEqualToString: @"OnlyDominionCaptain"]) {
+        if (![self.captain isDominion]) {
+            return NO;
+        }
+    }
+
     if ([upgradeSpecial isEqualToString: @"OnlyTholianCaptain"]) {
         if (![self.captain isTholian]) {
             return NO;
@@ -478,6 +484,12 @@
         }
     }
 
+    if ([upgradeSpecial isEqualToString: @"OnlyFederationShip"]) {
+        if (![self.ship isFederation]) {
+            return NO;
+        }
+    }
+
     if ([upgradeSpecial isEqualToString: @"OnlyVoyager"]) {
         if (![self.ship isVoyager]) {
             return NO;
@@ -490,8 +502,20 @@
         }
     }
 
+    if ([upgradeSpecial isEqualToString: @"OnlyBattleshipOrCruiser"]) {
+        if (![self.ship isBattleshipOrCruiser]) {
+            return NO;
+        }
+    }
+
     if ([upgradeSpecial isEqualToString: @"PhaserStrike"]) {
         if ([[self.ship hull] intValue] > 3) {
+            return NO;
+        }
+    }
+
+    if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"]) {
+        if ([self containsUpgradeWithId: upgrade.externalId] != nil) {
             return NO;
         }
     }
@@ -538,12 +562,16 @@
                 info = @"This upgrade can only be added to a Klingon Captain.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyBajoranCaptain"]) {
                 info = @"This upgrade can only be added to a Bajoran Captain.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyDominionCaptain"]) {
+                info = @"This upgrade can only be added to a Dominion Captain.";
             } else if ([upgradeSpecial isEqualToString: @"OnlySpecies8472Ship"]) {
                 info = @"This upgrade can only be added to Species 8472 ships.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyKazonShip"]) {
                 info = @"This upgrade can only be added to Kazon ships.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyBorgShip"]) {
                 info = @"This upgrade can only be added to Borg ships.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyFederationShip"]) {
+                info = @"This upgrade can only be added to Federation ships.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyVoyager"]) {
                 info = @"This upgrade can only be added to Voyager.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyTholianShip"]) {
@@ -556,10 +584,14 @@
                 info = @"This upgrade can only be added to a Vulcan captain on a Vulcan ship.";
             } else if ([upgradeSpecial isEqualToString: @"PhaserStrike"]) {
                 info = @"This upgrade may only be purchased for a ship with a Hull value of 3 or less.";
+            } else if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"]) {
+                info = @"No ship may be equipped with more than one of these upgrades.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyBattleshipOrCruiser"]) {
+                info = @"This upgrade may only be purchased for a Jem'Hadar Battle Cruiser or Battleship.";
             }
         }
     }
-    
+
     return @{
              @"info": info, @"message": msg
              };
@@ -897,6 +929,16 @@
 {
     for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
         if ([eu.upgrade.title isEqualToString: theName]) {
+            return eu;
+        }
+    }
+    return nil;
+}
+
+-(DockEquippedUpgrade*)containsUpgradeWithId:(NSString*)theId
+{
+    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        if ([eu.upgrade.externalId isEqualToString: theId]) {
             return eu;
         }
     }

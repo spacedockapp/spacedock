@@ -52,6 +52,7 @@
 -(NSDictionary*)asJSON;
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
 -(DockEquippedUpgrade*)containsUpgradeWithName:(NSString*)theName;
+-(DockEquippedUpgrade*)containsUpgradeWithId:(NSString*)theId;
 -(void)changeShip:(DockShip*)newShip;
 -(NSDictionary*)explainCantAddUpgrade:(DockUpgrade*)upgrade;
 -(void)establishPlaceholders;
