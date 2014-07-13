@@ -529,7 +529,9 @@ static NSString* makeKey(NSString* key)
         @"Add_Crew_1",
         @"OnlyBorgCaptain",
         @"VulcanAndFedTechUpgradesMinus2",
-        @"combat_vessel_variant_71508"
+        @"combat_vessel_variant_71508",
+        @"lore_71522",
+        @"hugh_71522"
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];

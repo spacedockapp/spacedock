@@ -179,6 +179,16 @@
     return [self.faction isEqualToString: @"Vulcan"];
 }
 
+-(BOOL)isFactionBorg
+{
+    return [self.faction isEqualToString: @"Borg"];
+}
+
+-(BOOL)isRestrictedOnlyByFaction
+{
+    // Right now there aren't any talents restricted by ship class, but who knows.
+    return YES;
+}
 
 -(NSComparisonResult)compareTo:(DockUpgrade*)other
 {
@@ -396,7 +406,7 @@
             cost = 3;
         }
     } else if ([upgrade isCrew]) {
-        if ([captainSpecial isEqualToString: @"CrewUpgradesCostOneLess"] && !isSideboard) {
+        if (([captainSpecial isEqualToString: @"CrewUpgradesCostOneLess"] || [captainSpecial isEqualToString: @"hugh_71522"] ) && !isSideboard) {
             cost -= 1;
         }
 
@@ -506,6 +516,10 @@
             }
         } else if ([captainSpecial isEqualToString: @"CaptainAndTalentsIgnoreFactionPenalty"] &&
                    ([upgrade isTalent] || [upgrade isCaptain])) {
+        } else if ([captainSpecial isEqualToString: @"hugh_71522"] &&
+                   [upgrade isFactionBorg]) {
+        } else if ([captainSpecial isEqualToString: @"lore_71522"] &&
+                   [upgrade isTalent]) {
         } else {
             if (upgrade.isAdmiral) {
                 cost += 3;
@@ -555,10 +569,12 @@
 
 -(int)additionalCrewSlots
 {
-    if ([self.externalId isEqualToString: @"vulcan_high_command_0_2_71446"]) {
+    NSString* externalId = self.externalId;
+
+    if ([externalId isEqualToString: @"vulcan_high_command_0_2_71446"]) {
         return 2;
     }
-    if ([self.externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
+    if ([externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
         return 1;
     }
     return 0;

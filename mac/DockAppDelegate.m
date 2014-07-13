@@ -1708,7 +1708,7 @@ void addRemoveFlagshipItem(NSMenu *menu)
     };
     allSquads = [allSquads sortedArrayUsingComparator: squadExportComparator];
     NSMutableArray* squadsForJSONArray = [NSMutableArray arrayWithCapacity: allSquads.count];
-    for (DockSquad* squad in [DockSquad allSquads: _managedObjectContext]) {
+    for (DockSquad* squad in allSquads) {
         [squadsForJSONArray addObject: [squad asJSON]];
     }
 

@@ -415,6 +415,13 @@
 
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade
 {
+    if ([upgrade isTalent]) {
+        DockCaptain* captain = [self captain];
+        if ([captain.special isEqualToString: @"lore_71522"]) {
+            return [upgrade isRestrictedOnlyByFaction];
+        }
+    }
+
     NSString* upgradeSpecial = upgrade.special;
 
     if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {

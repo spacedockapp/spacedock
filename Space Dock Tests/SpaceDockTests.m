@@ -165,6 +165,8 @@ static NSManagedObjectContext* getManagedObjectContext()
 
 -(void)listTester:(NSString*)squadfileName
 {
+    NSString* upgradeIdKey = @"upgradeId";
+    NSString* calculatedCostKey = @"calculatedCost";
     NSBundle* testBundle = [NSBundle bundleForClass: [self class]];
     NSString* allSquadsPath = [testBundle pathForResource: squadfileName ofType: @"spacedocksquads"];
     XCTAssertNotNil(allSquadsPath);
@@ -208,23 +210,45 @@ static NSManagedObjectContext* getManagedObjectContext()
             NSDictionary* captainData = shipData[@"captain"];
             XCTAssertNotNil(captainData);
             DockCaptain* captain = [loadedShip captain];
-            XCTAssertEqualObjects(captainData[@"upgradeId"], captain.externalId, @"on squad %@", name);
-            int cost = [captainData[@"calculatedCost"] intValue];
+            XCTAssertEqualObjects(captainData[upgradeIdKey], captain.externalId, @"on squad %@", name);
+            int cost = [captainData[calculatedCostKey] intValue];
             XCTAssertEqual(cost, loadedShip.equippedCaptain.cost, @"on squad %@", name);
             
             NSArray* upgradeDataArray = shipData[@"upgrades"];
+            id upgradeDataComparator = ^(NSDictionary* d1, NSDictionary* d2) {
+                NSString* uid1 = d1[upgradeIdKey];
+                NSString* uid2 = d2[upgradeIdKey];
+                NSComparisonResult r = [uid1 compare: uid2];
+                if (false && r == NSOrderedSame) {
+                    NSNumber* cost1 = d1[calculatedCostKey];
+                    NSNumber* cost2 = d2[calculatedCostKey];
+                    r = [cost1 compare: cost2];
+                }
+                return r;
+            };
+            upgradeDataArray = [upgradeDataArray sortedArrayUsingComparator: upgradeDataComparator];
             NSArray* upgrades = loadedShip.sortedUpgradesWithoutPlaceholders;
+            id upgradeComparator = ^(DockEquippedUpgrade* eu1, DockEquippedUpgrade* eu2) {
+                NSComparisonResult r = [eu1.upgrade.externalId compare: eu2.upgrade.externalId];
+                if (false && r == NSOrderedSame) {
+                    NSNumber* cost1 = [NSNumber numberWithInt: [eu1.upgrade costForShip: loadedShip]];
+                    NSNumber* cost2 = [NSNumber numberWithInt: [eu2.upgrade costForShip: loadedShip]];
+                    r = [cost1 compare: cost2];
+                }
+                return r;
+            };
+            upgrades = [upgrades sortedArrayUsingComparator: upgradeComparator];
             NSInteger limit = MIN(upgrades.count, upgradeDataArray.count);
             for (int upgradeIndex = 0; upgradeIndex < limit; ++upgradeIndex) {
                 NSDictionary* upgradeData = upgradeDataArray[upgradeIndex];
                 DockEquippedUpgrade* upgrade = upgrades[upgradeIndex];
-                XCTAssertEqualObjects(upgrade.upgrade.externalId, upgradeData[@"upgradeId"], @"on squad %@", name);
+                XCTAssertEqualObjects(upgrade.upgrade.externalId, upgradeData[upgradeIdKey], @"on squad %@", name);
                 int equippedUpgradeCost = [upgrade.upgrade costForShip: loadedShip];
-                int expectedEquippedUpgradeCost = [upgradeData[@"calculatedCost"] intValue];
+                int expectedEquippedUpgradeCost = [upgradeData[calculatedCostKey] intValue];
                 XCTAssertEqual(expectedEquippedUpgradeCost, equippedUpgradeCost, @"on squad %@", name);
             }
             XCTAssertEqual(upgrades.count, upgradeDataArray.count);
-            int shipCost = [shipData[@"calculatedCost"] intValue];
+            int shipCost = [shipData[calculatedCostKey] intValue];
             XCTAssertEqual(shipCost, loadedShip.cost, @"on squad %@", name);
         }
         int squadCost = [jsonObject[@"cost"] intValue];
