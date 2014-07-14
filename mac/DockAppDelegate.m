@@ -14,7 +14,6 @@
 #import "DockEquippedShip.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockErrors.h"
-#import "DockFAQViewer.h"
 #import "DockFlagship+MacAddons.h"
 #import "DockFleetBuildSheet.h"
 #import "DockInspector.h"
@@ -1330,11 +1329,6 @@ NSString* kShowDataModelExport = @"showDataModelExport";
         NSArray* objectsToCopy = @[s];
         [pasteboard writeObjects: objectsToCopy];
     }
-}
-
--(IBAction)showFAQ:(id)sender
-{
-    [_faqViewer show];
 }
 
 -(void)updateInfo:(NSData*)downloadedData

@@ -2,7 +2,6 @@
 
 @class DockInspector;
 @class DockFleetBuildSheet;
-@class DockFAQViewer;
 @class DockNoteEditor;
 @class DockOverrideEditor;
 
@@ -37,7 +36,6 @@ extern NSString* kExpandSquads;
 @property (assign) IBOutlet NSWindow* preferencesWindow;
 @property (assign) IBOutlet DockInspector* inspector;
 @property (assign) IBOutlet DockFleetBuildSheet* fleetBuildSheet2;
-@property (assign) IBOutlet DockFAQViewer* faqViewer;
 @property (assign) IBOutlet DockNoteEditor* noteEditor;
 @property (assign) IBOutlet DockOverrideEditor* overrideEditor;
 
@@ -65,7 +63,6 @@ extern NSString* kExpandSquads;
 -(IBAction)resetFactionFilter:(id)sender;
 -(IBAction)filterToFaction:(id)sender;
 -(IBAction)showInspector:(id)sender;
--(IBAction)showFAQ:(id)sender;
 -(IBAction)overrideCost:(id)sender;
 -(IBAction)includeSelectedSets:(id)sender;
 -(IBAction)excludeSelectedSets:(id)sender;

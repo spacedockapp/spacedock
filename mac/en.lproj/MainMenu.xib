@@ -3,7 +3,6 @@
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="5056"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -528,12 +527,6 @@
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="showInspector:" target="-1" id="aHY-2Z-7dM"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Show FAQ" id="K6d-CG-Rxh">
-                                <modifierMask key="keyEquivalentModifierMask" control="YES"/>
-                                <connections>
-                                    <action selector="showFAQ:" target="494" id="IXd-ro-cv7"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="FKI-7F-zB7">
@@ -2697,12 +2690,12 @@
                                                                         </tableColumns>
                                                                         <connections>
                                                                             <binding destination="jIs-WY-TJY" name="content" keyPath="arrangedObjects" id="17t-N1-gy6"/>
+                                                                            <binding destination="jIs-WY-TJY" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="17t-N1-gy6" id="AIV-bJ-fYf"/>
                                                                             <binding destination="494" name="doubleClickTarget" keyPath="self" id="VS6-9l-wDe">
                                                                                 <dictionary key="options">
                                                                                     <string key="NSSelectorName">addSelected:</string>
                                                                                 </dictionary>
                                                                             </binding>
-                                                                            <binding destination="jIs-WY-TJY" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="17t-N1-gy6" id="AIV-bJ-fYf"/>
                                                                             <binding destination="jIs-WY-TJY" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="AIV-bJ-fYf" id="0Fc-tZ-ZrX"/>
                                                                             <outlet property="delegate" destination="e6V-Zo-C03" id="V7B-dw-27c"/>
                                                                         </connections>
@@ -4284,7 +4277,6 @@
                 <outlet property="captainsController" destination="0af-xY-vuT" id="lPO-O6-x8d"/>
                 <outlet property="captainsTableView" destination="pbE-Lg-pvF" id="hWe-nR-T6n"/>
                 <outlet property="factionMenu" destination="jzV-EA-Bef" id="s0C-A5-mcz"/>
-                <outlet property="faqViewer" destination="fzH-hA-dLG" id="hGA-Hc-kbp"/>
                 <outlet property="fileMenu" destination="81" id="TGd-PL-0Q3"/>
                 <outlet property="flagshipsController" destination="Akm-Zf-Blb" id="y5T-L6-ti5"/>
                 <outlet property="flagshipsTableView" destination="fgU-tR-2vJ" id="MPh-Ek-V1X"/>
@@ -4330,16 +4322,6 @@
                 <outlet property="resourceCostField" destination="kbl-Ho-Qm8" id="TbV-4H-Tvg"/>
                 <outlet property="resourceTitleField" destination="0Yo-1G-jEW" id="P1r-yg-0M5"/>
                 <outlet property="sheetBox2" destination="gpn-bg-EwJ" id="maE-gI-9Ng"/>
-            </connections>
-        </customObject>
-        <customObject id="fzH-hA-dLG" customClass="DockFAQViewer">
-            <connections>
-                <outlet property="andrewOnlyButton" destination="Lgy-Eh-nml" id="new-bM-8XS"/>
-                <outlet property="progressIndicator" destination="cEU-tj-v6V" id="jBn-Li-bre"/>
-                <outlet property="refreshButton" destination="oQx-bI-soB" id="cZK-Qc-kvg"/>
-                <outlet property="searchField" destination="IR8-g7-qHz" id="yzk-Z9-rOP"/>
-                <outlet property="webView" destination="bB1-VC-mfH" id="191-Fv-FSr"/>
-                <outlet property="window" destination="w4G-m6-kSH" id="WJZ-UD-jB6"/>
             </connections>
         </customObject>
         <customObject id="H2Z-eg-yhQ" customClass="DockNoteEditor">
@@ -5062,82 +5044,6 @@
                 <outlet property="delegate" destination="L6P-6L-sOj" id="Hks-Ag-Yx6"/>
             </connections>
         </window>
-        <window title="FAQ" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="faq" animationBehavior="default" id="w4G-m6-kSH">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES"/>
-            <rect key="contentRect" x="100" y="1083" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1578"/>
-            <value key="minSize" type="size" width="480" height="360"/>
-            <view key="contentView" id="gzK-uF-uLx">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
-                <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <button verticalHuggingPriority="750" id="oQx-bI-soB">
-                        <rect key="frame" x="14" y="312" width="87" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aUQ-m4-Hkz">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="refresh:" target="fzH-hA-dLG" id="dzi-RE-AR8"/>
-                        </connections>
-                    </button>
-                    <button id="Lgy-Eh-nml">
-                        <rect key="frame" x="101" y="321" width="103" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Andrew Only" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="l6U-ji-LjJ">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="updateAndrewOnly:" target="fzH-hA-dLG" id="igp-Qh-NmR"/>
-                        </connections>
-                    </button>
-                    <progressIndicator hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="cEU-tj-v6V">
-                        <rect key="frame" x="210" y="321" width="16" height="16"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    </progressIndicator>
-                    <searchField verticalHuggingPriority="750" id="IR8-g7-qHz">
-                        <rect key="frame" x="234" y="319" width="226" height="22"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="eTW-kY-00p">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </searchFieldCell>
-                        <connections>
-                            <outlet property="delegate" destination="fzH-hA-dLG" id="Sy6-N8-Wa9"/>
-                        </connections>
-                    </searchField>
-                    <box autoresizesSubviews="NO" title="Box" boxType="custom" borderType="line" titlePosition="noTitle" id="YqR-nm-j8m">
-                        <rect key="frame" x="20" y="20" width="440" height="279"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="438" height="277"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <subviews>
-                                <webView id="bB1-VC-mfH">
-                                    <rect key="frame" x="3" y="5" width="428" height="268"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" plugInsEnabled="NO" javaEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO">
-                                        <nil key="identifier"/>
-                                    </webPreferences>
-                                    <connections>
-                                        <outlet property="policyDelegate" destination="fzH-hA-dLG" id="TTN-43-8hP"/>
-                                    </connections>
-                                </webView>
-                            </subviews>
-                        </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </box>
-                </subviews>
-            </view>
-            <connections>
-                <outlet property="delegate" destination="fzH-hA-dLG" id="MTu-0h-WcC"/>
-            </connections>
-        </window>
         <box autoresizesSubviews="NO" title="Box" boxType="custom" borderType="line" titlePosition="noTitle" id="ozj-Qb-OIz" userLabel="fleet sheet">
             <rect key="frame" x="0.0" y="0.0" width="500" height="731"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -5260,7 +5166,7 @@
                                                 <tableViewGridLines key="gridStyleMask" vertical="YES" horizontal="YES"/>
                                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                 <tableColumns>
-                                                    <tableColumn identifier="result" width="76" maxWidth="9999" id="wei-vF-ghd">
+                                                    <tableColumn identifier="result" width="78" maxWidth="9999" id="wei-vF-ghd">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Round">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -5273,7 +5179,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="fp" width="24" maxWidth="9999" id="sSZ-So-3lC">
+                                                    <tableColumn identifier="fp" width="22" maxWidth="9999" id="sSZ-So-3lC">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Opponents Name">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -5286,7 +5192,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="cfp" width="39" maxWidth="9999" id="tKZ-05-bF5">
+                                                    <tableColumn identifier="cfp" width="37" maxWidth="9999" id="tKZ-05-bF5">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -5299,7 +5205,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="initials" width="77.5" maxWidth="9999" id="vLw-H6-RFc">
+                                                    <tableColumn identifier="initials" width="79.5" maxWidth="9999" id="vLw-H6-RFc">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
