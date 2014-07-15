@@ -40,6 +40,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 NSString* kExpandSquads = @"expandSquads";
 NSString* kExpandedRows = @"expandedRows";
 NSString* kShowDataModelExport = @"showDataModelExport";
+NSString* kSortSquadsByDate = @"sortSquadsByDate";
 
 @interface DockAppDelegate ()
 @property (strong, nonatomic) DockDataUpdater* updater;
@@ -63,7 +64,8 @@ NSString* kShowDataModelExport = @"showDataModelExport";
         kWarnAboutUnhandledSpecials: @YES,
         kInspectorVisible: @NO,
         kExpandSquads: @YES,
-        kExpandedRows: @YES
+        kExpandedRows: @YES,
+        kSortSquadsByDate: @NO
     };
 
     [defaults registerDefaults: appDefs];
@@ -194,6 +196,9 @@ NSString* kShowDataModelExport = @"showDataModelExport";
 -(void)applicationDidFinishLaunching:(NSNotification*)aNotification
 {
     [self loadData];
+
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+
     [DockSquad assignUUIDs: self.managedObjectContext];
     [self updateForSelectedSets];
     [_squadDetailController addObserver: self
@@ -212,12 +217,14 @@ NSString* kShowDataModelExport = @"showDataModelExport";
     [_flagshipsTableView setSortDescriptors: @[defaultSortDescriptor]];
     defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"releaseDate" ascending: YES];
     [_setsTableView setSortDescriptors: @[defaultSortDescriptor]];
-    defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"name" ascending: YES selector: @selector(localizedCaseInsensitiveCompare:)];
+    if ([defaults boolForKey: kSortSquadsByDate]) {
+        defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"modified" ascending: NO selector: @selector(compare:)];
+    } else {
+        defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"name" ascending: YES selector: @selector(localizedCaseInsensitiveCompare:)];
+    }
     [_squadsTableView setSortDescriptors: @[defaultSortDescriptor]];
     [self setupFactionMenu];
     [self setupFileMenu];
-
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
 
     if ([defaults boolForKey: kInspectorVisible]) {
         [_inspector show];
@@ -490,6 +497,7 @@ NSString* kShowDataModelExport = @"showDataModelExport";
 {
     DockSquad* squad = [DockSquad squad: _managedObjectContext];
     [self performSelector: @selector(editNameOfSquad:) withObject: squad afterDelay: 0];
+    [self saveAction: sender];
 }
 
 -(void)addSelectedShip
@@ -855,9 +863,12 @@ NSString* kShowDataModelExport = @"showDataModelExport";
     NSInteger row = [objects indexOfObject: theSquad];
 
     if (row != NSNotFound) {
-        [_squadsTableView becomeFirstResponder];
-        [_squadsController setSelectionIndex: row];
-        [_squadsTableView editColumn: 0 row: row withEvent: nil select: YES];
+        NSInteger columnIndex = [_squadsTableView columnWithIdentifier: @"squadsTitle"];
+        if (columnIndex != -1) {
+            [_squadsTableView becomeFirstResponder];
+            [_squadsController setSelectionIndex: row];
+            [_squadsTableView editColumn: columnIndex row: row withEvent: nil select: YES];
+        }
     }
 }
 

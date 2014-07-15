@@ -61,6 +61,7 @@ static BOOL sIsImporting = NO;
     DockSquad* squad = [[DockSquad alloc] initWithEntity: entity
                           insertIntoManagedObjectContext: context];
     [squad assignNewUUID];
+    squad.modified = [NSDate date];
     return squad;
 }
 
