@@ -10,8 +10,9 @@
 #import "DockDataLoader.h"
 #import "DockDataUpdater.h"
 #import "DockEquippedFlagship.h"
-#import "DockEquippedShip+Addons.h"
 #import "DockEquippedShip.h"
+#import "DockEquippedShip+Addons.h"
+#import "DockEquippedShip+MacAddons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockErrors.h"
 #import "DockFlagship+MacAddons.h"
@@ -231,6 +232,13 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     }
     
     self.expandedRows = [defaults boolForKey: kExpandedRows];
+
+    NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
+
+    id currentTargetChangedBlock = ^() {
+        [self currentTargetShipChanged];
+    };
+    [center addObserverForName: kCurrentTargetShipChanged object: nil queue: nil usingBlock: currentTargetChangedBlock];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
@@ -1803,6 +1811,14 @@ void addRemoveFlagshipItem(NSMenu *menu)
 {
     _buildMat = [[DockBuildMat alloc] initWithSquad: [self selectedSquad]];
     [_buildMat print];
+}
+
+-(void)currentTargetShipChanged
+{
+    NSIndexSet* rows = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(0, _upgradesTableView.numberOfRows)];
+    NSIndexSet* cols = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(0, _upgradesTableView.numberOfColumns)];
+    [_upgradesTableView reloadDataForRowIndexes: rows columnIndexes: cols];
+    [_upgradesController rearrangeObjects];
 }
 
 @end

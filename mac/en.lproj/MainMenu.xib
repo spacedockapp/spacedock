@@ -622,7 +622,7 @@
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <connections>
-                                                                                                        <binding destination="3Fn-8r-dn0" name="value" keyPath="objectValue.descriptiveTitle" id="4BL-vf-ZFc"/>
+                                                                                                        <binding destination="3Fn-8r-dn0" name="value" keyPath="objectValue.descriptiveTitle" id="Vjo-Ky-qXD"/>
                                                                                                     </connections>
                                                                                                 </textFieldCell>
                                                                                             </textField>
@@ -2041,7 +2041,7 @@
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                                 <connections>
-                                                                                                    <binding destination="n8M-YC-soR" name="value" keyPath="objectValue.title" id="fep-gK-Rx9"/>
+                                                                                                    <binding destination="n8M-YC-soR" name="value" keyPath="objectValue.titleWithCanInstall" id="HiS-gy-cwh"/>
                                                                                                 </connections>
                                                                                             </textField>
                                                                                         </subviews>
@@ -2174,7 +2174,7 @@
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
-                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="cost"/>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="costToInstall"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="OjM-1j-RoR">
                                                                                         <rect key="frame" x="433" y="1" width="60" height="17"/>
@@ -2189,7 +2189,7 @@
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                                 <connections>
-                                                                                                    <binding destination="OjM-1j-RoR" name="value" keyPath="objectValue.cost" id="YOi-gh-y6Z"/>
+                                                                                                    <binding destination="OjM-1j-RoR" name="value" keyPath="objectValue.styledCostToInstall" id="Ruh-0C-Euh"/>
                                                                                                 </connections>
                                                                                             </textField>
                                                                                         </subviews>

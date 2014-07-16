@@ -8,6 +8,33 @@
 
 @implementation DockEquippedShip (MacAddons)
 
+static  NSValue* sCurrentTargetShip = nil;
+
+NSString* kCurrentTargetShipChanged = @"DockCurrentTargetShipChanged";
+
++(DockEquippedShip*)currentTargetShip
+{
+    return [sCurrentTargetShip nonretainedObjectValue];
+}
+
++(void)setCurrentTargetShip:(DockEquippedShip*)targetShip
+{
+    if (targetShip == nil) {
+        sCurrentTargetShip = nil;
+    } else {
+        sCurrentTargetShip = [NSValue valueWithNonretainedObject: targetShip];
+    }
+    NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
+    NSNotification* notification = [NSNotification notificationWithName: kCurrentTargetShipChanged object: nil];
+    [center postNotification: notification];
+}
+
++(void)clearCurrentTargetShip
+{
+    [self setCurrentTargetShip: nil];
+    sCurrentTargetShip = nil;
+}
+
 -(NSAttributedString*)styledDescription
 {
     if ([self isResourceSideboard]) {

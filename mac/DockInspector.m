@@ -3,6 +3,7 @@
 #import "DockAppDelegate.h"
 #import "DockCaptain+Addons.h"
 #import "DockEquippedShip+Addons.h"
+#import "DockEquippedShip+MacAddons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockFlagship+Addons.h"
 #import "DockMoveGrid.h"
@@ -115,9 +116,11 @@ static id extractSelectedItem(id controller)
 -(void)updateInspectorTabForItem:(id)selectedItem changeTab:(BOOL)changeTab
 {
     if ([selectedItem isMemberOfClass: [DockEquippedShip class]]) {
+        [DockEquippedShip setCurrentTargetShip: selectedItem];
         [self updateShip: [selectedItem ship]];
         [_tabView selectTabViewItemWithIdentifier: @"ship"];
     } else if ([selectedItem isMemberOfClass: [DockEquippedUpgrade class]]) {
+        [DockEquippedShip setCurrentTargetShip: [selectedItem equippedShip]];
         DockUpgrade* upgrade = [selectedItem upgrade];
 
         if ([upgrade isCaptain]) {
