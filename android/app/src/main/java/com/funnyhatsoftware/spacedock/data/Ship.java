@@ -177,6 +177,18 @@ public class Ship extends ShipBase {
         return mTitle.equals("U.S.S. Voyager");
     }
 
+    public boolean isHullThreeOrLess() {
+        return 3 >= this.getHull();
+    }
+
+    public boolean isBattleshipOrCruiser() {
+        return "Jem'Hadar Battle Cruiser".equals(mShipClass) || "Jem'Hadar Battleship".equals(mShipClass);
+    }
+
+    public boolean isSuurok() {
+        return "Suurok Class".equals(mShipClass);
+    }
+
     public boolean isFighterSquadron() {
         String shipId = getExternalId();
         if (shipId != null) {

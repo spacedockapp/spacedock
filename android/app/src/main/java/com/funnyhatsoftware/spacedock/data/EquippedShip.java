@@ -526,8 +526,8 @@ public class EquippedShip extends EquippedShipBase {
                         "This upgrade can only be added to the U.S.S Voyager.");
             }
         }
-        if (upgradeSpecial.equals("PhaserStrike")) {
-            if (ship.getHull() > 3) {
+        if (upgradeSpecial.equals("PhaserStrike") || "OnlyHull3OrLess".equals(upgradeSpecial)) {
+            if (!ship.isHullThreeOrLess()) {
                 return new Explanation(msg,
                         "This upgrade may only be purchased for a ship with a Hull value of 3 or less.");
             }
@@ -544,9 +544,35 @@ public class EquippedShip extends EquippedShipBase {
                 );
             }
         }
-        if ("transwarp_conduit_71522".equals(upgradeSpecial)) {
+        if ("OnlyBorgShip".equals(upgradeSpecial)) {
             if (!ship.isBorg()) {
                 return new Explanation(msg, "This upgrade can only be added to Borg ships.");
+            }
+        }
+        if ("OnlyFederationShip".equals(upgradeSpecial)) {
+            if (!ship.isFederation()) {
+                return new Explanation(msg, "This upgrade can only be added to Federation ships.");
+            }
+        }
+        if ("OnlyBattleshipOrCruiser".equals(upgradeSpecial)) {
+            if (!ship.isBattleshipOrCruiser()) {
+                return new Explanation(msg, "This upgrade can only be purchased for a Jem'Hadar Battleship or Battle Cruiser.");
+            }
+        }
+        if ("combat_vessel_variant_71508".equals(upgradeSpecial)) {
+            if (!ship.isSuurok()) {
+                return new Explanation(msg, "This upgrade can only be purchased for a Suurok Class Ship.");
+            }
+        }
+        if (upgradeSpecial.equals("OnlyKazonShip")) {
+            if (!ship.isKazon()) {
+                return new Explanation(msg,
+                        "This upgrade can only be added to Kazon ships.");
+            }
+        }
+        if ("NoMoreThanOnePerShip".equals(upgradeSpecial)) {
+            if (null != containsUpgrade(upgrade)) {
+                return new Explanation(msg, "This upgrade can only be added once per ship.");
             }
         }
         Captain captain = getCaptain();
@@ -570,20 +596,17 @@ public class EquippedShip extends EquippedShipBase {
                             "This upgrade can only be added to Species 8472 ships.");
                 }
             }
-
-            if (upgradeSpecial.equals("OnlyBorgCaptain") || "experimental_link_71522".equals(upgradeSpecial)) {
+            if (upgradeSpecial.equals("OnlyBorgCaptain")) {
                 if (!captain.isBorgFaction()) {
                     return new Explanation(msg,
                             "This Upgrade may only be purchased for a Borg Captain.");
                 }
             }
-            if (upgradeSpecial.equals("OnlyKazonShip")) {
-                if (!ship.isKazon()) {
-                    return new Explanation(msg,
-                            "This upgrade can only be added to Kazon ships.");
+            if (upgradeSpecial.equals("OnlyDominionCaptain")) {
+                if (!captain.isDominion()) {
+                    return new Explanation(msg, "This Upgrade may only be purchased for a Dominion Captain");
                 }
             }
-
             if (upgradeSpecial.equals("VulcanHighCommand")) {
                 if (!ship.isVulcan() || !captain.isVulcan()) {
                     return new Explanation(msg,

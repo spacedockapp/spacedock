@@ -348,7 +348,15 @@ public class DataLoader extends DefaultHandler {
                 "VulcanHighCommand",
                 "VulcanAndFedTechUpgradesMinus2",
                 "lore_71522",
-                "hugh_71522"
+                "hugh_71522",
+                "NoMoreThanOnePerShip",
+                "OnlyBattleshipOrCruiser",
+                "OnlyDominionCaptain",
+                "OnlyFederationShip",
+                "OnlyHull3OrLess",
+                "PlusFiveIfNotBorgShip",
+                "sakonna_gavroche",
+                "combat_vessel_variant_71508"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);

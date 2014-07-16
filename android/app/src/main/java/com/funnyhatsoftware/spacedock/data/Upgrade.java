@@ -106,6 +106,10 @@ public class Upgrade extends UpgradeBase {
         return mUpType.equals("Weapon");
     }
 
+    public boolean isCostFiveOrLess() {
+        return 5 >= mCost;
+    }
+
     public boolean isTalent() {
         return mUpType.equals("Talent");
     }
@@ -239,6 +243,9 @@ public class Upgrade extends UpgradeBase {
             if (captainSpecial.equals("WeaponUpgradesCostOneLess")) {
                 cost -= 1;
             }
+            if (null != equippedShip.containsUpgradeWithName("Sakonna") && isCostFiveOrLess()) {
+                cost -= 2;
+            }
         } else if (isTech()) {
             if ("VulcanAndFedTechUpgradesMinus2".equals(captainSpecial) &&
                     ("Federation".equals(upgradeFaction) || "Vulcan".equals(upgradeFaction))) {
@@ -273,6 +280,10 @@ public class Upgrade extends UpgradeBase {
         } else if (upgradeSpecial.equals("CostPlusFiveExceptBajoranInterceptor")
                 || upgradeSpecial.equals("PhaserStrike")) {
             if (!ship.isBajoranInterceptor()) {
+                cost += 5;
+            }
+        } else if (upgradeSpecial.equals("PlusFiveIfNotBorgShip")) {
+            if (!ship.isBorg()) {
                 cost += 5;
             }
         }
@@ -384,10 +395,10 @@ public class Upgrade extends UpgradeBase {
 
     public int additionalWeaponSlots() {
         String special = getSpecial();
-        if (special != null && special.equalsIgnoreCase("AddsOneWeaponOneTech")) {
+        if (("AddsOneWeaponOneTech".equalsIgnoreCase(special) || "sakonna_gavroche".equalsIgnoreCase(special))) {
             return 1;
         }
-        if (special != null && special.equalsIgnoreCase("AddTwoWeaponSlots")) {
+        if ("AddTwoWeaponSlots".equalsIgnoreCase(special)) {
             return 2;
         }
         return 0;
