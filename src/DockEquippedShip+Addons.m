@@ -508,7 +508,7 @@
         }
     }
 
-    if ([upgradeSpecial isEqualToString: @"PhaserStrike"]) {
+    if ([upgradeSpecial isEqualToString: @"PhaserStrike"] || [upgradeSpecial isEqualToString: @"OnlyHull3OrLess"]) {
         if ([[self.ship hull] intValue] > 3) {
             return NO;
         }
@@ -582,7 +582,7 @@
                 info = @"This upgrade may only be purchased for a Borg Captain.";
             } else if ([upgradeSpecial isEqualToString: @"VulcanHighCommand"]) {
                 info = @"This upgrade can only be added to a Vulcan captain on a Vulcan ship.";
-            } else if ([upgradeSpecial isEqualToString: @"PhaserStrike"]) {
+            } else if ([upgradeSpecial isEqualToString: @"PhaserStrike"] || [upgradeSpecial isEqualToString: @"OnlyHull3OrLess"]) {
                 info = @"This upgrade may only be purchased for a ship with a Hull value of 3 or less.";
             } else if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"]) {
                 info = @"No ship may be equipped with more than one of these upgrades.";
