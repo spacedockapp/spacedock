@@ -88,6 +88,10 @@ public class Captain extends CaptainBase {
         return getFaction().equals(Constants.BAJORAN);
     }
 
+    public boolean isDominion() {
+        return getFaction().equals(Constants.DOMINION);
+    }
+
     public boolean isTholian() {
         String externalId = getExternalId();
         return externalId.equals(Constants.LOSKENE)

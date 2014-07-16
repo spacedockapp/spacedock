@@ -7,6 +7,7 @@ public class Constants {
     public static final String BORG = "Borg";
     public static final String KAZON = "Kazon";
     public static final String BAJORAN = "Bajoran";
+    public static final String DOMINION = "Dominion";
     public static final String BREEN = "Breen";
     public static final String JEMHADAR_LC = "jem'hadar";
     public static final String KLINGON = "Klingon";
