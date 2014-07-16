@@ -179,6 +179,20 @@
     return [self.faction isEqualToString: @"Vulcan"];
 }
 
+-(BOOL)isFactionBorg
+{
+    return [self.faction isEqualToString: @"Borg"];
+}
+
+-(BOOL)isRestrictedOnlyByFaction
+{
+    NSString* upgradeId = self.externalId;
+
+    if ([upgradeId isEqualToString: @"tholian_punctuality_opwebprize"] || [upgradeId isEqualToString: @"first_strike_3rd_wing_attack_ship"]) {
+        return NO;
+    }
+    return YES;
+}
 
 -(NSComparisonResult)compareTo:(DockUpgrade*)other
 {
@@ -374,7 +388,8 @@
         return 0;
     }
 
-    int cost = [upgrade.cost intValue];
+    int originalCost = [upgrade.cost intValue];
+    int cost = originalCost;
 
     DockShip* ship = equippedShip.ship;
     DockCaptain* captain = equippedShip.captain;
@@ -396,7 +411,7 @@
             cost = 3;
         }
     } else if ([upgrade isCrew]) {
-        if ([captainSpecial isEqualToString: @"CrewUpgradesCostOneLess"] && !isSideboard) {
+        if (([captainSpecial isEqualToString: @"CrewUpgradesCostOneLess"] || [captainSpecial isEqualToString: @"hugh_71522"] ) && !isSideboard) {
             cost -= 1;
         }
 
@@ -433,6 +448,10 @@
         }
     } else if ([upgradeSpecial isEqualToString: @"PlusFiveForNonKazon"]) {
         if (![ship isKazon]) {
+            cost += 5;
+        }
+    } else if ([upgradeSpecial isEqualToString: @"PlusFiveIfNotBorgShip"]) {
+        if (![ship isBorg]) {
             cost += 5;
         }
     } else if ([upgradeSpecial isEqualToString: @"PhaserStrike"] || [upgradeSpecial isEqualToString: @"CostPlusFiveExceptBajoranInterceptor"]) {
@@ -506,6 +525,10 @@
             }
         } else if ([captainSpecial isEqualToString: @"CaptainAndTalentsIgnoreFactionPenalty"] &&
                    ([upgrade isTalent] || [upgrade isCaptain])) {
+        } else if ([captainSpecial isEqualToString: @"hugh_71522"] &&
+                   [upgrade isFactionBorg]) {
+        } else if ([captainSpecial isEqualToString: @"lore_71522"] &&
+                   [upgrade isTalent]) {
         } else {
             if (upgrade.isAdmiral) {
                 cost += 3;
@@ -522,18 +545,31 @@
         }
     }
 
+    if ([upgrade isWeapon] && [equippedShip containsUpgradeWithId: @"sakonna_gavroche"] != nil) {
+        if (cost <= 5) {
+            cost -= 2;
+        }
+    }
+
+
     if (cost < 0) {
         cost = 0;
     }
+    
     return cost;
 }
 
 -(int)additionalWeaponSlots
 {
-    if ([self.special isEqualToString: @"AddTwoWeaponSlots"]) {
+    NSString* special = self.special;
+
+    if ([special isEqualToString: @"AddTwoWeaponSlots"]) {
         return 2;
     }
-    if ([self.special isEqualToString: @"AddsOneWeaponOneTech"]) {
+    if ([special isEqualToString: @"AddsOneWeaponOneTech"]) {
+        return 1;
+    }
+    if ([special isEqualToString: @"sakonna_gavroche"]) {
         return 1;
     }
     return 0;
@@ -555,10 +591,12 @@
 
 -(int)additionalCrewSlots
 {
-    if ([self.externalId isEqualToString: @"vulcan_high_command_0_2_71446"]) {
+    NSString* externalId = self.externalId;
+
+    if ([externalId isEqualToString: @"vulcan_high_command_0_2_71446"]) {
         return 2;
     }
-    if ([self.externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
+    if ([externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
         return 1;
     }
     return 0;

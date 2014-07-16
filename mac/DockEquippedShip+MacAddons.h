@@ -1,5 +1,9 @@
 #import "DockEquippedShip.h"
 
-@interface DockEquippedShip (MacAddons)
+extern NSString* kCurrentTargetShipChanged;
 
+@interface DockEquippedShip (MacAddons)
++(DockEquippedShip*)currentTargetShip;
++(void)setCurrentTargetShip:(DockEquippedShip*)targetShip;
++(void)clearCurrentTargetShip;
 @end

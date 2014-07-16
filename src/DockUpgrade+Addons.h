@@ -22,6 +22,8 @@
 -(BOOL)isBajoran;
 -(BOOL)isFederation;
 -(BOOL)isVulcan;
+-(BOOL)isFactionBorg;
+-(BOOL)isRestrictedOnlyByFaction;
 -(NSComparisonResult)compareTo:(DockUpgrade*)other;
 -(int)limitForShip:(DockEquippedShip*)targetShip;
 -(int)additionalWeaponSlots;

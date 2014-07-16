@@ -85,6 +85,10 @@
 
 -(int)additionalCrewSlots
 {
+    if ([self.externalId isEqualToString: @"lore_71522"]) {
+        return 1;
+    }
+
     NSString* special = self.special;
     if ([special isEqualToString: @"Add_Crew_1"]) {
         return 1;

@@ -1,4 +1,4 @@
-<Data version="1.230">
+<Data version="1.233">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -8401,7 +8401,7 @@
       <Cost>2</Cost>
       <Id>sakonna_gavroche</Id>
       <Set>gavroche</Set>
-      <Special></Special>
+      <Special>sakonna_gavroche</Special>
     </Upgrade>
     <Upgrade>
       <Title>Hijack</Title>
@@ -8446,7 +8446,7 @@
       <Cost>2</Cost>
       <Id>first_strike_3rd_wing_attack_ship</Id>
       <Set>3rd_wing_attack_ship</Set>
-      <Special></Special>
+      <Special>OnlyHull3OrLess</Special>
     </Upgrade>
     <Upgrade>
       <Title>Ion Thrusters</Title>
@@ -8461,7 +8461,7 @@
       <Cost>2</Cost>
       <Id>ion_thrusters_3rd_wing_attack_ship</Id>
       <Set>3rd_wing_attack_ship</Set>
-      <Special></Special>
+      <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
       <Title>Preemptive Strike</Title>
@@ -8671,7 +8671,7 @@
       <Cost>5</Cost>
       <Id>self_destruct_sequence_71523</Id>
       <Set>71523</Set>
-      <Special></Special>
+      <Special>OnlyFederationShip</Special>
     </Upgrade>
     <Upgrade>
       <Title>Montgomery Scott</Title>
@@ -8810,7 +8810,7 @@
       <Cost>5</Cost>
       <Id>experimental_link_71522</Id>
       <Set>71522</Set>
-      <Special></Special>
+      <Special>OnlyBorgCaptain</Special>
     </Upgrade>
     <Upgrade>
       <Title>Subspace Distortion</Title>
@@ -8840,7 +8840,7 @@
       <Cost>6</Cost>
       <Id>transwarp_conduit_71522</Id>
       <Set>71522</Set>
-      <Special></Special>
+      <Special>OnlyBorgShip</Special>
     </Upgrade>
     <Upgrade>
       <Title>Unnecessary Bloodshed</Title>
@@ -8855,7 +8855,7 @@
       <Cost>5</Cost>
       <Id>unnecessary_bloodshed_71524</Id>
       <Set>71524</Set>
-      <Special></Special>
+      <Special>OnlyDominionCaptain</Special>
     </Upgrade>
     <Upgrade>
       <Title>Lamat'Ukan</Title>
@@ -8960,7 +8960,7 @@
       <Cost>6</Cost>
       <Id>forward_weapons_array_71522</Id>
       <Set>71522</Set>
-      <Special></Special>
+      <Special>PlusFiveIfNotBorgShip</Special>
     </Upgrade>
     <Upgrade>
       <Title>Volley of Torpedoes</Title>
@@ -8975,7 +8975,7 @@
       <Cost>6</Cost>
       <Id>volley_of_torpedoes_71524</Id>
       <Set>71524</Set>
-      <Special></Special>
+      <Special>OnlyBattleshipOrCruiser</Special>
     </Upgrade>
     <Upgrade>
       <Title>Phased Polaron Beam</Title>
@@ -8990,7 +8990,7 @@
       <Cost>5</Cost>
       <Id>phased_polaron_beam_71524</Id>
       <Set>71524</Set>
-      <Special></Special>
+      <Special>PlusFivePointsNonJemHadarShips</Special>
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>

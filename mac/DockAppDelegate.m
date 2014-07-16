@@ -10,11 +10,11 @@
 #import "DockDataLoader.h"
 #import "DockDataUpdater.h"
 #import "DockEquippedFlagship.h"
-#import "DockEquippedShip+Addons.h"
 #import "DockEquippedShip.h"
+#import "DockEquippedShip+Addons.h"
+#import "DockEquippedShip+MacAddons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockErrors.h"
-#import "DockFAQViewer.h"
 #import "DockFlagship+MacAddons.h"
 #import "DockFleetBuildSheet.h"
 #import "DockInspector.h"
@@ -41,6 +41,7 @@ NSString* kInspectorVisible = @"inspectorVisible";
 NSString* kExpandSquads = @"expandSquads";
 NSString* kExpandedRows = @"expandedRows";
 NSString* kShowDataModelExport = @"showDataModelExport";
+NSString* kSortSquadsByDate = @"sortSquadsByDate";
 
 @interface DockAppDelegate ()
 @property (strong, nonatomic) DockDataUpdater* updater;
@@ -64,7 +65,8 @@ NSString* kShowDataModelExport = @"showDataModelExport";
         kWarnAboutUnhandledSpecials: @YES,
         kInspectorVisible: @NO,
         kExpandSquads: @YES,
-        kExpandedRows: @YES
+        kExpandedRows: @YES,
+        kSortSquadsByDate: @NO
     };
 
     [defaults registerDefaults: appDefs];
@@ -195,6 +197,9 @@ NSString* kShowDataModelExport = @"showDataModelExport";
 -(void)applicationDidFinishLaunching:(NSNotification*)aNotification
 {
     [self loadData];
+
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+
     [DockSquad assignUUIDs: self.managedObjectContext];
     [self updateForSelectedSets];
     [_squadDetailController addObserver: self
@@ -213,18 +218,27 @@ NSString* kShowDataModelExport = @"showDataModelExport";
     [_flagshipsTableView setSortDescriptors: @[defaultSortDescriptor]];
     defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"releaseDate" ascending: YES];
     [_setsTableView setSortDescriptors: @[defaultSortDescriptor]];
-    defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"name" ascending: YES selector: @selector(localizedCaseInsensitiveCompare:)];
+    if ([defaults boolForKey: kSortSquadsByDate]) {
+        defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"modified" ascending: NO selector: @selector(compare:)];
+    } else {
+        defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"name" ascending: YES selector: @selector(localizedCaseInsensitiveCompare:)];
+    }
     [_squadsTableView setSortDescriptors: @[defaultSortDescriptor]];
     [self setupFactionMenu];
     [self setupFileMenu];
-
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
 
     if ([defaults boolForKey: kInspectorVisible]) {
         [_inspector show];
     }
     
     self.expandedRows = [defaults boolForKey: kExpandedRows];
+
+    NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
+
+    id currentTargetChangedBlock = ^() {
+        [self currentTargetShipChanged];
+    };
+    [center addObserverForName: kCurrentTargetShipChanged object: nil queue: nil usingBlock: currentTargetChangedBlock];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
@@ -328,7 +342,7 @@ NSString* kShowDataModelExport = @"showDataModelExport";
         return nil;
     }
 
-    _managedObjectContext = [[NSManagedObjectContext alloc] init];
+    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType: NSMainQueueConcurrencyType];
     [_managedObjectContext setPersistentStoreCoordinator: coordinator];
 
     return _managedObjectContext;
@@ -491,6 +505,7 @@ NSString* kShowDataModelExport = @"showDataModelExport";
 {
     DockSquad* squad = [DockSquad squad: _managedObjectContext];
     [self performSelector: @selector(editNameOfSquad:) withObject: squad afterDelay: 0];
+    [self saveAction: sender];
 }
 
 -(void)addSelectedShip
@@ -856,9 +871,12 @@ NSString* kShowDataModelExport = @"showDataModelExport";
     NSInteger row = [objects indexOfObject: theSquad];
 
     if (row != NSNotFound) {
-        [_squadsTableView becomeFirstResponder];
-        [_squadsController setSelectionIndex: row];
-        [_squadsTableView editColumn: 0 row: row withEvent: nil select: YES];
+        NSInteger columnIndex = [_squadsTableView columnWithIdentifier: @"squadsTitle"];
+        if (columnIndex != -1) {
+            [_squadsTableView becomeFirstResponder];
+            [_squadsController setSelectionIndex: row];
+            [_squadsTableView editColumn: columnIndex row: row withEvent: nil select: YES];
+        }
     }
 }
 
@@ -1332,11 +1350,6 @@ NSString* kShowDataModelExport = @"showDataModelExport";
     }
 }
 
--(IBAction)showFAQ:(id)sender
-{
-    [_faqViewer show];
-}
-
 -(void)updateInfo:(NSData*)downloadedData
 {
     NSURL* importURL = [DockAppDelegate applicationFilesDirectory];
@@ -1699,8 +1712,16 @@ void addRemoveFlagshipItem(NSMenu *menu)
 -(void)saveSquadsToDisk:(NSString*)targetPath
 {
     NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
+    id squadExportComparator = ^(DockSquad* a, DockSquad* b) {
+        NSComparisonResult result = [a.name caseInsensitiveCompare: b.name];
+        if (result == NSOrderedSame) {
+            result = [a.uuid compare: b.uuid];
+        }
+        return result;
+    };
+    allSquads = [allSquads sortedArrayUsingComparator: squadExportComparator];
     NSMutableArray* squadsForJSONArray = [NSMutableArray arrayWithCapacity: allSquads.count];
-    for (DockSquad* squad in [DockSquad allSquads: _managedObjectContext]) {
+    for (DockSquad* squad in allSquads) {
         [squadsForJSONArray addObject: [squad asJSON]];
     }
 
@@ -1790,6 +1811,14 @@ void addRemoveFlagshipItem(NSMenu *menu)
 {
     _buildMat = [[DockBuildMat alloc] initWithSquad: [self selectedSquad]];
     [_buildMat print];
+}
+
+-(void)currentTargetShipChanged
+{
+    NSIndexSet* rows = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(0, _upgradesTableView.numberOfRows)];
+    NSIndexSet* cols = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(0, _upgradesTableView.numberOfColumns)];
+    [_upgradesTableView reloadDataForRowIndexes: rows columnIndexes: cols];
+    [_upgradesController rearrangeObjects];
 }
 
 @end
