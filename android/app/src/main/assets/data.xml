@@ -1,4 +1,4 @@
-<Data version="1.233">
+<Data version="1.234">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -9246,6 +9246,22 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
         <Id>chief_engineer_oparenaparticipation</Id>
         <Set>OPArenaParticipation</Set>
       </Resource>
+      <Resource>
+        <Title>Counter Attack Die</Title>
+        <Unique>Y</Unique>
+        <Ability>1) The Counter Attack Die is considered a defense die.
+
+2) Once during every Combat Phase, a player may choose to exchange 1 of their defense dice with the Counter Attack Die. Players may not roll this die more than once per round, regardless of how many ships they have in their fleet.
+
+3) The pips on the Counter Attack Die are: [EVASIVE],[EVASIVE],[EVASIVE],[BATTLE STATIONS],[BATTLE STATIONS],[HIT],[HIT],[CRITICAL HIT]
+
+4) If a [HIT] or a [CRITICAL HIT] result is rolled, the attacking ship suffers damage as normal during the Deal Damage step of the Combat Phase. The attacking ship does not roll defense dice against this damage.
+        </Ability>
+        <Type>Resource</Type>
+        <Cost>5</Cost>
+        <Id>counter attack die_collectiveop1</Id>
+        <Set>CollectiveOP1</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -9275,6 +9291,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
       <Set id="OPArenaParticipation" overallSetName="Organized Play" releaseDate="2014-05-28">Arena Participation Prize</Set>
       <Set id="OPArenaPrize"         overallSetName="Organized Play" releaseDate="2014-05-28">Arena Competitive Prize</Set>
 
+      <Set id="CollectiveOP1" overallSetName="Organized Play" releaseDate="2014-07-25">The Collective OP1 Participation Prize</Set>
       <Set id="71508"             overallSetName="Organized Play" releaseDate="2014-06-25">Ti'Mur Competitive Prize</Set>
 
       <Set id="i_k_s_b_moth" overallSetName="The Collective Boosters" releaseDate="2014-07-25">I.K.S. B'Moth Expansion</Set>
