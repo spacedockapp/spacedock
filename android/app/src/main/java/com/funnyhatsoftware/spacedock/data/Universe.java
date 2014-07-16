@@ -106,7 +106,7 @@ public class Universe {
         File allSquadsFile = getAllSquadsSaveFile(filesDir);
         try {
             FileInputStream inputStream = new FileInputStream(allSquadsFile);
-            loadSquadsFromStream(inputStream, true);
+            loadSquadsFromStream(inputStream, false);
             inputStream.close();
         } catch (Exception e) {
             worked = false;
