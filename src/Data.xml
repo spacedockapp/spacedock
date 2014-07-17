@@ -1,4 +1,4 @@
-<Data version="1.235">
+<Data version="1.236">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -4880,6 +4880,36 @@
       <Id>vanik_71508</Id>
       <Set>71508</Set>
       <Special>VulcanAndFedTechUpgradesMinus2</Special>
+    </Captain>
+    <Captain>
+      <Title>James T. Kirk</Title>
+      <Ability>ACTION: Target a ship at Range 1.  Disable one Upgrade of your choice on the target ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill>8</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>james_t_kirk_cap_71523</Id>
+      <Set>71523</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Gul Dukat</Title>
+      <Ability>ACTION: When attacking with your Primary Weapon this round, gain +1 attack die.</Ability>
+      <Unique>Y</Unique>
+      <Skill>8</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>gul_dukat_cap_71524</Id>
+      <Set>71524</Set>
+      <Special></Special>
     </Captain>
   </Captains>
   <Admirals>
