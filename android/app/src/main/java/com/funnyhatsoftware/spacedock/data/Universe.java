@@ -175,6 +175,14 @@ public class Universe {
         return upgrades.get(upgradeId);
     }
 
+    public Upgrade getUpgradeOrAdmiral(String upgradeId) {
+        Upgrade maybeAdmiral = admirals.get(upgradeId);
+        if (maybeAdmiral != null) {
+            return maybeAdmiral;
+        }
+        return getUpgrade(upgradeId);
+    }
+
     public Ship getShip(String shipId) {
         return ships.get(shipId);
     }
