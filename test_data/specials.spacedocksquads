@@ -1,5 +1,31 @@
 [
   {
+    "uuid" : "C0EC8ED5-CCF4-4E25-AF95-CD279C8BC1ED",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 42,
+        "shipId" : "1001",
+        "upgrades" : [
+          {
+            "upgradeId" : "gul_dukat_71524",
+            "upgradeTitle" : "Gul Dukat",
+            "calculatedCost" : 8
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-D",
+        "captain" : {
+          "upgradeId" : "2008",
+          "upgradeTitle" : "Khan Singh",
+          "calculatedCost" : 6
+        }
+      }
+    ],
+    "name" : "admiral with khan",
+    "modified" : "2014-07-18T08:04:21-0700",
+    "cost" : 42
+  },
+  {
     "uuid" : "D6F5F724-070D-4EC4-B280-69197A63232D",
     "additionalPoints" : 0,
     "ships" : [
@@ -275,6 +301,32 @@
     "name" : "Energy Dissipator",
     "modified" : "2014-06-21T06:50:02-0700",
     "cost" : 63
+  },
+  {
+    "uuid" : "CBB1A666-EC90-4B0E-AB79-A4C5F9015891",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 34,
+        "shipId" : "1023",
+        "upgrades" : [
+          {
+            "upgradeId" : "forward_weapons_array_71522",
+            "upgradeTitle" : "Forward Weapons Array",
+            "calculatedCost" : 12
+          }
+        ],
+        "shipTitle" : "Krayton",
+        "captain" : {
+          "upgradeId" : "2027",
+          "upgradeTitle" : "Ferengi Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "forward weapons",
+    "modified" : "2014-07-18T08:16:35-0700",
+    "cost" : 34
   },
   {
     "uuid" : "1ABFBD73-F1A0-48AE-9CD0-8502BE9411FC",
@@ -1119,6 +1171,52 @@
     "additionalPoints" : 0,
     "modified" : "2014-06-19T16:41:04-0700",
     "name" : "pike on sideboard"
+  },
+  {
+    "uuid" : "8F11B1BF-D759-4E5E-BB17-FAFE55C3D8AE",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 59,
+        "shipId" : "4th_division_battleship_71279",
+        "upgrades" : [
+          {
+            "upgradeId" : "sakonna_gavroche",
+            "upgradeTitle" : "Sakonna",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "energy_dissipator_op5prize",
+            "upgradeTitle" : "Energy Dissipator",
+            "calculatedCost" : 10
+          },
+          {
+            "upgradeId" : "3078",
+            "upgradeTitle" : "Nuclear Missiles",
+            "calculatedCost" : 1
+          },
+          {
+            "upgradeId" : "photon_torpedoes_71279",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "photon_torpedoes_71524",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 3
+          }
+        ],
+        "shipTitle" : "4th Division Battleship",
+        "captain" : {
+          "upgradeId" : "2036",
+          "upgradeTitle" : "Dominion Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "sakonna",
+    "modified" : "2014-07-18T08:15:51-0700",
+    "cost" : 59
   },
   {
     "uuid" : "C6A45654-C10C-4CC8-BA1C-72D6E260E66C",
