@@ -243,9 +243,6 @@ public class Upgrade extends UpgradeBase {
             if (captainSpecial.equals("WeaponUpgradesCostOneLess")) {
                 cost -= 1;
             }
-            if (null != equippedShip.containsUpgradeWithName("Sakonna") && isCostFiveOrLess()) {
-                cost -= 2;
-            }
         } else if (isTech()) {
             if ("VulcanAndFedTechUpgradesMinus2".equals(captainSpecial) &&
                     ("Federation".equals(upgradeFaction) || "Vulcan".equals(upgradeFaction))) {
@@ -357,6 +354,10 @@ public class Upgrade extends UpgradeBase {
         if (ship != null && ship.getExternalId().equals(Constants.TACTICAL_CUBE_138)
                 && getExternalId().equals(Constants.BORG_ABLATIVE_ARMOR)) {
             cost = 7;
+        }
+
+        if (isWeapon() && null != equippedShip.containsUpgradeWithName("Sakonna") && cost <= 5) {
+            cost -= 2;
         }
 
         if (cost < 0) {
