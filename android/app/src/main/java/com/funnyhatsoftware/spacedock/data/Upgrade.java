@@ -334,7 +334,7 @@ public class Upgrade extends UpgradeBase {
         if (!shipFaction.equals(upgradeFaction) && !additionalShipFaction.equals(upgradeFaction)
                 && !equippedShip.isResourceSideboard()
                 && !equippedShip.getFlagshipFaction().equals(upgradeFaction)) {
-            if (captainSpecial.equals("UpgradesIgnoreFactionPenalty") && !isCaptain()) {
+            if (captainSpecial.equals("UpgradesIgnoreFactionPenalty") && !isCaptain() && !isAdmiral()) {
                 // do nothing
             } else if (captainSpecial.equals("NoPenaltyOnFederationOrBajoranShip") && isCaptain()) {
                 if (!(ship.isFederation() || ship.isBajoran())) {
