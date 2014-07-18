@@ -730,9 +730,9 @@ public class EquippedShip extends EquippedShipBase {
                         if (aCost == bCost) {
                             return 0;
                         } else if (aCost > bCost) {
-                            return 1;
+                            return -1;
                         }
-                        return -1;
+                        return 1;
                     }
 
                 };
