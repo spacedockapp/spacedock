@@ -368,7 +368,7 @@ public class Squad extends SquadBase {
         if (upgrade.getUnique()) {
             EquippedUpgrade existing = containsUpgradeWithName(upgrade
                     .getTitle());
-            if (existing != null) {
+            if (existing != null && null == (targetShip.containsUpgrade(existing.getUpgrade()))) {
                 String result = String.format(
                         "Can't add %s to the selected squadron",
                         upgrade.getTitle());
