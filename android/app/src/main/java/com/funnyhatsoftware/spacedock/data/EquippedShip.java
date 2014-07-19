@@ -730,9 +730,9 @@ public class EquippedShip extends EquippedShipBase {
                         if (aCost == bCost) {
                             return 0;
                         } else if (aCost > bCost) {
-                            return 1;
+                            return -1;
                         }
-                        return -1;
+                        return 1;
                     }
 
                 };
@@ -980,7 +980,7 @@ public class EquippedShip extends EquippedShipBase {
                 JSONObject upgradeData = upgrades.getJSONObject(i);
                 String upgradeId = upgradeData
                         .optString(JSONLabels.JSON_LABEL_UPGRADE_ID);
-                Upgrade upgrade = universe.getUpgrade(upgradeId);
+                Upgrade upgrade = universe.getUpgradeOrAdmiral(upgradeId);
                 if (upgrade != null) {
                     EquippedUpgrade eu = addUpgrade(upgrade, null, false);
                     if (upgradeData
@@ -990,7 +990,7 @@ public class EquippedShip extends EquippedShipBase {
                                 .optInt(JSONLabels.JSON_LABEL_OVERRIDDEN_COST));
                     }
                 } else if (strict) {
-                    throw new RuntimeException("Can't find upgrade '" + upgrade
+                    throw new RuntimeException("Can't find upgrade '" + upgradeId
                             + "'");
                 }
             }

@@ -106,7 +106,7 @@ public class Universe {
         File allSquadsFile = getAllSquadsSaveFile(filesDir);
         try {
             FileInputStream inputStream = new FileInputStream(allSquadsFile);
-            loadSquadsFromStream(inputStream, true);
+            loadSquadsFromStream(inputStream, false);
             inputStream.close();
         } catch (Exception e) {
             worked = false;
@@ -173,6 +173,14 @@ public class Universe {
 
     public Upgrade getUpgrade(String upgradeId) {
         return upgrades.get(upgradeId);
+    }
+
+    public Upgrade getUpgradeOrAdmiral(String upgradeId) {
+        Upgrade maybeAdmiral = admirals.get(upgradeId);
+        if (maybeAdmiral != null) {
+            return maybeAdmiral;
+        }
+        return getUpgrade(upgradeId);
     }
 
     public Ship getShip(String shipId) {

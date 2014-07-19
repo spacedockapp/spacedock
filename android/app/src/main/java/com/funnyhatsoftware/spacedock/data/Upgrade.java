@@ -243,9 +243,6 @@ public class Upgrade extends UpgradeBase {
             if (captainSpecial.equals("WeaponUpgradesCostOneLess")) {
                 cost -= 1;
             }
-            if (null != equippedShip.containsUpgradeWithName("Sakonna") && isCostFiveOrLess()) {
-                cost -= 2;
-            }
         } else if (isTech()) {
             if ("VulcanAndFedTechUpgradesMinus2".equals(captainSpecial) &&
                     ("Federation".equals(upgradeFaction) || "Vulcan".equals(upgradeFaction))) {
@@ -334,7 +331,7 @@ public class Upgrade extends UpgradeBase {
         if (!shipFaction.equals(upgradeFaction) && !additionalShipFaction.equals(upgradeFaction)
                 && !equippedShip.isResourceSideboard()
                 && !equippedShip.getFlagshipFaction().equals(upgradeFaction)) {
-            if (captainSpecial.equals("UpgradesIgnoreFactionPenalty") && !isCaptain()) {
+            if (captainSpecial.equals("UpgradesIgnoreFactionPenalty") && !isCaptain() && !isAdmiral()) {
                 // do nothing
             } else if (captainSpecial.equals("NoPenaltyOnFederationOrBajoranShip") && isCaptain()) {
                 if (!(ship.isFederation() || ship.isBajoran())) {
@@ -357,6 +354,10 @@ public class Upgrade extends UpgradeBase {
         if (ship != null && ship.getExternalId().equals(Constants.TACTICAL_CUBE_138)
                 && getExternalId().equals(Constants.BORG_ABLATIVE_ARMOR)) {
             cost = 7;
+        }
+
+        if (isWeapon() && null != equippedShip.containsUpgradeWithName("Sakonna") && cost <= 5) {
+            cost -= 2;
         }
 
         if (cost < 0) {

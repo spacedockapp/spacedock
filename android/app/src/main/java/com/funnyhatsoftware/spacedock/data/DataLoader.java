@@ -164,7 +164,6 @@ public class DataLoader extends DefaultHandler {
             @Override
             public void put(String externalId, SetItem s) {
             	universe.admirals.put(externalId, (Admiral) s);
-                universe.captains.put(externalId, (Captain) s);
             }
 
 			@Override

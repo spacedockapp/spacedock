@@ -47,13 +47,6 @@ public class Squad extends SquadBase {
         setUuid(UUID.randomUUID().toString());
     }
 
-    @Override
-    public SquadBase setName(String v) {
-        SquadBase self = super.setName(v);
-        Universe.getUniverse().sortSquads();
-        return self;
-    }
-
     static private HashSet<String> allNames() {
         List<Squad> allSquads = Universe.getUniverse().getAllSquads();
         HashSet<String> names = new HashSet<String>();
