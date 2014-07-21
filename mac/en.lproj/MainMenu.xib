@@ -1699,7 +1699,7 @@
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                                 <connections>
-                                                                                                    <binding destination="Vxp-Jf-BUL" name="value" keyPath="objectValue.title" id="bde-iY-mUm"/>
+                                                                                                    <binding destination="Vxp-Jf-BUL" name="value" keyPath="objectValue.titleWithCanInstall" id="ajw-oN-Lxe"/>
                                                                                                 </connections>
                                                                                             </textField>
                                                                                         </subviews>
@@ -1867,7 +1867,7 @@
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
-                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="cost"/>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="costToInstall"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="x96-Ud-7c2">
                                                                                         <rect key="frame" x="373" y="2" width="40" height="17"/>
@@ -1882,7 +1882,7 @@
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                                 <connections>
-                                                                                                    <binding destination="x96-Ud-7c2" name="value" keyPath="objectValue.cost" id="3V7-Lx-Mrn"/>
+                                                                                                    <binding destination="x96-Ud-7c2" name="value" keyPath="objectValue.styledCostToInstall" id="vsz-Rp-H1o"/>
                                                                                                 </connections>
                                                                                             </textField>
                                                                                         </subviews>
@@ -2423,7 +2423,7 @@
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                                 <connections>
-                                                                                                    <binding destination="bby-7s-nmI" name="value" keyPath="objectValue.title" id="GEh-uC-7Lg"/>
+                                                                                                    <binding destination="bby-7s-nmI" name="value" keyPath="objectValue.titleWithCanInstall" id="d0F-v7-pun"/>
                                                                                                 </connections>
                                                                                             </textField>
                                                                                         </subviews>
@@ -2591,7 +2591,7 @@
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
-                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="cost"/>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="costToInstall"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="88t-6X-FgN">
                                                                                         <rect key="frame" x="373" y="2" width="40" height="17"/>
@@ -2606,7 +2606,7 @@
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                                 <connections>
-                                                                                                    <binding destination="88t-6X-FgN" name="value" keyPath="objectValue.cost" id="8ca-KG-Bpt"/>
+                                                                                                    <binding destination="88t-6X-FgN" name="value" keyPath="objectValue.styledCostToInstall" id="tbo-5B-U6C"/>
                                                                                                 </connections>
                                                                                             </textField>
                                                                                         </subviews>
@@ -3016,7 +3016,7 @@
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                                 <connections>
-                                                                                                    <binding destination="mDu-Nt-wwv" name="value" keyPath="objectValue.title" id="S6z-DA-nZn"/>
+                                                                                                    <binding destination="mDu-Nt-wwv" name="value" keyPath="objectValue.titleWithCanInstall" id="pWt-8Y-eVa"/>
                                                                                                 </connections>
                                                                                             </textField>
                                                                                         </subviews>
@@ -4312,11 +4312,14 @@
         <customObject id="494" customClass="DockAppDelegate">
             <connections>
                 <outlet property="admiralsController" destination="jIs-WY-TJY" id="NNh-Sj-wsr"/>
+                <outlet property="admiralsTabController" destination="Syr-Fc-NYa" id="5D2-gf-ROv"/>
                 <outlet property="captainsController" destination="0af-xY-vuT" id="lPO-O6-x8d"/>
+                <outlet property="captainsTabController" destination="tcq-Rf-52p" id="IlM-kn-plD"/>
                 <outlet property="captainsTableView" destination="pbE-Lg-pvF" id="hWe-nR-T6n"/>
                 <outlet property="factionMenu" destination="jzV-EA-Bef" id="s0C-A5-mcz"/>
                 <outlet property="fileMenu" destination="81" id="TGd-PL-0Q3"/>
                 <outlet property="flagshipsController" destination="Akm-Zf-Blb" id="y5T-L6-ti5"/>
+                <outlet property="flagshipsTabController" destination="PvV-dr-24S" id="Dz6-dH-v3i"/>
                 <outlet property="flagshipsTableView" destination="fgU-tR-2vJ" id="MPh-Ek-V1X"/>
                 <outlet property="fleetBuildSheet2" destination="Izs-mh-ARI" id="H4b-K4-PBX"/>
                 <outlet property="inspector" destination="L6P-6L-sOj" id="Emf-SV-SDs"/>
@@ -4324,11 +4327,15 @@
                 <outlet property="overrideEditor" destination="pOW-YK-TqM" id="5LW-1J-cds"/>
                 <outlet property="preferencesWindow" destination="y6I-Im-Zme" id="kpr-36-vRq"/>
                 <outlet property="referenceController" destination="a37-z6-clf" id="f8Q-sA-WdE"/>
+                <outlet property="referenceTabController" destination="0lD-l7-dCa" id="Viv-Cc-ITm"/>
                 <outlet property="resourcesController" destination="YPe-Zs-mE7" id="QpO-G6-Tot"/>
+                <outlet property="resourcesTabController" destination="mkb-0b-dP5" id="Zoq-bn-bni"/>
                 <outlet property="resourcesTableView" destination="v13-24-CCG" id="Rq7-QP-07h"/>
                 <outlet property="setsController" destination="wcL-UX-c6a" id="dI4-Dz-lVE"/>
+                <outlet property="setsTabController" destination="TYe-CI-sK5" id="iMo-ra-KIO"/>
                 <outlet property="setsTableView" destination="j2a-Sg-4hV" id="Dhk-ML-vAt"/>
                 <outlet property="shipsController" destination="Gzr-Z0-87U" id="5vW-HI-mUc"/>
+                <outlet property="shipsTabController" destination="wSa-f0-yuY" id="45K-th-rz6"/>
                 <outlet property="shipsTableView" destination="sJW-5v-BIo" id="ln7-xP-Eyt"/>
                 <outlet property="squadDetailController" destination="REc-Lj-a6S" id="Ujp-f8-UcS"/>
                 <outlet property="squadDetailView" destination="6Xe-hT-jBi" id="hua-FN-E3G"/>
@@ -4336,6 +4343,7 @@
                 <outlet property="squadsTableView" destination="Exx-Ed-FMY" id="Fai-QN-pph"/>
                 <outlet property="tabView" destination="EsK-Y6-lVi" id="lkC-r1-enJ"/>
                 <outlet property="upgradesController" destination="wVj-PN-1Jr" id="s5T-X4-Yqh"/>
+                <outlet property="upgradesTabController" destination="cgX-3X-rJG" id="3Xs-Hh-yyk"/>
                 <outlet property="upgradesTableView" destination="LbO-KE-GHl" id="Cfq-6k-TVU"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
@@ -4414,6 +4422,62 @@
             <connections>
                 <outlet property="targetController" destination="jIs-WY-TJY" id="5Pk-aN-vOh"/>
                 <outlet property="targetTable" destination="N0B-Rd-Wg4" id="OaA-r4-8kx"/>
+            </connections>
+        </customObject>
+        <customObject id="tcq-Rf-52p" customClass="DockCaptainTabController">
+            <connections>
+                <outlet property="appDelegate" destination="494" id="Hol-dN-BpX"/>
+                <outlet property="targetController" destination="0af-xY-vuT" id="uBz-xf-wWO"/>
+                <outlet property="targetTab" destination="sxb-ZK-52L" id="m9F-Es-tJ9"/>
+            </connections>
+        </customObject>
+        <customObject id="cgX-3X-rJG" customClass="DockUpgradeTabController">
+            <connections>
+                <outlet property="appDelegate" destination="494" id="2ou-PK-efZ"/>
+                <outlet property="targetController" destination="wVj-PN-1Jr" id="tjr-dL-zY5"/>
+                <outlet property="targetTab" destination="b51-qf-JF2" id="rKa-Zt-RWZ"/>
+            </connections>
+        </customObject>
+        <customObject id="Syr-Fc-NYa" customClass="DockAdmiralTabController">
+            <connections>
+                <outlet property="appDelegate" destination="494" id="zX3-jQ-Uyv"/>
+                <outlet property="targetController" destination="jIs-WY-TJY" id="gp6-L2-WFy"/>
+                <outlet property="targetTab" destination="mOh-2L-sjO" id="FtA-RA-jtL"/>
+            </connections>
+        </customObject>
+        <customObject id="PvV-dr-24S" customClass="DockFlagshipTabController">
+            <connections>
+                <outlet property="appDelegate" destination="494" id="w5v-au-1pX"/>
+                <outlet property="targetController" destination="Akm-Zf-Blb" id="dab-UA-4BA"/>
+                <outlet property="targetTab" destination="WoN-gG-9Wa" id="m8x-rz-0zE"/>
+            </connections>
+        </customObject>
+        <customObject id="mkb-0b-dP5" customClass="DockResourceTabController">
+            <connections>
+                <outlet property="appDelegate" destination="494" id="kge-ZP-Bw6"/>
+                <outlet property="targetController" destination="YPe-Zs-mE7" id="45d-7f-E4G"/>
+                <outlet property="targetTab" destination="qmw-4G-teh" id="MYt-Tm-ia1"/>
+            </connections>
+        </customObject>
+        <customObject id="wSa-f0-yuY" customClass="DockShipTabController">
+            <connections>
+                <outlet property="appDelegate" destination="494" id="ZLa-wA-ER2"/>
+                <outlet property="targetController" destination="Gzr-Z0-87U" id="h5Y-2w-uNW"/>
+                <outlet property="targetTab" destination="B7y-WH-2to" id="Xky-vu-QsK"/>
+            </connections>
+        </customObject>
+        <customObject id="TYe-CI-sK5" customClass="DockSetTabController">
+            <connections>
+                <outlet property="appDelegate" destination="494" id="zmD-2T-8Cg"/>
+                <outlet property="targetController" destination="wcL-UX-c6a" id="zGI-sd-tRx"/>
+                <outlet property="targetTab" destination="r0Q-3L-3kW" id="Slr-L8-XdH"/>
+            </connections>
+        </customObject>
+        <customObject id="0lD-l7-dCa" customClass="DockReferenceTabController">
+            <connections>
+                <outlet property="appDelegate" destination="494" id="sKt-lJ-1iH"/>
+                <outlet property="targetController" destination="a37-z6-clf" id="s0M-UA-scY"/>
+                <outlet property="targetTab" destination="6Og-br-tE8" id="fVu-2H-Y39"/>
             </connections>
         </customObject>
         <userDefaultsController representsSharedInstance="YES" id="ptf-Fd-SPq"/>
@@ -5204,7 +5268,7 @@
                                                 <tableViewGridLines key="gridStyleMask" vertical="YES" horizontal="YES"/>
                                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                 <tableColumns>
-                                                    <tableColumn identifier="result" width="79" maxWidth="9999" id="wei-vF-ghd">
+                                                    <tableColumn identifier="result" width="85" maxWidth="9999" id="wei-vF-ghd">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Round">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -5217,7 +5281,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="fp" width="21" maxWidth="9999" id="sSZ-So-3lC">
+                                                    <tableColumn identifier="fp" width="15" maxWidth="9999" id="sSZ-So-3lC">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Opponents Name">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -5230,7 +5294,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="cfp" width="36" maxWidth="9999" id="tKZ-05-bF5">
+                                                    <tableColumn identifier="cfp" width="30" maxWidth="9999" id="tKZ-05-bF5">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -5243,7 +5307,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="initials" width="80.5" maxWidth="9999" id="vLw-H6-RFc">
+                                                    <tableColumn identifier="initials" width="86.5" maxWidth="9999" id="vLw-H6-RFc">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -5928,13 +5992,13 @@ Gw
                 <menuItem title="Include Selected Sets" id="VPM-Or-jgj">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="includeSelectedSets:" target="494" id="HN8-0D-bnZ"/>
+                        <action selector="includeSelectedSets:" target="TYe-CI-sK5" id="rDh-cc-qiY"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Exclude Selected Sets" id="pkl-cE-D4i">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="excludeSelectedSets:" target="494" id="aZ2-IS-TKT"/>
+                        <action selector="excludeSelectedSets:" target="TYe-CI-sK5" id="LzT-An-fFV"/>
                     </connections>
                 </menuItem>
             </items>

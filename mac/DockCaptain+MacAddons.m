@@ -1,6 +1,7 @@
 #import "DockCaptain+MacAddons.h"
 
 #import "DockCaptain+Addons.h"
+#import "DockEquippedShip+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUpgrade+MacAddons.h"
 #import "DockUtilsMac.h"
@@ -30,7 +31,5 @@
     NSColor* c = [DockCaptain captainSkillColor];
     return makeCentered(coloredString([[self skill] stringValue], c, [NSColor clearColor]));
 }
-
-
 
 @end

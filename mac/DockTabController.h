@@ -1,0 +1,36 @@
+#import <Foundation/Foundation.h>
+
+@class DockAppDelegate;
+@class DockEquippedShip;
+@class DockSetItem;
+@class DockSquad;
+
+@interface DockTabController : NSObject
+@property (assign) IBOutlet NSTabViewItem* targetTab;
+@property (assign) IBOutlet NSArrayController* targetController;
+@property (assign) IBOutlet DockAppDelegate* appDelegate;
+@property (nonatomic, readonly) NSWindow* window;
+@property (nonatomic, readonly) BOOL dependsOnFaction;
+
+// observing
+-(void)startObserving;
+
+// add to ship
+-(void)addSelectedToSquad:(DockSquad*)selectedSquad ship:(DockEquippedShip*)selectedShip selectedItem:(id)selectedItem;
+-(DockEquippedShip*)findEligibleShipForItem:(DockSetItem*)item inSquad:(DockSquad*)squad;
+-(void)explainCantUniqueUpgrade:(NSError*)error;
+
+// predicates
+-(void)addAdditionalPredicatesForFaction:(NSString*)factionName formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments;
+-(void)updatePredicates;
+
+// selection
+-(id)selectedItem;
+
+// showing
++(void)makeOneControllerShowItem:(id)item;
++(DockTabController*)tabControlerForItem:(id)item;
+-(void)showItem:(id)item;
+-(void)resetFiltersForItem:(id)item;
+
+@end

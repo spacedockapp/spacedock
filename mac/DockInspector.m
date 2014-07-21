@@ -214,7 +214,7 @@ static id extractSelectedItem(id controller)
             self.currentResource = extractSelectedItem(_resources);
             [self updateSet: self.currentResource];
         } else if (object == _reference) {
-            self.currentReference = extractSelectedItem(_reference);
+            //self.currentReference = extractSelectedItem(_reference);
             [self clearSet];
         }
     }

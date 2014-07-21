@@ -1,0 +1,66 @@
+#import "DockShipTabController.h"
+
+#import "DockAppDelegate.h"
+#import "DockEquippedUpgrade+Addons.h"
+#import "DockEquippedShip+Addons.h"
+#import "DockShip+Addons.h"
+#import "DockSquad+Addons.h"
+#import "DockUpgrade+Addons.h"
+
+#import "NSTreeController+Additions.h"
+
+@implementation DockShipTabController
+
+-(void)explainCantAddShip:(DockShip*)ship
+{
+    NSAlert* alert = [[NSAlert alloc] init];
+    NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", ship.title];
+    [alert setMessageText: msg];
+    NSString* info = @"This ship is unique and one with the same name already exists in the squadron.";
+    [alert setInformativeText: info];
+    [alert setAlertStyle: NSInformationalAlertStyle];
+    [alert beginSheetModalForWindow: [self window]
+                      modalDelegate: self
+                     didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
+                        contextInfo: nil];
+}
+
+-(DockEquippedUpgrade*)addItem:(DockSetItem*)item toShip:(DockEquippedShip*)ship inSquad:(DockSquad*)squad selectedItem:(id)selectedItem
+{
+    DockShip* newShip = (DockShip*)item;
+
+    if (ship.isFighterSquadron) {
+        DockResource* resource = newShip.associatedResource;
+        squad.resource = resource;
+    } else {
+        if ([newShip isUnique]) {
+            DockEquippedShip* existing = [squad containsShip: newShip];
+
+            if (existing != nil) {
+                [self explainCantAddShip: newShip];
+                return nil;
+            }
+        }
+
+        DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: newShip];
+        [squad addEquippedShip: es];
+        if (newShip.isFighterSquadron) {
+            squad.resource = newShip.associatedResource;
+        }
+        [self.appDelegate selectShip: es];
+    }
+    return nil;
+}
+
+-(NSString*)notificationName
+{
+    return @"shipTabSelection";
+}
+
+-(BOOL)containsThisKind:(id)item
+{
+    return [item isMemberOfClass: [DockShip class]];
+}
+
+
+@end
