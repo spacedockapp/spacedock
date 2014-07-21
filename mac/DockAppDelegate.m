@@ -460,12 +460,12 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
 
 -(DockShip*)selectedShip
 {
-    return self.shipsTabController.selectedItem;
+    return self.shipsTabController.selectedItemIfVisible;
 }
 
 -(DockUpgrade*)selectedUpgrade
 {
-    return self.upgradesTabController.selectedItem;
+    return self.upgradesTabController.selectedItemIfVisible;
 }
 
 -(DockEquippedShip*)equippedShipForTarget:(id)target

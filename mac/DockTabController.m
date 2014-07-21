@@ -176,22 +176,30 @@ static NSTableView* findFirstTableView(NSView* target)
     NSString* notificationName = [self notificationName];
     if (notificationName != nil) {
         NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
-        NSNotification* notification = [NSNotification notificationWithName: notificationName object: nil];
+        id currentItem = [self selectedItem];
+        NSNotification* notification = [NSNotification notificationWithName: notificationName object: currentItem];
         [center postNotification: notification];
     }
 }
 
--(id)selectedItem
+-(id)selectedItemIfVisible
 {
     NSTabViewItem* selectedTab = [self.targetTab.tabView selectedTabViewItem];
     id identifier = selectedTab.identifier;
 
     if ([identifier isEqualToString: self.targetTab.identifier]) {
-        NSArray* selected = [self.targetController selectedObjects];
+        return [self selectedItem];
+    }
 
-        if (selected.count > 0) {
-            return selected[0];
-        }
+    return nil;
+}
+
+-(id)selectedItem
+{
+    NSArray* selected = [self.targetController selectedObjects];
+
+    if (selected.count > 0) {
+        return selected[0];
     }
 
     return nil;

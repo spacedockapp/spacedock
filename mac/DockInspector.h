@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 
+@class DockAdmiral;
 @class DockCaptain;
 @class DockUpgrade;
 @class DockFlagship;
@@ -21,6 +22,7 @@
 @property (assign) IBOutlet NSTreeController* squadDetail;
 @property (assign) IBOutlet DockMoveGrid* moveGrid;
 @property (strong, nonatomic) NSString* targetKind;
+@property (strong, nonatomic) NSDictionary* currentAdmiral;
 @property (strong, nonatomic) DockCaptain* currentCaptain;
 @property (strong, nonatomic) DockUpgrade* currentUpgrade;
 @property (strong, nonatomic) DockShip* currentShip;

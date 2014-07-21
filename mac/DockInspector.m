@@ -1,5 +1,6 @@
 #import "DockInspector.h"
 
+#import "DockAdmiralTabController.h"
 #import "DockAppDelegate.h"
 #import "DockCaptain+Addons.h"
 #import "DockEquippedShip+Addons.h"
@@ -10,6 +11,7 @@
 #import "DockSet+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockResource+Addons.h"
+#import "DockTabDelegate.h"
 #import "DockUpgrade+Addons.h"
 
 @implementation DockInspector
@@ -156,44 +158,40 @@ static id extractSelectedItem(id controller)
     }
 }
 
+-(NSString*)identToTabIdent:(NSString*)ident
+{
+    NSDictionary* d = @{
+        @"captainsTable" : @"captain",
+        @"admiralsTable" : @"admiral",
+        @"upgradeTable" : @"upgrade",
+        @"shipsTable" : @"ship",
+        @"resourcesTable" : @"resource",
+        @"flagshipsTable" : @"flagship",
+        @"referenceTable" : @"reference"
+    };
+    return d[ident];
+}
+
 -(void)observeValueForKeyPath:(NSString*)keyPath
                      ofObject:(id)object
                        change:(NSDictionary*)change
                       context:(void*)context
 {
     @try {
-        id responder = [_mainWindow firstResponder];
+       id responder = [_mainWindow firstResponder];
         NSString* ident = [responder identifier];
-        
         if (object == _mainWindow) {
-            if ([ident isEqualToString: @"captainsTable"]) {
-                [self updateCaptain: extractSelectedItem(_captains)];
-                [_tabView selectTabViewItemWithIdentifier: @"captain"];
-            } else if ([ident isEqualToString: @"upgradeTable"]) {
-                [self updateUpgrade: extractSelectedItem(_upgrades)];
-                [_tabView selectTabViewItemWithIdentifier: @"upgrade"];
-            } else if ([ident isEqualToString: @"shipsTable"]) {
-                [self updateShip: extractSelectedItem(_ships)];
-                [_tabView selectTabViewItemWithIdentifier: @"ship"];
-            } else if ([ident isEqualToString: @"resourcesTable"]) {
-                self.currentResource = extractSelectedItem(_resources);
-                [_tabView selectTabViewItemWithIdentifier: @"resource"];
-                [self updateSet: self.currentResource];
-            } else if ([ident isEqualToString: @"squadsDetailOutline"]) {
-                id selectedItem = extractSelectedItem(_squadDetail);
-                [self updateInspectorTabForItem: selectedItem];
-                [self updateSet: selectedItem];
-            } else if ([ident isEqualToString: @"flagshipsTable"]) {
-                [_tabView selectTabViewItemWithIdentifier: @"flagship"];
-                [self updateFlagship: extractSelectedItem(_flagships)];
-                [self updateSet: self.currentFlagship];
-            } else if ([ident isEqualToString: @"referenceTable"]) {
-                [_tabView selectTabViewItemWithIdentifier: @"reference"];
-                [self updateReference: extractSelectedItem(_reference)];
-                [self clearSet];
-            } else {
+            NSString* tabIdent = [self identToTabIdent: ident];
+            if (tabIdent == nil) {
                 [_tabView selectTabViewItemWithIdentifier: @"blank"];
-                [self clearSet];
+            } else {
+                if ([ident isEqualToString: @"squadsDetailOutline"]) {
+                    id selectedItem = extractSelectedItem(_squadDetail);
+                    [self updateInspectorTabForItem: selectedItem];
+                    [self updateSet: selectedItem];
+                } else {
+                    [_tabView selectTabViewItemWithIdentifier: tabIdent];
+                }
             }
         } else if (object == _squadDetail) {
             if ([ident isEqualToString: @"squadsDetailOutline"]) {
@@ -238,6 +236,10 @@ static id extractSelectedItem(id controller)
     [_flagships addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     [_reference addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     [_squadDetail addObserver: self forKeyPath: @"selectionIndexPath" options: 0 context: 0];
+
+    NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
+    [center addObserver: self selector: @selector(admiralChanged:) name: kCurrentAdmiralChanged object: nil];
+    [center addObserver: self selector: @selector(topTabChanged:) name: kTabSelectionChanged object: nil];
 }
 
 -(void)show
@@ -261,6 +263,37 @@ static id extractSelectedItem(id controller)
     } else {
         self.shipDetailTab = @"forClass";
     }
+}
+
+#pragma mark - Notifications
+
+static NSDictionary* copyProperties(id target, NSArray* propertyList)
+{
+    NSMutableDictionary* props = [[NSMutableDictionary alloc] initWithCapacity: propertyList.count];
+    for (NSString* name in propertyList) {
+        [props setObject: [target valueForKey: name] forKey: name];
+    }
+    return [NSDictionary dictionaryWithDictionary: props];
+}
+
+-(void)admiralChanged:(NSNotification*)notification
+{
+    NSArray* displayedAdmiralProperties = @[
+        @"styledSkillModifier",
+        @"title",
+        @"admiralAbility",
+        @"admiralCost",
+        @"skill"
+    ];
+    self.currentAdmiral = copyProperties(notification.object, displayedAdmiralProperties);
+}
+
+-(void)topTabChanged:(NSNotification*)notification
+{
+    NSLog(@"topTabChanged %@", notification);
+    id responder = [_mainWindow firstResponder];
+    NSString* ident = [responder identifier];
+    NSLog(@"ident = %@", ident);
 }
 
 @end

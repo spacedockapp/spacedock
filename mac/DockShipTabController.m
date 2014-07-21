@@ -11,6 +11,8 @@
 
 @implementation DockShipTabController
 
+#pragma mark - Adding items
+
 -(void)explainCantAddShip:(DockShip*)ship
 {
     NSAlert* alert = [[NSAlert alloc] init];
@@ -52,10 +54,14 @@
     return nil;
 }
 
+# pragma mark - Table selection
+
 -(NSString*)notificationName
 {
     return @"shipTabSelection";
 }
+
+#pragma mark - Showing items
 
 -(BOOL)containsThisKind:(id)item
 {

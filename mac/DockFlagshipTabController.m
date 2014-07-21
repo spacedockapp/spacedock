@@ -7,6 +7,13 @@
 
 @implementation DockFlagshipTabController
 
+# pragma mark - Table selection
+
+-(NSString*)notificationName
+{
+    return @"flagshipTabSelection";
+}
+
 #pragma mark - Filtering
 
 -(void)addAdditionalPredicatesForFaction:(NSString*)factionName formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments

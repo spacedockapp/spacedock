@@ -184,6 +184,7 @@
 		D475C66C19169C1700275EF1 /* WeaponTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = D475C66B19169C1700275EF1 /* WeaponTile.xib */; };
 		D475C66F1916B6E600275EF1 /* DockPaginatedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D475C66E1916B6E600275EF1 /* DockPaginatedTableView.m */; };
 		D475C6721916BD9B00275EF1 /* DockBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = D475C6711916BD9B00275EF1 /* DockBoxView.m */; };
+		D478D457197D508D00A28F63 /* DockTabDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D478D456197D508D00A28F63 /* DockTabDelegate.m */; };
 		D485E08D18EA3F5E00ACD8AD /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D485E08A18EA3F0800ACD8AD /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D485E09118EA94ED00ACD8AD /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D485E08A18EA3F0800ACD8AD /* Sparkle.framework */; };
 		D4962837192839EE007EFE5A /* DockReferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4962836192839EE007EFE5A /* DockReferenceViewController.m */; };
@@ -517,6 +518,8 @@
 		D475C66E1916B6E600275EF1 /* DockPaginatedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockPaginatedTableView.m; sourceTree = "<group>"; };
 		D475C6701916BD9B00275EF1 /* DockBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockBoxView.h; sourceTree = "<group>"; };
 		D475C6711916BD9B00275EF1 /* DockBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockBoxView.m; sourceTree = "<group>"; };
+		D478D455197D508D00A28F63 /* DockTabDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockTabDelegate.h; sourceTree = "<group>"; };
+		D478D456197D508D00A28F63 /* DockTabDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockTabDelegate.m; sourceTree = "<group>"; };
 		D485E08A18EA3F0800ACD8AD /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Sparkle/Sparkle.framework; sourceTree = "<group>"; };
 		D4962835192839EE007EFE5A /* DockReferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockReferenceViewController.h; sourceTree = "<group>"; };
 		D4962836192839EE007EFE5A /* DockReferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockReferenceViewController.m; sourceTree = "<group>"; };
@@ -1031,6 +1034,8 @@
 				D4F872A718B5A87600783285 /* DockShipDelegate.m */,
 				D457495E18EC65EB004891B3 /* DockSquadImporterMac.h */,
 				D457495F18EC65EB004891B3 /* DockSquadImporterMac.m */,
+				D478D455197D508D00A28F63 /* DockTabDelegate.h */,
+				D478D456197D508D00A28F63 /* DockTabDelegate.m */,
 				D43FE80A18C3A6D400AECA5F /* DockUtilsMac.h */,
 				D43FE80B18C3A6D400AECA5F /* DockUtilsMac.m */,
 				D4BCA3DC1814EC0900921183 /* Credits.rtf */,
@@ -1498,6 +1503,7 @@
 				D472A414187CA69B004DAC07 /* DockNoteEditor.m in Sources */,
 				D4F6867D18F995E90019C067 /* DockSideboard.m in Sources */,
 				D4F6868D18F995EA0019C067 /* DockShipClassDetails.m in Sources */,
+				D478D457197D508D00A28F63 /* DockTabDelegate.m in Sources */,
 				D4F6868118F995EA0019C067 /* DockTalent.m in Sources */,
 				D4F686A918F999350019C067 /* DockShip.m in Sources */,
 				D4F7F1A91808DBB000157E32 /* DockSet+Addons.m in Sources */,

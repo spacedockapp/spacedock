@@ -5,6 +5,11 @@
 
 @implementation DockAdmiral (MacAddons)
 
++(NSSet*)keyPathsForValuesAffectingStyledSkillModifier
+{
+    return [NSSet setWithObjects: @"skillModifier", nil];
+}
+
 -(NSAttributedString*)styledSkillModifier
 {
     NSColor* c = [DockCaptain captainSkillColor];

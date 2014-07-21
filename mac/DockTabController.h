@@ -25,7 +25,7 @@
 -(void)updatePredicates;
 
 // selection
--(id)selectedItem;
+-(id)selectedItemIfVisible;
 
 // showing
 +(void)makeOneControllerShowItem:(id)item;
