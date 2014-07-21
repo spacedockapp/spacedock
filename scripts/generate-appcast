@@ -57,18 +57,29 @@ end
 
 product_name = "Space Dock"
 
+beta = true
+
 script_path = Pathname.new(File.dirname(__FILE__))
 root_path = script_path.parent()
 parent_path = root_path.parent()
 config_path =  root_path.join("config")
 doc_path =  root_path.join("doc")
-release_notes_source_path = doc_path.join("release-notes.md")
 release_notes_template_path = doc_path.join("release-notes.html.erb")
-index_template_source = doc_path.join("index.html.erb")
+if beta
+  release_notes_source_path = doc_path.join("beta-release-notes.md")
+  index_template_source = doc_path.join("mac_beta.html.erb")
+else
+  release_notes_source_path = doc_path.join("release-notes.md")
+  index_template_source = doc_path.join("index.html.erb")
+end
 site_path =  root_path.join("spacedocksite")
 release_notes_dest_path = site_path.join("release-notes.html")
 release_notes_temp_path = "/tmp/release-notes.html"
-index_dest_path = site_path.join("index.html")
+if beta
+  index_dest_path = site_path.join("mac_beta.html")
+else
+  index_dest_path = site_path.join("index.html")
+end
 versions_path = config_path.join("versions.json")
 update_path = site_path.join("update.xml")
 
@@ -94,10 +105,12 @@ create_new_version(versions, new_release)
 
 items = versions
 
-appcast_template = ERB.new APPCAST_TEMPLATE_SOURCE
-File.write(update_path, appcast_template.result(binding))
-File.write(versions_path, versions.to_json())
-say_and_do("kramdown --template #{release_notes_template_path} #{release_notes_source_path} > #{release_notes_dest_path}")
+unless beta
+  appcast_template = ERB.new APPCAST_TEMPLATE_SOURCE
+  File.write(update_path, appcast_template.result(binding))
+  File.write(versions_path, versions.to_json())
+  say_and_do("kramdown --template #{release_notes_template_path} #{release_notes_source_path} > #{release_notes_dest_path}")
+end
 say_and_do("kramdown #{release_notes_source_path} > #{release_notes_temp_path}")
 release_notes = File.read(release_notes_temp_path)
 index_template_source = File.read(index_template_source)
