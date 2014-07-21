@@ -50,6 +50,7 @@
 -(NSString*)upgradesDescription;
 -(NSString*)factionCode;
 -(NSDictionary*)asJSON;
+-(NSString*)asPlainTextFormat;
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
 -(DockEquippedUpgrade*)containsUpgradeWithName:(NSString*)theName;
 -(DockEquippedUpgrade*)containsUpgradeWithId:(NSString*)theId;

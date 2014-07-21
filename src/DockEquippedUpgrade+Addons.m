@@ -3,6 +3,8 @@
 #import "DockCaptain+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade.h"
+#import "DockSet+Addons.h"
+#import "DockSetItem+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"
@@ -129,6 +131,20 @@
 -(NSString*)typeCode
 {
     return self.upgrade.typeCode;
+}
+
+-(NSString*)asPlainTextFormat
+{
+    NSString* s = nil;
+    if ([self costIsOverridden]) {
+        s = [NSString stringWithFormat: @"%@ [%@] (%d overridden to %d)\n", self.title, self.upgrade.setCode, [self nonOverriddenCost], [self cost]];
+    } else {
+        s = [NSString stringWithFormat: @"%@ [%@] (%d)\n", self.title, self.upgrade.setCode, [self cost]];
+    }
+    if (self.upgrade.isAdmiral) {
+        s = [@"Adm " stringByAppendingString: s];
+    }
+    return s;
 }
 
 -(BOOL)costIsOverridden

@@ -54,4 +54,10 @@
     return [[self sortStringForSet] compare: [object sortStringForSet]];
 }
 
+-(NSString*)setCode
+{
+    DockSet* set = self.sets.anyObject;
+    return set.setCode;
+}
+
 @end

@@ -525,37 +525,12 @@ static BOOL sIsImporting = NO;
     DockResource* resource = self.resource;
 
     for (DockEquippedShip* ship in self.equippedShips) {
-        NSString* s = [NSString stringWithFormat: @"%@ (%d)", ship.plainDescription, [ship baseCost]];
+        NSString* s = [ship asPlainTextFormat];
         [textFormat appendString: s];
-        [textFormat appendString: @"\n"];
-
-        DockFlagship* fs = [ship flagship];
-        if (fs) {
-          s = [NSString stringWithFormat: @"%@ (%@)\n", [fs plainDescription], [resource cost]];
-          [textFormat appendString: s];
-        }
-        for (DockEquippedUpgrade* upgrade in ship.sortedUpgrades) {
-            if (![upgrade isPlaceholder]) {
-                if ([upgrade costIsOverridden]) {
-                    s = [NSString stringWithFormat: @"%@ (%d overridden to %d)\n", upgrade.title, [upgrade nonOverriddenCost], [upgrade cost]];
-                } else {
-                    s = [NSString stringWithFormat: @"%@ (%d)\n", upgrade.title, [upgrade cost]];
-                }
-
-                [textFormat appendString: s];
-            }
-        }
-
-        if (![ship isResourceSideboard]) {
-            s = [NSString stringWithFormat: @"Total (%d)\n", ship.cost];
-            [textFormat appendString: s];
-        }
-
-        [textFormat appendString: @"\n"];
     }
 
-    if (resource != nil && ![resource isFlagship]) {
-        NSString* resourceString = [NSString stringWithFormat: @"%@ (%@)\n", resource.title, [resource cost]];
+    if (resource != nil && ![resource isEquippedIntoSquad]) {
+        NSString* resourceString = [resource asPlainTextFormat];
         [textFormat appendString: resourceString];
         [textFormat appendString: @"\n"];
     }

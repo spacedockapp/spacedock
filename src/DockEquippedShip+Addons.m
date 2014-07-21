@@ -8,6 +8,8 @@
 #import "DockEquippedFlagship.h"
 #import "DockFlagship+Addons.h"
 #import "DockResource+Addons.h"
+#import "DockSet+Addons.h"
+#import "DockSetItem+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSideboard+Addons.h"
 #import "DockSquad+Addons.h"
@@ -119,6 +121,37 @@
         [json setObject: upgradesArray forKey: @"upgrades"];
     }
     return [NSDictionary dictionaryWithDictionary: json];
+}
+
+-(NSString*)asPlainTextFormat
+{
+    NSMutableString* textFormat = [[NSMutableString alloc] init];
+
+    DockResource* resource = self.squad.resource;
+
+    NSString* s = [NSString stringWithFormat: @"%@ [%@] (%d)", self.plainDescription, self.ship.setCode, [self baseCost]];
+    [textFormat appendString: s];
+    [textFormat appendString: @"\n"];
+
+    DockFlagship* fs = [self flagship];
+    if (fs) {
+        s = [NSString stringWithFormat: @"%@ [%@] (%@)\n", [fs plainDescription], fs.setCode, [resource cost]];
+        [textFormat appendString: s];
+    }
+    for (DockEquippedUpgrade* upgrade in self.sortedUpgrades) {
+        if (![upgrade isPlaceholder]) {
+            [textFormat appendString: [upgrade asPlainTextFormat]];
+        }
+    }
+
+    if (![self isResourceSideboard]) {
+        s = [NSString stringWithFormat: @"Total (%d)\n", self.cost];
+        [textFormat appendString: s];
+    }
+
+    [textFormat appendString: @"\n"];
+
+    return [NSString stringWithString: textFormat];
 }
 
 -(NSString*)factionCode
