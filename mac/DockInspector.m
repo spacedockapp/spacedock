@@ -11,6 +11,7 @@
 #import "DockSet+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockResource+Addons.h"
+#import "DockTabControllerConstants.h"
 #import "DockTabDelegate.h"
 #import "DockUpgrade+Addons.h"
 
@@ -31,11 +32,6 @@ static id extractSelectedItem(id controller)
     }
 
     return nil;
-}
-
--(void)updateForShip
-{
-    _moveGrid.ship = self.currentShip;
 }
 
 -(void)updateSet:(id)target
@@ -64,84 +60,21 @@ static id extractSelectedItem(id controller)
     self.currentSetName = @"";
 }
 
--(void)updateUpgrade:(DockUpgrade*)upgrade
-{
-    if (upgrade != nil && upgrade != _currentUpgrade) {
-        self.currentUpgrade = upgrade;
-    }
-    [self updateSet: upgrade];
-}
-
--(void)updateCaptain:(DockCaptain*)captain
-{
-    if (captain != nil && captain != _currentCaptain) {
-        self.currentCaptain = captain;
-    }
-    [self updateSet: captain];
-}
-
--(void)updateShip:(DockShip*)ship
-{
-    if (ship != nil && ship != _currentShip) {
-        self.currentShip = ship;
-        [self updateForShip];
-    }
-    [self updateSet: ship];
-}
-
--(void)updateFlagship:(DockFlagship*)flagship
-{
-    if (flagship == nil) {
-        [_tabView selectTabViewItemWithIdentifier: @"blank"];
-        [self clearSet];
-    } else {
-        if (flagship != _currentFlagship) {
-            self.currentFlagship = flagship;
-        }
-        [self updateSet: flagship];
-    }
-}
-
--(void)updateReference:(DockReference*)reference
-{
-    if (reference == nil) {
-        [_tabView selectTabViewItemWithIdentifier: @"blank"];
-        [self clearSet];
-    } else {
-        if (reference != _currentReference) {
-            self.currentReference = reference;
-        }
-        [self updateSet: nil];
-    }
-}
-
 -(void)updateInspectorTabForItem:(id)selectedItem changeTab:(BOOL)changeTab
 {
     if ([selectedItem isMemberOfClass: [DockEquippedShip class]]) {
         [DockEquippedShip setCurrentTargetShip: selectedItem];
-        [self updateShip: [selectedItem ship]];
+        //[self updateShip: [selectedItem ship]];
         [_tabView selectTabViewItemWithIdentifier: @"ship"];
     } else if ([selectedItem isMemberOfClass: [DockEquippedUpgrade class]]) {
         [DockEquippedShip setCurrentTargetShip: [selectedItem equippedShip]];
         DockUpgrade* upgrade = [selectedItem upgrade];
 
-        if ([upgrade isCaptain]) {
-            [self updateCaptain: (DockCaptain*)upgrade];
-
-            if (changeTab) {
-                [_tabView selectTabViewItemWithIdentifier: @"captain"];
-            }
-        } else if ([upgrade isPlaceholder]) {
+        if ([upgrade isPlaceholder]) {
             if (changeTab) {
                 [_tabView selectTabViewItemWithIdentifier: @"blank"];
             }
             [self clearSet];
-        } else {
-            [self updateUpgrade: upgrade];
-
-            if (changeTab) {
-                [_tabView selectTabViewItemWithIdentifier: @"upgrade"];
-            }
         }
     }
 }
@@ -198,22 +131,6 @@ static id extractSelectedItem(id controller)
                 id selectedItem = extractSelectedItem(_squadDetail);
                 [self updateInspectorTabForItem: selectedItem changeTab: YES];
             }
-        } else if (object == _captains) {
-            [self updateCaptain: extractSelectedItem(_captains)];
-            [self selectTabIfBlank: @"captain"];
-        } else if (object == _ships) {
-            [self updateShip: extractSelectedItem(_ships)];
-            [self selectTabIfBlank: @"ship"];
-        } else if (object == _flagships) {
-            [self updateFlagship: extractSelectedItem(_flagships)];
-        } else if (object == _upgrades) {
-            [self updateUpgrade: extractSelectedItem(_upgrades)];
-        } else if (object == _resources) {
-            self.currentResource = extractSelectedItem(_resources);
-            [self updateSet: self.currentResource];
-        } else if (object == _reference) {
-            //self.currentReference = extractSelectedItem(_reference);
-            [self clearSet];
         }
     }
     @catch (NSException *exception) {
@@ -229,16 +146,16 @@ static id extractSelectedItem(id controller)
     self.shipDetailTab = @"forShip";
     [_inspector setFloatingPanel: YES];
     [_mainWindow addObserver: self forKeyPath: @"firstResponder" options: 0 context: 0];
-    [_captains addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
-    [_ships addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
-    [_upgrades addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
-    [_resources addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
-    [_flagships addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
-    [_reference addObserver: self forKeyPath: @"selectionIndexes" options: 0 context: 0];
     [_squadDetail addObserver: self forKeyPath: @"selectionIndexPath" options: 0 context: 0];
 
     NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
     [center addObserver: self selector: @selector(admiralChanged:) name: kCurrentAdmiralChanged object: nil];
+    [center addObserver: self selector: @selector(captainChanged:) name: kCurrentCaptainChanged object: nil];
+    [center addObserver: self selector: @selector(upgradeChanged:) name: kCurrentUpgradeChanged object: nil];
+    [center addObserver: self selector: @selector(flagshipChanged:) name: kCurrentFlagshipChanged object: nil];
+    [center addObserver: self selector: @selector(shipChanged:) name: kCurrentShipChanged object: nil];
+    [center addObserver: self selector: @selector(resourceChanged:) name: kCurrentResourceChanged object: nil];
+    [center addObserver: self selector: @selector(referenceChanged:) name: kCurrentReferenceChanged object: nil];
     [center addObserver: self selector: @selector(topTabChanged:) name: kTabSelectionChanged object: nil];
 }
 
@@ -271,7 +188,10 @@ static NSDictionary* copyProperties(id target, NSArray* propertyList)
 {
     NSMutableDictionary* props = [[NSMutableDictionary alloc] initWithCapacity: propertyList.count];
     for (NSString* name in propertyList) {
-        [props setObject: [target valueForKey: name] forKey: name];
+        id value = [target valueForKey: name];
+        if (value != nil) {
+            [props setObject: value forKey: name];
+        }
     }
     return [NSDictionary dictionaryWithDictionary: props];
 }
@@ -286,14 +206,94 @@ static NSDictionary* copyProperties(id target, NSArray* propertyList)
         @"skill"
     ];
     self.currentAdmiral = copyProperties(notification.object, displayedAdmiralProperties);
+    [self updateSet: notification.object];
+}
+
+-(void)captainChanged:(NSNotification*)notification
+{
+    NSArray* displayedCaptainProperties = @[
+        @"styledSkill",
+        @"title",
+        @"ability",
+        @"cost",
+        @"skill"
+    ];
+    self.currentCaptain = copyProperties(notification.object, displayedCaptainProperties);
+    [self updateSet: notification.object];
+}
+
+-(void)upgradeChanged:(NSNotification*)notification
+{
+    NSArray* displayedUgradeProperties = @[
+        @"title",
+        @"ability",
+        @"cost",
+        @"optionalRange",
+        @"optionalAttack",
+    ];
+    self.currentUpgrade = copyProperties(notification.object, displayedUgradeProperties);
+    [self updateSet: notification.object];
+}
+
+-(void)flagshipChanged:(NSNotification*)notification
+{
+    NSArray* displayedFlagshipProperties = @[
+        @"ability",
+        @"agility",
+        @"attack",
+        @"capabilities",
+        @"hull",
+        @"shield",
+        @"title",
+    ];
+    self.currentFlagship = copyProperties(notification.object, displayedFlagshipProperties);
+    [self updateSet: notification.object];
+}
+
+-(void)shipChanged:(NSNotification*)notification
+{
+    NSArray* displayedShipProperties = @[
+        @"ability",
+        @"agility",
+        @"attack",
+        @"capabilities",
+        @"cost",
+        @"formattedFrontArc",
+        @"formattedRearArc",
+        @"hull",
+        @"shield",
+        @"title",
+    ];
+    self.currentShip = copyProperties(notification.object, displayedShipProperties);
+    _moveGrid.ship = notification.object;
+    [self updateSet: notification.object];
+}
+
+-(void)resourceChanged:(NSNotification*)notification
+{
+    NSArray* displayedResourceProperties = @[
+        @"ability",
+        @"cost",
+        @"title",
+    ];
+    self.currentResource = copyProperties(notification.object, displayedResourceProperties);
+    [self updateSet: notification.object];
+}
+
+-(void)referenceChanged:(NSNotification*)notification
+{
+    NSArray* displayedReferenceProperties = @[
+        @"ability",
+        @"title",
+    ];
+    self.currentReference = copyProperties(notification.object, displayedReferenceProperties);
+    [self updateSet: notification.object];
 }
 
 -(void)topTabChanged:(NSNotification*)notification
 {
-    NSLog(@"topTabChanged %@", notification);
-    id responder = [_mainWindow firstResponder];
-    NSString* ident = [responder identifier];
-    NSLog(@"ident = %@", ident);
+//    id responder = [_mainWindow firstResponder];
+//    NSString* ident = [responder identifier];
 }
 
 @end

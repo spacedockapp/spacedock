@@ -9,6 +9,13 @@
 
 @implementation DockUpgradeTabController
 
+# pragma mark - Table selection
+
+-(NSString*)notificationName
+{
+    return kCurrentUpgradeChanged;
+}
+
 #pragma mark - Filtering
 
 -(NSString*)upgradeType

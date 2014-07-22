@@ -7,6 +7,13 @@
 
 @implementation DockCaptainTabController
 
+# pragma mark - Table selection
+
+-(NSString*)notificationName
+{
+    return kCurrentCaptainChanged;
+}
+
 #pragma mark - Filtering
 
 -(void)addAdditionalPredicates:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments

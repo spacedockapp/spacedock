@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
 
+#import "DockTabControllerConstants.h"
+
 @class DockAppDelegate;
 @class DockEquippedShip;
 @class DockSetItem;

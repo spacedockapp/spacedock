@@ -2,6 +2,13 @@
 
 @implementation DockReferenceTabController
 
+# pragma mark - Table selection
+
+-(NSString*)notificationName
+{
+    return kCurrentReferenceChanged;
+}
+
 #pragma mark - Filtering
 
 -(BOOL)dependsOnFaction

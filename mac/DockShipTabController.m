@@ -58,7 +58,7 @@
 
 -(NSString*)notificationName
 {
-    return @"shipTabSelection";
+    return kCurrentShipChanged;
 }
 
 #pragma mark - Showing items

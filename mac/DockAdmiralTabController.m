@@ -5,8 +5,6 @@
 #import "DockEquippedShip+Addons.h"
 #import "DockSquad+Addons.h"
 
-NSString* kCurrentAdmiralChanged = @"CurrentAdmiralChanged";
-
 @implementation DockAdmiralTabController
 
 # pragma mark - Table selection

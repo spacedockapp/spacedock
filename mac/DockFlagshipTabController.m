@@ -11,7 +11,7 @@
 
 -(NSString*)notificationName
 {
-    return @"flagshipTabSelection";
+    return kCurrentFlagshipChanged;
 }
 
 #pragma mark - Filtering
