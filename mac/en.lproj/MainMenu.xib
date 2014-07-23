@@ -4181,6 +4181,7 @@
                                                                         </tableColumn>
                                                                     </tableColumns>
                                                                     <connections>
+                                                                        <outlet property="delegate" destination="rnR-7s-G6x" id="RPZ-IC-eR4"/>
                                                                         <outlet property="menu" destination="MCd-hI-MMS" id="ofN-yG-pn3"/>
                                                                     </connections>
                                                                 </outlineView>
@@ -4219,7 +4220,7 @@
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="deleteSelected:" target="494" id="NwS-0P-xcQ"/>
+                                                            <action selector="deleteSelected:" target="rnR-7s-G6x" id="u0z-Sx-EVt"/>
                                                             <binding destination="REc-Lj-a6S" name="enabled" keyPath="selectedObjects.@count" id="nmR-4y-xjF"/>
                                                         </connections>
                                                     </button>
@@ -4315,8 +4316,7 @@
                 <outlet property="setsTabController" destination="TYe-CI-sK5" id="iMo-ra-KIO"/>
                 <outlet property="setsTableView" destination="j2a-Sg-4hV" id="Dhk-ML-vAt"/>
                 <outlet property="shipsTabController" destination="wSa-f0-yuY" id="45K-th-rz6"/>
-                <outlet property="squadDetailController" destination="REc-Lj-a6S" id="Ujp-f8-UcS"/>
-                <outlet property="squadDetailView" destination="6Xe-hT-jBi" id="hua-FN-E3G"/>
+                <outlet property="squadDetailController" destination="rnR-7s-G6x" id="qUx-EL-WFH"/>
                 <outlet property="squadsController" destination="w6h-j0-fyp" id="0Eh-Fh-QAl"/>
                 <outlet property="squadsTableView" destination="Exx-Ed-FMY" id="Fai-QN-pph"/>
                 <outlet property="tabView" destination="EsK-Y6-lVi" id="lkC-r1-enJ"/>
@@ -4455,6 +4455,15 @@
                 <outlet property="appDelegate" destination="494" id="sKt-lJ-1iH"/>
                 <outlet property="targetController" destination="a37-z6-clf" id="s0M-UA-scY"/>
                 <outlet property="targetTab" destination="6Og-br-tE8" id="fVu-2H-Y39"/>
+            </connections>
+        </customObject>
+        <customObject id="l1l-47-1Nj" customClass="DockTabDelegate"/>
+        <customObject id="rnR-7s-G6x" customClass="DockSquadDetailController">
+            <connections>
+                <outlet property="appDelegate" destination="494" id="Lco-Jy-nFF"/>
+                <outlet property="squadDetailController" destination="REc-Lj-a6S" id="NaT-Qu-el1"/>
+                <outlet property="squadDetailView" destination="6Xe-hT-jBi" id="DKZ-xa-QOH"/>
+                <outlet property="squadsController" destination="w6h-j0-fyp" id="LYa-C3-BNA"/>
             </connections>
         </customObject>
         <userDefaultsController representsSharedInstance="YES" id="ptf-Fd-SPq"/>
@@ -5310,7 +5319,7 @@
                                                 <tableViewGridLines key="gridStyleMask" vertical="YES" horizontal="YES"/>
                                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                 <tableColumns>
-                                                    <tableColumn identifier="result" width="88" maxWidth="9999" id="wei-vF-ghd">
+                                                    <tableColumn identifier="result" width="89" maxWidth="9999" id="wei-vF-ghd">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Round">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -5323,7 +5332,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="fp" width="12" maxWidth="9999" id="sSZ-So-3lC">
+                                                    <tableColumn identifier="fp" width="11" maxWidth="9999" id="sSZ-So-3lC">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Opponents Name">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -5336,7 +5345,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="cfp" width="27" maxWidth="9999" id="tKZ-05-bF5">
+                                                    <tableColumn identifier="cfp" width="26" maxWidth="9999" id="tKZ-05-bF5">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -5349,7 +5358,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="initials" width="89.5" maxWidth="9999" id="vLw-H6-RFc">
+                                                    <tableColumn identifier="initials" width="90.5" maxWidth="9999" id="vLw-H6-RFc">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -6055,7 +6064,7 @@ Gw
                 </menuItem>
             </items>
             <connections>
-                <outlet property="delegate" destination="494" id="eqO-5y-ezp"/>
+                <outlet property="delegate" destination="rnR-7s-G6x" id="Vpk-Ed-ema"/>
             </connections>
         </menu>
         <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="sd_preferences" animationBehavior="default" id="y6I-Im-Zme">
@@ -6252,7 +6261,6 @@ Gw
             <color key="borderColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <color key="fillColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
         </box>
-        <customObject id="l1l-47-1Nj" customClass="DockTabDelegate"/>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="8" height="8"/>

@@ -2,11 +2,13 @@
 
 @class DockEquippedShip;
 @class DockEquippedUpgrade;
-@class DockInspector;
 @class DockFleetBuildSheet;
+@class DockInspector;
 @class DockNoteEditor;
 @class DockOverrideEditor;
 @class DockSetTabController;
+@class DockSetTabController;
+@class DockSquadDetailController;
 @class DockTabController;
 @class DockUpgrade;
 
@@ -18,7 +20,6 @@ extern NSString* kExpandSquads;
 
 @property (assign) IBOutlet NSWindow* window;
 @property (assign) IBOutlet NSTabView* tabView;
-@property (assign) IBOutlet NSOutlineView* squadDetailView;
 @property (assign) IBOutlet DockTabController* shipsTabController;
 @property (assign) IBOutlet NSArrayController* squadsController;
 @property (assign) IBOutlet DockTabController* captainsTabController;
@@ -28,7 +29,6 @@ extern NSString* kExpandSquads;
 @property (assign) IBOutlet DockTabController* flagshipsTabController;
 @property (assign) IBOutlet DockSetTabController* setsTabController;
 @property (assign) IBOutlet DockTabController* referenceTabController;
-@property (assign) IBOutlet NSTreeController* squadDetailController;
 @property (assign) IBOutlet NSPopUpButton* exportFormatPopup;
 @property (assign) IBOutlet NSTableView* upgradesTableView;
 @property (assign) IBOutlet NSTableView* setsTableView;
@@ -51,6 +51,7 @@ extern NSString* kExpandSquads;
 
 
 +(NSURL*)applicationFilesDirectory;
+#if 0
 -(IBAction)saveAction:(id)sender;
 -(IBAction)addSquad:(id)sender;
 -(IBAction)addSelected:(id)sender;
@@ -67,7 +68,12 @@ extern NSString* kExpandSquads;
 -(IBAction)showInspector:(id)sender;
 -(IBAction)overrideCost:(id)sender;
 -(IBAction)showInList:(id)sender;
+#endif
 
 -(void)selectUpgrade:(DockEquippedUpgrade*)theUpgrade;
 -(void)selectShip:(DockEquippedShip*)theShip;
+-(void)showInList:(id)target targetShip:(DockEquippedShip*)targetShip;
+
+-(void)updateFactionFilter:(NSString*)faction;
+-(void)updateUpgradeTypeFilter:(NSString*)upgradeType;
 @end
