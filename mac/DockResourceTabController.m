@@ -7,6 +7,13 @@
 
 @implementation DockResourceTabController
 
+# pragma mark - Table selection
+
+-(NSString*)notificationName
+{
+    return kCurrentResourceChanged;
+}
+
 #pragma mark - Filtering
 
 -(BOOL)dependsOnFaction

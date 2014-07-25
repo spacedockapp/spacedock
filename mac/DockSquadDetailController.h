@@ -4,6 +4,8 @@
 @class DockEquippedUpgrade;
 @class DockSetItem;
 
+extern NSString* kCurrentEquippedUpgrade;
+
 @interface DockSquadDetailController : NSResponder
 -(DockEquippedShip*)selectedEquippedShip;
 -(DockEquippedUpgrade*)selectedEquippedUpgrade;

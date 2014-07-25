@@ -3,12 +3,14 @@
 #import "DockAdmiralTabController.h"
 #import "DockAppDelegate.h"
 #import "DockCaptain+Addons.h"
+#import "DockEquippedFlagship+MacAddons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockFlagship+Addons.h"
 #import "DockMoveGrid.h"
 #import "DockSet+Addons.h"
 #import "DockShip+Addons.h"
+#import "DockSquadDetailController.h"
 #import "DockResource+Addons.h"
 #import "DockTabControllerConstants.h"
 #import "DockTabDelegate.h"
@@ -16,9 +18,44 @@
 
 @implementation DockInspector
 
++(NSSet*)keyPathsForValuesAffectingCurrentShip
+{
+    return [NSSet setWithObjects: @"currentListShip", @"currentEquippedShip", @"squadIsActive", nil];
+}
+
++(NSSet*)keyPathsForValuesAffectingCurrentCaptain
+{
+    return [NSSet setWithObjects: @"currentListCaptain", @"currentEquippedCaptain", @"squadIsActive", nil];
+}
+
++(NSSet*)keyPathsForValuesAffectingCurrentAdmiral
+{
+    return [NSSet setWithObjects: @"currentListAdmiral", @"currentEquippedAdmiral", @"squadIsActive", nil];
+}
+
++(NSSet*)keyPathsForValuesAffectingCurrentUpgrade
+{
+    return [NSSet setWithObjects: @"currentListUpgrade", @"currentEquippedUpgrade", @"squadIsActive", nil];
+}
+
++(NSSet*)keyPathsForValuesAffectingCurrentFlagship
+{
+    return [NSSet setWithObjects: @"currentListFlagship", @"currentEquippedFlagship", @"squadIsActive", nil];
+}
+
 +(NSSet*)keyPathsForValuesAffectingCurrentSetName
 {
-    return [NSSet setWithObjects: @"currentCaptain", @"currentUpgrade", @"currentShip", @"currentResource", @"currentFlagship", @"currentReference", nil];
+    return [NSSet setWithObjects: @"currentListSetName", @"currentEquippedSetName", @"currentTabIdentifier", @"squadIsActive", nil];
+}
+
++(NSSet*)keyPathsForValuesAffectingCurrentTabIdentifier
+{
+    return [NSSet setWithObjects: @"currentListTabIdentifier", @"currentEquippedTabIdentifier", @"squadIsActive", nil];
+}
+
++(NSSet*)keyPathsForValuesAffectingSquadIsActive
+{
+    return [NSSet setWithObjects: @"firstResponderIdent", nil];
 }
 
 
@@ -31,61 +68,6 @@ static id extractSelectedItem(id controller)
     }
 
     return nil;
-}
-
--(void)updateSet:(id)target
-{
-    if (target == nil) {
-        self.currentSetName = @"";
-        return;
-    }
-    DockSetItem* item = target;
-    if (![target isKindOfClass: [DockSetItem class]]) {
-        if (![target isKindOfClass: [DockEquippedShip class]]) {
-            return;
-        }
-        DockEquippedShip* equippedShip = (DockEquippedShip*)target;
-        item = equippedShip.ship;
-    }
-    NSSet* sets  = item.sets;
-    if (sets != nil) {
-        DockSet* set  = item.sets.anyObject;
-        self.currentSetName = set.productName;
-    }
-}
-
--(void)clearSet
-{
-    self.currentSetName = @"";
-}
-
--(void)updateInspectorTabForItem:(id)selectedItem changeTab:(BOOL)changeTab
-{
-    if ([selectedItem isMemberOfClass: [DockEquippedShip class]]) {
-        //[self updateShip: [selectedItem ship]];
-        [_tabView selectTabViewItemWithIdentifier: @"ship"];
-    } else if ([selectedItem isMemberOfClass: [DockEquippedUpgrade class]]) {
-        DockUpgrade* upgrade = [selectedItem upgrade];
-
-        if ([upgrade isPlaceholder]) {
-            if (changeTab) {
-                [_tabView selectTabViewItemWithIdentifier: @"blank"];
-            }
-            [self clearSet];
-        }
-    }
-}
-
--(void)updateInspectorTabForItem:(id)selectedItem
-{
-    [self updateInspectorTabForItem: selectedItem changeTab: NO];
-}
-
--(void)selectTabIfBlank:(NSString*)newTab
-{
-    if ([[[_tabView selectedTabViewItem] identifier] isEqualToString: @"blank"]) {
-        [_tabView selectTabViewItemWithIdentifier: newTab];
-    }
 }
 
 -(NSString*)identToTabIdent:(NSString*)ident
@@ -111,23 +93,7 @@ static id extractSelectedItem(id controller)
        id responder = [_mainWindow firstResponder];
         NSString* ident = [responder identifier];
         if (object == _mainWindow) {
-            NSString* tabIdent = [self identToTabIdent: ident];
-            if (tabIdent == nil) {
-                [_tabView selectTabViewItemWithIdentifier: @"blank"];
-            } else {
-                if ([ident isEqualToString: @"squadsDetailOutline"]) {
-                    id selectedItem = extractSelectedItem(_squadDetail);
-                    [self updateInspectorTabForItem: selectedItem];
-                    [self updateSet: selectedItem];
-                } else {
-                    [_tabView selectTabViewItemWithIdentifier: tabIdent];
-                }
-            }
-        } else if (object == _squadDetail) {
-            if ([ident isEqualToString: @"squadsDetailOutline"]) {
-                id selectedItem = extractSelectedItem(_squadDetail);
-                [self updateInspectorTabForItem: selectedItem changeTab: YES];
-            }
+            self.firstResponderIdent = ident;
         }
     }
     @catch (NSException *exception) {
@@ -141,9 +107,9 @@ static id extractSelectedItem(id controller)
 {
     [super awakeFromNib];
     self.shipDetailTab = @"forShip";
+    self.currentListTabIdentifier = self.currentEquippedTabIdentifier = @"ship";
     [_inspector setFloatingPanel: YES];
     [_mainWindow addObserver: self forKeyPath: @"firstResponder" options: 0 context: 0];
-    [_squadDetail addObserver: self forKeyPath: @"selectionIndexPath" options: 0 context: 0];
 
     NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
     [center addObserver: self selector: @selector(admiralChanged:) name: kCurrentAdmiralChanged object: nil];
@@ -154,6 +120,7 @@ static id extractSelectedItem(id controller)
     [center addObserver: self selector: @selector(resourceChanged:) name: kCurrentResourceChanged object: nil];
     [center addObserver: self selector: @selector(referenceChanged:) name: kCurrentReferenceChanged object: nil];
     [center addObserver: self selector: @selector(topTabChanged:) name: kTabSelectionChanged object: nil];
+    [center addObserver: self selector: @selector(equippedUpgradeChanged:) name: kCurrentEquippedUpgrade object: nil];
 }
 
 -(void)show
@@ -179,6 +146,76 @@ static id extractSelectedItem(id controller)
     }
 }
 
+#pragma mark - Properties
+
+-(BOOL)squadIsActive
+{
+    return [self.firstResponderIdent isEqualToString: @"squadsDetailOutline"];
+}
+
+-(NSDictionary*)currentShip
+{
+    if ([self squadIsActive]) {
+        return self.currentEquippedShip;
+    }
+    return self.currentListShip;
+}
+
+-(NSDictionary*)currentCaptain
+{
+    if ([self squadIsActive]) {
+        return self.currentEquippedCaptain;
+    }
+    return self.currentListCaptain;
+}
+
+-(NSDictionary*)currentAdmiral
+{
+    if ([self squadIsActive]) {
+        return self.currentEquippedAdmiral;
+    }
+    return self.currentListAdmiral;
+}
+
+-(NSDictionary*)currentUpgrade
+{
+    if ([self squadIsActive]) {
+        return self.currentEquippedUpgrade;
+    }
+    return self.currentListUpgrade;
+}
+
+-(NSDictionary*)currentFlagship
+{
+    if ([self squadIsActive]) {
+        return self.currentEquippedFlagship;
+    }
+    return self.currentListFlagship;
+}
+
+-(NSString*)currentSetName
+{
+    if ([self.firstResponderIdent isEqualToString: @"squadsTable"]) {
+        return @"";
+    }
+
+    if ([self squadIsActive]) {
+        return self.currentEquippedSetName;
+    }
+    return self.currentListSetName;
+}
+
+-(NSString*)currentTabIdentifier
+{
+    if ([self.firstResponderIdent isEqualToString: @"squadsTable"]) {
+        return @"blank";
+    }
+    if ([self squadIsActive]) {
+        return self.currentEquippedTabIdentifier;
+    }
+    return self.currentListTabIdentifier;
+}
+
 #pragma mark - Notifications
 
 static NSDictionary* copyProperties(id target, NSArray* propertyList)
@@ -193,48 +230,73 @@ static NSDictionary* copyProperties(id target, NSArray* propertyList)
     return [NSDictionary dictionaryWithDictionary: props];
 }
 
--(void)admiralChanged:(NSNotification*)notification
+-(NSDictionary*)extractAdmiralProperties:(DockAdmiral*)admiral
 {
     NSArray* displayedAdmiralProperties = @[
+        @"setName",
         @"styledSkillModifier",
         @"title",
         @"admiralAbility",
         @"admiralCost",
         @"skill"
     ];
-    self.currentAdmiral = copyProperties(notification.object, displayedAdmiralProperties);
-    [self updateSet: notification.object];
+    return copyProperties(admiral, displayedAdmiralProperties);
 }
 
--(void)captainChanged:(NSNotification*)notification
+-(void)admiralChanged:(NSNotification*)notification
+{
+    self.currentListAdmiral = [self extractAdmiralProperties: notification.object];
+    if ([self.currentListTabIdentifier isEqualToString: @"admiral"]) {
+        self.currentEquippedSetName = self.currentListAdmiral[@"setName"];
+    }
+}
+
+-(NSDictionary*)extractCaptainProperties:(DockCaptain*)captain
 {
     NSArray* displayedCaptainProperties = @[
+        @"setName",
         @"styledSkill",
         @"title",
         @"ability",
         @"cost",
         @"skill"
     ];
-    self.currentCaptain = copyProperties(notification.object, displayedCaptainProperties);
-    [self updateSet: notification.object];
+    return copyProperties(captain, displayedCaptainProperties);
 }
 
--(void)upgradeChanged:(NSNotification*)notification
+-(void)captainChanged:(NSNotification*)notification
+{
+    self.currentListCaptain = [self extractCaptainProperties: notification.object];
+    if ([self.currentListTabIdentifier isEqualToString: @"captain"]) {
+        self.currentListSetName = self.currentListCaptain[@"setName"];
+    }
+}
+
+-(NSDictionary*)extractUpgradeProperties:(DockUpgrade*)upgrade
 {
     NSArray* displayedUgradeProperties = @[
+        @"setName",
         @"title",
         @"ability",
         @"cost",
         @"optionalRange",
         @"optionalAttack",
     ];
-    self.currentUpgrade = copyProperties(notification.object, displayedUgradeProperties);
-    [self updateSet: notification.object];
+    return copyProperties(upgrade, displayedUgradeProperties);
 }
 
--(void)flagshipChanged:(NSNotification*)notification
+-(void)upgradeChanged:(NSNotification*)notification
+{
+    self.currentListUpgrade = [self extractUpgradeProperties: notification.object];
+    if ([self.currentListTabIdentifier isEqualToString: @"upgrade"]) {
+        self.currentListSetName = self.currentListUpgrade[@"setName"];
+    }
+}
+
+-(NSDictionary*)extractFlagshipProperties:(DockFlagship*)flagship
 {
     NSArray* displayedFlagshipProperties = @[
+        @"setName",
         @"ability",
         @"agility",
         @"attack",
@@ -243,13 +305,21 @@ static NSDictionary* copyProperties(id target, NSArray* propertyList)
         @"shield",
         @"title",
     ];
-    self.currentFlagship = copyProperties(notification.object, displayedFlagshipProperties);
-    [self updateSet: notification.object];
+    return copyProperties(flagship, displayedFlagshipProperties);
 }
 
--(void)shipChanged:(NSNotification*)notification
+-(void)flagshipChanged:(NSNotification*)notification
+{
+    self.currentListFlagship = [self extractFlagshipProperties: notification.object];
+    if ([self.currentListTabIdentifier isEqualToString: @"flagship"]) {
+        self.currentListSetName = self.currentListFlagship[@"setName"];
+    }
+}
+
+-(NSDictionary*)extractShipProperties:(DockShip*)ship
 {
     NSArray* displayedShipProperties = @[
+        @"setName",
         @"ability",
         @"agility",
         @"attack",
@@ -261,36 +331,110 @@ static NSDictionary* copyProperties(id target, NSArray* propertyList)
         @"shield",
         @"title",
     ];
-    self.currentShip = copyProperties(notification.object, displayedShipProperties);
+    return copyProperties(ship, displayedShipProperties);
+}
+
+-(void)shipChanged:(NSNotification*)notification
+{
+    self.currentListShip = [self extractShipProperties: notification.object];
     _moveGrid.ship = notification.object;
-    [self updateSet: notification.object];
+    self.currentListSetName = self.currentListShip[@"setName"];
 }
 
 -(void)resourceChanged:(NSNotification*)notification
 {
     NSArray* displayedResourceProperties = @[
+        @"setName",
         @"ability",
         @"cost",
         @"title",
     ];
     self.currentResource = copyProperties(notification.object, displayedResourceProperties);
-    [self updateSet: notification.object];
+    if ([self.currentListTabIdentifier isEqualToString: @"resource"]) {
+        self.currentListSetName = self.currentResource[@"setName"];
+    }
 }
 
 -(void)referenceChanged:(NSNotification*)notification
 {
     NSArray* displayedReferenceProperties = @[
+        @"setName",
         @"ability",
         @"title",
     ];
     self.currentReference = copyProperties(notification.object, displayedReferenceProperties);
-    [self updateSet: notification.object];
+    if ([self.currentListTabIdentifier isEqualToString: @"reference"]) {
+        self.currentListSetName = self.currentReference[@"setName"];
+    }
+}
+
+-(void)equippedUpgradeChanged:(NSNotification*)notification
+{
+    id object = notification.object;
+    if ([object isMemberOfClass: [DockEquippedFlagship class]]) {
+        DockEquippedFlagship* efs = object;
+        self.currentEquippedFlagship = [self extractFlagshipProperties: efs.flagship];
+        self.currentEquippedSetName = self.currentEquippedFlagship[@"setName"];
+        self.currentEquippedTabIdentifier = @"flagship";
+    } else if ([object isMemberOfClass: [DockEquippedShip class]]) {
+        DockEquippedShip* es = object;
+        self.currentEquippedShip = [self extractShipProperties: es.ship];
+        self.currentEquippedSetName = self.currentEquippedShip[@"setName"];
+        self.currentEquippedTabIdentifier = @"ship";
+    } else {
+        DockEquippedUpgrade* equippedUpgrade = notification.object;
+        DockUpgrade* upgrade = equippedUpgrade.upgrade;
+        if (upgrade.isPlaceholder) {
+            self.currentEquippedTabIdentifier = @"blank";
+            self.currentEquippedSetName = @"";
+            self.currentEquippedUpgrade = @{};
+        } else {
+            if (upgrade.isCaptain) {
+                self.currentEquippedCaptain = [self extractCaptainProperties: (DockCaptain*)upgrade];
+                self.currentEquippedSetName = self.currentEquippedCaptain[@"setName"];
+                self.currentEquippedTabIdentifier = @"captain";
+            } else if (upgrade.isAdmiral) {
+                self.currentEquippedTabIdentifier = @"admiral";
+                self.currentEquippedAdmiral = [self extractAdmiralProperties: (DockAdmiral*)upgrade];
+                self.currentEquippedSetName = self.currentEquippedAdmiral[@"setName"];
+            } else {
+                self.currentEquippedTabIdentifier = @"upgrade";
+                self.currentEquippedUpgrade = [self extractUpgradeProperties: upgrade];
+                self.currentEquippedSetName = self.currentEquippedUpgrade[@"setName"];
+            }
+        }
+    }
 }
 
 -(void)topTabChanged:(NSNotification*)notification
 {
-//    id responder = [_mainWindow firstResponder];
-//    NSString* ident = [responder identifier];
+    NSTabView* tabView = notification.object;
+    NSString* ident = [[tabView selectedTabViewItem] identifier];
+    if ([ident isEqualToString: @"tabReference"]) {
+        self.currentListTabIdentifier = @"reference";
+        self.currentListSetName = self.currentReference[@"setName"];
+    } else if ([ident isEqualToString: @"resources"]) {
+        self.currentListTabIdentifier = @"resource";
+        self.currentListSetName = self.currentResource[@"setName"];
+    } else if ([ident isEqualToString: @"admirals"]) {
+        self.currentListTabIdentifier = @"admiral";
+        self.currentListSetName = self.currentListAdmiral[@"setName"];
+    } else if ([ident isEqualToString: @"captains"]) {
+        self.currentListTabIdentifier = @"captain";
+        self.currentListSetName = self.currentListCaptain[@"setName"];
+    } else if ([ident isEqualToString: @"upgrades"]) {
+        self.currentListTabIdentifier = @"upgrade";
+        self.currentListSetName = self.currentListUpgrade[@"setName"];
+    } else if ([ident isEqualToString: @"flagships"]) {
+        self.currentListTabIdentifier = @"flagship";
+        self.currentListSetName = self.currentListFlagship[@"setName"];
+    } else if ([ident isEqualToString: @"tabSets"]) {
+        self.currentListTabIdentifier = @"blank";
+        self.currentListSetName = @"";
+    } else if ([ident isEqualToString: @"ships"]) {
+        self.currentListTabIdentifier = @"ship";
+        self.currentListSetName = self.currentListShip[@"setName"];
+    }
 }
 
 @end

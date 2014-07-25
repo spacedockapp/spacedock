@@ -13,6 +13,8 @@
 
 #import "NSTreeController+Additions.h"
 
+NSString* kCurrentEquippedUpgrade = @"CurrentEquippedUpgrade";
+
 @interface DockSquadDetailController () <NSOutlineViewDelegate>
 @property (assign, nonatomic) IBOutlet NSOutlineView* squadDetailView;
 @property (assign, nonatomic) IBOutlet NSTreeController* squadDetailController;
@@ -43,7 +45,7 @@
     [center addObserver: self selector: @selector(upgradeChanged:) name: kCurrentCaptainChanged object: nil];
     [center addObserver: self selector: @selector(upgradeChanged:) name: kCurrentUpgradeChanged object: nil];
     [center addObserver: self selector: @selector(shipChanged:) name: kCurrentShipChanged object: nil];
-    [center addObserver: self selector: @selector(resourceChanged:) name: kCurrentResourceChanged object: nil];
+//    [center addObserver: self selector: @selector(resourceChanged:) name: kCurrentResourceChanged object: nil];
 }
 
 #pragma mark - Squads
@@ -128,16 +130,23 @@
     [_squadDetailController setSelectionIndexPath: path];
 }
 
--(DockEquippedUpgrade*)selectedEquippedUpgrade
+-(DockEquippedUpgrade*)selectedEquippedItem
 {
     NSArray* selectedItems = [_squadDetailController selectedObjects];
 
     if (selectedItems.count > 0) {
-        id target = [selectedItems objectAtIndex: 0];
+        return [selectedItems objectAtIndex: 0];
+    }
 
-        if ([target isMemberOfClass: [DockEquippedUpgrade class]]) {
-            return target;
-        }
+    return nil;
+}
+
+-(DockEquippedUpgrade*)selectedEquippedUpgrade
+{
+    id item = [self selectedEquippedItem];
+
+    if ([item isMemberOfClass: [DockEquippedUpgrade class]]) {
+        return item;
     }
 
     return nil;
@@ -251,6 +260,7 @@
     if (object == _squadDetailController) {
         if ([keyPath isEqualToString: @"arrangedObjects"]) {
             [self updateCurrentTargetShip];
+            [self publishEquippedItemNotification];
         } else {
             [_squadDetailView expandItem: nil
                           expandChildren: YES];
@@ -268,6 +278,15 @@
 -(void)shipChanged:(NSNotification*)notification
 {
     self.currentShip = notification.object;
+}
+
+#pragma mark - Notifications
+
+-(void)publishEquippedItemNotification
+{
+    NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
+    NSNotification* upgradeChangedNotification = [NSNotification notificationWithName: kCurrentEquippedUpgrade object: [self selectedEquippedItem]];
+    [center postNotification: upgradeChangedNotification];
 }
 
 #pragma mark - Outline
@@ -540,8 +559,8 @@ void addRemoveFlagshipItem(NSMenu *menu)
 
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification
 {
-    NSLog(@"DockSquadDetailController outlineViewSelectionDidChange %@", notification);
     [self updateCurrentTargetShip];
+    [self publishEquippedItemNotification];
 }
 
 
