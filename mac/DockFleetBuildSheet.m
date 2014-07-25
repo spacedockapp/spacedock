@@ -49,7 +49,7 @@
 
 @end
 
-@interface DockFleetBuildSheetShip : NSObject <NSTableViewDataSource>
+@interface DockFleetBuildSheetShip : NSObject <NSTableViewDataSource,NSTableViewDelegate>
 @property (nonatomic, strong) NSArray* topLevelObjects;
 @property (nonatomic, strong) IBOutlet NSView* gridContainer;
 @property (nonatomic, strong) IBOutlet NSTableView* shipGrid;
@@ -57,11 +57,21 @@
 @property (nonatomic, strong) DockEquippedShip* equippedShip;
 @property (nonatomic, strong) NSMutableArray* upgrades;
 @property (nonatomic, assign) int extraRows;
+@property (nonatomic, assign) double fontSize;
 @end
 
 const int kExtraRows = 3;
 
 @implementation DockFleetBuildSheetShip
+
+-(id)init
+{
+    self = [super init];
+    if (self != nil) {
+        self.fontSize = 7;
+    }
+    return self;
+}
 
 -(void)setEquippedShip:(DockEquippedShip *)equippedShip
 {
@@ -87,6 +97,13 @@ const int kExtraRows = 3;
     }
     [_totalSP setIntValue: _equippedShip.cost];
     [_shipGrid reloadData];
+    if (_upgrades.count > 10) {
+        self.fontSize = 5;
+        self.shipGrid.rowHeight = 8;
+    } else {
+        self.fontSize = 7;
+        self.shipGrid.rowHeight = 11;
+    }
 }
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
@@ -231,6 +248,14 @@ NSAttributedString* headerText(NSString* string)
             return [self handleUpgrade: tableColumn.identifier index: row - _extraRows];
     }
     return nil;
+}
+
+- (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
+{
+    if (row == 0) {
+        return 11;
+    }
+    return tableView.rowHeight;
 }
 
 @end
