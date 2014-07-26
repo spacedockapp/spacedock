@@ -16,6 +16,11 @@
 #import "DockTabDelegate.h"
 #import "DockUpgrade+Addons.h"
 
+@interface DockInspector ()
+@property (strong, nonatomic) DockShip* equippedShip;
+@property (strong, nonatomic) DockShip* listShip;
+@end
+
 @implementation DockInspector
 
 +(NSSet*)keyPathsForValuesAffectingCurrentShip
@@ -94,6 +99,7 @@ static id extractSelectedItem(id controller)
         NSString* ident = [responder identifier];
         if (object == _mainWindow) {
             self.firstResponderIdent = ident;
+            [self updateMoveGrid];
         }
     }
     @catch (NSException *exception) {
@@ -214,6 +220,15 @@ static id extractSelectedItem(id controller)
         return self.currentEquippedTabIdentifier;
     }
     return self.currentListTabIdentifier;
+}
+
+-(void)updateMoveGrid
+{
+    if ([self squadIsActive]) {
+        _moveGrid.ship = self.equippedShip;
+    } else {
+        _moveGrid.ship = self.listShip;
+    }
 }
 
 #pragma mark - Notifications
@@ -337,7 +352,8 @@ static NSDictionary* copyProperties(id target, NSArray* propertyList)
 -(void)shipChanged:(NSNotification*)notification
 {
     self.currentListShip = [self extractShipProperties: notification.object];
-    _moveGrid.ship = notification.object;
+    self.listShip = notification.object;
+    [self updateMoveGrid];
     self.currentListSetName = self.currentListShip[@"setName"];
 }
 
@@ -379,6 +395,8 @@ static NSDictionary* copyProperties(id target, NSArray* propertyList)
     } else if ([object isMemberOfClass: [DockEquippedShip class]]) {
         DockEquippedShip* es = object;
         self.currentEquippedShip = [self extractShipProperties: es.ship];
+        self.equippedShip = es.ship;
+        [self updateMoveGrid];
         self.currentEquippedSetName = self.currentEquippedShip[@"setName"];
         self.currentEquippedTabIdentifier = @"ship";
     } else {
