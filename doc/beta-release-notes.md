@@ -1,3 +1,9 @@
+### Version 1.1b2 build 70 (2014-7-25)
+
+* Clean up the inspector. All you should notice is that it shows the wrong info less often.
+* Print up to 15 lines up upgrades for ship on a build sheet.
+* Copy a more detailed description to the clipboard.
+
 ### Version 1.1b1 build 70 (2014-7-20)
 
 * Improve the performance of application launching when expanded rows are shown.
