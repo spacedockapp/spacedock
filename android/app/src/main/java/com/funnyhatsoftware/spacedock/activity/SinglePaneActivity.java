@@ -23,8 +23,6 @@ public abstract class SinglePaneActivity extends FragmentActivity {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.primary_fragment_container, getFragment())
                     .commit();
-        } else {
-            throw new IllegalStateException("Restoring instance state!");
         }
     }
 
