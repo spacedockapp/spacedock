@@ -54,6 +54,15 @@
     return nil;
 }
 
+# pragma mark - Filtering
+
+-(void)addAdditionalPredicatesForSearchTerm:(NSString*)searchTerm formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments
+{
+    [formatParts addObject: @"((title contains[cd] %@ and unique == TRUE) or (shipClass contains[cd] %@ and unique == FALSE))"];
+    [arguments addObject: searchTerm];
+    [arguments addObject: searchTerm];
+}
+
 # pragma mark - Table selection
 
 -(NSString*)notificationName

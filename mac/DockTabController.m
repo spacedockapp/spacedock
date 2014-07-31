@@ -5,12 +5,15 @@
 #import "DockEquippedShip+MacAddons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockErrors.h"
+#import "DockSearchFieldController.h"
 #import "DockSquad+Addons.h"
 #import "DockSet+Addons.h"
 #import "DockSetItem+Addons.h"
+#import "DockUtilsMac.h"
 
 @interface DockTabController ()
 @property (assign) NSTableView* targetTable;
+@property (strong, nonatomic) NSString* currentSearchTerm;
 @end
 
 @implementation DockTabController
@@ -24,27 +27,13 @@ NSMutableArray* sTabControllers = nil;
     sTabControllers = [[NSMutableArray alloc] init];
 }
 
-static NSTableView* findFirstTableView(NSView* target)
-{
-    if ([target isKindOfClass: [NSTableView class]]) {
-        return (NSTableView*)target;
-    }
-    NSArray* subviews = target.subviews;
-    for (NSView* view in subviews) {
-        NSTableView* result = findFirstTableView(view);
-        if (result != nil) {
-            return result;
-        }
-    }
-    return nil;
-}
-
 -(void)awakeFromNib
 {
     assert(self.appDelegate != nil);
     assert(self.targetController != nil);
     assert(self.targetTab != nil);
     [super awakeFromNib];
+    self.originalTitle = _targetTab.label;
     [sTabControllers addObject: self];
     _targetTable = findFirstTableView(self.targetTab.view);
     assert(self.targetTable != nil);
@@ -113,6 +102,12 @@ static NSTableView* findFirstTableView(NSView* target)
 {
 }
 
+-(void)addAdditionalPredicatesForSearchTerm:(NSString*)searchTerm formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments
+{
+    [formatParts addObject: @"(title contains[cd] %@)"];
+    [arguments addObject: searchTerm];
+}
+
 -(void)updatePredicates
 {
     NSMutableArray* formatParts = [NSMutableArray arrayWithCapacity: 0];
@@ -126,7 +121,11 @@ static NSTableView* findFirstTableView(NSView* target)
     if (factionName != nil) {
         [self addAdditionalPredicatesForFaction: self.factionName formatParts: formatParts arguments: arguments];
     }
-    
+
+    if (_currentSearchTerm.length > 0) {
+        [self addAdditionalPredicatesForSearchTerm: _currentSearchTerm formatParts: formatParts arguments:arguments];
+    }
+
     [self addAdditionalPredicates:formatParts arguments:arguments];
 
     NSString* formatString = [formatParts componentsJoinedByString: @" and "];
@@ -135,6 +134,18 @@ static NSTableView* findFirstTableView(NSView* target)
         self.targetController.fetchPredicate = predicateTemplate;
     } else {
         self.targetController.fetchPredicate = nil;
+    }
+
+    [self.targetController rearrangeObjects];
+    [self.targetTable reloadData];
+
+}
+
+-(void)currentSearchTermChanged:(NSString*)searchTerm
+{
+    if (![_currentSearchTerm isEqualToString: searchTerm]) {
+        _currentSearchTerm = searchTerm;
+        [self updatePredicates];
     }
 }
 
@@ -355,15 +366,31 @@ static NSTableView* findFirstTableView(NSView* target)
                         contextInfo: nil];
 }
 
+-(void)updateTabTitles
+{
+    NSInteger count = [self.targetController.arrangedObjects count];
+    if (count > 0 && _currentSearchTerm.length) {
+        _targetTab.label = [NSString stringWithFormat: @"%@ [%ld]", _originalTitle, (long)count];
+    } else {
+        _targetTab.label = _originalTitle;
+    }
+}
+
 #pragma mark - Observing
 
 -(void)startObserving
 {
     [self.targetController addObserver: self forKeyPath: @"selectedObjects" options: 0 context: 0];
+    [self.targetController addObserver: self forKeyPath: @"arrangedObjects" options: 0 context: 0];
     [self.appDelegate addObserver: self forKeyPath: @"includedSets" options: 0 context: 0];
     if ([self dependsOnFaction]) {
         [self.appDelegate addObserver: self forKeyPath: @"factionName" options: 0 context: 0];
     }
+    NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
+    id currentSearchTermChangedBlock = ^(NSNotification* notification) {
+        [self currentSearchTermChanged: notification.object];
+    };
+    [center addObserverForName: kCurrentSearchTerm object: nil queue: nil usingBlock: currentSearchTermChangedBlock];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -371,6 +398,8 @@ static NSTableView* findFirstTableView(NSView* target)
     if (object == self.targetController) {
         if ([keyPath isEqualToString: @"selectedObjects"]) {
             [self handleSelectionChanged];
+        } else if ([keyPath isEqualToString: @"arrangedObjects"]) {
+            [self updateTabTitles];
         }
     } else if (object == self.appDelegate) {
         if ([keyPath isEqualToString: @"factionName"] || [keyPath isEqualToString: @"includedSets"]) {

@@ -13,6 +13,7 @@
 @property (assign) IBOutlet DockAppDelegate* appDelegate;
 @property (nonatomic, readonly) NSWindow* window;
 @property (nonatomic, readonly) BOOL dependsOnFaction;
+@property (nonatomic, copy) NSString* originalTitle;
 
 // observing
 -(void)startObserving;

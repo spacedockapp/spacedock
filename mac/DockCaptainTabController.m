@@ -50,6 +50,13 @@
     return nil;
 }
 
+#pragma mark - Searching
+
+-(BOOL)hasTitle
+{
+    return YES;
+}
+
 #pragma mark - Showing items
 
 -(BOOL)containsThisKind:(id)item

@@ -22,6 +22,7 @@
 #import "DockNoteEditor.h"
 #import "DockOverrideEditor.h"
 #import "DockResource+Addons.h"
+#import "DockSearchFieldController.h"
 #import "DockSet+Addons.h"
 #import "DockSetItem+Addons.h"
 #import "DockSetTabController.h"
@@ -34,9 +35,11 @@
 #import "DockTech.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
+#import "DockUtilsMac.h"
 #import "DockWeapon.h"
 
 #import "NSFileManager+Addons.h"
+#import "NSToolbar+Addons.h"
 #import "NSTreeController+Additions.h"
 
 NSString* kWarnAboutUnhandledSpecials = @"warnAboutUnhandledSpecials";
@@ -46,9 +49,10 @@ NSString* kExpandedRows = @"expandedRows";
 NSString* kShowDataModelExport = @"showDataModelExport";
 NSString* kSortSquadsByDate = @"sortSquadsByDate";
 
-@interface DockAppDelegate ()
+@interface DockAppDelegate () <NSToolbarDelegate>
 @property (strong, nonatomic) DockDataUpdater* updater;
 @property (strong, nonatomic) IBOutlet DockSquadDetailController* squadDetailController;
+@property (strong, nonatomic) IBOutlet DockSearchFieldController* searchFieldController;
 @property (copy, nonatomic) NSArray* allSets;
 @property (assign, nonatomic) BOOL expandedRows;
 @property (strong, nonatomic) DockBuildMat* buildMat;
@@ -220,6 +224,11 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     
     self.expandedRows = [defaults boolForKey: kExpandedRows];
 
+    NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
+    id currentSearchTermChangedBlock = ^(NSNotification* notification) {
+        [self currentSearchTermChanged: notification.object];
+    };
+    [center addObserverForName: kCurrentSearchTerm object: nil queue: nil usingBlock: currentSearchTermChangedBlock];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
@@ -911,9 +920,14 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
 
 -(IBAction)showInList:(id)sender
 {
-    id target = [_squadDetailController selectedItem];
-    DockEquippedShip* targetShip = [self selectedEquippedShip];
-    [self showInList: target targetShip: targetShip];
+    if ([_searchFieldController hasSearchTerm]) {
+        [_searchFieldController clear];
+        [self performSelector: @selector(showInList:) withObject: self afterDelay: 0.05];
+    } else {
+        id target = [_squadDetailController selectedItem];
+        DockEquippedShip* targetShip = [self selectedEquippedShip];
+        [self showInList: target targetShip: targetShip];
+    }
 }
 
 -(IBAction)showPreferences:(id)sender
@@ -1028,6 +1042,71 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
 {
     _buildMat = [[DockBuildMat alloc] initWithSquad: [self selectedSquad]];
     [_buildMat print];
+}
+
+#pragma mark - Searching
+
+-(void)selectFirstTabWithResults:(id)object
+{
+    NSArray* tabs = [_tabView tabViewItems];
+    NSInteger count = tabs.count;
+    for (NSInteger index = 0; index < count; ++index) {
+        NSTabViewItem* tabItem = tabs[index];
+        NSTableView* tv = findFirstTableView(tabItem.view);
+        if (tv.numberOfRows > 0) {
+            [_tabView selectTabViewItemAtIndex: index];
+            return;
+        }
+    }
+}
+
+-(BOOL)selectNextTabWithResults
+{
+    NSArray* tabs = [_tabView tabViewItems];
+    NSInteger currentIndex = [tabs indexOfObject: [_tabView selectedTabViewItem]];
+    NSInteger count = tabs.count;
+    for (NSInteger index = currentIndex+1; index < count; ++index) {
+        NSTabViewItem* tabItem = tabs[index];
+        NSTableView* tv = findFirstTableView(tabItem.view);
+        if (tv.numberOfRows > 0) {
+            [_tabView selectTabViewItemAtIndex: index];
+            return YES;
+        }
+    }
+    return NO;
+}
+
+-(void)currentSearchTermChanged:(id)object
+{
+    [self performSelector: @selector(selectFirstTabWithResults:) withObject: object afterDelay: 0.02];
+}
+
+-(IBAction)find:(id)sender
+{
+    [_toolbar setVisible: TRUE];
+    NSToolbarDisplayMode currentMode = _toolbar.displayMode;
+    if (currentMode == NSToolbarDisplayModeLabelOnly) {
+        [_toolbar setDisplayMode: NSToolbarDisplayModeIconAndLabel];
+    }
+    [_searchField becomeFirstResponder];
+}
+
+-(IBAction)findAgain:(id)sender
+{
+    NSTabViewItem* currentItem = [_tabView selectedTabViewItem];
+    NSTableView* tv = findFirstTableView(currentItem.view);
+    NSInteger selectedIndex = tv.selectedRow;
+    NSInteger nextIndex = selectedIndex + 1;
+    if (nextIndex < tv.numberOfRows) {
+        [tv selectRowIndexes: [NSIndexSet indexSetWithIndex: nextIndex] byExtendingSelection: NO];
+    } else {
+        if ([self selectNextTabWithResults]) {
+            NSTableView* tv = findFirstTableView(currentItem.view);
+            [tv selectRowIndexes: [NSIndexSet indexSetWithIndex: 0] byExtendingSelection: NO];
+        } else {
+            [self selectFirstTabWithResults: nil];
+        }
+    }
 }
 
 @end

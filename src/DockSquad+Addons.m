@@ -958,6 +958,7 @@ static NSString* namePrefix(NSString* originalName)
         [self willChangeValueForKey: @"resource"];
         [self setPrimitiveValue: resource forKey: @"resource"];
         [self didChangeValueForKey: @"resource"];
+        [resource addSquadObject: self];
 
         if ([resource isSideboard]) {
             [self addSideboard];

@@ -17,6 +17,15 @@
     return NO;
 }
 
+#pragma mark - Filtering
+
+-(void)addAdditionalPredicatesForSearchTerm:(NSString*)searchTerm formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments
+{
+    [formatParts addObject: @"(productName contains[cd] %@)"];
+    [arguments addObject: searchTerm];
+}
+
+
 #pragma mark - Adding to ship
 
 -(BOOL)canAddItem:(DockSetItem*)item toShip:(DockEquippedShip*)ship

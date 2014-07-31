@@ -40,6 +40,8 @@ extern NSString* kExpandSquads;
 @property (assign) IBOutlet DockFleetBuildSheet* fleetBuildSheet2;
 @property (assign) IBOutlet DockNoteEditor* noteEditor;
 @property (assign) IBOutlet DockOverrideEditor* overrideEditor;
+@property (assign) IBOutlet NSToolbar* toolbar;
+@property (assign) IBOutlet NSSearchField* searchField;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel* managedObjectModel;
@@ -51,24 +53,7 @@ extern NSString* kExpandSquads;
 
 
 +(NSURL*)applicationFilesDirectory;
-#if 0
--(IBAction)saveAction:(id)sender;
--(IBAction)addSquad:(id)sender;
--(IBAction)addSelected:(id)sender;
--(IBAction)deleteSelectedShip:(id)sender;
--(IBAction)addSelectedUpgradeAction:(id)sender;
--(IBAction)deleteSelectedUpgradeAction:(id)sender;
--(IBAction)duplicate:(id)sender;
--(IBAction)expandAll:(id)sender;
--(IBAction)exportSquad:(id)sender;
--(IBAction)setFormat:(id)sender;
--(IBAction)importSquad:(id)sender;
--(IBAction)resetFactionFilter:(id)sender;
--(IBAction)filterToFaction:(id)sender;
--(IBAction)showInspector:(id)sender;
--(IBAction)overrideCost:(id)sender;
--(IBAction)showInList:(id)sender;
-#endif
+-(IBAction)printFleetBuildSheet:(id)sender;
 
 -(void)selectUpgrade:(DockEquippedUpgrade*)theUpgrade;
 -(void)selectShip:(DockEquippedShip*)theShip;
