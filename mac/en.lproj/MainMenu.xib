@@ -4835,14 +4835,14 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <tableView identifier="end" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="14" id="vBm-H1-RoY">
-                                                <rect key="frame" x="0.0" y="0.0" width="229" height="77"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="232" height="77"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <size key="intercellSpacing" width="3" height="2"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <tableViewGridLines key="gridStyleMask" vertical="YES" horizontal="YES"/>
                                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                 <tableColumns>
-                                                    <tableColumn identifier="result" width="92" maxWidth="9999" id="wei-vF-ghd">
+                                                    <tableColumn identifier="result" width="40" minWidth="40" maxWidth="80" id="wei-vF-ghd" userLabel="result">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Round">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -4855,7 +4855,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="fp" width="8" maxWidth="9999" id="sSZ-So-3lC">
+                                                    <tableColumn identifier="fp" width="60" minWidth="60" maxWidth="100" id="sSZ-So-3lC" userLabel="your fleet points">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Opponents Name">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -4868,7 +4868,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="cfp" width="16" maxWidth="9999" id="tKZ-05-bF5">
+                                                    <tableColumn identifier="cfp" width="60" minWidth="60" maxWidth="100" id="tKZ-05-bF5">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -4881,7 +4881,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn identifier="initials" width="100.5" maxWidth="9999" id="vLw-H6-RFc">
+                                                    <tableColumn identifier="initials" width="60" minWidth="60" maxWidth="60" id="vLw-H6-RFc">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -5229,7 +5229,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                     </customView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="t4p-6e-B3a">
-                        <rect key="frame" x="15" y="212" width="468" height="41"/>
+                        <rect key="frame" x="15" y="212.00002179785369" width="468" height="41"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" borderStyle="border" alignment="left" title="Notes" id="WQ9-sP-5ob">
                             <font key="font" size="13" name="CourierNewPSMT"/>
@@ -5927,14 +5927,14 @@
         <window title="Fleet Sheet Details" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="FRw-fg-nD7">
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="283" y="348" width="300" height="232"/>
+            <rect key="contentRect" x="283" y="348" width="300" height="248"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1578"/>
             <view key="contentView" id="U9b-1e-Kzp">
-                <rect key="frame" x="0.0" y="0.0" width="300" height="232"/>
+                <rect key="frame" x="0.0" y="0.0" width="300" height="248"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <datePicker verticalHuggingPriority="750" id="aXL-HD-YcM">
-                        <rect key="frame" x="78" y="59" width="107" height="32"/>
+                        <rect key="frame" x="78" y="75" width="107" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="WZd-qC-Lz8">
                             <font key="font" metaFont="system"/>
@@ -5970,7 +5970,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </datePicker>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="4QD-t0-O1V">
-                        <rect key="frame" x="34" y="64" width="38" height="17"/>
+                        <rect key="frame" x="34" y="80" width="38" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Date:" id="GYx-9N-Wmw">
                             <font key="font" metaFont="system"/>
@@ -5979,7 +5979,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="9pC-BS-agf">
-                        <rect key="frame" x="29" y="193" width="43" height="17"/>
+                        <rect key="frame" x="29" y="209" width="43" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Event:" id="KoB-cS-zeX">
                             <font key="font" metaFont="system"/>
@@ -5988,7 +5988,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="IWq-Do-Axv">
-                        <rect key="frame" x="18" y="160" width="54" height="17"/>
+                        <rect key="frame" x="18" y="176" width="54" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Faction:" id="RT8-tU-0LG">
                             <font key="font" metaFont="system"/>
@@ -5997,7 +5997,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="MBw-29-Aob">
-                        <rect key="frame" x="27" y="128" width="45" height="17"/>
+                        <rect key="frame" x="27" y="144" width="45" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Name:" id="u6P-eR-hK2">
                             <font key="font" metaFont="system"/>
@@ -6006,7 +6006,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="HuQ-sm-ysu">
-                        <rect key="frame" x="30" y="97" width="42" height="17"/>
+                        <rect key="frame" x="30" y="113" width="42" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Email:" id="4Dh-MF-l5O">
                             <font key="font" metaFont="system"/>
@@ -6015,7 +6015,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" id="QhA-YI-5Ra">
-                        <rect key="frame" x="78" y="190" width="202" height="22"/>
+                        <rect key="frame" x="78" y="206" width="202" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="fu0-UA-EVt">
                             <font key="font" metaFont="system"/>
@@ -6027,7 +6027,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" id="rDm-uV-qPI">
-                        <rect key="frame" x="78" y="158" width="202" height="22"/>
+                        <rect key="frame" x="78" y="174" width="202" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ggc-bv-x74">
                             <font key="font" metaFont="system"/>
@@ -6039,7 +6039,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" id="SW6-Ci-CIR">
-                        <rect key="frame" x="78" y="126" width="202" height="22"/>
+                        <rect key="frame" x="78" y="142" width="202" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="k2u-Yh-3IM">
                             <font key="font" metaFont="system"/>
@@ -6051,7 +6051,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" id="uuo-Jt-Q7k">
-                        <rect key="frame" x="78" y="94" width="202" height="22"/>
+                        <rect key="frame" x="78" y="110" width="202" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ys1-GU-87z">
                             <font key="font" metaFont="system"/>
@@ -6088,6 +6088,17 @@ Gw
                         </buttonCell>
                         <connections>
                             <action selector="cancel:" target="Izs-mh-ARI" id="rV6-Nt-ULb"/>
+                        </connections>
+                    </button>
+                    <button id="zbJ-hw-sPc">
+                        <rect key="frame" x="73" y="51" width="180" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Event uses Blind Boosters" bezelStyle="regularSquare" imagePosition="left" inset="2" id="07P-6Z-0fW">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <binding destination="Izs-mh-ARI" name="value" keyPath="self.usesBlindBoosters" id="z1T-ud-iIf"/>
                         </connections>
                     </button>
                 </subviews>

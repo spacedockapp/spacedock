@@ -58,6 +58,7 @@
 @property (nonatomic, strong) NSMutableArray* upgrades;
 @property (nonatomic, assign) int extraRows;
 @property (nonatomic, assign) double fontSize;
+@property (nonatomic, assign) BOOL usesBlindBoosters;
 @end
 
 const int kExtraRows = 3;
@@ -95,11 +96,16 @@ const int kExtraRows = 3;
     } else {
         _upgrades = nil;
     }
-    [_totalSP setIntValue: _equippedShip.cost];
+    int cost = _equippedShip.cost;
+    if (cost > 0) {
+        [_totalSP setIntValue: cost];
+    }
     [_shipGrid reloadData];
     if (_upgrades.count > 10) {
         self.fontSize = 5;
         self.shipGrid.rowHeight = 8;
+    } else if (_upgrades.count == 0 && self.usesBlindBoosters) {
+        self.shipGrid.rowHeight = 15;
     } else {
         self.fontSize = 7;
         self.shipGrid.rowHeight = 11;
@@ -111,7 +117,7 @@ const int kExtraRows = 3;
     if (_upgrades) {
         return _upgrades.count + _extraRows;
     }
-    return 0;
+    return 1;
 }
 
 NSAttributedString* headerText(NSString* string)
@@ -299,6 +305,13 @@ NSAttributedString* headerText(NSString* string)
 
 -(void)awakeFromNib
 {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    self.name = [defaults stringForKey: @"name"];
+    self.eventName = [defaults stringForKey: @"eventName"];
+    self.email = [defaults stringForKey: @"email"];
+    self.faction = [defaults stringForKey: @"faction"];
+    self.usesBlindBoosters = [defaults boolForKey: @"usesBlindBoosters"];
+
     self.eventDate = [NSDate date];
     _buildShips = [[NSMutableArray alloc] init];
     NSArray* views = @[_box1, _box2, _box3, _box4, _box5, _box6, _box7, _box8, _box9, _box10];
@@ -312,13 +325,9 @@ NSAttributedString* headerText(NSString* string)
         [ship.gridContainer setFrameSize: view.frame.size];
         [view addSubview: ship.gridContainer];
         [_buildShips addObject: ship];
+        ship.usesBlindBoosters = self.usesBlindBoosters;
     }
     
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    self.name = [defaults stringForKey: @"name"];
-    self.eventName = [defaults stringForKey: @"eventName"];
-    self.email = [defaults stringForKey: @"email"];
-    self.faction = [defaults stringForKey: @"faction"];
 }
 
 static float heightForStringDrawing(NSString *targetString, NSFont *targetFont, float targetWidth)
@@ -375,6 +384,7 @@ static float heightForStringDrawing(NSString *targetString, NSFont *targetFont, 
         }
         DockFleetBuildSheetShip* buildSheetShip = _buildShips[i];
         buildSheetShip.equippedShip = equippedShip;
+        buildSheetShip.usesBlindBoosters = self.usesBlindBoosters;
     }
     
     [_resourceTitleField setStringValue: [self resourceTile]];
@@ -503,6 +513,11 @@ static float heightForStringDrawing(NSString *targetString, NSFont *targetFont, 
         return [self otherCost];
         
     }
+
+    if (self.usesBlindBoosters) {
+        return @"";
+    }
+
     return [NSNumber numberWithInt: _targetSquad.cost];
 }
 
@@ -587,6 +602,14 @@ static float heightForStringDrawing(NSString *targetString, NSFont *targetFont, 
     _name = name;
     [[NSUserDefaults standardUserDefaults] setObject: _name forKey: @"name"];
     [self didChangeValueForKey: @"name"];
+}
+
+-(void)setUsesBlindBoosters:(BOOL)usesBlindBoosters
+{
+    [self willChangeValueForKey: @"usesBlindBoosters"];
+    _usesBlindBoosters = usesBlindBoosters;
+    [[NSUserDefaults standardUserDefaults] setBool: usesBlindBoosters forKey: @"usesBlindBoosters"];
+    [self didChangeValueForKey: @"usesBlindBoosters"];
 }
 
 @end
