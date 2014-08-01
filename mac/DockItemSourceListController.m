@@ -40,7 +40,9 @@
     NSString* name = _identToName[identifier];
     NSInteger row = [self rowForName: name];
     if (row != NSNotFound) {
+        NSInteger selectedRow = [_outlineView selectedRow];
         [_outlineView reloadData];
+        [_outlineView selectRowIndexes: [NSIndexSet indexSetWithIndex: selectedRow] byExtendingSelection: NO];
     }
 }
 
@@ -58,6 +60,7 @@
     _identToName = [NSDictionary dictionaryWithDictionary: identToName];
     [_outlineView reloadData];
     [self expand];
+    [self selectItemWithName: @"Ships"];
 }
 
 -(void)selectItemWithName:(NSString*)itemName
@@ -197,11 +200,9 @@
         NSString* identifier = _nameToIdent[item];
         DockTabController* tc = [DockTabController tabControllerForIdentifier: identifier];
         if (tc == nil) {
-            NSLog(@"couldn't find tc %@ for item %@", identifier, item);
             result.textField.stringValue = @"";
         } else {
             NSInteger results = tc.searchResultsCount;
-            NSLog(@"search results item:%@ ident: %@ is %ld", item, identifier, results);
             if (results < 1) {
                 result.textField.stringValue = @"";
             } else {

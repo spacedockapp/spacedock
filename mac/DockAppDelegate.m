@@ -1066,7 +1066,10 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
 
 -(void)currentSearchTermChanged:(id)object
 {
-    [self performSelector: @selector(selectFirstTabWithResults:) withObject: object afterDelay: 0.02];
+    NSString* searchTerm = object;
+    if (searchTerm.length > 0) {
+        [self performSelector: @selector(selectFirstTabWithResults:) withObject: object afterDelay: 0.02];
+    }
 }
 
 -(IBAction)find:(id)sender
