@@ -14,6 +14,7 @@
 -(DockEquippedShip*)duplicate;
 -(DockEquippedUpgrade*)equippedCaptain;
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade;
+-(BOOL)canAddUpgrade:(DockUpgrade*)upgrade ignoreInstalled:(BOOL)ignoreInstalled;
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade;
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace;
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace establishPlaceholders:(BOOL)establish;

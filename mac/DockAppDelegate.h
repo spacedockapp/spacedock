@@ -4,6 +4,7 @@
 @class DockEquippedUpgrade;
 @class DockFleetBuildSheet;
 @class DockInspector;
+@class DockItemSourceListController;
 @class DockNoteEditor;
 @class DockOverrideEditor;
 @class DockSetTabController;
@@ -29,7 +30,7 @@ extern NSString* kExpandSquads;
 @property (assign) IBOutlet DockTabController* flagshipsTabController;
 @property (assign) IBOutlet DockSetTabController* setsTabController;
 @property (assign) IBOutlet DockTabController* referenceTabController;
-@property (assign) IBOutlet NSPopUpButton* exportFormatPopup;
+@property (assign) IBOutlet DockItemSourceListController* itemSourceListController;
 @property (assign) IBOutlet NSTableView* upgradesTableView;
 @property (assign) IBOutlet NSTableView* setsTableView;
 @property (assign) IBOutlet NSTableView* squadsTableView;
@@ -42,6 +43,7 @@ extern NSString* kExpandSquads;
 @property (assign) IBOutlet DockOverrideEditor* overrideEditor;
 @property (assign) IBOutlet NSToolbar* toolbar;
 @property (assign) IBOutlet NSSearchField* searchField;
+
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator* persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel* managedObjectModel;

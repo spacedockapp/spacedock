@@ -14,6 +14,11 @@
 @property (nonatomic, readonly) NSWindow* window;
 @property (nonatomic, readonly) BOOL dependsOnFaction;
 @property (nonatomic, copy) NSString* originalTitle;
+@property (assign, nonatomic) NSInteger searchResultsCount;
+
+// all tab controllers
++(NSArray*)allTabControllers;
++(DockTabController*)tabControllerForIdentifier:(NSString*)identifier;
 
 // observing
 -(void)startObserving;

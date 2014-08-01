@@ -38,9 +38,15 @@
     if (targetShip == nil) {
         return YES;
     }
-    if (![targetShip canAddUpgrade: self]) {
+
+    if (![targetShip canAddUpgrade: self ignoreInstalled: YES]) {
         return NO;
     }
+
+    if (![self.unique boolValue]) {
+        return YES;
+    }
+    
     DockEquippedUpgrade* existing = [targetShip.squad containsUpgradeWithName: self.title];
     return existing == nil;
 }

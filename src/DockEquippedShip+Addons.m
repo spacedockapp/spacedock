@@ -446,7 +446,7 @@
     }
 }
 
--(BOOL)canAddUpgrade:(DockUpgrade*)upgrade
+-(BOOL)canAddUpgrade:(DockUpgrade*)upgrade ignoreInstalled:(BOOL)ignoreInstalled
 {
     if ([upgrade isTalent]) {
         DockCaptain* captain = [self captain];
@@ -561,8 +561,17 @@
         }
     }
 
+    if (ignoreInstalled) {
+        return YES;
+    }
+
     int limit = [upgrade limitForShip: self];
     return limit > 0;
+}
+
+-(BOOL)canAddUpgrade:(DockUpgrade*)upgrade
+{
+    return [self canAddUpgrade: upgrade ignoreInstalled: NO];
 }
 
 -(NSDictionary*)explainCantAddUpgrade:(DockUpgrade*)upgrade

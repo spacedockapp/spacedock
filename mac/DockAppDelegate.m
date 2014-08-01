@@ -19,6 +19,7 @@
 #import "DockFlagship+MacAddons.h"
 #import "DockFleetBuildSheet.h"
 #import "DockInspector.h"
+#import "DockItemSourceListController.h"
 #import "DockNoteEditor.h"
 #import "DockOverrideEditor.h"
 #import "DockResource+Addons.h"
@@ -229,6 +230,8 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
         [self currentSearchTermChanged: notification.object];
     };
     [center addObserverForName: kCurrentSearchTerm object: nil queue: nil usingBlock: currentSearchTermChangedBlock];
+
+    [_itemSourceListController setupForTabs];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
@@ -579,21 +582,6 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     }
      
      ];
-}
-
--(IBAction)setFormat:(id)sender
-{
-    NSString* newExtension = @"txt";
-    NSInteger formatSelected = self.exportFormatPopup.selectedTag;
-
-    if (formatSelected == 2) {
-        newExtension = kSpaceDockSquadFileExtension;
-    }
-
-    NSString* currentName = [_currentSavePanel nameFieldStringValue];
-    NSString* currentBaseName = [currentName stringByDeletingPathExtension];
-    NSString* newName = [currentBaseName stringByAppendingPathExtension: newExtension];
-    [_currentSavePanel setNameFieldStringValue: newName];
 }
 
 -(IBAction)importSquad:(id)sender

@@ -24,7 +24,24 @@ NSMutableArray* sTabControllers = nil;
 
 +(void)initialize
 {
-    sTabControllers = [[NSMutableArray alloc] init];
+    if (sTabControllers == nil) {
+        sTabControllers = [[NSMutableArray alloc] init];
+    }
+}
+
++(NSArray*)allTabControllers
+{
+    return [NSArray arrayWithArray: sTabControllers];
+}
+
++(DockTabController*)tabControllerForIdentifier:(NSString*)identifier
+{
+    for (DockTabController* tc in sTabControllers) {
+        if ([tc.targetTab.identifier isEqualToString: identifier]) {
+            return tc;
+        }
+    }
+    return nil;
 }
 
 -(void)awakeFromNib
@@ -33,6 +50,7 @@ NSMutableArray* sTabControllers = nil;
     assert(self.targetController != nil);
     assert(self.targetTab != nil);
     [super awakeFromNib];
+    self.searchResultsCount = -1;
     self.originalTitle = _targetTab.label;
     [sTabControllers addObject: self];
     _targetTable = findFirstTableView(self.targetTab.view);
@@ -366,13 +384,13 @@ NSMutableArray* sTabControllers = nil;
                         contextInfo: nil];
 }
 
--(void)updateTabTitles
+-(void)updateSearchResultsCount
 {
     NSInteger count = [self.targetController.arrangedObjects count];
     if (count > 0 && _currentSearchTerm.length) {
-        _targetTab.label = [NSString stringWithFormat: @"%@ [%ld]", _originalTitle, (long)count];
+        self.searchResultsCount = count;
     } else {
-        _targetTab.label = _originalTitle;
+        self.searchResultsCount = -1;
     }
 }
 
@@ -399,7 +417,7 @@ NSMutableArray* sTabControllers = nil;
         if ([keyPath isEqualToString: @"selectedObjects"]) {
             [self handleSelectionChanged];
         } else if ([keyPath isEqualToString: @"arrangedObjects"]) {
-            [self updateTabTitles];
+            [self updateSearchResultsCount];
         }
     } else if (object == self.appDelegate) {
         if ([keyPath isEqualToString: @"factionName"] || [keyPath isEqualToString: @"includedSets"]) {
