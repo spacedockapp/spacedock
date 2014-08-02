@@ -1,3 +1,9 @@
+### Version 1.1b3 build 72 (2014-7-25)
+
+* Add a search function.
+* Switch from top tabs to a left side source list so there's room for fleet captains.
+* Add an option when printing to make the sheet easier for adding a blind booster ship.
+
 ### Version 1.1b2 build 70 (2014-7-25)
 
 * Clean up the inspector. All you should notice is that it shows the wrong info less often.

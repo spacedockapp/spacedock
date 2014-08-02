@@ -96,7 +96,7 @@
     _itemNames = @[
                    @"Ships",
                    @"Captains",
-                   @"Fleet Captains",
+//                   @"Fleet Captains",
                    kUpgrades,
                    @"Admirals",
                    @"Resources",
@@ -109,7 +109,8 @@
                 @"Ships", @"Captains", kUpgrades
                 ];
     _extras = @[
-                @"Fleet Captains", @"Admirals", @"Flagships", @"Resources"
+//                @"Fleet Captains",
+                @"Admirals", @"Flagships", @"Resources"
                 ];
     _other = @[
                @"Sets", @"Reference"
@@ -144,6 +145,11 @@
 {
     BOOL isGroupItem = (item != nil) && ([_groups containsObject: item]);
     return isGroupItem;
+}
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item
+{
+    return ![self isGroupItem: item];
 }
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
