@@ -12,3 +12,5 @@ NSString* kFlagshipPrintingError = @"When using a flagship resource you must ass
 NSString* kSquadTooLargeToPrint = @"This version of Space Dock cannot print build sheets for squads with more than ten ships.";
 
 NSString* kDockBundleIdentifier = @"com.funnyhatsoftware.Space_Dock";
+
+NSString* kFleetCaptainUpgradeType = @"Fleet Captain";

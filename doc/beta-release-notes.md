@@ -1,4 +1,9 @@
-### Version 1.1b3 build 72 (2014-7-25)
+### Version 1.1b4 build 73 (2014-8-1)
+
+* Add Fleet Captains TC OP2 participation prize.
+* Add U.S.S. Raven TC OP2 competitive prize.
+
+### Version 1.1b3 build 72 (2014-8-1)
 
 * Add a search function.
 * Switch from top tabs to a left side source list so there's room for fleet captains.

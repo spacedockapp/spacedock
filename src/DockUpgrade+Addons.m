@@ -1,6 +1,7 @@
 #import "DockUpgrade+Addons.h"
 
 #import "DockCaptain+Addons.h"
+#import "DockConstants.h"
 #import "DockCrew.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
@@ -134,6 +135,11 @@
     return [self.upType isEqualToString: @"Admiral"];
 }
 
+-(BOOL)isFleetCaptain
+{
+    return [self.upType isEqualToString: kFleetCaptainUpgradeType];
+}
+
 -(BOOL)isTech
 {
     return [self.upType isEqualToString: @"Tech"];
@@ -236,6 +242,10 @@
         return [targetShip admiralCount];
     }
 
+    if ([self isFleetCaptain]) {
+        return [targetShip fleetCaptainCount];
+    }
+
     if ([self isTalent]) {
         return [targetShip talentCount];
     }
@@ -291,7 +301,11 @@
 -(NSString*)upSortType
 {
     if ([self isAdmiral]) {
-        return @"AAAAAdmiral";
+        return @"AAAAAAdmiral";
+    }
+
+    if ([self isFleetCaptain]) {
+        return @"AAAACaptain";
     }
 
     if ([self isCaptain]) {
@@ -386,6 +400,10 @@
 
     if ([upgrade isPlaceholder]) {
         return 0;
+    }
+
+    if ([upgrade isFleetCaptain]) {
+        return [[upgrade cost] intValue];
     }
 
     int originalCost = [upgrade.cost intValue];
@@ -600,6 +618,11 @@
     if ([externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
         return 1;
     }
+    return 0;
+}
+
+-(int)additionalTalentSlots
+{
     return 0;
 }
 

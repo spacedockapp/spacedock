@@ -2,10 +2,13 @@
 
 #import "DockAdmiral+Addons.h"
 #import "DockCaptain+Addons.h"
+#import "DockConstants.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockEquippedUpgrade.h"
 #import "DockEquippedFlagship.h"
+#import "DockErrors.h"
+#import "DockFleetCaptain+Addons.h"
 #import "DockFlagship+Addons.h"
 #import "DockResource+Addons.h"
 #import "DockSet+Addons.h"
@@ -639,6 +642,44 @@
              };
 }
 
+-(void)makeError:(NSError**)error msg:(NSString*)msg info:(NSString*)info
+{
+    if (error) {
+        NSDictionary* d = @{
+            NSLocalizedDescriptionKey: msg,
+            NSLocalizedFailureReasonErrorKey: info
+        };
+        *error = [NSError errorWithDomain: DockErrorDomain code: kUniqueConflict userInfo: d];
+    }
+}
+
+-(BOOL)canAddFleetCaptain:(DockFleetCaptain*)fleetCaptain error:(NSError**)error
+{
+    DockCaptain* captain = [self captain];
+    NSString* msg = [NSString stringWithFormat: @"Can't make %@ the Fleet Captain.", captain.title];
+    if ([captain.skill intValue] < 2) {
+        NSString* info = @"You may not assign a non-unique Captain as your Fleet Captain.";
+        [self makeError: error msg:msg info: info];
+        return NO;
+    }
+
+    NSString* fleetCaptainFaction = fleetCaptain.faction;
+    if (![fleetCaptainFaction isEqualToString: @"Independent"]) {
+        if (!factionsMatch(self.ship, fleetCaptain)) {
+            NSString* info = @"The ship's faction must be the same as the Fleet Captain.";
+            [self makeError: error msg:msg info: info];
+            return NO;
+        }
+        if (!factionsMatch(captain, fleetCaptain)) {
+            NSString* info = @"The Captain's faction must be the same as the Fleet Captain.";
+            [self makeError: error msg:msg info: info];
+            return NO;
+        }
+    }
+
+    return YES;
+}
+
 -(DockEquippedUpgrade*)addUpgradeInternal:(DockEquippedUpgrade *)equippedUpgrade
 {
     [self willChangeValueForKey: @"cost"];
@@ -873,12 +914,23 @@
 
 -(int)talentCount
 {
+    int talentCount = 0;
+    talentCount += [self.flagship talentAdd];
+    for (DockEquippedUpgrade* eu in self.upgrades) {
+        DockUpgrade* upgrade = eu.upgrade;
+        talentCount += [upgrade additionalTalentSlots];
+    }
+
+    return talentCount;
+
+#if 0
     DockCaptain* captain = [self captain];
     int talentCount = [captain talentCount];
     DockAdmiral* admiral = [self admiral];
     talentCount += admiral.admiralTalentCount;
     talentCount += [self.flagship talentAdd];
     return talentCount;
+#endif
 }
 
 -(int)shipPropertyCount:(NSString*)propertyName
@@ -945,6 +997,11 @@
 -(int)admiralCount
 {
     return self.ship.admiralCount;
+}
+
+-(int)fleetCaptainCount
+{
+    return self.ship.fleetCaptainCount;
 }
 
 -(int)borgCount
@@ -1149,6 +1206,22 @@
         DockUpgrade* upgrade = eu.upgrade;
 
         if ([upgrade.upType isEqualToString: @"Admiral"]) {
+            return eu;
+        }
+    }
+    return nil;
+}
+
+-(DockEquippedUpgrade*)equippedFleetCaptain
+{
+    if (self.ship.isFighterSquadron) {
+        return nil;
+    }
+    
+    for (DockEquippedUpgrade* eu in self.upgrades) {
+        DockUpgrade* upgrade = eu.upgrade;
+
+        if ([upgrade.upType isEqualToString: kFleetCaptainUpgradeType]) {
             return eu;
         }
     }

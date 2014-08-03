@@ -392,7 +392,7 @@ static NSDictionary* copyProperties(id target, NSArray* propertyList)
         self.currentEquippedFlagship = [self extractFlagshipProperties: efs.flagship];
         self.currentEquippedSetName = self.currentEquippedFlagship[@"setName"];
         self.currentEquippedTabIdentifier = @"flagship";
-    } else if ([object isMemberOfClass: [DockEquippedShip class]]) {
+    } else if ([object isKindOfClass: [DockEquippedShip class]]) {
         DockEquippedShip* es = object;
         self.currentEquippedShip = [self extractShipProperties: es.ship];
         self.equippedShip = es.ship;

@@ -280,6 +280,14 @@ NSString* asDegrees(NSString* textValue)
     return 1;
 }
 
+-(int)fleetCaptainCount
+{
+    if (self.isFighterSquadron) {
+        return 0;
+    }
+    return 1;
+}
+
 -(int)borgCount
 {
     return [self.borg intValue];

@@ -180,4 +180,24 @@
     return [NSDictionary dictionaryWithDictionary: json];
 }
 
+-(int)additionalWeaponSlots
+{
+    return self.upgrade.additionalWeaponSlots;
+}
+
+-(int)additionalTechSlots
+{
+    return self.upgrade.additionalTechSlots;
+}
+
+-(int)additionalCrewSlots
+{
+    return self.upgrade.additionalCrewSlots;
+}
+
+-(int)additionalTalentSlots
+{
+    return self.upgrade.additionalTalentSlots;
+}
+
 @end

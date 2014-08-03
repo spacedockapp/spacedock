@@ -521,6 +521,8 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
         [self.resourcesTabController addSelectedToSquad: [self selectedSquad] ship: selectedShip selectedItem: maybeUpgrade];
     } else if ([identifier isEqualToString: @"ships"]) {
         [self.shipsTabController addSelectedToSquad: [self selectedSquad] ship: selectedShip selectedItem: maybeUpgrade];
+    } else if ([identifier isEqualToString: @"fleetCaptains"]) {
+        [self.fleetCaptainsTabController addSelectedToSquad: [self selectedSquad] ship: selectedShip selectedItem: maybeUpgrade];
     }
 }
 

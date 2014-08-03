@@ -7,6 +7,7 @@
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockErrors.h"
 #import "DockFlagship+Addons.h"
+#import "DockFleetCaptain+Addons.h"
 #import "DockResource+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSideboard+Addons.h"
@@ -432,13 +433,11 @@ static BOOL sIsImporting = NO;
     int cost = 0;
 
     for (DockEquippedShip* ship in self.equippedShips) {
-        if (![ship isResourceSideboard]) {
-            cost += [ship cost];
-        }
+        cost += [ship cost];
     }
 
     DockResource* resource = self.resource;
-    if (self.resource != nil && !resource.isFlagship && !resource.isFighterSquadron) {
+    if (![resource isEquippedIntoSquad: self]) {
         cost += [self.resource.cost intValue];
     }
     
@@ -529,7 +528,7 @@ static BOOL sIsImporting = NO;
         [textFormat appendString: s];
     }
 
-    if (resource != nil && ![resource isEquippedIntoSquad]) {
+    if (resource != nil && ![resource isEquippedIntoSquad: self]) {
         NSString* resourceString = [resource asPlainTextFormat];
         [textFormat appendString: resourceString];
         [textFormat appendString: @"\n"];
@@ -821,6 +820,39 @@ static NSString* namePrefix(NSString* originalName)
     return [targetShip addAdmiral: admiral];
 }
 
+-(BOOL)canAddFleetCaptain:(DockFleetCaptain*)fleetCaptain toShip:(DockEquippedShip*)targetShip error:(NSError**)error
+{
+    if (![targetShip canAddFleetCaptain: fleetCaptain error: error]) {
+        return NO;
+    }
+    
+    DockEquippedUpgrade* existingInstalledFleetCaptain = [self equippedFleetCaptain];
+    DockFleetCaptain* existingFleetCaptain = (DockFleetCaptain*)[existingInstalledFleetCaptain upgrade];
+
+    if (fleetCaptain == existingFleetCaptain) {
+        return YES;
+    }
+
+    return YES;
+}
+
+-(DockEquippedUpgrade*)addFleetCaptain:(DockFleetCaptain*)fleetCaptain toShip:(DockEquippedShip*)targetShip error:(NSError**)error
+{
+    if (![self canAddFleetCaptain: fleetCaptain toShip: targetShip error: error]) {
+        return nil;
+    }
+
+    DockResource* resource = [fleetCaptain associatedResource];
+    self.resource = resource;
+
+    DockEquippedUpgrade* existingInstalledFleetCaptain = [self equippedFleetCaptain];
+    if (existingInstalledFleetCaptain) {
+        [existingInstalledFleetCaptain.equippedShip removeUpgrade: existingInstalledFleetCaptain];
+    }
+
+    return [targetShip addUpgrade: fleetCaptain];
+}
+
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade toShip:(DockEquippedShip*)targetShip error:(NSError**)error
 {
     if (upgrade.isAdmiral) {
@@ -995,6 +1027,17 @@ static NSString* namePrefix(NSString* originalName)
         DockEquippedUpgrade* equippedAdmiral = equippedShip.equippedAdmiral;
         if (equippedAdmiral != nil) {
             return equippedAdmiral;
+        }
+    }
+    return nil;
+}
+
+-(DockEquippedUpgrade*)equippedFleetCaptain
+{
+    for (DockEquippedShip* equippedShip in self.equippedShips) {
+        DockEquippedUpgrade* e = equippedShip.equippedFleetCaptain;
+        if (e != nil) {
+            return e;
         }
     }
     return nil;

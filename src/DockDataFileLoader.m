@@ -10,6 +10,7 @@
 #import "DockEquippedShip.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockFlagship.h"
+#import "DockFleetCaptain.h"
 #import "DockResource.h"
 #import "DockReference.h"
 #import "DockSet+Addons.h"
@@ -59,8 +60,8 @@
 
 -(void)reset
 {
-    _listElementNames = [NSSet setWithArray: @[@"Sets", @"Upgrades", @"Captains", @"Admirals", @"Ships", @"Resources", @"Maneuvers", @"ShipClassDetails", @"Flagships", @"ReferenceItems"]];
-    _itemElementNames = [NSSet setWithArray: @[@"Set", @"Upgrade", @"Captain", @"Admiral", @"Ship", @"Resource", @"Maneuver", @"ShipClassDetail", @"Flagship", @"Reference"]];
+    _listElementNames = [NSSet setWithArray: @[@"Sets", @"Upgrades", @"Captains", @"Admirals", @"Ships", @"Resources", @"Maneuvers", @"ShipClassDetails", @"Flagships", @"FleetCaptains", @"ReferenceItems"]];
+    _itemElementNames = [NSSet setWithArray: @[@"Set", @"Upgrade", @"Captain", @"Admiral", @"Ship", @"Resource", @"Maneuver", @"ShipClassDetail", @"Flagship", @"FleetCaptain", @"Reference"]];
     _elementNameStack = [[NSMutableArray alloc] initWithCapacity: 0];
     _listStack = [[NSMutableArray alloc] initWithCapacity: 0];
     _elementStack = [[NSMutableArray alloc] initWithCapacity: 0];
@@ -166,10 +167,6 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
 
     for (NSDictionary* d in items) {
         NSString* nodeType = d[@"Type"];
-        if ([d valueForKey: @"AdditonalFaction"]) {
-            NSLog(@"here's one");
-        }
-
         if (targetType == nil || [nodeType isEqualToString: targetType]) {
             NSString* externalId = d[@"Id"];
             id c = existingItemsLookup[externalId];
@@ -573,6 +570,7 @@ static NSString* makeKey(NSString* key)
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockBorg class] entityName: @"Borg" targetType: @"Borg"];
     [self loadItems: xmlData[@"Resources"] itemClass: [DockResource class] entityName: @"Resource" targetType: @"Resource"];
     [self loadItems: xmlData[@"Flagships"] itemClass: [DockFlagship class] entityName: @"Flagship" targetType: nil];
+    [self loadItems: xmlData[@"FleetCaptains"] itemClass: [DockFleetCaptain class] entityName: @"FleetCaptain" targetType: nil];
     [self loadItems: xmlData[@"ReferenceItems"] itemClass: [DockReference class] entityName: @"Reference" targetType: nil];
 
     return [self.managedObjectContext save: error];

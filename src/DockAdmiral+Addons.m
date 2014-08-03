@@ -12,4 +12,9 @@
     return [self.admiralTalent intValue];
 }
 
+-(int)additionalTalentSlots
+{
+    return [self.admiralTalent intValue];
+}
+
 @end

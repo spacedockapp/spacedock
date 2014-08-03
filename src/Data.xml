@@ -1,4 +1,4 @@
-<Data version="1.236">
+<Data version="2014-08-04">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -9292,6 +9292,26 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
         <Id>counter attack die_collectiveop1</Id>
         <Set>CollectiveOP1</Set>
       </Resource>
+      <Resource>
+        <Title>Fleet Captain</Title>
+        <Unique>Y</Unique>
+        <Ability>1) Players receive a set of 4 Fleet Captain Cards (with 2 options on each card) and choose 1 of those options to use during the Tournament. There are 4 Independent options and 1 option for each faction: Federation, Klingon, Romulan and Dominion. If a Federation, Klingon, Romulan or Dominion Fleet Captain option is chosen, players must assign a Captain of the same Faction as their Fleet Captain and that chosen Captain must also be assigned to a ship of that same Faction. If an Independent option is chosen, however, players may assign any Captain as their Fleet Captain and pay no Faction penalty. That Captain is considered to be both Independent as well as their own Faction.
+
+2) Fleet Captain Cards are oversized cards that are placed beneath your Captain Card. These cards will have additional stats that increase the Skill of your Captain. In addition, Fleet Captain Cards may add bonus text-based abilities and Upgrade Slots to the assigned Captain and/or his Ship.
+
+3) Players may use the bonus text-based ability in addition to their Captain's normal text-based ability (if applicable) during the Battle.
+
+4) If there is a bonus [ELITE] Upgrade slot on your chosen Fleet Captain option, you may choose an [ELITE] Upgrade even if your Captain does not have the [ELITE] icon on his [sic] Captain Card.
+
+5) If your Captain Card already has one or more [ELITE] Upgrade icons on it, you may either choose to take the bonus [ELITE] Upgrade OR forego taking the bonus [ELITE] Upgrade and equip your Captain with 1 of his [sic][ELITE] Upgrades for free.
+
+6) You may not assign a non-unique Captain as your Fleet Captain.
+        </Ability>
+        <Type>Resource</Type>
+        <Cost>5</Cost>
+        <Id>fleet_captain_collectiveop2</Id>
+        <Set>CollectiveOP2</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -9321,8 +9341,11 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
       <Set id="OPArenaParticipation" overallSetName="Organized Play" releaseDate="2014-05-28">Arena Participation Prize</Set>
       <Set id="OPArenaPrize"         overallSetName="Organized Play" releaseDate="2014-05-28">Arena Competitive Prize</Set>
 
-      <Set id="CollectiveOP1" overallSetName="Organized Play" releaseDate="2014-07-25">The Collective OP1 Participation Prize</Set>
+      <Set id="CollectiveOP1" overallSetName="Organized Play" releaseDate="2014-06-24">The Collective OP1 Participation Prize</Set>
       <Set id="71508"             overallSetName="Organized Play" releaseDate="2014-06-25">Ti'Mur Competitive Prize</Set>
+
+      <Set id="CollectiveOP2" overallSetName="Organized Play" releaseDate="2014-07-29">The Collective OP2 Participation Prize</Set>
+      <Set id="71509"             overallSetName="Organized Play" releaseDate="2014-07-30">U.S.S. Raven Competitive Prize</Set>
 
       <Set id="i_k_s_b_moth" overallSetName="The Collective Boosters" releaseDate="2014-07-25">I.K.S. B'Moth Expansion</Set>
       <Set id="gavroche" overallSetName="The Collective Boosters" releaseDate="2014-07-25">Gavroche Expansion</Set>
@@ -9537,6 +9560,112 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
             <Weapon>0</Weapon>
         </Flagship>
     </Flagships>
+    <FleetCaptains>
+        <FleetCaptain>
+            <Title>Federation</Title>
+            <Id>federation_collectiveop2</Id>
+            <Set>CollectiveOP2</Set>
+            <Faction>Federation</Faction>
+            <CaptainSkillBonus>2</CaptainSkillBonus>
+            <Ability>After you move, you may target 1 friendly Federation ship within Range 1-3 (or your own ship). The target ship immediately removes 1 Disabled Upgrade Token from 1 of its disabled Upgrades as a free Action.</Ability>
+            <TalentAdd></TalentAdd>
+            <CrewAdd></CrewAdd>
+            <TechAdd>1</TechAdd>
+            <WeaponAdd>1</WeaponAdd>
+            <Cost>5</Cost>
+        </FleetCaptain>
+        <FleetCaptain>
+            <Title>Dominion</Title>
+            <Id>dominion_collectiveop2</Id>
+            <Set>CollectiveOP2</Set>
+            <Faction>Dominion</Faction>
+            <CaptainSkillBonus>2</CaptainSkillBonus>
+            <Ability>After you move, you may target 1 friendly Dominion ship within Range 1-2 (or your own ship). The target ship immediately performs an Action on one of its non-disabled [TECH] Upgrades as a free Action.</Ability>
+            <TalentAdd>1</TalentAdd>
+            <CrewAdd>1</CrewAdd>
+            <TechAdd></TechAdd>
+            <WeaponAdd></WeaponAdd>
+            <Cost>5</Cost>
+        </FleetCaptain>
+        <FleetCaptain>
+            <Title>Romulan</Title>
+            <Id>romulan_collectiveop2</Id>
+            <Set>CollectiveOP2</Set>
+            <Faction>Romulan</Faction>
+            <CaptainSkillBonus>2</CaptainSkillBonus>
+            <Ability>After you move, you may target 1 friendly Cloaked Romulan ship within Range 1-2 (or your own ship). The target ship immediately performs a [SENSOR ECHO] Action as a free Action.</Ability>
+            <TalentAdd></TalentAdd>
+            <CrewAdd>1</CrewAdd>
+            <TechAdd></TechAdd>
+            <WeaponAdd>1</WeaponAdd>
+            <Cost>5</Cost>
+        </FleetCaptain>
+        <FleetCaptain>
+            <Title>Klingon</Title>
+            <Id>klingon_collectiveop2</Id>
+            <Set>CollectiveOP2</Set>
+            <Faction>Klingon</Faction>
+            <CaptainSkillBonus>2</CaptainSkillBonus>
+            <Ability>After you move, you may target 1 friendly Klingon ship within Range 1-2 (or your own ship). The target ship immediately performs an action on one of its non-disabled [CREW] Upgrades as a free Action.</Ability>
+            <TalentAdd>1</TalentAdd>
+            <CrewAdd></CrewAdd>
+            <TechAdd>1</TechAdd>
+            <WeaponAdd></WeaponAdd>
+            <Cost>5</Cost>
+        </FleetCaptain>
+        <FleetCaptain>
+            <Title>Independent (Klingon)</Title>
+            <Id>independent_klingon_collectiveop2</Id>
+            <Set>CollectiveOP2</Set>
+            <Faction>Independent</Faction>
+            <CaptainSkillBonus>1</CaptainSkillBonus>
+            <Ability>All of your [CREW] Upgrades cost -1 SP for all ships in your fleet (including your own ship).</Ability>
+            <TalentAdd>1</TalentAdd>
+            <CrewAdd>2</CrewAdd>
+            <TechAdd>0</TechAdd>
+            <WeaponAdd></WeaponAdd>
+            <Cost>5</Cost>
+        </FleetCaptain>
+        <FleetCaptain>
+            <Title>Independent (Federation)</Title>
+            <Id>independent_federation_collectiveop2</Id>
+            <Set>CollectiveOP2</Set>
+            <Faction>Independent</Faction>
+            <CaptainSkillBonus>1</CaptainSkillBonus>
+            <Ability>After you move, you may target 1 friendly ship within Range 1-2 (or your own ship). The target ship immediately performs an additional white "1" Maneuver (forward, bank or turn).</Ability>
+            <TalentAdd>1</TalentAdd>
+            <CrewAdd>0</CrewAdd>
+            <TechAdd>0</TechAdd>
+            <WeaponAdd></WeaponAdd>
+            <Cost>5</Cost>
+        </FleetCaptain>
+        <FleetCaptain>
+            <Title>Independent (Romulan)</Title>
+            <Id>independent_romulan_collectiveop2</Id>
+            <Set>CollectiveOP2</Set>
+            <Faction>Independent</Faction>
+            <CaptainSkillBonus>1</CaptainSkillBonus>
+            <Ability>All your [WEAPON] Upgrades cost -1 SP for all ships in your fleet (including your own ship).</Ability>
+            <TalentAdd>1</TalentAdd>
+            <CrewAdd>0</CrewAdd>
+            <TechAdd>0</TechAdd>
+            <WeaponAdd>2</WeaponAdd>
+            <Cost>5</Cost>
+        </FleetCaptain>
+        <FleetCaptain>
+            <Title>Independent (Dominion)</Title>
+            <Id>independent_dominion_collectiveop2</Id>
+            <Set>CollectiveOP2</Set>
+            <Faction>Independent</Faction>
+            <CaptainSkillBonus>1</CaptainSkillBonus>
+            <Ability>All of your [CREW] Upgrades cost -1 SP for all ships in your fleet (including your own ship).</Ability>
+            <TalentAdd>1</TalentAdd>
+            <CrewAdd>2</CrewAdd>
+            <TechAdd>0</TechAdd>
+            <WeaponAdd>0</WeaponAdd>
+            <Cost>5</Cost>
+        </FleetCaptain>
+    </FleetCaptains>
     <ReferenceItems>
         <Reference>
           <Title>Energy Dampening Token (EDT)</Title>
