@@ -3,6 +3,7 @@
 #import "DockUpgrade+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedShip+MacAddons.h"
+#import "DockSquad+Addons.h"
 #import "DockUtilsMac.h"
 
 @implementation DockUpgrade (MacAddons)
@@ -37,7 +38,17 @@
     if (targetShip == nil) {
         return YES;
     }
-    return [targetShip canAddUpgrade: self];
+
+    if (![targetShip canAddUpgrade: self ignoreInstalled: YES]) {
+        return NO;
+    }
+
+    if (![self.unique boolValue]) {
+        return YES;
+    }
+    
+    DockEquippedUpgrade* existing = [targetShip.squad containsUpgradeWithName: self.title];
+    return existing == nil;
 }
 
 -(NSAttributedString*)titleWithCanInstall

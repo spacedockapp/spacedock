@@ -50,6 +50,11 @@ static NSString* kHidekiFighterSquadronExternalId = @"hideki_class_attack_squadr
     return [self.externalId isEqualToString: kFlagshipExternalId];
 }
 
+-(BOOL)isEquippedIntoSquad
+{
+    return [self isSideboard] || [self isFlagship] || [self isFighterSquadron];
+}
+
 -(BOOL)isFighterSquadron
 {
     NSString* externalId = self.externalId;
@@ -76,6 +81,11 @@ static NSString* kHidekiFighterSquadronExternalId = @"hideki_class_attack_squadr
 -(NSString*)itemDescription
 {
     return [self plainDescription];
+}
+
+-(NSString*)asPlainTextFormat
+{
+    return [NSString stringWithFormat: @"%@ (%@)\n", self.title, [self cost]];
 }
 
 @end

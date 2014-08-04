@@ -11,6 +11,7 @@
 -(NSComparisonResult)compareTo:(DockEquippedUpgrade*)other;
 -(NSString*)typeCode;
 -(NSString*)descriptionForBuildSheet;
+-(NSString*)asPlainTextFormat;
 -(int)baseCost;
 -(int)nonOverriddenCost;
 -(BOOL)costIsOverridden;

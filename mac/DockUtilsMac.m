@@ -31,3 +31,17 @@ NSAttributedString* coloredString(NSString* text, NSColor* color, NSColor* backC
     return [[NSAttributedString alloc] initWithString: t attributes: attr];
 }
 
+NSTableView* findFirstTableView(NSView* target)
+{
+    if ([target isKindOfClass: [NSTableView class]]) {
+        return (NSTableView*)target;
+    }
+    NSArray* subviews = target.subviews;
+    for (NSView* view in subviews) {
+        NSTableView* result = findFirstTableView(view);
+        if (result != nil) {
+            return result;
+        }
+    }
+    return nil;
+}

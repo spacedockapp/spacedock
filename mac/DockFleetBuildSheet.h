@@ -11,4 +11,5 @@
 @property (strong, nonatomic) NSString* name;
 @property (strong, nonatomic) NSString* email;
 @property (assign, nonatomic) CGFloat notesFontSize;
+@property (assign, nonatomic) BOOL usesBlindBoosters;
 @end

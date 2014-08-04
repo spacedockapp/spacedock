@@ -5,4 +5,5 @@
 +(NSArray*)allSets:(NSManagedObjectContext*)context;
 +(NSArray*)includedSets:(NSManagedObjectContext*)context;
 -(NSArray*)sortedSetItems;
+-(NSString*)setCode;
 @end

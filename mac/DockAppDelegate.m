@@ -3,6 +3,7 @@
 #import "DockBackupManager.h"
 #import "DockBuildMat.h"
 #import "DockCaptain.h"
+#import "DockTabController.h"
 #import "DockConstants.h"
 #import "DockCrew.h"
 #import "DockDataFileLoader.h"
@@ -18,22 +19,28 @@
 #import "DockFlagship+MacAddons.h"
 #import "DockFleetBuildSheet.h"
 #import "DockInspector.h"
+#import "DockItemSourceListController.h"
 #import "DockNoteEditor.h"
 #import "DockOverrideEditor.h"
 #import "DockResource+Addons.h"
+#import "DockSearchFieldController.h"
 #import "DockSet+Addons.h"
 #import "DockSetItem+Addons.h"
+#import "DockSetTabController.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockSquad.h"
+#import "DockSquadDetailController.h"
 #import "DockSquadImporterMac.h"
 #import "DockTalent.h"
 #import "DockTech.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
+#import "DockUtilsMac.h"
 #import "DockWeapon.h"
 
 #import "NSFileManager+Addons.h"
+#import "NSToolbar+Addons.h"
 #import "NSTreeController+Additions.h"
 
 NSString* kWarnAboutUnhandledSpecials = @"warnAboutUnhandledSpecials";
@@ -43,11 +50,11 @@ NSString* kExpandedRows = @"expandedRows";
 NSString* kShowDataModelExport = @"showDataModelExport";
 NSString* kSortSquadsByDate = @"sortSquadsByDate";
 
-@interface DockAppDelegate ()
+@interface DockAppDelegate () <NSToolbarDelegate>
 @property (strong, nonatomic) DockDataUpdater* updater;
-@property (strong, nonatomic) IBOutlet NSArrayController* setsController;
+@property (strong, nonatomic) IBOutlet DockSquadDetailController* squadDetailController;
+@property (strong, nonatomic) IBOutlet DockSearchFieldController* searchFieldController;
 @property (copy, nonatomic) NSArray* allSets;
-@property (strong, nonatomic) NSString* upType;
 @property (assign, nonatomic) BOOL expandedRows;
 @property (strong, nonatomic) DockBuildMat* buildMat;
 @end
@@ -107,7 +114,7 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
 {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults boolForKey: kExpandSquads]) {
-        [self performSelector: @selector(expandAll:) withObject: nil afterDelay: 0];
+        [_squadDetailController performSelector: @selector(expandAll:) withObject: nil afterDelay: 0];
     }
 }
 
@@ -116,12 +123,7 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
                        change:(NSDictionary*)change
                       context:(void*)context
 {
-    if (object == _squadDetailController) {
-        [_squadDetailView expandItem: nil
-                      expandChildren: YES];
-        [_squadDetailController removeObserver: self
-                                    forKeyPath: @"content"];
-    } else if (object == _squadsController) {
+    if (object == _squadsController) {
         [self handleSelectedSquadChanged: change];
     } else if ([object isMemberOfClass: [DockSet class]]) {
         [self updateForSelectedSets];
@@ -202,21 +204,11 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
 
     [DockSquad assignUUIDs: self.managedObjectContext];
     [self updateForSelectedSets];
-    [_squadDetailController addObserver: self
-                             forKeyPath: @"content"
-                                options: 0
-                                context: nil];
     [_squadsController addObserver: self
                              forKeyPath: @"selectionIndexes"
                                 options: NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
                                 context: nil];
-    NSSortDescriptor* defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"title" ascending: YES];
-    [_shipsTableView setSortDescriptors: @[defaultSortDescriptor]];
-    [_captainsTableView setSortDescriptors: @[defaultSortDescriptor]];
-    [_upgradesTableView setSortDescriptors: @[defaultSortDescriptor]];
-    [_resourcesTableView setSortDescriptors: @[defaultSortDescriptor]];
-    [_flagshipsTableView setSortDescriptors: @[defaultSortDescriptor]];
-    defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"releaseDate" ascending: YES];
+    NSSortDescriptor* defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"releaseDate" ascending: YES];
     [_setsTableView setSortDescriptors: @[defaultSortDescriptor]];
     if ([defaults boolForKey: kSortSquadsByDate]) {
         defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"modified" ascending: NO selector: @selector(compare:)];
@@ -234,11 +226,12 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     self.expandedRows = [defaults boolForKey: kExpandedRows];
 
     NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
-
-    id currentTargetChangedBlock = ^() {
-        [self currentTargetShipChanged];
+    id currentSearchTermChangedBlock = ^(NSNotification* notification) {
+        [self currentSearchTermChanged: notification.object];
     };
-    [center addObserverForName: kCurrentTargetShipChanged object: nil queue: nil usingBlock: currentTargetChangedBlock];
+    [center addObserverForName: kCurrentSearchTerm object: nil queue: nil usingBlock: currentSearchTermChangedBlock];
+
+    [_itemSourceListController setupForTabs];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
@@ -451,56 +444,6 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     }
 }
 
--(void)explainCantAddShip:(DockShip*)ship
-{
-    NSAlert* alert = [[NSAlert alloc] init];
-    NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", ship.title];
-    [alert setMessageText: msg];
-    NSString* info = @"This ship is unique and one with the same name already exists in the squadron.";
-    [alert setInformativeText: info];
-    [alert setAlertStyle: NSInformationalAlertStyle];
-    [alert beginSheetModalForWindow: [self window]
-                      modalDelegate: self
-                     didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
-                        contextInfo: nil];
-}
-
--(void)explainCantUniqueUpgrade:(NSError*)error
-{
-    NSDictionary* d = error.userInfo;
-    DockEquippedUpgrade* upgrade = d[DockExistingUpgradeKey];
-
-    if (upgrade) {
-        [self selectUpgrade: upgrade];
-    }
-
-    NSAlert* alert = [[NSAlert alloc] init];
-    NSString* msg = d[NSLocalizedDescriptionKey];
-    if (msg) {
-        [alert setMessageText: msg];
-    }
-    NSString* info = d[NSLocalizedFailureReasonErrorKey];
-    [alert setInformativeText: info];
-    [alert setAlertStyle: NSInformationalAlertStyle];
-    [alert beginSheetModalForWindow: [self window]
-                      modalDelegate: self
-                     didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
-                        contextInfo: nil];
-}
-
--(void)explainCantAddUpgrade:(DockEquippedShip*)ship upgrade:(DockUpgrade*)upgrade
-{
-    NSDictionary* reasons = [ship explainCantAddUpgrade: upgrade];
-    NSAlert* alert = [[NSAlert alloc] init];
-    [alert setMessageText: reasons[@"message"]];
-    [alert setInformativeText: reasons[@"info"]];
-    [alert setAlertStyle: NSInformationalAlertStyle];
-    [alert beginSheetModalForWindow: [self window]
-                      modalDelegate: self
-                     didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
-                        contextInfo: nil];
-}
-
 -(IBAction)addSquad:(id)sender
 {
     DockSquad* squad = [DockSquad squad: _managedObjectContext];
@@ -508,161 +451,34 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     [self saveAction: sender];
 }
 
--(void)addSelectedShip
-{
-    NSArray* selectedShips = [_squadsController selectedObjects];
-
-    if (selectedShips.count > 0) {
-        DockSquad* squad = selectedShips[0];
-        NSArray* shipsToAdd = [_shipsController selectedObjects];
-
-        for (DockShip* ship in shipsToAdd) {
-            if (ship.isFighterSquadron) {
-                DockResource* resource = ship.associatedResource;
-                squad.resource = resource;
-            } else {
-                if ([ship isUnique]) {
-                    DockEquippedShip* existing = [squad containsShip: ship];
-
-                    if (existing != nil) {
-                        [self selectShip: existing];
-                        [self explainCantAddShip: ship];
-                        continue;
-                    }
-                }
-
-                DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: ship];
-                [squad addEquippedShip: es];
-                if (ship.isFighterSquadron) {
-                    squad.resource = ship.associatedResource;
-                }
-                [self selectShip: es];
-            }
-        }
-    }
-}
-
--(void)addSelectedShip:(id)sender
-{
-    [self addSelectedShip];
-}
-
--(IBAction)deleteSelectedShip:(id)sender
-{
-    [self deleteSelected: sender];
-}
-
--(IBAction)changeSelectedShip:(id)sender
-{
-    DockEquippedShip* targetShip = [self selectedEquippedShip];
-    DockShip* ship = [self selectedShip];
-    [targetShip changeShip: ship];
-}
-
--(id)selectedItem:(NSString*)tabName controller:(NSArrayController*)controller
-{
-    NSTabViewItem* selectedTab = [_tabView selectedTabViewItem];
-    id identifier = selectedTab.identifier;
-
-    if ([identifier isEqualToString: tabName]) {
-        NSArray* selected = [controller selectedObjects];
-
-        if (selected.count > 0) {
-            return selected[0];
-        }
-    }
-
-    return nil;
-}
-
 -(DockShip*)selectedShip
 {
-    return [self selectedItem: @"ships" controller: _shipsController];
+    return self.shipsTabController.selectedItemIfVisible;
 }
 
 -(DockUpgrade*)selectedUpgrade
 {
-    return [self selectedItem: @"upgrades" controller: _upgradesController];
-}
-
--(DockEquippedShip*)equippedShipForTarget:(id)target
-{
-    if ([target isKindOfClass: [DockEquippedShip class]]) {
-        return target;
-    }
-
-    if ([target isKindOfClass: [DockEquippedFlagship class]]) {
-        return [target equippedShip];
-    }
-
-    if ([target isMemberOfClass: [DockEquippedUpgrade class]]) {
-        DockEquippedUpgrade* upgrade = target;
-        return upgrade.equippedShip;
-    }
-
-    return nil;
+    return self.upgradesTabController.selectedItemIfVisible;
 }
 
 -(DockEquippedShip*)selectedEquippedShip
 {
-    NSArray* selectedShips = [_squadDetailController selectedObjects];
-
-    if (selectedShips.count > 0) {
-        id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
-        
-        return [self equippedShipForTarget: target];
-    }
-
-    return nil;
-}
-
--(id)clickedSquadItem
-{
-    NSInteger index = [_squadDetailView clickedRow];
-    if (index != -1) {
-        id item = [_squadDetailView itemAtRow: index];
-        return [item representedObject];
-    }
-
-    return nil;
-}
-
--(DockEquippedShip*)clickedEquippedShip
-{
-    NSInteger index = [_squadDetailView clickedRow];
-    if (index != -1) {
-        id item = [_squadDetailView itemAtRow: index];
-        return [self equippedShipForTarget: [item representedObject]];
-    }
-
-    return nil;
+    return _squadDetailController.selectedEquippedShip;
 }
 
 -(void)selectShip:(DockEquippedShip*)theShip
 {
-    NSIndexPath* path = [_squadDetailController indexPathOfObject: theShip];
-    [_squadDetailController setSelectionIndexPath: path];
+    [_squadDetailController selectEquippedShip: theShip];
 }
 
 -(DockEquippedUpgrade*)selectedEquippedUpgrade
 {
-    NSArray* selectedItems = [_squadDetailController selectedObjects];
-
-    if (selectedItems.count > 0) {
-        id target = [selectedItems objectAtIndex: 0];
-
-        if ([target isMemberOfClass: [DockEquippedUpgrade class]]) {
-            return target;
-        }
-    }
-
-    return nil;
+    return [_squadDetailController selectedEquippedUpgrade];
 }
 
 -(void)selectUpgrade:(DockEquippedUpgrade*)theUpgrade
 {
-    NSIndexPath* path = [_squadDetailController indexPathOfObject: theUpgrade];
-    [_squadDetailController setSelectionIndexPath: path];
+    [_squadDetailController selectUpgrade: theUpgrade];
 }
 
 -(DockSquad*)selectedSquad
@@ -685,184 +501,44 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     [_squadsController setSelectionIndex: index];
 }
 
--(DockEquippedUpgrade*)addSelectedCaptain:(DockEquippedShip*)targetShip
-{
-    NSArray* captainsToAdd = [_captainsController selectedObjects];
-
-    if (captainsToAdd.count < 1) {
-    } else {
-        DockCaptain* captain = captainsToAdd[0];
-        DockSquad* squad = [self selectedSquad];
-        NSError* error;
-
-        if ([squad canAddCaptain: captain toShip: targetShip error: &error]) {
-            return [squad addCaptain: captain toShip: targetShip error: nil];
-        } else {
-            [self explainCantUniqueUpgrade: error];
-        }
-
-        return nil;
-
-    }
-
-    return nil;
-}
-
--(DockEquippedUpgrade*)addSelectedAdmiral:(DockEquippedShip*)targetShip
-{
-    NSArray* admiralsToAdd = [_admiralsController selectedObjects];
-
-    if (admiralsToAdd.count < 1) {
-    } else {
-        DockAdmiral* admiral = admiralsToAdd[0];
-        DockSquad* squad = [self selectedSquad];
-        NSError* error;
-
-        if ([squad canAddAdmiral: admiral toShip: targetShip error: &error]) {
-            return [squad addAdmiral: admiral toShip: targetShip error: nil];
-        } else {
-            [self explainCantUniqueUpgrade: error];
-        }
-
-        return nil;
-
-    }
-
-    return nil;
-}
-
--(DockEquippedUpgrade*)addSelectedUpgrade:(DockEquippedShip*)targetShip maybeReplace:(DockEquippedUpgrade*)maybeReplace
-{
-    NSArray* upgradeToAdd = [_upgradesController selectedObjects];
-    if (upgradeToAdd.count == 0) {
-        return nil;
-    }
-    DockUpgrade* upgrade = upgradeToAdd[0];
-
-    if ([upgrade isUnique]) {
-        DockSquad* squad = [self selectedSquad];
-        DockEquippedUpgrade* existing = [squad containsUpgradeWithName: upgrade.title];
-
-        if (existing) {
-            [self selectUpgrade: existing];
-            NSError* error;
-            [squad canAddUpgrade: upgrade toShip: targetShip error: &error];
-            [self explainCantUniqueUpgrade: error];
-            return nil;
-        }
-    }
-
-    if (![targetShip canAddUpgrade: upgrade]) {
-        [self explainCantAddUpgrade: targetShip upgrade: upgrade];
-        return nil;
-    }
-
-    return [targetShip addUpgrade: upgrade maybeReplace: maybeReplace];
-}
-
--(DockEquippedUpgrade*)addSelectedUpgrade:(DockEquippedShip*)targetShip
-{
-    return [self addSelectedUpgrade: targetShip maybeReplace: nil];
-}
-
--(void)addSelectedResource
-{
-    NSArray* selectedResources = [_resourcesController selectedObjects];
-
-    if (selectedResources.count > 0) {
-        DockSquad* squad = [self selectedSquad];
-        DockResource* resource = selectedResources[0];
-        squad.resource = resource;
-    }
-}
-
--(void)addSelectedFlagship:(DockEquippedShip*)selectedShip
-{
-    NSArray* selectedFlagships = [_flagshipsController selectedObjects];
-
-    if (selectedFlagships.count > 0) {
-        DockFlagship* flagShip = selectedFlagships[0];
-        NSDictionary* info = [selectedShip becomeFlagship: flagShip];
-        if (info != nil) {
-            NSAlert* alert = [[NSAlert alloc] init];
-            [alert setMessageText: info[@"message"]];
-            [alert setInformativeText: info[@"info"]];
-            [alert setAlertStyle: NSInformationalAlertStyle];
-            [alert beginSheetModalForWindow: [self window]
-                              modalDelegate: self
-                             didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
-                                contextInfo: nil];
-        }
-    }
-}
-
 -(IBAction)addSelected:(id)sender
 {
     NSTabViewItem* selectedTab = [_tabView selectedTabViewItem];
     id identifier = selectedTab.identifier;
 
-    if ([identifier isEqualToString: @"ships"]) {
-        [self addSelectedShip];
+    DockEquippedShip* selectedShip = [_squadDetailController selectedEquippedShip];
+    DockEquippedUpgrade* maybeUpgrade = [_squadDetailController selectedEquippedUpgrade];
+
+    if ([identifier isEqualToString: @"captains"]) {
+        [self.captainsTabController addSelectedToSquad: [self selectedSquad] ship: selectedShip selectedItem: maybeUpgrade];
+    } else if ([identifier isEqualToString: @"upgrades"]) {
+        [self.upgradesTabController addSelectedToSquad: [self selectedSquad] ship: selectedShip selectedItem: maybeUpgrade];
+    } else if ([identifier isEqualToString: @"admirals"]) {
+        [self.admiralsTabController addSelectedToSquad: [self selectedSquad] ship: selectedShip selectedItem: maybeUpgrade];
+    } else if ([identifier isEqualToString: @"flagships"]) {
+        [self.flagshipsTabController addSelectedToSquad: [self selectedSquad] ship: selectedShip selectedItem: maybeUpgrade];
     } else if ([identifier isEqualToString: @"resources"]) {
-        [self addSelectedResource];
-    } else {
-        DockEquippedShip* selectedShip = [self selectedEquippedShip];
-        DockEquippedUpgrade* maybeUpgrade = [self selectedEquippedUpgrade];
-        DockEquippedUpgrade* equippedUpgrade = nil;
-
-        if (selectedShip != nil) {
-            if ([identifier isEqualToString: @"flagships"]) {
-                [self addSelectedFlagship: selectedShip];
-                return;
-            }
-            
-            if ([identifier isEqualToString: @"captains"]) {
-                equippedUpgrade = [self addSelectedCaptain: selectedShip];
-            }
-
-            if ([identifier isEqualToString: @"admirals"]) {
-                equippedUpgrade = [self addSelectedAdmiral: selectedShip];
-            }
-
-            if ([identifier isEqualToString: @"upgrades"]) {
-                equippedUpgrade = [self addSelectedUpgrade: selectedShip maybeReplace: maybeUpgrade];
-            }
-
-            if (equippedUpgrade != nil) {
-                [self selectUpgrade: equippedUpgrade];
-            }
-        } else {
-            NSAlert* alert = [NSAlert alertWithMessageText: @"You must select a ship before adding a captain or upgrade or designating a flagship."
-                                             defaultButton: @"OK"
-                                           alternateButton: @""
-                                               otherButton: @""
-                                 informativeTextWithFormat: @""];
-            [alert beginSheetModalForWindow: [self window]
-                              modalDelegate: self
-                             didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
-                                contextInfo: nil];
-        }
+        [self.resourcesTabController addSelectedToSquad: [self selectedSquad] ship: selectedShip selectedItem: maybeUpgrade];
+    } else if ([identifier isEqualToString: @"ships"]) {
+        [self.shipsTabController addSelectedToSquad: [self selectedSquad] ship: selectedShip selectedItem: maybeUpgrade];
     }
 }
 
--(IBAction)deleteTarget:(id)target targetShip:(DockEquippedShip*)targetShip
+-(void)addSelectedShip:(id)sender
 {
-    if (target == targetShip) {
-        DockSquad* squad = [[_squadsController selectedObjects] objectAtIndex: 0];
-        [squad removeEquippedShip: targetShip];
-    } else if ([target isKindOfClass: [DockEquippedFlagship class]]) {
-        [targetShip removeFlagship];
-    } else {
-        [targetShip removeUpgrade: target establishPlaceholders: YES];
-        [self selectShip: targetShip];
-    }
+    DockEquippedShip* selectedShip = [_squadDetailController selectedEquippedShip];
+    DockEquippedUpgrade* maybeUpgrade = [_squadDetailController selectedEquippedUpgrade];
+    [self.shipsTabController addSelectedToSquad: [self selectedSquad] ship: selectedShip selectedItem: maybeUpgrade];
 }
 
--(IBAction)deleteSelected:(id)sender
+-(IBAction)addSelectedUpgradeAction:(id)sender
 {
-    id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
-    DockEquippedShip* targetShip = [self selectedEquippedShip];
-    [self deleteTarget: target targetShip: targetShip];
+    [self addSelected: sender];
+}
+
+-(IBAction)deleteSelectedUpgradeAction:(id)sender
+{
+    [self.squadDetailController deleteSelected: sender];
 }
 
 -(void)editNameOfSquad:(DockSquad*)theSquad
@@ -887,21 +563,6 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     [self performSelector: @selector(editNameOfSquad:) withObject: newSquad afterDelay: 0];
 }
 
--(IBAction)addSelectedUpgradeAction:(id)sender
-{
-    [self addSelected: sender];
-}
-
--(IBAction)deleteSelectedUpgradeAction:(id)sender
-{
-    [self deleteSelected: sender];
-}
-
--(IBAction)expandAll:(id)sender
-{
-    [_squadDetailView expandItem: nil expandChildren: YES];
-}
-
 -(IBAction)exportSquad:(id)sender
 {
     DockSquad* squad = [self selectedSquad];
@@ -921,21 +582,6 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     }
      
      ];
-}
-
--(IBAction)setFormat:(id)sender
-{
-    NSString* newExtension = @"txt";
-    NSInteger formatSelected = self.exportFormatPopup.selectedTag;
-
-    if (formatSelected == 2) {
-        newExtension = kSpaceDockSquadFileExtension;
-    }
-
-    NSString* currentName = [_currentSavePanel nameFieldStringValue];
-    NSString* currentBaseName = [currentName stringByDeletingPathExtension];
-    NSString* newName = [currentBaseName stringByAppendingPathExtension: newExtension];
-    [_currentSavePanel setNameFieldStringValue: newName];
 }
 
 -(IBAction)importSquad:(id)sender
@@ -960,59 +606,14 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     ];
 }
 
--(void)updatePredicates
-{
-    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"any sets.externalId in %@", _includedSets];
-    _resourcesController.fetchPredicate = predicateTemplate;
-    _referenceController.fetchPredicate = predicateTemplate;
-
-    NSMutableArray* upgradeFormatParts = [NSMutableArray arrayWithCapacity: 0];
-    NSMutableArray* upgradeArgumentParts = [NSMutableArray arrayWithCapacity: 0];
-
-    [upgradeArgumentParts addObject: _includedSets];
-    [upgradeFormatParts addObject: @"(not upType like 'Captain') and (not placeholder == YES) and (any sets.externalId in %@)"];
-
-    if (_factionName) {
-        [upgradeArgumentParts addObject: _factionName];
-        [upgradeArgumentParts addObject: _factionName];
-        [upgradeFormatParts addObject: @"(faction = %@ or additionalFaction = %@)"];
-    }
-
-    if (_upType) {
-        [upgradeArgumentParts addObject: _upType];
-        [upgradeFormatParts addObject: @"(upType = %@)"];
-    }
-    
-    NSString* upgradeFormatString = [upgradeFormatParts componentsJoinedByString: @" and "];
-    NSPredicate* upgradePredicateTemplate = [NSPredicate predicateWithFormat: upgradeFormatString argumentArray: upgradeArgumentParts];
-    _upgradesController.fetchPredicate = upgradePredicateTemplate;
-
-    if (_factionName == nil) {
-        _shipsController.fetchPredicate = predicateTemplate;
-        _captainsController.fetchPredicate = predicateTemplate;
-        _flagshipsController.fetchPredicate = predicateTemplate;
-        _admiralsController.fetchPredicate = predicateTemplate;
-    } else {
-        NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"(faction = %@ or additionalFaction = %@) and any sets.externalId in %@",
-        _factionName, _factionName, _includedSets];
-        _shipsController.fetchPredicate = predicateTemplate;
-        _captainsController.fetchPredicate = predicateTemplate;
-        predicateTemplate = [NSPredicate predicateWithFormat: @"faction in %@ and any sets.externalId in %@", @[_factionName, @"Independent"], _includedSets];
-        _flagshipsController.fetchPredicate = predicateTemplate;
-        _admiralsController.fetchPredicate = predicateTemplate;
-    }
-}
-
 -(IBAction)resetFactionFilter:(id)sender
 {
-    _factionName = nil;
-    [self updatePredicates];
+    self.factionName = nil;
 }
 
 -(void)updateFactionFilter:(NSString*)faction
 {
-    _factionName = faction;
-    [self updatePredicates];
+    self.factionName = faction;
 }
 
 -(IBAction)filterToFaction:(id)sender
@@ -1022,21 +623,18 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
 
 -(IBAction)resetUpgradeFilter:(id)sender
 {
-    _upType = nil;
-    [self updatePredicates];
+    self.upType = nil;
 }
 
 -(void)updateUpgradeTypeFilter:(NSString*)upgradeType
 {
-    _upType = upgradeType;
-    [self updatePredicates];
+    self.upType = upgradeType;
 }
 
 
 -(IBAction)filterToUpgradeType:(id)sender
 {
-    _upType = [sender title];
-    [self updatePredicates];
+    self.upType = [sender title];
 }
 
 -(void)updateForSelectedSets
@@ -1047,70 +645,14 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     for (DockSet* set in includedSets) {
         [includedIds addObject: [set externalId]];
     }
-    _includedSets = [NSArray arrayWithArray: includedIds];
-    [self updatePredicates];
-}
-
--(void)explainCantPromoteShip:(DockShip*)ship
-{
-    NSAlert* alert = [[NSAlert alloc] init];
-    NSString* msg = [NSString stringWithFormat: @"Can't promote the selected ship to %@.", ship.title];
-    [alert setMessageText: msg];
-    NSString* info = [NSString stringWithFormat: @"%@ is unique and already exists in the squadron.", ship.title];
-    [alert setInformativeText: info];
-    [alert setAlertStyle: NSInformationalAlertStyle];
-    [alert beginSheetModalForWindow: [self window]
-                      modalDelegate: self
-                     didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
-                        contextInfo: nil];
-}
-
--(IBAction)toggleUnique:(id)sender
-{
-    DockEquippedShip* currentShip = [self selectedEquippedShip];
-
-    if (currentShip != nil) {
-        DockShip* ship = currentShip.ship;
-        DockShip* counterpart = [ship counterpart];
-        DockSquad* squad = [self selectedSquad];
-        DockEquippedShip* existing = [squad containsShip: counterpart];
-
-        if (existing != nil && [counterpart isUnique]) {
-            [self explainCantPromoteShip: counterpart];
-        } else {
-            [currentShip changeShip: counterpart];
-        }
-    }
-}
-
--(BOOL)updateChangeShipItem:(NSMenuItem*)menuItem equippedShip:(DockEquippedShip*)equippedShip
-{
-    DockShip* ship = [self selectedShip];
-
-    if (ship && equippedShip) {
-        [menuItem setTitle: [NSString stringWithFormat: @"Change '%@' to '%@'", equippedShip.descriptiveTitle, ship.descriptiveTitle]];
-    } else {
-        [menuItem setTitle: @"Change Ship"];
-        return NO;
-    }
-    return YES;
+    self.includedSets = [NSArray arrayWithArray: includedIds];
 }
 
 -(BOOL)validateMenuItem:(NSMenuItem*)menuItem
 {
     SEL action = [menuItem action];
 
-    if (action == @selector(resetFactionFilter:)) {
-        [menuItem setState: _factionName == nil ? NSOnState: NSOffState];
-    } else if (action == @selector(filterToFaction:)) {
-        BOOL isCurrentFilter = [menuItem.title isEqualToString: _factionName];
-        [menuItem setState: isCurrentFilter ? NSOnState: NSOffState];
-    } else if (action == @selector(resetUpgradeFilter:)) {
-        [menuItem setState: _upType == nil ? NSOnState: NSOffState];
-    } else if (action == @selector(filterToUpgradeType:)) {
-        BOOL isCurrentFilter = [menuItem.title isEqualToString: _upType];
-        [menuItem setState: isCurrentFilter ? NSOnState: NSOffState];
-    } else if (action == @selector(addSelectedShip:)) {
+    if (action == @selector(addSelectedShip:)) {
         DockShip* ship = [self selectedShip];
         DockSquad* squad = [self selectedSquad];
 
@@ -1120,30 +662,20 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
             [menuItem setTitle: @"Add Ship to Squad"];
             return NO;
         }
-    } else if (action == @selector(deleteSelectedShip:)) {
-        DockEquippedShip* ship = [self selectedEquippedShip];
-        DockSquad* squad = [self selectedSquad];
-
-        if (ship && squad) {
-            [menuItem setTitle: [NSString stringWithFormat: @"Remove '%@' from '%@'", ship.descriptiveTitle, squad.name]];
-        } else {
-            [menuItem setTitle: @"Delete Ship from Squad"];
-            return NO;
-        }
-    } else if (action == @selector(changeSelectedShip:)) {
-        DockEquippedShip* equippedShip = [self selectedEquippedShip];
-        return [self updateChangeShipItem: menuItem equippedShip: equippedShip];
-    } else if (action == @selector(addSelectedUpgradeAction:)) {
-        DockEquippedShip* ship = [self selectedEquippedShip];
-        DockUpgrade* upgrade = [self selectedUpgrade];
-
-        if (ship && upgrade) {
-            [menuItem setTitle: [NSString stringWithFormat: @"Add '%@' to '%@'", upgrade.title, ship.descriptiveTitle]];
-            return YES;
-        } else {
-            [menuItem setTitle: @"Add Upgrade to Ship"];
-            return NO;
-        }
+    } else if (action == @selector(resetFactionFilter:)) {
+        [menuItem setState: _factionName == nil ? NSOnState: NSOffState];
+    } else if (action == @selector(filterToFaction:)) {
+        BOOL isCurrentFilter = [menuItem.title isEqualToString: _factionName];
+        [menuItem setState: isCurrentFilter ? NSOnState: NSOffState];
+    } else if (action == @selector(resetUpgradeFilter:)) {
+        [menuItem setState: _upType == nil ? NSOnState: NSOffState];
+    } else if (action == @selector(filterToUpgradeType:)) {
+        BOOL isCurrentFilter = [menuItem.title isEqualToString: _upType];
+        [menuItem setState: isCurrentFilter ? NSOnState: NSOffState];
+    } else if (action == @selector(toggleExpandedRows:)) {
+        [menuItem setState: _expandedRows ? NSOnState: NSOffState];
+    } else if (action == @selector(showInList:)) {
+        return _squadDetailController.isFirstResponder && [_squadDetailController hasSelection];
     } else if (action == @selector(deleteSelectedUpgradeAction:)) {
         DockEquippedShip* ship = [self selectedEquippedShip];
         DockEquippedUpgrade* upgrade = [self selectedEquippedUpgrade];
@@ -1155,39 +687,17 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
             [menuItem setTitle: @"Remove Upgrade from Ship"];
             return NO;
         }
-    } else if (action == @selector(toggleUnique:)) {
-        DockEquippedShip* currentShip = [self selectedEquippedShip];
+    } else if (action == @selector(addSelectedUpgradeAction:)) {
+        DockEquippedShip* ship = [self selectedEquippedShip];
+        DockUpgrade* upgrade = [self selectedUpgrade];
 
-        if (currentShip == nil || currentShip.isFighterSquadron) {
-            [menuItem setTitle: @"Demote"];
+        if (ship && upgrade) {
+            [menuItem setTitle: [NSString stringWithFormat: @"Add '%@' to '%@'", upgrade.title, ship.descriptiveTitle]];
+            return YES;
+        } else {
+            [menuItem setTitle: @"Add Upgrade to Ship"];
             return NO;
         }
-
-        DockShip* ship = currentShip.ship;
-        DockShip* counterpart = [ship counterpart];
-
-        if ([ship isUnique]) {
-            [menuItem setTitle: [NSString stringWithFormat: @"Demote to '%@'", counterpart.descriptiveTitle]];
-        } else {
-            [menuItem setTitle: [NSString stringWithFormat: @"Promote to '%@'", counterpart.descriptiveTitle]];
-        }
-    } else if (action == @selector(overrideCost:)) {
-        DockEquippedUpgrade* upgrade = [self selectedEquippedUpgrade];
-        return upgrade && ![upgrade.upgrade isCaptain];
-    } else if (action == @selector(removeOverride:)) {
-        DockEquippedUpgrade* upgrade = [self selectedEquippedUpgrade];
-        return upgrade && [upgrade costIsOverridden];
-    } else if (action == @selector(checkForNewDataFile:)) {
-        return _updater == nil;
-    } else if (action == @selector(revertDataFile:)) {
-        NSString* pathToDataFile = [self pathToDataFile];
-        NSString* appPath = [[DockAppDelegate applicationFilesDirectory] path];
-        return [pathToDataFile hasPrefix: appPath];
-    } else if (action == @selector(toggleExpandedRows:)) {
-        [menuItem setState: _expandedRows ? NSOnState: NSOffState];
-    } else if (action == @selector(showInList:)) {
-        BOOL detailsIsFirstResponder = _squadDetailView.window.firstResponder == _squadDetailView;
-        return detailsIsFirstResponder && [_squadDetailController selectedObjects].count > 0;
     }
 
     return YES;
@@ -1265,31 +775,6 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     [_managedObjectContext commitEditing];
 }
 
--(IBAction)logItem:(id)sender
-{
-    NSTabViewItem* selectedTab = [_tabView selectedTabViewItem];
-    id identifier = selectedTab.identifier;
-    id target = nil;
-
-    if ([identifier isEqualToString: @"ships"]) {
-        NSArray* shipsToAdd = [_shipsController selectedObjects];
-        target = shipsToAdd[0];
-    } else if ([identifier isEqualToString: @"resources"]) {
-        NSArray* selectedResources = [_resourcesController selectedObjects];
-        target = selectedResources[0];
-    } else if ([identifier isEqualToString: @"captains"]) {
-        NSArray* captainsToAdd = [_captainsController selectedObjects];
-        target = captainsToAdd[0];
-    } else if ([identifier isEqualToString: @"upgrades"]) {
-        NSArray* upgradeToAdd = [_upgradesController selectedObjects];
-        target = upgradeToAdd[0];
-    }
-
-    if (target != nil) {
-        NSLog(@"target = %@, id = %@", target, [target externalId]);
-    }
-}
-
 -(IBAction)showInspector:(id)sender
 {
     [_inspector show];
@@ -1314,31 +799,13 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     [_noteEditor show: [self selectedSquad]];
 }
 
--(NSString*)copySelectedSet
-{
-    NSMutableArray* lines = [NSMutableArray arrayWithCapacity: 0];
-    NSArray* selectedItems = [_setsController selectedObjects];
-    for (DockSet* set in selectedItems) {
-        [lines addObject: [NSString stringWithFormat: @"%@ (%@)", set.productName, set.externalId]];
-        [lines addObject: @""];
-        NSArray* items = [set sortedSetItems];
-        for (id item in items) {
-            [lines addObject: [item itemDescription]];
-        }
-        [lines addObject: @""];
-        [lines addObject: @""];
-    }
-    
-    return [lines componentsJoinedByString: @"\n"];
-}
-
 -(IBAction)copy:(id)sender
 {
     NSString* s = nil;
     id responder = [_window firstResponder];
     NSString* ident = [responder identifier];
     if ([ident isEqualToString: @"setsTable"]) {
-        s = [self copySelectedSet];
+        s = [self.setsTabController copySelectedSet];
     } else {
         s = [[self selectedSquad] asPlainTextFormat];
     }
@@ -1403,31 +870,15 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
 
 -(IBAction)overrideCost:(id)sender
 {
-    DockEquippedUpgrade* upgrade = [self selectedEquippedUpgrade];
+    DockEquippedUpgrade* upgrade = [_squadDetailController selectedEquippedUpgrade];
     [_overrideEditor show: upgrade];
 }
 
 -(IBAction)removeOverride:(id)sender
 {
-    DockEquippedUpgrade* upgrade = [self selectedEquippedUpgrade];
+    DockEquippedUpgrade* upgrade = [_squadDetailController selectedEquippedUpgrade];
     if (upgrade) {
         [upgrade removeCostOverride];
-    }
-}
-
--(IBAction)includeSelectedSets:(id)sender
-{
-    NSArray* selectedItems = [_setsController selectedObjects];
-    for (DockSet* set in selectedItems) {
-        set.include = @YES;
-    }
-}
-
--(IBAction)excludeSelectedSets:(id)sender
-{
-    NSArray* selectedItems = [_setsController selectedObjects];
-    for (DockSet* set in selectedItems) {
-        set.include = @NO;
     }
 }
 
@@ -1438,264 +889,32 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     [defaults setBool: _expandedRows forKey: kExpandedRows];
 }
 
-static void doSelectIndex(NSInteger index, NSArrayController* controller, NSTableView* table)
-{
-    if (index != NSNotFound) {
-        [controller setSelectionIndex: index];
-        [table selectRowIndexes: [NSIndexSet indexSetWithIndex: index] byExtendingSelection: NO];
-        [table scrollRowToVisible: index];
-    }
-}
-
--(void)showItemInternal:(NSDictionary*)d
-{
-    NSArrayController* controller = d[@"controller"];
-    NSTableView* table = d[@"table"];
-    NSInteger index = [d[@"index"] intValue];
-    doSelectIndex(index, controller, table);
-}
-
--(void)showItemAfterReset:(NSDictionary*)d
-{
-    NSArrayController* controller = d[@"controller"];
-    NSTableView* table = d[@"table"];
-    id item = d[@"item"];
-    NSArray* objects = [controller arrangedObjects];
-    NSInteger index = [objects indexOfObject: item];
-    doSelectIndex(index, controller, table);
-}
-
--(void)showItem:(id)item controller:(NSArrayController*)controller table:(NSTableView*)table
-{
-    if (controller && item && table) {
-        NSArray* objects = [controller arrangedObjects];
-        NSInteger index = [objects indexOfObject: item];
-        if (index == NSNotFound) {
-            NSDictionary* d2 = @{
-                @"table" : table,
-                @"controller": controller,
-                @"item": item
-            };
-            [self performSelector: @selector(showItemAfterReset:) withObject: d2 afterDelay: 0];
-        }
-        
-        NSDictionary* d = @{
-            @"table" : table,
-            @"controller": controller,
-            @"index": [NSNumber numberWithInt: (int)index]
-        };
-        [self performSelector: @selector(showItemInternal:) withObject: d afterDelay: 0];
-    }
-}
-
 -(void)showInList:(id)target targetShip:(DockEquippedShip*)targetShip
 {
     if (target == targetShip) {
         DockShip* ship = targetShip.ship;
-        if (![_factionName isEqualToString: ship.faction]) {
-            [self resetFactionFilter: nil];
-        }
-        [_tabView selectTabViewItemWithIdentifier: @"ships"];
-        [self showItem: targetShip.ship controller: _shipsController table: _shipsTableView];
+        [DockTabController makeOneControllerShowItem: ship];
     } else if ([target isKindOfClass: [DockEquippedFlagship class]]) {
-        [_tabView selectTabViewItemWithIdentifier: @"flagships"];
         DockFlagship* flagship = [target flagship];
-        NSString* flagshipFaction = flagship.faction;
-        if (!([flagshipFaction isEqualToString: @"Independent"] || [flagshipFaction isEqualToString: _factionName])) {
-            [self resetFactionFilter: nil];
-        }
-        [self showItem: [target flagship] controller: _flagshipsController table: _flagshipsTableView];
+        [DockTabController makeOneControllerShowItem: flagship];
     } else {
         DockEquippedUpgrade* eu = target;
         DockUpgrade* upgrade = eu.upgrade;
         if (![upgrade isPlaceholder]) {
-            if (![_factionName isEqualToString: upgrade.faction]) {
-                [self resetFactionFilter: nil];
-            }
-            if (![_upType isEqualToString: upgrade.upType]) {
-                [self resetUpgradeFilter: nil];
-            }
-            if (upgrade.isCaptain) {
-                [_tabView selectTabViewItemWithIdentifier: @"captains"];
-                [self showItem: upgrade controller: _captainsController table: _captainsTableView];
-            } else {
-                [_tabView selectTabViewItemWithIdentifier: @"upgrades"];
-                [self showItem: upgrade controller: _upgradesController table: _upgradesTableView];
-            }
+            [DockTabController makeOneControllerShowItem: upgrade];
         }
     }
 }
 
 -(IBAction)showInList:(id)sender
 {
-    id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
-    DockEquippedShip* targetShip = [self selectedEquippedShip];
-    [self showInList: target targetShip: targetShip];
-}
-
--(IBAction)showClickedInList:(id)sender
-{
-    id target = [self clickedSquadItem];
-    DockEquippedShip* targetShip = [self clickedEquippedShip];
-    [self showInList: target targetShip: targetShip];
-}
-
--(IBAction)changeClickedShip:(id)sender
-{
-    DockEquippedShip* targetShip = [self clickedEquippedShip];
-    DockShip* ship = [self selectedShip];
-    [targetShip changeShip: ship];
-}
-
--(IBAction)removeFlagship:(id)sender
-{
-    DockEquippedShip* targetShip = [self clickedEquippedShip];
-    [targetShip removeFlagship];
-}
-
--(IBAction)deleteClicked:(id)sender
-{
-    [self deleteTarget: [self clickedSquadItem] targetShip: [self clickedEquippedShip]];
-}
-
--(IBAction)filterToClickedFaction:(id)sender
-{
-    [self updateFactionFilter: [[[self clickedEquippedShip] ship] faction]];
-}
-
--(IBAction)filterToClickedUpgradeType:(id)sender
-{
-    DockUpgrade* upgrade = [[self clickedSquadItem] upgrade];
-    [self updateUpgradeTypeFilter: [upgrade upType]];
-}
-
--(IBAction)filterToClickedFactionAndUpgradeType:(id)sender
-{
-    [_tabView selectTabViewItemWithIdentifier: @"upgrades"];
-    [self filterToClickedFaction:sender];
-    [self filterToClickedUpgradeType:sender];
-}
-
--(IBAction)overrideClickedCost:(id)sender
-{
-    DockEquippedUpgrade* upgrade = [self clickedSquadItem];
-    [_overrideEditor show: upgrade];
-}
-
--(IBAction)removeClickedOverride:(id)sender
-{
-    DockEquippedUpgrade* upgrade = [self clickedSquadItem];
-    if (upgrade) {
-        [upgrade removeCostOverride];
-    }
-}
-
-static void addDeleteItem(NSMenu* menu)
-{
-    NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: @"Delete" action: @selector(deleteClicked:) keyEquivalent: @""];
-    [menu addItem: menuItem];
-}
-
-static void addFilterToFactionItem(NSMenu* menu, NSString* faction)
-{
-    if (faction == nil) {
-        NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: @"Filter to Faction" action: 0 keyEquivalent: @""];
-        [menuItem setEnabled: NO];
-        [menu addItem: menuItem];
-        return;
-    }
-    NSString* menuTitle = [NSString stringWithFormat: @"Filter to Faction “%@”", faction];
-    NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: menuTitle action: @selector(filterToClickedFaction:) keyEquivalent: @""];
-    [menu addItem: menuItem];
-}
-
-static void addFilterToTypeItem(NSMenu* menu, NSString* upType)
-{
-    NSString* menuTitle = [NSString stringWithFormat: @"Filter to Type “%@”", upType];
-    NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: menuTitle action: @selector(filterToClickedUpgradeType:) keyEquivalent: @""];
-    [menu addItem: menuItem];
-}
-
-static void addFilterToFactionAndTypeItem(NSMenu* menu, NSString* faction, NSString* upType)
-{
-    if (faction == nil) {
-        NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: @"Filter to Faction and Type" action: 0 keyEquivalent: @""];
-        [menuItem setEnabled: NO];
-        [menu addItem: menuItem];
-        return;
-    }
-    NSString* menuTitle = [NSString stringWithFormat: @"Filter to Faction “%@” and Type “%@”", faction, upType];
-    NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: menuTitle action: @selector(filterToClickedFactionAndUpgradeType:) keyEquivalent: @""];
-    [menu addItem: menuItem];
-}
-
-static void addShowDetailsItem(NSMenu* menu)
-{
-    NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: @"Show in List" action: @selector(showClickedInList:) keyEquivalent: @""];
-    [menu addItem: menuItem];
-}
-
-static void addOverrideItems(NSMenu* menu)
-{
-    NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: @"Override Cost..." action: @selector(overrideClickedCost:) keyEquivalent: @""];
-    [menu addItem: menuItem];
-    menuItem = [[NSMenuItem alloc] initWithTitle: @"Remove Upgrade Cost Override" action: @selector(removeClickedOverride:) keyEquivalent: @""];
-    [menu addItem: menuItem];
-}
-
--(void)addChangeShipItem:(NSMenu *)menu
-{
-    DockEquippedShip* ship = [self clickedEquippedShip];
-    NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: @"Change Ship" action: @selector(changeClickedShip:) keyEquivalent: @""];
-    BOOL enabled = [self updateChangeShipItem: menuItem equippedShip: ship];
-    if (enabled) {
-        [menuItem setEnabled: enabled];
-        [menuItem setTarget: self];
-        [menu addItem: menuItem];
+    if ([_searchFieldController hasSearchTerm]) {
+        [_searchFieldController clear];
+        [self performSelector: @selector(showInList:) withObject: self afterDelay: 0.05];
     } else {
-        menuItem.target = nil;
-    }
-}
-
-void addRemoveFlagshipItem(NSMenu *menu)
-{
-    NSMenuItem* menuItem = [[NSMenuItem alloc] initWithTitle: @"Remove Flagship" action: @selector(removeFlagship:) keyEquivalent: @""];
-    [menu addItem: menuItem];
-    [menuItem setEnabled: YES];
-}
-
-- (void)menuNeedsUpdate:(NSMenu*)menu
-{
-    [menu removeAllItems];
-    id target = [self clickedSquadItem];
-    DockEquippedShip* targetShip = [self clickedEquippedShip];
-    if (target != nil) {
-        if (target == targetShip) {
-            [self addChangeShipItem:menu];
-            DockEquippedShip* ship = [self clickedEquippedShip];
-            addShowDetailsItem(menu);
-            addFilterToFactionItem(menu, ship.ship.faction);
-            addDeleteItem(menu);
-        } else if ([target isKindOfClass: [DockEquippedFlagship class]]) {
-            addShowDetailsItem(menu);
-            addRemoveFlagshipItem(menu);
-        } else {
-            DockEquippedUpgrade* eu = target;
-            if (!eu.isPlaceholder) {
-                addShowDetailsItem(menu);
-            }
-            addFilterToFactionItem(menu, eu.equippedShip.ship.faction);
-            if (!eu.upgrade.isCaptain) {
-                addFilterToTypeItem(menu, eu.upgrade.upType);
-                addFilterToFactionAndTypeItem(menu, eu.equippedShip.ship.faction, eu.upgrade.upType);
-                if (!eu.isPlaceholder) {
-                    addOverrideItems(menu);
-                }
-            }
-            if (!eu.isPlaceholder) {
-                addDeleteItem(menu);
-            }
-        }
+        id target = [_squadDetailController selectedItem];
+        DockEquippedShip* targetShip = [self selectedEquippedShip];
+        [self showInList: target targetShip: targetShip];
     }
 }
 
@@ -1813,12 +1032,72 @@ void addRemoveFlagshipItem(NSMenu *menu)
     [_buildMat print];
 }
 
--(void)currentTargetShipChanged
+#pragma mark - Searching
+
+-(void)selectFirstTabWithResults:(id)object
 {
-    NSIndexSet* rows = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(0, _upgradesTableView.numberOfRows)];
-    NSIndexSet* cols = [NSIndexSet indexSetWithIndexesInRange: NSMakeRange(0, _upgradesTableView.numberOfColumns)];
-    [_upgradesTableView reloadDataForRowIndexes: rows columnIndexes: cols];
-    [_upgradesController rearrangeObjects];
+    NSArray* tabs = [_tabView tabViewItems];
+    NSInteger count = tabs.count;
+    for (NSInteger index = 0; index < count; ++index) {
+        NSTabViewItem* tabItem = tabs[index];
+        NSTableView* tv = findFirstTableView(tabItem.view);
+        if (tv.numberOfRows > 0) {
+            [_tabView selectTabViewItemAtIndex: index];
+            return;
+        }
+    }
+}
+
+-(BOOL)selectNextTabWithResults
+{
+    NSArray* tabs = [_tabView tabViewItems];
+    NSInteger currentIndex = [tabs indexOfObject: [_tabView selectedTabViewItem]];
+    NSInteger count = tabs.count;
+    for (NSInteger index = currentIndex+1; index < count; ++index) {
+        NSTabViewItem* tabItem = tabs[index];
+        NSTableView* tv = findFirstTableView(tabItem.view);
+        if (tv.numberOfRows > 0) {
+            [_tabView selectTabViewItemAtIndex: index];
+            return YES;
+        }
+    }
+    return NO;
+}
+
+-(void)currentSearchTermChanged:(id)object
+{
+    NSString* searchTerm = object;
+    if (searchTerm.length > 0) {
+        [self performSelector: @selector(selectFirstTabWithResults:) withObject: object afterDelay: 0.02];
+    }
+}
+
+-(IBAction)find:(id)sender
+{
+    [_toolbar setVisible: TRUE];
+    NSToolbarDisplayMode currentMode = _toolbar.displayMode;
+    if (currentMode == NSToolbarDisplayModeLabelOnly) {
+        [_toolbar setDisplayMode: NSToolbarDisplayModeIconAndLabel];
+    }
+    [_searchField becomeFirstResponder];
+}
+
+-(IBAction)findAgain:(id)sender
+{
+    NSTabViewItem* currentItem = [_tabView selectedTabViewItem];
+    NSTableView* tv = findFirstTableView(currentItem.view);
+    NSInteger selectedIndex = tv.selectedRow;
+    NSInteger nextIndex = selectedIndex + 1;
+    if (nextIndex < tv.numberOfRows) {
+        [tv selectRowIndexes: [NSIndexSet indexSetWithIndex: nextIndex] byExtendingSelection: NO];
+    } else {
+        if ([self selectNextTabWithResults]) {
+            NSTableView* tv = findFirstTableView(currentItem.view);
+            [tv selectRowIndexes: [NSIndexSet indexSetWithIndex: 0] byExtendingSelection: NO];
+        } else {
+            [self selectFirstTabWithResults: nil];
+        }
+    }
 }
 
 @end
