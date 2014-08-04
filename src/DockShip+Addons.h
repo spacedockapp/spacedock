@@ -28,6 +28,7 @@
 -(BOOL)isVulcan;
 -(BOOL)isBajoranInterceptor;
 -(BOOL)isBattleshipOrCruiser;
+-(BOOL)isRaven;
 -(DockResource*)associatedResource;
 -(int)techCount;
 -(int)weaponCount;

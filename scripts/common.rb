@@ -48,10 +48,5 @@ def make_external_id(setId, title)
 end
 
 def set_id_from_faction(faction)
-  case faction
-  when "Vulcan"
-    "71508"
-  else
-    throw "unknown set id"
-  end
+  "71509"
 end

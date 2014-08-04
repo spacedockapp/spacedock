@@ -1051,6 +1051,29 @@
       <FrontArc>180</FrontArc>
       <RearArc></RearArc>
     </ShipClassDetail>
+    <ShipClassDetail>
+      <Name>Aerie Class</Name>
+      <Id>aerie_class</Id>
+      <Maneuvers>
+        <Maneuver speed="4" kind="straight" color="white" />
+        <Maneuver speed="3" kind="left-bank" color="white" />
+        <Maneuver speed="3" kind="straight" color="white" />
+        <Maneuver speed="3" kind="right-bank" color="white" />
+        <Maneuver speed="2" kind="left-turn" color="white" />
+        <Maneuver speed="2" kind="left-bank" color="green" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-bank" color="green" />
+        <Maneuver speed="2" kind="right-turn" color="white" />
+        <Maneuver speed="2" kind="about" color="white" />
+        <Maneuver speed="1" kind="left-turn" color="white" />
+        <Maneuver speed="1" kind="left-bank" color="green" />
+        <Maneuver speed="1" kind="straight" color="green" />
+        <Maneuver speed="1" kind="right-bank" color="green" />
+        <Maneuver speed="1" kind="right-turn" color="white" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
+      <RearArc></RearArc>
+    </ShipClassDetail>
   </ShipClassDetails>
   <Ships>
     <Ship>
@@ -3482,6 +3505,56 @@
       <Id>vulcan_starship_71508</Id>
       <Set>71508</Set>
     </Ship>
+    <Ship>
+      <Title>U.S.S. Raven</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Aerie Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>1</Attack>
+      <Agility>2</Agility>
+      <Hull>2</Hull>
+      <Shield>3</Shield>
+      <Ability>Each time you attack or defend, if there is a [SCAN] token beside your ship, your range combat bonuses are doubled.</Ability>
+      <Cost>16</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>0</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>2</Tech>
+      <Weapon>0</Weapon>
+      <Crew>1</Crew>
+      <Id>u_s_s_raven_71509</Id>
+      <Set>71509</Set>
+    </Ship>
+    <Ship>
+      <Title>Federation Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Aerie Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>1</Attack>
+      <Agility>2</Agility>
+      <Hull>2</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>14</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>0</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>2</Tech>
+      <Weapon>0</Weapon>
+      <Crew>0</Crew>
+      <Id>federation_starship_71509</Id>
+      <Set>71509</Set>
+    </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -3532,7 +3605,7 @@
       <Faction>Federation</Faction>
       <Cost>0</Cost>
       <Id>2003</Id>
-      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523</Set>
+      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509</Set>
     </Captain>
     <Captain>
       <Title>Nu'Daq</Title>
@@ -4910,6 +4983,21 @@
       <Id>gul_dukat_cap_71524</Id>
       <Set>71524</Set>
       <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Magnus Hansen</Title>
+      <Ability>During the Modify Defense Dice step of the combat phase, you may spend 1 [SCAN] token to add 1 additional [EVASIVE] result to your defense roll. You do not pay a faction penalty when assigning Magnus to a Federation ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill>3</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Independent</Faction>
+      <Cost>2</Cost>
+      <Id>magnus_hansen_71509</Id>
+      <Set>71509</Set>
+      <Special>NoPenaltyOnFederationShip</Special>
     </Captain>
   </Captains>
   <Admirals>
@@ -9095,6 +9183,66 @@
       <Cost>2</Cost>
       <Id>koss_71508</Id>
       <Set>71508</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Mutli-adaptive Shields</Title>
+      <Ability>This upgrade only functions while you have Active Shields. Each time you defend, roll +1 defense die. When defending, you roll your full defense dice in spite of the presence of an enemy ship's [SCAN] token. In addition, you roll your full defense against any Minefield Tokens. This Upgrade may only be purchased for a Federation ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>mutli_adaptive_shields_71509</Id>
+      <Set>71509</Set>
+      <Special>OnlyFederationShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Reinforced Structural Integrity</Title>
+      <Ability>Each time your ship takes damage, place 1 of the damage cards that your ship receives beneath this card. All excess damage affects the ship as normal. You cannot place critical damage cards beneath this card. Once there are 3 damage cards beneath this card, discard this Upgrade and all cards beneath it. This Upgrade costs +5 SP for any ship other than the U.S.S. Raven.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>reinforced_structural_integrity_71509</Id>
+      <Set>71509</Set>
+      <Special>PlusFiveIfNotRaven</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Research Mission</Title>
+      <Ability>During the Roll Defense Dice step of the Combat Phase, you may disable this card to roll +1 defense die.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Independent</Faction>
+      <Cost>2</Cost>
+      <Id>research_mission_71509</Id>
+      <Set>71509</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Erin Hansen</Title>
+      <Ability>During the Planning Phase, after all ships have chosen their Maneuvers, you may discard this card to target one enemy ship at Range 1-3 and look at that ship's chosen Maneuver. You may then change your Maneuver. The target ship cannot change its Maneuver after you look at it.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Independent</Faction>
+      <Cost>3</Cost>
+      <Id>erin_hansen_71509</Id>
+      <Set>71509</Set>
       <Special></Special>
     </Upgrade>
   </Upgrades>

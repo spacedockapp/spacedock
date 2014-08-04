@@ -6,15 +6,14 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-6/30/2014 9:44:49	Unique	Combat Vessel Variant	Vulcan	Your Primary Weapon and Hull values are each at +1.  In addition, during the Activation Phase, if you reveal a 4 [STRAIGHT] Maneuver, you may perform a 5 [STRAIGHT] Maneuver instead.  If you do so, place an Auxiliary Power Token beside your ship.  This Upgrade may only be purchased for a Suurok Class ship.	Tech	6
-6/30/2014 9:45:38		Tractor Beam	Vulcan	If you are attacked at Range 1, you may disable this card to force the attacking ship to re-roll up to 2 attack dice of your choice.	Tech	2
-6/30/2014 9:46:46	Unique	Diplomacy	Vulcan	ACTION: Discard this card to target 1 enemy ship within Range 1-3.  Discard all Tokens from beside your ship and the target ship (except for Auxiliary Power Tokens).  Both your ship and the target ship cannot attack or be attacked this round.	Talent	5
-6/30/2014 9:47:24	Unique	Koss	Vulcan	While Koss is on your ship, none of your other Upgrades can be affected by your opponents.	Crew	2
+8/1/2014 21:20:22	Unique	Mutli-adaptive Shields	Federation	This upgrade only functions while you have Active Shields. Each time you defend, roll +1 defense die. When defending, you roll your full defense dice in spite of the presence of an enemy ship's [SCAN] token. In addition, you roll your full defense against any Minefield Tokens. This Upgrade may only be purchased for a Federation ship.	Tech	5																			
+8/1/2014 21:22:05	Unique	Reinforced Structural Integrity	Federation	Each time your ship takes damage, place 1 of the damage cards that your ship receives beneath this card. All excess damage affects the ship as normal. You cannot place critical damage cards beneath this card. Once there are 3 damage cards beneath this card, discard this Upgrade and all cards beneath it. This Upgrade costs +5 SP for any ship other than the U.S.S. Raven.	Tech	5																			
+8/1/2014 21:22:55		Research Mission	Independent	During the Roll Defense Dice step of the Combat Phase, you may disable this card to roll +1 defense die.	Talent	2																			
+8/1/2014 21:24:20	Unique	Erin Hansen	Independent	During the Planning Phase, after all ships have chosen their Maneuvers, you may discard this card to target one enemy ship at Range 1-3 and look at that ship's chosen Maneuver. You may then change your Maneuver. The target ship cannot change its Maneuver after you look at it.	Crew	3																			
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-6/30/2014 9:42:48	Unique	Vanik	5	Vulcan	All of your Vulcan and Federation [TECH] Upgrades cost -2 SP.	1	3
-6/30/2014 9:43:07		Vulcan	1	Vulcan		0	0
+8/1/2014 21:17:29	Unique	Magnus Hansen	3	Independent	During the Modify Defense Dice step of the combat phase, you may spend 1 [SCAN] token to add 1 additional [EVADE] result to your defense roll. You do not pay a faction penalty when assigning Magnus to a Federation ship.	1	2																		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT

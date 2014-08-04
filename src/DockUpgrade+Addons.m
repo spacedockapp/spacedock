@@ -472,6 +472,10 @@
         if (![ship isBorg]) {
             cost += 5;
         }
+    } else if ([upgradeSpecial isEqualToString: @"PlusFiveIfNotRaven"]) {
+        if (![ship isRaven]) {
+            cost += 5;
+        }
     } else if ([upgradeSpecial isEqualToString: @"PhaserStrike"] || [upgradeSpecial isEqualToString: @"CostPlusFiveExceptBajoranInterceptor"]) {
         if (![ship isBajoranInterceptor]) {
             cost += 5;
@@ -540,6 +544,10 @@
             // do nothing
         } else if ([captainSpecial isEqualToString: @"NoPenaltyOnFederationOrBajoranShip"]  && [upgrade isCaptain]) {
             if (!([ship isFederation] || [ship isBajoran])) {
+                cost += 1;
+            }
+        } else if ([captainSpecial isEqualToString: @"NoPenaltyOnFederationShip"]  && [upgrade isCaptain]) {
+            if (!([ship isFederation])) {
                 cost += 1;
             }
         } else if ([captainSpecial isEqualToString: @"CaptainAndTalentsIgnoreFactionPenalty"] &&

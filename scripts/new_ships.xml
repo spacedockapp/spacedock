@@ -1,18 +1,18 @@
     <Ship>
-      <Title>Ti'Mur</Title>
+      <Title>U.S.S. Raven</Title>
       <Unique>Y</Unique>
-      <ShipClass>Suurok Class</ShipClass>
-      <Faction>Vulcan</Faction>
-      <Attack>2</Attack>
-      <Agility>1</Agility>
-      <Hull>4</Hull>
+      <ShipClass>Aerie Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>1</Attack>
+      <Agility>2</Agility>
+      <Hull>2</Hull>
       <Shield>3</Shield>
-      <Ability>Whenever you initiate an attack, you may disable one of your non-disabled [TECH] Upgrades to add +1 attack die.</Ability>
-      <Cost>20</Cost>
+      <Ability>Each time you attack or defend, if there is a [SCAN] token beside your ship, your range combat bonuses are doubled.</Ability>
+      <Cost>16</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock>1</TargetLock>
+      <TargetLock>0</TargetLock>
       <Scan>1</Scan>
-      <Battlestations>1</Battlestations>
+      <Battlestations>0</Battlestations>
       <Cloak>0</Cloak>
       <SensorEcho>0</SensorEcho>
       <Regenerate>0</Regenerate>
@@ -20,31 +20,31 @@
       <Tech>2</Tech>
       <Weapon>0</Weapon>
       <Crew>1</Crew>
-      <Id>ti_mur_71508</Id>
-      <Set>71508</Set>
+      <Id>u_s_s_raven_71509</Id>
+      <Set>71509</Set>
     </Ship>
     <Ship>
-      <Title>Vulcan Starship</Title>
+      <Title>Federation Starship</Title>
       <Unique>N</Unique>
-      <ShipClass>Suurok Class</ShipClass>
-      <Faction>Vulcan</Faction>
-      <Attack>2</Attack>
-      <Agility>1</Agility>
-      <Hull>4</Hull>
+      <ShipClass>Aerie Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>1</Attack>
+      <Agility>2</Agility>
+      <Hull>2</Hull>
       <Shield>2</Shield>
       <Ability></Ability>
-      <Cost>18</Cost>
+      <Cost>14</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock>1</TargetLock>
+      <TargetLock>0</TargetLock>
       <Scan>1</Scan>
-      <Battlestations>1</Battlestations>
+      <Battlestations>0</Battlestations>
       <Cloak>0</Cloak>
       <SensorEcho>0</SensorEcho>
       <Regenerate>0</Regenerate>
       <Borg>0</Borg>
-      <Tech>1</Tech>
+      <Tech>2</Tech>
       <Weapon>0</Weapon>
-      <Crew>1</Crew>
-      <Id>vulcan_starship_71508</Id>
-      <Set>71508</Set>
+      <Crew>0</Crew>
+      <Id>federation_starship_71509</Id>
+      <Set>71509</Set>
     </Ship>

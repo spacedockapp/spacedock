@@ -6,8 +6,8 @@ require_relative "common"
 
 #Timestamp		Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots
 ship = <<-SHIPTEXT
-6/30/2014 9:41:10	Unique	Ti'Mur	Vulcan	Suurok Class	2	1	4	3	Whenever you initiate an attack, you may disable one of your non-disabled [TECH] Upgrades to add +1 attack die.	Battle Stations, Evasive, Scan, Target Lock	20	0	1	2	0					
-6/30/2014 9:41:59		Vulcan Starship	Vulcan	Suurok Class	2	1	4	2		Battle Stations, Evasive, Scan, Target Lock	18	0	1	1	0					
+8/1/2014 21:15:06	Unique	U.S.S. Raven	Federation	Aerie Class	1	2	2	3	Each time you attack or defend, if there is a [SCAN] token beside your ship, your range combat bonuses are doubled.	Evasive, Scan	16	0	1	2	0										
+8/1/2014 21:15:51		Federation Starship	Federation	Aerie Class	1	2	2	2		Evasive, Scan	14	0	0	2	0										
 SHIPTEXT
 
 

@@ -234,6 +234,11 @@ NSString* asDegrees(NSString* textValue)
     return [shipClass isEqualToString: @"Jem'Hadar Battle Cruiser"] || [shipClass isEqualToString: @"Jem'Hadar Battleship"];
 }
 
+-(BOOL)isRaven
+{
+    return [self.title isEqualToString: @"U.S.S. Raven"];
+}
+
 -(DockResource*)associatedResource
 {
     NSString* shipClass = self.shipClass;
