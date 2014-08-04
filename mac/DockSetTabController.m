@@ -17,6 +17,16 @@
     return NO;
 }
 
+#pragma mark - sorting
+
+-(NSArray*)createSortDescriptors
+{
+    return @[
+        [[NSSortDescriptor alloc] initWithKey: @"releaseDate" ascending: YES],
+        [[NSSortDescriptor alloc] initWithKey: @"productName" ascending: YES],
+    ];
+}
+
 #pragma mark - Filtering
 
 -(void)addAdditionalPredicatesForSearchTerm:(NSString*)searchTerm formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments
