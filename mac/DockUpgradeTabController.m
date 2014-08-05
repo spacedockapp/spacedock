@@ -30,7 +30,7 @@
         [formatParts addObject: @"(upType = %@)"];
         [arguments addObject: upgradeType];
     }
-    [formatParts addObject: @"(not upType like 'Captain') and (not upType like 'Admiral') and (not placeholder == YES)"];
+    [formatParts addObject: @"(not upType like 'Captain') and (not upType like 'Admiral')  and (not upType like 'Fleet Captain') and (not placeholder == YES)"];
 }
 
 -(void)updatePredicates
