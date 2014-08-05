@@ -6637,10 +6637,16 @@ Gw
                         <action selector="includeSelectedSets:" target="TYe-CI-sK5" id="rDh-cc-qiY"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Exclude Selected Sets" id="pkl-cE-D4i">
+                <menuItem title="Include Only Selected Sets" id="pkl-cE-D4i">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="excludeSelectedSets:" target="TYe-CI-sK5" id="LzT-An-fFV"/>
+                        <action selector="includeOnlySelectedSets:" target="TYe-CI-sK5" id="nil-R4-SeK"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Exclude Selected Sets" id="3X8-Oe-LFt">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="excludeSelectedSets:" target="TYe-CI-sK5" id="hQj-gQ-xIh"/>
                     </connections>
                 </menuItem>
             </items>

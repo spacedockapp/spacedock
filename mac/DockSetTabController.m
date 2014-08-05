@@ -1,5 +1,6 @@
 #import "DockSetTabController.h"
 
+#import "DockAppDelegate.h"
 #import "DockSet+Addons.h"
 #import "DockSetItem+Addons.h"
 
@@ -68,6 +69,14 @@
     NSArray* selectedItems = [self.targetController selectedObjects];
     for (DockSet* set in selectedItems) {
         set.include = @YES;
+    }
+}
+
+-(IBAction)includeOnlySelectedSets:(id)sender
+{
+    NSArray* selectedItems = [self.targetController selectedObjects];
+    for (DockSet* set in [DockSet allSets: self.appDelegate.managedObjectContext]) {
+        set.include = @([selectedItems containsObject: set]);
     }
 }
 
