@@ -972,6 +972,17 @@ static NSString* namePrefix(NSString* originalName)
     return s;
 }
 
+-(DockEquippedUpgrade*)removeFleetCaptain
+{
+    DockEquippedUpgrade* eu = [self equippedFleetCaptain];
+
+    if (eu) {
+        [eu.equippedShip removeUpgrade: eu];
+    }
+
+    return eu;
+}
+
 
 -(void)setResource:(DockResource*)resource
 {
@@ -985,6 +996,8 @@ static NSString* namePrefix(NSString* originalName)
             [self removeFlagship];
         } else if ([oldResource isFighterSquadron]) {
             [self removeFighterSquadron];
+        } else if ([oldResource isFleetCaptain]) {
+            [self removeFleetCaptain];
         }
 
         [self willChangeValueForKey: @"resource"];
