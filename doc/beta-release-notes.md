@@ -1,7 +1,8 @@
-### Version 1.1b4 build 73 (2014-8-1)
+### Version 1.1b4 build 73 (2014-8-4)
 
 * Add Fleet Captains TC OP2 participation prize.
 * Add U.S.S. Raven TC OP2 competitive prize.
+* Improvements to the sets list.
 
 ### Version 1.1b3 build 72 (2014-8-1)
 
