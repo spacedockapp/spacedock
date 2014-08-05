@@ -1,4 +1,4 @@
-<Data version="2014-08-04#4">
+<Data version="2014-08-05@14-27">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -9711,6 +9711,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
     <FleetCaptains>
         <FleetCaptain>
             <Title>Federation</Title>
+            <Type>Fleet Captain</Type>
             <Id>federation_collectiveop2</Id>
             <Set>CollectiveOP2</Set>
             <Faction>Federation</Faction>
@@ -9724,6 +9725,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
         </FleetCaptain>
         <FleetCaptain>
             <Title>Dominion</Title>
+            <Type>Fleet Captain</Type>
             <Id>dominion_collectiveop2</Id>
             <Set>CollectiveOP2</Set>
             <Faction>Dominion</Faction>
@@ -9737,6 +9739,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
         </FleetCaptain>
         <FleetCaptain>
             <Title>Romulan</Title>
+            <Type>Fleet Captain</Type>
             <Id>romulan_collectiveop2</Id>
             <Set>CollectiveOP2</Set>
             <Faction>Romulan</Faction>
@@ -9750,6 +9753,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
         </FleetCaptain>
         <FleetCaptain>
             <Title>Klingon</Title>
+            <Type>Fleet Captain</Type>
             <Id>klingon_collectiveop2</Id>
             <Set>CollectiveOP2</Set>
             <Faction>Klingon</Faction>
@@ -9763,6 +9767,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
         </FleetCaptain>
         <FleetCaptain>
             <Title>Independent (Klingon)</Title>
+            <Type>Fleet Captain</Type>
             <Id>independent_klingon_collectiveop2</Id>
             <Set>CollectiveOP2</Set>
             <Faction>Independent</Faction>
@@ -9777,6 +9782,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
         </FleetCaptain>
         <FleetCaptain>
             <Title>Independent (Federation)</Title>
+            <Type>Fleet Captain</Type>
             <Id>independent_federation_collectiveop2</Id>
             <Set>CollectiveOP2</Set>
             <Faction>Independent</Faction>
@@ -9790,6 +9796,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
         </FleetCaptain>
         <FleetCaptain>
             <Title>Independent (Romulan)</Title>
+            <Type>Fleet Captain</Type>
             <Id>independent_romulan_collectiveop2</Id>
             <Set>CollectiveOP2</Set>
             <Faction>Independent</Faction>
@@ -9804,6 +9811,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
         </FleetCaptain>
         <FleetCaptain>
             <Title>Independent (Dominion)</Title>
+            <Type>Fleet Captain</Type>
             <Id>independent_dominion_collectiveop2</Id>
             <Set>CollectiveOP2</Set>
             <Faction>Independent</Faction>
