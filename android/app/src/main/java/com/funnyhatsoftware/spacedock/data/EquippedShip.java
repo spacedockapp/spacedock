@@ -980,7 +980,7 @@ public class EquippedShip extends EquippedShipBase {
                 JSONObject upgradeData = upgrades.getJSONObject(i);
                 String upgradeId = upgradeData
                         .optString(JSONLabels.JSON_LABEL_UPGRADE_ID);
-                Upgrade upgrade = universe.getUpgradeOrAdmiral(upgradeId);
+                Upgrade upgrade = universe.getUpgradeLikeItem(upgradeId);
                 if (upgrade != null) {
                     EquippedUpgrade eu = addUpgrade(upgrade, null, false);
                     if (upgradeData
