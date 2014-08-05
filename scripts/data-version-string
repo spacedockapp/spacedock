@@ -1,0 +1,2 @@
+# script to generate a unique data version string based on the UTC time
+date -u +%Y-%m-%d@%H-%M
