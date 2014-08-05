@@ -1,4 +1,4 @@
-<Data version="2014-08-04">
+<Data version="2014-08-04#4">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -9773,6 +9773,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
             <TechAdd>0</TechAdd>
             <WeaponAdd></WeaponAdd>
             <Cost>5</Cost>
+            <Special>CrewUpgradesCostOneLess</Special>
         </FleetCaptain>
         <FleetCaptain>
             <Title>Independent (Federation)</Title>
@@ -9799,6 +9800,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
             <TechAdd>0</TechAdd>
             <WeaponAdd>2</WeaponAdd>
             <Cost>5</Cost>
+            <Special>WeaponUpgradesCostOneLess</Special>
         </FleetCaptain>
         <FleetCaptain>
             <Title>Independent (Dominion)</Title>
@@ -9812,6 +9814,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
             <TechAdd>0</TechAdd>
             <WeaponAdd>0</WeaponAdd>
             <Cost>5</Cost>
+            <Special>CrewUpgradesCostOneLess</Special>
         </FleetCaptain>
     </FleetCaptains>
     <ReferenceItems>

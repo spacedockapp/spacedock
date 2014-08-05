@@ -8,6 +8,7 @@
 #import "DockFlagship+Addons.h"
 #import "DockResource.h"
 #import "DockShip+Addons.h"
+#import "DockSquad+Addons.h"
 #import "DockTalent.h"
 #import "DockTech.h"
 #import "DockUtils.h"
@@ -397,6 +398,7 @@
 -(int)costForShip:(DockEquippedShip*)equippedShip equippedUpgade:(DockEquippedUpgrade*)equippedUpgrade
 {
     DockUpgrade* upgrade = self;
+    NSString* fleetCaptainSpecial = [[[equippedShip.squad equippedFleetCaptain] upgrade] special];
 
     if ([upgrade isPlaceholder]) {
         return 0;
@@ -438,8 +440,16 @@
                 cost += 5;
             }
         }
+
+        if ([fleetCaptainSpecial isEqualToString: @"CrewUpgradesCostOneLess"] && !isSideboard) {
+            cost -= 1;
+        }
+
     } else if ([upgrade isWeapon]) {
         if ([captainSpecial isEqualToString: @"WeaponUpgradesCostOneLess"]) {
+            cost -= 1;
+        }
+        if ([fleetCaptainSpecial isEqualToString: @"WeaponUpgradesCostOneLess"]) {
             cost -= 1;
         }
     }
