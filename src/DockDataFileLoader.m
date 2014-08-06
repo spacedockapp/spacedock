@@ -5,6 +5,7 @@
 #import "DockAdmiral.h"
 #import "DockBorg+Addons.h"
 #import "DockCaptain+Addons.h"
+#import "DockConstants.h"
 #import "DockCrew.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedShip.h"
@@ -167,7 +168,7 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
 
     for (NSDictionary* d in items) {
         NSString* nodeType = d[@"Type"];
-        if (targetType == nil || [nodeType isEqualToString: targetType]) {
+        if (targetType == nil || nodeType == nil || [nodeType isEqualToString: targetType]) {
             NSString* externalId = d[@"Id"];
             id c = existingItemsLookup[externalId];
 
@@ -572,7 +573,7 @@ static NSString* makeKey(NSString* key)
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockBorg class] entityName: @"Borg" targetType: @"Borg"];
     [self loadItems: xmlData[@"Resources"] itemClass: [DockResource class] entityName: @"Resource" targetType: @"Resource"];
     [self loadItems: xmlData[@"Flagships"] itemClass: [DockFlagship class] entityName: @"Flagship" targetType: nil];
-    [self loadItems: xmlData[@"FleetCaptains"] itemClass: [DockFleetCaptain class] entityName: @"FleetCaptain" targetType: nil];
+    [self loadItems: xmlData[@"FleetCaptains"] itemClass: [DockFleetCaptain class] entityName: @"FleetCaptain" targetType: kFleetCaptainUpgradeType];
     [self loadItems: xmlData[@"ReferenceItems"] itemClass: [DockReference class] entityName: @"Reference" targetType: nil];
 
     return [self.managedObjectContext save: error];

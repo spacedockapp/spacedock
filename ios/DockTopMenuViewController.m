@@ -1,5 +1,6 @@
 #import "DockTopMenuViewController.h"
 
+#import "DockConstants.h"
 #import "DockResourcesViewController.h"
 #import "DockSetsListViewController.h"
 #import "DockShipsViewController.h"
@@ -98,6 +99,12 @@
         controller.managedObjectContext = self.managedObjectContext;
         controller.upType = @"Admiral";
         controller.upgradeTypeName = @"Admirals";
+    } else if ([[segue identifier] isEqualToString: @"GoToFleetCaptains"]) {
+        id destination = [segue destinationViewController];
+        DockUpgradesViewController* controller = (DockUpgradesViewController*)destination;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.upType = kFleetCaptainUpgradeType;
+        controller.upgradeTypeName = @"Fleet Captains";
     } else if ([[segue identifier] isEqualToString: @"GoToResources"]) {
         id destination = [segue destinationViewController];
         DockResourcesViewController* controller = (DockResourcesViewController*)destination;
