@@ -1205,7 +1205,7 @@
     for (DockEquippedUpgrade* eu in self.upgrades) {
         DockUpgrade* upgrade = eu.upgrade;
 
-        if ([upgrade.upType isEqualToString: @"Admiral"]) {
+        if ([upgrade.upType isEqualToString: kAdmiralUpgradeType]) {
             return eu;
         }
     }

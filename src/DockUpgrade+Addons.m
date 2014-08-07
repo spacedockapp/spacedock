@@ -133,7 +133,7 @@
 
 -(BOOL)isAdmiral
 {
-    return [self.upType isEqualToString: @"Admiral"];
+    return [self.upType isEqualToString: kAdmiralUpgradeType];
 }
 
 -(BOOL)isFleetCaptain

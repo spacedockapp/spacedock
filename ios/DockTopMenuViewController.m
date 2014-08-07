@@ -97,7 +97,7 @@
         id destination = [segue destinationViewController];
         DockUpgradesViewController* controller = (DockUpgradesViewController*)destination;
         controller.managedObjectContext = self.managedObjectContext;
-        controller.upType = @"Admiral";
+        controller.upType = kAdmiralUpgradeType;
         controller.upgradeTypeName = @"Admirals";
     } else if ([[segue identifier] isEqualToString: @"GoToFleetCaptains"]) {
         id destination = [segue destinationViewController];

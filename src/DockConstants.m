@@ -14,3 +14,4 @@ NSString* kSquadTooLargeToPrint = @"This version of Space Dock cannot print buil
 NSString* kDockBundleIdentifier = @"com.funnyhatsoftware.Space_Dock";
 
 NSString* kFleetCaptainUpgradeType = @"Fleet Captain";
+NSString* kAdmiralUpgradeType = @"Admiral";

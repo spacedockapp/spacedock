@@ -122,15 +122,8 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Upgrade" id="11d-kb-pRr">
-                        <barButtonItem key="rightBarButtonItem" title="Admirals" id="9N3-MT-AuE">
-                            <connections>
-                                <action selector="toggleAdmiral:" destination="ItA-jp-4hr" id="4ic-c4-UAd"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Upgrade" id="11d-kb-pRr"/>
                     <connections>
-                        <outlet property="captainAdmiralSwitch" destination="9N3-MT-AuE" id="ujn-zS-B8g"/>
                         <outlet property="costBarItem" destination="Xri-Jo-QKS" id="ENR-u8-Qha"/>
                         <outlet property="factionBarItem" destination="hOj-NS-uDd" id="ZP2-7J-5f8"/>
                         <outlet property="overrideBarItem" destination="f9C-2x-CG7" id="uN2-TT-I4p"/>
@@ -806,63 +799,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="ItA-jp-4hr" kind="push" identifier="PickUpgrade" id="Edb-dE-lUZ"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ship" textLabel="HfW-zp-utV" detailTextLabel="ljG-rF-IDR" style="IBUITableViewCellStyleValue1" id="Rhh-gg-9oD">
-                                <rect key="frame" x="0.0" y="55" width="320" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rhh-gg-9oD" id="HGa-te-778">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="32"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HfW-zp-utV">
-                                            <rect key="frame" x="10" y="6" width="33" height="21"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ljG-rF-IDR">
-                                            <rect key="frame" x="246" y="6" width="44" height="21"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="qai-jN-X8t" kind="push" identifier="PickShip" id="AYA-Tq-E0B"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="flagship" textLabel="B3I-Qb-IgW" detailTextLabel="teV-8u-YlA" style="IBUITableViewCellStyleValue1" id="CMt-zR-Gvx">
-                                <rect key="frame" x="0.0" y="88" width="320" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CMt-zR-Gvx" id="OBS-u5-lin">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="32"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B3I-Qb-IgW">
-                                            <rect key="frame" x="10" y="6" width="33" height="21"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                        <label hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="teV-8u-YlA">
-                                            <rect key="frame" x="246" y="6" width="44" height="21"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Goz-Ro-FHv" kind="push" identifier="PickFlagship" id="1wD-G8-AsZ"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -878,6 +814,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="ItA-jp-4hr" kind="push" identifier="PickFleetCaptain" id="ESn-s2-BU6"/>
+                        <segue destination="ItA-jp-4hr" kind="push" identifier="PickAdmiral" id="jLm-5r-kfn"/>
+                        <segue destination="ItA-jp-4hr" kind="push" identifier="PickShip" id="BgZ-YW-cJS"/>
+                        <segue destination="ItA-jp-4hr" kind="push" identifier="PickUpgrade" id="VWC-iv-mtO"/>
+                        <segue destination="Goz-Ro-FHv" kind="push" identifier="PickFlagship" id="K8Z-WI-tdW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHF-WC-cI7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1682,9 +1625,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="TwX-09-xdF"/>
-        <segue reference="ba4-FO-r4X"/>
         <segue reference="me1-T8-16w"/>
+        <segue reference="xuh-dp-0tA"/>
+        <segue reference="4En-j0-M2p"/>
         <segue reference="YvD-5N-V1B"/>
     </inferredMetricsTieBreakers>
 </document>

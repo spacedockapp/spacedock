@@ -1,10 +1,12 @@
 #import "DockAdmiral+Addons.h"
 
+#import "DockConstants.h"
+
 @implementation DockAdmiral (Addons)
 
 -(NSString*)upType
 {
-    return @"Admiral";
+    return kAdmiralUpgradeType;
 }
 
 -(int)admiralTalentCount
