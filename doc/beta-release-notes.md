@@ -1,3 +1,7 @@
+### Version 1.1b5 build 74 (2014-8-9)
+
+* Include set code and base costs in build sheet.
+
 ### Version 1.1b4 build 73 (2014-8-4)
 
 * Add Fleet Captains TC OP2 participation prize.
