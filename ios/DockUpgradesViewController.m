@@ -1,5 +1,6 @@
 #import "DockUpgradesViewController.h"
 
+#import "DockConstants.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockShip+Addons.h"
@@ -14,7 +15,6 @@
 @property (assign, nonatomic) BOOL restore;
 @property (assign, nonatomic) int overrideCost;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* overrideBarItem;
-@property (nonatomic, strong) IBOutlet UIBarButtonItem* captainAdmiralSwitch;
 @end
 
 @implementation DockUpgradesViewController
@@ -23,8 +23,6 @@
 {
     self.cellIdentifer = @"Upgrade";
     [super viewDidLoad];
-    self.captainAdmiralSwitch.target = self;
-    self.captainAdmiralSwitch.action = @selector(toggleAdmiral:);
 }
 
 
@@ -45,36 +43,10 @@
     return nil;
 }
 
--(void)setCaptainAdmiralSwitchVisible:(BOOL)visible
-{
-    if (visible) {
-        self.navigationItem.rightBarButtonItems = @[_captainAdmiralSwitch];
-    } else {
-        self.navigationItem.rightBarButtonItems = @[];
-    }
-}
-
--(void)updateCaptainAdmiralSwitch
-{
-    BOOL visible = NO;
-    if (_showAdmirals && _targetShip) {
-        if ([_upType isEqualToString: @"Captain"]) {
-            visible = YES;
-            _captainAdmiralSwitch.title = @"Admirals";
-        } else if ([_upType isEqualToString: @"Admiral"]) {
-            visible = YES;
-            _captainAdmiralSwitch.title = @"Captains";
-        }
-    }
-    [self setCaptainAdmiralSwitchVisible: visible];
-}
-
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear: animated];
     
-    [self updateCaptainAdmiralSwitch];
-
     [self setTitle: _upgradeTypeName];
     NSIndexPath* indexPath = nil;
     DockUpgrade* upgrade = _targetUpgrade.upgrade;
@@ -122,7 +94,6 @@
         self.navigationController.title = upType;
     }
 
-    [self updateCaptainAdmiralSwitch];
     self.fetchedResultsController = nil;
 }
 
@@ -156,8 +127,10 @@
     NSMutableArray* predicateValues = [NSMutableArray arrayWithCapacity: 0];
 
     [predicateTerms addObject: @"(not placeholder == YES)"];
-    [predicateTerms addObject: @"(upType = %@)"];
-    [predicateValues addObject: _upType];
+    if (_upType != nil) {
+        [predicateTerms addObject: @"(upType = %@)"];
+        [predicateValues addObject: _upType];
+    }
 
     if (includedSets) {
         [predicateTerms addObject: @"any sets.externalId in %@"];

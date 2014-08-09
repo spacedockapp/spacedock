@@ -162,7 +162,7 @@ NSAttributedString* headerText(NSString* string)
         return [NSNumber numberWithInt: [_equippedShip baseCost]];
     }
     
-    return [_equippedShip descriptiveTitle];
+    return [_equippedShip descriptiveTitleWithSet];
 }
 
 -(id)handleFlagship:(NSString*)identifier
@@ -198,11 +198,11 @@ NSAttributedString* headerText(NSString* string)
     }
 
     if ([identifier isEqualToString: @"sp"]) {
-        return [NSNumber numberWithInt: equippedCaptain.cost];
+        return costString(equippedCaptain);
     }
     
 
-    return captain.title;
+    return [equippedCaptain descriptionForBuildSheet];
 }
 
 -(id)handleUpgrade:(NSString*)identifier index:(long)index
@@ -220,7 +220,7 @@ NSAttributedString* headerText(NSString* string)
             if ([[equippedUpgrade overridden] boolValue]) {
                 return [NSString stringWithFormat: @"%@ (%d)", [equippedUpgrade overriddenCost], [equippedUpgrade nonOverriddenCost]];
             }
-            return [NSNumber numberWithInt: [equippedUpgrade cost]];
+            return costString(equippedUpgrade);
         }
         
         return [equippedUpgrade descriptionForBuildSheet];

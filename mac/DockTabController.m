@@ -376,7 +376,9 @@ NSMutableArray* sTabControllers = nil;
         [alert setMessageText: msg];
     }
     NSString* info = d[NSLocalizedFailureReasonErrorKey];
-    [alert setInformativeText: info];
+    if (info) {
+        [alert setInformativeText: info];
+    }
     [alert setAlertStyle: NSInformationalAlertStyle];
     [alert beginSheetModalForWindow: self.window
                       modalDelegate: self

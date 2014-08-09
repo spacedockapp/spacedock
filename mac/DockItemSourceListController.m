@@ -96,7 +96,7 @@
     _itemNames = @[
                    @"Ships",
                    @"Captains",
-//                   @"Fleet Captains",
+                   @"Fleet Captains",
                    kUpgrades,
                    @"Admirals",
                    @"Resources",
@@ -109,7 +109,7 @@
                 @"Ships", @"Captains", kUpgrades
                 ];
     _extras = @[
-//                @"Fleet Captains",
+                @"Fleet Captains",
                 @"Admirals", @"Flagships", @"Resources"
                 ];
     _other = @[

@@ -2,6 +2,7 @@
 
 #import "DockAdmiral+Addons.h"
 #import "DockCaptain+Addons.h"
+#import "DockFleetCaptain+Addons.h"
 #import "DockSetItem+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
@@ -34,6 +35,10 @@
 
     if ([_upgrade isCaptain]) {
         rows = 9;
+    }
+
+    if ([_upgrade isFleetCaptain]) {
+        rows = 11;
     }
 
     if ([_upgrade isAdmiral]) {
@@ -111,12 +116,57 @@
     return cell;
 }
 
+-(UITableViewCell*)cellForCaptainSkillBonus:(UITableView*)tableView
+{
+    DockFleetCaptain* fc = (DockFleetCaptain*)_upgrade;
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
+    cell.textLabel.text = @"Skill Modifier";
+    cell.detailTextLabel.text = [NSString stringWithFormat: @"+%@", fc.captainSkillBonus];
+    return cell;
+}
+
 -(UITableViewCell*)cellForTalent:(UITableView*)tableView
 {
     DockCaptain* captain = (DockCaptain*)_upgrade;
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
     cell.textLabel.text = @"Talent";
     cell.detailTextLabel.text = [captain.talent stringValue];
+    return cell;
+}
+
+-(UITableViewCell*)cellForCrewAdd:(UITableView*)tableView
+{
+    DockFleetCaptain* fc = (DockFleetCaptain*)_upgrade;
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
+    cell.textLabel.text = @"Crew";
+    cell.detailTextLabel.text = [fc.crewAdd stringValue];
+    return cell;
+}
+
+-(UITableViewCell*)cellForWeaponAdd:(UITableView*)tableView
+{
+    DockFleetCaptain* fc = (DockFleetCaptain*)_upgrade;
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
+    cell.textLabel.text = @"Weapon";
+    cell.detailTextLabel.text = [fc.weaponAdd stringValue];
+    return cell;
+}
+
+-(UITableViewCell*)cellForTechAdd:(UITableView*)tableView
+{
+    DockFleetCaptain* fc = (DockFleetCaptain*)_upgrade;
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
+    cell.textLabel.text = @"Tech";
+    cell.detailTextLabel.text = [fc.techAdd stringValue];
+    return cell;
+}
+
+-(UITableViewCell*)cellForTalentAdd:(UITableView*)tableView
+{
+    DockFleetCaptain* fc = (DockFleetCaptain*)_upgrade;
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
+    cell.textLabel.text = @"Talent";
+    cell.detailTextLabel.text = [fc.talentAdd stringValue];
     return cell;
 }
 
@@ -196,6 +246,39 @@
             return [self cellForAdmiralTalent: tableView];
 
         case 6:
+            return [self cellForSet: tableView];
+        }
+        return [self cellForAbility: tableView];
+    } else if ([_upgrade isFleetCaptain]) {
+        switch (row) {
+        case 0:
+            return [self cellForTitle: tableView];
+
+        case 1:
+            return [self cellForFaction: tableView];
+
+        case 2:
+            return [self cellForType: tableView];
+
+        case 3:
+            return [self cellForCaptainSkillBonus: tableView];
+
+        case 4:
+            return [self cellForCost: tableView];
+
+        case 5:
+            return [self cellForCrewAdd: tableView];
+
+        case 6:
+            return [self cellForTalentAdd: tableView];
+
+        case 7:
+            return [self cellForTechAdd: tableView];
+
+        case 8:
+            return [self cellForWeaponAdd: tableView];
+
+        case 9:
             return [self cellForSet: tableView];
         }
         return [self cellForAbility: tableView];

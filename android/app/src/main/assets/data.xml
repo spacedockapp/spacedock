@@ -1,4 +1,4 @@
-<Data version="1.236">
+<Data version="2014-08-05@14-27">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1049,6 +1049,29 @@
         <Maneuver speed="-1" kind="straight" color="red" />
       </Maneuvers>
       <FrontArc>180</FrontArc>
+      <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+      <Name>Aerie Class</Name>
+      <Id>aerie_class</Id>
+      <Maneuvers>
+        <Maneuver speed="4" kind="straight" color="white" />
+        <Maneuver speed="3" kind="left-bank" color="white" />
+        <Maneuver speed="3" kind="straight" color="white" />
+        <Maneuver speed="3" kind="right-bank" color="white" />
+        <Maneuver speed="2" kind="left-turn" color="white" />
+        <Maneuver speed="2" kind="left-bank" color="green" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-bank" color="green" />
+        <Maneuver speed="2" kind="right-turn" color="white" />
+        <Maneuver speed="2" kind="about" color="white" />
+        <Maneuver speed="1" kind="left-turn" color="white" />
+        <Maneuver speed="1" kind="left-bank" color="green" />
+        <Maneuver speed="1" kind="straight" color="green" />
+        <Maneuver speed="1" kind="right-bank" color="green" />
+        <Maneuver speed="1" kind="right-turn" color="white" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
       <RearArc></RearArc>
     </ShipClassDetail>
   </ShipClassDetails>
@@ -3482,6 +3505,56 @@
       <Id>vulcan_starship_71508</Id>
       <Set>71508</Set>
     </Ship>
+    <Ship>
+      <Title>U.S.S. Raven</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Aerie Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>1</Attack>
+      <Agility>2</Agility>
+      <Hull>2</Hull>
+      <Shield>3</Shield>
+      <Ability>Each time you attack or defend, if there is a [SCAN] token beside your ship, your range combat bonuses are doubled.</Ability>
+      <Cost>16</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>0</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>2</Tech>
+      <Weapon>0</Weapon>
+      <Crew>1</Crew>
+      <Id>u_s_s_raven_71509</Id>
+      <Set>71509</Set>
+    </Ship>
+    <Ship>
+      <Title>Federation Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Aerie Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>1</Attack>
+      <Agility>2</Agility>
+      <Hull>2</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>14</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>0</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>2</Tech>
+      <Weapon>0</Weapon>
+      <Crew>0</Crew>
+      <Id>federation_starship_71509</Id>
+      <Set>71509</Set>
+    </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -3532,7 +3605,7 @@
       <Faction>Federation</Faction>
       <Cost>0</Cost>
       <Id>2003</Id>
-      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523</Set>
+      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509</Set>
     </Captain>
     <Captain>
       <Title>Nu'Daq</Title>
@@ -4910,6 +4983,21 @@
       <Id>gul_dukat_cap_71524</Id>
       <Set>71524</Set>
       <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Magnus Hansen</Title>
+      <Ability>During the Modify Defense Dice step of the combat phase, you may spend 1 [SCAN] token to add 1 additional [EVASIVE] result to your defense roll. You do not pay a faction penalty when assigning Magnus to a Federation ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill>3</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Independent</Faction>
+      <Cost>2</Cost>
+      <Id>magnus_hansen_71509</Id>
+      <Set>71509</Set>
+      <Special>NoPenaltyOnFederationShip</Special>
     </Captain>
   </Captains>
   <Admirals>
@@ -9097,6 +9185,66 @@
       <Set>71508</Set>
       <Special></Special>
     </Upgrade>
+    <Upgrade>
+      <Title>Mutli-adaptive Shields</Title>
+      <Ability>This upgrade only functions while you have Active Shields. Each time you defend, roll +1 defense die. When defending, you roll your full defense dice in spite of the presence of an enemy ship's [SCAN] token. In addition, you roll your full defense against any Minefield Tokens. This Upgrade may only be purchased for a Federation ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>mutli_adaptive_shields_71509</Id>
+      <Set>71509</Set>
+      <Special>OnlyFederationShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Reinforced Structural Integrity</Title>
+      <Ability>Each time your ship takes damage, place 1 of the damage cards that your ship receives beneath this card. All excess damage affects the ship as normal. You cannot place critical damage cards beneath this card. Once there are 3 damage cards beneath this card, discard this Upgrade and all cards beneath it. This Upgrade costs +5 SP for any ship other than the U.S.S. Raven.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>reinforced_structural_integrity_71509</Id>
+      <Set>71509</Set>
+      <Special>PlusFiveIfNotRaven</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Research Mission</Title>
+      <Ability>During the Roll Defense Dice step of the Combat Phase, you may disable this card to roll +1 defense die.</Ability>
+      <Unique>N</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Independent</Faction>
+      <Cost>2</Cost>
+      <Id>research_mission_71509</Id>
+      <Set>71509</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Erin Hansen</Title>
+      <Ability>During the Planning Phase, after all ships have chosen their Maneuvers, you may discard this card to target one enemy ship at Range 1-3 and look at that ship's chosen Maneuver. You may then change your Maneuver. The target ship cannot change its Maneuver after you look at it.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Independent</Faction>
+      <Cost>3</Cost>
+      <Id>erin_hansen_71509</Id>
+      <Set>71509</Set>
+      <Special></Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -9292,6 +9440,26 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
         <Id>counter attack die_collectiveop1</Id>
         <Set>CollectiveOP1</Set>
       </Resource>
+      <Resource>
+        <Title>Fleet Captain</Title>
+        <Unique>Y</Unique>
+        <Ability>1) Players receive a set of 4 Fleet Captain Cards (with 2 options on each card) and choose 1 of those options to use during the Tournament. There are 4 Independent options and 1 option for each faction: Federation, Klingon, Romulan and Dominion. If a Federation, Klingon, Romulan or Dominion Fleet Captain option is chosen, players must assign a Captain of the same Faction as their Fleet Captain and that chosen Captain must also be assigned to a ship of that same Faction. If an Independent option is chosen, however, players may assign any Captain as their Fleet Captain and pay no Faction penalty. That Captain is considered to be both Independent as well as their own Faction.
+
+2) Fleet Captain Cards are oversized cards that are placed beneath your Captain Card. These cards will have additional stats that increase the Skill of your Captain. In addition, Fleet Captain Cards may add bonus text-based abilities and Upgrade Slots to the assigned Captain and/or his Ship.
+
+3) Players may use the bonus text-based ability in addition to their Captain's normal text-based ability (if applicable) during the Battle.
+
+4) If there is a bonus [ELITE] Upgrade slot on your chosen Fleet Captain option, you may choose an [ELITE] Upgrade even if your Captain does not have the [ELITE] icon on his [sic] Captain Card.
+
+5) If your Captain Card already has one or more [ELITE] Upgrade icons on it, you may either choose to take the bonus [ELITE] Upgrade OR forego taking the bonus [ELITE] Upgrade and equip your Captain with 1 of his [sic][ELITE] Upgrades for free.
+
+6) You may not assign a non-unique Captain as your Fleet Captain.
+        </Ability>
+        <Type>Resource</Type>
+        <Cost>5</Cost>
+        <Id>fleet_captain_collectiveop2</Id>
+        <Set>CollectiveOP2</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -9321,8 +9489,11 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
       <Set id="OPArenaParticipation" overallSetName="Organized Play" releaseDate="2014-05-28">Arena Participation Prize</Set>
       <Set id="OPArenaPrize"         overallSetName="Organized Play" releaseDate="2014-05-28">Arena Competitive Prize</Set>
 
-      <Set id="CollectiveOP1" overallSetName="Organized Play" releaseDate="2014-07-25">The Collective OP1 Participation Prize</Set>
+      <Set id="CollectiveOP1" overallSetName="Organized Play" releaseDate="2014-06-24">The Collective OP1 Participation Prize</Set>
       <Set id="71508"             overallSetName="Organized Play" releaseDate="2014-06-25">Ti'Mur Competitive Prize</Set>
+
+      <Set id="CollectiveOP2" overallSetName="Organized Play" releaseDate="2014-07-29">The Collective OP2 Participation Prize</Set>
+      <Set id="71509"             overallSetName="Organized Play" releaseDate="2014-07-30">U.S.S. Raven Competitive Prize</Set>
 
       <Set id="i_k_s_b_moth" overallSetName="The Collective Boosters" releaseDate="2014-07-25">I.K.S. B'Moth Expansion</Set>
       <Set id="gavroche" overallSetName="The Collective Boosters" releaseDate="2014-07-25">Gavroche Expansion</Set>
@@ -9537,6 +9708,123 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
             <Weapon>0</Weapon>
         </Flagship>
     </Flagships>
+    <FleetCaptains>
+        <FleetCaptain>
+            <Title>Federation</Title>
+            <Type>Fleet Captain</Type>
+            <Id>federation_collectiveop2</Id>
+            <Set>CollectiveOP2</Set>
+            <Faction>Federation</Faction>
+            <CaptainSkillBonus>2</CaptainSkillBonus>
+            <Ability>After you move, you may target 1 friendly Federation ship within Range 1-3 (or your own ship). The target ship immediately removes 1 Disabled Upgrade Token from 1 of its disabled Upgrades as a free Action.</Ability>
+            <TalentAdd></TalentAdd>
+            <CrewAdd></CrewAdd>
+            <TechAdd>1</TechAdd>
+            <WeaponAdd>1</WeaponAdd>
+            <Cost>5</Cost>
+        </FleetCaptain>
+        <FleetCaptain>
+            <Title>Dominion</Title>
+            <Type>Fleet Captain</Type>
+            <Id>dominion_collectiveop2</Id>
+            <Set>CollectiveOP2</Set>
+            <Faction>Dominion</Faction>
+            <CaptainSkillBonus>2</CaptainSkillBonus>
+            <Ability>After you move, you may target 1 friendly Dominion ship within Range 1-2 (or your own ship). The target ship immediately performs an Action on one of its non-disabled [TECH] Upgrades as a free Action.</Ability>
+            <TalentAdd>1</TalentAdd>
+            <CrewAdd>1</CrewAdd>
+            <TechAdd></TechAdd>
+            <WeaponAdd></WeaponAdd>
+            <Cost>5</Cost>
+        </FleetCaptain>
+        <FleetCaptain>
+            <Title>Romulan</Title>
+            <Type>Fleet Captain</Type>
+            <Id>romulan_collectiveop2</Id>
+            <Set>CollectiveOP2</Set>
+            <Faction>Romulan</Faction>
+            <CaptainSkillBonus>2</CaptainSkillBonus>
+            <Ability>After you move, you may target 1 friendly Cloaked Romulan ship within Range 1-2 (or your own ship). The target ship immediately performs a [SENSOR ECHO] Action as a free Action.</Ability>
+            <TalentAdd></TalentAdd>
+            <CrewAdd>1</CrewAdd>
+            <TechAdd></TechAdd>
+            <WeaponAdd>1</WeaponAdd>
+            <Cost>5</Cost>
+        </FleetCaptain>
+        <FleetCaptain>
+            <Title>Klingon</Title>
+            <Type>Fleet Captain</Type>
+            <Id>klingon_collectiveop2</Id>
+            <Set>CollectiveOP2</Set>
+            <Faction>Klingon</Faction>
+            <CaptainSkillBonus>2</CaptainSkillBonus>
+            <Ability>After you move, you may target 1 friendly Klingon ship within Range 1-2 (or your own ship). The target ship immediately performs an action on one of its non-disabled [CREW] Upgrades as a free Action.</Ability>
+            <TalentAdd>1</TalentAdd>
+            <CrewAdd></CrewAdd>
+            <TechAdd>1</TechAdd>
+            <WeaponAdd></WeaponAdd>
+            <Cost>5</Cost>
+        </FleetCaptain>
+        <FleetCaptain>
+            <Title>Independent (Klingon)</Title>
+            <Type>Fleet Captain</Type>
+            <Id>independent_klingon_collectiveop2</Id>
+            <Set>CollectiveOP2</Set>
+            <Faction>Independent</Faction>
+            <CaptainSkillBonus>1</CaptainSkillBonus>
+            <Ability>All of your [CREW] Upgrades cost -1 SP for all ships in your fleet (including your own ship).</Ability>
+            <TalentAdd>1</TalentAdd>
+            <CrewAdd>2</CrewAdd>
+            <TechAdd>0</TechAdd>
+            <WeaponAdd></WeaponAdd>
+            <Cost>5</Cost>
+            <Special>CrewUpgradesCostOneLess</Special>
+        </FleetCaptain>
+        <FleetCaptain>
+            <Title>Independent (Federation)</Title>
+            <Type>Fleet Captain</Type>
+            <Id>independent_federation_collectiveop2</Id>
+            <Set>CollectiveOP2</Set>
+            <Faction>Independent</Faction>
+            <CaptainSkillBonus>1</CaptainSkillBonus>
+            <Ability>After you move, you may target 1 friendly ship within Range 1-2 (or your own ship). The target ship immediately performs an additional white "1" Maneuver (forward, bank or turn).</Ability>
+            <TalentAdd>1</TalentAdd>
+            <CrewAdd>0</CrewAdd>
+            <TechAdd>0</TechAdd>
+            <WeaponAdd></WeaponAdd>
+            <Cost>5</Cost>
+        </FleetCaptain>
+        <FleetCaptain>
+            <Title>Independent (Romulan)</Title>
+            <Type>Fleet Captain</Type>
+            <Id>independent_romulan_collectiveop2</Id>
+            <Set>CollectiveOP2</Set>
+            <Faction>Independent</Faction>
+            <CaptainSkillBonus>1</CaptainSkillBonus>
+            <Ability>All your [WEAPON] Upgrades cost -1 SP for all ships in your fleet (including your own ship).</Ability>
+            <TalentAdd>1</TalentAdd>
+            <CrewAdd>0</CrewAdd>
+            <TechAdd>0</TechAdd>
+            <WeaponAdd>2</WeaponAdd>
+            <Cost>5</Cost>
+            <Special>WeaponUpgradesCostOneLess</Special>
+        </FleetCaptain>
+        <FleetCaptain>
+            <Title>Independent (Dominion)</Title>
+            <Type>Fleet Captain</Type>
+            <Id>independent_dominion_collectiveop2</Id>
+            <Set>CollectiveOP2</Set>
+            <Faction>Independent</Faction>
+            <CaptainSkillBonus>1</CaptainSkillBonus>
+            <Ability>All of your [CREW] Upgrades cost -1 SP for all ships in your fleet (including your own ship).</Ability>
+            <TalentAdd>1</TalentAdd>
+            <CrewAdd>2</CrewAdd>
+            <TechAdd>0</TechAdd>
+            <WeaponAdd>0</WeaponAdd>
+            <Cost>5</Cost>
+            <Special>CrewUpgradesCostOneLess</Special>
+        </FleetCaptain>
+    </FleetCaptains>
     <ReferenceItems>
         <Reference>
           <Title>Energy Dampening Token (EDT)</Title>

@@ -96,6 +96,11 @@
     return [special isEqualToString: @"AddTwoCrewSlotsDominionCostBonus"] ? 2 : 0;
 }
 
+-(int)additionalTalentSlots
+{
+    return [self.talent intValue];
+}
+
 -(NSNumber*)eliteTalent
 {
     return [self talent];

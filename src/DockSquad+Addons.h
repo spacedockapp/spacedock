@@ -4,6 +4,7 @@
 @class DockEquippedShip;
 @class DockEquippedUpgrade;
 @class DockFlagship;
+@class DockFleetCaptain;
 @class DockUpgrade;
 @class DockCaptain;
 @class DockShip;
@@ -45,6 +46,9 @@
 -(DockEquippedUpgrade*)addCaptain:(DockCaptain*)captain toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
 -(BOOL)canAddAdmiral:(DockAdmiral*)admiral toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
 -(DockEquippedUpgrade*)addAdmiral:(DockAdmiral*)admiral toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
+-(DockEquippedUpgrade*)addFleetCaptain:(DockFleetCaptain*)fleetCaptain toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
+-(BOOL)canAddFleetCaptain:(DockFleetCaptain*)fleetCaptain toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
+-(DockEquippedUpgrade*)equippedFleetCaptain;
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
 -(DockEquippedShip*)addSideboard;
 -(DockFlagship*)flagship;

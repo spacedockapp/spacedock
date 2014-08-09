@@ -15,6 +15,7 @@
 -(BOOL)isBorg;
 -(BOOL)isCaptain;
 -(BOOL)isAdmiral;
+-(BOOL)isFleetCaptain;
 -(BOOL)isPlaceholder;
 -(BOOL)isUnique;
 -(BOOL)isDominion;
@@ -30,6 +31,7 @@
 -(int)additionalTechSlots;
 -(int)additionalCrewSlots;
 -(int)additionalHull;
+-(int)additionalTalentSlots;
 -(int)additionalAttack;
 -(NSString*)targetShipClass;
 -(NSString*)upSortType;

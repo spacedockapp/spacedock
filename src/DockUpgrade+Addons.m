@@ -1,12 +1,14 @@
 #import "DockUpgrade+Addons.h"
 
 #import "DockCaptain+Addons.h"
+#import "DockConstants.h"
 #import "DockCrew.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockFlagship+Addons.h"
 #import "DockResource.h"
 #import "DockShip+Addons.h"
+#import "DockSquad+Addons.h"
 #import "DockTalent.h"
 #import "DockTech.h"
 #import "DockUtils.h"
@@ -131,7 +133,12 @@
 
 -(BOOL)isAdmiral
 {
-    return [self.upType isEqualToString: @"Admiral"];
+    return [self.upType isEqualToString: kAdmiralUpgradeType];
+}
+
+-(BOOL)isFleetCaptain
+{
+    return [self.upType isEqualToString: kFleetCaptainUpgradeType];
 }
 
 -(BOOL)isTech
@@ -236,6 +243,10 @@
         return [targetShip admiralCount];
     }
 
+    if ([self isFleetCaptain]) {
+        return [targetShip fleetCaptainCount];
+    }
+
     if ([self isTalent]) {
         return [targetShip talentCount];
     }
@@ -291,7 +302,11 @@
 -(NSString*)upSortType
 {
     if ([self isAdmiral]) {
-        return @"AAAAAdmiral";
+        return @"AAAAAAdmiral";
+    }
+
+    if ([self isFleetCaptain]) {
+        return @"AAAACaptain";
     }
 
     if ([self isCaptain]) {
@@ -383,9 +398,14 @@
 -(int)costForShip:(DockEquippedShip*)equippedShip equippedUpgade:(DockEquippedUpgrade*)equippedUpgrade
 {
     DockUpgrade* upgrade = self;
+    NSString* fleetCaptainSpecial = [[[equippedShip.squad equippedFleetCaptain] upgrade] special];
 
     if ([upgrade isPlaceholder]) {
         return 0;
+    }
+
+    if ([upgrade isFleetCaptain]) {
+        return [[upgrade cost] intValue];
     }
 
     int originalCost = [upgrade.cost intValue];
@@ -420,8 +440,16 @@
                 cost += 5;
             }
         }
+
+        if ([fleetCaptainSpecial isEqualToString: @"CrewUpgradesCostOneLess"] && !isSideboard) {
+            cost -= 1;
+        }
+
     } else if ([upgrade isWeapon]) {
         if ([captainSpecial isEqualToString: @"WeaponUpgradesCostOneLess"]) {
+            cost -= 1;
+        }
+        if ([fleetCaptainSpecial isEqualToString: @"WeaponUpgradesCostOneLess"]) {
             cost -= 1;
         }
     }
@@ -452,6 +480,10 @@
         }
     } else if ([upgradeSpecial isEqualToString: @"PlusFiveIfNotBorgShip"]) {
         if (![ship isBorg]) {
+            cost += 5;
+        }
+    } else if ([upgradeSpecial isEqualToString: @"PlusFiveIfNotRaven"]) {
+        if (![ship isRaven]) {
             cost += 5;
         }
     } else if ([upgradeSpecial isEqualToString: @"PhaserStrike"] || [upgradeSpecial isEqualToString: @"CostPlusFiveExceptBajoranInterceptor"]) {
@@ -522,6 +554,10 @@
             // do nothing
         } else if ([captainSpecial isEqualToString: @"NoPenaltyOnFederationOrBajoranShip"]  && [upgrade isCaptain]) {
             if (!([ship isFederation] || [ship isBajoran])) {
+                cost += 1;
+            }
+        } else if ([captainSpecial isEqualToString: @"NoPenaltyOnFederationShip"]  && [upgrade isCaptain]) {
+            if (!([ship isFederation])) {
                 cost += 1;
             }
         } else if ([captainSpecial isEqualToString: @"CaptainAndTalentsIgnoreFactionPenalty"] &&
@@ -600,6 +636,11 @@
     if ([externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
         return 1;
     }
+    return 0;
+}
+
+-(int)additionalTalentSlots
+{
     return 0;
 }
 

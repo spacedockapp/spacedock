@@ -84,17 +84,25 @@
     }
     int baseCost = [[self cost] intValue];
     int costForShip = [self costToInstall];
-    NSString* costString = [NSString stringWithFormat: @"%d", costForShip];
 
     if (baseCost == costForShip) {
+        NSString* costString = [NSString stringWithFormat: @"%d", costForShip];
         return makeCentered([[NSAttributedString alloc] initWithString: costString]);
     }
 
+    NSAttributedString* adjustedCost = nil;
+    NSString* costString = [NSString stringWithFormat: @"(%d)", costForShip];
     if (baseCost > costForShip) {
-        return makeCentered(coloredString(costString, [NSColor greenColor], [NSColor clearColor]));
+        adjustedCost = coloredString(costString, [NSColor greenColor], [NSColor clearColor]);
+    } else {
+        adjustedCost = coloredString(costString, [NSColor redColor], [NSColor clearColor]);
     }
 
-    return makeCentered(coloredString(costString, [NSColor redColor], [NSColor clearColor]));
+    NSString* baseCostString = [NSString stringWithFormat: @"%d", baseCost];
+    NSMutableAttributedString* adjustedCostString = [[NSMutableAttributedString alloc] initWithString: baseCostString];
+    [adjustedCostString appendAttributedString: adjustedCost];
+
+    return makeCentered(adjustedCostString);
 }
 
 @end

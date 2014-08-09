@@ -189,7 +189,7 @@ NSString* kEventNameKey = @"eventName";
         return [NSString stringWithFormat: @"%d", [_ship baseCost]];
     }
     
-    return [_ship descriptiveTitle];
+    return [_ship descriptiveTitleWithSet];
 }
 
 -(NSString*)handleCaptain:(int)col
@@ -209,10 +209,10 @@ NSString* kEventNameKey = @"eventName";
         return [captain factionCode];
 
     case 3:
-        return [NSString stringWithFormat: @"%d", equippedCaptain.cost];
+        return costString(equippedCaptain);
     }
     
-    return captain.title;
+    return [equippedCaptain descriptionForBuildSheet];
 }
 
 -(NSString*)handleFlagship:(int)col
@@ -257,7 +257,7 @@ NSString* kEventNameKey = @"eventName";
             if ([[equippedUpgrade overridden] boolValue]) {
                 return [NSString stringWithFormat: @"%@ (%d)", [equippedUpgrade overriddenCost], [equippedUpgrade nonOverriddenCost]];
             }
-            return [NSString stringWithFormat: @"%d", [equippedUpgrade cost]];
+            return costString(equippedUpgrade);
         }
         
         return [equippedUpgrade descriptionForBuildSheet];

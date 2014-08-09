@@ -43,6 +43,7 @@ public class Universe {
     public ArrayMap<String, ShipClassDetails> shipClassDetailsByName = new ArrayMap<String, ShipClassDetails>();
     public ArrayMap<String, Admiral> admirals = new ArrayMap<String, Admiral>();
     public ArrayMap<String, Captain> captains = new ArrayMap<String, Captain>();
+    public ArrayMap<String, FleetCaptain> fleetCaptains = new ArrayMap<String, FleetCaptain>();
     public ArrayMap<String, Upgrade> upgrades = new ArrayMap<String, Upgrade>();
     public ArrayMap<String, Resource> resources = new ArrayMap<String, Resource>();
     public ArrayMap<String, Flagship> flagships = new ArrayMap<String, Flagship>();
@@ -175,10 +176,14 @@ public class Universe {
         return upgrades.get(upgradeId);
     }
 
-    public Upgrade getUpgradeOrAdmiral(String upgradeId) {
+    public Upgrade getUpgradeLikeItem(String upgradeId) {
         Upgrade maybeAdmiral = admirals.get(upgradeId);
         if (maybeAdmiral != null) {
             return maybeAdmiral;
+        }
+        Upgrade maybeFleetCaptain = fleetCaptains.get(upgradeId);
+        if (maybeFleetCaptain != null) {
+            return maybeFleetCaptain;
         }
         return getUpgrade(upgradeId);
     }

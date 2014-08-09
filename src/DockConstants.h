@@ -12,3 +12,6 @@ extern NSString* kSquadTooLargeToPrint;
 extern NSString* kFlagshipPrintingError;
 
 extern NSString* kDockBundleIdentifier;
+
+extern NSString* kFleetCaptainUpgradeType;
+extern NSString* kAdmiralUpgradeType;

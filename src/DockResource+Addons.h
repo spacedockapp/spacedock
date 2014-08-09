@@ -9,7 +9,9 @@
 -(BOOL)isSideboard;
 -(BOOL)isFlagship;
 -(BOOL)isFighterSquadron;
+-(BOOL)isFleetCaptain;
 -(BOOL)isEquippedIntoSquad;
+-(BOOL)isEquippedIntoSquad:(DockSquad*)thisSquad;
 -(DockShip*)associatedShip;
 -(NSString*)asPlainTextFormat;
 @end

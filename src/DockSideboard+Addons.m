@@ -70,6 +70,11 @@
     return 0;
 }
 
+-(int)fleetCaptainCount
+{
+    return 0;
+}
+
 -(DockEquippedUpgrade*)equippedCaptain
 {
     return [super equippedCaptain];

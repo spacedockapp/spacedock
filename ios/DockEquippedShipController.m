@@ -1,9 +1,11 @@
 #import "DockEquippedShipController.h"
 
+#import "DockConstants.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockFlagshipsViewController.h"
 #import "DockFlagship+Addons.h"
+#import "DockExtrasTableViewCell.h"
 #import "DockResource+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockShipsViewController.h"
@@ -12,8 +14,19 @@
 #import "DockUpgradesViewController.h"
 #import "DockUtilsMobile.h"
 
+#import "DockRowHandler.h"
+#import "DockSectionHandler.h"
+
+#import "DockAdmiralRowHandler.h"
+#import "DockFlagshipRowHandler.h"
+#import "DockFleetCaptainRowHandler.h"
+#import "DockShipRowHandler.h"
+#import "DockUpgradeRowHandler.h"
+
+#pragma mark - DockEquippedShipController
+
 @interface DockEquippedShipController ()
-@property (strong, nonatomic) NSArray* upgradeBuckets;
+@property (strong, nonatomic) NSArray* sections;
 @end
 
 @implementation DockEquippedShipController
@@ -23,39 +36,96 @@
     [super viewDidLoad];
 }
 
--(void)createBuckets
+-(void)createSectionAndRowHandlers
 {
-    NSMutableArray* upgradeBuckets = [NSMutableArray arrayWithCapacity: 0];
-    NSMutableArray* currentBucket = [NSMutableArray arrayWithCapacity: 0];
+    NSString* flagshipTitle = @"Flagship";
+
+    NSMutableSet* sectionTitles = [[NSMutableSet alloc] initWithCapacity: 0];
+    NSMutableArray* sections = [NSMutableArray arrayWithCapacity: 0];
+
+    DockSectionHandler* currentSection = [[DockSectionHandler alloc] init];
+    currentSection.title = @"Ship";
+    DockShipRowHandler* shipRowHandler = [[DockShipRowHandler alloc] init];
+    shipRowHandler.controller = self;
+    shipRowHandler.equippedShip = _equippedShip;
+    [currentSection addRowHandler: shipRowHandler];
+    [sections addObject: currentSection];
+
+    DockFlagship* fs = _equippedShip.flagship;
+    if (fs != nil) {
+        DockSectionHandler* currentSection = [[DockSectionHandler alloc] init];
+        currentSection.title = flagshipTitle;
+        DockFlagshipRowHandler* fsRowHandler = [[DockFlagshipRowHandler alloc] init];
+        fsRowHandler.controller = self;
+        fsRowHandler.equippedShip = _equippedShip;
+        [currentSection addRowHandler: fsRowHandler];
+        [sections addObject: currentSection];
+        [sectionTitles addObject: flagshipTitle];
+    }
+
+    currentSection = [[DockSectionHandler alloc] init];
     NSArray* sortedUpgrades = _equippedShip.sortedUpgrades;
     DockEquippedUpgrade* firstUpgrade = sortedUpgrades.firstObject;
     NSString* lastUpgradeType = firstUpgrade.upgrade.upType;
+    currentSection.title = lastUpgradeType;
+    [sectionTitles addObject: lastUpgradeType];
 
     for (DockEquippedUpgrade* equippedUpgrade in _equippedShip.sortedUpgrades) {
         DockUpgrade* upgrade = equippedUpgrade.upgrade;
 
         if (![lastUpgradeType isEqualToString: upgrade.upType]) {
-            if (currentBucket.count > 0) {
-                [upgradeBuckets addObject: currentBucket];
+            if (currentSection.rowHandlerCount > 0) {
+                [sections addObject: currentSection];
             }
 
-            currentBucket = [NSMutableArray arrayWithCapacity: 0];
+            currentSection = [[DockSectionHandler alloc] init];
             lastUpgradeType = [upgrade upType];
+            currentSection.title = lastUpgradeType;
+            [sectionTitles addObject: lastUpgradeType];
         }
 
-        [currentBucket addObject: equippedUpgrade];
+        DockUpgradeRowHandler* handler = [[DockUpgradeRowHandler alloc] init];
+        handler.controller = self;
+        handler.equippedUpgrade = equippedUpgrade;
+        [currentSection addRowHandler: handler];
     }
 
-    if (currentBucket.count > 0) {
-        [upgradeBuckets addObject: currentBucket];
+    if (currentSection.rowHandlerCount > 0) {
+        [sections addObject: currentSection];
     }
 
-    _upgradeBuckets = [NSArray arrayWithArray: upgradeBuckets];
+    DockSectionHandler* extrasSection = [[DockSectionHandler alloc] init];
+    extrasSection.title = @"Extras";
+
+    if ([_equippedShip.squad.resource isFlagship] && ![sectionTitles containsObject: @"Flagship"]) {
+        DockFlagshipRowHandler* handler = [[DockFlagshipRowHandler alloc] init];
+        handler.controller = self;
+        handler.equippedShip = _equippedShip;
+        [extrasSection addRowHandler: handler];
+    } else if ([_equippedShip.squad.resource isFleetCaptain] && ![sectionTitles containsObject: kFleetCaptainUpgradeType]) {
+        DockFleetCaptainRowHandler* handler = [[DockFleetCaptainRowHandler alloc] init];
+        handler.equippedShip = _equippedShip;
+        handler.controller = self;
+        [extrasSection addRowHandler: handler];
+    }
+
+    if (![sectionTitles containsObject: kAdmiralUpgradeType]) {
+        DockAdmiralRowHandler* admiralHandler = [[DockAdmiralRowHandler alloc] init];
+        admiralHandler.equippedShip = _equippedShip;
+        admiralHandler.controller = self;
+        [extrasSection addRowHandler: admiralHandler];
+    }
+
+    if (extrasSection.rowHandlerCount > 0) {
+        [sections addObject: extrasSection];
+    }
+
+    _sections = [NSArray arrayWithArray: sections];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [self createBuckets];
+    [self createSectionAndRowHandlers];
     [super viewWillAppear: animated];
 }
 
@@ -69,161 +139,78 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
-    int sections = (int)_upgradeBuckets.count + 1;
-    if ([_equippedShip.squad.resource isFlagship]) {
-        sections += 1;
-    }
-    return sections;
+    return _sections.count;
 }
 
 -(NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return @"Ship";
-    }
-    
-    if ([_equippedShip.squad.resource isFlagship]) {
-        section -= 1;
-    }
-    
-    if (section == 0) {
-        return @"Flagship";
-    }
-
-    NSInteger groupIndex = section - 1;
-    NSArray* group = _upgradeBuckets[groupIndex];
-    DockEquippedUpgrade* equippedUpgrade = group.firstObject;
-    DockUpgrade* upgrade = equippedUpgrade.upgrade;
-    return upgrade.upType;
+    assert(section >= 0 && section < _sections.count);
+    DockSectionHandler* handler = _sections[section];
+    return handler.title;
 }
 
 -(NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return 1;
-    }
-
-    if ([_equippedShip.squad.resource isFlagship]) {
-        section -= 1;
-    }
-    
-    if (section == 0) {
-        return 1;
-    }
-    
-    NSInteger groupIndex = section - 1;
-    NSArray* group = _upgradeBuckets[groupIndex];
-    return group.count;
-}
-
--(DockEquippedUpgrade*)upgradeAtPath:(NSIndexPath*)indexPath
-{
-    NSInteger section = [indexPath indexAtPosition: 0];
-    NSInteger groupIndex = section - 1;
-
-    if ([_equippedShip.squad.resource isFlagship]) {
-        groupIndex -= 1;
-    }
-
-    if (groupIndex >= _upgradeBuckets.count) {
-        return nil;
-    }
-
-    NSArray* group = _upgradeBuckets[groupIndex];
-    NSInteger row = [indexPath indexAtPosition: 1];
-
-    if (row >= group.count) {
-        return nil;
-    }
-
-    return group[row];
-}
-
--(DockEquippedUpgrade*)selectedUpgrade
-{
-    NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
-    return [self upgradeAtPath: indexPath];
+    assert(section >= 0 && section < _sections.count);
+    DockSectionHandler* handler = _sections[section];
+    return handler.rowHandlerCount;
 }
 
 -(UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
     NSInteger section = [indexPath indexAtPosition: 0];
-
-    if (section == 0) {
-        UITableViewCell* shipCell = [tableView dequeueReusableCellWithIdentifier: @"ship" forIndexPath: indexPath];
-        shipCell.textLabel.text = _equippedShip.plainDescription;
-        shipCell.detailTextLabel.text = [NSString stringWithFormat: @"%d (%d)", [_equippedShip cost], [_equippedShip baseCost]];
-        return shipCell;
-    }
-    
-    if ([_equippedShip.squad.resource isFlagship]) {
-        section -= 1;
-    }
-
-    if (section == 0) {
-        UITableViewCell* shipCell = [tableView dequeueReusableCellWithIdentifier: @"flagship" forIndexPath: indexPath];
-        DockFlagship* flagship = _equippedShip.flagship;
-        NSString* name = @"None";
-        if (flagship != nil) {
-            name = flagship.name;
-        }
-        shipCell.textLabel.text = name;
-        return shipCell;
-    }
-
-    static NSString* CellIdentifier = @"upgrade";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier forIndexPath: indexPath];
-    DockEquippedUpgrade* equippedUpgrade = [self upgradeAtPath: indexPath];
-    DockUpgrade* upgrade = equippedUpgrade.upgrade;
-    cell.textLabel.text = [upgrade title];
-
-    if ([upgrade isPlaceholder]) {
-        cell.textLabel.textColor = [UIColor grayColor];
-        cell.detailTextLabel.text = @"";
-    } else {
-        cell.textLabel.textColor = [UIColor blackColor];
-        int baseCost = [[upgrade cost] intValue];
-        int equippedCost = [equippedUpgrade cost];
-
-        if (equippedCost == baseCost) {
-            cell.detailTextLabel.text = [[upgrade cost] stringValue];
-        } else {
-            cell.detailTextLabel.text = [NSString stringWithFormat: @"%d (%@)", [equippedUpgrade cost], [upgrade cost]];
-        }
-    }
-
-    return cell;
+    assert(section >= 0 && section < _sections.count);
+    DockSectionHandler* handler = _sections[section];
+    return [handler tableView:tableView cellForRowAtIndexPath: indexPath];
 }
 
 -(BOOL)tableView:(UITableView*)tableView shouldHighlightRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    return YES;
+    NSInteger section = [indexPath indexAtPosition: 0];
+    assert(section >= 0 && section < _sections.count);
+    DockSectionHandler* handler = _sections[section];
+    return [handler tableView:tableView shouldHighlightRowAtIndexPath: indexPath];
+}
+
+-(void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger section = [indexPath indexAtPosition: 0];
+    assert(section >= 0 && section < _sections.count);
+    DockSectionHandler* handler = _sections[section];
+    [handler tableView:tableView didHighlightRowAtIndexPath: indexPath];
 }
 
 -(BOOL)tableView:(UITableView*)tableView canEditRowAtIndexPath:(NSIndexPath*)indexPath
 {
     NSInteger section = [indexPath indexAtPosition: 0];
+    assert(section >= 0 && section < _sections.count);
+    DockSectionHandler* handler = _sections[section];
+    return [handler tableView:tableView canEditRowAtIndexPath: indexPath];
+}
 
-    if ([_equippedShip.squad.resource isFlagship]) {
-        section -= 1;
-    }
-
-    return section > 0;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger section = [indexPath indexAtPosition: 0];
+    assert(section >= 0 && section < _sections.count);
+    DockSectionHandler* handler = _sections[section];
+    return [handler tableView:tableView heightForRowAtIndexPath: indexPath];
 }
 
 -(void)tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        DockEquippedUpgrade* equippedUpgrade = [self upgradeAtPath: indexPath];
-        [_equippedShip removeUpgrade: equippedUpgrade establishPlaceholders: YES];
+        NSInteger section = [indexPath indexAtPosition: 0];
+        assert(section > 0 && section < _sections.count);
+        DockSectionHandler* handler = _sections[section];
+        [handler tableView:tableView commitEditingStyle: editingStyle forRowAtIndexPath: indexPath];
+
         NSError* error;
 
         if (!saveItem(_equippedShip, &error)) {
             presentError(error);
         }
 
-        [self createBuckets];
+        [self createSectionAndRowHandlers];
         [tableView reloadData];
     }
 }
@@ -252,11 +239,10 @@
     id destination = [segue destinationViewController];
 
     if ([sequeIdentifier isEqualToString: @"PickUpgrade"]) {
-        DockEquippedUpgrade* oneToReplace = [self selectedUpgrade];
+        DockEquippedUpgrade* oneToReplace = sender;
         DockUpgradesViewController* controller = (DockUpgradesViewController*)destination;
         controller.managedObjectContext = _equippedShip.managedObjectContext;
-        controller.upType = [[[self selectedUpgrade] upgrade] upType];
-        controller.showAdmirals = (_equippedShip.admiralCount > 0);
+        controller.upType = [[oneToReplace upgrade] upType];
         id onPick = ^(DockUpgrade* upgrade, BOOL override, int overrideCost) {
             DockEquippedUpgrade* localOneToReplace = oneToReplace;
             if (![localOneToReplace.upgrade.upType isEqualToString: upgrade.upType]) {
@@ -268,10 +254,24 @@
     } else if ([sequeIdentifier isEqualToString: @"PickFlagship"]) {
         DockFlagshipsViewController* flagshipsViewController = (DockFlagshipsViewController*)destination;
         flagshipsViewController.managedObjectContext = [_equippedShip managedObjectContext];
-        [flagshipsViewController targetSquad: _equippedShip.squad ship: _equippedShip.ship onPicked: ^(DockFlagship* theFlagship) { [self changeFlagship: theFlagship];
-         }
-
-        ];
+        id handler = ^(DockFlagship* theFlagship) { [self changeFlagship: theFlagship]; };
+        [flagshipsViewController targetSquad: _equippedShip.squad ship: _equippedShip.ship onPicked: handler];
+    } else if ([sequeIdentifier isEqualToString: @"PickFleetCaptain"]) {
+        DockUpgradesViewController* controller = (DockUpgradesViewController*)destination;
+        controller.managedObjectContext = _equippedShip.managedObjectContext;
+        controller.upType = kFleetCaptainUpgradeType;
+        id onPick = ^(DockUpgrade* upgrade, BOOL override, int overrideCost) {
+            [self changeFleetCaptain: upgrade];
+        };
+        [controller targetSquad: _equippedShip.squad ship: _equippedShip upgrade: nil onPicked: onPick];
+    } else if ([sequeIdentifier isEqualToString: @"PickAdmiral"]) {
+        DockUpgradesViewController* controller = (DockUpgradesViewController*)destination;
+        controller.managedObjectContext = _equippedShip.managedObjectContext;
+        controller.upType = kAdmiralUpgradeType;
+        id onPick = ^(DockUpgrade* upgrade, BOOL override, int overrideCost) {
+            [self changeAdmiral: upgrade];
+        };
+        [controller targetSquad: _equippedShip.squad ship: _equippedShip upgrade: nil onPicked: onPick];
     } else if ([sequeIdentifier isEqualToString: @"PickShip"]) {
         DockShipsViewController* shipsViewController = (DockShipsViewController*)destination;
         shipsViewController.managedObjectContext = [_equippedShip managedObjectContext];
@@ -296,8 +296,52 @@
             presentError(error);
         }
 
-        [self createBuckets];
+        [self createSectionAndRowHandlers];
         [self.tableView reloadData];
+    }
+
+    [self.navigationController popViewControllerAnimated: YES];
+}
+
+-(void)changeFleetCaptain:(DockUpgrade*)upgrade
+{
+    if (_equippedShip.equippedFleetCaptain.upgrade != upgrade) {
+        DockFleetCaptain* newFleetCaptain = (DockFleetCaptain*)upgrade;
+        DockSquad* squad = _equippedShip.squad;
+        NSError* error;
+
+        if (![squad addFleetCaptain: newFleetCaptain toShip: _equippedShip error: &error]) {
+            presentError(error);
+        } else {
+            if (!saveItem(_equippedShip, &error)) {
+                presentError(error);
+            }
+
+            [self createSectionAndRowHandlers];
+            [self.tableView reloadData];
+        }
+    }
+
+    [self.navigationController popViewControllerAnimated: YES];
+}
+
+-(void)changeAdmiral:(DockUpgrade*)upgrade
+{
+    if (_equippedShip.equippedAdmiral.upgrade != upgrade) {
+        DockAdmiral* newAdmiral = (DockAdmiral*)upgrade;
+        DockSquad* squad = _equippedShip.squad;
+        NSError* error;
+
+        if (![squad addAdmiral: newAdmiral toShip: _equippedShip error: &error]) {
+            presentError(error);
+        } else {
+            if (!saveItem(_equippedShip, &error)) {
+                presentError(error);
+            }
+
+            [self createSectionAndRowHandlers];
+            [self.tableView reloadData];
+        }
     }
 
     [self.navigationController popViewControllerAnimated: YES];
@@ -313,7 +357,7 @@
             presentError(error);
         }
 
-        [self createBuckets];
+        [self createSectionAndRowHandlers];
         [self.tableView reloadData];
     }
 
@@ -333,7 +377,7 @@
         presentError(error);
     }
 
-    [self createBuckets];
+    [self createSectionAndRowHandlers];
     [self.tableView reloadData];
     [self.navigationController popViewControllerAnimated: YES];
 }

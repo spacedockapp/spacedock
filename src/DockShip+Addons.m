@@ -234,6 +234,11 @@ NSString* asDegrees(NSString* textValue)
     return [shipClass isEqualToString: @"Jem'Hadar Battle Cruiser"] || [shipClass isEqualToString: @"Jem'Hadar Battleship"];
 }
 
+-(BOOL)isRaven
+{
+    return [self.title isEqualToString: @"U.S.S. Raven"];
+}
+
 -(DockResource*)associatedResource
 {
     NSString* shipClass = self.shipClass;
@@ -273,6 +278,14 @@ NSString* asDegrees(NSString* textValue)
 }
 
 -(int)admiralCount
+{
+    if (self.isFighterSquadron) {
+        return 0;
+    }
+    return 1;
+}
+
+-(int)fleetCaptainCount
 {
     if (self.isFighterSquadron) {
         return 0;

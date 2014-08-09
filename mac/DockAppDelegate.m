@@ -208,8 +208,7 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
                              forKeyPath: @"selectionIndexes"
                                 options: NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
                                 context: nil];
-    NSSortDescriptor* defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"releaseDate" ascending: YES];
-    [_setsTableView setSortDescriptors: @[defaultSortDescriptor]];
+    NSSortDescriptor* defaultSortDescriptor = nil;
     if ([defaults boolForKey: kSortSquadsByDate]) {
         defaultSortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"modified" ascending: NO selector: @selector(compare:)];
     } else {
@@ -521,6 +520,8 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
         [self.resourcesTabController addSelectedToSquad: [self selectedSquad] ship: selectedShip selectedItem: maybeUpgrade];
     } else if ([identifier isEqualToString: @"ships"]) {
         [self.shipsTabController addSelectedToSquad: [self selectedSquad] ship: selectedShip selectedItem: maybeUpgrade];
+    } else if ([identifier isEqualToString: @"fleetCaptains"]) {
+        [self.fleetCaptainsTabController addSelectedToSquad: [self selectedSquad] ship: selectedShip selectedItem: maybeUpgrade];
     }
 }
 

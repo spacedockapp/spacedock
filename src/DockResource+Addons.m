@@ -1,5 +1,6 @@
 #import "DockResource+Addons.h"
 #import "DockShip+Addons.h"
+#import "DockSquad+Addons.h"
 
 @implementation DockResource (Addons)
 
@@ -7,6 +8,7 @@ static NSString* kSideboardExternalId = @"4003";
 static NSString* kFlagshipExternalId = @"4004";
 static NSString* kFedFighterSquadronExternalId = @"federation_attack_fighters_op6participation";
 static NSString* kHidekiFighterSquadronExternalId = @"hideki_class_attack_squadron_op5participation";
+static NSString* kFleepCaptainExternalId = @"fleet_captain_collectiveop2";
 
 +(DockResource*)resourceForId:(NSString*)externalId context:(NSManagedObjectContext*)context
 {
@@ -40,6 +42,11 @@ static NSString* kHidekiFighterSquadronExternalId = @"hideki_class_attack_squadr
     return self.title;
 }
 
+-(NSString*)description
+{
+    return self.title;
+}
+
 -(BOOL)isSideboard
 {
     return [self.externalId isEqualToString: kSideboardExternalId];
@@ -50,9 +57,27 @@ static NSString* kHidekiFighterSquadronExternalId = @"hideki_class_attack_squadr
     return [self.externalId isEqualToString: kFlagshipExternalId];
 }
 
+-(BOOL)isFleetCaptain
+{
+    return [self.externalId isEqualToString: kFleepCaptainExternalId];
+}
+
+-(BOOL)isEquippedIntoSquad:(DockSquad*)thisSquad
+{
+    if ([self isFleetCaptain]) {
+        DockEquippedUpgrade* fc = [thisSquad equippedFleetCaptain];
+        return fc != nil;
+    }
+    if ([self isFlagship]) {
+        DockFlagship* flagship = [thisSquad flagship];
+        return flagship != nil;
+    }
+    return [self isSideboard] || [self isFighterSquadron];
+}
+
 -(BOOL)isEquippedIntoSquad
 {
-    return [self isSideboard] || [self isFlagship] || [self isFighterSquadron];
+    return [self isEquippedIntoSquad: nil];
 }
 
 -(BOOL)isFighterSquadron

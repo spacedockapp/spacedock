@@ -2,6 +2,7 @@
 
 @class DockAdmiral;
 @class DockCaptain;
+@class DockFleetCaptain;
 @class DockUpgrade;
 
 @interface DockEquippedShip (Addons)
@@ -15,6 +16,7 @@
 -(DockEquippedUpgrade*)equippedCaptain;
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade;
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade ignoreInstalled:(BOOL)ignoreInstalled;
+-(BOOL)canAddFleetCaptain:(DockFleetCaptain*)fleetCaptain error:(NSError**)error;
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade;
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace;
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace establishPlaceholders:(BOOL)establish;
@@ -28,6 +30,7 @@
 -(int)upgradeCount;
 -(int)captainCount;
 -(int)admiralCount;
+-(int)fleetCaptainCount;
 -(int)techCount;
 -(int)weaponCount;
 -(int)crewCount;
@@ -48,6 +51,7 @@
 -(NSArray*)sortedUpgradesWithoutPlaceholders;
 -(NSString*)plainDescription;
 -(NSString*)descriptiveTitle;
+-(NSString*)descriptiveTitleWithSet;
 -(NSString*)upgradesDescription;
 -(NSString*)factionCode;
 -(NSDictionary*)asJSON;
@@ -63,5 +67,6 @@
 -(DockEquippedUpgrade*)addAdmiral:(DockAdmiral*)admiral;
 -(void)removeAdmiral;
 -(DockEquippedUpgrade*)equippedAdmiral;
+-(DockEquippedUpgrade*)equippedFleetCaptain;
 -(void)purgeUpgrade:(DockUpgrade*)upgrade;
 @end

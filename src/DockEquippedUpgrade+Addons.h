@@ -18,4 +18,8 @@
 -(void)removeCostOverride;
 -(void)overrideWithCost:(int)cost;
 -(NSDictionary*)asJSON;
+-(int)additionalWeaponSlots;
+-(int)additionalTechSlots;
+-(int)additionalCrewSlots;
+-(int)additionalTalentSlots;
 @end

@@ -109,6 +109,7 @@
     @"U.S.S. Enterprise (Refit) Expansion" : @"Refit",
     @"Soong Expansion" : @"Soong",
     @"Battle Cruiser Expansion" : @"Cruiser",
+    @"U.S.S. Raven Competitive Prize" : @"Raven",
     };
 
     NSString* setCode = setCodes[self.productName];

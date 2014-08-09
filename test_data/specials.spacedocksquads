@@ -260,6 +260,78 @@
     "cost" : 85
   },
   {
+    "ships" : [
+      {
+        "calculatedCost" : 82,
+        "shipId" : "4th_division_battleship_71279",
+        "upgrades" : [
+          {
+            "upgradeId" : "dominion_collectiveop2",
+            "upgradeTitle" : "Dominion",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "invaluable_advice_op5prize",
+            "upgradeTitle" : "Invaluable Advice",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "ketracel_white_71279",
+            "upgradeTitle" : "Ketracel-White",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "amat_igan_71524",
+            "upgradeTitle" : "Amat'Igan",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "3095",
+            "upgradeTitle" : "Boheeka",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "3057",
+            "upgradeTitle" : "Breen Aide",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "3079",
+            "upgradeTitle" : "Long Range Tachyon Scan",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "3097",
+            "upgradeTitle" : "Dorsal Weapons Array",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "3059",
+            "upgradeTitle" : "Energy Dissipator",
+            "calculatedCost" : 10
+          },
+          {
+            "upgradeId" : "energy_dissipator_op5prize",
+            "upgradeTitle" : "Energy Dissipator",
+            "calculatedCost" : 10
+          }
+        ],
+        "shipTitle" : "4th Division Battleship",
+        "captain" : {
+          "upgradeId" : "2039",
+          "upgradeTitle" : "Gul Dukat",
+          "calculatedCost" : 5
+        }
+      }
+    ],
+    "cost" : 82,
+    "resource" : "fleet_captain_collectiveop2",
+    "uuid" : "1D90E2DE-14B9-4473-868A-E5699443ECB6",
+    "additionalPoints" : 0,
+    "modified" : "2014-08-04T20:16:21-0700",
+    "name" : "dominion fleet captain"
+  },
+  {
     "uuid" : "445464E7-EC1D-430F-A6AD-B5BC6280B62E",
     "additionalPoints" : 0,
     "ships" : [
@@ -301,6 +373,73 @@
     "name" : "Energy Dissipator",
     "modified" : "2014-06-21T06:50:02-0700",
     "cost" : 63
+  },
+  {
+    "ships" : [
+      {
+        "calculatedCost" : 61,
+        "shipId" : "1001",
+        "upgrades" : [
+          {
+            "upgradeId" : "federation_collectiveop2",
+            "upgradeTitle" : "Federation",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "3134",
+            "upgradeTitle" : "Disobey Orders",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "elizabeth_shelby_u_s_s_yaeger",
+            "upgradeTitle" : "Elizabeth Shelby",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "emergency_medical_hologram_71276",
+            "upgradeTitle" : "Emergency Medical Hologram",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "3109",
+            "upgradeTitle" : "Janice Rand",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "3112",
+            "upgradeTitle" : "Positron Beam",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "3024",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "3033",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "3067",
+            "upgradeTitle" : "Quantum Torpedoes",
+            "calculatedCost" : 6
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-D",
+        "captain" : {
+          "upgradeId" : "2001",
+          "upgradeTitle" : "Jean-Luc Picard",
+          "calculatedCost" : 6
+        }
+      }
+    ],
+    "cost" : 61,
+    "resource" : "fleet_captain_collectiveop2",
+    "uuid" : "36D3955B-9EF2-4864-94CC-367621106E36",
+    "additionalPoints" : 0,
+    "modified" : "2014-08-04T20:21:33-0700",
+    "name" : "federation fleet captain"
   },
   {
     "uuid" : "CBB1A666-EC90-4B0E-AB79-A4C5F9015891",
@@ -494,6 +633,295 @@
     "cost" : 39
   },
   {
+    "ships" : [
+      {
+        "calculatedCost" : 45,
+        "shipId" : "s_gorn_oparenaprize",
+        "upgrades" : [
+          {
+            "upgradeId" : "independent_dominion_collectiveop2",
+            "upgradeTitle" : "Independent (Dominion)",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "3018",
+            "upgradeTitle" : "I Stab at Thee",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "research_mission_71509",
+            "upgradeTitle" : "Research Mission",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "bosus_71522",
+            "upgradeTitle" : "Bosus",
+            "calculatedCost" : 1
+          },
+          {
+            "upgradeId" : "3022",
+            "upgradeTitle" : "Follower of Khan",
+            "calculatedCost" : 0
+          },
+          {
+            "upgradeId" : "goval_71522",
+            "upgradeTitle" : "Goval",
+            "calculatedCost" : 0
+          },
+          {
+            "upgradeId" : "impulse_overload_oparenaprize",
+            "upgradeTitle" : "Impulse Overload",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "jammed_communications_oparenaprize",
+            "upgradeTitle" : "Jammed Communications",
+            "calculatedCost" : 5
+          }
+        ],
+        "shipTitle" : "S'Gorn",
+        "captain" : {
+          "upgradeId" : "2008",
+          "upgradeTitle" : "Khan Singh",
+          "calculatedCost" : 5
+        }
+      },
+      {
+        "calculatedCost" : 24,
+        "shipId" : "gavroche_gavroche",
+        "upgrades" : [
+          {
+            "upgradeId" : "erin_hansen_71509",
+            "upgradeTitle" : "Erin Hansen",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "3022",
+            "upgradeTitle" : "Follower of Khan",
+            "calculatedCost" : 0
+          }
+        ],
+        "shipTitle" : "Gavroche",
+        "captain" : {
+          "upgradeId" : "maquis_gavroche",
+          "upgradeTitle" : "Maquis Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "cost" : 69,
+    "resource" : "fleet_captain_collectiveop2",
+    "uuid" : "6688CB3B-3C57-4A19-A146-1A91BCEA50D7",
+    "additionalPoints" : 0,
+    "modified" : "2014-08-04T20:47:57-0700",
+    "name" : "independent dominion fleet captain"
+  },
+  {
+    "ships" : [
+      {
+        "calculatedCost" : 43,
+        "shipId" : "akorem_op6prize",
+        "upgrades" : [
+          {
+            "upgradeId" : "independent_federation_collectiveop2",
+            "upgradeTitle" : "Independent (Federation)",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "blockade_op6prize",
+            "upgradeTitle" : "Blockade",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "militia_71445",
+            "upgradeTitle" : "Militia",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "anara_71445",
+            "upgradeTitle" : "Anara",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "neela_71445",
+            "upgradeTitle" : "Neela",
+            "calculatedCost" : 5
+          }
+        ],
+        "shipTitle" : "Akorem",
+        "captain" : {
+          "upgradeId" : "hazar_71445",
+          "upgradeTitle" : "Hazar",
+          "calculatedCost" : 4
+        }
+      }
+    ],
+    "cost" : 43,
+    "resource" : "fleet_captain_collectiveop2",
+    "uuid" : "7CDB0CEA-296C-4F37-8A7E-8DAB89EBA443",
+    "additionalPoints" : 0,
+    "modified" : "2014-08-04T20:34:58-0700",
+    "name" : "independent federation fleet captain"
+  },
+  {
+    "ships" : [
+      {
+        "calculatedCost" : 51,
+        "shipId" : "gavroche_gavroche",
+        "upgrades" : [
+          {
+            "upgradeId" : "independent_klingon_collectiveop2",
+            "upgradeTitle" : "Independent (Klingon)",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "preemptive_strike_u_s_s_yaeger",
+            "upgradeTitle" : "Preemptive Strike",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "red_alert_opwebparticipation",
+            "upgradeTitle" : "Red Alert",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "elizabeth_shelby_u_s_s_yaeger",
+            "upgradeTitle" : "Elizabeth Shelby",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "emergency_medical_hologram_71276",
+            "upgradeTitle" : "Emergency Medical Hologram",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "the_doctor_71280",
+            "upgradeTitle" : "The Doctor",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "tierna_71282",
+            "upgradeTitle" : "Tierna",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "focused_particle_beam_gavroche",
+            "upgradeTitle" : "Focused Particle Beam",
+            "calculatedCost" : 4
+          }
+        ],
+        "shipTitle" : "Gavroche",
+        "captain" : {
+          "upgradeId" : "michael_eddington_gavroche",
+          "upgradeTitle" : "Michael Eddington",
+          "calculatedCost" : 4
+        }
+      },
+      {
+        "calculatedCost" : 43,
+        "shipId" : "soong_71522",
+        "upgrades" : [
+          {
+            "upgradeId" : "crosis_71522",
+            "upgradeTitle" : "Crosis",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "four_of_twelve_71444",
+            "upgradeTitle" : "Four of Twelve",
+            "calculatedCost" : 1
+          }
+        ],
+        "shipTitle" : "Soong",
+        "captain" : {
+          "upgradeId" : "drone_71283",
+          "upgradeTitle" : "Drone",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "cost" : 94,
+    "resource" : "fleet_captain_collectiveop2",
+    "uuid" : "6BF928A8-870F-42AA-B316-ACEDA6B644D0",
+    "additionalPoints" : 0,
+    "modified" : "2014-08-04T20:47:57-0700",
+    "name" : "independent klingon fleet captain"
+  },
+  {
+    "ships" : [
+      {
+        "calculatedCost" : 56,
+        "shipId" : "tholia_one_opwebprize",
+        "upgrades" : [
+          {
+            "upgradeId" : "independent_romulan_collectiveop2",
+            "upgradeTitle" : "Independent (Romulan)",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "decoy_71278",
+            "upgradeTitle" : "Decoy",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "tholian_punctuality_opwebprize",
+            "upgradeTitle" : "Tholian Punctuality",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "phaser_strike_71445",
+            "upgradeTitle" : "Phaser Strike",
+            "calculatedCost" : 9
+          },
+          {
+            "upgradeId" : "photon_torpedoes_71522",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "plasma_torpedoes_opwebprize",
+            "upgradeTitle" : "Plasma Torpedoes",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "3067",
+            "upgradeTitle" : "Quantum Torpedoes",
+            "calculatedCost" : 6
+          }
+        ],
+        "shipTitle" : "Tholia One",
+        "captain" : {
+          "upgradeId" : "loskene_opwebprize",
+          "upgradeTitle" : "Loskene",
+          "calculatedCost" : 3
+        }
+      },
+      {
+        "calculatedCost" : 23,
+        "shipId" : "maquis_starship_gavroche",
+        "upgrades" : [
+          {
+            "upgradeId" : "focused_particle_beam_gavroche",
+            "upgradeTitle" : "Focused Particle Beam",
+            "calculatedCost" : 3
+          }
+        ],
+        "shipTitle" : "Maquis Starship",
+        "captain" : {
+          "upgradeId" : "maquis_gavroche",
+          "upgradeTitle" : "Maquis Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "cost" : 79,
+    "resource" : "fleet_captain_collectiveop2",
+    "uuid" : "61BCB7E7-D853-41F6-9DCB-1021BF65C031",
+    "additionalPoints" : 0,
+    "modified" : "2014-08-04T20:47:57-0700",
+    "name" : "independent romulan fleet captain"
+  },
+  {
     "uuid" : "3CE7889C-541B-49DB-9029-482BA881E4C3",
     "additionalPoints" : 0,
     "ships" : [
@@ -632,6 +1060,68 @@
     "name" : "kirk on enterprise",
     "modified" : "2014-06-19T16:43:04-0700",
     "cost" : 39
+  },
+  {
+    "ships" : [
+      {
+        "calculatedCost" : 58,
+        "shipId" : "1017",
+        "upgrades" : [
+          {
+            "upgradeId" : "klingon_collectiveop2",
+            "upgradeTitle" : "Klingon",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "qapla__i_k_s_b_moth",
+            "upgradeTitle" : "Qapla'",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "3042",
+            "upgradeTitle" : "Sabotage",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "3009",
+            "upgradeTitle" : "Klag",
+            "calculatedCost" : 1
+          },
+          {
+            "upgradeId" : "3075",
+            "upgradeTitle" : "Stex",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "3052",
+            "upgradeTitle" : "Tractor Beam",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "3011",
+            "upgradeTitle" : "Tractor Beam",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "3085",
+            "upgradeTitle" : "Concussive Charges",
+            "calculatedCost" : 4
+          }
+        ],
+        "shipTitle" : "I.K.S. Negh'var",
+        "captain" : {
+          "upgradeId" : "2018",
+          "upgradeTitle" : "Martok",
+          "calculatedCost" : 5
+        }
+      }
+    ],
+    "cost" : 58,
+    "resource" : "fleet_captain_collectiveop2",
+    "uuid" : "17D1ABC1-07C0-4DD7-917D-8D5F0CAFB506",
+    "additionalPoints" : 0,
+    "modified" : "2014-08-04T20:22:49-0700",
+    "name" : "klingon fleet captain"
   },
   {
     "uuid" : "D845F843-370D-4732-81E4-5C60A0306224",
@@ -871,6 +1361,50 @@
     "name" : "lore (rules)",
     "modified" : "2014-07-13T08:17:20-0700",
     "cost" : 49
+  },
+  {
+    "uuid" : "E77588BA-6B88-408F-94A9-D5377C7BC505",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 18,
+        "shipId" : "u_s_s_raven_71509",
+        "upgrades" : [
+
+        ],
+        "shipTitle" : "U.S.S. Raven",
+        "captain" : {
+          "upgradeId" : "magnus_hansen_71509",
+          "upgradeTitle" : "Magnus Hansen",
+          "calculatedCost" : 2
+        }
+      }
+    ],
+    "name" : "Magnus Hansen",
+    "modified" : "2014-08-04T20:11:44-0700",
+    "cost" : 18
+  },
+  {
+    "uuid" : "20B426F6-9A3E-405A-8E7B-454237B3D08A",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 21,
+        "shipId" : "i_r_w_gal_gath_thong_71278",
+        "upgrades" : [
+
+        ],
+        "shipTitle" : "I.R.W. Gal Gath`thong",
+        "captain" : {
+          "upgradeId" : "magnus_hansen_71509",
+          "upgradeTitle" : "Magnus Hansen",
+          "calculatedCost" : 3
+        }
+      }
+    ],
+    "name" : "Magnus Hansen Penalty",
+    "modified" : "2014-08-04T20:13:51-0700",
+    "cost" : 21
   },
   {
     "uuid" : "DC1576CF-0DCA-4736-8519-59F6715F32EA",
@@ -1171,6 +1705,73 @@
     "additionalPoints" : 0,
     "modified" : "2014-06-19T16:41:04-0700",
     "name" : "pike on sideboard"
+  },
+  {
+    "ships" : [
+      {
+        "calculatedCost" : 62,
+        "shipId" : "1003",
+        "upgrades" : [
+          {
+            "upgradeId" : "romulan_collectiveop2",
+            "upgradeTitle" : "Romulan",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "decoy_71278",
+            "upgradeTitle" : "Decoy",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "centurion_71278",
+            "upgradeTitle" : "Centurion",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "3102",
+            "upgradeTitle" : "Romulan Pilot",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "3035",
+            "upgradeTitle" : "Tactical Officer",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "tal_i_r_w_vorta_vor",
+            "upgradeTitle" : "Tal",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "3124",
+            "upgradeTitle" : "Ultritium Explosives",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "nuclear_warhead_71278",
+            "upgradeTitle" : "Nuclear Warhead",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "plasma_torpedoes_71278",
+            "upgradeTitle" : "Plasma Torpedoes",
+            "calculatedCost" : 3
+          }
+        ],
+        "shipTitle" : "I.R.W. Khazara",
+        "captain" : {
+          "upgradeId" : "2006",
+          "upgradeTitle" : "Toreth",
+          "calculatedCost" : 4
+        }
+      }
+    ],
+    "cost" : 62,
+    "resource" : "fleet_captain_collectiveop2",
+    "uuid" : "BD6FF37A-6DDD-4B8A-81C2-BEE13766807A",
+    "additionalPoints" : 0,
+    "modified" : "2014-08-04T20:23:40-0700",
+    "name" : "romulan fleet captain"
   },
   {
     "uuid" : "8F11B1BF-D759-4E5E-BB17-FAFE55C3D8AE",

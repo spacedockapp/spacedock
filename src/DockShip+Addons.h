@@ -28,12 +28,14 @@
 -(BOOL)isVulcan;
 -(BOOL)isBajoranInterceptor;
 -(BOOL)isBattleshipOrCruiser;
+-(BOOL)isRaven;
 -(DockResource*)associatedResource;
 -(int)techCount;
 -(int)weaponCount;
 -(int)crewCount;
 -(int)captainCount;
 -(int)admiralCount;
+-(int)fleetCaptainCount;
 -(int)borgCount;
 -(NSArray*)actionStrings;
 -(void)updateShipClass:(NSString*)newShipClass;

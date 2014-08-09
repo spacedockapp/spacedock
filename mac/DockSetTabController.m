@@ -1,5 +1,6 @@
 #import "DockSetTabController.h"
 
+#import "DockAppDelegate.h"
 #import "DockSet+Addons.h"
 #import "DockSetItem+Addons.h"
 
@@ -15,6 +16,16 @@
 -(BOOL)dependsOnFaction
 {
     return NO;
+}
+
+#pragma mark - sorting
+
+-(NSArray*)createSortDescriptors
+{
+    return @[
+        [[NSSortDescriptor alloc] initWithKey: @"releaseDate" ascending: YES],
+        [[NSSortDescriptor alloc] initWithKey: @"productName" ascending: YES],
+    ];
 }
 
 #pragma mark - Filtering
@@ -58,6 +69,14 @@
     NSArray* selectedItems = [self.targetController selectedObjects];
     for (DockSet* set in selectedItems) {
         set.include = @YES;
+    }
+}
+
+-(IBAction)includeOnlySelectedSets:(id)sender
+{
+    NSArray* selectedItems = [self.targetController selectedObjects];
+    for (DockSet* set in [DockSet allSets: self.appDelegate.managedObjectContext]) {
+        set.include = @([selectedItems containsObject: set]);
     }
 }
 

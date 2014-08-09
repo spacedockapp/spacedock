@@ -67,7 +67,7 @@
             return @"Tech Upgrade";
         }
     }
-    return self.upgrade.title;
+    return [NSString stringWithFormat: @"%@ [%@]", self.upgrade.title, self.upgrade.setCode];
 }
 
 -(NSArray*)sortedUpgrades
@@ -178,6 +178,26 @@
     }
     
     return [NSDictionary dictionaryWithDictionary: json];
+}
+
+-(int)additionalWeaponSlots
+{
+    return self.upgrade.additionalWeaponSlots;
+}
+
+-(int)additionalTechSlots
+{
+    return self.upgrade.additionalTechSlots;
+}
+
+-(int)additionalCrewSlots
+{
+    return self.upgrade.additionalCrewSlots;
+}
+
+-(int)additionalTalentSlots
+{
+    return self.upgrade.additionalTalentSlots;
 }
 
 @end
