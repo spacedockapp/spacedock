@@ -22,7 +22,9 @@ public class Upgrade extends UpgradeBase {
                 "OnlyForRomulanScienceVessel",
                 "OnlyForRaptorClassShips",
                 "OnlyJemHadarShips",
-                "OnlyForRaptorClassShips"
+                "OnlyForRaptorClassShips",
+                "OnlyFederationShip",
+                "PlusFiveIfNotRaven"
         };
         sIneligibleTechUpgrades.addAll(Arrays.asList(ineligibleTechUpgradeSpecials));
     }
@@ -283,6 +285,10 @@ public class Upgrade extends UpgradeBase {
             if (!ship.isBorg()) {
                 cost += 5;
             }
+        } else if (upgradeSpecial.equals("PlusFiveIfNotRaven")) {
+            if (!ship.isRaven()) {
+                cost += 5;
+            }
         }
 
         if (captainSpecial.equals("OneDominionUpgradeCostsMinusTwo") && !shipIsSideboard) {
@@ -335,6 +341,10 @@ public class Upgrade extends UpgradeBase {
                 // do nothing
             } else if (captainSpecial.equals("NoPenaltyOnFederationOrBajoranShip") && isCaptain()) {
                 if (!(ship.isFederation() || ship.isBajoran())) {
+                    cost += 1;
+                }
+            } else if (captainSpecial.equals("NoPenaltyOnFederationShip") && isCaptain()) {
+                if (!(ship.isFederation())) {
                     cost += 1;
                 }
             } else if (captainSpecial.equals("CaptainAndTalentsIgnoreFactionPenalty")
