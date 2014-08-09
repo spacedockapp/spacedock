@@ -51,6 +51,7 @@
 -(NSArray*)sortedUpgradesWithoutPlaceholders;
 -(NSString*)plainDescription;
 -(NSString*)descriptiveTitle;
+-(NSString*)descriptiveTitleWithSet;
 -(NSString*)upgradesDescription;
 -(NSString*)factionCode;
 -(NSDictionary*)asJSON;

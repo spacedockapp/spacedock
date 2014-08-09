@@ -2,10 +2,11 @@
 
 #import "DockConstants.h"
 #import "DockEquippedShip+Addons.h"
+#import "DockEquippedUpgrade+Addons.h"
 #import "DockResource+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
-#import "DockUpgrade.h"
+#import "DockUpgrade+Addons.h"
 
 NSString* intToString(int v)
 {
@@ -69,6 +70,21 @@ NSString* otherCost(DockSquad* targetSquad)
         return [NSString stringWithFormat: @"%@", additionalPoints];
     }
     return @"";
+}
+
+NSString* costString(DockEquippedUpgrade* equippedUpgrade)
+{
+    int baseCost = [equippedUpgrade.upgrade.cost intValue];
+    int costForShip = [equippedUpgrade cost];
+
+    if (baseCost == costForShip) {
+        NSString* costString = [NSString stringWithFormat: @"%d", costForShip];
+        return costString;
+    }
+
+    NSString* costString = [NSString stringWithFormat: @"%d", costForShip];
+    NSString* baseCostString = [NSString stringWithFormat: @" (%d)", baseCost];
+    return [costString stringByAppendingString: baseCostString];
 }
 
 NSArray* actionStrings(id target)

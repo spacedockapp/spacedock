@@ -67,7 +67,7 @@
             return @"Tech Upgrade";
         }
     }
-    return self.upgrade.title;
+    return [NSString stringWithFormat: @"%@ [%@]", self.upgrade.title, self.upgrade.setCode];
 }
 
 -(NSArray*)sortedUpgrades

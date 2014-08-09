@@ -73,10 +73,12 @@
     }
 
     NSString* s = [self.ship descriptiveTitle];
-    if (self.flagship != nil) {
-        s = [s stringByAppendingString: @" [FS]"];
-    }
     return s;
+}
+
+-(NSString*)descriptiveTitleWithSet
+{
+    return [NSString stringWithFormat: @"%@ [%@]", [self descriptiveTitle], [self.ship setCode]];
 }
 
 -(NSString*)upgradesDescription
