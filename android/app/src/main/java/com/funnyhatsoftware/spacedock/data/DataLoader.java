@@ -380,7 +380,10 @@ public class DataLoader extends DefaultHandler {
                 "OnlyHull3OrLess",
                 "PlusFiveIfNotBorgShip",
                 "sakonna_gavroche",
-                "combat_vessel_variant_71508"
+                "combat_vessel_variant_71508",
+                "PlusFiveIfNotRaven",
+                "NoPenaltyOnFederationShip"
+
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);

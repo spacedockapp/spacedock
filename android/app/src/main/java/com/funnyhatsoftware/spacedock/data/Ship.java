@@ -133,6 +133,10 @@ public class Ship extends ShipBase {
         return mShipClass.equals("Romulan Science Vessel");
     }
 
+    public boolean isRaven() {
+        return mTitle.equals("U.S.S. Raven");
+    }
+
     public boolean isBajoranInterceptor() {
         return mShipClass.equals("Bajoran Interceptor");
     }
