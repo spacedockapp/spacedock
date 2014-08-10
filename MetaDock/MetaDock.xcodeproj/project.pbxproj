@@ -1,0 +1,499 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D49951701997B29A002CA3DE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D499516F1997B29A002CA3DE /* Cocoa.framework */; };
+		D499517A1997B29A002CA3DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D49951781997B29A002CA3DE /* InfoPlist.strings */; };
+		D499517C1997B29A002CA3DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D499517B1997B29A002CA3DE /* main.m */; };
+		D49951801997B29A002CA3DE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D499517E1997B29A002CA3DE /* Credits.rtf */; };
+		D49951831997B29A002CA3DE /* DockAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D49951821997B29A002CA3DE /* DockAppDelegate.m */; };
+		D49951861997B29A002CA3DE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49951841997B29A002CA3DE /* MainMenu.xib */; };
+		D49951891997B29A002CA3DE /* MetaDock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D49951871997B29A002CA3DE /* MetaDock.xcdatamodeld */; };
+		D499518B1997B29A002CA3DE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D499518A1997B29A002CA3DE /* Images.xcassets */; };
+		D49951921997B29A002CA3DE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49951911997B29A002CA3DE /* XCTest.framework */; };
+		D49951931997B29A002CA3DE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D499516F1997B29A002CA3DE /* Cocoa.framework */; };
+		D499519B1997B29A002CA3DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D49951991997B29A002CA3DE /* InfoPlist.strings */; };
+		D499519D1997B29A002CA3DE /* MetaDockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D499519C1997B29A002CA3DE /* MetaDockTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D49951941997B29A002CA3DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D49951641997B29A002CA3DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D499516B1997B29A002CA3DE;
+			remoteInfo = MetaDock;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D499516C1997B29A002CA3DE /* MetaDock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetaDock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D499516F1997B29A002CA3DE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D49951721997B29A002CA3DE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D49951731997B29A002CA3DE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D49951741997B29A002CA3DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D49951771997B29A002CA3DE /* MetaDock-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MetaDock-Info.plist"; sourceTree = "<group>"; };
+		D49951791997B29A002CA3DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D499517B1997B29A002CA3DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D499517D1997B29A002CA3DE /* MetaDock-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MetaDock-Prefix.pch"; sourceTree = "<group>"; };
+		D499517F1997B29A002CA3DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D49951811997B29A002CA3DE /* DockAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DockAppDelegate.h; sourceTree = "<group>"; };
+		D49951821997B29A002CA3DE /* DockAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DockAppDelegate.m; sourceTree = "<group>"; };
+		D49951851997B29A002CA3DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D49951881997B29A002CA3DE /* MetaDock.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MetaDock.xcdatamodel; sourceTree = "<group>"; };
+		D499518A1997B29A002CA3DE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D49951901997B29A002CA3DE /* MetaDockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetaDockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D49951911997B29A002CA3DE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D49951981997B29A002CA3DE /* MetaDockTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MetaDockTests-Info.plist"; sourceTree = "<group>"; };
+		D499519A1997B29A002CA3DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D499519C1997B29A002CA3DE /* MetaDockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetaDockTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D49951691997B29A002CA3DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D49951701997B29A002CA3DE /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D499518D1997B29A002CA3DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D49951931997B29A002CA3DE /* Cocoa.framework in Frameworks */,
+				D49951921997B29A002CA3DE /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D49951631997B29A002CA3DE = {
+			isa = PBXGroup;
+			children = (
+				D49951751997B29A002CA3DE /* MetaDock */,
+				D49951961997B29A002CA3DE /* MetaDockTests */,
+				D499516E1997B29A002CA3DE /* Frameworks */,
+				D499516D1997B29A002CA3DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D499516D1997B29A002CA3DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D499516C1997B29A002CA3DE /* MetaDock.app */,
+				D49951901997B29A002CA3DE /* MetaDockTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D499516E1997B29A002CA3DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D499516F1997B29A002CA3DE /* Cocoa.framework */,
+				D49951911997B29A002CA3DE /* XCTest.framework */,
+				D49951711997B29A002CA3DE /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D49951711997B29A002CA3DE /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D49951721997B29A002CA3DE /* AppKit.framework */,
+				D49951731997B29A002CA3DE /* CoreData.framework */,
+				D49951741997B29A002CA3DE /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D49951751997B29A002CA3DE /* MetaDock */ = {
+			isa = PBXGroup;
+			children = (
+				D49951811997B29A002CA3DE /* DockAppDelegate.h */,
+				D49951821997B29A002CA3DE /* DockAppDelegate.m */,
+				D49951841997B29A002CA3DE /* MainMenu.xib */,
+				D499518A1997B29A002CA3DE /* Images.xcassets */,
+				D49951871997B29A002CA3DE /* MetaDock.xcdatamodeld */,
+				D49951761997B29A002CA3DE /* Supporting Files */,
+			);
+			path = MetaDock;
+			sourceTree = "<group>";
+		};
+		D49951761997B29A002CA3DE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D49951771997B29A002CA3DE /* MetaDock-Info.plist */,
+				D49951781997B29A002CA3DE /* InfoPlist.strings */,
+				D499517B1997B29A002CA3DE /* main.m */,
+				D499517D1997B29A002CA3DE /* MetaDock-Prefix.pch */,
+				D499517E1997B29A002CA3DE /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D49951961997B29A002CA3DE /* MetaDockTests */ = {
+			isa = PBXGroup;
+			children = (
+				D499519C1997B29A002CA3DE /* MetaDockTests.m */,
+				D49951971997B29A002CA3DE /* Supporting Files */,
+			);
+			path = MetaDockTests;
+			sourceTree = "<group>";
+		};
+		D49951971997B29A002CA3DE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D49951981997B29A002CA3DE /* MetaDockTests-Info.plist */,
+				D49951991997B29A002CA3DE /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D499516B1997B29A002CA3DE /* MetaDock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D49951A01997B29A002CA3DE /* Build configuration list for PBXNativeTarget "MetaDock" */;
+			buildPhases = (
+				D49951681997B29A002CA3DE /* Sources */,
+				D49951691997B29A002CA3DE /* Frameworks */,
+				D499516A1997B29A002CA3DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MetaDock;
+			productName = MetaDock;
+			productReference = D499516C1997B29A002CA3DE /* MetaDock.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D499518F1997B29A002CA3DE /* MetaDockTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D49951A31997B29A002CA3DE /* Build configuration list for PBXNativeTarget "MetaDockTests" */;
+			buildPhases = (
+				D499518C1997B29A002CA3DE /* Sources */,
+				D499518D1997B29A002CA3DE /* Frameworks */,
+				D499518E1997B29A002CA3DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D49951951997B29A002CA3DE /* PBXTargetDependency */,
+			);
+			name = MetaDockTests;
+			productName = MetaDockTests;
+			productReference = D49951901997B29A002CA3DE /* MetaDockTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D49951641997B29A002CA3DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Dock;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Rob Tsuk";
+				TargetAttributes = {
+					D499518F1997B29A002CA3DE = {
+						TestTargetID = D499516B1997B29A002CA3DE;
+					};
+				};
+			};
+			buildConfigurationList = D49951671997B29A002CA3DE /* Build configuration list for PBXProject "MetaDock" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D49951631997B29A002CA3DE;
+			productRefGroup = D499516D1997B29A002CA3DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D499516B1997B29A002CA3DE /* MetaDock */,
+				D499518F1997B29A002CA3DE /* MetaDockTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D499516A1997B29A002CA3DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D499517A1997B29A002CA3DE /* InfoPlist.strings in Resources */,
+				D499518B1997B29A002CA3DE /* Images.xcassets in Resources */,
+				D49951801997B29A002CA3DE /* Credits.rtf in Resources */,
+				D49951861997B29A002CA3DE /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D499518E1997B29A002CA3DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D499519B1997B29A002CA3DE /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D49951681997B29A002CA3DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D499517C1997B29A002CA3DE /* main.m in Sources */,
+				D49951891997B29A002CA3DE /* MetaDock.xcdatamodeld in Sources */,
+				D49951831997B29A002CA3DE /* DockAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D499518C1997B29A002CA3DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D499519D1997B29A002CA3DE /* MetaDockTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D49951951997B29A002CA3DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D499516B1997B29A002CA3DE /* MetaDock */;
+			targetProxy = D49951941997B29A002CA3DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D49951781997B29A002CA3DE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D49951791997B29A002CA3DE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D499517E1997B29A002CA3DE /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D499517F1997B29A002CA3DE /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		D49951841997B29A002CA3DE /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D49951851997B29A002CA3DE /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		D49951991997B29A002CA3DE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D499519A1997B29A002CA3DE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D499519E1997B29A002CA3DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D499519F1997B29A002CA3DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D49951A11997B29A002CA3DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MetaDock/MetaDock-Prefix.pch";
+				INFOPLIST_FILE = "MetaDock/MetaDock-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D49951A21997B29A002CA3DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MetaDock/MetaDock-Prefix.pch";
+				INFOPLIST_FILE = "MetaDock/MetaDock-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D49951A41997B29A002CA3DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MetaDock.app/Contents/MacOS/MetaDock";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MetaDock/MetaDock-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MetaDockTests/MetaDockTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D49951A51997B29A002CA3DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MetaDock.app/Contents/MacOS/MetaDock";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MetaDock/MetaDock-Prefix.pch";
+				INFOPLIST_FILE = "MetaDockTests/MetaDockTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D49951671997B29A002CA3DE /* Build configuration list for PBXProject "MetaDock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D499519E1997B29A002CA3DE /* Debug */,
+				D499519F1997B29A002CA3DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D49951A01997B29A002CA3DE /* Build configuration list for PBXNativeTarget "MetaDock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D49951A11997B29A002CA3DE /* Debug */,
+				D49951A21997B29A002CA3DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D49951A31997B29A002CA3DE /* Build configuration list for PBXNativeTarget "MetaDockTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D49951A41997B29A002CA3DE /* Debug */,
+				D49951A51997B29A002CA3DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D49951871997B29A002CA3DE /* MetaDock.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D49951881997B29A002CA3DE /* MetaDock.xcdatamodel */,
+			);
+			currentVersion = D49951881997B29A002CA3DE /* MetaDock.xcdatamodel */;
+			path = MetaDock.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D49951641997B29A002CA3DE /* Project object */;
+}
