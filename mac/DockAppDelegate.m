@@ -67,16 +67,19 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
 
 +(void)initialize
 {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary* appDefs = @{
-        kWarnAboutUnhandledSpecials: @YES,
-        kInspectorVisible: @NO,
-        kExpandSquads: @YES,
-        kExpandedRows: @YES,
-        kSortSquadsByDate: @NO
-    };
+    static dispatch_once_t onceToken = 0;
+    dispatch_once(&onceToken, ^{
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        NSDictionary* appDefs = @{
+            kWarnAboutUnhandledSpecials: @YES,
+            kInspectorVisible: @NO,
+            kExpandSquads: @YES,
+            kExpandedRows: @YES,
+            kSortSquadsByDate: @NO
+        };
 
-    [defaults registerDefaults: appDefs];
+        [defaults registerDefaults: appDefs];
+    });
 }
 
 -(void)validateSpecials:(NSSet*)unhandledSpecials

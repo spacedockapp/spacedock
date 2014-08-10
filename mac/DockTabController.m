@@ -24,9 +24,10 @@ NSMutableArray* sTabControllers = nil;
 
 +(void)initialize
 {
-    if (sTabControllers == nil) {
+    static dispatch_once_t onceToken = 0;
+    dispatch_once(&onceToken, ^{
         sTabControllers = [[NSMutableArray alloc] init];
-    }
+    });
 }
 
 +(NSArray*)allTabControllers
