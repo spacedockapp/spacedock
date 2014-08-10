@@ -19,6 +19,9 @@
 		D49951931997B29A002CA3DE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D499516F1997B29A002CA3DE /* Cocoa.framework */; };
 		D499519B1997B29A002CA3DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D49951991997B29A002CA3DE /* InfoPlist.strings */; };
 		D499519D1997B29A002CA3DE /* MetaDockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D499519C1997B29A002CA3DE /* MetaDockTests.m */; };
+		D49951A81997CE81002CA3DE /* DockUniverse.m in Sources */ = {isa = PBXBuildFile; fileRef = D49951A71997CE81002CA3DE /* DockUniverse.m */; };
+		D49951B91997D46D002CA3DE /* GameSystems in Resources */ = {isa = PBXBuildFile; fileRef = D49951B81997D46D002CA3DE /* GameSystems */; };
+		D49951C01997D942002CA3DE /* DockGameSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = D49951BF1997D942002CA3DE /* DockGameSystem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,11 @@
 		D49951981997B29A002CA3DE /* MetaDockTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MetaDockTests-Info.plist"; sourceTree = "<group>"; };
 		D499519A1997B29A002CA3DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D499519C1997B29A002CA3DE /* MetaDockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetaDockTests.m; sourceTree = "<group>"; };
+		D49951A61997CE81002CA3DE /* DockUniverse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockUniverse.h; sourceTree = "<group>"; };
+		D49951A71997CE81002CA3DE /* DockUniverse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockUniverse.m; sourceTree = "<group>"; };
+		D49951B81997D46D002CA3DE /* GameSystems */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GameSystems; sourceTree = "<group>"; };
+		D49951BE1997D942002CA3DE /* DockGameSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockGameSystem.h; sourceTree = "<group>"; };
+		D49951BF1997D942002CA3DE /* DockGameSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockGameSystem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,7 @@
 		D49951631997B29A002CA3DE = {
 			isa = PBXGroup;
 			children = (
+				D49951B81997D46D002CA3DE /* GameSystems */,
 				D49951751997B29A002CA3DE /* MetaDock */,
 				D49951961997B29A002CA3DE /* MetaDockTests */,
 				D499516E1997B29A002CA3DE /* Frameworks */,
@@ -119,6 +128,10 @@
 			children = (
 				D49951811997B29A002CA3DE /* DockAppDelegate.h */,
 				D49951821997B29A002CA3DE /* DockAppDelegate.m */,
+				D49951BE1997D942002CA3DE /* DockGameSystem.h */,
+				D49951BF1997D942002CA3DE /* DockGameSystem.m */,
+				D49951A61997CE81002CA3DE /* DockUniverse.h */,
+				D49951A71997CE81002CA3DE /* DockUniverse.m */,
 				D49951841997B29A002CA3DE /* MainMenu.xib */,
 				D499518A1997B29A002CA3DE /* Images.xcassets */,
 				D49951871997B29A002CA3DE /* MetaDock.xcdatamodeld */,
@@ -238,6 +251,7 @@
 				D499518B1997B29A002CA3DE /* Images.xcassets in Resources */,
 				D49951801997B29A002CA3DE /* Credits.rtf in Resources */,
 				D49951861997B29A002CA3DE /* MainMenu.xib in Resources */,
+				D49951B91997D46D002CA3DE /* GameSystems in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +272,9 @@
 			files = (
 				D499517C1997B29A002CA3DE /* main.m in Sources */,
 				D49951891997B29A002CA3DE /* MetaDock.xcdatamodeld in Sources */,
+				D49951C01997D942002CA3DE /* DockGameSystem.m in Sources */,
 				D49951831997B29A002CA3DE /* DockAppDelegate.m in Sources */,
+				D49951A81997CE81002CA3DE /* DockUniverse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +487,7 @@
 				D49951A21997B29A002CA3DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D49951A31997B29A002CA3DE /* Build configuration list for PBXNativeTarget "MetaDockTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +496,7 @@
 				D49951A51997B29A002CA3DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
