@@ -8,9 +8,16 @@ static NSString* kPropertiesFileName = @"properties.json";
 {
     self = [super init];
     if (self != nil) {
+        [self setupIdentifier: path];
         [self loadProperties: path];
     }
     return self;
+}
+
+-(void)setupIdentifier:(NSString*)path
+{
+    NSString* folderName = [path lastPathComponent];
+    _identifier = [folderName stringByDeletingPathExtension];
 }
 
 -(void)loadProperties:(NSString*)path
