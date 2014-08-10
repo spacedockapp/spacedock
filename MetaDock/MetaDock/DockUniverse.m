@@ -29,4 +29,14 @@
     _gameSystems = [NSSet setWithArray: gameSystems];
 }
 
+-(DockGameSystem*)gameSystemWithIdentifier:(NSString*)identifier
+{
+    id objectWithIdentifier = ^(id obj, BOOL* stop) {
+        NSString* objIdentifier = [obj identifier];
+        return [identifier isEqualToString: objIdentifier];
+    };
+    NSSet* matching = [_gameSystems objectsPassingTest: objectWithIdentifier];
+    return matching.anyObject;
+}
+
 @end
