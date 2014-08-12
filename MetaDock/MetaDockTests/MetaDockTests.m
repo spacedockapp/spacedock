@@ -12,8 +12,10 @@
 - (void)setUp
 {
     [super setUp];
-    NSString* templatesPath = [[NSBundle mainBundle] pathForResource: @"GameSystems" ofType: @""];
-    _universe = [[DockUniverse alloc] initWithDataStorePath: @"" templatesPath: templatesPath];
+    NSProcessInfo* info = [NSProcessInfo processInfo];
+    NSString* baseDir = info.environment[@"PWD"];
+    NSString* gameSystemDir = [baseDir stringByAppendingPathComponent: @"GameSystems"];
+    _universe = [[DockUniverse alloc] initWithDataStorePath: @"" templatesPath: gameSystemDir];
 }
 
 - (void)tearDown
@@ -43,15 +45,26 @@
     }
 }
 
--(void)testGameSystemComponents
+-(void)testGameSystemTerms
 {
     DockGameSystem* staw = [_universe gameSystemWithIdentifier: @"staw"];
     XCTAssertNotNil(staw);
+    XCTAssertEqualObjects([staw term: @"list" count: 0], @"Squads");
+    XCTAssertEqualObjects([staw term: @"list" count: 1], @"Squad");
+    XCTAssertEqualObjects([staw term: @"list" count: 3], @"Squads");
 
-    NSSet* components = [staw components];
-    XCTAssertNotNil(staw);
-    int minComponents = 100;
-    XCTAssertTrue(components.count > 100,  @"Expected staw to have more than %d components, but it has %d instead", minComponents, (int)components.count);
+    DockGameSystem* ddaw = [_universe gameSystemWithIdentifier: @"ddaw"];
+    XCTAssertNotNil(ddaw);
+    XCTAssertEqualObjects([ddaw term: @"list" count: 0], @"Legions");
+    XCTAssertEqualObjects([ddaw term: @"list" count: 1], @"Legion");
+    XCTAssertEqualObjects([ddaw term: @"list" count: 3], @"Legions");
+
+    DockGameSystem* xwing = [_universe gameSystemWithIdentifier: @"xwing"];
+    XCTAssertNotNil(xwing);
+    XCTAssertEqualObjects([xwing term: @"list" count: 0], @"Squads");
+    XCTAssertEqualObjects([xwing term: @"list" count: 1], @"Squad");
+    XCTAssertEqualObjects([xwing term: @"list" count: 3], @"Squads");
+
 }
 
 @end

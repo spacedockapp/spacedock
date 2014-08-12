@@ -1,3 +1,10 @@
 {
-  "title": "D&D Attack Wing"
+  "title": "D&D Attack Wing",
+  "terms": {
+    "list" : {
+        "zero": "Legions",
+        "one": "Legion",
+        "many": "Legions",
+    }
+  }
 }
