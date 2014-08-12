@@ -175,6 +175,7 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
         NSString* keyEquiv = @"";
         [_fileMenu addItem: [NSMenuItem separatorItem]];
         [_fileMenu addItemWithTitle: @"Export Data Model" action: @selector(exportDataModel:) keyEquivalent: keyEquiv];
+        [_fileMenu addItemWithTitle: @"Export Sets" action: @selector(exportSets:) keyEquivalent: keyEquiv];
     }
 }
 
@@ -1028,6 +1029,33 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     } else {
         [self exportDataModelTo: targetFolder];
     }
+}
+
+-(void)exportSetTo:(NSString*)targetFolder
+{
+    NSArray* includedSets = [DockSet includedSets: self.managedObjectContext];
+    for (DockSet* set in includedSets) {
+        NSDictionary* d = [set dictionaryForExport];
+        NSError* error;
+        NSData* jsonData = [NSJSONSerialization dataWithJSONObject: d options: NSJSONWritingPrettyPrinted error: &error];
+        NSString* targetFile = [[targetFolder stringByAppendingPathComponent: set.setCode] stringByAppendingPathExtension: @"json"];
+        [jsonData writeToURL: [NSURL fileURLWithPath: targetFile] atomically: NO];
+    }
+}
+
+-(IBAction)exportSets:(id)sender
+{
+    NSOpenPanel* openPanel = [NSOpenPanel openPanel];
+    openPanel.canChooseDirectories = YES;
+    openPanel.canChooseFiles = NO;
+    openPanel.canCreateDirectories = YES;
+    [openPanel beginSheetModalForWindow: self.window completionHandler: ^(NSInteger v) {
+        if (v == NSFileHandlingPanelOKButton) {
+            NSURL* fileUrl = openPanel.URL;
+            NSString* target = [fileUrl path];
+            [self exportSetTo: target];
+        }
+    }];
 }
 
 -(IBAction)printBuildMat:(id)sender

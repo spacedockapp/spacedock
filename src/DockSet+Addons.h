@@ -6,4 +6,5 @@
 +(NSArray*)includedSets:(NSManagedObjectContext*)context;
 -(NSArray*)sortedSetItems;
 -(NSString*)setCode;
+-(NSDictionary*)dictionaryForExport;
 @end
