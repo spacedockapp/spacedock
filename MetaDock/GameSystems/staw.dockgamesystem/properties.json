@@ -1,3 +1,10 @@
 {
-  "title": "Star Trek: Attack Wing"
+  "title": "Star Trek: Attack Wing",
+  "terms": {
+    "list" : {
+        "zero": "Squads",
+        "one": "Squad",
+        "many": "Squads",
+    }
+  }
 }

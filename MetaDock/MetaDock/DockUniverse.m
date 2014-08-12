@@ -23,8 +23,11 @@
     NSMutableArray* gameSystems = [[NSMutableArray alloc] initWithCapacity: gameSystemFolders.count];
     for (NSString* folderName in gameSystemFolders) {
         NSString* gameSystemPath = [templatesPath stringByAppendingPathComponent: folderName];
-        DockGameSystem* gameSystem = [[DockGameSystem alloc] initWithPath: gameSystemPath];
-        [gameSystems addObject: gameSystem];
+        BOOL isDir;
+        if ([fm fileExistsAtPath: gameSystemPath isDirectory: &isDir] && isDir) {
+            DockGameSystem* gameSystem = [[DockGameSystem alloc] initWithPath: gameSystemPath];
+            [gameSystems addObject: gameSystem];
+        }
     }
     _gameSystems = [NSSet setWithArray: gameSystems];
 }

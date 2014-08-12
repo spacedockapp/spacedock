@@ -1,7 +1,15 @@
 #import "DockGameSystem.h"
 
 static NSString* kTitleKey = @"title";
+static NSString* kTermsKey = @"terms";
+static NSString* kZeroTermKey = @"zero";
+static NSString* kOneTermKey = @"one";
+static NSString* kManyTermKey = @"many";
 static NSString* kPropertiesFileName = @"properties.json";
+
+@interface DockGameSystem()
+@property (strong, nonatomic) NSDictionary* terms;
+@end
 
 @implementation DockGameSystem
 -(id)initWithPath:(NSString*)path
@@ -24,18 +32,34 @@ static NSString* kPropertiesFileName = @"properties.json";
 {
     assert(path != nil);
     NSString* propertiesPath = [path stringByAppendingPathComponent: kPropertiesFileName];
-    NSData* data = [NSData dataWithContentsOfFile:propertiesPath];
-    if (data == nil) {
-        return;
-    }
     NSError* error;
+    NSData* data = [NSData dataWithContentsOfFile:propertiesPath options: 0 error: &error];
+    if (data == nil) {
+        @throw error;
+    }
     id json = [NSJSONSerialization JSONObjectWithData: data options: 0 error: &error];
     if (json == nil) {
-        return;
+        @throw error;
     }
     assert([json isKindOfClass: [NSDictionary class]]);
     NSDictionary* properties = json;
     _title = properties[kTitleKey];
+    _terms = properties[kTermsKey];
+}
+
+-(NSString*)term:(NSString*)term count:(int)count
+{
+    NSDictionary* termEntry = _terms[term];
+    if (!termEntry) {
+        return [NSString stringWithFormat: @"No term %@ in %@", term, self.identifier];
+    }
+    switch (count) {
+        case 0:
+            return termEntry[kZeroTermKey];
+        case 1:
+            return termEntry[kOneTermKey];
+    }
+    return termEntry[kManyTermKey];
 }
 
 @end

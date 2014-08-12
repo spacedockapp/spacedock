@@ -1,3 +1,10 @@
 {
-  "title": "X-Wing"
+  "title": "X-Wing",
+  "terms": {
+    "list" : {
+        "zero": "Squads",
+        "one": "Squad",
+        "many": "Squads",
+    }
+  }
 }
