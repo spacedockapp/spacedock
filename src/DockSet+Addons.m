@@ -120,4 +120,12 @@
     return setCode;
 }
 
+-(NSDictionary*)dictionaryForExport
+{
+    return @{
+        @"title": self.productName,
+        @"code": self.setCode
+    };
+}
+
 @end
