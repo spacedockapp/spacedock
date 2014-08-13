@@ -72,6 +72,7 @@
     @"Arena Participation Prize" : @"ArenaPP",
     @"Arena Competitive Prize" : @"S'Gorn",
     @"The Collective OP1 Participation Prize" : @"CollectivePP1",
+    @"The Collective OP2 Participation Prize" : @"CollectivePP2",
     @"Ti'Mur Competitive Prize" : @"Ti’Mur",
     @"I.K.S. B'Moth Expansion" : @"B’Moth",
     @"Gavroche Expansion" : @"Gavroch",
