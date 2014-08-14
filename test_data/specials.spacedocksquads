@@ -411,12 +411,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3024",
+            "upgradeId" : "3033",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3033",
+            "upgradeId" : "3024",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
@@ -440,6 +440,75 @@
     "additionalPoints" : 0,
     "modified" : "2014-08-04T20:21:33-0700",
     "name" : "federation fleet captain"
+  },
+  {
+    "ships" : [
+      {
+        "calculatedCost" : 34,
+        "shipId" : "federation_starship_71276",
+        "upgrades" : [
+          {
+            "upgradeId" : "independent_federation_collectiveop2",
+            "upgradeTitle" : "Independent (Federation)",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "3025",
+            "upgradeTitle" : "Cheat Death",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "preemptive_strike_u_s_s_yaeger",
+            "upgradeTitle" : "Preemptive Strike",
+            "calculatedCost" : 2
+          }
+        ],
+        "shipTitle" : "Federation Starship",
+        "captain" : {
+          "upgradeId" : "benjamin_maxwell_u_s_s_yaeger",
+          "upgradeTitle" : "Benjamin Maxwell",
+          "calculatedCost" : 4
+        }
+      }
+    ],
+    "cost" : 34,
+    "resource" : "fleet_captain_collectiveop2",
+    "uuid" : "54851D8B-7901-41AB-98A3-A45C2ED43065",
+    "additionalPoints" : 0,
+    "modified" : "2014-08-13T18:25:20-0700",
+    "name" : "fleet captain extra talent"
+  },
+  {
+    "ships" : [
+      {
+        "calculatedCost" : 45,
+        "shipId" : "2nd_division_cruiser_71524",
+        "upgrades" : [
+          {
+            "upgradeId" : "dominion_collectiveop2",
+            "upgradeTitle" : "Dominion",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "3001",
+            "upgradeTitle" : "Engage",
+            "calculatedCost" : 1
+          }
+        ],
+        "shipTitle" : "2nd Division Cruiser",
+        "captain" : {
+          "upgradeId" : "2039",
+          "upgradeTitle" : "Gul Dukat",
+          "calculatedCost" : 5
+        }
+      }
+    ],
+    "cost" : 45,
+    "resource" : "fleet_captain_collectiveop2",
+    "uuid" : "1E0420FE-AAD0-477D-BE22-5EE9C52BCD3E",
+    "additionalPoints" : 0,
+    "modified" : "2014-08-13T18:23:47-0700",
+    "name" : "fleet captain free talent"
   },
   {
     "uuid" : "CBB1A666-EC90-4B0E-AB79-A4C5F9015891",
@@ -1093,12 +1162,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3052",
+            "upgradeId" : "3011",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3011",
+            "upgradeId" : "3052",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
@@ -1797,14 +1866,14 @@
             "calculatedCost" : 1
           },
           {
-            "upgradeId" : "photon_torpedoes_71279",
-            "upgradeTitle" : "Photon Torpedoes",
-            "calculatedCost" : 6
-          },
-          {
             "upgradeId" : "photon_torpedoes_71524",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "photon_torpedoes_71279",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 6
           }
         ],
         "shipTitle" : "4th Division Battleship",

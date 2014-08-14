@@ -243,7 +243,7 @@ static NSManagedObjectContext* getManagedObjectContext()
                 NSDictionary* upgradeData = upgradeDataArray[upgradeIndex];
                 DockEquippedUpgrade* upgrade = upgrades[upgradeIndex];
                 XCTAssertEqualObjects(upgrade.upgrade.externalId, upgradeData[upgradeIdKey], @"on squad %@", name);
-                int equippedUpgradeCost = [upgrade.upgrade costForShip: loadedShip];
+                int equippedUpgradeCost = [upgrade.upgrade costForShip: loadedShip equippedUpgade: upgrade];
                 int expectedEquippedUpgradeCost = [upgradeData[calculatedCostKey] intValue];
                 XCTAssertEqual(expectedEquippedUpgradeCost, equippedUpgradeCost, @"on squad %@", name);
             }

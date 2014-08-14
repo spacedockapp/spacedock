@@ -762,7 +762,7 @@
 
     for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
         DockUpgrade* upgrade = eu.upgrade;
-        if (![upgrade isCaptain]) {
+        if (![upgrade isCaptain] && ![upgrade isPlaceholder]) {
             if (upType == nil || [upType isEqualToString: upgrade.upType]) {
                 if (faction == nil || [faction isEqualToString: upgrade.faction]) {
                     [allUpgrades addObject: eu];
