@@ -1,3 +1,8 @@
+### Version 1.1b6 build 75 (2014-8-13)
+
+* Print even smaller on the build sheet when needed.
+* Implemented Fleet Captain "free" talent.
+
 ### Version 1.1b5 build 74 (2014-8-9)
 
 * Include set code and base costs in build sheet.
