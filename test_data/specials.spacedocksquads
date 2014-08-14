@@ -411,12 +411,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3033",
+            "upgradeId" : "3024",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3024",
+            "upgradeId" : "3033",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
@@ -704,7 +704,7 @@
   {
     "ships" : [
       {
-        "calculatedCost" : 45,
+        "calculatedCost" : 46,
         "shipId" : "s_gorn_oparenaprize",
         "upgrades" : [
           {
@@ -725,27 +725,27 @@
           {
             "upgradeId" : "bosus_71522",
             "upgradeTitle" : "Bosus",
-            "calculatedCost" : 1
+            "calculatedCost" : 2
           },
           {
             "upgradeId" : "3022",
             "upgradeTitle" : "Follower of Khan",
-            "calculatedCost" : 0
+            "calculatedCost" : 1
           },
           {
             "upgradeId" : "goval_71522",
             "upgradeTitle" : "Goval",
-            "calculatedCost" : 0
+            "calculatedCost" : 1
           },
           {
             "upgradeId" : "impulse_overload_oparenaprize",
             "upgradeTitle" : "Impulse Overload",
-            "calculatedCost" : 2
+            "calculatedCost" : 1
           },
           {
             "upgradeId" : "jammed_communications_oparenaprize",
             "upgradeTitle" : "Jammed Communications",
-            "calculatedCost" : 5
+            "calculatedCost" : 4
           }
         ],
         "shipTitle" : "S'Gorn",
@@ -756,21 +756,26 @@
         }
       },
       {
-        "calculatedCost" : 24,
-        "shipId" : "gavroche_gavroche",
+        "calculatedCost" : 51,
+        "shipId" : "bioship_alpha_71281",
         "upgrades" : [
           {
-            "upgradeId" : "erin_hansen_71509",
-            "upgradeTitle" : "Erin Hansen",
-            "calculatedCost" : 2
+            "upgradeId" : "advanced_cloaking_i_r_w_vorta_vor",
+            "upgradeTitle" : "Advanced Cloaking",
+            "calculatedCost" : 4
           },
           {
-            "upgradeId" : "3022",
-            "upgradeTitle" : "Follower of Khan",
-            "calculatedCost" : 0
+            "upgradeId" : "extraordinary_immune_response_71281",
+            "upgradeTitle" : "Extraordinary Immune Response",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "quantum_singularity_71281",
+            "upgradeTitle" : "Quantum Singularity",
+            "calculatedCost" : 5
           }
         ],
-        "shipTitle" : "Gavroche",
+        "shipTitle" : "Bioship Alpha",
         "captain" : {
           "upgradeId" : "maquis_gavroche",
           "upgradeTitle" : "Maquis Captain",
@@ -778,11 +783,11 @@
         }
       }
     ],
-    "cost" : 69,
+    "cost" : 97,
     "resource" : "fleet_captain_collectiveop2",
     "uuid" : "6688CB3B-3C57-4A19-A146-1A91BCEA50D7",
     "additionalPoints" : 0,
-    "modified" : "2014-08-04T20:47:57-0700",
+    "modified" : "2014-08-14T05:54:40-0700",
     "name" : "independent dominion fleet captain"
   },
   {
@@ -835,7 +840,7 @@
   {
     "ships" : [
       {
-        "calculatedCost" : 60,
+        "calculatedCost" : 66,
         "shipId" : "bioship_alpha_71281",
         "upgrades" : [
           {
@@ -844,19 +849,24 @@
             "calculatedCost" : 5
           },
           {
+            "upgradeId" : "amat_igan_71524",
+            "upgradeTitle" : "Amat'Igan",
+            "calculatedCost" : 3
+          },
+          {
             "upgradeId" : "bio_electric_interference_71281",
             "upgradeTitle" : "Bio-Electric Interference",
-            "calculatedCost" : 5
+            "calculatedCost" : 6
           },
           {
             "upgradeId" : "3076",
             "upgradeTitle" : "Cloaked Mines",
-            "calculatedCost" : 3
+            "calculatedCost" : 4
           },
           {
             "upgradeId" : "extraordinary_immune_response_71281",
             "upgradeTitle" : "Extraordinary Immune Response",
-            "calculatedCost" : 4
+            "calculatedCost" : 5
           },
           {
             "upgradeId" : "focused_particle_beam_gavroche",
@@ -872,21 +882,21 @@
         }
       },
       {
-        "calculatedCost" : 44,
-        "shipId" : "soong_71522",
+        "calculatedCost" : 31,
+        "shipId" : "1038",
         "upgrades" : [
+          {
+            "upgradeId" : "3050",
+            "upgradeTitle" : "Drex",
+            "calculatedCost" : 3
+          },
           {
             "upgradeId" : "four_of_twelve_71444",
             "upgradeTitle" : "Four of Twelve",
             "calculatedCost" : 2
-          },
-          {
-            "upgradeId" : "self_destruct_sequence_71444",
-            "upgradeTitle" : "Self Destruct Sequence",
-            "calculatedCost" : 4
           }
         ],
-        "shipTitle" : "Soong",
+        "shipTitle" : "I.K.S. Koraga",
         "captain" : {
           "upgradeId" : "drone_71283",
           "upgradeTitle" : "Drone",
@@ -894,11 +904,11 @@
         }
       }
     ],
-    "cost" : 104,
+    "cost" : 97,
     "resource" : "fleet_captain_collectiveop2",
     "uuid" : "6BF928A8-870F-42AA-B316-ACEDA6B644D0",
     "additionalPoints" : 0,
-    "modified" : "2014-08-14T05:30:48-0700",
+    "modified" : "2014-08-14T05:54:40-0700",
     "name" : "independent klingon fleet captain"
   },
   {
