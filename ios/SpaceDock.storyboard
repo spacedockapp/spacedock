@@ -817,9 +817,9 @@
                     <connections>
                         <segue destination="ItA-jp-4hr" kind="push" identifier="PickFleetCaptain" id="ESn-s2-BU6"/>
                         <segue destination="ItA-jp-4hr" kind="push" identifier="PickAdmiral" id="jLm-5r-kfn"/>
-                        <segue destination="ItA-jp-4hr" kind="push" identifier="PickShip" id="BgZ-YW-cJS"/>
                         <segue destination="ItA-jp-4hr" kind="push" identifier="PickUpgrade" id="VWC-iv-mtO"/>
                         <segue destination="Goz-Ro-FHv" kind="push" identifier="PickFlagship" id="K8Z-WI-tdW"/>
+                        <segue destination="qai-jN-X8t" kind="push" identifier="PickShip" id="iDa-AV-y63"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHF-WC-cI7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1625,9 +1625,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="me1-T8-16w"/>
-        <segue reference="xuh-dp-0tA"/>
         <segue reference="4En-j0-M2p"/>
+        <segue reference="jLm-5r-kfn"/>
+        <segue reference="iDa-AV-y63"/>
         <segue reference="YvD-5N-V1B"/>
     </inferredMetricsTieBreakers>
 </document>
