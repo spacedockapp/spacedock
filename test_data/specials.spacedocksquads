@@ -835,8 +835,8 @@
   {
     "ships" : [
       {
-        "calculatedCost" : 51,
-        "shipId" : "gavroche_gavroche",
+        "calculatedCost" : 60,
+        "shipId" : "bioship_alpha_71281",
         "upgrades" : [
           {
             "upgradeId" : "independent_klingon_collectiveop2",
@@ -844,61 +844,46 @@
             "calculatedCost" : 5
           },
           {
-            "upgradeId" : "preemptive_strike_u_s_s_yaeger",
-            "upgradeTitle" : "Preemptive Strike",
+            "upgradeId" : "bio_electric_interference_71281",
+            "upgradeTitle" : "Bio-Electric Interference",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "3076",
+            "upgradeTitle" : "Cloaked Mines",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "red_alert_opwebparticipation",
-            "upgradeTitle" : "Red Alert",
-            "calculatedCost" : 3
-          },
-          {
-            "upgradeId" : "elizabeth_shelby_u_s_s_yaeger",
-            "upgradeTitle" : "Elizabeth Shelby",
-            "calculatedCost" : 2
-          },
-          {
-            "upgradeId" : "emergency_medical_hologram_71276",
-            "upgradeTitle" : "Emergency Medical Hologram",
-            "calculatedCost" : 2
-          },
-          {
-            "upgradeId" : "the_doctor_71280",
-            "upgradeTitle" : "The Doctor",
-            "calculatedCost" : 3
-          },
-          {
-            "upgradeId" : "tierna_71282",
-            "upgradeTitle" : "Tierna",
-            "calculatedCost" : 3
+            "upgradeId" : "extraordinary_immune_response_71281",
+            "upgradeTitle" : "Extraordinary Immune Response",
+            "calculatedCost" : 4
           },
           {
             "upgradeId" : "focused_particle_beam_gavroche",
             "upgradeTitle" : "Focused Particle Beam",
-            "calculatedCost" : 4
+            "calculatedCost" : 5
           }
         ],
-        "shipTitle" : "Gavroche",
+        "shipTitle" : "Bioship Alpha",
         "captain" : {
-          "upgradeId" : "michael_eddington_gavroche",
-          "upgradeTitle" : "Michael Eddington",
-          "calculatedCost" : 4
+          "upgradeId" : "species_8472_captain_71281",
+          "upgradeTitle" : "Species 8472 Captain",
+          "calculatedCost" : 0
         }
       },
       {
-        "calculatedCost" : 43,
+        "calculatedCost" : 44,
         "shipId" : "soong_71522",
         "upgrades" : [
           {
-            "upgradeId" : "crosis_71522",
-            "upgradeTitle" : "Crosis",
-            "calculatedCost" : 4
-          },
-          {
             "upgradeId" : "four_of_twelve_71444",
             "upgradeTitle" : "Four of Twelve",
-            "calculatedCost" : 1
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "self_destruct_sequence_71444",
+            "upgradeTitle" : "Self Destruct Sequence",
+            "calculatedCost" : 4
           }
         ],
         "shipTitle" : "Soong",
@@ -909,11 +894,11 @@
         }
       }
     ],
-    "cost" : 94,
+    "cost" : 104,
     "resource" : "fleet_captain_collectiveop2",
     "uuid" : "6BF928A8-870F-42AA-B316-ACEDA6B644D0",
     "additionalPoints" : 0,
-    "modified" : "2014-08-04T20:47:57-0700",
+    "modified" : "2014-08-14T05:30:48-0700",
     "name" : "independent klingon fleet captain"
   },
   {
@@ -1162,12 +1147,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3011",
+            "upgradeId" : "3052",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3052",
+            "upgradeId" : "3011",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },

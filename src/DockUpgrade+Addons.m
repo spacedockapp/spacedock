@@ -471,6 +471,10 @@
         if ([fleetCaptainSpecial isEqualToString: @"WeaponUpgradesCostOneLess"]) {
             cost -= 1;
         }
+    } else if ([upgrade isTech]) {
+        if ([fleetCaptainSpecial isEqualToString: @"TechUpgradesCostOneLess"]) {
+            cost -= 1;
+        }
     }
 
     if ([upgradeSpecial isEqualToString: @"costincreasedifnotbreen"]) {
