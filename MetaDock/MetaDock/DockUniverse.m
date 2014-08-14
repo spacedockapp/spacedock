@@ -2,12 +2,17 @@
 
 #import "DockGameSystem.h"
 
+@interface DockUniverse ()
+@property (strong, nonatomic) NSManagedObjectContext* context;
+@end
+
 @implementation DockUniverse
 
--(id)initWithDataStorePath:(NSString*)dataStore templatesPath:(NSString*)templatesPath
+-(id)initWithContext:(NSManagedObjectContext*)context templatesPath:(NSString*)templatesPath
 {
     self = [super init];
     if (self != nil) {
+        _context = context;
         [self setupGameSystems: templatesPath];
     }
     return self;

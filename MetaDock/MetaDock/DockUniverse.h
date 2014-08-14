@@ -4,7 +4,7 @@
 
 @interface DockUniverse : NSObject
 @property (readonly, nonatomic, strong) NSSet* gameSystems;
--(id)initWithDataStorePath:(NSString*)dataStore templatesPath:(NSString*)templatesPath;
+-(id)initWithContext:(NSManagedObjectContext*)context templatesPath:(NSString*)templatesPath;
 
 -(DockGameSystem*)gameSystemWithIdentifier:(NSString*)identifier;
 @end
