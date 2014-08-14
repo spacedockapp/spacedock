@@ -1,3 +1,7 @@
+### Version 1.1b7 build 77 (2014-8-14)
+
+* Fix Independent (Klingon) Fleet Captain.
+
 ### Version 1.1b6 build 75 (2014-8-13)
 
 * Print even smaller on the build sheet when needed.

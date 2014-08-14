@@ -1,4 +1,4 @@
-<Data version="2014-08-05@14-27">
+<Data version="2014-08-14@12-52">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -9816,13 +9816,13 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
             <Set>CollectiveOP2</Set>
             <Faction>Independent</Faction>
             <CaptainSkillBonus>1</CaptainSkillBonus>
-            <Ability>All of your [CREW] Upgrades cost -1 SP for all ships in your fleet (including your own ship).</Ability>
+            <Ability>All of your [TECH] Upgrades cost -1 SP for all ships in your fleet (including your own ship).</Ability>
             <TalentAdd>1</TalentAdd>
             <CrewAdd>2</CrewAdd>
             <TechAdd>0</TechAdd>
             <WeaponAdd>0</WeaponAdd>
             <Cost>5</Cost>
-            <Special>CrewUpgradesCostOneLess</Special>
+            <Special>TechUpgradesCostOneLess</Special>
         </FleetCaptain>
     </FleetCaptains>
     <ReferenceItems>
