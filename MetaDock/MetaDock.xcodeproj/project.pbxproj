@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D45CFF32199D51FF0033C687 /* MDockGameSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = D45CFF31199D51FF0033C687 /* MDockGameSystem.m */; };
+		D4317AD919A142B70046B37B /* MDockGameSystem+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317AD819A142B70046B37B /* MDockGameSystem+Addons.m */; };
+		D4317ADD19A144C90046B37B /* MDockComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317ADC19A144C90046B37B /* MDockComponent.m */; };
+		D4317AE019A144C90046B37B /* MDockGameSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317ADF19A144C90046B37B /* MDockGameSystem.m */; };
+		D4317AE319A144C90046B37B /* MDockCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317AE219A144C90046B37B /* MDockCategory.m */; };
 		D49951701997B29A002CA3DE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D499516F1997B29A002CA3DE /* Cocoa.framework */; };
 		D499517A1997B29A002CA3DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D49951781997B29A002CA3DE /* InfoPlist.strings */; };
 		D499517C1997B29A002CA3DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D499517B1997B29A002CA3DE /* main.m */; };
@@ -22,7 +25,6 @@
 		D499519D1997B29A002CA3DE /* MetaDockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D499519C1997B29A002CA3DE /* MetaDockTests.m */; };
 		D49951A81997CE81002CA3DE /* DockUniverse.m in Sources */ = {isa = PBXBuildFile; fileRef = D49951A71997CE81002CA3DE /* DockUniverse.m */; };
 		D49951B91997D46D002CA3DE /* GameSystems in Resources */ = {isa = PBXBuildFile; fileRef = D49951B81997D46D002CA3DE /* GameSystems */; };
-		D49951C01997D942002CA3DE /* DockGameSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = D49951BF1997D942002CA3DE /* DockGameSystem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D45CFF30199D51FF0033C687 /* MDockGameSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDockGameSystem.h; sourceTree = "<group>"; };
-		D45CFF31199D51FF0033C687 /* MDockGameSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDockGameSystem.m; sourceTree = "<group>"; };
+		D4317AD719A142B70046B37B /* MDockGameSystem+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MDockGameSystem+Addons.h"; sourceTree = "<group>"; };
+		D4317AD819A142B70046B37B /* MDockGameSystem+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MDockGameSystem+Addons.m"; sourceTree = "<group>"; };
+		D4317ADB19A144C90046B37B /* MDockComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDockComponent.h; sourceTree = "<group>"; };
+		D4317ADC19A144C90046B37B /* MDockComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDockComponent.m; sourceTree = "<group>"; };
+		D4317ADE19A144C90046B37B /* MDockGameSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDockGameSystem.h; sourceTree = "<group>"; };
+		D4317ADF19A144C90046B37B /* MDockGameSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDockGameSystem.m; sourceTree = "<group>"; };
+		D4317AE119A144C90046B37B /* MDockCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDockCategory.h; sourceTree = "<group>"; };
+		D4317AE219A144C90046B37B /* MDockCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDockCategory.m; sourceTree = "<group>"; };
 		D499516C1997B29A002CA3DE /* MetaDock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetaDock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D499516F1997B29A002CA3DE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D49951721997B29A002CA3DE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -61,8 +69,6 @@
 		D49951A61997CE81002CA3DE /* DockUniverse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockUniverse.h; sourceTree = "<group>"; };
 		D49951A71997CE81002CA3DE /* DockUniverse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockUniverse.m; sourceTree = "<group>"; };
 		D49951B81997D46D002CA3DE /* GameSystems */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GameSystems; sourceTree = "<group>"; };
-		D49951BE1997D942002CA3DE /* DockGameSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockGameSystem.h; sourceTree = "<group>"; };
-		D49951BF1997D942002CA3DE /* DockGameSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockGameSystem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D4317ADA19A143080046B37B /* Entites */ = {
+			isa = PBXGroup;
+			children = (
+				D4317AE119A144C90046B37B /* MDockCategory.h */,
+				D4317AE219A144C90046B37B /* MDockCategory.m */,
+				D4317ADE19A144C90046B37B /* MDockGameSystem.h */,
+				D4317ADF19A144C90046B37B /* MDockGameSystem.m */,
+				D4317ADB19A144C90046B37B /* MDockComponent.h */,
+				D4317ADC19A144C90046B37B /* MDockComponent.m */,
+			);
+			name = Entites;
+			sourceTree = "<group>";
+		};
 		D49951631997B29A002CA3DE = {
 			isa = PBXGroup;
 			children = (
@@ -129,17 +148,16 @@
 		D49951751997B29A002CA3DE /* MetaDock */ = {
 			isa = PBXGroup;
 			children = (
-				D45CFF30199D51FF0033C687 /* MDockGameSystem.h */,
-				D45CFF31199D51FF0033C687 /* MDockGameSystem.m */,
 				D49951811997B29A002CA3DE /* DockAppDelegate.h */,
 				D49951821997B29A002CA3DE /* DockAppDelegate.m */,
-				D49951BE1997D942002CA3DE /* DockGameSystem.h */,
-				D49951BF1997D942002CA3DE /* DockGameSystem.m */,
+				D4317AD719A142B70046B37B /* MDockGameSystem+Addons.h */,
+				D4317AD819A142B70046B37B /* MDockGameSystem+Addons.m */,
 				D49951A61997CE81002CA3DE /* DockUniverse.h */,
 				D49951A71997CE81002CA3DE /* DockUniverse.m */,
 				D49951841997B29A002CA3DE /* MainMenu.xib */,
 				D499518A1997B29A002CA3DE /* Images.xcassets */,
 				D49951871997B29A002CA3DE /* MetaDock.xcdatamodeld */,
+				D4317ADA19A143080046B37B /* Entites */,
 				D49951761997B29A002CA3DE /* Supporting Files */,
 			);
 			path = MetaDock;
@@ -276,9 +294,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D499517C1997B29A002CA3DE /* main.m in Sources */,
-				D45CFF32199D51FF0033C687 /* MDockGameSystem.m in Sources */,
+				D4317AE019A144C90046B37B /* MDockGameSystem.m in Sources */,
+				D4317ADD19A144C90046B37B /* MDockComponent.m in Sources */,
 				D49951891997B29A002CA3DE /* MetaDock.xcdatamodeld in Sources */,
-				D49951C01997D942002CA3DE /* DockGameSystem.m in Sources */,
+				D4317AE319A144C90046B37B /* MDockCategory.m in Sources */,
+				D4317AD919A142B70046B37B /* MDockGameSystem+Addons.m in Sources */,
 				D49951831997B29A002CA3DE /* DockAppDelegate.m in Sources */,
 				D49951A81997CE81002CA3DE /* DockUniverse.m in Sources */,
 			);

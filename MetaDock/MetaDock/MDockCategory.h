@@ -1,5 +1,5 @@
 //
-//  MDockGameSystem.h
+//  MDockCategory.h
 //  MetaDock
 //
 //  Created by Rob Tsuk on 8/17/14.
@@ -11,16 +11,13 @@
 
 @class MDockComponent;
 
-@interface MDockGameSystem : NSManagedObject
+@interface MDockCategory : NSManagedObject
 
-@property (nonatomic, retain) NSString * systemId;
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSString * version;
-@property (nonatomic, retain) id terms;
+@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *components;
 @end
 
-@interface MDockGameSystem (CoreDataGeneratedAccessors)
+@interface MDockCategory (CoreDataGeneratedAccessors)
 
 - (void)addComponentsObject:(MDockComponent *)value;
 - (void)removeComponentsObject:(MDockComponent *)value;

@@ -1,10 +1,9 @@
 #import <Foundation/Foundation.h>
 
-@class DockGameSystem;
+@class MDockGameSystem;
 
 @interface DockUniverse : NSObject
-@property (readonly, nonatomic, strong) NSSet* gameSystems;
 -(id)initWithContext:(NSManagedObjectContext*)context templatesPath:(NSString*)templatesPath;
-
--(DockGameSystem*)gameSystemWithIdentifier:(NSString*)identifier;
+-(MDockGameSystem*)gameSystemWithIdentifier:(NSString*)identifier;
+-(NSArray*)gameSystems;
 @end

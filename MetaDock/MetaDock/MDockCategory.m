@@ -1,21 +1,18 @@
 //
-//  MDockGameSystem.m
+//  MDockCategory.m
 //  MetaDock
 //
 //  Created by Rob Tsuk on 8/17/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
-#import "MDockGameSystem.h"
+#import "MDockCategory.h"
 #import "MDockComponent.h"
 
 
-@implementation MDockGameSystem
+@implementation MDockCategory
 
-@dynamic systemId;
-@dynamic title;
-@dynamic version;
-@dynamic terms;
+@dynamic name;
 @dynamic components;
 
 @end

@@ -1,6 +1,6 @@
 #import "DockUniverse.h"
 
-#import "DockGameSystem.h"
+#import "MDockGameSystem+Addons.h"
 
 @interface DockUniverse ()
 @property (strong, nonatomic) NSManagedObjectContext* context;
@@ -23,28 +23,30 @@
 -(void)setupGameSystems:(NSString*)templatesPath
 {
     NSFileManager* fm = [NSFileManager defaultManager];
+    NSManagedObjectContext* context = self.context;
     NSError* error;
     NSArray* gameSystemFolders = [fm contentsOfDirectoryAtPath: templatesPath error: &error];
-    NSMutableArray* gameSystems = [[NSMutableArray alloc] initWithCapacity: gameSystemFolders.count];
     for (NSString* folderName in gameSystemFolders) {
         NSString* gameSystemPath = [templatesPath stringByAppendingPathComponent: folderName];
         BOOL isDir;
         if ([fm fileExistsAtPath: gameSystemPath isDirectory: &isDir] && isDir) {
-            DockGameSystem* gameSystem = [[DockGameSystem alloc] initWithPath: gameSystemPath];
-            [gameSystems addObject: gameSystem];
+            MDockGameSystem* gameSystem = [MDockGameSystem gameSystemWithId: folderName context: context];
+            if (gameSystem == nil) {
+                gameSystem  = [MDockGameSystem createGameSystemWithId: folderName context: self.context];
+                [gameSystem updateFromPath: gameSystemPath];
+            }
         }
     }
-    _gameSystems = [NSSet setWithArray: gameSystems];
 }
 
--(DockGameSystem*)gameSystemWithIdentifier:(NSString*)identifier
+-(MDockGameSystem*)gameSystemWithIdentifier:(NSString*)identifier
 {
-    id objectWithIdentifier = ^(id obj, BOOL* stop) {
-        NSString* objIdentifier = [obj identifier];
-        return [identifier isEqualToString: objIdentifier];
-    };
-    NSSet* matching = [_gameSystems objectsPassingTest: objectWithIdentifier];
-    return matching.anyObject;
+    return [MDockGameSystem gameSystemWithId: identifier context: self.context];
+}
+
+-(NSArray*)gameSystems
+{
+    return [MDockGameSystem gameSystems: self.context];
 }
 
 @end
