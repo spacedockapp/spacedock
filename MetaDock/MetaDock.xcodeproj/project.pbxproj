@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D45CFF32199D51FF0033C687 /* MDockGameSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = D45CFF31199D51FF0033C687 /* MDockGameSystem.m */; };
 		D49951701997B29A002CA3DE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D499516F1997B29A002CA3DE /* Cocoa.framework */; };
 		D499517A1997B29A002CA3DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D49951781997B29A002CA3DE /* InfoPlist.strings */; };
 		D499517C1997B29A002CA3DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D499517B1997B29A002CA3DE /* main.m */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D45CFF30199D51FF0033C687 /* MDockGameSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDockGameSystem.h; sourceTree = "<group>"; };
+		D45CFF31199D51FF0033C687 /* MDockGameSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDockGameSystem.m; sourceTree = "<group>"; };
 		D499516C1997B29A002CA3DE /* MetaDock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetaDock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D499516F1997B29A002CA3DE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D49951721997B29A002CA3DE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -126,6 +129,8 @@
 		D49951751997B29A002CA3DE /* MetaDock */ = {
 			isa = PBXGroup;
 			children = (
+				D45CFF30199D51FF0033C687 /* MDockGameSystem.h */,
+				D45CFF31199D51FF0033C687 /* MDockGameSystem.m */,
 				D49951811997B29A002CA3DE /* DockAppDelegate.h */,
 				D49951821997B29A002CA3DE /* DockAppDelegate.m */,
 				D49951BE1997D942002CA3DE /* DockGameSystem.h */,
@@ -271,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D499517C1997B29A002CA3DE /* main.m in Sources */,
+				D45CFF32199D51FF0033C687 /* MDockGameSystem.m in Sources */,
 				D49951891997B29A002CA3DE /* MetaDock.xcdatamodeld in Sources */,
 				D49951C01997D942002CA3DE /* DockGameSystem.m in Sources */,
 				D49951831997B29A002CA3DE /* DockAppDelegate.m in Sources */,

@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="untitled.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Category" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="components" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Component" inverseName="categories" inverseEntity="Component" syncable="YES"/>
+    </entity>
+    <entity name="Component" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="components" inverseEntity="Category" syncable="YES"/>
+        <relationship name="gameSystem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameSystem" inverseName="components" inverseEntity="GameSystem" syncable="YES"/>
+    </entity>
+    <entity name="GameSystem" representedClassName="MDockGameSystem" syncable="YES">
+        <attribute name="systemId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="components" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Component" inverseName="gameSystem" inverseEntity="Component" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Component" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="Category" positionX="-54" positionY="0" width="128" height="73"/>
+        <element name="GameSystem" positionX="-45" positionY="27" width="128" height="88"/>
+    </elements>
 </model>
