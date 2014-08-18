@@ -8,9 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		D4317AD919A142B70046B37B /* MDockGameSystem+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317AD819A142B70046B37B /* MDockGameSystem+Addons.m */; };
-		D4317ADD19A144C90046B37B /* MDockComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317ADC19A144C90046B37B /* MDockComponent.m */; };
-		D4317AE019A144C90046B37B /* MDockGameSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317ADF19A144C90046B37B /* MDockGameSystem.m */; };
-		D4317AE319A144C90046B37B /* MDockCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317AE219A144C90046B37B /* MDockCategory.m */; };
+		D4317AF919A1B89B0046B37B /* MDockTaggable+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317AF819A1B89B0046B37B /* MDockTaggable+Addons.m */; };
+		D4317AFC19A1B8E60046B37B /* MDockTag+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317AFB19A1B8E60046B37B /* MDockTag+Addons.m */; };
+		D4317B3519A1BCA70046B37B /* MDockComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317B3419A1BCA70046B37B /* MDockComponent.m */; };
+		D4317B3819A1BCA70046B37B /* MDockTag.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317B3719A1BCA70046B37B /* MDockTag.m */; };
+		D4317B4119A1BCA70046B37B /* MDockTaggable.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317B4019A1BCA70046B37B /* MDockTaggable.m */; };
+		D4317B4419A1C40E0046B37B /* MDockGameSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317B4319A1C40E0046B37B /* MDockGameSystem.m */; };
+		D4317B4719A1C40F0046B37B /* MDockCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317B4619A1C40F0046B37B /* MDockCategory.m */; };
+		D4317B4A19A1C4530046B37B /* MDockCategory+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317B4919A1C4530046B37B /* MDockCategory+Addons.m */; };
 		D49951701997B29A002CA3DE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D499516F1997B29A002CA3DE /* Cocoa.framework */; };
 		D499517A1997B29A002CA3DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D49951781997B29A002CA3DE /* InfoPlist.strings */; };
 		D499517C1997B29A002CA3DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D499517B1997B29A002CA3DE /* main.m */; };
@@ -40,12 +45,22 @@
 /* Begin PBXFileReference section */
 		D4317AD719A142B70046B37B /* MDockGameSystem+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MDockGameSystem+Addons.h"; sourceTree = "<group>"; };
 		D4317AD819A142B70046B37B /* MDockGameSystem+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MDockGameSystem+Addons.m"; sourceTree = "<group>"; };
-		D4317ADB19A144C90046B37B /* MDockComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDockComponent.h; sourceTree = "<group>"; };
-		D4317ADC19A144C90046B37B /* MDockComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDockComponent.m; sourceTree = "<group>"; };
-		D4317ADE19A144C90046B37B /* MDockGameSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDockGameSystem.h; sourceTree = "<group>"; };
-		D4317ADF19A144C90046B37B /* MDockGameSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDockGameSystem.m; sourceTree = "<group>"; };
-		D4317AE119A144C90046B37B /* MDockCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDockCategory.h; sourceTree = "<group>"; };
-		D4317AE219A144C90046B37B /* MDockCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDockCategory.m; sourceTree = "<group>"; };
+		D4317AF719A1B89B0046B37B /* MDockTaggable+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MDockTaggable+Addons.h"; sourceTree = "<group>"; };
+		D4317AF819A1B89B0046B37B /* MDockTaggable+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MDockTaggable+Addons.m"; sourceTree = "<group>"; };
+		D4317AFA19A1B8E60046B37B /* MDockTag+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MDockTag+Addons.h"; sourceTree = "<group>"; };
+		D4317AFB19A1B8E60046B37B /* MDockTag+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MDockTag+Addons.m"; sourceTree = "<group>"; };
+		D4317B3319A1BCA70046B37B /* MDockComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDockComponent.h; sourceTree = "<group>"; };
+		D4317B3419A1BCA70046B37B /* MDockComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDockComponent.m; sourceTree = "<group>"; };
+		D4317B3619A1BCA70046B37B /* MDockTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDockTag.h; sourceTree = "<group>"; };
+		D4317B3719A1BCA70046B37B /* MDockTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDockTag.m; sourceTree = "<group>"; };
+		D4317B3F19A1BCA70046B37B /* MDockTaggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDockTaggable.h; sourceTree = "<group>"; };
+		D4317B4019A1BCA70046B37B /* MDockTaggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDockTaggable.m; sourceTree = "<group>"; };
+		D4317B4219A1C40E0046B37B /* MDockGameSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDockGameSystem.h; sourceTree = "<group>"; };
+		D4317B4319A1C40E0046B37B /* MDockGameSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDockGameSystem.m; sourceTree = "<group>"; };
+		D4317B4519A1C40F0046B37B /* MDockCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDockCategory.h; sourceTree = "<group>"; };
+		D4317B4619A1C40F0046B37B /* MDockCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDockCategory.m; sourceTree = "<group>"; };
+		D4317B4819A1C4530046B37B /* MDockCategory+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MDockCategory+Addons.h"; sourceTree = "<group>"; };
+		D4317B4919A1C4530046B37B /* MDockCategory+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MDockCategory+Addons.m"; sourceTree = "<group>"; };
 		D499516C1997B29A002CA3DE /* MetaDock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetaDock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D499516F1997B29A002CA3DE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D49951721997B29A002CA3DE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -95,12 +110,16 @@
 		D4317ADA19A143080046B37B /* Entites */ = {
 			isa = PBXGroup;
 			children = (
-				D4317AE119A144C90046B37B /* MDockCategory.h */,
-				D4317AE219A144C90046B37B /* MDockCategory.m */,
-				D4317ADE19A144C90046B37B /* MDockGameSystem.h */,
-				D4317ADF19A144C90046B37B /* MDockGameSystem.m */,
-				D4317ADB19A144C90046B37B /* MDockComponent.h */,
-				D4317ADC19A144C90046B37B /* MDockComponent.m */,
+				D4317B4519A1C40F0046B37B /* MDockCategory.h */,
+				D4317B4619A1C40F0046B37B /* MDockCategory.m */,
+				D4317B4219A1C40E0046B37B /* MDockGameSystem.h */,
+				D4317B4319A1C40E0046B37B /* MDockGameSystem.m */,
+				D4317B3F19A1BCA70046B37B /* MDockTaggable.h */,
+				D4317B4019A1BCA70046B37B /* MDockTaggable.m */,
+				D4317B3619A1BCA70046B37B /* MDockTag.h */,
+				D4317B3719A1BCA70046B37B /* MDockTag.m */,
+				D4317B3319A1BCA70046B37B /* MDockComponent.h */,
+				D4317B3419A1BCA70046B37B /* MDockComponent.m */,
 			);
 			name = Entites;
 			sourceTree = "<group>";
@@ -150,8 +169,14 @@
 			children = (
 				D49951811997B29A002CA3DE /* DockAppDelegate.h */,
 				D49951821997B29A002CA3DE /* DockAppDelegate.m */,
+				D4317B4819A1C4530046B37B /* MDockCategory+Addons.h */,
+				D4317B4919A1C4530046B37B /* MDockCategory+Addons.m */,
 				D4317AD719A142B70046B37B /* MDockGameSystem+Addons.h */,
 				D4317AD819A142B70046B37B /* MDockGameSystem+Addons.m */,
+				D4317AFA19A1B8E60046B37B /* MDockTag+Addons.h */,
+				D4317AFB19A1B8E60046B37B /* MDockTag+Addons.m */,
+				D4317AF719A1B89B0046B37B /* MDockTaggable+Addons.h */,
+				D4317AF819A1B89B0046B37B /* MDockTaggable+Addons.m */,
 				D49951A61997CE81002CA3DE /* DockUniverse.h */,
 				D49951A71997CE81002CA3DE /* DockUniverse.m */,
 				D49951841997B29A002CA3DE /* MainMenu.xib */,
@@ -293,14 +318,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4317AF919A1B89B0046B37B /* MDockTaggable+Addons.m in Sources */,
+				D4317B4419A1C40E0046B37B /* MDockGameSystem.m in Sources */,
 				D499517C1997B29A002CA3DE /* main.m in Sources */,
-				D4317AE019A144C90046B37B /* MDockGameSystem.m in Sources */,
-				D4317ADD19A144C90046B37B /* MDockComponent.m in Sources */,
+				D4317AFC19A1B8E60046B37B /* MDockTag+Addons.m in Sources */,
 				D49951891997B29A002CA3DE /* MetaDock.xcdatamodeld in Sources */,
-				D4317AE319A144C90046B37B /* MDockCategory.m in Sources */,
 				D4317AD919A142B70046B37B /* MDockGameSystem+Addons.m in Sources */,
 				D49951831997B29A002CA3DE /* DockAppDelegate.m in Sources */,
+				D4317B3519A1BCA70046B37B /* MDockComponent.m in Sources */,
 				D49951A81997CE81002CA3DE /* DockUniverse.m in Sources */,
+				D4317B4A19A1C4530046B37B /* MDockCategory+Addons.m in Sources */,
+				D4317B3819A1BCA70046B37B /* MDockTag.m in Sources */,
+				D4317B4719A1C40F0046B37B /* MDockCategory.m in Sources */,
+				D4317B4119A1BCA70046B37B /* MDockTaggable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

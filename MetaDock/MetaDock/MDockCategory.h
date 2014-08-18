@@ -8,13 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "MDockTaggable.h"
 
-@class MDockComponent;
+@class MDockComponent, MDockGameSystem;
 
-@interface MDockCategory : NSManagedObject
+@interface MDockCategory : MDockTaggable
 
-@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * value;
+@property (nonatomic, retain) NSString * type;
 @property (nonatomic, retain) NSSet *components;
+@property (nonatomic, retain) MDockGameSystem *gameSystem;
 @end
 
 @interface MDockCategory (CoreDataGeneratedAccessors)

@@ -147,6 +147,26 @@
 
 -(void)testComponents
 {
+    MDockGameSystem* staw = [_universe gameSystemWithIdentifier: @"staw"];
+    XCTAssertNotNil(staw);
+    XCTAssertTrue(staw.components.count > 0,  @"Expected staw to have components but it didn't");
+    
+    NSArray* picards = [staw findComponentsWithTitle: @"Jean-Luc Picard"];
+    XCTAssertNotNil(picards);
+    XCTAssertEqual(picards.count, 1,  @"There should be only one Picard");
+
+    NSArray* photons = [staw findComponentsWithTitle: @"Photon Torpedoes"];
+    XCTAssertNotNil(photons);
+    XCTAssertEqual(photons.count, 1,  @"There should be only one Photon Torpedoes");
+}
+
+-(void)testCategories
+{
+    MDockGameSystem* staw = [_universe gameSystemWithIdentifier: @"staw"];
+    XCTAssertNotNil(staw);
+    
+    NSSet* categories = staw.categories;
+    XCTAssertTrue(categories.count > 0,  @"Expected staw to have categories but it didn't");
 }
 
 @end

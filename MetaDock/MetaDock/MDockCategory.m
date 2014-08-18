@@ -8,11 +8,14 @@
 
 #import "MDockCategory.h"
 #import "MDockComponent.h"
+#import "MDockGameSystem.h"
 
 
 @implementation MDockCategory
 
-@dynamic name;
+@dynamic value;
+@dynamic type;
 @dynamic components;
+@dynamic gameSystem;
 
 @end

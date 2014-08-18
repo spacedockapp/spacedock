@@ -1,5 +1,7 @@
 #import "MDockGameSystem+Addons.h"
 
+#import "MDockComponent.h"
+
 @implementation MDockGameSystem (Addons)
 
 static NSString* kTitleKey = @"title";
@@ -9,6 +11,8 @@ static NSString* kOneTermKey = @"one";
 static NSString* kManyTermKey = @"many";
 static NSString* kPropertiesFileName = @"properties.json";
 static NSString* kGameSystemEntityName = @"GameSystem";
+static NSString* kComponentEntityName = @"Component";
+static NSString* kCategoryEntityName = @"Category";
 
 
 +(MDockGameSystem*)gameSystemWithId:(NSString*)systemId context:(NSManagedObjectContext*)context
@@ -69,6 +73,32 @@ static NSString* kGameSystemEntityName = @"GameSystem";
     NSDictionary* properties = json;
     self.title = properties[kTitleKey];
     self.terms = properties[kTermsKey];
+    NSString* setsPath = [path stringByAppendingPathComponent: @"sets"];
+    NSFileManager* fm = [NSFileManager defaultManager];
+    NSArray* sets = [fm contentsOfDirectoryAtPath: setsPath error: &error];
+    NSEntityDescription* componentEntity = [NSEntityDescription entityForName: kComponentEntityName
+                                              inManagedObjectContext: self.managedObjectContext];
+    for (NSString* setFileName in sets) {
+        NSString* oneSetPath = [setsPath stringByAppendingPathComponent: setFileName];
+        data = [NSData dataWithContentsOfFile: oneSetPath options: 0 error: &error];
+        if (data == nil) {
+            @throw error;
+        }
+        id json = [NSJSONSerialization JSONObjectWithData: data options: 0 error: &error];
+        if (json == nil) {
+            @throw error;
+        }
+        assert([json isKindOfClass: [NSDictionary class]]);
+        NSDictionary* setDictionary = json;
+        NSArray* components = setDictionary[@"components"];
+        for (NSDictionary* oneComponent in components) {
+            MDockComponent* component = [[MDockComponent alloc] initWithEntity: componentEntity
+                                                insertIntoManagedObjectContext: self.managedObjectContext];
+            component.title = oneComponent[@"title"];
+            [self addComponentsObject: component];
+        }
+    }
+    [self.managedObjectContext save: &error];
 }
 
 -(void)updateFromPath:(NSString*)path
@@ -93,5 +123,32 @@ static NSString* kGameSystemEntityName = @"GameSystem";
     return termEntry[kManyTermKey];
     return terms[term];
 }
+
+// components
+-(NSArray*)findComponentsWithTitle:(NSString*)title
+{
+    NSEntityDescription* entity = [NSEntityDescription entityForName: kComponentEntityName inManagedObjectContext: self.managedObjectContext];
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"title like %@", title];
+    [request setPredicate: predicateTemplate];
+    NSError* err;
+    return [self.managedObjectContext executeFetchRequest: request error: &err];
+}
+
+// categories
+
+-(MDockCategory*)findCategory:(NSString*)type value:(NSString*)value
+{
+    NSEntityDescription* entity = [NSEntityDescription entityForName: kCategoryEntityName inManagedObjectContext: self.managedObjectContext];
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"type == %@ and value == %@", type, value];
+    [request setPredicate: predicateTemplate];
+    NSError* err;
+    NSArray* categories = [self.managedObjectContext executeFetchRequest: request error: &err];
+    return categories.firstObject;
+}
+
 
 @end

@@ -1038,7 +1038,7 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
         NSDictionary* d = [set dictionaryForExport];
         NSError* error;
         NSData* jsonData = [NSJSONSerialization dataWithJSONObject: d options: NSJSONWritingPrettyPrinted error: &error];
-        NSString* targetFile = [[targetFolder stringByAppendingPathComponent: set.setCode] stringByAppendingPathExtension: @"json"];
+        NSString* targetFile = [[targetFolder stringByAppendingPathComponent: set.setCode.lowercaseString] stringByAppendingPathExtension: @"json"];
         [jsonData writeToURL: [NSURL fileURLWithPath: targetFile] atomically: NO];
     }
 }

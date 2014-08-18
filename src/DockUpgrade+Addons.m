@@ -698,5 +698,15 @@
     return combinedFactionString(self);
 }
 
+-(NSDictionary*)dictionaryForExport
+{
+    return @{
+             @"title": self.title,
+             @"categories": @[
+                     @{@"value": self.upType, @"name": @"type" },
+                     @{@"value": self.faction, @"name": @"faction" }
+                ]
+             };
+}
 
 @end

@@ -122,7 +122,12 @@
 
 -(NSDictionary*)dictionaryForExport
 {
+    NSMutableArray* items = [[NSMutableArray alloc] initWithCapacity: 0];
+    for (id item in self.items) {
+        [items addObject: [item dictionaryForExport]];
+    }
     return @{
+        @"components": items,
         @"title": self.productName,
         @"code": self.setCode
     };

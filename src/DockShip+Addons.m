@@ -384,4 +384,11 @@ NSString* asDegrees(NSString* textValue)
     return combinedFactionString(self);
 }
 
+-(NSDictionary*)dictionaryForExport
+{
+    return @{
+        @"title": self.title,
+        @"category": @"Ship"
+    };
+}
 @end

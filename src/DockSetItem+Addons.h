@@ -7,4 +7,5 @@
 -(NSComparisonResult)compareForSet:(id)object;
 -(NSString*)itemDescription;
 -(NSString*)setCode;
+-(NSDictionary*)dictionaryForExport;
 @end

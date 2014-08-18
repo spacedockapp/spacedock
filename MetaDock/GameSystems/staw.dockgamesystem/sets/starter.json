@@ -1,0 +1,350 @@
+{
+  "title" : "Starter Set",
+  "components" : [
+    {
+      "title" : "I.K.S. Maht-H'A",
+      "category" : "Ship"
+    },
+    {
+      "title" : "Tractor Beam",
+      "categories" : [
+        {
+          "value" : "Tech",
+          "name" : "type"
+        },
+        {
+          "value" : "Klingon",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Engage",
+      "categories" : [
+        {
+          "value" : "Talent",
+          "name" : "type"
+        },
+        {
+          "value" : "Federation",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "William T. Riker",
+      "categories" : [
+        {
+          "value" : "Captain",
+          "name" : "type"
+        },
+        {
+          "value" : "Federation",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Antimatter Mines",
+      "categories" : [
+        {
+          "value" : "Weapon",
+          "name" : "type"
+        },
+        {
+          "value" : "Federation",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Strike Force",
+      "category" : "Reference"
+    },
+    {
+      "title" : "Toreth",
+      "categories" : [
+        {
+          "value" : "Captain",
+          "name" : "type"
+        },
+        {
+          "value" : "Romulan",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "I.R.W. Khazara",
+      "category" : "Ship"
+    },
+    {
+      "title" : "Counter Attack",
+      "categories" : [
+        {
+          "value" : "Talent",
+          "name" : "type"
+        },
+        {
+          "value" : "Romulan",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Klag",
+      "categories" : [
+        {
+          "value" : "Crew",
+          "name" : "type"
+        },
+        {
+          "value" : "Klingon",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Konmel",
+      "categories" : [
+        {
+          "value" : "Crew",
+          "name" : "type"
+        },
+        {
+          "value" : "Klingon",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Photon Torpedoes",
+      "categories" : [
+        {
+          "value" : "Weapon",
+          "name" : "type"
+        },
+        {
+          "value" : "Federation",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Geordi LaForge",
+      "categories" : [
+        {
+          "value" : "Crew",
+          "name" : "type"
+        },
+        {
+          "value" : "Federation",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Artificial Quantum Singularity",
+      "categories" : [
+        {
+          "value" : "Tech",
+          "name" : "type"
+        },
+        {
+          "value" : "Romulan",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Klingon Starship",
+      "category" : "Ship"
+    },
+    {
+      "title" : "Jean-Luc Picard",
+      "categories" : [
+        {
+          "value" : "Captain",
+          "name" : "type"
+        },
+        {
+          "value" : "Federation",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Miles O'Brien",
+      "categories" : [
+        {
+          "value" : "Crew",
+          "name" : "type"
+        },
+        {
+          "value" : "Federation",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "N'Vek",
+      "categories" : [
+        {
+          "value" : "Crew",
+          "name" : "type"
+        },
+        {
+          "value" : "Romulan",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Klingon Captain",
+      "categories" : [
+        {
+          "value" : "Captain",
+          "name" : "type"
+        },
+        {
+          "value" : "Klingon",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "U.S.S. Enterprise-D",
+      "category" : "Ship"
+    },
+    {
+      "title" : "Romulan Captain",
+      "categories" : [
+        {
+          "value" : "Captain",
+          "name" : "type"
+        },
+        {
+          "value" : "Romulan",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Federation Starship",
+      "category" : "Ship"
+    },
+    {
+      "title" : "Romulan Starship",
+      "category" : "Ship"
+    },
+    {
+      "title" : "Photon Torpedoes (Vor'cha Bonus)",
+      "categories" : [
+        {
+          "value" : "Weapon",
+          "name" : "type"
+        },
+        {
+          "value" : "Klingon",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Plasma Torpedoes",
+      "categories" : [
+        {
+          "value" : "Weapon",
+          "name" : "type"
+        },
+        {
+          "value" : "Romulan",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Bochra",
+      "categories" : [
+        {
+          "value" : "Crew",
+          "name" : "type"
+        },
+        {
+          "value" : "Romulan",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "United Force",
+      "category" : "Reference"
+    },
+    {
+      "title" : "Data",
+      "categories" : [
+        {
+          "value" : "Crew",
+          "name" : "type"
+        },
+        {
+          "value" : "Federation",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Federation Captain",
+      "categories" : [
+        {
+          "value" : "Captain",
+          "name" : "type"
+        },
+        {
+          "value" : "Federation",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Nu'Daq",
+      "categories" : [
+        {
+          "value" : "Captain",
+          "name" : "type"
+        },
+        {
+          "value" : "Klingon",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Advanced Weapon System",
+      "categories" : [
+        {
+          "value" : "Tech",
+          "name" : "type"
+        },
+        {
+          "value" : "Klingon",
+          "name" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Worf",
+      "categories" : [
+        {
+          "value" : "Crew",
+          "name" : "type"
+        },
+        {
+          "value" : "Federation",
+          "name" : "faction"
+        }
+      ]
+    }
+  ],
+  "code" : "Starter"
+}

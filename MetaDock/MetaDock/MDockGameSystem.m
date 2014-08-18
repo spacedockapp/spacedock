@@ -7,7 +7,9 @@
 //
 
 #import "MDockGameSystem.h"
+#import "MDockCategory.h"
 #import "MDockComponent.h"
+#import "MDockTag.h"
 
 
 @implementation MDockGameSystem
@@ -17,5 +19,7 @@
 @dynamic version;
 @dynamic terms;
 @dynamic components;
+@dynamic tags;
+@dynamic categories;
 
 @end

@@ -60,4 +60,11 @@
     return set.setCode;
 }
 
+-(NSDictionary*)dictionaryForExport
+{
+    return @{
+        @"description": [self description]
+    };
+}
+
 @end
