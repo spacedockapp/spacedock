@@ -8,6 +8,9 @@ public class EquippedShipBase extends Base {
     Flagship mFlagship;
     public Flagship getFlagship() { return mFlagship; }
     public EquippedShipBase setFlagship(Flagship v) { mFlagship = v; return this;}
+    FleetCaptain mFleetCaptain;
+    public FleetCaptain getFleetCaptain() { return mFleetCaptain; }
+    public EquippedShipBase setFleetCaptain(FleetCaptain v) { mFleetCaptain = v; return this;}
     Ship mShip;
     public Ship getShip() { return mShip; }
     public EquippedShipBase setShip(Ship v) { mShip = v; return this;}

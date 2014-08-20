@@ -78,7 +78,8 @@ public class ResourceSpinnerAdapter extends ArrayAdapter<ResourceSpinnerAdapter.
         for (int i = 1; i < getCount(); i++) {
             Resource universeResource = getItem(i).mResource;
             if (resource == universeResource
-                    || (resource.getIsFlagship() && universeResource.getIsFlagship()))
+                    || (resource.getIsFlagship() && universeResource.getIsFlagship())
+                    || (resource.isFleetCaptain() && universeResource.isFleetCaptain()))
                 return i;
         }
         throw new IllegalStateException("Resource " + resource.getTitle() + " could not be found");

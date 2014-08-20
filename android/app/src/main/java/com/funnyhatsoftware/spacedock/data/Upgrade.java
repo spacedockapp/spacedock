@@ -222,6 +222,8 @@ public class Upgrade extends UpgradeBase {
             }
         }
 
+        FleetCaptain fleetCaptain = equippedShip.getFleetCaptain();
+        String fleetCaptainSpecial = equippedShip.getSquad().getFleetCaptainSpecial();
         String captainSpecial = captain.getSpecial();
         String upgradeSpecial = getSpecial();
 
@@ -230,9 +232,21 @@ public class Upgrade extends UpgradeBase {
                     && upgradeFaction.equals("Federation") && !shipIsSideboard) {
                 cost = 3;
             }
+            if (null != fleetCaptain && 0 < fleetCaptain.getTalentAdd()) {
+                if (equippedShip.getTalent() > equippedShip.allUpgradesOfType("Talent").size()) {
+                    EquippedUpgrade mostExpensiveTalent = equippedShip.mostExpensiveUpgradeOfType("Talent");
+                    if (null != mostExpensiveTalent && this == mostExpensiveTalent.getUpgrade()
+                            && equippedUpgrade == mostExpensiveTalent) {
+                        cost = 0;
+                    }
+                }
+            }
         } else if (isCrew()) {
             if ((captainSpecial.equals("CrewUpgradesCostOneLess") || captainSpecial.equals("hugh_71522"))
                     && !shipIsSideboard) {
+                cost -= 1;
+            }
+            if ("CrewUpgradesCostOneLess".equals(fleetCaptainSpecial)) {
                 cost -= 1;
             }
 
@@ -245,10 +259,16 @@ public class Upgrade extends UpgradeBase {
             if (captainSpecial.equals("WeaponUpgradesCostOneLess")) {
                 cost -= 1;
             }
+            if ("WeaponUpgradesCostOneLess".equals(fleetCaptainSpecial)) {
+                cost -= 1;
+            }
         } else if (isTech()) {
             if ("VulcanAndFedTechUpgradesMinus2".equals(captainSpecial) &&
                     ("Federation".equals(upgradeFaction) || "Vulcan".equals(upgradeFaction))) {
                 cost -= 2;
+            }
+            if ("TechUpgradesCostOneLess".equals(fleetCaptainSpecial)) {
+                cost -= 1;
             }
         }
 

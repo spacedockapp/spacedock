@@ -1,6 +1,27 @@
 
 package com.funnyhatsoftware.spacedock.data;
 
+import android.content.Context;
+import android.content.res.AssetManager;
+import android.os.Environment;
+import android.support.v4.util.ArrayMap;
+
+import com.funnyhatsoftware.spacedock.data.Captain.CaptainComparator;
+import com.funnyhatsoftware.spacedock.data.Flagship.FlagshipComparator;
+import com.funnyhatsoftware.spacedock.data.FleetCaptain.FleetCaptainComparator;
+import com.funnyhatsoftware.spacedock.data.Reference.ReferenceComparator;
+import com.funnyhatsoftware.spacedock.data.Resource.ResourceComparator;
+import com.funnyhatsoftware.spacedock.data.Set.SetComparator;
+import com.funnyhatsoftware.spacedock.data.Ship.ShipComparator;
+import com.funnyhatsoftware.spacedock.data.Squad.SquadComparator;
+import com.funnyhatsoftware.spacedock.data.Upgrade.UpgradeComparitor;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+import org.xml.sax.SAXException;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,26 +35,6 @@ import java.util.List;
 import java.util.TreeSet;
 
 import javax.xml.parsers.ParserConfigurationException;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONTokener;
-import org.xml.sax.SAXException;
-
-import android.content.Context;
-import android.content.res.AssetManager;
-import android.os.Environment;
-import android.support.v4.util.ArrayMap;
-
-import com.funnyhatsoftware.spacedock.data.Captain.CaptainComparator;
-import com.funnyhatsoftware.spacedock.data.Flagship.FlagshipComparator;
-import com.funnyhatsoftware.spacedock.data.Reference.ReferenceComparator;
-import com.funnyhatsoftware.spacedock.data.Resource.ResourceComparator;
-import com.funnyhatsoftware.spacedock.data.Set.SetComparator;
-import com.funnyhatsoftware.spacedock.data.Ship.ShipComparator;
-import com.funnyhatsoftware.spacedock.data.Squad.SquadComparator;
-import com.funnyhatsoftware.spacedock.data.Upgrade.UpgradeComparitor;
 
 public class Universe {
     private static final String SQUADS_FILE_NAME = "squads.spacedocksquads";
@@ -57,6 +58,7 @@ public class Universe {
     private Ship mShipPlaceholder;
     private Flagship mFlagshipPlaceholder;
     private Admiral mAdmiralPlaceholder;
+    private FleetCaptain mFleetCaptainPlaceholder;
 
     static Universe sUniverse;
 
@@ -152,9 +154,9 @@ public class Universe {
             throw new IllegalStateException();
         return sUniverse;
     }
-    
+
     public Admiral getOrCreateAdmiralPlaceholder() {
-    	Admiral placeholder = mAdmiralPlaceholder;
+        Admiral placeholder = mAdmiralPlaceholder;
         if (placeholder == null) {
             placeholder = new Admiral();
             placeholder.setTitle("");
@@ -163,7 +165,7 @@ public class Universe {
         }
         return placeholder;
     }
-    
+
     public Admiral getAdmiral(String admiralId) {
         return admirals.get(admiralId);
     }
@@ -224,7 +226,7 @@ public class Universe {
      * previous selection
      */
     public java.util.Set<String> getSetSelectionPlusNewSets(java.util.Set<String> prevSetIds,
-            java.util.Set<String> prevSeenIds) {
+                                                            java.util.Set<String> prevSeenIds) {
         java.util.Set<String> newSetIds = new HashSet<String>();
 
         // Previously selected, still valid Sets (setsInUniverse &
@@ -323,8 +325,8 @@ public class Universe {
                 placeholder = new Captain();
             } else if (upType.equals("Crew")) {
                 placeholder = new Crew();
-            } else if (upType.equals("Admiral")){
-            	placeholder = new Admiral();
+            } else if (upType.equals("Admiral")) {
+                placeholder = new Admiral();
             } else {
                 return null; // placeholder type not supported
             }
@@ -361,6 +363,21 @@ public class Universe {
 
     public Flagship getFlagship(String flagshipId) {
         return flagships.get(flagshipId);
+    }
+
+    public FleetCaptain getOrCreateFleetCaptainPlaceholder() {
+        FleetCaptain placeholder = mFleetCaptainPlaceholder;
+        if (placeholder == null) {
+            placeholder = new FleetCaptain();
+            placeholder.setTitle("");
+            placeholder.setIsPlaceholder(true);
+            mFleetCaptainPlaceholder = placeholder;
+        }
+        return placeholder;
+    }
+
+    public FleetCaptain getFleetCaptain(String fleetCaptainId) {
+        return fleetCaptains.get(fleetCaptainId);
     }
 
     public void addShipClassDetails(ShipClassDetails details) {
@@ -449,6 +466,17 @@ public class Universe {
         return matchingFlagships;
     }
 
+    public ArrayList<FleetCaptain> getFleetCaptainsForFaction(String faction) {
+        ArrayList<FleetCaptain> matchingFleetCaptains = new ArrayList<FleetCaptain>();
+        for (FleetCaptain fs : fleetCaptains.values()) {
+            if (faction.equals(fs.getFaction()) && isMemberOfIncludedSet(fs)) {
+                matchingFleetCaptains.add(fs);
+            }
+        }
+        Collections.sort(matchingFleetCaptains, new FleetCaptainComparator());
+        return matchingFleetCaptains;
+    }
+
     public ArrayList<Set> getSets() {
         ArrayList<Set> setsCopy = new ArrayList<Set>();
         setsCopy.addAll(sets.values());
@@ -465,7 +493,9 @@ public class Universe {
         return l;
     }
 
-    /** Null indicates all factions */
+    /**
+     * Null indicates all factions
+     */
     public String getSelectedFaction() {
         return mSelectedFaction;
     }
