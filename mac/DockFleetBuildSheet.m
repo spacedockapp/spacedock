@@ -101,7 +101,11 @@ const int kExtraRows = 3;
         [_totalSP setIntValue: cost];
     }
     [_shipGrid reloadData];
-    if (_upgrades.count > 10) {
+    int linesCount = (int)_upgrades.count + _extraRows;
+    if (linesCount > 15) {
+        self.fontSize = 3.5;
+        self.shipGrid.rowHeight = 7;
+    } else if (linesCount > 10) {
         self.fontSize = 5;
         self.shipGrid.rowHeight = 8;
     } else if (_upgrades.count == 0 && self.usesBlindBoosters) {

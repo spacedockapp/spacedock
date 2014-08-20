@@ -22,7 +22,7 @@
       }
     ],
     "name" : "admiral with khan",
-    "modified" : "2014-07-18T08:04:21-0700",
+    "modified" : "2014-07-18T11:04:21-0400",
     "cost" : 42
   },
   {
@@ -78,7 +78,7 @@
       }
     ],
     "name" : "B'elanna Torres",
-    "modified" : "2014-06-20T10:13:57-0700",
+    "modified" : "2014-06-20T13:13:57-0400",
     "cost" : 64
   },
   {
@@ -114,7 +114,7 @@
       }
     ],
     "name" : "cold storage",
-    "modified" : "2014-06-21T06:50:02-0700",
+    "modified" : "2014-06-21T09:50:02-0400",
     "cost" : 34
   },
   {
@@ -165,7 +165,7 @@
       }
     ],
     "name" : "critkhan",
-    "modified" : "2014-06-19T16:47:38-0700",
+    "modified" : "2014-06-19T19:47:38-0400",
     "cost" : 65
   },
   {
@@ -196,7 +196,7 @@
     "resource" : "4003",
     "uuid" : "5A767FA2-5271-49FD-BC41-404D2B3A2F5E",
     "additionalPoints" : 0,
-    "modified" : "2014-06-19T16:51:18-0700",
+    "modified" : "2014-06-19T19:51:18-0400",
     "name" : "critkhan on sideboard"
   },
   {
@@ -256,7 +256,7 @@
       }
     ],
     "name" : "Defiant Cloaking Device",
-    "modified" : "2014-06-20T10:25:16-0700",
+    "modified" : "2014-06-20T13:25:16-0400",
     "cost" : 85
   },
   {
@@ -306,12 +306,12 @@
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3059",
+            "upgradeId" : "energy_dissipator_op5prize",
             "upgradeTitle" : "Energy Dissipator",
             "calculatedCost" : 10
           },
           {
-            "upgradeId" : "energy_dissipator_op5prize",
+            "upgradeId" : "3059",
             "upgradeTitle" : "Energy Dissipator",
             "calculatedCost" : 10
           }
@@ -328,7 +328,7 @@
     "resource" : "fleet_captain_collectiveop2",
     "uuid" : "1D90E2DE-14B9-4473-868A-E5699443ECB6",
     "additionalPoints" : 0,
-    "modified" : "2014-08-04T20:16:21-0700",
+    "modified" : "2014-08-04T23:16:21-0400",
     "name" : "dominion fleet captain"
   },
   {
@@ -371,7 +371,7 @@
       }
     ],
     "name" : "Energy Dissipator",
-    "modified" : "2014-06-21T06:50:02-0700",
+    "modified" : "2014-06-21T09:50:02-0400",
     "cost" : 63
   },
   {
@@ -411,12 +411,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3024",
+            "upgradeId" : "3033",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3033",
+            "upgradeId" : "3024",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
@@ -438,8 +438,77 @@
     "resource" : "fleet_captain_collectiveop2",
     "uuid" : "36D3955B-9EF2-4864-94CC-367621106E36",
     "additionalPoints" : 0,
-    "modified" : "2014-08-04T20:21:33-0700",
+    "modified" : "2014-08-04T23:21:33-0400",
     "name" : "federation fleet captain"
+  },
+  {
+    "ships" : [
+      {
+        "calculatedCost" : 34,
+        "shipId" : "federation_starship_71276",
+        "upgrades" : [
+          {
+            "upgradeId" : "independent_federation_collectiveop2",
+            "upgradeTitle" : "Independent (Federation)",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "3025",
+            "upgradeTitle" : "Cheat Death",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "preemptive_strike_u_s_s_yaeger",
+            "upgradeTitle" : "Preemptive Strike",
+            "calculatedCost" : 2
+          }
+        ],
+        "shipTitle" : "Federation Starship",
+        "captain" : {
+          "upgradeId" : "benjamin_maxwell_u_s_s_yaeger",
+          "upgradeTitle" : "Benjamin Maxwell",
+          "calculatedCost" : 4
+        }
+      }
+    ],
+    "cost" : 34,
+    "resource" : "fleet_captain_collectiveop2",
+    "uuid" : "54851D8B-7901-41AB-98A3-A45C2ED43065",
+    "additionalPoints" : 0,
+    "modified" : "2014-08-13T21:25:20-0400",
+    "name" : "fleet captain extra talent"
+  },
+  {
+    "ships" : [
+      {
+        "calculatedCost" : 45,
+        "shipId" : "2nd_division_cruiser_71524",
+        "upgrades" : [
+          {
+            "upgradeId" : "dominion_collectiveop2",
+            "upgradeTitle" : "Dominion",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "3001",
+            "upgradeTitle" : "Engage",
+            "calculatedCost" : 1
+          }
+        ],
+        "shipTitle" : "2nd Division Cruiser",
+        "captain" : {
+          "upgradeId" : "2039",
+          "upgradeTitle" : "Gul Dukat",
+          "calculatedCost" : 5
+        }
+      }
+    ],
+    "cost" : 45,
+    "resource" : "fleet_captain_collectiveop2",
+    "uuid" : "1E0420FE-AAD0-477D-BE22-5EE9C52BCD3E",
+    "additionalPoints" : 0,
+    "modified" : "2014-08-13T21:23:47-0400",
+    "name" : "fleet captain free talent"
   },
   {
     "uuid" : "CBB1A666-EC90-4B0E-AB79-A4C5F9015891",
@@ -464,7 +533,7 @@
       }
     ],
     "name" : "forward weapons",
-    "modified" : "2014-07-18T08:16:35-0700",
+    "modified" : "2014-07-18T11:16:35-0400",
     "cost" : 34
   },
   {
@@ -505,7 +574,7 @@
       }
     ],
     "name" : "genkhan",
-    "modified" : "2014-06-19T16:49:38-0700",
+    "modified" : "2014-06-19T19:49:38-0400",
     "cost" : 36
   },
   {
@@ -531,7 +600,7 @@
     "resource" : "4003",
     "uuid" : "234E3372-F75A-482E-A53E-A7D8E0F19A1B",
     "additionalPoints" : 0,
-    "modified" : "2014-06-19T16:51:18-0700",
+    "modified" : "2014-06-19T19:51:18-0400",
     "name" : "genkhan on sideboard"
   },
   {
@@ -577,7 +646,7 @@
       }
     ],
     "name" : "Hugh",
-    "modified" : "2014-07-13T07:25:41-0700",
+    "modified" : "2014-07-13T10:25:41-0400",
     "cost" : 49
   },
   {
@@ -603,7 +672,7 @@
       }
     ],
     "name" : "Ikat'Ika",
-    "modified" : "2014-06-20T10:16:45-0700",
+    "modified" : "2014-06-20T13:16:45-0400",
     "cost" : 40
   },
   {
@@ -629,13 +698,13 @@
       }
     ],
     "name" : "Ikat'Ika no penalty",
-    "modified" : "2014-06-20T10:16:45-0700",
+    "modified" : "2014-06-20T13:16:45-0400",
     "cost" : 39
   },
   {
     "ships" : [
       {
-        "calculatedCost" : 45,
+        "calculatedCost" : 48,
         "shipId" : "s_gorn_oparenaprize",
         "upgrades" : [
           {
@@ -654,29 +723,29 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "bosus_71522",
-            "upgradeTitle" : "Bosus",
-            "calculatedCost" : 1
-          },
-          {
-            "upgradeId" : "3022",
-            "upgradeTitle" : "Follower of Khan",
-            "calculatedCost" : 0
-          },
-          {
             "upgradeId" : "goval_71522",
             "upgradeTitle" : "Goval",
-            "calculatedCost" : 0
+            "calculatedCost" : 1
           },
           {
             "upgradeId" : "impulse_overload_oparenaprize",
             "upgradeTitle" : "Impulse Overload",
-            "calculatedCost" : 2
+            "calculatedCost" : 1
+          },
+          {
+            "upgradeId" : "impulse_overload_oparenaprize",
+            "upgradeTitle" : "Impulse Overload",
+            "calculatedCost" : 1
           },
           {
             "upgradeId" : "jammed_communications_oparenaprize",
             "upgradeTitle" : "Jammed Communications",
-            "calculatedCost" : 5
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "jammed_communications_oparenaprize",
+            "upgradeTitle" : "Jammed Communications",
+            "calculatedCost" : 4
           }
         ],
         "shipTitle" : "S'Gorn",
@@ -687,21 +756,26 @@
         }
       },
       {
-        "calculatedCost" : 24,
-        "shipId" : "gavroche_gavroche",
+        "calculatedCost" : 51,
+        "shipId" : "bioship_alpha_71281",
         "upgrades" : [
           {
-            "upgradeId" : "erin_hansen_71509",
-            "upgradeTitle" : "Erin Hansen",
-            "calculatedCost" : 2
+            "upgradeId" : "advanced_cloaking_i_r_w_vorta_vor",
+            "upgradeTitle" : "Advanced Cloaking",
+            "calculatedCost" : 4
           },
           {
-            "upgradeId" : "3022",
-            "upgradeTitle" : "Follower of Khan",
-            "calculatedCost" : 0
+            "upgradeId" : "extraordinary_immune_response_71281",
+            "upgradeTitle" : "Extraordinary Immune Response",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "quantum_singularity_71281",
+            "upgradeTitle" : "Quantum Singularity",
+            "calculatedCost" : 5
           }
         ],
-        "shipTitle" : "Gavroche",
+        "shipTitle" : "Bioship Alpha",
         "captain" : {
           "upgradeId" : "maquis_gavroche",
           "upgradeTitle" : "Maquis Captain",
@@ -709,11 +783,11 @@
         }
       }
     ],
-    "cost" : 69,
+    "cost" : 99,
     "resource" : "fleet_captain_collectiveop2",
     "uuid" : "6688CB3B-3C57-4A19-A146-1A91BCEA50D7",
     "additionalPoints" : 0,
-    "modified" : "2014-08-04T20:47:57-0700",
+    "modified" : "2014-08-17T15:29:17-0400",
     "name" : "independent dominion fleet captain"
   },
   {
@@ -760,14 +834,14 @@
     "resource" : "fleet_captain_collectiveop2",
     "uuid" : "7CDB0CEA-296C-4F37-8A7E-8DAB89EBA443",
     "additionalPoints" : 0,
-    "modified" : "2014-08-04T20:34:58-0700",
+    "modified" : "2014-08-04T23:34:58-0400",
     "name" : "independent federation fleet captain"
   },
   {
     "ships" : [
       {
-        "calculatedCost" : 51,
-        "shipId" : "gavroche_gavroche",
+        "calculatedCost" : 66,
+        "shipId" : "bioship_alpha_71281",
         "upgrades" : [
           {
             "upgradeId" : "independent_klingon_collectiveop2",
@@ -775,64 +849,54 @@
             "calculatedCost" : 5
           },
           {
-            "upgradeId" : "preemptive_strike_u_s_s_yaeger",
-            "upgradeTitle" : "Preemptive Strike",
+            "upgradeId" : "amat_igan_71524",
+            "upgradeTitle" : "Amat'Igan",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "red_alert_opwebparticipation",
-            "upgradeTitle" : "Red Alert",
-            "calculatedCost" : 3
+            "upgradeId" : "bio_electric_interference_71281",
+            "upgradeTitle" : "Bio-Electric Interference",
+            "calculatedCost" : 6
           },
           {
-            "upgradeId" : "elizabeth_shelby_u_s_s_yaeger",
-            "upgradeTitle" : "Elizabeth Shelby",
-            "calculatedCost" : 2
+            "upgradeId" : "3076",
+            "upgradeTitle" : "Cloaked Mines",
+            "calculatedCost" : 4
           },
           {
-            "upgradeId" : "emergency_medical_hologram_71276",
-            "upgradeTitle" : "Emergency Medical Hologram",
-            "calculatedCost" : 2
-          },
-          {
-            "upgradeId" : "the_doctor_71280",
-            "upgradeTitle" : "The Doctor",
-            "calculatedCost" : 3
-          },
-          {
-            "upgradeId" : "tierna_71282",
-            "upgradeTitle" : "Tierna",
-            "calculatedCost" : 3
+            "upgradeId" : "extraordinary_immune_response_71281",
+            "upgradeTitle" : "Extraordinary Immune Response",
+            "calculatedCost" : 5
           },
           {
             "upgradeId" : "focused_particle_beam_gavroche",
             "upgradeTitle" : "Focused Particle Beam",
-            "calculatedCost" : 4
+            "calculatedCost" : 5
           }
         ],
-        "shipTitle" : "Gavroche",
+        "shipTitle" : "Bioship Alpha",
         "captain" : {
-          "upgradeId" : "michael_eddington_gavroche",
-          "upgradeTitle" : "Michael Eddington",
-          "calculatedCost" : 4
+          "upgradeId" : "species_8472_captain_71281",
+          "upgradeTitle" : "Species 8472 Captain",
+          "calculatedCost" : 0
         }
       },
       {
-        "calculatedCost" : 43,
-        "shipId" : "soong_71522",
+        "calculatedCost" : 31,
+        "shipId" : "1038",
         "upgrades" : [
           {
-            "upgradeId" : "crosis_71522",
-            "upgradeTitle" : "Crosis",
-            "calculatedCost" : 4
+            "upgradeId" : "3050",
+            "upgradeTitle" : "Drex",
+            "calculatedCost" : 3
           },
           {
             "upgradeId" : "four_of_twelve_71444",
             "upgradeTitle" : "Four of Twelve",
-            "calculatedCost" : 1
+            "calculatedCost" : 2
           }
         ],
-        "shipTitle" : "Soong",
+        "shipTitle" : "I.K.S. Koraga",
         "captain" : {
           "upgradeId" : "drone_71283",
           "upgradeTitle" : "Drone",
@@ -840,11 +904,11 @@
         }
       }
     ],
-    "cost" : 94,
+    "cost" : 97,
     "resource" : "fleet_captain_collectiveop2",
     "uuid" : "6BF928A8-870F-42AA-B316-ACEDA6B644D0",
     "additionalPoints" : 0,
-    "modified" : "2014-08-04T20:47:57-0700",
+    "modified" : "2014-08-14T08:54:40-0400",
     "name" : "independent klingon fleet captain"
   },
   {
@@ -918,7 +982,7 @@
     "resource" : "fleet_captain_collectiveop2",
     "uuid" : "61BCB7E7-D853-41F6-9DCB-1021BF65C031",
     "additionalPoints" : 0,
-    "modified" : "2014-08-04T20:47:57-0700",
+    "modified" : "2014-08-04T23:47:57-0400",
     "name" : "independent romulan fleet captain"
   },
   {
@@ -978,7 +1042,7 @@
       }
     ],
     "name" : "keldon cloaking device",
-    "modified" : "2014-06-21T06:50:02-0700",
+    "modified" : "2014-06-21T09:50:02-0400",
     "cost" : 91
   },
   {
@@ -1000,7 +1064,7 @@
       }
     ],
     "name" : "kira on fed",
-    "modified" : "2014-06-19T16:53:06-0700",
+    "modified" : "2014-06-19T19:53:06-0400",
     "cost" : 26
   },
   {
@@ -1022,7 +1086,7 @@
       }
     ],
     "name" : "kira on klingon",
-    "modified" : "2014-06-19T16:53:06-0700",
+    "modified" : "2014-06-19T19:53:06-0400",
     "cost" : 21
   },
   {
@@ -1058,7 +1122,7 @@
       }
     ],
     "name" : "kirk on enterprise",
-    "modified" : "2014-06-19T16:43:04-0700",
+    "modified" : "2014-06-19T19:43:04-0400",
     "cost" : 39
   },
   {
@@ -1120,7 +1184,7 @@
     "resource" : "fleet_captain_collectiveop2",
     "uuid" : "17D1ABC1-07C0-4DD7-917D-8D5F0CAFB506",
     "additionalPoints" : 0,
-    "modified" : "2014-08-04T20:22:49-0700",
+    "modified" : "2014-08-04T23:22:49-0400",
     "name" : "klingon fleet captain"
   },
   {
@@ -1151,7 +1215,7 @@
       }
     ],
     "name" : "lauran on battleship crew",
-    "modified" : "2014-06-20T09:42:15-0700",
+    "modified" : "2014-06-20T12:42:15-0400",
     "cost" : 44
   },
   {
@@ -1194,7 +1258,7 @@
     "resource" : "4004",
     "uuid" : "4222CFA9-7326-4711-ABD2-E3AADCBA9988",
     "additionalPoints" : 0,
-    "modified" : "2014-07-13T14:07:07-0700",
+    "modified" : "2014-07-13T17:07:07-0400",
     "name" : "lauran on battleship talent"
   },
   {
@@ -1225,7 +1289,7 @@
       }
     ],
     "name" : "lauran on battleship tech",
-    "modified" : "2014-06-20T09:45:48-0700",
+    "modified" : "2014-06-20T12:45:48-0400",
     "cost" : 44
   },
   {
@@ -1256,7 +1320,7 @@
       }
     ],
     "name" : "lauran on battleship weapon",
-    "modified" : "2014-06-20T09:45:48-0700",
+    "modified" : "2014-06-20T12:45:48-0400",
     "cost" : 45
   },
   {
@@ -1287,7 +1351,7 @@
     "resource" : "4003",
     "uuid" : "921A7939-4826-48D4-967F-05D1C6BB4AE6",
     "additionalPoints" : 0,
-    "modified" : "2014-06-21T11:21:51-0700",
+    "modified" : "2014-06-21T14:21:51-0400",
     "name" : "lauran on sideboard"
   },
   {
@@ -1328,7 +1392,7 @@
       }
     ],
     "name" : "Lore (faction cost)",
-    "modified" : "2014-07-13T08:02:11-0700",
+    "modified" : "2014-07-13T11:02:11-0400",
     "cost" : 61
   },
   {
@@ -1359,7 +1423,7 @@
       }
     ],
     "name" : "lore (rules)",
-    "modified" : "2014-07-13T08:17:20-0700",
+    "modified" : "2014-07-13T11:17:20-0400",
     "cost" : 49
   },
   {
@@ -1381,7 +1445,7 @@
       }
     ],
     "name" : "Magnus Hansen",
-    "modified" : "2014-08-04T20:11:44-0700",
+    "modified" : "2014-08-04T23:11:44-0400",
     "cost" : 18
   },
   {
@@ -1403,7 +1467,7 @@
       }
     ],
     "name" : "Magnus Hansen Penalty",
-    "modified" : "2014-08-04T20:13:51-0700",
+    "modified" : "2014-08-04T23:13:51-0400",
     "cost" : 21
   },
   {
@@ -1463,7 +1527,7 @@
       }
     ],
     "name" : "Maneuverability",
-    "modified" : "2014-06-21T06:50:02-0700",
+    "modified" : "2014-06-21T09:50:02-0400",
     "cost" : 81
   },
   {
@@ -1506,7 +1570,7 @@
       }
     ],
     "name" : "Masking Circuitry",
-    "modified" : "2014-06-21T06:50:02-0700",
+    "modified" : "2014-06-21T09:50:02-0400",
     "cost" : 52
   },
   {
@@ -1566,7 +1630,7 @@
       }
     ],
     "name" : "Phased Polaron Beam",
-    "modified" : "2014-06-21T07:12:51-0700",
+    "modified" : "2014-06-21T10:12:51-0400",
     "cost" : 104
   },
   {
@@ -1626,7 +1690,7 @@
       }
     ],
     "name" : "Phaser Strike",
-    "modified" : "2014-06-21T06:50:02-0700",
+    "modified" : "2014-06-21T09:50:02-0400",
     "cost" : 66
   },
   {
@@ -1677,7 +1741,7 @@
       }
     ],
     "name" : "pike on enterpise",
-    "modified" : "2014-06-19T16:41:04-0700",
+    "modified" : "2014-06-19T19:41:04-0400",
     "cost" : 42
   },
   {
@@ -1703,7 +1767,7 @@
     "resource" : "4003",
     "uuid" : "2440C37C-CE80-47CA-8C8D-B5F4AC5721EF",
     "additionalPoints" : 0,
-    "modified" : "2014-06-19T16:41:04-0700",
+    "modified" : "2014-06-19T19:41:04-0400",
     "name" : "pike on sideboard"
   },
   {
@@ -1770,7 +1834,7 @@
     "resource" : "fleet_captain_collectiveop2",
     "uuid" : "BD6FF37A-6DDD-4B8A-81C2-BEE13766807A",
     "additionalPoints" : 0,
-    "modified" : "2014-08-04T20:23:40-0700",
+    "modified" : "2014-08-04T23:23:40-0400",
     "name" : "romulan fleet captain"
   },
   {
@@ -1797,14 +1861,14 @@
             "calculatedCost" : 1
           },
           {
-            "upgradeId" : "photon_torpedoes_71279",
-            "upgradeTitle" : "Photon Torpedoes",
-            "calculatedCost" : 6
-          },
-          {
             "upgradeId" : "photon_torpedoes_71524",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "photon_torpedoes_71279",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 6
           }
         ],
         "shipTitle" : "4th Division Battleship",
@@ -1816,7 +1880,7 @@
       }
     ],
     "name" : "sakonna",
-    "modified" : "2014-07-18T08:15:51-0700",
+    "modified" : "2014-07-18T11:15:51-0400",
     "cost" : 59
   },
   {
@@ -1847,7 +1911,7 @@
       }
     ],
     "name" : "styles",
-    "modified" : "2014-06-20T09:47:13-0700",
+    "modified" : "2014-06-20T12:47:13-0400",
     "cost" : 35
   },
   {
@@ -1878,7 +1942,7 @@
       }
     ],
     "name" : "tana los",
-    "modified" : "2014-06-20T09:49:22-0700",
+    "modified" : "2014-06-20T12:49:22-0400",
     "cost" : 32
   },
   {
@@ -1904,7 +1968,7 @@
     "resource" : "4003",
     "uuid" : "96BACAD9-A850-4F8A-A4D6-2B3FAE334BEA",
     "additionalPoints" : 0,
-    "modified" : "2014-06-21T11:26:23-0700",
+    "modified" : "2014-06-21T14:26:23-0400",
     "name" : "tana los on sideboard"
   },
   {
@@ -1930,7 +1994,7 @@
       }
     ],
     "name" : "tavek",
-    "modified" : "2014-06-20T10:09:15-0700",
+    "modified" : "2014-06-20T13:09:15-0400",
     "cost" : 47
   },
   {
@@ -1956,7 +2020,7 @@
       }
     ],
     "name" : "The Weak Will Perish",
-    "modified" : "2014-06-20T10:20:29-0700",
+    "modified" : "2014-06-20T13:20:29-0400",
     "cost" : 45
   },
   {
@@ -1982,7 +2046,7 @@
       }
     ],
     "name" : "The Weak Will Perish no penalty",
-    "modified" : "2014-06-20T10:20:29-0700",
+    "modified" : "2014-06-20T13:20:29-0400",
     "cost" : 49
   },
   {
@@ -2023,7 +2087,7 @@
       }
     ],
     "name" : "thot gor",
-    "modified" : "2014-06-20T10:09:15-0700",
+    "modified" : "2014-06-20T13:09:15-0400",
     "cost" : 46
   },
   {
@@ -2061,7 +2125,7 @@
     "resource" : "4004",
     "uuid" : "677E402B-F734-43F2-9D04-006994D931FA",
     "additionalPoints" : 0,
-    "modified" : "2014-07-09T06:56:29-0700",
+    "modified" : "2014-07-09T09:56:29-0400",
     "name" : "vanik"
   },
   {
@@ -2087,7 +2151,7 @@
       }
     ],
     "name" : "Varel",
-    "modified" : "2014-06-20T10:18:01-0700",
+    "modified" : "2014-06-20T13:18:01-0400",
     "cost" : 40
   },
   {
@@ -2113,7 +2177,7 @@
       }
     ],
     "name" : "Varel no penalty",
-    "modified" : "2014-06-20T10:18:01-0700",
+    "modified" : "2014-06-20T13:18:01-0400",
     "cost" : 17
   }
 ]

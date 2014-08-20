@@ -57,7 +57,14 @@ end
 
 product_name = "Space Dock"
 
-beta = true
+new_release = ARGV[0]
+unless new_release
+  new_release = Pathname.new(site_path.join("space_dock_b45.zip"))
+else
+  new_release = Pathname.new(new_release).realpath
+end
+
+beta = ARGV[1] != "release"
 
 script_path = Pathname.new(File.dirname(__FILE__))
 root_path = script_path.parent()
@@ -92,13 +99,6 @@ if File.exists? versions_path
   if versions_text.length > 0
     versions = JSON.parse(versions_text, :symbolize_names => true)
   end
-end
-
-new_release = ARGV[0]
-unless new_release
-  new_release = Pathname.new(site_path.join("space_dock_b45.zip"))
-else
-  new_release = Pathname.new(new_release).realpath
 end
 
 create_new_version(versions, new_release)

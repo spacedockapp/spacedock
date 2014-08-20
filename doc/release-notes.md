@@ -1,3 +1,23 @@
+### Version 1.1 build 78 (2014-8-19)
+
+* Implemented Fleet Captain "free" talent.
+* Include set code and base costs in build sheet.
+* Add Fleet Captains TC OP2 participation prize.
+* Add U.S.S. Raven TC OP2 competitive prize.
+* Improvements to the sets list.
+* Add a search function.
+* Switch from top tabs to a left side source list so there's room for fleet captains.
+* Add an option when printing to make the sheet easier for adding a blind booster ship.
+* Clean up the inspector. All you should notice is that it shows the wrong info less often.
+* Print up to 17 lines up upgrades for ship on a build sheet.
+* Copy a more detailed description to the clipboard.
+* Improve the performance of application launching when expanded rows are shown.
+* Display the cost to install an Admiral, Captain or upgrade on the currently selected ship.
+* Display an item's title in grey when it can't be installed for some reason.
+* Add sort by date to the squads list.
+* Add a splitter between squads and the selected squad's detail.
+* When trying to add an item and no ship is selected, install it on the first eligible ship.
+
 ### Version 1.0.19 build 69 (2014-7-13)
 
 * Implemented a number of items' special handling, including Sakonna, First Strike, Hugh, Lore, Experimental Link, Unnecessary Bloodshed, Forward Weapons Array, Ion Thrusters and Volley of Torpedoes.

@@ -6,6 +6,7 @@
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockFlagship+Addons.h"
+#import "DockFleetCaptain+Addons.h"
 #import "DockResource.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
@@ -398,7 +399,12 @@
 -(int)costForShip:(DockEquippedShip*)equippedShip equippedUpgade:(DockEquippedUpgrade*)equippedUpgrade
 {
     DockUpgrade* upgrade = self;
-    NSString* fleetCaptainSpecial = [[[equippedShip.squad equippedFleetCaptain] upgrade] special];
+
+    NSString* fleetCaptainSpecial = [[equippedShip.squad.equippedFleetCaptain upgrade] special];
+
+    DockEquippedUpgrade* equippedOnThisShipFleetCaptain = [equippedShip equippedFleetCaptain];
+    DockFleetCaptain* fleetCaptainOnThisShip = (DockFleetCaptain*)equippedOnThisShipFleetCaptain.upgrade;
+    int fleetCaptainOnThisShipTalentCount = [[fleetCaptainOnThisShip talentAdd] intValue];
 
     if ([upgrade isPlaceholder]) {
         return 0;
@@ -427,6 +433,19 @@
     NSString* upgradeSpecial = upgrade.special;
 
     if ([upgrade isTalent]) {
+        if (fleetCaptainOnThisShipTalentCount > 0) {
+            NSArray* all = [equippedShip allUpgradesOfFaction: nil upType: @"Talent"];
+            NSInteger talentCount = all.count;
+            if (talentCount > 0) {
+                NSInteger maxTalents = [equippedShip talentCount];
+                if (talentCount < maxTalents) {
+                    DockEquippedUpgrade* eu = all[0];
+                    if (equippedUpgrade == eu) {
+                        cost = 0;
+                    }
+                }
+            }
+        }
         if ([captainSpecial isEqualToString: @"BaselineTalentCostToThree"] && self.isFederation && !isSideboard) {
             cost = 3;
         }
@@ -450,6 +469,10 @@
             cost -= 1;
         }
         if ([fleetCaptainSpecial isEqualToString: @"WeaponUpgradesCostOneLess"]) {
+            cost -= 1;
+        }
+    } else if ([upgrade isTech]) {
+        if ([fleetCaptainSpecial isEqualToString: @"TechUpgradesCostOneLess"]) {
             cost -= 1;
         }
     }
