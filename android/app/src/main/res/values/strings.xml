@@ -5,6 +5,7 @@
 
     <!-- Labels for configuration slots in each ship -->
     <string name="flagship_slot">Flagship</string>
+    <string name="fleetcaptain_slot">Fleet Captain</string>
     <string name="admiral_slot">Admiral</string>
     <string name="captain_slot">Captain</string>
     <string name="ship_slot">Ship</string>
@@ -67,6 +68,7 @@
         <item>Weapons</item>
         <item>Resources</item>
         <item>Flagships</item>
+        <item>Fleet Captains</item>
         <item>Reference</item>
     </string-array>
     <string-array name="empty"/>
