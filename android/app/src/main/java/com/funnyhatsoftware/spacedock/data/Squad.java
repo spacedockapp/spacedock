@@ -124,7 +124,7 @@ public class Squad extends SquadBase {
     }
 
     public void importFromObject(Universe universe, boolean replaceUuid, JSONObject jsonObject,
-            boolean strict)
+                                 boolean strict)
             throws JSONException {
         removeAllEquippedShips();
         setNotes(jsonObject.optString(JSON_LABEL_NOTES, ""));
@@ -171,7 +171,7 @@ public class Squad extends SquadBase {
     }
 
     public void importFromStream(Universe universe, InputStream is, boolean replaceUuid,
-            boolean strict)
+                                 boolean strict)
             throws JSONException {
         JSONTokener tokenizer = new JSONTokener(DataUtils.convertStreamToString(is));
         JSONObject jsonObject = new JSONObject(tokenizer);
@@ -390,6 +390,8 @@ public class Squad extends SquadBase {
                     removeSideboard();
                 } else if (oldResource.getIsFlagship()) {
                     removeFlagship();
+                } else if (oldResource.isFleetCaptain()) {
+                    removeFleetCaptain();
                 } else if (oldResource.getIsFighterSquadron()) {
                     removeFighterSquadron();
                 }
@@ -414,6 +416,12 @@ public class Squad extends SquadBase {
         }
     }
 
+    void removeFleetCaptain() {
+        for (EquippedShip ship : mEquippedShips) {
+            ship.removeFleetCaptain();
+        }
+    }
+
     Flagship flagship() {
         for (EquippedShip ship : mEquippedShips) {
             Flagship flagship = ship.getFlagship();
@@ -422,6 +430,18 @@ public class Squad extends SquadBase {
             }
         }
         return null;
+    }
+
+    String getFleetCaptainSpecial() {
+        String retVal = null;
+        for (EquippedShip ship : mEquippedShips) {
+            FleetCaptain fleetCaptain = ship.getFleetCaptain();
+            if (null != fleetCaptain && !fleetCaptain.isPlaceholder()) {
+                retVal = fleetCaptain.getSpecial();
+                break;
+            }
+        }
+        return retVal;
     }
 
     public void getFactions(HashSet<String> factions) {
@@ -441,6 +461,11 @@ public class Squad extends SquadBase {
                 sb.append(String.format("%s (%d)\n",
                         flagship.getPlainDescription(), flagship.getCost()));
             }
+            FleetCaptain fleetCaptain = es.getFleetCaptain();
+            if (null != fleetCaptain) {
+                sb.append(String.format("%s (%d)\n",
+                        fleetCaptain.getPlainDescription(), fleetCaptain.getCost()));
+            }
             for (EquippedUpgrade eu : es.getSortedUpgrades()) {
                 if (!eu.isPlaceholder()) {
                     if (eu.getOverridden()) {
@@ -459,7 +484,8 @@ public class Squad extends SquadBase {
             sb.append("\n");
         }
 
-        if (resource != null && !resource.getIsFlagship()) {
+        if (resource != null && !resource.getIsFlagship()
+                && !resource.getIsFighterSquadron() && !resource.isFleetCaptain()) {
             sb.append(String.format("%s (%s)\n\n", resource.getTitle(), resource.getCost()));
         }
 

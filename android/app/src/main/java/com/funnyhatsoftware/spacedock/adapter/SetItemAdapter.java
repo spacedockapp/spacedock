@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.holder.FlagshipHolder;
+import com.funnyhatsoftware.spacedock.holder.FleetCaptainHolder;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolder;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
 import com.funnyhatsoftware.spacedock.holder.ShipHolder;
@@ -42,6 +43,8 @@ public class SetItemAdapter extends ArrayAdapter<SetItem> {
         } else if (factory.getType().equals(FlagshipHolder.TYPE_STRING)) {
             placeholder = Universe.getUniverse()
                     .getOrCreateFlagshipPlaceholder();
+        } else if (factory.getType().equals(FleetCaptainHolder.TYPE_STRING)) {
+            placeholder = Universe.getUniverse().getOrCreateFleetCaptainPlaceholder();
         } else {
             placeholder = Universe.getUniverse().findOrCreatePlaceholder(
                     factory.getType());
