@@ -883,6 +883,9 @@ public class EquippedShip extends EquippedShipBase {
                         fleetCaptain.getPlainDescription()
                                 + " not compatible with ship faction "
                                 + shipFaction());
+            } else if (!getCaptain().getUnique()) {
+                return new Explanation("Failed to add Fleet Captain.",
+                        getCaptain().getPlainDescription() + "not unique.");
             }
             squad.removeFleetCaptain();
             setFleetCaptain(fleetCaptain);
