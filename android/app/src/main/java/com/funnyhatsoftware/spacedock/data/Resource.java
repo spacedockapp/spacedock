@@ -7,6 +7,7 @@ public class Resource extends ResourceBase {
 
     public static final String kSideboardExternalId = "4003";
     public static final String kFlagshipExternalId = "4004";
+    public static final String kFleetCaptainExternalId = "fleet_captain_collectiveop2";
     public static final String kHidekiExternalId = "hideki_class_attack_squadron_op5participation";
     public static final String kFedFighterExternalId = "federation_attack_fighters_op6participation";
 
@@ -45,6 +46,8 @@ public class Resource extends ResourceBase {
         return mExternalId.equals(kFlagshipExternalId);
     }
 
+    public boolean isFleetCaptain() { return mExternalId.equals(kFleetCaptainExternalId);}
+
     public boolean getIsFighterSquadron() {
         return mExternalId.equals(kHidekiExternalId) || mExternalId.equals(kFedFighterExternalId);
     }
@@ -74,6 +77,7 @@ public class Resource extends ResourceBase {
     public boolean equippedIntoSquad() {
         return getIsFlagship()
                 || getIsSideboard()
-                || getIsFighterSquadron();
+                || getIsFighterSquadron()
+                || isFleetCaptain();
     }
 }

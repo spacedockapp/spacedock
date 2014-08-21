@@ -19,6 +19,7 @@ import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
 import com.funnyhatsoftware.spacedock.data.Explanation;
 import com.funnyhatsoftware.spacedock.data.Flagship;
+import com.funnyhatsoftware.spacedock.data.FleetCaptain;
 import com.funnyhatsoftware.spacedock.data.Squad;
 
 public class EditSquadAdapter extends BaseExpandableListAdapter implements
@@ -92,6 +93,18 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         }
         final boolean flagshipUnassigned = squadHasFlagship && flagshipIndex < 0;
 
+        final boolean squadHasFleetCaptain = null != mSquad.getResource() && mSquad.getResource().isFleetCaptain();
+        int fleetCaptainIndex = -1;
+        if (squadHasFleetCaptain) {
+            for (int i = 0; i < ships.size(); i++) {
+                if (null != ships.get(i).getFleetCaptain()){
+                    fleetCaptainIndex = i;
+                    break;
+                }
+            }
+        }
+        final boolean fleetCaptainUnassigned = squadHasFleetCaptain && fleetCaptainIndex < 0;
+
         int admiralIndex = -1;
         for (int i = 0; i < ships.size(); i++) {
             Admiral admiral = ships.get(i).getAdmiral();
@@ -106,6 +119,8 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
             EquippedShip s = ships.get(i);
             if (i == flagshipIndex || flagshipUnassigned) {
                 populateLookup(l, 1, R.string.flagship_slot, EquippedShip.SLOT_TYPE_FLAGSHIP);
+            } else if (i == fleetCaptainIndex || fleetCaptainUnassigned) {
+                populateLookup(l, 1, R.string.fleetcaptain_slot, EquippedShip.SLOT_TYPE_FLEETCAPTAIN);
             }
             if (!s.isResourceSideboard()) {
 				if (i == admiralIndex || 0 > admiralIndex) {
@@ -203,6 +218,15 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
                         } else {
                             mTitleTextView.setText(flagship.getTitle());
                             mCostTextView.setText(Integer.toString(flagship.getCost()));
+                        }
+                    } else if (mListItemLookup.slotType == EquippedShip.SLOT_TYPE_FLEETCAPTAIN) {
+                        FleetCaptain fleetCaptain = es.getFleetCaptain();
+                        if (null == fleetCaptain) {
+                            mTitleTextView.setText(R.string.empty_upgrade_slot);
+                            mCostTextView.setText(R.string.indicator_not_applicable);
+                        } else {
+                            mTitleTextView.setText(fleetCaptain.getTitle());
+                            mCostTextView.setText(Integer.toString(fleetCaptain.getCost()));
                         }
                     } else {
                         EquippedUpgrade upgrade = es.getUpgradeAtSlot(
@@ -393,6 +417,9 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         if (slotType == EquippedShip.SLOT_TYPE_FLAGSHIP) {
             Flagship flagship = equippedShip.getFlagship();
             currentEquipmentId = (flagship == null) ? null : flagship.getExternalId();
+        } else if (slotType == EquippedShip.SLOT_TYPE_FLEETCAPTAIN) {
+            FleetCaptain fleetCaptain = equippedShip.getFleetCaptain();
+            currentEquipmentId = (fleetCaptain == null) ? null : fleetCaptain.getExternalId();
         } else {
             EquippedUpgrade equippedUpgrade = getEquippedUpgrade(groupPosition, slotType, slotNumber);
             currentEquipmentId = equippedUpgrade.getUpgrade().getExternalId();
@@ -420,6 +447,8 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
             EquippedShip es = getEquippedShip(equippedShipNumber);
             if (slotType == EquippedShip.SLOT_TYPE_FLAGSHIP) {
                 explanation = es.tryEquipFlagship(mSquad, externalId);
+            } else if (slotType == EquippedShip.SLOT_TYPE_FLEETCAPTAIN) {
+                explanation = es.tryEquipFleetCaptain(mSquad, externalId);
             } else {
                 explanation = es.tryEquipUpgrade(mSquad, slotType, slotIndex, externalId);
                 

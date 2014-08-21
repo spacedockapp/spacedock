@@ -78,6 +78,9 @@
 
 -(NSString*)descriptiveTitleWithSet
 {
+    if ([self isResourceSideboard]) {
+        return [NSString stringWithFormat: @"%@ [%@]", [self descriptiveTitle], [self.squad.resource setCode]];
+    }
     return [NSString stringWithFormat: @"%@ [%@]", [self descriptiveTitle], [self.ship setCode]];
 }
 

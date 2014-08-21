@@ -13,6 +13,7 @@ public class JSONLabels {
     public static final String JSON_LABEL_CAPTAIN = "captain";
     public static final String JSON_LABEL_SHIP_TITLE = "shipTitle";
     public static final String JSON_LABEL_FLAGSHIP = "flagship";
+    public static final String JSON_LABEL_FLEETCAPTAIN = "fleetcaptain";
     public static final String JSON_LABEL_UPGRADES = "upgrades";
     public static final String JSON_LABEL_UPGRADE_ID = "upgradeId";
     public static final String JSON_LABEL_UPGRADE_TITLE = "upgradeTitle";

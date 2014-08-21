@@ -278,6 +278,10 @@ public class EquippedShip extends EquippedShipBase {
         if (flagship != null) {
             v += flagship.getTech();
         }
+        FleetCaptain fleetCaptain = getFleetCaptain();
+        if (null != fleetCaptain) {
+            v += fleetCaptain.getTechAdd();
+        }
 
         for (EquippedUpgrade eu : getUpgrades()) {
             Upgrade upgrade = eu.getUpgrade();
@@ -327,6 +331,10 @@ public class EquippedShip extends EquippedShipBase {
         if (flagship != null) {
             v += flagship.getTalent();
         }
+        FleetCaptain fleetCaptain = getFleetCaptain();
+        if (null != fleetCaptain) {
+            v += fleetCaptain.getTalentAdd();
+        }
         return v;
     }
 
@@ -348,6 +356,11 @@ public class EquippedShip extends EquippedShipBase {
         if (flagship != null) {
             v += flagship.getWeapon();
         }
+
+        FleetCaptain fleetCaptain = getFleetCaptain();
+        if (null != fleetCaptain) {
+            v += fleetCaptain.getWeaponAdd();
+        }
         return v;
     }
 
@@ -360,6 +373,10 @@ public class EquippedShip extends EquippedShipBase {
         Flagship flagship = getFlagship();
         if (flagship != null) {
             v += flagship.getCrew();
+        }
+        FleetCaptain fleetCaptain = getFleetCaptain();
+        if (null != fleetCaptain){
+            v += fleetCaptain.getCrewAdd();
         }
         for (EquippedUpgrade eu : getUpgrades()) {
             Upgrade upgrade = eu.getUpgrade();
@@ -666,6 +683,10 @@ public class EquippedShip extends EquippedShipBase {
         setFlagship(null);
     }
 
+    public void removeFleetCaptain() {
+        setFleetCaptain(null);
+    }
+
     public Object getFlagshipFaction() {
         Flagship flagship = getFlagship();
         if (flagship == null) {
@@ -683,6 +704,10 @@ public class EquippedShip extends EquippedShipBase {
         return mostExpensive.isPlaceholder() ? null : mostExpensive;
     }
 
+    public EquippedUpgrade mostExpensiveUpgradeOfType(String upType) {
+        return mostExpensiveUpgradeOfFactionAndType(null, upType);
+    }
+
     public EquippedUpgrade mostExpensiveUpgradeOfFactionAndType(String faction,
             String upType) {
         ArrayList<EquippedUpgrade> allUpgrades = allUpgradesOfFactionAndType(
@@ -698,8 +723,17 @@ public class EquippedShip extends EquippedShipBase {
         return allUpgradesOfFactionAndType(faction, null);
     }
 
+    public ArrayList<EquippedUpgrade> allUpgradesOfType(String upType) {
+        return allUpgradesOfFactionAndType(null, upType, false);
+    }
+
     public ArrayList<EquippedUpgrade> allUpgradesOfFactionAndType(
             String faction, String upType) {
+        return allUpgradesOfFactionAndType(faction, upType, true);
+    }
+
+    public ArrayList<EquippedUpgrade> allUpgradesOfFactionAndType(
+            String faction, String upType, boolean includePlaceholders) {
         ArrayList<EquippedUpgrade> allUpgrades = new ArrayList<EquippedUpgrade>();
         for (EquippedUpgrade eu : mUpgrades) {
             if (!eu.getUpgrade().isCaptain()) {
@@ -707,7 +741,9 @@ public class EquippedShip extends EquippedShipBase {
                         || upType.equals(eu.getUpgrade().getUpType())) {
                     if (faction == null
                             || faction.equals(eu.getUpgrade().getFaction())) {
-                        allUpgrades.add(eu);
+                        if (includePlaceholders || !eu.isPlaceholder()) {
+                            allUpgrades.add(eu);
+                        }
                     }
                 }
             }
@@ -755,12 +791,13 @@ public class EquippedShip extends EquippedShipBase {
     public static final int SLOT_TYPE_TALENT = 5;
     public static final int SLOT_TYPE_FLAGSHIP = 6;
     public static final int SLOT_TYPE_ADMIRAL = 7;
+    public static final int SLOT_TYPE_FLEETCAPTAIN = 8;
     public static final int SLOT_TYPE_SHIP = 1000;
 
     public static Class[] CLASS_FOR_SLOT = new Class[] {
             Captain.class,
             Crew.class, Weapon.class, Tech.class, Borg.class, Talent.class,
-            Flagship.class, Admiral.class
+            Flagship.class, Admiral.class, FleetCaptain.class
     };
 
     private int getUpgradeIndexOfClass(Class slotClass, int slotIndex) {
@@ -827,6 +864,31 @@ public class EquippedShip extends EquippedShipBase {
             }
             squad.removeFlagship();
             setFlagship(flagship);
+        }
+
+        // slot counts may have changed, refresh placeholders + prune slots to
+        // new count
+        establishPlaceholders();
+
+        return Explanation.SUCCESS;
+    }
+
+    public Explanation tryEquipFleetCaptain(Squad squad, String externalId) {
+        if (externalId == null) {
+            squad.removeFleetCaptain();
+        } else {
+            FleetCaptain fleetCaptain = Universe.getUniverse().getFleetCaptain(externalId);
+            if (!fleetCaptain.compatibleWithFaction(shipFaction())) {
+                return new Explanation("Failed to add Fleet Captain.",
+                        fleetCaptain.getPlainDescription()
+                                + " not compatible with ship faction "
+                                + shipFaction());
+            } else if (!getCaptain().getUnique()) {
+                return new Explanation("Failed to add Fleet Captain.",
+                        getCaptain().getPlainDescription() + "not unique.");
+            }
+            squad.removeFleetCaptain();
+            setFleetCaptain(fleetCaptain);
         }
 
         // slot counts may have changed, refresh placeholders + prune slots to
@@ -971,6 +1033,16 @@ public class EquippedShip extends EquippedShipBase {
                         + "'");
             }
             setFlagship(flagship);
+        }
+
+        String fleetCaptainId = shipData.optString(JSONLabels.JSON_LABEL_FLEETCAPTAIN);
+        if (fleetCaptainId.length() > 0) {
+            FleetCaptain fleetCaptain = universe.getFleetCaptain(fleetCaptainId);
+            if (strict && fleetCaptain == null) {
+                throw new RuntimeException("Can't find fleet captain '" + fleetCaptainId
+                        + "'");
+            }
+            setFleetCaptain(fleetCaptain);
         }
 
         JSONArray upgrades = shipData
