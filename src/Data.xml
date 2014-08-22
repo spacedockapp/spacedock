@@ -1,4 +1,4 @@
-<Data version="2014-08-22@14-54">
+<Data version="2014-08-22@20-18">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -10111,7 +10111,7 @@ After rotating the ship, complete the selected maneuver as normal using the appr
         </Reference>
         <Reference>
             <Title>Initiative</Title>
-            <Ability>Ships have initiative, a distinction used to resolve timing conflicts involving Captains of equal Skill. Unless using the squad building rules, use the ship's Faction to determine the order of initiative as follows:
+            <Ability>Ships have initiative, a distinction used to resolve timing conflicts involving Captains of equal Skill. The ships belonging to the player with the LOWEST point total at the start of the game always have initiative. The next lowest point total have initiative, and so on. If two or more players' squadron point totals are equal at the start of the game, then use the ship's Faction to determine the order of initiative as follows:
 
 Federation > Klingon > Romulan > Dominion >
 Borg > Species 8472 > Kazon > Bajoran >
