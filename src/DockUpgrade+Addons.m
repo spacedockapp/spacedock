@@ -637,13 +637,16 @@
 
 -(int)additionalTechSlots
 {
-    if ([self.special isEqualToString: @"AddsOneWeaponOneTech"]) {
+    NSString* special = self.special;
+    NSString* externalId = self.externalId;
+
+    if ([special isEqualToString: @"AddsOneWeaponOneTech"]) {
         return 1;
     }
-    if ([self.externalId isEqualToString: @"vulcan_high_command_2_0_71446"]) {
+    if ([externalId isEqualToString: @"vulcan_high_command_2_0_71446"]) {
         return 2;
     }
-    if ([self.externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
+    if ([special isEqualToString: @"addonetechslot"] || [externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
         return 1;
     }
     return 0;

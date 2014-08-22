@@ -1,4 +1,4 @@
-<Data version="2014-08-17@19-21">
+<Data version="2014-08-22@14-54">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -4999,6 +4999,21 @@
       <Set>71509</Set>
       <Special>NoPenaltyOnFederationShip</Special>
     </Captain>
+    <Captain>
+      <Title>Benjamin Sisko</Title>
+      <Ability>During the Roll Defense Dice step of the Combat Phase, if your ship is in the forward firing arc of 2 or more ships, roll 1 extra defense die against all attacks from those ships. Each time your ship receives a Damage Card (normal or critical), incrase your Captain Skill by +1 for the rest of the game (max +2). The bonus Skill remains even if the damage is later repaired.</Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>benjamin_sisko_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Captain>
   </Captains>
   <Admirals>
     <Admiral>
@@ -9245,6 +9260,126 @@
       <Set>71509</Set>
       <Special></Special>
     </Upgrade>
+    <Upgrade>
+      <Title>Quark</Title>
+      <Ability>At the start of the game, place 1 non-Borg [TECH] of [WEAPON] Upgrade with a cost of 5 or less face down beneath this card. At any time, you may discard Quark to flip the Upgrade that is beneath this card face up and deploy it to your ship, even if it exceeds your ship's restrictions.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Ferengi</Faction>
+      <Cost>2</Cost>
+      <Id>quark_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Odo</Title>
+      <Ability>ACTION: Target a ship at Range 1-3 (even if that ship is Cloaked or has Active Shields). Disable this card and one Upgrade on the target ship. If the Upgrade you disabled is a [CREW] Upgrade, you may then use that Upgrade's Action (if any) as a free Action this round.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Independent</Faction>
+      <Cost>5</Cost>
+      <Id>odo_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Vic Fontaine</Title>
+      <Ability>This Upgrade counts as either a [CREW] or [TECH] Upgrade (your choice). If an enemy Upgrade would affect one of your [CREW] Upgrades, roll 2 defense dice. If you roll at least 1 [EVASIVE] result, ignore the effects of the enemy Upgrade. You do not pay a Faction penalty when deploying this Upgrade to a Federation ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Independent</Faction>
+      <Cost>3</Cost>
+      <Id>vic_fontaine_crew_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Vic Fontaine</Title>
+      <Ability>This Upgrade counts as either a [CREW] or [TECH] Upgrade (your choice). If an enemy Upgrade would affect one of your [CREW] Upgrades, roll 2 defense dice. If you roll at least 1 [EVASIVE] result, ignore the effects of the enemy Upgrade. You do not pay a Faction penalty when deploying this Upgrade to a Federation ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Independent</Faction>
+      <Cost>3</Cost>
+      <Id>vic_fontaine_tech_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>T'Kar</Title>
+      <Ability>ACTION: If your ship is not cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not cloaked and has no Active Shields. Discards this card and 1 [CREW] Upgrade of your choice on the target ship. Then disable the Captain Card and all remaining [CREW] upgrades on the target ship. While the Captain Card is disabled, the target ship has a Skill of 1.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>t_kar_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>T'Rul</Title>
+      <Ability>Add 1 Tech Upgrade slot to your Upgrade Bar. While your ship is cloaked, during the Roll Defense Dice step of the Combat Phase, you may choose to roll 3 less defense dice and add 1 [EVASIVE] result to your defense roll. If the Cloaking Device upgrade card is deployed to T'Rul's ship, you do not need to disable that card when you perform the Action listed on it.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>t_rul_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Elim Garak</Title>
+      <Ability>During the Modify Defense step of the Combat Phase, you may disable this card to add 1 [EVASIVE] result to your defense roll. You do not pay a Faction penalty when assigning Elim Garak or his [TALENT] Upgrade to your ship. If Elim Garak is ever disabled or discarded, you cannot use his [TALENT] Upgrade.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Dominion</Faction>
+      <Cost>4</Cost>
+      <Id>elim_garak_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Julian Bashir</Title>
+      <Ability>ACTION: Move a Disabled Upgrade Token from one of your disabled [CREW] or [TECH] Upgrades to one of your non-disabled [CREW] or [TECH] upgrades. You may then immediately perform the Action (if any) listed on the Upgrade that you moved the token from as a free Action.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>julian_bashir_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -9538,6 +9673,8 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
       <Set id="71523" overallSetName="Wave 6" releaseDate="2014-07-01">U.S.S. Enterprise (Refit) Expansion</Set>
       <Set id="71522" overallSetName="Wave 6" releaseDate="2014-07-01">Soong Expansion</Set>
       <Set id="71524" overallSetName="Wave 6" releaseDate="2014-07-01">Battle Cruiser Expansion</Set>
+
+      <Set id="71786" overallSetName="Promo Card" releaseDate="2014-08-13">DS9 Promo</Set>
     </Sets>
     <Flagships>
         <Flagship>
