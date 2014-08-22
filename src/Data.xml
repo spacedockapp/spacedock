@@ -1,4 +1,4 @@
-<Data version="2014-08-22@14-54">
+<Data version="2014-08-22@20-18">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -10108,6 +10108,25 @@ After rotating the ship, complete the selected maneuver as normal using the appr
           <Type>Mechanic</Type>
           <Id>spin_maneuver_reference</Id>
           <Set>71283,71444</Set>
+        </Reference>
+        <Reference>
+            <Title>Initiative</Title>
+            <Ability>Ships have initiative, a distinction used to resolve timing conflicts involving Captains of equal Skill. The ships belonging to the player with the LOWEST point total at the start of the game always have initiative. The next lowest point total have initiative, and so on. If two or more players' squadron point totals are equal at the start of the game, then use the ship's Faction to determine the order of initiative as follows:
+
+Federation > Klingon > Romulan > Dominion >
+Borg > Species 8472 > Kazon > Bajoran >
+Ferengi > Vulcan > Independents > Mirror Universe
+
+Initiative does not change during the game. During the Activation Phase, when ships of equal Captain Skill are activated, the ship with initiative activates first. Then the next ship in initiative order that has the same Captain Skill activates, and so on.
+
+Initiative also applies during the Combat Phase; the ship with initiative resolves its combat steps BEFORE an opponent's ship with the same Captain Skill (see "Simultaneous Attack Rule").
+
+If a single place owns multiple ships from the same Faction with the same Captain Skill, he may activate those ships and resolve their attacks in the order of his choosing.
+
+It may be possible for different players to have ships from the same Faction with the same Captain Skill. When this occurs, determine randomly at the start of the game which of those ships will have initiative over the others throughout the game.</Ability>
+            <Type>Rules</Type>
+            <Id>initiative_reference</Id>
+            <Set>71120</Set>
         </Reference>
     </ReferenceItems>
 </Data>
