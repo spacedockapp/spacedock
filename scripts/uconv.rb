@@ -6,14 +6,17 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-8/1/2014 21:20:22	Unique	Mutli-adaptive Shields	Federation	This upgrade only functions while you have Active Shields. Each time you defend, roll +1 defense die. When defending, you roll your full defense dice in spite of the presence of an enemy ship's [SCAN] token. In addition, you roll your full defense against any Minefield Tokens. This Upgrade may only be purchased for a Federation ship.	Tech	5																			
-8/1/2014 21:22:05	Unique	Reinforced Structural Integrity	Federation	Each time your ship takes damage, place 1 of the damage cards that your ship receives beneath this card. All excess damage affects the ship as normal. You cannot place critical damage cards beneath this card. Once there are 3 damage cards beneath this card, discard this Upgrade and all cards beneath it. This Upgrade costs +5 SP for any ship other than the U.S.S. Raven.	Tech	5																			
-8/1/2014 21:22:55		Research Mission	Independent	During the Roll Defense Dice step of the Combat Phase, you may disable this card to roll +1 defense die.	Talent	2																			
-8/1/2014 21:24:20	Unique	Erin Hansen	Independent	During the Planning Phase, after all ships have chosen their Maneuvers, you may discard this card to target one enemy ship at Range 1-3 and look at that ship's chosen Maneuver. You may then change your Maneuver. The target ship cannot change its Maneuver after you look at it.	Crew	3																			
+8/22/2014 7:14:26	71786 - DS9 Promo	Quark	Ferengi	At the start of the game, place 1 non-Borg [TECH] of [WEAPON] Upgrade with a cost of 5 or less face down beneath this card. At any time, you may discard Quark to flip the Upgrade that is beneath this card face up and deploy it to your ship, even if it exceeds your ship's restrictions.	Crew	2	Unique																			
+8/22/2014 7:16:06	71786 - DS9 Promo	Odo	Independent	ACTION: Target a ship at Range 1-3 (even if that ship is Cloaked or has Active Shields). Disable this card and one Upgrade on the target ship. If the Upgrade you disabled is a [CREW] Upgrade, you may then use that Upgrade's Action (if any) as a free Action this round.	Crew	5	Unique																			
+8/22/2014 7:18:27	71786 - DS9 Promo	Vic Fontaine	Independent	This Upgrade counts as either a [CREW] or [TECH] Upgrade (your choice). If an enemy Upgrade would affect one of your [CREW] Upgrades, roll 2 defense dice. If you roll at least 1 [EVASIVE] result, ignore the effects of the enemy Upgrade. You do not pay a Faction penalty when deploying this Upgrade to a Federation ship.	Crew	3	Unique																			
+8/22/2014 7:20:48	71786 - DS9 Promo	T'Kar	Klingon	ACTION: If your ship is not cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not cloaked and has no Active Shields. Discards this card and 1 [CREW] Upgrade of your choice on the target ship. Then disable the Captain Card and all remaining [CREW] upgrades on the target ship. While the Captain Card is disabled, the target ship has a Skill of "1".	Crew	5	Unique																			
+8/22/2014 7:22:27	71786 - DS9 Promo	T'Rul	Romulan	Add 1 Tech Upgrade slot to your Upgrade Bar. While your ship is cloaked, during the Roll Defense Dice step of the Combat Phase, you may choose to roll 3 less defense dice and add 1 [EVASIVE] result to your defense roll. If the "Cloaking Device" upgrade card is deployed to T'Rul's ship, you do not need to disable that card when you perform the Action listed on it.	Crew	4	Unique																			
+8/22/2014 7:24:50	71786 - DS9 Promo	Elim Garak	Dominion	During the Modify Defense step of the Combat Phase, you may disable this card to add 1 [EVASIVE] result to your defense roll. You do not pay a Faction penalty when assigning Elim Garak or his [TALENT] Upgrade to your ship. If Elim Garak is ever disabled or discarded, you cannot use his [TALENT] Upgrade.	Crew	4	Unique																			
+8/22/2014 7:26:16	71786 - DS9 Promo	Julian Bashir	Federation	ACTION: Move a Disabled Upgrade Token from one of your disabled [CREW] or [TECH] Upgrades to one of your non-disabled [CREW] or [TECH] upgrades. You may then immediately perform the Action (if any) listed on the Upgrade that you moved the token from as a free Action.	Crew	4	Unique																			
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-8/1/2014 21:17:29	Unique	Magnus Hansen	3	Independent	During the Modify Defense Dice step of the combat phase, you may spend 1 [SCAN] token to add 1 additional [EVADE] result to your defense roll. You do not pay a faction penalty when assigning Magnus to a Federation ship.	1	2																		
+8/22/2014 7:30:51	71786 - DS9 Promo	Benjamin Sisko	7	Federation	During the Roll Defense Dice step of the Combat Phase, if your ship is in the forward firing arc of 2 or more ships, roll 1 extra defense die against all attacks from those ships. Each time your ship receives a Damage Card (normal or critical), incrase your Captain Skill by +1 for the rest of the game (max +2). The bonus Skill remains even if the damage is later repaired.	1	4	Unique																		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
@@ -46,16 +49,16 @@ end
 
 upgrade_lines.each do |l|
     l = convert_line(l)
-    # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
     parts = l.split "\t"
     parts.shift
-    unique = parts.shift == "Unique" ? "Y" : "N"
+    expansion = parts.shift
     title = parts.shift
     faction = parts.shift
     ability = parts.shift
     upType = parts.shift
     cost = parts.shift
-    setId = set_id_from_faction(faction)
+    unique = parts.shift == "Unique" ? "Y" : "N"
+    setId = set_id_from_expansion(expansion)
     externalId = make_external_id(setId, title)
     upgradeXml = <<-SHIPXML
     <Upgrade>
@@ -81,9 +84,10 @@ weapons_lines = weapons_text.split "\n"
 
 weapons_lines.each do |l|
     l = convert_line(l)
-    # Timestamp		Weapon Name	Faction	Attack	Range	Ability	Cost
+# Timestamp	Expansion Pack	Upgrade Name	Faction	Ability	Type	Cost																				
     parts = l.split "\t"
     parts.shift
+    expansion = parts.shift
     unique = parts.shift == "Unique" ? "Y" : "N"
     title = parts.shift
     faction = parts.shift
@@ -92,7 +96,7 @@ weapons_lines.each do |l|
     ability = parts.shift
     upType = "Weapon"
     cost = parts.shift
-    setId = set_id_from_faction(faction)
+    setId = set_id_from_expansion(expansion)
     externalId = make_external_id(setId, title)
     upgradeXml = <<-SHIPXML
     <Upgrade>
@@ -117,10 +121,10 @@ end
 captains_lines = captains_text.split "\n"
 captains_lines.each do |l|
   l = convert_line(l)
-  # Timestamp		Captain Name	Skill	Faction	Ability	Talents	Cost
+# Timestamp	Expansion Pack	Captain Name	Skill	Faction	Ability	Talents	Cost																			
   parts = l.split "\t"
   parts.shift
-  unique = parts.shift == "Unique" ? "Y" : "N"
+  expansion = parts.shift
   title = parts.shift
   skill = parts.shift
   faction = parts.shift
@@ -128,7 +132,8 @@ captains_lines.each do |l|
   upType = "Captain"
   talent = parts.shift
   cost = parts.shift
-  setId = set_id_from_faction(faction)
+  unique = parts.shift == "Unique" ? "Y" : "N"
+  setId = set_id_from_expansion(expansion)
   externalId = make_external_id(setId, title)
   upgradeXml = <<-SHIPXML
   <Captain>
@@ -156,6 +161,7 @@ admirals_lines.each do |l|
   # Timestamp		Admiral Name	Faction	Fleet Action	Skill Modifier	Talents	Cost	Captain-side Cost	Captain-side Action	Captain-side Talents	Captain-side Skill
   parts = l.split "\t"
   parts.shift
+  expansion = parts.shift
   unique = parts.shift == "Unique" ? "Y" : "N"
   title = parts.shift
   faction = parts.shift
@@ -168,7 +174,7 @@ admirals_lines.each do |l|
   upType = "Captain"
   talent = parts.shift
   skill = parts.shift
-  setId = set_id_from_faction(faction)
+  setId = set_id_from_expansion(expansion)
   externalId = make_external_id(setId, title)
   upgradeXml = <<-SHIPXML
   <Admiral>

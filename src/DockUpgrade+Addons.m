@@ -643,7 +643,7 @@
     if ([self.externalId isEqualToString: @"vulcan_high_command_2_0_71446"]) {
         return 2;
     }
-    if ([self.externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
+    if ([self.special isEqualToString: @"addonetechslot"] || [self.externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
         return 1;
     }
     return 0;
