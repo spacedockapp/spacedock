@@ -1,6 +1,7 @@
 #import <XCTest/XCTest.h>
 
 #import "MDockGameSystem+Addons.h"
+#import "MDockCategory+Addons.h"
 #import "DockUniverse.h"
 
 @interface MetaDockTests : XCTestCase
@@ -167,6 +168,13 @@
     
     NSSet* categories = staw.categories;
     XCTAssertTrue(categories.count > 0,  @"Expected staw to have categories but it didn't");
+
+    MDockCategory* romulans = [staw findCategory: @"faction" value: @"Romulan"];
+    XCTAssertNotNil(staw);
+
+    NSSet* romulanComponents = romulans.components;
+    XCTAssertNotNil(romulanComponents);
+    XCTAssertTrue(romulanComponents.count > 0,  @"Expected staw to have romulan components but it didn't");
 }
 
 @end

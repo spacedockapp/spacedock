@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D429C6CB19A83111006B4B44 /* MDockComponent+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D429C6CA19A83111006B4B44 /* MDockComponent+Addons.m */; };
 		D4317AD919A142B70046B37B /* MDockGameSystem+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317AD819A142B70046B37B /* MDockGameSystem+Addons.m */; };
 		D4317AF919A1B89B0046B37B /* MDockTaggable+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317AF819A1B89B0046B37B /* MDockTaggable+Addons.m */; };
 		D4317AFC19A1B8E60046B37B /* MDockTag+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4317AFB19A1B8E60046B37B /* MDockTag+Addons.m */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D429C6C919A83111006B4B44 /* MDockComponent+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MDockComponent+Addons.h"; sourceTree = "<group>"; };
+		D429C6CA19A83111006B4B44 /* MDockComponent+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MDockComponent+Addons.m"; sourceTree = "<group>"; };
 		D4317AD719A142B70046B37B /* MDockGameSystem+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MDockGameSystem+Addons.h"; sourceTree = "<group>"; };
 		D4317AD819A142B70046B37B /* MDockGameSystem+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MDockGameSystem+Addons.m"; sourceTree = "<group>"; };
 		D4317AF719A1B89B0046B37B /* MDockTaggable+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MDockTaggable+Addons.h"; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 				D49951821997B29A002CA3DE /* DockAppDelegate.m */,
 				D4317B4819A1C4530046B37B /* MDockCategory+Addons.h */,
 				D4317B4919A1C4530046B37B /* MDockCategory+Addons.m */,
+				D429C6C919A83111006B4B44 /* MDockComponent+Addons.h */,
+				D429C6CA19A83111006B4B44 /* MDockComponent+Addons.m */,
 				D4317AD719A142B70046B37B /* MDockGameSystem+Addons.h */,
 				D4317AD819A142B70046B37B /* MDockGameSystem+Addons.m */,
 				D4317AFA19A1B8E60046B37B /* MDockTag+Addons.h */,
@@ -319,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4317AF919A1B89B0046B37B /* MDockTaggable+Addons.m in Sources */,
+				D429C6CB19A83111006B4B44 /* MDockComponent+Addons.m in Sources */,
 				D4317B4419A1C40E0046B37B /* MDockGameSystem.m in Sources */,
 				D499517C1997B29A002CA3DE /* main.m in Sources */,
 				D4317AFC19A1B8E60046B37B /* MDockTag+Addons.m in Sources */,

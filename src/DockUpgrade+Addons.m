@@ -706,8 +706,8 @@
     return @{
              @"title": self.title,
              @"categories": @[
-                     @{@"value": self.upType, @"name": @"type" },
-                     @{@"value": self.faction, @"name": @"faction" }
+                     @{@"value": self.upType, @"type": @"type" },
+                     @{@"value": self.faction, @"type": @"faction" }
                 ]
              };
 }

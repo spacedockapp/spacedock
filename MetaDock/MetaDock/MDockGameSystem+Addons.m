@@ -1,18 +1,19 @@
 #import "MDockGameSystem+Addons.h"
 
-#import "MDockComponent.h"
+#import "MDockCategory+Addons.h"
+#import "MDockComponent+Addons.h"
 
 @implementation MDockGameSystem (Addons)
 
-static NSString* kTitleKey = @"title";
-static NSString* kTermsKey = @"terms";
-static NSString* kZeroTermKey = @"zero";
-static NSString* kOneTermKey = @"one";
-static NSString* kManyTermKey = @"many";
-static NSString* kPropertiesFileName = @"properties.json";
-static NSString* kGameSystemEntityName = @"GameSystem";
-static NSString* kComponentEntityName = @"Component";
-static NSString* kCategoryEntityName = @"Category";
+NSString* kTitleKey = @"title";
+NSString* kTermsKey = @"terms";
+NSString* kZeroTermKey = @"zero";
+NSString* kOneTermKey = @"one";
+NSString* kManyTermKey = @"many";
+NSString* kPropertiesFileName = @"properties.json";
+NSString* kGameSystemEntityName = @"GameSystem";
+NSString* kComponentEntityName = @"Component";
+NSString* kCategoryEntityName = @"Category";
 
 
 +(MDockGameSystem*)gameSystemWithId:(NSString*)systemId context:(NSManagedObjectContext*)context
@@ -94,8 +95,8 @@ static NSString* kCategoryEntityName = @"Category";
         for (NSDictionary* oneComponent in components) {
             MDockComponent* component = [[MDockComponent alloc] initWithEntity: componentEntity
                                                 insertIntoManagedObjectContext: self.managedObjectContext];
-            component.title = oneComponent[@"title"];
             [self addComponentsObject: component];
+            [component update: oneComponent];
         }
     }
     [self.managedObjectContext save: &error];
@@ -150,5 +151,14 @@ static NSString* kCategoryEntityName = @"Category";
     return categories.firstObject;
 }
 
+-(MDockCategory*)createCategory:(NSString*)type value:(NSString*)value
+{
+    NSEntityDescription* categoryEntity = [NSEntityDescription entityForName: kCategoryEntityName inManagedObjectContext: self.managedObjectContext];
+    MDockCategory* category = [[MDockCategory alloc] initWithEntity: categoryEntity insertIntoManagedObjectContext: self.managedObjectContext];
+    category.type = type;
+    category.value = value;
+    [self addCategoriesObject: category];
+    return category;
+}
 
 @end

@@ -387,8 +387,11 @@ NSString* asDegrees(NSString* textValue)
 -(NSDictionary*)dictionaryForExport
 {
     return @{
-        @"title": self.title,
-        @"category": @"Ship"
-    };
+             @"title": self.title,
+             @"categories": @[
+                     @{@"value": @"Ship", @"type": @"type" },
+                     @{@"value": self.faction, @"type": @"faction" }
+                ]
+             };
 }
 @end

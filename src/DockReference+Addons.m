@@ -5,9 +5,11 @@
 -(NSDictionary*)dictionaryForExport
 {
     return @{
-        @"title": self.title,
-        @"category": @"Reference"
-    };
+             @"title": self.title,
+             @"categories": @[
+                     @{@"value": @"Reference", @"type": @"type" }
+                ]
+             };
 }
 
 @end

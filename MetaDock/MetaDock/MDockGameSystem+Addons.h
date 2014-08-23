@@ -1,6 +1,14 @@
 #import "MDockGameSystem.h"
 
-//@class MDockCategory;
+NSString* kTitleKey;
+NSString* kTermsKey;
+NSString* kZeroTermKey;
+NSString* kOneTermKey;
+NSString* kManyTermKey;
+NSString* kPropertiesFileName;
+NSString* kGameSystemEntityName;
+NSString* kComponentEntityName;
+NSString* kCategoryEntityName;
 
 @interface MDockGameSystem (Addons)
 
@@ -18,4 +26,5 @@
 
 // categories
 -(MDockCategory*)findCategory:(NSString*)type value:(NSString*)value;
+-(MDockCategory*)createCategory:(NSString*)type value:(NSString*)value;
 @end
