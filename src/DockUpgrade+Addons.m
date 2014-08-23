@@ -112,6 +112,28 @@
     return [NSString stringWithFormat: @"%@ (%@)", self.title, self.upType];
 }
 
+-(NSString*)disambiguatedTitle
+{
+    NSString* externalId = self.externalId;
+
+    if ([externalId isEqualToString: @"quark_71786"]) {
+        return [NSString stringWithFormat: @"%@ (Tech)", self.title];
+    }
+    if ([externalId isEqualToString: @"quark_weapon_71786"]) {
+        return [NSString stringWithFormat: @"%@ (Weapon)", self.title];
+    }
+    if ([externalId isEqualToString: @"vulcan_high_command_2_0_71446"]) {
+        return [NSString stringWithFormat: @"%@ (2/0)", self.title];
+    }
+    if ([externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
+        return [NSString stringWithFormat: @"%@ (1/1)", self.title];
+    }
+    if ([externalId isEqualToString: @"vulcan_high_command_0_2_71446"]) {
+        return [NSString stringWithFormat: @"%@ (0/2)", self.title];
+    }
+    return self.title;
+}
+
 -(BOOL)isTalent
 {
     return [self.upType isEqualToString: @"Talent"];
@@ -399,6 +421,7 @@
 -(int)costForShip:(DockEquippedShip*)equippedShip equippedUpgade:(DockEquippedUpgrade*)equippedUpgrade
 {
     DockUpgrade* upgrade = self;
+    NSString* externalId = self.externalId;
 
     NSString* fleetCaptainSpecial = [[equippedShip.squad.equippedFleetCaptain upgrade] special];
 
@@ -589,6 +612,7 @@
                    [upgrade isFactionBorg]) {
         } else if ([captainSpecial isEqualToString: @"lore_71522"] &&
                    [upgrade isTalent]) {
+        } else if ([externalId isEqualToString: @"elim_garak_71786"]) {
         } else {
             if (upgrade.isAdmiral) {
                 cost += 3;
@@ -622,6 +646,7 @@
 -(int)additionalWeaponSlots
 {
     NSString* special = self.special;
+    NSString* externalId = self.externalId;
 
     if ([special isEqualToString: @"AddTwoWeaponSlots"]) {
         return 2;
@@ -630,6 +655,9 @@
         return 1;
     }
     if ([special isEqualToString: @"sakonna_gavroche"]) {
+        return 1;
+    }
+    if ([externalId isEqualToString: @"quark_weapon_71786"]) {
         return 1;
     }
     return 0;
@@ -647,6 +675,9 @@
         return 2;
     }
     if ([special isEqualToString: @"addonetechslot"] || [externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
+        return 1;
+    }
+    if ([externalId isEqualToString: @"quark_71786"]) {
         return 1;
     }
     return 0;
@@ -667,6 +698,9 @@
 
 -(int)additionalTalentSlots
 {
+    if ([self.externalId isEqualToString: @"elim_garak_71786"]) {
+        return 1;
+    }
     return 0;
 }
 
