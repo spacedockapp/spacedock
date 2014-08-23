@@ -1,14 +1,16 @@
 #import "MDockGameSystem.h"
 
-NSString* kTitleKey;
-NSString* kTermsKey;
-NSString* kZeroTermKey;
-NSString* kOneTermKey;
-NSString* kManyTermKey;
-NSString* kPropertiesFileName;
-NSString* kGameSystemEntityName;
-NSString* kComponentEntityName;
-NSString* kCategoryEntityName;
+extern NSString* kTitleKey;
+extern NSString* kTermsKey;
+extern NSString* kZeroTermKey;
+extern NSString* kOneTermKey;
+extern NSString* kManyTermKey;
+extern NSString* kPropertiesFileName;
+extern NSString* kGameSystemEntityName;
+extern NSString* kComponentEntityName;
+extern NSString* kCategoryEntityName;
+extern NSString* kPropertyEntityName;
+extern NSString* kIntPropertyEntityName;
 
 @interface MDockGameSystem (Addons)
 

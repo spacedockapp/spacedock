@@ -39,4 +39,5 @@
 -(NSString*)plainDescription;
 -(int)costForShip:(DockEquippedShip*)equippedShip;
 -(int)costForShip:(DockEquippedShip*)equippedShip equippedUpgade:(DockEquippedUpgrade*)equippedUpgrade;
+-(NSDictionary*)dictionaryForExport;
 @end

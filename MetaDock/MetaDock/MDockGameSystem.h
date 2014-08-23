@@ -2,7 +2,7 @@
 //  MDockGameSystem.h
 //  MetaDock
 //
-//  Created by Rob Tsuk on 8/17/14.
+//  Created by Rob Tsuk on 8/23/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -14,15 +14,20 @@
 @interface MDockGameSystem : NSManagedObject
 
 @property (nonatomic, retain) NSString * systemId;
+@property (nonatomic, retain) id terms;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * version;
-@property (nonatomic, retain) id terms;
+@property (nonatomic, retain) NSSet *categories;
 @property (nonatomic, retain) NSSet *components;
 @property (nonatomic, retain) NSSet *tags;
-@property (nonatomic, retain) NSSet *categories;
 @end
 
 @interface MDockGameSystem (CoreDataGeneratedAccessors)
+
+- (void)addCategoriesObject:(MDockCategory *)value;
+- (void)removeCategoriesObject:(MDockCategory *)value;
+- (void)addCategories:(NSSet *)values;
+- (void)removeCategories:(NSSet *)values;
 
 - (void)addComponentsObject:(MDockComponent *)value;
 - (void)removeComponentsObject:(MDockComponent *)value;
@@ -33,10 +38,5 @@
 - (void)removeTagsObject:(MDockTag *)value;
 - (void)addTags:(NSSet *)values;
 - (void)removeTags:(NSSet *)values;
-
-- (void)addCategoriesObject:(MDockCategory *)value;
-- (void)removeCategoriesObject:(MDockCategory *)value;
-- (void)addCategories:(NSSet *)values;
-- (void)removeCategories:(NSSet *)values;
 
 @end

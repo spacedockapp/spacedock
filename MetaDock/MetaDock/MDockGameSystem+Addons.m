@@ -14,6 +14,8 @@ NSString* kPropertiesFileName = @"properties.json";
 NSString* kGameSystemEntityName = @"GameSystem";
 NSString* kComponentEntityName = @"Component";
 NSString* kCategoryEntityName = @"Category";
+NSString* kPropertyEntityName = @"Property";
+NSString* kIntPropertyEntityName = @"IntProperty";
 
 
 +(MDockGameSystem*)gameSystemWithId:(NSString*)systemId context:(NSManagedObjectContext*)context

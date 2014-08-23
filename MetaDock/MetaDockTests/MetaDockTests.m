@@ -2,6 +2,9 @@
 
 #import "MDockGameSystem+Addons.h"
 #import "MDockCategory+Addons.h"
+#import "MDockComponent+Addons.h"
+#import "MDockIntProperty+Addons.h"
+#import "MDockProperty+Addons.h"
 #import "DockUniverse.h"
 
 @interface MetaDockTests : XCTestCase
@@ -175,6 +178,21 @@
     NSSet* romulanComponents = romulans.components;
     XCTAssertNotNil(romulanComponents);
     XCTAssertTrue(romulanComponents.count > 0,  @"Expected staw to have romulan components but it didn't");
+}
+
+-(void)testProperties
+{
+    MDockGameSystem* staw = [_universe gameSystemWithIdentifier: @"staw"];
+    XCTAssertNotNil(staw);
+    XCTAssertTrue(staw.components.count > 0,  @"Expected staw to have components but it didn't");
+    
+    NSArray* picards = [staw findComponentsWithTitle: @"Jean-Luc Picard"];
+    XCTAssertNotNil(picards);
+    XCTAssertEqual(picards.count, 1,  @"There should be only one Picard");
+    MDockComponent* picard = picards[0];
+    MDockIntProperty* skill = [picard findIntPropertyWithName: @"skill"];
+    XCTAssertNotNil(skill);
+    XCTAssertEqual(skill.val, 9,  @"Picard should have 9 skill");
 }
 
 @end

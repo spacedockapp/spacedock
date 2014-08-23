@@ -116,4 +116,17 @@
     return [NSString stringWithFormat: @"%@ (%@)", self.title, self.skill];
 }
 
+-(NSDictionary*)dictionaryForExport
+{
+    NSMutableDictionary* captainDictionary = [NSMutableDictionary dictionaryWithDictionary: [super dictionaryForExport]];
+    NSDictionary* forCaptain = @{
+             @"properties": @[
+                     @{@"value": self.skill, @"name": @"skill" },
+                     @{@"value": self.talent, @"name": @"talent" }
+                ]
+             };
+    [captainDictionary addEntriesFromDictionary: forCaptain];
+    return [NSDictionary dictionaryWithDictionary: captainDictionary];
+}
+
 @end

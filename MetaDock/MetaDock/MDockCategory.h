@@ -2,7 +2,7 @@
 //  MDockCategory.h
 //  MetaDock
 //
-//  Created by Rob Tsuk on 8/17/14.
+//  Created by Rob Tsuk on 8/23/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -14,8 +14,8 @@
 
 @interface MDockCategory : MDockTaggable
 
-@property (nonatomic, retain) NSString * value;
 @property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSString * value;
 @property (nonatomic, retain) NSSet *components;
 @property (nonatomic, retain) MDockGameSystem *gameSystem;
 @end

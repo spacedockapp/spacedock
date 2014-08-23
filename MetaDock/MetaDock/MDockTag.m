@@ -2,7 +2,7 @@
 //  MDockTag.m
 //  MetaDock
 //
-//  Created by Rob Tsuk on 8/18/14.
+//  Created by Rob Tsuk on 8/23/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -13,7 +13,7 @@
 
 @implementation MDockTag
 
-@dynamic tagged;
 @dynamic gameSystem;
+@dynamic tagged;
 
 @end

@@ -10,6 +10,7 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="components" inverseEntity="Category" syncable="YES"/>
         <relationship name="gameSystem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameSystem" inverseName="components" inverseEntity="GameSystem" syncable="YES"/>
+        <relationship name="properties" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Property" inverseName="component" inverseEntity="Property" syncable="YES"/>
     </entity>
     <entity name="GameSystem" representedClassName="MDockGameSystem" syncable="YES">
         <attribute name="systemId" optional="YES" attributeType="String" syncable="YES"/>
@@ -20,6 +21,20 @@
         <relationship name="components" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Component" inverseName="gameSystem" inverseEntity="Component" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="gameSystem" inverseEntity="Tag" syncable="YES"/>
     </entity>
+    <entity name="IntProperty" representedClassName="MDockIntProperty" parentEntity="Property" syncable="YES">
+        <attribute name="val" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Property" representedClassName="MDockProperty" isAbstract="YES" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="component" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Component" inverseName="properties" inverseEntity="Component" syncable="YES"/>
+    </entity>
+    <entity name="RangeProperty" representedClassName="MDockRangeProperty" parentEntity="Property" syncable="YES">
+        <attribute name="maxVal" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="minVal" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="StringProperty" representedClassName="StringProperty" parentEntity="Property" syncable="YES">
+        <attribute name="val" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Tag" representedClassName="MDockTag" syncable="YES">
         <relationship name="gameSystem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameSystem" inverseName="tags" inverseEntity="GameSystem" syncable="YES"/>
         <relationship name="tagged" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Taggable" inverseName="tags" inverseEntity="Taggable" syncable="YES"/>
@@ -28,10 +43,14 @@
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="tagged" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Category" positionX="-54" positionY="0" width="128" height="103"/>
-        <element name="Component" positionX="-63" positionY="-18" width="128" height="88"/>
-        <element name="GameSystem" positionX="-45" positionY="27" width="128" height="148"/>
-        <element name="Taggable" positionX="-54" positionY="45" width="128" height="58"/>
-        <element name="Tag" positionX="-45" positionY="54" width="128" height="73"/>
+        <element name="Category" positionX="124" positionY="-229" width="128" height="103"/>
+        <element name="Component" positionX="-297" positionY="-112" width="128" height="103"/>
+        <element name="GameSystem" positionX="-29" positionY="5" width="128" height="148"/>
+        <element name="Tag" positionX="-72" positionY="-468" width="128" height="73"/>
+        <element name="Taggable" positionX="-108" positionY="-319" width="128" height="58"/>
+        <element name="Property" positionX="-299" positionY="-406" width="128" height="73"/>
+        <element name="IntProperty" positionX="-702" positionY="-144" width="128" height="58"/>
+        <element name="StringProperty" positionX="-540" positionY="-144" width="128" height="58"/>
+        <element name="RangeProperty" positionX="-684" positionY="-333" width="128" height="73"/>
     </elements>
 </model>

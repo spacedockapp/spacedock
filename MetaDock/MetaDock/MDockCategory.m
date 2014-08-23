@@ -2,7 +2,7 @@
 //  MDockCategory.m
 //  MetaDock
 //
-//  Created by Rob Tsuk on 8/17/14.
+//  Created by Rob Tsuk on 8/23/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -13,8 +13,8 @@
 
 @implementation MDockCategory
 
-@dynamic value;
 @dynamic type;
+@dynamic value;
 @dynamic components;
 @dynamic gameSystem;
 

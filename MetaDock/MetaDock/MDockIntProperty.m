@@ -1,17 +1,16 @@
 //
-//  MDockTaggable.m
+//  MDockIntProperty.m
 //  MetaDock
 //
 //  Created by Rob Tsuk on 8/23/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
-#import "MDockTaggable.h"
-#import "MDockTag.h"
+#import "MDockIntProperty.h"
 
 
-@implementation MDockTaggable
+@implementation MDockIntProperty
 
-@dynamic tags;
+@dynamic val;
 
 @end

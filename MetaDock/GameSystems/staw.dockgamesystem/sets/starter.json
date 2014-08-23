@@ -2,14 +2,135 @@
   "title" : "Starter Set",
   "components" : [
     {
-      "title" : "Counter Attack",
+      "title" : "U.S.S. Enterprise-D",
       "categories" : [
         {
-          "value" : "Talent",
+          "value" : "Ship",
+          "type" : "type"
+        },
+        {
+          "value" : "Federation",
+          "type" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Nu'Daq",
+      "properties" : [
+        {
+          "value" : 5,
+          "name" : "skill"
+        },
+        {
+          "value" : 0,
+          "name" : "talent"
+        }
+      ],
+      "categories" : [
+        {
+          "value" : "Captain",
+          "type" : "type"
+        },
+        {
+          "value" : "Klingon",
+          "type" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Photon Torpedoes (Vor'cha Bonus)",
+      "categories" : [
+        {
+          "value" : "Weapon",
+          "type" : "type"
+        },
+        {
+          "value" : "Klingon",
+          "type" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Plasma Torpedoes",
+      "categories" : [
+        {
+          "value" : "Weapon",
           "type" : "type"
         },
         {
           "value" : "Romulan",
+          "type" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "I.K.S. Maht-H'A",
+      "categories" : [
+        {
+          "value" : "Ship",
+          "type" : "type"
+        },
+        {
+          "value" : "Klingon",
+          "type" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Romulan Captain",
+      "properties" : [
+        {
+          "value" : 1,
+          "name" : "skill"
+        },
+        {
+          "value" : 0,
+          "name" : "talent"
+        }
+      ],
+      "categories" : [
+        {
+          "value" : "Captain",
+          "type" : "type"
+        },
+        {
+          "value" : "Romulan",
+          "type" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Klingon Captain",
+      "properties" : [
+        {
+          "value" : 1,
+          "name" : "skill"
+        },
+        {
+          "value" : 0,
+          "name" : "talent"
+        }
+      ],
+      "categories" : [
+        {
+          "value" : "Captain",
+          "type" : "type"
+        },
+        {
+          "value" : "Klingon",
+          "type" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Tractor Beam",
+      "categories" : [
+        {
+          "value" : "Tech",
+          "type" : "type"
+        },
+        {
+          "value" : "Klingon",
           "type" : "faction"
         }
       ]
@@ -28,10 +149,19 @@
       ]
     },
     {
-      "title" : "Federation Starship",
+      "title" : "Initiative",
       "categories" : [
         {
-          "value" : "Ship",
+          "value" : "Reference",
+          "type" : "type"
+        }
+      ]
+    },
+    {
+      "title" : "Geordi LaForge",
+      "categories" : [
+        {
+          "value" : "Crew",
           "type" : "type"
         },
         {
@@ -41,10 +171,69 @@
       ]
     },
     {
-      "title" : "Miles O'Brien",
+      "title" : "Counter Attack",
       "categories" : [
         {
-          "value" : "Crew",
+          "value" : "Talent",
+          "type" : "type"
+        },
+        {
+          "value" : "Romulan",
+          "type" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Toreth",
+      "properties" : [
+        {
+          "value" : 7,
+          "name" : "skill"
+        },
+        {
+          "value" : 1,
+          "name" : "talent"
+        }
+      ],
+      "categories" : [
+        {
+          "value" : "Captain",
+          "type" : "type"
+        },
+        {
+          "value" : "Romulan",
+          "type" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Artificial Quantum Singularity",
+      "categories" : [
+        {
+          "value" : "Tech",
+          "type" : "type"
+        },
+        {
+          "value" : "Romulan",
+          "type" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "William T. Riker",
+      "properties" : [
+        {
+          "value" : 6,
+          "name" : "skill"
+        },
+        {
+          "value" : 0,
+          "name" : "talent"
+        }
+      ],
+      "categories" : [
+        {
+          "value" : "Captain",
           "type" : "type"
         },
         {
@@ -67,7 +256,30 @@
       ]
     },
     {
-      "title" : "Federation Captain",
+      "title" : "Klingon Starship",
+      "categories" : [
+        {
+          "value" : "Ship",
+          "type" : "type"
+        },
+        {
+          "value" : "Klingon",
+          "type" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Jean-Luc Picard",
+      "properties" : [
+        {
+          "value" : 9,
+          "name" : "skill"
+        },
+        {
+          "value" : 1,
+          "name" : "talent"
+        }
+      ],
       "categories" : [
         {
           "value" : "Captain",
@@ -76,15 +288,6 @@
         {
           "value" : "Federation",
           "type" : "faction"
-        }
-      ]
-    },
-    {
-      "title" : "United Force",
-      "categories" : [
-        {
-          "value" : "Reference",
-          "type" : "type"
         }
       ]
     },
@@ -141,6 +344,19 @@
       ]
     },
     {
+      "title" : "Romulan Starship",
+      "categories" : [
+        {
+          "value" : "Ship",
+          "type" : "type"
+        },
+        {
+          "value" : "Romulan",
+          "type" : "faction"
+        }
+      ]
+    },
+    {
       "title" : "Data",
       "categories" : [
         {
@@ -154,14 +370,59 @@
       ]
     },
     {
-      "title" : "Klingon Starship",
+      "title" : "Federation Starship",
       "categories" : [
         {
           "value" : "Ship",
           "type" : "type"
         },
         {
-          "value" : "Klingon",
+          "value" : "Federation",
+          "type" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "Federation Captain",
+      "properties" : [
+        {
+          "value" : 1,
+          "name" : "skill"
+        },
+        {
+          "value" : 0,
+          "name" : "talent"
+        }
+      ],
+      "categories" : [
+        {
+          "value" : "Captain",
+          "type" : "type"
+        },
+        {
+          "value" : "Federation",
+          "type" : "faction"
+        }
+      ]
+    },
+    {
+      "title" : "United Force",
+      "categories" : [
+        {
+          "value" : "Reference",
+          "type" : "type"
+        }
+      ]
+    },
+    {
+      "title" : "Photon Torpedoes",
+      "categories" : [
+        {
+          "value" : "Weapon",
+          "type" : "type"
+        },
+        {
+          "value" : "Federation",
           "type" : "faction"
         }
       ]
@@ -180,20 +441,7 @@
       ]
     },
     {
-      "title" : "Nu'Daq",
-      "categories" : [
-        {
-          "value" : "Captain",
-          "type" : "type"
-        },
-        {
-          "value" : "Klingon",
-          "type" : "faction"
-        }
-      ]
-    },
-    {
-      "title" : "Initiative",
+      "title" : "Strike Force",
       "categories" : [
         {
           "value" : "Reference",
@@ -202,14 +450,14 @@
       ]
     },
     {
-      "title" : "Plasma Torpedoes",
+      "title" : "Miles O'Brien",
       "categories" : [
         {
-          "value" : "Weapon",
+          "value" : "Crew",
           "type" : "type"
         },
         {
-          "value" : "Romulan",
+          "value" : "Federation",
           "type" : "faction"
         }
       ]
@@ -228,145 +476,6 @@
       ]
     },
     {
-      "title" : "Romulan Captain",
-      "categories" : [
-        {
-          "value" : "Captain",
-          "type" : "type"
-        },
-        {
-          "value" : "Romulan",
-          "type" : "faction"
-        }
-      ]
-    },
-    {
-      "title" : "Klingon Captain",
-      "categories" : [
-        {
-          "value" : "Captain",
-          "type" : "type"
-        },
-        {
-          "value" : "Klingon",
-          "type" : "faction"
-        }
-      ]
-    },
-    {
-      "title" : "U.S.S. Enterprise-D",
-      "categories" : [
-        {
-          "value" : "Ship",
-          "type" : "type"
-        },
-        {
-          "value" : "Federation",
-          "type" : "faction"
-        }
-      ]
-    },
-    {
-      "title" : "Photon Torpedoes (Vor'cha Bonus)",
-      "categories" : [
-        {
-          "value" : "Weapon",
-          "type" : "type"
-        },
-        {
-          "value" : "Klingon",
-          "type" : "faction"
-        }
-      ]
-    },
-    {
-      "title" : "Tractor Beam",
-      "categories" : [
-        {
-          "value" : "Tech",
-          "type" : "type"
-        },
-        {
-          "value" : "Klingon",
-          "type" : "faction"
-        }
-      ]
-    },
-    {
-      "title" : "Photon Torpedoes",
-      "categories" : [
-        {
-          "value" : "Weapon",
-          "type" : "type"
-        },
-        {
-          "value" : "Federation",
-          "type" : "faction"
-        }
-      ]
-    },
-    {
-      "title" : "Strike Force",
-      "categories" : [
-        {
-          "value" : "Reference",
-          "type" : "type"
-        }
-      ]
-    },
-    {
-      "title" : "I.K.S. Maht-H'A",
-      "categories" : [
-        {
-          "value" : "Ship",
-          "type" : "type"
-        },
-        {
-          "value" : "Klingon",
-          "type" : "faction"
-        }
-      ]
-    },
-    {
-      "title" : "Toreth",
-      "categories" : [
-        {
-          "value" : "Captain",
-          "type" : "type"
-        },
-        {
-          "value" : "Romulan",
-          "type" : "faction"
-        }
-      ]
-    },
-    {
-      "title" : "William T. Riker",
-      "categories" : [
-        {
-          "value" : "Captain",
-          "type" : "type"
-        },
-        {
-          "value" : "Federation",
-          "type" : "faction"
-        }
-      ]
-    },
-    {
-      "title" : "Artificial Quantum Singularity",
-      "categories" : [
-        {
-          "value" : "Tech",
-          "type" : "type"
-        },
-        {
-          "value" : "Romulan",
-          "type" : "faction"
-        }
-      ]
-    },
-    {
       "title" : "Bochra",
       "categories" : [
         {
@@ -375,45 +484,6 @@
         },
         {
           "value" : "Romulan",
-          "type" : "faction"
-        }
-      ]
-    },
-    {
-      "title" : "Geordi LaForge",
-      "categories" : [
-        {
-          "value" : "Crew",
-          "type" : "type"
-        },
-        {
-          "value" : "Federation",
-          "type" : "faction"
-        }
-      ]
-    },
-    {
-      "title" : "Romulan Starship",
-      "categories" : [
-        {
-          "value" : "Ship",
-          "type" : "type"
-        },
-        {
-          "value" : "Romulan",
-          "type" : "faction"
-        }
-      ]
-    },
-    {
-      "title" : "Jean-Luc Picard",
-      "categories" : [
-        {
-          "value" : "Captain",
-          "type" : "type"
-        },
-        {
-          "value" : "Federation",
           "type" : "faction"
         }
       ]

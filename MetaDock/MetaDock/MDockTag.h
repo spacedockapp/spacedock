@@ -2,7 +2,7 @@
 //  MDockTag.h
 //  MetaDock
 //
-//  Created by Rob Tsuk on 8/18/14.
+//  Created by Rob Tsuk on 8/23/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -13,8 +13,8 @@
 
 @interface MDockTag : NSManagedObject
 
-@property (nonatomic, retain) NSSet *tagged;
 @property (nonatomic, retain) MDockGameSystem *gameSystem;
+@property (nonatomic, retain) NSSet *tagged;
 @end
 
 @interface MDockTag (CoreDataGeneratedAccessors)
