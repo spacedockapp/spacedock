@@ -4,7 +4,7 @@
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade.h"
 #import "DockSet+Addons.h"
-#import "DockSetItem+Addons.h"
+#import "DockComponent+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"

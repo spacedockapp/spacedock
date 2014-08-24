@@ -7,7 +7,7 @@
 //
 
 #import "DockSet.h"
-#import "DockSetItem.h"
+#import "DockComponent.h"
 
 
 @implementation DockSet

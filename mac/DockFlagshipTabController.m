@@ -33,13 +33,13 @@
 
 #pragma mark - Adding to ship
 
--(BOOL)canAddItem:(DockSetItem*)item toShip:(DockEquippedShip*)ship
+-(BOOL)canAddItem:(DockComponent*)item toShip:(DockEquippedShip*)ship
 {
     DockFlagship* flagship = (DockFlagship*)item;
     return [flagship compatibleWithShip: ship.ship];
 }
 
--(DockEquippedUpgrade*)addItem:(DockSetItem*)item toShip:(DockEquippedShip*)ship inSquad:(DockSquad*)squad selectedItem:(id)selectedItem
+-(DockEquippedUpgrade*)addItem:(DockComponent*)item toShip:(DockEquippedShip*)ship inSquad:(DockSquad*)squad selectedItem:(id)selectedItem
 {
     DockFlagship* flagship = (DockFlagship*)item;
     NSDictionary* info = [ship becomeFlagship: flagship];

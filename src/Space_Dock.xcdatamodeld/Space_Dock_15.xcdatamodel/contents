@@ -11,13 +11,17 @@
         <attribute name="skill" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="talent" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Categorized" parentEntity="Tagged" syncable="YES">
-        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" syncable="YES"/>
+    <entity name="Categorized" representedClassName="Categorized" parentEntity="Tagged" syncable="YES">
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="categorized" inverseEntity="Category" syncable="YES"/>
     </entity>
-    <entity name="Category" representedClassName="DockCategory" isAbstract="YES" parentEntity="Tagged" syncable="YES">
+    <entity name="Category" representedClassName="DockCategory" syncable="YES">
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="categorized" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Categorized" syncable="YES"/>
+        <relationship name="categorized" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Categorized" inverseName="categories" inverseEntity="Categorized" syncable="YES"/>
+    </entity>
+    <entity name="Component" representedClassName="DockComponent" isAbstract="YES" parentEntity="Categorized" syncable="YES">
+        <attribute name="additionalFaction" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Set" inverseName="items" inverseEntity="Set" syncable="YES"/>
     </entity>
     <entity name="Crew" representedClassName="DockCrew" parentEntity="Upgrade" syncable="YES"/>
     <entity name="EquippedShip" representedClassName="DockEquippedShip" syncable="YES">
@@ -32,7 +36,7 @@
         <relationship name="equippedShip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EquippedShip" inverseName="upgrades" inverseEntity="EquippedShip" syncable="YES"/>
         <relationship name="upgrade" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Upgrade" inverseName="equippedUpgrades" inverseEntity="Upgrade" syncable="YES"/>
     </entity>
-    <entity name="Flagship" representedClassName="DockFlagship" parentEntity="SetItem" syncable="YES">
+    <entity name="Flagship" representedClassName="DockFlagship" parentEntity="Component" syncable="YES">
         <attribute name="ability" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="agility" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="attack" optional="YES" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
@@ -67,13 +71,13 @@
         <attribute name="speed" attributeType="Integer 16" defaultValueString="1" syncable="YES"/>
         <relationship name="shipClassDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShipClassDetails" inverseName="maneuvers" inverseEntity="ShipClassDetails" syncable="YES"/>
     </entity>
-    <entity name="Reference" representedClassName="DockReference" parentEntity="SetItem" syncable="YES">
+    <entity name="Reference" representedClassName="DockReference" parentEntity="Component" syncable="YES">
         <attribute name="ability" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="externalId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Resource" representedClassName="DockResource" parentEntity="SetItem" syncable="YES">
+    <entity name="Resource" representedClassName="DockResource" parentEntity="Component" syncable="YES">
         <attribute name="ability" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cost" attributeType="Integer 16" minValueString="0" defaultValueString="1" syncable="YES"/>
         <attribute name="externalId" optional="YES" attributeType="String" syncable="YES"/>
@@ -83,20 +87,16 @@
         <attribute name="unique" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <relationship name="squad" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Squad" inverseName="resource" inverseEntity="Squad" syncable="YES"/>
     </entity>
-    <entity name="Set" representedClassName="DockSet" syncable="YES">
+    <entity name="Set" representedClassName="DockComponent" syncable="YES">
         <attribute name="externalId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="include" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="productName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="releaseDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="wave" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SetItem" inverseName="sets" inverseEntity="SetItem" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Component" inverseName="sets" inverseEntity="Component" syncable="YES"/>
     </entity>
-    <entity name="SetItem" representedClassName="DockSetItem" isAbstract="YES" syncable="YES">
-        <attribute name="additionalFaction" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="sets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Set" inverseName="items" inverseEntity="Set" syncable="YES"/>
-    </entity>
-    <entity name="Ship" representedClassName="DockShip" parentEntity="SetItem" syncable="YES">
+    <entity name="Ship" representedClassName="DockShip" parentEntity="Component" syncable="YES">
         <attribute name="ability" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="agility" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="attack" optional="YES" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
@@ -147,7 +147,7 @@
         <relationship name="equippedShips" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EquippedShip" inverseName="squad" inverseEntity="EquippedShip" syncable="YES"/>
         <relationship name="resource" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Resource" inverseName="squad" inverseEntity="Resource" syncable="YES"/>
     </entity>
-    <entity name="Tag" syncable="YES">
+    <entity name="Tag" representedClassName="Tag" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="tagged" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tagged" inverseName="tags" inverseEntity="Tagged" syncable="YES"/>
     </entity>
@@ -156,7 +156,7 @@
     </entity>
     <entity name="Talent" representedClassName="DockTalent" parentEntity="Upgrade" syncable="YES"/>
     <entity name="Tech" representedClassName="DockTech" parentEntity="Upgrade" syncable="YES"/>
-    <entity name="Upgrade" representedClassName="DockUpgrade" isAbstract="YES" parentEntity="SetItem" syncable="YES">
+    <entity name="Upgrade" representedClassName="DockUpgrade" isAbstract="YES" parentEntity="Component" syncable="YES">
         <attribute name="ability" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cost" attributeType="Integer 16" minValueString="0" defaultValueString="1" syncable="YES"/>
         <attribute name="externalId" optional="YES" attributeType="String" syncable="YES"/>
@@ -184,8 +184,8 @@
         <element name="Maneuver" positionX="0" positionY="0" width="128" height="105"/>
         <element name="Reference" positionX="9" positionY="153" width="128" height="105"/>
         <element name="Resource" positionX="0" positionY="0" width="128" height="165"/>
-        <element name="Set" positionX="0" positionY="0" width="128" height="150"/>
-        <element name="SetItem" positionX="0" positionY="0" width="128" height="73"/>
+        <element name="Set" positionX="0" positionY="0" width="128" height="148"/>
+        <element name="Component" positionX="0" positionY="0" width="128" height="73"/>
         <element name="Ship" positionX="0" positionY="0" width="128" height="433"/>
         <element name="ShipClassDetails" positionX="0" positionY="0" width="128" height="135"/>
         <element name="Sideboard" positionX="0" positionY="0" width="128" height="45"/>
@@ -193,7 +193,7 @@
         <element name="Talent" positionX="0" positionY="0" width="128" height="45"/>
         <element name="Tech" positionX="0" positionY="0" width="128" height="45"/>
         <element name="Upgrade" positionX="0" positionY="0" width="128" height="195"/>
-        <element name="Weapon" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="Weapon" positionX="-299" positionY="24" width="128" height="75"/>
         <element name="Tag" positionX="477" positionY="359" width="128" height="73"/>
         <element name="Tagged" positionX="423" positionY="248" width="128" height="58"/>
         <element name="Category" positionX="718" positionY="207" width="128" height="88"/>

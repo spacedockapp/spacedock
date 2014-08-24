@@ -4,7 +4,7 @@
 
 @class DockAppDelegate;
 @class DockEquippedShip;
-@class DockSetItem;
+@class DockComponent;
 @class DockSquad;
 
 @interface DockTabController : NSObject
@@ -25,7 +25,7 @@
 
 // add to ship
 -(void)addSelectedToSquad:(DockSquad*)selectedSquad ship:(DockEquippedShip*)selectedShip selectedItem:(id)selectedItem;
--(DockEquippedShip*)findEligibleShipForItem:(DockSetItem*)item inSquad:(DockSquad*)squad;
+-(DockEquippedShip*)findEligibleShipForItem:(DockComponent*)item inSquad:(DockSquad*)squad;
 -(void)explainCantUniqueUpgrade:(NSError*)error;
 
 // predicates

@@ -1,6 +1,6 @@
 #import "DockSet+Addons.h"
 
-#import "DockSetItem+Addons.h"
+#import "DockComponent+Addons.h"
 
 @implementation DockSet (Addons)
 
@@ -44,7 +44,7 @@
 -(NSArray*)sortedSetItems
 {
     NSArray* unsortedItems = [self.items allObjects];
-    id compareSetItem = ^(DockSetItem* a, DockSetItem* b) {
+    id compareSetItem = ^(DockComponent* a, DockComponent* b) {
         return [a compareForSet: b];
     };
     return [unsortedItems sortedArrayUsingComparator: compareSetItem];

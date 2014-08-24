@@ -32,14 +32,14 @@
 
 #pragma mark - Adding to ship
 
--(BOOL)canAddItem:(DockSetItem*)item toShip:(DockEquippedShip*)ship
+-(BOOL)canAddItem:(DockComponent*)item toShip:(DockEquippedShip*)ship
 {
     NSError* error;
     DockFleetCaptain* fleetCaptain = (DockFleetCaptain*)item;
     return [ship.squad canAddFleetCaptain: fleetCaptain toShip: ship error: &error];
 }
 
--(DockEquippedUpgrade*)addItem:(DockSetItem*)item toShip:(DockEquippedShip*)ship inSquad:(DockSquad*)squad selectedItem:(id)selectedItem
+-(DockEquippedUpgrade*)addItem:(DockComponent*)item toShip:(DockEquippedShip*)ship inSquad:(DockSquad*)squad selectedItem:(id)selectedItem
 {
     NSError* error;
     DockFleetCaptain* fleetCaptain = (DockFleetCaptain*)item;

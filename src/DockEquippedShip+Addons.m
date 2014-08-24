@@ -12,7 +12,7 @@
 #import "DockFlagship+Addons.h"
 #import "DockResource+Addons.h"
 #import "DockSet+Addons.h"
-#import "DockSetItem+Addons.h"
+#import "DockComponent+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSideboard+Addons.h"
 #import "DockSquad+Addons.h"

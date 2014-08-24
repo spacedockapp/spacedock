@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "DockSetItem.h"
+#import "DockComponent.h"
 
 @class DockEquippedUpgrade;
 
-@interface DockUpgrade : DockSetItem
+@interface DockUpgrade : DockComponent
 
 @property (nonatomic, retain) NSString * ability;
 @property (nonatomic, retain) NSNumber * cost;

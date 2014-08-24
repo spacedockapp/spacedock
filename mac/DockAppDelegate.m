@@ -25,7 +25,7 @@
 #import "DockResource+Addons.h"
 #import "DockSearchFieldController.h"
 #import "DockSet+Addons.h"
-#import "DockSetItem+Addons.h"
+#import "DockComponent+Addons.h"
 #import "DockSetTabController.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"

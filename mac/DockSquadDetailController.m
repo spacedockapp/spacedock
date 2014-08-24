@@ -245,7 +245,7 @@ NSString* kCurrentEquippedUpgrade = @"CurrentEquippedUpgrade";
     return (selectedItems.count > 0);
 }
 
--(DockSetItem*)selectedItem
+-(DockComponent*)selectedItem
 {
     return [[_squadDetailController selectedObjects] objectAtIndex: 0];
 }

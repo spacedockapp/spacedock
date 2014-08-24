@@ -2,7 +2,7 @@
 
 #import "DockManeuver.h"
 #import "DockResource+Addons.h"
-#import "DockSetItem+Addons.h"
+#import "DockComponent+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockShipClassDetails+Addons.h"
 #import "DockUpgrade+Addons.h"

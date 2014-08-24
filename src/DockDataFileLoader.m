@@ -214,7 +214,7 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                 }
             }
 
-            if ([c isKindOfClass: [DockSetItem class]]) {
+            if ([c isKindOfClass: [DockComponent class]]) {
                 NSString* setValue = [d objectForKey: @"Set"];
                 NSArray* sets = [setValue componentsSeparatedByString: @","];
 

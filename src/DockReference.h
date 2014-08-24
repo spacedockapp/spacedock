@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "DockSetItem.h"
+#import "DockComponent.h"
 
 
-@interface DockReference : DockSetItem
+@interface DockReference : DockComponent
 
 @property (nonatomic, retain) NSString * ability;
 @property (nonatomic, retain) NSString * externalId;

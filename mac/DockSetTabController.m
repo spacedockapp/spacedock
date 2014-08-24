@@ -2,7 +2,7 @@
 
 #import "DockAppDelegate.h"
 #import "DockSet+Addons.h"
-#import "DockSetItem+Addons.h"
+#import "DockComponent+Addons.h"
 
 @implementation DockSetTabController
 
@@ -39,7 +39,7 @@
 
 #pragma mark - Adding to ship
 
--(BOOL)canAddItem:(DockSetItem*)item toShip:(DockEquippedShip*)ship
+-(BOOL)canAddItem:(DockComponent*)item toShip:(DockEquippedShip*)ship
 {
     return NO;
 }

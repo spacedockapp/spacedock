@@ -23,7 +23,7 @@
 
 #pragma mark Adding to ship
 
--(DockEquippedUpgrade*)addItem:(DockSetItem*)item toShip:(DockEquippedShip*)ship inSquad:(DockSquad*)squad selectedItem:(id)selectedItem
+-(DockEquippedUpgrade*)addItem:(DockComponent*)item toShip:(DockEquippedShip*)ship inSquad:(DockSquad*)squad selectedItem:(id)selectedItem
 {
     DockResource* resource = (DockResource*)item;
     squad.resource = resource;

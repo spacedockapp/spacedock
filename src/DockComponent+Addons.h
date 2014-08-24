@@ -1,6 +1,6 @@
-#import "DockSetItem.h"
+#import "DockComponent.h"
 
-@interface DockSetItem (Addons)
+@interface DockComponent (Addons)
 -(NSString*)anySetExternalId;
 -(NSString*)factionCode;
 -(NSString*)setName;

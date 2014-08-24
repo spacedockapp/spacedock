@@ -18,7 +18,7 @@
 
 #pragma mark Adding to ship
 
--(BOOL)canAddItem:(DockSetItem*)item toShip:(DockEquippedShip*)ship
+-(BOOL)canAddItem:(DockComponent*)item toShip:(DockEquippedShip*)ship
 {
     return NO;
 }

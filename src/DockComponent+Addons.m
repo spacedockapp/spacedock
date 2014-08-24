@@ -1,10 +1,10 @@
-#import "DockSetItem+Addons.h"
+#import "DockComponent+Addons.h"
 
 #import "DockSet+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockUtils.h"
 
-@implementation DockSetItem (Addons)
+@implementation DockComponent (Addons)
 
 -(NSString*)anySetExternalId
 {

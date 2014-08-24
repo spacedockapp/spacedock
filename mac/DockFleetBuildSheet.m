@@ -6,7 +6,7 @@
 #import "DockFlagship+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockResource+Addons.h"
-#import "DockSetItem+Addons.h"
+#import "DockComponent+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockUtils.h"
 

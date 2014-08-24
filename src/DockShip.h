@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "DockSetItem.h"
+#import "DockComponent.h"
 
 @class DockEquippedShip, DockShipClassDetails;
 
-@interface DockShip : DockSetItem
+@interface DockShip : DockComponent
 
 @property (nonatomic, retain) NSString * ability;
 @property (nonatomic, retain) NSNumber * agility;

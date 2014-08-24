@@ -3,7 +3,7 @@
 #import "DockAdmiral+Addons.h"
 #import "DockCaptain+Addons.h"
 #import "DockFleetCaptain+Addons.h"
-#import "DockSetItem+Addons.h"
+#import "DockComponent+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
 #import "DockWeapon+Addons.h"

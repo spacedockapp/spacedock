@@ -2,7 +2,7 @@
 
 @class DockEquippedShip;
 @class DockEquippedUpgrade;
-@class DockSetItem;
+@class DockComponent;
 
 extern NSString* kCurrentEquippedUpgrade;
 
@@ -11,7 +11,7 @@ extern NSString* kCurrentEquippedUpgrade;
 -(DockEquippedUpgrade*)selectedEquippedUpgrade;
 -(void)selectUpgrade:(DockEquippedUpgrade*)theUpgrade;
 -(void)selectEquippedShip:(DockEquippedShip*)theShip;
--(DockSetItem*)selectedItem;
+-(DockComponent*)selectedItem;
 -(BOOL)isFirstResponder;
 -(BOOL)hasSelection;
 -(IBAction)deleteSelected:(id)sender;

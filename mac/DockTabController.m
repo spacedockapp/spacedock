@@ -8,7 +8,7 @@
 #import "DockSearchFieldController.h"
 #import "DockSquad+Addons.h"
 #import "DockSet+Addons.h"
-#import "DockSetItem+Addons.h"
+#import "DockComponent+Addons.h"
 #import "DockUtilsMac.h"
 
 @interface DockTabController ()
@@ -319,7 +319,7 @@ NSMutableArray* sTabControllers = nil;
 
 #pragma mark - Add to ship
 
--(DockEquippedShip*)findEligibleShipForItem:(DockSetItem*)item inSquad:(DockSquad*)squad
+-(DockEquippedShip*)findEligibleShipForItem:(DockComponent*)item inSquad:(DockSquad*)squad
 {
     for (DockEquippedShip* ship in squad.equippedShips) {
         if ([self canAddItem: item toShip: ship]) {
@@ -334,7 +334,7 @@ NSMutableArray* sTabControllers = nil;
     NSArray* itemsToAdd = [self.targetController selectedObjects];
 
     if (itemsToAdd.count > 0) {
-        DockSetItem* item = itemsToAdd[0];
+        DockComponent* item = itemsToAdd[0];
         if (selectedShip == nil) {
             selectedShip = [self findEligibleShipForItem: item inSquad: selectedSquad];
         }
@@ -347,12 +347,12 @@ NSMutableArray* sTabControllers = nil;
     }
 }
 
--(BOOL)canAddItem:(DockSetItem*)item toShip:(DockEquippedShip*)ship
+-(BOOL)canAddItem:(DockComponent*)item toShip:(DockEquippedShip*)ship
 {
     return YES;
 }
 
--(DockEquippedUpgrade*)addItem:(DockSetItem*)item toShip:(DockEquippedShip*)ship inSquad:(DockSquad*)squad selectedItem:(id)selectedItem
+-(DockEquippedUpgrade*)addItem:(DockComponent*)item toShip:(DockEquippedShip*)ship inSquad:(DockSquad*)squad selectedItem:(id)selectedItem
 {
     return nil;
 }

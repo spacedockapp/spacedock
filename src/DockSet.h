@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class DockSetItem;
+@class DockComponent;
 
 @interface DockSet : NSManagedObject
 
@@ -24,8 +24,8 @@
 
 @interface DockSet (CoreDataGeneratedAccessors)
 
-- (void)addItemsObject:(DockSetItem *)value;
-- (void)removeItemsObject:(DockSetItem *)value;
+- (void)addItemsObject:(DockComponent *)value;
+- (void)removeItemsObject:(DockComponent *)value;
 - (void)addItems:(NSSet *)values;
 - (void)removeItems:(NSSet *)values;
 
