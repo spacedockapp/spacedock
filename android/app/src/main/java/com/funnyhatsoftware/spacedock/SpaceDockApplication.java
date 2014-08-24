@@ -46,19 +46,6 @@ public class SpaceDockApplication extends Application {
         Universe universe = Universe.getUniverse();
         java.util.Set<String> allSetIds = universe.getAllSetIds();
 
-        // Handle legacy set storage
-        java.util.Set<String> legacySetSelection = sharedPrefs.getStringSet(
-                SetPreference.PREF_KEY_SET_LEGACY, null);
-        if (legacySetSelection != null) {
-            java.util.Set<String> setIds = SetPreference.getSetIdsFromLegacyNames(legacySetSelection);
-            java.util.Set<String> seenIds = SetPreference.getLegacySeen();
-            sharedPrefs.edit()
-                    .putStringSet(SetPreference.PREF_KEY_SET_ID, setIds)
-                    .putStringSet(SetPreference.PREF_KEY_SEEN_SET_ID, seenIds)
-                    .remove(SetPreference.PREF_KEY_SET_LEGACY) // no longer needed
-                    .commit();
-        }
-
         java.util.Set<String> setIds = sharedPrefs.getStringSet(
                 SetPreference.PREF_KEY_SET_ID, allSetIds);
         java.util.Set<String> seenSetIds = sharedPrefs.getStringSet(
@@ -70,11 +57,11 @@ public class SpaceDockApplication extends Application {
             // ask universe for valid selected sets, plus any new ones
             setIds = universe.getSetSelectionPlusNewSets(setIds, seenSetIds);
 
-            // new sets are observed, store new set preference
+            // new sets are observed, store new set preference in the background
             sharedPrefs.edit()
                     .putStringSet(SetPreference.PREF_KEY_SET_ID, setIds)
                     .putStringSet(SetPreference.PREF_KEY_SEEN_SET_ID, allSetIds)
-                    .commit();
+                    .apply();
         }
         updateSetPreferences(setIds);
     }
