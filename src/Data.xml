@@ -1,4 +1,4 @@
-<Data version="2014-08-22@20-18">
+<Data version="2014-08-23@23-52">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -8087,7 +8087,7 @@
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Vulcan High Command (2/0)</Title>
+      <Title>Vulcan High Command</Title>
       <Ability>Add 2 [TECH] Upgrade slots to your Upgrade Bar. The additional Upgrade slots may be either [CREW] or [TECH] Upgrades. This Upgrade may only be purchased for a Vulcan Captain on a Vulcan ship. If the Vulcan Captain Card is every removed from your ship, discard this Upgrade and then discard Upgrades from your ship one at a time until all of your Upgrades are supported by your ship's Upgrade Bar.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
@@ -8102,7 +8102,7 @@
       <Special>VulcanHighCommand</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Vulcan High Command (1/1)</Title>
+      <Title>Vulcan High Command</Title>
       <Ability>Add 1 [TECH] and 1 [CREW] Upgrade slots to your Upgrade Bar. The additional Upgrade slots may be either [CREW] or [TECH] Upgrades. This Upgrade may only be purchased for a Vulcan Captain on a Vulcan ship. If the Vulcan Captain Card is every removed from your ship, discard this Upgrade and then discard Upgrades from your ship one at a time until all of your Upgrades are supported by your ship's Upgrade Bar.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
@@ -8117,7 +8117,7 @@
       <Special>VulcanHighCommand</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Vulcan High Command (0/2)</Title>
+      <Title>Vulcan High Command</Title>
       <Ability>Add 2 [CREW] Upgrade slots to your Upgrade Bar. The additional Upgrade slots may be either [CREW] or [TECH] Upgrades. This Upgrade may only be purchased for a Vulcan Captain on a Vulcan ship. If the Vulcan Captain Card is every removed from your ship, discard this Upgrade and then discard Upgrades from your ship one at a time until all of your Upgrades are supported by your ship's Upgrade Bar.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
@@ -9262,7 +9262,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Quark</Title>
-      <Ability>At the start of the game, place 1 non-Borg [TECH] of [WEAPON] Upgrade with a cost of 5 or less face down beneath this card. At any time, you may discard Quark to flip the Upgrade that is beneath this card face up and deploy it to your ship, even if it exceeds your ship's restrictions.</Ability>
+      <Ability>At the start of the game, place 1 non-Borg [TECH] Upgrade with a cost of 5 or less face down beneath this card. At any time, you may discard Quark to flip the Upgrade that is beneath this card face up and deploy it to your ship, even if it exceeds your ship's restrictions.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -9272,6 +9272,21 @@
       <Faction>Ferengi</Faction>
       <Cost>2</Cost>
       <Id>quark_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Quark</Title>
+      <Ability>At the start of the game, place 1 non-Borg [WEAPON] Upgrade with a cost of 5 or less face down beneath this card. At any time, you may discard Quark to flip the Upgrade that is beneath this card face up and deploy it to your ship, even if it exceeds your ship's restrictions.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Ferengi</Faction>
+      <Cost>2</Cost>
+      <Id>quark_weapon_71786</Id>
       <Set>71786</Set>
       <Special></Special>
     </Upgrade>
@@ -9348,7 +9363,7 @@
       <Cost>4</Cost>
       <Id>t_rul_71786</Id>
       <Set>71786</Set>
-      <Special></Special>
+      <Special>addonetechslot</Special>
     </Upgrade>
     <Upgrade>
       <Title>Elim Garak</Title>

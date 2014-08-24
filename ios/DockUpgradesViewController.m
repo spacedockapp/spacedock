@@ -173,7 +173,7 @@
 
     // Configure the cell to show the book's title
     DockUpgrade* upgrade = [self objectAtIndexPath: indexPath];
-    cell.textLabel.text = [upgrade title];
+    cell.textLabel.text = [upgrade disambiguatedTitle];
 
     if (_targetShip) {
         BOOL canAdd = [_targetSquad canAddUpgrade: upgrade toShip: _targetShip error: nil];
