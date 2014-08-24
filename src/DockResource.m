@@ -2,7 +2,7 @@
 //  DockResource.m
 //  Space Dock
 //
-//  Created by Rob Tsuk on 4/12/14.
+//  Created by Rob Tsuk on 8/24/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -14,9 +14,7 @@
 
 @dynamic ability;
 @dynamic cost;
-@dynamic externalId;
 @dynamic special;
-@dynamic title;
 @dynamic type;
 @dynamic unique;
 @dynamic squad;

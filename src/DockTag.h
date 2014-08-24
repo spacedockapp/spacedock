@@ -1,5 +1,5 @@
 //
-//  Tag.h
+//  DockTag.h
 //  Space Dock
 //
 //  Created by Rob Tsuk on 8/24/14.
@@ -11,13 +11,13 @@
 
 @class DockTagged;
 
-@interface Tag : NSManagedObject
+@interface DockTag : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *tagged;
 @end
 
-@interface Tag (CoreDataGeneratedAccessors)
+@interface DockTag (CoreDataGeneratedAccessors)
 
 - (void)addTaggedObject:(DockTagged *)value;
 - (void)removeTaggedObject:(DockTagged *)value;

@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Categorized.h"
+#import "DockCategorized.h"
 
 @class DockComponent;
 
-@interface DockComponent : Categorized
+@interface DockComponent : DockCategorized
 
 @property (nonatomic, retain) NSString * additionalFaction;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * externalId;
 @property (nonatomic, retain) NSSet *sets;
 @end
 

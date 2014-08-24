@@ -13,6 +13,8 @@
 @implementation DockComponent
 
 @dynamic additionalFaction;
+@dynamic title;
+@dynamic externalId;
 @dynamic sets;
 
 @end

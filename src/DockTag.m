@@ -1,16 +1,16 @@
 //
-//  Tag.m
+//  DockTag.m
 //  Space Dock
 //
 //  Created by Rob Tsuk on 8/24/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
-#import "Tag.h"
+#import "DockTag.h"
 #import "DockTagged.h"
 
 
-@implementation Tag
+@implementation DockTag
 
 @dynamic name;
 @dynamic tagged;

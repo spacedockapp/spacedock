@@ -7,7 +7,7 @@
 //
 
 #import "DockCategory.h"
-#import "Categorized.h"
+#import "DockCategorized.h"
 
 
 @implementation DockCategory

@@ -1,5 +1,5 @@
 //
-//  Categorized.h
+//  DockCategorized.h
 //  Space Dock
 //
 //  Created by Rob Tsuk on 8/24/14.
@@ -12,12 +12,12 @@
 
 @class DockCategory;
 
-@interface Categorized : DockTagged
+@interface DockCategorized : DockTagged
 
 @property (nonatomic, retain) NSSet *categories;
 @end
 
-@interface Categorized (CoreDataGeneratedAccessors)
+@interface DockCategorized (CoreDataGeneratedAccessors)
 
 - (void)addCategoriesObject:(DockCategory *)value;
 - (void)removeCategoriesObject:(DockCategory *)value;

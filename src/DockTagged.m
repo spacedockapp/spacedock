@@ -7,7 +7,7 @@
 //
 
 #import "DockTagged.h"
-#import "Tag.h"
+#import "DockTag.h"
 
 
 @implementation DockTagged

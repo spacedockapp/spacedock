@@ -2,7 +2,7 @@
 //  DockReference.m
 //  Space Dock
 //
-//  Created by Rob Tsuk on 5/21/14.
+//  Created by Rob Tsuk on 8/24/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -12,8 +12,6 @@
 @implementation DockReference
 
 @dynamic ability;
-@dynamic externalId;
-@dynamic title;
 @dynamic type;
 
 @end

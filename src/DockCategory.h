@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Categorized;
+@class DockCategorized;
 
 @interface DockCategory : NSManagedObject
 
@@ -20,8 +20,8 @@
 
 @interface DockCategory (CoreDataGeneratedAccessors)
 
-- (void)addCategorizedObject:(Categorized *)value;
-- (void)removeCategorizedObject:(Categorized *)value;
+- (void)addCategorizedObject:(DockCategorized *)value;
+- (void)removeCategorizedObject:(DockCategorized *)value;
 - (void)addCategorized:(NSSet *)values;
 - (void)removeCategorized:(NSSet *)values;
 
