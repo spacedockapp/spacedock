@@ -10,20 +10,20 @@
 #import <CoreData/CoreData.h>
 #import "DockCategorized.h"
 
-@class DockComponent;
+@class DockSet;
 
 @interface DockComponent : DockCategorized
 
-@property (nonatomic, retain) NSString * additionalFaction;
-@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * externalId;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * factionSortValue;
 @property (nonatomic, retain) NSSet *sets;
 @end
 
 @interface DockComponent (CoreDataGeneratedAccessors)
 
-- (void)addSetsObject:(DockComponent *)value;
-- (void)removeSetsObject:(DockComponent *)value;
+- (void)addSetsObject:(DockSet *)value;
+- (void)removeSetsObject:(DockSet *)value;
 - (void)addSets:(NSSet *)values;
 - (void)removeSets:(NSSet *)values;
 

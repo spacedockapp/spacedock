@@ -30,7 +30,7 @@
         NSDictionary* options = @{
                                   NSMigratePersistentStoresAutomaticallyOption: @YES, NSInferMappingModelAutomaticallyOption: @YES
                                   };
-        NSPersistentStore* store = [_persistentStoreCoordinator addPersistentStoreWithType: NSBinaryStoreType
+        NSPersistentStore* store = [_persistentStoreCoordinator addPersistentStoreWithType: NSInMemoryStoreType //NSBinaryStoreType
                                                          configuration: nil
                                                                    URL: _storeURL
                                                                options: options error: error];

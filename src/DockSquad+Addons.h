@@ -33,7 +33,6 @@
 -(void)squadCompositionChanged;
 -(void)updateModificationDate;
 -(NSString*)shipsDescription;
--(NSString*)asTextFormat;
 -(NSString*)asPlainTextFormat;
 -(NSString*)asDataFormat;
 -(NSDictionary*)asJSON;

@@ -66,7 +66,7 @@
     }
 
     if (indexPath == nil && _targetShip) {
-        NSString* faction = _targetShip.ship.faction;
+        NSString* faction = _targetShip.ship.highestFaction;
         NSArray* sectionTitles = self.sections;
         id titleCheck = ^(id obj, NSUInteger idx, BOOL* stop) {
             id<NSFetchedResultsSectionInfo> sectionInfo = obj;

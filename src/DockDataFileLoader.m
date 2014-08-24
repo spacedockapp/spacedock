@@ -5,6 +5,8 @@
 #import "DockAdmiral.h"
 #import "DockBorg+Addons.h"
 #import "DockCaptain+Addons.h"
+#import "DockCategory+Addons.h"
+#import "DockComponent+Addons.h"
 #import "DockConstants.h"
 #import "DockCrew.h"
 #import "DockEquippedShip+Addons.h"
@@ -211,6 +213,11 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                     DockShip* ship = (DockShip*)c;
                     NSString* shipClass =  [d valueForKey: key];
                     [ship updateShipClass: shipClass];
+                } else if (([key isEqualToString: @"Faction"] || [key isEqualToString: @"AdditionalFaction"]) && [c isKindOfClass: [DockCategorized class]]) {
+                    id v = [d valueForKey: key];
+                    NSString* factionString = processAttribute(v, NSStringAttributeType);
+                    DockCategory* factionCategory = [DockCategory findOrCreateCategory: kDockFactionCategoryType value: factionString context: _managedObjectContext];
+                    [c addCategoriesObject: factionCategory];
                 }
             }
 
@@ -234,6 +241,8 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                         NSLog(@"Failed to find set for id %@", setId);
                     }
                 }
+                DockComponent* component = c;
+                component.factionSortValue = [component combinedFactions];
             }
         }
     }

@@ -1,5 +1,6 @@
 #import "DockTableViewController.h"
 
+#import "DockComponent+Addons.h"
 #import "DockConstants.h"
 #import "DockSet+Addons.h"
 #import "DockUpgrade+Addons.h"
@@ -44,7 +45,7 @@
 
 -(NSString*)sectionNameKeyPath
 {
-    return @"faction";
+    return @"factionSortValue";
 }
 
 -(NSString*)entityName
@@ -55,7 +56,7 @@
 -(NSArray*)sortDescriptors
 {
     NSSortDescriptor* titleDescriptor = [[NSSortDescriptor alloc] initWithKey: @"title" ascending: YES];
-    NSSortDescriptor* factionDescriptor = [[NSSortDescriptor alloc] initWithKey: @"faction" ascending: YES];
+    NSSortDescriptor* factionDescriptor = [[NSSortDescriptor alloc] initWithKey: @"factionSortValue" ascending: YES];
     return @[factionDescriptor, titleDescriptor];
 }
 
@@ -69,8 +70,8 @@
     [predicateTerms addObject: @"any sets.externalId in %@"];
     [predicateValues addObject: includedSets];
     if (faction != nil && [self useFactionFilter]) {
-        [predicateTerms addObject: @"(faction = %@ or additionalFaction = %@)"];
-        [predicateValues addObject: faction];
+        [predicateTerms addObject: @"(ANY categories.type like %@ and ANY categories.value like %@)"];
+        [predicateValues addObject: kDockFactionCategoryType];
         [predicateValues addObject: faction];
     }
 

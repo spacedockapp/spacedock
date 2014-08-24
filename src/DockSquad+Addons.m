@@ -476,47 +476,6 @@ static BOOL sIsImporting = NO;
     return [shipTitles componentsJoinedByString: @", "];
 }
 
--(NSString*)asTextFormat
-{
-    NSMutableString* textFormat = [[NSMutableString alloc] init];
-    NSString* header = [NSString stringWithFormat: @"Type    %@ %@  %@\n", [@"Card Title" stringByPaddingToLength : 40 withString : @" " startingAtIndex : 0], @"Faction", @"SP"];
-    [textFormat appendString: header];
-    int i = 1;
-
-    for (DockEquippedShip* ship in self.equippedShips) {
-        NSString* s = [NSString stringWithFormat: @"Ship %d  %@ %1@  %5d\n", i, [ship.title stringByPaddingToLength: 43 withString: @" " startingAtIndex: 0], [ship.ship.faction substringToIndex: 1], [ship.ship.cost intValue]];
-        [textFormat appendString: s];
-
-        for (DockEquippedUpgrade* upgrade in ship.sortedUpgrades) {
-            if (![upgrade isPlaceholder]) {
-
-                if ([upgrade.upgrade isCaptain]) {
-                    s = [NSString stringWithFormat: @" Cap    %@ %1@  %5d\n", [upgrade.title stringByPaddingToLength: 43 withString: @" " startingAtIndex: 0], [upgrade.faction substringToIndex: 1], upgrade.cost];
-                } else {
-                    s = [NSString stringWithFormat: @"  %@     %@ %1@  %5d\n", [upgrade typeCode], [upgrade.title stringByPaddingToLength: 43 withString: @" " startingAtIndex: 0], [upgrade.faction substringToIndex: 1], upgrade.cost];
-                }
-
-                [textFormat appendString: s];
-            }
-        }
-        s = [NSString stringWithFormat: @"                                                 Total %5d\n", ship.cost];
-        [textFormat appendString: s];
-        [textFormat appendString: @"\n"];
-        i += 1;
-    }
-    DockResource* resource = self.resource;
-
-    if (resource != nil) {
-        NSString* resourceString = [NSString stringWithFormat: @"Resource: %@     %5d\n\n",
-                                    [resource.title stringByPaddingToLength: 40 withString: @" " startingAtIndex: 0],
-                                    [resource.cost intValue]];
-        [textFormat appendString: resourceString];
-    }
-
-    [textFormat appendString: [NSString stringWithFormat: @"Total Build: %d\n", self.cost]];
-    return [NSString stringWithString: textFormat];
-}
-
 -(NSString*)asPlainTextFormat
 {
     NSMutableString* textFormat = [[NSMutableString alloc] init];

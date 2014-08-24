@@ -24,7 +24,6 @@
 @property (nonatomic, retain) NSNumber * cost;
 @property (nonatomic, retain) NSNumber * crew;
 @property (nonatomic, retain) NSNumber * evasiveManeuvers;
-@property (nonatomic, retain) NSString * faction;
 @property (nonatomic, retain) NSNumber * has360Arc;
 @property (nonatomic, retain) NSNumber * hull;
 @property (nonatomic, retain) NSNumber * regenerate;

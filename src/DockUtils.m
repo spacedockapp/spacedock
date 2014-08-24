@@ -36,9 +36,9 @@ NSSet* allAttributes(NSManagedObjectContext* context, NSString* entityName, NSSt
 }
 
 
-NSString* factionCode(id target)
+NSString* factionCode(id<DockFactioned> target)
 {
-    NSString* faction = [target faction];
+    NSString* faction = [target highestFaction];
     return [faction substringToIndex: 3];
 }
 
@@ -124,26 +124,18 @@ NSArray* actionStrings(id target)
 
 BOOL targetHasFaction(NSString* faction, id<DockFactioned> target)
 {
-    return [target.faction isEqualToString: faction] || [target.additionalFaction isEqualToString: faction];
+    return [target.factions containsObject: faction];
 }
 
 BOOL factionsMatch(id<DockFactioned> a, id<DockFactioned> b)
 {
-    if (targetHasFaction(a.faction, b)) {
-        return true;
-    }
-    
-    return targetHasFaction(a.additionalFaction, b);
+    return [a.factions intersectsSet: b.factions];
 }
 
 NSString* combinedFactionString(id<DockFactioned> a)
 {
-    NSString* faction = a.faction;
-    NSString* additionalFaction = a.additionalFaction;
-    if (additionalFaction.length > 0) {
-        return [NSString stringWithFormat: @"%@, %@", faction, additionalFaction];
-    }
-    return faction;
+    NSArray* factions = [a factionsSortedByInitiative];
+    return [factions componentsJoinedByString: @", "];
 }
 
 NSURL* applicationFilesDirectory()

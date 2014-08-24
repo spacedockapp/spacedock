@@ -14,7 +14,6 @@
 
 @dynamic ability;
 @dynamic cost;
-@dynamic faction;
 @dynamic placeholder;
 @dynamic special;
 @dynamic unique;

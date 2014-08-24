@@ -7,14 +7,14 @@
 //
 
 #import "DockComponent.h"
-#import "DockComponent.h"
+#import "DockSet.h"
 
 
 @implementation DockComponent
 
-@dynamic additionalFaction;
-@dynamic title;
 @dynamic externalId;
+@dynamic title;
+@dynamic factionSortValue;
 @dynamic sets;
 
 @end

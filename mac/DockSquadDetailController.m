@@ -325,7 +325,7 @@ NSString* kCurrentEquippedUpgrade = @"CurrentEquippedUpgrade";
 
 -(IBAction)filterToClickedFaction:(id)sender
 {
-    [self.appDelegate updateFactionFilter: [[[self clickedEquippedShip] ship] faction]];
+    [self.appDelegate updateFactionFilter: [[[self clickedEquippedShip] ship] highestFaction]];
 }
 
 -(IBAction)filterToClickedUpgradeType:(id)sender
@@ -440,7 +440,7 @@ void addRemoveFlagshipItem(NSMenu *menu)
             [self addChangeShipItem:menu];
             DockEquippedShip* ship = [self clickedEquippedShip];
             addShowDetailsItem(menu);
-            addFilterToFactionItem(menu, ship.ship.faction);
+            addFilterToFactionItem(menu, ship.ship.highestFaction);
             addDeleteItem(menu);
         } else if ([target isKindOfClass: [DockEquippedFlagship class]]) {
             addShowDetailsItem(menu);
@@ -450,10 +450,10 @@ void addRemoveFlagshipItem(NSMenu *menu)
             if (!eu.isPlaceholder) {
                 addShowDetailsItem(menu);
             }
-            addFilterToFactionItem(menu, eu.equippedShip.ship.faction);
+            addFilterToFactionItem(menu, eu.equippedShip.ship.highestFaction);
             if (!eu.upgrade.isCaptain) {
                 addFilterToTypeItem(menu, eu.upgrade.upType);
-                addFilterToFactionAndTypeItem(menu, eu.equippedShip.ship.faction, eu.upgrade.upType);
+                addFilterToFactionAndTypeItem(menu, eu.equippedShip.ship.highestFaction, eu.upgrade.upType);
                 if (!eu.isPlaceholder) {
                     addOverrideItems(menu);
                 }

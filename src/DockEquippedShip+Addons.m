@@ -384,7 +384,7 @@
 
 -(NSString*)shipFaction
 {
-    return self.ship.faction;
+    return self.ship.highestFaction;
 }
 
 -(void)establishPlaceholders
@@ -502,7 +502,7 @@
     }
 
     if ([upgradeSpecial isEqualToString: @"OnlyBorgCaptain"]) {
-        if (![self.captain.faction isEqualToString: @"Borg"]) {
+        if (![self.captain hasFaction: @"Borg"]) {
             return NO;
         }
     }
@@ -668,8 +668,7 @@
         return NO;
     }
 
-    NSString* fleetCaptainFaction = fleetCaptain.faction;
-    if (![fleetCaptainFaction isEqualToString: @"Independent"]) {
+    if (![fleetCaptain hasFaction: @"Independent"]) {
         if (!factionsMatch(self.ship, fleetCaptain)) {
             NSString* info = @"The ship's faction must be the same as the Fleet Captain.";
             [self makeError: error msg:msg info: info];
@@ -767,7 +766,7 @@
         DockUpgrade* upgrade = eu.upgrade;
         if (![upgrade isCaptain] && ![upgrade isPlaceholder]) {
             if (upType == nil || [upType isEqualToString: upgrade.upType]) {
-                if (faction == nil || [faction isEqualToString: upgrade.faction]) {
+                if (faction == nil || [upgrade hasFaction: faction]) {
                     [allUpgrades addObject: eu];
                 }
             }

@@ -1,6 +1,7 @@
 #import "DockTabController.h"
 
 #import "DockAppDelegate.h"
+#import "DockComponent+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedShip+MacAddons.h"
 #import "DockEquippedUpgrade+Addons.h"
@@ -111,8 +112,8 @@ NSMutableArray* sTabControllers = nil;
 -(void)addAdditionalPredicatesForFaction:(NSString*)factionName formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments
 {
     if (self.dependsOnFaction && factionName != nil) {
-        [formatParts addObject: @"(faction = %@ or additionalFaction = %@)"];
-        [arguments addObject: factionName];
+        [formatParts addObject: @"(ANY categories.type like %@ and ANY categories.value like %@)"];
+        [arguments addObject: kDockFactionCategoryType];
         [arguments addObject: factionName];
     }
 }
@@ -292,9 +293,8 @@ NSMutableArray* sTabControllers = nil;
 -(void)resetFiltersForItem:(id)item
 {
     if ([self dependsOnFaction]) {
-        NSString* faction = [item faction];
         NSString* filterFaction = [self factionName];
-        if (![faction isEqualToString: filterFaction]) {
+        if (![item hasFaction: filterFaction]) {
             self.appDelegate.factionName = nil;
             [self.targetController rearrangeObjects];
             [self.targetTable reloadData];

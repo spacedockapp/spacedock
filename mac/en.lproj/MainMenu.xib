@@ -3566,7 +3566,7 @@
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                                 <connections>
-                                                                                                    <binding destination="42H-yn-4Zn" name="value" keyPath="objectValue.faction" id="rZP-Ih-9uE"/>
+                                                                                                    <binding destination="42H-yn-4Zn" name="value" keyPath="objectValue.combinedFaction" id="Ej5-yh-tsi"/>
                                                                                                 </connections>
                                                                                             </textField>
                                                                                         </subviews>

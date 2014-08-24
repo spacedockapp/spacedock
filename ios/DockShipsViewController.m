@@ -50,7 +50,7 @@
     NSSortDescriptor* titleDescriptor = [[NSSortDescriptor alloc] initWithKey: @"title" ascending: YES];
     NSSortDescriptor* classDescriptor = [[NSSortDescriptor alloc] initWithKey: @"shipClass" ascending: YES];
     NSSortDescriptor* uniqueDescriptor = [[NSSortDescriptor alloc] initWithKey: @"unique" ascending: NO];
-    NSSortDescriptor* factionDescriptor = [[NSSortDescriptor alloc] initWithKey: @"faction" ascending: YES];
+    NSSortDescriptor* factionDescriptor = [[NSSortDescriptor alloc] initWithKey: @"factionSortValue" ascending: YES];
     return @[factionDescriptor, classDescriptor, uniqueDescriptor, titleDescriptor];
 }
 

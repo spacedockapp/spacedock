@@ -39,12 +39,6 @@ static NSManagedObjectContext* getManagedObjectContext()
     [super tearDown];
 }
 
-/*
-        Set reliantSet = universe.sets.get("71121");
-        assertNotNil("Couldn't get core set", reliantSet);
-        assertEquals("Count of items in reliant expansion wrong", 12,
-                reliantSet.getItems().size());
-*/
 - (void)testLoad
 {
     {
@@ -56,7 +50,7 @@ static NSManagedObjectContext* getManagedObjectContext()
         DockShip* entD = [DockShip shipForId: @"1001" context: _context];
         XCTAssertNotNil(entD);
         XCTAssertEqual(4, [entD.attack intValue]);
-        XCTAssertEqualObjects(@"Federation", entD.faction);
+        XCTAssertEqualObjects(@"Federation", entD.factionSortValue);
         DockShipClassDetails* details = entD.shipClassDetails;
         XCTAssertNotNil(details, "Couldn't get ship details");
         XCTAssertEqualObjects(@"90", details.frontArc, @"wrong front arc");
@@ -88,7 +82,7 @@ static NSManagedObjectContext* getManagedObjectContext()
         XCTAssertNotNil(fs);
         XCTAssertEqualObjects(@1, fs.attack);
         XCTAssertEqualObjects(@0, fs.hull);
-        XCTAssertEqualObjects(@"Independent", fs.faction);
+        XCTAssertEqualObjects(@"Independent", fs.factionSortValue);
     }
     
     {

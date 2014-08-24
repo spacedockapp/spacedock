@@ -23,7 +23,6 @@
 @dynamic cost;
 @dynamic crew;
 @dynamic evasiveManeuvers;
-@dynamic faction;
 @dynamic has360Arc;
 @dynamic hull;
 @dynamic regenerate;

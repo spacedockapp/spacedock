@@ -20,8 +20,8 @@
         <relationship name="categorized" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Categorized" inverseName="categories" inverseEntity="Categorized" syncable="YES"/>
     </entity>
     <entity name="Component" representedClassName="DockComponent" isAbstract="YES" parentEntity="Categorized" syncable="YES">
-        <attribute name="additionalFaction" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="externalId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="factionSortValue" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="sets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Set" inverseName="items" inverseEntity="Set" syncable="YES"/>
     </entity>
@@ -47,7 +47,6 @@
         <attribute name="cost" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="crew" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="evasiveManeuvers" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
-        <attribute name="faction" optional="YES" attributeType="String" defaultValueString="Independent" syncable="YES"/>
         <attribute name="hull" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="scan" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="sensorEcho" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
@@ -83,7 +82,7 @@
         <attribute name="unique" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <relationship name="squad" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Squad" inverseName="resource" inverseEntity="Squad" syncable="YES"/>
     </entity>
-    <entity name="Set" representedClassName="DockComponent" syncable="YES">
+    <entity name="Set" representedClassName="DockSet" syncable="YES">
         <attribute name="externalId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="include" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -103,7 +102,6 @@
         <attribute name="cost" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="crew" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="evasiveManeuvers" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
-        <attribute name="faction" optional="YES" attributeType="String" defaultValueString="Independent" syncable="YES"/>
         <attribute name="has360Arc" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="hull" attributeType="Integer 16" minValueString="1" defaultValueString="1" syncable="YES"/>
         <attribute name="regenerate" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -148,7 +146,6 @@
     <entity name="Upgrade" representedClassName="DockUpgrade" isAbstract="YES" parentEntity="Component" syncable="YES">
         <attribute name="ability" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cost" attributeType="Integer 16" minValueString="0" defaultValueString="1" syncable="YES"/>
-        <attribute name="faction" attributeType="String" defaultValueString="Independent" syncable="YES"/>
         <attribute name="placeholder" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="special" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="unique" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
@@ -169,13 +166,13 @@
         <element name="Crew" positionX="0" positionY="0" width="128" height="45"/>
         <element name="EquippedShip" positionX="0" positionY="0" width="128" height="103"/>
         <element name="EquippedUpgrade" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="Flagship" positionX="0" positionY="0" width="128" height="313"/>
+        <element name="Flagship" positionX="0" positionY="0" width="128" height="298"/>
         <element name="FleetCaptain" positionX="18" positionY="153" width="128" height="118"/>
         <element name="Maneuver" positionX="0" positionY="0" width="128" height="105"/>
         <element name="Reference" positionX="9" positionY="153" width="128" height="73"/>
         <element name="Resource" positionX="0" positionY="0" width="128" height="133"/>
-        <element name="Set" positionX="0" positionY="0" width="128" height="148"/>
-        <element name="Ship" positionX="0" positionY="0" width="128" height="403"/>
+        <element name="Set" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="Ship" positionX="0" positionY="0" width="128" height="388"/>
         <element name="ShipClassDetails" positionX="0" positionY="0" width="128" height="135"/>
         <element name="Sideboard" positionX="0" positionY="0" width="128" height="45"/>
         <element name="Squad" positionX="0" positionY="0" width="128" height="150"/>
@@ -183,7 +180,7 @@
         <element name="Tagged" positionX="423" positionY="248" width="128" height="58"/>
         <element name="Talent" positionX="0" positionY="0" width="128" height="45"/>
         <element name="Tech" positionX="0" positionY="0" width="128" height="45"/>
-        <element name="Upgrade" positionX="0" positionY="0" width="128" height="163"/>
+        <element name="Upgrade" positionX="0" positionY="0" width="128" height="148"/>
         <element name="Weapon" positionX="-299" positionY="24" width="128" height="75"/>
     </elements>
 </model>

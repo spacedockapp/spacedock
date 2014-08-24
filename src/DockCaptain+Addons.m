@@ -1,5 +1,6 @@
 #import "DockCaptain+Addons.h"
 
+#import "DockComponent+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
@@ -16,7 +17,7 @@
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Captain" inManagedObjectContext: context];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
-    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"cost = 0 and faction like %@", faction];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"cost = 0 and ANY categories.type like %@ and ANY categories.value like %@", kDockFactionCategoryType, faction];
     [request setPredicate: predicateTemplate];
     NSError* err;
     NSArray* existingItems = [context executeFetchRequest: request error: &err];
@@ -31,12 +32,12 @@
 +(DockUpgrade*)zeroCostCaptainForShip:(DockShip*)targetShip
 {
     NSManagedObjectContext* context = targetShip.managedObjectContext;
-    NSString* faction = targetShip.faction;
+    NSString* faction = targetShip.highestFaction;
     NSSet* targetShipSets = targetShip.sets;
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Captain" inManagedObjectContext: context];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
-    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"cost = 0 and faction like %@", faction];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"cost = 0 and ANY categories.type == %@ and ANY categories.value == %@", kDockFactionCategoryType, faction];
     [request setPredicate: predicateTemplate];
     NSError* err;
     NSArray* existingItems = [context executeFetchRequest: request error: &err];
@@ -108,7 +109,7 @@
 
 -(NSString*)sortStringForSet
 {
-    return [NSString stringWithFormat: @"%@:b:%@:%c:%@", self.faction, self.upSortType, 'z' - [self.skill intValue], self.title];
+    return [NSString stringWithFormat: @"%@:b:%@:%c:%@", self.highestFaction, self.upSortType, 'z' - [self.skill intValue], self.title];
 }
 
 -(NSString*)itemDescription

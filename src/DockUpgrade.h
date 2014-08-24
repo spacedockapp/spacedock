@@ -16,7 +16,6 @@
 
 @property (nonatomic, retain) NSString * ability;
 @property (nonatomic, retain) NSNumber * cost;
-@property (nonatomic, retain) NSString * faction;
 @property (nonatomic, retain) NSNumber * placeholder;
 @property (nonatomic, retain) NSString * special;
 @property (nonatomic, retain) NSNumber * unique;

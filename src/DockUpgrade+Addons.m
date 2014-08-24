@@ -1,6 +1,7 @@
 #import "DockUpgrade+Addons.h"
 
 #import "DockCaptain+Addons.h"
+#import "DockComponent+Addons.h"
 #import "DockConstants.h"
 #import "DockCrew.h"
 #import "DockEquippedShip+Addons.h"
@@ -28,7 +29,7 @@
 
     if (existingItems.count > 0) {
         for (DockUpgrade* upgrade in existingItems) {
-            [allFactionsSet addObject: upgrade.faction];
+            [allFactionsSet addObjectsFromArray: upgrade.factions.allObjects];
         }
         return [NSSet setWithSet: allFactionsSet];
     }
@@ -164,32 +165,32 @@
 
 -(BOOL)isDominion
 {
-    return [self.faction isEqualToString: @"Dominion"];
+    return [self hasFaction: @"Dominion"];
 }
 
 -(BOOL)isKlingon
 {
-    return [self.faction isEqualToString: @"Klingon"];
+    return [self hasFaction: @"Klingon"];
 }
 
 -(BOOL)isBajoran
 {
-    return [self.faction isEqualToString: @"Bajoran"];
+    return [self hasFaction: @"Bajoran"];
 }
 
 -(BOOL)isFederation
 {
-    return [self.faction isEqualToString: @"Federation"];
+    return [self hasFaction: @"Federation"];
 }
 
 -(BOOL)isVulcan
 {
-    return [self.faction isEqualToString: @"Vulcan"];
+    return [self hasFaction: @"Vulcan"];
 }
 
 -(BOOL)isFactionBorg
 {
-    return [self.faction isEqualToString: @"Borg"];
+    return [self hasFaction: @"Borg"];
 }
 
 -(BOOL)isRestrictedOnlyByFaction
@@ -323,7 +324,7 @@
 
 -(NSString*)sortStringForSet
 {
-    return [NSString stringWithFormat: @"%@:c:%@:%@", self.faction, self.upSortType, self.title];
+    return [NSString stringWithFormat: @"%@:c:%@:%@", self.highestFaction, self.upSortType, self.title];
 }
 
 -(NSString*)itemDescription
@@ -695,11 +696,5 @@
 {
     return nil;
 }
-
--(NSString*)combinedFactions
-{
-    return combinedFactionString(self);
-}
-
 
 @end

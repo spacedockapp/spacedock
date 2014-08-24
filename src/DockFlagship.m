@@ -20,7 +20,6 @@
 @dynamic cost;
 @dynamic crew;
 @dynamic evasiveManeuvers;
-@dynamic faction;
 @dynamic hull;
 @dynamic scan;
 @dynamic sensorEcho;
