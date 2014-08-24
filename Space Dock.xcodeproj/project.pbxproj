@@ -563,6 +563,7 @@
 		D475C6711916BD9B00275EF1 /* DockBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockBoxView.m; sourceTree = "<group>"; };
 		D478D455197D508D00A28F63 /* DockTabDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockTabDelegate.h; sourceTree = "<group>"; };
 		D478D456197D508D00A28F63 /* DockTabDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockTabDelegate.m; sourceTree = "<group>"; };
+		D481262619AA19B2000CCD25 /* Space_Dock_15.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock_15.xcdatamodel; sourceTree = "<group>"; };
 		D4838F27198690FA00994639 /* DockSearchFieldController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockSearchFieldController.h; sourceTree = "<group>"; };
 		D4838F28198690FA00994639 /* DockSearchFieldController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockSearchFieldController.m; sourceTree = "<group>"; };
 		D4838F2A1987D6AB00994639 /* NSToolbar+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSToolbar+Addons.h"; sourceTree = "<group>"; };
@@ -2090,6 +2091,7 @@
 		D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D481262619AA19B2000CCD25 /* Space_Dock_15.xcdatamodel */,
 				D44B8042198C8D3000D27372 /* Space_Dock_14.xcdatamodel */,
 				D4F85A5019688CAE0062A0CE /* Space_Dock_13.xcdatamodel */,
 				D44B4CF11966DBF0004DBC89 /* Space_Dock_12.xcdatamodel */,
@@ -2105,7 +2107,7 @@
 				D40AF35A1802FB36000B9FF3 /* Space_Dock_2.xcdatamodel */,
 				D4F7F40D17F2C95D00F5A808 /* Space_Dock.xcdatamodel */,
 			);
-			currentVersion = D44B8042198C8D3000D27372 /* Space_Dock_14.xcdatamodel */;
+			currentVersion = D481262619AA19B2000CCD25 /* Space_Dock_15.xcdatamodel */;
 			path = Space_Dock.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
