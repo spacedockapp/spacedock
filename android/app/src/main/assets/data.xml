@@ -1,4 +1,4 @@
-<Data version="2014-08-25@15-04">
+<Data version="2014-08-25@15-36">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -9613,7 +9613,15 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
       <Resource>
         <Title>Officer Cards</Title>
         <Unique>Y</Unique>
-        <Ability></Ability>
+        <Ability>1) Players receive a set of 4 Officer Cards and may choose to use any number of them during the Tournament. Each Officer Card costs 3 SP to deploy to your fleet.
+
+2) Officer Cards are assigned to one or more of your [CREW] Upgrades. When assigning these cards, be sure to stack the Officer Card beneath the [CREW] Upgrade so that the lower half of the Officer Card is visible. You may assign up to 2 Officer Cards to any of your [CREW] Upgrades.
+
+3) Officer Cards add bonus text-based abilities and Upgrade Slots to the assigned [CREW] Upgrade and/or his ship. Players may use the bonus text-based abilities in addition to their [CREW] Upgrade's normal text-based ability (if applicable) during the Battle.
+
+4) The First Officer Card has an [ELITE TALENT] icon at the bottom of the card. This allows the First Officer's ship to field 1 [ELITE TALENT] Upgrade as though the First Officer were a Captain. This [ELITE TALENT] Upgrade is in addition to any [ELITE TALENT] Upgrade(s) that your ship's Captain can field.
+
+5) If a [CREW] Upgrade that has one or more Officer Cards assigned to it is ever disabled, its assigned Officer Card(s) are considered disabled as well. If a [CREW] Upgrade that has one or more Officer Cards assigned to it is ever discarded, its assigned Officer Card(s) are considered discarded as well. NOTE: If the First Officer is ever discarded, his [ELITE TALENT] Upgrade is discarded as well.</Ability>
         <Type>Resource</Type>
         <Cost>5</Cost>
         <Id>officer_cards_collectiveop3</Id>
