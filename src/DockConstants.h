@@ -15,3 +15,4 @@ extern NSString* kDockBundleIdentifier;
 
 extern NSString* kFleetCaptainUpgradeType;
 extern NSString* kAdmiralUpgradeType;
+extern NSString* kOfficerUpgradeType;

@@ -1,4 +1,4 @@
-<Data version="2014-08-25@14-30">
+<Data xversion="2014-08-25@15-04">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -9610,6 +9610,15 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
         <Id>fleet_captain_collectiveop2</Id>
         <Set>CollectiveOP2</Set>
       </Resource>
+      <Resource>
+        <Title>Officer Cards</Title>
+        <Unique>Y</Unique>
+        <Ability></Ability>
+        <Type>Resource</Type>
+        <Cost>5</Cost>
+        <Id>officer_cards_collectiveop3</Id>
+        <Set>CollectiveOP3</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -9980,6 +9989,60 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
             <Special>TechUpgradesCostOneLess</Special>
         </FleetCaptain>
     </FleetCaptains>
+    <Officers>
+	    <Officer>
+	      <Title>First Officer</Title>
+	      <Ability>Whenever you perform a [BATTLESTATIONS], [SCAN], or [EVASIVE] Action, you may place 2 Tokens of the appropriate type beside your ship instead of 1.  If you do so, place an Auxiliary Power Token beside your ship. If your Captain's Skill is ever reduced below 4, you may use the Skill Number on this card instead of your Captain's Skill Number.</Ability>
+	      <Unique>Y</Unique>
+	      <Attack></Attack>
+	      <Range></Range>
+	      <Type>Officer</Type>
+	      <Faction>Independent</Faction>
+	      <Cost>3</Cost>
+	      <Id>first_officer_collectiveop3</Id>
+	      <Set>CollectiveOP3</Set>
+	      <Special></Special>
+	    </Officer>
+	    <Officer>
+	      <Title>Tactical Officer</Title>
+	      <Ability>Add 1 [WEAPON] Upgrade slot to your Upgrade Bar. During the Roll Attack Dice step of the Combat Phase, you may spend a [BATTLESTATIONS]  Token to roll +1 attack die. During the Roll Defense Dice step of the Combat Phase, you may spend a [BATTLESTATIONS] Token to roll +1 defense die.</Ability>
+	      <Unique>Y</Unique>
+	      <Attack></Attack>
+	      <Range></Range>
+	      <Type>Officer</Type>
+	      <Faction>Independent</Faction>
+	      <Cost>3</Cost>
+	      <Id>tactical_officer_collectiveop3</Id>
+	      <Set>CollectiveOP3</Set>
+	      <Special>addoneweaponslot</Special>
+	    </Officer>
+	    <Officer>
+	      <Title>Operations Officer</Title>
+	      <Ability>Add 1 [CREW] Upgrade slot to your Upgrade Bar. During the Modify Attack Dice step of the Combat Phase, you may choose one of your attack dice and re-roll that die twice. During the Modify Defense Dice step of the Combat Phase, you may choose one of your defense dice and re-roll that die twice.</Ability>
+	      <Unique>Y</Unique>
+	      <Attack></Attack>
+	      <Range></Range>
+	      <Type>Officer</Type>
+	      <Faction>Independent</Faction>
+	      <Cost>3</Cost>
+	      <Id>operations_officer_collectiveop3</Id>
+	      <Set>CollectiveOP3</Set>
+	      <Special>Add_Crew_1</Special>
+	    </Officer>
+	    <Officer>
+	      <Title>Science Officer</Title>
+	      <Ability>Add 1 [TECH] Upgrade slot to your Upgrade Bar. Each time you attack, if there is a [SCAN] Token beside your ship, the defender rolls -2 defense dice instead of -1. During the Modify Defense Dice step of the Combat Phase, you may spend a [SCAN] Token to add 1 [EVASIVE] result to your roll.</Ability>
+	      <Unique>Y</Unique>
+	      <Attack></Attack>
+	      <Range></Range>
+	      <Type>Officer</Type>
+	      <Faction>Independent</Faction>
+	      <Cost>3</Cost>
+	      <Id>science_officer_collectiveop3</Id>
+	      <Set>CollectiveOP3</Set>
+	      <Special>addonetechslot</Special>
+	    </Officer>
+	</Officers>
     <ReferenceItems>
         <Reference>
           <Title>Energy Dampening Token (EDT)</Title>
