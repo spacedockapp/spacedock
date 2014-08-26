@@ -164,6 +164,11 @@
     return [self.upType isEqualToString: kFleetCaptainUpgradeType];
 }
 
+-(BOOL)isOfficer
+{
+    return [self.upType isEqualToString: kOfficerUpgradeType];
+}
+
 -(BOOL)isTech
 {
     return [self.upType isEqualToString: @"Tech"];
@@ -224,6 +229,11 @@
     return YES;
 }
 
+-(BOOL)isIndependent
+{
+    return [self.faction isEqualToString: @"Independent"];
+}
+
 -(NSComparisonResult)compareTo:(DockUpgrade*)other
 {
     NSString* upTypeMe = [self upSortType];
@@ -268,6 +278,10 @@
 
     if ([self isFleetCaptain]) {
         return [targetShip fleetCaptainCount];
+    }
+
+    if ([self isOfficer]) {
+        return [targetShip officerLimit];
     }
 
     if ([self isTalent]) {
@@ -595,7 +609,7 @@
         }
     }
 
-    if (!factionsMatch(ship, self) && !equippedShip.isResourceSideboard && !factionsMatch(self, equippedShip.flagship)) {
+    if (![upgrade isOfficer] && !factionsMatch(ship, self) && !equippedShip.isResourceSideboard && !factionsMatch(self, equippedShip.flagship)) {
         if ([captainSpecial isEqualToString: @"UpgradesIgnoreFactionPenalty"] && ![upgrade isCaptain] && ![upgrade isAdmiral]) {
             // do nothing
         } else if ([captainSpecial isEqualToString: @"NoPenaltyOnFederationOrBajoranShip"]  && [upgrade isCaptain]) {
@@ -613,6 +627,7 @@
         } else if ([captainSpecial isEqualToString: @"lore_71522"] &&
                    [upgrade isTalent]) {
         } else if ([externalId isEqualToString: @"elim_garak_71786"]) {
+        } else if ([fleetCaptainOnThisShip isIndependent] && [ship isIndependent] && [upgrade isCaptain]) {
         } else {
             if (upgrade.isAdmiral) {
                 cost += 3;
@@ -651,7 +666,7 @@
     if ([special isEqualToString: @"AddTwoWeaponSlots"]) {
         return 2;
     }
-    if ([special isEqualToString: @"AddsOneWeaponOneTech"]) {
+    if ([special isEqualToString: @"AddsOneWeaponOneTech"] || [special isEqualToString: @"addoneweaponslot"]) {
         return 1;
     }
     if ([special isEqualToString: @"sakonna_gavroche"]) {

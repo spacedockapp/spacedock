@@ -16,6 +16,7 @@
 -(BOOL)isCaptain;
 -(BOOL)isAdmiral;
 -(BOOL)isFleetCaptain;
+-(BOOL)isOfficer;
 -(BOOL)isPlaceholder;
 -(BOOL)isUnique;
 -(BOOL)isDominion;

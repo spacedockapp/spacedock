@@ -3,11 +3,13 @@
 #import "DockAdmiral.h"
 #import "DockBackupManager.h"
 #import "DockCaptain+Addons.h"
+#import "DockConstants.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockErrors.h"
 #import "DockFlagship+Addons.h"
 #import "DockFleetCaptain+Addons.h"
+#import "DockOfficer+Addons.h"
 #import "DockResource+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSideboard+Addons.h"
@@ -853,6 +855,68 @@ static NSString* namePrefix(NSString* originalName)
     return [targetShip addUpgrade: fleetCaptain];
 }
 
+-(BOOL)canAddOfficer:(DockOfficer*)officer toShip:(DockEquippedShip*)targetShip error:(NSError**)error
+{
+    NSArray* crewUpgrades = [targetShip allUpgradesOfFaction: nil upType: @"Crew"];
+    NSInteger crewCount = crewUpgrades.count;
+    NSArray* officers = [targetShip allUpgradesOfFaction: nil upType: kOfficerUpgradeType];
+    NSInteger limit = [targetShip officerLimit];
+    if (officers.count >= limit) {
+        if (error) {
+            NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", officer.title];
+            NSString* info = nil;
+            if (crewCount > 0) {
+                info = [NSString stringWithFormat: @"This ship has %d crew and can install no more than %d officer cards.", (int)crewCount, (int)limit];
+            } else {
+                info = @"Officers must be installed with crew and this ship has no crew ";
+            }
+            NSDictionary* d = @{
+                NSLocalizedDescriptionKey: msg,
+                NSLocalizedFailureReasonErrorKey: info
+            };
+            *error = [NSError errorWithDomain: DockErrorDomain code: kUniqueConflict userInfo: d];
+        }
+
+        return NO;
+    }
+    return [self passesUniquenessCheck: officer toShip: targetShip error: error];
+}
+
+-(DockEquippedUpgrade*)addOfficer:(DockOfficer*)officer toShip:(DockEquippedShip*)targetShip error:(NSError**)error
+{
+    if (![self canAddOfficer: officer toShip: targetShip error: error]) {
+        return nil;
+    }
+
+    DockResource* resource = [officer associatedResource];
+    self.resource = resource;
+
+    return [targetShip addUpgrade: officer];
+}
+
+-(BOOL)passesUniquenessCheck:(DockUpgrade*)upgrade toShip:(DockEquippedShip*)targetShip error:(NSError**)error
+{
+    if ([upgrade isUnique]) {
+        DockEquippedUpgrade* existing = [self containsUpgradeWithName: upgrade.title];
+
+        if (existing) {
+            if (error) {
+                NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", upgrade.title];
+                NSString* info = [NSString stringWithFormat: @"This %@ is unique and one with the same name already exists in the squadron.", upgrade.upType];
+                NSDictionary* d = @{
+                    NSLocalizedDescriptionKey: msg,
+                    NSLocalizedFailureReasonErrorKey: info,
+                    DockExistingUpgradeKey: existing
+                };
+                *error = [NSError errorWithDomain: DockErrorDomain code: kUniqueConflict userInfo: d];
+            }
+
+            return NO;
+        }
+    }
+    return YES;
+}
+
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade toShip:(DockEquippedShip*)targetShip error:(NSError**)error
 {
     if (upgrade.isAdmiral) {
@@ -874,26 +938,7 @@ static NSString* namePrefix(NSString* originalName)
         return NO;
     }
 
-    if ([upgrade isUnique]) {
-        DockEquippedUpgrade* existing = [self containsUpgradeWithName: upgrade.title];
-
-        if (existing) {
-            if (error) {
-                NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", upgrade.title];
-                NSString* info = [NSString stringWithFormat: @"This %@ is unique and one with the same name already exists in the squadron.", upgrade.upType];
-                NSDictionary* d = @{
-                    NSLocalizedDescriptionKey: msg,
-                    NSLocalizedFailureReasonErrorKey: info,
-                    DockExistingUpgradeKey: existing
-                };
-                *error = [NSError errorWithDomain: DockErrorDomain code: kUniqueConflict userInfo: d];
-            }
-
-            return NO;
-        }
-    }
-
-    return YES;
+    return [self passesUniquenessCheck: upgrade toShip: targetShip error: error];
 }
 
 -(DockEquippedShip*)getSideboard
