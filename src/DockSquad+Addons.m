@@ -925,6 +925,9 @@ static NSString* namePrefix(NSString* originalName)
     if (upgrade.isCaptain) {
         return [self canAddCaptain: (DockCaptain*)upgrade toShip: targetShip error: error];
     }
+    if (upgrade.isOfficer) {
+        return [self canAddOfficer: (DockOfficer*)upgrade toShip: targetShip error: error];
+    }
     if (![targetShip canAddUpgrade: upgrade]) {
         if (error) {
             NSDictionary* reasons = [targetShip explainCantAddUpgrade: upgrade];

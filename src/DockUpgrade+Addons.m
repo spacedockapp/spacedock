@@ -397,6 +397,10 @@
         return @"B";
     }
 
+    if ([self isOfficer]) {
+        return @"O";
+    }
+
     return @"?";
 
 }

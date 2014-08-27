@@ -6,7 +6,12 @@
 
 -(DockResource*)associatedResource
 {
-    return [DockResource resourceForId: @"officer_cards_collectiveop3" context: self.managedObjectContext];
+    return [DockResource resourceForId: kOfficerCardsExternalId context: self.managedObjectContext];
+}
+
+-(NSString*)factionCode
+{
+    return @"";
 }
 
 @end

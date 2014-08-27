@@ -1,5 +1,7 @@
 #import "DockResource.h"
 
+extern NSString* kOfficerCardsExternalId;
+
 @class DockShip;
 
 @interface DockResource (Addons)
@@ -10,6 +12,7 @@
 -(BOOL)isFlagship;
 -(BOOL)isFighterSquadron;
 -(BOOL)isFleetCaptain;
+-(BOOL)isOfficerCards;
 -(BOOL)isEquippedIntoSquad;
 -(BOOL)isEquippedIntoSquad:(DockSquad*)thisSquad;
 -(DockShip*)associatedShip;
