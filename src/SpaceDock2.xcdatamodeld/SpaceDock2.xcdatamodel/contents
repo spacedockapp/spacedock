@@ -14,6 +14,7 @@
         <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="categorized" inverseEntity="Category" syncable="YES"/>
     </entity>
     <entity name="Category" representedClassName="DockCategory" syncable="YES">
+        <attribute name="pair" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="categorized" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Categorized" inverseName="categories" inverseEntity="Categorized" syncable="YES"/>
@@ -154,7 +155,7 @@
         <element name="Admiral" positionX="27" positionY="225" width="128" height="103"/>
         <element name="Captain" positionX="0" positionY="0" width="128" height="75"/>
         <element name="Categorized" positionX="529" positionY="63" width="128" height="58"/>
-        <element name="Category" positionX="718" positionY="207" width="128" height="88"/>
+        <element name="Category" positionX="718" positionY="207" width="128" height="105"/>
         <element name="Component" positionX="0" positionY="0" width="128" height="103"/>
         <element name="EquippedShip" positionX="0" positionY="0" width="128" height="103"/>
         <element name="EquippedUpgrade" positionX="0" positionY="0" width="128" height="105"/>

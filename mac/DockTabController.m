@@ -1,6 +1,7 @@
 #import "DockTabController.h"
 
 #import "DockAppDelegate.h"
+#import "DockCategory+Addons.h"
 #import "DockComponent+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedShip+MacAddons.h"
@@ -112,18 +113,18 @@ NSMutableArray* sTabControllers = nil;
 -(void)addAdditionalPredicatesForFaction:(NSString*)factionName formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments
 {
     if (self.dependsOnFaction && factionName != nil) {
-        [formatParts addObject: @"(ANY categories.type like %@ and ANY categories.value like %@)"];
-        [arguments addObject: kDockFactionCategoryType];
-        [arguments addObject: factionName];
+        NSString* pair = [DockCategory pair: kDockFactionCategoryType value: factionName];
+        [formatParts addObject: @"(ANY categories.pair == %@)"];
+        [arguments addObject: pair];
     }
 }
 
 -(void)addAdditionalPredicatesForType:(NSString*)typeName formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments
 {
     if (typeName != nil) {
-        [formatParts addObject: @"(ANY categories.type like %@ and ANY categories.value like %@)"];
-        [arguments addObject: kDockTypeCategoryType];
-        [arguments addObject: typeName];
+        NSString* pair = [DockCategory pair: kDockTypeCategoryType value: typeName];
+        [formatParts addObject: @"(ANY categories.pair == %@)"];
+        [arguments addObject: pair];
     }
 }
 
@@ -132,12 +133,13 @@ NSMutableArray* sTabControllers = nil;
     if (typeNameList != nil) {
         NSMutableArray* typeFormatStringParts = [[NSMutableArray alloc] initWithCapacity: typeNameList.count];
         for (NSString* oneType in typeNameList) {
-            [typeFormatStringParts addObject: @"(ANY categories.type == %@ and ANY categories.value == %@)"];
-            [arguments addObject: kDockTypeCategoryType];
-            [arguments addObject: oneType];
+            NSString* pair = [DockCategory pair: kDockTypeCategoryType value: oneType];
+            [typeFormatStringParts addObject: @"(ANY categories.pair like %@)"];
+            [arguments addObject: pair];
         }
         NSString* typeFormatString = [typeFormatStringParts componentsJoinedByString: @" OR "];
-        [formatParts addObject: typeFormatString];
+        NSString* typeFormatStringParens = [NSString stringWithFormat: @"(%@)", typeFormatString];
+        [formatParts addObject: typeFormatStringParens];
     }
 }
 

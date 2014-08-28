@@ -2,7 +2,7 @@
 //  DockCategory.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 8/24/14.
+//  Created by Rob Tsuk on 8/28/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSString * type;
 @property (nonatomic, retain) NSString * value;
+@property (nonatomic, retain) NSString * pair;
 @property (nonatomic, retain) NSSet *categorized;
 @end
 

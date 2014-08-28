@@ -30,11 +30,11 @@
         [self addAdditionalPredicatesForType: upgradeType formatParts: formatParts arguments: arguments];
     } else {
         NSArray* upgradeTypes = @[
-        @"Weapon",
-        @"Crew",
-        @"Borg",
-        @"Tech",
-        @"Talent"];
+                                  @"Weapon",
+                                  @"Crew",
+                                  @"Borg",
+                                  @"Tech",
+                                  @"Talent"];
         [self addAdditionalPredicatesForTypeList: upgradeTypes formatParts: formatParts arguments: arguments];
     }
 }
