@@ -853,19 +853,9 @@
   {
     "ships" : [
       {
-        "calculatedCost" : 66,
+        "calculatedCost" : 58,
         "shipId" : "bioship_alpha_71281",
         "upgrades" : [
-          {
-            "upgradeId" : "independent_klingon_collectiveop2",
-            "upgradeTitle" : "Independent (Klingon)",
-            "calculatedCost" : 5
-          },
-          {
-            "upgradeId" : "amat_igan_71524",
-            "upgradeTitle" : "Amat'Igan",
-            "calculatedCost" : 3
-          },
           {
             "upgradeId" : "bio_electric_interference_71281",
             "upgradeTitle" : "Bio-Electric Interference",
@@ -895,9 +885,19 @@
         }
       },
       {
-        "calculatedCost" : 31,
+        "calculatedCost" : 44,
         "shipId" : "1038",
         "upgrades" : [
+          {
+            "upgradeId" : "independent_klingon_collectiveop2",
+            "upgradeTitle" : "Independent (Klingon)",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "anara_71445",
+            "upgradeTitle" : "Anara",
+            "calculatedCost" : 3
+          },
           {
             "upgradeId" : "3050",
             "upgradeTitle" : "Drex",
@@ -911,17 +911,17 @@
         ],
         "shipTitle" : "I.K.S. Koraga",
         "captain" : {
-          "upgradeId" : "drone_71283",
-          "upgradeTitle" : "Drone",
-          "calculatedCost" : 0
+          "upgradeId" : "2029",
+          "upgradeTitle" : "Benjamin Sisko",
+          "calculatedCost" : 5
         }
       }
     ],
-    "cost" : 97,
+    "cost" : 102,
     "resource" : "fleet_captain_collectiveop2",
     "uuid" : "6BF928A8-870F-42AA-B316-ACEDA6B644D0",
     "additionalPoints" : 0,
-    "modified" : "2014-08-14T05:54:40-0700",
+    "modified" : "2014-08-28T11:52:07-0700",
     "name" : "independent klingon fleet captain"
   },
   {
@@ -1170,12 +1170,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3011",
+            "upgradeId" : "3052",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3052",
+            "upgradeId" : "3011",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
