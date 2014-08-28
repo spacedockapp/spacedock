@@ -251,7 +251,7 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
         return _managedObjectModel;
     }
 
-    NSURL* modelURL = [[NSBundle mainBundle] URLForResource: @"Space_Dock" withExtension: @"momd"];
+    NSURL* modelURL = [[NSBundle mainBundle] URLForResource: @"SpaceDock2" withExtension: @"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL: modelURL];
     return _managedObjectModel;
 }
