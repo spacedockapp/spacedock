@@ -70,6 +70,7 @@
         <attribute name="speed" attributeType="Integer 16" defaultValueString="1" syncable="YES"/>
         <relationship name="shipClassDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShipClassDetails" inverseName="maneuvers" inverseEntity="ShipClassDetails" syncable="YES"/>
     </entity>
+    <entity name="Officer" representedClassName="DockOfficer" parentEntity="Upgrade" syncable="YES"/>
     <entity name="Reference" representedClassName="DockReference" parentEntity="Component" syncable="YES">
         <attribute name="ability" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
@@ -182,5 +183,6 @@
         <element name="Tech" positionX="0" positionY="0" width="128" height="45"/>
         <element name="Upgrade" positionX="0" positionY="0" width="128" height="148"/>
         <element name="Weapon" positionX="-299" positionY="24" width="128" height="75"/>
+        <element name="Officer" positionX="-54" positionY="189" width="128" height="45"/>
     </elements>
 </model>

@@ -232,7 +232,7 @@
 
 -(BOOL)isIndependent
 {
-    return [self.faction isEqualToString: @"Independent"];
+    return [self hasFaction: @"Independent"];
 }
 
 -(NSComparisonResult)compareTo:(DockUpgrade*)other

@@ -259,7 +259,7 @@ NSString* asDegrees(NSString* textValue)
 
 -(BOOL)isIndependent
 {
-    return [self.faction isEqualToString: @"Independent"];
+    return [self hasFaction: @"Independent"];
 }
 
 -(int)techCount
