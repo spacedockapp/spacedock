@@ -105,6 +105,12 @@
         controller.managedObjectContext = self.managedObjectContext;
         controller.upType = kFleetCaptainUpgradeType;
         controller.upgradeTypeName = @"Fleet Captains";
+    } else if ([[segue identifier] isEqualToString: @"GoToOfficers"]) {
+        id destination = [segue destinationViewController];
+        DockUpgradesViewController* controller = (DockUpgradesViewController*)destination;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.upType = kOfficerUpgradeType;
+        controller.upgradeTypeName = @"Officers";
     } else if ([[segue identifier] isEqualToString: @"GoToResources"]) {
         id destination = [segue destinationViewController];
         DockResourcesViewController* controller = (DockResourcesViewController*)destination;

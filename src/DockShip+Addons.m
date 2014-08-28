@@ -257,6 +257,11 @@ NSString* asDegrees(NSString* textValue)
     return [self hasFaction: @"Vulcan"];
 }
 
+-(BOOL)isIndependent
+{
+    return [self.faction isEqualToString: @"Independent"];
+}
+
 -(int)techCount
 {
     return [self.tech intValue];

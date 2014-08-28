@@ -15,3 +15,4 @@ NSString* kDockBundleIdentifier = @"com.funnyhatsoftware.Space_Dock";
 
 NSString* kFleetCaptainUpgradeType = @"Fleet Captain";
 NSString* kAdmiralUpgradeType = @"Admiral";
+NSString* kOfficerUpgradeType = @"Officer";

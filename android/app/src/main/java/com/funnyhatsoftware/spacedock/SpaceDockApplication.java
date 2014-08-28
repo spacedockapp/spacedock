@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.widget.Toast;
 
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
@@ -40,42 +41,54 @@ public class SpaceDockApplication extends Application {
         loadSetPreferences(this);
     }
 
-    public static void loadSetPreferences(Context context) {
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+    private static void storeSeenSets(SharedPreferences prefs, java.util.Set<String> seenSetIds) {
+        prefs.edit()
+                .putStringSet(SetPreference.PREF_KEY_SEEN_SET_ID, seenSetIds)
+                .apply();
+    }
 
+    private static void storeSelectedAndSeenSets(SharedPreferences prefs,
+                                                 java.util.Set<String> selectedSetIds,
+                                                 java.util.Set<String> seenSetIds) {
+        prefs.edit()
+                .putStringSet(SetPreference.PREF_KEY_SET_ID, selectedSetIds)
+                .putStringSet(SetPreference.PREF_KEY_SEEN_SET_ID, seenSetIds)
+                .apply();
+    }
+
+    public static void loadSetPreferences(Context context) {
         Universe universe = Universe.getUniverse();
         java.util.Set<String> allSetIds = universe.getAllSetIds();
 
-        // Handle legacy set storage
-        java.util.Set<String> legacySetSelection = sharedPrefs.getStringSet(
-                SetPreference.PREF_KEY_SET_LEGACY, null);
-        if (legacySetSelection != null) {
-            java.util.Set<String> setIds = SetPreference.getSetIdsFromLegacyNames(legacySetSelection);
-            java.util.Set<String> seenIds = SetPreference.getLegacySeen();
-            sharedPrefs.edit()
-                    .putStringSet(SetPreference.PREF_KEY_SET_ID, setIds)
-                    .putStringSet(SetPreference.PREF_KEY_SEEN_SET_ID, seenIds)
-                    .remove(SetPreference.PREF_KEY_SET_LEGACY) // no longer needed
-                    .commit();
-        }
-
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         java.util.Set<String> setIds = sharedPrefs.getStringSet(
                 SetPreference.PREF_KEY_SET_ID, allSetIds);
         java.util.Set<String> seenSetIds = sharedPrefs.getStringSet(
                 SetPreference.PREF_KEY_SEEN_SET_ID, allSetIds);
 
-        // Check if seen Sets differ from Sets in universe
-        if (setIds != null && seenSetIds != null
-                && (!seenSetIds.containsAll(allSetIds) || !allSetIds.containsAll(seenSetIds))) {
-            // ask universe for valid selected sets, plus any new ones
-            setIds = universe.getSetSelectionPlusNewSets(setIds, seenSetIds);
-
-            // new sets are observed, store new set preference
-            sharedPrefs.edit()
-                    .putStringSet(SetPreference.PREF_KEY_SET_ID, setIds)
-                    .putStringSet(SetPreference.PREF_KEY_SEEN_SET_ID, allSetIds)
-                    .commit();
+        if (setIds == null && seenSetIds == null) {
+            throw new IllegalStateException("unable to load set preference or defaults!");
         }
+
+        if (!seenSetIds.containsAll(allSetIds) || !allSetIds.containsAll(seenSetIds)) {
+            // Seen Sets differ from those in universe
+            String toastText = universe.getSetChangeString(seenSetIds);
+            seenSetIds = allSetIds;
+            if (sharedPrefs.getBoolean("pref_key_auto_add_new_sets", true)) {
+                // auto add newly seen sets - ask universe for valid selected sets, plus new ones
+                setIds = universe.getSetSelectionPlusNewSets(setIds, seenSetIds);
+
+                storeSelectedAndSeenSets(sharedPrefs, setIds, seenSetIds);
+                toastText += " enabled, and added to library.";
+            } else {
+                storeSeenSets(sharedPrefs, seenSetIds);
+                toastText += " added to library.";
+            }
+            Toast.makeText(context, toastText, Toast.LENGTH_LONG).show();
+        } else if (seenSetIds == allSetIds) {
+            storeSeenSets(sharedPrefs, seenSetIds);
+        }
+
         updateSetPreferences(setIds);
     }
 

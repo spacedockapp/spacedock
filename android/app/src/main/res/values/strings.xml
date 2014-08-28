@@ -37,10 +37,14 @@
     <string name="dialog_error_empty_squad_name">Squad name must not be empty.</string>
 
     <string name="title_settings">Settings</string>
+
+    <!-- Preferences -->
     <string name="pref_title_show_item_details">Show item details</string>
     <string name="pref_summary_show_item_details">Display as much item info as possible in lists.</string>
-    <string name="pref_title_set_selection">Select enabled sets</string>
-    <string name="pref_summary_set_selection">Only items from the selected sets are shown in the app.</string>
+    <string name="pref_title_set_selection">Select enabled expansions</string>
+    <string name="pref_summary_set_selection">Only items from the selected expansions are shown in the app.</string>
+    <string name="pref_title_auto_add_new_sets">Auto enable new expansions</string>
+    <string name="pref_summary_auto_add_new_sets">On update, newly available expansions will be enabled automatically.</string>
 
     <string name="toast_invalid_set_selection">Set selection invalid. You must select at least one set to display.</string>
 
@@ -55,7 +59,7 @@
         <item>Inspect</item>
         <item>Build</item>
     </string-array>
-    
+
     <!-- List displayed in the Browse fragment so that the pluralization is correct and they are in the same order as other versions of Space Dock -->
     <string-array name="browse_items_list">
         <item>Ships</item>

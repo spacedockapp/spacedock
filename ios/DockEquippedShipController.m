@@ -20,6 +20,7 @@
 #import "DockAdmiralRowHandler.h"
 #import "DockFlagshipRowHandler.h"
 #import "DockFleetCaptainRowHandler.h"
+#import "DockOfficerRowHandler.h"
 #import "DockShipRowHandler.h"
 #import "DockUpgradeRowHandler.h"
 
@@ -69,16 +70,26 @@
     NSString* lastUpgradeType = firstUpgrade.upgrade.upType;
     currentSection.title = lastUpgradeType;
     [sectionTitles addObject: lastUpgradeType];
+    int currentUpgradeCount = 0;
 
     for (DockEquippedUpgrade* equippedUpgrade in _equippedShip.sortedUpgrades) {
         DockUpgrade* upgrade = equippedUpgrade.upgrade;
 
         if (![lastUpgradeType isEqualToString: upgrade.upType]) {
+            if ([lastUpgradeType isEqualToString: kOfficerUpgradeType]) {
+                int officerLimit = [_equippedShip officerLimit];
+                if (currentUpgradeCount < officerLimit) {
+                    DockOfficerRowHandler* officerHandler = [[DockOfficerRowHandler alloc] init];
+                    officerHandler.controller = self;
+                    [currentSection addRowHandler: officerHandler];
+                }
+            }
             if (currentSection.rowHandlerCount > 0) {
                 [sections addObject: currentSection];
             }
 
             currentSection = [[DockSectionHandler alloc] init];
+            currentUpgradeCount = 0;
             lastUpgradeType = [upgrade upType];
             currentSection.title = lastUpgradeType;
             [sectionTitles addObject: lastUpgradeType];
@@ -88,6 +99,7 @@
         handler.controller = self;
         handler.equippedUpgrade = equippedUpgrade;
         [currentSection addRowHandler: handler];
+        currentUpgradeCount+=1;
     }
 
     if (currentSection.rowHandlerCount > 0) {
@@ -114,6 +126,12 @@
         admiralHandler.equippedShip = _equippedShip;
         admiralHandler.controller = self;
         [extrasSection addRowHandler: admiralHandler];
+    }
+
+    if ([_equippedShip.squad.resource isOfficerCards] && ![sectionTitles containsObject: kOfficerUpgradeType]) {
+        DockOfficerRowHandler* officerHandler = [[DockOfficerRowHandler alloc] init];
+        officerHandler.controller = self;
+        [extrasSection addRowHandler: officerHandler];
     }
 
     if (extrasSection.rowHandlerCount > 0) {
@@ -262,6 +280,14 @@
         controller.upType = kFleetCaptainUpgradeType;
         id onPick = ^(DockUpgrade* upgrade, BOOL override, int overrideCost) {
             [self changeFleetCaptain: upgrade];
+        };
+        [controller targetSquad: _equippedShip.squad ship: _equippedShip upgrade: nil onPicked: onPick];
+    } else if ([sequeIdentifier isEqualToString: @"PickOfficer"]) {
+        DockUpgradesViewController* controller = (DockUpgradesViewController*)destination;
+        controller.managedObjectContext = _equippedShip.managedObjectContext;
+        controller.upType = kOfficerUpgradeType;
+        id onPick = ^(DockUpgrade* upgrade, BOOL override, int overrideCost) {
+            [self addUpgrade: upgrade replacing: nil override: override overriddenCost: overrideCost];
         };
         [controller targetSquad: _equippedShip.squad ship: _equippedShip upgrade: nil onPicked: onPick];
     } else if ([sequeIdentifier isEqualToString: @"PickAdmiral"]) {
