@@ -9,7 +9,6 @@
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"
-#import "DockWeapon+Addons.h"
 
 @interface DockBuildMatTile : NSObject
 @property (strong, nonatomic) IBOutlet NSView* view;
@@ -159,13 +158,13 @@
 @end
 
 @interface DockWeaponTile : DockBuildMatTile
-@property (strong, nonatomic) DockWeapon* weapon;
--(id)initWithWeapon:(DockWeapon*)weapon;
+@property (strong, nonatomic) DockUpgrade* weapon;
+-(id)initWithWeapon:(DockUpgrade*)weapon;
 @end
 
 @implementation DockWeaponTile
 
--(id)initWithWeapon:(DockWeapon*)weapon
+-(id)initWithWeapon:(DockUpgrade*)weapon
 {
     self = [super initWithNib: @"WeaponTile"];
     if (self != nil) {
@@ -256,7 +255,7 @@
                 assert(false);
             } else if (!upgrade.isPlaceholder) {
                 if (upgrade.isWeapon) {
-                    tile = [[DockWeaponTile alloc] initWithWeapon: (DockWeapon*)upgrade];
+                    tile = [[DockWeaponTile alloc] initWithWeapon: upgrade];
                 } else {
                     tile = [[DockUpgradeTile alloc] initWithUpgrade: upgrade];
                 }

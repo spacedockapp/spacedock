@@ -6,7 +6,6 @@
         <attribute name="admiralTalent" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="skillModifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Borg" representedClassName="DockBorg" parentEntity="Upgrade" syncable="YES"/>
     <entity name="Captain" representedClassName="DockCaptain" parentEntity="Upgrade" syncable="YES">
         <attribute name="skill" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="talent" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -25,7 +24,6 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="sets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Set" inverseName="items" inverseEntity="Set" syncable="YES"/>
     </entity>
-    <entity name="Crew" representedClassName="DockCrew" parentEntity="Upgrade" syncable="YES"/>
     <entity name="EquippedShip" representedClassName="DockEquippedShip" syncable="YES">
         <relationship name="flagship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Flagship" inverseName="ships" inverseEntity="Flagship" syncable="YES"/>
         <relationship name="ship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ship" inverseName="equippedShips" inverseEntity="Ship" syncable="YES"/>
@@ -142,28 +140,22 @@
     <entity name="Tagged" representedClassName="DockTagged" isAbstract="YES" syncable="YES">
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="tagged" inverseEntity="Tag" syncable="YES"/>
     </entity>
-    <entity name="Talent" representedClassName="DockTalent" parentEntity="Upgrade" syncable="YES"/>
-    <entity name="Tech" representedClassName="DockTech" parentEntity="Upgrade" syncable="YES"/>
     <entity name="Upgrade" representedClassName="DockUpgrade" isAbstract="YES" parentEntity="Component" syncable="YES">
         <attribute name="ability" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="attack" attributeType="Integer 16" minValueString="0" defaultValueString="1" syncable="YES"/>
         <attribute name="cost" attributeType="Integer 16" minValueString="0" defaultValueString="1" syncable="YES"/>
         <attribute name="placeholder" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="range" attributeType="String" defaultValueString="0" syncable="YES"/>
         <attribute name="special" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="unique" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <relationship name="equippedUpgrades" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EquippedUpgrade" inverseName="upgrade" inverseEntity="EquippedUpgrade" syncable="YES"/>
     </entity>
-    <entity name="Weapon" representedClassName="DockWeapon" parentEntity="Upgrade" syncable="YES">
-        <attribute name="attack" attributeType="Integer 16" minValueString="0" defaultValueString="1" syncable="YES"/>
-        <attribute name="range" attributeType="String" defaultValueString="0" syncable="YES"/>
-    </entity>
     <elements>
         <element name="Admiral" positionX="27" positionY="225" width="128" height="103"/>
-        <element name="Borg" positionX="9" positionY="153" width="128" height="45"/>
         <element name="Captain" positionX="0" positionY="0" width="128" height="75"/>
         <element name="Categorized" positionX="529" positionY="63" width="128" height="58"/>
         <element name="Category" positionX="718" positionY="207" width="128" height="88"/>
         <element name="Component" positionX="0" positionY="0" width="128" height="103"/>
-        <element name="Crew" positionX="0" positionY="0" width="128" height="45"/>
         <element name="EquippedShip" positionX="0" positionY="0" width="128" height="103"/>
         <element name="EquippedUpgrade" positionX="0" positionY="0" width="128" height="105"/>
         <element name="Flagship" positionX="0" positionY="0" width="128" height="298"/>
@@ -179,9 +171,6 @@
         <element name="Squad" positionX="0" positionY="0" width="128" height="150"/>
         <element name="Tag" positionX="477" positionY="359" width="128" height="73"/>
         <element name="Tagged" positionX="423" positionY="248" width="128" height="58"/>
-        <element name="Talent" positionX="0" positionY="0" width="128" height="45"/>
-        <element name="Tech" positionX="0" positionY="0" width="128" height="45"/>
-        <element name="Upgrade" positionX="0" positionY="0" width="128" height="135"/>
-        <element name="Weapon" positionX="-299" positionY="24" width="128" height="75"/>
+        <element name="Upgrade" positionX="0" positionY="0" width="128" height="163"/>
     </elements>
 </model>

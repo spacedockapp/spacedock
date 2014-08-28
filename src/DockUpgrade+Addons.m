@@ -4,7 +4,6 @@
 #import "DockCategory+Addons.h"
 #import "DockComponent+Addons.h"
 #import "DockConstants.h"
-#import "DockCrew.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockFlagship+Addons.h"
@@ -12,10 +11,8 @@
 #import "DockResource.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
-#import "DockTalent.h"
-#import "DockTech.h"
 #import "DockUtils.h"
-#import "DockWeapon.h"
+#import "DockWeaponRange.h"
 
 @implementation DockUpgrade (Addons)
 
@@ -57,7 +54,7 @@
 
 +(DockUpgrade*)placeholder:(NSString*)upType inContext:(NSManagedObjectContext*)context
 {
-    NSEntityDescription* entity = [NSEntityDescription entityForName: upType inManagedObjectContext: context];
+    NSEntityDescription* entity = [NSEntityDescription entityForName: @"Upgrade" inManagedObjectContext: context];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
     NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"placeholder = YES"];
@@ -68,20 +65,6 @@
 
     if (existingItems.count == 0) {
         Class upClass = [DockUpgrade class];
-
-        if ([upType isEqualToString: @"Weapon"]) {
-            upClass = [DockWeapon class];
-        } else if ([upType isEqualToString: @"Tech"]) {
-            upClass = [DockTech class];
-        } else if ([upType isEqualToString: @"Talent"]) {
-            upClass = [DockTalent class];
-        } else if ([upType isEqualToString: @"Captain"]) {
-            upClass = [DockCaptain class];
-        } else if ([upType isEqualToString: @"Crew"]) {
-            upClass = [DockCrew class];
-        } else if ([upType isEqualToString: @"Borg"]) {
-            upClass = [DockUpgrade class];
-        }
 
         placeholderUpgrade = [[upClass alloc] initWithEntity: entity insertIntoManagedObjectContext: context];
         placeholderUpgrade.title = upType;
@@ -741,16 +724,6 @@
     return 0;
 }
 
--(NSString*)weaponRange
-{
-    return nil;
-}
-
--(NSString*)rangeAsString
-{
-    return nil;
-}
-
 -(NSString*)upType
 {
     return [[self types] anyObject];
@@ -762,6 +735,21 @@
                                                               value: upType
                                                             context: self.managedObjectContext];
     [self addCategoriesObject: typeCategory];
+}
+
+-(DockWeaponRange*)weaponRange
+{
+    return [[DockWeaponRange alloc] initWithString: self.range];
+}
+
+-(NSString*)rangeAsString
+{
+    return self.range;
+}
+
+-(NSString*)weaponItemDescription
+{
+    return [NSString stringWithFormat: @"%@: %@ (%@ @ %@)", self.typeCode, self.title, self.attack, self.range];
 }
 
 @end

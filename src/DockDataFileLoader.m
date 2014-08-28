@@ -3,12 +3,10 @@
 #import <Foundation/NSXMLParser.h>
 
 #import "DockAdmiral.h"
-#import "DockBorg+Addons.h"
 #import "DockCaptain+Addons.h"
 #import "DockCategory+Addons.h"
 #import "DockComponent+Addons.h"
 #import "DockConstants.h"
-#import "DockCrew.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedShip.h"
 #import "DockEquippedUpgrade+Addons.h"
@@ -22,12 +20,11 @@
 #import "DockShipClassDetails+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockSquad.h"
-#import "DockTalent.h"
-#import "DockTech.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
-#import "DockWeapon.h"
 #import "ISO8601DateFormatter.h"
+
+#import "NSString+Addons.h"
 
 @interface DockDataFileLoader () {
     BOOL _force;
@@ -171,8 +168,16 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
 
     for (NSDictionary* d in items) {
         NSString* nodeType = d[@"Type"];
-        if (targetType == nil || nodeType == nil || [nodeType isEqualToString: targetType]) {
+        NSString* typeString = nodeType;
+        NSArray* parts = [typeString strippedComponentsSeparatedByString: @","];
+        if (parts.count > 1) {
+            NSLog(@"got one");
+        }
+        if (targetType == nil || nodeType == nil || [parts containsObject: targetType]) {
             NSString* externalId = d[@"Id"];
+            if ([externalId isEqualToString: @"the_doctor_71280"]) {
+                NSLog(@"the doctor");
+            }
             id c = existingItemsLookup[externalId];
 
             if (c == nil) {
@@ -215,13 +220,17 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                 } else if (([key isEqualToString: @"Faction"] || [key isEqualToString: @"AdditionalFaction"]) && [c isKindOfClass: [DockCategorized class]]) {
                     id v = [d valueForKey: key];
                     NSString* factionString = processAttribute(v, NSStringAttributeType);
-                    DockCategory* factionCategory = [DockCategory findOrCreateCategory: kDockFactionCategoryType value: factionString context: _managedObjectContext];
+                    DockCategory* factionCategory = [DockCategory findOrCreateCategory: kDockFactionCategoryType
+                                                                                 value: factionString
+                                                                               context: _managedObjectContext];
                     [c addCategoriesObject: factionCategory];
                 } else if ([key isEqualToString: @"Type"] && [c isKindOfClass: [DockCategorized class]]) {
-                    id v = [d valueForKey: key];
-                    NSString* typeString = processAttribute(v, NSStringAttributeType);
-                    DockCategory* typeCategory = [DockCategory findOrCreateCategory: kDockTypeCategoryType value: typeString context: _managedObjectContext];
-                    [c addCategoriesObject: typeCategory];
+                    for (NSString* onePart in parts) {
+                        DockCategory* typeCategory = [DockCategory findOrCreateCategory: kDockTypeCategoryType
+                                                                                  value: onePart
+                                                                                context: _managedObjectContext];
+                        [c addCategoriesObject: typeCategory];
+                    }
                 }
             }
 
@@ -482,21 +491,6 @@ static NSString* makeKey(NSString* key)
 
 -(void)fixErrors
 {
-    NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
-    DockBorg* wrongSeven = [DockBorg borgForId: @"seven_of_nine_71283" context: _managedObjectContext];
-    if (wrongSeven != nil) {
-        for (DockSquad* s in allSquads) {
-            [s purgeUpgrade: wrongSeven];
-        }
-        [_managedObjectContext deleteObject: wrongSeven];
-    }
-    DockUpgrade* extraFed = [DockCaptain captainForId: @"federation_captain_71280" context: _managedObjectContext];
-    if (extraFed != nil) {
-        for (DockSquad* s in allSquads) {
-            [s purgeUpgrade: extraFed];
-        }
-        [_managedObjectContext deleteObject: extraFed];
-    }
 }
 
 -(NSSet*)validateSpecials
@@ -581,11 +575,7 @@ static NSString* makeKey(NSString* key)
     [self loadItems: xmlData[@"Ships"] itemClass: [DockShip class] entityName: @"Ship" targetType: nil];
     [self loadItems: xmlData[@"Captains"] itemClass: [DockCaptain class] entityName: @"Captain" targetType: nil];
     [self loadItems: xmlData[@"Admirals"] itemClass: [DockAdmiral class] entityName: @"Admiral" targetType: @"Admiral"];
-    [self loadItems: xmlData[@"Upgrades"] itemClass: [DockWeapon class] entityName: @"Weapon" targetType: @"Weapon"];
-    [self loadItems: xmlData[@"Upgrades"] itemClass: [DockTalent class] entityName: @"Talent" targetType: @"Talent"];
-    [self loadItems: xmlData[@"Upgrades"] itemClass: [DockCrew class] entityName: @"Crew" targetType: @"Crew"];
-    [self loadItems: xmlData[@"Upgrades"] itemClass: [DockTech class] entityName: @"Tech" targetType: @"Tech"];
-    [self loadItems: xmlData[@"Upgrades"] itemClass: [DockBorg class] entityName: @"Borg" targetType: @"Borg"];
+    [self loadItems: xmlData[@"Upgrades"] itemClass: [DockUpgrade class] entityName: @"Upgrade" targetType: nil];
     [self loadItems: xmlData[@"Resources"] itemClass: [DockResource class] entityName: @"Resource" targetType: @"Resource"];
     [self loadItems: xmlData[@"Flagships"] itemClass: [DockFlagship class] entityName: @"Flagship" targetType: nil];
     [self loadItems: xmlData[@"FleetCaptains"] itemClass: [DockFleetCaptain class] entityName: @"FleetCaptain" targetType: kFleetCaptainUpgradeType];

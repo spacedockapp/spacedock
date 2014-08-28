@@ -2236,7 +2236,7 @@
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
-                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="upType"/>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="combinedTypes"/>
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="N7J-FL-TQr">
@@ -2252,7 +2252,7 @@
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                                 <connections>
-                                                                                                    <binding destination="N7J-FL-TQr" name="value" keyPath="objectValue.upType" id="jYo-fz-RUV"/>
+                                                                                                    <binding destination="N7J-FL-TQr" name="value" keyPath="objectValue.combinedTypes" id="vHC-gN-P3t"/>
                                                                                                 </connections>
                                                                                             </textField>
                                                                                         </subviews>

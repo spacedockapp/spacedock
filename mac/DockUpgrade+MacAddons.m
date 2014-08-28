@@ -10,12 +10,16 @@
 
 -(NSAttributedString*)formattedAttack
 {
-    return nil;
+    int attackValue = [self attackValue];
+    if (attackValue == 0) {
+        return nil;
+    }
+    return makeCentered(coloredString(intToString([self.attack intValue]), [NSColor whiteColor], [NSColor redColor]));
 }
 
 -(int)attackValue
 {
-    return 0;
+    return [self.attack intValue];
 }
 
 -(NSAttributedString*)styledDescription
@@ -105,4 +109,38 @@
     return makeCentered(adjustedCostString);
 }
 
+-(NSAttributedString*)formattedRange
+{
+    NSString* range = [self range];
+
+    if (range != nil && range.length > 0) {
+        return makeCentered(coloredString(range, [NSColor whiteColor], [NSColor blackColor]));
+    }
+    return nil;
+}
+
+-(NSAttributedString*)styledWeaponDescription
+{
+    if ([self isPlaceholder]) {
+        return [self styledDescription];
+    }
+
+    NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithAttributedString: [self styledDescription]];
+    NSNumber* attack = [self attack];
+    int attackValue = [attack intValue];
+
+    if (attackValue != 0) {
+        [as appendAttributedString: [[NSMutableAttributedString alloc] initWithString: @" "]];
+        [as appendAttributedString: coloredString([attack stringValue], [NSColor redColor], [NSColor blackColor])];
+    }
+
+    NSString* range = [self range];
+
+    if (range != nil && range.length > 0) {
+        [as appendAttributedString: [[NSMutableAttributedString alloc] initWithString: @" "]];
+        [as appendAttributedString: coloredString(range, [NSColor whiteColor], [NSColor blackColor])];
+    }
+
+    return as;
+}
 @end

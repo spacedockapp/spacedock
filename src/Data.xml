@@ -7779,25 +7779,10 @@
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Crew</Type>
+      <Type>Crew,Tech</Type>
       <Faction>Federation</Faction>
       <Cost>3</Cost>
       <Id>the_doctor_71280</Id>
-      <Set>71280</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>The Doctor</Title>
-      <Ability>The Doctor counts as either a [CREW] Upgrade or a [TECH] Upgrade (your choice). ACTION: Remove all Disabled Upgrade tokens from your [CREW] Upgrades.</Ability>
-      <Unique>Y</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>the_doctor_tech_71280</Id>
       <Set>71280</Set>
       <Special></Special>
     </Upgrade>

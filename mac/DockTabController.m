@@ -130,9 +130,14 @@ NSMutableArray* sTabControllers = nil;
 -(void)addAdditionalPredicatesForTypeList:(NSArray*)typeNameList formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments
 {
     if (typeNameList != nil) {
-        [formatParts addObject: @"(ANY categories.type like %@ and ANY categories.value in %@)"];
-        [arguments addObject: kDockTypeCategoryType];
-        [arguments addObject: typeNameList];
+        NSMutableArray* typeFormatStringParts = [[NSMutableArray alloc] initWithCapacity: typeNameList.count];
+        for (NSString* oneType in typeNameList) {
+            [typeFormatStringParts addObject: @"(ANY categories.type == %@ and ANY categories.value == %@)"];
+            [arguments addObject: kDockTypeCategoryType];
+            [arguments addObject: oneType];
+        }
+        NSString* typeFormatString = [typeFormatStringParts componentsJoinedByString: @" OR "];
+        [formatParts addObject: typeFormatString];
     }
 }
 

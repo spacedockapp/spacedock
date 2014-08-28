@@ -13,8 +13,10 @@
 @implementation DockUpgrade
 
 @dynamic ability;
+@dynamic attack;
 @dynamic cost;
 @dynamic placeholder;
+@dynamic range;
 @dynamic special;
 @dynamic unique;
 @dynamic equippedUpgrades;

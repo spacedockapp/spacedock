@@ -15,8 +15,10 @@
 @interface DockUpgrade : DockComponent
 
 @property (nonatomic, retain) NSString * ability;
+@property (nonatomic, retain) NSNumber * attack;
 @property (nonatomic, retain) NSNumber * cost;
 @property (nonatomic, retain) NSNumber * placeholder;
+@property (nonatomic, retain) NSString * range;
 @property (nonatomic, retain) NSString * special;
 @property (nonatomic, retain) NSNumber * unique;
 @property (nonatomic, retain) NSSet *equippedUpgrades;

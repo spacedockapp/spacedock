@@ -1,9 +1,9 @@
 #import "DockDataLoader.h"
 
 #import "DockConstants.h"
-#import "DockCrew+Addons.h"
 #import "DockDataFileLoader.h"
 #import "DockSquad+Addons.h"
+#import "DockUpgrade+Addons.h"
 
 @interface DockDataLoader () {
     DockDataFileLoader* _loader;
@@ -108,7 +108,7 @@
 
 -(void)cleanupDatabase
 {
-    DockCrew* crew = [DockCrew crewForId: @"cold_storage_unit_op5prize" context:_managedObjectContext];
+    DockUpgrade* crew = [DockUpgrade upgradeForId: @"cold_storage_unit_op5prize" context:_managedObjectContext];
     if (crew != nil) {
         NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
         for (DockSquad* s in allSquads) {

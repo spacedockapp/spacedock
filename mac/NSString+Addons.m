@@ -17,4 +17,15 @@
     return NSOrderedDescending;
 }
 
+-(NSArray*)strippedComponentsSeparatedByString:(NSString *)separator
+{
+    NSArray* unstripped = [self componentsSeparatedByString: separator];
+    NSMutableArray* stripped = [[NSMutableArray alloc] initWithCapacity: unstripped.count];
+    NSCharacterSet* ws = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    for (NSString* s in unstripped) {
+        [stripped addObject: [s stringByTrimmingCharactersInSet: ws]];
+    }
+    return [NSArray arrayWithArray: stripped];
+}
+
 @end
