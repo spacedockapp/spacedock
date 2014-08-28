@@ -7,17 +7,15 @@
 #import "DockUtils.h"
 
 NSString* kDockFactionCategoryType = @"faction";
+NSString* kDockTypeCategoryType = @"type";
 
 @implementation DockComponent (Addons)
 
+#pragma mark - Factions
+
 -(NSSet*)factions
 {
-    NSSet* factionCategories = [self categoriesOfType: kDockFactionCategoryType];
-    NSMutableSet* factions = [[NSMutableSet alloc] initWithCapacity: factionCategories.count];
-    for (DockCategory* category in factionCategories) {
-        [factions addObject: category.value];
-    }
-    return [NSSet setWithSet: factions];
+    return [self valuesForCategoriesOfType: kDockFactionCategoryType];
 }
 
 -(NSArray*)factionsSortedByInitiative
@@ -70,18 +68,38 @@ NSString* kDockFactionCategoryType = @"faction";
 
 -(BOOL)hasFaction:(NSString*)faction
 {
-    return [self.factions containsObject: faction];
-}
-
--(NSString*)anySetExternalId
-{
-    DockSet* set = [self.sets anyObject];
-    return set.externalId;
+    return [self hasCategoryType: kDockFactionCategoryType withValue: faction];
 }
 
 -(NSString*)factionCode
 {
     return factionCode(self);
+}
+
+#pragma mark - Types
+
+-(NSSet*)types
+{
+    return [self valuesForCategoriesOfType: kDockTypeCategoryType];
+}
+
+-(BOOL)hasType:(NSString*)type
+{
+    return [self hasCategoryType: kDockTypeCategoryType withValue: type];
+}
+
+-(NSString*)combinedTypes
+{
+    return [[[self types] allObjects] componentsJoinedByString: @", "];
+}
+
+
+#pragma mark - Sets
+
+-(NSString*)anySetExternalId
+{
+    DockSet* set = [self.sets anyObject];
+    return set.externalId;
 }
 
 -(NSString*)setName
