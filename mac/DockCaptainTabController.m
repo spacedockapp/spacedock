@@ -18,7 +18,7 @@
 
 -(void)addAdditionalPredicates:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments
 {
-    [formatParts addObject: @"(not upType like 'Admiral') and (not placeholder == YES)"];
+    [formatParts addObject: @"(not placeholder == YES)"];
 }
 
 #pragma mark - Current ship

@@ -2,7 +2,7 @@
 //  DockUpgrade.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 8/24/14.
+//  Created by Rob Tsuk on 8/28/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -19,7 +19,6 @@
 @property (nonatomic, retain) NSNumber * placeholder;
 @property (nonatomic, retain) NSString * special;
 @property (nonatomic, retain) NSNumber * unique;
-@property (nonatomic, retain) NSString * upType;
 @property (nonatomic, retain) NSSet *equippedUpgrades;
 @end
 

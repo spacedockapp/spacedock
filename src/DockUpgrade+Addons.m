@@ -1,6 +1,7 @@
 #import "DockUpgrade+Addons.h"
 
 #import "DockCaptain+Addons.h"
+#import "DockCategory+Addons.h"
 #import "DockComponent+Addons.h"
 #import "DockConstants.h"
 #import "DockCrew.h"
@@ -748,6 +749,19 @@
 -(NSString*)rangeAsString
 {
     return nil;
+}
+
+-(NSString*)upType
+{
+    return [[self types] anyObject];
+}
+
+-(void)setUpType:(NSString*)upType;
+{
+    DockCategory* typeCategory = [DockCategory findOrCreateCategory: kDockTypeCategoryType
+                                                              value: upType
+                                                            context: self.managedObjectContext];
+    [self addCategoriesObject: typeCategory];
 }
 
 @end

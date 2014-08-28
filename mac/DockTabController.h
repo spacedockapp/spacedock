@@ -30,6 +30,8 @@
 
 // predicates
 -(void)addAdditionalPredicatesForFaction:(NSString*)factionName formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments;
+-(void)addAdditionalPredicatesForType:(NSString*)typeName formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments;
+-(void)addAdditionalPredicatesForTypeList:(NSArray*)typeNameList formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments;
 -(void)updatePredicates;
 
 // selection

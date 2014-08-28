@@ -19,4 +19,9 @@
     return [self.admiralTalent intValue];
 }
 
+-(NSNumber*)eliteTalent
+{
+    return [self admiralTalent];
+}
+
 @end

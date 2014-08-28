@@ -248,8 +248,12 @@
             } else if (upgrade.isAdmiral) {
                 DockAdmiral* admiral = (DockAdmiral*)upgrade;
                 tile = [[DockAdmiralTile alloc] initWithAdmiral: admiral];
+            #if 0
+                // need to find captain side of admiral card
                 [oneRow addObject: tile];
                 tile = [[DockCaptainTile alloc] initWithCaptain: admiral];
+            #endif
+                assert(false);
             } else if (!upgrade.isPlaceholder) {
                 if (upgrade.isWeapon) {
                     tile = [[DockWeaponTile alloc] initWithWeapon: (DockWeapon*)upgrade];

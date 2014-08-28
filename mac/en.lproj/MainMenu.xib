@@ -2903,7 +2903,7 @@
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <tableView identifier="admiralsTable" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveName="admiralsTable" rowSizeStyle="automatic" headerView="k8o-6e-byO" viewBased="YES" id="N0B-Rd-Wg4" userLabel="admirals table">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="726" height="206"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="681" height="206"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <size key="intercellSpacing" width="5" height="4"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2983,42 +2983,6 @@
                                                                                     </tableCellView>
                                                                                 </prototypeCellViews>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="admiralSkill" editable="NO" width="40" minWidth="40" maxWidth="40" id="ZFR-0n-frt" userLabel="skill">
-                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Skill">
-                                                                                    <font key="font" metaFont="smallSystem"/>
-                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                </tableHeaderCell>
-                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="e6y-81-msR">
-                                                                                    <font key="font" metaFont="system"/>
-                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                                </textFieldCell>
-                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="skill"/>
-                                                                                <prototypeCellViews>
-                                                                                    <tableCellView id="TRN-BH-uZv">
-                                                                                        <rect key="frame" x="228" y="2" width="40" height="17"/>
-                                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                                                        <subviews>
-                                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="5C6-l8-jsc">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
-                                                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="wtj-Dx-YeA">
-                                                                                                    <font key="font" metaFont="system"/>
-                                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                                                                </textFieldCell>
-                                                                                                <connections>
-                                                                                                    <binding destination="TRN-BH-uZv" name="value" keyPath="objectValue.skill" id="GgV-LM-eMx"/>
-                                                                                                </connections>
-                                                                                            </textField>
-                                                                                        </subviews>
-                                                                                        <connections>
-                                                                                            <outlet property="textField" destination="5C6-l8-jsc" id="z4J-sg-KzI"/>
-                                                                                        </connections>
-                                                                                    </tableCellView>
-                                                                                </prototypeCellViews>
-                                                                            </tableColumn>
                                                                             <tableColumn identifier="admiralTalents" editable="NO" width="40" minWidth="40" maxWidth="40" id="rfy-Z1-ufl" userLabel="talents">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Talents">
                                                                                     <font key="font" metaFont="smallSystem"/>
@@ -3033,7 +2997,7 @@
                                                                                 <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="talentCount"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="UPG-fw-fmc">
-                                                                                        <rect key="frame" x="273" y="2" width="40" height="17"/>
+                                                                                        <rect key="frame" x="228" y="2" width="40" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="SRS-BU-Rqc">
@@ -3070,7 +3034,7 @@
                                                                                 <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="unique"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="xSD-mL-c4G">
-                                                                                        <rect key="frame" x="318" y="2" width="50" height="17"/>
+                                                                                        <rect key="frame" x="273" y="2" width="50" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="fUO-y2-3yW">
@@ -3107,7 +3071,7 @@
                                                                                 <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="costToInstall"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="88t-6X-FgN">
-                                                                                        <rect key="frame" x="373" y="2" width="40" height="17"/>
+                                                                                        <rect key="frame" x="328" y="2" width="40" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="rpg-Jg-Lmn">
@@ -3144,7 +3108,7 @@
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="k7H-sP-QRW">
-                                                                                        <rect key="frame" x="418" y="2" width="200" height="17"/>
+                                                                                        <rect key="frame" x="373" y="2" width="200" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="cEf-0q-zui">
@@ -3178,7 +3142,7 @@
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="wbQ-cS-ye1">
-                                                                                        <rect key="frame" x="623" y="2" width="100" height="17"/>
+                                                                                        <rect key="frame" x="578" y="2" width="100" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
                                                                                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="kAQ-Wi-lBQ">
@@ -3225,7 +3189,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
                                                             <tableHeaderView key="headerView" id="k8o-6e-byO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="726" height="17"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="681" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </tableHeaderView>
                                                         </scrollView>
@@ -4566,14 +4530,14 @@
                                                                         </tableColumns>
                                                                         <connections>
                                                                             <binding destination="0ss-yy-lMC" name="content" keyPath="arrangedObjects" id="Pfd-An-FKZ"/>
-                                                                            <binding destination="494" name="doubleClickTarget" keyPath="self" id="Q1E-9J-jjV">
-                                                                                <dictionary key="options">
-                                                                                    <string key="NSSelectorName">addSelected:</string>
-                                                                                </dictionary>
-                                                                            </binding>
                                                                             <binding destination="0ss-yy-lMC" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="Pfd-An-FKZ" id="pXW-Xz-3IQ">
                                                                                 <dictionary key="options">
                                                                                     <bool key="NSValidatesImmediately" value="YES"/>
+                                                                                </dictionary>
+                                                                            </binding>
+                                                                            <binding destination="494" name="doubleClickTarget" keyPath="self" id="Q1E-9J-jjV">
+                                                                                <dictionary key="options">
+                                                                                    <string key="NSSelectorName">addSelected:</string>
                                                                                 </dictionary>
                                                                             </binding>
                                                                             <binding destination="0ss-yy-lMC" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="pXW-Xz-3IQ" id="4Cl-M3-Onr"/>

@@ -41,4 +41,6 @@
 -(NSString*)disambiguatedTitle;
 -(int)costForShip:(DockEquippedShip*)equippedShip;
 -(int)costForShip:(DockEquippedShip*)equippedShip equippedUpgade:(DockEquippedUpgrade*)equippedUpgrade;
+-(NSString*)upType;
+-(void)setUpType:(NSString*)upType;
 @end

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Admiral" representedClassName="DockAdmiral" parentEntity="Captain" syncable="YES">
+    <entity name="Admiral" representedClassName="DockAdmiral" parentEntity="Upgrade" syncable="YES">
         <attribute name="admiralAbility" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="admiralCost" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="admiralTalent" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -150,7 +150,6 @@
         <attribute name="placeholder" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="special" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="unique" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <attribute name="upType" attributeType="String" defaultValueString="Crew" syncable="YES"/>
         <relationship name="equippedUpgrades" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EquippedUpgrade" inverseName="upgrade" inverseEntity="EquippedUpgrade" syncable="YES"/>
     </entity>
     <entity name="Weapon" representedClassName="DockWeapon" parentEntity="Upgrade" syncable="YES">
@@ -170,6 +169,7 @@
         <element name="Flagship" positionX="0" positionY="0" width="128" height="298"/>
         <element name="FleetCaptain" positionX="18" positionY="153" width="128" height="118"/>
         <element name="Maneuver" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="Officer" positionX="-54" positionY="189" width="128" height="45"/>
         <element name="Reference" positionX="9" positionY="153" width="128" height="73"/>
         <element name="Resource" positionX="0" positionY="0" width="128" height="133"/>
         <element name="Set" positionX="0" positionY="0" width="128" height="150"/>
@@ -181,8 +181,7 @@
         <element name="Tagged" positionX="423" positionY="248" width="128" height="58"/>
         <element name="Talent" positionX="0" positionY="0" width="128" height="45"/>
         <element name="Tech" positionX="0" positionY="0" width="128" height="45"/>
-        <element name="Upgrade" positionX="0" positionY="0" width="128" height="148"/>
+        <element name="Upgrade" positionX="0" positionY="0" width="128" height="135"/>
         <element name="Weapon" positionX="-299" positionY="24" width="128" height="75"/>
-        <element name="Officer" positionX="-54" positionY="189" width="128" height="45"/>
     </elements>
 </model>

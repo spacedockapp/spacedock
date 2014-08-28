@@ -253,7 +253,6 @@ static NSDictionary* copyProperties(id target, NSArray* propertyList)
         @"title",
         @"admiralAbility",
         @"admiralCost",
-        @"skill"
     ];
     return copyProperties(admiral, displayedAdmiralProperties);
 }

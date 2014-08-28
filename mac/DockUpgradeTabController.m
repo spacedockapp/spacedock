@@ -27,10 +27,16 @@
 {
     NSString* upgradeType = [self upgradeType];
     if (upgradeType != nil) {
-        [formatParts addObject: @"(upType = %@)"];
-        [arguments addObject: upgradeType];
+        [self addAdditionalPredicatesForType: upgradeType formatParts: formatParts arguments: arguments];
+    } else {
+        NSArray* upgradeTypes = @[
+        @"Weapon",
+        @"Crew",
+        @"Borg",
+        @"Tech",
+        @"Talent"];
+        [self addAdditionalPredicatesForTypeList: upgradeTypes formatParts: formatParts arguments: arguments];
     }
-    [formatParts addObject: @"(not upType like 'Captain') and (not upType like 'Admiral') and (not upType like 'Fleet Captain') and (not upType like 'Officer') and (not placeholder == YES)"];
 }
 
 -(void)updatePredicates

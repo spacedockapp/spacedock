@@ -118,6 +118,24 @@ NSMutableArray* sTabControllers = nil;
     }
 }
 
+-(void)addAdditionalPredicatesForType:(NSString*)typeName formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments
+{
+    if (typeName != nil) {
+        [formatParts addObject: @"(ANY categories.type like %@ and ANY categories.value like %@)"];
+        [arguments addObject: kDockTypeCategoryType];
+        [arguments addObject: typeName];
+    }
+}
+
+-(void)addAdditionalPredicatesForTypeList:(NSArray*)typeNameList formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments
+{
+    if (typeNameList != nil) {
+        [formatParts addObject: @"(ANY categories.type like %@ and ANY categories.value in %@)"];
+        [arguments addObject: kDockTypeCategoryType];
+        [arguments addObject: typeNameList];
+    }
+}
+
 -(void)addAdditionalPredicates:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments
 {
 }

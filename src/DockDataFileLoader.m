@@ -188,8 +188,6 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                     modifiedKey = @"externalId";
                 } else if ([key isEqualToString: @"Battlestations"]) {
                     modifiedKey = @"battleStations";
-                } else if ([key isEqualToString: @"Type"] && [c isKindOfClass: [DockUpgrade class]]) {
-                    modifiedKey = @"upType";
                 } else {
                     modifiedKey = makeKey(key);
                 }
@@ -219,6 +217,11 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                     NSString* factionString = processAttribute(v, NSStringAttributeType);
                     DockCategory* factionCategory = [DockCategory findOrCreateCategory: kDockFactionCategoryType value: factionString context: _managedObjectContext];
                     [c addCategoriesObject: factionCategory];
+                } else if ([key isEqualToString: @"Type"] && [c isKindOfClass: [DockCategorized class]]) {
+                    id v = [d valueForKey: key];
+                    NSString* typeString = processAttribute(v, NSStringAttributeType);
+                    DockCategory* typeCategory = [DockCategory findOrCreateCategory: kDockTypeCategoryType value: typeString context: _managedObjectContext];
+                    [c addCategoriesObject: typeCategory];
                 }
             }
 
