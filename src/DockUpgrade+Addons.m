@@ -57,7 +57,8 @@
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Upgrade" inManagedObjectContext: context];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
-    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"placeholder = YES"];
+    NSString* pair = [DockCategory pair: kDockTypeCategoryType value: upType];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"categories.pair == %@ && placeholder = YES" argumentArray: @[pair]];
     [request setPredicate: predicateTemplate];
     DockUpgrade* placeholderUpgrade = nil;
     NSError* err;
