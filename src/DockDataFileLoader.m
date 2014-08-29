@@ -170,14 +170,8 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
         NSString* nodeType = d[@"Type"];
         NSString* typeString = nodeType;
         NSArray* parts = [typeString strippedComponentsSeparatedByString: @","];
-        if (parts.count > 1) {
-            NSLog(@"got one");
-        }
         if (targetType == nil || nodeType == nil || [parts containsObject: targetType]) {
             NSString* externalId = d[@"Id"];
-            if ([externalId isEqualToString: @"the_doctor_71280"]) {
-                NSLog(@"the doctor");
-            }
             id c = existingItemsLookup[externalId];
 
             if (c == nil) {
