@@ -108,14 +108,6 @@
 
 -(void)cleanupDatabase
 {
-    DockUpgrade* crew = [DockUpgrade upgradeForId: @"cold_storage_unit_op5prize" context:_managedObjectContext];
-    if (crew != nil) {
-        NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
-        for (DockSquad* s in allSquads) {
-            [s purgeUpgrade: crew];
-        }
-        [_managedObjectContext deleteObject: crew];
-    }
 }
 
 @end
