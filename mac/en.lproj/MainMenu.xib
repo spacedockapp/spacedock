@@ -3530,7 +3530,7 @@
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                                 <connections>
-                                                                                                    <binding destination="42H-yn-4Zn" name="value" keyPath="objectValue.combinedFaction" id="Ej5-yh-tsi"/>
+                                                                                                    <binding destination="42H-yn-4Zn" name="value" keyPath="objectValue.combinedFactions" id="xeZ-DK-JyA"/>
                                                                                                 </connections>
                                                                                             </textField>
                                                                                         </subviews>
