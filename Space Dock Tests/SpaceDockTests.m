@@ -241,7 +241,7 @@ static NSManagedObjectContext* getManagedObjectContext()
                 int expectedEquippedUpgradeCost = [upgradeData[calculatedCostKey] intValue];
                 XCTAssertEqual(expectedEquippedUpgradeCost, equippedUpgradeCost, @"on squad %@", name);
             }
-            XCTAssertEqual(upgrades.count, upgradeDataArray.count);
+            XCTAssertEqual(upgrades.count, upgradeDataArray.count, @"on squad %@", name);
             int shipCost = [shipData[calculatedCostKey] intValue];
             XCTAssertEqual(shipCost, loadedShip.cost, @"on squad %@", name);
         }
