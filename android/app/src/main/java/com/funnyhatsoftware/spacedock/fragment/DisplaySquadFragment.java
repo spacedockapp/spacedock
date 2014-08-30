@@ -1,12 +1,21 @@
 
 package com.funnyhatsoftware.spacedock.fragment;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.pdf.PdfDocument.Page;
+import android.os.Build;
 import android.os.Bundle;
+import android.print.PrintAttributes;
+import android.print.PrintDocumentAdapter;
+import android.print.PrintJob;
+import android.print.PrintManager;
+import android.print.pdf.PrintedPdfDocument;
 import android.support.v4.util.ArrayMap;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,9 +23,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
-
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.adapter.SeparatedListAdapter;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
@@ -25,11 +39,11 @@ import com.funnyhatsoftware.spacedock.data.Ship;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.data.Upgrade;
+import com.funnyhatsoftware.spacedock.fleetprint.PrintFleetAdapter;
+import com.funnyhatsoftware.spacedock.fleetprint.PrintFleetDialog;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolder;
 import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
-
 import org.json.JSONException;
-
 import java.util.ArrayList;
 
 public class DisplaySquadFragment extends FullscreenListFragment {
@@ -39,7 +53,7 @@ public class DisplaySquadFragment extends FullscreenListFragment {
     private static final int LAYOUT_RES_ID = R.layout.item_with_details;
 
     String mSquadUuid;
-
+    
     public static DisplaySquadFragment newInstance(String squadUuid) {
         if (squadUuid == null) {
             throw new IllegalArgumentException("squad uuid required");
@@ -136,8 +150,20 @@ public class DisplaySquadFragment extends FullscreenListFragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_display_squad, menu);
+        if ( Build.VERSION.SDK_INT >= 19 )
+        {
+        	MenuItem printFleet = menu.add("Print Fleet Build");
+        	printFleet.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        	printFleet.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+	    			@Override
+	    			public boolean onMenuItemClick(MenuItem item) {
+	    				printFleet();
+	    				return true;
+	    			}
+    			});
+        }
     }
-
+    
     private void copySquadToClipboard() {
         Squad squad = Universe.getUniverse().getSquadByUUID(mSquadUuid);
         if (squad != null) {
@@ -166,7 +192,14 @@ public class DisplaySquadFragment extends FullscreenListFragment {
             }
         }
     }
-
+    
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    private void printFleet() {    	
+    	PrintFleetDialog printFleet = PrintFleetDialog.newInstance(mSquadUuid);
+    	printFleet.show(getActivity().getFragmentManager(), "fragment_print_dialog");
+    }
+    
+    
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         final int itemId = item.getItemId();

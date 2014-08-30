@@ -9,5 +9,11 @@
 
 /android/test/bin/
 /android/test/gen/
-
 space_dock*.zip
+.idea/
+/android/app/src/main/.classpath
+/android/app/src/main/.project
+/android/app/src/main/bin/
+/android/app/src/main/libs/
+/android/app/src/main/project.properties
+/gen/
