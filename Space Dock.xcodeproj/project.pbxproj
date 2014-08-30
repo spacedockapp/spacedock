@@ -165,6 +165,8 @@
 		D463929319B1E47400A4A591 /* DockTag.m in Sources */ = {isa = PBXBuildFile; fileRef = D463929119B1E47400A4A591 /* DockTag.m */; };
 		D463929619B1EA7800A4A591 /* DockComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = D463929519B1EA7800A4A591 /* DockComponent.m */; };
 		D463929719B1EA7800A4A591 /* DockComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = D463929519B1EA7800A4A591 /* DockComponent.m */; };
+		D463929A19B1EDC100A4A591 /* DockOfficerRowHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D463929919B1EDC100A4A591 /* DockOfficerRowHandler.m */; };
+		D463929B19B1EEAD00A4A591 /* NSString+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EA87B218B6ECF20033EC4B /* NSString+Addons.m */; };
 		D4641E70183D9B3A00121086 /* DockManeuver+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4641E6F183D9B3A00121086 /* DockManeuver+Addons.m */; };
 		D4641E71183D9B3A00121086 /* DockManeuver+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4641E6F183D9B3A00121086 /* DockManeuver+Addons.m */; };
 		D46E95EB182C8BC20060DCD7 /* DockShipDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46E95EA182C8BC20060DCD7 /* DockShipDetailViewController.m */; };
@@ -528,6 +530,8 @@
 		D463929119B1E47400A4A591 /* DockTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockTag.m; sourceTree = "<group>"; };
 		D463929419B1EA7800A4A591 /* DockComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockComponent.h; sourceTree = "<group>"; };
 		D463929519B1EA7800A4A591 /* DockComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockComponent.m; sourceTree = "<group>"; };
+		D463929819B1EDC100A4A591 /* DockOfficerRowHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockOfficerRowHandler.h; sourceTree = "<group>"; };
+		D463929919B1EDC100A4A591 /* DockOfficerRowHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockOfficerRowHandler.m; sourceTree = "<group>"; };
 		D4641E61183D727700121086 /* Space_Dock_4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock_4.xcdatamodel; sourceTree = "<group>"; };
 		D4641E6E183D9B3A00121086 /* DockManeuver+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockManeuver+Addons.h"; sourceTree = "<group>"; };
 		D4641E6F183D9B3A00121086 /* DockManeuver+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockManeuver+Addons.m"; sourceTree = "<group>"; };
@@ -977,6 +981,8 @@
 				D43AAFBF1993BBF5002081E4 /* DockFlagshipRowHandler.m */,
 				D43AAFC11993C867002081E4 /* DockFleetCaptainRowHandler.h */,
 				D43AAFC21993C867002081E4 /* DockFleetCaptainRowHandler.m */,
+				D463929819B1EDC100A4A591 /* DockOfficerRowHandler.h */,
+				D463929919B1EDC100A4A591 /* DockOfficerRowHandler.m */,
 				D43AAFB21993B346002081E4 /* DockRowHandler.h */,
 				D43AAFB31993B346002081E4 /* DockRowHandler.m */,
 				D43AAFB51993B37C002081E4 /* DockSectionHandler.h */,
@@ -1653,6 +1659,7 @@
 				D43AAFC31993C867002081E4 /* DockFleetCaptainRowHandler.m in Sources */,
 				D48126BE19AA21BB000CCD25 /* DockShipClassDetails.m in Sources */,
 				D47316B518182C4C00046428 /* DockUtils.m in Sources */,
+				D463929B19B1EEAD00A4A591 /* NSString+Addons.m in Sources */,
 				D433FE21181503A20062731A /* DockShipsViewController.m in Sources */,
 				D427CDE3184A50CF0086EB86 /* DockConstants.m in Sources */,
 				D4C0A47619AF945900CB11D3 /* DockOfficer.m in Sources */,
@@ -1704,6 +1711,7 @@
 				D47316AB18182C4C00046428 /* DockDataFileLoader.m in Sources */,
 				D433FE14181503A20062731A /* main.m in Sources */,
 				D40108E2182015090029FDC4 /* DockEquippedShipController.m in Sources */,
+				D463929A19B1EDC100A4A591 /* DockOfficerRowHandler.m in Sources */,
 				D47316B118182C4C00046428 /* DockSet+Addons.m in Sources */,
 				D43AAFBD1993B4DD002081E4 /* DockUpgradeRowHandler.m in Sources */,
 				D48126FE19AA21BC000CCD25 /* DockFlagship.m in Sources */,

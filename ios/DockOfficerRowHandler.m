@@ -3,7 +3,6 @@
 #import "DockConstants.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
-#import "DockOfficer+Addons.h"
 #import "DockUpgrade+Addons.h"
 
 @implementation DockOfficerRowHandler

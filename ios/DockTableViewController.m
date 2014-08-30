@@ -3,6 +3,7 @@
 #import "DockComponent+Addons.h"
 #import "DockConstants.h"
 #import "DockSet+Addons.h"
+#import "DockTag+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUtilsMobile.h"
 
@@ -71,7 +72,7 @@
     [predicateValues addObject: includedSets];
     if (faction != nil && [self useFactionFilter]) {
         [predicateTerms addObject: @"(ANY tags.value in %@ )"];
-        NSString* categoryTagValue = [DockTag categoryTag: kDockFactionCategoryType value: factionName];
+        NSString* categoryTagValue = [DockTag categoryTag: kDockFactionCategoryType value: faction];
         [predicateValues addObject: categoryTagValue];
     }
 

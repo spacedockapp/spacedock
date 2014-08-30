@@ -1,10 +1,12 @@
 #import "DockUpgradesViewController.h"
 
+#import "DockComponent+Addons.h"
 #import "DockConstants.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
+#import "DockTag+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUpgradeDetailViewController.h"
 #import "DockUtilsMobile.h"
@@ -133,8 +135,9 @@
 
     [predicateTerms addObject: @"(not placeholder == YES)"];
     if (_upType != nil) {
-        [predicateTerms addObject: @"(upType = %@)"];
-        [predicateValues addObject: _upType];
+        NSString* pair = [DockTag categoryTag: kDockTypeCategoryType value: _upType];
+        [predicateTerms addObject: @"(ANY tags.value == %@)"];
+        [predicateValues addObject: pair];
     }
 
     if (includedSets) {
@@ -143,9 +146,9 @@
     }
 
     if (faction != nil && [self useFactionFilter]) {
-        [predicateTerms addObject: @"(faction = %@ or additionalFaction = %@)"];
-        [predicateValues addObject: faction];
-        [predicateValues addObject: faction];
+        NSString* pair = [DockTag categoryTag: kDockFactionCategoryType value: faction];
+        [predicateTerms addObject: @"(ANY tags.value == %@)"];
+        [predicateValues addObject: pair];
     }
 
     NSString* searchTerm = self.searchTerm;

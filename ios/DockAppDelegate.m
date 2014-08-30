@@ -238,7 +238,7 @@ static NSString* kSpaceDockFileName = @"SpaceDock2.CDBStore";
 
 -(NSURL*)modelURL
 {
-    return [[NSBundle mainBundle] URLForResource: @"Space_Dock" withExtension: @"momd"];
+    return [[NSBundle mainBundle] URLForResource: @"SpaceDock2" withExtension: @"momd"];
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex

@@ -6,7 +6,6 @@
 #import "DockComponent+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
-#import "DockWeapon+Addons.h"
 
 @interface DockUpgradeDetailViewController ()
 @property (nonatomic, assign) CGFloat labelWidth;
@@ -181,19 +180,17 @@
 
 -(UITableViewCell*)cellForAttack:(UITableView*)tableView
 {
-    DockWeapon* weapon = (DockWeapon*)_upgrade;
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
     cell.textLabel.text = @"Attack";
-    cell.detailTextLabel.text = [weapon.attack stringValue];
+    cell.detailTextLabel.text = [_upgrade.attack stringValue];
     return cell;
 }
 
 -(UITableViewCell*)cellForRange:(UITableView*)tableView
 {
-    DockWeapon* weapon = (DockWeapon*)_upgrade;
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
     cell.textLabel.text = @"Range";
-    cell.detailTextLabel.text = weapon.range;
+    cell.detailTextLabel.text = _upgrade.range;
     return cell;
 }
 
