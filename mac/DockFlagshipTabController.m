@@ -5,6 +5,7 @@
 #import "DockEquippedShip+Addons.h"
 #import "DockFlagship+Addons.h"
 #import "DockSquad+Addons.h"
+#import "DockTag+Addons.h"
 
 @implementation DockFlagshipTabController
 
@@ -20,9 +21,10 @@
 -(void)addAdditionalPredicatesForFaction:(NSString*)factionName formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments
 {
     if (self.dependsOnFaction && factionName != nil) {
-        [formatParts addObject: @"(ANY categories.type like %@ and ANY categories.value in %@)"];
-        [arguments addObject: kDockFactionCategoryType];
-        [arguments addObject: @[factionName, @"Independent"]];
+        [formatParts addObject: @"(ANY tags.value in %@ )"];
+        NSString* categoryTagValue = [DockTag categoryTag: kDockFactionCategoryType value: factionName];
+        NSString* independentCategoryTagValue = [DockTag categoryTag: kDockFactionCategoryType value: @"Independent"];
+        [arguments addObject: @[categoryTagValue, independentCategoryTagValue]];
     }
 }
 

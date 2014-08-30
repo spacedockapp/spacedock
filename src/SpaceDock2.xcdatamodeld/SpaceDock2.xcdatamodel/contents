@@ -10,16 +10,7 @@
         <attribute name="skill" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="talent" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Categorized" representedClassName="DockCategorized" isAbstract="YES" parentEntity="Tagged" syncable="YES">
-        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="categorized" inverseEntity="Category" syncable="YES"/>
-    </entity>
-    <entity name="Category" representedClassName="DockCategory" syncable="YES">
-        <attribute name="pair" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="categorized" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Categorized" inverseName="categories" inverseEntity="Categorized" syncable="YES"/>
-    </entity>
-    <entity name="Component" representedClassName="DockComponent" isAbstract="YES" parentEntity="Categorized" syncable="YES">
+    <entity name="Component" representedClassName="DockComponent" isAbstract="YES" parentEntity="Tagged" syncable="YES">
         <attribute name="externalId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="factionSortValue" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -135,7 +126,7 @@
         <relationship name="resource" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Resource" inverseName="squad" inverseEntity="Resource" syncable="YES"/>
     </entity>
     <entity name="Tag" representedClassName="DockTag" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="tagged" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tagged" inverseName="tags" inverseEntity="Tagged" syncable="YES"/>
     </entity>
     <entity name="Tagged" representedClassName="DockTagged" isAbstract="YES" syncable="YES">
@@ -154,8 +145,6 @@
     <elements>
         <element name="Admiral" positionX="27" positionY="225" width="128" height="103"/>
         <element name="Captain" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="Categorized" positionX="529" positionY="63" width="128" height="58"/>
-        <element name="Category" positionX="718" positionY="207" width="128" height="105"/>
         <element name="Component" positionX="0" positionY="0" width="128" height="103"/>
         <element name="EquippedShip" positionX="0" positionY="0" width="128" height="103"/>
         <element name="EquippedUpgrade" positionX="0" positionY="0" width="128" height="105"/>
@@ -170,7 +159,7 @@
         <element name="ShipClassDetails" positionX="0" positionY="0" width="128" height="135"/>
         <element name="Sideboard" positionX="0" positionY="0" width="128" height="45"/>
         <element name="Squad" positionX="0" positionY="0" width="128" height="150"/>
-        <element name="Tag" positionX="477" positionY="359" width="128" height="73"/>
+        <element name="Tag" positionX="477" positionY="359" width="128" height="75"/>
         <element name="Tagged" positionX="423" positionY="248" width="128" height="58"/>
         <element name="Upgrade" positionX="0" positionY="0" width="128" height="163"/>
     </elements>

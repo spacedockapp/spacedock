@@ -4,7 +4,6 @@
 
 #import "DockAdmiral.h"
 #import "DockCaptain+Addons.h"
-#import "DockCategory+Addons.h"
 #import "DockComponent+Addons.h"
 #import "DockConstants.h"
 #import "DockEquippedShip+Addons.h"
@@ -20,6 +19,7 @@
 #import "DockShipClassDetails+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockSquad.h"
+#import "DockTag+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
 #import "ISO8601DateFormatter.h"
@@ -211,19 +211,19 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                     DockShip* ship = (DockShip*)c;
                     NSString* shipClass =  [d valueForKey: key];
                     [ship updateShipClass: shipClass];
-                } else if (([key isEqualToString: @"Faction"] || [key isEqualToString: @"AdditionalFaction"]) && [c isKindOfClass: [DockCategorized class]]) {
+                } else if (([key isEqualToString: @"Faction"] || [key isEqualToString: @"AdditionalFaction"]) && [c isKindOfClass: [DockTagged class]]) {
                     id v = [d valueForKey: key];
                     NSString* factionString = processAttribute(v, NSStringAttributeType);
-                    DockCategory* factionCategory = [DockCategory findOrCreateCategory: kDockFactionCategoryType
+                    DockTag* factionCategoryTag = [DockTag findOrCreateCategoryTag: kDockFactionCategoryType
                                                                                  value: factionString
                                                                                context: _managedObjectContext];
-                    [c addCategoriesObject: factionCategory];
-                } else if ([key isEqualToString: @"Type"] && [c isKindOfClass: [DockCategorized class]]) {
+                    [c addTagsObject: factionCategoryTag];
+                } else if ([key isEqualToString: @"Type"] && [c isKindOfClass: [DockTagged class]]) {
                     for (NSString* onePart in parts) {
-                        DockCategory* typeCategory = [DockCategory findOrCreateCategory: kDockTypeCategoryType
+                        DockTag* factionCategoryTag = [DockTag findOrCreateCategoryTag: kDockTypeCategoryType
                                                                                   value: onePart
                                                                                 context: _managedObjectContext];
-                        [c addCategoriesObject: typeCategory];
+                        [c addTagsObject: factionCategoryTag];
                     }
                 }
             }

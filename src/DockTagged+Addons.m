@@ -1,25 +1,27 @@
-#import "DockCategorized+Addons.h"
+#import "DockTagged+Addons.h"
 
-#import "DockCategory+Addons.h"
+#import "DockTag+Addons.h"
 
-@implementation DockCategorized (Addons)
+@implementation DockTagged (Addons)
 
 -(NSSet*)categoriesOfType:(NSString*)type
 {
+    NSString* categoryTypeTag = [DockTag categoryTag: type value: @""];
     id testCategoryType = ^(id obj, BOOL *stop) {
-        DockCategory* category = obj;
-        return [category.type isEqualToString: type];
+        DockTag* tag = obj;
+        return [tag.value hasPrefix: categoryTypeTag];
     };
     
-    return [self.categories objectsPassingTest: testCategoryType];
+    return [self.tags objectsPassingTest: testCategoryType];
 }
 
 -(NSSet*)valuesForCategoriesOfType:(NSString*)type
 {
     NSSet* categories = [self categoriesOfType: type];
     NSMutableSet* values = [[NSMutableSet alloc] initWithCapacity: categories.count];
-    for (DockCategory* category in categories) {
-        [values addObject: category.value];
+    for (DockTag* categoryTag in categories) {
+        NSString* categoryValue = [DockTag categoryValue: categoryTag.value];
+        [values addObject: categoryValue];
     }
     return [NSSet setWithSet: values];
 }
@@ -29,5 +31,4 @@
     NSSet* matchingTypes = [self valuesForCategoriesOfType: type];
     return [matchingTypes containsObject: value];
 }
-
 @end

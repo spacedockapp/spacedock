@@ -2,21 +2,21 @@
 //  DockComponent.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 8/24/14.
+//  Created by Rob Tsuk on 8/30/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "DockCategorized.h"
+#import "DockTagged.h"
 
 @class DockSet;
 
-@interface DockComponent : DockCategorized
+@interface DockComponent : DockTagged
 
 @property (nonatomic, retain) NSString * externalId;
-@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * factionSortValue;
+@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSSet *sets;
 @end
 

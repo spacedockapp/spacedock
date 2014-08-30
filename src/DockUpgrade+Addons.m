@@ -1,7 +1,6 @@
 #import "DockUpgrade+Addons.h"
 
 #import "DockCaptain+Addons.h"
-#import "DockCategory+Addons.h"
 #import "DockComponent+Addons.h"
 #import "DockConstants.h"
 #import "DockEquippedShip+Addons.h"
@@ -11,6 +10,8 @@
 #import "DockResource.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
+#import "DockTag+Addons.h"
+#import "DockTagged+Addons.h"
 #import "DockUtils.h"
 #import "DockWeaponRange.h"
 
@@ -57,8 +58,8 @@
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Upgrade" inManagedObjectContext: context];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
-    NSString* pair = [DockCategory pair: kDockTypeCategoryType value: upType];
-    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"categories.pair == %@ && placeholder = YES" argumentArray: @[pair]];
+    NSString* pair = [DockTag categoryTag: kDockTypeCategoryType value: upType];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"tags.value == %@ && placeholder = YES" argumentArray: @[pair]];
     [request setPredicate: predicateTemplate];
     DockUpgrade* placeholderUpgrade = nil;
     NSError* err;
@@ -732,10 +733,10 @@
 
 -(void)setUpType:(NSString*)upType;
 {
-    DockCategory* typeCategory = [DockCategory findOrCreateCategory: kDockTypeCategoryType
+    DockTag* typeCategoryTag = [DockTag findOrCreateCategoryTag: kDockTypeCategoryType
                                                               value: upType
                                                             context: self.managedObjectContext];
-    [self addCategoriesObject: typeCategory];
+    [self addTagsObject: typeCategoryTag];
 }
 
 -(DockWeaponRange*)weaponRange

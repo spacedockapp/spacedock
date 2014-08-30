@@ -1,7 +1,6 @@
 #import "DockTabController.h"
 
 #import "DockAppDelegate.h"
-#import "DockCategory+Addons.h"
 #import "DockComponent+Addons.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedShip+MacAddons.h"
@@ -10,6 +9,7 @@
 #import "DockSearchFieldController.h"
 #import "DockSquad+Addons.h"
 #import "DockSet+Addons.h"
+#import "DockTag+Addons.h"
 #import "DockComponent+Addons.h"
 #import "DockUtilsMac.h"
 
@@ -113,8 +113,8 @@ NSMutableArray* sTabControllers = nil;
 -(void)addAdditionalPredicatesForFaction:(NSString*)factionName formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments
 {
     if (self.dependsOnFaction && factionName != nil) {
-        NSString* pair = [DockCategory pair: kDockFactionCategoryType value: factionName];
-        [formatParts addObject: @"(ANY categories.pair == %@)"];
+        NSString* pair = [DockTag categoryTag: kDockFactionCategoryType value: factionName];
+        [formatParts addObject: @"(ANY tags.value == %@)"];
         [arguments addObject: pair];
     }
 }
@@ -122,8 +122,8 @@ NSMutableArray* sTabControllers = nil;
 -(void)addAdditionalPredicatesForType:(NSString*)typeName formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments
 {
     if (typeName != nil) {
-        NSString* pair = [DockCategory pair: kDockTypeCategoryType value: typeName];
-        [formatParts addObject: @"(ANY categories.pair == %@)"];
+        NSString* pair = [DockTag categoryTag: kDockTypeCategoryType value: typeName];
+        [formatParts addObject: @"(ANY tags.value == %@)"];
         [arguments addObject: pair];
     }
 }
@@ -133,8 +133,8 @@ NSMutableArray* sTabControllers = nil;
     if (typeNameList != nil) {
         NSMutableArray* typeFormatStringParts = [[NSMutableArray alloc] initWithCapacity: typeNameList.count];
         for (NSString* oneType in typeNameList) {
-            NSString* pair = [DockCategory pair: kDockTypeCategoryType value: oneType];
-            [typeFormatStringParts addObject: @"(ANY categories.pair like %@)"];
+            NSString* pair = [DockTag categoryTag: kDockTypeCategoryType value: oneType];
+            [typeFormatStringParts addObject: @"(ANY tags.value like %@)"];
             [arguments addObject: pair];
         }
         NSString* typeFormatString = [typeFormatStringParts componentsJoinedByString: @" OR "];

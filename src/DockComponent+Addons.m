@@ -1,9 +1,8 @@
 #import "DockComponent+Addons.h"
 
-#import "DockCategorized+Addons.h"
-#import "DockCategory.h"
 #import "DockSet+Addons.h"
 #import "DockShip+Addons.h"
+#import "DockTagged+Addons.h"
 #import "DockUtils.h"
 
 NSString* kDockFactionCategoryType = @"faction";

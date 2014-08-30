@@ -2,6 +2,7 @@
 
 #import "DockComponent+Addons.h"
 #import "DockShip+Addons.h"
+#import "DockTag+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
 
@@ -17,7 +18,8 @@
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Captain" inManagedObjectContext: context];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
-    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"cost = 0 and ANY categories.type like %@ and ANY categories.value like %@", kDockFactionCategoryType, faction];
+    NSString* categoryTagValue = [DockTag categoryTag: kDockTypeCategoryType value: faction];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"cost = 0 and ANY tags.value == %@", categoryTagValue];
     [request setPredicate: predicateTemplate];
     NSError* err;
     NSArray* existingItems = [context executeFetchRequest: request error: &err];
@@ -37,7 +39,8 @@
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Captain" inManagedObjectContext: context];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
-    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"cost = 0 and ANY categories.type == %@ and ANY categories.value == %@", kDockFactionCategoryType, faction];
+    NSString* categoryTagValue = [DockTag categoryTag: kDockTypeCategoryType value: faction];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"cost = 0 and ANY tags.value == %@", categoryTagValue];
     [request setPredicate: predicateTemplate];
     NSError* err;
     NSArray* existingItems = [context executeFetchRequest: request error: &err];

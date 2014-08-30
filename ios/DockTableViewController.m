@@ -70,9 +70,9 @@
     [predicateTerms addObject: @"any sets.externalId in %@"];
     [predicateValues addObject: includedSets];
     if (faction != nil && [self useFactionFilter]) {
-        [predicateTerms addObject: @"(ANY categories.type like %@ and ANY categories.value like %@)"];
-        [predicateValues addObject: kDockFactionCategoryType];
-        [predicateValues addObject: faction];
+        [predicateTerms addObject: @"(ANY tags.value in %@ )"];
+        NSString* categoryTagValue = [DockTag categoryTag: kDockFactionCategoryType value: factionName];
+        [predicateValues addObject: categoryTagValue];
     }
 
     int cost = self.cost;
