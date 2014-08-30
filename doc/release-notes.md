@@ -1,4 +1,9 @@
-### Version 1.1.2 build 79 (2014-8-27)
+### Version 1.1.3 build 81 (2014-8-30)
+
+* Fix error when duplicating squads containing fleet captains.
+* Added new Sector Conditions game mechanic to reference section. (Thanks to Robert George).
+
+### Version 1.1.2 build 80 (2014-8-27)
 
 * Add support for Officer Cards.
 * Fix cost calculation for combination of independent fleet captain, independent ship and non-independent captain.
