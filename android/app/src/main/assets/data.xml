@@ -1,4 +1,4 @@
-<Data version="2014-08-25@15-36">
+<Data version="2014-08-30@01-26">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -9623,7 +9623,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
 
 5) If a [CREW] Upgrade that has one or more Officer Cards assigned to it is ever disabled, its assigned Officer Card(s) are considered disabled as well. If a [CREW] Upgrade that has one or more Officer Cards assigned to it is ever discarded, its assigned Officer Card(s) are considered discarded as well. NOTE: If the First Officer is ever discarded, his [ELITE TALENT] Upgrade is discarded as well.</Ability>
         <Type>Resource</Type>
-        <Cost>5</Cost>
+        <Cost>0</Cost>
         <Id>officer_cards_collectiveop3</Id>
         <Set>CollectiveOP3</Set>
       </Resource>
@@ -10217,5 +10217,38 @@ It may be possible for different players to have ships from the same Faction wit
             <Id>initiative_reference</Id>
             <Set>71120</Set>
         </Reference>
+        <Reference>
+            <Title>Sector Condition: Nebula</Title>
+            <Ability>Ships may only fire up to Range 3 with their forward firing arcs and ships defending at Range 3 receive an additional Defense Die.
+
+All other attacks, are limited to a maximum of up to Range 2.
+
+Ships without a forward firing arc have a maximum of up to Range 2.</Ability>
+            <Type>Mechanic</Type>
+            <Id>sector_condition_nebula_reference</Id>
+            <Set>71120</Set>
+        </Reference>
+	<Reference>
+            <Title>Sector Condition: Energy Flux</Title>
+            <Ability>After targeting an opposing ship with an attack but before making the attack roll, roll an Attack die that cannot be re-rolled.
+
+On a result of a [BATTLE STATIONS], reduce the attacking ship's printed Primary Weapon value by half (rounding up).
+
+Further modifications to the Attack roll from game effects may be applied after the Energy Flux die roll as normal.</Ability>
+            <Type>Mechanic</Type>
+            <Id>sector_condition_energy_flux_reference</Id>
+            <Set>71120</Set>
+	</Reference>
+	<Reference>
+            <Title>Sector Condition: Meteor Shower</Title>
+            <Ability>At the start of the Planning Phase, roll one Attack die per ship in turn that cannot be re-rolled and resolve effect before rolling for next ship.
+
+Any [HIT] or [CRITICAL] damages the target ship as normal.
+
+Ships may roll defense dice against this damage using their ship's printed Agility value.</Ability>
+            <Type>Mechanic</Type>
+            <Id>sector_condition_meteor_shower_reference</Id>
+            <Set>71120</Set>
+	</Reference>
     </ReferenceItems>
 </Data>
