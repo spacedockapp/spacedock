@@ -347,7 +347,7 @@
     }
 
     if ([self isCaptain]) {
-        return @"AAACaptain";
+        return @"AAAAAAAACaptain";
     }
 
     if ([self isTalent]) {
