@@ -22,23 +22,26 @@ import android.widget.EditText;
 public class PrintFleetDialog extends DialogFragment {
 		private String mSquadUuid;
 	
-		public PrintFleetDialog(String squad_uuid) {
-			this.mSquadUuid = squad_uuid;
+		public PrintFleetDialog() {
+
 		}
 		
+		
 		public static PrintFleetDialog newInstance(String squad_uuid) {
-			PrintFleetDialog frag = new PrintFleetDialog(squad_uuid);
+			PrintFleetDialog frag = new PrintFleetDialog();
 			Bundle args = new Bundle();
 			args.putString("title", "Print Fleet Build Sheet");
+			args.putString("squad_uuid", squad_uuid);
 			frag.setArguments(args);
 			return frag;
 		}
-		
+				
 		@Override
 		public Dialog onCreateDialog(Bundle savedInstanceState) {
+			super.onCreateDialog(savedInstanceState);
+			this.mSquadUuid = getArguments().getString("squad_uuid");
 			if ( Build.VERSION.SDK_INT < 19 )
 			{
-				AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 				return new AlertDialog.Builder(getActivity())
 				.setTitle("Sorry.")
 				.setCancelable(true)
@@ -50,7 +53,7 @@ public class PrintFleetDialog extends DialogFragment {
                 }
             )
             .create();
-				
+			
 			}
 			else {
 				AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
