@@ -18,7 +18,7 @@
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Captain" inManagedObjectContext: context];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
-    NSString* categoryTagValue = [DockTag categoryTag: kDockTypeCategoryType value: faction];
+    NSString* categoryTagValue = [DockTag categoryTag: kDockFactionCategoryType value: faction];
     NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"cost = 0 and ANY tags.value == %@", categoryTagValue];
     [request setPredicate: predicateTemplate];
     NSError* err;
@@ -39,7 +39,7 @@
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Captain" inManagedObjectContext: context];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
-    NSString* categoryTagValue = [DockTag categoryTag: kDockTypeCategoryType value: faction];
+    NSString* categoryTagValue = [DockTag categoryTag: kDockFactionCategoryType value: faction];
     NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"cost = 0 and ANY tags.value == %@", categoryTagValue];
     [request setPredicate: predicateTemplate];
     NSError* err;
