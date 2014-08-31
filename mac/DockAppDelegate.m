@@ -230,6 +230,8 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     [center addObserverForName: kCurrentSearchTerm object: nil queue: nil usingBlock: currentSearchTermChangedBlock];
 
     [_itemSourceListController setupForTabs];
+    
+    [self addSquad: self];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
