@@ -15,27 +15,32 @@ NSString* kDockTagEntityName = @"Tag";
     return [parts lastObject];
 }
 
-+(DockTag*)findOrCreateCategoryTag:(NSString*)type value:(NSString*)value context:(NSManagedObjectContext*)context
++(DockTag*)findOrCreateTag:(NSString*)tagValue context:(NSManagedObjectContext*)context;
 {
-    DockTag* categoryTag = nil;
+    DockTag* tag = nil;
     NSEntityDescription* entity = [NSEntityDescription entityForName: kDockTagEntityName inManagedObjectContext: context];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
-    NSString* categoryTagValue = [DockTag categoryTag: type value: value];
-    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"value = %@", categoryTag];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"value = %@", tagValue];
     [request setPredicate: predicateTemplate];
     NSError* err;
     NSArray* existingItems = [context executeFetchRequest: request error: &err];
 
     if (existingItems.count == 0) {
-        categoryTag = [[DockTag alloc] initWithEntity: entity insertIntoManagedObjectContext: context];
-        categoryTag.value = categoryTagValue;
+        tag = [[DockTag alloc] initWithEntity: entity insertIntoManagedObjectContext: context];
+        tag.value = tagValue;
     } else {
         assert(existingItems.count == 1);
-        categoryTag = existingItems[0];
+        tag = existingItems[0];
     }
 
-    return categoryTag;
+    return tag;
+}
+
++(DockTag*)findOrCreateCategoryTag:(NSString*)type value:(NSString*)value context:(NSManagedObjectContext*)context
+{
+    NSString* categoryTagValue = [DockTag categoryTag: type value: value];
+    return [DockTag findOrCreateTag: categoryTagValue context: context];
 }
 
 @end

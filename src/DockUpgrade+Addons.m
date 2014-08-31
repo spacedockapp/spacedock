@@ -12,6 +12,7 @@
 #import "DockSquad+Addons.h"
 #import "DockTag+Addons.h"
 #import "DockTagged+Addons.h"
+#import "DockTagHandler.h"
 #import "DockUtils.h"
 #import "DockWeaponRange.h"
 
@@ -216,6 +217,31 @@
     return YES;
 }
 
+-(BOOL)refersToShipOrShipClass
+{
+    NSSet* tags = self.tags;
+    for (DockTag* tag in tags) {
+        DockTagHandler* handler = [DockTagHandler handlerForTag: tag.value];
+        if (handler) {
+            if (handler.refersToShipOrShipClass) {
+                return YES;
+            }
+        }
+    }
+
+    NSSet* ineligibleTechUpgrades = [NSSet setWithArray: @[
+                                                           @"OnlySpecies8472Ship",
+                                                           @"PenaltyOnShipOtherThanDefiant",
+                                                           @"PenaltyOnShipOtherThanKeldonClass",
+                                                           @"OnlySpecies8472Ship",
+                                                           @"CostPlusFiveExceptBajoranInterceptor",
+                                                           @"PlusFiveForNonKazon",
+                                                           @"OnlyForRomulanScienceVessel",
+                                                           @"OnlyJemHadarShips",
+                                                           ]];
+    return [ineligibleTechUpgrades containsObject: self.special];
+}
+
 -(BOOL)isIndependent
 {
     return [self hasFaction: @"Independent"];
@@ -275,20 +301,6 @@
         return [targetShip talentCount];
     }
 
-
-    if (![targetShip isResourceSideboard]) {
-
-        NSString* targetShipClass = self.targetShipClass;
-
-        if (targetShipClass != nil) {
-            NSString* shipClass = targetShip.ship.shipClass;
-
-            if (![shipClass isEqualToString: targetShipClass]) {
-                return 0;
-            }
-        }
-    }
-
     if ([self isWeapon]) {
         return [targetShip weaponCount];
     }
@@ -306,21 +318,6 @@
     }
 
     return 0;
-}
-
--(NSString*)targetShipClass
-{
-    NSString* special = self.special;
-
-    if ([special isEqualToString: @"OnlyForRomulanScienceVessel"]) {
-        return @"Romulan Science Vessel";
-    } else if ([special isEqualToString: @"OnlyForRaptorClassShips"]) {
-        return @"Raptor Class";
-    } else if ([special isEqualToString: @"combat_vessel_variant_71508"]) {
-        return @"Suurok Class";
-    }
-
-    return nil;
 }
 
 -(NSString*)upSortType
@@ -572,24 +569,10 @@
         }
     } else if ([captainSpecial isEqualToString: @"AddsHiddenTechSlot"] && !isSideboard) {
         NSArray* allTech = [equippedShip allUpgradesOfFaction: nil upType: @"Tech"];
-        NSSet* ineligibleTechUpgrades = [NSSet setWithArray: @[
-                                                               @"OnlyVoyager",
-                                                               @"OnlySpecies8472Ship",
-                                                               @"PenaltyOnShipOtherThanDefiant",
-                                                               @"PenaltyOnShipOtherThanKeldonClass",
-                                                               @"OnlySpecies8472Ship",
-                                                               @"CostPlusFiveExceptBajoranInterceptor",
-                                                               @"PlusFiveForNonKazon",
-                                                               @"OnlyForRomulanScienceVessel",
-                                                               @"OnlyForRaptorClassShips",
-                                                               @"OnlyJemHadarShips",
-                                                               @"OnlyForRaptorClassShips"
-                                                               ]];
         DockEquippedUpgrade* most = nil;
 
         for (DockEquippedUpgrade* eu in allTech) {
-            NSString* techSpecial = eu.upgrade.special;
-            if (techSpecial == nil || ![ineligibleTechUpgrades containsObject: techSpecial]) {
+            if (![eu.upgrade refersToShipOrShipClass]) {
                 most = eu;
                 break;
             }

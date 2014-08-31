@@ -11,6 +11,7 @@
 #import "DockShip+Addons.h"
 #import "DockShipClassDetails+Addons.h"
 #import "DockSquad+Addons.h"
+#import "DockTagged+Addons.h"
 #import "DockUpgrade+Addons.h"
 
 @interface SpaceDockTests : XCTestCase
@@ -258,6 +259,50 @@ static NSManagedObjectContext* getManagedObjectContext()
 -(void)testSpecials
 {
     [self listTester: @"specials"];
+}
+
+-(void)testTags
+{
+    DockUpgrade* shockwave = [DockUpgrade upgradeForId: @"shockwave_71448" context:_context];
+    XCTAssertNotNil(shockwave);
+    XCTAssertEqualObjects(@"Shockwave", shockwave.title);
+    XCTAssertEqualObjects(@2, shockwave.cost);
+    XCTAssertNotEqualObjects(NO, shockwave.unique);
+    XCTAssert([shockwave hasTag: @"requires_raptor_class"], @"Shockwave should have the require_raptor_class tag, but doesn't");
+    
+    DockSquad* targetSquad = [DockSquad squad: _context];
+    XCTAssertNotNil(targetSquad);
+    
+    DockShip* somraw = [DockShip shipForId: @"i_k_s_somraw_71448" context: _context];
+    XCTAssertNotNil(somraw);
+    
+    DockEquippedShip* es = [DockEquippedShip equippedShipWithShip: somraw];
+    XCTAssertNotNil(somraw);
+    [targetSquad addEquippedShip: es];
+    XCTAssertEqual(1, targetSquad.equippedShips.count);
+    
+    BOOL canAdd = [es canAddUpgrade: shockwave];
+    XCTAssert(canAdd, "Should be able to add Shockwave to the Somraw but can't");
+    
+    DockShip* raptorClass = [DockShip shipForId: @"klingon_starship_71448" context: _context];
+    XCTAssertNotNil(raptorClass);
+
+    es = [DockEquippedShip equippedShipWithShip: raptorClass];
+    XCTAssertNotNil(raptorClass);
+    [targetSquad addEquippedShip: es];
+    XCTAssertEqual(2, targetSquad.equippedShips.count);
+    
+    canAdd = [es canAddUpgrade: shockwave];
+    XCTAssert(canAdd, "Should be able to add Shockwave to the Raptor Class but can't");
+    
+    DockShip* groth = [DockShip shipForId: @"1015" context: _context];
+    XCTAssertNotNil(groth);
+    es = [DockEquippedShip equippedShipWithShip: groth];
+    [targetSquad addEquippedShip: es];
+    XCTAssertEqual(3, targetSquad.equippedShips.count);
+
+    canAdd = [es canAddUpgrade: shockwave];
+    XCTAssert(!canAdd, "Should not be able to add Shockwave to the Gr''oth but can");
 }
 
 @end

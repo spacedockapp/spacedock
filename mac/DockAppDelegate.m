@@ -31,6 +31,7 @@
 #import "DockSquad.h"
 #import "DockSquadDetailController.h"
 #import "DockSquadImporterMac.h"
+#import "DockTagHandler.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
 #import "DockUtilsMac.h"
@@ -199,6 +200,7 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
 {
     [self loadData];
 
+    [DockTagHandler registerTagHandlers: [[DockUpgrade allFactions: self.managedObjectContext] allObjects]];
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
 
     [DockSquad assignUUIDs: self.managedObjectContext];

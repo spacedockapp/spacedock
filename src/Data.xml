@@ -4908,6 +4908,7 @@
       <Id>lore_71522</Id>
       <Set>71522</Set>
       <Special>lore_71522</Special>
+      <Tags>ignores_faction_requirement_for_talents</Tags>
     </Captain>
     <Captain>
       <Title>Keevan</Title>
@@ -5756,6 +5757,7 @@
       <Faction>Romulan</Faction>
       <Cost>4</Cost>
       <Special>OnlyForRomulanScienceVessel</Special>
+      <Tags>requires_romulan_science_vessel</Tags>
       <Id>3041</Id>
       <Set>71124</Set>
     </Upgrade>
@@ -6528,6 +6530,7 @@
       <Id>3080</Id>
       <Set>71271</Set>
       <Special>OnlyJemHadarShips</Special>
+      <Tags>requires_jemhadar_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Phased Polaron Beam</Title>
@@ -6562,6 +6565,7 @@
       <Id>3082</Id>
       <Set>71271</Set>
       <Special>OnlyJemHadarShips</Special>
+      <Tags>requires_jemhadar_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Virak'Kara</Title>
@@ -6579,6 +6583,7 @@
       <Id>3083</Id>
       <Set>71271</Set>
       <Special>OnlyJemHadarShips</Special>
+      <Tags>requires_jemhadar_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Toman'Torax</Title>
@@ -6596,6 +6601,7 @@
       <Id>3084</Id>
       <Set>71271</Set>
       <Special>OnlyJemHadarShips</Special>
+      <Tags>requires_jemhadar_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Redshirt</Title>
@@ -7214,7 +7220,8 @@
       <Cost>2</Cost>
       <Id>shockwave_71448</Id>
       <Set>71448</Set>
-      <Special>OnlyForRaptorClassShips</Special>
+      <Special></Special>
+      <Tags>requires_raptor_class</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Tactical Sensors</Title>
@@ -7229,7 +7236,8 @@
       <Cost>4</Cost>
       <Id>tactical_sensors_71448</Id>
       <Set>71448</Set>
-      <Special>OnlyForRaptorClassShips</Special>
+      <Special></Special>
+      <Tags>requires_raptor_class</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Centurion</Title>
@@ -7335,6 +7343,7 @@
       <Id>kudak_etan_71279</Id>
       <Set>71279</Set>
       <Special>OnlyJemHadarShips</Special>
+      <Tags>requires_jemhadar_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Ixtana'Rax</Title>
@@ -7514,7 +7523,8 @@
       <Cost>10</Cost>
       <Id>ablative_generator_71280</Id>
       <Set>71280</Set>
-      <Special>OnlyVoyager</Special>
+      <Special></Special>
+      <Tags>requires_voyager</Tags>
     </Upgrade>
     <Upgrade>
       <Title>B'elanna Torres</Title>
@@ -7544,7 +7554,7 @@
       <Cost>6</Cost>
       <Id>bio_electric_interference_71281</Id>
       <Set>71281</Set>
-      <Special>OnlySpecies8472Ship</Special>
+      <Tags>requires_species8472_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Bio-Neural Circuitry</Title>
@@ -7619,7 +7629,7 @@
       <Cost>5</Cost>
       <Id>extraordinary_immune_response_71281</Id>
       <Set>71281</Set>
-      <Special>OnlySpecies8472Ship</Special>
+      <Tags>requires_species8472_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Feedback Pulse</Title>
@@ -7664,7 +7674,7 @@
       <Cost>5</Cost>
       <Id>kazon_raiding_party_71282</Id>
       <Set>71282</Set>
-      <Special>OnlyKazonShip</Special>
+      <Tags>requires_kazon_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Masking Circuitry</Title>
@@ -7694,7 +7704,7 @@
       <Cost>6</Cost>
       <Id>quantum_singularity_71281</Id>
       <Set>71281</Set>
-      <Special>OnlySpecies8472Ship</Special>
+      <Tags>requires_species8472_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Sacrifice</Title>
@@ -7859,7 +7869,7 @@
       <Cost>5</Cost>
       <Id>biological_attack_71281</Id>
       <Set>71281</Set>
-      <Special>OnlySpecies8472Ship</Special>
+      <Tags>requires_species8472_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Cutting Beam</Title>
@@ -7874,7 +7884,7 @@
       <Cost>8</Cost>
       <Id>cutting_beam_71283</Id>
       <Set>71283,71444</Set>
-      <Special>OnlyBorgShip</Special>
+      <Tags>requires_borg_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Energy Blast</Title>
@@ -7904,7 +7914,7 @@
       <Cost>10</Cost>
       <Id>energy_focusing_ship_71281</Id>
       <Set>71281</Set>
-      <Special>OnlySpecies8472Ship</Special>
+      <Tags>requires_species8472_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>
@@ -7949,7 +7959,8 @@
       <Cost>10</Cost>
       <Id>transphasic_torpedoes_71280</Id>
       <Set>71280</Set>
-      <Special>OnlyVoyager</Special>
+      <Special></Special>
+      <Tags>requires_voyager</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Tholian Punctuality</Title>
@@ -7979,7 +7990,8 @@
       <Cost>5</Cost>
       <Id>energy_web_opwebprize</Id>
       <Set>OPWebPrize</Set>
-      <Special>OnlyTholianShip</Special>
+      <Special></Special>
+      <Tags>requires_tholian_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Plasma Torpedoes</Title>
@@ -8085,6 +8097,7 @@
       <Id>vulcan_high_command_2_0_71446</Id>
       <Set>71446</Set>
       <Special>VulcanHighCommand</Special>
+      <Tags>requires_vulcan_ship,requires_vulcan_captain</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Vulcan High Command</Title>
@@ -8100,6 +8113,7 @@
       <Id>vulcan_high_command_1_1_71446</Id>
       <Set>71446</Set>
       <Special>VulcanHighCommand</Special>
+      <Tags>requires_vulcan_ship,requires_vulcan_captain</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Vulcan High Command</Title>
@@ -8115,6 +8129,7 @@
       <Id>vulcan_high_command_0_2_71446</Id>
       <Set>71446</Set>
       <Special>VulcanHighCommand</Special>
+      <Tags>requires_vulcan_ship,requires_vulcan_captain</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Neela</Title>
@@ -8295,6 +8310,7 @@
       <Id>phaser_strike_71445</Id>
       <Set>71445</Set>
       <Special>PhaserStrike</Special>
+      <Tags>require_hull_3_or_less</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Full Assault</Title>
@@ -8324,7 +8340,7 @@
       <Cost>6</Cost>
       <Id>borg_missile_71444</Id>
       <Set>71444</Set>
-      <Special>OnlyBorgShip</Special>
+      <Tags>requires_borg_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Jammed Communications</Title>
@@ -8565,6 +8581,7 @@
       <Id>first_strike_3rd_wing_attack_ship</Id>
       <Set>3rd_wing_attack_ship</Set>
       <Special>OnlyHull3OrLess</Special>
+      <Tags>require_hull_3_or_less</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Ion Thrusters</Title>
@@ -8579,7 +8596,7 @@
       <Cost>2</Cost>
       <Id>ion_thrusters_3rd_wing_attack_ship</Id>
       <Set>3rd_wing_attack_ship</Set>
-      <Special>NoMoreThanOnePerShip</Special>
+      <Tags>require_no_more_than_one_per_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Preemptive Strike</Title>
@@ -8789,7 +8806,7 @@
       <Cost>5</Cost>
       <Id>self_destruct_sequence_71523</Id>
       <Set>71523</Set>
-      <Special>OnlyFederationShip</Special>
+      <Tags>requires_federation_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Montgomery Scott</Title>
@@ -8958,7 +8975,7 @@
       <Cost>6</Cost>
       <Id>transwarp_conduit_71522</Id>
       <Set>71522</Set>
-      <Special>OnlyBorgShip</Special>
+      <Tags>requires_borg_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Unnecessary Bloodshed</Title>
@@ -9094,6 +9111,7 @@
       <Id>volley_of_torpedoes_71524</Id>
       <Set>71524</Set>
       <Special>OnlyBattleshipOrCruiser</Special>
+      <Tags>requires_battleship_or_cruiser</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Phased Polaron Beam</Title>
@@ -9139,6 +9157,7 @@
       <Id>combat_vessel_variant_71508</Id>
       <Set>71508</Set>
       <Special>combat_vessel_variant_71508</Special>
+      <Tags>requires_suurok_class</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Tractor Beam</Title>
@@ -9198,7 +9217,7 @@
       <Cost>5</Cost>
       <Id>mutli_adaptive_shields_71509</Id>
       <Set>71509</Set>
-      <Special>OnlyFederationShip</Special>
+      <Tags>requires_federation_ship</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Reinforced Structural Integrity</Title>

@@ -165,12 +165,6 @@ NSString* asDegrees(NSString* textValue)
     return [self.shipClass isEqualToString: @"Romulan Science Vessel"];
 }
 
--(BOOL)isTholian
-{
-    NSRange r = [self.shipClass rangeOfString: @"Tholian" options: NSCaseInsensitiveSearch];
-    return r.location != NSNotFound;
-}
-
 -(BOOL)isDefiant
 {
     return [self.title isEqualToString: @"U.S.S. Defiant"];
@@ -218,20 +212,9 @@ NSString* asDegrees(NSString* textValue)
     return [self hasFaction: @"Borg"];
 }
 
--(BOOL)isVoyager
-{
-    return [self.title isEqualToString: @"U.S.S. Voyager"];
-}
-
 -(BOOL)isBajoranInterceptor
 {
     return [self.shipClass isEqualToString: @"Bajoran Interceptor"];
-}
-
--(BOOL)isBattleshipOrCruiser
-{
-    NSString* shipClass = self.shipClass;
-    return [shipClass isEqualToString: @"Jem'Hadar Battle Cruiser"] || [shipClass isEqualToString: @"Jem'Hadar Battleship"];
 }
 
 -(BOOL)isRaven

@@ -20,6 +20,7 @@
 #import "DockSquad+Addons.h"
 #import "DockSquad.h"
 #import "DockTag+Addons.h"
+#import "DockTagged+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUtils.h"
 #import "ISO8601DateFormatter.h"
@@ -211,6 +212,10 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                     DockShip* ship = (DockShip*)c;
                     NSString* shipClass =  [d valueForKey: key];
                     [ship updateShipClass: shipClass];
+                } else if ([key isEqualToString: @"Tags"] && [c isKindOfClass: [DockTagged class]]) {
+                    DockTagged* tagged = c;
+                    NSString* tagString = [d valueForKey: key];
+                    [tagged parseAndAddTags: tagString];
                 } else if (([key isEqualToString: @"Faction"] || [key isEqualToString: @"AdditionalFaction"]) && [c isKindOfClass: [DockTagged class]]) {
                     id v = [d valueForKey: key];
                     NSString* factionString = processAttribute(v, NSStringAttributeType);
@@ -507,20 +512,14 @@ static NSString* makeKey(NSString* key)
         @"PenaltyOnShipOtherThanKeldonClass",
         @"addonetechslot",
         @"OnlyForRomulanScienceVessel",
-        @"OnlyForRaptorClassShips",
         @"OnlyForKlingonCaptain",
         @"AddTwoWeaponSlots",
         @"AddTwoCrewSlotsDominionCostBonus",
         @"AddsHiddenTechSlot",
         @"PlusFiveOnNonSpecies8472",
-        @"OnlySpecies8472Ship",
         @"OnlyBajoranCaptain",
-        @"OnlyKazonShip",
         @"PlusFiveForNonKazon",
-        @"OnlyBorgShip",
-        @"OnlyVoyager",
         @"AddsOneWeaponOneTech",
-        @"OnlyTholianShip",
         @"OnlyTholianCaptain",
         @"VulcanHighCommand",
         @"PhaserStrike",
@@ -536,7 +535,6 @@ static NSString* makeKey(NSString* key)
         @"OnlyFederationShip",
         @"PlusFiveIfNotBorgShip",
         @"OnlyBattleshipOrCruiser",
-        @"NoMoreThanOnePerShip",
         @"OnlyHull3OrLess",
         @"NoPenaltyOnFederationShip",
         @"PlusFiveIfNotRaven",

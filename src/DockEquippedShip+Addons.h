@@ -60,6 +60,7 @@
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
 -(DockEquippedUpgrade*)containsUpgradeWithName:(NSString*)theName;
 -(DockEquippedUpgrade*)containsUpgradeWithId:(NSString*)theId;
+-(NSArray*)allUpgradesWithId:(NSString*)theId;
 -(void)changeShip:(DockShip*)newShip;
 -(NSDictionary*)explainCantAddUpgrade:(DockUpgrade*)upgrade;
 -(void)establishPlaceholders;
@@ -70,4 +71,5 @@
 -(DockEquippedUpgrade*)equippedAdmiral;
 -(DockEquippedUpgrade*)equippedFleetCaptain;
 -(void)purgeUpgrade:(DockUpgrade*)upgrade;
+-(NSSet*)tags;
 @end
