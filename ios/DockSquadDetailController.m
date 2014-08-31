@@ -247,9 +247,12 @@ enum {
         DockEquippedShip* es = _squad.equippedShips[row];
         shipCell.cost.text = [NSString stringWithFormat: @"%d", [es cost]];
         shipCell.details.text = [es upgradesDescription];
+        shipCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         NSString* t = es.plainDescription;
         if (es.flagship) {
             t = [t stringByAppendingString: @" [FS]"];
+        } else if (es.isFighterSquadron) {
+            shipCell.accessoryType = UITableViewCellAccessoryNone;
         }
         shipCell.title.text = t;
     }
@@ -341,7 +344,7 @@ enum {
 
     if (section == kShipsSection) {
         NSInteger shipCount = _squad.equippedShips.count;
-        return row < shipCount;
+        return row < shipCount && ![_squad.equippedShips[row] isFighterSquadron];
     }
 
     if (section == kDetailsSection) {

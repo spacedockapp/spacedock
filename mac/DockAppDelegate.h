@@ -25,6 +25,7 @@ extern NSString* kExpandSquads;
 @property (assign) IBOutlet NSArrayController* squadsController;
 @property (assign) IBOutlet DockTabController* captainsTabController;
 @property (assign) IBOutlet DockTabController* upgradesTabController;
+@property (assign) IBOutlet DockTabController* officersTabController;
 @property (assign) IBOutlet DockTabController* fleetCaptainsTabController;
 @property (assign) IBOutlet DockTabController* admiralsTabController;
 @property (assign) IBOutlet DockTabController* resourcesTabController;

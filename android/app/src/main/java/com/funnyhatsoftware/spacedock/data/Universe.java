@@ -221,6 +221,33 @@ public class Universe {
         return new HashSet<String>(sets.keySet());
     }
 
+    public String getSetChangeString(java.util.Set<String> prevSeenIds) {
+        java.util.Set<String> newSetIds = new HashSet<String>();
+
+        for (String availableSetId : sets.keySet()) {
+            if (!prevSeenIds.contains(availableSetId)) {
+                // unseen set, add to string
+                newSetIds.add(availableSetId);
+            }
+        }
+
+        String firstSetName = null;
+        for (String newSetId : newSetIds) {
+            String newSetName = getSet(newSetId).getProductName();
+
+            if (firstSetName == null) {
+                firstSetName = newSetName;
+            } else if (newSetIds.size() == 2) {
+                return firstSetName + " and " + newSetName;
+            } else {
+                return firstSetName + " and " + (newSetIds.size() - 1) + "other expansions";
+            }
+        }
+
+        // Note: we'll just return null here if we can't find any new sets.
+        return firstSetName;
+    }
+
     /**
      * Builds a new java.util.Set of selected set ids, adding unseen Sets to the
      * previous selection

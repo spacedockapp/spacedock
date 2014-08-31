@@ -5,6 +5,7 @@
 @class DockEquippedUpgrade;
 @class DockFlagship;
 @class DockFleetCaptain;
+@class DockOfficer;
 @class DockUpgrade;
 @class DockCaptain;
 @class DockShip;
@@ -50,6 +51,8 @@
 -(BOOL)canAddFleetCaptain:(DockFleetCaptain*)fleetCaptain toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
 -(DockEquippedUpgrade*)equippedFleetCaptain;
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
+-(BOOL)canAddOfficer:(DockOfficer*)officer toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
+-(DockEquippedUpgrade*)addOfficer:(DockOfficer*)officer toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
 -(DockEquippedShip*)addSideboard;
 -(DockFlagship*)flagship;
 -(BOOL)flagshipIsNotAssigned;

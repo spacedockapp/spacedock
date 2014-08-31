@@ -8,7 +8,8 @@ static NSString* kSideboardExternalId = @"4003";
 static NSString* kFlagshipExternalId = @"4004";
 static NSString* kFedFighterSquadronExternalId = @"federation_attack_fighters_op6participation";
 static NSString* kHidekiFighterSquadronExternalId = @"hideki_class_attack_squadron_op5participation";
-static NSString* kFleepCaptainExternalId = @"fleet_captain_collectiveop2";
+static NSString* kFleetCaptainExternalId = @"fleet_captain_collectiveop2";
+NSString* kOfficerCardsExternalId = @"officer_cards_collectiveop3";
 
 +(DockResource*)resourceForId:(NSString*)externalId context:(NSManagedObjectContext*)context
 {
@@ -57,9 +58,14 @@ static NSString* kFleepCaptainExternalId = @"fleet_captain_collectiveop2";
     return [self.externalId isEqualToString: kFlagshipExternalId];
 }
 
+-(BOOL)isOfficerCards
+{
+    return [self.externalId isEqualToString: kOfficerCardsExternalId];
+}
+
 -(BOOL)isFleetCaptain
 {
-    return [self.externalId isEqualToString: kFleepCaptainExternalId];
+    return [self.externalId isEqualToString: kFleetCaptainExternalId];
 }
 
 -(BOOL)isEquippedIntoSquad:(DockSquad*)thisSquad
@@ -72,7 +78,7 @@ static NSString* kFleepCaptainExternalId = @"fleet_captain_collectiveop2";
         DockFlagship* flagship = [thisSquad flagship];
         return flagship != nil;
     }
-    return [self isSideboard] || [self isFighterSquadron];
+    return [self isSideboard] || [self isFighterSquadron] || [self isOfficerCards];
 }
 
 -(BOOL)isEquippedIntoSquad

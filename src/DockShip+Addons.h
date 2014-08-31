@@ -26,6 +26,7 @@
 -(BOOL)isTholian;
 -(BOOL)isVoyager;
 -(BOOL)isVulcan;
+-(BOOL)isIndependent;
 -(BOOL)isBajoranInterceptor;
 -(BOOL)isBattleshipOrCruiser;
 -(BOOL)isRaven;

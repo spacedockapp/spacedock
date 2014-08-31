@@ -93,11 +93,13 @@
 {
     [super awakeFromNib];
     NSString* kUpgrades = @"Upgrades";
+    NSString* kOfficers = @"Officers";
     _itemNames = @[
                    @"Ships",
                    @"Captains",
                    @"Fleet Captains",
                    kUpgrades,
+                   kOfficers,
                    @"Admirals",
                    @"Resources",
                    @"Flagships",
@@ -109,6 +111,7 @@
                 @"Ships", @"Captains", kUpgrades
                 ];
     _extras = @[
+                kOfficers,
                 @"Fleet Captains",
                 @"Admirals", @"Flagships", @"Resources"
                 ];
