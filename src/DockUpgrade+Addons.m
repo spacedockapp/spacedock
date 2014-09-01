@@ -221,7 +221,7 @@
 {
     NSSet* tags = self.tags;
     for (DockTag* tag in tags) {
-        DockTagHandler* handler = [DockTagHandler handlerForTag: tag.value];
+        DockTagHandler* handler = [DockTagHandler restrictionHandlerForTag: tag.value];
         if (handler) {
             if (handler.refersToShipOrShipClass) {
                 return YES;
@@ -441,6 +441,8 @@
 
     int originalCost = [upgrade.cost intValue];
     int cost = originalCost;
+    
+    cost += [DockTagHandler costAdjustment: upgrade onShip: equippedShip];
 
     DockShip* ship = equippedShip.ship;
     DockCaptain* captain = equippedShip.captain;
@@ -502,20 +504,8 @@
         }
     }
 
-    if ([upgradeSpecial isEqualToString: @"costincreasedifnotbreen"]) {
-        if (![ship isBreen]) {
-            cost += 5;
-        }
-    } else if ([upgradeSpecial isEqualToString: @"PenaltyOnShipOtherThanDefiant"]) {
+    if ([upgradeSpecial isEqualToString: @"PenaltyOnShipOtherThanDefiant"]) {
         if (![ship isDefiant]) {
-            cost += 5;
-        }
-    } else if ([upgradeSpecial isEqualToString: @"PlusFivePointsNonJemHadarShips"]) {
-        if (![ship isJemhadar]) {
-            cost += 5;
-        }
-    } else if ([upgradeSpecial isEqualToString: @"PenaltyOnShipOtherThanKeldonClass"]) {
-        if (![ship isKeldon]) {
             cost += 5;
         }
     } else if ([upgradeSpecial isEqualToString: @"PlusFiveOnNonSpecies8472"]) {

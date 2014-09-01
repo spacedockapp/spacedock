@@ -12,7 +12,6 @@
 -(DockShip*)counterpart;
 -(NSString*)plainDescription;
 -(BOOL)isBreen;
--(BOOL)isJemhadar;
 -(BOOL)isKeldon;
 -(BOOL)isRomulanScienceVessel;
 -(BOOL)isDefiant;

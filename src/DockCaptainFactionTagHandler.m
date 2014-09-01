@@ -5,7 +5,7 @@
 #import "DockEquippedShip+Addons.h"
 #import "DockCaptain+Addons.h"
 
-@interface DockCaptainFactionTagHandler ()
+@interface DockCaptainFactionTagHandler () <DockRestrictionTag>
 @property (strong,nonatomic) NSString* faction;
 @end
 

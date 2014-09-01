@@ -1,5 +1,7 @@
 #import "DockTagHandler.h"
 
 @interface DockShipClassContainsTagHandler : DockTagHandler
--(id)initWithShipClassSubstrings:(NSArray*)shipClassSubstrings explanationFragment:(NSString*)explanationFragment;
+@property (strong,nonatomic) NSSet* shipClassSubstrings;
+-(id)initWithShipClassSubstrings:(NSArray*)shipClassSubstrings;
+-(BOOL)matchesShip:(DockEquippedShip*)equippedShip;
 @end

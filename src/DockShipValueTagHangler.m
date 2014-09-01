@@ -4,7 +4,7 @@
 #import "DockExplanation.h"
 #import "DockShip+Addons.h"
 
-@interface DockShipValueTagHangler ()
+@interface DockShipValueTagHangler () <DockRestrictionTag>
 @property (strong,nonatomic) NSString* valueName;
 @property (assign, nonatomic) NSRange legalRange;
 @end

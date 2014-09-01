@@ -4,7 +4,7 @@
 #import "DockExplanation.h"
 #import "DockShip+Addons.h"
 
-@interface DockTitledShipTagHandler ()
+@interface DockTitledShipTagHandler () <DockRestrictionTag>
 @property (strong,nonatomic) NSString* shipTitle;
 @end
 

@@ -142,12 +142,6 @@ NSString* asDegrees(NSString* textValue)
     return r.location != NSNotFound;
 }
 
--(BOOL)isJemhadar
-{
-    NSRange r = [self.shipClass rangeOfString: @"Jem'hadar" options: NSCaseInsensitiveSearch];
-    return r.location != NSNotFound;
-}
-
 -(BOOL)isKeldon
 {
     NSRange r = [self.shipClass rangeOfString: @"Keldon" options: NSCaseInsensitiveSearch];

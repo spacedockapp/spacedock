@@ -5,7 +5,6 @@
 #import "DockShip+Addons.h"
 
 @interface DockShipClassTagHandler ()
-@property (strong,nonatomic) NSSet* targetShipClassSet;
 @end
 
 @implementation DockShipClassTagHandler
@@ -41,31 +40,11 @@
     return YES;
 }
 
-#pragma mark - Restriction
-
--(DockExplanation*)canAdd:(DockUpgrade*)upgrade toShip:(DockEquippedShip*)equippedShip
+-(BOOL)matchesShip:(DockEquippedShip*)equippedShip
 {
     DockShip* ship = equippedShip.ship;
-    
-    if ([_targetShipClassSet containsObject: ship.shipClass]) {
-        return [DockExplanation success];
-    }
-    NSString* result = [self standardFailureResult: upgrade toShip: equippedShip];
-    NSString* shipClassString = @"";
-    if (_targetShipClassSet.count > 2) {
-        NSMutableArray* shipClasses = [NSMutableArray arrayWithArray: [_targetShipClassSet allObjects]];
-        NSArray* allButLast = [shipClasses subarrayWithRange: NSMakeRange(0, shipClasses.count - 1)];
-        NSString* firstClassesString = [allButLast componentsJoinedByString: @", "];
-        shipClassString = [@[firstClassesString, shipClasses.lastObject] componentsJoinedByString: @" or "];
-    } else if (_targetShipClassSet.count == 2) {
-        shipClassString = [[_targetShipClassSet allObjects] componentsJoinedByString: @" or "];
-    } else {
-        shipClassString = _targetShipClassSet.anyObject;
-    }
-    NSString* explanationFragment = [NSString stringWithFormat: @"ships of class %@", shipClassString];
-    NSString* explanation = [self standardFailureExplanation: explanationFragment];
-    
-    return [[DockExplanation alloc] initWithResult: result explanation: explanation];
+    return [_targetShipClassSet containsObject: ship.shipClass];
 }
+
 
 @end

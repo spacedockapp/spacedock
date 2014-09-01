@@ -6057,7 +6057,8 @@
       <Type>Weapon</Type>
       <Faction>Dominion</Faction>
       <Cost>5</Cost>
-      <Special>costincreasedifnotbreen</Special>
+      <Special></Special>
+      <Tags>adjust_not_breen_ship_plus_5</Tags>
       <Id>3059</Id>
       <Set>71128</Set>
     </Upgrade>
@@ -6547,7 +6548,8 @@
       <Cost>5</Cost>
       <Id>3081</Id>
       <Set>71271</Set>
-      <Special>PlusFivePointsNonJemHadarShips</Special>
+      <Special></Special>
+      <Tags>adjust_not_jemhadar_ship_plus_5</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Omet'Iklan</Title>
@@ -6753,7 +6755,8 @@
       <Cost>4</Cost>
       <Id>3099</Id>
       <Set>71275</Set>
-      <Special>PenaltyOnShipOtherThanKeldonClass</Special>
+      <Special></Special>
+      <Tags>adjust_not_keldon_class_plus_5</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Captured Intelligence</Title>
@@ -7055,7 +7058,8 @@
       <Cost>5</Cost>
       <Id>energy_dissipator_op5prize</Id>
       <Set>OP5Prize</Set>
-      <Special>costincreasedifnotbreen</Special>
+      <Special></Special>
+      <Tags>adjust_not_breen_ship_plus_5</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Cold Storage Unit</Title>
@@ -7373,7 +7377,8 @@
       <Cost>5</Cost>
       <Id>ikat_ika_71279</Id>
       <Set>71279</Set>
-      <Special>PlusFivePointsNonJemHadarShips</Special>
+      <Special></Special>
+      <Tags>adjust_not_jemhadar_ship_plus_5</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>
@@ -7435,7 +7440,8 @@
       <Cost>5</Cost>
       <Id>phased_polaron_beam_71279</Id>
       <Set>71279</Set>
-      <Special>PlusFivePointsNonJemHadarShips</Special>
+      <Special></Special>
+      <Tags>adjust_not_jemhadar_ship_plus_5</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Blockade</Title>
@@ -9126,7 +9132,8 @@
       <Cost>5</Cost>
       <Id>phased_polaron_beam_71524</Id>
       <Set>71524</Set>
-      <Special>PlusFivePointsNonJemHadarShips</Special>
+      <Special></Special>
+      <Tags>adjust_not_jemhadar_ship_plus_5</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>

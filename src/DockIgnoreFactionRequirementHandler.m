@@ -3,7 +3,7 @@
 #import "DockComponent+Addons.h"
 #import "DockUpgrade+Addons.h"
 
-@interface DockIgnoreFactionRequirementHandler ()
+@interface DockIgnoreFactionRequirementHandler () <DockRuleBendingTag>
 @property (strong,nonatomic) NSSet* types;
 @end
 
@@ -23,6 +23,11 @@
 -(BOOL)ignoresFactionRestrictions:(DockUpgrade*)upgrade
 {
     return [self.types intersectsSet: upgrade.types];
+}
+
+-(BOOL)ignoresFactionPenalty:(DockUpgrade*)upgrade
+{
+    return NO;
 }
 
 @end
