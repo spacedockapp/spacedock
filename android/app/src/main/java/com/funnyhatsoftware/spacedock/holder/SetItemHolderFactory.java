@@ -1,5 +1,7 @@
 package com.funnyhatsoftware.spacedock.holder;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v4.util.ArrayMap;
 import android.view.View;
 
@@ -62,6 +64,7 @@ public abstract class SetItemHolderFactory {
         registerHolderFactory(WeaponHolder.getFactory());
         registerHolderFactory(ResourceHolder.getFactory());
         registerHolderFactory(ReferenceHolder.getFactory());
+        registerHolderFactory(ExpansionHolder.getFactory());
         registerHolderFactory(UpgradeHolder.getFactory(Crew.class, UpgradeHolder.TYPE_STRING_CREW));
         registerHolderFactory(UpgradeHolder.getFactory(Talent.class, UpgradeHolder.TYPE_STRING_TALENT));
         registerHolderFactory(UpgradeHolder.getFactory(Tech.class, UpgradeHolder.TYPE_STRING_TECH));
@@ -82,4 +85,5 @@ public abstract class SetItemHolderFactory {
     public abstract SetItemHolder createHolder(View view);
     public abstract List<? extends SetItem> getItemsForFaction(String faction);
     public abstract String getDetails(DetailsFragment.DetailDataBuilder builder, String id);
+    public Intent getDetailsIntent(Context context, String id) { return null; }
 }

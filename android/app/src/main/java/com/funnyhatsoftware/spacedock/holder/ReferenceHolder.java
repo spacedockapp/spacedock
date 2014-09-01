@@ -15,7 +15,7 @@ import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
 public class ReferenceHolder extends SetItemHolder {
     public static final String TYPE_STRING = "Reference";
     static SetItemHolderFactory getFactory() {
-        return new SetItemHolderFactory(ReferenceHolder.class, TYPE_STRING) {
+        return new SetItemHolderFactory(Reference.class, TYPE_STRING) {
             @Override
             public boolean usesFactions() {
                 return false;

@@ -70,8 +70,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.RootTabActivity" />
         </activity>
+
         <activity
             android:name=".activity.DetailsActivity"
+            android:parentActivityName=".activity.SetItemListActivity$BrowseActivity" >
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.SetItemListActivity$BrowseActivity" />
+        </activity>
+
+        <activity
+            android:name=".activity.ExpansionDetailsActivity"
             android:parentActivityName=".activity.SetItemListActivity$BrowseActivity" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
