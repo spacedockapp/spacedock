@@ -97,6 +97,11 @@
     self.fetchedResultsController = nil;
 }
 
+-(BOOL)useFactionFilter
+{
+    return ![_upType isEqualToString: kOfficerUpgradeType];
+}
+
 -(NSArray*)filterForCost:(NSArray*)rawList
 {
     int requiredCost = self.cost;

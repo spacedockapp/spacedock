@@ -1,10 +1,12 @@
 
 package com.funnyhatsoftware.spacedock.fragment;
 
+import android.annotation.TargetApi;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,6 +22,7 @@ import com.funnyhatsoftware.spacedock.data.Ship;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.data.Upgrade;
+import com.funnyhatsoftware.spacedock.fleetprint.PrintFleetDialog;
 
 import org.json.JSONException;
 
@@ -125,6 +128,17 @@ public class DisplaySquadFragment extends FullscreenListFragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_display_squad, menu);
+        if (Build.VERSION.SDK_INT >= 19) {
+            MenuItem printFleet = menu.add("Print Fleet Build");
+            printFleet.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+            printFleet.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    printFleet();
+                    return true;
+                }
+            });
+        }
     }
 
     private void copySquadToClipboard() {
@@ -155,6 +169,13 @@ public class DisplaySquadFragment extends FullscreenListFragment {
             }
         }
     }
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    private void printFleet() {
+        PrintFleetDialog printFleet = PrintFleetDialog.newInstance(mSquadUuid);
+        printFleet.show(getActivity().getFragmentManager(), "fragment_print_dialog");
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

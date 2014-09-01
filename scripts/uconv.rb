@@ -6,17 +6,9 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-8/22/2014 7:14:26	71786 - DS9 Promo	Quark	Ferengi	At the start of the game, place 1 non-Borg [TECH] of [WEAPON] Upgrade with a cost of 5 or less face down beneath this card. At any time, you may discard Quark to flip the Upgrade that is beneath this card face up and deploy it to your ship, even if it exceeds your ship's restrictions.	Crew	2	Unique																			
-8/22/2014 7:16:06	71786 - DS9 Promo	Odo	Independent	ACTION: Target a ship at Range 1-3 (even if that ship is Cloaked or has Active Shields). Disable this card and one Upgrade on the target ship. If the Upgrade you disabled is a [CREW] Upgrade, you may then use that Upgrade's Action (if any) as a free Action this round.	Crew	5	Unique																			
-8/22/2014 7:18:27	71786 - DS9 Promo	Vic Fontaine	Independent	This Upgrade counts as either a [CREW] or [TECH] Upgrade (your choice). If an enemy Upgrade would affect one of your [CREW] Upgrades, roll 2 defense dice. If you roll at least 1 [EVASIVE] result, ignore the effects of the enemy Upgrade. You do not pay a Faction penalty when deploying this Upgrade to a Federation ship.	Crew	3	Unique																			
-8/22/2014 7:20:48	71786 - DS9 Promo	T'Kar	Klingon	ACTION: If your ship is not cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not cloaked and has no Active Shields. Discards this card and 1 [CREW] Upgrade of your choice on the target ship. Then disable the Captain Card and all remaining [CREW] upgrades on the target ship. While the Captain Card is disabled, the target ship has a Skill of "1".	Crew	5	Unique																			
-8/22/2014 7:22:27	71786 - DS9 Promo	T'Rul	Romulan	Add 1 Tech Upgrade slot to your Upgrade Bar. While your ship is cloaked, during the Roll Defense Dice step of the Combat Phase, you may choose to roll 3 less defense dice and add 1 [EVASIVE] result to your defense roll. If the "Cloaking Device" upgrade card is deployed to T'Rul's ship, you do not need to disable that card when you perform the Action listed on it.	Crew	4	Unique																			
-8/22/2014 7:24:50	71786 - DS9 Promo	Elim Garak	Dominion	During the Modify Defense step of the Combat Phase, you may disable this card to add 1 [EVASIVE] result to your defense roll. You do not pay a Faction penalty when assigning Elim Garak or his [TALENT] Upgrade to your ship. If Elim Garak is ever disabled or discarded, you cannot use his [TALENT] Upgrade.	Crew	4	Unique																			
-8/22/2014 7:26:16	71786 - DS9 Promo	Julian Bashir	Federation	ACTION: Move a Disabled Upgrade Token from one of your disabled [CREW] or [TECH] Upgrades to one of your non-disabled [CREW] or [TECH] upgrades. You may then immediately perform the Action (if any) listed on the Upgrade that you moved the token from as a free Action.	Crew	4	Unique																			
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-8/22/2014 7:30:51	71786 - DS9 Promo	Benjamin Sisko	7	Federation	During the Roll Defense Dice step of the Combat Phase, if your ship is in the forward firing arc of 2 or more ships, roll 1 extra defense die against all attacks from those ships. Each time your ship receives a Damage Card (normal or critical), incrase your Captain Skill by +1 for the rest of the game (max +2). The bonus Skill remains even if the damage is later repaired.	1	4	Unique																		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
@@ -25,13 +17,23 @@ WEAPONSTEXT
 admirals_text = <<-ADMIRALSTEXT
 ADMIRALSTEXT
 
+officers_text = <<-OFFICERSTEXT
+8/24/2014 20:21:31	First Officer	Whenever you perform a [BATTLE STATIONS], [SCAN], or [EVASIVE] Action, you may place 2 Tokens of the appropriate type beside your ship instead of 1.  If you do so, place an Auxiliary Power Token beside your ship. If your Captain's Skill is ever reduced below 4, you may use the Skill Number on this card instead of your Captain's Skill Number.	3																						
+8/24/2014 20:22:46	Tactical Officer	Add 1 [WEAPON] Upgrade slot to your Upgrade Bar. During the Roll Attack Dice step of the Combat Phase, you may spend a [BATTLE STATIONS]  Token to roll +1 attack die. During the Roll Defense Dice step of the Combat Phase, you may spend a [BATTLE STATIONS] Token to roll +1 defense die.	3																						
+8/24/2014 20:23:55	Operations Officer	Add 1 [CREW] Upgrade slot to your Upgrade Bar. During the Modify Attack Dice step of the Combat Phase, you may choose one of your attack dice and re-roll that die twice. During the Modify Defense Dice step of the Combat Phase, you may choose one of your defense dice and re-roll that die twice.	3																						
+8/24/2014 20:25:14	Science Officer	Add 1 [TECH] Upgrade slot to your Upgrade Bar. Each time you attack, if there is a [SCAN] Token beside your ship, the defender rolls -2 defense dice instead of -1. During the Modify Defense Dice step of the Combat Phase, you may spend a [SCAN] Token to add 1 [EVASIVE] result to your roll.	3																						
+OFFICERSTEXT
+
 convert_terms(upgrade)
 convert_terms(captains_text)
 convert_terms(weapons_text)
+convert_terms(admirals_text)
+convert_terms(officers_text)
 
 new_upgrades = File.open("new_upgrades.xml", "w")
 new_captains = File.open("new_captains.xml", "w")
 new_admirals = File.open("new_admirals.xml", "w")
+new_officers = File.open("new_officers.xml", "w")
 
 upgrade_lines = upgrade.split "\n"
 
@@ -198,4 +200,41 @@ admirals_lines.each do |l|
   </Admiral>
   SHIPXML
   new_admirals.puts upgradeXml
+end
+
+
+officers_lines = officers_text.split "\n"
+officers_lines.each do |l|
+  l = convert_line(l)
+# Timestamp	Officer Name	Ability	Cost																						  parts = l.split "\t"
+  parts = l.split "\t"
+  parts.shift
+  expansion = "CollectiveOP3"
+  unique = "Y"
+  title = parts.shift
+  faction = "Independent"
+  officerAbility = parts.shift
+  cost = parts.shift
+  ability = parts.shift
+  upType = "Captain"
+  talent = parts.shift
+  skill = parts.shift
+  setId = set_id_from_expansion(expansion)
+  externalId = make_external_id(setId, title)
+  upgradeXml = <<-SHIPXML
+  <Officer>
+    <Title>#{title}</Title>
+    <Ability>#{officerAbility}</Ability>
+    <Unique>#{unique}</Unique>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Officer</Type>
+    <Faction>#{faction}</Faction>
+    <Cost>#{cost}</Cost>
+    <Id>#{externalId}</Id>
+    <Set>#{setId}</Set>
+    <Special></Special>
+  </Officer>
+  SHIPXML
+  new_officers.puts upgradeXml
 end

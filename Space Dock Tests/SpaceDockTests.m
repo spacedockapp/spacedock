@@ -100,7 +100,7 @@ static NSManagedObjectContext* getManagedObjectContext()
     {
         DockSet* coreSet = [DockSet setForId: @"71120" context: _context];
         XCTAssertNotNil(coreSet);
-        XCTAssertEqual(33, coreSet.items.count);
+        XCTAssertEqual(36, coreSet.items.count);
     }
 
     {

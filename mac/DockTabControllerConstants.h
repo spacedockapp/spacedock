@@ -8,4 +8,4 @@ extern NSString* kCurrentReferenceChanged;
 extern NSString* kCurrentResourceChanged;
 extern NSString* kCurrentShipChanged;
 extern NSString* kCurrentUpgradeChanged;
-
+extern NSString* kCurrentOfficerChanged;
