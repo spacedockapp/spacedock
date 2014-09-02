@@ -376,6 +376,10 @@ public class Upgrade extends UpgradeBase {
                 // do nothing
             } else if (isAdmiral()) {
                 cost += 3;
+            } else if (isCaptain() && null != fleetCaptain
+                    && "Independent".equals(fleetCaptain.getFaction())
+                    && "Independent".equals(shipFaction)){
+                // do nothing
             } else {
                 cost += 1;
             }

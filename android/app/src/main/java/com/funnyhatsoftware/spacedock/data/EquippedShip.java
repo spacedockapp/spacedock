@@ -132,6 +132,11 @@ public class EquippedShip extends EquippedShipBase {
         if (getFlagship() != null) {
             cost += 10;
         }
+        FleetCaptain fleetCaptain = getFleetCaptain();
+        if (null != fleetCaptain){
+            cost += fleetCaptain.getCost();
+        }
+
 
         return cost;
     }
