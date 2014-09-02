@@ -1,4 +1,4 @@
-<Data version="2014-08-17@19-21">
+<Data version="2014-08-30@01-26">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -4999,6 +4999,21 @@
       <Set>71509</Set>
       <Special>NoPenaltyOnFederationShip</Special>
     </Captain>
+    <Captain>
+      <Title>Benjamin Sisko</Title>
+      <Ability>During the Roll Defense Dice step of the Combat Phase, if your ship is in the forward firing arc of 2 or more ships, roll 1 extra defense die against all attacks from those ships. Each time your ship receives a Damage Card (normal or critical), incrase your Captain Skill by +1 for the rest of the game (max +2). The bonus Skill remains even if the damage is later repaired.</Ability>
+      <Unique>Y</Unique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>benjamin_sisko_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Captain>
   </Captains>
   <Admirals>
     <Admiral>
@@ -8072,7 +8087,7 @@
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Vulcan High Command (2/0)</Title>
+      <Title>Vulcan High Command</Title>
       <Ability>Add 2 [TECH] Upgrade slots to your Upgrade Bar. The additional Upgrade slots may be either [CREW] or [TECH] Upgrades. This Upgrade may only be purchased for a Vulcan Captain on a Vulcan ship. If the Vulcan Captain Card is every removed from your ship, discard this Upgrade and then discard Upgrades from your ship one at a time until all of your Upgrades are supported by your ship's Upgrade Bar.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
@@ -8087,7 +8102,7 @@
       <Special>VulcanHighCommand</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Vulcan High Command (1/1)</Title>
+      <Title>Vulcan High Command</Title>
       <Ability>Add 1 [TECH] and 1 [CREW] Upgrade slots to your Upgrade Bar. The additional Upgrade slots may be either [CREW] or [TECH] Upgrades. This Upgrade may only be purchased for a Vulcan Captain on a Vulcan ship. If the Vulcan Captain Card is every removed from your ship, discard this Upgrade and then discard Upgrades from your ship one at a time until all of your Upgrades are supported by your ship's Upgrade Bar.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
@@ -8102,7 +8117,7 @@
       <Special>VulcanHighCommand</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Vulcan High Command (0/2)</Title>
+      <Title>Vulcan High Command</Title>
       <Ability>Add 2 [CREW] Upgrade slots to your Upgrade Bar. The additional Upgrade slots may be either [CREW] or [TECH] Upgrades. This Upgrade may only be purchased for a Vulcan Captain on a Vulcan ship. If the Vulcan Captain Card is every removed from your ship, discard this Upgrade and then discard Upgrades from your ship one at a time until all of your Upgrades are supported by your ship's Upgrade Bar.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
@@ -8523,7 +8538,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Hijack</Title>
-      <Ability>ACTION: Discard t his card to target a ship at Range 1-2 that is not cloaked and has no Active Shields. Disable all of your remaining Shields an 1 [CREW] Upgrade on the target ship. Then steal 1 face up [TECH] or [WEAPON] Upgrade Card of your choice from t hat ship, even if the Upgrade exceeds your ship's restrictions.</Ability>
+      <Ability>ACTION: Discard this card to target a ship at Range 1-2 that is not cloaked and has no Active Shields. Disable all of your remaining Shields and 1 [CREW] Upgrade on the target ship. Then steal 1 face up [TECH] or [WEAPON] Upgrade Card of your choice from that ship, even if the Upgrade exceeds your ship's restrictions.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -9245,6 +9260,141 @@
       <Set>71509</Set>
       <Special></Special>
     </Upgrade>
+    <Upgrade>
+      <Title>Quark</Title>
+      <Ability>At the start of the game, place 1 non-Borg [TECH] Upgrade with a cost of 5 or less face down beneath this card. At any time, you may discard Quark to flip the Upgrade that is beneath this card face up and deploy it to your ship, even if it exceeds your ship's restrictions.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Ferengi</Faction>
+      <Cost>2</Cost>
+      <Id>quark_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Quark</Title>
+      <Ability>At the start of the game, place 1 non-Borg [WEAPON] Upgrade with a cost of 5 or less face down beneath this card. At any time, you may discard Quark to flip the Upgrade that is beneath this card face up and deploy it to your ship, even if it exceeds your ship's restrictions.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Ferengi</Faction>
+      <Cost>2</Cost>
+      <Id>quark_weapon_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Odo</Title>
+      <Ability>ACTION: Target a ship at Range 1-3 (even if that ship is Cloaked or has Active Shields). Disable this card and one Upgrade on the target ship. If the Upgrade you disabled is a [CREW] Upgrade, you may then use that Upgrade's Action (if any) as a free Action this round.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Independent</Faction>
+      <Cost>5</Cost>
+      <Id>odo_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Vic Fontaine</Title>
+      <Ability>This Upgrade counts as either a [CREW] or [TECH] Upgrade (your choice). If an enemy Upgrade would affect one of your [CREW] Upgrades, roll 2 defense dice. If you roll at least 1 [EVASIVE] result, ignore the effects of the enemy Upgrade. You do not pay a Faction penalty when deploying this Upgrade to a Federation ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Independent</Faction>
+      <Cost>3</Cost>
+      <Id>vic_fontaine_crew_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Vic Fontaine</Title>
+      <Ability>This Upgrade counts as either a [CREW] or [TECH] Upgrade (your choice). If an enemy Upgrade would affect one of your [CREW] Upgrades, roll 2 defense dice. If you roll at least 1 [EVASIVE] result, ignore the effects of the enemy Upgrade. You do not pay a Faction penalty when deploying this Upgrade to a Federation ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Independent</Faction>
+      <Cost>3</Cost>
+      <Id>vic_fontaine_tech_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>T'Kar</Title>
+      <Ability>ACTION: If your ship is not cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not cloaked and has no Active Shields. Discards this card and 1 [CREW] Upgrade of your choice on the target ship. Then disable the Captain Card and all remaining [CREW] upgrades on the target ship. While the Captain Card is disabled, the target ship has a Skill of 1.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>t_kar_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>T'Rul</Title>
+      <Ability>Add 1 Tech Upgrade slot to your Upgrade Bar. While your ship is cloaked, during the Roll Defense Dice step of the Combat Phase, you may choose to roll 3 less defense dice and add 1 [EVASIVE] result to your defense roll. If the Cloaking Device upgrade card is deployed to T'Rul's ship, you do not need to disable that card when you perform the Action listed on it.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>t_rul_71786</Id>
+      <Set>71786</Set>
+      <Special>addonetechslot</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Elim Garak</Title>
+      <Ability>During the Modify Defense step of the Combat Phase, you may disable this card to add 1 [EVASIVE] result to your defense roll. You do not pay a Faction penalty when assigning Elim Garak or his [TALENT] Upgrade to your ship. If Elim Garak is ever disabled or discarded, you cannot use his [TALENT] Upgrade.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Dominion</Faction>
+      <Cost>4</Cost>
+      <Id>elim_garak_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Julian Bashir</Title>
+      <Ability>ACTION: Move a Disabled Upgrade Token from one of your disabled [CREW] or [TECH] Upgrades to one of your non-disabled [CREW] or [TECH] upgrades. You may then immediately perform the Action (if any) listed on the Upgrade that you moved the token from as a free Action.</Ability>
+      <Unique>Y</Unique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>julian_bashir_71786</Id>
+      <Set>71786</Set>
+      <Special></Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -9460,6 +9610,23 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
         <Id>fleet_captain_collectiveop2</Id>
         <Set>CollectiveOP2</Set>
       </Resource>
+      <Resource>
+        <Title>Officer Cards</Title>
+        <Unique>Y</Unique>
+        <Ability>1) Players receive a set of 4 Officer Cards and may choose to use any number of them during the Tournament. Each Officer Card costs 3 SP to deploy to your fleet.
+
+2) Officer Cards are assigned to one or more of your [CREW] Upgrades. When assigning these cards, be sure to stack the Officer Card beneath the [CREW] Upgrade so that the lower half of the Officer Card is visible. You may assign up to 2 Officer Cards to any of your [CREW] Upgrades.
+
+3) Officer Cards add bonus text-based abilities and Upgrade Slots to the assigned [CREW] Upgrade and/or his ship. Players may use the bonus text-based abilities in addition to their [CREW] Upgrade's normal text-based ability (if applicable) during the Battle.
+
+4) The First Officer Card has an [ELITE TALENT] icon at the bottom of the card. This allows the First Officer's ship to field 1 [ELITE TALENT] Upgrade as though the First Officer were a Captain. This [ELITE TALENT] Upgrade is in addition to any [ELITE TALENT] Upgrade(s) that your ship's Captain can field.
+
+5) If a [CREW] Upgrade that has one or more Officer Cards assigned to it is ever disabled, its assigned Officer Card(s) are considered disabled as well. If a [CREW] Upgrade that has one or more Officer Cards assigned to it is ever discarded, its assigned Officer Card(s) are considered discarded as well. NOTE: If the First Officer is ever discarded, his [ELITE TALENT] Upgrade is discarded as well.</Ability>
+        <Type>Resource</Type>
+        <Cost>0</Cost>
+        <Id>officer_cards_collectiveop3</Id>
+        <Set>CollectiveOP3</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -9494,6 +9661,9 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
 
       <Set id="CollectiveOP2" overallSetName="Organized Play" releaseDate="2014-07-29">The Collective OP2 Participation Prize</Set>
       <Set id="71509"             overallSetName="Organized Play" releaseDate="2014-07-30">U.S.S. Raven Competitive Prize</Set>
+
+      <Set id="CollectiveOP3" overallSetName="Organized Play" releaseDate="2014-09-01">The Collective OP3 Participation Prize</Set>
+      <Set id="71510"             overallSetName="Organized Play" releaseDate="2014-09-01">U.S.S. Stargazer Competitive Prize</Set>
 
       <Set id="i_k_s_b_moth" overallSetName="The Collective Boosters" releaseDate="2014-07-25">I.K.S. B'Moth Expansion</Set>
       <Set id="gavroche" overallSetName="The Collective Boosters" releaseDate="2014-07-25">Gavroche Expansion</Set>
@@ -9538,6 +9708,8 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
       <Set id="71523" overallSetName="Wave 6" releaseDate="2014-07-01">U.S.S. Enterprise (Refit) Expansion</Set>
       <Set id="71522" overallSetName="Wave 6" releaseDate="2014-07-01">Soong Expansion</Set>
       <Set id="71524" overallSetName="Wave 6" releaseDate="2014-07-01">Battle Cruiser Expansion</Set>
+
+      <Set id="71786" overallSetName="Promo Card" releaseDate="2014-08-13">DS9 Promo</Set>
     </Sets>
     <Flagships>
         <Flagship>
@@ -9825,6 +9997,60 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
             <Special>TechUpgradesCostOneLess</Special>
         </FleetCaptain>
     </FleetCaptains>
+    <Officers>
+	    <Officer>
+	      <Title>First Officer</Title>
+	      <Ability>Whenever you perform a [BATTLESTATIONS], [SCAN], or [EVASIVE] Action, you may place 2 Tokens of the appropriate type beside your ship instead of 1.  If you do so, place an Auxiliary Power Token beside your ship. If your Captain's Skill is ever reduced below 4, you may use the Skill Number on this card instead of your Captain's Skill Number.</Ability>
+	      <Unique>Y</Unique>
+	      <Attack></Attack>
+	      <Range></Range>
+	      <Type>Officer</Type>
+	      <Faction>Independent</Faction>
+	      <Cost>3</Cost>
+	      <Id>first_officer_collectiveop3</Id>
+	      <Set>CollectiveOP3</Set>
+	      <Special></Special>
+	    </Officer>
+	    <Officer>
+	      <Title>Tactical Officer</Title>
+	      <Ability>Add 1 [WEAPON] Upgrade slot to your Upgrade Bar. During the Roll Attack Dice step of the Combat Phase, you may spend a [BATTLESTATIONS]  Token to roll +1 attack die. During the Roll Defense Dice step of the Combat Phase, you may spend a [BATTLESTATIONS] Token to roll +1 defense die.</Ability>
+	      <Unique>Y</Unique>
+	      <Attack></Attack>
+	      <Range></Range>
+	      <Type>Officer</Type>
+	      <Faction>Independent</Faction>
+	      <Cost>3</Cost>
+	      <Id>tactical_officer_collectiveop3</Id>
+	      <Set>CollectiveOP3</Set>
+	      <Special>addoneweaponslot</Special>
+	    </Officer>
+	    <Officer>
+	      <Title>Operations Officer</Title>
+	      <Ability>Add 1 [CREW] Upgrade slot to your Upgrade Bar. During the Modify Attack Dice step of the Combat Phase, you may choose one of your attack dice and re-roll that die twice. During the Modify Defense Dice step of the Combat Phase, you may choose one of your defense dice and re-roll that die twice.</Ability>
+	      <Unique>Y</Unique>
+	      <Attack></Attack>
+	      <Range></Range>
+	      <Type>Officer</Type>
+	      <Faction>Independent</Faction>
+	      <Cost>3</Cost>
+	      <Id>operations_officer_collectiveop3</Id>
+	      <Set>CollectiveOP3</Set>
+	      <Special>Add_Crew_1</Special>
+	    </Officer>
+	    <Officer>
+	      <Title>Science Officer</Title>
+	      <Ability>Add 1 [TECH] Upgrade slot to your Upgrade Bar. Each time you attack, if there is a [SCAN] Token beside your ship, the defender rolls -2 defense dice instead of -1. During the Modify Defense Dice step of the Combat Phase, you may spend a [SCAN] Token to add 1 [EVASIVE] result to your roll.</Ability>
+	      <Unique>Y</Unique>
+	      <Attack></Attack>
+	      <Range></Range>
+	      <Type>Officer</Type>
+	      <Faction>Independent</Faction>
+	      <Cost>3</Cost>
+	      <Id>science_officer_collectiveop3</Id>
+	      <Set>CollectiveOP3</Set>
+	      <Special>addonetechslot</Special>
+	    </Officer>
+	</Officers>
     <ReferenceItems>
         <Reference>
           <Title>Energy Dampening Token (EDT)</Title>
@@ -9972,5 +10198,57 @@ After rotating the ship, complete the selected maneuver as normal using the appr
           <Id>spin_maneuver_reference</Id>
           <Set>71283,71444</Set>
         </Reference>
+        <Reference>
+            <Title>Initiative</Title>
+            <Ability>Ships have initiative, a distinction used to resolve timing conflicts involving Captains of equal Skill. The ships belonging to the player with the LOWEST point total at the start of the game always have initiative. The next lowest point total have initiative, and so on. If two or more players' squadron point totals are equal at the start of the game, then use the ship's Faction to determine the order of initiative as follows:
+
+Federation > Klingon > Romulan > Dominion >
+Borg > Species 8472 > Kazon > Bajoran >
+Ferengi > Vulcan > Independents > Mirror Universe
+
+Initiative does not change during the game. During the Activation Phase, when ships of equal Captain Skill are activated, the ship with initiative activates first. Then the next ship in initiative order that has the same Captain Skill activates, and so on.
+
+Initiative also applies during the Combat Phase; the ship with initiative resolves its combat steps BEFORE an opponent's ship with the same Captain Skill (see "Simultaneous Attack Rule").
+
+If a single place owns multiple ships from the same Faction with the same Captain Skill, he may activate those ships and resolve their attacks in the order of his choosing.
+
+It may be possible for different players to have ships from the same Faction with the same Captain Skill. When this occurs, determine randomly at the start of the game which of those ships will have initiative over the others throughout the game.</Ability>
+            <Type>Rules</Type>
+            <Id>initiative_reference</Id>
+            <Set>71120</Set>
+        </Reference>
+        <Reference>
+            <Title>Sector Condition: Nebula</Title>
+            <Ability>Ships may only fire up to Range 3 with their forward firing arcs and ships defending at Range 3 receive an additional Defense Die.
+
+All other attacks, are limited to a maximum of up to Range 2.
+
+Ships without a forward firing arc have a maximum of up to Range 2.</Ability>
+            <Type>Mechanic</Type>
+            <Id>sector_condition_nebula_reference</Id>
+            <Set>71120</Set>
+        </Reference>
+	<Reference>
+            <Title>Sector Condition: Energy Flux</Title>
+            <Ability>After targeting an opposing ship with an attack but before making the attack roll, roll an Attack die that cannot be re-rolled.
+
+On a result of a [BATTLE STATIONS], reduce the attacking ship's printed Primary Weapon value by half (rounding up).
+
+Further modifications to the Attack roll from game effects may be applied after the Energy Flux die roll as normal.</Ability>
+            <Type>Mechanic</Type>
+            <Id>sector_condition_energy_flux_reference</Id>
+            <Set>71120</Set>
+	</Reference>
+	<Reference>
+            <Title>Sector Condition: Meteor Shower</Title>
+            <Ability>At the start of the Planning Phase, roll one Attack die per ship in turn that cannot be re-rolled and resolve effect before rolling for next ship.
+
+Any [HIT] or [CRITICAL] damages the target ship as normal.
+
+Ships may roll defense dice against this damage using their ship's printed Agility value.</Ability>
+            <Type>Mechanic</Type>
+            <Id>sector_condition_meteor_shower_reference</Id>
+            <Set>71120</Set>
+	</Reference>
     </ReferenceItems>
 </Data>

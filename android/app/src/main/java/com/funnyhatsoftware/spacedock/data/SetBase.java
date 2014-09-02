@@ -36,7 +36,7 @@ public class SetBase extends Base {
         mName = DataUtils.stringValue((String)data.get("Name"), "");
         mProductName = DataUtils.stringValue((String)data.get("ProductName"), "");
         mReleaseDate = DataUtils.dateValue((String)data.get("ReleaseDate"));
-        mWave = DataUtils.stringValue((String)data.get("Wave"), "");
+        mWave = DataUtils.stringValue((String)data.get("overallSetName"), "");
     }
 
 }

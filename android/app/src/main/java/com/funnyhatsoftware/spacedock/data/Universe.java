@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeSet;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -40,18 +41,26 @@ public class Universe {
     private static final String SQUADS_FILE_NAME = "squads.spacedocksquads";
 
     ArrayMap<String, Ship> ships = new ArrayMap<String, Ship>();
-    public ArrayMap<String, ShipClassDetails> shipClassDetails = new ArrayMap<String, ShipClassDetails>();
-    public ArrayMap<String, ShipClassDetails> shipClassDetailsByName = new ArrayMap<String, ShipClassDetails>();
-    public ArrayMap<String, Admiral> admirals = new ArrayMap<String, Admiral>();
-    public ArrayMap<String, Captain> captains = new ArrayMap<String, Captain>();
-    public ArrayMap<String, FleetCaptain> fleetCaptains = new ArrayMap<String, FleetCaptain>();
-    public ArrayMap<String, Upgrade> upgrades = new ArrayMap<String, Upgrade>();
-    public ArrayMap<String, Resource> resources = new ArrayMap<String, Resource>();
-    public ArrayMap<String, Flagship> flagships = new ArrayMap<String, Flagship>();
-    public ArrayMap<String, Reference> referenceItems = new ArrayMap<String, Reference>();
-    public ArrayMap<String, Set> sets = new ArrayMap<String, Set>();
+    ArrayMap<String, ShipClassDetails> shipClassDetails = new ArrayMap<String, ShipClassDetails>();
+    ArrayMap<String, ShipClassDetails> shipClassDetailsByName = new ArrayMap<String, ShipClassDetails>();
+
+    ArrayMap<String, Set> sets = new ArrayMap<String, Set>();
+
+    // set item maps
+    ArrayMap<String, Admiral> admirals = new ArrayMap<String, Admiral>();
+    ArrayMap<String, Captain> captains = new ArrayMap<String, Captain>();
+    ArrayMap<String, FleetCaptain> fleetCaptains = new ArrayMap<String, FleetCaptain>();
+    ArrayMap<String, Upgrade> upgrades = new ArrayMap<String, Upgrade>();
+    ArrayMap<String, Resource> resources = new ArrayMap<String, Resource>();
+    ArrayMap<String, Flagship> flagships = new ArrayMap<String, Flagship>();
+    ArrayMap<String, Reference> referenceItems = new ArrayMap<String, Reference>();
+
+    // map of all set item maps
+    ArrayMap<String, ArrayMap<String, ? extends SetItem> > mSetItemMaps
+            = new ArrayMap<String, ArrayMap<String, ? extends SetItem>>();
+
+    final ArrayMap<String, Upgrade> placeholders = new ArrayMap<String, Upgrade>();
     private java.util.Set<Set> mIncludedSets = new HashSet<Set>();
-    public ArrayMap<String, Upgrade> placeholders = new ArrayMap<String, Upgrade>();
     private ArrayList<Squad> mSquads = new ArrayList<Squad>();
     private ArrayList<String> mAllFactions;
     private String mSelectedFaction;
@@ -73,6 +82,16 @@ public class Universe {
             sUniverse = newUniverse;
         }
         return sUniverse;
+    }
+
+    public Universe() {
+        mSetItemMaps.put("Admirals", admirals);
+        mSetItemMaps.put("Captains", captains);
+        mSetItemMaps.put("Fleet Captains", fleetCaptains);
+        mSetItemMaps.put("Upgrades", upgrades);
+        mSetItemMaps.put("Resources", resources);
+        mSetItemMaps.put("Flagships", flagships);
+        mSetItemMaps.put("Reference Items", referenceItems);
     }
 
     public JSONArray allSquadsAsJSON() throws JSONException {
@@ -220,6 +239,60 @@ public class Universe {
     public java.util.Set<String> getAllSetIds() {
         return new HashSet<String>(sets.keySet());
     }
+
+    public String getSetChangeString(java.util.Set<String> prevSeenIds) {
+        java.util.Set<String> newSetIds = new HashSet<String>();
+
+        for (String availableSetId : sets.keySet()) {
+            if (!prevSeenIds.contains(availableSetId)) {
+                // unseen set, add to string
+                newSetIds.add(availableSetId);
+            }
+        }
+
+        String firstSetName = null;
+        for (String newSetId : newSetIds) {
+            String newSetName = getSet(newSetId).getProductName();
+
+            if (firstSetName == null) {
+                firstSetName = newSetName;
+            } else if (newSetIds.size() == 2) {
+                return firstSetName + " and " + newSetName;
+            } else {
+                return firstSetName + " and " + (newSetIds.size() - 1) + "other expansions";
+            }
+        }
+
+        // Note: we'll just return null here if we can't find any new sets.
+        return firstSetName;
+    }
+
+    public Map<String, List<SetItem> > getItemsForSet(String setId) {
+        Set targetSet = getSet(setId);
+        final ArrayMap<String, List<SetItem>> itemsForSet
+                = new ArrayMap<String, List<SetItem>>();
+
+        for (String setItemType : mSetItemMaps.keySet()) {
+            Map<String, ? extends SetItem> currentMap = mSetItemMaps.get(setItemType);
+            for (SetItem item : currentMap.values()) {
+                if (item.isInSet(targetSet)) {
+                    String typeName = setItemType;
+                    if (currentMap == upgrades) {
+                        typeName = ((Upgrade) item).getUpType();
+                    }
+
+                    List<SetItem> itemsOfType = itemsForSet.get(typeName);
+                    if (itemsOfType == null) {
+                        itemsOfType = new ArrayList<SetItem>();
+                        itemsForSet.put(typeName, itemsOfType);
+                    }
+                    itemsOfType.add(item);
+                }
+            }
+        }
+        return itemsForSet;
+    }
+
 
     /**
      * Builds a new java.util.Set of selected set ids, adding unseen Sets to the

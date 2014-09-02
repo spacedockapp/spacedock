@@ -97,6 +97,11 @@
     self.fetchedResultsController = nil;
 }
 
+-(BOOL)useFactionFilter
+{
+    return ![_upType isEqualToString: kOfficerUpgradeType];
+}
+
 -(NSArray*)filterForCost:(NSArray*)rawList
 {
     int requiredCost = self.cost;
@@ -173,7 +178,7 @@
 
     // Configure the cell to show the book's title
     DockUpgrade* upgrade = [self objectAtIndexPath: indexPath];
-    cell.textLabel.text = [upgrade title];
+    cell.textLabel.text = [upgrade disambiguatedTitle];
 
     if (_targetShip) {
         BOOL canAdd = [_targetSquad canAddUpgrade: upgrade toShip: _targetShip error: nil];

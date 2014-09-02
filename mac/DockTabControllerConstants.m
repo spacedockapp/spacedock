@@ -8,3 +8,4 @@ NSString* kCurrentReferenceChanged = @"CurrentReferenceChanged";
 NSString* kCurrentResourceChanged = @"CurrentResourceChanged";
 NSString* kCurrentShipChanged = @"CurrentShipChanged";
 NSString* kCurrentUpgradeChanged = @"CurrentUpgradeChanged";
+NSString* kCurrentOfficerChanged = @"CurrentOfficerChanged";

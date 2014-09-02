@@ -10,6 +10,7 @@ import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.activity.SetItemListActivity;
 import com.funnyhatsoftware.spacedock.holder.AdmiralHolder;
 import com.funnyhatsoftware.spacedock.holder.CaptainHolder;
+import com.funnyhatsoftware.spacedock.holder.ExpansionHolder;
 import com.funnyhatsoftware.spacedock.holder.FlagshipHolder;
 import com.funnyhatsoftware.spacedock.holder.FleetCaptainHolder;
 import com.funnyhatsoftware.spacedock.holder.ReferenceHolder;
@@ -40,6 +41,7 @@ public class BrowseListFragment extends ListFragment {
         FlagshipHolder.TYPE_STRING,
         FleetCaptainHolder.TYPE_STRING,
         ReferenceHolder.TYPE_STRING,
+        ExpansionHolder.TYPE_STRING,
     };
 
     @Override

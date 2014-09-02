@@ -47,6 +47,7 @@ def make_external_id(setId, title)
   "#{sanitize_title(title)}_#{setId}".downcase()
 end
 
-def set_id_from_faction(faction)
-  "71509"
+def set_id_from_expansion(expansion)
+  parts = expansion.split (/\s+-\s+/)
+  parts[0]
 end

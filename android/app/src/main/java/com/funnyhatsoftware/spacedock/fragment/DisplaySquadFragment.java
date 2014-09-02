@@ -1,23 +1,20 @@
 
 package com.funnyhatsoftware.spacedock.fragment;
 
-import android.app.Activity;
+import android.annotation.TargetApi;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.util.ArrayMap;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.funnyhatsoftware.spacedock.R;
+import com.funnyhatsoftware.spacedock.adapter.MultiItemAdapter;
 import com.funnyhatsoftware.spacedock.adapter.SeparatedListAdapter;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
@@ -25,8 +22,7 @@ import com.funnyhatsoftware.spacedock.data.Ship;
 import com.funnyhatsoftware.spacedock.data.Squad;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.data.Upgrade;
-import com.funnyhatsoftware.spacedock.holder.SetItemHolder;
-import com.funnyhatsoftware.spacedock.holder.SetItemHolderFactory;
+import com.funnyhatsoftware.spacedock.fleetprint.PrintFleetDialog;
 
 import org.json.JSONException;
 
@@ -34,9 +30,6 @@ import java.util.ArrayList;
 
 public class DisplaySquadFragment extends FullscreenListFragment {
     private static final String ARG_SQUAD_UUID = "squad_index";
-
-    // force detailed item display in this view
-    private static final int LAYOUT_RES_ID = R.layout.item_with_details;
 
     String mSquadUuid;
 
@@ -54,7 +47,6 @@ public class DisplaySquadFragment extends FullscreenListFragment {
 
     private void initAdapter() {
         Context context = getActivity();
-
         Squad squad = Universe.getUniverse().getSquadByUUID(mSquadUuid);
         if (squad == null) {
             // fragment now invalid, detach
@@ -136,6 +128,17 @@ public class DisplaySquadFragment extends FullscreenListFragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_display_squad, menu);
+        if (Build.VERSION.SDK_INT >= 19) {
+            MenuItem printFleet = menu.add("Print Fleet Build");
+            printFleet.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+            printFleet.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    printFleet();
+                    return true;
+                }
+            });
+        }
     }
 
     private void copySquadToClipboard() {
@@ -167,6 +170,13 @@ public class DisplaySquadFragment extends FullscreenListFragment {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    private void printFleet() {
+        PrintFleetDialog printFleet = PrintFleetDialog.newInstance(mSquadUuid);
+        printFleet.show(getActivity().getFragmentManager(), "fragment_print_dialog");
+    }
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         final int itemId = item.getItemId();
@@ -185,59 +195,4 @@ public class DisplaySquadFragment extends FullscreenListFragment {
         return super.onOptionsItemSelected(item);
     }
 
-    private static class MultiItemAdapter extends ArrayAdapter<Object> {
-        private String mTitle;
-
-        public String getTitle() {
-            return mTitle;
-        }
-
-        public void appendTitleIndex(int index) {
-            mTitle += " " + Integer.toString(index);
-        }
-
-        public MultiItemAdapter(Context context, String title, ArrayList<Object> items) {
-            super(context, 0, items);
-            mTitle = title;
-        }
-
-        @Override
-        public int getViewTypeCount() {
-            return SetItemHolderFactory.getFactoryTypes().size();
-        }
-
-        // Maps seen types->unique integers for recycling differentiation
-        private final ArrayMap<Class, Integer> mTypeMap =
-                new ArrayMap<Class, Integer>();
-
-        @Override
-        public int getItemViewType(int position) {
-            Object item = getItem(position);
-            Class clazz = item.getClass();
-            if (!mTypeMap.containsKey(clazz)) {
-                mTypeMap.put(clazz, mTypeMap.size());
-            }
-            return mTypeMap.get(clazz);
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            Object item = getItem(position);
-            SetItemHolder holder;
-            if (convertView == null) {
-                SetItemHolderFactory setItemHolderFactory =
-                        SetItemHolderFactory.getHolderFactory(item.getClass());
-
-                Context context = getContext();
-                LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-                convertView = inflater.inflate(LAYOUT_RES_ID, parent, false);
-                holder = setItemHolderFactory.createHolder(convertView);
-                convertView.setTag(holder);
-            } else {
-                holder = (SetItemHolder) convertView.getTag();
-            }
-            holder.reinitialize(getContext().getResources(), item);
-            return convertView;
-        }
-    }
 }

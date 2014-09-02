@@ -6,14 +6,9 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-8/1/2014 21:20:22	Unique	Mutli-adaptive Shields	Federation	This upgrade only functions while you have Active Shields. Each time you defend, roll +1 defense die. When defending, you roll your full defense dice in spite of the presence of an enemy ship's [SCAN] token. In addition, you roll your full defense against any Minefield Tokens. This Upgrade may only be purchased for a Federation ship.	Tech	5																			
-8/1/2014 21:22:05	Unique	Reinforced Structural Integrity	Federation	Each time your ship takes damage, place 1 of the damage cards that your ship receives beneath this card. All excess damage affects the ship as normal. You cannot place critical damage cards beneath this card. Once there are 3 damage cards beneath this card, discard this Upgrade and all cards beneath it. This Upgrade costs +5 SP for any ship other than the U.S.S. Raven.	Tech	5																			
-8/1/2014 21:22:55		Research Mission	Independent	During the Roll Defense Dice step of the Combat Phase, you may disable this card to roll +1 defense die.	Talent	2																			
-8/1/2014 21:24:20	Unique	Erin Hansen	Independent	During the Planning Phase, after all ships have chosen their Maneuvers, you may discard this card to target one enemy ship at Range 1-3 and look at that ship's chosen Maneuver. You may then change your Maneuver. The target ship cannot change its Maneuver after you look at it.	Crew	3																			
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-8/1/2014 21:17:29	Unique	Magnus Hansen	3	Independent	During the Modify Defense Dice step of the combat phase, you may spend 1 [SCAN] token to add 1 additional [EVADE] result to your defense roll. You do not pay a faction penalty when assigning Magnus to a Federation ship.	1	2																		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
@@ -22,13 +17,23 @@ WEAPONSTEXT
 admirals_text = <<-ADMIRALSTEXT
 ADMIRALSTEXT
 
+officers_text = <<-OFFICERSTEXT
+8/24/2014 20:21:31	First Officer	Whenever you perform a [BATTLE STATIONS], [SCAN], or [EVASIVE] Action, you may place 2 Tokens of the appropriate type beside your ship instead of 1.  If you do so, place an Auxiliary Power Token beside your ship. If your Captain's Skill is ever reduced below 4, you may use the Skill Number on this card instead of your Captain's Skill Number.	3																						
+8/24/2014 20:22:46	Tactical Officer	Add 1 [WEAPON] Upgrade slot to your Upgrade Bar. During the Roll Attack Dice step of the Combat Phase, you may spend a [BATTLE STATIONS]  Token to roll +1 attack die. During the Roll Defense Dice step of the Combat Phase, you may spend a [BATTLE STATIONS] Token to roll +1 defense die.	3																						
+8/24/2014 20:23:55	Operations Officer	Add 1 [CREW] Upgrade slot to your Upgrade Bar. During the Modify Attack Dice step of the Combat Phase, you may choose one of your attack dice and re-roll that die twice. During the Modify Defense Dice step of the Combat Phase, you may choose one of your defense dice and re-roll that die twice.	3																						
+8/24/2014 20:25:14	Science Officer	Add 1 [TECH] Upgrade slot to your Upgrade Bar. Each time you attack, if there is a [SCAN] Token beside your ship, the defender rolls -2 defense dice instead of -1. During the Modify Defense Dice step of the Combat Phase, you may spend a [SCAN] Token to add 1 [EVASIVE] result to your roll.	3																						
+OFFICERSTEXT
+
 convert_terms(upgrade)
 convert_terms(captains_text)
 convert_terms(weapons_text)
+convert_terms(admirals_text)
+convert_terms(officers_text)
 
 new_upgrades = File.open("new_upgrades.xml", "w")
 new_captains = File.open("new_captains.xml", "w")
 new_admirals = File.open("new_admirals.xml", "w")
+new_officers = File.open("new_officers.xml", "w")
 
 upgrade_lines = upgrade.split "\n"
 
@@ -46,16 +51,16 @@ end
 
 upgrade_lines.each do |l|
     l = convert_line(l)
-    # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
     parts = l.split "\t"
     parts.shift
-    unique = parts.shift == "Unique" ? "Y" : "N"
+    expansion = parts.shift
     title = parts.shift
     faction = parts.shift
     ability = parts.shift
     upType = parts.shift
     cost = parts.shift
-    setId = set_id_from_faction(faction)
+    unique = parts.shift == "Unique" ? "Y" : "N"
+    setId = set_id_from_expansion(expansion)
     externalId = make_external_id(setId, title)
     upgradeXml = <<-SHIPXML
     <Upgrade>
@@ -81,9 +86,10 @@ weapons_lines = weapons_text.split "\n"
 
 weapons_lines.each do |l|
     l = convert_line(l)
-    # Timestamp		Weapon Name	Faction	Attack	Range	Ability	Cost
+# Timestamp	Expansion Pack	Upgrade Name	Faction	Ability	Type	Cost																				
     parts = l.split "\t"
     parts.shift
+    expansion = parts.shift
     unique = parts.shift == "Unique" ? "Y" : "N"
     title = parts.shift
     faction = parts.shift
@@ -92,7 +98,7 @@ weapons_lines.each do |l|
     ability = parts.shift
     upType = "Weapon"
     cost = parts.shift
-    setId = set_id_from_faction(faction)
+    setId = set_id_from_expansion(expansion)
     externalId = make_external_id(setId, title)
     upgradeXml = <<-SHIPXML
     <Upgrade>
@@ -117,10 +123,10 @@ end
 captains_lines = captains_text.split "\n"
 captains_lines.each do |l|
   l = convert_line(l)
-  # Timestamp		Captain Name	Skill	Faction	Ability	Talents	Cost
+# Timestamp	Expansion Pack	Captain Name	Skill	Faction	Ability	Talents	Cost																			
   parts = l.split "\t"
   parts.shift
-  unique = parts.shift == "Unique" ? "Y" : "N"
+  expansion = parts.shift
   title = parts.shift
   skill = parts.shift
   faction = parts.shift
@@ -128,7 +134,8 @@ captains_lines.each do |l|
   upType = "Captain"
   talent = parts.shift
   cost = parts.shift
-  setId = set_id_from_faction(faction)
+  unique = parts.shift == "Unique" ? "Y" : "N"
+  setId = set_id_from_expansion(expansion)
   externalId = make_external_id(setId, title)
   upgradeXml = <<-SHIPXML
   <Captain>
@@ -156,6 +163,7 @@ admirals_lines.each do |l|
   # Timestamp		Admiral Name	Faction	Fleet Action	Skill Modifier	Talents	Cost	Captain-side Cost	Captain-side Action	Captain-side Talents	Captain-side Skill
   parts = l.split "\t"
   parts.shift
+  expansion = parts.shift
   unique = parts.shift == "Unique" ? "Y" : "N"
   title = parts.shift
   faction = parts.shift
@@ -168,7 +176,7 @@ admirals_lines.each do |l|
   upType = "Captain"
   talent = parts.shift
   skill = parts.shift
-  setId = set_id_from_faction(faction)
+  setId = set_id_from_expansion(expansion)
   externalId = make_external_id(setId, title)
   upgradeXml = <<-SHIPXML
   <Admiral>
@@ -192,4 +200,41 @@ admirals_lines.each do |l|
   </Admiral>
   SHIPXML
   new_admirals.puts upgradeXml
+end
+
+
+officers_lines = officers_text.split "\n"
+officers_lines.each do |l|
+  l = convert_line(l)
+# Timestamp	Officer Name	Ability	Cost																						  parts = l.split "\t"
+  parts = l.split "\t"
+  parts.shift
+  expansion = "CollectiveOP3"
+  unique = "Y"
+  title = parts.shift
+  faction = "Independent"
+  officerAbility = parts.shift
+  cost = parts.shift
+  ability = parts.shift
+  upType = "Captain"
+  talent = parts.shift
+  skill = parts.shift
+  setId = set_id_from_expansion(expansion)
+  externalId = make_external_id(setId, title)
+  upgradeXml = <<-SHIPXML
+  <Officer>
+    <Title>#{title}</Title>
+    <Ability>#{officerAbility}</Ability>
+    <Unique>#{unique}</Unique>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Officer</Type>
+    <Faction>#{faction}</Faction>
+    <Cost>#{cost}</Cost>
+    <Id>#{externalId}</Id>
+    <Set>#{setId}</Set>
+    <Special></Special>
+  </Officer>
+  SHIPXML
+  new_officers.puts upgradeXml
 end

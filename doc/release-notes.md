@@ -1,3 +1,19 @@
+### Version 1.1.3 build 81 (2014-8-30)
+
+* Fix error when duplicating squads containing fleet captains.
+* Added new Sector Conditions game mechanic to reference section. (Thanks to Robert George).
+
+### Version 1.1.2 build 80 (2014-8-27)
+
+* Add support for Officer Cards.
+* Fix cost calculation for combination of independent fleet captain, independent ship and non-independent captain.
+
+### Version 1.1.1 build 79 (2014-8-19)
+
+* Add DS9 promotional cards. The talent slot provided by Elim Garak does not correctly waive the faction penalty. Use the cost override feature until it is properly implemented.
+* Add the initiative order to the reference section. (Thanks to Robert R. George!)
+* Print the set code correctly for the sideboard.
+
 ### Version 1.1 build 78 (2014-8-19)
 
 * Implemented Fleet Captain "free" talent.

@@ -78,6 +78,9 @@
 
 -(NSString*)descriptiveTitleWithSet
 {
+    if ([self isResourceSideboard]) {
+        return [NSString stringWithFormat: @"%@ [%@]", [self descriptiveTitle], [self.squad.resource setCode]];
+    }
     return [NSString stringWithFormat: @"%@ [%@]", [self descriptiveTitle], [self.ship setCode]];
 }
 
@@ -453,6 +456,11 @@
 
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade ignoreInstalled:(BOOL)ignoreInstalled
 {
+    if ([upgrade isFleetCaptain]) {
+        DockFleetCaptain* fleetCaptain = (DockFleetCaptain*)upgrade;
+        return [self canAddFleetCaptain: fleetCaptain error: nil];
+    }
+    
     if ([upgrade isTalent]) {
         DockCaptain* captain = [self captain];
         if ([captain.special isEqualToString: @"lore_71522"]) {
@@ -1009,6 +1017,13 @@
 -(int)borgCount
 {
     return self.ship.borgCount;
+}
+
+-(int)officerLimit
+{
+    NSArray* crewUpgrades = [self allUpgradesOfFaction: nil upType: @"Crew"];
+    NSInteger limit = crewUpgrades.count * 2;
+    return (int)limit;
 }
 
 -(NSString*)ability

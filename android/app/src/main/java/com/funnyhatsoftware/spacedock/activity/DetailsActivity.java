@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 
 import com.funnyhatsoftware.spacedock.fragment.DetailsFragment;
+import com.funnyhatsoftware.spacedock.holder.ExpansionHolder;
 
 public class DetailsActivity extends SinglePaneActivity {
     private static final String EXTRA_TYPE = "browsetype";
@@ -13,6 +14,10 @@ public class DetailsActivity extends SinglePaneActivity {
     public static Intent getIntent(Context context, String itemType, String itemId) {
         if (itemType == null || itemId == null) {
             throw new IllegalArgumentException();
+        }
+
+        if (itemType.equals(ExpansionHolder.TYPE_STRING)) {
+            return ExpansionDetailsActivity.getIntent(context, itemId);
         }
 
         Intent intent = new Intent(context, DetailsActivity.class);

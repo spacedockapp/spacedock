@@ -53,7 +53,7 @@
 
 -(NSAttributedString*)titleWithCanInstall
 {
-    NSString* dt = [self title];
+    NSString* dt = [self disambiguatedTitle];
     if (![self canInstallIntoTargetShip]) {
         return coloredString(dt, [NSColor grayColor], [NSColor clearColor]);
     }
