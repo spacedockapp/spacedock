@@ -253,7 +253,7 @@
     for (DockEquippedUpgrade* eu in self.upgrades) {
         DockUpgrade* upgrade = eu.upgrade;
 
-        if ([upgrade.upType isEqualToString: @"Captain"]) {
+        if ([upgrade hasType: @"Captain"]) {
             return eu;
         }
     }
@@ -311,12 +311,12 @@
     NSManagedObjectContext* context = self.managedObjectContext;
     NSDictionary* upgradeDict = esDict[@"captain"];
     NSString* captainId = upgradeDict[@"upgradeId"];
-    [self addUpgrade: [DockCaptain captainForId: captainId context: context]];
+    [self addUpgrade: [DockCaptain captainForId: captainId context: context] maybeReplace: nil establishPlaceholders: NO];
     NSArray* upgrades = esDict[@"upgrades"];
     for (upgradeDict in upgrades) {
         NSString* upgradeId = upgradeDict[@"upgradeId"];
         DockUpgrade* upgrade = [DockUpgrade upgradeForId: upgradeId context: context];
-        DockEquippedUpgrade* eu = [self addUpgrade: upgrade];
+        DockEquippedUpgrade* eu = [self addUpgrade: upgrade maybeReplace: nil establishPlaceholders: NO];
         NSNumber* overriddenNumber = upgradeDict[@"costIsOverridden"];
         BOOL overridden = [overriddenNumber boolValue];
         if (overridden) {
@@ -357,7 +357,7 @@
     int count = 0;
 
     for (DockEquippedUpgrade* eu in self.upgrades) {
-        if ([eu.upgrade.upType isEqualToString: upType]) {
+        if ([eu.upgrade hasType: upType]) {
             count += 1;
         }
     }
@@ -422,7 +422,7 @@
 -(DockEquippedUpgrade*)findPlaceholder:(NSString*)upType
 {
     for (DockEquippedUpgrade* eu in self.upgrades) {
-        if ([eu isPlaceholder] && [eu.upgrade.upType isEqualToString: upType]) {
+        if ([eu isPlaceholder] && [eu.upgrade hasType: upType]) {
             return eu;
         }
     }
@@ -586,7 +586,7 @@
     int current = [self equipped: upType];
 
     if (current == limit) {
-        if (maybeReplace == nil || ![maybeReplace.upgrade.upType isEqualToString: upType]) {
+        if (maybeReplace == nil || ![maybeReplace.upgrade hasType: upType]) {
             maybeReplace = [self firstUpgrade: upType];
         }
 
@@ -1099,7 +1099,7 @@
     for (DockEquippedUpgrade* eu in self.upgrades) {
         DockUpgrade* upgrade = eu.upgrade;
 
-        if ([upgrade.upType isEqualToString: kAdmiralUpgradeType]) {
+        if ([upgrade hasType: kAdmiralUpgradeType]) {
             return eu;
         }
     }
@@ -1115,7 +1115,7 @@
     for (DockEquippedUpgrade* eu in self.upgrades) {
         DockUpgrade* upgrade = eu.upgrade;
 
-        if ([upgrade.upType isEqualToString: kFleetCaptainUpgradeType]) {
+        if ([upgrade hasType: kFleetCaptainUpgradeType]) {
             return eu;
         }
     }

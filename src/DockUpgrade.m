@@ -2,7 +2,7 @@
 //  DockUpgrade.m
 //  Space Dock
 //
-//  Created by Rob Tsuk on 8/28/14.
+//  Created by Rob Tsuk on 9/3/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -19,6 +19,7 @@
 @dynamic range;
 @dynamic special;
 @dynamic unique;
+@dynamic sortString;
 @dynamic equippedUpgrades;
 
 @end

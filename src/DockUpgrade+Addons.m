@@ -16,6 +16,8 @@
 #import "DockUtils.h"
 #import "DockWeaponRange.h"
 
+NSMutableDictionary* sPlaceholderCache = nil;
+
 @implementation DockUpgrade (Addons)
 
 +(NSSet*)allFactions:(NSManagedObjectContext*)context
@@ -56,13 +58,16 @@
 
 +(DockUpgrade*)placeholder:(NSString*)upType inContext:(NSManagedObjectContext*)context
 {
+    DockUpgrade* placeholderUpgrade = sPlaceholderCache[upType];
+    if (placeholderUpgrade != nil) {
+        return placeholderUpgrade;
+    }
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Upgrade" inManagedObjectContext: context];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
     NSString* pair = [DockTag categoryTag: kDockTypeCategoryType value: upType];
     NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"tags.value == %@ && placeholder = YES" argumentArray: @[pair]];
     [request setPredicate: predicateTemplate];
-    DockUpgrade* placeholderUpgrade = nil;
     NSError* err;
     NSArray* existingItems = [context executeFetchRequest: request error: &err];
 
@@ -77,6 +82,12 @@
         placeholderUpgrade = existingItems[0];
     }
 
+    if (placeholderUpgrade != nil) {
+        if (sPlaceholderCache == nil) {
+            sPlaceholderCache = [[NSMutableDictionary alloc] init];
+        }
+        sPlaceholderCache[upType] = placeholderUpgrade;
+    }
     return placeholderUpgrade;
 }
 
@@ -89,6 +100,11 @@
     [request setPredicate: predicateTemplate];
     NSError* err;
     return [context executeFetchRequest: request error: &err];
+}
+
+-(void)awakeFromFetch
+{
+    [self setSortString: [self upSortType]];
 }
 
 -(NSString*)plainDescription
@@ -124,47 +140,47 @@
 
 -(BOOL)isTalent
 {
-    return [self.upType isEqualToString: @"Talent"];
+    return [self hasType: @"Talent"];
 }
 
 -(BOOL)isCrew
 {
-    return [self.upType isEqualToString: @"Crew"];
+    return [self hasType: @"Crew"];
 }
 
 -(BOOL)isWeapon
 {
-    return [self.upType isEqualToString: @"Weapon"];
+    return [self hasType: @"Weapon"];
 }
 
 -(BOOL)isCaptain
 {
-    return [self.upType isEqualToString: @"Captain"];
+    return [self hasType: @"Captain"];
 }
 
 -(BOOL)isAdmiral
 {
-    return [self.upType isEqualToString: kAdmiralUpgradeType];
+    return [self hasType: kAdmiralUpgradeType];
 }
 
 -(BOOL)isFleetCaptain
 {
-    return [self.upType isEqualToString: kFleetCaptainUpgradeType];
+    return [self hasType: kFleetCaptainUpgradeType];
 }
 
 -(BOOL)isOfficer
 {
-    return [self.upType isEqualToString: kOfficerUpgradeType];
+    return [self hasType: kOfficerUpgradeType];
 }
 
 -(BOOL)isTech
 {
-    return [self.upType isEqualToString: @"Tech"];
+    return [self hasType: @"Tech"];
 }
 
 -(BOOL)isBorg
 {
-    return [self.upType isEqualToString: @"Borg"];
+    return [self hasType: @"Borg"];
 }
 
 -(BOOL)isPlaceholder
@@ -249,8 +265,8 @@
 
 -(NSComparisonResult)compareTo:(DockUpgrade*)other
 {
-    NSString* upTypeMe = [self upSortType];
-    NSString* upTypeOther = [other upSortType];
+    NSString* upTypeMe = [self sortString];
+    NSString* upTypeOther = [other sortString];
     NSComparisonResult r = [upTypeMe compare: upTypeOther];
 
     if (r == NSOrderedSame) {
@@ -343,7 +359,7 @@
 
 -(NSString*)sortStringForSet
 {
-    return [NSString stringWithFormat: @"%@:c:%@:%@", self.highestFaction, self.upSortType, self.title];
+    return [NSString stringWithFormat: @"%@:c:%@:%@", self.highestFaction, self.sortString, self.title];
 }
 
 -(NSString*)itemDescription

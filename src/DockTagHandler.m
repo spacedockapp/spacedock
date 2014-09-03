@@ -62,6 +62,8 @@ static NSDictionary* sTagHandlers = nil;
                                                                                                              adjustment: 5 ];
     handlers[@"adjust_not_keldon_class_plus_5"] = [[DockShipClassAdjustmentHandler alloc] initWithShipClass: @"Cardassian Keldon Class"
                                                                                                              adjustment: 5 ];
+    handlers[@"adjust_not_rsv_class_plus_5"] = [[DockShipClassAdjustmentHandler alloc] initWithShipClass: @"Romulan Science Vessel"
+                                                                                                             adjustment: 5 ];
 
     sTagHandlers = [NSDictionary dictionaryWithDictionary: handlers];
 }

@@ -112,7 +112,7 @@
 
 -(NSString*)sortStringForSet
 {
-    return [NSString stringWithFormat: @"%@:b:%@:%c:%@", self.highestFaction, self.upSortType, 'z' - [self.skill intValue], self.title];
+    return [NSString stringWithFormat: @"%@:b:%@:%c:%@", self.highestFaction, self.sortString, 'z' - [self.skill intValue], self.title];
 }
 
 -(NSString*)itemDescription

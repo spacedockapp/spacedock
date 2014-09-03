@@ -35,7 +35,7 @@
 -(int)additionalHull;
 -(int)additionalTalentSlots;
 -(int)additionalAttack;
--(NSString*)upSortType;
+//-(NSString*)upSortType;
 -(NSString*)typeCode;
 -(NSString*)plainDescription;
 -(NSString*)disambiguatedTitle;

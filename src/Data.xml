@@ -5721,7 +5721,8 @@
       <Type>Crew</Type>
       <Faction>Romulan</Faction>
       <Cost>5</Cost>
-      <Special>costincreasedifnotromulansciencevessel</Special>
+      <Special></Special>
+      <Tags>adjust_not_rsv_class_plus_5</Tags>
       <Id>3039</Id>
       <Set>71124</Set>
     </Upgrade>
