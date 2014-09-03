@@ -166,37 +166,17 @@ public class PrintFleetAdapter extends PrintDocumentAdapter {
         
         if (pagenumber > 1) {
             ArrayList<EquippedShip> ships = getShipsForPage(pagenumber);
-            canvas.save();
-            canvas.translate(35, 44);
-            
-            int shipNo = 1;
-            for (EquippedShip ship : ships) {
-                //canvas.drawPicture(this.drawShip(ship));
+            for (int i = 0; i < 8; i++) {
+                canvas.save();
+                EquippedShip ship = i < ships.size() ? ships.get(i) : null;
+                if ((i & 0x01) == 0) {
+                    canvas.translate(34, (float) (44 + ((int)Math.floor(i/2) * 168)));
+                } else {
+                    canvas.translate(mPageWidth - 34 - mBoxWidth, (float) (44 + ((int)Math.floor(i/2) * 168)));
+                }
                 drawShip(ship,canvas);
-                
-                if ((shipNo & 0x01) != 0) {
-                    canvas.save();
-                    canvas.translate(mPageWidth - 68 - mBoxWidth, 0);
-                } else {
-                    canvas.restore();
-                    canvas.translate(0, 168);
-                }
-                shipNo++;
+                canvas.restore();
             }
-            while (shipNo <= 8) {
-                //canvas.drawPicture(this.drawShip(null));
-                drawShip(null,canvas);
-                
-                if ((shipNo & 0x01) != 0) {
-                    canvas.save();
-                    canvas.translate(mPageWidth - 68 - mBoxWidth, 0);
-                } else {
-                    canvas.restore();
-                    canvas.translate(0, 168);
-                }
-                shipNo++;
-            }
-            canvas.restore();
             canvas.drawRect(18, 18, mPageWidth - 18, mPageHeight - 40, mStrokePaint);
 
             return;
@@ -226,13 +206,13 @@ public class PrintFleetAdapter extends PrintDocumentAdapter {
                     canvas.translate(34, 160);
                     break;
                 case 1:
-                    canvas.translate(mPageWidth - 33 - mBoxWidth, 160);
+                    canvas.translate(mPageWidth - 34 - mBoxWidth, 160);
                     break;
                 case 2:
-                    canvas.translate(34, 338);
+                    canvas.translate(34, 328);
                     break;
                 case 3:
-                    canvas.translate(mPageWidth - 33 - mBoxWidth, 338);
+                    canvas.translate(mPageWidth - 34 - mBoxWidth, 328);
                     break;
             }
             if (i < allShips.size()) {
@@ -303,7 +283,7 @@ public class PrintFleetAdapter extends PrintDocumentAdapter {
         canvas.drawText(mEmail, mPageWidth - 18 - 15 - 160, 122, mDataPaint);
     }
     
-    private void drawNotes( Canvas canvas ) {
+    private void drawNotes(Canvas canvas) {
         canvas.drawRect(34, 495, mPageWidth - 34, 537, mStrokePaint);
         canvas.drawRect(138, 546, mPageWidth - 120, 569, mStrokePaint);
         canvas.drawRect(mPageWidth - 68, 546, mPageWidth - 34, 569, mStrokePaint);
@@ -317,7 +297,7 @@ public class PrintFleetAdapter extends PrintDocumentAdapter {
         canvas.restore();
     }
     
-    private void drawResource( Canvas canvas ) {
+    private void drawResource(Canvas canvas) {
         mBlackPaint.setTextSize(14);
         mBlackPaint.setTextAlign(Align.LEFT);
         canvas.drawText("Resource Used:", 34, 563, mBlackPaint);
@@ -426,32 +406,30 @@ public class PrintFleetAdapter extends PrintDocumentAdapter {
     
     private void drawShipItem(SetItem shipItem, int calcCost, Canvas canvas)
     {
-        
+        String upgradeCode = new String();
         mDataPaint.setTextAlign(Align.CENTER);
 
         if ( shipItem instanceof Ship ) {
-            canvas.drawText("Ship", (float) (mBoxWidth * .075), 10, mDataPaint);
+            upgradeCode = "Ship";
         } else if ( shipItem instanceof Flagship ) {
-            canvas.drawText("Flagship", (float) (mBoxWidth * .075), 10, mDataPaint);
+            upgradeCode = "Flagship";
         } else if ( shipItem instanceof FleetCaptain ) {
-            canvas.drawText("FleetCap", (float) (mBoxWidth * .075), 10, mDataPaint);
+            upgradeCode = "FleetCap";
         } else if ( shipItem instanceof Admiral ) {
-            canvas.drawText("Admiral", (float) (mBoxWidth * .075), 10, mDataPaint);
+            upgradeCode = "Admiral";
         } else if ( shipItem instanceof Captain ) {
-            canvas.drawText("Captain", (float) (mBoxWidth * .075), 10, mDataPaint);
-
+            upgradeCode = "Captain";
         } else if ( shipItem instanceof Upgrade) {
             Upgrade upgrade = (Upgrade)shipItem;
-            
             if (upgrade.isTalent()) {
-                canvas.drawText("E".substring(0, 1), (float) (mBoxWidth * .075), 10,
-                        mDataPaint);
+                upgradeCode = "E";
             } else {
-                canvas.drawText(upgrade.getUpType().substring(0, 1), (float) (mBoxWidth * .075),
-                        10, mDataPaint);
+                upgradeCode = upgrade.getUpType().substring(0, 1);
             }
         }
 
+        canvas.drawText(upgradeCode, (float) (mBoxWidth * .075),
+                10, mDataPaint);
         mDataPaint.setTextAlign(Align.LEFT);
         canvas.drawText(shipItem.getTitle(), (float) (mBoxWidth * .15), 10, mDataPaint);
         mDataPaint.setTextAlign(Align.CENTER);
