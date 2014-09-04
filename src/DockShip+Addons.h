@@ -11,9 +11,6 @@
 +(DockShip*)shipForId:(NSString*)externalId context:(NSManagedObjectContext*)context;
 -(DockShip*)counterpart;
 -(NSString*)plainDescription;
--(BOOL)isBreen;
--(BOOL)isKeldon;
--(BOOL)isRomulanScienceVessel;
 -(BOOL)isDefiant;
 -(BOOL)isUnique;
 -(BOOL)isFederation;
@@ -22,10 +19,7 @@
 -(BOOL)isSpecies8472;
 -(BOOL)isKazon;
 -(BOOL)isBorg;
--(BOOL)isVulcan;
 -(BOOL)isIndependent;
--(BOOL)isBajoranInterceptor;
--(BOOL)isRaven;
 -(DockResource*)associatedResource;
 -(int)techCount;
 -(int)weaponCount;

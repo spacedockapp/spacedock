@@ -247,11 +247,8 @@ NSMutableDictionary* sPlaceholderCache = nil;
 
     NSSet* ineligibleTechUpgrades = [NSSet setWithArray: @[
                                                            @"OnlySpecies8472Ship",
-                                                           @"PenaltyOnShipOtherThanDefiant",
                                                            @"PenaltyOnShipOtherThanKeldonClass",
                                                            @"OnlySpecies8472Ship",
-                                                           @"CostPlusFiveExceptBajoranInterceptor",
-                                                           @"PlusFiveForNonKazon",
                                                            @"OnlyForRomulanScienceVessel",
                                                            @"OnlyJemHadarShips",
                                                            ]];
@@ -473,7 +470,6 @@ NSMutableDictionary* sPlaceholderCache = nil;
     }
 
     NSString* captainSpecial = captain.special;
-    NSString* upgradeSpecial = upgrade.special;
 
     if ([upgrade isTalent]) {
         if (fleetCaptainOnThisShipTalentCount > 0) {
@@ -497,12 +493,6 @@ NSMutableDictionary* sPlaceholderCache = nil;
             cost -= 1;
         }
 
-        if ([upgradeSpecial isEqualToString: @"costincreasedifnotromulansciencevessel"]) {
-            if (![ship isRomulanScienceVessel]) {
-                cost += 5;
-            }
-        }
-
         if ([fleetCaptainSpecial isEqualToString: @"CrewUpgradesCostOneLess"] && !isSideboard) {
             cost -= 1;
         }
@@ -517,32 +507,6 @@ NSMutableDictionary* sPlaceholderCache = nil;
     } else if ([upgrade isTech]) {
         if ([fleetCaptainSpecial isEqualToString: @"TechUpgradesCostOneLess"]) {
             cost -= 1;
-        }
-    }
-
-    if ([upgradeSpecial isEqualToString: @"PenaltyOnShipOtherThanDefiant"]) {
-        if (![ship isDefiant]) {
-            cost += 5;
-        }
-    } else if ([upgradeSpecial isEqualToString: @"PlusFiveOnNonSpecies8472"]) {
-        if (![ship isSpecies8472]) {
-            cost += 5;
-        }
-    } else if ([upgradeSpecial isEqualToString: @"PlusFiveForNonKazon"]) {
-        if (![ship isKazon]) {
-            cost += 5;
-        }
-    } else if ([upgradeSpecial isEqualToString: @"PlusFiveIfNotBorgShip"]) {
-        if (![ship isBorg]) {
-            cost += 5;
-        }
-    } else if ([upgradeSpecial isEqualToString: @"PlusFiveIfNotRaven"]) {
-        if (![ship isRaven]) {
-            cost += 5;
-        }
-    } else if ([upgradeSpecial isEqualToString: @"PhaserStrike"] || [upgradeSpecial isEqualToString: @"CostPlusFiveExceptBajoranInterceptor"]) {
-        if (![ship isBajoranInterceptor]) {
-            cost += 5;
         }
     }
 

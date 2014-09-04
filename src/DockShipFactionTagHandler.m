@@ -6,7 +6,6 @@
 #import "DockShip+Addons.h"
 
 @interface DockShipFactionTagHandler () <DockRestrictionTag>
-@property (strong,nonatomic) NSString* faction;
 @end
 
 @implementation DockShipFactionTagHandler
@@ -27,21 +26,9 @@
     return YES;
 }
 
-#pragma mark - Restriction
-
--(DockExplanation*)canAdd:(DockUpgrade*)upgrade toShip:(DockEquippedShip*)equippedShip
+-(BOOL)matchesShip:(DockEquippedShip*)equippedShip
 {
-    DockShip* ship = equippedShip.ship;
-    
-    if ([ship hasFaction : self.faction]) {
-        return [DockExplanation success];
-    }
-    
-    NSString* result = [self standardFailureResult: upgrade toShip: equippedShip];
-    NSString* explanationFragment = [NSString stringWithFormat: @"a %@ ship", self.faction];
-    NSString* explanation = [self standardFailureExplanation: explanationFragment];
-    
-    return [[DockExplanation alloc] initWithResult: result explanation: explanation];
+    return [equippedShip.ship hasFaction : self.faction];
 }
 
 @end

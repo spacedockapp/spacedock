@@ -136,29 +136,6 @@ NSString* asDegrees(NSString* textValue)
     return self.shipClass;
 }
 
--(BOOL)isBreen
-{
-    NSRange r = [self.shipClass rangeOfString: @"Breen" options: NSCaseInsensitiveSearch];
-    return r.location != NSNotFound;
-}
-
--(BOOL)isKeldon
-{
-    NSRange r = [self.shipClass rangeOfString: @"Keldon" options: NSCaseInsensitiveSearch];
-    return r.location != NSNotFound;
-}
-
--(BOOL)isBattleship
-{
-    NSRange r = [self.shipClass rangeOfString: @"Battleship" options: NSCaseInsensitiveSearch];
-    return r.location != NSNotFound;
-}
-
--(BOOL)isRomulanScienceVessel
-{
-    return [self.shipClass isEqualToString: @"Romulan Science Vessel"];
-}
-
 -(BOOL)isDefiant
 {
     return [self.title isEqualToString: @"U.S.S. Defiant"];
@@ -206,16 +183,6 @@ NSString* asDegrees(NSString* textValue)
     return [self hasFaction: @"Borg"];
 }
 
--(BOOL)isBajoranInterceptor
-{
-    return [self.shipClass isEqualToString: @"Bajoran Interceptor"];
-}
-
--(BOOL)isRaven
-{
-    return [self.title isEqualToString: @"U.S.S. Raven"];
-}
-
 -(DockResource*)associatedResource
 {
     NSString* shipClass = self.shipClass;
@@ -227,11 +194,6 @@ NSString* asDegrees(NSString* textValue)
     }
     NSLog(@"No associated resource for %@", self);
     return nil;
-}
-
--(BOOL)isVulcan
-{
-    return [self hasFaction: @"Vulcan"];
 }
 
 -(BOOL)isIndependent

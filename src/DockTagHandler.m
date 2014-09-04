@@ -10,10 +10,12 @@
 #import "DockShipClassContainsAdjustment.h"
 #import "DockShipClassAdjustmentHandler.h"
 #import "DockShipClassRequirementHandler.h"
-#import "DockShipFactionTagHandler.h"
+#import "DockShipFactionAdjustmentHandler.h"
+#import "DockShipFactionRestrictionHandler.h"
 #import "DockShipValueTagHangler.h"
 #import "DockTag+Addons.h"
-#import "DockTitledShipTagHandler.h"
+#import "DockTitledShipAdjustmentHandler.h"
+#import "DockTitledShipRequirementHandler.h"
 #import "DockUpgrade+Addons.h"
 
 static NSDictionary* sTagHandlers = nil;
@@ -34,13 +36,13 @@ static NSDictionary* sTagHandlers = nil;
         explanationFragment: @"Jem'hadar ships"];
     
     // named ship restrictions
-    handlers[@"requires_voyager"] = [[DockTitledShipTagHandler alloc] initWithShipTitle: @"U.S.S. Voyager"];
+    handlers[@"requires_voyager"] = [[DockTitledShipRequirementHandler alloc] initWithShipTitle: @"U.S.S. Voyager"];
 
     // Captain and Ship faction restrictions
     for (NSString* faction in allFactionNames) {
         NSString* convertedFaction = [[faction lowercaseString] stringByReplacingOccurrencesOfString: @" " withString: @""];
         NSString* shipFactionTag = [NSString stringWithFormat: @"requires_%@_ship", convertedFaction];
-        handlers[shipFactionTag] = [[DockShipFactionTagHandler alloc] initWithFaction: faction];
+        handlers[shipFactionTag] = [[DockShipFactionRestrictionHandler alloc] initWithFaction: faction];
         NSString* captainFactionTag = [NSString stringWithFormat: @"requires_%@_captain", convertedFaction];
         handlers[captainFactionTag] = [[DockCaptainFactionTagHandler alloc] initWithFaction: faction];
     }
@@ -57,13 +59,25 @@ static NSDictionary* sTagHandlers = nil;
     handlers[@"adjust_not_jemhadar_ship_plus_5"] = [[DockShipClassContainsAdjustment alloc] initWithShipClassSubstrings: @[@"Jem'hadar"]
                                                                                                              adjustment: 5 ];
     handlers[@"adjust_not_breen_ship_plus_5"] = [[DockShipClassContainsAdjustment alloc] initWithShipClassSubstrings: @[@"Breen"]
-                                                                                                             adjustment: 5 ];
+                                                                                                          adjustment: 5 ];
     handlers[@"adjust_not_breen_ship_plus_5"] = [[DockShipClassContainsAdjustment alloc] initWithShipClassSubstrings: @[@"Breen"]
-                                                                                                             adjustment: 5 ];
+                                                                                                          adjustment: 5 ];
     handlers[@"adjust_not_keldon_class_plus_5"] = [[DockShipClassAdjustmentHandler alloc] initWithShipClass: @"Cardassian Keldon Class"
-                                                                                                             adjustment: 5 ];
+                                                                                                 adjustment: 5 ];
     handlers[@"adjust_not_rsv_class_plus_5"] = [[DockShipClassAdjustmentHandler alloc] initWithShipClass: @"Romulan Science Vessel"
-                                                                                                             adjustment: 5 ];
+                                                                                              adjustment: 5 ];
+    handlers[@"adjust_not_bajoran_interceptor_class_plus_5"] = [[DockShipClassAdjustmentHandler alloc] initWithShipClass: @"Bajoran Interceptor"
+                                                                                                              adjustment: 5 ];
+    handlers[@"adjust_not_defiant_plus_5"] = [[DockTitledShipAdjustmentHandler alloc] initWithShipTitle: @"U.S.S. Defiant"
+                                                                                             adjustment: 5 ];
+    handlers[@"adjust_not_raven_plus_5"] = [[DockTitledShipAdjustmentHandler alloc] initWithShipTitle: @"U.S.S. Raven"
+                                                                                           adjustment: 5 ];
+    handlers[@"adjust_not_species8742_plus_5"] = [[DockShipFactionAdjustmentHandler alloc] initWithFaction: @"Species 8472"
+                                                                                                adjustment: 5 ];
+    handlers[@"adjust_not_kazon_plus_5"] = [[DockShipFactionAdjustmentHandler alloc] initWithFaction: @"Kazon"
+                                                                                          adjustment: 5 ];
+    handlers[@"adjust_not_borg_plus_5"] = [[DockShipFactionAdjustmentHandler alloc] initWithFaction: @"Borg"
+                                                                                         adjustment: 5 ];
 
     sTagHandlers = [NSDictionary dictionaryWithDictionary: handlers];
 }

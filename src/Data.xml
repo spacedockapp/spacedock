@@ -6289,7 +6289,7 @@
       <Cost>4</Cost>
       <Id>3068</Id>
       <Set>71268</Set>
-      <Special>PenaltyOnShipOtherThanDefiant</Special>
+      <Tags>adjust_not_defiant_plus_5</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Worf</Title>
@@ -7696,7 +7696,7 @@
       <Cost>3</Cost>
       <Id>masking_circuitry_71282</Id>
       <Set>71282</Set>
-      <Special>PlusFiveForNonKazon</Special>
+      <Tags>adjust_not_kazon_plus_5</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Quantum Singularity</Title>
@@ -7816,7 +7816,7 @@
       <Cost>5</Cost>
       <Id>the_weak_will_perish_71281</Id>
       <Set>71281</Set>
-      <Special>PlusFiveOnNonSpecies8472</Special>
+      <Tags>adjust_not_species8742_plus_5</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Tierna</Title>
@@ -8196,7 +8196,7 @@
       <Cost>5</Cost>
       <Id>maneuverability_71445</Id>
       <Set>71445</Set>
-      <Special>CostPlusFiveExceptBajoranInterceptor</Special>
+      <Tags>adjust_not_bajoran_interceptor_class_plus_5</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Militia</Title>
@@ -8316,8 +8316,8 @@
       <Cost>4</Cost>
       <Id>phaser_strike_71445</Id>
       <Set>71445</Set>
-      <Special>PhaserStrike</Special>
-      <Tags>require_hull_3_or_less</Tags>
+      <Special></Special>
+      <Tags>require_hull_3_or_less,adjust_not_bajoran_interceptor_class_plus_5</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Full Assault</Title>
@@ -9102,7 +9102,7 @@
       <Cost>6</Cost>
       <Id>forward_weapons_array_71522</Id>
       <Set>71522</Set>
-      <Special>PlusFiveIfNotBorgShip</Special>
+      <Tags>adjust_not_borg_plus_5</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Volley of Torpedoes</Title>
@@ -9240,7 +9240,7 @@
       <Cost>5</Cost>
       <Id>reinforced_structural_integrity_71509</Id>
       <Set>71509</Set>
-      <Special>PlusFiveIfNotRaven</Special>
+      <Tags>adjust_not_raven_plus_5</Tags>
     </Upgrade>
     <Upgrade>
       <Title>Research Mission</Title>
