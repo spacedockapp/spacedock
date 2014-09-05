@@ -2,7 +2,7 @@
 //  DockComponent.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 8/30/14.
+//  Created by Rob Tsuk on 9/4/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "DockTagged.h"
 
-@class DockSet;
+@class DockSet, DockSlot;
 
 @interface DockComponent : DockTagged
 
@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString * factionSortValue;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSSet *sets;
+@property (nonatomic, retain) NSSet *slots;
 @end
 
 @interface DockComponent (CoreDataGeneratedAccessors)
@@ -26,5 +27,10 @@
 - (void)removeSetsObject:(DockSet *)value;
 - (void)addSets:(NSSet *)values;
 - (void)removeSets:(NSSet *)values;
+
+- (void)addSlotsObject:(DockSlot *)value;
+- (void)removeSlotsObject:(DockSlot *)value;
+- (void)addSlots:(NSSet *)values;
+- (void)removeSlots:(NSSet *)values;
 
 @end

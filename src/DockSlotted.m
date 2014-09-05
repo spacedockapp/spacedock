@@ -1,15 +1,17 @@
 //
-//  DockSideboard.m
+//  DockSlotted.m
 //  Space Dock
 //
 //  Created by Rob Tsuk on 9/4/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
-#import "DockSideboard.h"
+#import "DockSlotted.h"
+#import "DockSlot.h"
 
 
-@implementation DockSideboard
+@implementation DockSlotted
 
+@dynamic slots;
 
 @end
