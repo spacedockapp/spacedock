@@ -470,6 +470,18 @@
 
     NSString* upgradeSpecial = upgrade.special;
 
+    if ([upgrade.title isEqualToString: @"Hugh"]) {
+        if ([self.squad containsUpgradeWithSpecial: @"not_with_hugh"] != nil) {
+            return NO;
+        }
+    }
+
+    if ([upgrade isBorg]) {
+        if ([self.ship isScoutCube]) {
+            return [[upgrade cost] intValue] <= 5;
+        }
+    }
+
     if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
         if (![self.ship isJemhadar]) {
             return NO;
@@ -530,8 +542,20 @@
         }
     }
 
-    if ([upgradeSpecial isEqualToString: @"OnlyFederationShip"]) {
+    if ([upgradeSpecial isEqualToString: @"OnlyFederationShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"]) {
         if (![self.ship isFederation]) {
+            return NO;
+        }
+    }
+
+    if ([upgradeSpecial isEqualToString: @"only_vulcan_ship"]) {
+        if (![self.ship isVulcan]) {
+            return NO;
+        }
+    }
+
+    if ([upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
+        if (![self.ship isSuurokClass]) {
             return NO;
         }
     }
@@ -560,11 +584,18 @@
         }
     }
 
-    if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"]) {
+    if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
         if ([self containsUpgradeWithId: upgrade.externalId] != nil) {
             return NO;
         }
     }
+
+    if ([upgradeSpecial isEqualToString: @"not_with_hugh"]) {
+        if ([self.squad containsUpgradeWithName: @"Hugh"] != nil) {
+            return NO;
+        }
+    }
+
 
     if ([upgradeSpecial isEqualToString: @"OnlyForRomulanScienceVessel"] || [upgradeSpecial isEqualToString: @"OnlyForRaptorClassShips"]) {
         NSString* legalShipClass = upgrade.targetShipClass;
@@ -625,6 +656,8 @@
                 info = @"This upgrade can only be added to Kazon ships.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyBorgShip"]) {
                 info = @"This upgrade can only be added to Borg ships.";
+            } else if ([upgradeSpecial isEqualToString: @"only_vulcan_ship"]) {
+                info = @"This upgrade can only be added to Vulcan ships.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyFederationShip"]) {
                 info = @"This upgrade can only be added to Federation ships.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyVoyager"]) {
@@ -639,10 +672,12 @@
                 info = @"This upgrade can only be added to a Vulcan captain on a Vulcan ship.";
             } else if ([upgradeSpecial isEqualToString: @"PhaserStrike"] || [upgradeSpecial isEqualToString: @"OnlyHull3OrLess"]) {
                 info = @"This upgrade may only be purchased for a ship with a Hull value of 3 or less.";
-            } else if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"]) {
+            } else if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"]) {
                 info = @"No ship may be equipped with more than one of these upgrades.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyBattleshipOrCruiser"]) {
                 info = @"This upgrade may only be purchased for a Jem'Hadar Battle Cruiser or Battleship.";
+            } else if ([upgradeSpecial isEqualToString: @"not_with_hugh"]) {
+                info = @"You cannot deploy this card to the same ship or fleet as Hugh.";
             }
         }
     }
@@ -1045,6 +1080,16 @@
 {
     for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
         if ([eu.upgrade.title isEqualToString: theName]) {
+            return eu;
+        }
+    }
+    return nil;
+}
+
+-(DockEquippedUpgrade*)containsUpgradeWithSpecial:(NSString*)special
+{
+    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        if ([eu.upgrade.special isEqualToString: special]) {
             return eu;
         }
     }

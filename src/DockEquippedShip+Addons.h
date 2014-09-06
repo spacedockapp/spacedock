@@ -60,6 +60,7 @@
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
 -(DockEquippedUpgrade*)containsUpgradeWithName:(NSString*)theName;
 -(DockEquippedUpgrade*)containsUpgradeWithId:(NSString*)theId;
+-(DockEquippedUpgrade*)containsUpgradeWithSpecial:(NSString*)special;
 -(void)changeShip:(DockShip*)newShip;
 -(NSDictionary*)explainCantAddUpgrade:(DockUpgrade*)upgrade;
 -(void)establishPlaceholders;

@@ -1,0 +1,38 @@
+  <Admiral>
+    <Title>Maxwell Forrest</Title>
+    <Ability>ACTION: Perform an additional 1 Maneuver (straight, bank or turn).</Ability>
+    <Unique>Y</Unique>
+    <Skill>3</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
+    <Cost>4</Cost>
+    <Id>maxwell_forrest_71526</Id>
+    <Set>71526</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: Perform and additional 1 Maneuver (straight, bank or turn).</AdmiralAbility>
+    <AdmiralCost>3</AdmiralCost>
+    <AdmiralTalent>0</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
+  </Admiral>
+  <Admiral>
+    <Title>V'Las</Title>
+    <Ability>ACTION: Target a ship at Range 1-2. Disable 1 [CREW] Upgrade of your choice on the target ship.</Ability>
+    <Unique>Y</Unique>
+    <Skill>3</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Vulcan</Faction>
+    <Cost>5</Cost>
+    <Id>v_las_71527</Id>
+    <Set>71527</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: Target a ship at Range 1-2. Disable 1 [CREW] Upgrade of your choice on the target ship. </AdmiralAbility>
+    <AdmiralCost>3</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
+  </Admiral>

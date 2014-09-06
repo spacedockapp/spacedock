@@ -1,50 +1,150 @@
     <Ship>
-      <Title>U.S.S. Raven</Title>
+      <Title>Enterprise NX-01</Title>
       <Unique>Y</Unique>
-      <ShipClass>Aerie Class</ShipClass>
+      <ShipClass>Federation NX Class</ShipClass>
       <Faction>Federation</Faction>
-      <Attack>1</Attack>
-      <Agility>2</Agility>
-      <Hull>2</Hull>
-      <Shield>3</Shield>
-      <Ability>Each time you attack or defend, if there is a [SCAN] token beside your ship, your range combat bonuses are doubled.</Ability>
+      <Attack>2</Attack>
+      <Agility>3</Agility>
+      <Hull>3</Hull>
+      <Shield>0</Shield>
+      <Ability>You may equip the Enhanced Hull Plating [TECH] Upgrade to your ship for free even if it exceeds your ship's restrictions.</Ability>
       <Cost>16</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock>0</TargetLock>
+      <TargetLock>1</TargetLock>
       <Scan>1</Scan>
-      <Battlestations>0</Battlestations>
+      <Battlestations>1</Battlestations>
       <Cloak>0</Cloak>
       <SensorEcho>0</SensorEcho>
       <Regenerate>0</Regenerate>
       <Borg>0</Borg>
-      <Tech>2</Tech>
+      <Tech>0</Tech>
+      <Weapon>1</Weapon>
+      <Crew>3</Crew>
+      <Id>enterprise_nx_01_71526</Id>
+      <Set>71526</Set>
+    </Ship>
+    <Ship>
+      <Title>Ni'Var</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Suurok Class</ShipClass>
+      <Faction>Vulcan</Faction>
+      <Attack>2</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>3</Shield>
+      <Ability>Whenever you attack an enemy ship at Range 3 with your Primary Weapon, if there is a [SCAN] Token beside your ship, you gain +1 attack die for that attack.</Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
       <Weapon>0</Weapon>
+      <Crew>2</Crew>
+      <Id>ni_var_71527</Id>
+      <Set>71527</Set>
+    </Ship>
+    <Ship>
+      <Title>Scout 608</Title>
+      <Unique>Y</Unique>
+      <ShipClass>Borg Scout Cube</ShipClass>
+      <Faction>Borg</Faction>
+      <Attack>3</Attack>
+      <Agility>3</Agility>
+      <Hull>2</Hull>
+      <Shield>4</Shield>
+      <Ability>After you move, you may discard one of your Upgrades to perform an additional Green or White Maneuver.  You cannot deploy a [BORG] Upgrade with a cost greater than 5 to this ship.</Ability>
+      <Cost>24</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>1</Regenerate>
+      <Borg>1</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
       <Crew>1</Crew>
-      <Id>u_s_s_raven_71509</Id>
-      <Set>71509</Set>
+      <Id>scout_608_71525</Id>
+      <Set>71525</Set>
     </Ship>
     <Ship>
       <Title>Federation Starship</Title>
       <Unique>N</Unique>
-      <ShipClass>Aerie Class</ShipClass>
+      <ShipClass>Federation NX Class</ShipClass>
       <Faction>Federation</Faction>
-      <Attack>1</Attack>
-      <Agility>2</Agility>
-      <Hull>2</Hull>
-      <Shield>2</Shield>
+      <Attack>2</Attack>
+      <Agility>3</Agility>
+      <Hull>3</Hull>
+      <Shield>0</Shield>
       <Ability></Ability>
-      <Cost>14</Cost>
+      <Cost>16</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock>0</TargetLock>
+      <TargetLock>1</TargetLock>
       <Scan>1</Scan>
-      <Battlestations>0</Battlestations>
+      <Battlestations>1</Battlestations>
       <Cloak>0</Cloak>
       <SensorEcho>0</SensorEcho>
       <Regenerate>0</Regenerate>
       <Borg>0</Borg>
-      <Tech>2</Tech>
+      <Tech>0</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>federation_starship_71526</Id>
+      <Set>71526</Set>
+    </Ship>
+    <Ship>
+      <Title>Vulcan Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Suurok Class</ShipClass>
+      <Faction>Vulcan</Faction>
+      <Attack>2</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>18</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
       <Weapon>0</Weapon>
-      <Crew>0</Crew>
-      <Id>federation_starship_71509</Id>
-      <Set>71509</Set>
+      <Crew>1</Crew>
+      <Id>vulcan_starship_71527</Id>
+      <Set>71527</Set>
+    </Ship>
+    <Ship>
+      <Title>Borg Starship</Title>
+      <Unique>N</Unique>
+      <ShipClass>Borg Scout Cube</ShipClass>
+      <Faction>Borg</Faction>
+      <Attack>3</Attack>
+      <Agility>3</Agility>
+      <Hull>2</Hull>
+      <Shield>3</Shield>
+      <Ability>You cannot deploy a [BORG] Upgrade with a cost greater than 5 to this ship.</Ability>
+      <Cost>22</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>1</Regenerate>
+      <Borg>1</Borg>
+      <Tech>1</Tech>
+      <Weapon></Weapon>
+      <Crew>1</Crew>
+      <Id>borg_starship_71525</Id>
+      <Set>71525</Set>
     </Ship>
