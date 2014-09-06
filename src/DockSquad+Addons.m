@@ -659,6 +659,18 @@ static NSString* toDataFormat(NSString* label, id element)
     return nil;
 }
 
+-(DockEquippedUpgrade*)containsUpgradeWithSpecial:(NSString*)special
+{
+    for (DockEquippedShip* ship in self.equippedShips) {
+        DockEquippedUpgrade* existing = [ship containsUpgradeWithSpecial: special];
+
+        if (existing) {
+            return existing;
+        }
+    }
+    return nil;
+}
+
 static NSString* namePrefix(NSString* originalName)
 {
     NSRegularExpression* expression = [NSRegularExpression regularExpressionWithPattern: @" copy *\\d*"
@@ -714,6 +726,7 @@ static NSString* namePrefix(NSString* originalName)
     if (captain.isAdmiral) {
         return [self canAddAdmiral: (DockAdmiral*)captain toShip: targetShip error: error];
     }
+
     if (targetShip.captainCount < 1) {
         if (error) {
             NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected ship.", captain.title];
@@ -728,6 +741,21 @@ static NSString* namePrefix(NSString* originalName)
         return NO;
     }
     
+    if ([captain.title isEqualToString: @"Hugh"]) {
+        if ([targetShip.squad containsUpgradeWithSpecial: @"not_with_hugh"] != nil) {
+            if (error) {
+                NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", captain.title];
+                NSString* info = @"The squadron has an item that cannot be deployed with Hugh.";
+                NSDictionary* d = @{
+                    NSLocalizedDescriptionKey: msg,
+                    NSLocalizedFailureReasonErrorKey: info
+                };
+                *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
+            }
+            return NO;
+        }
+    }
+
     DockCaptain* existingCaptain = [targetShip captain];
 
     if (captain == existingCaptain) {

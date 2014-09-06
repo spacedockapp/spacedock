@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
     android:orientation="vertical" >
 
     <TextView
@@ -62,6 +62,15 @@
         android:ems="10"
         android:maxLength="26"
         android:inputType="text" />
+
+    <ToggleButton
+        android:id="@+id/blind_buys_toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/blindbuy_off"
+        android:textOff="@string/blindbuy_off"
+        android:textOn="@string/blindbuy_on" />
 
     <TextView
         android:id="@+id/eventdate_label"

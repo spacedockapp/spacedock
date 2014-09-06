@@ -42,6 +42,7 @@
 -(DockEquippedShip*)containsShip:(DockShip*)theShip;
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;
 -(DockEquippedUpgrade*)containsUpgradeWithName:(NSString*)theName;
+-(DockEquippedUpgrade*)containsUpgradeWithSpecial:(NSString*)special;
 -(DockSquad*)duplicate;
 -(BOOL)canAddCaptain:(DockCaptain*)captain toShip:(DockEquippedShip*)targetShip error:(NSError**)error;
 -(DockEquippedUpgrade*)addCaptain:(DockCaptain*)captain toShip:(DockEquippedShip*)targetShip error:(NSError**)error;

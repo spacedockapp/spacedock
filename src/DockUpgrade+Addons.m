@@ -631,6 +631,7 @@
         } else if ([captainSpecial isEqualToString: @"lore_71522"] &&
                    [upgrade isTalent]) {
         } else if ([externalId isEqualToString: @"elim_garak_71786"]) {
+        } else if ([upgradeSpecial isEqualToString: @"add_one_tech_no_faction_penalty_on_vulcan"] && [ship isVulcan]) {
         } else if ([fleetCaptainOnThisShip isIndependent] && [ship isIndependent] && [upgrade isCaptain]) {
         } else {
             if (upgrade.isAdmiral) {
@@ -690,6 +691,9 @@
     if ([special isEqualToString: @"AddsOneWeaponOneTech"]) {
         return 1;
     }
+    if ([special isEqualToString: @"add_one_tech_no_faction_penalty_on_vulcan"]) {
+        return 1;
+    }
     if ([externalId isEqualToString: @"vulcan_high_command_2_0_71446"]) {
         return 2;
     }
@@ -728,12 +732,18 @@
     if ([self.externalId isEqualToString: @"combat_vessel_variant_71508"]) {
         return 1;
     }
+    if ([self.special isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
+        return 1;
+    }
     return 0;
 }
 
 -(int)additionalAttack
 {
     if ([self.externalId isEqualToString: @"combat_vessel_variant_71508"]) {
+        return 1;
+    }
+    if ([self.special isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
         return 1;
     }
     return 0;

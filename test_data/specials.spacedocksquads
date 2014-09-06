@@ -26,6 +26,47 @@
     "cost" : 42
   },
   {
+    "uuid" : "5CB23380-2804-49A5-A767-5C283D18CF9F",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 30,
+        "shipId" : "enterprise_nx_01_71526",
+        "upgrades" : [
+          {
+            "upgradeId" : "charles_tucker_iii_71526",
+            "upgradeTitle" : "Charles Tucker III",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "hoshi_sato_71526",
+            "upgradeTitle" : "Hoshi Sato",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "malcolm_reed_71526",
+            "upgradeTitle" : "Malcolm Reed",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "phlox_71526",
+            "upgradeTitle" : "Phlox",
+            "calculatedCost" : 2
+          }
+        ],
+        "shipTitle" : "Enterprise NX-01",
+        "captain" : {
+          "upgradeId" : "jonathan_archer_71526",
+          "upgradeTitle" : "Jonathan Archer",
+          "calculatedCost" : 3
+        }
+      }
+    ],
+    "name" : "archer",
+    "modified" : "2014-09-06T07:18:48-0700",
+    "cost" : 30
+  },
+  {
     "uuid" : "D6F5F724-070D-4EC4-B280-69197A63232D",
     "additionalPoints" : 0,
     "ships" : [
@@ -1979,6 +2020,42 @@
     "cost" : 59
   },
   {
+    "uuid" : "F322CC15-3563-45CD-9039-6647152DDFE9",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 33,
+        "shipId" : "ni_var_71527",
+        "upgrades" : [
+          {
+            "upgradeId" : "vulcan_commandos_71527",
+            "upgradeTitle" : "Vulcan Commandos",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "vulcan_commandos_71527",
+            "upgradeTitle" : "Vulcan Commandos",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "vulcan_commandos_71527",
+            "upgradeTitle" : "Vulcan Commandos",
+            "calculatedCost" : 3
+          }
+        ],
+        "shipTitle" : "Ni'Var",
+        "captain" : {
+          "upgradeId" : "sopek_71527",
+          "upgradeTitle" : "Sopek",
+          "calculatedCost" : 4
+        }
+      }
+    ],
+    "name" : "sopek",
+    "modified" : "2014-09-06T07:21:18-0700",
+    "cost" : 33
+  },
+  {
     "uuid" : "C6A45654-C10C-4CC8-BA1C-72D6E260E66C",
     "additionalPoints" : 0,
     "ships" : [
@@ -2184,6 +2261,37 @@
     "name" : "thot gor",
     "modified" : "2014-06-20T10:09:15-0700",
     "cost" : 46
+  },
+  {
+    "uuid" : "BC69AA78-EE68-4A46-B2BC-1FF46E3054CE",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 28,
+        "shipId" : "ni_var_71527",
+        "upgrades" : [
+          {
+            "upgradeId" : "t_pol_71526",
+            "upgradeTitle" : "T'Pol",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "vulcan_commandos_71527",
+            "upgradeTitle" : "Vulcan Commandos",
+            "calculatedCost" : 3
+          }
+        ],
+        "shipTitle" : "Ni'Var",
+        "captain" : {
+          "upgradeId" : "kuvak_71527",
+          "upgradeTitle" : "Kuvak",
+          "calculatedCost" : 2
+        }
+      }
+    ],
+    "name" : "tpol",
+    "modified" : "2014-09-06T07:25:40-0700",
+    "cost" : 28
   },
   {
     "ships" : [

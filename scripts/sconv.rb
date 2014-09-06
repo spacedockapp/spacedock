@@ -6,8 +6,12 @@ require_relative "common"
 
 #Timestamp		Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots
 ship = <<-SHIPTEXT
-8/1/2014 21:15:06	Unique	U.S.S. Raven	Federation	Aerie Class	1	2	2	3	Each time you attack or defend, if there is a [SCAN] token beside your ship, your range combat bonuses are doubled.	Evasive, Scan	16	0	1	2	0										
-8/1/2014 21:15:51		Federation Starship	Federation	Aerie Class	1	2	2	2		Evasive, Scan	14	0	0	2	0										
+8/18/2014 17:02:28	Unique	Enterprise NX-01	Federation	Federation NX Class	2	3	3	0	You may equip the Enhanced Hull Plating [TECH] Upgrade to your ship for free even if it exceeds your ship's restrictions.	Battle Stations, Evasive, Scan, Target Lock	16	0	3	0	1	71526 - Enterprise											
+8/18/2014 17:45:57	Unique	Ni'Var	Vulcan	Suurok Class	2	1	4	3	Whenever you attack an enemy ship at Range 3 with your Primary Weapon, if there is a [SCAN] Token beside your ship, you gain +1 attack die for that attack.	Battle Stations, Evasive, Scan, Target Lock	20	0	2	1	0	71527 - Ni’Var											
+8/18/2014 18:12:39	Unique	Scout 608	Borg	Borg Scout Cube	3	3	2	4	After you move, you may discard one of your Upgrades to perform an additional Green or White Maneuver.  You cannot deploy a [BORG] Upgrade with a cost greater than 5 to this ship.	Evasive, Regenerate, Scan, Target Lock	24	1	1	1	1	71525 - Scout Cube											
+8/18/2014 17:02:28		Federation Starship	Federation	Federation NX Class	2	3	3	0		Battle Stations, Evasive, Scan, Target Lock	16	0	1	0	1	71526 - Enterprise											
+8/18/2014 17:45:57		Vulcan Starship	Vulcan	Suurok Class	2	1	4	2		Battle Stations, Evasive, Scan, Target Lock	18	0	1	1	0	71527 - Ni’Var											
+8/18/2014 18:12:39		Borg Starship	Borg	Borg Scout Cube	3	3	2	3	You cannot deploy a [BORG] Upgrade with a cost greater than 5 to this ship.	Evasive, Regenerate, Scan, Target Lock	22	1	1	1		71525 - Scout Cube											
 SHIPTEXT
 
 
@@ -17,13 +21,14 @@ new_ships = File.open("new_ships.xml", "w")
 
 shipLines = ship.split "\n"
 shipLines.each do |l|
+# Timestamp		Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid										*
     parts = l.split "\t"
     title = parts[2]
     shipClass = parts[4]
     unique = parts[1] == "Unique" ? "Y" : "N"
     faction = parts[3]
     unless faction
-      throw "Fo"
+      throw "Faction missing"
     end
     attack = parts[5]
     agility = parts[6]
@@ -43,7 +48,8 @@ shipLines.each do |l|
     crew = parts[13]
     tech = parts[14]
     weapon = parts[15]
-    setId = set_id_from_faction(faction)
+    expansion = parts[16]
+    setId = set_id_from_expansion(expansion)
     externalId = make_external_id(setId, title)
 	if cost.length == 0
 		cost = (agility.to_i + attack.to_i + hull.to_i + shield.to_i) * 2

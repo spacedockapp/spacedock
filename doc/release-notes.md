@@ -1,3 +1,8 @@
+### Version 1.1.4 build 82 (2014-9-6)
+
+* Add Wave 7.
+* Enforce the "Not with Hugh" restriction for all Thirds of Five.
+
 ### Version 1.1.3 build 81 (2014-8-30)
 
 * Fix error when duplicating squads containing fleet captains.

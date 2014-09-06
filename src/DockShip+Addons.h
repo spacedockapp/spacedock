@@ -26,10 +26,12 @@
 -(BOOL)isTholian;
 -(BOOL)isVoyager;
 -(BOOL)isVulcan;
+-(BOOL)isSuurokClass;
 -(BOOL)isIndependent;
 -(BOOL)isBajoranInterceptor;
 -(BOOL)isBattleshipOrCruiser;
 -(BOOL)isRaven;
+-(BOOL)isScoutCube;
 -(DockResource*)associatedResource;
 -(int)techCount;
 -(int)weaponCount;

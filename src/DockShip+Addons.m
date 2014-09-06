@@ -239,6 +239,12 @@ NSString* asDegrees(NSString* textValue)
     return [self.title isEqualToString: @"U.S.S. Raven"];
 }
 
+-(BOOL)isScoutCube
+{
+    NSRange r = [self.shipClass rangeOfString: @"Scout Cube" options: NSCaseInsensitiveSearch];
+    return r.location != NSNotFound;
+}
+
 -(DockResource*)associatedResource
 {
     NSString* shipClass = self.shipClass;
@@ -255,6 +261,11 @@ NSString* asDegrees(NSString* textValue)
 -(BOOL)isVulcan
 {
     return [self.faction isEqualToString: @"Vulcan"];
+}
+
+-(BOOL)isSuurokClass
+{
+    return [self.shipClass isEqualToString: @"Suurok Class"];
 }
 
 -(BOOL)isIndependent
