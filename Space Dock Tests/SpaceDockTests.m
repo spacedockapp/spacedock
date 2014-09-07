@@ -44,7 +44,7 @@ static NSManagedObjectContext* getManagedObjectContext()
 {
     {
         NSArray* allShips = [DockShip allShips: _context];
-        XCTAssertEqual(100, allShips.count);
+        XCTAssertEqual(106, allShips.count);
     }
     
     {
@@ -95,7 +95,7 @@ static NSManagedObjectContext* getManagedObjectContext()
     {
         DockSet* coreSet = [DockSet setForId: @"71120" context: _context];
         XCTAssertNotNil(coreSet);
-        XCTAssertEqual(33, coreSet.items.count);
+        XCTAssertEqual(36, coreSet.items.count);
     }
 
     {
