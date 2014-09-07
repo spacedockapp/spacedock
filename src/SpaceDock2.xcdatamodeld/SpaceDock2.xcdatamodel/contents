@@ -10,12 +10,12 @@
         <attribute name="skill" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="talent" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="Component" representedClassName="DockComponent" isAbstract="YES" parentEntity="Tagged" syncable="YES">
+    <entity name="Component" representedClassName="DockComponent" isAbstract="YES" parentEntity="Slotted" syncable="YES">
         <attribute name="externalId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="factionSortValue" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="installs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Slot" inverseName="component" inverseEntity="Slot" syncable="YES"/>
         <relationship name="sets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Set" inverseName="items" inverseEntity="Set" syncable="YES"/>
-        <relationship name="slots" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Slot" inverseName="contents" inverseEntity="Slot" syncable="YES"/>
     </entity>
     <entity name="EquippedShip" representedClassName="DockEquippedShip" parentEntity="Slotted" syncable="YES">
         <relationship name="flagship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Flagship" inverseName="ships" inverseEntity="Flagship" syncable="YES"/>
@@ -118,10 +118,10 @@
     </entity>
     <entity name="Sideboard" representedClassName="DockSideboard" parentEntity="EquippedShip" syncable="YES"/>
     <entity name="Slot" representedClassName="DockSlot" parentEntity="Tagged" syncable="YES">
-        <relationship name="contents" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Component" inverseName="slots" inverseEntity="Component" syncable="YES"/>
+        <relationship name="component" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Component" inverseName="installs" inverseEntity="Component" syncable="YES"/>
         <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Slotted" inverseName="slots" inverseEntity="Slotted" syncable="YES"/>
     </entity>
-    <entity name="Slotted" representedClassName="DockSlotted" isAbstract="YES" syncable="YES">
+    <entity name="Slotted" representedClassName="DockSlotted" isAbstract="YES" parentEntity="Tagged" syncable="YES">
         <relationship name="slots" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Slot" inverseName="owner" inverseEntity="Slot" syncable="YES"/>
     </entity>
     <entity name="Squad" representedClassName="DockSquad" parentEntity="Slotted" syncable="YES">
@@ -152,26 +152,26 @@
         <relationship name="equippedUpgrades" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EquippedUpgrade" inverseName="upgrade" inverseEntity="EquippedUpgrade" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Admiral" positionX="27" positionY="225" width="128" height="103"/>
+        <element name="Admiral" positionX="565" positionY="-441" width="128" height="103"/>
         <element name="Captain" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="Component" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="EquippedShip" positionX="0" positionY="0" width="128" height="103"/>
-        <element name="EquippedUpgrade" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="Flagship" positionX="0" positionY="0" width="128" height="298"/>
-        <element name="FleetCaptain" positionX="18" positionY="153" width="128" height="118"/>
-        <element name="Maneuver" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="Officer" positionX="-54" positionY="189" width="128" height="45"/>
-        <element name="Reference" positionX="9" positionY="153" width="128" height="73"/>
-        <element name="Resource" positionX="0" positionY="0" width="128" height="133"/>
-        <element name="Set" positionX="0" positionY="0" width="128" height="150"/>
-        <element name="Ship" positionX="0" positionY="0" width="128" height="388"/>
-        <element name="ShipClassDetails" positionX="0" positionY="0" width="128" height="135"/>
-        <element name="Sideboard" positionX="0" positionY="0" width="128" height="43"/>
-        <element name="Squad" positionX="0" positionY="0" width="128" height="148"/>
-        <element name="Tag" positionX="477" positionY="359" width="128" height="75"/>
-        <element name="Tagged" positionX="423" positionY="248" width="128" height="58"/>
-        <element name="Upgrade" positionX="0" positionY="0" width="128" height="180"/>
-        <element name="Slot" positionX="144" positionY="144" width="128" height="73"/>
-        <element name="Slotted" positionX="153" positionY="153" width="128" height="58"/>
+        <element name="Component" positionX="-191" positionY="17" width="128" height="118"/>
+        <element name="EquippedShip" positionX="241" positionY="-36" width="128" height="103"/>
+        <element name="EquippedUpgrade" positionX="-173" positionY="327" width="128" height="105"/>
+        <element name="Flagship" positionX="241" positionY="224" width="128" height="298"/>
+        <element name="FleetCaptain" positionX="574" positionY="-261" width="128" height="118"/>
+        <element name="Maneuver" positionX="448" positionY="-54" width="128" height="105"/>
+        <element name="Officer" positionX="466" positionY="-529" width="128" height="43"/>
+        <element name="Reference" positionX="430" positionY="377" width="128" height="73"/>
+        <element name="Resource" positionX="-414" positionY="297" width="128" height="133"/>
+        <element name="Set" positionX="-36" positionY="-396" width="128" height="150"/>
+        <element name="Ship" positionX="142" positionY="-585" width="128" height="388"/>
+        <element name="ShipClassDetails" positionX="475" positionY="162" width="128" height="135"/>
+        <element name="Sideboard" positionX="-38" positionY="-522" width="128" height="43"/>
+        <element name="Slot" positionX="-236" positionY="-226" width="128" height="73"/>
+        <element name="Slotted" positionX="-434" positionY="-189" width="128" height="58"/>
+        <element name="Squad" positionX="-290" positionY="-427" width="128" height="148"/>
+        <element name="Tag" positionX="-576" positionY="63" width="128" height="75"/>
+        <element name="Tagged" positionX="-369" positionY="-81" width="128" height="58"/>
+        <element name="Upgrade" positionX="349" positionY="-405" width="128" height="180"/>
     </elements>
 </model>
