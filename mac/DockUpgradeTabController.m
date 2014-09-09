@@ -71,7 +71,7 @@
 {
     DockUpgrade* upgrade = (DockUpgrade*)item;
     if ([upgrade isUnique]) {
-        DockEquippedUpgrade* existing = [squad containsUpgradeWithName: upgrade.title];
+        DockEquippedUpgrade* existing = [squad containsUniqueUpgradeWithName: upgrade.title];
 
         if (existing) {
             NSError* error;

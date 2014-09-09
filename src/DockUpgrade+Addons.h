@@ -1,10 +1,11 @@
 #import "DockUpgrade.h"
 
 #import "DockFactioned.h"
+#import "DockUnique.h"
 
 @class DockEquippedShip;
 
-@interface DockUpgrade (Addons) <DockFactioned>
+@interface DockUpgrade (Addons) <DockFactioned,DockUnique>
 +(NSSet*)allFactions:(NSManagedObjectContext*)context;
 +(DockUpgrade*)placeholder:(NSString*)upType inContext:(NSManagedObjectContext*)context;
 +(DockUpgrade*)upgradeForId:(NSString*)externalId context:(NSManagedObjectContext*)context;
@@ -19,6 +20,7 @@
 -(BOOL)isOfficer;
 -(BOOL)isPlaceholder;
 -(BOOL)isUnique;
+-(BOOL)isMirrorUniverseUnique;
 -(BOOL)isDominion;
 -(BOOL)isKlingon;
 -(BOOL)isBajoran;

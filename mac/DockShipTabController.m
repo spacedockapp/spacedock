@@ -35,7 +35,8 @@
         DockResource* resource = newShip.associatedResource;
         squad.resource = resource;
     } else {
-        if ([newShip isUnique]) {
+        if ([newShip isAnyKindOfUnique]) {
+            // fixeme need to handle MU and do by name
             DockEquippedShip* existing = [squad containsShip: newShip];
 
             if (existing != nil) {

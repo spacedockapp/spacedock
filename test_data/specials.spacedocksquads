@@ -483,6 +483,32 @@
     "name" : "federation fleet captain"
   },
   {
+    "uuid" : "EC34B313-E0A9-4DFF-AF83-1D5C8B1CF5FB",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 35,
+        "shipId" : "u_s_s_stargazer_71510",
+        "upgrades" : [
+          {
+            "upgradeId" : "fire_all_weapons_71510b",
+            "upgradeTitle" : "Fire All Weapons",
+            "calculatedCost" : 13
+          }
+        ],
+        "shipTitle" : "U.S.S. Stargazer",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "Fire All Weapons",
+    "modified" : "2014-09-09T17:30:13-0700",
+    "cost" : 35
+  },
+  {
     "ships" : [
       {
         "calculatedCost" : 34,
@@ -1038,6 +1064,37 @@
     "additionalPoints" : 0,
     "modified" : "2014-08-04T20:47:57-0700",
     "name" : "independent romulan fleet captain"
+  },
+  {
+    "uuid" : "E9A75FBA-1974-4846-8220-AFBE2E150534",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 33,
+        "shipId" : "u_s_s_stargazer_71510",
+        "upgrades" : [
+          {
+            "upgradeId" : "jack_crusher_71510",
+            "upgradeTitle" : "Jack Crusher",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "worf_71510b",
+            "upgradeTitle" : "Worf",
+            "calculatedCost" : 5
+          }
+        ],
+        "shipTitle" : "U.S.S. Stargazer",
+        "captain" : {
+          "upgradeId" : "jean_luc_picard_71510",
+          "upgradeTitle" : "Jean-Luc Picard",
+          "calculatedCost" : 4
+        }
+      }
+    ],
+    "name" : "jlp sg",
+    "modified" : "2014-09-09T17:31:49-0700",
+    "cost" : 33
   },
   {
     "uuid" : "3CE7889C-541B-49DB-9029-482BA881E4C3",
@@ -2085,6 +2142,87 @@
     "name" : "styles",
     "modified" : "2014-06-20T09:47:13-0700",
     "cost" : 35
+  },
+  {
+    "uuid" : "A79D9DB6-BC59-42BB-81F3-F55FDF85DF73",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 70,
+        "shipId" : "u_s_s_stargazer_71510",
+        "upgrades" : [
+          {
+            "upgradeId" : "tactical_station_71510",
+            "upgradeTitle" : "Tactical Station",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "tactical_station_71510",
+            "upgradeTitle" : "Tactical Station",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "tactical_station_71510",
+            "upgradeTitle" : "Tactical Station",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "tactical_station_71510",
+            "upgradeTitle" : "Tactical Station",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "tactical_station_71510",
+            "upgradeTitle" : "Tactical Station",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "tactical_station_71510",
+            "upgradeTitle" : "Tactical Station",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "tactical_station_71510",
+            "upgradeTitle" : "Tactical Station",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "tactical_station_71510",
+            "upgradeTitle" : "Tactical Station",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "tactical_station_71510",
+            "upgradeTitle" : "Tactical Station",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "tactical_station_71510",
+            "upgradeTitle" : "Tactical Station",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "tactical_station_71510",
+            "upgradeTitle" : "Tactical Station",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "tactical_station_71510",
+            "upgradeTitle" : "Tactical Station",
+            "calculatedCost" : 4
+          }
+        ],
+        "shipTitle" : "U.S.S. Stargazer",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "Tactical Station",
+    "modified" : "2014-09-09T17:24:19-0700",
+    "cost" : 70
   },
   {
     "uuid" : "70092B70-25B3-44C3-9BFB-400F1D7965CC",

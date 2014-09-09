@@ -64,7 +64,7 @@
     DockShip* ship = [self.fetchedResultsController objectAtIndexPath: indexPath];
     cell.textLabel.text = ship.descriptiveTitle;
 
-    if ([ship isUnique]) {
+    if ([ship isAnyKindOfUnique]) {
         if (_targetSquad) {
             if (_targetShip != ship && [_targetSquad containsShip: ship]) {
                 cell.textLabel.textColor = [UIColor grayColor];

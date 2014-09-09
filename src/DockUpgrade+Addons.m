@@ -189,6 +189,11 @@
     return [[self unique] boolValue];
 }
 
+-(BOOL)isMirrorUniverseUnique
+{
+    return [[self mirrorUniverseUnique] boolValue];
+}
+
 -(BOOL)isDominion
 {
     return [self.faction isEqualToString: @"Dominion"];
@@ -550,6 +555,10 @@
         if (![ship isRaven]) {
             cost += 5;
         }
+    } else if ([upgradeSpecial isEqualToString: @"PlusFiveIfNotGalaxyIntrepidSovereign"]) {
+        if (!([ship isGalaxyClass] || [ship isIntrepidClass] || [ship isSovereignClass])) {
+            cost += 5;
+        }
     } else if ([upgradeSpecial isEqualToString: @"PhaserStrike"] || [upgradeSpecial isEqualToString: @"CostPlusFiveExceptBajoranInterceptor"]) {
         if (![ship isBajoranInterceptor]) {
             cost += 5;
@@ -762,6 +771,11 @@
 -(NSString*)combinedFactions
 {
     return combinedFactionString(self);
+}
+
+-(NSString*)uniqueAsString
+{
+    return uniqueAsString(self);
 }
 
 

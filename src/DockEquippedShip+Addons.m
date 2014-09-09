@@ -1086,6 +1086,29 @@
     return nil;
 }
 
+-(DockEquippedUpgrade*)containsUniqueUpgradeWithName:(NSString*)theName
+{
+    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        DockUpgrade* upgrade = eu.upgrade;
+        if (upgrade.isUnique && [upgrade.title isEqualToString: theName]) {
+            return eu;
+        }
+    }
+    return nil;
+}
+
+-(DockEquippedUpgrade*)containsMirrorUniverseUniqueUpgradeWithName:(NSString*)theName
+{
+    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        DockUpgrade* upgrade = eu.upgrade;
+        if (upgrade.isMirrorUniverseUnique && [upgrade.title isEqualToString: theName]) {
+            return eu;
+        }
+    }
+    return nil;
+}
+
+
 -(DockEquippedUpgrade*)containsUpgradeWithSpecial:(NSString*)special
 {
     for (DockEquippedUpgrade* eu in self.sortedUpgrades) {

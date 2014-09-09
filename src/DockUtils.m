@@ -146,6 +146,19 @@ NSString* combinedFactionString(id<DockFactioned> a)
     return faction;
 }
 
+NSString* uniqueAsString(id<DockUnique> a)
+{
+    if ([a isUnique]) {
+        return @"Y";
+    }
+
+    if ([a isMirrorUniverseUnique]) {
+        return @"MU";
+    }
+
+    return @"N";
+}
+
 NSURL* applicationFilesDirectory()
 {
     NSFileManager* fileManager = [NSFileManager defaultManager];

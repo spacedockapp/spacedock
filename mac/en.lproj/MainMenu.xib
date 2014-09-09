@@ -866,7 +866,7 @@
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
-                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="unique"/>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="uniqueAsString"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="evL-jz-VUR">
                                                                                         <rect key="frame" x="410" y="1" width="50" height="17"/>
@@ -876,13 +876,12 @@
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" id="hrS-gk-rhA">
-                                                                                                    <customFormatter key="formatter" id="YOi-Po-2of" customClass="DockBooleanFormatter"/>
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                                 <connections>
-                                                                                                    <binding destination="evL-jz-VUR" name="value" keyPath="objectValue.unique" id="S2n-Fy-cGW"/>
+                                                                                                    <binding destination="evL-jz-VUR" name="value" keyPath="objectValue.formattedUniqueness" id="9NC-1n-iUo"/>
                                                                                                 </connections>
                                                                                             </textField>
                                                                                         </subviews>
@@ -1967,7 +1966,7 @@
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
-                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="unique"/>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="uniqueAsString"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="175-C3-hKX">
                                                                                         <rect key="frame" x="318" y="2" width="50" height="17"/>
@@ -1977,13 +1976,12 @@
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" id="nHI-MV-pJp">
-                                                                                                    <customFormatter key="formatter" id="uvx-52-GOa" customClass="DockBooleanFormatter"/>
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                                 <connections>
-                                                                                                    <binding destination="175-C3-hKX" name="value" keyPath="objectValue.unique" id="sYB-ke-TM6"/>
+                                                                                                    <binding destination="175-C3-hKX" name="value" keyPath="objectValue.formattedUniqueness" id="9ob-Ti-y9F"/>
                                                                                                 </connections>
                                                                                             </textField>
                                                                                         </subviews>
@@ -2274,7 +2272,7 @@
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
-                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="unique"/>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="uniqueAsString"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="z2i-dZ-aj4">
                                                                                         <rect key="frame" x="370" y="1" width="60" height="17"/>
@@ -2284,13 +2282,12 @@
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="17"/>
                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" id="qJD-it-13r">
-                                                                                                    <customFormatter key="formatter" id="bbn-h5-ECF" customClass="DockBooleanFormatter"/>
                                                                                                     <font key="font" metaFont="system"/>
                                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                 </textFieldCell>
                                                                                                 <connections>
-                                                                                                    <binding destination="z2i-dZ-aj4" name="value" keyPath="objectValue.unique" id="PlZ-JP-d0d"/>
+                                                                                                    <binding destination="z2i-dZ-aj4" name="value" keyPath="objectValue.formattedUniqueness" id="RFV-PH-zNe"/>
                                                                                                 </connections>
                                                                                             </textField>
                                                                                         </subviews>
@@ -4566,14 +4563,14 @@
                                                                         </tableColumns>
                                                                         <connections>
                                                                             <binding destination="0ss-yy-lMC" name="content" keyPath="arrangedObjects" id="Pfd-An-FKZ"/>
-                                                                            <binding destination="494" name="doubleClickTarget" keyPath="self" id="Q1E-9J-jjV">
-                                                                                <dictionary key="options">
-                                                                                    <string key="NSSelectorName">addSelected:</string>
-                                                                                </dictionary>
-                                                                            </binding>
                                                                             <binding destination="0ss-yy-lMC" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="Pfd-An-FKZ" id="pXW-Xz-3IQ">
                                                                                 <dictionary key="options">
                                                                                     <bool key="NSValidatesImmediately" value="YES"/>
+                                                                                </dictionary>
+                                                                            </binding>
+                                                                            <binding destination="494" name="doubleClickTarget" keyPath="self" id="Q1E-9J-jjV">
+                                                                                <dictionary key="options">
+                                                                                    <string key="NSSelectorName">addSelected:</string>
                                                                                 </dictionary>
                                                                             </binding>
                                                                             <binding destination="0ss-yy-lMC" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="pXW-Xz-3IQ" id="4Cl-M3-Onr"/>

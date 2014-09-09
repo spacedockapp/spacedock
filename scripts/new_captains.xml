@@ -1,90 +1,32 @@
   <Captain>
-    <Title>Jonathan Archer</Title>
-    <Ability>Add 1 [CREW] Upgrade slot to your Upgrade Bar. ACTION: Disable up to 2 of your [CREW] Upgrades. For each [CREW] Upgrade you disabled with this Action, gain +1 attack die when attacking with your Primary Weapon AND increase your Skill Number by +1 until the End Phase.</Ability>
+    <Title>Jean-Luc Picard</Title>
+    <Ability>Add 1 [CREW] slot to your Upgrade Bar. ACTION: Disable all of your remaining Shields and immediately perform an additional green or white maneuver.</Ability>
     <Unique>Y</Unique>
-    <Skill>5</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>3</Cost>
-    <Id>jonathan_archer_71526</Id>
-    <Set>71526</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>J. Hayes</Title>
-    <Ability>ACTION: Gain +1 attack die this round. At the end of the Combat Phase, suffer 1 normal damage to your Hull.</Ability>
-    <Unique>Y</Unique>
-    <Skill>3</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>2</Cost>
-    <Id>j_hayes_71526</Id>
-    <Set>71526</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Sopek</Title>
-    <Ability>Add 1 [CREW] Upgrade slot to your Upgrade Bar. ACTION: Choose 1 of your [CREW] Upgrades that was discarded from your ship on a previous round. Re-deploy that [CREW] Upgrade to your ship and place an Auxiliary Power Token beside your ship.</Ability>
-    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>6</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Vulcan</Faction>
+    <Faction>Federation</Faction>
     <Cost>4</Cost>
-    <Id>sopek_71527</Id>
-    <Set>71527</Set>
+    <Id>jean_luc_picard_71510</Id>
+    <Set>71510</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Kuvak</Title>
-    <Ability>After you move, if you perform an [EVADE] Action, you may place 2 [EVADE] Tokens beside your ship instead of 1 if your ship is not in the forward firing arc of any enemy ships.</Ability>
-    <Unique>Y</Unique>
-    <Skill>4</Skill>
-    <Talent>0</Talent>
+    <Title>William T. Riker</Title>
+    <Ability>Each time you perform a [BATTLESTATIONS], an [EVASIVE MANEUVERS], or a [TARGET LOCK] Action, place 1 additional Token of the appropriate type ([BATTLESTATIONS], [EVASIVE MANEUVERS], or [TARGET LOCK]) on this card.  During the Activation Phase,  you may spend 1 Token from this card and perform the corresponding Action as a free Action.</Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+    <Skill>7</Skill>
+    <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Vulcan</Faction>
-    <Cost>2</Cost>
-    <Id>kuvak_71527</Id>
-    <Set>71527</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Third of Five</Title>
-    <Ability>At the start of the game, place 3 Drone Tokens on this card. During the Roll Defense Dice step of the Combat Phase, you may spend 1 Drone Token to roll +1 defense die. You cannot assign this card to the same ship or fleet as Hugh.</Ability>
-    <Unique>Y</Unique>
-    <Skill>3</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Borg</Faction>
-    <Cost>2</Cost>
-    <Id>third_of_five_71525</Id>
-    <Set>71525</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Tactical Drone</Title>
-    <Ability>At the start of the game, place 2 Drone Tokens on this card. Each time you defend, during the Roll Defense Dice step of the Combat Phase, you may spend 1 Drone Token to roll 1 attack die. A [HIT] or [CRITICAL] result damages the attacking ship as normal. The attacking ship does not roll any defense dice against this.</Ability>
-    <Unique>Y</Unique>
-    <Skill>2</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Borg</Faction>
-    <Cost>1</Cost>
-    <Id>tactical_drone_71525</Id>
-    <Set>71525</Set>
+    <Faction>Mirror Universe</Faction>
+    <Cost>4</Cost>
+    <Id>william_t_riker_71510b</Id>
+    <Set>71510b</Set>
     <Special></Special>
   </Captain>

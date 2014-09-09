@@ -2,7 +2,7 @@
 //  DockSetItem.h
 //  Space Dock
 //
-//  Created by Rob Tsuk on 7/5/14.
+//  Created by Rob Tsuk on 9/9/14.
 //  Copyright (c) 2014 Rob Tsuk. All rights reserved.
 //
 
@@ -14,6 +14,7 @@
 @interface DockSetItem : NSManagedObject
 
 @property (nonatomic, retain) NSString * additionalFaction;
+@property (nonatomic, retain) NSNumber * mirrorUniverseUnique;
 @property (nonatomic, retain) NSSet *sets;
 @end
 
