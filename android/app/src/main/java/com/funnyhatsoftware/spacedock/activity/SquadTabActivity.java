@@ -97,8 +97,9 @@ public class SquadTabActivity extends FragmentTabActivity implements
     @Override
     public void onResourceChanged(Resource previousResource, Resource selectedResource) {
         updateTitleAndCost();
-        if (previousResource != null && previousResource.equippedIntoSquad()
-                || selectedResource != null && selectedResource.equippedIntoSquad()) {
+        Squad squad = Universe.getUniverse().getSquadByUUID(mSquadUuid);
+        if (previousResource != null && previousResource.equippedIntoSquad(squad)
+                || selectedResource != null && selectedResource.equippedIntoSquad(squad)) {
             // one of the resources changes the ships/upgrades displayed. notify the edit fragment.
             notifyEditSquadFragment(getSupportFragmentManager());
         }
