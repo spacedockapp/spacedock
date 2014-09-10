@@ -1,4 +1,4 @@
-<Data version="2014-09-10@00-33">
+<Data version="2014-09-10@04-56">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -5450,6 +5450,21 @@
       <Special></Special>
     </Captain>
     <Captain>
+      <Title>Maxwell Forrest</Title>
+      <Ability>ACTION: Perform an additional 1 Maneuver (straight, bank or turn).</Ability>
+      <Unique>Y</Unique>
+      <Skill>4</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>maxwell_forrest_cap_71526</Id>
+      <Set>71526</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
       <Title>Sopek</Title>
       <Ability>Add 1 [CREW] Upgrade slot to your Upgrade Bar. ACTION: Choose 1 of your [CREW] Upgrades that was discarded from your ship on a previous round. Re-deploy that [CREW] Upgrade to your ship and place an Auxiliary Power Token beside your ship.</Ability>
       <Unique>Y</Unique>
@@ -5476,6 +5491,21 @@
       <Faction>Vulcan</Faction>
       <Cost>2</Cost>
       <Id>kuvak_71527</Id>
+      <Set>71527</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>V'Las</Title>
+      <Ability>ACTION: Target a ship at Range 1-2. Disable 1 [CREW] Upgrade of your choice on the target ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill>5</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>3</Cost>
+      <Id>v_las_cap_71527</Id>
       <Set>71527</Set>
       <Special></Special>
     </Captain>
@@ -5585,13 +5615,13 @@
       <Title>Maxwell Forrest</Title>
       <Ability>ACTION: Perform an additional 1 Maneuver (straight, bank or turn).</Ability>
       <Unique>Y</Unique>
-      <Skill>3</Skill>
+      <Skill>4</Skill>
       <Talent>0</Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Captain</Type>
+      <Type>Admiral</Type>
       <Faction>Federation</Faction>
-      <Cost>4</Cost>
+      <Cost>3</Cost>
       <Id>maxwell_forrest_71526</Id>
       <Set>71526</Set>
       <Special></Special>
@@ -5604,13 +5634,13 @@
       <Title>V'Las</Title>
       <Ability>ACTION: Target a ship at Range 1-2. Disable 1 [CREW] Upgrade of your choice on the target ship.</Ability>
       <Unique>Y</Unique>
-      <Skill>3</Skill>
+      <Skill>5</Skill>
       <Talent>1</Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Captain</Type>
+      <Type>Admiral</Type>
       <Faction>Vulcan</Faction>
-      <Cost>5</Cost>
+      <Cost>3</Cost>
       <Id>v_las_71527</Id>
       <Set>71527</Set>
       <Special></Special>
