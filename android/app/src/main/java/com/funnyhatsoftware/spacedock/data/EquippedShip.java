@@ -581,7 +581,8 @@ public class EquippedShip extends EquippedShipBase {
                 return new Explanation(msg, "This upgrade can only be purchased for a Jem'Hadar Battleship or Battle Cruiser.");
             }
         }
-        if ("combat_vessel_variant_71508".equals(upgradeSpecial)) {
+        if ("combat_vessel_variant_71508".equals(upgradeSpecial)
+                || "only_suurok_class_limited_weapon_hull_plus_1".equals(upgradeSpecial)) {
             if (!ship.isSuurok()) {
                 return new Explanation(msg, "This upgrade can only be purchased for a Suurok Class Ship.");
             }
@@ -633,6 +634,12 @@ public class EquippedShip extends EquippedShipBase {
                 if (!ship.isVulcan() || !captain.isVulcan()) {
                     return new Explanation(msg,
                             "This upgrade may only be purchased for a Vulcan Captain on a Vulcan ship.");
+                }
+            }
+            if ("only_vulcan_ship".equals(upgradeSpecial)) {
+                if (!ship.isVulcan()) {
+                    return new Explanation(msg,
+                            "This upgrade may only be purchased for a Vulcan ship.");
                 }
             }
         }

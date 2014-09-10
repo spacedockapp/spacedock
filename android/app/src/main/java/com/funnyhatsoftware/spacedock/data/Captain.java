@@ -74,7 +74,7 @@ public class Captain extends CaptainBase {
     public int additionalCrewSlots() {
         if ("AddTwoCrewSlotsDominionCostBonus".equals(mSpecial)) {
             return 2;
-        } else if ("lore_71522".equals(mSpecial)) {
+        } else if ("lore_71522".equals(mSpecial) || "Add_Crew_1".equals(mSpecial)) {
             return 1;
         }
         return super.additionalCrewSlots();

@@ -425,12 +425,20 @@ public class Upgrade extends UpgradeBase {
         if (special.equalsIgnoreCase("Add_Crew_1")) {
             return true;
         }
+        if (special.equalsIgnoreCase("only_suurok_class_limited_weapon_hull_plus_1")){
+            return true;
+        }
+        if (special.equalsIgnoreCase("add_one_tech_no_faction_penalty_on_vulcan")){
+            return true;
+        }
         return false;
     }
 
     public int additionalWeaponSlots() {
         String special = getSpecial();
-        if (("AddsOneWeaponOneTech".equalsIgnoreCase(special) || "sakonna_gavroche".equalsIgnoreCase(special))) {
+        if ("AddsOneWeaponOneTech".equalsIgnoreCase(special)
+                || "sakonna_gavroche".equalsIgnoreCase(special)
+                || "only_suurok_class_limited_weapon_hull_plus_1".equalsIgnoreCase(special)) {
             return 1;
         }
         if ("AddTwoWeaponSlots".equalsIgnoreCase(special)) {
@@ -461,7 +469,9 @@ public class Upgrade extends UpgradeBase {
     public int additionalTechSlots() {
         String special = getSpecial();
         if (special != null) {
-            if (special.equalsIgnoreCase("AddsOneWeaponOneTech")) {
+            if (special.equalsIgnoreCase("AddsOneWeaponOneTech")
+                    || "addonetechslot".equalsIgnoreCase(special)
+                    || "add_one_tech_no_faction_penalty_on_vulcan".equalsIgnoreCase(special)) {
                 return 1;
             }
             String externalId = getExternalId();
