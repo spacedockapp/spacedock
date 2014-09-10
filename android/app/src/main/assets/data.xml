@@ -1,4 +1,4 @@
-<Data version="2014-09-06@16-06">
+<Data version="2014-09-06@20-11">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -10881,35 +10881,35 @@ It may be possible for different players to have ships from the same Faction wit
             <Set>71120</Set>
         </Reference>
         <Reference>
-            <Title>Sector Condition: Nebula</Title>
+            <Title>Nebula</Title>
             <Ability>Ships may only fire up to Range 3 with their forward firing arcs and ships defending at Range 3 receive an additional Defense Die.
 
 All other attacks, are limited to a maximum of up to Range 2.
 
 Ships without a forward firing arc have a maximum of up to Range 2.</Ability>
-            <Type>Mechanic</Type>
+            <Type>Sector Condition</Type>
             <Id>sector_condition_nebula_reference</Id>
             <Set>71120</Set>
         </Reference>
 	<Reference>
-            <Title>Sector Condition: Energy Flux</Title>
+            <Title>Energy Flux</Title>
             <Ability>After targeting an opposing ship with an attack but before making the attack roll, roll an Attack die that cannot be re-rolled.
 
 On a result of a [BATTLE STATIONS], reduce the attacking ship's printed Primary Weapon value by half (rounding up).
 
 Further modifications to the Attack roll from game effects may be applied after the Energy Flux die roll as normal.</Ability>
-            <Type>Mechanic</Type>
+            <Type>Sector Condition</Type>
             <Id>sector_condition_energy_flux_reference</Id>
             <Set>71120</Set>
 	</Reference>
 	<Reference>
-            <Title>Sector Condition: Meteor Shower</Title>
+            <Title>Meteor Shower</Title>
             <Ability>At the start of the Planning Phase, roll one Attack die per ship in turn that cannot be re-rolled and resolve effect before rolling for next ship.
 
 Any [HIT] or [CRITICAL] damages the target ship as normal.
 
 Ships may roll defense dice against this damage using their ship's printed Agility value.</Ability>
-            <Type>Mechanic</Type>
+            <Type>Sector Condition</Type>
             <Id>sector_condition_meteor_shower_reference</Id>
             <Set>71120</Set>
 	</Reference>

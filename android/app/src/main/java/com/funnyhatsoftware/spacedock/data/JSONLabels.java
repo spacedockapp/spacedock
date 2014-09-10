@@ -19,4 +19,5 @@ public class JSONLabels {
     public static final String JSON_LABEL_UPGRADE_TITLE = "upgradeTitle";
     public static final String JSON_LABEL_COST_IS_OVERRIDDEN = "costIsOverridden";
     public static final String JSON_LABEL_OVERRIDDEN_COST = "overriddenCost";
+    public static final String JSON_LABEL_CALCULATED_COST = "calculatedCost";
 }

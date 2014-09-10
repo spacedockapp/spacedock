@@ -38,12 +38,12 @@ public class ResourceSpinnerAdapter extends ArrayAdapter<ResourceSpinnerAdapter.
         final Resource mResource;
         final String mLabel;
 
-        public ResourceWrapper(Context context, Resource resource) {
+        public ResourceWrapper(Context context, Resource resource, Squad squad) {
             mResource = resource;
             if (mResource == null) {
                 mLabel = context.getResources().getString(R.string.no_resource);
             } else {
-                mLabel = resource.equippedIntoSquad()
+                mLabel = resource.equippedIntoSquad(squad)
                         ? mResource.getTitle() // cost built into Squad when used
                         : mResource.getTitle() + " (" + mResource.getCost() + ")";
             }
@@ -56,19 +56,19 @@ public class ResourceSpinnerAdapter extends ArrayAdapter<ResourceSpinnerAdapter.
     private final Squad mSquad;
     private final ResourceSelectListener mListener;
 
-    private static ArrayList<ResourceWrapper> getResources(Context context) {
+    private static ArrayList<ResourceWrapper> getResources(Context context, Squad squad) {
         ArrayList<ResourceWrapper> list = new ArrayList<ResourceWrapper>();
 
-        list.add(new ResourceWrapper(context, null));
+        list.add(new ResourceWrapper(context, null, squad));
         for (Resource r : Universe.getUniverse().getResources()) {
-            list.add(new ResourceWrapper(context, r));
+            list.add(new ResourceWrapper(context, r, squad));
         }
         return list;
     }
 
 
     private ResourceSpinnerAdapter(Activity activity, Squad squad) {
-        super(activity, android.R.layout.simple_spinner_dropdown_item, getResources(activity));
+        super(activity, android.R.layout.simple_spinner_dropdown_item, getResources(activity, squad));
         mSquad = squad;
         mListener = (ResourceSelectListener) activity;
     }

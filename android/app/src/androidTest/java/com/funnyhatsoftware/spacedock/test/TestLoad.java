@@ -23,7 +23,7 @@ public class TestLoad extends BaseTest {
     }
 
     public void testBasics() {
-        assertEquals("Ship count wrong", 100, universe.getShips().size());
+        assertEquals("Ship count wrong", 106, universe.getShips().size());
         Ship entD = universe.getShip("1001");
         assertNotNull("Couldn't get ship", entD);
         assertEquals(4, entD.getAttack());
@@ -36,13 +36,13 @@ public class TestLoad extends BaseTest {
         assertEquals("U.S.S. Enterprise-D", entD.getTitle());
         assertTrue("U.S.S. Enterprise-D should be unique", entD.getUnique());
 
-        Captain picard = universe.captains.get("2001");
+        Captain picard = universe.getCaptain("2001");
         assertNotNull("Couldn't get captain", picard);
         assertEquals(9, picard.getSkill());
         assertEquals("Jean-Luc Picard", picard.getTitle());
         assertTrue("Picard should be unique", picard.getUnique());
 
-        Upgrade romulanPilot = universe.upgrades.get("3102");
+        Upgrade romulanPilot = universe.getUpgrade("3102");
         assertNotNull("Couldn't get upgrade", romulanPilot);
         assertEquals("Romulan Pilot", romulanPilot.getTitle());
         assertEquals(2, romulanPilot.getCost());
@@ -55,11 +55,11 @@ public class TestLoad extends BaseTest {
         assertEquals("hull value wrong", 0, fs.getHull());
         assertEquals("faction wrong", "Independent", fs.getFaction());
 
-        Resource tokens = universe.resources.get("4002");
+        Resource tokens = universe.getResource("4002");
         assertNotNull("Couldn't get resource", tokens);
         assertEquals("resource cost value wrong", 5, tokens.getCost());
 
-        Set coreSet = universe.sets.get("71120");
+        Set coreSet = universe.getSet("71120");
         assertNotNull("Couldn't get core set", coreSet);
         ArrayList<SetItem> setItems = coreSet.getItems();
         Comparator<SetItem> comparator = new Comparator<SetItem>() {
@@ -72,9 +72,9 @@ public class TestLoad extends BaseTest {
         for (SetItem item : setItems) {
             Log.i("spacedock", item.getTitle());
         }
-        assertEquals("Count of items in core set wrong", 32, setItems.size());
+        assertEquals("Count of items in core set wrong", 36, setItems.size());
 
-        Set reliantSet = universe.sets.get("71121");
+        Set reliantSet = universe.getSet("71121");
         assertNotNull("Couldn't get core set", reliantSet);
         assertEquals("Count of items in reliant expansion wrong", 12,
                 reliantSet.getItems().size());

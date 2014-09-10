@@ -48,12 +48,12 @@ public class DataLoader extends DefaultHandler {
         xmlInput = xmlTargetInput;
         String[] a = {
                 "Sets", "Upgrades", "Captains", "FleetCaptains", "Ships", "Resources",
-                "Maneuvers", "ShipClassDetails", "Flagships", "ReferenceItems", "Admirals"
+                "Maneuvers", "ShipClassDetails", "Flagships", "ReferenceItems", "Admirals", "Officers"
         };
         Collections.addAll(listElementNames, a);
         String[] b = {
                 "Set", "Upgrade", "Captain", "FleetCaptain", "Ship", "Resource",
-                "Maneuver", "ShipClassDetail", "Flagship", "Reference", "Admiral"
+                "Maneuver", "ShipClassDetail", "Flagship", "Reference", "Admiral", "Officer"
         };
         Collections.addAll(itemElementNames, b);
 

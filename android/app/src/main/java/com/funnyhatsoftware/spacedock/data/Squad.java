@@ -256,7 +256,7 @@ public class Squad extends SquadBase {
 
         Resource resource = getResource();
 
-        if (resource != null && !resource.equippedIntoSquad()) {
+        if (resource != null && !resource.equippedIntoSquad(this)) {
             // flagship cost taken into account when assigned to EquippedShip
             // Fighters appear as ships
             cost += resource.getCost();
@@ -432,14 +432,23 @@ public class Squad extends SquadBase {
         return null;
     }
 
-    String getFleetCaptainSpecial() {
-        String retVal = null;
+    FleetCaptain getFleetCaptain() {
+        FleetCaptain retVal = null;
         for (EquippedShip ship : mEquippedShips) {
             FleetCaptain fleetCaptain = ship.getFleetCaptain();
             if (null != fleetCaptain && !fleetCaptain.isPlaceholder()) {
-                retVal = fleetCaptain.getSpecial();
+                retVal = fleetCaptain;
                 break;
             }
+        }
+        return retVal;
+    }
+
+    String getFleetCaptainSpecial() {
+        String retVal = null;
+        FleetCaptain fleetCaptain = getFleetCaptain();
+        if (fleetCaptain != null) {
+            retVal = fleetCaptain.getSpecial();
         }
         return retVal;
     }
