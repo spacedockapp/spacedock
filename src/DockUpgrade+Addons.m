@@ -689,6 +689,9 @@
     if ([externalId isEqualToString: @"quark_weapon_71786"]) {
         return 1;
     }
+    if ([special isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
+        return 1;
+    }
     return 0;
 }
 

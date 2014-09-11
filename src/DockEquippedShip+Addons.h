@@ -16,6 +16,7 @@
 -(DockEquippedUpgrade*)equippedCaptain;
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade;
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade ignoreInstalled:(BOOL)ignoreInstalled;
+-(BOOL)canAddUpgrade:(DockUpgrade*)upgrade ignoreInstalled:(BOOL)ignoreInstalled validating:(BOOL)validating;
 -(BOOL)canAddFleetCaptain:(DockFleetCaptain*)fleetCaptain error:(NSError**)error;
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade;
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace;
