@@ -124,6 +124,10 @@ public class Upgrade extends UpgradeBase {
         return mUpType.equals("Admiral");
     }
 
+    public boolean isFleetCaptain() {
+        return mUpType.equals("Fleet Captain");
+    }
+
     private boolean isDominion() {
         return getFaction().equals("Dominion");
     }

@@ -45,18 +45,24 @@ public class EquippedShip extends EquippedShipBase {
         return mShip.getExternalId();
     }
 
+    private EquippedUpgrade addUpgradeInternal(Upgrade upgrade) {
+        EquippedUpgrade eu = new EquippedUpgrade();
+        if (upgrade == null) {
+            return eu;
+        }
+        eu.setUpgrade(upgrade);
+        mUpgrades.add(eu);
+        eu.setEquippedShip(this);
+        return eu;
+    }
+
     public EquippedUpgrade addUpgrade(Upgrade upgrade) {
         return addUpgrade(upgrade, null, true);
     }
 
     public EquippedUpgrade addUpgrade(Upgrade upgrade,
             EquippedUpgrade maybeReplace, boolean establishPlaceholders) {
-        EquippedUpgrade eu = new EquippedUpgrade();
-        if (upgrade == null) {
-            return eu;
-        }
         String upType = upgrade.getUpType();
-        eu.setUpgrade(upgrade);
         if (!upgrade.isPlaceholder()) {
             EquippedUpgrade ph = findPlaceholder(upType);
             if (ph != null) {
@@ -73,8 +79,7 @@ public class EquippedShip extends EquippedShipBase {
             removeUpgrade(maybeReplace, false);
         }
 
-        mUpgrades.add(eu);
-        eu.setEquippedShip(this);
+        EquippedUpgrade eu = addUpgradeInternal(upgrade);
 
         if (establishPlaceholders) {
             establishPlaceholders();
@@ -132,11 +137,6 @@ public class EquippedShip extends EquippedShipBase {
         if (getFlagship() != null) {
             cost += 10;
         }
-        FleetCaptain fleetCaptain = getFleetCaptain();
-        if (null != fleetCaptain){
-            cost += fleetCaptain.getCost();
-        }
-
 
         return cost;
     }
@@ -429,6 +429,24 @@ public class EquippedShip extends EquippedShipBase {
         return (Admiral) eu.getUpgrade();
     }
 
+    public EquippedUpgrade getEquippedFleetCaptain() {
+        for (EquippedUpgrade eu : getUpgrades()) {
+            Upgrade upgrade = eu.getUpgrade();
+            if (upgrade.isFleetCaptain()) {
+                return eu;
+            }
+        }
+        return null;
+    }
+
+    public FleetCaptain getFleetCaptain() {
+        EquippedUpgrade eu = getEquippedFleetCaptain();
+        if (eu == null) {
+            return null;
+        }
+        return (FleetCaptain) eu.getUpgrade();
+    }
+
     public void establishPlaceholders() {
         if (getCaptainLimit() > 0) {
             if (getCaptain() == null) {
@@ -689,7 +707,10 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public void removeFleetCaptain() {
-        setFleetCaptain(null);
+        EquippedUpgrade fc = getEquippedFleetCaptain();
+        if (fc != null) {
+            removeUpgrade(fc);
+        }
     }
 
     public Object getFlagshipFaction() {
@@ -893,7 +914,7 @@ public class EquippedShip extends EquippedShipBase {
                         getCaptain().getPlainDescription() + "not unique.");
             }
             squad.removeFleetCaptain();
-            setFleetCaptain(fleetCaptain);
+            addUpgrade(fleetCaptain);
         }
 
         // slot counts may have changed, refresh placeholders + prune slots to
@@ -1040,16 +1061,6 @@ public class EquippedShip extends EquippedShipBase {
             setFlagship(flagship);
         }
 
-        String fleetCaptainId = shipData.optString(JSONLabels.JSON_LABEL_FLEETCAPTAIN);
-        if (fleetCaptainId.length() > 0) {
-            FleetCaptain fleetCaptain = universe.getFleetCaptain(fleetCaptainId);
-            if (strict && fleetCaptain == null) {
-                throw new RuntimeException("Can't find fleet captain '" + fleetCaptainId
-                        + "'");
-            }
-            setFleetCaptain(fleetCaptain);
-        }
-
         JSONArray upgrades = shipData
                 .optJSONArray(JSONLabels.JSON_LABEL_UPGRADES);
         if (upgrades != null) {
@@ -1059,7 +1070,7 @@ public class EquippedShip extends EquippedShipBase {
                         .optString(JSONLabels.JSON_LABEL_UPGRADE_ID);
                 Upgrade upgrade = universe.getUpgradeLikeItem(upgradeId);
                 if (upgrade != null) {
-                    EquippedUpgrade eu = addUpgrade(upgrade, null, false);
+                    EquippedUpgrade eu = addUpgradeInternal(upgrade);
                     if (upgradeData
                             .optBoolean(JSONLabels.JSON_LABEL_COST_IS_OVERRIDDEN)) {
                         eu.setOverridden(true);

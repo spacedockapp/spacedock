@@ -5,6 +5,8 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,6 +49,35 @@ public class TestSquad extends BaseTest {
         assertEquals(2, es.getWeapon());
         assertEquals("Wrong upgrade count", 9, es.getUpgrades().size());
         assertEquals("Wrong cost", 100, squad.calculateCost());
+    }
+
+    static ArrayList<JSONObject> sort(JSONArray list) throws JSONException {
+        ArrayList<JSONObject> sortedList = new ArrayList<JSONObject>();
+        for (int i = 0; i < list.length(); ++i) {
+            sortedList.add(list.getJSONObject(i));
+        }
+        Comparator<JSONObject> comparator = new Comparator<JSONObject>() {
+            @Override
+            public int compare(JSONObject jsonObject, JSONObject jsonObject2) {
+                String uuid = jsonObject.optString(JSONLabels.JSON_LABEL_UUID, "");
+                String uuid2 = jsonObject2.optString(JSONLabels.JSON_LABEL_UUID, "");
+                return uuid.compareTo(uuid2);
+            }
+        };
+        Collections.sort(sortedList, comparator);
+        return sortedList;
+    }
+
+    static ArrayList<EquippedUpgrade> sort(ArrayList<EquippedUpgrade> list) {
+        ArrayList<EquippedUpgrade> newList = new ArrayList<EquippedUpgrade>(list);
+        Comparator<EquippedUpgrade> comparator = new Comparator<EquippedUpgrade>() {
+            @Override
+            public int compare(EquippedUpgrade equippedUpgrade, EquippedUpgrade equippedUpgrade2) {
+                return equippedUpgrade.getExternalId().compareTo(equippedUpgrade2.getExternalId());
+            }
+        };
+        Collections.sort(newList, comparator);
+        return newList;
     }
 
     private void listTester(String fileName) throws IOException, JSONException {
@@ -110,12 +141,26 @@ public class TestSquad extends BaseTest {
                 int cost = captainData.getInt("calculatedCost");
                 assertEquals("cost mistmatch for captain on " + shipLabel, cost, ec.calculateCost());
 
-                JSONArray upgradeListData = shipData.getJSONArray(JSONLabels.JSON_LABEL_UPGRADES);
-                ArrayList<EquippedUpgrade> upgrades = loadedShip.getAllUpgradesExceptPlaceholders();
-                int limit = Math.min(upgradeListData.length(), upgrades.size());
+                ArrayList<JSONObject> upgradeListData = sort(shipData.getJSONArray(JSONLabels.JSON_LABEL_UPGRADES));
+                ArrayList<EquippedUpgrade> upgrades = sort(loadedShip.getAllUpgradesExceptPlaceholders());
+
+                if (upgradeListData.size() != upgrades.size()) {
+                    for (int logUpgradeIndex = 0; logUpgradeIndex < upgradeListData.size(); ++logUpgradeIndex) {
+                        JSONObject upgradeData = upgradeListData.get(logUpgradeIndex);
+                        Log.i("spacedock", String.format("%d: %s", logUpgradeIndex, upgradeData.optString(JSONLabels.JSON_LABEL_UPGRADE_TITLE, "")));
+                    }
+                    for (int logUpgradeIndex = 0; logUpgradeIndex < upgrades.size(); ++logUpgradeIndex) {
+                        EquippedUpgrade upgrade = upgrades.get(logUpgradeIndex);
+                        Log.i("spacedock", String.format("%d: %s", logUpgradeIndex, upgrade.getUpgrade().getTitle()));
+                    }
+                    assertEquals("upgrade count mismatch for " + shipLabel, upgradeListData.size(),
+                            upgrades.size());
+                }
+
+                int limit = Math.min(upgradeListData.size(), upgrades.size());
                 for (int upgradeIndex = 0; upgradeIndex < limit; ++upgradeIndex) {
                     String upgradeLabel = shipLabel + ": upgrade #" + upgradeIndex;
-                    JSONObject upgradeData = upgradeListData.getJSONObject(upgradeIndex);
+                    JSONObject upgradeData = upgradeListData.get(upgradeIndex);
                     EquippedUpgrade equippedUpgrade = upgrades.get(upgradeIndex);
                     assertEquals("upgrade mistmatch for " + upgradeLabel,
                             upgradeData.getString(JSONLabels.JSON_LABEL_UPGRADE_ID),
@@ -133,8 +178,6 @@ public class TestSquad extends BaseTest {
                         assertEquals("cost mistmatch for " + upgradeLabel, cost, calculatedCost);
                     }
                 }
-                assertEquals("upgrade count mismatch for " + shipLabel, upgradeListData.length(),
-                        upgrades.size());
 
                 cost = shipData.getInt("calculatedCost");
                 int calculatedCost = loadedShip.calculateCost();
