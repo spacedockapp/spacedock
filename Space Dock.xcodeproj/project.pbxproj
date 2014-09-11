@@ -194,6 +194,7 @@
 		D47316B518182C4C00046428 /* DockUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D45AF1EF17FFE7F900C04F9A /* DockUtils.m */; };
 		D47316B618182C4C00046428 /* DockWeapon+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = D437079D1800AFDF00622E7F /* DockWeapon+Addons.m */; };
 		D47316C418182E2F00046428 /* Space_Dock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */; };
+		D4739A7519C1352800E7F49A /* DockFleetCaptain+MacAddons.m in Sources */ = {isa = PBXBuildFile; fileRef = D4739A7419C1352800E7F49A /* DockFleetCaptain+MacAddons.m */; };
 		D4757C271902CB0100CF173B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCA4211814F8DF00921183 /* XCTest.framework */; };
 		D4757C2D1902CB0100CF173B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4757C2B1902CB0100CF173B /* InfoPlist.strings */; };
 		D4757C2F1902CB0100CF173B /* SpaceDockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4757C2E1902CB0100CF173B /* SpaceDockTests.m */; };
@@ -563,6 +564,8 @@
 		D472A41E187CC159004DAC07 /* DockOverrideEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockOverrideEditor.m; sourceTree = "<group>"; };
 		D47316A31818260E00046428 /* SpaceDock.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpaceDock.storyboard; sourceTree = "<group>"; };
 		D47316A618182BED00046428 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		D4739A7319C1352800E7F49A /* DockFleetCaptain+MacAddons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockFleetCaptain+MacAddons.h"; sourceTree = "<group>"; };
+		D4739A7419C1352800E7F49A /* DockFleetCaptain+MacAddons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockFleetCaptain+MacAddons.m"; sourceTree = "<group>"; };
 		D4757C261902CB0100CF173B /* Space Dock Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Space Dock Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4757C2A1902CB0100CF173B /* Space Dock Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Space Dock Tests-Info.plist"; sourceTree = "<group>"; };
 		D4757C2C1902CB0100CF173B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -1265,6 +1268,8 @@
 				D43FE80E18C3A79A00AECA5F /* DockEquippedUpgrade+MacAddons.m */,
 				D4F872A318B58CD000783285 /* DockFlagship+MacAddons.h */,
 				D4F872A418B58CD000783285 /* DockFlagship+MacAddons.m */,
+				D4739A7319C1352800E7F49A /* DockFleetCaptain+MacAddons.h */,
+				D4739A7419C1352800E7F49A /* DockFleetCaptain+MacAddons.m */,
 				D433E4F818B7CE7900FB6579 /* DockEquippedFlagship+MacAddons.h */,
 				D433E4F918B7CE7900FB6579 /* DockEquippedFlagship+MacAddons.m */,
 				D4A66CA818A1BB310050A37A /* DockShip+MacAddons.h */,
@@ -1600,6 +1605,7 @@
 				D4158D0E1976DE4800F7C8E8 /* DockCaptainTabController.m in Sources */,
 				D43FE80918C3A16D00AECA5F /* DockWeapon+MacAddons.m in Sources */,
 				D43FE80F18C3A79A00AECA5F /* DockEquippedUpgrade+MacAddons.m in Sources */,
+				D4739A7519C1352800E7F49A /* DockFleetCaptain+MacAddons.m in Sources */,
 				D4F85A57196985350062A0CE /* DockAdmiralsTableController.m in Sources */,
 				D4F686A118F995EA0019C067 /* DockManeuver.m in Sources */,
 				D4E4868E18DB424900D3BAB8 /* DockSquadImporter.m in Sources */,

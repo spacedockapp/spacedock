@@ -8,6 +8,7 @@
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockFlagship+Addons.h"
 #import "DockMoveGrid.h"
+#import "DockOfficer+Addons.h"
 #import "DockSet+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSquadDetailController.h"
@@ -46,6 +47,16 @@
 +(NSSet*)keyPathsForValuesAffectingCurrentFlagship
 {
     return [NSSet setWithObjects: @"currentListFlagship", @"currentEquippedFlagship", @"squadIsActive", nil];
+}
+
++(NSSet*)keyPathsForValuesAffectingCurrentFleetCaptain
+{
+    return [NSSet setWithObjects: @"currentListFleetCaptain", @"currentEquippedFleetCaptain", @"squadIsActive", nil];
+}
+
++(NSSet*)keyPathsForValuesAffectingCurrentOfficer
+{
+    return [NSSet setWithObjects: @"currentListOfficer", @"currentEquippedOfficer", @"squadIsActive", nil];
 }
 
 +(NSSet*)keyPathsForValuesAffectingCurrentSetName
@@ -121,6 +132,8 @@ static id extractSelectedItem(id controller)
     [center addObserver: self selector: @selector(admiralChanged:) name: kCurrentAdmiralChanged object: nil];
     [center addObserver: self selector: @selector(captainChanged:) name: kCurrentCaptainChanged object: nil];
     [center addObserver: self selector: @selector(upgradeChanged:) name: kCurrentUpgradeChanged object: nil];
+    [center addObserver: self selector: @selector(fleetCaptainChanged:) name: kCurrentFleetCaptainChanged object: nil];
+    [center addObserver: self selector: @selector(officerChanged:) name: kCurrentOfficerChanged object: nil];
     [center addObserver: self selector: @selector(flagshipChanged:) name: kCurrentFlagshipChanged object: nil];
     [center addObserver: self selector: @selector(shipChanged:) name: kCurrentShipChanged object: nil];
     [center addObserver: self selector: @selector(resourceChanged:) name: kCurrentResourceChanged object: nil];
@@ -197,6 +210,22 @@ static id extractSelectedItem(id controller)
         return self.currentEquippedFlagship;
     }
     return self.currentListFlagship;
+}
+
+-(NSDictionary*)currentFleetCaptain
+{
+    if ([self squadIsActive]) {
+        return self.currentEquippedFleetCaptain;
+    }
+    return self.currentListFleetCaptain;
+}
+
+-(NSDictionary*)currentOfficer
+{
+    if ([self squadIsActive]) {
+        return self.currentEquippedOfficer;
+    }
+    return self.currentListOfficer;
 }
 
 -(NSString*)currentSetName
@@ -331,6 +360,44 @@ static NSDictionary* copyProperties(id target, NSArray* propertyList)
     }
 }
 
+-(NSDictionary*)extractFleetCaptainProperties:(DockFleetCaptain*)fleetCaptain
+{
+    NSArray* displayedFleetCaptainProperties = @[
+        @"setName",
+        @"ability",
+        @"capabilities",
+        @"styledSkillModifier",
+        @"title",
+    ];
+    return copyProperties(fleetCaptain, displayedFleetCaptainProperties);
+}
+
+-(void)fleetCaptainChanged:(NSNotification*)notification
+{
+    self.currentListFleetCaptain = [self extractFleetCaptainProperties: notification.object];
+    if ([self.currentListTabIdentifier isEqualToString: @"fleetCaptain"]) {
+        self.currentListSetName = self.currentListFleetCaptain[@"setName"];
+    }
+}
+
+-(NSDictionary*)extractOfficerProperties:(DockOfficer*)officer
+{
+    NSArray* displayedOfficerProperties = @[
+        @"setName",
+        @"ability",
+        @"title"
+    ];
+    return copyProperties(officer, displayedOfficerProperties);
+}
+
+-(void)officerChanged:(NSNotification*)notification
+{
+    self.currentListOfficer = [self extractOfficerProperties: notification.object];
+    if ([self.currentListTabIdentifier isEqualToString: @"officer"]) {
+        self.currentListSetName = self.currentListOfficer[@"setName"];
+    }
+}
+
 -(NSDictionary*)extractShipProperties:(DockShip*)ship
 {
     NSArray* displayedShipProperties = @[
@@ -415,6 +482,14 @@ static NSDictionary* copyProperties(id target, NSArray* propertyList)
                 self.currentEquippedTabIdentifier = @"admiral";
                 self.currentEquippedAdmiral = [self extractAdmiralProperties: (DockAdmiral*)upgrade];
                 self.currentEquippedSetName = self.currentEquippedAdmiral[@"setName"];
+            } else if (upgrade.isFleetCaptain) {
+                self.currentEquippedTabIdentifier = @"fleetCaptain";
+                self.currentEquippedFleetCaptain = [self extractFleetCaptainProperties: (DockFleetCaptain*)upgrade];
+                self.currentEquippedSetName = self.currentEquippedFleetCaptain[@"setName"];
+            } else if (upgrade.isOfficer) {
+                self.currentEquippedTabIdentifier = @"officer";
+                self.currentEquippedOfficer = [self extractOfficerProperties: (DockOfficer*)upgrade];
+                self.currentEquippedSetName = self.currentEquippedOfficer[@"setName"];
             } else {
                 self.currentEquippedTabIdentifier = @"upgrade";
                 self.currentEquippedUpgrade = [self extractUpgradeProperties: upgrade];
@@ -446,6 +521,12 @@ static NSDictionary* copyProperties(id target, NSArray* propertyList)
     } else if ([ident isEqualToString: @"flagships"]) {
         self.currentListTabIdentifier = @"flagship";
         self.currentListSetName = self.currentListFlagship[@"setName"];
+    } else if ([ident isEqualToString: @"fleetCaptains"]) {
+        self.currentListTabIdentifier = @"fleetCaptain";
+        self.currentListSetName = self.currentListFleetCaptain[@"setName"];
+    } else if ([ident isEqualToString: @"tabOfficers"]) {
+        self.currentListTabIdentifier = @"officer";
+        self.currentListSetName = self.currentListOfficer[@"setName"];
     } else if ([ident isEqualToString: @"tabSets"]) {
         self.currentListTabIdentifier = @"blank";
         self.currentListSetName = @"";
