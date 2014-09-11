@@ -598,6 +598,14 @@ public class EquippedShip extends EquippedShipBase {
                 return new Explanation(msg, "This upgrade can only be added once per ship.");
             }
         }
+        if ("ony_federation_ship_limited".equals(upgradeSpecial)) {
+            if (null != containsUpgrade(upgrade)) {
+                return new Explanation(msg, "This upgrade can only be added once per ship.");
+            }
+            if (!ship.isFederation()) {
+                return new Explanation(msg, "This upgrade can only be added to a federation ship.");
+            }
+        }
         Captain captain = getCaptain();
         if (!"lore_71522".equals(captain.getSpecial()) || !upgrade.isTalent()) {
             if (upgradeSpecial.equals("OnlyForKlingonCaptain")) {
@@ -649,6 +657,12 @@ public class EquippedShip extends EquippedShipBase {
                 return new Explanation(msg,
                         "This upgrade can only be added to a Tholian Captain.");
             }
+        }
+
+        if ("Borg Scout Cube".equalsIgnoreCase(ship.getShipClass())
+                && upgrade.isBorg() && upgrade.getCost() > 5){
+            return new Explanation(msg,
+                    "Cannot equip a Borg upgrade with cost greater than 5 to this ship.");
         }
 
         int limit = upgrade.limitForShip(this);
