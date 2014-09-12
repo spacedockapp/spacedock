@@ -135,14 +135,12 @@
 
 -(NSString*)asPlainTextFormat
 {
+    DockUpgrade* upgrade = self.upgrade;
     NSString* s = nil;
     if ([self costIsOverridden]) {
-        s = [NSString stringWithFormat: @"%@ [%@] (%d overridden to %d)\n", self.title, self.upgrade.setCode, [self nonOverriddenCost], [self cost]];
+        s = [NSString stringWithFormat: @"%@ [%@] (%d overridden to %d)\n", upgrade.titleForPlainTextFormat, upgrade.setCode, [self nonOverriddenCost], [self cost]];
     } else {
-        s = [NSString stringWithFormat: @"%@ [%@] (%d)\n", self.title, self.upgrade.setCode, [self cost]];
-    }
-    if (self.upgrade.isAdmiral) {
-        s = [@"Adm " stringByAppendingString: s];
+        s = [NSString stringWithFormat: @"%@ [%@] (%d)\n", upgrade.titleForPlainTextFormat, upgrade.setCode, [self cost]];
     }
     return s;
 }

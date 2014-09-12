@@ -134,6 +134,11 @@
     return self.title;
 }
 
+-(NSString*)titleForPlainTextFormat
+{
+    return self.title;
+}
+
 -(BOOL)isTalent
 {
     return [self.upType isEqualToString: @"Talent"];

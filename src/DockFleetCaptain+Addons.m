@@ -81,4 +81,9 @@
     return [[caps sortedArrayUsingSelector: @selector(caseInsensitiveCompare:)] componentsJoinedByString: @" "];
 }
 
+-(NSString*)titleForPlainTextFormat
+{
+    return [NSString stringWithFormat: @"Fleet Captain: %@", self.title];
+}
+
 @end
