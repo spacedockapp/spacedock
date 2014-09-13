@@ -137,6 +137,18 @@ public class Ship extends ShipBase {
         return mTitle.equals("U.S.S. Raven");
     }
 
+    public boolean isGalaxy() {
+        return mShipClass.equals("Galaxy Class") || mShipClass.equals("Galaxy Class (MU)");
+    }
+
+    public boolean isIntrepid() {
+        return mShipClass.equals("Intrepid Class");
+    }
+
+    public boolean isSovereign() {
+        return mShipClass.equals("Sovereign Class");
+    }
+
     public boolean isBajoranInterceptor() {
         return mShipClass.equals("Bajoran Interceptor");
     }

@@ -38,7 +38,8 @@ public class Captain extends CaptainBase {
                 return captain;
             }
         }
-        throw new IllegalStateException("No zero cost captain exists for faction " + faction);
+        // Defaulting to Federation Captain in case of no faction default
+        return Universe.getUniverse().getCaptain("2003");
     }
 
     public static Upgrade zeroCostCaptainForShip(Ship targetShip) {

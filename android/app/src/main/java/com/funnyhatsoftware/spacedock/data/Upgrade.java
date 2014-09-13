@@ -313,7 +313,12 @@ public class Upgrade extends UpgradeBase {
             if (!ship.isRaven()) {
                 cost += 5;
             }
+        } else if ("PlusFiveIfNotGalaxyIntrepidSovereign".equalsIgnoreCase(upgradeSpecial)) {
+            if (!ship.isGalaxy() && !ship.isIntrepid() && !ship.isSovereign()) {
+                cost += 5;
+            }
         }
+
 
         if (captainSpecial.equals("OneDominionUpgradeCostsMinusTwo") && !shipIsSideboard) {
             if (isDominion()) {
