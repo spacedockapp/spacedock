@@ -38,6 +38,11 @@ public class FleetCaptain extends FleetCaptainBase {
     @Override
     public int getCost() { return 5; } // TODO: make this more elegant
 
+    @Override
+    public int calculateCostForShip(EquippedShip equippedShip, EquippedUpgrade equippedUpgrade) {
+        return 5;
+    }
+
     public String getPlainDescription() {
         return "FleetCaptain: " + mTitle;
     }
