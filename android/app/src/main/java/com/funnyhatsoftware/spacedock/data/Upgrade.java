@@ -398,10 +398,6 @@ public class Upgrade extends UpgradeBase {
             cost -= 2;
         }
 
-        if (isWeapon() && null != equippedShip.containsUpgradeWithName("Quark") && cost <=5) {
-            cost = 0;
-        }
-
         if (cost < 0) {
             cost = 0;
         }

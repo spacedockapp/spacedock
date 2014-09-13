@@ -586,6 +586,9 @@ public class EquippedShip extends EquippedShipBase {
             if (!ship.isSuurok()) {
                 return new Explanation(msg, "This upgrade can only be purchased for a Suurok Class Ship.");
             }
+            if (null != containsUpgrade(upgrade)) {
+                return new Explanation(msg, "This upgrade can only be added once per ship.");
+            }
         }
         if (upgradeSpecial.equals("OnlyKazonShip")) {
             if (!ship.isKazon()) {
