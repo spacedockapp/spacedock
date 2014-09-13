@@ -387,7 +387,8 @@ public class DataLoader extends DefaultHandler {
                 "only_vulcan_ship",
                 "add_one_tech_no_faction_penalty_on_vulcan",
                 "not_with_hugh",
-                "ony_federation_ship_limited"
+                "ony_federation_ship_limited",
+                "PlusFiveIfNotGalaxyIntrepidSovereign"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);
