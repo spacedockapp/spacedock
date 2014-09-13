@@ -134,6 +134,11 @@
     return self.title;
 }
 
+-(NSString*)titleForPlainTextFormat
+{
+    return self.title;
+}
+
 -(BOOL)isTalent
 {
     return [self.upType isEqualToString: @"Talent"];
@@ -187,6 +192,11 @@
 -(BOOL)isUnique
 {
     return [[self unique] boolValue];
+}
+
+-(BOOL)isMirrorUniverseUnique
+{
+    return [[self mirrorUniverseUnique] boolValue];
 }
 
 -(BOOL)isDominion
@@ -550,6 +560,10 @@
         if (![ship isRaven]) {
             cost += 5;
         }
+    } else if ([upgradeSpecial isEqualToString: @"PlusFiveIfNotGalaxyIntrepidSovereign"]) {
+        if (!([ship isGalaxyClass] || [ship isIntrepidClass] || [ship isSovereignClass])) {
+            cost += 5;
+        }
     } else if ([upgradeSpecial isEqualToString: @"PhaserStrike"] || [upgradeSpecial isEqualToString: @"CostPlusFiveExceptBajoranInterceptor"]) {
         if (![ship isBajoranInterceptor]) {
             cost += 5;
@@ -680,6 +694,9 @@
     if ([externalId isEqualToString: @"quark_weapon_71786"]) {
         return 1;
     }
+    if ([special isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
+        return 1;
+    }
     return 0;
 }
 
@@ -762,6 +779,11 @@
 -(NSString*)combinedFactions
 {
     return combinedFactionString(self);
+}
+
+-(NSString*)uniqueAsString
+{
+    return uniqueAsString(self);
 }
 
 

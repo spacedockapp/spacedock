@@ -205,6 +205,8 @@
 
     if ([_upgrade isUnique]) {
         value = @"Yes";
+    } else if ([_upgrade isMirrorUniverseUnique]) {
+        value = @"MU";
     } else {
         value = @"No";
     }

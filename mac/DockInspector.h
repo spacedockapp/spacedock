@@ -32,6 +32,12 @@
 @property (strong, nonatomic) NSDictionary* currentListFlagship;
 @property (strong, nonatomic) NSDictionary* currentEquippedFlagship;
 @property (strong, nonatomic, readonly) NSDictionary* currentFlagship;
+@property (strong, nonatomic) NSDictionary* currentListFleetCaptain;
+@property (strong, nonatomic) NSDictionary* currentEquippedFleetCaptain;
+@property (strong, nonatomic, readonly) NSDictionary* currentFleetCaptain;
+@property (strong, nonatomic) NSDictionary* currentListOfficer;
+@property (strong, nonatomic) NSDictionary* currentEquippedOfficer;
+@property (strong, nonatomic, readonly) NSDictionary* currentOfficer;
 @property (strong, nonatomic) NSDictionary* currentReference;
 @property (strong, nonatomic) NSString* shipDetailTab;
 @property (strong, nonatomic, readonly) NSString* currentSetName;

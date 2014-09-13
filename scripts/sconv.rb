@@ -6,12 +6,12 @@ require_relative "common"
 
 #Timestamp		Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots
 ship = <<-SHIPTEXT
-8/18/2014 17:02:28	Unique	Enterprise NX-01	Federation	Federation NX Class	2	3	3	0	You may equip the Enhanced Hull Plating [TECH] Upgrade to your ship for free even if it exceeds your ship's restrictions.	Battle Stations, Evasive, Scan, Target Lock	16	0	3	0	1	71526 - Enterprise											
-8/18/2014 17:45:57	Unique	Ni'Var	Vulcan	Suurok Class	2	1	4	3	Whenever you attack an enemy ship at Range 3 with your Primary Weapon, if there is a [SCAN] Token beside your ship, you gain +1 attack die for that attack.	Battle Stations, Evasive, Scan, Target Lock	20	0	2	1	0	71527 - Ni’Var											
-8/18/2014 18:12:39	Unique	Scout 608	Borg	Borg Scout Cube	3	3	2	4	After you move, you may discard one of your Upgrades to perform an additional Green or White Maneuver.  You cannot deploy a [BORG] Upgrade with a cost greater than 5 to this ship.	Evasive, Regenerate, Scan, Target Lock	24	1	1	1	1	71525 - Scout Cube											
-8/18/2014 17:02:28		Federation Starship	Federation	Federation NX Class	2	3	3	0		Battle Stations, Evasive, Scan, Target Lock	16	0	1	0	1	71526 - Enterprise											
-8/18/2014 17:45:57		Vulcan Starship	Vulcan	Suurok Class	2	1	4	2		Battle Stations, Evasive, Scan, Target Lock	18	0	1	1	0	71527 - Ni’Var											
-8/18/2014 18:12:39		Borg Starship	Borg	Borg Scout Cube	3	3	2	3	You cannot deploy a [BORG] Upgrade with a cost greater than 5 to this ship.	Evasive, Regenerate, Scan, Target Lock	22	1	1	1		71525 - Scout Cube											
+8/18/2019/9/2014 10:02:36	Unique	U.S.S. Stargazer	Federation	Constellation Class	3	1	4	3	During the Activation Phase, you may disable 1 of your Active Shields to remove 1 Auxiliary Power Token from beside your ship.	Battle Stations, Evasive, Scan, Target Lock	22	0	1	1	1	71510 -  U.S.S. Stargazer	Nova Class										
+9/9/2014 10:03:29	Non-unique	Federation Starship	Federation	Constellation Class	3	1	4	2		Battle Stations, Evasive, Scan, Target Lock	20	0	1	0	1	71510 -  U.S.S. Stargazer	Nova Class										
+9/9/2014 10:05:47	Mirror Universe Unique	U.S.S. Enterprise-D	Mirror Universe	Galaxy Class	5	1	5	3	During the Roll Attack Dice step of the Combat Phase, you may disable 1 of your Active Shields to gain +1 attack die.	Battle Stations, Evasive, Scan, Target Lock	28	0	2	0	3	71510b - Assimilation Target Prime											
+9/9/2014 10:06:40	Non-unique	Mirror Universe Starship	Mirror Universe	Galaxy Class	5	1	5	2		Battle Stations, Evasive, Scan, Target Lock	26	0	1	0	3	71510b - Assimilation Target Prime											
+9/9/2014 10:08:11	Mirror Universe Unique	Assimilation Target Prime	Borg, Mirror Universe	Galaxy Class	5	1	5	4	ACTION: Spend 1 Drone Token to repair 1 damage to your Hull or Shields.	Evasive, Regenerate, Scan, Target Lock	30	1	1	1	2	71510b - Assimilation Target Prime											
+9/9/2014 10:09:03	Non-unique	Mirror Universe/Borg Starship	Borg, Mirror Universe	Galaxy Class	5	1	5	3		Evasive, Regenerate, Scan, Target Lock	28	1	1	1	1	71510b - Assimilation Target Prime											
 SHIPTEXT
 
 
@@ -26,6 +26,7 @@ shipLines.each do |l|
     title = parts[2]
     shipClass = parts[4]
     unique = parts[1] == "Unique" ? "Y" : "N"
+    mirrorUniverseUnique = parts[1] == "Mirror Universe Unique" ? "Y" : "N"
     faction = parts[3]
     unless faction
       throw "Faction missing"
@@ -58,6 +59,7 @@ shipLines.each do |l|
     <Ship>
       <Title>#{title}</Title>
       <Unique>#{unique}</Unique>
+      <MirrorUniverseUnique>#{mirrorUniverseUnique}</MirrorUniverseUnique>
       <ShipClass>#{shipClass}</ShipClass>
       <Faction>#{faction}</Faction>
       <Attack>#{attack}</Attack>

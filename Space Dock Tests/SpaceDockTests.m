@@ -49,7 +49,7 @@ static NSManagedObjectContext* getManagedObjectContext()
 {
     {
         NSArray* allShips = [DockShip allShips: _context];
-        XCTAssertEqual(106, allShips.count);
+        XCTAssertEqual(112, allShips.count);
     }
     
     {

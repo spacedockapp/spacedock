@@ -55,6 +55,8 @@
 
     if ([_ship isUnique]) {
         value = @"Yes";
+    } else if ([_ship isMirrorUniverseUnique]) {
+        value = @"MU";
     } else {
         value = @"No";
     }

@@ -1,12 +1,13 @@
 #import "DockShip.h"
 
 #import "DockFactioned.h"
+#import "DockUnique.h"
 
 @class DockManeuver;
 @class DockFlagship;
 @class DockResource;
 
-@interface DockShip (Addons)<DockFactioned>
+@interface DockShip (Addons)<DockFactioned,DockUnique>
 +(NSArray*)allShips:(NSManagedObjectContext*)context;
 +(DockShip*)shipForId:(NSString*)externalId context:(NSManagedObjectContext*)context;
 -(DockShip*)counterpart;
@@ -17,6 +18,8 @@
 -(BOOL)isRomulanScienceVessel;
 -(BOOL)isDefiant;
 -(BOOL)isUnique;
+-(BOOL)isMirrorUniverseUnique;
+-(BOOL)isAnyKindOfUnique;
 -(BOOL)isFederation;
 -(BOOL)isBajoran;
 -(BOOL)isFighterSquadron;
@@ -32,6 +35,9 @@
 -(BOOL)isBattleshipOrCruiser;
 -(BOOL)isRaven;
 -(BOOL)isScoutCube;
+-(BOOL)isGalaxyClass;
+-(BOOL)isIntrepidClass;
+-(BOOL)isSovereignClass;
 -(DockResource*)associatedResource;
 -(int)techCount;
 -(int)weaponCount;
@@ -43,4 +49,5 @@
 -(NSArray*)actionStrings;
 -(void)updateShipClass:(NSString*)newShipClass;
 -(NSString*)descriptiveTitle;
+-(NSString*)uniqueAsString;
 @end

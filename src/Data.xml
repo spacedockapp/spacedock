@@ -1,4 +1,4 @@
-<Data version="2014-09-06@20-11">
+<Data version="2014-09-11@00-25">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1122,6 +1122,52 @@
         </Maneuvers>
         <FrontArc></FrontArc>
         <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+        <Name>Constellation Class</Name>
+        <Id>constellation_class</Id>
+        <Maneuvers>
+            <Maneuver speed="4" kind="straight" color="white" />
+            <Maneuver speed="3" kind="left-turn" color="red" />
+            <Maneuver speed="3" kind="left-bank" color="white" />
+            <Maneuver speed="3" kind="straight" color="white" />
+            <Maneuver speed="3" kind="right-bank" color="white" />
+            <Maneuver speed="3" kind="right-turn" color="red" />
+            <Maneuver speed="2" kind="left-turn" color="white" />
+            <Maneuver speed="2" kind="left-bank" color="white" />
+            <Maneuver speed="2" kind="straight" color="green" />
+            <Maneuver speed="2" kind="right-bank" color="white" />
+            <Maneuver speed="2" kind="right-turn" color="white" />
+            <Maneuver speed="1" kind="left-bank" color="green" />
+            <Maneuver speed="1" kind="straight" color="green" />
+            <Maneuver speed="1" kind="right-bank" color="green" />
+            <Maneuver speed="-1" kind="straight" color="red" />
+        </Maneuvers>
+        <FrontArc>180</FrontArc>
+        <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+        <Name>Galaxy Class (MU)</Name>
+        <Id>galaxy__class_mu</Id>
+        <Maneuvers>
+          <Maneuver speed="6" kind="straight" color="red" />
+          <Maneuver speed="5" kind="straight" color="white" />
+          <Maneuver speed="4" kind="straight" color="white" />
+          <Maneuver speed="3" kind="left-turn" color="red" />
+          <Maneuver speed="3" kind="left-bank" color="white" />
+          <Maneuver speed="3" kind="straight" color="green" />
+          <Maneuver speed="3" kind="right-bank" color="white" />
+          <Maneuver speed="3" kind="right-turn" color="red" />
+          <Maneuver speed="2" kind="left-bank" color="white" />
+          <Maneuver speed="2" kind="straight" color="green" />
+          <Maneuver speed="2" kind="right-bank" color="white" />
+          <Maneuver speed="1" kind="left-bank" color="green" />
+          <Maneuver speed="1" kind="straight" color="green" />
+          <Maneuver speed="1" kind="right-bank" color="green" />
+          <Maneuver speed="-1" kind="straight" color="red" />
+        </Maneuvers>
+        <FrontArc>90</FrontArc>
+        <RearArc>90</RearArc>
     </ShipClassDetail>
   </ShipClassDetails>
   <Ships>
@@ -3756,6 +3802,164 @@
       <Id>borg_starship_71525</Id>
       <Set>71525</Set>
     </Ship>
+    <Ship>
+      <Title>U.S.S. Stargazer</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Constellation Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>3</Shield>
+      <Ability>During the Activation Phase, you may disable 1 of your Active Shields to remove 1 Auxiliary Power Token from beside your ship.</Ability>
+      <Cost>22</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>u_s_s_stargazer_71510</Id>
+      <Set>71510</Set>
+    </Ship>
+    <Ship>
+      <Title>Federation Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Constellation Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>federation_starship_71510</Id>
+      <Set>71510</Set>
+    </Ship>
+    <Ship>
+      <Title>U.S.S. Enterprise-D</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <ShipClass>Galaxy Class (MU)</ShipClass>
+      <Faction>Mirror Universe</Faction>
+      <Attack>5</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>3</Shield>
+      <Ability>During the Roll Attack Dice step of the Combat Phase, you may disable 1 of your Active Shields to gain +1 attack die.</Ability>
+      <Cost>28</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>3</Weapon>
+      <Crew>2</Crew>
+      <Id>u_s_s_enterprise_d_71510b</Id>
+      <Set>71510b</Set>
+    </Ship>
+    <Ship>
+      <Title>Mirror Universe Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Galaxy Class (MU)</ShipClass>
+      <Faction>Mirror Universe</Faction>
+      <Attack>5</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>26</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>3</Weapon>
+      <Crew>1</Crew>
+      <Id>mirror_universe_starship_71510b</Id>
+      <Set>71510b</Set>
+    </Ship>
+    <Ship>
+      <Title>Assimilation Target Prime</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <ShipClass>Galaxy Class (MU)</ShipClass>
+      <Faction>Borg</Faction>
+      <AdditionalFaction>Mirror Universe</AdditionalFaction>
+      <Attack>5</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>4</Shield>
+      <Ability>ACTION: Spend 1 Drone Token to repair 1 damage to your Hull or Shields.</Ability>
+      <Cost>30</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>1</Regenerate>
+      <Borg>1</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <Id>assimilation_target_prime_71510b</Id>
+      <Set>71510b</Set>
+    </Ship>
+    <Ship>
+      <Title>Mirror Universe/Borg Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Galaxy Class (MU)</ShipClass>
+      <Faction>Borg</Faction>
+      <AdditionalFaction>Mirror Universe</AdditionalFaction>
+      <Attack>5</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>3</Shield>
+      <Ability></Ability>
+      <Cost>28</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>1</Regenerate>
+      <Borg>1</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>mirror_universe_borg_starship_71510b</Id>
+      <Set>71510b</Set>
+    </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -3806,7 +4010,7 @@
       <Faction>Federation</Faction>
       <Cost>0</Cost>
       <Id>2003</Id>
-      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526</Set>
+      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526,71510</Set>
     </Captain>
     <Captain>
       <Title>Nu'Daq</Title>
@@ -5246,6 +5450,21 @@
       <Special></Special>
     </Captain>
     <Captain>
+      <Title>Maxwell Forrest</Title>
+      <Ability>ACTION: Perform an additional 1 Maneuver (straight, bank or turn).</Ability>
+      <Unique>Y</Unique>
+      <Skill>4</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>maxwell_forrest_cap_71526</Id>
+      <Set>71526</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
       <Title>Sopek</Title>
       <Ability>Add 1 [CREW] Upgrade slot to your Upgrade Bar. ACTION: Choose 1 of your [CREW] Upgrades that was discarded from your ship on a previous round. Re-deploy that [CREW] Upgrade to your ship and place an Auxiliary Power Token beside your ship.</Ability>
       <Unique>Y</Unique>
@@ -5272,6 +5491,21 @@
       <Faction>Vulcan</Faction>
       <Cost>2</Cost>
       <Id>kuvak_71527</Id>
+      <Set>71527</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>V'Las</Title>
+      <Ability>ACTION: Target a ship at Range 1-2. Disable 1 [CREW] Upgrade of your choice on the target ship.</Ability>
+      <Unique>Y</Unique>
+      <Skill>5</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>3</Cost>
+      <Id>v_las_cap_71527</Id>
       <Set>71527</Set>
       <Special></Special>
     </Captain>
@@ -5303,6 +5537,38 @@
       <Cost>1</Cost>
       <Id>tactical_drone_71525</Id>
       <Set>71525</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Jean-Luc Picard</Title>
+      <Ability>Add 1 [CREW] slot to your Upgrade Bar. ACTION: Disable all of your remaining Shields and immediately perform an additional green or white maneuver.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>jean_luc_picard_71510</Id>
+      <Set>71510</Set>
+      <Special>Add_Crew_1</Special>
+    </Captain>
+    <Captain>
+      <Title>William T. Riker</Title>
+      <Ability>Each time you perform a [BATTLESTATIONS], an [EVASIVE MANEUVERS], or a [TARGET LOCK] Action, place 1 additional Token of the appropriate type ([BATTLESTATIONS], [EVASIVE MANEUVERS], or [TARGET LOCK]) on this card.  During the Activation Phase,  you may spend 1 Token from this card and perform the corresponding Action as a free Action.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>4</Cost>
+      <Id>william_t_riker_71510b</Id>
+      <Set>71510b</Set>
       <Special></Special>
     </Captain>
   </Captains>
@@ -5349,13 +5615,13 @@
       <Title>Maxwell Forrest</Title>
       <Ability>ACTION: Perform an additional 1 Maneuver (straight, bank or turn).</Ability>
       <Unique>Y</Unique>
-      <Skill>3</Skill>
+      <Skill>4</Skill>
       <Talent>0</Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Captain</Type>
+      <Type>Admiral</Type>
       <Faction>Federation</Faction>
-      <Cost>4</Cost>
+      <Cost>3</Cost>
       <Id>maxwell_forrest_71526</Id>
       <Set>71526</Set>
       <Special></Special>
@@ -5368,13 +5634,13 @@
       <Title>V'Las</Title>
       <Ability>ACTION: Target a ship at Range 1-2. Disable 1 [CREW] Upgrade of your choice on the target ship.</Ability>
       <Unique>Y</Unique>
-      <Skill>3</Skill>
+      <Skill>5</Skill>
       <Talent>1</Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Captain</Type>
+      <Type>Admiral</Type>
       <Faction>Vulcan</Faction>
-      <Cost>5</Cost>
+      <Cost>3</Cost>
       <Id>v_las_71527</Id>
       <Set>71527</Set>
       <Special></Special>
@@ -9002,7 +9268,7 @@
     </Upgrade>
     <Upgrade>
       <Title>Focused Particle Beam</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. During the Roll Attack Dice step of the Combat Phase, if you roll a [HIT] or [CRIT] result on each one of your dice with this attack, continue rolling 1 additional attack die, one-at-a-time, until you do not roll a [HIT] or [CRIT] result (max 3 additional dice). Add all [HIT] or [CRIT] results from the additional dice to your total for this attack. Any Black or [BATTLESTATIONS] results from the additional dice are not added.</Ability>
+      <Ability>ATTACK: Disable this card to perform this attack. During the Roll Attack Dice step of the Combat Phase, if you roll a [HIT] or [CRIT] result on each one of your dice with this attack, continue rolling 1 additional attack die, one-at-a-time, until you do not roll a [HIT] or [CRIT] result (max 3 additional dice). Add all [HIT] or [CRIT] results from the additional dice to your total for this attack. Any Blank or [BATTLESTATIONS] results from the additional dice are not added.</Ability>
       <Unique>N</Unique>
       <Skill></Skill>
       <Talent></Talent>
@@ -10054,6 +10320,168 @@
       <Set>71525</Set>
       <Special></Special>
     </Upgrade>
+    <Upgrade>
+      <Title>Secondary Impulse Reactor</Title>
+      <Ability>During the Activation Phase, if you reveal a Red Maneuver and you have an Auxiliary Power Token beside your ship, you may disable this card to perform that Maneuver with no penalty.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>1</Cost>
+      <Id>secondary_impulse_reactor_71510</Id>
+      <Set>71510</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Jack Crusher</Title>
+      <Ability>During the Modify Defense Dice step of the Combat Phase, you may discard this card and spend 1 [EVASIVE MANEUVERS] Token to add 2 [EVADE] results to your roll.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>jack_crusher_71510</Id>
+      <Set>71510</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Picard Maneuver</Title>
+      <Ability>ACTION: If you performed a 1 [STRAIGHT], a 4 [STRAIGHT], or a 5 [STRAIGHT] Maneuver this round, discard this card and immediately perform an additional 5 [STRAIGHT] Maneuver.  Place an Auxiliary Power Token beside your ship.  All attacks against your ship this round are at -4 attack dice.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>picard_maneuver_71510</Id>
+      <Set>71510</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Regeneration Sequencers</Title>
+      <Ability>Whenever one of your Upgrades is discarded, repair 1 damage to your Hull. OR You may discard this card and spend 1 Drone Token to repair up to 2 damage to your Hull.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Borg</Type>
+      <Faction>Borg</Faction>
+      <AdditionalFaction>Mirror Universe</AdditionalFaction>
+      <Cost>5</Cost>
+      <Id>regeneration_sequencers_71510b</Id>
+      <Set>71510b</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>We Won't Go Back!</Title>
+      <Ability>If your ship, its Captain, or any of its Upgrades are targeted by an Upgrade on an enemy ship, you may discard this card before that Upgrade takes effect to immediately make 1 free attack against that ship, if possible.  If the enemy ship is destroyed by this free attack, the enemy Upgrade does not take effect.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>5</Cost>
+      <Id>we_won_t_go_back__71510b</Id>
+      <Set>71510b</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Worf</Title>
+      <Ability>If you inflict at least 1 damage (normal or critical) to an enemy ship during the Deal Damage step of the Combat Phase, you may discard this card to inflict 1 additional normal damage to that ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>4</Cost>
+      <Id>worf_71510b</Id>
+      <Set>71510b</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Tactical Station</Title>
+      <Ability>Add 1 [WEAPON] Upgrade slot to your Upgrade Bar. When attacking, you may disable this card to gain +1 attack die until the End Phase. OR When attacking, you may discard this card to gain +2 attack dice until the End Phase.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Weapon</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>tactical_station_71510</Id>
+      <Set>71510</Set>
+      <Special>addoneweaponslot</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Fire All Weapons</Title>
+      <Ability>ATTACK [TARGET LOCK]: Spend your target lock and disable this card to perform this attack.  You may fire this weapon from your forward or rear firing arcs. You may immediately make 1 additional attack with your Primary Weapon at a different enemy ship, if possible. This Upgrade costs +5 SP for any ship other than a Galaxy, Intrepid or Sovereign Class ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>7</Cost>
+      <Id>fire_all_weapons_71510b</Id>
+      <Set>71510b</Set>
+      <Special>PlusFiveIfNotGalaxyIntrepidSovereign</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Quantum Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. If the target ship is hit, add 1 [HIT] result to your total damage. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>6</Cost>
+      <Id>quantum_torpedoes_71510b</Id>
+      <Set>71510b</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Biogenic Weapon</Title>
+      <Ability>You must use 1 [BORG] and 1 [WEAPON] Upgrade slot to deploy this Upgrade to your ship. ATTACK: [TARGET LOCK] Spend your target lock and discard this card to perform this attack.  In addition to normal damage, the opposing ship must discard 1 of its [CREW] Upgrades of its choice for each damage you inflict to that ship's Hull with this attack (max 2).  Add 1 Drone Token to your Captain Card for each [CREW] Upgrade that was discarded with this attack.  You cannot exceed your starting number of Drone Tokens.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>7</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Borg</Faction>
+      <AdditionalFaction>Mirror Universe</AdditionalFaction>
+      <Cost>8</Cost>
+      <Id>biogenic_weapon_71510b</Id>
+      <Set>71510b</Set>
+      <Special></Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -10323,6 +10751,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
 
       <Set id="CollectiveOP3" overallSetName="Organized Play" releaseDate="2014-09-01">The Collective OP3 Participation Prize</Set>
       <Set id="71510"             overallSetName="Organized Play" releaseDate="2014-09-01">U.S.S. Stargazer Competitive Prize</Set>
+      <Set id="71510b"             overallSetName="Organized Play" releaseDate="2014-09-01">Assimilation Target Prime</Set>
 
       <Set id="i_k_s_b_moth" overallSetName="The Collective Boosters" releaseDate="2014-07-25">I.K.S. B'Moth Expansion</Set>
       <Set id="gavroche" overallSetName="The Collective Boosters" releaseDate="2014-07-25">Gavroche Expansion</Set>

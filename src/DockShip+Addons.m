@@ -120,7 +120,7 @@ NSString* asDegrees(NSString* textValue)
 
 -(NSString*)plainDescription
 {
-    if (!self.isUnique) {
+    if (!self.isAnyKindOfUnique) {
         return self.shipClass;
     }
 
@@ -129,7 +129,7 @@ NSString* asDegrees(NSString* textValue)
 
 -(NSString*)descriptiveTitle
 {
-    if (self.isUnique) {
+    if (self.isAnyKindOfUnique) {
         return self.title;
     }
 
@@ -179,6 +179,16 @@ NSString* asDegrees(NSString* textValue)
 -(BOOL)isUnique
 {
     return [self.unique boolValue];
+}
+
+-(BOOL)isMirrorUniverseUnique
+{
+    return [self.mirrorUniverseUnique boolValue];
+}
+
+-(BOOL)isAnyKindOfUnique
+{
+    return self.isUnique || self.isMirrorUniverseUnique;
 }
 
 -(BOOL)isFederation
@@ -242,6 +252,24 @@ NSString* asDegrees(NSString* textValue)
 -(BOOL)isScoutCube
 {
     NSRange r = [self.shipClass rangeOfString: @"Scout Cube" options: NSCaseInsensitiveSearch];
+    return r.location != NSNotFound;
+}
+
+-(BOOL)isGalaxyClass
+{
+    NSRange r = [self.shipClass rangeOfString: @"Galaxy" options: NSCaseInsensitiveSearch];
+    return r.location != NSNotFound;
+}
+
+-(BOOL)isIntrepidClass
+{
+    NSRange r = [self.shipClass rangeOfString: @"Intrepid" options: NSCaseInsensitiveSearch];
+    return r.location != NSNotFound;
+}
+
+-(BOOL)isSovereignClass
+{
+    NSRange r = [self.shipClass rangeOfString: @"Sovereign" options: NSCaseInsensitiveSearch];
     return r.location != NSNotFound;
 }
 
@@ -374,8 +402,8 @@ NSString* asDegrees(NSString* textValue)
         return NSOrderedDescending;
     }
     DockShip* otherShip = (DockShip*)object;
-    BOOL selfIsUnique = [self isUnique];
-    BOOL otherIsUnique = [otherShip isUnique];
+    BOOL selfIsUnique = [self isAnyKindOfUnique];
+    BOOL otherIsUnique = [otherShip isAnyKindOfUnique];
     if (selfIsUnique == otherIsUnique) {
         return NSOrderedSame;
     }
@@ -398,6 +426,11 @@ NSString* asDegrees(NSString* textValue)
 -(NSString*)combinedFactions
 {
     return combinedFactionString(self);
+}
+
+-(NSString*)uniqueAsString
+{
+    return uniqueAsString(self);
 }
 
 @end

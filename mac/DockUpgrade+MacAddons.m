@@ -47,7 +47,7 @@
         return YES;
     }
     
-    DockEquippedUpgrade* existing = [targetShip.squad containsUpgradeWithName: self.title];
+    DockEquippedUpgrade* existing = [targetShip.squad containsUniqueUpgradeWithName: self.title];
     return existing == nil;
 }
 
@@ -103,6 +103,13 @@
     [adjustedCostString appendAttributedString: adjustedCost];
 
     return makeCentered(adjustedCostString);
+}
+
+
+-(NSAttributedString*)formattedUniqueness
+{
+    NSString* v = uniqueAsString(self);
+    return makeCentered([[NSAttributedString alloc] initWithString: v]);
 }
 
 @end

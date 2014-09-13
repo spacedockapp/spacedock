@@ -1,14 +1,15 @@
     <Ship>
-      <Title>Enterprise NX-01</Title>
+      <Title>U.S.S. Stargazer</Title>
       <Unique>Y</Unique>
-      <ShipClass>Federation NX Class</ShipClass>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Constellation Class</ShipClass>
       <Faction>Federation</Faction>
-      <Attack>2</Attack>
-      <Agility>3</Agility>
-      <Hull>3</Hull>
-      <Shield>0</Shield>
-      <Ability>You may equip the Enhanced Hull Plating [TECH] Upgrade to your ship for free even if it exceeds your ship's restrictions.</Ability>
-      <Cost>16</Cost>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>3</Shield>
+      <Ability>During the Activation Phase, you may disable 1 of your Active Shields to remove 1 Auxiliary Power Token from beside your ship.</Ability>
+      <Cost>22</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
       <Scan>1</Scan>
@@ -17,22 +18,23 @@
       <SensorEcho>0</SensorEcho>
       <Regenerate>0</Regenerate>
       <Borg>0</Borg>
-      <Tech>0</Tech>
+      <Tech>1</Tech>
       <Weapon>1</Weapon>
-      <Crew>3</Crew>
-      <Id>enterprise_nx_01_71526</Id>
-      <Set>71526</Set>
+      <Crew>1</Crew>
+      <Id>u_s_s_stargazer_71510</Id>
+      <Set>71510</Set>
     </Ship>
     <Ship>
-      <Title>Ni'Var</Title>
-      <Unique>Y</Unique>
-      <ShipClass>Suurok Class</ShipClass>
-      <Faction>Vulcan</Faction>
-      <Attack>2</Attack>
+      <Title>Federation Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Constellation Class</ShipClass>
+      <Faction>Federation</Faction>
+      <Attack>3</Attack>
       <Agility>1</Agility>
       <Hull>4</Hull>
-      <Shield>3</Shield>
-      <Ability>Whenever you attack an enemy ship at Range 3 with your Primary Weapon, if there is a [SCAN] Token beside your ship, you gain +1 attack die for that attack.</Ability>
+      <Shield>2</Shield>
+      <Ability></Ability>
       <Cost>20</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
@@ -42,48 +44,24 @@
       <SensorEcho>0</SensorEcho>
       <Regenerate>0</Regenerate>
       <Borg>0</Borg>
-      <Tech>1</Tech>
-      <Weapon>0</Weapon>
-      <Crew>2</Crew>
-      <Id>ni_var_71527</Id>
-      <Set>71527</Set>
-    </Ship>
-    <Ship>
-      <Title>Scout 608</Title>
-      <Unique>Y</Unique>
-      <ShipClass>Borg Scout Cube</ShipClass>
-      <Faction>Borg</Faction>
-      <Attack>3</Attack>
-      <Agility>3</Agility>
-      <Hull>2</Hull>
-      <Shield>4</Shield>
-      <Ability>After you move, you may discard one of your Upgrades to perform an additional Green or White Maneuver.  You cannot deploy a [BORG] Upgrade with a cost greater than 5 to this ship.</Ability>
-      <Cost>24</Cost>
-      <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock>1</TargetLock>
-      <Scan>1</Scan>
-      <Battlestations>0</Battlestations>
-      <Cloak>0</Cloak>
-      <SensorEcho>0</SensorEcho>
-      <Regenerate>1</Regenerate>
-      <Borg>1</Borg>
-      <Tech>1</Tech>
+      <Tech>0</Tech>
       <Weapon>1</Weapon>
       <Crew>1</Crew>
-      <Id>scout_608_71525</Id>
-      <Set>71525</Set>
+      <Id>federation_starship_71510</Id>
+      <Set>71510</Set>
     </Ship>
     <Ship>
-      <Title>Federation Starship</Title>
+      <Title>U.S.S. Enterprise-D</Title>
       <Unique>N</Unique>
-      <ShipClass>Federation NX Class</ShipClass>
-      <Faction>Federation</Faction>
-      <Attack>2</Attack>
-      <Agility>3</Agility>
-      <Hull>3</Hull>
-      <Shield>0</Shield>
-      <Ability></Ability>
-      <Cost>16</Cost>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <ShipClass>Galaxy Class</ShipClass>
+      <Faction>Mirror Universe</Faction>
+      <Attack>5</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>3</Shield>
+      <Ability>During the Roll Attack Dice step of the Combat Phase, you may disable 1 of your Active Shields to gain +1 attack die.</Ability>
+      <Cost>28</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
       <Scan>1</Scan>
@@ -93,22 +71,23 @@
       <Regenerate>0</Regenerate>
       <Borg>0</Borg>
       <Tech>0</Tech>
-      <Weapon>1</Weapon>
-      <Crew>1</Crew>
-      <Id>federation_starship_71526</Id>
-      <Set>71526</Set>
+      <Weapon>3</Weapon>
+      <Crew>2</Crew>
+      <Id>u_s_s_enterprise_d_71510b</Id>
+      <Set>71510b</Set>
     </Ship>
     <Ship>
-      <Title>Vulcan Starship</Title>
+      <Title>Mirror Universe Starship</Title>
       <Unique>N</Unique>
-      <ShipClass>Suurok Class</ShipClass>
-      <Faction>Vulcan</Faction>
-      <Attack>2</Attack>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Galaxy Class</ShipClass>
+      <Faction>Mirror Universe</Faction>
+      <Attack>5</Attack>
       <Agility>1</Agility>
-      <Hull>4</Hull>
+      <Hull>5</Hull>
       <Shield>2</Shield>
       <Ability></Ability>
-      <Cost>18</Cost>
+      <Cost>26</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
       <Scan>1</Scan>
@@ -117,23 +96,24 @@
       <SensorEcho>0</SensorEcho>
       <Regenerate>0</Regenerate>
       <Borg>0</Borg>
-      <Tech>1</Tech>
-      <Weapon>0</Weapon>
+      <Tech>0</Tech>
+      <Weapon>3</Weapon>
       <Crew>1</Crew>
-      <Id>vulcan_starship_71527</Id>
-      <Set>71527</Set>
+      <Id>mirror_universe_starship_71510b</Id>
+      <Set>71510b</Set>
     </Ship>
     <Ship>
-      <Title>Borg Starship</Title>
+      <Title>Assimilation Target Prime</Title>
       <Unique>N</Unique>
-      <ShipClass>Borg Scout Cube</ShipClass>
-      <Faction>Borg</Faction>
-      <Attack>3</Attack>
-      <Agility>3</Agility>
-      <Hull>2</Hull>
-      <Shield>3</Shield>
-      <Ability>You cannot deploy a [BORG] Upgrade with a cost greater than 5 to this ship.</Ability>
-      <Cost>22</Cost>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <ShipClass>Galaxy Class</ShipClass>
+      <Faction>Borg, Mirror Universe</Faction>
+      <Attack>5</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>4</Shield>
+      <Ability>ACTION: Spend 1 Drone Token to repair 1 damage to your Hull or Shields.</Ability>
+      <Cost>30</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
       <Scan>1</Scan>
@@ -143,8 +123,34 @@
       <Regenerate>1</Regenerate>
       <Borg>1</Borg>
       <Tech>1</Tech>
-      <Weapon></Weapon>
+      <Weapon>2</Weapon>
       <Crew>1</Crew>
-      <Id>borg_starship_71525</Id>
-      <Set>71525</Set>
+      <Id>assimilation_target_prime_71510b</Id>
+      <Set>71510b</Set>
+    </Ship>
+    <Ship>
+      <Title>Mirror Universe/Borg Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Galaxy Class</ShipClass>
+      <Faction>Borg, Mirror Universe</Faction>
+      <Attack>5</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>3</Shield>
+      <Ability></Ability>
+      <Cost>28</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>1</Regenerate>
+      <Borg>1</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>mirror_universe_borg_starship_71510b</Id>
+      <Set>71510b</Set>
     </Ship>

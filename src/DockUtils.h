@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 
 #import "DockFactioned.h"
+#import "DockUnique.h"
 
 @class DockEquippedUpgrade;
 @class DockSquad;
@@ -17,5 +18,6 @@ NSArray* actionStrings(id target);
 BOOL targetHasFaction(NSString* faction, id<DockFactioned> target);
 BOOL factionsMatch(id<DockFactioned> a, id<DockFactioned> b);
 NSString* combinedFactionString(id<DockFactioned> a);
+NSString* uniqueAsString(id<DockUnique> a);
 
 NSURL* applicationFilesDirectory();

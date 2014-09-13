@@ -69,4 +69,11 @@ extern NSString* toString(int v)
     return [NSString stringWithFormat: @"%d", v];
 }
 
+-(NSAttributedString*)formattedUniqueness
+{
+    NSString* v = uniqueAsString(self);
+    return makeCentered([[NSAttributedString alloc] initWithString: v]);
+}
+
+
 @end

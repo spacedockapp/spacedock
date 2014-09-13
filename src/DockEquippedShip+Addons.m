@@ -456,6 +456,11 @@
 
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade ignoreInstalled:(BOOL)ignoreInstalled
 {
+    return [self canAddUpgrade: upgrade ignoreInstalled: NO validating: YES];
+}
+
+-(BOOL)canAddUpgrade:(DockUpgrade*)upgrade ignoreInstalled:(BOOL)ignoreInstalled validating:(BOOL)validating
+{
     if ([upgrade isFleetCaptain]) {
         DockFleetCaptain* fleetCaptain = (DockFleetCaptain*)upgrade;
         return [self canAddFleetCaptain: fleetCaptain error: nil];
@@ -584,9 +589,12 @@
         }
     }
 
-    if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
-        if ([self containsUpgradeWithId: upgrade.externalId] != nil) {
-            return NO;
+    if (!validating) {
+        if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
+            DockEquippedUpgrade* existing = [self containsUpgradeWithId: upgrade.externalId];
+            if (existing != nil) {
+                return NO;
+            }
         }
     }
 
@@ -904,7 +912,9 @@
     NSMutableArray* onesToRemove = [[NSMutableArray alloc] initWithCapacity: 0];
 
     for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
-        if (![self canAddUpgrade: eu.upgrade]) {
+        if (![self canAddUpgrade: eu.upgrade ignoreInstalled: NO validating: YES]) {
+            NSLog(@"removing %@", eu.upgrade);
+            [self canAddUpgrade: eu.upgrade];
             [onesToRemove addObject: eu];
         }
     }
@@ -1085,6 +1095,29 @@
     }
     return nil;
 }
+
+-(DockEquippedUpgrade*)containsUniqueUpgradeWithName:(NSString*)theName
+{
+    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        DockUpgrade* upgrade = eu.upgrade;
+        if (upgrade.isUnique && [upgrade.title isEqualToString: theName]) {
+            return eu;
+        }
+    }
+    return nil;
+}
+
+-(DockEquippedUpgrade*)containsMirrorUniverseUniqueUpgradeWithName:(NSString*)theName
+{
+    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        DockUpgrade* upgrade = eu.upgrade;
+        if (upgrade.isMirrorUniverseUnique && [upgrade.title isEqualToString: theName]) {
+            return eu;
+        }
+    }
+    return nil;
+}
+
 
 -(DockEquippedUpgrade*)containsUpgradeWithSpecial:(NSString*)special
 {

@@ -116,14 +116,6 @@ public class Sideboard extends SideboardBase {
     }
 
     @Override
-    public EquippedShipBase setFleetCaptain(FleetCaptain v) {
-        if (v != null) {
-            throw new RuntimeException("Can't add a fleet captain to the sideboard.");
-        }
-        return super.setFleetCaptain(v);
-    }
-
-    @Override
     public boolean isResourceSideboard() {
         return true;
     }

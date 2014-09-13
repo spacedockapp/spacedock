@@ -19,4 +19,8 @@
     return [self.admiralTalent intValue];
 }
 
+-(NSString*)titleForPlainTextFormat
+{
+    return [NSString stringWithFormat: @"Adm %@", self.title];
+}
 @end

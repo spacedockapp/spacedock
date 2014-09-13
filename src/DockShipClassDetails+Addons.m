@@ -9,7 +9,7 @@
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"ShipClassDetails" inManagedObjectContext: context];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
-    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"name CONTAINS %@", shipClass];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"name == %@", shipClass];
     [request setPredicate: predicateTemplate];
     NSError* err;
     NSArray* existingItems = [context executeFetchRequest: request error: &err];
