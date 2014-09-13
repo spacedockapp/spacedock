@@ -382,7 +382,11 @@ public class Upgrade extends UpgradeBase {
                 cost += 3;
             } else if (isCaptain() && null != fleetCaptain
                     && "Independent".equals(fleetCaptain.getFaction())
-                    && "Independent".equals(shipFaction)){
+                    && "Independent".equals(shipFaction)) {
+                // do nothing
+            } else if (ship.isVulcan() && "add_one_tech_no_faction_penalty_on_vulcan".equals(upgradeSpecial)) {
+                // do nothing
+            } else if ("elim_garak_71786".equals(this.getExternalId())){
                 // do nothing
             } else {
                 cost += 1;
@@ -429,12 +433,25 @@ public class Upgrade extends UpgradeBase {
         if (special.equalsIgnoreCase("Add_Crew_1")) {
             return true;
         }
+        if (special.equalsIgnoreCase("only_suurok_class_limited_weapon_hull_plus_1")){
+            return true;
+        }
+        if (special.equalsIgnoreCase("add_one_tech_no_faction_penalty_on_vulcan")){
+            return true;
+        }
+        if ("quark_weapon_71786".equalsIgnoreCase(this.getExternalId())
+                || "quark_71786".equalsIgnoreCase(this.getExternalId())){
+            return true;
+        }
         return false;
     }
 
     public int additionalWeaponSlots() {
         String special = getSpecial();
-        if (("AddsOneWeaponOneTech".equalsIgnoreCase(special) || "sakonna_gavroche".equalsIgnoreCase(special))) {
+        if ("AddsOneWeaponOneTech".equalsIgnoreCase(special)
+                || "sakonna_gavroche".equalsIgnoreCase(special)
+                || "only_suurok_class_limited_weapon_hull_plus_1".equalsIgnoreCase(special)
+                || "quark_weapon_71786".equals(this.getExternalId())) {
             return 1;
         }
         if ("AddTwoWeaponSlots".equalsIgnoreCase(special)) {
@@ -465,7 +482,10 @@ public class Upgrade extends UpgradeBase {
     public int additionalTechSlots() {
         String special = getSpecial();
         if (special != null) {
-            if (special.equalsIgnoreCase("AddsOneWeaponOneTech")) {
+            if (special.equalsIgnoreCase("AddsOneWeaponOneTech")
+                    || "addonetechslot".equalsIgnoreCase(special)
+                    || "add_one_tech_no_faction_penalty_on_vulcan".equalsIgnoreCase(special)
+                    || "quark_71786".equals(this.getExternalId())) {
                 return 1;
             }
             String externalId = getExternalId();

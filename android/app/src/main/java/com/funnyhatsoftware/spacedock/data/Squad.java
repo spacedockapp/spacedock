@@ -353,30 +353,41 @@ public class Squad extends SquadBase {
         if (captain.getUnique()) {
             EquippedUpgrade existing = containsUpgradeWithName(captain
                     .getTitle());
+            String result = String.format(
+                    "Can't add %s to the selected squadron",
+                    captain.getTitle());
             if (existing != null && !existing.getUpgrade().equals(targetShip.getCaptain())) {
-                String result = String.format(
-                        "Can't add %s to the selected squadron",
-                        captain.getTitle());
+
                 String explanation = "This Captain is unique and one with the same name already exists in the squadron.";
                 return new Explanation(result, explanation);
+            }
+            if ("not_with_hugh".equalsIgnoreCase(captain.getSpecial()) && null != containsUpgradeWithName("Hugh")) {
+                return new Explanation(result, "This Captain cannot be added to a squadron that contains Hugh");
+            }
+            if ("hugh_71522".equalsIgnoreCase(captain.getSpecial()) && null != containsUpgradeWithName("Third of Five")) {
+                return new Explanation(result, "This Captain cannot be added to a squadron that contains Third of Five");
             }
         }
         return Explanation.SUCCESS;
     }
 
     Explanation canAddUpgrade(Upgrade upgrade, EquippedShip targetShip) {
+        String result = String.format(
+                "Can't add %s to the selected squadron",
+                upgrade.getTitle());
         if (upgrade.getUnique()) {
             EquippedUpgrade existing = containsUpgradeWithName(upgrade
                     .getTitle());
             if (existing != null && null == (targetShip.containsUpgrade(existing.getUpgrade()))) {
-                String result = String.format(
-                        "Can't add %s to the selected squadron",
-                        upgrade.getTitle());
+
                 String explanation = String
                         .format("This %s is unique and one with the same name already exists in the squadron.",
                                 upgrade.getUpType());
                 return new Explanation(result, explanation);
             }
+        }
+        if ("not_with_hugh".equalsIgnoreCase(upgrade.getSpecial()) && null != containsUpgradeWithName("Hugh")) {
+            return new Explanation(result, "This Upgrade cannot be added to a squadron that contains Hugh");
         }
 
         return targetShip.canAddUpgrade(upgrade);

@@ -382,8 +382,12 @@ public class DataLoader extends DefaultHandler {
                 "sakonna_gavroche",
                 "combat_vessel_variant_71508",
                 "PlusFiveIfNotRaven",
-                "NoPenaltyOnFederationShip"
-
+                "NoPenaltyOnFederationShip",
+                "only_suurok_class_limited_weapon_hull_plus_1",
+                "only_vulcan_ship",
+                "add_one_tech_no_faction_penalty_on_vulcan",
+                "not_with_hugh",
+                "ony_federation_ship_limited"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);
