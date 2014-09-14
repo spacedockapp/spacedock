@@ -48,6 +48,23 @@ public class Upgrade extends UpgradeBase implements Factioned {
         return Universe.getUniverse().findOrCreatePlaceholder(upType);
     }
 
+    public String getTitle() {
+        String title = super.getTitle();
+        String externalId = getExternalId();
+        if (externalId.equals("quark_71786")) {
+            title = String.format("%s (Tech)", title);
+        } else if (externalId.equals("quark_weapon_71786")) {
+            title = String.format("%s (Weapon)", title);
+        } else if (externalId.equals("vulcan_high_command_2_0_71446")) {
+            title = String.format("%s (2/0)", title);
+        } else if (externalId.equals("vulcan_high_command_1_1_71446")) {
+            title = String.format("%s (1/1)", title);
+        } else if (externalId.equals("vulcan_high_command_0_2_71446")) {
+            title = String.format("%s (0/2)", title);
+        }
+        return title;
+    }
+
     public int limitForShip(EquippedShip targetShip) {
         if (isCaptain()) {
             return targetShip.getCaptainLimit();
@@ -429,6 +446,9 @@ public class Upgrade extends UpgradeBase implements Factioned {
             return true;
         }
         if (special.equalsIgnoreCase("addonetechslot")) {
+            return true;
+        }
+        if (special.equalsIgnoreCase("addoneweaponslot")) {
             return true;
         }
         if (special.equalsIgnoreCase("AddTwoCrewSlotsDominionCostBonus")) {
