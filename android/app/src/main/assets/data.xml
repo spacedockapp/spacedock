@@ -1,4 +1,4 @@
-<Data version="2014-09-11@00-25">
+<Data version="2014-09-13@14-58">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -5568,6 +5568,22 @@
       <Faction>Mirror Universe</Faction>
       <Cost>4</Cost>
       <Id>william_t_riker_71510b</Id>
+      <Set>71510b</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Mirror Universe Captain</Title>
+      <Ability></Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>1</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>0</Cost>
+      <Id>mirror_universe_captain_71510b</Id>
       <Set>71510b</Set>
       <Special></Special>
     </Captain>

@@ -703,6 +703,27 @@ public class EquippedShip extends EquippedShipBase {
         return Explanation.SUCCESS;
     }
 
+    public Explanation canAddFleetCaptain(FleetCaptain fleetCaptain) {
+        Captain captain = getCaptain();
+        String msg = String.format("Can't make %s the Fleet Captain", captain.getTitle());
+        if (!captain.getUnique()) {
+            String info = "You may not assign a non-unique Captain as your Fleet Captain";
+            return new Explanation(msg, info);
+        }
+        String fleetCaptainFaction = fleetCaptain.getFaction();
+        if (!fleetCaptainFaction.equals(Constants.INDEPENDENT)) {
+            if (!DataUtils.factionsMatch(getShip(), fleetCaptain)) {
+                String info = "The ship's faction must be the same as the Fleet Captain.";
+                return new Explanation(msg, info);
+            }
+            if (!DataUtils.factionsMatch(captain, fleetCaptain)) {
+                String info = "The Captain's faction must be the same as the Fleet Captain.";
+                return new Explanation(msg, info);
+            }
+        }
+        return Explanation.SUCCESS;
+    }
+
     public EquippedUpgrade containsUpgrade(Upgrade theUpgrade) {
         for (EquippedUpgrade eu : mUpgrades) {
             if (eu.getUpgrade() == theUpgrade) {
@@ -737,7 +758,7 @@ public class EquippedShip extends EquippedShipBase {
         }
     }
 
-    public Object getFlagshipFaction() {
+    public String getFlagshipFaction() {
         Flagship flagship = getFlagship();
         if (flagship == null) {
             return "";
@@ -841,7 +862,7 @@ public class EquippedShip extends EquippedShipBase {
     public static final int SLOT_TYPE_TALENT = 5;
     public static final int SLOT_TYPE_FLAGSHIP = 6;
     public static final int SLOT_TYPE_ADMIRAL = 7;
-    public static final int SLOT_TYPE_FLEETCAPTAIN = 8;
+    public static final int SLOT_TYPE_FLEET_CAPTAIN = 8;
     public static final int SLOT_TYPE_SHIP = 1000;
 
     public static Class[] CLASS_FOR_SLOT = new Class[] {
@@ -928,14 +949,9 @@ public class EquippedShip extends EquippedShipBase {
             squad.removeFleetCaptain();
         } else {
             FleetCaptain fleetCaptain = Universe.getUniverse().getFleetCaptain(externalId);
-            if (!fleetCaptain.compatibleWithFaction(shipFaction())) {
-                return new Explanation("Failed to add Fleet Captain.",
-                        fleetCaptain.getPlainDescription()
-                                + " not compatible with ship faction "
-                                + shipFaction());
-            } else if (!getCaptain().getUnique()) {
-                return new Explanation("Failed to add Fleet Captain.",
-                        getCaptain().getPlainDescription() + "not unique.");
+            Explanation explanation = canAddFleetCaptain(fleetCaptain);
+            if (!explanation.canAdd) {
+                return explanation;
             }
             squad.removeFleetCaptain();
             addUpgrade(fleetCaptain);
@@ -959,6 +975,13 @@ public class EquippedShip extends EquippedShipBase {
                 if (!explanation.canAdd) {
                     return explanation; // disallowed, abort!
                 }
+            } else if (SLOT_TYPE_FLEET_CAPTAIN == slotType) {
+                FleetCaptain fleetCaptain = Universe.getUniverse().getFleetCaptain(externalId);
+                Explanation explanation = canAddFleetCaptain(fleetCaptain);
+                if (!explanation.canAdd) {
+                    return explanation; // disallowed, abort!
+                }
+                upgrade = fleetCaptain;
             } else {
                 upgrade = SLOT_TYPE_ADMIRAL == slotType ? Universe
                         .getUniverse().getAdmiral(externalId) : Universe

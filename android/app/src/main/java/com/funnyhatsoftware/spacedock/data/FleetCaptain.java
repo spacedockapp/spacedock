@@ -44,7 +44,7 @@ public class FleetCaptain extends FleetCaptainBase {
     }
 
     public String getPlainDescription() {
-        return "FleetCaptain: " + mTitle;
+        return "Fleet Captain: " + mTitle;
     }
 
     public boolean compatibleWithFaction(String faction) {
@@ -76,4 +76,18 @@ public class FleetCaptain extends FleetCaptainBase {
         return TextUtils.join(",  ", caps);
     }
 
+    @Override
+    public int additionalWeaponSlots() {
+        return getWeaponAdd();
+    }
+
+    @Override
+    public int additionalCrewSlots() {
+        return getCrewAdd();
+    }
+
+    @Override
+    public int additionalTechSlots() {
+        return getTechAdd();
+    }
 }

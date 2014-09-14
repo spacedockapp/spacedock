@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.TreeSet;
 
-public class Upgrade extends UpgradeBase {
+public class Upgrade extends UpgradeBase implements Factioned {
 
     private static java.util.Set<String> sIneligibleTechUpgrades = new TreeSet<String>();
 
@@ -129,15 +129,19 @@ public class Upgrade extends UpgradeBase {
     }
 
     private boolean isDominion() {
-        return getFaction().equals("Dominion");
+        return DataUtils.targetHasFaction("Dominion", this);
     }
 
     public boolean isBorgFaction() {
-        return getFaction().equals(Constants.BORG);
+        return DataUtils.targetHasFaction(Constants.BORG, this);
     }
 
     public boolean isVulcan() {
-        return getFaction().equals(Constants.VULCAN);
+        return DataUtils.targetHasFaction(Constants.VULCAN, this);
+    }
+
+    public boolean isIndependent() {
+        return DataUtils.targetHasFaction(Constants.INDEPENDENT, this);
     }
 
     public String targetShipClass() {
@@ -210,10 +214,8 @@ public class Upgrade extends UpgradeBase {
 
         Ship ship = equippedShip.getShip();
         String shipFaction = "";
-        String additionalShipFaction = "";
         if (ship != null) {
             shipFaction = ship.getFaction();
-            additionalShipFaction = ship.getAdditionalFaction();
         }
         boolean shipIsSideboard = equippedShip.isResourceSideboard();
         String upgradeFaction = mFaction;
@@ -363,9 +365,9 @@ public class Upgrade extends UpgradeBase {
                 cost = 3;
             }
         }
-        if (!shipFaction.equals(upgradeFaction) && !additionalShipFaction.equals(upgradeFaction)
+        if (!DataUtils.factionsMatch(ship, this)
                 && !equippedShip.isResourceSideboard()
-                && !equippedShip.getFlagshipFaction().equals(upgradeFaction)) {
+                && !DataUtils.targetHasFaction(equippedShip.getFlagshipFaction(), this)) {
             if (captainSpecial.equals("UpgradesIgnoreFactionPenalty") && !isCaptain() && !isAdmiral()) {
                 // do nothing
             } else if (captainSpecial.equals("NoPenaltyOnFederationOrBajoranShip") && isCaptain()) {
@@ -386,8 +388,8 @@ public class Upgrade extends UpgradeBase {
             } else if (isAdmiral()) {
                 cost += 3;
             } else if (isCaptain() && null != fleetCaptain
-                    && "Independent".equals(fleetCaptain.getFaction())
-                    && "Independent".equals(shipFaction)) {
+                    && fleetCaptain.isIndependent()
+                    && ship.isIndependent()) {
                 // do nothing
             } else if (ship.isVulcan() && "add_one_tech_no_faction_penalty_on_vulcan".equals(upgradeSpecial)) {
                 // do nothing
@@ -456,6 +458,7 @@ public class Upgrade extends UpgradeBase {
         if ("AddsOneWeaponOneTech".equalsIgnoreCase(special)
                 || "sakonna_gavroche".equalsIgnoreCase(special)
                 || "only_suurok_class_limited_weapon_hull_plus_1".equalsIgnoreCase(special)
+                || "addoneweaponslot".equalsIgnoreCase(special)
                 || "quark_weapon_71786".equals(this.getExternalId())) {
             return 1;
         }

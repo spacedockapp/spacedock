@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 import android.text.TextUtils;
 
-public class Ship extends ShipBase {
+public class Ship extends ShipBase implements Factioned {
 
     static class ShipComparator implements Comparator<Ship> {
         @Override
@@ -162,23 +162,23 @@ public class Ship extends ShipBase {
     }
 
     public boolean isFederation() {
-        return mFaction.equals(Constants.FEDERATION);
+        return DataUtils.targetHasFaction(Constants.FEDERATION, this);
     }
 
     public boolean isBajoran() {
-        return mFaction.equals(Constants.BAJORAN);
+        return DataUtils.targetHasFaction(Constants.BAJORAN, this);
     }
 
     public boolean isSpecies8472() {
-        return mFaction.equals(Constants.SPECIES_8472);
+        return DataUtils.targetHasFaction(Constants.SPECIES_8472, this);
     }
 
     public boolean isBorg() {
-        return mFaction.equals(Constants.BORG);
+        return DataUtils.targetHasFaction(Constants.BORG, this);
     }
 
     public boolean isKazon() {
-        return mFaction.equals(Constants.KAZON);
+        return DataUtils.targetHasFaction(Constants.KAZON, this);
     }
 
     public boolean isTholian() {
@@ -186,7 +186,11 @@ public class Ship extends ShipBase {
     }
 
     public boolean isVulcan() {
-        return mFaction.equals(Constants.VULCAN);
+        return DataUtils.targetHasFaction(Constants.VULCAN, this);
+    }
+
+    public boolean isIndependent() {
+        return DataUtils.targetHasFaction(Constants.INDEPENDENT, this);
     }
 
     public boolean isVoyager() {
