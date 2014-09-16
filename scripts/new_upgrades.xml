@@ -1,160 +1,304 @@
+  <Upgrade>
+    <Title>Thought Maker</Title>
+    <Ability>During the Planning Phase, after every ship has been assigned a Maneuver Dial, you may discard this card to target a ship within Range 1-2.  If you do so, look at that ship's Maneuver Dial and change it to any of its 1 or 2 Green Maneuvers (your choice).  That Maneuver Dial cannot be changed nor can its player look at it until it is that ship's turn to activate.  The target ship's player may place an Auxiliary Power Token beside the target ship to ignore the new Maneuver and not move that round.  This Upgrade may only be purchased for a Ferengi ship.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill></Skill>
+    <Talent></Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Tech</Type>
+    <Faction>Ferengi</Faction>
+    <Cost>4</Cost>
+    <Id>thought_maker_71646a</Id>
+    <Set>71646a</Set>
+    <Special>OnlyFerengiShip</Special>
+  </Upgrade>
+  <Upgrade>
+    <Title>Vengeance</Title>
+    <Ability>When attacking a ship at Range 1, during the Roll Attack Dice step of the Combat Phase, you may discard this card to roll up to +2 additional attack dice.  If you do so, when the attack is completed your ship suffers 1 normal damage for each die you rolled. This Upgrade may only be purchased for a Ferengi Captain assigned to a Ferengi ship.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill></Skill>
+    <Talent></Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Talent</Type>
+    <Faction>Ferengi</Faction>
+    <Cost>2</Cost>
+    <Id>vengeance_71646a</Id>
+    <Set>71646a</Set>
+    <Special>OnlyFerengiCaptainFerengiShip</Special>
+  </Upgrade>
+  <Upgrade>
+    <Title>Kazago</Title>
+    <Ability>ACTION: Discard this card to place 1 [EVADE] Token and 1 [BATTLESTATIONS] Token beside your ship.  You cannot perform an [EVASIVE MANEUVERS] or a [BATTLESTATIONS] Action as a free Action this round. OR ACTION: Discard your current Captain Card and treat this card as your new Captain.  While Kazago is your Captain, your Skill Number is 4.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill></Skill>
+    <Talent></Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Crew</Type>
+    <Faction>Ferengi</Faction>
+    <Cost>2</Cost>
+    <Id>kazago_71646a</Id>
+    <Set>71646a</Set>
+    <Special></Special>
+  </Upgrade>
+  <Upgrade>
+    <Title>Tasha Yar</Title>
+    <Ability>If your ship was just destroyed, discard this card to target 1 enemy ship within Range 1-3, if possible. Immediately make 1 free attack against that ship with 4 attack dice. If the target ship is in your forward firing arc, that ship rolls -2 defense dice against this attack.</Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+    <Skill></Skill>
+    <Talent></Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Crew</Type>
+    <Faction>Mirror Universe</Faction>
+    <Cost>2</Cost>
+    <Id>tasha_yar_71646b</Id>
+    <Set>71646b</Set>
+    <Special></Special>
+  </Upgrade>
+  <Upgrade>
+    <Title>Cloaking Device</Title>
+    <Ability>Instead of performing a normal Action, you may disable this card to perform the [CLOAK] Action. While you have a [CLOAK] token beside your ship, you may perform the [SENSOR ECHO] Action even if this card is disabled. This upgrade costs +5 Squadron Points for any non-Mirror Universe ship.</Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill></Skill>
+    <Talent></Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Tech</Type>
+    <Faction>Mirror Universe</Faction>
+    <Cost>4</Cost>
+    <Id>cloaking_device_71646b</Id>
+    <Set>71646b</Set>
+    <Special>PlusFiveIfNotMirrorUniverse</Special>
+  </Upgrade>
+  <Upgrade>
+    <Title>Tersa</Title>
+    <Ability>ACTION:  If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1 - 2 that is not Cloaked and has no Active Shields.  Discard Tersa and 1 [CREW] Upgrade of your choice on the target ship.  Place a [SCAN] Token beside your ship.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill></Skill>
+    <Talent></Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Crew</Type>
+    <Faction>Kazon</Faction>
+    <Cost>2</Cost>
+    <Id>tersa_71646c</Id>
+    <Set>71646c</Set>
+    <Special></Special>
+  </Upgrade>
+  <Upgrade>
+    <Title>Tractor Beam</Title>
+    <Ability>During the Activation Phase, when a ship within Range 1 of your ship reveals a Maneuver with a number of 3 or higher, before that ship moves, you may discard this card to subtract 2 from that Maneuver's number. No ship may be equipped with more than 1 of this Upgrade.</Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill></Skill>
+    <Talent></Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Tech</Type>
+    <Faction>Kazon</Faction>
+    <Cost>2</Cost>
+    <Id>tractor_beam_71646c</Id>
+    <Set>71646c</Set>
+    <Special>NoMoreThanOnePerShip</Special>
+  </Upgrade>
+  <Upgrade>
+    <Title>Access Terminal</Title>
+    <Ability>When you are required to spend any number of Drone Tokens, you may disable this card to spend those Drone Tokens from your ship and/or any friendly ship(s) within Range 1-2 of your ship. You may divide spending those Drone Tokens between your ships however you like.</Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill></Skill>
+    <Talent></Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Tech</Type>
+    <Faction>Borg</Faction>
+    <Cost>2</Cost>
+    <Id>access_terminal_71646d</Id>
+    <Set>71646d</Set>
+    <Special></Special>
+  </Upgrade>
+  <Upgrade>
+    <Title>One</Title>
+    <Ability>ACTION: Discard this card to perform this Action. For each damage your ship suffers this round, disable 1 of your Active Shields instead of destroying it. If you have no Active Shields left, any excess damage is applied to your Hull as normal.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill></Skill>
+    <Talent></Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Crew</Type>
+    <Faction>Borg</Faction>
+    <Cost>4</Cost>
+    <Id>one_71646d</Id>
+    <Set>71646d</Set>
+    <Special></Special>
+  </Upgrade>
+  <Upgrade>
+    <Title>Dispersion Field</Title>
+    <Ability>While this card is deployed to your ship, none of your other Upgrades can be affected by your opponents. In addition, you may roll your full defense dice in spite of the presence of an opposing ship’s [SCAN] Token.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill></Skill>
+    <Talent></Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Borg</Type>
+    <Faction>Borg</Faction>
+    <Cost>2</Cost>
+    <Id>dispersion_field_71646d</Id>
+    <Set>71646d</Set>
+    <Special></Special>
+  </Upgrade>
+  <Upgrade>
+    <Title>Vulcan Logic</Title>
+    <Ability>During the Roll Defense Dice step of the Combat Phase, you may discard this card to roll +2 defense dice. If you do so, during the Modify Defense Dice step, you may re-roll any number of your defense dice. This Upgrade may only be purchased for a Vulcan Captain on assigned to a Vulcan ship.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill></Skill>
+    <Talent></Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Talent</Type>
+    <Faction>Vulcan</Faction>
+    <Cost>4</Cost>
+    <Id>vulcan_logic_71646e</Id>
+    <Set>71646e</Set>
+    <Special>OnlyVulcanCaptainVulcanShip</Special>
+  </Upgrade>
+  <Upgrade>
+    <Title>Kov</Title>
+    <Ability>ACTION: Discard this card to repair up to 2 damage to your ship’s Hull or Shields.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill></Skill>
+    <Talent></Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Crew</Type>
+    <Faction>Vulcan</Faction>
+    <Cost>4</Cost>
+    <Id>kov_71646e</Id>
+    <Set>71646e</Set>
+    <Special></Special>
+  </Upgrade>
     <Upgrade>
-      <Title>Secondary Impulse Reactor</Title>
-      <Ability>During the Activation Phase, if you reveal a Red Maneuver and you have an Auxiliary Power Token beside your ship, you may disable this card to perform that Maneuver with no penalty.</Ability>
+      <Title>Photon Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may fire this weapon from your forward or rear firing arcs.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>1</Cost>
-      <Id>secondary_impulse_reactor_71510</Id>
-      <Set>71510</Set>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Ferengi</Faction>
+      <Cost>4</Cost>
+      <Id>photon_torpedoes_71646a</Id>
+      <Set>71646a</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Jack Crusher</Title>
-      <Ability>During the Modify Defense Dice step of the Combat Phase, you may discard this card and spend 1 [EVASIVE MANEUVERS] Token to add 2 [EVADE] results to your roll.</Ability>
-      <Unique>Y</Unique>
+      <Title>Forward Weapons Grid</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. You must divide this attack between 2 different ships in your forward firing arc. You may divide your attack dice however you like, but you must roll at least 2 attack dice against each ship. Place an Auxiliary Power Token beside your ship.</Ability>
+      <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
+      <Attack>6</Attack>
+      <Range>1-2</Range>
+      <Type>Weapon</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>4</Cost>
+      <Id>forward_weapons_grid_71646b</Id>
+      <Set>71646b</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Dorsal Weapons Array</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. You may fire this weapon in any direction.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>3</Attack>
+      <Range>1-2</Range>
+      <Type>Weapon</Type>
+      <Faction>Mirror Universe</Faction>
       <Cost>2</Cost>
-      <Id>jack_crusher_71510</Id>
-      <Set>71510</Set>
+      <Id>dorsal_weapons_array_71646b</Id>
+      <Set>71646b</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Picard Maneuver</Title>
-      <Ability>ACTION: If you performed a 1 [STRAIGHT], a 4 [STRAIGHT], or a 5 [STRAIGHT] Maneuver this round, discard this card and immediately perform an additional 5 [STRAIGHT] Maneuver.  Place an Auxiliary Power Token beside your ship.  All attacks against your ship this round are at -4 attack dice.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>picard_maneuver_71510</Id>
-      <Set>71510</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Regeneration Sequencers</Title>
-      <Ability>Whenever one of your Upgrades is discarded, repair 1 damage to your Hull. OR You may discard this card and spend 1 Drone Token to repair up to 2 damage to your Hull.</Ability>
+      <Title>Photonic Charges</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. Place an Auxiliarly Power Token beside the target ship if there is at least 1 uncancelled [HIT] or [CRIT] result.This Upgrade costs +4 SP if purchased for a non-Predator class ship.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Borg</Type>
-      <Faction>Borg, Mirror Universe</Faction>
-      <Cost>5</Cost>
-      <Id>regeneration_sequencers_71510b</Id>
-      <Set>71510b</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>We Won't Go Back!</Title>
-      <Ability>If your ship, its Captain, or any of its Upgrades are targeted by an Upgrade on an enemy ship, you may discard this card before that Upgrade takes effect to immediately make 1 free attack against that ship, if possible.  If the enemy ship is destroyed by this free attack, the enemy Upgrade does not take effect.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>5</Cost>
-      <Id>we_won_t_go_back__71510b</Id>
-      <Set>71510b</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Worf</Title>
-      <Ability>If you inflict at least 1 damage (normal or critical) to an enemy ship during the Deal Damage step of the Combat Phase, you may discard this card to inflict 1 additional normal damage to that ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Mirror Universe</Faction>
+      <Attack>4</Attack>
+      <Range>1</Range>
+      <Type>Weapon</Type>
+      <Faction>Kazon</Faction>
       <Cost>4</Cost>
-      <Id>worf_71510b</Id>
-      <Set>71510b</Set>
-      <Special></Special>
+      <Id>photonic_charges_71646c</Id>
+      <Set>71646c</Set>
+      <Special>PlusFourIfNotPredatorClass</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Tactical Station</Title>
-      <Ability>Add 1 [WEAPON] Upgrade slot to your Upgrade Bar. When attacking, you may disable this card to gain +1 attack die until the End Phase. OR When attacking, you may discard this card to gain +2 attack dice until the End Phase.</Ability>
+      <Title>Particle Beam Weapon</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. You may fire this weapon from your forward or rear firing arcs.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
+      <Attack>4</Attack>
+      <Range>1-2</Range>
       <Type>Weapon</Type>
-      <Faction>Federation</Faction>
+      <Faction>Kazon</Faction>
       <Cost>4</Cost>
-      <Id>tactical_station_71510</Id>
-      <Set>71510</Set>
+      <Id>particle_beam_weapon_71646c</Id>
+      <Set>71646c</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Fire All Weapons</Title>
-      <Ability>ATTACK [TARGET LOCK]: Spend your target lock and disable this card to perform this attack.  You may fire this weapon from your forward or rear firing arcs. You may immediately make 1 additional attack with your Primary Weapon at a different enemy ship, if possible. This Upgrade costs +5 SP for any ship other than a Galaxy, Intrepid or Sovereign Class ship.</Ability>
+      <Title>Proton beam</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. All damage inflicted by this attack ignores the opposing ship’s Shields. This upgrade costs +5 SP for any non-Borg ship.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>2-3</Range>
+      <Attack>3</Attack>
+      <Range>1</Range>
       <Type>Weapon</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>7</Cost>
-      <Id>fire_all_weapons_71510b</Id>
-      <Set>71510b</Set>
-      <Special></Special>
+      <Faction>Borg</Faction>
+      <Cost>4</Cost>
+      <Id>proton_beam_71646d</Id>
+      <Set>71646d</Set>
+      <Special>PlusFiveIfNotBorgShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Quantum Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. If the target ship is hit, add 1 [HIT] result to your total damage. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Title>Photonic Weapon</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may re-roll all of your blank results one time. You may fire this weapon from your forward or rear firing arcs. </Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>5</Attack>
+      <Attack>4</Attack>
       <Range>2-3</Range>
       <Type>Weapon</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>6</Cost>
-      <Id>quantum_torpedoes_71510b</Id>
-      <Set>71510b</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Biogenic Weapon</Title>
-      <Ability>You must use 1 [BORG] and 1 [WEAPON] Upgrade slot to deploy this Upgrade to your ship. ATTACK: [TARGET LOCK] Spend your target lock and discard this card to perform this attack.  In addition to normal damage, the opposing ship must discard 1 of its [CREW] Upgrades of its choice for each damage you inflict to that ship's Hull with this attack (max 2).  Add 1 Drone Token to your Captain Card for each [CREW] Upgrade that was discarded with this attack.  You cannot exceed your starting number of Drone Tokens.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>7</Attack>
-      <Range>2-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Borg, Mirror Universe</Faction>
-      <Cost>8</Cost>
-      <Id>biogenic_weapon_71510b</Id>
-      <Set>71510b</Set>
+      <Faction>Vulcan</Faction>
+      <Cost>4</Cost>
+      <Id>photonic_weapon_71646e</Id>
+      <Set>71646e</Set>
       <Special></Special>
     </Upgrade>

@@ -6,12 +6,16 @@ require_relative "common"
 
 #Timestamp		Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots
 ship = <<-SHIPTEXT
-8/18/2019/9/2014 10:02:36	Unique	U.S.S. Stargazer	Federation	Constellation Class	3	1	4	3	During the Activation Phase, you may disable 1 of your Active Shields to remove 1 Auxiliary Power Token from beside your ship.	Battle Stations, Evasive, Scan, Target Lock	22	0	1	1	1	71510 -  U.S.S. Stargazer	Nova Class										
-9/9/2014 10:03:29	Non-unique	Federation Starship	Federation	Constellation Class	3	1	4	2		Battle Stations, Evasive, Scan, Target Lock	20	0	1	0	1	71510 -  U.S.S. Stargazer	Nova Class										
-9/9/2014 10:05:47	Mirror Universe Unique	U.S.S. Enterprise-D	Mirror Universe	Galaxy Class	5	1	5	3	During the Roll Attack Dice step of the Combat Phase, you may disable 1 of your Active Shields to gain +1 attack die.	Battle Stations, Evasive, Scan, Target Lock	28	0	2	0	3	71510b - Assimilation Target Prime											
-9/9/2014 10:06:40	Non-unique	Mirror Universe Starship	Mirror Universe	Galaxy Class	5	1	5	2		Battle Stations, Evasive, Scan, Target Lock	26	0	1	0	3	71510b - Assimilation Target Prime											
-9/9/2014 10:08:11	Mirror Universe Unique	Assimilation Target Prime	Borg, Mirror Universe	Galaxy Class	5	1	5	4	ACTION: Spend 1 Drone Token to repair 1 damage to your Hull or Shields.	Evasive, Regenerate, Scan, Target Lock	30	1	1	1	2	71510b - Assimilation Target Prime											
-9/9/2014 10:09:03	Non-unique	Mirror Universe/Borg Starship	Borg, Mirror Universe	Galaxy Class	5	1	5	3		Evasive, Regenerate, Scan, Target Lock	28	1	1	1	1	71510b - Assimilation Target Prime											
+9/15/2014 21:13:29	Unique	Bok's Marauder	Ferengi	D'kora Class	3	1	4	3	If you performed a Maneuver of 3 or higher this round, during the Roll Attack Dice step of the Combat Phase, you may add +1 attack die.  If you do so, place an Auxiliary Power Token beside your ship.	Evasive, Scan, Target Lock	22	0	1	1	2	71646a - Bok's Marauder	D'kora Class										
+9/15/2014 21:14:08	Non-unique	Ferengi Starship	Ferengi	D'kora Class	3	1	4	2		Evasive, Scan, Target Lock	20	0	1	1	1	71646a - Bok's Marauder	D'kora Class										
+9/15/2014 21:23:03	Non-unique	Mirror Universe Starship	Mirror Universe	Cardassian Galor Class	4	1	4	3		Evasive, Scan, Target Lock	24	0	1	1	1	71646b - Prakesh	Cardassian Galor Class										
+9/15/2014 21:22:17	Mirror Universe Unique	Prakesh	Mirror Universe	Cardassian Galor Class	4	1	4	4	After you move, if you are within Range 1 of a friendly ship, you may immediately perform one of the Actions listed on your Action Bar as a free Action.	Evasive, Scan, Target Lock	26	0	1	1	2	71646b - Prakesh	Cardassian Galor Class										
+9/15/2014 21:33:17	Non-unique	Kazon Starship	Kazon	Predator Class	4	1	5	2		Battle Stations, Evasive, Scan, Target Lock	24	0	1	1	2	71646c - Relora-Sankur	D'Kyr Class										
+9/15/2014 21:32:11	Unique	Relora-Sankur	Kazon	Predator Class	4	1	5	3	If you performed a Green Maneuver this round, during the Roll Attack Dice step of the Combat Phase, roll +1 attack die.	Battle Stations, Evasive, Scan, Target Lock	26	0	2	1	2	71646c - Relora-Sankur	D'Kyr Class										
+9/15/2014 21:24:04	Non-unique	Borg Starship	Borg	Borg Scout Cube	3	3	2	3	You cannot deploy a [BORG] Upgrade with a cost greater than 5 to this ship.	Evasive, Regenerate, Scan, Target Lock	22	1	1	1	0	71646d - Scout 255	Borg Scout Cube										
+9/15/2014 21:13:55	Unique	Scout 255	Borg	Borg Scout Cube	3	3	2	4	If there is a [SCAN] Token beside your ship during the Modify Defense Dice step of the Combat Phase, roll +1 defense die. You cannot deploy a [BORG] Upgrade with a cost greater than 5 to this ship.	Evasive, Regenerate, Scan, Target Lock	24	1	1	1	1	71646d - Scout 255	Borg Scout Cube										
+9/15/2014 21:40:52	Unique	Tal'Kir	Vulcan	D'Kyr Class	3	1	5	4	Each time you defend, during the Modify Defense Dice step of the Combat Phase, you may add 1 [EVADE] result to your roll.  If you do so, place 1 Auxiliary Power Token beside your ship.	Battle Stations, Evasive, Scan, Target Lock	26	0	2	1	1	71646e - Tal'Kir	D'Kyr Class										
+9/15/2014 21:41:30	Non-unique	Vulcan Starship	Vulcan	D'Kyr Class	3	1	5	3		Battle Stations, Evasive, Scan, Target Lock	24	0	1	1	1	71646e - Tal'Kir	D'Kyr Class										
 SHIPTEXT
 
 

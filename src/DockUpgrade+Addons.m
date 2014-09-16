@@ -201,32 +201,42 @@
 
 -(BOOL)isDominion
 {
-    return [self.faction isEqualToString: @"Dominion"];
+    return targetHasFaction(@"Dominion", self);
 }
 
 -(BOOL)isKlingon
 {
-    return [self.faction isEqualToString: @"Klingon"];
+    return targetHasFaction(@"Klingon", self);
+}
+
+-(BOOL)isKazon
+{
+    return targetHasFaction(@"Kazon", self);
 }
 
 -(BOOL)isBajoran
 {
-    return [self.faction isEqualToString: @"Bajoran"];
+    return targetHasFaction(@"Bajoran", self);
 }
 
 -(BOOL)isFederation
 {
-    return [self.faction isEqualToString: @"Federation"];
+    return targetHasFaction(@"Federation", self);
+}
+
+-(BOOL)isFerengi
+{
+    return targetHasFaction(@"Ferengi", self);
 }
 
 -(BOOL)isVulcan
 {
-    return [self.faction isEqualToString: @"Vulcan"];
+    return targetHasFaction(@"Vulcan", self);
 }
 
 -(BOOL)isFactionBorg
 {
-    return [self.faction isEqualToString: @"Borg"];
+    return targetHasFaction(@"Borg", self);
 }
 
 -(BOOL)isRestrictedOnlyByFaction
@@ -241,7 +251,7 @@
 
 -(BOOL)isIndependent
 {
-    return [self.faction isEqualToString: @"Independent"];
+    return targetHasFaction(@"Independent", self);
 }
 
 -(NSComparisonResult)compareTo:(DockUpgrade*)other
@@ -522,6 +532,11 @@
         if ([fleetCaptainSpecial isEqualToString: @"WeaponUpgradesCostOneLess"]) {
             cost -= 1;
         }
+        if ([captainSpecial isEqualToString: @"AddOneWeaponAllKazonMinusOne"]) {
+            if ([upgrade isKazon]) {
+                cost -= 1;
+            }
+        }
     } else if ([upgrade isTech]) {
         if ([fleetCaptainSpecial isEqualToString: @"TechUpgradesCostOneLess"]) {
             cost -= 1;
@@ -559,6 +574,14 @@
     } else if ([upgradeSpecial isEqualToString: @"PlusFiveIfNotRaven"]) {
         if (![ship isRaven]) {
             cost += 5;
+        }
+    } else if ([upgradeSpecial isEqualToString: @"PlusFiveIfNotMirrorUniverse"]) {
+        if (![ship isMirrorUniverse]) {
+            cost += 5;
+        }
+    } else if ([upgradeSpecial isEqualToString: @"PlusFourIfNotPredatorClass"]) {
+        if (![ship isPredatorClass]) {
+            cost += 4;
         }
     } else if ([upgradeSpecial isEqualToString: @"PlusFiveIfNotGalaxyIntrepidSovereign"]) {
         if (!([ship isGalaxyClass] || [ship isIntrepidClass] || [ship isSovereignClass])) {
@@ -685,7 +708,7 @@
     if ([special isEqualToString: @"AddTwoWeaponSlots"]) {
         return 2;
     }
-    if ([special isEqualToString: @"AddsOneWeaponOneTech"] || [special isEqualToString: @"addoneweaponslot"]) {
+    if ([special isEqualToString: @"AddsOneWeaponOneTech"] || [special isEqualToString: @"addoneweaponslot"] || [special isEqualToString: @"AddOneWeaponAllKazonMinusOne"]) {
         return 1;
     }
     if ([special isEqualToString: @"sakonna_gavroche"]) {

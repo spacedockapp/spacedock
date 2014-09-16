@@ -452,12 +452,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3024",
+            "upgradeId" : "3033",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3033",
+            "upgradeId" : "3024",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
@@ -669,6 +669,52 @@
     "additionalPoints" : 0,
     "modified" : "2014-06-19T16:51:18-0700",
     "name" : "genkhan on sideboard"
+  },
+  {
+    "uuid" : "98005AB7-9A28-470B-BF2E-0AB534AD4293",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 43,
+        "shipId" : "relora_sankur_71646c",
+        "upgrades" : [
+          {
+            "upgradeId" : "tersa_71646c",
+            "upgradeTitle" : "Tersa",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "tractor_beam_71646c",
+            "upgradeTitle" : "Tractor Beam",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "particle_beam_weapon_71646c",
+            "upgradeTitle" : "Particle Beam Weapon",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "photon_torpedoes_71646a",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "photonic_charges_71646c",
+            "upgradeTitle" : "Photonic Charges",
+            "calculatedCost" : 3
+          }
+        ],
+        "shipTitle" : "Relora-Sankur",
+        "captain" : {
+          "upgradeId" : "haron_71646c",
+          "upgradeTitle" : "Haron",
+          "calculatedCost" : 2
+        }
+      }
+    ],
+    "name" : "haron",
+    "modified" : "2014-09-16T14:39:12-0700",
+    "cost" : 43
   },
   {
     "uuid" : "8BE26D4C-1DF1-4663-97A9-798F866D1745",
@@ -1268,12 +1314,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3052",
+            "upgradeId" : "3011",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3011",
+            "upgradeId" : "3052",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
@@ -1685,6 +1731,49 @@
     "cost" : 52
   },
   {
+    "uuid" : "73920E5D-00E8-40B3-B7B8-CCEAEF191281",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 36,
+        "shipId" : "tal_kir_71646e",
+        "upgrades" : [
+          {
+            "upgradeId" : "cloaking_device_71646b",
+            "upgradeTitle" : "Cloaking Device",
+            "calculatedCost" : 10
+          }
+        ],
+        "shipTitle" : "Tal'Kir",
+        "captain" : {
+          "upgradeId" : "vulcan_captain_71446",
+          "upgradeTitle" : "Vulcan Captain",
+          "calculatedCost" : 0
+        }
+      },
+      {
+        "calculatedCost" : 32,
+        "shipId" : "mirror_universe_borg_starship_71510b",
+        "upgrades" : [
+          {
+            "upgradeId" : "cloaking_device_71646b",
+            "upgradeTitle" : "Cloaking Device",
+            "calculatedCost" : 4
+          }
+        ],
+        "shipTitle" : "Mirror Universe\/Borg Starship",
+        "captain" : {
+          "upgradeId" : "drone_71283",
+          "upgradeTitle" : "Drone",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "mirror cloak",
+    "modified" : "2014-09-16T14:47:19-0700",
+    "cost" : 68
+  },
+  {
     "uuid" : "538AB4B9-1F15-490A-A9B9-EC3567CB7709",
     "additionalPoints" : 0,
     "ships" : [
@@ -1803,6 +1892,32 @@
     "name" : "Phaser Strike",
     "modified" : "2014-06-21T06:50:02-0700",
     "cost" : 66
+  },
+  {
+    "uuid" : "D078039F-2CF5-4143-94D7-D1721F1FA575",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 31,
+        "shipId" : "bok_s_marauder_71646a",
+        "upgrades" : [
+          {
+            "upgradeId" : "photonic_charges_71646c",
+            "upgradeTitle" : "Photonic Charges",
+            "calculatedCost" : 9
+          }
+        ],
+        "shipTitle" : "Bok's Marauder",
+        "captain" : {
+          "upgradeId" : "2027",
+          "upgradeTitle" : "Ferengi Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "photonic charges",
+    "modified" : "2014-09-16T14:40:44-0700",
+    "cost" : 31
   },
   {
     "uuid" : "19F2B8FF-02CC-4F77-A9A1-A714FE07041F",

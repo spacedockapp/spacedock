@@ -193,12 +193,17 @@ NSString* asDegrees(NSString* textValue)
 
 -(BOOL)isFederation
 {
-    return [self.faction isEqualToString: @"Federation"];
+    return targetHasFaction(@"Federation", self);
+}
+
+-(BOOL)isFerengi
+{
+    return targetHasFaction(@"Ferengi", self);
 }
 
 -(BOOL)isBajoran
 {
-    return [self.faction isEqualToString: @"Bajoran"];
+    return targetHasFaction(@"Bajoran", self);
 }
 
 -(BOOL)isFighterSquadron
@@ -288,7 +293,12 @@ NSString* asDegrees(NSString* textValue)
 
 -(BOOL)isVulcan
 {
-    return [self.faction isEqualToString: @"Vulcan"];
+    return targetHasFaction(@"Vulcan", self);
+}
+
+-(BOOL)isMirrorUniverse
+{
+    return targetHasFaction(@"Mirror Universe", self);
 }
 
 -(BOOL)isSuurokClass
@@ -296,9 +306,14 @@ NSString* asDegrees(NSString* textValue)
     return [self.shipClass isEqualToString: @"Suurok Class"];
 }
 
+-(BOOL)isPredatorClass
+{
+    return [self.shipClass isEqualToString: @"Predator Class"];
+}
+
 -(BOOL)isIndependent
 {
-    return [self.faction isEqualToString: @"Independent"];
+    return targetHasFaction(@"Independent", self);
 }
 
 -(int)techCount

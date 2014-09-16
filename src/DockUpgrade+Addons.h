@@ -22,9 +22,11 @@
 -(BOOL)isUnique;
 -(BOOL)isMirrorUniverseUnique;
 -(BOOL)isDominion;
+-(BOOL)isKazon;
 -(BOOL)isKlingon;
 -(BOOL)isBajoran;
 -(BOOL)isFederation;
+-(BOOL)isFerengi;
 -(BOOL)isVulcan;
 -(BOOL)isFactionBorg;
 -(BOOL)isRestrictedOnlyByFaction;

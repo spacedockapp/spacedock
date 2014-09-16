@@ -637,7 +637,7 @@
 		D4BCA3E61814EC0900921183 /* Space Dock-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Space Dock-Prefix.pch"; sourceTree = "<group>"; };
 		D4BCA3E71814EC0900921183 /* space_dock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = space_dock.icns; sourceTree = "<group>"; };
 		D4BCA3F11814EC5100921183 /* DockDataFileLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockDataFileLoader.h; sourceTree = "<group>"; };
-		D4BCA3F21814EC5100921183 /* DockDataFileLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockDataFileLoader.m; sourceTree = "<group>"; };
+		D4BCA3F21814EC5100921183 /* DockDataFileLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DockDataFileLoader.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D4BCA3FC1814F8DF00921183 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D4BCA3FE1814F8DF00921183 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D4BCA4001814F8DF00921183 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -732,7 +732,7 @@
 		D4F686AD18FB16A80019C067 /* DockBorg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockBorg.m; sourceTree = "<group>"; };
 		D4F7F1A71808DBB000157E32 /* DockSet+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockSet+Addons.h"; sourceTree = "<group>"; };
 		D4F7F1A81808DBB000157E32 /* DockSet+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockSet+Addons.m"; sourceTree = "<group>"; };
-		D4F7F3EA17F2C95D00F5A808 /* Data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Data.xml; sourceTree = "<group>"; };
+		D4F7F3EA17F2C95D00F5A808 /* Data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; lineEnding = 0; path = Data.xml; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.xml; };
 		D4F7F3F317F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockOrderedSetArrayValueTransformer.h; sourceTree = "<group>"; };
 		D4F7F3F417F2C95D00F5A808 /* DockOrderedSetArrayValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockOrderedSetArrayValueTransformer.m; sourceTree = "<group>"; };
 		D4F7F40D17F2C95D00F5A808 /* Space_Dock.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock.xcdatamodel; sourceTree = "<group>"; };

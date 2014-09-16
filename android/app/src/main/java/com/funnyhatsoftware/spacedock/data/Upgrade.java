@@ -164,6 +164,14 @@ public class Upgrade extends UpgradeBase implements Factioned {
         return DataUtils.targetHasFaction(Constants.INDEPENDENT, this);
     }
 
+    public boolean isKazon() {
+        return DataUtils.targetHasFaction(Constants.KAZON, this);
+    }
+
+    public boolean isMirrorUniverse() {
+        return DataUtils.targetHasFaction(Constants.MIRROR_UNIVERSE, this);
+    }
+
     public String targetShipClass() {
 
         if (mSpecial.equals("OnlyForRomulanScienceVessel")) {
@@ -285,6 +293,11 @@ public class Upgrade extends UpgradeBase implements Factioned {
             if (captainSpecial.equals("WeaponUpgradesCostOneLess")) {
                 cost -= 1;
             }
+            if (captainSpecial.equals("AddOneWeaponAllKazonMinusOne")) {
+                if (isKazon()) {
+                    cost -= 1;
+                }
+            }
             if ("WeaponUpgradesCostOneLess".equals(fleetCaptainSpecial)) {
                 cost -= 1;
             }
@@ -334,6 +347,14 @@ public class Upgrade extends UpgradeBase implements Factioned {
         } else if (upgradeSpecial.equals("PlusFiveIfNotRaven")) {
             if (!ship.isRaven()) {
                 cost += 5;
+            }
+        } else if (upgradeSpecial.equals("PlusFiveIfNotMirrorUniverse")) {
+            if (!ship.isMirrorUniverse()) {
+                cost += 5;
+            }
+        } else if (upgradeSpecial.equals("PlusFourIfNotPredatorClass")) {
+            if (!ship.isPredatorClass()) {
+                cost += 4;
             }
         } else if ("PlusFiveIfNotGalaxyIntrepidSovereign".equalsIgnoreCase(upgradeSpecial)) {
             if (!ship.isGalaxy() && !ship.isIntrepid() && !ship.isSovereign()) {
@@ -481,6 +502,8 @@ public class Upgrade extends UpgradeBase implements Factioned {
         if ("AddsOneWeaponOneTech".equalsIgnoreCase(special)
                 || "sakonna_gavroche".equalsIgnoreCase(special)
                 || "only_suurok_class_limited_weapon_hull_plus_1".equalsIgnoreCase(special)
+                || "only_suurok_class_limited_weapon_hull_plus_1".equalsIgnoreCase(special)
+                || "AddOneWeaponAllKazonMinusOne".equalsIgnoreCase(special)
                 || "addoneweaponslot".equalsIgnoreCase(special)
                 || "quark_weapon_71786".equals(this.getExternalId())) {
             return 1;

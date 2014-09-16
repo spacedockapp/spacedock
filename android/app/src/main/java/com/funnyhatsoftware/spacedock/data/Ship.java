@@ -149,6 +149,10 @@ public class Ship extends ShipBase implements Factioned {
         return mShipClass.equals("Sovereign Class");
     }
 
+    public boolean isPredatorClass() {
+        return mShipClass.equals("Predator Class");
+    }
+
     public boolean isBajoranInterceptor() {
         return mShipClass.equals("Bajoran Interceptor");
     }
@@ -191,6 +195,10 @@ public class Ship extends ShipBase implements Factioned {
 
     public boolean isIndependent() {
         return DataUtils.targetHasFaction(Constants.INDEPENDENT, this);
+    }
+
+    public boolean isMirrorUniverse() {
+        return DataUtils.targetHasFaction(Constants.MIRROR_UNIVERSE, this);
     }
 
     public boolean isVoyager() {

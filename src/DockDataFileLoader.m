@@ -522,7 +522,7 @@ static NSString* makeKey(NSString* key)
         @"AddsOneWeaponOneTech",
         @"OnlyTholianShip",
         @"OnlyTholianCaptain",
-        @"VulcanHighCommand",
+        @"OnlyVulcanCaptainVulcanShip",
         @"PhaserStrike",
         @"CostPlusFiveExceptBajoranInterceptor",
         @"Add_Crew_1",
@@ -547,7 +547,12 @@ static NSString* makeKey(NSString* key)
         @"only_vulcan_ship",
         @"not_with_hugh",
         @"only_suurok_class_limited_weapon_hull_plus_1",
-        @"PlusFiveIfNotGalaxyIntrepidSovereign"
+        @"PlusFiveIfNotGalaxyIntrepidSovereign",
+        @"AddOneWeaponAllKazonMinusOne",
+        @"PlusFourIfNotPredatorClass",
+        @"PlusFiveIfNotMirrorUniverse",
+        @"OnlyFerengiCaptainFerengiShip",
+        @"OnlyFerengiShip"
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];
