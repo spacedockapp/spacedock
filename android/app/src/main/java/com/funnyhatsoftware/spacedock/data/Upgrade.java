@@ -51,6 +51,9 @@ public class Upgrade extends UpgradeBase implements Factioned {
     public String getTitle() {
         String title = super.getTitle();
         String externalId = getExternalId();
+        if (externalId == null) {
+            return title;
+        }
         if (externalId.equals("quark_71786")) {
             title = String.format("%s (Tech)", title);
         } else if (externalId.equals("quark_weapon_71786")) {
