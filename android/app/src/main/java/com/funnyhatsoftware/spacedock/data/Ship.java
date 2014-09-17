@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 import android.text.TextUtils;
 
-public class Ship extends ShipBase implements Factioned {
+public class Ship extends ShipBase implements Factioned, Uniqueness {
 
     static class ShipComparator implements Comparator<Ship> {
         @Override
@@ -87,7 +87,7 @@ public class Ship extends ShipBase implements Factioned {
     }
 
     public String getPlainDescription() {
-        if (!getUnique()) {
+        if (!isAnyKindOfUnique()) {
             return mShipClass;
         }
 
@@ -95,7 +95,7 @@ public class Ship extends ShipBase implements Factioned {
     }
 
     public String getDescriptiveTitle() {
-        if (getUnique()) {
+        if (isAnyKindOfUnique()) {
             return mTitle;
         }
 
@@ -107,6 +107,10 @@ public class Ship extends ShipBase implements Factioned {
     @Override
     public boolean isPlaceholder() {
         return mIsPlaceholder;
+    }
+
+    public boolean isAnyKindOfUnique() {
+        return DataUtils.isAnyKindOfUnique(this);
     }
 
     /* package */void setIsPlaceholder(boolean isPlaceholder) {
@@ -161,7 +165,7 @@ public class Ship extends ShipBase implements Factioned {
         return mTitle.equals("U.S.S. Defiant");
     }
 
-    public boolean isUnique() {
+    private boolean isUnique() {
         return mUnique;
     }
 

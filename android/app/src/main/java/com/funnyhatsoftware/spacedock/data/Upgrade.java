@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.TreeSet;
 
-public class Upgrade extends UpgradeBase implements Factioned {
+public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
 
     private static java.util.Set<String> sIneligibleTechUpgrades = new TreeSet<String>();
 
@@ -110,6 +110,10 @@ public class Upgrade extends UpgradeBase implements Factioned {
         }
 
         return 0;
+    }
+
+    public boolean isAnyKindOfUnique() {
+        return DataUtils.isAnyKindOfUnique(this);
     }
 
     public boolean isTech() {

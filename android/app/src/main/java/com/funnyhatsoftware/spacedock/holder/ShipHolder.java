@@ -100,10 +100,7 @@ public class ShipHolder extends SetItemHolder {
         mHull.setText(Integer.toString(ship.getHull()));
         mShield.setText(Integer.toString(ship.getShield()));
 
-        if (!ship.isUnique()) {
-            // override title to use ship class
-            mTitle.setText(ship.getShipClass());
-        }
+        mTitle.setText(ship.getDescriptiveTitle());
 
         if (mClass != null) {
             ShipClassDetails details = ship.getShipClassDetails();
@@ -116,7 +113,7 @@ public class ShipHolder extends SetItemHolder {
                 int rearArc = DataUtils.intValue(details.getRearArc());
                 mArcDrawable.setArc(factionColor, frontArc, rearArc);
             }
-            if (ship.isUnique()) {
+            if (ship.isAnyKindOfUnique()) {
                 mClass.setText(ship.getShipClass());
             } else {
                 mClass.setText("");

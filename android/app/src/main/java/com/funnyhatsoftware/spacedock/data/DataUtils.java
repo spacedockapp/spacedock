@@ -149,4 +149,8 @@ public class DataUtils {
 
     }
 
+    public static boolean isAnyKindOfUnique(Uniqueness uniqueItem) {
+        return uniqueItem.getUnique() || uniqueItem.getMirrorUniverseUnique();
+    }
+
 }

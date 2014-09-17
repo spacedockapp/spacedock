@@ -742,6 +742,26 @@ public class EquippedShip extends EquippedShipBase {
         return null;
     }
 
+    public EquippedUpgrade containsUniqueUpgradeWithName(String theName) {
+        for (EquippedUpgrade eu : mUpgrades) {
+            Upgrade upgrade = eu.getUpgrade();
+            if (upgrade.getUnique() && upgrade.getTitle().equals(theName)) {
+                return eu;
+            }
+        }
+        return null;
+    }
+
+    public EquippedUpgrade containsMirrorUniverseUniqueUpgradeWithName(String theName) {
+        for (EquippedUpgrade eu : mUpgrades) {
+            Upgrade upgrade = eu.getUpgrade();
+            if (upgrade.getMirrorUniverseUnique() && upgrade.getTitle().equals(theName)) {
+                return eu;
+            }
+        }
+        return null;
+    }
+
     public EquippedShip duplicate() {
         // TODO need to implement duplicate
         throw new RuntimeException("Not yet implemented");
