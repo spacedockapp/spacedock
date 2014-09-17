@@ -1,3 +1,7 @@
+### Version 1.1.6 build 86 (2014-9-17)
+
+* Add Resistance is Futile Boosters.
+
 ### Version 1.1.5 build 85 (2014-9-14)
 
 * Implement inspector for Fleet Captains and Officers
