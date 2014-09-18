@@ -30,6 +30,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -404,6 +405,7 @@ public class Universe {
                 return null; // placeholder type not supported
             }
 
+            placeholder.update(new HashMap<String, Object>());
             placeholder.setTitle(upType);
             placeholder.setUpType(upType);
             placeholder.setPlaceholder(true);
