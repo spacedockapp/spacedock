@@ -410,9 +410,9 @@ public class Squad extends SquadBase {
                 "Can't add %s to the selected squadron",
                 upgrade.getTitle());
         if (upgrade.getUnique()) {
-            EquippedUpgrade existing = containsUpgradeWithName(upgrade
+            EquippedUpgrade existing = containsUniqueUpgradeWithName(upgrade
                     .getTitle());
-            if (existing != null && null == (targetShip.containsUpgrade(existing.getUpgrade()))) {
+            if (existing != null) {
 
                 String explanation = String
                         .format("This %s is unique and one with the same name already exists in the squadron.",
@@ -427,7 +427,7 @@ public class Squad extends SquadBase {
         if (upgrade.getMirrorUniverseUnique()) {
             EquippedUpgrade existing = containsMirrorUniverseUniqueUpgradeWithName(upgrade
                     .getTitle());
-            if (existing != null && null == (targetShip.containsUpgrade(existing.getUpgrade()))) {
+            if (existing != null) {
 
                 String explanation = String
                         .format("This %s is Mirror Universe unique and one with the same name already exists in the squadron.",
