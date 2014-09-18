@@ -635,6 +635,32 @@
     "cost" : 28
   },
   {
+    "uuid" : "A1C08035-C1D6-4FFF-BEA5-47E3492086DA",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 26,
+        "shipId" : "3rd_wing_attack_ship_3rd_wing_attack_ship",
+        "upgrades" : [
+          {
+            "upgradeId" : "elim_garak_71786",
+            "upgradeTitle" : "Elim Garak",
+            "calculatedCost" : 4
+          }
+        ],
+        "shipTitle" : "3rd Wing Attack Ship",
+        "captain" : {
+          "upgradeId" : "2036",
+          "upgradeTitle" : "Dominion Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "garak",
+    "modified" : "2014-09-17T17:45:51-0700",
+    "cost" : 26
+  },
+  {
     "uuid" : "1ABFBD73-F1A0-48AE-9CD0-8502BE9411FC",
     "additionalPoints" : 0,
     "ships" : [
@@ -1345,12 +1371,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3052",
+            "upgradeId" : "3011",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3011",
+            "upgradeId" : "3052",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
@@ -1805,6 +1831,88 @@
     "cost" : 68
   },
   {
+    "ships" : [
+      {
+        "calculatedCost" : 72,
+        "shipId" : "1030",
+        "upgrades" : [
+          {
+            "upgradeId" : "3005",
+            "upgradeTitle" : "Data",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "julian_bashir_71786",
+            "upgradeTitle" : "Julian Bashir",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "3002",
+            "upgradeTitle" : "Worf",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "first_officer_collectiveop3",
+            "upgradeTitle" : "First Officer",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "operations_officer_collectiveop3",
+            "upgradeTitle" : "Operations Officer",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "science_officer_collectiveop3",
+            "upgradeTitle" : "Science Officer",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "tactical_officer_collectiveop3",
+            "upgradeTitle" : "Tactical Officer",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "3017",
+            "upgradeTitle" : "Artificial Quantum Singularity",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "3068",
+            "upgradeTitle" : "Cloaking Device",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "3010",
+            "upgradeTitle" : "Photon Torpedoes (Vor'cha Bonus)",
+            "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "3016",
+            "upgradeTitle" : "Plasma Torpedoes",
+            "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "3067",
+            "upgradeTitle" : "Quantum Torpedoes",
+            "calculatedCost" : 6
+          }
+        ],
+        "shipTitle" : "U.S.S. Defiant",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "cost" : 72,
+    "resource" : "officer_cards_collectiveop3",
+    "uuid" : "F9441AD1-9F67-4C99-94BE-14669318EFA3",
+    "additionalPoints" : 0,
+    "modified" : "2014-09-18T07:43:10-0700",
+    "name" : "officers"
+  },
+  {
     "uuid" : "538AB4B9-1F15-490A-A9B9-EC3567CB7709",
     "additionalPoints" : 0,
     "ships" : [
@@ -2180,14 +2288,14 @@
             "calculatedCost" : 1
           },
           {
-            "upgradeId" : "photon_torpedoes_71279",
-            "upgradeTitle" : "Photon Torpedoes",
-            "calculatedCost" : 6
-          },
-          {
             "upgradeId" : "photon_torpedoes_71524",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "photon_torpedoes_71279",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 6
           }
         ],
         "shipTitle" : "4th Division Battleship",

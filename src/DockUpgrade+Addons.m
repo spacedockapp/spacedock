@@ -756,6 +756,10 @@
     if ([externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
         return 1;
     }
+    NSString* special = self.special;
+    if ([special isEqualToString: @"Add_Crew_1"]) {
+        return 1;
+    }
     return 0;
 }
 
