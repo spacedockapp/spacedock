@@ -389,7 +389,12 @@ public class DataLoader extends DefaultHandler {
                 "not_with_hugh",
                 "ony_federation_ship_limited",
                 "PlusFiveIfNotGalaxyIntrepidSovereign",
-                "addoneweaponslot"
+                "AddOneWeaponAllKazonMinusOne",
+                "OnlyFerengiCaptainFerengiShip",
+                "OnlyFerengiShip",
+                "OnlyVulcanCaptainVulcanShip",
+                "PlusFiveIfNotMirrorUniverse",
+                "PlusFourIfNotPredatorClass"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);
