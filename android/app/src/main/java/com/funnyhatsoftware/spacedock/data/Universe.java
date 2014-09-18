@@ -54,6 +54,7 @@ public class Universe {
     ArrayMap<String, Upgrade> upgrades = new ArrayMap<String, Upgrade>();
     ArrayMap<String, Resource> resources = new ArrayMap<String, Resource>();
     ArrayMap<String, Flagship> flagships = new ArrayMap<String, Flagship>();
+    private ArrayMap<String, Officer> mOfficers = new ArrayMap<String, Officer>();
     ArrayMap<String, Reference> referenceItems = new ArrayMap<String, Reference>();
 
     // map of all set item maps
@@ -206,6 +207,10 @@ public class Universe {
         Upgrade maybeFleetCaptain = fleetCaptains.get(upgradeId);
         if (maybeFleetCaptain != null) {
             return maybeFleetCaptain;
+        }
+        Upgrade maybeOfficer = mOfficers.get(upgradeId);
+        if (maybeOfficer != null) {
+            return maybeOfficer;
         }
         return getUpgrade(upgradeId);
     }
@@ -453,6 +458,14 @@ public class Universe {
 
     public FleetCaptain getFleetCaptain(String fleetCaptainId) {
         return fleetCaptains.get(fleetCaptainId);
+    }
+
+    public Officer getOfficer(String officerId) {
+        return mOfficers.get(officerId);
+    }
+
+    public void putOfficer(String officerId, Officer officer) {
+        mOfficers.put(officerId, officer);
     }
 
     public void addShipClassDetails(ShipClassDetails details) {

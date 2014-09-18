@@ -234,6 +234,31 @@ public class DataLoader extends DefaultHandler {
 
         loadDataItems("FleetCaptains", fleetCaptainsHandler);
 
+        ItemCreator officerHandler = new ItemCreator() {
+
+            @Override
+            public SetItem create(String type) {
+                return new Officer();
+            }
+
+            @Override
+            public SetItem get(String externalId) {
+                return universe.getOfficer(externalId);
+            }
+
+            @Override
+            public void put(String externalId, SetItem s) {
+                universe.putOfficer(externalId, (Officer) s);
+            }
+
+            @Override
+            public void afterUpdate(SetItem s) {
+            }
+
+        };
+
+        loadDataItems("Officers", officerHandler);
+
         ItemCreator flagshipHandler = new ItemCreator() {
 
             @Override
