@@ -550,18 +550,17 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         if (special != null) {
             if (special.equalsIgnoreCase("AddsOneWeaponOneTech")
                     || "addonetechslot".equalsIgnoreCase(special)
-                    || "add_one_tech_no_faction_penalty_on_vulcan".equalsIgnoreCase(special)
-                    || "quark_71786".equals(this.getExternalId())) {
+                    || "add_one_tech_no_faction_penalty_on_vulcan".equalsIgnoreCase(special)) {
                 return 1;
             }
-            String externalId = getExternalId();
-            if (externalId != null) {
-                if (externalId.equals("vulcan_high_command_2_0_71446")) {
-                    return 2;
-                }
-                if (externalId.equals("vulcan_high_command_1_1_71446")) {
-                    return 1;
-                }
+        }
+        String externalId = getExternalId();
+        if (externalId != null) {
+            if (externalId.equals("vulcan_high_command_2_0_71446")) {
+                return 2;
+            }
+            if (externalId.equals("vulcan_high_command_1_1_71446") || externalId.equals("quark_71786")) {
+                return 1;
             }
         }
         return 0;
