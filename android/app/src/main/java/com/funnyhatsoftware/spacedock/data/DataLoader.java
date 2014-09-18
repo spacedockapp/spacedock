@@ -394,7 +394,8 @@ public class DataLoader extends DefaultHandler {
                 "OnlyFerengiShip",
                 "OnlyVulcanCaptainVulcanShip",
                 "PlusFiveIfNotMirrorUniverse",
-                "PlusFourIfNotPredatorClass"
+                "PlusFourIfNotPredatorClass",
+                "addoneweaponslot"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);
