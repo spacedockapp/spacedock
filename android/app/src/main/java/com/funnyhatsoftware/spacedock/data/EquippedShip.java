@@ -499,6 +499,22 @@ public class EquippedShip extends EquippedShipBase {
 
     }
 
+    public void removeIllegalUpgrades() {
+        ArrayList<EquippedUpgrade> onesToRemove = new ArrayList<EquippedUpgrade>();
+        for (EquippedUpgrade eu : getSortedUpgrades()) {
+            Upgrade upgrade = eu.getUpgrade();
+            if (upgrade != null) {
+                Explanation explanation = canAddUpgrade(upgrade);
+                if (!explanation.canAdd) {
+                    onesToRemove.add(eu);
+                }
+            }
+        }
+        for (EquippedUpgrade eu : onesToRemove) {
+            removeUpgrade(eu);
+        }
+    }
+
     private int equipped(String upType) {
         int count = 0;
         ArrayList<EquippedUpgrade> upgrades = getSortedUpgrades();
@@ -919,6 +935,7 @@ public class EquippedShip extends EquippedShipBase {
         setShip(ship);
 
         // TODO: consider swapping zero cost captain for new faction?
+        removeIllegalUpgrades();
         establishPlaceholders();
 
         return Explanation.SUCCESS;
@@ -941,6 +958,7 @@ public class EquippedShip extends EquippedShipBase {
 
         // slot counts may have changed, refresh placeholders + prune slots to
         // new count
+        removeIllegalUpgrades();
         establishPlaceholders();
 
         return Explanation.SUCCESS;
@@ -961,6 +979,7 @@ public class EquippedShip extends EquippedShipBase {
 
         // slot counts may have changed, refresh placeholders + prune slots to
         // new count
+        removeIllegalUpgrades();
         establishPlaceholders();
 
         return Explanation.SUCCESS;
@@ -1015,6 +1034,7 @@ public class EquippedShip extends EquippedShipBase {
 
         // slot counts may have changed, refresh placeholders + prune slots to
         // new count
+        removeIllegalUpgrades();
         establishPlaceholders();
 
         return Explanation.SUCCESS;
