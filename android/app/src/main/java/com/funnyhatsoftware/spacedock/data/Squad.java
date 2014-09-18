@@ -201,6 +201,9 @@ public class Squad extends SquadBase {
     }
 
     public Explanation tryAddEquippedShip(String shipId) {
+        if (shipId == null) {
+            return Explanation.SUCCESS;
+        }
         Ship ship = Universe.getUniverse().getShip(shipId);
         Explanation explanation = canAddShip(ship);
         if (explanation.canAdd) {
