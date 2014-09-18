@@ -318,6 +318,11 @@ public class EquippedShip extends EquippedShipBase {
         return getCaptainLimit();
     }
 
+    public int getOfficerLimit() {
+        ArrayList<EquippedUpgrade> crewUpgrades = allUpgradesOfType(Constants.CREW_TYPE);
+        return 2 * crewUpgrades.size();
+    }
+
     public int getTalent() {
         int v = 0;
         for (EquippedUpgrade eu : getUpgrades()) {
@@ -543,6 +548,12 @@ public class EquippedShip extends EquippedShipBase {
             return new Explanation(msg,
                     "Fighter Squadrons cannot accept upgrades.");
         }
+        if (upgrade.isFleetCaptain()) {
+            return canAddFleetCaptain((FleetCaptain)upgrade);
+        }
+        if (upgrade.isOfficer()) {
+            return canAddOfficer((Officer)upgrade);
+        }
         String upgradeSpecial = upgrade.getSpecial();
         Ship ship = getShip();
         if (upgradeSpecial.equals("OnlyJemHadarShips")) {
@@ -718,6 +729,24 @@ public class EquippedShip extends EquippedShipBase {
                 String info = "The Captain's faction must be the same as the Fleet Captain.";
                 return new Explanation(msg, info);
             }
+        }
+        return Explanation.SUCCESS;
+    }
+
+    public Explanation canAddOfficer(Officer officer) {
+        ArrayList<EquippedUpgrade> crewUpgrades = allUpgradesOfType(Constants.CREW_TYPE);
+        int crewCount = crewUpgrades.size();
+        ArrayList<EquippedUpgrade> officerUpgrades = allUpgradesOfType(Constants.OFFICER_TYPE);
+        int limit = getOfficerLimit();
+        if (officerUpgrades.size() >= limit) {
+            String msg = String.format("Can't add %s to the selected squadron.", officer.getTitle());
+            String info = null;
+            if (crewCount > 0) {
+                info = String.format("This ship has %d crew and can install no more than %d officer cards.", crewCount, limit);
+            } else {
+                info = "Officers must be installed with crew and this ship has no crew ";
+            }
+            return new Explanation(msg, info);
         }
         return Explanation.SUCCESS;
     }

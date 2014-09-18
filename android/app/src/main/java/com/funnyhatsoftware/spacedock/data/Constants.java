@@ -2,6 +2,8 @@
 package com.funnyhatsoftware.spacedock.data;
 
 public class Constants {
+    public static final String CREW_TYPE = "Crew";
+    public static final String OFFICER_TYPE = "Officer";
     public static final String FEDERATION = "Federation";
     public static final String SPECIES_8472 = "Species 8472";
     public static final String BORG = "Borg";

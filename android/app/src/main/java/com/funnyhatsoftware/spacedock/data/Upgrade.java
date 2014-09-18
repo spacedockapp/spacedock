@@ -125,7 +125,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
     }
 
     public boolean isCrew() {
-        return mUpType.equals("Crew");
+        return mUpType.equals(Constants.CREW_TYPE);
     }
 
     public boolean isWeapon() {
@@ -150,6 +150,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
 
     public boolean isFleetCaptain() {
         return mUpType.equals("Fleet Captain");
+    }
+
+    public boolean isOfficer() {
+        return mUpType.equals(Constants.OFFICER_TYPE);
     }
 
     private boolean isDominion() {
