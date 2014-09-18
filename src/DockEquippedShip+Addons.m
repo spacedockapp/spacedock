@@ -313,7 +313,7 @@
     for (upgradeDict in upgrades) {
         NSString* upgradeId = upgradeDict[@"upgradeId"];
         DockUpgrade* upgrade = [DockUpgrade upgradeForId: upgradeId context: context];
-        DockEquippedUpgrade* eu = [self addUpgrade: upgrade];
+        DockEquippedUpgrade* eu = [self addUpgrade: upgrade maybeReplace: nil establishPlaceholders: NO respectLimits: NO];
         NSNumber* overriddenNumber = upgradeDict[@"costIsOverridden"];
         BOOL overridden = [overriddenNumber boolValue];
         if (overridden) {
@@ -760,6 +760,11 @@
 
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace establishPlaceholders:(BOOL)establish
 {
+    return [self addUpgrade: upgrade maybeReplace: maybeReplace establishPlaceholders: establish respectLimits: YES];
+}
+
+-(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace establishPlaceholders:(BOOL)establish respectLimits:(BOOL)respectLimits
+{
     NSManagedObjectContext* context = [self managedObjectContext];
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"EquippedUpgrade"
                                               inManagedObjectContext: context];
@@ -767,7 +772,7 @@
                                                         insertIntoManagedObjectContext: context];
     equippedUpgrade.upgrade = upgrade;
 
-    if (![upgrade isPlaceholder]) {
+    if (establish && ![upgrade isPlaceholder]) {
         DockEquippedUpgrade* ph = [self findPlaceholder: upgrade.upType];
 
         if (ph) {
@@ -779,7 +784,7 @@
     int limit = [upgrade limitForShip: self];
     int current = [self equipped: upType];
 
-    if (current == limit) {
+    if (respectLimits && current == limit) {
         if (maybeReplace == nil || ![maybeReplace.upgrade.upType isEqualToString: upType]) {
             maybeReplace = [self firstUpgrade: upType];
         }

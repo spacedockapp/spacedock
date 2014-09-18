@@ -2028,6 +2028,68 @@
     "name" : "pike on sideboard"
   },
   {
+    "uuid" : "52760730-2C7F-4874-9C30-4046DA51FE41",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 40,
+        "shipId" : "1001",
+        "upgrades" : [
+          {
+            "upgradeId" : "quark_71786",
+            "upgradeTitle" : "Quark",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "3068",
+            "upgradeTitle" : "Cloaking Device",
+            "calculatedCost" : 9
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-D",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "quark-tech",
+    "modified" : "2014-09-17T17:33:18-0700",
+    "cost" : 40
+  },
+  {
+    "uuid" : "6DBF97D1-27A7-4857-A7F3-9F67B351B629",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 22,
+        "shipId" : "1013",
+        "upgrades" : [
+          {
+            "upgradeId" : "quark_weapon_71786",
+            "upgradeTitle" : "Quark",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "3016",
+            "upgradeTitle" : "Plasma Torpedoes",
+            "calculatedCost" : 5
+          }
+        ],
+        "shipTitle" : "R.I.S. Apnex",
+        "captain" : {
+          "upgradeId" : "2007",
+          "upgradeTitle" : "Romulan Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "quark-weapon",
+    "modified" : "2014-09-17T17:34:25-0700",
+    "cost" : 22
+  },
+  {
     "ships" : [
       {
         "calculatedCost" : 62,
@@ -2494,6 +2556,37 @@
     "name" : "tpol",
     "modified" : "2014-09-06T07:25:40-0700",
     "cost" : 28
+  },
+  {
+    "uuid" : "AD4338B4-204A-441B-B380-CA4C280C7BE4",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 42,
+        "shipId" : "1001",
+        "upgrades" : [
+          {
+            "upgradeId" : "t_rul_71786",
+            "upgradeTitle" : "T'Rul",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "3068",
+            "upgradeTitle" : "Cloaking Device",
+            "calculatedCost" : 9
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-D",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "trul",
+    "modified" : "2014-09-17T17:32:30-0700",
+    "cost" : 42
   },
   {
     "ships" : [
