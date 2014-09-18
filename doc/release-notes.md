@@ -1,3 +1,7 @@
+### Version 1.1.7 build 87 (2014-9-18)
+
+* Fix error in Operations Officer.
+
 ### Version 1.1.6 build 86 (2014-9-17)
 
 * Add Resistance is Futile Boosters.
