@@ -501,6 +501,14 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         return false;
     }
 
+    public int additionalTalentSlots() {
+        String externalId = getExternalId();
+        if (externalId != null && externalId.equals("elim_garak_71786")) {
+            return 1;
+        }
+        return 0;
+    }
+
     public int additionalWeaponSlots() {
         String special = getSpecial();
         if ("AddsOneWeaponOneTech".equalsIgnoreCase(special)

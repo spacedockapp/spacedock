@@ -90,4 +90,7 @@ public class FleetCaptain extends FleetCaptainBase {
     public int additionalTechSlots() {
         return getTechAdd();
     }
+
+    @Override
+    public int additionalTalentSlots() { return getTalentAdd(); }
 }

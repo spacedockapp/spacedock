@@ -81,6 +81,10 @@ public class Captain extends CaptainBase {
         return super.additionalCrewSlots();
     }
 
+    public int additionalTalentSlots() {
+        return getTalent();
+    }
+
     public boolean isKlingon() {
         return getFaction().equals(Constants.KLINGON);
     }

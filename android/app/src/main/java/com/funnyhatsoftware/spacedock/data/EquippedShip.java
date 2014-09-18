@@ -283,10 +283,6 @@ public class EquippedShip extends EquippedShipBase {
         if (flagship != null) {
             v += flagship.getTech();
         }
-        FleetCaptain fleetCaptain = getFleetCaptain();
-        if (null != fleetCaptain) {
-            v += fleetCaptain.getTechAdd();
-        }
 
         for (EquippedUpgrade eu : getUpgrades()) {
             Upgrade upgrade = eu.getUpgrade();
@@ -324,21 +320,15 @@ public class EquippedShip extends EquippedShipBase {
 
     public int getTalent() {
         int v = 0;
-        Captain captain = getCaptain();
-        if (captain != null) {
-            v = captain.getTalent();
-        }
-        Admiral admiral = getAdmiral();
-        if (null != admiral) {
-            v += admiral.getTalent();
+        for (EquippedUpgrade eu : getUpgrades()) {
+            Upgrade upgrade = eu.getUpgrade();
+            if (upgrade != null) {
+                v += upgrade.additionalTalentSlots();
+            }
         }
         Flagship flagship = getFlagship();
         if (flagship != null) {
             v += flagship.getTalent();
-        }
-        FleetCaptain fleetCaptain = getFleetCaptain();
-        if (null != fleetCaptain) {
-            v += fleetCaptain.getTalentAdd();
         }
         return v;
     }
@@ -362,10 +352,6 @@ public class EquippedShip extends EquippedShipBase {
             v += flagship.getWeapon();
         }
 
-        FleetCaptain fleetCaptain = getFleetCaptain();
-        if (null != fleetCaptain) {
-            v += fleetCaptain.getWeaponAdd();
-        }
         return v;
     }
 
@@ -378,10 +364,6 @@ public class EquippedShip extends EquippedShipBase {
         Flagship flagship = getFlagship();
         if (flagship != null) {
             v += flagship.getCrew();
-        }
-        FleetCaptain fleetCaptain = getFleetCaptain();
-        if (null != fleetCaptain){
-            v += fleetCaptain.getCrewAdd();
         }
         for (EquippedUpgrade eu : getUpgrades()) {
             Upgrade upgrade = eu.getUpgrade();

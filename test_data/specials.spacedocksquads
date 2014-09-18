@@ -347,12 +347,12 @@
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3059",
+            "upgradeId" : "energy_dissipator_op5prize",
             "upgradeTitle" : "Energy Dissipator",
             "calculatedCost" : 10
           },
           {
-            "upgradeId" : "energy_dissipator_op5prize",
+            "upgradeId" : "3059",
             "upgradeTitle" : "Energy Dissipator",
             "calculatedCost" : 10
           }
@@ -602,6 +602,37 @@
     "name" : "forward weapons",
     "modified" : "2014-07-18T08:16:35-0700",
     "cost" : 34
+  },
+  {
+    "uuid" : "7109F06D-0268-40EB-AFD4-ED9E918C36C3",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 28,
+        "shipId" : "3rd_wing_attack_ship_3rd_wing_attack_ship",
+        "upgrades" : [
+          {
+            "upgradeId" : "first_strike_3rd_wing_attack_ship",
+            "upgradeTitle" : "First Strike",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "elim_garak_71786",
+            "upgradeTitle" : "Elim Garak",
+            "calculatedCost" : 4
+          }
+        ],
+        "shipTitle" : "3rd Wing Attack Ship",
+        "captain" : {
+          "upgradeId" : "2036",
+          "upgradeTitle" : "Dominion Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "garak",
+    "modified" : "2014-09-17T16:58:56-0700",
+    "cost" : 28
   },
   {
     "uuid" : "1ABFBD73-F1A0-48AE-9CD0-8502BE9411FC",
@@ -1314,12 +1345,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3011",
+            "upgradeId" : "3052",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3052",
+            "upgradeId" : "3011",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
