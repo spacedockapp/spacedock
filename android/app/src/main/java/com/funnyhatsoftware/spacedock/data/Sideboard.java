@@ -75,6 +75,9 @@ public class Sideboard extends SideboardBase {
 
     @Override
     public Explanation canAddUpgrade(Upgrade upgrade, boolean addingNew) {
+        if (!addingNew) {
+            return Explanation.SUCCESS;
+        }
         int currentCost = calculateBaseCost();
         if (currentCost + upgrade.getCost() > 20) {
             String msg = String.format("Can't add %s to %s", upgrade.getPlainDescription(),
