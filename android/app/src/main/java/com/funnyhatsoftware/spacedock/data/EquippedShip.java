@@ -509,7 +509,7 @@ public class EquippedShip extends EquippedShipBase {
         for (EquippedUpgrade eu : getSortedUpgrades()) {
             Upgrade upgrade = eu.getUpgrade();
             if (upgrade != null) {
-                Explanation explanation = canAddUpgrade(upgrade);
+                Explanation explanation = canAddUpgrade(upgrade, false);
                 if (!explanation.canAdd) {
                     onesToRemove.add(eu);
                 }
@@ -541,7 +541,7 @@ public class EquippedShip extends EquippedShipBase {
         return ship.getFaction();
     }
 
-    public Explanation canAddUpgrade(Upgrade upgrade) {
+    public Explanation canAddUpgrade(Upgrade upgrade, boolean addingNew) {
         String msg = String.format("Can't add %s to %s",
                 upgrade.getPlainDescription(), getPlainDescription());
         if (isFighterSquadron()) {
@@ -613,7 +613,7 @@ public class EquippedShip extends EquippedShipBase {
             if (!ship.isSuurok()) {
                 return new Explanation(msg, "This upgrade can only be purchased for a Suurok Class Ship.");
             }
-            if (null != containsUpgrade(upgrade)) {
+            if (addingNew && null != containsUpgrade(upgrade)) {
                 return new Explanation(msg, "This upgrade can only be added once per ship.");
             }
         }
@@ -629,7 +629,7 @@ public class EquippedShip extends EquippedShipBase {
             }
         }
         if ("ony_federation_ship_limited".equals(upgradeSpecial)) {
-            if (null != containsUpgrade(upgrade)) {
+            if (addingNew && null != containsUpgrade(upgrade)) {
                 return new Explanation(msg, "This upgrade can only be added once per ship.");
             }
             if (!ship.isFederation()) {

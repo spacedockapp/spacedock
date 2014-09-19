@@ -439,7 +439,7 @@ public class Squad extends SquadBase {
             }
         }
 
-        return targetShip.canAddUpgrade(upgrade);
+        return targetShip.canAddUpgrade(upgrade, true);
     }
 
     public SquadBase setResource(Resource resource) {
