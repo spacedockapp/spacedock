@@ -1,4 +1,4 @@
-<Data version="2014-09-16@22-00">
+<Data version="2014-09-19@04-53">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -10697,7 +10697,7 @@
       <Cost>5</Cost>
       <Id>magnetometric_guided_charge_71525</Id>
       <Set>71525</Set>
-      <Special></Special>
+      <Special>OnlyBorgShip</Special>
     </Upgrade>
     <Upgrade>
       <Title>Secondary Impulse Reactor</Title>
