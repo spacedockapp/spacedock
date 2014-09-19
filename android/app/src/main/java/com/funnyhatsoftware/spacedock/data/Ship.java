@@ -3,10 +3,13 @@ package com.funnyhatsoftware.spacedock.data;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 
 import android.text.TextUtils;
 
 public class Ship extends ShipBase implements Factioned, Uniqueness {
+
+    static Ship sNullShip = null;
 
     static class ShipComparator implements Comparator<Ship> {
         @Override
@@ -30,6 +33,15 @@ public class Ship extends ShipBase implements Factioned, Uniqueness {
 
     public static Ship shipForId(String externalId) {
         return Universe.getUniverse().getShip(externalId);
+    }
+
+    public static Ship nullShip() {
+        if (sNullShip == null) {
+            sNullShip = new Ship();
+            HashMap<String,Object> emptyData = new HashMap<String, Object>();
+            sNullShip.update(emptyData);
+        }
+        return sNullShip;
     }
 
     public Ship getCounterpart() {

@@ -79,7 +79,8 @@ public class Sideboard extends SideboardBase {
             return Explanation.SUCCESS;
         }
         int currentCost = calculateBaseCost();
-        if (currentCost + upgrade.getCost() > 20) {
+        int upgradeCode = upgrade.calculateCostForShip(this, null);
+        if (currentCost + upgradeCode > 20) {
             String msg = String.format("Can't add %s to %s", upgrade.getPlainDescription(),
                     getPlainDescription());
             String expl;
