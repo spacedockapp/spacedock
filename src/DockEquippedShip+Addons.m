@@ -336,11 +336,14 @@
         newShip.flagship = self.flagship;
     }
 
+    DockCaptain* captain = [self captain];
+    [newShip addUpgrade: captain maybeReplace: nil establishPlaceholders: NO respectLimits: YES];
+
     for (DockEquippedUpgrade* equippedUpgrade in self.sortedUpgrades) {
         DockUpgrade* upgrade = [equippedUpgrade upgrade];
 
-        if (![upgrade isPlaceholder]) {
-            DockEquippedUpgrade* duppedUpgrade = [newShip addUpgrade: equippedUpgrade.upgrade maybeReplace: nil establishPlaceholders: NO];
+        if (![upgrade isPlaceholder] && ![upgrade isCaptain]) {
+            DockEquippedUpgrade* duppedUpgrade = [newShip addUpgrade: equippedUpgrade.upgrade maybeReplace: nil establishPlaceholders: NO respectLimits: NO];
             duppedUpgrade.overridden = equippedUpgrade.overridden;
             duppedUpgrade.overriddenCost = equippedUpgrade.overriddenCost;
         }
