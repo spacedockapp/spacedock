@@ -313,7 +313,7 @@
     for (upgradeDict in upgrades) {
         NSString* upgradeId = upgradeDict[@"upgradeId"];
         DockUpgrade* upgrade = [DockUpgrade upgradeForId: upgradeId context: context];
-        DockEquippedUpgrade* eu = [self addUpgrade: upgrade];
+        DockEquippedUpgrade* eu = [self addUpgrade: upgrade maybeReplace: nil establishPlaceholders: NO respectLimits: NO];
         NSNumber* overriddenNumber = upgradeDict[@"costIsOverridden"];
         BOOL overridden = [overriddenNumber boolValue];
         if (overridden) {
@@ -461,13 +461,14 @@
 
 -(BOOL)canAddUpgrade:(DockUpgrade*)upgrade ignoreInstalled:(BOOL)ignoreInstalled validating:(BOOL)validating
 {
+    DockCaptain* captain = [self captain];
+
     if ([upgrade isFleetCaptain]) {
         DockFleetCaptain* fleetCaptain = (DockFleetCaptain*)upgrade;
         return [self canAddFleetCaptain: fleetCaptain error: nil];
     }
     
     if ([upgrade isTalent]) {
-        DockCaptain* captain = [self captain];
         if ([captain.special isEqualToString: @"lore_71522"]) {
             return [upgrade isRestrictedOnlyByFaction];
         }
@@ -524,7 +525,7 @@
     }
 
     if ([upgradeSpecial isEqualToString: @"OnlyBorgCaptain"]) {
-        if (![self.captain.faction isEqualToString: @"Borg"]) {
+        if (![captain isFactionBorg]) {
             return NO;
         }
     }
@@ -571,8 +572,20 @@
         }
     }
 
-    if ([upgradeSpecial isEqualToString: @"VulcanHighCommand"]) {
-        if (![self.ship isVulcan] || ![self.captain isVulcan]) {
+    if ([upgradeSpecial isEqualToString: @"OnlyFerengiShip"]) {
+        if (![self.ship isFerengi]) {
+            return NO;
+        }
+    }
+
+    if ([upgradeSpecial isEqualToString: @"OnlyFerengiCaptainFerengiShip"]) {
+        if (![self.ship isFerengi] || ![captain isFerengi]) {
+            return NO;
+        }
+    }
+
+    if ([upgradeSpecial isEqualToString: @"OnlyVulcanCaptainVulcanShip"]) {
+        if (![self.ship isVulcan] || ![captain isVulcan]) {
             return NO;
         }
     }
@@ -676,7 +689,7 @@
                 info = @"This upgrade can only be added to a Tholian captain.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyBorgCaptain"]) {
                 info = @"This upgrade may only be purchased for a Borg Captain.";
-            } else if ([upgradeSpecial isEqualToString: @"VulcanHighCommand"]) {
+            } else if ([upgradeSpecial isEqualToString: @"OnlyVulcanCaptainVulcanShip"]) {
                 info = @"This upgrade can only be added to a Vulcan captain on a Vulcan ship.";
             } else if ([upgradeSpecial isEqualToString: @"PhaserStrike"] || [upgradeSpecial isEqualToString: @"OnlyHull3OrLess"]) {
                 info = @"This upgrade may only be purchased for a ship with a Hull value of 3 or less.";
@@ -684,6 +697,10 @@
                 info = @"No ship may be equipped with more than one of these upgrades.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyBattleshipOrCruiser"]) {
                 info = @"This upgrade may only be purchased for a Jem'Hadar Battle Cruiser or Battleship.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyFerengiShip"]) {
+                info = @"This Upgrade may only be purchased for a Ferengi ship.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyFerengiCaptainFerengiShip"]) {
+                info = @"This Upgrade may only be purchased for a Ferengi Captain assigned to a Ferengi ship.";
             } else if ([upgradeSpecial isEqualToString: @"not_with_hugh"]) {
                 info = @"You cannot deploy this card to the same ship or fleet as Hugh.";
             }
@@ -743,6 +760,11 @@
 
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace establishPlaceholders:(BOOL)establish
 {
+    return [self addUpgrade: upgrade maybeReplace: maybeReplace establishPlaceholders: establish respectLimits: YES];
+}
+
+-(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace establishPlaceholders:(BOOL)establish respectLimits:(BOOL)respectLimits
+{
     NSManagedObjectContext* context = [self managedObjectContext];
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"EquippedUpgrade"
                                               inManagedObjectContext: context];
@@ -750,7 +772,7 @@
                                                         insertIntoManagedObjectContext: context];
     equippedUpgrade.upgrade = upgrade;
 
-    if (![upgrade isPlaceholder]) {
+    if (establish && ![upgrade isPlaceholder]) {
         DockEquippedUpgrade* ph = [self findPlaceholder: upgrade.upType];
 
         if (ph) {
@@ -762,7 +784,7 @@
     int limit = [upgrade limitForShip: self];
     int current = [self equipped: upType];
 
-    if (current == limit) {
+    if (respectLimits && current == limit) {
         if (maybeReplace == nil || ![maybeReplace.upgrade.upType isEqualToString: upType]) {
             maybeReplace = [self firstUpgrade: upType];
         }
@@ -913,7 +935,6 @@
 
     for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
         if (![self canAddUpgrade: eu.upgrade ignoreInstalled: NO validating: YES]) {
-            NSLog(@"removing %@", eu.upgrade);
             [self canAddUpgrade: eu.upgrade];
             [onesToRemove addObject: eu];
         }

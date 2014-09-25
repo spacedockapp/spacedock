@@ -30,6 +30,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -53,6 +54,7 @@ public class Universe {
     ArrayMap<String, Upgrade> upgrades = new ArrayMap<String, Upgrade>();
     ArrayMap<String, Resource> resources = new ArrayMap<String, Resource>();
     ArrayMap<String, Flagship> flagships = new ArrayMap<String, Flagship>();
+    private ArrayMap<String, Officer> mOfficers = new ArrayMap<String, Officer>();
     ArrayMap<String, Reference> referenceItems = new ArrayMap<String, Reference>();
 
     // map of all set item maps
@@ -205,6 +207,10 @@ public class Universe {
         Upgrade maybeFleetCaptain = fleetCaptains.get(upgradeId);
         if (maybeFleetCaptain != null) {
             return maybeFleetCaptain;
+        }
+        Upgrade maybeOfficer = mOfficers.get(upgradeId);
+        if (maybeOfficer != null) {
+            return maybeOfficer;
         }
         return getUpgrade(upgradeId);
     }
@@ -404,6 +410,7 @@ public class Universe {
                 return null; // placeholder type not supported
             }
 
+            placeholder.update(new HashMap<String, Object>());
             placeholder.setTitle(upType);
             placeholder.setUpType(upType);
             placeholder.setPlaceholder(true);
@@ -451,6 +458,14 @@ public class Universe {
 
     public FleetCaptain getFleetCaptain(String fleetCaptainId) {
         return fleetCaptains.get(fleetCaptainId);
+    }
+
+    public Officer getOfficer(String officerId) {
+        return mOfficers.get(officerId);
+    }
+
+    public void putOfficer(String officerId, Officer officer) {
+        mOfficers.put(officerId, officer);
     }
 
     public void addShipClassDetails(ShipClassDetails details) {

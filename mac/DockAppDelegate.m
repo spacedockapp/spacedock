@@ -427,7 +427,7 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     [alert setShowsSuppressionButton: showsSuppressionButton];
     [alert beginSheetModalForWindow: [self window]
                       modalDelegate: self
-                     didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
+                     didEndSelector: @selector(whineToUserAlertDidEnd:returnCode:contextInfo:)
                         contextInfo: nil];
 }
 
@@ -436,14 +436,13 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     [self whineToUser: msg info: @"" showsSuppressionButton: NO];
 }
 
--(void)alertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
+-(void)whineToUserAlertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void*)contextInfo
 {
     [[alert window] orderOut: self];
 
-    if ([[alert suppressionButton] state] == NSOnState) {
-        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setBool: NO forKey: kWarnAboutUnhandledSpecials];
-    }
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    BOOL value  = ([[alert suppressionButton] state] != NSOnState);
+    [defaults setBool: value forKey: kWarnAboutUnhandledSpecials];
 }
 
 -(IBAction)addSquad:(id)sender

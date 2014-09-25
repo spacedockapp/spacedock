@@ -38,8 +38,13 @@ public class FleetCaptain extends FleetCaptainBase {
     @Override
     public int getCost() { return 5; } // TODO: make this more elegant
 
+    @Override
+    public int calculateCostForShip(EquippedShip equippedShip, EquippedUpgrade equippedUpgrade) {
+        return 5;
+    }
+
     public String getPlainDescription() {
-        return "FleetCaptain: " + mTitle;
+        return "Fleet Captain: " + mTitle;
     }
 
     public boolean compatibleWithFaction(String faction) {
@@ -71,4 +76,21 @@ public class FleetCaptain extends FleetCaptainBase {
         return TextUtils.join(",  ", caps);
     }
 
+    @Override
+    public int additionalWeaponSlots() {
+        return getWeaponAdd();
+    }
+
+    @Override
+    public int additionalCrewSlots() {
+        return getCrewAdd();
+    }
+
+    @Override
+    public int additionalTechSlots() {
+        return getTechAdd();
+    }
+
+    @Override
+    public int additionalTalentSlots() { return getTalentAdd(); }
 }

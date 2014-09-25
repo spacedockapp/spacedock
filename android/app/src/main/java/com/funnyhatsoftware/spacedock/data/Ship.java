@@ -3,10 +3,13 @@ package com.funnyhatsoftware.spacedock.data;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 
 import android.text.TextUtils;
 
-public class Ship extends ShipBase {
+public class Ship extends ShipBase implements Factioned, Uniqueness {
+
+    static Ship sNullShip = null;
 
     static class ShipComparator implements Comparator<Ship> {
         @Override
@@ -30,6 +33,15 @@ public class Ship extends ShipBase {
 
     public static Ship shipForId(String externalId) {
         return Universe.getUniverse().getShip(externalId);
+    }
+
+    public static Ship nullShip() {
+        if (sNullShip == null) {
+            sNullShip = new Ship();
+            HashMap<String,Object> emptyData = new HashMap<String, Object>();
+            sNullShip.update(emptyData);
+        }
+        return sNullShip;
     }
 
     public Ship getCounterpart() {
@@ -87,7 +99,7 @@ public class Ship extends ShipBase {
     }
 
     public String getPlainDescription() {
-        if (!getUnique()) {
+        if (!isAnyKindOfUnique()) {
             return mShipClass;
         }
 
@@ -95,7 +107,7 @@ public class Ship extends ShipBase {
     }
 
     public String getDescriptiveTitle() {
-        if (getUnique()) {
+        if (isAnyKindOfUnique()) {
             return mTitle;
         }
 
@@ -107,6 +119,10 @@ public class Ship extends ShipBase {
     @Override
     public boolean isPlaceholder() {
         return mIsPlaceholder;
+    }
+
+    public boolean isAnyKindOfUnique() {
+        return DataUtils.isAnyKindOfUnique(this);
     }
 
     /* package */void setIsPlaceholder(boolean isPlaceholder) {
@@ -149,6 +165,10 @@ public class Ship extends ShipBase {
         return mShipClass.equals("Sovereign Class");
     }
 
+    public boolean isPredatorClass() {
+        return mShipClass.equals("Predator Class");
+    }
+
     public boolean isBajoranInterceptor() {
         return mShipClass.equals("Bajoran Interceptor");
     }
@@ -157,28 +177,28 @@ public class Ship extends ShipBase {
         return mTitle.equals("U.S.S. Defiant");
     }
 
-    public boolean isUnique() {
+    private boolean isUnique() {
         return mUnique;
     }
 
     public boolean isFederation() {
-        return mFaction.equals(Constants.FEDERATION);
+        return DataUtils.targetHasFaction(Constants.FEDERATION, this);
     }
 
     public boolean isBajoran() {
-        return mFaction.equals(Constants.BAJORAN);
+        return DataUtils.targetHasFaction(Constants.BAJORAN, this);
     }
 
     public boolean isSpecies8472() {
-        return mFaction.equals(Constants.SPECIES_8472);
+        return DataUtils.targetHasFaction(Constants.SPECIES_8472, this);
     }
 
     public boolean isBorg() {
-        return mFaction.equals(Constants.BORG);
+        return DataUtils.targetHasFaction(Constants.BORG, this);
     }
 
     public boolean isKazon() {
-        return mFaction.equals(Constants.KAZON);
+        return DataUtils.targetHasFaction(Constants.KAZON, this);
     }
 
     public boolean isTholian() {
@@ -186,7 +206,15 @@ public class Ship extends ShipBase {
     }
 
     public boolean isVulcan() {
-        return mFaction.equals(Constants.VULCAN);
+        return DataUtils.targetHasFaction(Constants.VULCAN, this);
+    }
+
+    public boolean isIndependent() {
+        return DataUtils.targetHasFaction(Constants.INDEPENDENT, this);
+    }
+
+    public boolean isMirrorUniverse() {
+        return DataUtils.targetHasFaction(Constants.MIRROR_UNIVERSE, this);
     }
 
     public boolean isVoyager() {

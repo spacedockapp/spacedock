@@ -120,7 +120,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
             if (i == flagshipIndex || flagshipUnassigned) {
                 populateLookup(l, 1, R.string.flagship_slot, EquippedShip.SLOT_TYPE_FLAGSHIP);
             } else if (i == fleetCaptainIndex || fleetCaptainUnassigned) {
-                populateLookup(l, 1, R.string.fleetcaptain_slot, EquippedShip.SLOT_TYPE_FLEETCAPTAIN);
+                populateLookup(l, 1, R.string.fleetcaptain_slot, EquippedShip.SLOT_TYPE_FLEET_CAPTAIN);
             }
             if (!s.isResourceSideboard()) {
 				if (i == admiralIndex || 0 > admiralIndex) {
@@ -219,7 +219,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
                             mTitleTextView.setText(flagship.getTitle());
                             mCostTextView.setText(Integer.toString(flagship.getCost()));
                         }
-                    } else if (mListItemLookup.slotType == EquippedShip.SLOT_TYPE_FLEETCAPTAIN) {
+                    } else if (mListItemLookup.slotType == EquippedShip.SLOT_TYPE_FLEET_CAPTAIN) {
                         FleetCaptain fleetCaptain = es.getFleetCaptain();
                         if (null == fleetCaptain) {
                             mTitleTextView.setText(R.string.empty_upgrade_slot);
@@ -417,7 +417,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         if (slotType == EquippedShip.SLOT_TYPE_FLAGSHIP) {
             Flagship flagship = equippedShip.getFlagship();
             currentEquipmentId = (flagship == null) ? null : flagship.getExternalId();
-        } else if (slotType == EquippedShip.SLOT_TYPE_FLEETCAPTAIN) {
+        } else if (slotType == EquippedShip.SLOT_TYPE_FLEET_CAPTAIN) {
             FleetCaptain fleetCaptain = equippedShip.getFleetCaptain();
             currentEquipmentId = (fleetCaptain == null) ? null : fleetCaptain.getExternalId();
         } else {
@@ -447,7 +447,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
             EquippedShip es = getEquippedShip(equippedShipNumber);
             if (slotType == EquippedShip.SLOT_TYPE_FLAGSHIP) {
                 explanation = es.tryEquipFlagship(mSquad, externalId);
-            } else if (slotType == EquippedShip.SLOT_TYPE_FLEETCAPTAIN) {
+            } else if (slotType == EquippedShip.SLOT_TYPE_FLEET_CAPTAIN) {
                 explanation = es.tryEquipFleetCaptain(mSquad, externalId);
             } else {
                 explanation = es.tryEquipUpgrade(mSquad, slotType, slotIndex, externalId);

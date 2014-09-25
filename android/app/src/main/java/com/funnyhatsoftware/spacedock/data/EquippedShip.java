@@ -283,10 +283,6 @@ public class EquippedShip extends EquippedShipBase {
         if (flagship != null) {
             v += flagship.getTech();
         }
-        FleetCaptain fleetCaptain = getFleetCaptain();
-        if (null != fleetCaptain) {
-            v += fleetCaptain.getTechAdd();
-        }
 
         for (EquippedUpgrade eu : getUpgrades()) {
             Upgrade upgrade = eu.getUpgrade();
@@ -322,23 +318,22 @@ public class EquippedShip extends EquippedShipBase {
         return getCaptainLimit();
     }
 
+    public int getOfficerLimit() {
+        ArrayList<EquippedUpgrade> crewUpgrades = allUpgradesOfType(Constants.CREW_TYPE);
+        return 2 * crewUpgrades.size();
+    }
+
     public int getTalent() {
         int v = 0;
-        Captain captain = getCaptain();
-        if (captain != null) {
-            v = captain.getTalent();
-        }
-        Admiral admiral = getAdmiral();
-        if (null != admiral) {
-            v += admiral.getTalent();
+        for (EquippedUpgrade eu : getUpgrades()) {
+            Upgrade upgrade = eu.getUpgrade();
+            if (upgrade != null) {
+                v += upgrade.additionalTalentSlots();
+            }
         }
         Flagship flagship = getFlagship();
         if (flagship != null) {
             v += flagship.getTalent();
-        }
-        FleetCaptain fleetCaptain = getFleetCaptain();
-        if (null != fleetCaptain) {
-            v += fleetCaptain.getTalentAdd();
         }
         return v;
     }
@@ -362,10 +357,6 @@ public class EquippedShip extends EquippedShipBase {
             v += flagship.getWeapon();
         }
 
-        FleetCaptain fleetCaptain = getFleetCaptain();
-        if (null != fleetCaptain) {
-            v += fleetCaptain.getWeaponAdd();
-        }
         return v;
     }
 
@@ -378,10 +369,6 @@ public class EquippedShip extends EquippedShipBase {
         Flagship flagship = getFlagship();
         if (flagship != null) {
             v += flagship.getCrew();
-        }
-        FleetCaptain fleetCaptain = getFleetCaptain();
-        if (null != fleetCaptain){
-            v += fleetCaptain.getCrewAdd();
         }
         for (EquippedUpgrade eu : getUpgrades()) {
             Upgrade upgrade = eu.getUpgrade();
@@ -517,6 +504,22 @@ public class EquippedShip extends EquippedShipBase {
 
     }
 
+    public void removeIllegalUpgrades() {
+        ArrayList<EquippedUpgrade> onesToRemove = new ArrayList<EquippedUpgrade>();
+        for (EquippedUpgrade eu : getSortedUpgrades()) {
+            Upgrade upgrade = eu.getUpgrade();
+            if (upgrade != null) {
+                Explanation explanation = canAddUpgrade(upgrade, false);
+                if (!explanation.canAdd) {
+                    onesToRemove.add(eu);
+                }
+            }
+        }
+        for (EquippedUpgrade eu : onesToRemove) {
+            removeUpgrade(eu);
+        }
+    }
+
     private int equipped(String upType) {
         int count = 0;
         ArrayList<EquippedUpgrade> upgrades = getSortedUpgrades();
@@ -538,12 +541,18 @@ public class EquippedShip extends EquippedShipBase {
         return ship.getFaction();
     }
 
-    public Explanation canAddUpgrade(Upgrade upgrade) {
+    public Explanation canAddUpgrade(Upgrade upgrade, boolean addingNew) {
         String msg = String.format("Can't add %s to %s",
                 upgrade.getPlainDescription(), getPlainDescription());
         if (isFighterSquadron()) {
             return new Explanation(msg,
                     "Fighter Squadrons cannot accept upgrades.");
+        }
+        if (upgrade.isFleetCaptain()) {
+            return canAddFleetCaptain((FleetCaptain)upgrade);
+        }
+        if (upgrade.isOfficer()) {
+            return canAddOfficer((Officer)upgrade);
         }
         String upgradeSpecial = upgrade.getSpecial();
         Ship ship = getShip();
@@ -604,7 +613,7 @@ public class EquippedShip extends EquippedShipBase {
             if (!ship.isSuurok()) {
                 return new Explanation(msg, "This upgrade can only be purchased for a Suurok Class Ship.");
             }
-            if (null != containsUpgrade(upgrade)) {
+            if (addingNew && null != containsUpgrade(upgrade)) {
                 return new Explanation(msg, "This upgrade can only be added once per ship.");
             }
         }
@@ -620,7 +629,7 @@ public class EquippedShip extends EquippedShipBase {
             }
         }
         if ("ony_federation_ship_limited".equals(upgradeSpecial)) {
-            if (null != containsUpgrade(upgrade)) {
+            if (addingNew && null != containsUpgrade(upgrade)) {
                 return new Explanation(msg, "This upgrade can only be added once per ship.");
             }
             if (!ship.isFederation()) {
@@ -703,6 +712,45 @@ public class EquippedShip extends EquippedShipBase {
         return Explanation.SUCCESS;
     }
 
+    public Explanation canAddFleetCaptain(FleetCaptain fleetCaptain) {
+        Captain captain = getCaptain();
+        String msg = String.format("Can't make %s the Fleet Captain", captain.getTitle());
+        if (!captain.getUnique()) {
+            String info = "You may not assign a non-unique Captain as your Fleet Captain";
+            return new Explanation(msg, info);
+        }
+        String fleetCaptainFaction = fleetCaptain.getFaction();
+        if (!fleetCaptainFaction.equals(Constants.INDEPENDENT)) {
+            if (!DataUtils.factionsMatch(getShip(), fleetCaptain)) {
+                String info = "The ship's faction must be the same as the Fleet Captain.";
+                return new Explanation(msg, info);
+            }
+            if (!DataUtils.factionsMatch(captain, fleetCaptain)) {
+                String info = "The Captain's faction must be the same as the Fleet Captain.";
+                return new Explanation(msg, info);
+            }
+        }
+        return Explanation.SUCCESS;
+    }
+
+    public Explanation canAddOfficer(Officer officer) {
+        ArrayList<EquippedUpgrade> crewUpgrades = allUpgradesOfType(Constants.CREW_TYPE);
+        int crewCount = crewUpgrades.size();
+        ArrayList<EquippedUpgrade> officerUpgrades = allUpgradesOfType(Constants.OFFICER_TYPE);
+        int limit = getOfficerLimit();
+        if (officerUpgrades.size() >= limit) {
+            String msg = String.format("Can't add %s to the selected squadron.", officer.getTitle());
+            String info = null;
+            if (crewCount > 0) {
+                info = String.format("This ship has %d crew and can install no more than %d officer cards.", crewCount, limit);
+            } else {
+                info = "Officers must be installed with crew and this ship has no crew ";
+            }
+            return new Explanation(msg, info);
+        }
+        return Explanation.SUCCESS;
+    }
+
     public EquippedUpgrade containsUpgrade(Upgrade theUpgrade) {
         for (EquippedUpgrade eu : mUpgrades) {
             if (eu.getUpgrade() == theUpgrade) {
@@ -715,6 +763,26 @@ public class EquippedShip extends EquippedShipBase {
     public EquippedUpgrade containsUpgradeWithName(String theName) {
         for (EquippedUpgrade eu : mUpgrades) {
             if (eu.getUpgrade().getTitle().equals(theName)) {
+                return eu;
+            }
+        }
+        return null;
+    }
+
+    public EquippedUpgrade containsUniqueUpgradeWithName(String theName) {
+        for (EquippedUpgrade eu : mUpgrades) {
+            Upgrade upgrade = eu.getUpgrade();
+            if (upgrade.getUnique() && upgrade.getTitle().equals(theName)) {
+                return eu;
+            }
+        }
+        return null;
+    }
+
+    public EquippedUpgrade containsMirrorUniverseUniqueUpgradeWithName(String theName) {
+        for (EquippedUpgrade eu : mUpgrades) {
+            Upgrade upgrade = eu.getUpgrade();
+            if (upgrade.getMirrorUniverseUnique() && upgrade.getTitle().equals(theName)) {
                 return eu;
             }
         }
@@ -737,7 +805,7 @@ public class EquippedShip extends EquippedShipBase {
         }
     }
 
-    public Object getFlagshipFaction() {
+    public String getFlagshipFaction() {
         Flagship flagship = getFlagship();
         if (flagship == null) {
             return "";
@@ -841,7 +909,7 @@ public class EquippedShip extends EquippedShipBase {
     public static final int SLOT_TYPE_TALENT = 5;
     public static final int SLOT_TYPE_FLAGSHIP = 6;
     public static final int SLOT_TYPE_ADMIRAL = 7;
-    public static final int SLOT_TYPE_FLEETCAPTAIN = 8;
+    public static final int SLOT_TYPE_FLEET_CAPTAIN = 8;
     public static final int SLOT_TYPE_SHIP = 1000;
 
     public static Class[] CLASS_FOR_SLOT = new Class[] {
@@ -896,6 +964,7 @@ public class EquippedShip extends EquippedShipBase {
         setShip(ship);
 
         // TODO: consider swapping zero cost captain for new faction?
+        removeIllegalUpgrades();
         establishPlaceholders();
 
         return Explanation.SUCCESS;
@@ -918,6 +987,7 @@ public class EquippedShip extends EquippedShipBase {
 
         // slot counts may have changed, refresh placeholders + prune slots to
         // new count
+        removeIllegalUpgrades();
         establishPlaceholders();
 
         return Explanation.SUCCESS;
@@ -928,14 +998,9 @@ public class EquippedShip extends EquippedShipBase {
             squad.removeFleetCaptain();
         } else {
             FleetCaptain fleetCaptain = Universe.getUniverse().getFleetCaptain(externalId);
-            if (!fleetCaptain.compatibleWithFaction(shipFaction())) {
-                return new Explanation("Failed to add Fleet Captain.",
-                        fleetCaptain.getPlainDescription()
-                                + " not compatible with ship faction "
-                                + shipFaction());
-            } else if (!getCaptain().getUnique()) {
-                return new Explanation("Failed to add Fleet Captain.",
-                        getCaptain().getPlainDescription() + "not unique.");
+            Explanation explanation = canAddFleetCaptain(fleetCaptain);
+            if (!explanation.canAdd) {
+                return explanation;
             }
             squad.removeFleetCaptain();
             addUpgrade(fleetCaptain);
@@ -943,6 +1008,7 @@ public class EquippedShip extends EquippedShipBase {
 
         // slot counts may have changed, refresh placeholders + prune slots to
         // new count
+        removeIllegalUpgrades();
         establishPlaceholders();
 
         return Explanation.SUCCESS;
@@ -959,6 +1025,13 @@ public class EquippedShip extends EquippedShipBase {
                 if (!explanation.canAdd) {
                     return explanation; // disallowed, abort!
                 }
+            } else if (SLOT_TYPE_FLEET_CAPTAIN == slotType) {
+                FleetCaptain fleetCaptain = Universe.getUniverse().getFleetCaptain(externalId);
+                Explanation explanation = canAddFleetCaptain(fleetCaptain);
+                if (!explanation.canAdd) {
+                    return explanation; // disallowed, abort!
+                }
+                upgrade = fleetCaptain;
             } else {
                 upgrade = SLOT_TYPE_ADMIRAL == slotType ? Universe
                         .getUniverse().getAdmiral(externalId) : Universe
@@ -990,6 +1063,7 @@ public class EquippedShip extends EquippedShipBase {
 
         // slot counts may have changed, refresh placeholders + prune slots to
         // new count
+        removeIllegalUpgrades();
         establishPlaceholders();
 
         return Explanation.SUCCESS;

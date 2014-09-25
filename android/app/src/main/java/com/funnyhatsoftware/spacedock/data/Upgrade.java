@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.TreeSet;
 
-public class Upgrade extends UpgradeBase {
+public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
 
     private static java.util.Set<String> sIneligibleTechUpgrades = new TreeSet<String>();
 
@@ -46,6 +46,26 @@ public class Upgrade extends UpgradeBase {
 
     public static Upgrade placeholder(String upType) {
         return Universe.getUniverse().findOrCreatePlaceholder(upType);
+    }
+
+    public String getTitle() {
+        String title = super.getTitle();
+        String externalId = getExternalId();
+        if (externalId == null) {
+            return title;
+        }
+        if (externalId.equals("quark_71786")) {
+            title = String.format("%s (Tech)", title);
+        } else if (externalId.equals("quark_weapon_71786")) {
+            title = String.format("%s (Weapon)", title);
+        } else if (externalId.equals("vulcan_high_command_2_0_71446")) {
+            title = String.format("%s (2/0)", title);
+        } else if (externalId.equals("vulcan_high_command_1_1_71446")) {
+            title = String.format("%s (1/1)", title);
+        } else if (externalId.equals("vulcan_high_command_0_2_71446")) {
+            title = String.format("%s (0/2)", title);
+        }
+        return title;
     }
 
     public int limitForShip(EquippedShip targetShip) {
@@ -92,6 +112,10 @@ public class Upgrade extends UpgradeBase {
         return 0;
     }
 
+    public boolean isAnyKindOfUnique() {
+        return DataUtils.isAnyKindOfUnique(this);
+    }
+
     public boolean isTech() {
         return mUpType.equals("Tech");
     }
@@ -101,7 +125,7 @@ public class Upgrade extends UpgradeBase {
     }
 
     public boolean isCrew() {
-        return mUpType.equals("Crew");
+        return mUpType.equals(Constants.CREW_TYPE);
     }
 
     public boolean isWeapon() {
@@ -128,16 +152,32 @@ public class Upgrade extends UpgradeBase {
         return mUpType.equals("Fleet Captain");
     }
 
+    public boolean isOfficer() {
+        return mUpType.equals(Constants.OFFICER_TYPE);
+    }
+
     private boolean isDominion() {
-        return getFaction().equals("Dominion");
+        return DataUtils.targetHasFaction("Dominion", this);
     }
 
     public boolean isBorgFaction() {
-        return getFaction().equals(Constants.BORG);
+        return DataUtils.targetHasFaction(Constants.BORG, this);
     }
 
     public boolean isVulcan() {
-        return getFaction().equals(Constants.VULCAN);
+        return DataUtils.targetHasFaction(Constants.VULCAN, this);
+    }
+
+    public boolean isIndependent() {
+        return DataUtils.targetHasFaction(Constants.INDEPENDENT, this);
+    }
+
+    public boolean isKazon() {
+        return DataUtils.targetHasFaction(Constants.KAZON, this);
+    }
+
+    public boolean isMirrorUniverse() {
+        return DataUtils.targetHasFaction(Constants.MIRROR_UNIVERSE, this);
     }
 
     public String targetShipClass() {
@@ -209,12 +249,10 @@ public class Upgrade extends UpgradeBase {
         int cost = getCost();
 
         Ship ship = equippedShip.getShip();
-        String shipFaction = "";
-        String additionalShipFaction = "";
-        if (ship != null) {
-            shipFaction = ship.getFaction();
-            additionalShipFaction = ship.getAdditionalFaction();
+        if (ship == null) {
+            ship = Ship.nullShip();
         }
+        String shipFaction = ship.getFaction();
         boolean shipIsSideboard = equippedShip.isResourceSideboard();
         String upgradeFaction = mFaction;
         Captain captain = equippedShip.getCaptain();
@@ -262,6 +300,11 @@ public class Upgrade extends UpgradeBase {
         } else if (isWeapon()) {
             if (captainSpecial.equals("WeaponUpgradesCostOneLess")) {
                 cost -= 1;
+            }
+            if (captainSpecial.equals("AddOneWeaponAllKazonMinusOne")) {
+                if (isKazon()) {
+                    cost -= 1;
+                }
             }
             if ("WeaponUpgradesCostOneLess".equals(fleetCaptainSpecial)) {
                 cost -= 1;
@@ -313,6 +356,14 @@ public class Upgrade extends UpgradeBase {
             if (!ship.isRaven()) {
                 cost += 5;
             }
+        } else if (upgradeSpecial.equals("PlusFiveIfNotMirrorUniverse")) {
+            if (!ship.isMirrorUniverse()) {
+                cost += 5;
+            }
+        } else if (upgradeSpecial.equals("PlusFourIfNotPredatorClass")) {
+            if (!ship.isPredatorClass()) {
+                cost += 4;
+            }
         } else if ("PlusFiveIfNotGalaxyIntrepidSovereign".equalsIgnoreCase(upgradeSpecial)) {
             if (!ship.isGalaxy() && !ship.isIntrepid() && !ship.isSovereign()) {
                 cost += 5;
@@ -363,9 +414,9 @@ public class Upgrade extends UpgradeBase {
                 cost = 3;
             }
         }
-        if (!shipFaction.equals(upgradeFaction) && !additionalShipFaction.equals(upgradeFaction)
+        if (!DataUtils.factionsMatch(ship, this)
                 && !equippedShip.isResourceSideboard()
-                && !equippedShip.getFlagshipFaction().equals(upgradeFaction)) {
+                && !DataUtils.targetHasFaction(equippedShip.getFlagshipFaction(), this)) {
             if (captainSpecial.equals("UpgradesIgnoreFactionPenalty") && !isCaptain() && !isAdmiral()) {
                 // do nothing
             } else if (captainSpecial.equals("NoPenaltyOnFederationOrBajoranShip") && isCaptain()) {
@@ -386,8 +437,8 @@ public class Upgrade extends UpgradeBase {
             } else if (isAdmiral()) {
                 cost += 3;
             } else if (isCaptain() && null != fleetCaptain
-                    && "Independent".equals(fleetCaptain.getFaction())
-                    && "Independent".equals(shipFaction)) {
+                    && fleetCaptain.isIndependent()
+                    && ship.isIndependent()) {
                 // do nothing
             } else if (ship.isVulcan() && "add_one_tech_no_faction_penalty_on_vulcan".equals(upgradeSpecial)) {
                 // do nothing
@@ -429,6 +480,9 @@ public class Upgrade extends UpgradeBase {
         if (special.equalsIgnoreCase("addonetechslot")) {
             return true;
         }
+        if (special.equalsIgnoreCase("addoneweaponslot")) {
+            return true;
+        }
         if (special.equalsIgnoreCase("AddTwoCrewSlotsDominionCostBonus")) {
             return true;
         }
@@ -451,11 +505,22 @@ public class Upgrade extends UpgradeBase {
         return false;
     }
 
+    public int additionalTalentSlots() {
+        String externalId = getExternalId();
+        if (externalId != null && externalId.equals("elim_garak_71786")) {
+            return 1;
+        }
+        return 0;
+    }
+
     public int additionalWeaponSlots() {
         String special = getSpecial();
         if ("AddsOneWeaponOneTech".equalsIgnoreCase(special)
                 || "sakonna_gavroche".equalsIgnoreCase(special)
                 || "only_suurok_class_limited_weapon_hull_plus_1".equalsIgnoreCase(special)
+                || "only_suurok_class_limited_weapon_hull_plus_1".equalsIgnoreCase(special)
+                || "AddOneWeaponAllKazonMinusOne".equalsIgnoreCase(special)
+                || "addoneweaponslot".equalsIgnoreCase(special)
                 || "quark_weapon_71786".equals(this.getExternalId())) {
             return 1;
         }
@@ -489,18 +554,17 @@ public class Upgrade extends UpgradeBase {
         if (special != null) {
             if (special.equalsIgnoreCase("AddsOneWeaponOneTech")
                     || "addonetechslot".equalsIgnoreCase(special)
-                    || "add_one_tech_no_faction_penalty_on_vulcan".equalsIgnoreCase(special)
-                    || "quark_71786".equals(this.getExternalId())) {
+                    || "add_one_tech_no_faction_penalty_on_vulcan".equalsIgnoreCase(special)) {
                 return 1;
             }
-            String externalId = getExternalId();
-            if (externalId != null) {
-                if (externalId.equals("vulcan_high_command_2_0_71446")) {
-                    return 2;
-                }
-                if (externalId.equals("vulcan_high_command_1_1_71446")) {
-                    return 1;
-                }
+        }
+        String externalId = getExternalId();
+        if (externalId != null) {
+            if (externalId.equals("vulcan_high_command_2_0_71446")) {
+                return 2;
+            }
+            if (externalId.equals("vulcan_high_command_1_1_71446") || externalId.equals("quark_71786")) {
+                return 1;
             }
         }
         return 0;

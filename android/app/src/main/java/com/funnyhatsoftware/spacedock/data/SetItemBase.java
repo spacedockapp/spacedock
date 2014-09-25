@@ -8,6 +8,9 @@ public abstract class SetItemBase extends Base {
     String mAdditionalFaction;
     public String getAdditionalFaction() { return mAdditionalFaction; }
     public SetItemBase setAdditionalFaction(String v) { mAdditionalFaction = v; return this;}
+    boolean mMirrorUniverseUnique;
+    public boolean getMirrorUniverseUnique() { return mMirrorUniverseUnique; }
+    public SetItemBase setMirrorUniverseUnique(boolean v) { mMirrorUniverseUnique = v; return this;}
     ArrayList<Set> mSets = new ArrayList<Set>();
     @SuppressWarnings("unchecked")
     public ArrayList<Set> getSets() { return (ArrayList<Set>)mSets.clone(); }
@@ -16,6 +19,7 @@ public abstract class SetItemBase extends Base {
 
     public void update(Map<String,Object> data) {
         mAdditionalFaction = DataUtils.stringValue((String)data.get("AdditionalFaction"), "");
+        mMirrorUniverseUnique = DataUtils.booleanValue((String)data.get("MirrorUniverseUnique"));
     }
 
 }

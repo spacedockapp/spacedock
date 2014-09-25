@@ -1,35 +1,35 @@
     <Ship>
-      <Title>U.S.S. Stargazer</Title>
+      <Title>Bok's Marauder</Title>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <ShipClass>Constellation Class</ShipClass>
-      <Faction>Federation</Faction>
+      <ShipClass>D'kora Class</ShipClass>
+      <Faction>Ferengi</Faction>
       <Attack>3</Attack>
       <Agility>1</Agility>
       <Hull>4</Hull>
       <Shield>3</Shield>
-      <Ability>During the Activation Phase, you may disable 1 of your Active Shields to remove 1 Auxiliary Power Token from beside your ship.</Ability>
+      <Ability>If you performed a Maneuver of 3 or higher this round, during the Roll Attack Dice step of the Combat Phase, you may add +1 attack die.  If you do so, place an Auxiliary Power Token beside your ship.</Ability>
       <Cost>22</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
       <Scan>1</Scan>
-      <Battlestations>1</Battlestations>
+      <Battlestations>0</Battlestations>
       <Cloak>0</Cloak>
       <SensorEcho>0</SensorEcho>
       <Regenerate>0</Regenerate>
       <Borg>0</Borg>
       <Tech>1</Tech>
-      <Weapon>1</Weapon>
+      <Weapon>2</Weapon>
       <Crew>1</Crew>
-      <Id>u_s_s_stargazer_71510</Id>
-      <Set>71510</Set>
+      <Id>bok_s_marauder_71646a</Id>
+      <Set>71646a</Set>
     </Ship>
     <Ship>
-      <Title>Federation Starship</Title>
+      <Title>Ferengi Starship</Title>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <ShipClass>Constellation Class</ShipClass>
-      <Faction>Federation</Faction>
+      <ShipClass>D'kora Class</ShipClass>
+      <Faction>Ferengi</Faction>
       <Attack>3</Attack>
       <Agility>1</Agility>
       <Hull>4</Hull>
@@ -39,29 +39,81 @@
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
       <Scan>1</Scan>
-      <Battlestations>1</Battlestations>
+      <Battlestations>0</Battlestations>
       <Cloak>0</Cloak>
       <SensorEcho>0</SensorEcho>
       <Regenerate>0</Regenerate>
       <Borg>0</Borg>
-      <Tech>0</Tech>
+      <Tech>1</Tech>
       <Weapon>1</Weapon>
       <Crew>1</Crew>
-      <Id>federation_starship_71510</Id>
-      <Set>71510</Set>
+      <Id>ferengi_starship_71646a</Id>
+      <Set>71646a</Set>
     </Ship>
     <Ship>
-      <Title>U.S.S. Enterprise-D</Title>
+      <Title>Mirror Universe Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Cardassian Galor Class (MU)</ShipClass>
+      <Faction>Mirror Universe</Faction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>3</Shield>
+      <Ability></Ability>
+      <Cost>24</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>mirror_universe_starship_71646b</Id>
+      <Set>71646b</Set>
+    </Ship>
+    <Ship>
+      <Title>Prakesh</Title>
       <Unique>N</Unique>
       <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-      <ShipClass>Galaxy Class</ShipClass>
+      <ShipClass>Cardassian Galor Class (MU)</ShipClass>
       <Faction>Mirror Universe</Faction>
-      <Attack>5</Attack>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>4</Shield>
+      <Ability>After you move, if you are within Range 1 of a friendly ship, you may immediately perform one of the Actions listed on your Action Bar as a free Action.</Ability>
+      <Cost>26</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <Id>prakesh_71646b</Id>
+      <Set>71646b</Set>
+    </Ship>
+    <Ship>
+      <Title>Kazon Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Predator Class</ShipClass>
+      <Faction>Kazon</Faction>
+      <Attack>4</Attack>
       <Agility>1</Agility>
       <Hull>5</Hull>
-      <Shield>3</Shield>
-      <Ability>During the Roll Attack Dice step of the Combat Phase, you may disable 1 of your Active Shields to gain +1 attack die.</Ability>
-      <Cost>28</Cost>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>24</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
       <Scan>1</Scan>
@@ -70,23 +122,23 @@
       <SensorEcho>0</SensorEcho>
       <Regenerate>0</Regenerate>
       <Borg>0</Borg>
-      <Tech>0</Tech>
-      <Weapon>3</Weapon>
-      <Crew>2</Crew>
-      <Id>u_s_s_enterprise_d_71510b</Id>
-      <Set>71510b</Set>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <Id>kazon_starship_71646c</Id>
+      <Set>71646c</Set>
     </Ship>
     <Ship>
-      <Title>Mirror Universe Starship</Title>
-      <Unique>N</Unique>
+      <Title>Relora-Sankur</Title>
+      <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <ShipClass>Galaxy Class</ShipClass>
-      <Faction>Mirror Universe</Faction>
-      <Attack>5</Attack>
+      <ShipClass>Predator Class</ShipClass>
+      <Faction>Kazon</Faction>
+      <Attack>4</Attack>
       <Agility>1</Agility>
       <Hull>5</Hull>
-      <Shield>2</Shield>
-      <Ability></Ability>
+      <Shield>3</Shield>
+      <Ability>If you performed a Green Maneuver this round, during the Roll Attack Dice step of the Combat Phase, roll +1 attack die.</Ability>
       <Cost>26</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
@@ -96,24 +148,24 @@
       <SensorEcho>0</SensorEcho>
       <Regenerate>0</Regenerate>
       <Borg>0</Borg>
-      <Tech>0</Tech>
-      <Weapon>3</Weapon>
-      <Crew>1</Crew>
-      <Id>mirror_universe_starship_71510b</Id>
-      <Set>71510b</Set>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>2</Crew>
+      <Id>relora_sankur_71646c</Id>
+      <Set>71646c</Set>
     </Ship>
     <Ship>
-      <Title>Assimilation Target Prime</Title>
+      <Title>Borg Starship</Title>
       <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-      <ShipClass>Galaxy Class</ShipClass>
-      <Faction>Borg, Mirror Universe</Faction>
-      <Attack>5</Attack>
-      <Agility>1</Agility>
-      <Hull>5</Hull>
-      <Shield>4</Shield>
-      <Ability>ACTION: Spend 1 Drone Token to repair 1 damage to your Hull or Shields.</Ability>
-      <Cost>30</Cost>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Borg Scout Cube</ShipClass>
+      <Faction>Borg</Faction>
+      <Attack>3</Attack>
+      <Agility>3</Agility>
+      <Hull>2</Hull>
+      <Shield>3</Shield>
+      <Ability>You cannot deploy a [BORG] Upgrade with a cost greater than 5 to this ship.</Ability>
+      <Cost>22</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
       <Scan>1</Scan>
@@ -123,23 +175,23 @@
       <Regenerate>1</Regenerate>
       <Borg>1</Borg>
       <Tech>1</Tech>
-      <Weapon>2</Weapon>
+      <Weapon>0</Weapon>
       <Crew>1</Crew>
-      <Id>assimilation_target_prime_71510b</Id>
-      <Set>71510b</Set>
+      <Id>borg_starship_71646d</Id>
+      <Set>71646d</Set>
     </Ship>
     <Ship>
-      <Title>Mirror Universe/Borg Starship</Title>
-      <Unique>N</Unique>
+      <Title>Scout 255</Title>
+      <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <ShipClass>Galaxy Class</ShipClass>
-      <Faction>Borg, Mirror Universe</Faction>
-      <Attack>5</Attack>
-      <Agility>1</Agility>
-      <Hull>5</Hull>
-      <Shield>3</Shield>
-      <Ability></Ability>
-      <Cost>28</Cost>
+      <ShipClass>Borg Scout Cube</ShipClass>
+      <Faction>Borg</Faction>
+      <Attack>3</Attack>
+      <Agility>3</Agility>
+      <Hull>2</Hull>
+      <Shield>4</Shield>
+      <Ability>If there is a [SCAN] Token beside your ship during the Modify Defense Dice step of the Combat Phase, roll +1 defense die. You cannot deploy a [BORG] Upgrade with a cost greater than 5 to this ship.</Ability>
+      <Cost>24</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
       <Scan>1</Scan>
@@ -151,6 +203,58 @@
       <Tech>1</Tech>
       <Weapon>1</Weapon>
       <Crew>1</Crew>
-      <Id>mirror_universe_borg_starship_71510b</Id>
-      <Set>71510b</Set>
+      <Id>scout_255_71646d</Id>
+      <Set>71646d</Set>
+    </Ship>
+    <Ship>
+      <Title>Tal'Kir</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>D'Kyr Class</ShipClass>
+      <Faction>Vulcan</Faction>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>4</Shield>
+      <Ability>Each time you defend, during the Modify Defense Dice step of the Combat Phase, you may add 1 [EVADE] result to your roll.  If you do so, place 1 Auxiliary Power Token beside your ship.</Ability>
+      <Cost>26</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
+      <Id>tal_kir_71646e</Id>
+      <Set>71646e</Set>
+    </Ship>
+    <Ship>
+      <Title>Vulcan Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>D'Kyr Class</ShipClass>
+      <Faction>Vulcan</Faction>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>3</Shield>
+      <Ability></Ability>
+      <Cost>24</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Id>vulcan_starship_71646e</Id>
+      <Set>71646e</Set>
     </Ship>

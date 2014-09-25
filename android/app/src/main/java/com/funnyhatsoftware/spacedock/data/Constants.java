@@ -2,6 +2,8 @@
 package com.funnyhatsoftware.spacedock.data;
 
 public class Constants {
+    public static final String CREW_TYPE = "Crew";
+    public static final String OFFICER_TYPE = "Officer";
     public static final String FEDERATION = "Federation";
     public static final String SPECIES_8472 = "Species 8472";
     public static final String BORG = "Borg";
@@ -18,6 +20,8 @@ public class Constants {
     public static final String LOSKENE = "loskene_opwebprize";
     public static final String ZERO_COST_THOLIAN_CAPTAIN = "captain_opwebprize";
     public static final String VULCAN = "Vulcan";
+    public static final String INDEPENDENT = "Independent";
+    public static final String MIRROR_UNIVERSE = "Mirror Universe";
     public static final String ALL_SQUADS_EXPORT_NAME = "all_squds.spacedocksquads";
     public static final String TACTICAL_CUBE_138 = "tactical_cube_138_71444";
     public static final String BORG_ABLATIVE_ARMOR = "borg_ablative_hull_armor_71283";

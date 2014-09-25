@@ -201,6 +201,9 @@ public class Squad extends SquadBase {
     }
 
     public Explanation tryAddEquippedShip(String shipId) {
+        if (shipId == null) {
+            return Explanation.SUCCESS;
+        }
         Ship ship = Universe.getUniverse().getShip(shipId);
         Explanation explanation = canAddShip(ship);
         if (explanation.canAdd) {
@@ -291,6 +294,26 @@ public class Squad extends SquadBase {
         return null;
     }
 
+    EquippedUpgrade containsUniqueUpgradeWithName(String theName) {
+        for (EquippedShip ship : mEquippedShips) {
+            EquippedUpgrade existing = ship.containsUniqueUpgradeWithName(theName);
+            if (existing != null) {
+                return existing;
+            }
+        }
+        return null;
+    }
+
+    EquippedUpgrade containsMirrorUniverseUniqueUpgradeWithName(String theName) {
+        for (EquippedShip ship : mEquippedShips) {
+            EquippedUpgrade existing = ship.containsMirrorUniverseUniqueUpgradeWithName(theName);
+            if (existing != null) {
+                return existing;
+            }
+        }
+        return null;
+    }
+
     boolean containsShipWithName(String theName) {
         for (EquippedShip equippedShip : mEquippedShips) {
             if (equippedShip.getTitle().equals(theName)) {
@@ -351,7 +374,7 @@ public class Squad extends SquadBase {
         }
 
         if (captain.getUnique()) {
-            EquippedUpgrade existing = containsUpgradeWithName(captain
+            EquippedUpgrade existing = containsUniqueUpgradeWithName(captain
                     .getTitle());
             String result = String.format(
                     "Can't add %s to the selected squadron",
@@ -368,6 +391,20 @@ public class Squad extends SquadBase {
                 return new Explanation(result, "This Captain cannot be added to a squadron that contains Third of Five");
             }
         }
+
+        if (captain.getMirrorUniverseUnique()) {
+            EquippedUpgrade existing = containsMirrorUniverseUniqueUpgradeWithName(captain
+                    .getTitle());
+            String result = String.format(
+                    "Can't add %s to the selected squadron",
+                    captain.getTitle());
+            if (existing != null && !existing.getUpgrade().equals(targetShip.getCaptain())) {
+
+                String explanation = "This Captain is Mirror Universe unique and one with the same name already exists in the squadron.";
+                return new Explanation(result, explanation);
+            }
+        }
+
         return Explanation.SUCCESS;
     }
 
@@ -376,9 +413,9 @@ public class Squad extends SquadBase {
                 "Can't add %s to the selected squadron",
                 upgrade.getTitle());
         if (upgrade.getUnique()) {
-            EquippedUpgrade existing = containsUpgradeWithName(upgrade
+            EquippedUpgrade existing = containsUniqueUpgradeWithName(upgrade
                     .getTitle());
-            if (existing != null && null == (targetShip.containsUpgrade(existing.getUpgrade()))) {
+            if (existing != null) {
 
                 String explanation = String
                         .format("This %s is unique and one with the same name already exists in the squadron.",
@@ -390,7 +427,19 @@ public class Squad extends SquadBase {
             return new Explanation(result, "This Upgrade cannot be added to a squadron that contains Hugh");
         }
 
-        return targetShip.canAddUpgrade(upgrade);
+        if (upgrade.getMirrorUniverseUnique()) {
+            EquippedUpgrade existing = containsMirrorUniverseUniqueUpgradeWithName(upgrade
+                    .getTitle());
+            if (existing != null) {
+
+                String explanation = String
+                        .format("This %s is Mirror Universe unique and one with the same name already exists in the squadron.",
+                                upgrade.getUpType());
+                return new Explanation(result, explanation);
+            }
+        }
+
+        return targetShip.canAddUpgrade(upgrade, true);
     }
 
     public SquadBase setResource(Resource resource) {

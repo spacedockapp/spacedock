@@ -32,9 +32,6 @@
 {
     NSManagedObjectContext* context = targetShip.managedObjectContext;
     NSString* faction = targetShip.faction;
-    if ([faction isEqualToString: @"Mirror Universe"]) {
-        faction = @"Federation";
-    }
     NSSet* targetShipSets = targetShip.sets;
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Captain" inManagedObjectContext: context];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];

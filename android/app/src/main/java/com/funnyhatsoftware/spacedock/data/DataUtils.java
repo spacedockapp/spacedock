@@ -125,4 +125,32 @@ public class DataUtils {
         return value;
     }
 
+    public static boolean targetHasFaction(String faction, Factioned target) {
+        if (faction == null || faction == "") {
+            return false;
+        }
+        String mainFaction = target.getFaction();
+        if (mainFaction == null) {
+            mainFaction = "#";
+        }
+        String additionalFaction = target.getAdditionalFaction();
+        if (additionalFaction == null) {
+            additionalFaction = "#";
+        }
+        return faction.equals(mainFaction) || faction.equals(additionalFaction);
+    }
+
+    public static boolean factionsMatch(Factioned a, Factioned b) {
+        if (targetHasFaction(a.getFaction(), b)) {
+            return true;
+        }
+
+        return targetHasFaction(a.getAdditionalFaction(), b);
+
+    }
+
+    public static boolean isAnyKindOfUnique(Uniqueness uniqueItem) {
+        return uniqueItem.getUnique() || uniqueItem.getMirrorUniverseUnique();
+    }
+
 }

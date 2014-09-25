@@ -21,6 +21,7 @@
 -(BOOL)isMirrorUniverseUnique;
 -(BOOL)isAnyKindOfUnique;
 -(BOOL)isFederation;
+-(BOOL)isFerengi;
 -(BOOL)isBajoran;
 -(BOOL)isFighterSquadron;
 -(BOOL)isSpecies8472;
@@ -29,7 +30,9 @@
 -(BOOL)isTholian;
 -(BOOL)isVoyager;
 -(BOOL)isVulcan;
+-(BOOL)isMirrorUniverse;
 -(BOOL)isSuurokClass;
+-(BOOL)isPredatorClass;
 -(BOOL)isIndependent;
 -(BOOL)isBajoranInterceptor;
 -(BOOL)isBattleshipOrCruiser;

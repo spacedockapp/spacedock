@@ -347,12 +347,12 @@
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3059",
+            "upgradeId" : "energy_dissipator_op5prize",
             "upgradeTitle" : "Energy Dissipator",
             "calculatedCost" : 10
           },
           {
-            "upgradeId" : "energy_dissipator_op5prize",
+            "upgradeId" : "3059",
             "upgradeTitle" : "Energy Dissipator",
             "calculatedCost" : 10
           }
@@ -452,12 +452,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3024",
+            "upgradeId" : "3033",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3033",
+            "upgradeId" : "3024",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
@@ -604,6 +604,63 @@
     "cost" : 34
   },
   {
+    "uuid" : "7109F06D-0268-40EB-AFD4-ED9E918C36C3",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 28,
+        "shipId" : "3rd_wing_attack_ship_3rd_wing_attack_ship",
+        "upgrades" : [
+          {
+            "upgradeId" : "first_strike_3rd_wing_attack_ship",
+            "upgradeTitle" : "First Strike",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "elim_garak_71786",
+            "upgradeTitle" : "Elim Garak",
+            "calculatedCost" : 4
+          }
+        ],
+        "shipTitle" : "3rd Wing Attack Ship",
+        "captain" : {
+          "upgradeId" : "2036",
+          "upgradeTitle" : "Dominion Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "garak",
+    "modified" : "2014-09-17T16:58:56-0700",
+    "cost" : 28
+  },
+  {
+    "uuid" : "A1C08035-C1D6-4FFF-BEA5-47E3492086DA",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 26,
+        "shipId" : "3rd_wing_attack_ship_3rd_wing_attack_ship",
+        "upgrades" : [
+          {
+            "upgradeId" : "elim_garak_71786",
+            "upgradeTitle" : "Elim Garak",
+            "calculatedCost" : 4
+          }
+        ],
+        "shipTitle" : "3rd Wing Attack Ship",
+        "captain" : {
+          "upgradeId" : "2036",
+          "upgradeTitle" : "Dominion Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "garak",
+    "modified" : "2014-09-17T17:45:51-0700",
+    "cost" : 26
+  },
+  {
     "uuid" : "1ABFBD73-F1A0-48AE-9CD0-8502BE9411FC",
     "additionalPoints" : 0,
     "ships" : [
@@ -669,6 +726,52 @@
     "additionalPoints" : 0,
     "modified" : "2014-06-19T16:51:18-0700",
     "name" : "genkhan on sideboard"
+  },
+  {
+    "uuid" : "98005AB7-9A28-470B-BF2E-0AB534AD4293",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 43,
+        "shipId" : "relora_sankur_71646c",
+        "upgrades" : [
+          {
+            "upgradeId" : "tersa_71646c",
+            "upgradeTitle" : "Tersa",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "tractor_beam_71646c",
+            "upgradeTitle" : "Tractor Beam",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "particle_beam_weapon_71646c",
+            "upgradeTitle" : "Particle Beam Weapon",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "photon_torpedoes_71646a",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "photonic_charges_71646c",
+            "upgradeTitle" : "Photonic Charges",
+            "calculatedCost" : 3
+          }
+        ],
+        "shipTitle" : "Relora-Sankur",
+        "captain" : {
+          "upgradeId" : "haron_71646c",
+          "upgradeTitle" : "Haron",
+          "calculatedCost" : 2
+        }
+      }
+    ],
+    "name" : "haron",
+    "modified" : "2014-09-16T14:39:12-0700",
+    "cost" : 43
   },
   {
     "uuid" : "8BE26D4C-1DF1-4663-97A9-798F866D1745",
@@ -1268,12 +1371,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3052",
+            "upgradeId" : "3011",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3011",
+            "upgradeId" : "3052",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
@@ -1685,6 +1788,131 @@
     "cost" : 52
   },
   {
+    "uuid" : "73920E5D-00E8-40B3-B7B8-CCEAEF191281",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 36,
+        "shipId" : "tal_kir_71646e",
+        "upgrades" : [
+          {
+            "upgradeId" : "cloaking_device_71646b",
+            "upgradeTitle" : "Cloaking Device",
+            "calculatedCost" : 10
+          }
+        ],
+        "shipTitle" : "Tal'Kir",
+        "captain" : {
+          "upgradeId" : "vulcan_captain_71446",
+          "upgradeTitle" : "Vulcan Captain",
+          "calculatedCost" : 0
+        }
+      },
+      {
+        "calculatedCost" : 32,
+        "shipId" : "mirror_universe_borg_starship_71510b",
+        "upgrades" : [
+          {
+            "upgradeId" : "cloaking_device_71646b",
+            "upgradeTitle" : "Cloaking Device",
+            "calculatedCost" : 4
+          }
+        ],
+        "shipTitle" : "Mirror Universe\/Borg Starship",
+        "captain" : {
+          "upgradeId" : "drone_71283",
+          "upgradeTitle" : "Drone",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "mirror cloak",
+    "modified" : "2014-09-16T14:47:19-0700",
+    "cost" : 68
+  },
+  {
+    "ships" : [
+      {
+        "calculatedCost" : 72,
+        "shipId" : "1030",
+        "upgrades" : [
+          {
+            "upgradeId" : "3005",
+            "upgradeTitle" : "Data",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "julian_bashir_71786",
+            "upgradeTitle" : "Julian Bashir",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "3002",
+            "upgradeTitle" : "Worf",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "first_officer_collectiveop3",
+            "upgradeTitle" : "First Officer",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "operations_officer_collectiveop3",
+            "upgradeTitle" : "Operations Officer",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "science_officer_collectiveop3",
+            "upgradeTitle" : "Science Officer",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "tactical_officer_collectiveop3",
+            "upgradeTitle" : "Tactical Officer",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "3017",
+            "upgradeTitle" : "Artificial Quantum Singularity",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "3068",
+            "upgradeTitle" : "Cloaking Device",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "3010",
+            "upgradeTitle" : "Photon Torpedoes (Vor'cha Bonus)",
+            "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "3016",
+            "upgradeTitle" : "Plasma Torpedoes",
+            "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "3067",
+            "upgradeTitle" : "Quantum Torpedoes",
+            "calculatedCost" : 6
+          }
+        ],
+        "shipTitle" : "U.S.S. Defiant",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "cost" : 72,
+    "resource" : "officer_cards_collectiveop3",
+    "uuid" : "F9441AD1-9F67-4C99-94BE-14669318EFA3",
+    "additionalPoints" : 0,
+    "modified" : "2014-09-18T07:43:10-0700",
+    "name" : "officers"
+  },
+  {
     "uuid" : "538AB4B9-1F15-490A-A9B9-EC3567CB7709",
     "additionalPoints" : 0,
     "ships" : [
@@ -1805,6 +2033,32 @@
     "cost" : 66
   },
   {
+    "uuid" : "D078039F-2CF5-4143-94D7-D1721F1FA575",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 31,
+        "shipId" : "bok_s_marauder_71646a",
+        "upgrades" : [
+          {
+            "upgradeId" : "photonic_charges_71646c",
+            "upgradeTitle" : "Photonic Charges",
+            "calculatedCost" : 9
+          }
+        ],
+        "shipTitle" : "Bok's Marauder",
+        "captain" : {
+          "upgradeId" : "2027",
+          "upgradeTitle" : "Ferengi Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "photonic charges",
+    "modified" : "2014-09-16T14:40:44-0700",
+    "cost" : 31
+  },
+  {
     "uuid" : "19F2B8FF-02CC-4F77-A9A1-A714FE07041F",
     "additionalPoints" : 0,
     "ships" : [
@@ -1880,6 +2134,68 @@
     "additionalPoints" : 0,
     "modified" : "2014-06-19T16:41:04-0700",
     "name" : "pike on sideboard"
+  },
+  {
+    "uuid" : "52760730-2C7F-4874-9C30-4046DA51FE41",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 40,
+        "shipId" : "1001",
+        "upgrades" : [
+          {
+            "upgradeId" : "quark_71786",
+            "upgradeTitle" : "Quark",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "3068",
+            "upgradeTitle" : "Cloaking Device",
+            "calculatedCost" : 9
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-D",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "quark-tech",
+    "modified" : "2014-09-17T17:33:18-0700",
+    "cost" : 40
+  },
+  {
+    "uuid" : "6DBF97D1-27A7-4857-A7F3-9F67B351B629",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 22,
+        "shipId" : "1013",
+        "upgrades" : [
+          {
+            "upgradeId" : "quark_weapon_71786",
+            "upgradeTitle" : "Quark",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "3016",
+            "upgradeTitle" : "Plasma Torpedoes",
+            "calculatedCost" : 5
+          }
+        ],
+        "shipTitle" : "R.I.S. Apnex",
+        "captain" : {
+          "upgradeId" : "2007",
+          "upgradeTitle" : "Romulan Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "quark-weapon",
+    "modified" : "2014-09-17T17:34:25-0700",
+    "cost" : 22
   },
   {
     "ships" : [
@@ -1972,14 +2288,14 @@
             "calculatedCost" : 1
           },
           {
-            "upgradeId" : "photon_torpedoes_71279",
-            "upgradeTitle" : "Photon Torpedoes",
-            "calculatedCost" : 6
-          },
-          {
             "upgradeId" : "photon_torpedoes_71524",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "photon_torpedoes_71279",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 6
           }
         ],
         "shipTitle" : "4th Division Battleship",
@@ -2348,6 +2664,37 @@
     "name" : "tpol",
     "modified" : "2014-09-06T07:25:40-0700",
     "cost" : 28
+  },
+  {
+    "uuid" : "AD4338B4-204A-441B-B380-CA4C280C7BE4",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 42,
+        "shipId" : "1001",
+        "upgrades" : [
+          {
+            "upgradeId" : "t_rul_71786",
+            "upgradeTitle" : "T'Rul",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "3068",
+            "upgradeTitle" : "Cloaking Device",
+            "calculatedCost" : 9
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-D",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "trul",
+    "modified" : "2014-09-17T17:32:30-0700",
+    "cost" : 42
   },
   {
     "ships" : [

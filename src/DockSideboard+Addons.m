@@ -83,7 +83,7 @@
 -(BOOL)upgradeWouldExceedCostLimit:(DockUpgrade*)upgrade
 {
     int currentCost = [self baseCost];
-    if (currentCost + [[upgrade cost] intValue] > 20) {
+    if (currentCost + [upgrade costForShip: self] > 20) {
         return YES;
     }
     return NO;
@@ -94,8 +94,7 @@
     if ([upgrade isBorg]) {
         return NO;
     }
-
-    return YES;
+    return ![self upgradeWouldExceedCostLimit: upgrade];
 }
 
 -(int)baseCost
@@ -112,7 +111,7 @@
 {
     if ([self upgradeWouldExceedCostLimit: upgrade]) {
         NSString* msg = [NSString stringWithFormat: @"Can't add %@ to %@", [upgrade plainDescription], [self plainDescription]];
-        NSString* info = [NSString stringWithFormat: @"Adding an item of cost %@ would exceed limit of 20.", [upgrade cost]];
+        NSString* info = [NSString stringWithFormat: @"Adding an item of cost %d would exceed limit of 20.", [upgrade costForShip: self]];
         return @{
                  @"info": info, @"message": msg
                  };

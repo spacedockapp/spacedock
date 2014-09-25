@@ -1,6 +1,6 @@
   <Captain>
-    <Title>Jean-Luc Picard</Title>
-    <Ability>Add 1 [CREW] slot to your Upgrade Bar. ACTION: Disable all of your remaining Shields and immediately perform an additional green or white maneuver.</Ability>
+    <Title>Bok's Marauder</Title>
+    <Ability>ACTION: Gain +1 attack die to each of your attacks and roll -1 defense die each time you defend this round.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>6</Skill>
@@ -8,25 +8,73 @@
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Federation</Faction>
+    <Faction>Ferengi</Faction>
     <Cost>4</Cost>
-    <Id>jean_luc_picard_71510</Id>
-    <Set>71510</Set>
+    <Id>bok_s_marauder_71646a</Id>
+    <Set>71646a</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>William T. Riker</Title>
-    <Ability>Each time you perform a [BATTLESTATIONS], an [EVASIVE MANEUVERS], or a [TARGET LOCK] Action, place 1 additional Token of the appropriate type ([BATTLESTATIONS], [EVASIVE MANEUVERS], or [TARGET LOCK]) on this card.  During the Activation Phase,  you may spend 1 Token from this card and perform the corresponding Action as a free Action.</Ability>
+    <Title>Elim Garak</Title>
+    <Ability>During the Roll Attack Dice step of the Combat Phase, you may discard 1 of your [CREW] Upgrades to roll +1 attack die.</Ability>
     <Unique>N</Unique>
     <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-    <Skill>7</Skill>
-    <Talent>1</Talent>
+    <Skill>3</Skill>
+    <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
     <Faction>Mirror Universe</Faction>
+    <Cost>2</Cost>
+    <Id>elim_garak_71646b</Id>
+    <Set>71646b</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Haron</Title>
+    <Ability>Add 1 [WEAPON] Upgrade slot to your Upgrade Bar. All of your Kazon [WEAPON] Upgrades cost -1 SP.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>3</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Kazon</Faction>
+    <Cost>2</Cost>
+    <Id>haron_71646c</Id>
+    <Set>71646c</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Tactical Drone</Title>
+    <Ability>At the start of the game, place 2 Drone Tokens on this card. During the Activation Phase, before you move, you may spend 1 Drone Token to remove 1 Auxiliary Power Token from beside your ship.</Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>2</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Borg</Faction>
+    <Cost>2</Cost>
+    <Id>tactical_drone_71646d</Id>
+    <Set>71646d</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Solok</Title>
+    <Ability>You may perform an [EVASIVE MANEUVERS] or a [SCAN] Action as a free Action each round.  If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>6</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Vulcan</Faction>
     <Cost>4</Cost>
-    <Id>william_t_riker_71510b</Id>
-    <Set>71510b</Set>
+    <Id>solok_71646e</Id>
+    <Set>71646e</Set>
     <Special></Special>
   </Captain>

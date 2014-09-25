@@ -21,6 +21,7 @@
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade;
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace;
 -(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace establishPlaceholders:(BOOL)establish;
+-(DockEquippedUpgrade*)addUpgrade:(DockUpgrade*)upgrade maybeReplace:(DockEquippedUpgrade*)maybeReplace establishPlaceholders:(BOOL)establish respectLimits:(BOOL)respectLimits;
 -(DockEquippedUpgrade*)firstUpgrade:(NSString*)upType;
 -(DockEquippedUpgrade*)mostExpensiveUpgradeOfFaction:(NSString*)faction upType:(NSString*)upType;
 -(NSArray*)allUpgradesOfFaction:(NSString*)faction upType:(NSString*)upType;

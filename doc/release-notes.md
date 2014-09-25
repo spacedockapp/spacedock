@@ -1,3 +1,20 @@
+### Version 1.1.7 build 87 (2014-9-18)
+
+* Fix error in Operations Officer.
+
+### Version 1.1.6 build 86 (2014-9-17)
+
+* Add Resistance is Futile Boosters.
+
+### Version 1.1.5 build 85 (2014-9-14)
+
+* Implement inspector for Fleet Captains and Officers
+* Fix typo in Focused Partical Beam
+* When removing illegal upgrades, don't enforce the only 1 per ship limit.
+* Support for Assimilation Target Prime, including the Mirror Universe faction.
+* Support for the Stargazer.
+* Added  entries for Maxwell Forrest and V'Las (Thanks Robert George)
+
 ### Version 1.1.4 build 82 (2014-9-6)
 
 * Add Wave 7.
