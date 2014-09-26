@@ -1,3 +1,7 @@
+### Version 1.1.8 build 88 (2014-9-26)
+
+* Fix error in when duplicating squads.
+
 ### Version 1.1.7 build 87 (2014-9-18)
 
 * Fix error in Operations Officer.
