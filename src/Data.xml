@@ -1,4 +1,4 @@
-<Data version="2014-09-19@04-53">
+<Data xversion="2014-09-19@04-53">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -11491,6 +11491,12 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
       <Set id="71646c" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Relora-Sankur Expansion</Set>
       <Set id="71646d" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Scout 255 Expansion</Set>
       <Set id="71646e" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Tal'Kir Expansion</Set>
+
+      <Set id="71528" overallSetName="Wave 8" releaseDate="2014-10-01">Val Jean Expansion</Set>
+      <Set id="71530" overallSetName="Wave 8" releaseDate="2014-10-01">Queen Vessel Prime Expansion</Set>
+      <Set id="71531" overallSetName="Wave 8" releaseDate="2014-10-01">U.S.S. Enterprise-E Expansion</Set>
+
+      <Set id="71511" overallSetName="Organized Play" releaseDate="2014-10-01">Avatar of Tomed Expansion</Set>
     </Sets>
     <Flagships>
         <Flagship>
