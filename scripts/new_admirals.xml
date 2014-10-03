@@ -1,0 +1,40 @@
+  <Admiral>
+    <Title>Borg Queen</Title>
+    <Ability>At the start of the game or if this card replaces another Captain, remove all Drone Tokens from that Captain Card and place 7 Drone Tokens on this card. ACTION: Target a friendly ship at Range 1-2. Choose 1 Upgrade on that ship and perform that Upgrade's Action as a free Action this round. If that Action requires spending Drone Tokens, spend 1 less Drone Token than required.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>5</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Borg</Faction>
+    <Cost>7</Cost>
+    <Id>borg_queen_71530</Id>
+    <Set>71530</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: Target a friendly ship at Range 1-2. Choose 1 Upgrade on that ship and perform that Upgrade's Action as a free Action this round. If that Action requires spending Drone Tokens, spend 1 less Drone Token than required.</AdmiralAbility>
+    <AdmiralCost>5</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>2</SkillModifier>
+  </Admiral>
+  <Admiral>
+    <Title>Matthew Dougherty</Title>
+    <Ability>ACTION: Disable 1 of your Upgrades to perform this Action. Each time you defend this round, during the Roll Defense Dice step of the Combat Phase, roll +1 defense die.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>3</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
+    <Cost>4</Cost>
+    <Id>matthew_dougherty_71531</Id>
+    <Set>71531</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: Disable 1 of your Upgrades to perform this Action. Each time you defend this round, during the Roll Defense Dice step of the Combat Phase, roll +1 defense die.</AdmiralAbility>
+    <AdmiralCost>3</AdmiralCost>
+    <AdmiralTalent>0</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
+  </Admiral>

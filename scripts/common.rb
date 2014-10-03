@@ -1,4 +1,5 @@
 require "set"
+require "csv"
 
 def convert_terms(upgrade)
   upgrade.gsub! /\[Regenerate\]/i, "[REGENERATE]"
@@ -38,7 +39,12 @@ def no_quotes(a)
 end
 
 def convert_line(a)
-  no_quotes(a)
+  if a != nil
+    a.gsub!(/\n+/, " ")
+    a.gsub!(/ +/, " ")
+    a = no_quotes(a)
+  end
+  a
 end
 
 def sanitize_title(title)
@@ -66,4 +72,13 @@ end
 def set_id_from_expansion(expansion)
   parts = expansion.split (/\s+-\s+/)
   parts[0]
+end
+
+def parse_data(data)
+  rows = []
+  csv = CSV.new(data, {:col_sep => "\t"})
+  csv.each do |row|
+    rows.push(row)
+  end
+  rows
 end
