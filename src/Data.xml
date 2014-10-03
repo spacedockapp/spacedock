@@ -1097,77 +1097,77 @@
       <RearArc>90</RearArc>
     </ShipClassDetail>
     <ShipClassDetail>
-        <Name>Borg Scout Cube</Name>
-        <Id>borg_scout_cube</Id>
-        <Maneuvers>
-            <Maneuver speed="4" kind="left-spin" color="red" />
-            <Maneuver speed="4" kind="straight" color="red" />
-            <Maneuver speed="4" kind="right-spin" color="red" />
+      <Name>Borg Scout Cube</Name>
+      <Id>borg_scout_cube</Id>
+      <Maneuvers>
+        <Maneuver speed="4" kind="left-spin" color="red" />
+        <Maneuver speed="4" kind="straight" color="red" />
+        <Maneuver speed="4" kind="right-spin" color="red" />
 
-            <Maneuver speed="3" kind="left-spin" color="white" />
-            <Maneuver speed="3" kind="straight" color="white" />
-            <Maneuver speed="3" kind="right-spin" color="white" />
+        <Maneuver speed="3" kind="left-spin" color="white" />
+        <Maneuver speed="3" kind="straight" color="white" />
+        <Maneuver speed="3" kind="right-spin" color="white" />
 
-            <Maneuver speed="2" kind="left-spin" color="white" />
-            <Maneuver speed="2" kind="straight" color="green" />
-            <Maneuver speed="2" kind="right-spin" color="white" />
+        <Maneuver speed="2" kind="left-spin" color="white" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-spin" color="white" />
 
-            <Maneuver speed="1" kind="left-spin" color="green" />
-            <Maneuver speed="1" kind="straight" color="green" />
-            <Maneuver speed="1" kind="right-spin" color="green" />
+        <Maneuver speed="1" kind="left-spin" color="green" />
+        <Maneuver speed="1" kind="straight" color="green" />
+        <Maneuver speed="1" kind="right-spin" color="green" />
 
-            <Maneuver speed="-1" kind="straight" color="white" />
-            <Maneuver speed="-2" kind="straight" color="white" />
-            <Maneuver speed="-3" kind="straight" color="red" />
-        </Maneuvers>
-        <FrontArc></FrontArc>
-        <RearArc></RearArc>
+        <Maneuver speed="-1" kind="straight" color="white" />
+        <Maneuver speed="-2" kind="straight" color="white" />
+        <Maneuver speed="-3" kind="straight" color="red" />
+      </Maneuvers>
+      <FrontArc></FrontArc>
+      <RearArc></RearArc>
     </ShipClassDetail>
     <ShipClassDetail>
-        <Name>Constellation Class</Name>
-        <Id>constellation_class</Id>
-        <Maneuvers>
-            <Maneuver speed="4" kind="straight" color="white" />
-            <Maneuver speed="3" kind="left-turn" color="red" />
-            <Maneuver speed="3" kind="left-bank" color="white" />
-            <Maneuver speed="3" kind="straight" color="white" />
-            <Maneuver speed="3" kind="right-bank" color="white" />
-            <Maneuver speed="3" kind="right-turn" color="red" />
-            <Maneuver speed="2" kind="left-turn" color="white" />
-            <Maneuver speed="2" kind="left-bank" color="white" />
-            <Maneuver speed="2" kind="straight" color="green" />
-            <Maneuver speed="2" kind="right-bank" color="white" />
-            <Maneuver speed="2" kind="right-turn" color="white" />
-            <Maneuver speed="1" kind="left-bank" color="green" />
-            <Maneuver speed="1" kind="straight" color="green" />
-            <Maneuver speed="1" kind="right-bank" color="green" />
-            <Maneuver speed="-1" kind="straight" color="red" />
-        </Maneuvers>
-        <FrontArc>180</FrontArc>
-        <RearArc></RearArc>
+      <Name>Constellation Class</Name>
+      <Id>constellation_class</Id>
+      <Maneuvers>
+        <Maneuver speed="4" kind="straight" color="white" />
+        <Maneuver speed="3" kind="left-turn" color="red" />
+        <Maneuver speed="3" kind="left-bank" color="white" />
+        <Maneuver speed="3" kind="straight" color="white" />
+        <Maneuver speed="3" kind="right-bank" color="white" />
+        <Maneuver speed="3" kind="right-turn" color="red" />
+        <Maneuver speed="2" kind="left-turn" color="white" />
+        <Maneuver speed="2" kind="left-bank" color="white" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-bank" color="white" />
+        <Maneuver speed="2" kind="right-turn" color="white" />
+        <Maneuver speed="1" kind="left-bank" color="green" />
+        <Maneuver speed="1" kind="straight" color="green" />
+        <Maneuver speed="1" kind="right-bank" color="green" />
+        <Maneuver speed="-1" kind="straight" color="red" />
+      </Maneuvers>
+      <FrontArc>180</FrontArc>
+      <RearArc></RearArc>
     </ShipClassDetail>
     <ShipClassDetail>
-        <Name>Galaxy Class (MU)</Name>
-        <Id>galaxy__class_mu</Id>
-        <Maneuvers>
-          <Maneuver speed="6" kind="straight" color="red" />
-          <Maneuver speed="5" kind="straight" color="white" />
-          <Maneuver speed="4" kind="straight" color="white" />
-          <Maneuver speed="3" kind="left-turn" color="red" />
-          <Maneuver speed="3" kind="left-bank" color="white" />
-          <Maneuver speed="3" kind="straight" color="green" />
-          <Maneuver speed="3" kind="right-bank" color="white" />
-          <Maneuver speed="3" kind="right-turn" color="red" />
-          <Maneuver speed="2" kind="left-bank" color="white" />
-          <Maneuver speed="2" kind="straight" color="green" />
-          <Maneuver speed="2" kind="right-bank" color="white" />
-          <Maneuver speed="1" kind="left-bank" color="green" />
-          <Maneuver speed="1" kind="straight" color="green" />
-          <Maneuver speed="1" kind="right-bank" color="green" />
-          <Maneuver speed="-1" kind="straight" color="red" />
-        </Maneuvers>
-        <FrontArc>90</FrontArc>
-        <RearArc>90</RearArc>
+      <Name>Galaxy Class (MU)</Name>
+      <Id>galaxy__class_mu</Id>
+      <Maneuvers>
+        <Maneuver speed="6" kind="straight" color="red" />
+        <Maneuver speed="5" kind="straight" color="white" />
+        <Maneuver speed="4" kind="straight" color="white" />
+        <Maneuver speed="3" kind="left-turn" color="red" />
+        <Maneuver speed="3" kind="left-bank" color="white" />
+        <Maneuver speed="3" kind="straight" color="green" />
+        <Maneuver speed="3" kind="right-bank" color="white" />
+        <Maneuver speed="3" kind="right-turn" color="red" />
+        <Maneuver speed="2" kind="left-bank" color="white" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-bank" color="white" />
+        <Maneuver speed="1" kind="left-bank" color="green" />
+        <Maneuver speed="1" kind="straight" color="green" />
+        <Maneuver speed="1" kind="right-bank" color="green" />
+        <Maneuver speed="-1" kind="straight" color="red" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
+      <RearArc>90</RearArc>
     </ShipClassDetail>
     <ShipClassDetail>
         <Name>Predator Class</Name>
@@ -1191,6 +1191,121 @@
         </Maneuvers>
         <FrontArc>180</FrontArc>
         <RearArc>90</RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+      <Name>Borg Octahedron</Name>
+      <Id>borg_octahedron</Id>
+      <Maneuvers>
+          <Maneuver speed="4" kind="left-spin" color="red" />
+          <Maneuver speed="4" kind="straight" color="white" />
+          <Maneuver speed="4" kind="right-spin" color="red" />
+          <Maneuver speed="3" kind="left-spin" color="white" />
+          <Maneuver speed="3" kind="straight" color="white" />
+          <Maneuver speed="3" kind="right-spin" color="white" />
+          <Maneuver speed="2" kind="left-spin" color="white" />
+          <Maneuver speed="2" kind="straight" color="green" />
+          <Maneuver speed="2" kind="right-spin" color="white" />
+          <Maneuver speed="1" kind="left-spin" color="green" />
+          <Maneuver speed="1" kind="straight" color="green" />
+          <Maneuver speed="1" kind="right-spin" color="green" />
+          <Maneuver speed="-1" kind="straight" color="white" />
+          <Maneuver speed="-2" kind="straight" color="white" />
+          <Maneuver speed="-3" kind="straight" color="red" />
+      </Maneuvers>
+      <FrontArc></FrontArc>
+      <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+      <Name>Borg Octahedron</Name>
+      <Id>borg_octahedron</Id>
+      <Maneuvers>
+        <Maneuver speed="4" kind="left-spin" color="red" />
+        <Maneuver speed="4" kind="straight" color="white" />
+        <Maneuver speed="4" kind="right-spin" color="red" />
+        <Maneuver speed="3" kind="left-spin" color="white" />
+        <Maneuver speed="3" kind="straight" color="white" />
+        <Maneuver speed="3" kind="right-spin" color="white" />
+        <Maneuver speed="2" kind="left-spin" color="white" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-spin" color="white" />
+        <Maneuver speed="1" kind="left-spin" color="green" />
+        <Maneuver speed="1" kind="straight" color="green" />
+        <Maneuver speed="1" kind="right-spin" color="green" />
+        <Maneuver speed="-1" kind="straight" color="white" />
+        <Maneuver speed="-2" kind="straight" color="white" />
+        <Maneuver speed="-3" kind="straight" color="red" />
+      </Maneuvers>
+      <FrontArc></FrontArc>
+      <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+      <Name>Sovereign Class</Name>
+      <Id>sovereign_class</Id>
+      <Maneuvers>
+        <Maneuver speed="6" kind="straight" color="red" />
+        <Maneuver speed="5" kind="straight" color="white" />
+        <Maneuver speed="4" kind="straight" color="white" />
+        <Maneuver speed="3" kind="left-turn" color="white" />
+        <Maneuver speed="3" kind="left-bank" color="white" />
+        <Maneuver speed="3" kind="straight" color="green" />
+        <Maneuver speed="3" kind="right-bank" color="white" />
+        <Maneuver speed="3" kind="right-turn" color="white" />
+        <Maneuver speed="2" kind="left-bank" color="white" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-bank" color="white" />
+        <Maneuver speed="1" kind="left-bank" color="green" />
+        <Maneuver speed="1" kind="straight" color="green" />
+        <Maneuver speed="1" kind="right-bank" color="green" />
+        <Maneuver speed="-1" kind="straight" color="red" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
+      <RearArc>90</RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+      <Name>Borg Octahedron</Name>
+      <Id>borg_octahedron</Id>
+      <Maneuvers>
+        <Maneuver speed="4" kind="left-spin" color="red" />
+        <Maneuver speed="4" kind="straight" color="white" />
+        <Maneuver speed="4" kind="right-spin" color="red" />
+        <Maneuver speed="3" kind="left-spin" color="white" />
+        <Maneuver speed="3" kind="straight" color="white" />
+        <Maneuver speed="3" kind="right-spin" color="white" />
+        <Maneuver speed="2" kind="left-spin" color="white" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-spin" color="white" />
+        <Maneuver speed="1" kind="left-spin" color="green" />
+        <Maneuver speed="1" kind="straight" color="green" />
+        <Maneuver speed="1" kind="right-spin" color="green" />
+        <Maneuver speed="-1" kind="straight" color="white" />
+        <Maneuver speed="-2" kind="straight" color="white" />
+        <Maneuver speed="-3" kind="straight" color="red" />
+      </Maneuvers>
+      <FrontArc></FrontArc>
+      <RearArc></RearArc>
+    </ShipClassDetail>
+    <ShipClassDetail>
+      <Name>Maquis Raider</Name>
+      <Id>maquis_raider_b</Id>
+      <Maneuvers>
+        <Maneuver speed="4" kind="straight" color="white" />
+        <Maneuver speed="3" kind="left-turn" color="white" />
+        <Maneuver speed="3" kind="left-bank" color="white" />
+        <Maneuver speed="3" kind="straight" color="white" />
+        <Maneuver speed="3" kind="right-bank" color="white" />
+        <Maneuver speed="3" kind="right-turn" color="white" />
+        <Maneuver speed="3" kind="about" color="red" />
+        <Maneuver speed="2" kind="left-turn" color="white" />
+        <Maneuver speed="2" kind="left-bank" color="white" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-bank" color="white" />
+        <Maneuver speed="2" kind="right-turn" color="white" />
+        <Maneuver speed="1" kind="left-bank" color="green" />
+        <Maneuver speed="1" kind="straight" color="green" />
+        <Maneuver speed="1" kind="right-bank" color="green" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
+      <RearArc>90</RearArc>
     </ShipClassDetail>
   </ShipClassDetails>
   <Ships>
@@ -4242,6 +4357,288 @@
       <Crew>1</Crew>
       <Id>vulcan_starship_71646e</Id>
       <Set>71646e</Set>
+    </Ship>
+    <Ship>
+      <Title>Val Jean</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Maquis Raider</ShipClass>
+      <ShipClassDetailsId>maquis_raider_b</ShipClassDetailsId>
+      <Faction>Independent</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>2</Attack>
+      <Agility>3</Agility>
+      <Hull>3</Hull>
+      <Shield>3</Shield>
+      <Ability>During the Modify Defense Dice step of the Combat Phase, you may disable up to 3 of your Upgrades to add 1 [EVADE] result to your roll for each Upgrade you disabled with this card.</Ability>
+      <Cost>22</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>2</Weapon>
+      <Crew>2</Crew>
+      <Has360Arc>N</Has360Arc>
+      <Id>val_jean_71528</Id>
+      <Set>71528</Set>
+    </Ship>
+    <Ship>
+      <Title>Maquis Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Maquis Raider</ShipClass>
+      <ShipClassDetailsId>maquis_raider_b</ShipClassDetailsId>
+      <Faction>Independent</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>2</Attack>
+      <Agility>3</Agility>
+      <Hull>3</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <Has360Arc>N</Has360Arc>
+      <Id>maquis_starship_71528</Id>
+      <Set>71528</Set>
+    </Ship>
+    <Ship>
+      <Title>Romulan/Borg Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>D'deridex Class</ShipClass>
+      <Faction>Borg</Faction>
+      <AdditionalFaction>Romulan</AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>2</Agility>
+      <Hull>6</Hull>
+      <Shield>4</Shield>
+      <Ability></Ability>
+      <Cost>32</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>1</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <Has360Arc>N</Has360Arc>
+      <Id>romulan_borg_starship_71511</Id>
+      <Set>71511</Set>
+    </Ship>
+    <Ship>
+      <Title>Romulan Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>D'deridex Class</ShipClass>
+      <Faction>Romulan</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>6</Hull>
+      <Shield>3</Shield>
+      <Ability></Ability>
+      <Cost>28</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <Has360Arc>N</Has360Arc>
+      <Id>romulan_starship_71511</Id>
+      <Set>71511</Set>
+    </Ship>
+    <Ship>
+      <Title>I.R.W. Avatar of Tomed</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>D'deridex Class</ShipClass>
+      <Faction>Borg</Faction>
+      <AdditionalFaction>Romulan</AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>2</Agility>
+      <Hull>6</Hull>
+      <Shield>5</Shield>
+      <Ability>When you perform a [CLOAK] Action, you may immediately perform a [REGENERATE] Action as a free Action.  If you do so, you cannot attack that round.</Ability>
+      <Cost>34</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>1</Borg>
+      <Tech>1</Tech>
+      <Weapon>3</Weapon>
+      <Crew>1</Crew>
+      <Has360Arc>N</Has360Arc>
+      <Id>i_r_w_avatar_of_tomed_71511</Id>
+      <Set>71511</Set>
+    </Ship>
+    <Ship>
+      <Title>I.R.W. Avatar of Tomed</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>D'deridex Class</ShipClass>
+      <Faction>Romulan</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>6</Hull>
+      <Shield>4</Shield>
+      <Ability>During the Roll Attack Dice step of the Combat Phase, you may roll +1 attack die.  If you do so, suffer 1 damage to your Hull.</Ability>
+      <Cost>30</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>3</Weapon>
+      <Crew>1</Crew>
+      <Has360Arc>N</Has360Arc>
+      <Id>i_r_w_avatar_of_tomed_b_71511</Id>
+      <Set>71511</Set>
+    </Ship>
+    <Ship>
+      <Title>Queen Vessel Prime</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Borg Octahedron</ShipClass>
+      <Faction>Borg</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>6</Attack>
+      <Agility>0</Agility>
+      <Hull>8</Hull>
+      <Shield>7</Shield>
+      <Ability>During the Roll Attack Dice step of the Combat Phase, your ship, or 1 friendly ship within Range 1-2 of your ship, may spend a Scan Token from beside this ship to gain +1 attack die.</Ability>
+      <Cost>42</Cost>
+      <EvasiveManeuvers>0</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>1</Regenerate>
+      <Borg>2</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
+      <Has360Arc>Y</Has360Arc>
+      <Id>queen_vessel_prime_71530</Id>
+      <Set>71530</Set>
+    </Ship>
+    <Ship>
+      <Title>U.S.S. Enterprise-E</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Sovereign Class</ShipClass>
+      <Faction>Federation</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>5</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>5</Shield>
+      <Ability>You may fire a Torpedo at an enemy ship without needing a Target Lock.  If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+      <Cost>32</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>2</Crew>
+      <Has360Arc>N</Has360Arc>
+      <Id>u_s_s_enterprise_e_71531</Id>
+      <Set>71531</Set>
+    </Ship>
+    <Ship>
+      <Title>Federation Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Sovereign Class</ShipClass>
+      <Faction>Federation</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>5</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>4</Shield>
+      <Ability></Ability>
+      <Cost>30</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <Has360Arc>N</Has360Arc>
+      <Id>federation_starship_71531</Id>
+      <Set>71531</Set>
+    </Ship>
+    <Ship>
+      <Title>Borg Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Borg Octahedron</ShipClass>
+      <Faction>Borg</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>6</Attack>
+      <Agility>0</Agility>
+      <Hull>8</Hull>
+      <Shield>6</Shield>
+      <Ability></Ability>
+      <Cost>40</Cost>
+      <EvasiveManeuvers>0</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>1</Regenerate>
+      <Borg>2</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Has360Arc>Y</Has360Arc>
+      <Id>borg_starship_71530</Id>
+      <Set>71530</Set>
     </Ship>
   </Ships>
   <Captains>

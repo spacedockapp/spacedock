@@ -1,3 +1,5 @@
+require "set"
+
 def convert_terms(upgrade)
   upgrade.gsub! /\[Regenerate\]/i, "[REGENERATE]"
   upgrade.gsub! /\[evade\]/i, "[EVADE]"
@@ -43,8 +45,22 @@ def sanitize_title(title)
   title.gsub(/\W+/, "_")
 end
 
+$external_ids = Set.new()
+
 def make_external_id(setId, title)
-  "#{sanitize_title(title)}_#{setId}".downcase()
+  sanitized_title = sanitize_title(title)
+  external_id = "#{sanitize_title(title)}_#{setId}".downcase()
+  if $external_ids.member?(external_id)
+    letters = 'b'..'z'
+    letters.each do |letter|
+      external_id = "#{sanitize_title(title)}_#{letter}_#{setId}".downcase()
+      unless $external_ids.member?(external_id)
+        break
+      end
+    end
+  end
+  $external_ids.add(external_id)
+  external_id
 end
 
 def set_id_from_expansion(expansion)

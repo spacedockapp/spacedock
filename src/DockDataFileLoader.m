@@ -212,6 +212,10 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                     DockShip* ship = (DockShip*)c;
                     NSString* shipClass =  [d valueForKey: key];
                     [ship updateShipClass: shipClass];
+                } else if ([key isEqualToString: @"ShipClassDetailsId"]) {
+                    DockShip* ship = (DockShip*)c;
+                    NSString* shipClassDetailsId =  [d valueForKey: key];
+                    [ship updateShipClassWithId: shipClassDetailsId];
                 }
             }
 
