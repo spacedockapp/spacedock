@@ -545,7 +545,13 @@
         }
     }
 
-    if ([upgradeSpecial isEqualToString: @"OnlyBorgShip"]) {
+    if ([upgradeSpecial isEqualToString: @"OnlyBorgShip"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"]) {
+        if (![self.ship isBorg]) {
+            return NO;
+        }
+    }
+
+    if ([upgradeSpecial isEqualToString: @"OnlyBorgShip"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"]) {
         if (![self.ship isBorg]) {
             return NO;
         }
@@ -599,6 +605,12 @@
         }
     }
 
+    if ([upgradeSpecial isEqualToString: @"OnlyNonBorgShipAndNonBorgCaptain"]) {
+        if ([self.ship isBorg] || [captain isBorg]) {
+            return NO;
+        }
+    }
+
     if ([upgradeSpecial isEqualToString: @"PhaserStrike"] || [upgradeSpecial isEqualToString: @"OnlyHull3OrLess"]) {
         if ([[self.ship hull] intValue] > 3) {
             return NO;
@@ -606,7 +618,7 @@
     }
 
     if (!validating) {
-        if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
+        if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
             DockEquippedUpgrade* existing = [self containsUpgradeWithId: upgrade.externalId];
             if (existing != nil) {
                 return NO;
@@ -628,6 +640,13 @@
             return NO;
         }
     }
+
+    if ([upgradeSpecial isEqualToString: @"OnlyFedShipHV4CostPWVP1"]) {
+        if (![self.ship isFederation] || [self.ship.hull intValue] < 4) {
+            return NO;
+        }
+    }
+
 
     if (ignoreInstalled) {
         return YES;
@@ -696,7 +715,7 @@
                 info = @"This upgrade can only be added to a Vulcan captain on a Vulcan ship.";
             } else if ([upgradeSpecial isEqualToString: @"PhaserStrike"] || [upgradeSpecial isEqualToString: @"OnlyHull3OrLess"]) {
                 info = @"This upgrade may only be purchased for a ship with a Hull value of 3 or less.";
-            } else if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"]) {
+            } else if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"]) {
                 info = @"No ship may be equipped with more than one of these upgrades.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyBattleshipOrCruiser"]) {
                 info = @"This upgrade may only be purchased for a Jem'Hadar Battle Cruiser or Battleship.";
@@ -706,6 +725,10 @@
                 info = @"This Upgrade may only be purchased for a Ferengi Captain assigned to a Ferengi ship.";
             } else if ([upgradeSpecial isEqualToString: @"not_with_hugh"]) {
                 info = @"You cannot deploy this card to the same ship or fleet as Hugh.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyFedShipHV4CostPWVP1"]) {
+                info = @"This Upgrade may only be purchased for a Federation ship with a Hull Value of 4 or greater.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyNonBorgShipAndNonBorgCaptain"]) {
+                info = @"This Upgrade may only be purchased for a non-Borg ship with a non-Borg Captain.";
             }
         }
     }

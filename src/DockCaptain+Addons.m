@@ -74,26 +74,60 @@
     return [self.externalId isEqualToString: @"tholian_opwebprize"] || [self.externalId isEqualToString: @"loskene_opwebprize"];
 }
 
+NSDictionary* sCaptainTechSlotAdds = nil;
+
 -(int)additionalTechSlots
 {
     NSString* special = self.special;
     if ([special isEqualToString: @"addonetechslot"] || [special isEqualToString: @"AddsHiddenTechSlot"]) {
         return 1;
     }
-    return 0;
+
+    if (sCaptainTechSlotAdds == nil) {
+        sCaptainTechSlotAdds = @{
+            @"calvin_hudson_b_71528": @1,
+            @"jean_luc_picard_b_71531": @1,
+        };
+    }
+
+    NSString* externalId = self.externalId;
+    return [sCaptainTechSlotAdds[externalId] intValue];
 }
+
+NSDictionary* sCaptainCrewSlotAdds = nil;
 
 -(int)additionalCrewSlots
 {
-    if ([self.externalId isEqualToString: @"lore_71522"]) {
-        return 1;
-    }
-
     NSString* special = self.special;
     if ([special isEqualToString: @"Add_Crew_1"]) {
         return 1;
     }
-    return [special isEqualToString: @"AddTwoCrewSlotsDominionCostBonus"] ? 2 : 0;
+
+    if (sCaptainCrewSlotAdds == nil) {
+        sCaptainCrewSlotAdds = @{
+            @"lore_71522": @1,
+            @"calvin_hudson_71528": @1,
+            @"chakotay_71528": @1,
+            @"weyoun_71279": @2
+        };
+    }
+
+    return [sCaptainCrewSlotAdds[self.externalId] intValue];
+}
+
+static NSDictionary* sCaptainWeaponSlotAdds = nil;
+
+-(int)additionalWeaponSlots
+{
+    if (sCaptainWeaponSlotAdds == nil) {
+        sCaptainWeaponSlotAdds = @{
+            @"calvin_hudson_c_71528": @1,
+            @"jean_luc_picard_c_71531": @1,
+            @"chakotay_b_71528": @1
+        };
+    }
+
+    return [sCaptainWeaponSlotAdds[self.externalId] intValue];
 }
 
 -(int)additionalTalentSlots

@@ -556,7 +556,11 @@ static NSString* makeKey(NSString* key)
         @"PlusFourIfNotPredatorClass",
         @"PlusFiveIfNotMirrorUniverse",
         @"OnlyFerengiCaptainFerengiShip",
-        @"OnlyFerengiShip"
+        @"OnlyFerengiShip",
+        @"AllUpgradesMinusOneOnIndepedentShip",
+        @"OnlyFedShipHV4CostPWVP1",
+        @"OnlyBorgShipAndNoMoreThanOnePerShip",
+        @"OnlyNonBorgShipAndNonBorgCaptain"
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];

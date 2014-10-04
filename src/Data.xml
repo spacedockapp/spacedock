@@ -6353,7 +6353,7 @@
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
-      <Talent>1</Talent>
+      <Talent>2</Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Captain</Type>
@@ -11824,7 +11824,7 @@
         <Cost>5</Cost>
         <Id>advanced_shields_71531</Id>
         <Set>71531</Set>
-        <Special></Special>
+        <Special>NoMoreThanOnePerShip</Special>
       </Upgrade>
       <Upgrade>
         <Title>Fire At Will!</Title>
@@ -12189,7 +12189,7 @@
         <Range>1-2</Range>
         <Type>Weapon</Type>
         <Faction>Federation</Faction>
-        <Cost>1</Cost>
+        <Cost>0</Cost>
         <Id>dorsal_phaser_array_71531</Id>
         <Set>71531</Set>
         <Special>OnlyFedShipHV4CostPWVP1</Special>

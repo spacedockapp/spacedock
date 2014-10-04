@@ -112,26 +112,37 @@
     return [NSString stringWithFormat: @"%@ (%@)", self.title, self.upType];
 }
 
+static NSDictionary* sItemLabels = nil;
+
 -(NSString*)disambiguatedTitle
 {
     NSString* externalId = self.externalId;
 
-    if ([externalId isEqualToString: @"quark_71786"]) {
-        return [NSString stringWithFormat: @"%@ (Tech)", self.title];
+    if (sItemLabels == nil) {
+        sItemLabels = @{
+            @"quark_71786": @"Tech",
+            @"quark_weapon_71786": @"Weapon",
+            @"vulcan_high_command_2_0_71446": @"2/0",
+            @"vulcan_high_command_1_1_71446": @"1/1",
+            @"vulcan_high_command_0_2_71446": @"0/2",
+            @"calvin_hudson_71528": @"Crew",
+            @"calvin_hudson_b_71528": @"Tech",
+            @"calvin_hudson_c_71528": @"Weapon",
+            @"chakotay_71528": @"Crew",
+            @"chakotay_b_71528": @"Weapon",
+            @"jean_luc_picard_71531": @"Talent",
+            @"jean_luc_picard_b_71531": @"Tech",
+            @"jean_luc_picard_c_71531": @"Weapon",
+        };
     }
-    if ([externalId isEqualToString: @"quark_weapon_71786"]) {
-        return [NSString stringWithFormat: @"%@ (Weapon)", self.title];
+
+    NSString* label = sItemLabels[externalId];
+    NSString* title = self.title;
+    if (label == nil) {
+        return title;
     }
-    if ([externalId isEqualToString: @"vulcan_high_command_2_0_71446"]) {
-        return [NSString stringWithFormat: @"%@ (2/0)", self.title];
-    }
-    if ([externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
-        return [NSString stringWithFormat: @"%@ (1/1)", self.title];
-    }
-    if ([externalId isEqualToString: @"vulcan_high_command_0_2_71446"]) {
-        return [NSString stringWithFormat: @"%@ (0/2)", self.title];
-    }
-    return self.title;
+
+    return [NSString stringWithFormat: @"%@ (%@)", title, label];
 }
 
 -(NSString*)titleForPlainTextFormat
@@ -526,6 +537,9 @@
         }
 
     } else if ([upgrade isWeapon]) {
+        if ([upgradeSpecial isEqualToString: @"OnlyFedShipHV4CostPWVP1"]) {
+            cost += [ship.attack intValue];
+        }
         if ([captainSpecial isEqualToString: @"WeaponUpgradesCostOneLess"]) {
             cost -= 1;
         }
@@ -593,60 +607,66 @@
         }
     }
 
-    if ([captainSpecial isEqualToString: @"OneDominionUpgradeCostsMinusTwo"] && !isSideboard) {
-        if ([upgrade isDominion]) {
-            DockEquippedUpgrade* most = [equippedShip mostExpensiveUpgradeOfFaction: @"Dominion" upType: nil];
+    if (!isSideboard) {
+        if ([captainSpecial isEqualToString: @"OneDominionUpgradeCostsMinusTwo"]) {
+            if ([upgrade isDominion]) {
+                DockEquippedUpgrade* most = [equippedShip mostExpensiveUpgradeOfFaction: @"Dominion" upType: nil];
 
-            if (most.upgrade == self && (equippedUpgrade == nil || equippedUpgrade == most)) {
+                if (most.upgrade == self && (equippedUpgrade == nil || equippedUpgrade == most)) {
+                    cost -= 2;
+                }
+            }
+        } else if ([captainSpecial isEqualToString: @"VulcanAndFedTechUpgradesMinus2"]) {
+            if ([upgrade isTech] && ([upgrade isFederation] || [upgrade isVulcan])) {
                 cost -= 2;
             }
-        }
-    } else if ([captainSpecial isEqualToString: @"VulcanAndFedTechUpgradesMinus2"] && !isSideboard) {
-        if ([upgrade isTech] && ([upgrade isFederation] || [upgrade isVulcan])) {
-            cost -= 2;
-        }
-    } else if ([captainSpecial isEqualToString: @"AddTwoCrewSlotsDominionCostBonus"] && !isSideboard) {
-        if ([upgrade isDominion]) {
-            NSArray* all = [equippedShip allUpgradesOfFaction: @"Dominion" upType: @"Crew"];
-            
-            id upgradeCheck = ^(id obj, NSUInteger idx, BOOL* stop) {
-                DockEquippedUpgrade* eu = obj;
-                DockUpgrade* upgradeToTest = eu.upgrade;
-                return (upgradeToTest == self && (equippedUpgrade == nil || equippedUpgrade == eu));
-            };
-            NSInteger position = [all indexOfObjectPassingTest: upgradeCheck];
+        } else if ([captainSpecial isEqualToString: @"AddTwoCrewSlotsDominionCostBonus"]) {
+            if ([upgrade isDominion]) {
+                NSArray* all = [equippedShip allUpgradesOfFaction: @"Dominion" upType: @"Crew"];
+                
+                id upgradeCheck = ^(id obj, NSUInteger idx, BOOL* stop) {
+                    DockEquippedUpgrade* eu = obj;
+                    DockUpgrade* upgradeToTest = eu.upgrade;
+                    return (upgradeToTest == self && (equippedUpgrade == nil || equippedUpgrade == eu));
+                };
+                NSInteger position = [all indexOfObjectPassingTest: upgradeCheck];
 
-            if (position != NSNotFound && position < 2) {
+                if (position != NSNotFound && position < 2) {
+                    cost -= 1;
+                }
+            }
+        } else if ([captainSpecial isEqualToString: @"AddsHiddenTechSlot"]) {
+            NSArray* allTech = [equippedShip allUpgradesOfFaction: nil upType: @"Tech"];
+            NSSet* ineligibleTechUpgrades = [NSSet setWithArray: @[
+                                                                   @"OnlyVoyager",
+                                                                   @"OnlySpecies8472Ship",
+                                                                   @"PenaltyOnShipOtherThanDefiant",
+                                                                   @"PenaltyOnShipOtherThanKeldonClass",
+                                                                   @"OnlySpecies8472Ship",
+                                                                   @"CostPlusFiveExceptBajoranInterceptor",
+                                                                   @"PlusFiveForNonKazon",
+                                                                   @"OnlyForRomulanScienceVessel",
+                                                                   @"OnlyForRaptorClassShips",
+                                                                   @"OnlyJemHadarShips",
+                                                                   @"OnlyForRaptorClassShips"
+                                                                   ]];
+            DockEquippedUpgrade* most = nil;
+
+            for (DockEquippedUpgrade* eu in allTech) {
+                NSString* techSpecial = eu.upgrade.special;
+                if (techSpecial == nil || ![ineligibleTechUpgrades containsObject: techSpecial]) {
+                    most = eu;
+                    break;
+                }
+            }
+            
+            if (most.upgrade == self) {
+                cost = 3;
+            }
+        } else if ([captainSpecial isEqualToString: @"AllUpgradesMinusOneOnIndepedentShip"]) {
+            if (targetHasFaction(@"Independent", ship)) {
                 cost -= 1;
             }
-        }
-    } else if ([captainSpecial isEqualToString: @"AddsHiddenTechSlot"] && !isSideboard) {
-        NSArray* allTech = [equippedShip allUpgradesOfFaction: nil upType: @"Tech"];
-        NSSet* ineligibleTechUpgrades = [NSSet setWithArray: @[
-                                                               @"OnlyVoyager",
-                                                               @"OnlySpecies8472Ship",
-                                                               @"PenaltyOnShipOtherThanDefiant",
-                                                               @"PenaltyOnShipOtherThanKeldonClass",
-                                                               @"OnlySpecies8472Ship",
-                                                               @"CostPlusFiveExceptBajoranInterceptor",
-                                                               @"PlusFiveForNonKazon",
-                                                               @"OnlyForRomulanScienceVessel",
-                                                               @"OnlyForRaptorClassShips",
-                                                               @"OnlyJemHadarShips",
-                                                               @"OnlyForRaptorClassShips"
-                                                               ]];
-        DockEquippedUpgrade* most = nil;
-
-        for (DockEquippedUpgrade* eu in allTech) {
-            NSString* techSpecial = eu.upgrade.special;
-            if (techSpecial == nil || ![ineligibleTechUpgrades containsObject: techSpecial]) {
-                most = eu;
-                break;
-            }
-        }
-        
-        if (most.upgrade == self) {
-            cost = 3;
         }
     }
 
