@@ -6,39 +6,128 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-9/15/2014 21:18:06	71646a - Bok's Marauder	Thought Maker	Ferengi	During the Planning Phase, after every ship has been assigned a Maneuver Dial, you may discard this card to target a ship within Range 1-2.  If you do so, look at that ship's Maneuver Dial and change it to any of its 1 or 2 Green Maneuvers (your choice).  That Maneuver Dial cannot be changed nor can its player look at it until it is that ship's turn to activate.  The target ship's player may place an Auxiliary Power Token beside the target ship to ignore the new Maneuver and not move that round.  This Upgrade may only be purchased for a Ferengi ship.	Tech	4	Unique																			
-9/15/2014 21:19:20	71646a - Bok's Marauder	Vengeance	Ferengi	When attacking a ship at Range 1, during the Roll Attack Dice step of the Combat Phase, you may discard this card to roll up to +2 additional attack dice.  If you do so, when the attack is completed your ship suffers 1 normal damage for each die you rolled. This Upgrade may only be purchased for a Ferengi Captain assigned to a Ferengi ship.	Talent	2	Unique																			
-9/15/2014 21:20:52	71646a - Bok's Marauder	Kazago	Ferengi	ACTION: Discard this card to place 1 [EVADE] Token and 1 [BATTLE STATIONS] Token beside your ship.  You cannot perform an [EVASIVE MANEUVERS] or a [BATTLE STATIONS] Action as a free Action this round. OR ACTION: Discard your current Captain Card and treat this card as your new Captain.  While Kazago is your Captain, your Skill Number is 4.	Crew	2	Unique																			
-9/15/2014 21:25:55	71646b - Prakesh	Tasha Yar	Mirror Universe	If your ship was just destroyed, discard this card to target 1 enemy ship within Range 1-3, if possible. Immediately make 1 free attack against that ship with 4 attack dice. If the target ship is in your forward firing arc, that ship rolls -2 defense dice against this attack.	Crew	2	Mirror Universe Unique																			
-9/15/2014 21:26:41	71646b - Prakesh	Cloaking Device	Mirror Universe	Instead of performing a normal Action, you may disable this card to perform the [CLOAK] Action. While you have a [CLOAK] token beside your ship, you may perform the [SENSOR ECHO] Action even if this card is disabled. This upgrade costs +5 Squadron Points for any non-Mirror Universe ship.	Tech	4	Non-unique																			
-9/15/2014 21:37:29	71646c - Relora-Sankur	Tersa	Kazon	ACTION:  If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1 - 2 that is not Cloaked and has no Active Shields.  Discard Tersa and 1 [CREW] Upgrade of your choice on the target ship.  Place a [SCAN] Token beside your ship.	Crew	2	Unique																			
-9/15/2014 21:38:31	71646c - Relora-Sankur	Tractor Beam	Kazon	During the Activation Phase, when a ship within Range 1 of your ship reveals a Maneuver with a number of 3 or higher, before that ship moves, you may discard this card to subtract 2 from that Maneuver's number. No ship may be equipped with more than 1 of this Upgrade.	Tech	2	Non-unique																			
-9/15/2014 21:18:11	71646d - Scout 255	Access Terminal	Borg	When you are required to spend any number of Drone Tokens, you may disable this card to spend those Drone Tokens from your ship and/or any friendly ship(s) within Range 1-2 of your ship. You may divide spending those Drone Tokens between your ships however you like.	Tech	2	Non-unique																			
-9/15/2014 21:18:32	71646d - Scout 255	One	Borg	ACTION: Discard this card to perform this Action. For each damage your ship suffers this round, disable 1 of your Active Shields instead of destroying it. If you have no Active Shields left, any excess damage is applied to your Hull as normal.	Crew	4	Unique																			
-9/15/2014 21:19:01	71646d - Scout 255	Dispersion Field	Borg	While this card is deployed to your ship, none of your other Upgrades can be affected by your opponents. In addition, you may roll your full defense dice in spite of the presence of an opposing ship’s [SCAN] Token.	Borg	2	Unique																			
-9/15/2014 21:40:03	71646e - Tal'Kir	Vulcan Logic	Vulcan	During the Roll Defense Dice step of the Combat Phase, you may discard this card to roll +2 defense dice. If you do so, during the Modify Defense Dice step, you may re-roll any number of your defense dice. This Upgrade may only be purchased for a Vulcan Captain on assigned to a Vulcan ship.	Talent	4	Unique																			
-9/15/2014 21:41:08	71646e - Tal'Kir	Kov	Vulcan	ACTION: Discard this card to repair up to 2 damage to your ship’s Hull or Shields.	Crew	4	Unique																			
+9/29/2014 15:01:31	71511 - Avatar of Tomed	Hive Mind	Borg	"ACTION: Disable this card and any number of your other Upgrades.  Add 1 Drone Token to your Captain Card for each card you disabled with this Action (including this card).  You cannot exceed your Captain's starting number of Drone Tokens.
+
+You cannot deploy more than 1 ""Hive Mind"" [BORG] Upgrade to any ship."	Borg	1	Non-unique	Yes																			
+9/29/2014 15:02:31	71511 - Avatar of Tomed	Vox	Borg, Romulan	"After rolling your dice for any reason, you may discard this card to re-roll one of those dice.
+
+OR
+
+After rolling your dice for any reason, you may disable this card and spend 2 of your Drone Tokens to re-roll one of those dice."	Crew	4	Unique																				
+9/29/2014 15:03:34	71511 - Avatar of Tomed	Borg Alliance	Romulan	"Add 1 [BORG] Upgrade slot to your Upgrade Bar.
+
+At the start of the game, place 4 Drone Tokens on your Captain card.
+
+This Upgrade may only be purchased for a non-Borg ship with a non-Borg Captain."	Talent	5	Unique	Yes																			
+9/29/2014 15:05:18	71531 - U.S.S. Enterprise-E	Advanced Shields	Federation	"ACTION: If you still have Active Shields, place 1 additional Shield Token beside your ship.  If you take damage this round, remove this Shield Token first.  If you do not take damage this round, discard the extra Shield Token during the End Phase.
+
+No ship may be equipped with more than 1 Advanced Shields Upgrade."	Tech	5	Non-unique	Yes																			
+9/29/2014 15:06:47	71531 - U.S.S. Enterprise-E	Fire At Will!	Federation	During the Combat Phase, instead of making a normal attack,  you may discard this card to make 1 attack with your Primary Weapon and 1 attack with one of your Secondary Weapons.  Each of these attacks is at -1 attack die and must be made against different enemy ships.	Talent	5	Unique																				
+9/29/2014 15:07:28	71531 - U.S.S. Enterprise-E	Make It So	Federation	When performing an Action or Attack that requires you to disable one of your Upgrades, you may discard this card instead of disabling the Upgrade.	Talent	5	Unique																				
+9/29/2014 15:08:18	71531 - U.S.S. Enterprise-E	Data	Federation	During the Modify Attack Dice step of the Combat Phase, you may discard this card to force an enemy ship to re-roll its entire attack roll.	Crew	3	Unique																				
+9/29/2014 15:09:31	71531 - U.S.S. Enterprise-E	William T. Riker	Federation	"Add 1 [CREW] Upgrade slot to your Upgrade Bar.
+
+After you move, you may disable this card to perform the Action on one of your [CREW], [TALENT], or [TECH] Upgrades or your Captain's Action as a free Action."		5	Unique																				
+9/29/2014 15:10:55	71531 - U.S.S. Enterprise-E	Geordi La Forge	Federation	"Add 1 [TECH] Upgrade slot to your Upgrade Bar.
+
+ACTION: Disable this card to target a ship at Range 1-3.  Target ship rolls 2 less defense dice this round (min 0) against all of your ship's attacks.  If the target ship is Cloaked, flip its [CLOAK] Token to its red side."	Crew	4	Unique	Yes																			
+9/29/2014 15:11:48	71528 - Val Jean	Tuvok	Independent	During the Combat Phase, after you complete an attack that you initiated, you may disable this card to immediately perform an additional 1 Maneuver (Straight, Bank or Turn).	Crew	3	Unique																				
+9/29/2014 15:12:46	71528 - Val Jean	B'Elanna Torres	Independent	Whenever you initiate an attack at Range 3, during the Roll Attack Dice step of the Combat Phase, you may disable this card to gain +1 attack die (or +2 attack dice if this Upgrade is deployed to a ship with a Hull of 3 or less).	Crew	4	Unique																				
+9/29/2014 15:13:30	71530 - Queen Vessel Prime	Magnus Hansen	Borg	Whenever you are required to spend any number of Drone Tokens, you may discard this card to spend 1 less Drone Token.	Crew	1	Unique																				
+9/29/2014 15:14:54	71530 - Queen Vessel Prime	Resistance Is Futile	Borg	During the Modify Attack Dice step of the Combat Phase, you may discard this card and spend up to 3 of your Drone Tokens to select a number of your attack dice equal to the number of Drone Tokens you spent with this card.  These dice cannot be cancelled during the Compare Results step of the Combat Phase.	Talent	7	Unique																				
+9/29/2014 15:15:50	71530 - Queen Vessel Prime	We Are the Borg	Borg	During the Modify Defense Dice step of the Combat Phase, you may discard this card and spend up to 3 of your Drone Tokens.  Add 1 [EVADE] result to your roll for each Drone Token you spent with this card.	Talent	6	Unique																				
+9/29/2014 15:18:12	71530 - Queen Vessel Prime	Transwarp Signal	Borg	"Discard this card to target a ship anywhere in the play area.  Remove 1 Token ([EVADE], [BATTLE STATIONS], [SCAN], or [TARGET LOCK]) from beside the target ship.  If you remove a [TARGET LOCK] Token with this card, remove the corresponding [TARGET LOCK] Token as well.  Place an Auxiliary Power Token beside the target ship.
+This Upgrade may only be purchased for a Borg ship.
+No ship can be equipped with more than 1 ""Transwarp Signal"" Borg Upgrade.  This Upgrade has no effect on a Species 8472 ship."	Borg	4	Non-unique	Yes																			
+9/29/2014 15:19:20	71530 - Queen Vessel Prime	Borg Shield Matrix	Borg	"Every time your ship's Hull or Shields are damaged by an enemy ship, place 1 Borg Shield Matrix Token on this card (3 max).
+
+No ship can be equipped with more than 1 Borg Shield Matrix Upgrade.  This Upgrade has no effect on a Species 8472 ship."	Borg	8	Non-unique	Yes																			
+9/29/2014 15:31:39	71530 - Queen Vessel Prime	Borg Assimilation Tubules	Borg	ACTION: Disable this card and discard 1 Drone Token to target a ship at Range 1-2.  Steal 1 [CREW], [TECH], or [WEAPON] Upgrade from the target ship, even if it exceeds your ship's restrictions.  Place a disabled Upgrade Token on the assimilated Upgrade.  You cannot steal a Species 8472 Upgrade with this Action.	Borg	8	Non-unique																				
+9/30/2014 18:20:39	71530 - Queen Vessel Prime	Power Node	Borg	Whenever you perform a Red Maneuver, you may disable this card and 2 of your Active Shields to treat the Maneuver as a White Maneuver.	Tech	3	Non-unique																				
+9/30/2014 18:30:20	71531 - U.S.S. Enterprise-E	Beverly Crusher	Federation	"If one of your other [CREW] Upgrades is supposed to be disabled for any reason, you may disable this card instead.
+
+OR
+
+If one of your other [CREW] Upgrades is supposed to be discarded for any reason, you may discard this card instead."	Crew	3	Unique																				
+9/30/2014 18:31:32	71531 - U.S.S. Enterprise-E	Deanna Troi	Federation	ACTION: Discard this card to target a ship at Range 1-2.  Disable the Captain or 1 [CREW] Upgrade on the target ship.  Place a [BATTLE STATIONS] Token beside your ship.  If the target ship is Cloaked, flip its [CLOAK] Token over to its red side.	Crew	3	Unique																				
+9/30/2014 18:47:05	71528 - Val Jean	Kenneth Dalby	Independent	"ACTION: Disable this card to repair 1 damage to your Hull or Shields.
+
+OR
+
+ACTION: Discard this card to repair up to 2 damage to your Hull or Shields."	Crew	2	Unique																				
+9/30/2014 18:47:57	71528 - Val Jean	Seska	Independent	ACTION: Discard this card and disable 1 of your other Upgrades to target a ship at Range 1-3.  Target ship cannot attack your ship this round.	Crew	5	Unique																				
+9/30/2014 18:49:05	71528 - Val Jean	Evasive Pattern Omega	Independent	After all ships have moved, if you are in the forward firing arc of an enemy ship and that ship is not in your forward firing arc, you may disable this card to immediately perform a [SENSOR ECHO] Action (even if you do not have it on your Action Bar).	Talent	3	Unique																				
+9/30/2014 18:50:08	71528 - Val Jean	Be Creative	Independent	You may disable this card at any time to replace 1 [EVADE], [SCAN] or [BATTLE STATIONS] Token beside your ship with 1 [EVADE], [SCAN] or [BATTLE STATIONS] Token.	Talent	5	Unique																				
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-9/15/2014 21:14:53	71646a - Bok's Marauder	Bok's Marauder	6	Ferengi	ACTION: Gain +1 attack die to each of your attacks and roll -1 defense die each time you defend this round.	1	4	Unique																		
-9/15/2014 21:23:55	71646b - Prakesh	Elim Garak	3	Mirror Universe	During the Roll Attack Dice step of the Combat Phase, you may discard 1 of your [CREW] Upgrades to roll +1 attack die.	0	2	Mirror Universe Unique																		
-9/15/2014 21:34:06	71646c - Relora-Sankur	Haron	3	Kazon	Add 1 [WEAPON] Upgrade slot to your Upgrade Bar. All of your Kazon [WEAPON] Upgrades cost -1 SP.	0	2	Unique																		
-9/15/2014 21:16:31	71646d - Scout 255	Tactical Drone	2	Borg	At the start of the game, place 2 Drone Tokens on this card. During the Activation Phase, before you move, you may spend 1 Drone Token to remove 1 Auxiliary Power Token from beside your ship.	0	2	Non-unique																		
-9/15/2014 21:42:36	71646e - Tal'Kir	Solok	6	Vulcan	You may perform an [EVASIVE MANEUVERS] or a [SCAN] Action as a free Action each round.  If you do so, place an Auxiliary Power Token beside your ship.	1	4	Unique																		
+9/29/2014 14:45:10	71531 - U.S.S. Enterprise-E	Jean-Luc Picard	8	Federation	"Add 1 [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice).
+
+At the start of the game, after Setup, choose 1 Faction.  Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die."	1	5	Unique	Yes																		
+9/29/2014 14:45:10	71531 - U.S.S. Enterprise-E	Jean-Luc Picard	8	Federation	"Add 1 [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice).
+
+At the start of the game, after Setup, choose 1 Faction.  Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die."	1	5	Unique	Yes																		
+9/29/2014 14:45:10	71531 - U.S.S. Enterprise-E	Jean-Luc Picard	8	Federation	"Add 1 [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice).
+
+At the start of the game, after Setup, choose 1 Faction.  Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die."	1	5	Unique	Yes																		
+9/29/2014 14:46:47	71511 - Avatar of Tomed	Salatrel	5	Romulan	At the start of the game, after Setup, choose 1 Faction.  For the rest of the game, during each Combat Phase, if a ship of that Faction is in your forward firing arc, treat your Captain Skill Number as if it were a 10 until the End Phase of that round.	1	3	Unique																			
+9/29/2014 14:47:12	71511 - Avatar of Tomed	Drone	1	Borg	At the start of the game, place 1 Drone Token on this card.	0	0	Non-unique																			
+9/29/2014 14:47:32	71530 - Queen Vessel Prime	Drone	1	Borg	At the start of the game, place 1 Drone Token on this card.	0	0	Non-unique																			
+9/29/2014 14:47:44	71531 - U.S.S. Enterprise-E	Federation	1	Federation		0	0	Non-unique																			
+9/29/2014 14:47:59	71528 - Val Jean	Independent	1	Independent		0	0	Non-unique																			
+9/29/2014 14:49:14	71528 - Val Jean	Chakotay	6	Independent	"Add 1 [WEAPON] or [CREW] Upgrade to your Upgrade bar (your choice).
+
+ACTION: Perform a 2nd Maneuver on your Maneuver Dial with a number of 3 or less.  Place an Auxiliary Power Token beside your ship.  If the extra Maneuver is a Red Maneuver, place a 2nd Auxiliary Power Token beside your ship."	1	4	Unique	Yes																		
+9/29/2014 14:49:14	71528 - Val Jean	Chakotay	6	Independent	"Add 1 [WEAPON] or [CREW] Upgrade to your Upgrade bar (your choice).
+
+ACTION: Perform a 2nd Maneuver on your Maneuver Dial with a number of 3 or less.  Place an Auxiliary Power Token beside your ship.  If the extra Maneuver is a Red Maneuver, place a 2nd Auxiliary Power Token beside your ship."	1	4	Unique	Yes																		
+9/29/2014 14:50:10	71528 - Val Jean	Calvin Hudson	5	Independent	"Add 1 [TECH], [WEAPON] or [CREW] Upgrade to your Upgrade Bar (your choice).
+
+If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP."	0	3	Unique	Yes																		
+9/29/2014 14:50:10	71528 - Val Jean	Calvin Hudson	5	Independent	"Add 1 [TECH], [WEAPON] or [CREW] Upgrade to your Upgrade Bar (your choice).
+
+If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP."	0	3	Unique	Yes																		
+9/29/2014 14:50:10	71528 - Val Jean	Calvin Hudson	5	Independent	"Add 1 [TECH], [WEAPON] or [CREW] Upgrade to your Upgrade Bar (your choice).
+
+If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP."	0	3	Unique	Yes																		
+9/30/2014 18:19:28	71530 - Queen Vessel Prime	Tactical Drone	5	Borg	"At the start of the game, place 5 Drone Tokens on this card.
+
+During the Roll Defense Dice step of the Combat Phase, you may spend 1 of your Drone Tokens to force your opponent to roll 1 less defense die."	0	4	Non-unique																			
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-9/15/2014 21:16:09	71646a - Bok's Marauder	Photon Torpedoes	Ferengi	5	2-3	ATTACK: (Target Lock) Spend your target lock and disable this card to perform this attack. You may fire this weapon from your forward or rear firing arcs.	4	Non-unique																		
-9/15/2014 21:24:42	71646b - Prakesh	Forward Weapons Grid	Mirror Universe	6	1-2	ATTACK: Disable this card to perform this attack. You must divide this attack between 2 different ships in your forward firing arc. You may divide your attack dice however you like, but you must roll at least 2 attack dice against each ship. Place an Auxiliary Power Token beside your ship.	4	Non-unique																		
-9/15/2014 21:25:18	71646b - Prakesh	Dorsal Weapons Array	Mirror Universe	3	1-2	ATTACK: Disable this card to perform this attack. You may fire this weapon in any direction.	2	Non-unique																		
-9/15/2014 21:35:38	71646c - Relora-Sankur	Photonic Charges	Kazon	4	1	ATTACK: Disable this card to perform this attack. Place an Auxiliarly Power Token beside the target ship if there is at least 1 uncancelled [HIT] or [CRIT] result.This Upgrade costs +4 SP if purchased for a non-Predator class ship.	4	Non-unique																		
-9/15/2014 21:36:16	71646c - Relora-Sankur	Particle Beam Weapon	Kazon	4	1-2	ATTACK: Disable this card to perform this attack. You may fire this weapon from your forward or rear firing arcs.	4	Non-unique																		
-9/15/2014 21:17:36	71646d - Scout 255	Proton beam	Borg	3	1	ATTACK: Disable this card to perform this attack. All damage inflicted by this attack ignores the opposing ship’s Shields. This upgrade costs +5 SP for any non-Borg ship.	4	Non-unique																		
-9/15/2014 21:43:55	71646e - Tal'Kir	Photonic Weapon	Vulcan	4	2-3	ATTACK: (Target Lock) Spend your target lock and disable this card to perform this attack. You may re-roll all of your blank results one time. You may fire this weapon from your forward or rear firing arcs. 	4	Non-unique																		
+9/29/2014 14:52:04	71528 - Val Jean	Ramming Attack	Independent			"ATTACK: Discard this card and immediately perform a 1 [FORWARD] Maneuver.  If your ship overlaps an enemy ship, destroy your ship and roll 6 attack dice to damage the enemy ship.  The enemy ship rolls -3 defense dice against this attack (min 0).
+
+This Upgrade may only be purchased for a ship with a Hull of 3 or less and cannot be used with the Cheat Death Upgrade."	3	Non-unique	Yes																		
+9/29/2014 14:53:03	71528 - Val Jean	Photon Torpedoes	Independent	5	2-3	"ATTACK: (Target Lock) Spend your target lock and disable this card to perform this attack.
+
+You may convert one of your [BATTLE STATIONS] results into a [CRIT] result.
+
+You may fire this weapon from your forward or rear firing arcs."	5	Non-unique																			
+9/29/2014 14:54:08	71531 - U.S.S. Enterprise-E	Photon Torpedoes	Federation	5	2-3	"ATTACK: (Target Lock) Spend y our target lock and disable this card to perform this attack.
+
+If fired from a Sovereign class ship, gain +1 attack die.
+
+You may fire this weapon from your forward or rear firing arcs."	6	Non-unique																			
+9/29/2014 14:55:30	71531 - U.S.S. Enterprise-E	Dorsal Phaser Array	Federation	*	1-2	"ATTACK: You may fire this weapon in any direction.  The Attack Value is equal to the ship's Primary Weapon Value.
+
+This Upgrade may only be purchased for a Federation ship with a Hull Value of 4 or greater and the SP cost is equal to the ship's Primary Weapon Value +1."	1	Non-unique	Yes																		
+9/29/2014 14:56:58	71511 - Avatar of Tomed	Plasma Torpedoes	Romulan	5	1-2	"ATTACK: (Target Lock) Spend your target lock and disable this card to perform this attack.
+
+You may re-roll all of your blank results one time.
+
+You may fire this weapon from your forward or rear firing arcs."	5	Non-unique																			
+9/29/2014 14:59:40	71530 - Queen Vessel Prime	Multi Kinetic Neutronic Mines	Borg			ATTACK: Discard this card and place a Minefield Token anywhere within Range 1 of your ship.  If you place this Token on a ship or if a ship enters the minefield (i.e., overlaps it), roll 4 attack dice.  Any [HIT] or [CRIT] damages every ship (including your own) within Range 1-3 of this Minefield Token as normal.  Ships within Range 1 of the Minefield Token do not roll defense dice against this attack.  All other ships roll full defense dice against this attack (+1 defense die at Range 3).  This Upgrade costs +5 SP if purchased for any non-Borg ship.	10	Unique	Yes																		
+9/30/2014 18:33:14	71531 - U.S.S. Enterprise-E	Quantum Torpedoes	Federation	5	2-3	"ATTACK: (Target Lock) Spend your target lock and disable this card to perform this attack.
+
+If the target ship is hit, add 1 [HIT] result to your total damage.
+
+You may fire this weapon from your forward or rear firing arcs."	6	Non-unique																			
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT
+9/29/2014 14:41:52	71530 - Queen Vessel Prime	Unique	Borg Queen	Borg	FLEET ACTION: Target a friendly ship at Range 1-2.  Choose 1 Upgrade on that ship and perform that Upgrade's Action as a free Action this round.  If that Action requires spending Drone Tokens, spend 1 less Drone Token than required.	2	1	5	7	At the start of the game or if this card replaces another Captain, remove all Drone Tokens from that Captain Card and place 7 Drone Tokens on this card.  ACTION: Target a friendly ship at Range 1-2.  Choose 1 Upgrade on that ship and perform that Upgrade's Action as a free Action this round.  If that Action requires spending Drone Tokens, spend 1 less Drone Token than required.	1	5															
+9/29/2014 14:43:30	71531 -  U.S.S. Enterprise-E	Unique	Matthew Dougherty	Federation	FLEET ACTION: Disable 1 of your Upgrades to perform this Action.  Each time you defend this round, during the Roll Defense Dice step of the Combat Phase, roll +1 defense die.	1	0	3	4	ACTION: Disable 1 of your Upgrades to perform this Action.  Each time you defend this round, during the Roll Defense Dice step of the Combat Phase, roll +1 defense die.	0	3															
 ADMIRALSTEXT
 
 officers_text = <<-OFFICERSTEXT
@@ -55,10 +144,10 @@ new_captains = File.open("new_captains.xml", "w")
 new_admirals = File.open("new_admirals.xml", "w")
 new_officers = File.open("new_officers.xml", "w")
 
-upgrade_lines = upgrade.split "\n"
+upgrade_lines = parse_data(upgrade)
 
 def no_quotes(a)
-    a.gsub("\"", "")
+  a
 end
 
 def parse_set(setId)
@@ -69,9 +158,8 @@ def parse_set(setId)
   return setId.gsub(" ", "").gsub("\"", "")
 end
 
-upgrade_lines.each do |l|
-    l = convert_line(l)
-    parts = l.split "\t"
+upgrade_lines.each do |raw_parts|
+    parts = raw_parts.collect { |one_part| convert_line(one_part) }
     parts.shift
     expansion = parts.shift
     title = parts.shift
@@ -105,12 +193,10 @@ upgrade_lines.each do |l|
     new_upgrades.puts upgradeXml
 end
 
-weapons_lines = weapons_text.split "\n"
+weapons_lines = parse_data(weapons_text)
 
-weapons_lines.each do |l|
-    l = convert_line(l)
-# Timestamp	Expansion Pack	Weapon Name	Faction	Attack	Range	Ability	Cost	Uniqueness																		
-    parts = l.split "\t"
+weapons_lines.each do |raw_parts|
+    parts = raw_parts.collect { |one_part| convert_line(one_part) }
     parts.shift
     expansion = parts.shift
     title = parts.shift
@@ -146,11 +232,10 @@ weapons_lines.each do |l|
     new_upgrades.puts upgradeXml
 end
 
-captains_lines = captains_text.split "\n"
-captains_lines.each do |l|
-  l = convert_line(l)
-#Timestamp	Expansion Pack	Captain Name	Skill	Faction	Ability	Talents	Cost	Uniqueness																		  
-  parts = l.split "\t"
+captains_lines = parse_data(captains_text)
+
+captains_lines.each do |raw_parts|
+  parts = raw_parts.collect { |one_part| convert_line(one_part) }
   parts.shift
   expansion = parts.shift
   title = parts.shift
@@ -186,11 +271,9 @@ captains_lines.each do |l|
   new_captains.puts upgradeXml
 end
 
-admirals_lines = admirals_text.split "\n"
-admirals_lines.each do |l|
-  l = convert_line(l)
-  # Timestamp		Admiral Name	Faction	Fleet Action	Skill Modifier	Talents	Cost	Captain-side Cost	Captain-side Action	Captain-side Talents	Captain-side Skill
-  parts = l.split "\t"
+admirals_lines = parse_data(admirals_text)
+admirals_lines.each do |raw_parts|
+  parts = raw_parts.collect { |one_part| convert_line(one_part) }
   parts.shift
   expansion = parts.shift
   uniqueText = parts.shift
@@ -235,11 +318,9 @@ admirals_lines.each do |l|
 end
 
 
-officers_lines = officers_text.split "\n"
-officers_lines.each do |l|
-  l = convert_line(l)
-# Timestamp	Officer Name	Ability	Cost																						  parts = l.split "\t"
-  parts = l.split "\t"
+officers_lines = parse_data(officers_text)
+officers_lines.each do |raw_parts|
+  parts = raw_parts.collect { |one_part| convert_line(one_part) }
   parts.shift
   expansion = "CollectiveOP3"
   unique = "Y"

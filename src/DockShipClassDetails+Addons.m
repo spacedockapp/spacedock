@@ -21,6 +21,23 @@
     return nil;
 }
 
++(DockShipClassDetails*)shipClassDetailsForId:(NSString*)shipClassId context:(NSManagedObjectContext*)context
+{
+    NSEntityDescription* entity = [NSEntityDescription entityForName: @"ShipClassDetails" inManagedObjectContext: context];
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity: entity];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"externalId == %@", shipClassId];
+    [request setPredicate: predicateTemplate];
+    NSError* err;
+    NSArray* existingItems = [context executeFetchRequest: request error: &err];
+
+    if (existingItems.count > 0) {
+        return existingItems[0];
+    }
+
+    return nil;
+}
+
 -(void)removeAllManeuvers
 {
     [self setManeuvers: [NSSet set]];
