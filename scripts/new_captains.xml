@@ -1,70 +1,134 @@
   <Captain>
-    <Title>Bok's Marauder</Title>
-    <Ability>ACTION: Gain +1 attack die to each of your attacks and roll -1 defense die each time you defend this round.</Ability>
+    <Title>Jean-Luc Picard</Title>
+    <Ability>Add 1 [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>6</Skill>
+    <Skill>8</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Ferengi</Faction>
-    <Cost>4</Cost>
-    <Id>bok_s_marauder_71646a</Id>
-    <Set>71646a</Set>
+    <Faction>Federation</Faction>
+    <Cost>5</Cost>
+    <Id>jean_luc_picard_71531</Id>
+    <Set>71531</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Elim Garak</Title>
-    <Ability>During the Roll Attack Dice step of the Combat Phase, you may discard 1 of your [CREW] Upgrades to roll +1 attack die.</Ability>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-    <Skill>3</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Mirror Universe</Faction>
-    <Cost>2</Cost>
-    <Id>elim_garak_71646b</Id>
-    <Set>71646b</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Haron</Title>
-    <Ability>Add 1 [WEAPON] Upgrade slot to your Upgrade Bar. All of your Kazon [WEAPON] Upgrades cost -1 SP.</Ability>
+    <Title>Jean-Luc Picard</Title>
+    <Ability>Add 1 [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>3</Skill>
-    <Talent>0</Talent>
+    <Skill>8</Skill>
+    <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Kazon</Faction>
-    <Cost>2</Cost>
-    <Id>haron_71646c</Id>
-    <Set>71646c</Set>
+    <Faction>Federation</Faction>
+    <Cost>5</Cost>
+    <Id>jean_luc_picard_b_71531</Id>
+    <Set>71531</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Tactical Drone</Title>
-    <Ability>At the start of the game, place 2 Drone Tokens on this card. During the Activation Phase, before you move, you may spend 1 Drone Token to remove 1 Auxiliary Power Token from beside your ship.</Ability>
+    <Title>Jean-Luc Picard</Title>
+    <Ability>Add 1 [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>8</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
+    <Cost>5</Cost>
+    <Id>jean_luc_picard_c_71531</Id>
+    <Set>71531</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Salatrel</Title>
+    <Ability>At the start of the game, after Setup, choose 1 Faction. For the rest of the game, during each Combat Phase, if a ship of that Faction is in your forward firing arc, treat your Captain Skill Number as if it were a 10 until the End Phase of that round.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>5</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Romulan</Faction>
+    <Cost>3</Cost>
+    <Id>salatrel_71511</Id>
+    <Set>71511</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Drone</Title>
+    <Ability>At the start of the game, place 1 Drone Token on this card.</Ability>
     <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>2</Skill>
+    <Skill>1</Skill>
     <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
     <Faction>Borg</Faction>
-    <Cost>2</Cost>
-    <Id>tactical_drone_71646d</Id>
-    <Set>71646d</Set>
+    <Cost>0</Cost>
+    <Id>drone_71511</Id>
+    <Set>71511</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Solok</Title>
-    <Ability>You may perform an [EVASIVE MANEUVERS] or a [SCAN] Action as a free Action each round.  If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+    <Title>Drone</Title>
+    <Ability>At the start of the game, place 1 Drone Token on this card.</Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>1</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Borg</Faction>
+    <Cost>0</Cost>
+    <Id>drone_71530</Id>
+    <Set>71530</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Federation</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>1</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
+    <Cost>0</Cost>
+    <Id>federation_71531</Id>
+    <Set>71531</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Independent</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>1</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Independent</Faction>
+    <Cost>0</Cost>
+    <Id>independent_71528</Id>
+    <Set>71528</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Chakotay</Title>
+    <Ability>Add 1 [WEAPON] or [CREW] Upgrade to your Upgrade bar (your choice). ACTION: Perform a 2nd Maneuver on your Maneuver Dial with a number of 3 or less. Place an Auxiliary Power Token beside your ship. If the extra Maneuver is a Red Maneuver, place a 2nd Auxiliary Power Token beside your ship.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>6</Skill>
@@ -72,9 +136,89 @@
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Vulcan</Faction>
+    <Faction>Independent</Faction>
     <Cost>4</Cost>
-    <Id>solok_71646e</Id>
-    <Set>71646e</Set>
+    <Id>chakotay_71528</Id>
+    <Set>71528</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Chakotay</Title>
+    <Ability>Add 1 [WEAPON] or [CREW] Upgrade to your Upgrade bar (your choice). ACTION: Perform a 2nd Maneuver on your Maneuver Dial with a number of 3 or less. Place an Auxiliary Power Token beside your ship. If the extra Maneuver is a Red Maneuver, place a 2nd Auxiliary Power Token beside your ship.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>6</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Independent</Faction>
+    <Cost>4</Cost>
+    <Id>chakotay_b_71528</Id>
+    <Set>71528</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Calvin Hudson</Title>
+    <Ability>Add 1 [TECH], [WEAPON] or [CREW] Upgrade to your Upgrade Bar (your choice). If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>5</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Independent</Faction>
+    <Cost>3</Cost>
+    <Id>calvin_hudson_71528</Id>
+    <Set>71528</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Calvin Hudson</Title>
+    <Ability>Add 1 [TECH], [WEAPON] or [CREW] Upgrade to your Upgrade Bar (your choice). If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>5</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Independent</Faction>
+    <Cost>3</Cost>
+    <Id>calvin_hudson_b_71528</Id>
+    <Set>71528</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Calvin Hudson</Title>
+    <Ability>Add 1 [TECH], [WEAPON] or [CREW] Upgrade to your Upgrade Bar (your choice). If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>5</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Independent</Faction>
+    <Cost>3</Cost>
+    <Id>calvin_hudson_c_71528</Id>
+    <Set>71528</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Tactical Drone</Title>
+    <Ability>At the start of the game, place 5 Drone Tokens on this card. During the Roll Defense Dice step of the Combat Phase, you may spend 1 of your Drone Tokens to force your opponent to roll 1 less defense die.</Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>5</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Borg</Faction>
+    <Cost>4</Cost>
+    <Id>tactical_drone_71530</Id>
+    <Set>71530</Set>
     <Special></Special>
   </Captain>

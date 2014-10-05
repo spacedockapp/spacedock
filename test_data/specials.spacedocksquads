@@ -123,6 +123,217 @@
     "cost" : 64
   },
   {
+    "uuid" : "E9B31F9C-590C-4F93-B395-7BF6764B5FB5",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 33,
+        "shipId" : "val_jean_71528",
+        "upgrades" : [
+          {
+            "upgradeId" : "b_elanna_torres_71528",
+            "upgradeTitle" : "B'Elanna Torres",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "beverly_crusher_71531",
+            "upgradeTitle" : "Beverly Crusher",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "data_71531",
+            "upgradeTitle" : "Data",
+            "calculatedCost" : 3
+          }
+        ],
+        "shipTitle" : "Val Jean",
+        "captain" : {
+          "upgradeId" : "calvin_hudson_71528",
+          "upgradeTitle" : "Calvin Hudson",
+          "calculatedCost" : 2
+        }
+      }
+    ],
+    "name" : "calvin hudson (crew)",
+    "modified" : "2014-10-04T09:06:52-0700",
+    "cost" : 33
+  },
+  {
+    "uuid" : "40CA38B6-8D49-46DC-8FBC-366B5EEE7F80",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 42,
+        "shipId" : "u_s_s_enterprise_e_71531",
+        "upgrades" : [
+          {
+            "upgradeId" : "b_elanna_torres_71528",
+            "upgradeTitle" : "B'Elanna Torres",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "dorsal_phaser_array_71531",
+            "upgradeTitle" : "Dorsal Phaser Array",
+            "calculatedCost" : 1
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-E",
+        "captain" : {
+          "upgradeId" : "calvin_hudson_c_71528",
+          "upgradeTitle" : "Calvin Hudson",
+          "calculatedCost" : 4
+        }
+      }
+    ],
+    "name" : "calvin hudson (non-ind)",
+    "modified" : "2014-10-04T09:06:52-0700",
+    "cost" : 42
+  },
+  {
+    "uuid" : "164DCBE1-BE48-4A0B-B0CC-AB7B8A2AAD82",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 29,
+        "shipId" : "val_jean_71528",
+        "upgrades" : [
+          {
+            "upgradeId" : "advanced_shields_71531",
+            "upgradeTitle" : "Advanced Shields",
+            "calculatedCost" : 5
+          }
+        ],
+        "shipTitle" : "Val Jean",
+        "captain" : {
+          "upgradeId" : "calvin_hudson_b_71528",
+          "upgradeTitle" : "Calvin Hudson",
+          "calculatedCost" : 2
+        }
+      }
+    ],
+    "name" : "calvin hudson (tech)",
+    "modified" : "2014-10-04T09:06:52-0700",
+    "cost" : 29
+  },
+  {
+    "uuid" : "ACF3F324-53E6-4ED1-893E-66FB18C675FD",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 36,
+        "shipId" : "val_jean_71528",
+        "upgrades" : [
+          {
+            "upgradeId" : "photon_torpedoes_71528",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "quantum_torpedoes_71531",
+            "upgradeTitle" : "Quantum Torpedoes",
+            "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "ramming_attack_71528",
+            "upgradeTitle" : "Ramming Attack",
+            "calculatedCost" : 2
+          }
+        ],
+        "shipTitle" : "Val Jean",
+        "captain" : {
+          "upgradeId" : "calvin_hudson_c_71528",
+          "upgradeTitle" : "Calvin Hudson",
+          "calculatedCost" : 2
+        }
+      }
+    ],
+    "name" : "calvin hudson (weapon)",
+    "modified" : "2014-10-04T09:06:52-0700",
+    "cost" : 36
+  },
+  {
+    "uuid" : "83845711-01BD-4717-902E-0A005DFB7D87",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 37,
+        "shipId" : "val_jean_71528",
+        "upgrades" : [
+          {
+            "upgradeId" : "b_elanna_torres_71528",
+            "upgradeTitle" : "B'Elanna Torres",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "kenneth_dalby_71528",
+            "upgradeTitle" : "Kenneth Dalby",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "seska_71528",
+            "upgradeTitle" : "Seska",
+            "calculatedCost" : 5
+          }
+        ],
+        "shipTitle" : "Val Jean",
+        "captain" : {
+          "upgradeId" : "chakotay_71528",
+          "upgradeTitle" : "Chakotay",
+          "calculatedCost" : 4
+        }
+      }
+    ],
+    "name" : "chakotay crew",
+    "modified" : "2014-10-04T09:26:31-0700",
+    "cost" : 37
+  },
+  {
+    "uuid" : "B2D8EBCE-4F54-46A7-864E-9265E9252A15",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 48,
+        "shipId" : "val_jean_71528",
+        "upgrades" : [
+          {
+            "upgradeId" : "kenneth_dalby_71528",
+            "upgradeTitle" : "Kenneth Dalby",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "seska_71528",
+            "upgradeTitle" : "Seska",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "photon_torpedoes_71528",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "photon_torpedoes_71528",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "photon_torpedoes_71528",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 5
+          }
+        ],
+        "shipTitle" : "Val Jean",
+        "captain" : {
+          "upgradeId" : "chakotay_b_71528",
+          "upgradeTitle" : "Chakotay",
+          "calculatedCost" : 4
+        }
+      }
+    ],
+    "name" : "chakotay weapon",
+    "modified" : "2014-10-04T09:26:31-0700",
+    "cost" : 48
+  },
+  {
     "uuid" : "BACD4859-ECF9-461E-9F1D-87F815CBED1A",
     "additionalPoints" : 0,
     "ships" : [
@@ -452,12 +663,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3033",
+            "upgradeId" : "3024",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3024",
+            "upgradeId" : "3033",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
@@ -732,7 +943,7 @@
     "additionalPoints" : 0,
     "ships" : [
       {
-        "calculatedCost" : 43,
+        "calculatedCost" : 40,
         "shipId" : "relora_sankur_71646c",
         "upgrades" : [
           {
@@ -744,11 +955,6 @@
             "upgradeId" : "tractor_beam_71646c",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 2
-          },
-          {
-            "upgradeId" : "particle_beam_weapon_71646c",
-            "upgradeTitle" : "Particle Beam Weapon",
-            "calculatedCost" : 3
           },
           {
             "upgradeId" : "photon_torpedoes_71646a",
@@ -771,7 +977,7 @@
     ],
     "name" : "haron",
     "modified" : "2014-09-16T14:39:12-0700",
-    "cost" : 43
+    "cost" : 40
   },
   {
     "uuid" : "8BE26D4C-1DF1-4663-97A9-798F866D1745",
@@ -2057,6 +2263,129 @@
     "name" : "photonic charges",
     "modified" : "2014-09-16T14:40:44-0700",
     "cost" : 31
+  },
+  {
+    "uuid" : "3507CFA8-EAAC-423B-BB59-C162738CB083",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 63,
+        "shipId" : "u_s_s_enterprise_e_71531",
+        "upgrades" : [
+          {
+            "upgradeId" : "fire_at_will__71531",
+            "upgradeTitle" : "Fire At Will!",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "make_it_so_71531",
+            "upgradeTitle" : "Make It So",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "power_node_71530",
+            "upgradeTitle" : "Power Node",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "quantum_torpedoes_71531",
+            "upgradeTitle" : "Quantum Torpedoes",
+            "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "quantum_torpedoes_71531",
+            "upgradeTitle" : "Quantum Torpedoes",
+            "calculatedCost" : 6
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-E",
+        "captain" : {
+          "upgradeId" : "jean_luc_picard_71531",
+          "upgradeTitle" : "Jean-Luc Picard",
+          "calculatedCost" : 5
+        }
+      }
+    ],
+    "name" : "picard (crew)",
+    "modified" : "2014-10-04T09:43:47-0700",
+    "cost" : 63
+  },
+  {
+    "uuid" : "F390172A-58A4-4D23-B160-3E757F157DD9",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 58,
+        "shipId" : "u_s_s_enterprise_e_71531",
+        "upgrades" : [
+          {
+            "upgradeId" : "advanced_shields_71531",
+            "upgradeTitle" : "Advanced Shields",
+            "calculatedCost" : 5
+          },
+          {
+            "upgradeId" : "power_node_71530",
+            "upgradeTitle" : "Power Node",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "quantum_torpedoes_71531",
+            "upgradeTitle" : "Quantum Torpedoes",
+            "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "quantum_torpedoes_71531",
+            "upgradeTitle" : "Quantum Torpedoes",
+            "calculatedCost" : 6
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-E",
+        "captain" : {
+          "upgradeId" : "jean_luc_picard_b_71531",
+          "upgradeTitle" : "Jean-Luc Picard",
+          "calculatedCost" : 5
+        }
+      }
+    ],
+    "name" : "picard (tech)",
+    "modified" : "2014-10-04T09:43:47-0700",
+    "cost" : 58
+  },
+  {
+    "uuid" : "05A4BF7E-BEC1-4BCD-AE6A-915BB5FD08AB",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 55,
+        "shipId" : "u_s_s_enterprise_e_71531",
+        "upgrades" : [
+          {
+            "upgradeId" : "quantum_torpedoes_71531",
+            "upgradeTitle" : "Quantum Torpedoes",
+            "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "quantum_torpedoes_71531",
+            "upgradeTitle" : "Quantum Torpedoes",
+            "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "quantum_torpedoes_71531",
+            "upgradeTitle" : "Quantum Torpedoes",
+            "calculatedCost" : 6
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-E",
+        "captain" : {
+          "upgradeId" : "jean_luc_picard_c_71531",
+          "upgradeTitle" : "Jean-Luc Picard",
+          "calculatedCost" : 5
+        }
+      }
+    ],
+    "name" : "picard (weapon)",
+    "modified" : "2014-10-04T09:43:47-0700",
+    "cost" : 55
   },
   {
     "uuid" : "19F2B8FF-02CC-4F77-A9A1-A714FE07041F",

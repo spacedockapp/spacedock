@@ -400,6 +400,21 @@ NSString* asDegrees(NSString* textValue)
     }
 }
 
+-(void)updateShipClassWithId:(NSString*)newShipClassId
+{
+    NSString* existingShipClassDetailsId = self.shipClassDetails.externalId;
+    if (self.shipClassDetails == nil || ![newShipClassId isEqualToString: existingShipClassDetailsId]) {
+        NSLog(@"updating ship class for ship %@", self.title);
+        DockShipClassDetails* details = [DockShipClassDetails shipClassDetailsForId: newShipClassId context: self.managedObjectContext];
+
+        if (details != nil) {
+            self.shipClassDetails = details;
+        } else {
+            NSLog(@"failed to find class %@", newShipClassId);
+        }
+    }
+}
+
 -(NSString*)movesSummary
 {
     DockShipClassDetails* details = self.shipClassDetails;

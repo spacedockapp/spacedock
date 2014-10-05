@@ -51,6 +51,7 @@
 -(int)borgCount;
 -(NSArray*)actionStrings;
 -(void)updateShipClass:(NSString*)newShipClass;
+-(void)updateShipClassWithId:(NSString*)newShipClassId;
 -(NSString*)descriptiveTitle;
 -(NSString*)uniqueAsString;
 @end
