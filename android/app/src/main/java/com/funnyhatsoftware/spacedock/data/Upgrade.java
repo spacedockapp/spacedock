@@ -268,7 +268,9 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         String fleetCaptainSpecial = equippedShip.getSquad().getFleetCaptainSpecial();
         String captainSpecial = captain.getSpecial();
         String upgradeSpecial = getSpecial();
-
+        if ("OnlyFedShipHV4CostPWVP1".equals(upgradeSpecial)) {
+            cost = ship.getAttack() + 1;
+        }
         if (isTalent()) {
             if (captainSpecial.equals("BaselineTalentCostToThree")
                     && upgradeFaction.equals("Federation") && !shipIsSideboard) {
@@ -291,7 +293,6 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if ("CrewUpgradesCostOneLess".equals(fleetCaptainSpecial)) {
                 cost -= 1;
             }
-
             if (upgradeSpecial.equals("costincreasedifnotromulansciencevessel")) {
                 if (!ship.isRomulanScienceVessel()) {
                     cost += 5;
@@ -368,9 +369,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if (!ship.isGalaxy() && !ship.isIntrepid() && !ship.isSovereign()) {
                 cost += 5;
             }
+        } else if ("AllUpgradesMinusOneOnIndepedentShip".equals(captainSpecial)
+                && "Independent".equals(shipFaction)) {
+            cost -= 1;
         }
-
-
         if (captainSpecial.equals("OneDominionUpgradeCostsMinusTwo") && !shipIsSideboard) {
             if (isDominion()) {
                 EquippedUpgrade most = equippedShip.mostExpensiveUpgradeOfFaction("Dominion");
@@ -564,6 +566,16 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 return 2;
             }
             if (externalId.equals("vulcan_high_command_1_1_71446") || externalId.equals("quark_71786")) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
+    public int additionalBorgSlots() {
+        String special = getSpecial();
+        if (special != null) {
+            if ("OnlyNonBorgShipAndNonBorgCaptain".equals(special)) {
                 return 1;
             }
         }

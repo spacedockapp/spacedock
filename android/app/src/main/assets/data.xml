@@ -11762,58 +11762,6 @@
         <Set>71646e</Set>
         <Special></Special>
       </Upgrade>
-      <Upgrade>
-          <Title>First Officer</Title>
-          <Ability>Whenever you perform a [BATTLESTATIONS], [SCAN], or [EVASIVE] Action, you may place 2 Tokens of the appropriate type beside your ship instead of 1.  If you do so, place an Auxiliary Power Token beside your ship. If your Captain's Skill is ever reduced below 4, you may use the Skill Number on this card instead of your Captain's Skill Number.</Ability>
-          <Unique>Y</Unique>
-          <Attack></Attack>
-          <Range></Range>
-          <Type>Crew</Type>
-          <Faction>Independent</Faction>
-          <Cost>3</Cost>
-          <Id>first_officer_collectiveop3</Id>
-          <Set>CollectiveOP3</Set>
-          <Special></Special>
-      </Upgrade>
-      <Upgrade>
-          <Title>Tactical Officer</Title>
-          <Ability>Add 1 [WEAPON] Upgrade slot to your Upgrade Bar. During the Roll Attack Dice step of the Combat Phase, you may spend a [BATTLESTATIONS]  Token to roll +1 attack die. During the Roll Defense Dice step of the Combat Phase, you may spend a [BATTLESTATIONS] Token to roll +1 defense die.</Ability>
-          <Unique>Y</Unique>
-          <Attack></Attack>
-          <Range></Range>
-          <Type>Crew</Type>
-          <Faction>Independent</Faction>
-          <Cost>3</Cost>
-          <Id>tactical_officer_collectiveop3</Id>
-          <Set>CollectiveOP3</Set>
-          <Special>addoneweaponslot</Special>
-      </Upgrade>
-      <Upgrade>
-          <Title>Operations Officer</Title>
-          <Ability>Add 1 [CREW] Upgrade slot to your Upgrade Bar. During the Modify Attack Dice step of the Combat Phase, you may choose one of your attack dice and re-roll that die twice. During the Modify Defense Dice step of the Combat Phase, you may choose one of your defense dice and re-roll that die twice.</Ability>
-          <Unique>Y</Unique>
-          <Attack></Attack>
-          <Range></Range>
-          <Type>Crew</Type>
-          <Faction>Independent</Faction>
-          <Cost>3</Cost>
-          <Id>operations_officer_collectiveop3</Id>
-          <Set>CollectiveOP3</Set>
-          <Special>Add_Crew_1</Special>
-      </Upgrade>
-      <Upgrade>
-          <Title>Science Officer</Title>
-          <Ability>Add 1 [TECH] Upgrade slot to your Upgrade Bar. Each time you attack, if there is a [SCAN] Token beside your ship, the defender rolls -2 defense dice instead of -1. During the Modify Defense Dice step of the Combat Phase, you may spend a [SCAN] Token to add 1 [EVASIVE] result to your roll.</Ability>
-          <Unique>Y</Unique>
-          <Attack></Attack>
-          <Range></Range>
-          <Type>Crew</Type>
-          <Faction>Independent</Faction>
-          <Cost>3</Cost>
-          <Id>science_officer_collectiveop3</Id>
-          <Set>CollectiveOP3</Set>
-          <Special>addonetechslot</Special>
-	  </Upgrade>
 	  <Upgrade>
         <Title>Hive Mind</Title>
         <Ability>ACTION: Disable this card and any number of your other Upgrades. Add 1 Drone Token to your Captain Card for each card you disabled with this Action (including this card). You cannot exceed your Captain's starting number of Drone Tokens. You cannot deploy more than 1 "Hive Mind" [BORG] Upgrade to any ship.</Ability>
