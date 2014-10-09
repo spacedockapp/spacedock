@@ -6349,7 +6349,7 @@
     </Captain>
     <Captain>
       <Title>Jean-Luc Picard</Title>
-      <Ability>Add 1 [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
+      <Ability>Add 1 [TECH] Upgrade to your Upgrade Bar. At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
@@ -6361,11 +6361,11 @@
       <Cost>5</Cost>
       <Id>jean_luc_picard_71531</Id>
       <Set>71531</Set>
-      <Special></Special>
+      <Special>addonetechslot</Special>
     </Captain>
     <Captain>
       <Title>Jean-Luc Picard</Title>
-      <Ability>Add 1 [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
+      <Ability>Add 1 [WEAPON] Upgrade to your Upgrade Bar. At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
@@ -6377,11 +6377,11 @@
       <Cost>5</Cost>
       <Id>jean_luc_picard_b_71531</Id>
       <Set>71531</Set>
-      <Special></Special>
+      <Special>addoneweaponslot</Special>
     </Captain>
     <Captain>
       <Title>Jean-Luc Picard</Title>
-      <Ability>Add 1 [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
+      <Ability>Add 1 [TALENT] Upgrade to your Upgrade Bar. At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
@@ -6393,7 +6393,7 @@
       <Cost>5</Cost>
       <Id>jean_luc_picard_c_71531</Id>
       <Set>71531</Set>
-      <Special></Special>
+      <Special>addonetalentslot</Special>
     </Captain>
     <Captain>
       <Title>Salatrel</Title>
@@ -6413,7 +6413,7 @@
     </Captain>
     <Captain>
       <Title>Chakotay</Title>
-      <Ability>Add 1 [WEAPON] or [CREW] Upgrade to your Upgrade bar (your choice). ACTION: Perform a 2nd Maneuver on your Maneuver Dial with a number of 3 or less. Place an Auxiliary Power Token beside your ship. If the extra Maneuver is a Red Maneuver, place a 2nd Auxiliary Power Token beside your ship.</Ability>
+      <Ability>Add 1 [WEAPON] Upgrade to your Upgrade bar. ACTION: Perform a 2nd Maneuver on your Maneuver Dial with a number of 3 or less. Place an Auxiliary Power Token beside your ship. If the extra Maneuver is a Red Maneuver, place a 2nd Auxiliary Power Token beside your ship.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>6</Skill>
@@ -6425,11 +6425,11 @@
       <Cost>4</Cost>
       <Id>chakotay_71528</Id>
       <Set>71528</Set>
-      <Special></Special>
+      <Special>addoneweaponslot</Special>
     </Captain>
     <Captain>
       <Title>Chakotay</Title>
-      <Ability>Add 1 [WEAPON] or [CREW] Upgrade to your Upgrade bar (your choice). ACTION: Perform a 2nd Maneuver on your Maneuver Dial with a number of 3 or less. Place an Auxiliary Power Token beside your ship. If the extra Maneuver is a Red Maneuver, place a 2nd Auxiliary Power Token beside your ship.</Ability>
+      <Ability>Add 1 [CREW] Upgrade to your Upgrade bar. ACTION: Perform a 2nd Maneuver on your Maneuver Dial with a number of 3 or less. Place an Auxiliary Power Token beside your ship. If the extra Maneuver is a Red Maneuver, place a 2nd Auxiliary Power Token beside your ship.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>6</Skill>
@@ -6441,11 +6441,11 @@
       <Cost>4</Cost>
       <Id>chakotay_b_71528</Id>
       <Set>71528</Set>
-      <Special></Special>
+      <Special>Add_Crew_1</Special>
     </Captain>
     <Captain>
       <Title>Calvin Hudson</Title>
-      <Ability>Add 1 [TECH], [WEAPON] or [CREW] Upgrade to your Upgrade Bar (your choice). If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP.</Ability>
+      <Ability>Add 1 [TECH] Upgrade to your Upgrade Bar. If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>5</Skill>
@@ -6457,11 +6457,11 @@
       <Cost>3</Cost>
       <Id>calvin_hudson_71528</Id>
       <Set>71528</Set>
-      <Special>AllUpgradesMinusOneOnIndepedentShip</Special>
+      <Special>AllUpgradesMinusOneOnIndepedentShipAndAdd1Tech</Special>
     </Captain>
     <Captain>
       <Title>Calvin Hudson</Title>
-      <Ability>Add 1 [TECH], [WEAPON] or [CREW] Upgrade to your Upgrade Bar (your choice). If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP.</Ability>
+      <Ability>Add 1 [WEAPON] Upgrade to your Upgrade Bar. If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>5</Skill>
@@ -6473,11 +6473,11 @@
       <Cost>3</Cost>
       <Id>calvin_hudson_b_71528</Id>
       <Set>71528</Set>
-      <Special>AllUpgradesMinusOneOnIndepedentShip</Special>
+      <Special>AllUpgradesMinusOneOnIndepedentShipAndAdd1Weapon</Special>
     </Captain>
     <Captain>
       <Title>Calvin Hudson</Title>
-      <Ability>Add 1 [TECH], [WEAPON] or [CREW] Upgrade to your Upgrade Bar (your choice). If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP.</Ability>
+      <Ability>Add 1 [CREW] Upgrade to your Upgrade Bar. If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>5</Skill>
@@ -6489,7 +6489,7 @@
       <Cost>3</Cost>
       <Id>calvin_hudson_c_71528</Id>
       <Set>71528</Set>
-      <Special>AllUpgradesMinusOneOnIndepedentShip</Special>
+      <Special>AllUpgradesMinusOneOnIndepedentShipAndAdd1Crew</Special>
     </Captain>
     <Captain>
       <Title>Tactical Drone</Title>
@@ -11883,12 +11883,12 @@
         <Talent></Talent>
         <Attack></Attack>
         <Range></Range>
-        <Type></Type>
+        <Type>Crew</Type>
         <Faction>Federation</Faction>
         <Cost>5</Cost>
         <Id>william_t_riker_71531</Id>
         <Set>71531</Set>
-        <Special></Special>
+        <Special>Add_Crew_1</Special>
       </Upgrade>
       <Upgrade>
         <Title>Geordi La Forge</Title>
@@ -11904,7 +11904,7 @@
         <Cost>4</Cost>
         <Id>geordi_la_forge_71531</Id>
         <Set>71531</Set>
-        <Special></Special>
+        <Special>addonetechslot</Special>
       </Upgrade>
       <Upgrade>
         <Title>Tuvok</Title>

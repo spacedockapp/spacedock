@@ -69,20 +69,35 @@ public class Captain extends CaptainBase {
     }
 
     public int additionalTechSlots() {
-        return ("addonetechslot".equals(mSpecial) || "AddsHiddenTechSlot".equals(mSpecial)) ? 1 : 0;
+        return ("addonetechslot".equals(mSpecial)
+                || "AddsHiddenTechSlot".equals(mSpecial)
+                || "AllUpgradesMinusOneOnIndepedentShipAndAdd1Tech".equals(mSpecial)) ? 1 : 0;
     }
 
     public int additionalCrewSlots() {
         if ("AddTwoCrewSlotsDominionCostBonus".equals(mSpecial)) {
             return 2;
-        } else if ("lore_71522".equals(mSpecial) || "Add_Crew_1".equals(mSpecial)) {
+        } else if ("lore_71522".equals(mSpecial)
+                || "Add_Crew_1".equals(mSpecial)
+                || "AllUpgradesMinusOneOnIndepedentShipAndAdd1Crew".equals(mSpecial)) {
             return 1;
         }
         return super.additionalCrewSlots();
     }
 
+    public int additionalWeaponSlots() {
+        if ("AllUpgradesMinusOneOnIndepedentShipAndAdd1Weapon".equals(mSpecial)) {
+            return 1;
+        }
+        return 0;
+    }
+
     public int additionalTalentSlots() {
-        return getTalent();
+        int talent = getTalent();
+        if ("addonetalentslot".equals(mSpecial)) {
+            talent++;
+        }
+        return talent;
     }
 
     public boolean isKlingon() {

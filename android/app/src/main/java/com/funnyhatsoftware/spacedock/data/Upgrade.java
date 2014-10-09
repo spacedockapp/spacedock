@@ -247,10 +247,12 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         }
 
         int cost = getCost();
-
         Ship ship = equippedShip.getShip();
         if (ship == null) {
             ship = Ship.nullShip();
+        }
+        if ("dorsal_phaser_array_71531".equals(this.getExternalId())) {
+            cost = ship.getAttack() + 1;
         }
         String shipFaction = ship.getFaction();
         boolean shipIsSideboard = equippedShip.isResourceSideboard();
@@ -369,7 +371,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if (!ship.isGalaxy() && !ship.isIntrepid() && !ship.isSovereign()) {
                 cost += 5;
             }
-        } else if ("AllUpgradesMinusOneOnIndepedentShip".equals(captainSpecial)
+        } else if (captainSpecial.startsWith("AllUpgradesMinusOneOnIndepedentShip")
                 && "Independent".equals(shipFaction)) {
             cost -= 1;
         }

@@ -423,7 +423,11 @@ public class DataLoader extends DefaultHandler {
                 "addoneweaponslot",
                 "OnlyBorgShipAndNoMoreThanOnePerShip",
                 "OnlyNonBorgShipAndNonBorgCaptain",
-                "AllUpgradesMinusOneOnIndepedentShip",
+                "AllUpgradesMinusOneOnIndepedentShipAndAdd1Crew",
+                "AllUpgradesMinusOneOnIndepedentShipAndAdd1Tech",
+                "AllUpgradesMinusOneOnIndepedentShipAndAdd1Weapon",
+                "addonetalentslot",
+                "OnlyFedShipHV4CostPWVP1"
 
         };
 
