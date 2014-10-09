@@ -300,6 +300,12 @@ public class EquippedShip extends EquippedShipBase {
         if (ship != null) {
             v += ship.getBorg();
         }
+        for (EquippedUpgrade eu : getUpgrades()) {
+            Upgrade upgrade = eu.getUpgrade();
+            if (upgrade != null) {
+                v += upgrade.additionalBorgSlots();
+            }
+        }
         return v;
     }
 
@@ -623,9 +629,14 @@ public class EquippedShip extends EquippedShipBase {
                         "This upgrade can only be added to Kazon ships.");
             }
         }
-        if ("NoMoreThanOnePerShip".equals(upgradeSpecial)) {
+        if ("NoMoreThanOnePerShip".equals(upgradeSpecial) || "OnlyBorgShipAndNoMoreThanOnePerShip".equals(upgradeSpecial)) {
             if (null != containsUpgrade(upgrade)) {
                 return new Explanation(msg, "This upgrade can only be added once per ship.");
+            }
+        }
+        if ("OnlyBorgShipAndNoMoreThanOnePerShip".equals(upgradeSpecial)) {
+            if (!ship.isBorg()) {
+                return new Explanation(msg, "This upgrade can only be added to a borg ship.");
             }
         }
         if ("ony_federation_ship_limited".equals(upgradeSpecial)) {
@@ -634,6 +645,14 @@ public class EquippedShip extends EquippedShipBase {
             }
             if (!ship.isFederation()) {
                 return new Explanation(msg, "This upgrade can only be added to a federation ship.");
+            }
+        }
+        if ("OnlyFedShipHV4CostPWVP1".equals(upgradeSpecial)) {
+            if (!ship.isFederation()) {
+                return new Explanation(msg, "This upgrade can only be added to a federation ship.");
+            }
+            if (4 > ship.getHull()) {
+                return new Explanation(msg, "This upgrade can only be added to ship with a hull of 4 or greater.");
             }
         }
         Captain captain = getCaptain();
@@ -688,6 +707,15 @@ public class EquippedShip extends EquippedShipBase {
                         "This upgrade can only be added to a Tholian Captain.");
             }
         }
+
+        if ("OnlyNonBorgShipAndNonBorgCaptain".equals(upgradeSpecial)){
+            if (captain.isBorgFaction() || ship.isBorg()){
+                return new Explanation(msg,
+                        "This upgrade cannot be added to a Borg captain or Borg Ship.");
+            }
+        }
+
+
 
         if ("Borg Scout Cube".equalsIgnoreCase(ship.getShipClass())
                 && upgrade.isBorg() && upgrade.getCost() > 5){
