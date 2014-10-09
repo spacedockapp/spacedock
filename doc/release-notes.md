@@ -1,3 +1,7 @@
+### Version 1.1.10 build 91 (2014-10-09)
+
+* Fix Will Riker.
+
 ### Version 1.1.9 build 90 (2014-10-04)
 
 * Add Wave 8 and Avatar of Tomed.
