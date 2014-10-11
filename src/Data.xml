@@ -1,4 +1,4 @@
-<Data version="2014-10-09@02-26">
+<Data version="2014-10-11@00-51">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -11888,7 +11888,7 @@
         <Cost>5</Cost>
         <Id>william_t_riker_71531</Id>
         <Set>71531</Set>
-        <Special></Special>
+        <Special>Add_Crew_1</Special>
       </Upgrade>
       <Upgrade>
         <Title>Geordi La Forge</Title>
