@@ -625,12 +625,12 @@
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "energy_dissipator_op5prize",
+            "upgradeId" : "3059",
             "upgradeTitle" : "Energy Dissipator",
             "calculatedCost" : 10
           },
           {
-            "upgradeId" : "3059",
+            "upgradeId" : "energy_dissipator_op5prize",
             "upgradeTitle" : "Energy Dissipator",
             "calculatedCost" : 10
           }
@@ -1670,12 +1670,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3052",
+            "upgradeId" : "3011",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3011",
+            "upgradeId" : "3052",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
@@ -2384,6 +2384,42 @@
     "cost" : 31
   },
   {
+    "uuid" : "4C997602-358E-4852-A986-12D5F09E4CA5",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 46,
+        "shipId" : "u_s_s_enterprise_e_71531",
+        "upgrades" : [
+          {
+            "upgradeId" : "3108",
+            "upgradeTitle" : "Dmitri Valtane",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "elizabeth_shelby_u_s_s_yaeger",
+            "upgradeTitle" : "Elizabeth Shelby",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "geordi_la_forge_71531",
+            "upgradeTitle" : "Geordi La Forge",
+            "calculatedCost" : 4
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-E",
+        "captain" : {
+          "upgradeId" : "jean_luc_picard_d_71531",
+          "upgradeTitle" : "Jean-Luc Picard",
+          "calculatedCost" : 5
+        }
+      }
+    ],
+    "name" : "picard (crew)",
+    "modified" : "2014-10-11T08:34:44-0700",
+    "cost" : 46
+  },
+  {
     "uuid" : "3507CFA8-EAAC-423B-BB59-C162738CB083",
     "additionalPoints" : 0,
     "ships" : [
@@ -2425,7 +2461,7 @@
         }
       }
     ],
-    "name" : "picard (crew)",
+    "name" : "picard (talent)",
     "modified" : "2014-10-04T09:43:47-0700",
     "cost" : 63
   },
@@ -2736,14 +2772,14 @@
             "calculatedCost" : 1
           },
           {
-            "upgradeId" : "photon_torpedoes_71524",
-            "upgradeTitle" : "Photon Torpedoes",
-            "calculatedCost" : 3
-          },
-          {
             "upgradeId" : "photon_torpedoes_71279",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "photon_torpedoes_71524",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 3
           }
         ],
         "shipTitle" : "4th Division Battleship",

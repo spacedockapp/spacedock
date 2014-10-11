@@ -133,6 +133,7 @@ static NSDictionary* sItemLabels = nil;
             @"jean_luc_picard_71531": @"Talent",
             @"jean_luc_picard_b_71531": @"Tech",
             @"jean_luc_picard_c_71531": @"Weapon",
+            @"jean_luc_picard_d_71531": @"Crew",
         };
     }
 

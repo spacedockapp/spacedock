@@ -1,4 +1,4 @@
-<Data version="2014-10-11@00-51">
+<Data version="2014-10-11@15-30">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -6349,7 +6349,7 @@
     </Captain>
     <Captain>
       <Title>Jean-Luc Picard</Title>
-      <Ability>Add 1 [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
+      <Ability>Add 1 [CREW], [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
@@ -6365,7 +6365,7 @@
     </Captain>
     <Captain>
       <Title>Jean-Luc Picard</Title>
-      <Ability>Add 1 [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
+      <Ability>Add 1 [CREW], [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
@@ -6381,7 +6381,7 @@
     </Captain>
     <Captain>
       <Title>Jean-Luc Picard</Title>
-      <Ability>Add 1 [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
+      <Ability>Add 1 [CREW], [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
@@ -6394,6 +6394,22 @@
       <Id>jean_luc_picard_c_71531</Id>
       <Set>71531</Set>
       <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Jean-Luc Picard</Title>
+      <Ability>Add 1 [CREW], [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>8</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>jean_luc_picard_d_71531</Id>
+      <Set>71531</Set>
+      <Special>Add_Crew_1</Special>
     </Captain>
     <Captain>
       <Title>Salatrel</Title>
