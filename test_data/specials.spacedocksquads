@@ -163,7 +163,7 @@
     "additionalPoints" : 0,
     "ships" : [
       {
-        "calculatedCost" : 42,
+        "calculatedCost" : 46,
         "shipId" : "u_s_s_enterprise_e_71531",
         "upgrades" : [
           {
@@ -174,7 +174,7 @@
           {
             "upgradeId" : "dorsal_phaser_array_71531",
             "upgradeTitle" : "Dorsal Phaser Array",
-            "calculatedCost" : 1
+            "calculatedCost" : 5
           }
         ],
         "shipTitle" : "U.S.S. Enterprise-E",
@@ -187,7 +187,7 @@
     ],
     "name" : "calvin hudson (non-ind)",
     "modified" : "2014-10-04T09:06:52-0700",
-    "cost" : 42
+    "cost" : 46
   },
   {
     "uuid" : "164DCBE1-BE48-4A0B-B0CC-AB7B8A2AAD82",
@@ -582,6 +582,32 @@
     "additionalPoints" : 0,
     "modified" : "2014-08-04T20:16:21-0700",
     "name" : "dominion fleet captain"
+  },
+  {
+    "uuid" : "AC0BF1AE-57AA-4F66-846C-059AA17155E8",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 37,
+        "shipId" : "u_s_s_enterprise_e_71531",
+        "upgrades" : [
+          {
+            "upgradeId" : "dorsal_phaser_array_71531",
+            "upgradeTitle" : "Dorsal Phaser Array",
+            "calculatedCost" : 5
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-E",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "Dorsal Phaser Array",
+    "modified" : "2014-10-04T10:44:47-0700",
+    "cost" : 37
   },
   {
     "uuid" : "445464E7-EC1D-430F-A6AD-B5BC6280B62E",
@@ -2035,6 +2061,32 @@
     "name" : "mirror cloak",
     "modified" : "2014-09-16T14:47:19-0700",
     "cost" : 68
+  },
+  {
+    "uuid" : "49440676-9182-4429-88E1-1F8AD43A0D0F",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 46,
+        "shipId" : "i_r_w_avatar_of_tomed_b_71511",
+        "upgrades" : [
+          {
+            "upgradeId" : "multi_kinetic_neutronic_mines_71530",
+            "upgradeTitle" : "Multi Kinetic Neutronic Mines",
+            "calculatedCost" : 16
+          }
+        ],
+        "shipTitle" : "I.R.W. Avatar of Tomed",
+        "captain" : {
+          "upgradeId" : "2007",
+          "upgradeTitle" : "Romulan Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "Multi Kinetic Neutronic Mines",
+    "modified" : "2014-10-04T10:44:47-0700",
+    "cost" : 46
   },
   {
     "ships" : [
