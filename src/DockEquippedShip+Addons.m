@@ -1108,7 +1108,13 @@
 
 -(int)borgCount
 {
-    return self.ship.borgCount;
+    int borgCount = self.ship.borgCount;
+    for (DockEquippedUpgrade* eu in self.upgrades) {
+        DockUpgrade* upgrade = eu.upgrade;
+        borgCount += [upgrade additionalBorgSlots];
+    }
+
+    return borgCount;
 }
 
 -(int)officerLimit

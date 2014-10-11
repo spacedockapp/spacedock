@@ -783,6 +783,16 @@ static NSDictionary* sItemLabels = nil;
     return 0;
 }
 
+-(int)additionalBorgSlots
+{
+    NSString* externalId = self.externalId;
+
+    if ([externalId isEqualToString: @"borg_alliance_71511"]) {
+        return 1;
+    }
+    return 0;
+}
+
 -(int)additionalTalentSlots
 {
     if ([self.externalId isEqualToString: @"elim_garak_71786"]) {

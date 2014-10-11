@@ -123,6 +123,37 @@
     "cost" : 64
   },
   {
+    "uuid" : "BE97660D-9F21-4D09-B46F-9FDF30328268",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 56,
+        "shipId" : "4th_division_battleship_71279",
+        "upgrades" : [
+          {
+            "upgradeId" : "borg_alliance_71511",
+            "upgradeTitle" : "Borg Alliance",
+            "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "borg_assimilation_tubules_71283",
+            "upgradeTitle" : "Borg Assimilation Tubules",
+            "calculatedCost" : 9
+          }
+        ],
+        "shipTitle" : "4th Division Battleship",
+        "captain" : {
+          "upgradeId" : "2039",
+          "upgradeTitle" : "Gul Dukat",
+          "calculatedCost" : 5
+        }
+      }
+    ],
+    "name" : "borg alliance",
+    "modified" : "2014-10-10T18:16:23-0700",
+    "cost" : 56
+  },
+  {
     "uuid" : "E9B31F9C-590C-4F93-B395-7BF6764B5FB5",
     "additionalPoints" : 0,
     "ships" : [
@@ -725,12 +756,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3033",
+            "upgradeId" : "3024",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3024",
+            "upgradeId" : "3033",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
@@ -1639,12 +1670,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3011",
+            "upgradeId" : "3052",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3052",
+            "upgradeId" : "3011",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },

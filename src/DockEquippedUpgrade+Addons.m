@@ -193,6 +193,11 @@
     return self.upgrade.additionalCrewSlots;
 }
 
+-(int)additionalBorgSlots
+{
+    return self.upgrade.additionalBorgSlots;
+}
+
 -(int)additionalTalentSlots
 {
     return self.upgrade.additionalTalentSlots;
