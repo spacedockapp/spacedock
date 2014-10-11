@@ -370,6 +370,42 @@
     "cost" : 34
   },
   {
+    "uuid" : "D0239F66-FFD2-4A6B-B81F-4F90C7A79313",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 44,
+        "shipId" : "u_s_s_enterprise_e_71531",
+        "upgrades" : [
+          {
+            "upgradeId" : "3135",
+            "upgradeTitle" : "Christopher Hobson",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "3005",
+            "upgradeTitle" : "Data",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "william_t_riker_71531",
+            "upgradeTitle" : "William T. Riker",
+            "calculatedCost" : 5
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-E",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "crewman riker",
+    "modified" : "2014-10-10T18:01:27-0700",
+    "cost" : 44
+  },
+  {
     "uuid" : "308B6733-8265-4A14-807E-4E71D7B87619",
     "additionalPoints" : 0,
     "ships" : [
@@ -689,12 +725,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3024",
+            "upgradeId" : "3033",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3033",
+            "upgradeId" : "3024",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
