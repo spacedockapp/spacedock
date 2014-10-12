@@ -1,4 +1,4 @@
-<Data xversion="2014-10-12@18-46">
+<Data version="2014-10-12@19-27">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -6697,7 +6697,7 @@
       <Set>71120</Set>
     </Upgrade>
     <Upgrade>
-      <Title>Geordi LaForge</Title>
+      <Title>Geordi La Forge</Title>
       <Unique>Y</Unique>
       <Ability>If your ship has a [SCAN] Token beside it, you may force one ship you attacked this round to re-roll one defense die of your choice. </Ability>
       <Skill>
@@ -11920,7 +11920,7 @@
         <Cost>4</Cost>
         <Id>geordi_la_forge_71531</Id>
         <Set>71531</Set>
-        <Special></Special>
+        <Special>addonetechslot</Special>
       </Upgrade>
       <Upgrade>
         <Title>Tuvok</Title>
