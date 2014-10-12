@@ -625,12 +625,12 @@
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3059",
+            "upgradeId" : "energy_dissipator_op5prize",
             "upgradeTitle" : "Energy Dissipator",
             "calculatedCost" : 10
           },
           {
-            "upgradeId" : "energy_dissipator_op5prize",
+            "upgradeId" : "3059",
             "upgradeTitle" : "Energy Dissipator",
             "calculatedCost" : 10
           }
@@ -675,6 +675,42 @@
     "name" : "Dorsal Phaser Array",
     "modified" : "2014-10-04T10:44:47-0700",
     "cost" : 37
+  },
+  {
+    "uuid" : "561D5997-BC9C-417F-A747-70F20DD6A366",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 47,
+        "shipId" : "u_s_s_enterprise_e_71531",
+        "upgrades" : [
+          {
+            "upgradeId" : "geordi_la_forge_71531",
+            "upgradeTitle" : "Geordi La Forge",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "3068",
+            "upgradeTitle" : "Cloaking Device",
+            "calculatedCost" : 9
+          },
+          {
+            "upgradeId" : "emergency_medical_hologram_tech_upgrade_lines71276",
+            "upgradeTitle" : "Emergency Medical Hologram",
+            "calculatedCost" : 2
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-E",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "e-e la forge",
+    "modified" : "2014-10-12T12:31:42-0700",
+    "cost" : 47
   },
   {
     "uuid" : "445464E7-EC1D-430F-A6AD-B5BC6280B62E",
@@ -1670,12 +1706,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3011",
+            "upgradeId" : "3052",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3052",
+            "upgradeId" : "3011",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
