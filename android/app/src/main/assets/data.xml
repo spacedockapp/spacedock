@@ -1,4 +1,4 @@
-<Data version="2014-10-11@15-30">
+<Data version="2014-10-12@16-49">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -12256,6 +12256,22 @@
         <Cost>6</Cost>
         <Id>quantum_torpedoes_71531</Id>
         <Set>71531</Set>
+        <Special></Special>
+      </Upgrade>
+      <Upgrade>
+        <Title>Power Grid</Title>
+        <Ability>Whenever you are supposed to place an Auxiliary Power Token beside your ship, you may disable this card instead.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Vulcan</Faction>
+        <Cost>2</Cost>
+        <Id>power_grid_71646e</Id>
+        <Set>71646e</Set>
         <Special></Special>
       </Upgrade>
   </Upgrades>
