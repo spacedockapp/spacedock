@@ -1,3 +1,9 @@
+### Version 1.1.11 build 93 (2014-10-15)
+
+* Added Captains for Admirals Borg Queen and Matthew Dougherty (Robert George)
+* Corrected upgrade slots for Sovereign Class (Robert George)
+* Fixed cost for Dorsal Phaser Array.
+
 ### Version 1.1.11 build 92 (2014-10-12)
 
 * Add missing Picard and Power Grid.
