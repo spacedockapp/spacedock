@@ -6353,13 +6353,13 @@
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
-      <Talent>2</Talent>
+      <Talent>1</Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Captain</Type>
       <Faction>Federation</Faction>
       <Cost>5</Cost>
-      <Id>jean_luc_picard_71531</Id>
+      <Id>jean_luc_picard_b_71531</Id>
       <Set>71531</Set>
       <Special>addonetechslot</Special>
     </Captain>
@@ -6375,25 +6375,41 @@
       <Type>Captain</Type>
       <Faction>Federation</Faction>
       <Cost>5</Cost>
-      <Id>jean_luc_picard_b_71531</Id>
+      <Id>jean_luc_picard_c_71531</Id>
       <Set>71531</Set>
       <Special>addoneweaponslot</Special>
     </Captain>
+      <Captain>
+          <Title>Jean-Luc Picard</Title>
+          <Ability>Add 1 [CREW] Upgrade to your Upgrade Bar. At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
+          <Unique>Y</Unique>
+          <MirrorUniverseUnique>N</MirrorUniverseUnique>
+          <Skill>8</Skill>
+          <Talent>1</Talent>
+          <Attack></Attack>
+          <Range></Range>
+          <Type>Captain</Type>
+          <Faction>Federation</Faction>
+          <Cost>5</Cost>
+          <Id>jean_luc_picard_c_71531</Id>
+          <Set>71531</Set>
+          <Special>Add_Crew_1</Special>
+      </Captain>
     <Captain>
       <Title>Jean-Luc Picard</Title>
       <Ability>Add 1 [TALENT] Upgrade to your Upgrade Bar. At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
-      <Talent>1</Talent>
+      <Talent>2</Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Captain</Type>
       <Faction>Federation</Faction>
       <Cost>5</Cost>
-      <Id>jean_luc_picard_c_71531</Id>
+      <Id>jean_luc_picard_71531</Id>
       <Set>71531</Set>
-      <Special>addonetalentslot</Special>
+      <Special></Special>
     </Captain>
     <Captain>
       <Title>Jean-Luc Picard</Title>
@@ -6471,7 +6487,7 @@
       <Type>Captain</Type>
       <Faction>Independent</Faction>
       <Cost>3</Cost>
-      <Id>calvin_hudson_71528</Id>
+      <Id>calvin_hudson_b_71528</Id>
       <Set>71528</Set>
       <Special>AllUpgradesMinusOneOnIndepedentShipAndAdd1Tech</Special>
     </Captain>
@@ -6487,7 +6503,7 @@
       <Type>Captain</Type>
       <Faction>Independent</Faction>
       <Cost>3</Cost>
-      <Id>calvin_hudson_b_71528</Id>
+      <Id>calvin_hudson_c_71528</Id>
       <Set>71528</Set>
       <Special>AllUpgradesMinusOneOnIndepedentShipAndAdd1Weapon</Special>
     </Captain>
@@ -6503,7 +6519,7 @@
       <Type>Captain</Type>
       <Faction>Independent</Faction>
       <Cost>3</Cost>
-      <Id>calvin_hudson_c_71528</Id>
+      <Id>calvin_hudson_71528</Id>
       <Set>71528</Set>
       <Special>AllUpgradesMinusOneOnIndepedentShipAndAdd1Crew</Special>
     </Captain>

@@ -372,7 +372,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 cost += 5;
             }
         } else if (captainSpecial.startsWith("AllUpgradesMinusOneOnIndepedentShip")
-                && "Independent".equals(shipFaction)) {
+                && "Independent".equals(shipFaction) && (!this.isCaptain() && !this.isAdmiral())) {
             cost -= 1;
         }
         if (captainSpecial.equals("OneDominionUpgradeCostsMinusTwo") && !shipIsSideboard) {
@@ -583,5 +583,4 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         }
         return 0;
     }
-
 }
