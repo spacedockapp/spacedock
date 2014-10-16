@@ -6353,7 +6353,7 @@
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
-      <Talent>2</Talent>
+      <Talent>1</Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Captain</Type>
@@ -6401,7 +6401,7 @@
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
-      <Talent>1</Talent>
+      <Talent>2</Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Captain</Type>
@@ -6409,7 +6409,7 @@
       <Cost>5</Cost>
       <Id>jean_luc_picard_71531</Id>
       <Set>71531</Set>
-      <Special>addonetalentslot</Special>
+      <Special></Special>
     </Captain>
     <Captain>
       <Title>Jean-Luc Picard</Title>
