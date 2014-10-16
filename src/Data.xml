@@ -1,4 +1,4 @@
-<Data version="2014-10-04@19-11">
+<Data version="2014-10-12@19-27">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -5646,7 +5646,7 @@
       <Faction>Borg</Faction>
       <Cost>0</Cost>
       <Id>drone_71283</Id>
-      <Set>71283,71444,71522,71525,71646d,71511,</Set>
+      <Set>71283,71444,71522,71525,71646d,71511</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -6349,7 +6349,7 @@
     </Captain>
     <Captain>
       <Title>Jean-Luc Picard</Title>
-      <Ability>Add 1 [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
+      <Ability>Add 1 [CREW], [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
@@ -6365,7 +6365,7 @@
     </Captain>
     <Captain>
       <Title>Jean-Luc Picard</Title>
-      <Ability>Add 1 [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
+      <Ability>Add 1 [CREW], [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
@@ -6381,7 +6381,7 @@
     </Captain>
     <Captain>
       <Title>Jean-Luc Picard</Title>
-      <Ability>Add 1 [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
+      <Ability>Add 1 [CREW], [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
@@ -6394,6 +6394,22 @@
       <Id>jean_luc_picard_c_71531</Id>
       <Set>71531</Set>
       <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Jean-Luc Picard</Title>
+      <Ability>Add 1 [CREW], [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>8</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>jean_luc_picard_d_71531</Id>
+      <Set>71531</Set>
+      <Special>Add_Crew_1</Special>
     </Captain>
     <Captain>
       <Title>Salatrel</Title>
@@ -6681,7 +6697,7 @@
       <Set>71120</Set>
     </Upgrade>
     <Upgrade>
-      <Title>Geordi LaForge</Title>
+      <Title>Geordi La Forge</Title>
       <Unique>Y</Unique>
       <Ability>If your ship has a [SCAN] Token beside it, you may force one ship you attacked this round to re-roll one defense die of your choice. </Ability>
       <Skill>
@@ -11883,12 +11899,12 @@
         <Talent></Talent>
         <Attack></Attack>
         <Range></Range>
-        <Type></Type>
+        <Type>Crew</Type>
         <Faction>Federation</Faction>
         <Cost>5</Cost>
         <Id>william_t_riker_71531</Id>
         <Set>71531</Set>
-        <Special></Special>
+        <Special>Add_Crew_1</Special>
       </Upgrade>
       <Upgrade>
         <Title>Geordi La Forge</Title>
@@ -11904,7 +11920,7 @@
         <Cost>4</Cost>
         <Id>geordi_la_forge_71531</Id>
         <Set>71531</Set>
-        <Special></Special>
+        <Special>addonetechslot</Special>
       </Upgrade>
       <Upgrade>
         <Title>Tuvok</Title>
@@ -12240,6 +12256,22 @@
         <Cost>6</Cost>
         <Id>quantum_torpedoes_71531</Id>
         <Set>71531</Set>
+        <Special></Special>
+      </Upgrade>
+      <Upgrade>
+        <Title>Power Grid</Title>
+        <Ability>Whenever you are supposed to place an Auxiliary Power Token beside your ship, you may disable this card instead.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Vulcan</Faction>
+        <Cost>2</Cost>
+        <Id>power_grid_71646e</Id>
+        <Set>71646e</Set>
         <Special></Special>
       </Upgrade>
   </Upgrades>

@@ -133,6 +133,7 @@ static NSDictionary* sItemLabels = nil;
             @"jean_luc_picard_71531": @"Talent",
             @"jean_luc_picard_b_71531": @"Tech",
             @"jean_luc_picard_c_71531": @"Weapon",
+            @"jean_luc_picard_d_71531": @"Crew",
         };
     }
 
@@ -778,6 +779,16 @@ static NSDictionary* sItemLabels = nil;
     }
     NSString* special = self.special;
     if ([special isEqualToString: @"Add_Crew_1"]) {
+        return 1;
+    }
+    return 0;
+}
+
+-(int)additionalBorgSlots
+{
+    NSString* externalId = self.externalId;
+
+    if ([externalId isEqualToString: @"borg_alliance_71511"]) {
         return 1;
     }
     return 0;

@@ -35,6 +35,7 @@
 -(int)additionalWeaponSlots;
 -(int)additionalTechSlots;
 -(int)additionalCrewSlots;
+-(int)additionalBorgSlots;
 -(int)additionalHull;
 -(int)additionalTalentSlots;
 -(int)additionalAttack;

@@ -1,3 +1,11 @@
+### Version 1.1.11 build 92 (2014-10-12)
+
+* Add missing Picard and Power Grid.
+
+### Version 1.1.10 build 91 (2014-10-09)
+
+* Fix Will Riker.
+
 ### Version 1.1.9 build 90 (2014-10-04)
 
 * Add Wave 8 and Avatar of Tomed.

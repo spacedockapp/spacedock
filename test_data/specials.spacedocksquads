@@ -123,6 +123,37 @@
     "cost" : 64
   },
   {
+    "uuid" : "BE97660D-9F21-4D09-B46F-9FDF30328268",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 56,
+        "shipId" : "4th_division_battleship_71279",
+        "upgrades" : [
+          {
+            "upgradeId" : "borg_alliance_71511",
+            "upgradeTitle" : "Borg Alliance",
+            "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "borg_assimilation_tubules_71283",
+            "upgradeTitle" : "Borg Assimilation Tubules",
+            "calculatedCost" : 9
+          }
+        ],
+        "shipTitle" : "4th Division Battleship",
+        "captain" : {
+          "upgradeId" : "2039",
+          "upgradeTitle" : "Gul Dukat",
+          "calculatedCost" : 5
+        }
+      }
+    ],
+    "name" : "borg alliance",
+    "modified" : "2014-10-10T18:16:23-0700",
+    "cost" : 56
+  },
+  {
     "uuid" : "E9B31F9C-590C-4F93-B395-7BF6764B5FB5",
     "additionalPoints" : 0,
     "ships" : [
@@ -163,7 +194,7 @@
     "additionalPoints" : 0,
     "ships" : [
       {
-        "calculatedCost" : 42,
+        "calculatedCost" : 46,
         "shipId" : "u_s_s_enterprise_e_71531",
         "upgrades" : [
           {
@@ -174,7 +205,7 @@
           {
             "upgradeId" : "dorsal_phaser_array_71531",
             "upgradeTitle" : "Dorsal Phaser Array",
-            "calculatedCost" : 1
+            "calculatedCost" : 5
           }
         ],
         "shipTitle" : "U.S.S. Enterprise-E",
@@ -187,7 +218,7 @@
     ],
     "name" : "calvin hudson (non-ind)",
     "modified" : "2014-10-04T09:06:52-0700",
-    "cost" : 42
+    "cost" : 46
   },
   {
     "uuid" : "164DCBE1-BE48-4A0B-B0CC-AB7B8A2AAD82",
@@ -368,6 +399,42 @@
     "name" : "cold storage",
     "modified" : "2014-06-21T06:50:02-0700",
     "cost" : 34
+  },
+  {
+    "uuid" : "D0239F66-FFD2-4A6B-B81F-4F90C7A79313",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 44,
+        "shipId" : "u_s_s_enterprise_e_71531",
+        "upgrades" : [
+          {
+            "upgradeId" : "3135",
+            "upgradeTitle" : "Christopher Hobson",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "3005",
+            "upgradeTitle" : "Data",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "william_t_riker_71531",
+            "upgradeTitle" : "William T. Riker",
+            "calculatedCost" : 5
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-E",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "crewman riker",
+    "modified" : "2014-10-10T18:01:27-0700",
+    "cost" : 44
   },
   {
     "uuid" : "308B6733-8265-4A14-807E-4E71D7B87619",
@@ -582,6 +649,68 @@
     "additionalPoints" : 0,
     "modified" : "2014-08-04T20:16:21-0700",
     "name" : "dominion fleet captain"
+  },
+  {
+    "uuid" : "AC0BF1AE-57AA-4F66-846C-059AA17155E8",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 37,
+        "shipId" : "u_s_s_enterprise_e_71531",
+        "upgrades" : [
+          {
+            "upgradeId" : "dorsal_phaser_array_71531",
+            "upgradeTitle" : "Dorsal Phaser Array",
+            "calculatedCost" : 5
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-E",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "Dorsal Phaser Array",
+    "modified" : "2014-10-04T10:44:47-0700",
+    "cost" : 37
+  },
+  {
+    "uuid" : "561D5997-BC9C-417F-A747-70F20DD6A366",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 47,
+        "shipId" : "u_s_s_enterprise_e_71531",
+        "upgrades" : [
+          {
+            "upgradeId" : "geordi_la_forge_71531",
+            "upgradeTitle" : "Geordi La Forge",
+            "calculatedCost" : 4
+          },
+          {
+            "upgradeId" : "3068",
+            "upgradeTitle" : "Cloaking Device",
+            "calculatedCost" : 9
+          },
+          {
+            "upgradeId" : "emergency_medical_hologram_tech_upgrade_lines71276",
+            "upgradeTitle" : "Emergency Medical Hologram",
+            "calculatedCost" : 2
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-E",
+        "captain" : {
+          "upgradeId" : "2003",
+          "upgradeTitle" : "Federation Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "e-e la forge",
+    "modified" : "2014-10-12T12:31:42-0700",
+    "cost" : 47
   },
   {
     "uuid" : "445464E7-EC1D-430F-A6AD-B5BC6280B62E",
@@ -1577,12 +1706,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3011",
+            "upgradeId" : "3052",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3052",
+            "upgradeId" : "3011",
             "upgradeTitle" : "Tractor Beam",
             "calculatedCost" : 3
           },
@@ -2037,6 +2166,32 @@
     "cost" : 68
   },
   {
+    "uuid" : "49440676-9182-4429-88E1-1F8AD43A0D0F",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 46,
+        "shipId" : "i_r_w_avatar_of_tomed_b_71511",
+        "upgrades" : [
+          {
+            "upgradeId" : "multi_kinetic_neutronic_mines_71530",
+            "upgradeTitle" : "Multi Kinetic Neutronic Mines",
+            "calculatedCost" : 16
+          }
+        ],
+        "shipTitle" : "I.R.W. Avatar of Tomed",
+        "captain" : {
+          "upgradeId" : "2007",
+          "upgradeTitle" : "Romulan Captain",
+          "calculatedCost" : 0
+        }
+      }
+    ],
+    "name" : "Multi Kinetic Neutronic Mines",
+    "modified" : "2014-10-04T10:44:47-0700",
+    "cost" : 46
+  },
+  {
     "ships" : [
       {
         "calculatedCost" : 72,
@@ -2265,6 +2420,42 @@
     "cost" : 31
   },
   {
+    "uuid" : "4C997602-358E-4852-A986-12D5F09E4CA5",
+    "additionalPoints" : 0,
+    "ships" : [
+      {
+        "calculatedCost" : 46,
+        "shipId" : "u_s_s_enterprise_e_71531",
+        "upgrades" : [
+          {
+            "upgradeId" : "3108",
+            "upgradeTitle" : "Dmitri Valtane",
+            "calculatedCost" : 3
+          },
+          {
+            "upgradeId" : "elizabeth_shelby_u_s_s_yaeger",
+            "upgradeTitle" : "Elizabeth Shelby",
+            "calculatedCost" : 2
+          },
+          {
+            "upgradeId" : "geordi_la_forge_71531",
+            "upgradeTitle" : "Geordi La Forge",
+            "calculatedCost" : 4
+          }
+        ],
+        "shipTitle" : "U.S.S. Enterprise-E",
+        "captain" : {
+          "upgradeId" : "jean_luc_picard_d_71531",
+          "upgradeTitle" : "Jean-Luc Picard",
+          "calculatedCost" : 5
+        }
+      }
+    ],
+    "name" : "picard (crew)",
+    "modified" : "2014-10-11T08:34:44-0700",
+    "cost" : 46
+  },
+  {
     "uuid" : "3507CFA8-EAAC-423B-BB59-C162738CB083",
     "additionalPoints" : 0,
     "ships" : [
@@ -2306,7 +2497,7 @@
         }
       }
     ],
-    "name" : "picard (crew)",
+    "name" : "picard (talent)",
     "modified" : "2014-10-04T09:43:47-0700",
     "cost" : 63
   },
@@ -2617,14 +2808,14 @@
             "calculatedCost" : 1
           },
           {
-            "upgradeId" : "photon_torpedoes_71524",
-            "upgradeTitle" : "Photon Torpedoes",
-            "calculatedCost" : 3
-          },
-          {
             "upgradeId" : "photon_torpedoes_71279",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 6
+          },
+          {
+            "upgradeId" : "photon_torpedoes_71524",
+            "upgradeTitle" : "Photon Torpedoes",
+            "calculatedCost" : 3
           }
         ],
         "shipTitle" : "4th Division Battleship",
