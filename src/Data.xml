@@ -1,4 +1,4 @@
-<Data version="2014-10-12@19-27">
+<Data version="2014-10-15@23-33">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -4606,8 +4606,8 @@
       <Regenerate>0</Regenerate>
       <Borg>0</Borg>
       <Tech>1</Tech>
-      <Weapon>2</Weapon>
-      <Crew>1</Crew>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
       <Has360Arc>N</Has360Arc>
       <Id>federation_starship_71531</Id>
       <Set>71531</Set>
@@ -6523,6 +6523,38 @@
       <Set>71530</Set>
       <Special></Special>
     </Captain>
+    <Captain>
+      <Title>Borg Queen</Title>
+      <Ability>At the start of the game or if this card replaces another Captain, remove all Drone Tokens from that Captain Card and place 7 Drone Tokens on this card. ACTION: Target a friendly ship at Range 1-2. Choose 1 Upgrade on that ship and perform that Upgrade's Action as a free Action this round. If that Action requires spending Drone Tokens, spend 1 less Drone Token than required.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>5</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Borg</Faction>
+      <Cost>7</Cost>
+      <Id>borg_queen_cap_71530</Id>
+      <Set>71530</Set>
+      <Special></Special>
+    </Captain>
+    <Captain>
+      <Title>Matthew Dougherty</Title>
+      <Ability>ACTION: Disable 1 of your Upgrades to perform this Action. Each time you defend this round, during the Roll Defense Dice step of the Combat Phase, roll +1 defense die.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>3</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>matthew_dougherty_cap_71531</Id>
+      <Set>71531</Set>
+      <Special></Special>
+    </Captain>
   </Captains>
   <Admirals>
     <Admiral>
@@ -6610,7 +6642,7 @@
       <Talent>1</Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Captain</Type>
+      <Type>Admiral</Type>
       <Faction>Borg</Faction>
       <Cost>7</Cost>
       <Id>borg_queen_71530</Id>
@@ -6630,7 +6662,7 @@
       <Talent>0</Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Captain</Type>
+      <Type>Admiral</Type>
       <Faction>Federation</Faction>
       <Cost>4</Cost>
       <Id>matthew_dougherty_71531</Id>
@@ -11663,6 +11695,22 @@
       <Faction>Vulcan</Faction>
       <Cost>4</Cost>
       <Id>kov_71646e</Id>
+      <Set>71646e</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Power Grid</Title>
+      <Ability>Whenever you are supposed to place an Auxiliary Power Token beside your ship, you may disable this card instead.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>2</Cost>
+      <Id>power_grid_71646e</Id>
       <Set>71646e</Set>
       <Special></Special>
     </Upgrade>
