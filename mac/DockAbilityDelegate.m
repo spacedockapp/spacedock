@@ -112,7 +112,7 @@
 -(void)awakeFromNib
 {
     _measureQueue = [[NSOperationQueue alloc] init];
-    _measureQueue.maxConcurrentOperationCount = 1;
+    [_measureQueue setMaxConcurrentOperationCount: 1];
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     _expandedRows = [defaults boolForKey: kExpandedRows];
     [defaults addObserver: self forKeyPath: kExpandedRows options: 0 context: 0];

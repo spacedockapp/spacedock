@@ -1,4 +1,8 @@
-### Version 1.1.11 build 93 (2014-10-15)
+### Version 1.1.13 build 94 (2014-10-18)
+
+* Make Tactical Station unique.
+
+### Version 1.1.12 build 93 (2014-10-15)
 
 * Added Captains for Admirals Borg Queen and Matthew Dougherty (Robert George)
 * Corrected upgrade slots for Sovereign Class (Robert George)
