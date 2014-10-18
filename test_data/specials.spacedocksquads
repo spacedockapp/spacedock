@@ -194,7 +194,7 @@
     "additionalPoints" : 0,
     "ships" : [
       {
-        "calculatedCost" : 46,
+        "calculatedCost" : 47,
         "shipId" : "u_s_s_enterprise_e_71531",
         "upgrades" : [
           {
@@ -205,7 +205,7 @@
           {
             "upgradeId" : "dorsal_phaser_array_71531",
             "upgradeTitle" : "Dorsal Phaser Array",
-            "calculatedCost" : 5
+            "calculatedCost" : 6
           }
         ],
         "shipTitle" : "U.S.S. Enterprise-E",
@@ -218,7 +218,7 @@
     ],
     "name" : "calvin hudson (non-ind)",
     "modified" : "2014-10-04T09:06:52-0700",
-    "cost" : 46
+    "cost" : 47
   },
   {
     "uuid" : "164DCBE1-BE48-4A0B-B0CC-AB7B8A2AAD82",
@@ -655,13 +655,13 @@
     "additionalPoints" : 0,
     "ships" : [
       {
-        "calculatedCost" : 37,
+        "calculatedCost" : 38,
         "shipId" : "u_s_s_enterprise_e_71531",
         "upgrades" : [
           {
             "upgradeId" : "dorsal_phaser_array_71531",
             "upgradeTitle" : "Dorsal Phaser Array",
-            "calculatedCost" : 5
+            "calculatedCost" : 6
           }
         ],
         "shipTitle" : "U.S.S. Enterprise-E",
@@ -674,7 +674,7 @@
     ],
     "name" : "Dorsal Phaser Array",
     "modified" : "2014-10-04T10:44:47-0700",
-    "cost" : 37
+    "cost" : 38
   },
   {
     "uuid" : "561D5997-BC9C-417F-A747-70F20DD6A366",
@@ -792,12 +792,12 @@
             "calculatedCost" : 2
           },
           {
-            "upgradeId" : "3024",
+            "upgradeId" : "3033",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
           {
-            "upgradeId" : "3033",
+            "upgradeId" : "3024",
             "upgradeTitle" : "Photon Torpedoes",
             "calculatedCost" : 3
           },
