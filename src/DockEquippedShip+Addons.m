@@ -167,6 +167,11 @@
     return factionCode(self.ship);
 }
 
+-(BOOL)hasFaction:(NSString*)faction
+{
+    return targetHasFaction(faction, self.ship) || targetHasFaction(faction, self.flagship);
+}
+
 -(int)baseCost
 {
     if ([self isResourceSideboard]) {

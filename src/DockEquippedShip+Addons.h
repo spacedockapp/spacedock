@@ -57,6 +57,7 @@
 -(NSString*)descriptiveTitleWithSet;
 -(NSString*)upgradesDescription;
 -(NSString*)factionCode;
+-(BOOL)hasFaction:(NSString*)faction;
 -(NSDictionary*)asJSON;
 -(NSString*)asPlainTextFormat;
 -(DockEquippedUpgrade*)containsUpgrade:(DockUpgrade*)theUpgrade;

@@ -666,7 +666,7 @@ static NSDictionary* sItemLabels = nil;
                 cost = 3;
             }
         } else if ([captainSpecial isEqualToString: @"AllUpgradesMinusOneOnIndepedentShip"]) {
-            if (targetHasFaction(@"Independent", ship)) {
+            if ([equippedShip hasFaction: @"Independent"]) {
                 cost -= 1;
             }
         }

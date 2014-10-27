@@ -124,4 +124,9 @@
     return @"";
 }
 
+-(BOOL)hasFaction:(NSString*)faction
+{
+    return NO;
+}
+
 @end
