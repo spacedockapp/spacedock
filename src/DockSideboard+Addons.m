@@ -89,7 +89,7 @@
     return NO;
 }
 
--(BOOL)canAddUpgrade:(DockUpgrade*)upgrade
+-(BOOL)canAddUpgrade:(DockUpgrade*)upgrade ignoreInstalled:(BOOL)ignoreInstalled validating:(BOOL)validating
 {
     if ([upgrade isBorg]) {
         return NO;
