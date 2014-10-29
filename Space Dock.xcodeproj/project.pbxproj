@@ -1422,13 +1422,13 @@
 			attributes = {
 				CLASSPREFIX = Dock;
 				LastUpgradeCheck = 0600;
-				ORGANIZATIONNAME = "Rob Tsuk";
+				ORGANIZATIONNAME = "Robert George";
 				TargetAttributes = {
 					D42BD1EB17EA134B0000598C = {
 						DevelopmentTeam = NM66XJZ7L9;
 					};
 					D433FE08181503A20062731A = {
-						DevelopmentTeam = NM66XJZ7L9;
+						DevelopmentTeam = 97869B6X2R;
 					};
 					D4757C251902CB0100CF173B = {
 						TestTargetID = D42BD1EB17EA134B0000598C;
@@ -1917,8 +1917,8 @@
 		D42BD20D17EA134B0000598C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Robert George";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Robert George";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1939,8 +1939,8 @@
 		D42BD20E17EA134B0000598C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Robert George";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Robert George";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

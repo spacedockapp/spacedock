@@ -146,4 +146,20 @@
     [controller presentAnimated:YES completionHandler:completionHandler];  // iPhone
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == _nameField){
+        [_emailField becomeFirstResponder];
+    } else if (textField == _emailField) {
+        [_eventField becomeFirstResponder];
+    } else if (textField == _eventField) {
+        [_factionField becomeFirstResponder];
+    } else if ( textField == _factionField) {
+        [_datePicker becomeFirstResponder];
+    } else {
+        [textField resignFirstResponder];
+    }
+    return NO;
+}
+
+
 @end

@@ -306,8 +306,8 @@ NSString* kBlindBuyKey = @"blindBuy";
 
     NSArray* labels = @[@"Type", @"Card Title", @"Faction", @"Cost"];
     CGRect labelBox = CGRectMake(_bounds.origin.x, _bounds.origin.y, kFixedGridColumnWidth, rowHeight);
-    x = _bounds.origin.x;
-    y = _bounds.origin.y;
+    //x = _bounds.origin.x;
+    //y = _bounds.origin.y;
     int extraLines = 3;
     if (_ship.flagship) {
         extraLines += 1;
@@ -411,6 +411,7 @@ NSString* kBlindBuyKey = @"blindBuy";
 -(id)initWithBounds:(CGRect)bounds squad:(DockSquad*)squad blind:(BOOL)blind
 {
     _blind = blind;
+
     return [self initWithBounds:bounds squad:squad];
 }
 
@@ -487,8 +488,8 @@ NSString* kBlindBuyKey = @"blindBuy";
     }
 
     CGRect labelBox = CGRectMake(_bounds.origin.x, _bounds.origin.y, colWidth, rowHeight);
-    x = _bounds.origin.x;
-    y = _bounds.origin.y;
+    //x = _bounds.origin.x;
+    //y = _bounds.origin.y;
     DockTextBox* labelTextBox = [[DockTextBox alloc] initWithText: @""];
     labelTextBox.alignment = NSTextAlignmentCenter;
     labelBox.size.width = colWidth;

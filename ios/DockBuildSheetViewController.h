@@ -2,6 +2,6 @@
 
 @class DockSquad;
 
-@interface DockBuildSheetViewController : UITableViewController
+@interface DockBuildSheetViewController : UITableViewController <UITextFieldDelegate>
 @property (strong, nonatomic) DockSquad* squad;
 @end
