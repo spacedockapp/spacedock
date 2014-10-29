@@ -291,6 +291,12 @@
                                      insertIntoManagedObjectContext: context];
     es.ship = ship;
     [es establishPlaceholders];
+    
+    if ([es.ship.externalId isEqualToString:@"enterprise_nx_01_71526"]) {
+        DockEquippedUpgrade* ehp = [es addUpgrade:[DockUpgrade upgradeForId:@"enhanced_hull_plating_71526" context:context]];
+        [ehp overrideWithCost:0];
+    }
+
     return es;
 }
 
@@ -377,6 +383,9 @@
 
 -(void)establishPlaceholdersForType:(NSString*)upType limit:(int)limit
 {
+    if ([upType isEqualToString:@"Tech"] && [self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"]){
+        limit ++;
+    }
     NSManagedObjectContext* context = self.managedObjectContext;
     int current = [self equipped: upType];
 
@@ -1201,6 +1210,14 @@
 
 -(void)changeShip:(DockShip*)newShip
 {
+    if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"]) {
+        for(DockEquippedUpgrade* upg in self.upgrades) {
+            if ([upg.upgrade.externalId isEqualToString:@"enhanced_hull_plating_71526"]) {
+                [self removeUpgrade:upg];
+                break;
+            }
+        }
+    }
     BOOL wasFighter = [self isFighterSquadron];
     self.ship = newShip;
     [self removeIllegalUpgrades];
@@ -1209,6 +1226,11 @@
         self.squad.resource = nil;
     } else if (newShip.isFighterSquadron) {
         self.squad.resource = newShip.associatedResource;
+    }
+    
+    if ([newShip.externalId isEqualToString:@"enterprise_nx_01_71526"]) {
+        DockEquippedUpgrade* ehp = [self addUpgrade:[DockUpgrade upgradeForId:@"enhanced_hull_plating_71526" context:self.managedObjectContext]];
+        [ehp overrideWithCost:0];
     }
 }
 
