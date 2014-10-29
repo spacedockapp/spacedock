@@ -103,7 +103,8 @@
         kPlayerNameKey: @"",
         kPlayerEmailKey: @"",
         kEventFactionKey: @"",
-        kEventNameKey: @""
+        kEventNameKey: @"",
+        kBlindBuyKey: @""
     };
 
     [defaults registerDefaults: appDefs];

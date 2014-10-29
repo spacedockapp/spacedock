@@ -743,7 +743,7 @@
              };
 }
 
--(void)makeError:(NSError**)error msg:(NSString*)msg info:(NSString*)info
+-(BOOL)makeError:(NSError**)error msg:(NSString*)msg info:(NSString*)info
 {
     if (error) {
         NSDictionary* d = @{
@@ -751,7 +751,9 @@
             NSLocalizedFailureReasonErrorKey: info
         };
         *error = [NSError errorWithDomain: DockErrorDomain code: kUniqueConflict userInfo: d];
+        return NO;
     }
+    return YES;
 }
 
 -(BOOL)canAddFleetCaptain:(DockFleetCaptain*)fleetCaptain error:(NSError**)error

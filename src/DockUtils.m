@@ -46,7 +46,7 @@ NSString* resourceCost(DockSquad* targetSquad)
 {
     DockResource* res = targetSquad.resource;
     if (res) {
-        if (res.isEquippedIntoSquad) {
+        if ([res isEquippedIntoSquad:targetSquad]) {
             return @"Inc";
         }
         return [NSString stringWithFormat: @"%@", res.cost];

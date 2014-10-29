@@ -32,9 +32,11 @@ NSString* kPlayerNameKey = @"playerName";
 NSString* kPlayerEmailKey = @"playerEmail";
 NSString* kEventFactionKey = @"eventFaction";
 NSString* kEventNameKey = @"eventName";
+NSString* kBlindBuyKey = @"blindBuy";
 
 @interface DockTextBox : NSObject
 @property (assign, nonatomic) NSInteger alignment;
+@property (assign, nonatomic) NSInteger linebreak;
 @property (assign, nonatomic) BOOL frame;
 @property (assign, nonatomic) BOOL centerVertically;
 @property (strong, nonatomic) UIColor* color;
@@ -58,6 +60,7 @@ NSString* kEventNameKey = @"eventName";
     self = [super init];
     if (self != nil) {
         _alignment = NSTextAlignmentLeft;
+        _linebreak = NSLineBreakByWordWrapping;
         _color = [UIColor blackColor];
         _font = [UIFont systemFontOfSize: 25];
         _stringContext = [[NSStringDrawingContext alloc] init];
@@ -70,6 +73,7 @@ NSString* kEventNameKey = @"eventName";
 {
     NSMutableParagraphStyle* centered = [[NSMutableParagraphStyle alloc] init];
     centered.alignment = _alignment;
+    centered.lineBreakMode = _linebreak;
     _attributes = @{
                     NSParagraphStyleAttributeName: centered,
                     NSForegroundColorAttributeName: _color,
@@ -188,7 +192,6 @@ NSString* kEventNameKey = @"eventName";
     case 3:
         return [NSString stringWithFormat: @"%d", [_ship baseCost]];
     }
-    
     return [_ship descriptiveTitleWithSet];
 }
 
@@ -312,6 +315,7 @@ NSString* kEventNameKey = @"eventName";
         extraLines -= 1;
     }
     DockTextBox* labelTextBox = [[DockTextBox alloc] initWithText: @""];
+    labelTextBox.linebreak = NSLineBreakByTruncatingTail;
     labelTextBox.alignment = NSTextAlignmentCenter;
     for (int j = 0; j < kGridRows; ++j) {
         CGRect r = labelBox;
@@ -396,12 +400,19 @@ NSString* kEventNameKey = @"eventName";
 @property (assign, nonatomic) CGRect bounds;
 @property (strong, nonatomic) UIBezierPath* boundsPath;
 @property (strong, nonatomic) DockSquad* squad;
+@property (assign, nonatomic) BOOL blind;
 @property NSArray* labels;
 @property NSArray* values;
 -(id)initWithBounds:(CGRect)bounds squad:(DockSquad*)squad;
 @end
 
 @implementation DockCostGrid
+
+-(id)initWithBounds:(CGRect)bounds squad:(DockSquad*)squad blind:(BOOL)blind
+{
+    _blind = blind;
+    return [self initWithBounds:bounds squad:squad];
+}
 
 -(id)initWithBounds:(CGRect)bounds squad:(DockSquad*)squad
 {
@@ -431,7 +442,11 @@ NSString* kEventNameKey = @"eventName";
         }
         [valuesMut addObject: resourceCost(_squad)];
         [valuesMut addObject: otherCost(_squad)];
-        [valuesMut addObject: [NSString stringWithFormat: @"%d", _squad.cost]];
+        if (_blind) {
+            [valuesMut addObject: @""];
+        } else {
+            [valuesMut addObject: [NSString stringWithFormat: @"%d", _squad.cost]];
+        }
         _values = [NSArray arrayWithArray: valuesMut];
     }
     return self;
@@ -441,7 +456,6 @@ NSString* kEventNameKey = @"eventName";
 {
     [[UIColor blackColor] set];
     [_boundsPath stroke];
-
 
     int dividerCount = 2;
     CGFloat left = _bounds.origin.x;
@@ -490,6 +504,7 @@ NSString* kEventNameKey = @"eventName";
                 labelTextBox.text = _values[j];
                 labelTextBox.centerVertically = NO;
             }
+            
             [labelTextBox draw: labelBox];
             labelBox.origin.y += rowHeight;
         }
@@ -853,7 +868,7 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
 
         CGRect costBox = CGRectMake(shipGridBox.origin.x, resourcesBottom + kDefaultMargin*3,
                                          shipGridBox.size.width, 40);
-        DockCostGrid* costGrid = [[DockCostGrid alloc] initWithBounds: costBox squad: _targetSquad];
+        DockCostGrid* costGrid = [[DockCostGrid alloc] initWithBounds: costBox squad: _targetSquad blind:_blindbuy];
         CGFloat costBottom = [costGrid draw];
         
         costBottom += (kDefaultMargin * 2);
