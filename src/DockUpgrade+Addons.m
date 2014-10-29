@@ -432,6 +432,10 @@ static NSDictionary* sItemLabels = nil;
     if ([self isOfficer]) {
         return @"O";
     }
+    
+    if ([self isFleetCaptain]) {
+        return @"FlCp";
+    }
 
     return @"?";
 

@@ -13,6 +13,7 @@
 @property (strong, nonatomic) NSString* event;
 @property (strong, nonatomic) NSString* faction;
 @property (strong, nonatomic) NSDate* date;
+@property (assign, nonatomic) BOOL blindbuy;
 -(id)initWithSquad:(DockSquad*)squad;
 @end
 
@@ -43,6 +44,7 @@
     renderer.faction = _faction;
     renderer.event = _event;
     renderer.date = _date;
+    renderer.blindbuy = _blindbuy;
     renderer.pageIndex = pageIndex;
     [renderer draw: contentRect];
 }
@@ -55,6 +57,7 @@
 @property (assign, nonatomic) IBOutlet UITextField* emailField;
 @property (assign, nonatomic) IBOutlet UITextField* eventField;
 @property (assign, nonatomic) IBOutlet UITextField* factionField;
+@property (assign, nonatomic) IBOutlet UISwitch* blindbuySwitch;
 @end
 
 @implementation DockBuildSheetViewController
@@ -76,6 +79,8 @@
     _emailField.text = [defaults stringForKey: kPlayerEmailKey];
     _factionField.text = [defaults stringForKey: kEventFactionKey];
     _eventField.text = [defaults stringForKey: kEventNameKey];
+    _blindbuySwitch.on = [defaults boolForKey: kBlindBuyKey];
+    
     [super viewWillAppear: animated];
 }
 
@@ -86,7 +91,8 @@
     [defaults setObject: _emailField.text forKey: kPlayerEmailKey];
     [defaults setObject: _factionField.text forKey: kEventFactionKey];
     [defaults setObject: _eventField.text forKey: kEventNameKey];
-
+    [defaults setBool: _blindbuySwitch.on forKey: kBlindBuyKey];
+    
     [super viewWillDisappear: animated];
 }
 
@@ -104,8 +110,8 @@
     renderer.event = _eventField.text;
     renderer.faction = _factionField.text;
     renderer.date = _datePicker.date;
+    renderer.blindbuy = _blindbuySwitch.on;
     controller.printPageRenderer = renderer;
-    
     UIPrintInteractionCompletionHandler completionHandler =
     ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
         if(!completed && error){
