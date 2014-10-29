@@ -16,6 +16,7 @@
 
 -(void)viewDidLoad
 {
+    [super viewDidLoad];
     UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier: @"ability"];
     _labelWidth = self.tableView.bounds.size.width - cell.textLabel.bounds.size.width;
 }

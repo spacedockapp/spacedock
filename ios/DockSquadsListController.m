@@ -50,6 +50,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     if (_targetSquad != nil) {
         [self selectSquad: _targetSquad];
         [self performSegueWithIdentifier: @"ShowSelectedSquad" sender: nil];
@@ -133,6 +134,12 @@
     case NSFetchedResultsChangeDelete:
         [self.tableView deleteSections: [NSIndexSet indexSetWithIndex: sectionIndex] withRowAnimation: UITableViewRowAnimationAutomatic];
         break;
+    case NSFetchedResultsChangeMove:
+            NSLog(@"A table item was moved");
+            break;
+    case NSFetchedResultsChangeUpdate:
+            NSLog(@"A table item was updated");
+            break;
     }
 }
 
