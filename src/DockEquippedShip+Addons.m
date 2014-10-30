@@ -973,6 +973,9 @@
     NSMutableArray* onesToRemove = [[NSMutableArray alloc] initWithCapacity: 0];
 
     for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [eu.upgrade.externalId isEqualToString:@"enhanced_hull_plating_71526"]) {
+            continue;
+        }
         if (![self canAddUpgrade: eu.upgrade ignoreInstalled: NO validating: YES]) {
             [self canAddUpgrade: eu.upgrade];
             [onesToRemove addObject: eu];
