@@ -383,9 +383,6 @@
 
 -(void)establishPlaceholdersForType:(NSString*)upType limit:(int)limit
 {
-    if ([upType isEqualToString:@"Tech"] && [self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"]){
-        limit ++;
-    }
     NSManagedObjectContext* context = self.managedObjectContext;
     int current = [self equipped: upType];
 
@@ -631,7 +628,7 @@
         }
     }
 
-    if (!validating) {
+    if (validating) {
         if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
             DockEquippedUpgrade* existing = [self containsUpgradeWithId: upgrade.externalId];
             if (existing != nil) {
@@ -1063,6 +1060,9 @@
     for (DockEquippedUpgrade* eu in self.upgrades) {
         DockUpgrade* upgrade = eu.upgrade;
         techCount += [upgrade additionalTechSlots];
+        if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [upgrade.externalId isEqualToString:@"enhanced_hull_plating_71526"]) {
+            techCount ++;
+        }
     }
 
     return techCount;
