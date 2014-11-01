@@ -561,6 +561,9 @@ static NSDictionary* sItemLabels = nil;
         if ([fleetCaptainSpecial isEqualToString: @"TechUpgradesCostOneLess"]) {
             cost -= 1;
         }
+        if ([ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [upgrade.externalId isEqualToString:@"enhanced_hull_plating_71526"]) {
+            cost = 0;
+        }
     }
 
     if ([upgradeSpecial isEqualToString: @"costincreasedifnotbreen"]) {

@@ -293,8 +293,7 @@
     [es establishPlaceholders];
     
     if ([es.ship.externalId isEqualToString:@"enterprise_nx_01_71526"]) {
-        DockEquippedUpgrade* ehp = [es addUpgrade:[DockUpgrade upgradeForId:@"enhanced_hull_plating_71526" context:context]];
-        [ehp overrideWithCost:0];
+        [es addUpgrade:[DockUpgrade upgradeForId:@"enhanced_hull_plating_71526" context:context]];
     }
 
     return es;
@@ -658,6 +657,9 @@
         }
     }
 
+    if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [upgrade.upType isEqualToString: @"Tech"] && [self techCount] == 1 && [self containsUpgradeWithId:@"enhanced_hull_plating_71526"]) {
+            return NO;
+    }
 
     if (ignoreInstalled) {
         return YES;
@@ -953,6 +955,9 @@
 
     if (onesToRemove.count != targetCount) {
         for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+            if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [eu.upgrade.externalId isEqualToString:@"enhanced_hull_plating_71526"]) {
+                continue;
+            }
             if ([upType isEqualToString: eu.upgrade.upType]) {
                 [onesToRemove addObject: eu];
             }
@@ -1232,8 +1237,7 @@
     }
     
     if ([newShip.externalId isEqualToString:@"enterprise_nx_01_71526"]) {
-        DockEquippedUpgrade* ehp = [self addUpgrade:[DockUpgrade upgradeForId:@"enhanced_hull_plating_71526" context:self.managedObjectContext]];
-        [ehp overrideWithCost:0];
+        [self addUpgrade:[DockUpgrade upgradeForId:@"enhanced_hull_plating_71526" context:self.managedObjectContext]];
     }
 }
 
