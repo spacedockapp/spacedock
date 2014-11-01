@@ -1,3 +1,13 @@
+### Version 1.1.14 build 95 (2014-11-1)
+
+* Fixed cost on Enhanced Hull Plating for NX-01 to always be 0
+* Fixed bug where removal of Tech slot adding upgrades would remove Enhanced Hull Plating if another Tech is equipped that is alphabetically later
+* Made it so the free Enhanced Hull Plating would not allow you to choose another upgrade.
+* Fixed bug where Flagship and Fleet Captain SP were being counted twice (Mac & iOS)
+* Fixed bug where long ship names were being truncated on iOS fleet build sheet
+* Add 2 come about to NX-01.
+* Fix handling of Calvin Hudson on independent flagships.
+
 ### Version 1.1.13 build 94 (2014-10-18)
 
 * Make Tactical Station unique.
