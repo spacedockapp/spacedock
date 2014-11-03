@@ -626,6 +626,34 @@
             return NO;
         }
     }
+    
+    
+    if ([upgrade.externalId isEqualToString:@"biogenic_weapon_71510b"]) {
+        int borgSlots = self.borgCount;
+        for (DockEquippedUpgrade* eu in [self sortedUpgrades])
+        {
+            if ([eu.typeCode isEqualToString:@"B"] && !eu.isPlaceholder) {
+                borgSlots --;
+            }
+            if (borgSlots < 1) {
+                return NO;
+            }
+        }
+        return [self canAddUpgrade:[DockUpgrade upgradeForId:@"biogenic_weapon_borg_71510b" context:self.ship.managedObjectContext] ignoreInstalled:NO validating:YES];
+    }
+    
+    if ([upgrade.externalId isEqualToString:@"biogenic_weapon_borg_71510b"]) {
+        int weaponSlots = self.weaponCount;
+        for (DockEquippedUpgrade* eu in [self sortedUpgrades])
+        {
+            if ([eu.typeCode isEqualToString:@"W"] && !eu.isPlaceholder) {
+                weaponSlots --;
+            }
+            if (weaponSlots < 1) {
+                return NO;
+            }
+        }
+    }
 
     if (validating) {
         if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
@@ -680,6 +708,8 @@
     NSString* info = @"";
     if ([self isFighterSquadron]) {
         info = @"Fighter Squadrons cannot accept upgrades.";
+    } else if ( self.ship.isScoutCube && [upgrade.cost intValue] >= 5 ) {
+        info = @"You cannot deploy a [BORG] Upgrade with a cost greater than 5 to this ship.";
     } else {
         int limit = [upgrade limitForShip: self];
         
@@ -742,6 +772,8 @@
                 info = @"This Upgrade may only be purchased for a Federation ship with a Hull Value of 4 or greater.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyNonBorgShipAndNonBorgCaptain"]) {
                 info = @"This Upgrade may only be purchased for a non-Borg ship with a non-Borg Captain.";
+            } else if ([upgrade.externalId isEqualToString:@"biogenic_weapon_71510b"] || [upgrade.externalId isEqualToString:@"biogenic_weapon_borg_71510b"]) {
+                info = @"Biogenic Weapon requires 1 [BORG] and 1 [WEAPON] Upgrade slot.";
             }
         }
     }
@@ -832,14 +864,48 @@
 
         [self removeUpgrade: maybeReplace establishPlaceholders: NO];
     }
-
+    
     [self addUpgradeInternal: equippedUpgrade];
-
+    
     if (establish) {
         [self establishPlaceholders];
     }
 
     [[self squad] squadCompositionChanged];
+    
+    if ([upgrade.externalId isEqualToString:@"biogenic_weapon_71510b"]) {
+        int bwB = 0;
+        int bwW = 0;
+        for (DockEquippedUpgrade* eu in self.sortedUpgradesWithoutPlaceholders) {
+            if ([eu.upgrade.externalId isEqualToString:@"biogenic_weapon_71510b"]) {
+                bwW ++;
+            }
+            if ([eu.upgrade.externalId isEqualToString:@"biogenic_weapon_borg_71510b"]) {
+                bwB ++;
+            }
+        }
+        if (bwB < bwW) {
+            [self addUpgrade:[DockUpgrade upgradeForId:@"biogenic_weapon_borg_71510b" context:context]];
+        }
+    }
+    
+    if ([upgrade.externalId isEqualToString:@"biogenic_weapon_borg_71510b"]) {
+        int bwB = 0;
+        int bwW = 0;
+        for (DockEquippedUpgrade* eu in self.sortedUpgradesWithoutPlaceholders) {
+            if ([eu.upgrade.externalId isEqualToString:@"biogenic_weapon_71510b"]) {
+                bwW ++;
+            }
+            if ([eu.upgrade.externalId isEqualToString:@"biogenic_weapon_borg_71510b"]) {
+                bwB ++;
+            }
+        }
+        if (bwW < bwB) {
+            [self addUpgrade:[DockUpgrade upgradeForId:@"biogenic_weapon_71510b" context:context]];
+        }
+        [equippedUpgrade overrideWithCost:0];
+    }
+    
     return equippedUpgrade;
 }
 
@@ -914,8 +980,26 @@
 
 -(void)removeUpgradeInternal:(DockEquippedUpgrade*)upgrade
 {
+    NSMutableSet* toRemove = [NSMutableSet setWithObject:upgrade];
+
     [self willChangeValueForKey: @"cost"];
-    [self removeUpgrades: [NSSet setWithObject: upgrade]];
+    if ([upgrade.upgrade.externalId isEqualToString:@"biogenic_weapon_71510b"])
+    {
+        for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+            if ([eu.upgrade.externalId isEqualToString:@"biogenic_weapon_borg_71510b"]) {
+                [toRemove addObject:eu];
+                break;
+            }
+        }
+    } else if ([upgrade.upgrade.externalId isEqualToString:@"biogenic_weapon_borg_71510b"]) {
+        for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+            if ([eu.upgrade.externalId isEqualToString:@"biogenic_weapon_71510b"]) {
+                [toRemove addObject:eu];
+                break;
+            }
+        }
+    }
+    [self removeUpgrades: toRemove];
     [self didChangeValueForKey: @"cost"];
 }
 
