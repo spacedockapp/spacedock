@@ -1072,7 +1072,7 @@
     }
 
     for (DockEquippedUpgrade* eu in onesToRemove) {
-        [self removeUpgrade: eu establishPlaceholders: NO];
+        [self removeUpgrade: eu establishPlaceholders: YES];
     }
 }
 
