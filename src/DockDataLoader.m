@@ -2,6 +2,8 @@
 
 #import "DockConstants.h"
 #import "DockCrew+Addons.h"
+#import "DockShip+Addons.h"
+#import "DockEquippedShip+Addons.h"
 #import "DockDataFileLoader.h"
 #import "DockSquad+Addons.h"
 
@@ -116,6 +118,37 @@
         }
         [_managedObjectContext deleteObject: crew];
     }
+    [self mergeGenericShip:[DockShip shipForId: @"1026" context:_managedObjectContext] intoShip:[DockShip shipForId: @"1025" context:_managedObjectContext]];
+    [self mergeGenericShip:[DockShip shipForId: @"ferengi_starship_71646a" context:_managedObjectContext] intoShip:[DockShip shipForId: @"1024" context:_managedObjectContext]];
+    [self mergeGenericShip:[DockShip shipForId: @"vulcan_starship_71527" context:_managedObjectContext] intoShip:[DockShip shipForId: @"vulcan_starship_71508" context:_managedObjectContext]];
+    [self mergeGenericShip:[DockShip shipForId: @"vulcan_starship_71646e" context:_managedObjectContext] intoShip:[DockShip shipForId: @"d_kyr_class_71446" context:_managedObjectContext]];
+    [self mergeGenericShip:[DockShip shipForId: @"romulan_starship_71511" context:_managedObjectContext] intoShip:[DockShip shipForId: @"1043" context:_managedObjectContext]];
+    [self mergeGenericShip:[DockShip shipForId: @"jem_hadar_attack_ship_3rd_wing_attack_ship" context:_managedObjectContext] intoShip:[DockShip shipForId: @"1037" context:_managedObjectContext]];
+}
+
+-(void)mergeGenericShip:(DockShip*)fromShip intoShip:(DockShip*)intoShip
+{
+    if (fromShip != nil)
+    {
+        NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
+        for (DockSquad* s in allSquads) {
+            NSMutableOrderedSet* removeShips = [NSMutableOrderedSet orderedSet];
+            for (DockEquippedShip* sh in [s equippedShips]) {
+                if ([sh.ship.externalId isEqualToString:fromShip.externalId]) {
+                    if (intoShip !=nil) {
+                        [sh changeShip:intoShip];
+                    } else {
+                        [removeShips addObject:sh];
+                    }
+                }
+            }
+            if (removeShips.count > 0) {
+                [s removeEquippedShips:removeShips];
+            }
+        }
+        [_managedObjectContext deleteObject:fromShip];
+    }
+
 }
 
 @end

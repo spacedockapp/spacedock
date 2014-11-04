@@ -1,4 +1,4 @@
-<Data version="2014-11-03@19-39">
+<Data version="2014-11-04@01-45">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1919,29 +1919,28 @@
     <Ship>
       <Title>Ferengi Marauder</Title>
       <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <ShipClass>D'Kora Class</ShipClass>
       <Faction>Ferengi</Faction>
       <Attack>3</Attack>
       <Agility>1</Agility>
       <Hull>4</Hull>
       <Shield>2</Shield>
-      <Ability>
-      </Ability>
+      <Ability></Ability>
       <Cost>20</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
       <Scan>1</Scan>
-      <Battlestations>
-      </Battlestations>
-      <Cloak>
-      </Cloak>
-      <SensorEcho>
-      </SensorEcho>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
       <Tech>1</Tech>
       <Weapon>1</Weapon>
       <Crew>1</Crew>
       <Id>1024</Id>
-      <Set>OP1Prize</Set>
+      <Set>OP1Prize,71646a</Set>
     </Ship>
     <Ship>
       <Title>Deep Space 9</Title>
@@ -2072,6 +2071,7 @@
     <Ship>
       <Title>Romulan Starship</Title>
       <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <ShipClass>D'deridex Class</ShipClass>
       <Faction>Romulan</Faction>
       <Attack>3</Attack>
@@ -2093,7 +2093,7 @@
       <Weapon>2</Weapon>
       <Crew>1</Crew>
       <Id>1043</Id>
-      <Set>OP3Prize</Set>
+      <Set>OP3Prize,71511</Set>
     </Ship>
     <Ship>
       <Title>U.S.S. Defiant</Title>
@@ -2278,7 +2278,7 @@
       <Weapon>1</Weapon>
       <Crew>1</Crew>
       <Id>1037</Id>
-      <Set>71271</Set>
+      <Set>71271,3rd_wing_attack_ship</Set>
     </Ship>
     <Ship>
       <Title>I.K.S. Koraga</Title>
@@ -3214,8 +3214,9 @@
       <Set>71445</Set>
     </Ship>
     <Ship>
-      <Title>D'Kyr Class</Title>
+      <Title>Vulcan Starship</Title>
       <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <ShipClass>D'Kyr Class</ShipClass>
       <Faction>Vulcan</Faction>
       <Attack>3</Attack>
@@ -3236,7 +3237,7 @@
       <Weapon>1</Weapon>
       <Crew>1</Crew>
       <Id>d_kyr_class_71446</Id>
-      <Set>71446</Set>
+      <Set>71446,71646e</Set>
     </Ship>
     <Ship>
       <Title>S'Gorn</Title>
@@ -3461,31 +3462,6 @@
       <Weapon>1</Weapon>
       <Crew>2</Crew>
       <Id>3rd_wing_attack_ship_3rd_wing_attack_ship</Id>
-      <Set>3rd_wing_attack_ship</Set>
-    </Ship>
-    <Ship>
-      <Title>Jem'Hadar Attack Ship</Title>
-      <Unique>N</Unique>
-      <ShipClass>Jem'Hadar Attack Ship</ShipClass>
-      <Faction>Dominion</Faction>
-      <Attack>3</Attack>
-      <Agility>2</Agility>
-      <Hull>3</Hull>
-      <Shield>2</Shield>
-      <Ability></Ability>
-      <Cost>20</Cost>
-      <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock>1</TargetLock>
-      <Scan>1</Scan>
-      <Battlestations>1</Battlestations>
-      <Cloak>0</Cloak>
-      <SensorEcho>0</SensorEcho>
-      <Regenerate>0</Regenerate>
-      <Borg>0</Borg>
-      <Tech>1</Tech>
-      <Weapon>1</Weapon>
-      <Crew>1</Crew>
-      <Id>jem_hadar_attack_ship_3rd_wing_attack_ship</Id>
       <Set>3rd_wing_attack_ship</Set>
     </Ship>
     <Ship>
@@ -3737,7 +3713,7 @@
       <Weapon>0</Weapon>
       <Crew>1</Crew>
       <Id>vulcan_starship_71508</Id>
-      <Set>71508</Set>
+      <Set>71508,71527</Set>
     </Ship>
     <Ship>
       <Title>U.S.S. Raven</Title>
@@ -3889,31 +3865,6 @@
       <Crew>1</Crew>
       <Id>federation_starship_71526</Id>
       <Set>71526</Set>
-    </Ship>
-    <Ship>
-      <Title>Vulcan Starship</Title>
-      <Unique>N</Unique>
-      <ShipClass>Suurok Class</ShipClass>
-      <Faction>Vulcan</Faction>
-      <Attack>2</Attack>
-      <Agility>1</Agility>
-      <Hull>4</Hull>
-      <Shield>2</Shield>
-      <Ability></Ability>
-      <Cost>18</Cost>
-      <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock>1</TargetLock>
-      <Scan>1</Scan>
-      <Battlestations>1</Battlestations>
-      <Cloak>0</Cloak>
-      <SensorEcho>0</SensorEcho>
-      <Regenerate>0</Regenerate>
-      <Borg>0</Borg>
-      <Tech>1</Tech>
-      <Weapon>0</Weapon>
-      <Crew>1</Crew>
-      <Id>vulcan_starship_71527</Id>
-      <Set>71527</Set>
     </Ship>
     <Ship>
       <Title>Borg Starship</Title>
@@ -4126,32 +4077,6 @@
       <Set>71646a</Set>
     </Ship>
     <Ship>
-      <Title>Ferengi Starship</Title>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <ShipClass>D'Kora Class</ShipClass>
-      <Faction>Ferengi</Faction>
-      <Attack>3</Attack>
-      <Agility>1</Agility>
-      <Hull>4</Hull>
-      <Shield>2</Shield>
-      <Ability></Ability>
-      <Cost>20</Cost>
-      <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock>1</TargetLock>
-      <Scan>1</Scan>
-      <Battlestations>0</Battlestations>
-      <Cloak>0</Cloak>
-      <SensorEcho>0</SensorEcho>
-      <Regenerate>0</Regenerate>
-      <Borg>0</Borg>
-      <Tech>1</Tech>
-      <Weapon>1</Weapon>
-      <Crew>1</Crew>
-      <Id>ferengi_starship_71646a</Id>
-      <Set>71646a</Set>
-    </Ship>
-    <Ship>
       <Title>Mirror Universe Starship</Title>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
@@ -4334,32 +4259,6 @@
       <Set>71646e</Set>
     </Ship>
     <Ship>
-      <Title>Vulcan Starship</Title>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <ShipClass>D'Kyr Class</ShipClass>
-      <Faction>Vulcan</Faction>
-      <Attack>3</Attack>
-      <Agility>1</Agility>
-      <Hull>5</Hull>
-      <Shield>3</Shield>
-      <Ability></Ability>
-      <Cost>24</Cost>
-      <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock>1</TargetLock>
-      <Scan>1</Scan>
-      <Battlestations>1</Battlestations>
-      <Cloak>0</Cloak>
-      <SensorEcho>0</SensorEcho>
-      <Regenerate>0</Regenerate>
-      <Borg>0</Borg>
-      <Tech>1</Tech>
-      <Weapon>1</Weapon>
-      <Crew>1</Crew>
-      <Id>vulcan_starship_71646e</Id>
-      <Set>71646e</Set>
-    </Ship>
-    <Ship>
       <Title>Val Jean</Title>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
@@ -4443,34 +4342,6 @@
       <Crew>1</Crew>
       <Has360Arc>N</Has360Arc>
       <Id>romulan_borg_starship_71511</Id>
-      <Set>71511</Set>
-    </Ship>
-    <Ship>
-      <Title>Romulan Starship</Title>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <ShipClass>D'deridex Class</ShipClass>
-      <Faction>Romulan</Faction>
-      <AdditionalFaction></AdditionalFaction>
-      <Attack>3</Attack>
-      <Agility>2</Agility>
-      <Hull>6</Hull>
-      <Shield>3</Shield>
-      <Ability></Ability>
-      <Cost>28</Cost>
-      <EvasiveManeuvers>1</EvasiveManeuvers>
-      <TargetLock>1</TargetLock>
-      <Scan>0</Scan>
-      <Battlestations>0</Battlestations>
-      <Cloak>1</Cloak>
-      <SensorEcho>1</SensorEcho>
-      <Regenerate>0</Regenerate>
-      <Borg>0</Borg>
-      <Tech>1</Tech>
-      <Weapon>2</Weapon>
-      <Crew>1</Crew>
-      <Has360Arc>N</Has360Arc>
-      <Id>romulan_starship_71511</Id>
       <Set>71511</Set>
     </Ship>
     <Ship>
