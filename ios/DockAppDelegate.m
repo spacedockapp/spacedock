@@ -69,6 +69,9 @@
         DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: moc];
         [loader loadData: &error];
         [loader cleanupDatabase];
+        if ([[moc deletedObjects] count] > 0) {
+            [moc save:&error];
+        }
         [DockSquad assignUUIDs: moc];
         [[NSOperationQueue mainQueue] addOperationWithBlock: finishLoadBlock];
     };

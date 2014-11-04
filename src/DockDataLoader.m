@@ -124,6 +124,7 @@
     [self mergeGenericShip:[DockShip shipForId: @"vulcan_starship_71646e" context:_managedObjectContext] intoShip:[DockShip shipForId: @"d_kyr_class_71446" context:_managedObjectContext]];
     [self mergeGenericShip:[DockShip shipForId: @"romulan_starship_71511" context:_managedObjectContext] intoShip:[DockShip shipForId: @"1043" context:_managedObjectContext]];
     [self mergeGenericShip:[DockShip shipForId: @"jem_hadar_attack_ship_3rd_wing_attack_ship" context:_managedObjectContext] intoShip:[DockShip shipForId: @"1037" context:_managedObjectContext]];
+    [self mergeGenericShip:[DockShip shipForId: @"borg_starship_71646d" context:_managedObjectContext] intoShip:[DockShip shipForId: @"borg_starship_71525" context:_managedObjectContext]];
 }
 
 -(void)mergeGenericShip:(DockShip*)fromShip intoShip:(DockShip*)intoShip
