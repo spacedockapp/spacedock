@@ -118,6 +118,17 @@
         }
         [_managedObjectContext deleteObject: crew];
     }
+    crew = [DockCrew crewForId:@"vox_71511" context:_managedObjectContext];
+    if (crew != nil && [crew.faction isEqualToString:@"Borg, Romulan"])
+    {
+        NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
+        for (DockSquad* s in allSquads) {
+            [s purgeUpgrade: crew];
+        }
+        [_managedObjectContext deleteObject: crew];
+        NSError* error;
+        [self loadData:&error];
+    }
     [self mergeGenericShip:[DockShip shipForId: @"1026" context:_managedObjectContext] intoShip:[DockShip shipForId: @"1025" context:_managedObjectContext]];
     [self mergeGenericShip:[DockShip shipForId: @"ferengi_starship_71646a" context:_managedObjectContext] intoShip:[DockShip shipForId: @"1024" context:_managedObjectContext]];
     [self mergeGenericShip:[DockShip shipForId: @"vulcan_starship_71527" context:_managedObjectContext] intoShip:[DockShip shipForId: @"vulcan_starship_71508" context:_managedObjectContext]];

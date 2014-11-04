@@ -1,4 +1,4 @@
-<Data version="2014-11-04@02-20">
+<Data version="2014-11-04@07-22">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -11338,7 +11338,7 @@
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Biogenic Weapon</Title>
+      <Title>Biogenic Charge</Title>
       <Ability>You must use 1 [BORG] and 1 [WEAPON] Upgrade slot to deploy this Upgrade to your ship. ATTACK: [TARGET LOCK] Spend your target lock and discard this card to perform this attack.  In addition to normal damage, the opposing ship must discard 1 of its [CREW] Upgrades of its choice for each damage you inflict to that ship's Hull with this attack (max 2).  Add 1 Drone Token to your Captain Card for each [CREW] Upgrade that was discarded with this attack.  You cannot exceed your starting number of Drone Tokens.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
@@ -11355,7 +11355,7 @@
       <Special></Special>
     </Upgrade>
     <Upgrade>
-        <Title>Biogenic Weapon</Title>
+        <Title>Biogenic Charge</Title>
         <Ability>You must use 1 [BORG] and 1 [WEAPON] Upgrade slot to deploy this Upgrade to your ship. ATTACK: [TARGET LOCK] Spend your target lock and discard this card to perform this attack.  In addition to normal damage, the opposing ship must discard 1 of its [CREW] Upgrades of its choice for each damage you inflict to that ship's Hull with this attack (max 2).  Add 1 Drone Token to your Captain Card for each [CREW] Upgrade that was discarded with this attack.  You cannot exceed your starting number of Drone Tokens.</Ability>
         <Unique>N</Unique>
         <MirrorUniverseUnique>N</MirrorUniverseUnique>
@@ -11717,7 +11717,8 @@
         <Attack></Attack>
         <Range></Range>
         <Type>Crew</Type>
-        <Faction>Borg, Romulan</Faction>
+        <Faction>Borg</Faction>
+        <AdditionalFaction>Romulan</AdditionalFaction>
         <Cost>4</Cost>
         <Id>vox_71511</Id>
         <Set>71511</Set>
