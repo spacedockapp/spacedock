@@ -626,34 +626,6 @@
             return NO;
         }
     }
-    
-    
-    if ([upgrade.externalId isEqualToString:@"biogenic_weapon_71510b"]) {
-        int borgSlots = self.borgCount;
-        for (DockEquippedUpgrade* eu in [self sortedUpgrades])
-        {
-            if ([eu.typeCode isEqualToString:@"B"] && !eu.isPlaceholder) {
-                borgSlots --;
-            }
-            if (borgSlots < 1) {
-                return NO;
-            }
-        }
-        return [self canAddUpgrade:[DockUpgrade upgradeForId:@"biogenic_weapon_borg_71510b" context:self.ship.managedObjectContext] ignoreInstalled:NO validating:YES];
-    }
-    
-    if ([upgrade.externalId isEqualToString:@"biogenic_weapon_borg_71510b"]) {
-        int weaponSlots = self.weaponCount;
-        for (DockEquippedUpgrade* eu in [self sortedUpgrades])
-        {
-            if ([eu.typeCode isEqualToString:@"W"] && !eu.isPlaceholder) {
-                weaponSlots --;
-            }
-            if (weaponSlots < 1) {
-                return NO;
-            }
-        }
-    }
 
     if (validating) {
         if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
@@ -689,6 +661,50 @@
             return NO;
     }
 
+    if ([upgrade.externalId isEqualToString:@"biogenic_weapon_71510b"] || [upgrade.externalId isEqualToString:@"biogenic_weapon_borg_71510b"]) {
+        int limit1 = [[DockUpgrade upgradeForId:@"biogenic_weapon_71510b" context:self.managedObjectContext] limitForShip:self];
+        int limit2 = [[DockUpgrade upgradeForId:@"biogenic_weapon_borg_71510b" context:self.managedObjectContext] limitForShip:self];
+        int limit = (limit1<limit2)? limit1 : limit2;
+        
+        if (validating) {
+            if ([self containsUpgradeWithId:@"biogenic_weapon_71510b"] != nil && [self containsUpgradeWithId:@"biogenic_weapon_borg_71510b"] != nil) {
+                int bwB = 0;
+                int bwW = 0;
+                for (DockEquippedUpgrade* eu in [self sortedUpgrades]) {
+                    if ([eu.upgrade.externalId isEqualToString:@"biogenic_weapon_71510b"]) {
+                        bwW ++;
+                    } else if ([eu.upgrade.externalId isEqualToString:@"biogenic_weapon_borg_71510b"]) {
+                        bwB ++;
+                    }
+                }
+                if (bwB == bwW) {
+                    return limit > bwB;
+                } else {
+                    return NO;
+                }
+            } else {
+                if ([upgrade.externalId isEqualToString:@"biogenic_weapon_71510b"]) {
+                    int borg = 0;
+                    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+                        if ([eu.upgrade.upType isEqualToString:@"Borg"] && !eu.isPlaceholder) {
+                            borg ++;
+                        }
+                    }
+                    return self.borgCount > borg;
+                } else if ([upgrade.externalId isEqualToString:@"biogenic_weapon_borg_71510b"]) {
+                    int weap = 0;
+                    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+                        if ([eu.upgrade.upType isEqualToString:@"Weapon"] && !eu.isPlaceholder) {
+                            weap ++;
+                        }
+                    }
+                    return self.weaponCount > weap;
+                }
+            }
+        }
+        return limit > 0;
+    }
+    
     if (ignoreInstalled) {
         return YES;
     }
@@ -1065,8 +1081,11 @@
         if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [eu.upgrade.externalId isEqualToString:@"enhanced_hull_plating_71526"]) {
             continue;
         }
-        if (![self canAddUpgrade: eu.upgrade ignoreInstalled: NO validating: YES]) {
-            [self canAddUpgrade: eu.upgrade];
+        if ([eu.upgrade.externalId isEqualToString:@"biogenic_weapon_71510b"] || [eu.upgrade.externalId isEqualToString:@"biogenic_weapon_borg_71510b"]) {
+            if (![self canAddUpgrade: eu.upgrade ignoreInstalled: NO validating: NO]) {
+                [onesToRemove addObject: eu];
+            }
+        } else if (![self canAddUpgrade: eu.upgrade ignoreInstalled: NO validating: YES]) {
             [onesToRemove addObject: eu];
         }
     }
