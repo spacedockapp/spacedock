@@ -632,7 +632,7 @@
     }
 
     if ([upgradeSpecial isEqualToString:@"OnlyRemanWarbird"]) {
-        if ([self.ship isRemanWarbird]) {
+        if (![self.ship isRemanWarbird]) {
             return NO;
         }
     }

@@ -1,4 +1,4 @@
-<Data version="2014-11-06@09-10">
+<Data version="2014-11-06@16-49">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1314,11 +1314,10 @@
         <Maneuvers>
             <Maneuver speed="4" kind="straight" color="white" />
             <Maneuver speed="3" kind="left-turn" color="red" />
-            <Maneuver speed="3" kind="left-come" color="red" />
+            <Maneuver speed="3" kind="about" color="red" />
             <Maneuver speed="3" kind="left-bank" color="white" />
             <Maneuver speed="3" kind="straight" color="white" />
             <Maneuver speed="3" kind="right-bank" color="white" />
-            <Maneuver speed="3" kind="right-come" color="red" />
             <Maneuver speed="3" kind="right-turn" color="red" />
             <Maneuver speed="2" kind="left-turn" color="white" />
             <Maneuver speed="2" kind="left-bank" color="green" />
@@ -1338,11 +1337,10 @@
         <Maneuvers>
             <Maneuver speed="4" kind="straight" color="white" />
             <Maneuver speed="3" kind="left-turn" color="red" />
-            <Maneuver speed="3" kind="left-come" color="red" />
             <Maneuver speed="3" kind="left-bank" color="white" />
             <Maneuver speed="3" kind="straight" color="white" />
             <Maneuver speed="3" kind="right-bank" color="white" />
-            <Maneuver speed="3" kind="right-come" color="red" />
+            <Maneuver speed="3" kind="about" color="red" />
             <Maneuver speed="3" kind="right-turn" color="red" />
             <Maneuver speed="2" kind="left-turn" color="white" />
             <Maneuver speed="2" kind="left-bank" color="white" />
@@ -1362,9 +1360,8 @@
         <Maneuvers>
             <Maneuver speed="6" kind="straight" color="white" />
             <Maneuver speed="5" kind="straight" color="white" />
-            <Maneuver speed="4" kind="left-come" color="red" />
             <Maneuver speed="4" kind="straight" color="white" />
-            <Maneuver speed="4" kind="right-come" color="red" />
+            <Maneuver speed="4" kind="about" color="red" />
             <Maneuver speed="3" kind="left-turn" color="white" />
             <Maneuver speed="3" kind="left-bank" color="white" />
             <Maneuver speed="3" kind="straight" color="white" />
@@ -12917,7 +12914,7 @@
           <Cost>5</Cost>
           <Id>improved_cloaking_device_71533</Id>
           <Set>71533</Set>
-          <Special>OnlyRemanWarbird</Special>
+          <Special>PlusFiveIfNotRemanWarbird</Special>
       </Upgrade>
       <Upgrade>
           <Title>Aft Phaser Emitter</Title>

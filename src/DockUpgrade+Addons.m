@@ -617,6 +617,10 @@ static NSDictionary* sItemLabels = nil;
         if (![ship isBajoranInterceptor]) {
             cost += 5;
         }
+    } else if ([upgradeSpecial isEqualToString:@"PlusFiveIfNotRemanWarbird"]) {
+        if (![ship isRemanWarbird]) {
+            cost += 5;
+        }
     }
 
     if (!isSideboard) {
