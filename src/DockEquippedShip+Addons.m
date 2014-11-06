@@ -637,6 +637,12 @@
         }
     }
     
+    if ([upgradeSpecial isEqualToString:@"OnlyKlingonBirdOfPrey"]) {
+        if (![self.ship isKlingonBirdOfPrey]) {
+            return NO;
+        }
+    }
+    
     if (validating) {
         if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
             DockEquippedUpgrade* existing = [self containsUpgradeWithId: upgrade.externalId];
@@ -804,6 +810,8 @@
                 info = @"Biogenic Weapon requires 1 [BORG] and 1 [WEAPON] Upgrade slot.";
             } else if ([upgradeSpecial isEqualToString:@"OnlyRemanWarbird"]) {
                 info = @"This Upgrade may only be purchased for a Reman Warbird";
+            } else if ([upgradeSpecial isEqualToString:@"OnlyKlingonBirdOfPrey"]) {
+                info = @"This Upgrade may only be purchased for a Klingon Bird-of-Prey";
             }
         }
     }

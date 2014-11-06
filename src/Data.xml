@@ -1,4 +1,4 @@
-<Data version="2014-11-06@16-49">
+<Data version="2014-11-06@18-54">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -12658,7 +12658,7 @@
           <Cost>6</Cost>
           <Id>prototype_cloaking_device_71532</Id>
           <Set>71532</Set>
-          <Special></Special>
+          <Special>OnlyKlingonBirdOfPrey</Special>
       </Upgrade>
       <Upgrade>
           <Title>The Game's Afoot</Title>

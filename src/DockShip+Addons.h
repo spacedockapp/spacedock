@@ -42,6 +42,7 @@
 -(BOOL)isGalaxyClass;
 -(BOOL)isIntrepidClass;
 -(BOOL)isSovereignClass;
+-(BOOL)isKlingonBirdOfPrey;
 -(DockResource*)associatedResource;
 -(int)techCount;
 -(int)weaponCount;

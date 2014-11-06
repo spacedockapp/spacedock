@@ -299,6 +299,11 @@ NSString* asDegrees(NSString* textValue)
     return r.location != NSNotFound;
 }
 
+-(BOOL)isKlingonBirdOfPrey
+{
+    return [self.shipClass isEqualToString: @"Klingon Bird-of-Prey"];
+}
+
 -(DockResource*)associatedResource
 {
     NSString* shipClass = self.shipClass;
