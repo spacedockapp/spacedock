@@ -126,12 +126,10 @@ NSString* asDegrees(NSString* textValue)
     
     if ([self.externalId isEqualToString:@"maquis_starship_71528"]) {
         return [NSString stringWithFormat: @"%@ (Rear Arc)", self.shipClass];
-    } else if ([self.externalId isEqualToString:@"1033"]) {
+    } else if ([self.externalId isEqualToString:@"1033"] || [self.externalId isEqualToString:@"1043"] || [self.externalId isEqualToString:@"romulan_starship_71278"]) {
         return [NSString stringWithFormat:@"%@ (2 Weapons)", self.shipClass];
     } else if ([self.externalId isEqualToString:@"1004"]) {
         return [NSString stringWithFormat:@"%@ (2 Crew)", self.shipClass];
-    } else if ([self.externalId isEqualToString:@"1043"]) {
-        return [NSString stringWithFormat:@"%@ (2 Weapons)", self.shipClass];
     }
 
     return self.title;
@@ -145,12 +143,10 @@ NSString* asDegrees(NSString* textValue)
 
     if ([self.externalId isEqualToString:@"maquis_starship_71528"]) {
         return [NSString stringWithFormat: @"%@ (Rear Arc)", self.shipClass];
-    } else if ([self.externalId isEqualToString:@"1033"]) {
+    } else if ([self.externalId isEqualToString:@"1033"] || [self.externalId isEqualToString:@"1043"] || [self.externalId isEqualToString:@"romulan_starship_71278"]) {
         return [NSString stringWithFormat:@"%@ (2 Weapons)", self.shipClass];
     } else if ([self.externalId isEqualToString:@"1004"]) {
         return [NSString stringWithFormat:@"%@ (2 Crew)", self.shipClass];
-    } else if ([self.externalId isEqualToString:@"1043"]) {
-        return [NSString stringWithFormat:@"%@ (2 Weapons)", self.shipClass];
     }
     
     return self.shipClass;
@@ -183,6 +179,11 @@ NSString* asDegrees(NSString* textValue)
 -(BOOL)isRomulanScienceVessel
 {
     return [self.shipClass isEqualToString: @"Romulan Science Vessel"];
+}
+
+-(BOOL)isRemanWarbird
+{
+    return [self.shipClass isEqualToString: @"Reman Warbird"];
 }
 
 -(BOOL)isTholian

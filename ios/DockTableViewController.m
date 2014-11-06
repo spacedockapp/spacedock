@@ -8,6 +8,7 @@
 @interface DockTableViewController () <UIActionSheetDelegate,UISearchBarDelegate>
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* factionBarItem;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* costBarItem;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem* toggleButtonItem;
 @end
 
 @implementation DockTableViewController
@@ -65,7 +66,6 @@
     NSArray* includedSets = self.includedSets;
     NSMutableArray* predicateTerms = [NSMutableArray arrayWithCapacity: 0];
     NSMutableArray* predicateValues = [NSMutableArray arrayWithCapacity: 0];
-
     [predicateTerms addObject: @"any sets.externalId in %@"];
     [predicateValues addObject: includedSets];
     if (faction != nil && [self useFactionFilter]) {
@@ -116,6 +116,9 @@
 -(void)updateSelectedSets
 {
     NSArray* includedSets = [DockSet includedSets: _managedObjectContext];
+    if ( _ignoreSets ) {
+        includedSets = [DockSet allSets:_managedObjectContext];
+    }
     NSMutableArray* includedIds = [[NSMutableArray alloc] init];
 
     for (DockSet* set in includedSets) {
@@ -254,6 +257,17 @@
     [sheet showFromBarButtonItem: _costBarItem animated: YES];
 }
 
+-(IBAction)toggleAllSets:(id)sender
+{
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle: @"Show Sets"
+                                                       delegate: self
+                                              cancelButtonTitle: nil
+                                         destructiveButtonTitle: nil
+                                              otherButtonTitles: @"All Sets", nil];
+    [sheet addButtonWithTitle: @"Selected Sets"];
+    [sheet showFromBarButtonItem: _toggleButtonItem animated: YES];
+}
+
 -(void)updateFaction:(NSString*)faction
 {
     _faction = faction;
@@ -268,11 +282,19 @@
     [self clearFetch];
 }
 
+-(void)updateIgnoreSets:(BOOL)ignore
+{
+    _ignoreSets = ignore;
+    [self clearFetch];
+}
+
 -(void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString* sheetTitle = actionSheet.title;
     if ([sheetTitle isEqualToString: @"Cost"]) {
         [self updateCost: (int)buttonIndex];
+    } else if ([sheetTitle isEqualToString:@"Show Sets"]) {
+        [self updateIgnoreSets:(buttonIndex == 0)? YES : NO];
     } else {
         NSString* faction;
         switch (buttonIndex) {

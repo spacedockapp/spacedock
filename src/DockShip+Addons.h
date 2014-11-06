@@ -16,6 +16,7 @@
 -(BOOL)isJemhadar;
 -(BOOL)isKeldon;
 -(BOOL)isRomulanScienceVessel;
+-(BOOL)isRemanWarbird;
 -(BOOL)isDefiant;
 -(BOOL)isUnique;
 -(BOOL)isMirrorUniverseUnique;

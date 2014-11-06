@@ -476,6 +476,10 @@
 {
     DockCaptain* captain = [self captain];
 
+    if ([upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"] && ![captain.externalId isEqualToString:@"shinzon_71533"]) {
+        return NO;
+    }
+    
     if ([upgrade isFleetCaptain]) {
         DockFleetCaptain* fleetCaptain = (DockFleetCaptain*)upgrade;
         return [self canAddFleetCaptain: fleetCaptain error: nil];
@@ -627,6 +631,12 @@
         }
     }
 
+    if ([upgradeSpecial isEqualToString:@"OnlyRemanWarbird"]) {
+        if ([self.ship isRemanWarbird]) {
+            return NO;
+        }
+    }
+    
     if (validating) {
         if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
             DockEquippedUpgrade* existing = [self containsUpgradeWithId: upgrade.externalId];
@@ -726,6 +736,8 @@
         info = @"Fighter Squadrons cannot accept upgrades.";
     } else if ( self.ship.isScoutCube && [upgrade.cost intValue] >= 5 ) {
         info = @"You cannot deploy a [BORG] Upgrade with a cost greater than 5 to this ship.";
+    } else if ([upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
+        info = @"This is a special Elite Talent that can only be used by Shinzon.";
     } else {
         int limit = [upgrade limitForShip: self];
         
@@ -790,6 +802,8 @@
                 info = @"This Upgrade may only be purchased for a non-Borg ship with a non-Borg Captain.";
             } else if ([upgrade.externalId isEqualToString:@"biogenic_weapon_71510b"] || [upgrade.externalId isEqualToString:@"biogenic_weapon_borg_71510b"]) {
                 info = @"Biogenic Weapon requires 1 [BORG] and 1 [WEAPON] Upgrade slot.";
+            } else if ([upgradeSpecial isEqualToString:@"OnlyRemanWarbird"]) {
+                info = @"This Upgrade may only be purchased for a Reman Warbird";
             }
         }
     }

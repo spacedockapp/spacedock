@@ -1,0 +1,184 @@
+  <Captain>
+    <Title>Miles O'Brien</Title>
+    <Ability>Add 1 [TECH] Upgrade to your Upgrade Bar. ACTION: Repair 1 Damage to your Hull or Shields.</Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+    <Skill>5</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Mirror Universe</Faction>
+    <Cost>3</Cost>
+    <Id>miles_o_brien_71529</Id>
+    <Set>71529</Set>
+    <Special>Yes</Special>
+  </Captain>
+  <Captain>
+    <Title>Benjamin Sisko</Title>
+    <Ability>During the Roll Attack Dice step of the Combat Phase, you may discard up to 2 of your Upgrades ([CREW], [TECH] or [WEAPON]). If you do so, gain +1 attack die to that attack for each Upgrade you discarded with this card.</Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+    <Skill>4</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Mirror Universe</Faction>
+    <Cost>2</Cost>
+    <Id>benjamin_sisko_71529</Id>
+    <Set>71529</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Viceroy</Title>
+    <Ability>At the start of the game, place 2 Mission Tokens on this card. During the Planning Phase, after all other ships have chosen their Maneuvers, you may discard 1 of the Mission Tokens from this card to target a ship at Range 1, look at that ship's Maneuver dial, and then select your Maneuver. The target ship cannot change its chosen Maneuver after you look at it.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>5</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Romulan</Faction>
+    <Cost>3</Cost>
+    <Id>viceroy_71533</Id>
+    <Set>71533</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Shinzon</Title>
+    <Ability>During the Gather Forces step of Setup, instead of purchasing an [ELITE TALENT] Upgrade as normal for Shinzon, you may spend 4 SP to place up to 4 Romulan [ELITE TALENT] Upgrades face down beside this card. These cards remain face down until you decide to use one of them. When you do so, select the one you want to use and turn it face up for the rest of the game. Then discard the other 3.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>9</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Romulan</Faction>
+    <Cost>6</Cost>
+    <Id>shinzon_71533</Id>
+    <Set>71533</Set>
+    <Special>Yes</Special>
+  </Captain>
+  <Captain>
+    <Title>Chang</Title>
+    <Ability>During the Activation Phase, if your ship is Cloaked, before you move you may perform an additional [SENSOR ECHO] Action (with a 1 [STRAIGHT] Maneuver Template) as a free Action. If you do so, you may still perform a normal [SENSOR ECHO] Action after you move, during the Perform Actions step.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>7</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Klingon</Faction>
+    <Cost>4</Cost>
+    <Id>chang_71532</Id>
+    <Set>71532</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Kerla</Title>
+    <Ability>Each time you defend, during the Roll Defense Dice step of the Combat Phase, you may choose to roll 2 less defense dice to add 1 [EVADE] result to your roll.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>3</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Klingon</Faction>
+    <Cost>2</Cost>
+    <Id>kerla_71532</Id>
+    <Set>71532</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Borg Queen</Title>
+    <Ability>At the start of the game, place 9 Drone Tokens on this card. Add 1 [BORG] Upgrade slot to your Upgrade Bar. ACTION: Target a ship at Range 1 and spend 6 Drone Tokens. Disable 2 Upgrades of your choice on the target ship.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>9</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Borg</Faction>
+    <Cost>6</Cost>
+    <Id>borg_queen_71513a</Id>
+    <Set>71513a</Set>
+    <Special>Yes</Special>
+  </Captain>
+  <Captain>
+    <Title>Korok</Title>
+    <Ability>When you initiate an attack against a ship at Range 1, at the start of the Deal Damage step of the Combat Phase, disable 1 Active Shield on the target ship (if possible).</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>6</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Klingon</Faction>
+    <Cost>4</Cost>
+    <Id>korok_71512</Id>
+    <Set>71512</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Korok</Title>
+    <Ability>At the start of the game, place 6 Drone Tokens on this card. When you inflict damage to an opponent's Hull, during the Deal Damage step, you may spend 1 Drone Token to convert 1 Normal Damage into 1 Critical Damage.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>6</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Borg</Faction>
+    <Cost>4</Cost>
+    <Id>korok_b_71512</Id>
+    <Set>71512</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Gorkon</Title>
+    <Ability>ACTION: Roll 3 defense dice. For each [EVADE] result, place 1 [EVADE] Token beside your ship. You cannot perform an [EVADE] Action as a free Action this round.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>4</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Klingon</Faction>
+    <Cost>3</Cost>
+    <Id>gorkon_cap_71532</Id>
+    <Set>71532</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: Roll 3 defense dice. For each [EVADE] result, place 1 [EVADE] Token beside your ship. You cannot perform an [EVADE] Action as a free Action this round.</AdmiralAbility>
+    <AdmiralCost>3</AdmiralCost>
+    <AdmiralTalent>0</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
+  </Captain>
+  <Captain>
+    <Title>Hiren</Title>
+    <Ability>ACTION: Disable 1 of your [CREW] Upgrades to gain +1 attack die this round.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>2</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Romulan</Faction>
+    <Cost>1</Cost>
+    <Id>hiren_cap_71533</Id>
+    <Set>71533</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: Disable 1 of your [CREW] Upgrades to gain +1 attack die this round.</AdmiralAbility>
+    <AdmiralCost>1</AdmiralCost>
+    <AdmiralTalent>0</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
+  </Captain>

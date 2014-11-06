@@ -1,6 +1,22 @@
     <Upgrade>
-      <Title>Power Grid</Title>
-      <Ability>Whenever you are supposed to place an Auxiliary Power Token beside your ship, you may disable this card instead.</Ability>
+      <Title>Vinculum</Title>
+      <Ability>ACTION: Disable this card to repair 1 damage to your Hull or Shields. OR ACTION: Disable this card to target your ship and every friendly Borg ship within Range 1-2 of your ship. Add 1 Drone Token to every target ship's Captain Card. No ship can exceed its Captain's starting number of Drone Tokens.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Borg</Type>
+      <Faction>Borg</Faction>
+      <Cost>5</Cost>
+      <Id>vinculum_71512</Id>
+      <Set>71512</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Data Node</Title>
+      <Ability>At the start of the game, place 3 Mission Tokens on this card. Each time you defend, during the Roll Attack Dice step, you may discard 1 Mission Token from this card to force your opponent to roll -1 attack die. No ship may be equipped with more than 1 "Data Node" [TECH] Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -8,9 +24,425 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Vulcan</Faction>
+      <Faction>Borg</Faction>
+      <Cost>3</Cost>
+      <Id>data_node_71512</Id>
+      <Set>71512</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Warrior Spirit</Title>
+      <Ability>When attacking, at the end of the Deal Damage step, you may discard this card to roll 2 attack dice. Each [HIT] or [CRIT] result damage the defending ship as normal. For each blank or [BATTLESTATIONS] result, your ship suffers 1 normal damage to its Hull. This roll cannot be modified and the defending ship does not roll defense dice against this damage. This Upgrade may only be purchased for a Klingon Captain.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>warrior_spirit_71512</Id>
+      <Set>71512</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Command Interface</Title>
+      <Ability>After you roll a die, for any reason, you may discard this card to re-roll that die once. This Upgrade costs +5 SP if purchased for any non-borg ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Borg</Faction>
+      <Cost>5</Cost>
+      <Id>command_interface_71513a</Id>
+      <Set>71513a</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Borg Maturation Chamber</Title>
+      <Ability>ACTION: Discard this card to add a number of Drone Tokens to your Captain Card until you reach your Captain's starting number of Drone Tokens. You cannot exceed your Captain's starting number of Drone Tokens.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Borg</Type>
+      <Faction>Borg</Faction>
+      <Cost>6</Cost>
+      <Id>borg_maturation_chamber_71513a</Id>
+      <Set>71513a</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Interplexing Beacon</Title>
+      <Ability>When attacking a ship at Range 3, during the Modify Attack Dice step, you may disable this card and spend up to 2 Drone Tokens to re-roll a number of your attack dice equal to the number of Drone Tokens you spent with this card. No ship may be equipped with more than one "Interplexing Beacon" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Borg</Type>
+      <Faction>Borg</Faction>
+      <Cost>3</Cost>
+      <Id>interplexing_beacon_71513a</Id>
+      <Set>71513a</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Data</Title>
+      <Ability>ACTION: Target a ship at Range 1-2 and spend 1 Drone Token to disable the Captain Card on that ship. Then place a [SCAN] Token beside your ship as a free Action.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Borg</Faction>
+      <Cost>4</Cost>
+      <Id>data_71513a</Id>
+      <Set>71513a</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Multi-Targeting Phaser Banks</Title>
+      <Ability>When you perform a [TARGET LOCK] Action, you may disable this card to acquire a 2nd target lock on a different enemy ship within Range 1-3 of your ship. While you have this Upgrade on your ship, you may have up to 2 different enemy ships target locked at the same time.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>5</Cost>
+      <Id>multi_targeting_phaser_banks_71529</Id>
+      <Set>71529</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Azetbur</Title>
+      <Ability>ACTION: Discard this card to target a ship at Range 1-3. Disable your Captain Card and the Captain Card on the target ship. Neither of your ships may attack each other this round.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>azetbur_71532</Id>
+      <Set>71532</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Prototype Cloaking Device</Title>
+      <Ability>When attacking while Cloaked, you may disable this card before rolling any dice to keep your [CLOAK] Token from flipping to its red side. If you do this, during the Modify Attack Dice step of the Combat Phase, you may place an Auxiliary Power Token beside your ship to choose any number of your attack dice and re-roll them. This Upgrade may only be purchased for a Klingon Bird-of-Prey class ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Klingon</Faction>
+      <Cost>6</Cost>
+      <Id>prototype_cloaking_device_71532</Id>
+      <Set>71532</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>The Game's Afoot</Title>
+      <Ability>If you initiate an attack, while Cloaked, against a ship that does not have your ship in its forward or rear firing arcs, during the Roll Attack Dice step of the Combat Phase, you may discard this card to gain +1 attack die against that ship for that attack. If you do this, after you complete your attack, you may immediately perform a [SENSOR ECHO] Action as a free Action.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>the_game_s_afoot_71532</Id>
+      <Set>71532</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Cry Havoc</Title>
+      <Ability>ACTION: If you are Cloaked, discard this card to remove your [CLOAK] Token and flip all of your Shields back to their Active sides. You are no longer considered to be Cloaked. During the Roll Attack Dice step of the Combat Phase, gain +2 attack dice this round. You cannot roll defense dice this round. This Upgrade may only be purchased for a Klingon Captain.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>cry_havoc_71532</Id>
+      <Set>71532</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Jennifer Sisko</Title>
+      <Ability>Add 1 [TECH] Upgrade slot to your Upgrade Bar. At the start of the game, after Setup, target 1 enemy ship anywhere in the play area and disable up to 2 Upgrades of your choice on that ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>3</Cost>
+      <Id>jennifer_sisko_71529</Id>
+      <Set>71529</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Ezri Tigan</Title>
+      <Ability>ACTION: Discard this card to target a ship at Range 1-3. Steal 1 [TECH] Upgrade from the target ship with an SP cost of 5 or less, even if it exceeds your ship's restrictions. Place a Disabled Upgrade Token on the stolen Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>4</Cost>
+      <Id>ezri_tigan_71529</Id>
+      <Set>71529</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Rom</Title>
+      <Ability>ACTION: Discard this card to target a ship at Range 1-3. Disable up to 2 [TECH] Upgrades of your choice on the target ship. This ability may be used against a ship that is Cloaked.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Mirror Universe</Faction>
       <Cost>2</Cost>
-      <Id>power_grid_71646e</Id>
-      <Set>71646e</Set>
+      <Id>rom_71529</Id>
+      <Set>71529</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Rebellion</Title>
+      <Ability>If you are defending against a ship that has a greater Hull Value than your ship's Hull Value, during the Roll Attack Dice step of the Combat Phase, you may discard this card to force that ship to roll -2 attack dice for that attack. After that ship's attack is completed, you may immediately make 1 free attack against that ship with your Primary Weapon, if possible.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>5</Cost>
+      <Id>rebellion_71529</Id>
+      <Set>71529</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Strafing Run</Title>
+      <Ability>ACTION: If you performed a Maneuver with a number of 3 or greater this round, target an enemy ship within Range 1-3 that is not in your firing arc. Discard this card to immediately make 1 free attack against that ship with 4 attack dice. Treat this attack as if it was fired with a Primary Weapon.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>5</Cost>
+      <Id>strafing_run_71529</Id>
+      <Set>71529</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Julian Bashir</Title>
+      <Ability>ACTION: Discard this card to target a ship at Range 1-3. If that ship attacks this round, it must attack your ship and cannot attack any other ship. If it does attack your ship, during the Roll Attack Dice step of the Combat Phase, that ship rolls -2 attack dice.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>2</Cost>
+      <Id>julian_bashir_71529</Id>
+      <Set>71529</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Jadzia Dax</Title>
+      <Ability>When your ship suffers damage to its Hull, you may discard this card to reduce the damage by 1.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>2</Cost>
+      <Id>jadzia_dax_71529</Id>
+      <Set>71529</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Reman Boarding Party</Title>
+      <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Discard this card and disable all Upgrades on the target ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>reman_boarding_party_71533</Id>
+      <Set>71533</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Target Weapons Systems</Title>
+      <Ability>If you damage an opponent's Hull with a [CRIT], you may immediately discard this card to search the Damage Deck for a "Munitions Failure" or a "Weapons Malfunction" card instead of drawing a random Damage Card. Re-shuffle the Damage Deck when you are done.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Romulan</Faction>
+      <Cost>3</Cost>
+      <Id>target_weapons_systems_71533</Id>
+      <Set>71533</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Attack Pattern Shinzon Theta</Title>
+      <Ability>During the Deal Damage step of the Combat Phase, if you hit your opponent's ship, you may discard this card to add 1 additional damage to that ship's Shields (if possible) for every uncancelled [CRIT] result.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>attack_pattern_shinzon_theta_71533</Id>
+      <Set>71533</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Full Stop</Title>
+      <Ability>During the Activation Phase, after you reveal your chosen Maneuver, you may discard this card to ignore that Maneuver and not move. You may still take an Action during the Perform Actions step.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Romulan</Faction>
+      <Cost>3</Cost>
+      <Id>full_stop_71533</Id>
+      <Set>71533</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Secondary Shields</Title>
+      <Ability>At the start of the game, place 3 Shield Tokens on this card. During each End Phase, if you have fewer total Shields (Active and/or Disabled) than your starting Shield Value, remove 1 Shield from this card and add it to your ship. If you ship is Cloaked, you may choose to add the extra Shield as a Disabled Shield. This Upgrade may only be purchased for a Reman Warbird.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Romulan</Faction>
+      <Cost>6</Cost>
+      <Id>secondary_shields_71533</Id>
+      <Set>71533</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Improved Cloaking Device</Title>
+      <Ability>If you have the [CLOAK] icon on your Action Bar, you may perform a [CLOAK] Action even if you have no Active Shields and/or if there is an Auxiliary Power Token beside your ship. This Upgrade costs +5 SP for any ship other than a Reman Warbird.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>improved_cloaking_device_71533</Id>
+      <Set>71533</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Aft Phaser Emitter</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. You may only fire this weapon from your rear firing arc.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>3</Attack>
+      <Range>1-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>1</Cost>
+      <Id>aft_phaser_emitter_71529</Id>
+      <Set>71529</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Thalaron Weapon</Title>
+      <Ability>ATTACK: Discard this card to perform this attack. Instead of inflicting normal damage, for each uncancelled [HIT] or [CRIT] result, discard the Captain Card or 1 [CREW] Upgrade (opponent's choice) on the target ship. If the Captain and all of the [CREW] Upgrades on the target ship are destroyed, any additional uncancelled [HIT] or [CRIT] results damage the ship as normal (max 5 damage). This Upgrade may only be purchased for a Reman Warbird.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>10</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Romulan</Faction>
+      <Cost>10</Cost>
+      <Id>thalaron_weapon_71533</Id>
+      <Set>71533</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photon Torpedoes (Reman Bonus)</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. If fired from a Reman Warbird, gain +2 attack dice. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Romulan</Faction>
+      <Cost>6</Cost>
+      <Id>photon_torpedoes_71533</Id>
+      <Set>71533</Set>
       <Special></Special>
     </Upgrade>

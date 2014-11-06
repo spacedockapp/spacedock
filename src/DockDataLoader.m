@@ -4,6 +4,7 @@
 #import "DockCrew+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockEquippedShip+Addons.h"
+#import "DockEquippedUpgrade+Addons.h"
 #import "DockDataFileLoader.h"
 #import "DockSquad+Addons.h"
 
@@ -110,6 +111,7 @@
 
 -(void)cleanupDatabase
 {
+    NSManagedObjectContext* context = _managedObjectContext;
     DockCrew* crew = [DockCrew crewForId: @"cold_storage_unit_op5prize" context:_managedObjectContext];
     if (crew != nil) {
         NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
@@ -129,13 +131,28 @@
         NSError* error;
         [self loadData:&error];
     }
-    [self mergeGenericShip:[DockShip shipForId: @"1026" context:_managedObjectContext] intoShip:[DockShip shipForId: @"1025" context:_managedObjectContext]];
-    [self mergeGenericShip:[DockShip shipForId: @"ferengi_starship_71646a" context:_managedObjectContext] intoShip:[DockShip shipForId: @"1024" context:_managedObjectContext]];
-    [self mergeGenericShip:[DockShip shipForId: @"vulcan_starship_71527" context:_managedObjectContext] intoShip:[DockShip shipForId: @"vulcan_starship_71508" context:_managedObjectContext]];
-    [self mergeGenericShip:[DockShip shipForId: @"vulcan_starship_71646e" context:_managedObjectContext] intoShip:[DockShip shipForId: @"d_kyr_class_71446" context:_managedObjectContext]];
-    [self mergeGenericShip:[DockShip shipForId: @"romulan_starship_71511" context:_managedObjectContext] intoShip:[DockShip shipForId: @"1043" context:_managedObjectContext]];
-    [self mergeGenericShip:[DockShip shipForId: @"jem_hadar_attack_ship_3rd_wing_attack_ship" context:_managedObjectContext] intoShip:[DockShip shipForId: @"1037" context:_managedObjectContext]];
-    [self mergeGenericShip:[DockShip shipForId: @"borg_starship_71646d" context:_managedObjectContext] intoShip:[DockShip shipForId: @"borg_starship_71525" context:_managedObjectContext]];
+    [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"3119" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3012" context:context]];
+    [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"3052" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3011" context:context]];
+    [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"photon_torpedoes_71448" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3045" context:context]];
+    [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"3118" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3073" context:context]];
+    [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"energy_dissipator_op5prize" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3059" context:context]];
+    [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"phased_polaron_beam_71524" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"phased_polaron_beam_71279" context:context]];
+    [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"photonic_weapon_71527" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"photonic_weapon_71446" context:context]];
+    [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"quantum_torpedoes_71531" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3067" context:context]];
+    [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"3037" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3016" context:context]];
+    [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"plasma_torpedoes_71511" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3016" context:context]];
+    [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"71276" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3006" context:context]];
+    [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"photon_torpedoes_71280" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3006" context:context]];
+    [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"3033" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3024" context:context]];
+    [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"3111" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3024" context:context]];
+    [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"photon_torpedoes_71523" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"photon_torpedoes_u_s_s_yaeger" context:context]];
+    [self mergeGenericShip:[DockShip shipForId: @"1026" context:context] intoShip:[DockShip shipForId: @"1025" context:context]];
+    [self mergeGenericShip:[DockShip shipForId: @"ferengi_starship_71646a" context:context] intoShip:[DockShip shipForId: @"1024" context:context]];
+    [self mergeGenericShip:[DockShip shipForId: @"vulcan_starship_71527" context:context] intoShip:[DockShip shipForId: @"vulcan_starship_71508" context:context]];
+    [self mergeGenericShip:[DockShip shipForId: @"vulcan_starship_71646e" context:context] intoShip:[DockShip shipForId: @"d_kyr_class_71446" context:context]];
+    [self mergeGenericShip:[DockShip shipForId: @"romulan_starship_71511" context:context] intoShip:[DockShip shipForId: @"1043" context:context]];
+    [self mergeGenericShip:[DockShip shipForId: @"jem_hadar_attack_ship_3rd_wing_attack_ship" context:context] intoShip:[DockShip shipForId: @"1037" context:context]];
+    [self mergeGenericShip:[DockShip shipForId: @"borg_starship_71646d" context:context] intoShip:[DockShip shipForId: @"borg_starship_71525" context:context]];
 }
 
 -(void)mergeGenericShip:(DockShip*)fromShip intoShip:(DockShip*)intoShip
@@ -160,7 +177,24 @@
         }
         [_managedObjectContext deleteObject:fromShip];
     }
+}
 
+-(void)mergeGenericUpgrade:(DockUpgrade*)fromUpgrade intoUpgrade:(DockUpgrade*)intoUpgrade
+{
+    if (fromUpgrade != nil)
+    {
+        NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
+        for (DockSquad* s in allSquads) {
+            for (DockEquippedShip* sh in [s equippedShips]) {
+                for (DockEquippedUpgrade* eu in sh.sortedUpgrades) {
+                    if ([eu.upgrade.externalId isEqualToString:fromUpgrade.externalId]) {
+                        [eu setUpgrade:intoUpgrade];
+                    }
+                }
+            }
+        }
+        [_managedObjectContext deleteObject:fromUpgrade];
+    }
 }
 
 @end

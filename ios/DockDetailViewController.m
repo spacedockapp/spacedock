@@ -109,7 +109,7 @@
         NSString* str = [self attributeForRow: row];
 
         if (str.length > 0) {
-            CGSize size = [str sizeWithFont: [UIFont systemFontOfSize: 14] constrainedToSize: CGSizeMake(_labelWidth - 40, 999) lineBreakMode: NSLineBreakByWordWrapping];
+            CGSize size = [str sizeWithFont: [UIFont systemFontOfSize: 14] constrainedToSize: CGSizeMake(_labelWidth - 5, 9999) lineBreakMode: NSLineBreakByWordWrapping];
             CGFloat rowHeight = size.height + 20;
             return rowHeight;
         }

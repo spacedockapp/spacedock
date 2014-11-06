@@ -11,6 +11,7 @@
 @property (strong, nonatomic) NSArray* includedSets;
 @property (strong, nonatomic) NSString* faction;
 @property (strong, nonatomic) NSString* searchTerm;
+@property (assign, nonatomic) BOOL ignoreSets;
 @property (assign, nonatomic) int cost;
 -(void)clearFetch;
 -(void)performFetch;

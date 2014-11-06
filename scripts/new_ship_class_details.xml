@@ -1,6 +1,6 @@
   <ShipClassDetail>
-    <Name>Maquis Raider</Name>
-    <Id>maquis_raider</Id>
+    <Name>Reman Warbird</Name>
+    <Id>reman_warbird</Id>
     <Maneuvers>
 
     </Maneuvers>
@@ -8,113 +8,17 @@
     <RearArc>90</RearArc>
   </ShipClassDetail>
   <ShipClassDetail>
-    <Name>D'deridex Class</Name>
-    <Id>d_deridex_class</Id>
+    <Name>Klingon Bird-of-Prey</Name>
+    <Id>klingon_bird_of_prey</Id>
     <Maneuvers>
 
-    </Maneuvers>
-    <FrontArc>90</FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>D'deridex Class</Name>
-    <Id>d_deridex_class</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc>90</FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>D'deridex Class</Name>
-    <Id>d_deridex_class</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc>90</FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>D'deridex Class</Name>
-    <Id>d_deridex_class</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc>90</FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>Borg Octahedron</Name>
-    <Id>borg_octahedron</Id>
-    <Maneuvers>
-      <Maneuver speed="4" kind="left-spin" color="red" />
-      <Maneuver speed="4" kind="straight" color="white" />
-      <Maneuver speed="4" kind="right-spin" color="red" />
-      <Maneuver speed="3" kind="left-spin" color="white" />
-      <Maneuver speed="3" kind="straight" color="white" />
-      <Maneuver speed="3" kind="right-spin" color="white" />
-      <Maneuver speed="2" kind="left-spin" color="white" />
-      <Maneuver speed="2" kind="straight" color="green" />
-      <Maneuver speed="2" kind="right-spin" color="white" />
-      <Maneuver speed="1" kind="left-spin" color="green" />
-      <Maneuver speed="1" kind="straight" color="green" />
-      <Maneuver speed="1" kind="right-spin" color="green" />
-      <Maneuver speed="-1" kind="straight" color="white" />
-      <Maneuver speed="-2" kind="straight" color="white" />
-      <Maneuver speed="-3" kind="straight" color="red" />
-    </Maneuvers>
-    <FrontArc></FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>Sovereign Class</Name>
-    <Id>sovereign_class</Id>
-    <Maneuvers>
-      <Maneuver speed="6" kind="straight" color="red" />
-      <Maneuver speed="5" kind="straight" color="white" />
-      <Maneuver speed="4" kind="straight" color="white" />
-      <Maneuver speed="3" kind="left-turn" color="white" />
-      <Maneuver speed="3" kind="left-bank" color="white" />
-      <Maneuver speed="3" kind="straight" color="green" />
-      <Maneuver speed="3" kind="right-bank" color="white" />
-      <Maneuver speed="3" kind="right-turn" color="white" />
-      <Maneuver speed="2" kind="left-bank" color="white" />
-      <Maneuver speed="2" kind="straight" color="green" />
-      <Maneuver speed="2" kind="right-bank" color="white" />
-      <Maneuver speed="1" kind="left-bank" color="green" />
-      <Maneuver speed="1" kind="straight" color="green" />
-      <Maneuver speed="1" kind="right-bank" color="green" />
-      <Maneuver speed="-1" kind="straight" color="red" />
     </Maneuvers>
     <FrontArc>90</FrontArc>
     <RearArc>90</RearArc>
   </ShipClassDetail>
   <ShipClassDetail>
-    <Name>Borg Octahedron</Name>
-    <Id>borg_octahedron</Id>
-    <Maneuvers>
-      <Maneuver speed="4" kind="left-spin" color="red" />
-      <Maneuver speed="4" kind="straight" color="white" />
-      <Maneuver speed="4" kind="right-spin" color="red" />
-      <Maneuver speed="3" kind="left-spin" color="white" />
-      <Maneuver speed="3" kind="straight" color="white" />
-      <Maneuver speed="3" kind="right-spin" color="white" />
-      <Maneuver speed="2" kind="left-spin" color="white" />
-      <Maneuver speed="2" kind="straight" color="green" />
-      <Maneuver speed="2" kind="right-spin" color="white" />
-      <Maneuver speed="1" kind="left-spin" color="green" />
-      <Maneuver speed="1" kind="straight" color="green" />
-      <Maneuver speed="1" kind="right-spin" color="green" />
-      <Maneuver speed="-1" kind="straight" color="white" />
-      <Maneuver speed="-2" kind="straight" color="white" />
-      <Maneuver speed="-3" kind="straight" color="red" />
-    </Maneuvers>
-    <FrontArc></FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>Maquis Raider</Name>
-    <Id>maquis_raider</Id>
+    <Name>Defiant Class (Mirror)</Name>
+    <Id>defiant_class_mirror_</Id>
     <Maneuvers>
 
     </Maneuvers>

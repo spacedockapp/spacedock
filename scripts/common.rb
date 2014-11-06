@@ -76,7 +76,7 @@ end
 
 def parse_data(data)
   rows = []
-  csv = CSV.new(data, {:col_sep => "\t"})
+  csv = CSV.new(data, {:col_sep => "\t",:quote_char => "\x00" })
   csv.each do |row|
     rows.push(row)
   end

@@ -526,6 +526,9 @@ static NSDictionary* sItemLabels = nil;
         if ([captainSpecial isEqualToString: @"BaselineTalentCostToThree"] && self.isFederation && !isSideboard) {
             cost = 3;
         }
+        if ([captain.externalId isEqualToString:@"shinzon_71533"] && [upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"] && !isSideboard) {
+            return 4;
+        }
     } else if ([upgrade isCrew]) {
         if (([captainSpecial isEqualToString: @"CrewUpgradesCostOneLess"] || [captainSpecial isEqualToString: @"hugh_71522"] ) && !isSideboard) {
             cost -= 1;
@@ -796,7 +799,7 @@ static NSDictionary* sItemLabels = nil;
 {
     NSString* externalId = self.externalId;
 
-    if ([externalId isEqualToString: @"borg_alliance_71511"]) {
+    if ([externalId isEqualToString: @"borg_alliance_71511"] || [self.special isEqualToString:@"AddOneBorgSlot"]) {
         return 1;
     }
     return 0;
