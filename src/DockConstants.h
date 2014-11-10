@@ -7,6 +7,7 @@ extern NSString* kSpaceDockSquadOldFileExtension;
 extern NSString* kSpaceDockSquadWindowsFileExtension;
 extern NSString* kSpaceDockCurrentDataVersionKey;
 extern NSString* kSpaceDockFactionFilterKey;
+extern NSString* kSpaceDockIgnoreSetsKey;
 
 extern NSString* kSquadTooLargeToPrint;
 extern NSString* kFlagshipPrintingError;
