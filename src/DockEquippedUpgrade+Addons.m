@@ -66,6 +66,10 @@
         if (most.upgrade == self.upgrade) {
             return @"Tech Upgrade";
         }
+    } else if ([self.equippedShip containsUpgradeWithId:@"shinzon_romulan_talents_71533"]) {
+        if ( [self.upgrade isTalent] && [self.upgrade.faction isEqualToString:@"Romulan"] && [self.specialTag hasPrefix:@"shinzon_ET_"]) {
+            return @"Romulan Elite Talent";
+        }
     }
     return [NSString stringWithFormat: @"%@ [%@]", self.upgrade.title, self.upgrade.setCode];
 }
@@ -119,7 +123,26 @@
 
 -(NSComparisonResult)compareTo:(DockEquippedUpgrade*)other
 {
-
+    if (!self.upgrade.isPlaceholder && !other.isPlaceholder) {
+        if ([self.upgrade.upType isEqualToString:other.upgrade.upType]) {
+            if (self.upgrade.isTalent) {
+                if ([self.upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
+                    return NSOrderedAscending;
+                } else if ([other.upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
+                    return NSOrderedDescending;
+                }
+            }
+            if (self.specialTag != nil) {
+                if (other.specialTag != nil) {
+                    return [self.specialTag compare:other.specialTag];
+                } else {
+                    return NSOrderedAscending;
+                }
+            } else if (![other.specialTag isEqualToString:@""]) {
+                return NSOrderedDescending;
+            }
+        }
+    }
     return [[self upgrade] compareTo: [other upgrade]];
 }
 

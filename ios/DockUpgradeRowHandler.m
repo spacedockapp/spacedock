@@ -25,7 +25,7 @@
 
     if ([upgrade isPlaceholder]) {
         cell.textLabel.textColor = [UIColor grayColor];
-        cell.detailTextLabel.text = @"";
+        cell.detailTextLabel.text = @" ";
     } else {
         cell.textLabel.textColor = [UIColor blackColor];
         int baseCost = [[upgrade cost] intValue];

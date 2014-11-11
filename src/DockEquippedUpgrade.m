@@ -17,5 +17,6 @@
 @dynamic overriddenCost;
 @dynamic equippedShip;
 @dynamic upgrade;
+@dynamic specialTag;
 
 @end

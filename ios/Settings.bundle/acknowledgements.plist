@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>With special thanks to:</string>
+			<key>FooterText</key>
+			<string>Rob Tsuk, the original designer of Space Dock.
+
+Andrew Parks, Christopher Guild, Quixotic Games and WizKids Games for creating and publishing Star Trek: Attack Wing.
+
+Ex Astris Scientia for the Spacedock artwork used in the application icon.
+
+RiverRatMatt for inspiration in the form of STAW Squad Builder.
+
+Dave DuJour for early testing and feature suggestions.</string>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+</dict>
+</plist>

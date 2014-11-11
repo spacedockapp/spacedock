@@ -529,6 +529,9 @@ static NSDictionary* sItemLabels = nil;
         if ([captain.externalId isEqualToString:@"shinzon_71533"] && [upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"] && !isSideboard) {
             return 4;
         }
+        if ([equippedUpgrade.specialTag hasPrefix:@"shinzon_ET_"]) {
+            return 0;
+        }
     } else if ([upgrade isCrew]) {
         if (([captainSpecial isEqualToString: @"CrewUpgradesCostOneLess"] || [captainSpecial isEqualToString: @"hugh_71522"] ) && !isSideboard) {
             cost -= 1;

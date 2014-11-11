@@ -257,6 +257,9 @@ NSString* kBlindBuyKey = @"blindBuy";
         }
 
         if (col == 3) {
+            if ([[equippedUpgrade descriptionForBuildSheet] isEqualToString:@"Federation Elite Talent"] || [[equippedUpgrade descriptionForBuildSheet] isEqualToString:@"Romulan Elite Talent"] ) {
+                return [NSString stringWithFormat: @"%d",equippedUpgrade.cost];
+            }
             if ([[equippedUpgrade overridden] boolValue]) {
                 return [NSString stringWithFormat: @"%@ (%d)", [equippedUpgrade overriddenCost], [equippedUpgrade nonOverriddenCost]];
             }
