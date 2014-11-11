@@ -723,6 +723,9 @@
                     <navigationItem key="navigationItem" id="O01-7u-jR1">
                         <nil key="title"/>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="8dD-Bi-iYF">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vh7-fv-gfv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -67,6 +67,9 @@
 
 -(NSURL*)applicationDocumentsDirectory
 {
+#if !TARGET_OS_IPHONE
+    return [[[[NSFileManager defaultManager] URLsForDirectory: NSApplicationSupportDirectory inDomains: NSUserDomainMask] lastObject] URLByAppendingPathComponent: kDockBundleIdentifier];
+#endif
     return [[[NSFileManager defaultManager] URLsForDirectory: NSDocumentDirectory inDomains: NSUserDomainMask] lastObject];
 }
 
@@ -92,11 +95,9 @@
     }
     DockDataFileLoader* internalLoader = [[DockDataFileLoader alloc] init];
     NSString* internalVersion = [internalLoader getVersion: internalFile];
-    float internalVersionValue = [internalVersion floatValue];
     DockDataFileLoader* externalLoader = [[DockDataFileLoader alloc] init];
-    NSString* externalVersion = [externalLoader getVersion: internalFile];
-    float externalVersionValue = [externalVersion floatValue];
-    if (internalVersionValue >= externalVersionValue) {
+    NSString* externalVersion = [externalLoader getVersion: externalFile];
+    if ([internalVersion compare:externalVersion] != NSOrderedAscending) {
         NSFileManager* fm = [NSFileManager defaultManager];
         [fm removeItemAtPath: externalFile error: nil];
     }
