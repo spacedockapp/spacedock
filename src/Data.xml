@@ -1,4 +1,4 @@
-<Data version="2014-11-06@18-54">
+<Data version="2014-11-11@21-16">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -12647,7 +12647,7 @@
       <Upgrade>
           <Title>Prototype Cloaking Device</Title>
           <Ability>When attacking while Cloaked, you may disable this card before rolling any dice to keep your [CLOAK] Token from flipping to its red side. If you do this, during the Modify Attack Dice step of the Combat Phase, you may place an Auxiliary Power Token beside your ship to choose any number of your attack dice and re-roll them. This Upgrade may only be purchased for a Klingon Bird-of-Prey class ship.</Ability>
-          <Unique>Y</Unique>
+          <Unique>N</Unique>
           <MirrorUniverseUnique>N</MirrorUniverseUnique>
           <Skill></Skill>
           <Talent></Talent>
