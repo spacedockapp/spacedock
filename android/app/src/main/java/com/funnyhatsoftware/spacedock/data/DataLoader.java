@@ -423,12 +423,12 @@ public class DataLoader extends DefaultHandler {
                 "addoneweaponslot",
                 "OnlyBorgShipAndNoMoreThanOnePerShip",
                 "OnlyNonBorgShipAndNonBorgCaptain",
-                "AllUpgradesMinusOneOnIndepedentShipAndAdd1Crew",
-                "AllUpgradesMinusOneOnIndepedentShipAndAdd1Tech",
-                "AllUpgradesMinusOneOnIndepedentShipAndAdd1Weapon",
+                "AllUpgradesMinusOneOnIndepedentShip",
                 "addonetalentslot",
-                "OnlyFedShipHV4CostPWVP1"
-
+                "OnlyFedShipHV4CostPWVP1",
+                "AddOneBorgSlot",
+                "OnlyKlingonBirdOfPrey",
+                "OnlyRemanWarbird"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);

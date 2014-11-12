@@ -503,7 +503,7 @@ public class PrintFleetAdapter extends PrintDocumentAdapter {
         canvas.restore();
         mBlackPaint.setTextSize(10);
         mBlackPaint.setTextAlign(Align.CENTER);
-        canvas.drawText("Printed by Space Dock Ð www.spacedockapp.org", mPageWidth / 2, mPageHeight - 45,
+        canvas.drawText("Printed by Space Dock www.spacedockapp.org", mPageWidth / 2, mPageHeight - 45,
                 mBlackPaint);
     }
 

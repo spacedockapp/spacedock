@@ -334,6 +334,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if (!ship.isJemhadar()) {
                 cost += 5;
             }
+        } else if (upgradeSpecial.equals("PlusFiveIfNotRemanWarbird")) {
+            if (!ship.isRemanWarbird()) {
+                cost += 5;
+            }
         } else if (upgradeSpecial.equals("PenaltyOnShipOtherThanKeldonClass")) {
             if (!ship.isKeldon()) {
                 cost += 5;
@@ -371,7 +375,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if (!ship.isGalaxy() && !ship.isIntrepid() && !ship.isSovereign()) {
                 cost += 5;
             }
-        } else if (captainSpecial.startsWith("AllUpgradesMinusOneOnIndepedentShip")
+        } else if (captainSpecial.equals("AllUpgradesMinusOneOnIndepedentShip")
                 && "Independent".equals(shipFaction) && (!this.isCaptain() && !this.isAdmiral())) {
             cost -= 1;
         }

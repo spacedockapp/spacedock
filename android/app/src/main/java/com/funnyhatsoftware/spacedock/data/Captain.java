@@ -71,7 +71,8 @@ public class Captain extends CaptainBase {
     public int additionalTechSlots() {
         return ("addonetechslot".equals(mSpecial)
                 || "AddsHiddenTechSlot".equals(mSpecial)
-                || "AllUpgradesMinusOneOnIndepedentShipAndAdd1Tech".equals(mSpecial)) ? 1 : 0;
+                || "calvin_hudson_b_71528".equals(mExternalId)
+                || "jean_luc_picard_b_71531".equals(mExternalId)) ? 1 : 0;
     }
 
     public int additionalCrewSlots() {
@@ -79,14 +80,15 @@ public class Captain extends CaptainBase {
             return 2;
         } else if ("lore_71522".equals(mSpecial)
                 || "Add_Crew_1".equals(mSpecial)
-                || "AllUpgradesMinusOneOnIndepedentShipAndAdd1Crew".equals(mSpecial)) {
+                || "calvin_hudson_71528".equals(mExternalId)
+                || "jean_luc_picard_d_71531".equals(mExternalId)) {
             return 1;
         }
         return super.additionalCrewSlots();
     }
 
     public int additionalWeaponSlots() {
-        if ("AllUpgradesMinusOneOnIndepedentShipAndAdd1Weapon".equals(mSpecial)) {
+        if ("calvin_hudson_c_71528".equals(mExternalId) || "jean_luc_picard_c_71531".equals(mExternalId)) {
             return 1;
         }
         return 0;
@@ -98,6 +100,14 @@ public class Captain extends CaptainBase {
             talent++;
         }
         return talent;
+    }
+
+    public int additionalBorgSlots() {
+        int borg = 0;
+        if ("AddOneBorgSlot".equals(mSpecial)) {
+            borg++;
+        }
+        return borg;
     }
 
     public boolean isKlingon() {
