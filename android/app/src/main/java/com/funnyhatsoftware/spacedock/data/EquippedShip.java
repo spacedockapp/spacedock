@@ -581,6 +581,18 @@ public class EquippedShip extends EquippedShipBase {
                         "This upgrade can only be added to the U.S.S Voyager.");
             }
         }
+        if (upgradeSpecial.equals("OnlyKlingonBirdOfPrey")){
+            if (!ship.isKlingonBoP()) {
+                return new Explanation(msg,
+                        "This upgrade can only be added to a Klingon Bird Of Prey.");
+            }
+        }
+        if (upgradeSpecial.equals("OnlyRemanWarbird")){
+            if (!ship.isRemanWarbird()) {
+                return new Explanation(msg,
+                        "This upgrade can only be added to a Reman Warbird.");
+            }
+        }
         if (upgradeSpecial.equals("PhaserStrike") || "OnlyHull3OrLess".equals(upgradeSpecial)) {
             if (!ship.isHullThreeOrLess()) {
                 return new Explanation(msg,
@@ -630,7 +642,7 @@ public class EquippedShip extends EquippedShipBase {
             }
         }
         if ("NoMoreThanOnePerShip".equals(upgradeSpecial) || "OnlyBorgShipAndNoMoreThanOnePerShip".equals(upgradeSpecial)) {
-            if (null != containsUpgrade(upgrade)) {
+            if (addingNew && null != containsUpgrade(upgrade)) {
                 return new Explanation(msg, "This upgrade can only be added once per ship.");
             }
         }

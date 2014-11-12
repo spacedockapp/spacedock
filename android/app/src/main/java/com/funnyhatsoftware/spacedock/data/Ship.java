@@ -229,6 +229,14 @@ public class Ship extends ShipBase implements Factioned, Uniqueness {
         return "Jem'Hadar Battle Cruiser".equals(mShipClass) || "Jem'Hadar Battleship".equals(mShipClass);
     }
 
+    public boolean isKlingonBoP() {
+        return "Klingon Bird-of-Prey".equals(mShipClass);
+    }
+
+    public boolean isRemanWarbird() {
+        return "Reman Warbird".equals(mShipClass);
+    }
+
     public boolean isSuurok() {
         return "Suurok Class".equals(mShipClass);
     }
