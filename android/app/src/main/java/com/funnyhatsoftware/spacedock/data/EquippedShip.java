@@ -711,6 +711,10 @@ public class EquippedShip extends EquippedShipBase {
                             "This upgrade may only be purchased for a Vulcan ship.");
                 }
             }
+            if ("shinzon_romulan_talents_71533".equals(upgrade.getExternalId()) && !"shinzon_71533".equals(captain.getExternalId())){
+                return new Explanation(msg,
+                        "This talent may only be equiped by Shinzon.");
+            }
         }
 
         if (upgradeSpecial.equals("OnlyTholianCaptain")) {
