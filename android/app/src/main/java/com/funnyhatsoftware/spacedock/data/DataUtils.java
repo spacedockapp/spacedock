@@ -2,6 +2,7 @@
 package com.funnyhatsoftware.spacedock.data;
 
 import android.annotation.SuppressLint;
+
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -126,7 +127,7 @@ public class DataUtils {
     }
 
     public static boolean targetHasFaction(String faction, Factioned target) {
-        if (faction == null || faction == "") {
+        if (faction == null || faction.isEmpty()) {
             return false;
         }
         String mainFaction = target.getFaction();
