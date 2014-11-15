@@ -81,14 +81,17 @@ public class Captain extends CaptainBase {
         } else if ("lore_71522".equals(mSpecial)
                 || "Add_Crew_1".equals(mSpecial)
                 || "calvin_hudson_71528".equals(mExternalId)
-                || "jean_luc_picard_d_71531".equals(mExternalId)) {
+                || "jean_luc_picard_d_71531".equals(mExternalId)
+                || "chakotay_b_71528".equals(mExternalId)) {
             return 1;
         }
         return super.additionalCrewSlots();
     }
 
     public int additionalWeaponSlots() {
-        if ("calvin_hudson_c_71528".equals(mExternalId) || "jean_luc_picard_c_71531".equals(mExternalId)) {
+        if ("calvin_hudson_c_71528".equals(mExternalId)
+                || "jean_luc_picard_c_71531".equals(mExternalId)
+                || "chakotay_71528".equals(mExternalId)) {
             return 1;
         }
         return 0;
