@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.funnyhatsoftware.spacedock.DataHelper;
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.adapter.ResourceSpinnerAdapter;
 import com.funnyhatsoftware.spacedock.data.Resource;
@@ -50,6 +51,11 @@ public class SquadTabActivity extends FragmentTabActivity implements
         updateTitleAndCost();
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        DataHelper.saveUniverseData(this);
+    }
 
     @Override
     protected FragmentPagerAdapter createPagerAdapter() {
