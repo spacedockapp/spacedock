@@ -8,6 +8,8 @@
 #import "DockUpgradesViewController.h"
 #import "DockFlagshipsViewController.h"
 #import "DockReferenceViewController.h"
+#import "DockDataLoader.h"
+#import "DockDataUpdater.h"
 
 @interface DockTopMenuViewController ()
 @property (strong, nonatomic) UIAlertView* loadingAlert;
@@ -16,6 +18,16 @@
 @implementation DockTopMenuViewController
 
 #pragma mark - Appearing
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSString* dataVersion = [NSString stringWithFormat:@"Data Version: %@",[defaults stringForKey: kSpaceDockCurrentDataVersionKey]];
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:dataVersion];
+    [refresh addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -35,6 +47,9 @@
     _managedObjectContext = managedObjectContext;
     [_loadingAlert dismissWithClickedButtonIndex: 0 animated: YES];
     _loadingAlert = nil;
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSString* dataVersion = [NSString stringWithFormat:@"Data Version: %@",[defaults stringForKey: kSpaceDockCurrentDataVersionKey]];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:dataVersion];
 }
 
 #pragma mark - Segue management
@@ -135,6 +150,54 @@
 {
     _targetSquad = squad;
     [self performSegueWithIdentifier: @"GoToSquads" sender: self];
+}
+-(void)refresh:(UIRefreshControl *)refresh
+{
+    NSLog(@"Refreshing");
+    DockDataUpdater* updater = [[DockDataUpdater alloc] init];
+    [updater checkForNewData:^(NSString *remoteVersion, NSData *downloadData, NSError *error) {
+        /*
+        NSURL* url = [[[NSFileManager defaultManager] URLsForDirectory: NSDocumentDirectory inDomains: NSUserDomainMask] lastObject];
+        NSString* appData = [url path];
+        NSString* xmlFile = [appData stringByAppendingPathComponent: @"Data.xml"];
+        [downloadData writeToFile:xmlFile atomically:NO];
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        
+        DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: self.managedObjectContext];
+        NSError* err;
+        [loader loadData: &err];
+        [loader validateSpecials];
+        [loader cleanupDatabase];
+
+        NSString* dataVersion = [NSString stringWithFormat:@"Data Version: %@",[defaults stringForKey: kSpaceDockCurrentDataVersionKey]];
+        refresh.attributedTitle = [[NSAttributedString alloc] initWithString:dataVersion];
+
+        [refresh endRefreshing];
+         */
+        [self handleNewData:remoteVersion path:downloadData error:error];
+    }];
+}
+-(void)handleNewData:(NSString*)remoteVersion path:(NSData*)downloadData error:(NSError*)error
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSString* currentVersion = [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
+    if ([currentVersion compare:remoteVersion] == NSOrderedAscending) {
+        NSURL* url = [[[NSFileManager defaultManager] URLsForDirectory: NSDocumentDirectory inDomains: NSUserDomainMask] lastObject];
+        NSString* appData = [url path];
+        NSString* xmlFile = [appData stringByAppendingPathComponent: @"Data.xml"];
+        [downloadData writeToFile:xmlFile atomically:NO];
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        
+        DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: self.managedObjectContext];
+        NSError* err;
+        [loader loadData: &err];
+        [loader validateSpecials];
+        [loader cleanupDatabase];
+        
+        NSString* dataVersion = [NSString stringWithFormat:@"Data Version: %@",[defaults stringForKey: kSpaceDockCurrentDataVersionKey]];
+        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:dataVersion];
+    }
+    [self.refreshControl endRefreshing];
 }
 
 @end

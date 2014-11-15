@@ -40,10 +40,15 @@
     _onFinished(_remoteVersion, _downloadData, nil);
 }
 
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    _onFinished(nil,nil,error);
+}
+
 -(void)checkForNewData:(DockDataUpdaterFinished)finished
 {
     _onFinished = finished;
-    NSURL* url = [NSURL URLWithString: @"http://spacedock.funnyhatsoftware.com/Data.xml"];
+    NSURL* url = [NSURL URLWithString: @"http://spacedockapp.org/Data.xml"];
     _request = [NSURLRequest requestWithURL: url];
     _downloadData = [[NSMutableData alloc] init];
     _connnection = [NSURLConnection connectionWithRequest: _request delegate: self];

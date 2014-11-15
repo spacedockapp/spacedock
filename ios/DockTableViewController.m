@@ -18,6 +18,7 @@
     [super viewDidLoad];
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     _faction = [defaults valueForKey: kSpaceDockFactionFilterKey];
+    _ignoreSets = [defaults boolForKey: kSpaceDockIgnoreSetsKey];
     [self performFetch];
 }
 
@@ -285,6 +286,8 @@
 -(void)updateIgnoreSets:(BOOL)ignore
 {
     _ignoreSets = ignore;
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:_ignoreSets forKey: kSpaceDockIgnoreSetsKey];
     [self clearFetch];
 }
 

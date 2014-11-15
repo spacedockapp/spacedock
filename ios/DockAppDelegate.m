@@ -113,6 +113,7 @@
     [defaults registerDefaults: appDefs];
 
     [self loadAppData];
+    [self updateVersionInfo];
 
     return YES;
 }
@@ -260,6 +261,17 @@ static NSString* kSpaceDockFileName = @"SpaceDock2.CDBStore";
 -(NSURL*)updatedDataURL
 {
     return [[self applicationDocumentsDirectory] URLByAppendingPathComponent: @"Data.xml"];
+}
+
+- (void)updateVersionInfo
+{
+    //This method updates the Root settings to display current Version and Build No in Settings Bundle
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *appVersionNumber = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    NSString *appBuildNo = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    
+    NSString *versionNumberInSettings = [NSString stringWithFormat:@"%@ Build %@", appBuildNo, appVersionNumber];
+    [defaults setObject:versionNumberInSettings forKey:@"version"];
 }
 
 @end

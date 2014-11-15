@@ -476,10 +476,36 @@
 {
     DockCaptain* captain = [self captain];
 
-    if ([upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"] && ![captain.externalId isEqualToString:@"shinzon_71533"]) {
-        return NO;
+    if ([upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
+        if (![captain.externalId isEqualToString:@"shinzon_71533"]) {
+            return NO;
+        }
+        
+        if ([self isResourceSideboard]) {
+            return NO;
+        }
     }
     
+    if (!upgrade.isPlaceholder && [upgrade isTalent] && [self containsUpgradeWithId:@"shinzon_romulan_talents_71533"]) {
+        int talents = 0;
+
+        for (DockEquippedUpgrade* eu in self.upgrades) {
+            if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                if (![eu.specialTag hasPrefix:@"shinzon_ET_"]) {
+                    talents ++;
+                }
+            }
+        }
+
+        if (![upgrade.faction isEqualToString:@"Romulan"]) {
+            int artificalLimit = [upgrade limitForShip: self] - talents - 4;
+            if (!validating) {
+                artificalLimit ++;
+            }
+            return artificalLimit > 0;
+            //return NO;
+        }
+    }
     if ([upgrade isFleetCaptain]) {
         DockFleetCaptain* fleetCaptain = (DockFleetCaptain*)upgrade;
         return [self canAddFleetCaptain: fleetCaptain error: nil];
@@ -944,6 +970,20 @@
         [equippedUpgrade overrideWithCost:0];
     }
     
+    if ([upgrade isTalent] && [upgrade.faction isEqualToString:@"Romulan"] && [self containsUpgradeWithId:@"shinzon_romulan_talents_71533"]) {
+        int romTalents = 0;
+        for (DockEquippedUpgrade* eu in self.sortedUpgradesWithoutPlaceholders) {
+            if (eu.upgrade.isTalent && [eu.upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
+                continue;
+            } else if ([eu.specialTag hasPrefix:@"shinzon_ET_"]) {
+                romTalents ++;
+            }
+        }
+        if (romTalents < 4 && ![upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
+            equippedUpgrade.specialTag = [NSString stringWithFormat:@"shinzon_ET_%d",romTalents+1];
+        }
+    }
+    
     return equippedUpgrade;
 }
 
@@ -1036,6 +1076,13 @@
                 break;
             }
         }
+    } else if ([upgrade.upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
+        for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+            if ([eu.upgrade.faction isEqualToString:@"Romulan"] && [eu.specialTag hasPrefix:@"shinzon_ET_"])
+            {
+                [toRemove addObject:eu];
+            }
+        }
     }
     [self removeUpgrades: toRemove];
     [self didChangeValueForKey: @"cost"];
@@ -1107,6 +1154,10 @@
             if (![self canAddUpgrade: eu.upgrade ignoreInstalled: NO validating: NO]) {
                 [onesToRemove addObject: eu];
             }
+        } else if ([eu.upgrade isTalent] && [self containsUpgradeWithId:@"shinzon_romulan_talents_71533"]) {
+            if (![self canAddUpgrade: eu.upgrade ignoreInstalled: NO validating: NO]) {
+                [onesToRemove addObject: eu];
+            }
         } else if (![self canAddUpgrade: eu.upgrade ignoreInstalled: NO validating: YES]) {
             [onesToRemove addObject: eu];
         }
@@ -1167,6 +1218,9 @@
     for (DockEquippedUpgrade* eu in self.upgrades) {
         DockUpgrade* upgrade = eu.upgrade;
         talentCount += [upgrade additionalTalentSlots];
+        if ([upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
+            talentCount += 4;
+        }
     }
 
     return talentCount;

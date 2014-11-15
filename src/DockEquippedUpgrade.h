@@ -17,5 +17,6 @@
 @property (nonatomic, retain) NSNumber * overriddenCost;
 @property (nonatomic, retain) DockEquippedShip *equippedShip;
 @property (nonatomic, retain) DockUpgrade *upgrade;
+@property (nonatomic, retain) NSString* specialTag;
 
 @end

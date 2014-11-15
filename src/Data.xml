@@ -1,4 +1,4 @@
-<Data version="2014-11-11@21-16">
+<Data version="2014-11-12@22-05">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -11220,7 +11220,7 @@
       <Cost>4</Cost>
       <Id>elim_garak_71786</Id>
       <Set>71786</Set>
-      <Special></Special>
+      <Special>addonetalentslot</Special>
     </Upgrade>
     <Upgrade>
       <Title>Julian Bashir</Title>
@@ -13323,6 +13323,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
             <Cloak></Cloak>
             <SensorEcho>1</SensorEcho>
             <Talent>1</Talent>
+            <Crew></Crew>
             <Tech></Tech>
             <Weapon>1</Weapon>
         </Flagship>
@@ -13603,7 +13604,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
 	      <Cost>3</Cost>
 	      <Id>first_officer_collectiveop3</Id>
 	      <Set>CollectiveOP3</Set>
-	      <Special></Special>
+	      <Special>addonetalentslot</Special>
 	    </Officer>
 	    <Officer>
 	      <Title>Tactical Officer</Title>
