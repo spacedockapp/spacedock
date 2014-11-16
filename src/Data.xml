@@ -1,4 +1,4 @@
-<Data version="2014-11-12@22-05">
+<Data version="2014-11-16@05-36">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -13196,6 +13196,44 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
         <Id>officer_cards_collectiveop3</Id>
         <Set>CollectiveOP3</Set>
       </Resource>
+      <Resource>
+        <Title>Improved Shields</Title>
+        <Unique>Y</Unique>
+        <Ability>1) At the start of the game, after the Gather Forces step, place your Improved Shields Resource Card beside your Ship Cards and place 4 additional Shield Tokens on your Improved Shields Resource Card.
+
+2) Every round, you may remove all of the additional Shield Tokens from this card and place them beside any or all of your ships. These tokens are placed during your ships' "Perform Action" steps. NOTE: You may divide these tokens between your ships as you like, but you may only place up to 2 of these additional Shield Tokens beside any of your ships.
+
+3) When a ship takes damage, the additional Shield Token(s) beside that ship are removed first. Any Shield Token lost this way is removed from the game and cannot be repaired.
+
+4) During the End Phase, remove all Shield Tokens that are still beside your ship(s) and place them back on your Improved Shields Resource Card.
+
+5) These extra Shield Tokens cannot be used in conjunction with Cloaking or to activate any special abilities.</Ability>
+        <Type>Resource</Type>
+        <Cost>10</Cost>
+        <Id>improved_shields_71511a</Id>
+        <Set>71511a</Set>
+      </Resource>
+      <Resource>
+        <Title>Advanced Targeting Systems</Title>
+        <Unique>Y</Unique>
+        <Ability>1) At the start of the game, after the Gather Forces step, place your Advanced Targeting Systems Card beside your Ship Cards.
+
+2) All of the ships in your fleet can acquire and maintain up to 2 Target Locks.
+
+3) Each Target Lock requires a separate Action to acquire. NOTE: You cannot acquire 2 Target Locks in the same round.
+
+4) Each Target Lock must be on a different ship (i.e. you cannot acquire a 2nd Target Lock on a ship that you already have target locked).
+
+5) During the Activation Phase, a locking ship that is already maintaing 2 Target Locks may remove its pair of [TARGET LOCK] Tokens and spend an Action to acquire a Target Lock on a different ship.
+
+6) A ship may spend 2 Target Locks in the same Combat Phase (if possible).
+
+7) All other normal rules apply to both Target Locks.</Ability>
+        <Type>Resource</Type>
+        <Cost>5</Cost>
+        <Id>advanced_targeting_systems_71512a</Id>
+        <Set>71512a</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -13297,7 +13335,8 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
 
       <Set id="71511" overallSetName="Organized Play" releaseDate="2014-10-01">Avatar of Tomed Expansion</Set>
       <Set id="71512" overallSetName="Resistance is Futile" releaseDate="2014-10-29">Assimilated Vessel 80279</Set>
-
+      <Set id="71511a" overallSetName="Resistance is Futile" releaseDate="2014-09-24">Improved Shields Resource</Set>
+      <Set id="71512a" overallSetName="Resistance is Futile" releaseDate="2014-10-29">Advanced Targeting Systems Resource</Set>
       <Set id="71529" overallSetName="Wave 9" releaseDate="2014-11-05">I.S.S. Defiant</Set>
       <Set id="71532" overallSetName="Wave 9" releaseDate="2014-11-05">Chang's Bird of Prey</Set>
       <Set id="71533" overallSetName="Wave 9" releaseDate="2014-11-05">Scimitar</Set>
