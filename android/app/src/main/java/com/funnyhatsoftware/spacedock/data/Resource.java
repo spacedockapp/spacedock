@@ -75,16 +75,8 @@ public class Resource extends ResourceBase {
      * Resources that return true do not need to be cost counted separately
      */
     public boolean equippedIntoSquad(Squad squad) {
-        if (getIsFlagship()) {
-            Flagship flagship = squad.flagship();
-            return flagship != null;
-        }
 
-        if (isFleetCaptain()) {
-            FleetCaptain fleetCaptain = squad.getFleetCaptain();
-            return fleetCaptain != null;
-        }
-        return getIsSideboard()
+        return getIsFlagship() || isFleetCaptain() || getIsSideboard()
                 || getIsFighterSquadron();
     }
 }
