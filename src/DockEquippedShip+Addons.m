@@ -1150,15 +1150,7 @@
         if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [eu.upgrade.externalId isEqualToString:@"enhanced_hull_plating_71526"]) {
             continue;
         }
-        if ([eu.upgrade.externalId isEqualToString:@"biogenic_weapon_71510b"] || [eu.upgrade.externalId isEqualToString:@"biogenic_weapon_borg_71510b"]) {
-            if (![self canAddUpgrade: eu.upgrade ignoreInstalled: NO validating: NO]) {
-                [onesToRemove addObject: eu];
-            }
-        } else if ([eu.upgrade isTalent] && [self containsUpgradeWithId:@"shinzon_romulan_talents_71533"]) {
-            if (![self canAddUpgrade: eu.upgrade ignoreInstalled: NO validating: NO]) {
-                [onesToRemove addObject: eu];
-            }
-        } else if (![self canAddUpgrade: eu.upgrade ignoreInstalled: NO validating: YES]) {
+        if (![self canAddUpgrade: eu.upgrade ignoreInstalled: NO validating: NO]) {
             [onesToRemove addObject: eu];
         }
     }
@@ -1604,6 +1596,8 @@
     for (DockEquippedUpgrade* eu in onesToRemove) {
         [self removeUpgradeInternal: eu];
     }
+    
+    [self establishPlaceholders];
 }
 
 @end

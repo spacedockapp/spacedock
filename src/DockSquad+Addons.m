@@ -1055,6 +1055,19 @@ static NSString* namePrefix(NSString* originalName)
     return eu;
 }
 
+-(void)removeOfficers
+{
+    DockUpgrade* first = [DockUpgrade upgradeForId:@"first_officer_collectiveop3" context:self.managedObjectContext];
+    DockUpgrade* tactical = [DockUpgrade upgradeForId:@"tactical_officer_collectiveop3" context:self.managedObjectContext];
+    DockUpgrade* ops = [DockUpgrade upgradeForId:@"operations_officer_collectiveop3" context:self.managedObjectContext];
+    DockUpgrade* science = [DockUpgrade upgradeForId:@"science_officer_collectiveop3" context:self.managedObjectContext];
+    
+    [self purgeUpgrade:first];
+    [self purgeUpgrade:tactical];
+    [self purgeUpgrade:ops];
+    [self purgeUpgrade:science];
+}
+
 
 -(void)setResource:(DockResource*)resource
 {
@@ -1070,6 +1083,8 @@ static NSString* namePrefix(NSString* originalName)
             [self removeFighterSquadron];
         } else if ([oldResource isFleetCaptain]) {
             [self removeFleetCaptain];
+        } else if ([oldResource isOfficerCards]) {
+            [self removeOfficers];
         }
 
         [self willChangeValueForKey: @"resource"];
