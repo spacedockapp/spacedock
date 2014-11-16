@@ -92,7 +92,7 @@
 
     if (row == resources.count) {
         cell.textLabel.text = @"No resource";
-        cell.detailTextLabel.text = @"";
+        cell.detailTextLabel.text = @" ";
         cell.accessoryType = UITableViewCellAccessoryNone;
     } else {
         DockResource* resource = resources[row];

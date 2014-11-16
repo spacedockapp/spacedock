@@ -21,7 +21,7 @@
     } else {
         cell.textLabel.text = flagshipType;
         cell.textLabel.textColor = [UIColor grayColor];
-        cell.detailTextLabel.text = @"";
+        cell.detailTextLabel.text = @" ";
     }
 
     return cell;
