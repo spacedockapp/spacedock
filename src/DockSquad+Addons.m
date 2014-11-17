@@ -779,6 +779,52 @@ static NSString* namePrefix(NSString* originalName)
             return NO;
         }
     }
+    
+    if ([captain.special isEqualToString: @"not_with_hugh"]) {
+        if ([targetShip.squad containsUpgradeWithName:@"Hugh"] != nil) {
+            if (error) {
+                NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", captain.title];
+                NSString* info = @"This captain cannot be deployed to a squadron with Hugh.";
+                NSDictionary* d = @{
+                                    NSLocalizedDescriptionKey: msg,
+                                    NSLocalizedFailureReasonErrorKey: info
+                                    };
+                *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
+            }
+            return NO;
+        }
+    }
+
+    if ([captain.title isEqualToString: @"Jean Luc Picard"]) {
+        if ([targetShip.squad containsUpgradeWithSpecial: @"not_with_jean_luc_picard"] != nil) {
+            if (error) {
+                NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", captain.title];
+                NSString* info = @"The squadron has an item that cannot be deployed with Jean Luc Picard.";
+                NSDictionary* d = @{
+                                    NSLocalizedDescriptionKey: msg,
+                                    NSLocalizedFailureReasonErrorKey: info
+                                    };
+                *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
+            }
+            return NO;
+        }
+    }
+    
+    if ([captain.special isEqualToString: @"not_with_jean_luc_picard"]) {
+        if ([targetShip.squad containsUpgradeWithName:@"Jean Luc Picard"] != nil) {
+            if (error) {
+                NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", captain.title];
+                NSString* info = @"This captain cannot be deployed to a squadron with Jean Luc Picard.";
+                NSDictionary* d = @{
+                                    NSLocalizedDescriptionKey: msg,
+                                    NSLocalizedFailureReasonErrorKey: info
+                                    };
+                *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
+            }
+            return NO;
+        }
+    }
+    
 
     DockCaptain* existingCaptain = [targetShip captain];
 

@@ -565,10 +565,12 @@ static NSString* makeKey(NSString* key)
         @"AddOneBorgSlot",
         @"PlusFiveIfNotRemanWarbird",
         @"OnlyKlingonBirdOfPrey",
-        @"addonetalentslot"
+        @"addonetalentslot",
+        @"not_with_jean_luc_picard"
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];
+    [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'OnlyShipClass_'"]];
     return unhandledSpecials;
 }
 

@@ -519,12 +519,6 @@
 
     NSString* upgradeSpecial = upgrade.special;
 
-    if ([upgrade.title isEqualToString: @"Hugh"]) {
-        if ([self.squad containsUpgradeWithSpecial: @"not_with_hugh"] != nil) {
-            return NO;
-        }
-    }
-
     if ([upgrade isBorg]) {
         if ([self.ship isScoutCube]) {
             return [[upgrade cost] intValue] <= 5;
@@ -678,13 +672,6 @@
         }
     }
 
-    if ([upgradeSpecial isEqualToString: @"not_with_hugh"]) {
-        if ([self.squad containsUpgradeWithName: @"Hugh"] != nil) {
-            return NO;
-        }
-    }
-
-
     if ([upgradeSpecial isEqualToString: @"OnlyForRomulanScienceVessel"] || [upgradeSpecial isEqualToString: @"OnlyForRaptorClassShips"]) {
         NSString* legalShipClass = upgrade.targetShipClass;
 
@@ -693,6 +680,18 @@
         }
     }
 
+    if ([upgradeSpecial hasPrefix:@"OnlyShipClass_"]) {
+        NSString* shipClass = [self.ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        if ([upgradeSpecial hasPrefix:@"OnlyShipClass_CONTAINS_"]) {
+            NSString* classtomatch = [upgradeSpecial substringFromIndex:23];
+            if (![shipClass containsString:classtomatch]) {
+                return NO;
+            }
+        } else if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"OnlyShipClass_%@",shipClass]]) {
+            return NO;
+        }
+    }
+    
     if ([upgradeSpecial isEqualToString: @"OnlyFedShipHV4CostPWVP1"]) {
         if (![self.ship isFederation] || [self.ship.hull intValue] < 4) {
             return NO;
@@ -704,6 +703,9 @@
     }
 
     if ([upgrade.externalId isEqualToString:@"biogenic_weapon_71510b"] || [upgrade.externalId isEqualToString:@"biogenic_weapon_borg_71510b"]) {
+        if ([self.ship isScoutCube]) {
+            return NO;
+        }
         int limit1 = [[DockUpgrade upgradeForId:@"biogenic_weapon_71510b" context:self.managedObjectContext] limitForShip:self];
         int limit2 = [[DockUpgrade upgradeForId:@"biogenic_weapon_borg_71510b" context:self.managedObjectContext] limitForShip:self];
         int limit = (limit1<limit2)? limit1 : limit2;
