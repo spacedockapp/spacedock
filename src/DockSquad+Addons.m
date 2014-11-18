@@ -795,7 +795,7 @@ static NSString* namePrefix(NSString* originalName)
         }
     }
 
-    if ([captain.title isEqualToString: @"Jean Luc Picard"]) {
+    if ([captain.title isEqualToString: @"Jean-Luc Picard"]) {
         if ([targetShip.squad containsUpgradeWithSpecial: @"not_with_jean_luc_picard"] != nil) {
             if (error) {
                 NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", captain.title];
@@ -811,7 +811,7 @@ static NSString* namePrefix(NSString* originalName)
     }
     
     if ([captain.special isEqualToString: @"not_with_jean_luc_picard"]) {
-        if ([targetShip.squad containsUpgradeWithName:@"Jean Luc Picard"] != nil) {
+        if ([targetShip.squad containsUpgradeWithName:@"Jean-Luc Picard"] != nil) {
             if (error) {
                 NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", captain.title];
                 NSString* info = @"This captain cannot be deployed to a squadron with Jean Luc Picard.";
