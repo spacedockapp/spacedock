@@ -33,14 +33,35 @@
 {
     [super drawRect: dirtyRect];
 
+    NSArray* moveValues = @[@5, @4, @3, @2, @1, @-1, @-2];
+    NSSet* speeds = _ship.shipClassDetails.speeds;
+    if ([speeds containsObject: @-3]) {
+        if (![speeds containsObject:@5]) {
+            moveValues = [moveValues subarrayWithRange: NSMakeRange(1, moveValues.count - 1)];
+        }
+        moveValues = [moveValues arrayByAddingObject: @-3];
+    } else if ([speeds containsObject: @6]) {
+        if (moveValues.count >= 7 && ![speeds containsObject:[moveValues objectAtIndex:(moveValues.count -1)]]) {
+            moveValues = [moveValues subarrayWithRange: NSMakeRange(0, moveValues.count - 1)];
+        }
+        moveValues = [@[@6] arrayByAddingObjectsFromArray: moveValues];
+    }
+    
     NSRect bounds = self.bounds;
     NSSize availableSize = bounds.size;
     CGFloat availableSpace = availableSize.height < availableSize.width ? availableSize.height : availableSize.width;
     CGFloat lineWidth = availableSpace / 100.0;
     CGFloat offsetX = (bounds.size.width - availableSpace) / 2;
     CGFloat offsetY = (bounds.size.height - availableSpace) / 2;
+    CGFloat rowSize = (availableSpace - (lineWidth*10)) / 7.0;
+    CGFloat boxWidth = availableSpace;
+    CGFloat boxHeight = availableSpace;
+    if (moveValues.count > 7) {
+        rowSize = (availableSpace - (lineWidth*10)) / moveValues.count;
+        boxWidth = rowSize * 7 + (lineWidth*10);
+    }
 
-    NSRect blackBox = NSMakeRect(offsetX, offsetY, availableSpace, availableSpace);
+    NSRect blackBox = NSMakeRect(offsetX, offsetY, boxWidth, boxHeight);
 
     NSColor* bgColor = _whiteBackground ? [NSColor whiteColor] : [NSColor blackColor];
     NSColor* fgColor = _whiteBackground ? [NSColor blackColor] : [NSColor whiteColor];
@@ -51,7 +72,6 @@
     CGFloat inset = lineWidth * 5;
     NSRect gridBox = NSInsetRect(blackBox, inset, inset);
     [NSBezierPath strokeRect: gridBox];
-    CGFloat rowSize = gridBox.size.width / 7.0;
     CGFloat fontSize = rowSize;
 
     CGFloat x = gridBox.origin.x + rowSize - 1;
@@ -65,21 +85,11 @@
 
     CGFloat y = gridBox.origin.y + rowSize - 1;
 
-    for (int i = 0; i < 6; ++i) {
+    for (int i = 0; i < moveValues.count; ++i) {
         NSRect lineRect = NSMakeRect(gridBox.origin.x, y, gridBox.size.width, lineWidth);
         NSBezierPath* line = [NSBezierPath bezierPathWithRect: lineRect];
         [line fill];
         y += rowSize;
-    }
-
-    NSArray* moveValues = @[@5, @4, @3, @2, @1, @-1, @-2];
-    NSSet* speeds = _ship.shipClassDetails.speeds;
-    if ([speeds containsObject: @-3]) {
-        moveValues = [moveValues subarrayWithRange: NSMakeRange(1, moveValues.count - 1)];
-        moveValues = [moveValues arrayByAddingObject: @-3];
-    } else if ([speeds containsObject: @6]) {
-        moveValues = [moveValues subarrayWithRange: NSMakeRange(0, moveValues.count - 1)];
-        moveValues = [@[@6] arrayByAddingObjectsFromArray: moveValues];
     }
     
     y = gridBox.origin.y - 1;
@@ -95,7 +105,7 @@
         kinds = @[@"", @"left-spin", @"straight", @"right-spin", @"", @""];
     }
 
-    for (int i = 6; i >= 0; --i) {
+    for (int i = (int)moveValues.count - 1; i >= 0; --i) {
         x = gridBox.origin.x;
         int speed = [moveValues[i] intValue];
         int absSpeed = speed;

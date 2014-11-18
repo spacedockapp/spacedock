@@ -21,12 +21,34 @@
 {
     [super drawRect: rect];
 
+    NSArray* moveValues = @[@5, @4, @3, @2, @1, @-1, @-2];
+    NSSet* speeds = _ship.shipClassDetails.speeds;
+    if ([speeds containsObject:@-3]) {
+        if (![speeds containsObject:@5]) {
+            moveValues = [moveValues subarrayWithRange: NSMakeRange(1, moveValues.count - 1)];
+        }
+        moveValues = [moveValues arrayByAddingObject: @-3];
+    }
+    if ([speeds containsObject:@6]) {
+        if (moveValues.count >= 7 && ![speeds containsObject:[moveValues objectAtIndex:(moveValues.count -1)]]) {
+            moveValues = [moveValues subarrayWithRange: NSMakeRange(0, moveValues.count - 1)];
+        }
+        moveValues = [@[@6] arrayByAddingObjectsFromArray: moveValues];
+    }
+
     CGRect bounds = self.bounds;
     CGSize availableSize = bounds.size;
     CGFloat availableSpace = availableSize.height < availableSize.width ? availableSize.height : availableSize.width;
     CGFloat lineWidth = availableSpace / 100.0;
-
-    CGRect blackBox = CGRectMake(0, 0, availableSpace, availableSpace);
+    CGFloat rowSize = (availableSpace - (lineWidth*10)) / 7.0;
+    CGFloat boxHeight = availableSpace;
+    CGFloat boxWidth = availableSpace;
+    if (moveValues.count > 7) {
+        rowSize = (availableSpace - (lineWidth*10)) / moveValues.count;
+        boxWidth = rowSize * 7 + (lineWidth*10);
+    }
+    
+    CGRect blackBox = CGRectMake(0, 0, boxWidth, boxHeight);
     [[UIColor blackColor] set];
     UIBezierPath* blackBoxPath = [UIBezierPath bezierPathWithRect: blackBox];
     [blackBoxPath fill];
@@ -37,35 +59,24 @@
     gridBoxPath.lineWidth = lineWidth;
     [gridBoxPath stroke];
 
-    CGFloat rowSize = gridBox.size.width / 7.0;
     CGFloat fontSize = rowSize;
 
     CGFloat x = gridBox.origin.x + rowSize - 1;
 
+    CGFloat y = gridBox.origin.y + rowSize - 1;
+    
     for (int i = 0; i < 6; ++i) {
         CGRect lineRect = CGRectMake(x, gridBox.origin.y, lineWidth, gridBox.size.height);
         UIBezierPath* line = [UIBezierPath bezierPathWithRect: lineRect];
         [line fill];
         x += rowSize;
     }
-
-    CGFloat y = gridBox.origin.y + rowSize - 1;
-
-    for (int i = 0; i < 6; ++i) {
+    
+    for (int i = 0; i < moveValues.count - 1; ++i) {
         CGRect lineRect = CGRectMake(gridBox.origin.x, y, gridBox.size.width, lineWidth);
         UIBezierPath* line = [UIBezierPath bezierPathWithRect: lineRect];
         [line fill];
         y += rowSize;
-    }
-
-    NSArray* moveValues = @[@5, @4, @3, @2, @1, @-1, @-2];
-    NSSet* speeds = _ship.shipClassDetails.speeds;
-    if ([speeds containsObject: @-3]) {
-        moveValues = [moveValues subarrayWithRange: NSMakeRange(1, moveValues.count - 1)];
-        moveValues = [moveValues arrayByAddingObject: @-3];
-    } else if ([speeds containsObject: @6]) {
-        moveValues = [moveValues subarrayWithRange: NSMakeRange(0, moveValues.count - 1)];
-        moveValues = [@[@6] arrayByAddingObjectsFromArray: moveValues];
     }
 
     y = gridBox.origin.y + 1;
@@ -76,7 +87,7 @@
         kinds = @[@"", @"left-spin", @"straight", @"right-spin", @"", @""];
     }
 
-    for (int i = 0; i < 7; ++i) {
+    for (int i = 0; i < moveValues.count; ++i) {
         x = gridBox.origin.x;
         int speed = [moveValues[i] intValue];
         NSNumber* speedNumber = [NSNumber numberWithInt: speed];
