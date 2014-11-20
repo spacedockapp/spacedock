@@ -1,100 +1,44 @@
   <Ship>
-    <Title>Klingon/Borg Starship</Title>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>B'rel Class</ShipClass>
-    <Faction>Borg</Faction>
-    <AdditionalFaction>Klingon</AdditionalFaction>
-    <Attack>5</Attack>
-    <Agility>1</Agility>
-    <Hull>3</Hull>
-    <Shield>3</Shield>
-    <Ability></Ability>
-    <Cost>24</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>1</Borg>
-    <Tech>0</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
-    <Has360Arc>N</Has360Arc>
-    <Id>klingon_borg_starship_71512</Id>
-    <Set>71512</Set>
-  </Ship>
-  <Ship>
-    <Title>Assimilated Vessel 80279</Title>
+    <Title>Cube 112</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>B'rel Class</ShipClass>
-    <Faction>Borg</Faction>
-    <AdditionalFaction>Klingon</AdditionalFaction>
-    <Attack>5</Attack>
-    <Agility>1</Agility>
-    <Hull>3</Hull>
-    <Shield>4</Shield>
-    <Ability>When attacking, during the Modify Attack Dice step, you may spend 3 Drone Tokens to choose any number of your attack dice and re-roll them (even if they have already been re-rolled).</Ability>
-    <Cost>26</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>1</Borg>
-    <Tech>1</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
-    <Has360Arc>N</Has360Arc>
-    <Id>assimilated_vessel_80279_71512</Id>
-    <Set>71512</Set>
-  </Ship>
-  <Ship>
-    <Title>Korok's Bird-of-Prey</Title>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>B'rel Class</ShipClass>
-    <Faction>Klingon</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>1</Agility>
-    <Hull>3</Hull>
-    <Shield>3</Shield>
-    <Ability>When you initiate an attack at Range 1, while Cloaked, your opponent rolls -1 defense die.  You cannot deploy this card to the same fleet as "Assimilated Vessel 80279."</Ability>
-    <Cost>22</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
-    <Has360Arc>N</Has360Arc>
-    <Id>korok_s_bird_of_prey_71512</Id>
-    <Set>71512</Set>
-  </Ship>
-  <Ship>
-    <Title>Tactical Cube 001</Title>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Borg Tactical Cube</ShipClass>
+    <ShipClass>Borg Cube</ShipClass>
     <Faction>Borg</Faction>
     <AdditionalFaction></AdditionalFaction>
     <Attack>6</Attack>
     <Agility>0</Agility>
-    <Hull>9</Hull>
-    <Shield>8</Shield>
-    <Ability>When defending, during the Compare Results step, you may discard up to 3 of your [BORG] Upgrades.  Cancel 1 [HIT] or [CRIT] result for each Upgrade you discard with this card.</Ability>
-    <Cost>46</Cost>
+    <Hull>10</Hull>
+    <Shield>10</Shield>
+    <Ability>Instead of making a normal attack with your Primary Weapon, you may fire at up to 4 different ships at Range 1-2 with 4 attack dice against each ship.  If you do this, spend 1 Drone Token for each of these attacks after the first.</Ability>
+    <Cost>82</Cost>
+    <EvasiveManeuvers>0</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>1</Regenerate>
+    <Borg>3</Borg>
+    <Tech>1</Tech>
+    <Weapon>1</Weapon>
+    <Crew>1</Crew>
+    <Has360Arc>Y</Has360Arc>
+    <Id>cube_112_71792</Id>
+    <Set>71792</Set>
+  </Ship>
+  <Ship>
+    <Title>Borg Starship</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Borg Cube</ShipClass>
+    <Faction>Borg</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>6</Attack>
+    <Agility>0</Agility>
+    <Hull>10</Hull>
+    <Shield>9</Shield>
+    <Ability></Ability>
+    <Cost>80</Cost>
     <EvasiveManeuvers>0</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
@@ -104,53 +48,25 @@
     <Regenerate>1</Regenerate>
     <Borg>2</Borg>
     <Tech>1</Tech>
-    <Weapon>2</Weapon>
+    <Weapon>1</Weapon>
     <Crew>1</Crew>
     <Has360Arc>Y</Has360Arc>
-    <Id>tactical_cube_001_71513a</Id>
-    <Set>71513a</Set>
+    <Id>borg_starship_71792</Id>
+    <Set>71792</Set>
   </Ship>
   <Ship>
-    <Title>Chang's Bird-of-Prey</Title>
+    <Title>Fina Prime</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Klingon Bird-of-Prey</ShipClass>
-    <Faction>Klingon</Faction>
+    <ShipClass>Vidiian Battle Cruiser</ShipClass>
+    <Faction>Independent</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>1</Agility>
-    <Hull>3</Hull>
-    <Shield>3</Shield>
-    <Ability>If you attack with Torpedoes while Cloaked, you do not flip your [CLOAK] Token over to its red side.</Ability>
-    <Cost>22</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
-    <Has360Arc>N</Has360Arc>
-    <Id>chang_s_bird_of_prey_71532</Id>
-    <Set>71532</Set>
-  </Ship>
-  <Ship>
-    <Title>I.S.S. Defiant</Title>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-    <ShipClass>Defiant Class (Mirror)</ShipClass>
-    <Faction>Mirror Universe</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
+    <Attack>3</Attack>
     <Agility>2</Agility>
-    <Hull>3</Hull>
+    <Hull>5</Hull>
     <Shield>3</Shield>
-    <Ability>Each time you suffer damage from an attack, you may place an Auxiliary Power Token beside your ship to reduce the amount of damage from that attack by 1.</Ability>
-    <Cost>24</Cost>
+    <Ability>ACTION: Target a ship at Range 1 and force that ship to discard 1 of its Active Shield Tokens.  Place an Auxiliary Power Token beside your ship.</Ability>
+    <Cost>26</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
@@ -163,118 +79,6 @@
     <Weapon>2</Weapon>
     <Crew>2</Crew>
     <Has360Arc>N</Has360Arc>
-    <Id>i_s_s_defiant_71529</Id>
-    <Set>71529</Set>
-  </Ship>
-  <Ship>
-    <Title>Scimitar</Title>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Reman Warbird</ShipClass>
-    <Faction>Romulan</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>6</Attack>
-    <Agility>2</Agility>
-    <Hull>7</Hull>
-    <Shield>4</Shield>
-    <Ability>After you attack while Cloaked, you may place an Auxiliary Power Token beside your ship to keep your [CLOAK] Token from flipping to its red side.</Ability>
-    <Cost>38</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>2</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
-    <Has360Arc>N</Has360Arc>
-    <Id>scimitar_71533</Id>
-    <Set>71533</Set>
-  </Ship>
-  <Ship>
-    <Title>Reman Starship</Title>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Reman Warbird</ShipClass>
-    <Faction>Romulan</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>6</Attack>
-    <Agility>2</Agility>
-    <Hull>7</Hull>
-    <Shield>3</Shield>
-    <Ability></Ability>
-    <Cost>36</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
-    <Has360Arc>N</Has360Arc>
-    <Id>reman_starship_71533</Id>
-    <Set>71533</Set>
-  </Ship>
-  <Ship>
-    <Title>Klingon Starhip</Title>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Klingon Bird-of-Prey</ShipClass>
-    <Faction>Klingon</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>1</Agility>
-    <Hull>3</Hull>
-    <Shield>2</Shield>
-    <Ability></Ability>
-    <Cost>20</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>1</Weapon>
-    <Crew>1</Crew>
-    <Has360Arc>N</Has360Arc>
-    <Id>klingon_starhip_71532</Id>
-    <Set>71532</Set>
-  </Ship>
-  <Ship>
-    <Title>Mirror Universe Starship</Title>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Defiant Class (Mirror)</ShipClass>
-    <Faction>Mirror Universe</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>2</Agility>
-    <Hull>3</Hull>
-    <Shield>2</Shield>
-    <Ability></Ability>
-    <Cost>22</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>1</Scan>
-    <Battlestations>1</Battlestations>
-    <Cloak>0</Cloak>
-    <SensorEcho>0</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>0</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
-    <Has360Arc>N</Has360Arc>
-    <Id>mirror_universe_starship_71529</Id>
-    <Set>71529</Set>
+    <Id>fina_prime_71534</Id>
+    <Set>71534</Set>
   </Ship>
