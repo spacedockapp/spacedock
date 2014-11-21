@@ -547,6 +547,14 @@ public class EquippedShip extends EquippedShipBase {
         return ship.getFaction();
     }
 
+    public String getAdditionalShipFaction() {
+        Ship ship = getShip();
+        if (ship == null) {
+            return "Federation";
+        }
+        return ship.getAdditionalFaction();
+    }
+
     public Explanation canAddUpgrade(Upgrade upgrade, boolean addingNew) {
         String msg = String.format("Can't add %s to %s",
                 upgrade.getPlainDescription(), getPlainDescription());
@@ -633,6 +641,11 @@ public class EquippedShip extends EquippedShipBase {
             }
             if (addingNew && null != containsUpgrade(upgrade)) {
                 return new Explanation(msg, "This upgrade can only be added once per ship.");
+            }
+        }
+        if ("OnlyShipClass_CONTAINS_Vidiian".equals(upgradeSpecial)) {
+            if (!ship.isVidiian()) {
+                return new Explanation(msg, "This upgrade can only be purchased for a Vidiian Ship.");
             }
         }
         if (upgradeSpecial.equals("OnlyKazonShip")) {
@@ -759,7 +772,7 @@ public class EquippedShip extends EquippedShipBase {
     public Explanation canAddFleetCaptain(FleetCaptain fleetCaptain) {
         Captain captain = getCaptain();
         String msg = String.format("Can't make %s the Fleet Captain", captain.getTitle());
-        if (!captain.getUnique()) {
+        if (!captain.getUnique() && !captain.getMirrorUniverseUnique()) {
             String info = "You may not assign a non-unique Captain as your Fleet Captain";
             return new Explanation(msg, info);
         }
@@ -1019,7 +1032,7 @@ public class EquippedShip extends EquippedShipBase {
             squad.removeFlagship();
         } else {
             Flagship flagship = Universe.getUniverse().getFlagship(externalId);
-            if (!flagship.compatibleWithFaction(shipFaction())) {
+            if (!flagship.compatibleWithFaction(shipFaction()) && !flagship.compatibleWithFaction(getAdditionalShipFaction())) {
                 return new Explanation("Failed to add Flagship.",
                         flagship.getPlainDescription()
                                 + " not compatible with ship faction "
