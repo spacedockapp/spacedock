@@ -100,6 +100,7 @@
     if ([internalVersion compare:externalVersion] != NSOrderedAscending) {
         NSFileManager* fm = [NSFileManager defaultManager];
         [fm removeItemAtPath: externalFile error: nil];
+        return internalFile;
     }
     return externalFile;
 }

@@ -1,4 +1,4 @@
-<Data version="2014-11-21@19-55">
+<Data version="2014-11-21@19-57">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -683,7 +683,7 @@
         <RearArc></RearArc>
     </ShipClassDetail>
     <ShipClassDetail>
-        <Name>Hideki Class Attack Fighter</Name>
+        <Name>Hideki Class Attack Squadron</Name>
         <Id>hideki_class_attack_fighter</Id>
         <Maneuvers>
             <Maneuver speed="4" kind="straight" color="white" />
