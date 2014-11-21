@@ -241,6 +241,8 @@ public class Ship extends ShipBase implements Factioned, Uniqueness {
         return "Suurok Class".equals(mShipClass);
     }
 
+    public boolean isVidiian() { return mShipClass.contains("Vidiian"); }
+
     public boolean isFighterSquadron() {
         String shipId = getExternalId();
         if (shipId != null) {

@@ -429,7 +429,9 @@ public class DataLoader extends DefaultHandler {
                 "AddOneBorgSlot",
                 "OnlyKlingonBirdOfPrey",
                 "OnlyRemanWarbird",
-                "PlusFiveIfNotRemanWarbird"
+                "PlusFiveIfNotRemanWarbird",
+                "not_with_jean_luc_picard",
+                "OnlyShipClass_CONTAINS_Vidiian"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);

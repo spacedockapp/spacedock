@@ -387,6 +387,12 @@ public class Squad extends SquadBase {
             if ("not_with_hugh".equalsIgnoreCase(captain.getSpecial()) && null != containsUpgradeWithName("Hugh")) {
                 return new Explanation(result, "This Captain cannot be added to a squadron that contains Hugh");
             }
+            if ("not_with_jean_luc_picard".equalsIgnoreCase(captain.getSpecial()) && null != containsUpgradeWithName("Jean-Luc Picard")){
+                return new Explanation(result, "This Captain cannot be added to a squadron that contains Jean-Luc Picard");
+            }
+            if ("Jean-Luc Picard".equals(captain.getTitle()) && null != containsUpgradeWithName("Locutus")) {
+                return new Explanation(result, "This Captain cannot be added to a squadron that contains Locutus");
+            }
             if ("hugh_71522".equalsIgnoreCase(captain.getSpecial()) && null != containsUpgradeWithName("Third of Five")) {
                 return new Explanation(result, "This Captain cannot be added to a squadron that contains Third of Five");
             }
