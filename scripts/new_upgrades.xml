@@ -1,96 +1,128 @@
     <Upgrade>
-      <Title>Vidiian Boarding Party</Title>
-      <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1 that is not Cloaked and has no Active Shields. Discard this card and roll 4 attack dice. For each [HIT] or [CRIT] result, the target ship must discard 1 [CREW] Upgrade of your choice. If you are Grappling the target ship, you may perform this Action as a free Action.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Independent</Faction>
-      <Cost>4</Cost>
-      <Id>vidiian_boarding_party_71534</Id>
-      <Set>71534</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Dereth</Title>
-      <Ability>If one of your [CREW] Upgrades (including this one) is affected by an enemy ship, you may disable 1 Upgrade of your choice on that enemy ship.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Independent</Faction>
-      <Cost>1</Cost>
-      <Id>dereth_71534</Id>
-      <Set>71534</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Denara Pel</Title>
-      <Ability>ACTION: Target a ship at Range 1. Discard this card and one [CREW] Upgrade of your choice on the target ship. If you are Grappling the target ship, disable this card instead of discarding it when performing this Action. This ability may be used against a ship that is Cloaked.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Independent</Faction>
-      <Cost>1</Cost>
-      <Id>denara_pel_71534</Id>
-      <Set>71534</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Sulan</Title>
-      <Ability>ACTION: Target a ship at Range 1. Discard this card and one [CREW] Upgrade of your choice on the target ship. If you are Grappling the target ship, you may also disable up to 2 other [CREW] Upgrade on the target ship. This ability may be used against a ship that is Cloaked.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Independent</Faction>
-      <Cost>3</Cost>
-      <Id>sulan_71534</Id>
-      <Set>71534</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Hypothermic Charge</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. All damage inflicted by this attack ignores the opposing ship's Shields. If the opposing ship has no Active Shields, you may choose any number of your attack dice and re-roll them. This Upgrade may only be purchased for a Vidiian ship.</Ability>
+      <Title>Escort</Title>
+      <Ability>ACTION: Disable this card to target a friendly ship within Range 1 of your ship. Each time the target ship defends this round, it adds a number of defense dice to its roll equal to the number of Attack Squadron Tokens on your Ship Card. You cannot attack this round.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>3</Attack>
-      <Range>1-2</Range>
-      <Type>Weapon</Type>
-      <Faction>Independent</Faction>
-      <Cost>5</Cost>
-      <Id>hypothermic_charge_71534</Id>
-      <Set>71534</Set>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Squadron</Type>
+      <Faction>Dominion</Faction>
+      <Cost>4</Cost>
+      <Id>escort_71754</Id>
+      <Set>71754</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Cover Fire</Title>
+      <Ability>When defending, during the Roll Defense Dice step, you may discard this card to add a number of defense dice to your roll equal to your current Primary Weapon value. No squadron may be equipped with more than one "Cover Fire" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Squadron</Type>
+      <Faction>Dominion</Faction>
+      <Cost>4</Cost>
+      <Id>cover_fire_71754</Id>
+      <Set>71754</Set>
       <Special>Yes</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Grappler</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. This attack damage the target ship as normal. In addition, if you inflict at least 1 damage to the target ship's Hull, place a red Grapple Token beside that ship and the corresponding blue Grapple Token beside your ship.</Ability>
+      <Title>Flanking Attack</Title>
+      <Ability>When a friendly ship within Range 1 of your ship is attacking an enemy ship that is also in your forward firing arc, if you haven't already attacked this round, you may discard this card to add a number of attack dice to that ship's attack roll equal to the number of Attack Squadron Tokens on your Ship Card. You cannot attack during the round you use this ability. No ship may be equipped with more than one "Flanking Attack" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>3</Attack>
-      <Range>1</Range>
-      <Type>Weapon</Type>
-      <Faction>Independent</Faction>
-      <Cost>4</Cost>
-      <Id>grappler_71534</Id>
-      <Set>71534</Set>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Squadron</Type>
+      <Faction>Dominion</Faction>
+      <Cost>3</Cost>
+      <Id>flanking_attack_71754</Id>
+      <Set>71754</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Break Formation</Title>
+      <Ability>ACTION: If your ship is not within Range 1 of a friendly ship, disable this card to immediately perform a free attack with your Primary Weapon of -1 attack die (max 3 attack dice).</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Squadron</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>break_formation_71754</Id>
+      <Set>71754</Set>
       <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Support Ship</Title>
+      <Ability>When your last Attack Squadron Token is destroyed, discard this card instead of removing that Token. No ship may be equipped with more than one "Support Ship" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Squadron</Type>
+      <Faction>Dominion</Faction>
+      <Cost>4</Cost>
+      <Id>support_ship_71754</Id>
+      <Set>71754</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photo Lock-On</Title>
+      <Ability>When you are attacking, during the Declare Target step, if you do not have an enemy ship Target Locked, you may discard this card to acquire a Target Lock on an enemy ship within Range 1-2 of your ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Squadron</Type>
+      <Faction>Dominion</Faction>
+      <Cost>2</Cost>
+      <Id>photo_lock_on_71754</Id>
+      <Set>71754</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Aft Disruptor Wave Cannons</Title>
+      <Ability>You may fire your Primary Weapon from your rear firing arc. If you do so, disable this card. No ship may be equipped with more than one "Aft Disruptor Wave Cannons" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Squadron</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>aft_disruptor_wave_cannons_71754</Id>
+      <Set>71754</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Galor Class Phaser Banks</Title>
+      <Ability>Your ship's Primary Weapon can target ships at Range 1-3 (standard combat bonuses apply) and your Primary Weapon Value is at +1 (max +6). This Upgrade may only be purchased for a Hideki Class Attack Squadron any no ship may be equipped with more than one "Galor Class Phaser Banks" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Squadron</Type>
+      <Faction>Dominion</Faction>
+      <Cost>7</Cost>
+      <Id>galor_class_phaser_banks_71754</Id>
+      <Set>71754</Set>
+      <Special>Yes</Special>
     </Upgrade>

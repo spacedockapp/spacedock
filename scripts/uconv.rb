@@ -6,21 +6,20 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-11/17/2014 13:41:12	71534 - Fina Prime	Unique	Vidiian Boarding Party	Independent	ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1 that is not Cloaked and has no Active Shields.  Discard this card and roll 4 attack dice.  For each [HIT] or [CRIT] result, the target ship must discard 1 [CREW] Upgrade of your choice.  If you are Grappling the target ship, you may perform this Action as a free Action.	Crew	4	
-11/17/2014 13:41:56	71534 - Fina Prime	Unique	Dereth	Independent	If one of your [CREW] Upgrades (including this one) is affected by an enemy ship, you may disable 1 Upgrade of your choice on that enemy ship.	Crew	1	
-11/17/2014 13:43:03	71534 - Fina Prime	Unique	Denara Pel	Independent	ACTION: Target a ship at Range 1.  Discard this card and one [CREW] Upgrade of your choice on the target ship.  If you are Grappling the target ship, disable this card instead of discarding it when performing this Action.  This ability may be used against a ship that is Cloaked.	Crew	1	
-11/17/2014 13:44:10	71534 - Fina Prime	Unique	Sulan	Independent	ACTION: Target a ship at Range 1.  Discard this card and one [CREW] Upgrade of your choice on the target ship.  If you are Grappling the target ship, you may also disable up to 2 other [CREW] Upgrade on the target ship.  This ability may be used against a ship that is Cloaked.	Crew	3	
+11/21/2014 1:58:41	71754 - 1st Wave Attack Fighters	Non-unique	Escort	Dominion	ACTION: Disable this card to target a friendly ship within Range 1 of your ship.  Each time the target ship defends this round, it adds a number of defense dice to its roll equal to the number of Attack Squadron Tokens on your Ship Card.  You cannot attack this round.	Squadron	4	
+11/21/2014 1:59:47	71754 - 1st Wave Attack Fighters	Non-unique	Cover Fire	Dominion	When defending, during the Roll Defense Dice step, you may discard this card to add a number of defense dice to your roll equal to your current Primary Weapon value.  No squadron may be equipped with more than one "Cover Fire" Upgrade.	Squadron	4	Yes
+11/21/2014 2:03:30	71754 - 1st Wave Attack Fighters	Non-unique	Flanking Attack	Dominion	When a friendly ship within Range 1 of your ship is attacking an enemy ship that is also in your forward firing arc, if you haven't already attacked this round, you may discard this card to add a number of attack dice to that ship's attack roll equal to the number of Attack Squadron Tokens on your Ship Card.  You cannot attack during the round you use this ability.  No ship may be equipped with more than one "Flanking Attack" Upgrade.	Squadron	3	Yes
+11/21/2014 2:04:33	71754 - 1st Wave Attack Fighters	Non-unique	Break Formation	Dominion	ACTION: If your ship is not within Range 1 of a friendly ship, disable this card to immediately perform a free attack with your Primary Weapon of -1 attack die (max 3 attack dice).	Squadron	5	
+11/21/2014 10:42:46	71754 - 1st Wave Attack Fighters	Non-unique	Support Ship	Dominion	When your last Attack Squadron Token is destroyed, discard this card instead of removing that Token.  No ship may be equipped with more than one "Support Ship" Upgrade.	Squadron	4	Yes
+11/21/2014 10:43:44	71754 - 1st Wave Attack Fighters	Non-unique	Photo Lock-On	Dominion	When you are attacking, during the Declare Target step, if you do not have an enemy ship Target Locked, you may discard this card to acquire a Target Lock on an enemy ship within Range 1-2 of your ship.	Squadron	2	
+11/21/2014 10:44:49	71754 - 1st Wave Attack Fighters	Non-unique	Aft Disruptor Wave Cannons	Dominion	You may fire your Primary Weapon from your rear firing arc.  If you do so, disable this card.  No ship may be equipped with more than one "Aft Disruptor Wave Cannons" Upgrade.	Squadron	5	Yes
+11/21/2014 10:46:15	71754 - 1st Wave Attack Fighters	Non-unique	Galor Class Phaser Banks	Dominion	Your ship's Primary Weapon can target ships at Range 1-3 (standard combat bonuses apply) and your Primary Weapon Value is at +1 (max +6).  This Upgrade may only be purchased for a Hideki Class Attack Squadron any no ship may be equipped with more than one "Galor Class Phaser Banks" Upgrade.	Squadron	7	Yes
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-11/7/2014 8:44:49	71792 - Cube 112	Unique	Locutus	9	Borg	At the start of the game, place 9 Drone Tokens on this card.  ACTION: Target a ship within Range 1-3 and spend up to 2 of your Drone Tokens.  Disable 1 Active Shield on the target ship for each Drone Token you spent with this Action.  You cannot deploy this card to the same ship or fleet as "Jean-Luc Picard." 	1	7	Yes	
-11/7/2014 8:45:18	71792 - Cube 112	Non-unique	Drone	1	Borg	At the start of the game, place 1 Drone Token on this card.	0	0		
-11/17/2014 13:36:33	71534 - Fina Prime	Unique	Vidiian Commander	7	Independent	You may add +1 attack die when you initiate an attack with the Grappler or Hypothermic Charge [WEAPON] Upgrades or when performing the Action listed on the Vidiian Boarding Party [CREW] Upgrade.	1	4		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-11/17/2014 13:38:13	71534 - Fina Prime	Non-unique	Hypothermic Charge	Independent	3	1-2	ATTACK: Disable this card to perform this attack.  All damage inflicted by this attack ignores the opposing ship's Shields.  If the opposing ship has no Active Shields, you may choose any number of your attack dice and re-roll them.  This Upgrade may only be purchased for a Vidiian ship.	5	Yes
-11/17/2014 13:39:18	71534 - Fina Prime	Non-unique	Grappler	Independent	3	1	ATTACK: Disable this card to perform this attack.  This attack damage the target ship as normal.  In addition, if you inflict at least 1 damage to the target ship's Hull, place a red Grapple Token beside that ship and the corresponding blue Grapple Token beside your ship.	4	
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT
