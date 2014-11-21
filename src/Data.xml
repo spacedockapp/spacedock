@@ -1,4 +1,4 @@
-<Data version="2014-11-20@00-51">
+<Data version="2014-11-21@08-33">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -6409,7 +6409,7 @@
       <Faction>Federation</Faction>
       <Cost>4</Cost>
       <Id>benjamin_sisko_71786</Id>
-      <Set>71786</Set>
+      <Set>71786,71810</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -7083,6 +7083,21 @@
     <Id>vidiian_commander_71534</Id>
     <Set>71534</Set>
     <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Vidiian Captain</Title>
+      <Ability></Ability>
+      <Unique>N</Unique>
+      <Skill>1</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Independent</Faction>
+      <Cost>0</Cost>
+      <Id>vidiian_71534</Id>
+      <Set>71534</Set>
+      <Special></Special>
   </Captain>
   </Captains>
   <Admirals>
@@ -11247,7 +11262,7 @@
       <Faction>Ferengi</Faction>
       <Cost>2</Cost>
       <Id>quark_71786</Id>
-      <Set>71786</Set>
+      <Set>71786,71810</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -11262,7 +11277,7 @@
       <Faction>Ferengi</Faction>
       <Cost>2</Cost>
       <Id>quark_weapon_71786</Id>
-      <Set>71786</Set>
+      <Set>71786,71810</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -11277,7 +11292,7 @@
       <Faction>Independent</Faction>
       <Cost>5</Cost>
       <Id>odo_71786</Id>
-      <Set>71786</Set>
+      <Set>71786,71810</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -11292,7 +11307,7 @@
       <Faction>Independent</Faction>
       <Cost>3</Cost>
       <Id>vic_fontaine_crew_71786</Id>
-      <Set>71786</Set>
+      <Set>71786,71810</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -11307,7 +11322,7 @@
       <Faction>Independent</Faction>
       <Cost>3</Cost>
       <Id>vic_fontaine_tech_71786</Id>
-      <Set>71786</Set>
+      <Set>71786,71810</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -11322,7 +11337,7 @@
       <Faction>Klingon</Faction>
       <Cost>5</Cost>
       <Id>t_kar_71786</Id>
-      <Set>71786</Set>
+      <Set>71786,71810</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -11337,7 +11352,7 @@
       <Faction>Romulan</Faction>
       <Cost>4</Cost>
       <Id>t_rul_71786</Id>
-      <Set>71786</Set>
+      <Set>71786,71810</Set>
       <Special>addonetechslot</Special>
     </Upgrade>
     <Upgrade>
@@ -11352,7 +11367,7 @@
       <Faction>Dominion</Faction>
       <Cost>4</Cost>
       <Id>elim_garak_71786</Id>
-      <Set>71786</Set>
+      <Set>71786,71810</Set>
       <Special>addonetalentslot</Special>
     </Upgrade>
     <Upgrade>
@@ -11367,7 +11382,7 @@
       <Faction>Federation</Faction>
       <Cost>4</Cost>
       <Id>julian_bashir_71786</Id>
-      <Set>71786</Set>
+      <Set>71786,71810</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -13572,6 +13587,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
       
       <Set id="71513a" overallSetName="Resistance is Futile" releaseDate="2014-11-26">Tactical Cube 001</Set>
       <Set id="71792" overallSetName="Wave 9.5" releaseDate="2014-11-19">Cube 112</Set>
+      <Set id="71810" overallSetName="Wave 9.5" releaseDate="2014-11-19">Deep Space 9</Set>
       <Set id="71534" overallSetName="Wave 10" releaseDate="2014-12-03">Fina Prime</Set>
     </Sets>
     <Flagships>

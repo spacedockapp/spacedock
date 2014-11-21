@@ -18,6 +18,7 @@
 -(BOOL)isAdmiral;
 -(BOOL)isFleetCaptain;
 -(BOOL)isOfficer;
+-(BOOL)isSquadron;
 -(BOOL)isPlaceholder;
 -(BOOL)isUnique;
 -(BOOL)isMirrorUniverseUnique;

@@ -427,6 +427,7 @@
     [self establishPlaceholdersForType: @"Weapon" limit: self.weaponCount];
     [self establishPlaceholdersForType: @"Tech" limit: self.techCount];
     [self establishPlaceholdersForType: @"Borg" limit: self.borgCount];
+    [self establishPlaceholdersForType: @"Squadron" limit:self.squadronUpgradeCount];
 }
 
 -(DockEquippedUpgrade*)findPlaceholder:(NSString*)upType
@@ -1312,6 +1313,13 @@
     }
 
     return borgCount;
+}
+
+-(int)squadronUpgradeCount
+{
+    int squadronUpgradeCount = self.ship.squadronUpgradeCount;
+    
+    return squadronUpgradeCount;
 }
 
 -(int)officerLimit

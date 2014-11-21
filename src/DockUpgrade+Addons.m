@@ -14,6 +14,8 @@
 #import "DockTech.h"
 #import "DockUtils.h"
 #import "DockWeapon.h"
+#import "DockSquadronUpgrade.h"
+#import "DockBorg.h"
 
 @implementation DockUpgrade (Addons)
 
@@ -78,9 +80,11 @@
         } else if ([upType isEqualToString: @"Crew"]) {
             upClass = [DockCrew class];
         } else if ([upType isEqualToString: @"Borg"]) {
-            upClass = [DockUpgrade class];
+            upClass = [DockBorg class];
+        } else if ([upType isEqualToString: @"Squadron"]) {
+            upClass = [DockSquadronUpgrade class];
+            
         }
-
         placeholderUpgrade = [[upClass alloc] initWithEntity: entity insertIntoManagedObjectContext: context];
         placeholderUpgrade.title = upType;
         placeholderUpgrade.upType = upType;
@@ -194,6 +198,11 @@ static NSDictionary* sItemLabels = nil;
 -(BOOL)isBorg
 {
     return [self.upType isEqualToString: @"Borg"];
+}
+
+-(BOOL)isSquadron
+{
+    return [self.upType isEqualToString:@"Squadron"];
 }
 
 -(BOOL)isPlaceholder
@@ -348,6 +357,10 @@ static NSDictionary* sItemLabels = nil;
 
     if ([self isBorg]) {
         return [targetShip borgCount];
+    }
+    
+    if ([self isSquadron]) {
+        return [targetShip squadronUpgradeCount];
     }
 
     return 0;

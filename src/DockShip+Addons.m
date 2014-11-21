@@ -383,6 +383,10 @@ NSString* asDegrees(NSString* textValue)
     return [self.borg intValue];
 }
 
+-(int)squadronUpgradeCount
+{
+    return [self.squadronUpgrade intValue];
+}
 -(NSString*)attackString
 {
     if ([self isFighterSquadron]) {
