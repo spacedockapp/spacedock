@@ -28,7 +28,9 @@
         indexPath = [self.fetchedResultsController indexPathForObject: _targetResource];
     } else if (_targetSquad) {
         NSArray* resources = self.fetchedResultsController.fetchedObjects;
-        indexPath = [NSIndexPath indexPathForRow: resources.count inSection: 0];
+        if (resources.count > 0) {
+            indexPath = [NSIndexPath indexPathForRow: resources.count inSection: 0];
+        }
     }
 
     if (indexPath != nil) {
@@ -90,7 +92,7 @@
 
     if (row == resources.count) {
         cell.textLabel.text = @"No resource";
-        cell.detailTextLabel.text = @"";
+        cell.detailTextLabel.text = @" ";
         cell.accessoryType = UITableViewCellAccessoryNone;
     } else {
         DockResource* resource = resources[row];

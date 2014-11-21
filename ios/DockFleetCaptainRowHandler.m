@@ -23,7 +23,7 @@
     } else {
         flagshipSlotCell.textLabel.text = upType;
         flagshipSlotCell.textLabel.textColor = [UIColor grayColor];
-        flagshipSlotCell.detailTextLabel.text = @"";
+        flagshipSlotCell.detailTextLabel.text = @" ";
     }
     return flagshipSlotCell;
 }

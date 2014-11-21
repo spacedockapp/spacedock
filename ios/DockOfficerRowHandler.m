@@ -16,7 +16,7 @@
 
     cell.textLabel.text = upType;
     cell.textLabel.textColor = [UIColor grayColor];
-    cell.detailTextLabel.text = @"";
+    cell.detailTextLabel.text = @" ";
 
     return cell;
 }

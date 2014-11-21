@@ -68,6 +68,7 @@
         NSManagedObjectContext* moc = [_coreDataManager createContext: 1 error: &error];
         DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: moc];
         [loader loadData: &error];
+        [loader validateSpecials];
         [loader cleanupDatabase];
         if ([[moc deletedObjects] count] > 0) {
             [moc save:&error];

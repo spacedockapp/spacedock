@@ -21,7 +21,7 @@
 
 static NSManagedObjectContext* getManagedObjectContext()
 {
-    DockAppDelegate* delegate = [NSApp delegate];
+    DockAppDelegate* delegate = (DockAppDelegate*)[NSApp delegate];
     return delegate.managedObjectContext;
 }
 

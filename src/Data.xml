@@ -1,4 +1,4 @@
-<Data version="2014-11-12@22-05">
+<Data version="2014-11-20@00-51">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1377,6 +1377,38 @@
         <FrontArc>90</FrontArc>
         <RearArc>90</RearArc>
     </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Borg Cube</Name>
+    <Id>borg_cube</Id>
+    <Maneuvers>
+      <Maneuver speed="6" kind="straight" color="red" />
+      <Maneuver speed="5" kind="straight" color="red" />
+      <Maneuver speed="4" kind="straight" color="white" />
+      <Maneuver speed="3" kind="left-spin" color="white" />
+      <Maneuver speed="3" kind="straight" color="white" />
+      <Maneuver speed="3" kind="right-spin" color="white" />
+      <Maneuver speed="2" kind="left-spin" color="white" />
+      <Maneuver speed="2" kind="straight" color="green" />
+      <Maneuver speed="2" kind="right-spin" color="white" />
+      <Maneuver speed="1" kind="left-spin" color="green" />
+      <Maneuver speed="1" kind="straight" color="green" />
+      <Maneuver speed="1" kind="right-spin" color="green" />
+      <Maneuver speed="-1" kind="straight" color="white" />
+      <Maneuver speed="-2" kind="straight" color="white" />
+      <Maneuver speed="-3" kind="straight" color="red" />
+    </Maneuvers>
+    <FrontArc></FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Vidiian Battle Cruiser</Name>
+    <Id>vidiian_battle_cruiser</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>90</FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
   </ShipClassDetails>
   <Ships>
     <Ship>
@@ -4837,6 +4869,90 @@
         <Id>mirror_universe_starship_71529</Id>
         <Set>71529</Set>
     </Ship>
+  <Ship>
+    <Title>Cube 112</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Borg Cube</ShipClass>
+    <Faction>Borg</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>6</Attack>
+    <Agility>0</Agility>
+    <Hull>10</Hull>
+    <Shield>10</Shield>
+    <Ability>Instead of making a normal attack with your Primary Weapon, you may fire at up to 4 different ships at Range 1-2 with 4 attack dice against each ship. If you do this, spend 1 Drone Token for each of these attacks after the first.</Ability>
+    <Cost>82</Cost>
+    <EvasiveManeuvers>0</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>1</Regenerate>
+    <Borg>3</Borg>
+    <Tech>1</Tech>
+    <Weapon>1</Weapon>
+    <Crew>1</Crew>
+    <Has360Arc>Y</Has360Arc>
+    <Id>cube_112_71792</Id>
+    <Set>71792</Set>
+  </Ship>
+  <Ship>
+      <Title>Borg Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Borg Cube</ShipClass>
+      <Faction>Borg</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>6</Attack>
+      <Agility>0</Agility>
+      <Hull>10</Hull>
+      <Shield>9</Shield>
+      <Ability></Ability>
+      <Cost>80</Cost>
+      <EvasiveManeuvers>0</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>1</Regenerate>
+      <Borg>2</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <Has360Arc>Y</Has360Arc>
+      <Id>borg_starship_71792</Id>
+      <Set>71792</Set>
+  </Ship>
+  <Ship>
+      <Title>Fina Prime</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Vidiian Battle Cruiser</ShipClass>
+      <Faction>Independent</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>5</Hull>
+      <Shield>3</Shield>
+      <Ability>ACTION: Target a ship at Range 1 and force that ship to discard 1 of its Active Shield Tokens.  Place an Auxiliary Power Token beside your ship.</Ability>
+      <Cost>26</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>2</Weapon>
+      <Crew>2</Crew>
+      <Has360Arc>N</Has360Arc>
+      <Id>fina_prime_71534</Id>
+      <Set>71534</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -5843,7 +5959,7 @@
       <Faction>Borg</Faction>
       <Cost>0</Cost>
       <Id>drone_71283</Id>
-      <Set>71283,71444,71522,71525,71646d,71511,71513a</Set>
+      <Set>71283,71444,71522,71525,71646d,71511,71513a,71792</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -6936,6 +7052,38 @@
         <AdmiralTalent>0</AdmiralTalent>
         <SkillModifier>1</SkillModifier>
     </Captain>
+  <Captain>
+    <Title>Locutus</Title>
+    <Ability>At the start of the game, place 9 Drone Tokens on this card. ACTION: Target a ship within Range 1-3 and spend up to 2 of your Drone Tokens. Disable 1 Active Shield on the target ship for each Drone Token you spent with this Action. You cannot deploy this card to the same ship or fleet as "Jean-Luc Picard." </Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>9</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Borg</Faction>
+    <Cost>7</Cost>
+    <Id>locutus_71792</Id>
+    <Set>71792</Set>
+    <Special>not_with_jean_luc_picard</Special>
+  </Captain>
+  <Captain>
+    <Title>Vidiian Commander</Title>
+    <Ability>You may add +1 attack die when you initiate an attack with the Grappler or Hypothermic Charge [WEAPON] Upgrades or when performing the Action listed on the Vidiian Boarding Party [CREW] Upgrade.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>7</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Independent</Faction>
+    <Cost>4</Cost>
+    <Id>vidiian_commander_71534</Id>
+    <Set>71534</Set>
+    <Special></Special>
+  </Captain>
   </Captains>
   <Admirals>
     <Admiral>
@@ -9641,21 +9789,6 @@
       <Cost>5</Cost>
       <Id>seven_of_nine_71280</Id>
       <Set>71280</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Tactical Drone</Title>
-      <Ability>At the start of the game, place 4 Drone Tokens on the card.</Ability>
-      <Unique>N</Unique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type></Type>
-      <Faction>Borg</Faction>
-      <Cost></Cost>
-      <Id>tactical_drone_71283</Id>
-      <Set>71283</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -12964,6 +13097,102 @@
           <Set>71533</Set>
           <Special></Special>
       </Upgrade>
+    <Upgrade>
+      <Title>Vidiian Boarding Party</Title>
+      <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1 that is not Cloaked and has no Active Shields. Discard this card and roll 4 attack dice. For each [HIT] or [CRIT] result, the target ship must discard 1 [CREW] Upgrade of your choice. If you are Grappling the target ship, you may perform this Action as a free Action.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Independent</Faction>
+      <Cost>4</Cost>
+      <Id>vidiian_boarding_party_71534</Id>
+      <Set>71534</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Dereth</Title>
+      <Ability>If one of your [CREW] Upgrades (including this one) is affected by an enemy ship, you may disable 1 Upgrade of your choice on that enemy ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Independent</Faction>
+      <Cost>1</Cost>
+      <Id>dereth_71534</Id>
+      <Set>71534</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Denara Pel</Title>
+      <Ability>ACTION: Target a ship at Range 1. Discard this card and one [CREW] Upgrade of your choice on the target ship. If you are Grappling the target ship, disable this card instead of discarding it when performing this Action. This ability may be used against a ship that is Cloaked.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Independent</Faction>
+      <Cost>1</Cost>
+      <Id>denara_pel_71534</Id>
+      <Set>71534</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Sulan</Title>
+        <Ability>ACTION: Target a ship at Range 1. Discard this card and one [CREW] Upgrade of your choice on the target ship. If you are Grappling the target ship, you may also disable up to 2 other [CREW] Upgrade on the target ship. This ability may be used against a ship that is Cloaked.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Independent</Faction>
+        <Cost>3</Cost>
+        <Id>sulan_71534</Id>
+        <Set>71534</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Hypothermic Charge</Title>
+        <Ability>ATTACK: Disable this card to perform this attack. All damage inflicted by this attack ignores the opposing ship's Shields. If the opposing ship has no Active Shields, you may choose any number of your attack dice and re-roll them. This Upgrade may only be purchased for a Vidiian ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>3</Attack>
+        <Range>1-2</Range>
+        <Type>Weapon</Type>
+        <Faction>Independent</Faction>
+        <Cost>5</Cost>
+        <Id>hypothermic_charge_71534</Id>
+        <Set>71534</Set>
+        <Special>OnlyShipClass_CONTAINS_Vidiian</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Grappler</Title>
+        <Ability>ATTACK: Disable this card to perform this attack. This attack damage the target ship as normal. In addition, if you inflict at least 1 damage to the target ship's Hull, place a red Grapple Token beside that ship and the corresponding blue Grapple Token beside your ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>3</Attack>
+        <Range>1</Range>
+        <Type>Weapon</Type>
+        <Faction>Independent</Faction>
+        <Cost>4</Cost>
+        <Id>grappler_71534</Id>
+        <Set>71534</Set>
+        <Special></Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -13196,6 +13425,44 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
         <Id>officer_cards_collectiveop3</Id>
         <Set>CollectiveOP3</Set>
       </Resource>
+      <Resource>
+        <Title>Improved Shields</Title>
+        <Unique>Y</Unique>
+        <Ability>1) At the start of the game, after the Gather Forces step, place your Improved Shields Resource Card beside your Ship Cards and place 4 additional Shield Tokens on your Improved Shields Resource Card.
+
+2) Every round, you may remove all of the additional Shield Tokens from this card and place them beside any or all of your ships. These tokens are placed during your ships' "Perform Action" steps. NOTE: You may divide these tokens between your ships as you like, but you may only place up to 2 of these additional Shield Tokens beside any of your ships.
+
+3) When a ship takes damage, the additional Shield Token(s) beside that ship are removed first. Any Shield Token lost this way is removed from the game and cannot be repaired.
+
+4) During the End Phase, remove all Shield Tokens that are still beside your ship(s) and place them back on your Improved Shields Resource Card.
+
+5) These extra Shield Tokens cannot be used in conjunction with Cloaking or to activate any special abilities.</Ability>
+        <Type>Resource</Type>
+        <Cost>10</Cost>
+        <Id>improved_shields_71511a</Id>
+        <Set>71511a</Set>
+      </Resource>
+      <Resource>
+        <Title>Advanced Targeting Systems</Title>
+        <Unique>Y</Unique>
+        <Ability>1) At the start of the game, after the Gather Forces step, place your Advanced Targeting Systems Card beside your Ship Cards.
+
+2) All of the ships in your fleet can acquire and maintain up to 2 Target Locks.
+
+3) Each Target Lock requires a separate Action to acquire. NOTE: You cannot acquire 2 Target Locks in the same round.
+
+4) Each Target Lock must be on a different ship (i.e. you cannot acquire a 2nd Target Lock on a ship that you already have target locked).
+
+5) During the Activation Phase, a locking ship that is already maintaing 2 Target Locks may remove its pair of [TARGET LOCK] Tokens and spend an Action to acquire a Target Lock on a different ship.
+
+6) A ship may spend 2 Target Locks in the same Combat Phase (if possible).
+
+7) All other normal rules apply to both Target Locks.</Ability>
+        <Type>Resource</Type>
+        <Cost>5</Cost>
+        <Id>advanced_targeting_systems_71512a</Id>
+        <Set>71512a</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -13273,7 +13540,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
 
       <Set id="71444" overallSetName="Wave 5" releaseDate="2014-06-01">Tactical Cube Expansion</Set>
       <Set id="71445" overallSetName="Wave 5" releaseDate="2014-06-01">Interceptor Five Expansion</Set>
-      <Set id="71446" overallSetName="Wave 5" releaseDate="2014-06-01">D’Kyr Expansion</Set>
+      <Set id="71446" overallSetName="Wave 5" releaseDate="2014-06-01">D'Kyr Expansion</Set>
 
       <Set id="71523" overallSetName="Wave 6" releaseDate="2014-07-01">U.S.S. Enterprise (Refit) Expansion</Set>
       <Set id="71522" overallSetName="Wave 6" releaseDate="2014-07-01">Soong Expansion</Set>
@@ -13282,7 +13549,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
       <Set id="71786" overallSetName="Promo Card" releaseDate="2014-08-13">DS9 Promo</Set>
 
       <Set id="71525" overallSetName="Wave 7" releaseDate="2014-09-03">Scout Cube Expansion</Set>
-      <Set id="71526" overallSetName="Wave 7" releaseDate="2014-09-03">U.S.S. Enterprise NX-01 Expansion</Set>
+      <Set id="71526" overallSetName="Wave 7" releaseDate="2014-09-03">Enterprise NX-01 Expansion</Set>
       <Set id="71527" overallSetName="Wave 7" releaseDate="2014-09-03">Ni'Var Expansion</Set>
 
       <Set id="71646a" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Bok's Marauder Expansion</Set>
@@ -13297,13 +13564,15 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
 
       <Set id="71511" overallSetName="Organized Play" releaseDate="2014-10-01">Avatar of Tomed Expansion</Set>
       <Set id="71512" overallSetName="Resistance is Futile" releaseDate="2014-10-29">Assimilated Vessel 80279</Set>
-
+      <Set id="71511a" overallSetName="Resistance is Futile" releaseDate="2014-09-24">Improved Shields Resource</Set>
+      <Set id="71512a" overallSetName="Resistance is Futile" releaseDate="2014-10-29">Advanced Targeting Systems Resource</Set>
       <Set id="71529" overallSetName="Wave 9" releaseDate="2014-11-05">I.S.S. Defiant</Set>
       <Set id="71532" overallSetName="Wave 9" releaseDate="2014-11-05">Chang's Bird of Prey</Set>
       <Set id="71533" overallSetName="Wave 9" releaseDate="2014-11-05">Scimitar</Set>
       
       <Set id="71513a" overallSetName="Resistance is Futile" releaseDate="2014-11-26">Tactical Cube 001</Set>
-
+      <Set id="71792" overallSetName="Wave 9.5" releaseDate="2014-11-19">Cube 112</Set>
+      <Set id="71534" overallSetName="Wave 10" releaseDate="2014-12-03">Fina Prime</Set>
     </Sets>
     <Flagships>
         <Flagship>
