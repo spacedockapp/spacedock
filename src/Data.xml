@@ -1,4 +1,4 @@
-<Data version="2014-11-21@19-57">
+<Data version="2014-11-21@23-29">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -660,7 +660,7 @@
         <RearArc></RearArc>
     </ShipClassDetail>
     <ShipClassDetail>
-        <Name>Federation Attack Fighter</Name>
+        <Name>Federation Attack Squadron</Name>
         <Id>federation_attack_fighter</Id>
         <Maneuvers>
             <Maneuver speed="3" kind="left-bank" color="white" />
@@ -2922,7 +2922,7 @@
     <Ship>
       <Title>Hideki Class Attack Fighter</Title>
       <Unique>Y</Unique>
-      <ShipClass>Hideki Class Attack Fighter</ShipClass>
+      <ShipClass>Hideki Class Attack Squadron</ShipClass>
       <Faction>Dominion</Faction>
       <Attack>6</Attack>
       <Agility>0</Agility>
@@ -5043,8 +5043,9 @@
       <Tech>0</Tech>
       <Weapon>0</Weapon>
       <Crew>0</Crew>
-      <SquadronUpgrade>2</SquadronUpgrade>
+      <SquadronUpgrade>3</SquadronUpgrade>
       <Has360Arc>N</Has360Arc>
+      <CaptainLimit>0</CaptainLimit>
       <Id>1st_wave_attack_fighters_71754</Id>
       <Set>71754</Set>
   </Ship>
@@ -13333,7 +13334,7 @@
         <Cost>4</Cost>
         <Id>cover_fire_71754</Id>
         <Set>71754</Set>
-        <Special>Yes</Special>
+        <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
         <Title>Flanking Attack</Title>
@@ -13349,7 +13350,7 @@
         <Cost>3</Cost>
         <Id>flanking_attack_71754</Id>
         <Set>71754</Set>
-        <Special>Yes</Special>
+        <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
         <Title>Break Formation</Title>
@@ -13381,7 +13382,7 @@
         <Cost>4</Cost>
         <Id>support_ship_71754</Id>
         <Set>71754</Set>
-        <Special>Yes</Special>
+        <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
         <Title>Photo Lock-On</Title>
@@ -13413,7 +13414,7 @@
         <Cost>5</Cost>
         <Id>aft_disruptor_wave_cannons_71754</Id>
         <Set>71754</Set>
-        <Special>Yes</Special>
+        <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
         <Title>Galor Class Phaser Banks</Title>
@@ -13429,7 +13430,7 @@
         <Cost>7</Cost>
         <Id>galor_class_phaser_banks_71754</Id>
         <Set>71754</Set>
-        <Special>Yes</Special>
+        <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
   </Upgrades>
   <Resources>

@@ -66,8 +66,13 @@
 
     currentSection = [[DockSectionHandler alloc] init];
     NSArray* sortedUpgrades = _equippedShip.sortedUpgrades;
-    DockEquippedUpgrade* firstUpgrade = sortedUpgrades.firstObject;
-    NSString* lastUpgradeType = firstUpgrade.upgrade.upType;
+    NSString* lastUpgradeType;
+    if (sortedUpgrades.count > 0) {
+        DockEquippedUpgrade* firstUpgrade = sortedUpgrades.firstObject;
+        lastUpgradeType = firstUpgrade.upgrade.upType;
+    } else {
+        lastUpgradeType = @"";
+    }
     currentSection.title = lastUpgradeType;
     [sectionTitles addObject: lastUpgradeType];
     int currentUpgradeCount = 0;
@@ -121,7 +126,7 @@
         [extrasSection addRowHandler: handler];
     }
 
-    if (![sectionTitles containsObject: kAdmiralUpgradeType]) {
+    if (![sectionTitles containsObject: kAdmiralUpgradeType] && !_equippedShip.isResourceSideboard && _equippedShip.captainCount > 0) {
         DockAdmiralRowHandler* admiralHandler = [[DockAdmiralRowHandler alloc] init];
         admiralHandler.equippedShip = _equippedShip;
         admiralHandler.controller = self;
