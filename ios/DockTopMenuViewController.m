@@ -35,7 +35,7 @@
     if (_managedObjectContext == nil) {
         _loadingAlert = [[UIAlertView alloc] initWithTitle:@"Loading Data" message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
         [_loadingAlert show];
-        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         indicator.center = CGPointMake(_loadingAlert.bounds.size.width / 2, _loadingAlert.bounds.size.height - 50);
         [indicator startAnimating];
         [_loadingAlert addSubview:indicator];
@@ -96,6 +96,12 @@
         controller.managedObjectContext = self.managedObjectContext;
         controller.upType = @"Borg";
         controller.upgradeTypeName = @"Borg Upgrades";
+    } else if ([[segue identifier] isEqualToString: @"GoToSquadron"]) {
+        id destination = [segue destinationViewController];
+        DockUpgradesViewController* controller = (DockUpgradesViewController*)destination;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.upType = @"Squadron";
+        controller.upgradeTypeName = @"Squadron Upgrades";
     } else if ([[segue identifier] isEqualToString: @"GoToTech"]) {
         id destination = [segue destinationViewController];
         DockUpgradesViewController* controller = (DockUpgradesViewController*)destination;
@@ -153,7 +159,6 @@
 }
 -(void)refresh:(UIRefreshControl *)refresh
 {
-    NSLog(@"Refreshing");
     DockDataUpdater* updater = [[DockDataUpdater alloc] init];
     [updater checkForNewData:^(NSString *remoteVersion, NSData *downloadData, NSError *error) {
         /*

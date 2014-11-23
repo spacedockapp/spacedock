@@ -1,4 +1,4 @@
-<Data version="2014-11-21@23-29">
+<Data version="2014-11-23@20-26">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -395,13 +395,17 @@
       <Name>Nor Class Orbital Space Station</Name>
       <Id>5017</Id>
       <Maneuvers>
+          <Maneuver speed="2" kind="left-flank" color="red" />
           <Maneuver speed="2" kind="straight" color="red" />
-          <Maneuver speed="2" kind="flank" color="red" />
+          <Maneuver speed="2" kind="right-flank" color="red" />
+          <Maneuver speed="1" kind="left-flank" color="white" />
           <Maneuver speed="1" kind="straight" color="white" />
-          <Maneuver speed="1" kind="flank" color="white" />
-          <Maneuver speed="0" kind="90-degree-rotate" color="white" />
+          <Maneuver speed="1" kind="right-flank" color="white" />
+          <Maneuver speed="0" kind="left-45-degree-rotate" color="green" />
+          <Maneuver speed="0" kind="left-90-degree-rotate" color="white" />
           <Maneuver speed="0" kind="stop" color="green" />
-          <Maneuver speed="0" kind="45-degree-rotate" color="green" />
+          <Maneuver speed="0" kind="right-45-degree-rotate" color="green" />
+          <Maneuver speed="0" kind="right-90-degree-rotate" color="white" />
       </Maneuvers>
       <FrontArc>90</FrontArc>
       <RearArc></RearArc>
