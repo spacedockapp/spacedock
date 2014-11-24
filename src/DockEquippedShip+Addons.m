@@ -481,10 +481,6 @@
         if (![captain.externalId isEqualToString:@"shinzon_71533"]) {
             return NO;
         }
-        
-        if ([self isResourceSideboard]) {
-            return NO;
-        }
     }
     
     if (!upgrade.isPlaceholder && [upgrade isTalent] && [self containsUpgradeWithId:@"shinzon_romulan_talents_71533"]) {

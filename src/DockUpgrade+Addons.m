@@ -563,6 +563,9 @@ static NSDictionary* sItemLabels = nil;
     } else if ([upgrade isWeapon]) {
         if ([upgradeSpecial isEqualToString: @"OnlyFedShipHV4CostPWVP1"]) {
             cost += [ship.attack intValue];
+            if (equippedShip.isResourceSideboard) {
+                cost = 4;
+            }
             cost += 1;
         }
         if ([captainSpecial isEqualToString: @"WeaponUpgradesCostOneLess"]) {
