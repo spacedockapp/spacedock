@@ -1,33 +1,36 @@
   <ShipClassDetail>
-    <Name>Nor Class Orbital Space Station</Name>
-    <Id>nor_class_orbital_space_station</Id>
-    <Maneuvers>
-      <Maneuver speed="2" kind="straight" color="red" />
-      <Maneuver speed="2" kind="flank" color="red" />
-      <Maneuver speed="1" kind="straight" color="white" />
-      <Maneuver speed="1" kind="flank" color="white" />
-      <Maneuver speed="0" kind="90-degree-rotate" color="white" />
-      <Maneuver speed="0" kind="stop" color="green" />
-      <Maneuver speed="0" kind="45-degree-rotate" color="green" />
-    </Maneuvers>
-    <FrontArc>90</FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>Nor Class Orbital Space Station</Name>
-    <Id>nor_class_orbital_space_station</Id>
+    <Name>Cardassian Galor Class</Name>
+    <Id>cardassian_galor_class</Id>
     <Maneuvers>
 
     </Maneuvers>
-    <FrontArc>90</FrontArc>
+    <FrontArc>180</FrontArc>
     <RearArc></RearArc>
   </ShipClassDetail>
   <ShipClassDetail>
-    <Name>Hideki Class Attack Squadron</Name>
-    <Id>hideki_class_attack_squadron</Id>
+    <Name>Cardassian Galor Class</Name>
+    <Id>cardassian_galor_class</Id>
     <Maneuvers>
 
     </Maneuvers>
-    <FrontArc>90</FrontArc>
-    <RearArc>90</RearArc>
+    <FrontArc>180</FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Cardassian Galor Class</Name>
+    <Id>cardassian_galor_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>180</FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Cardassian Galor Class</Name>
+    <Id>cardassian_galor_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>180</FrontArc>
+    <RearArc></RearArc>
   </ShipClassDetail>

@@ -6,20 +6,17 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-11/21/2014 1:58:41	71754 - 1st Wave Attack Fighters	Non-unique	Escort	Dominion	ACTION: Disable this card to target a friendly ship within Range 1 of your ship.  Each time the target ship defends this round, it adds a number of defense dice to its roll equal to the number of Attack Squadron Tokens on your Ship Card.  You cannot attack this round.	Squadron	4	
-11/21/2014 1:59:47	71754 - 1st Wave Attack Fighters	Non-unique	Cover Fire	Dominion	When defending, during the Roll Defense Dice step, you may discard this card to add a number of defense dice to your roll equal to your current Primary Weapon value.  No squadron may be equipped with more than one "Cover Fire" Upgrade.	Squadron	4	Yes
-11/21/2014 2:03:30	71754 - 1st Wave Attack Fighters	Non-unique	Flanking Attack	Dominion	When a friendly ship within Range 1 of your ship is attacking an enemy ship that is also in your forward firing arc, if you haven't already attacked this round, you may discard this card to add a number of attack dice to that ship's attack roll equal to the number of Attack Squadron Tokens on your Ship Card.  You cannot attack during the round you use this ability.  No ship may be equipped with more than one "Flanking Attack" Upgrade.	Squadron	3	Yes
-11/21/2014 2:04:33	71754 - 1st Wave Attack Fighters	Non-unique	Break Formation	Dominion	ACTION: If your ship is not within Range 1 of a friendly ship, disable this card to immediately perform a free attack with your Primary Weapon of -1 attack die (max 3 attack dice).	Squadron	5	
-11/21/2014 10:42:46	71754 - 1st Wave Attack Fighters	Non-unique	Support Ship	Dominion	When your last Attack Squadron Token is destroyed, discard this card instead of removing that Token.  No ship may be equipped with more than one "Support Ship" Upgrade.	Squadron	4	Yes
-11/21/2014 10:43:44	71754 - 1st Wave Attack Fighters	Non-unique	Photo Lock-On	Dominion	When you are attacking, during the Declare Target step, if you do not have an enemy ship Target Locked, you may discard this card to acquire a Target Lock on an enemy ship within Range 1-2 of your ship.	Squadron	2	
-11/21/2014 10:44:49	71754 - 1st Wave Attack Fighters	Non-unique	Aft Disruptor Wave Cannons	Dominion	You may fire your Primary Weapon from your rear firing arc.  If you do so, disable this card.  No ship may be equipped with more than one "Aft Disruptor Wave Cannons" Upgrade.	Squadron	5	Yes
-11/21/2014 10:46:15	71754 - 1st Wave Attack Fighters	Non-unique	Galor Class Phaser Banks	Dominion	Your ship's Primary Weapon can target ships at Range 1-3 (standard combat bonuses apply) and your Primary Weapon Value is at +1 (max +6).  This Upgrade may only be purchased for a Hideki Class Attack Squadron any no ship may be equipped with more than one "Galor Class Phaser Banks" Upgrade.	Squadron	7	Yes
+11/24/2014 17:56:58	71513b - Assimilated Vessel 64758	Non-unique	Neural Link	Borg	ACTION: Discard this card to target all friendly Borg ships within Range 1-3.  Rearrange the current Drone Tokens on all of these ships any way that you want.  You must have the same total number of Drone Tokens between the ships and you cannot exceed the Captain's starting number of Drone Tokens on any of these ships.	Borg	3	
+11/24/2014 17:59:05	71513b - Assimilated Vessel 64758	Unique	Glinn Daro	Dominion	ACTION: Repair 1 Damage to your Hull or Shields.	Crew	3	
+11/24/2014 18:00:44	71513b - Assimilated Vessel 64758	Unique	Truce	Dominion	When defending, during the Declare Target step, you may discard this card to cancel that attack.  The cancelled attack cannot be directed against a different ship.  Place an Auxiliary Power Token beside your ship.  If you have already attacked during the round you use this ability, place a 2nd Auxiliary Power Token beside your ship.  This Upgrade costs +5 SP if purchased for a Captain with a Skill greater than 5.	Talent	5	Yes
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
+11/24/2014 17:54:51	71513b - Assimilated Vessel 64758	Unique	Gul Macet	5	Dominion	When attacking, during the Roll Attack Dice step, you may add +1 attack die to your roll.  If you do so, place an Auxiliary Power Token beside your ship.	1	3		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
+11/24/2014 17:58:18	71513b - Assimilated Vessel 64758	Non-unique	Magnetometric Guided Charge	Borg	3	1-3	ATTACK: Disable this card to perform this attack.  You may convert 1 of your [BATTLE STATIONS] results into a [CRIT] result.  Target ship does not roll defense dice against this attack.  This Upgrade may only be purchased for a Borg ship.	5	
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT

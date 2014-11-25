@@ -610,7 +610,7 @@ static NSString* toDataFormat(NSString* label, id element)
     BOOL (^compare)(NSString*,NSString*) = ^(NSString* a,NSString* b) {
         if ([a isEqualToString:@"korok_s_bird_of_prey_71512"] && [b isEqualToString:@"assimilated_vessel_80279_71512"]) {
             return NO;
-        } else if ([a isEqualToString:@"trager_71513"] && [b isEqualToString:@"assimilated_vessel_64758_71513"]) {
+        } else if ([a isEqualToString:@"trager_71513b"] && [b isEqualToString:@"assimilated_vessel_64758_71513b"]) {
             return NO;
         }
         return YES;
