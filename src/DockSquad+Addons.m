@@ -598,9 +598,28 @@ static NSString* toDataFormat(NSString* label, id element)
     for (DockEquippedShip* ship in self.equippedShips) {
         if (ship.ship == theShip) {
             return ship;
+        } else if (![self canShip:ship.ship beWithShip:theShip]) {
+            return ship;
         }
     }
     return nil;
+}
+
+-(BOOL)canShip:(DockShip*)shipA beWithShip:(DockShip*)shipB
+{
+    BOOL (^compare)(NSString*,NSString*) = ^(NSString* a,NSString* b) {
+        if ([a isEqualToString:@"korok_s_bird_of_prey_71512"] && [b isEqualToString:@"assimilated_vessel_80279_71512"]) {
+            return NO;
+        } else if ([a isEqualToString:@"trager_71513b"] && [b isEqualToString:@"assimilated_vessel_64758_71513b"]) {
+            return NO;
+        }
+        return YES;
+    };
+    if (compare(shipA.externalId,shipB.externalId) && compare(shipB.externalId,shipA.externalId)) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 -(NSDictionary*)asJSON

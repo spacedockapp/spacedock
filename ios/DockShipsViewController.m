@@ -80,7 +80,7 @@
     if (_targetSquad) {
         DockShip* ship = [self.fetchedResultsController objectAtIndexPath: indexPath];
 
-        if (_targetShip != ship && [ship isUnique]) {
+        if (_targetShip != ship && [ship isAnyKindOfUnique]) {
             return ![_targetSquad containsShip: ship];
         }
     }

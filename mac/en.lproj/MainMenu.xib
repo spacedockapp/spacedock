@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14B17" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
@@ -508,6 +508,12 @@
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="filterToUpgradeType:" target="-1" id="PYQ-Mv-7c4"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Squadron" keyEquivalent="6" id="NOV-ao-SPA">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="filterToUpgradeType:" target="-1" id="rq3-xl-LUn"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -1331,6 +1337,49 @@
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.sensorEcho" id="I9X-zN-pjZ"/>
                                                                                 </connections>
                                                                             </tableColumn>
+                                                                            <tableColumn identifier="regenerate" editable="NO" width="40" minWidth="40" maxWidth="40" id="ODk-Tl-nmg" userLabel="regenerate">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Rgn">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="3Sx-UY-NNp">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="regenerate"/>
+                                                                                <prototypeCellViews>
+                                                                                    <tableCellView id="omv-Ba-rLp">
+                                                                                        <rect key="frame" x="1075" y="1" width="40" height="17"/>
+                                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                        <subviews>
+                                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="TeA-K1-9mJ">
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
+                                                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="fWD-3Y-eSo">
+                                                                                                    <font key="font" metaFont="system"/>
+                                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                                                </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="omv-Ba-rLp" name="value" keyPath="objectValue.regenerate" id="e0k-wc-FUS"/>
+                                                                                                </connections>
+                                                                                            </textField>
+                                                                                        </subviews>
+                                                                                        <connections>
+                                                                                            <outlet property="textField" destination="TeA-K1-9mJ" id="wq9-SR-2Lr"/>
+                                                                                        </connections>
+                                                                                    </tableCellView>
+                                                                                </prototypeCellViews>
+                                                                                <connections>
+                                                                                    <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.regenerate" id="t36-vY-2YY">
+                                                                                        <dictionary key="options">
+                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                                                        </dictionary>
+                                                                                    </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
                                                                             <tableColumn identifier="tech" editable="NO" width="40" minWidth="40" maxWidth="40" id="iXO-d6-OB6" userLabel="tech">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Tech">
                                                                                     <font key="font" metaFont="smallSystem"/>
@@ -1448,49 +1497,6 @@
                                                                                     <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.crew" id="XoI-xd-HyX"/>
                                                                                 </connections>
                                                                             </tableColumn>
-                                                                            <tableColumn identifier="regenerate" editable="NO" width="40" minWidth="40" maxWidth="40" id="ODk-Tl-nmg" userLabel="regenerate">
-                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Rgn">
-                                                                                    <font key="font" metaFont="smallSystem"/>
-                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                                                    <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                </tableHeaderCell>
-                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="center" title="Text Cell" id="3Sx-UY-NNp">
-                                                                                    <font key="font" metaFont="system"/>
-                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                                </textFieldCell>
-                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="regenerate"/>
-                                                                                <prototypeCellViews>
-                                                                                    <tableCellView id="omv-Ba-rLp">
-                                                                                        <rect key="frame" x="1075" y="1" width="40" height="17"/>
-                                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                                                        <subviews>
-                                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="TeA-K1-9mJ">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
-                                                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="fWD-3Y-eSo">
-                                                                                                    <font key="font" metaFont="system"/>
-                                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                                                                </textFieldCell>
-                                                                                                <connections>
-                                                                                                    <binding destination="omv-Ba-rLp" name="value" keyPath="objectValue.regenerate" id="e0k-wc-FUS"/>
-                                                                                                </connections>
-                                                                                            </textField>
-                                                                                        </subviews>
-                                                                                        <connections>
-                                                                                            <outlet property="textField" destination="TeA-K1-9mJ" id="wq9-SR-2Lr"/>
-                                                                                        </connections>
-                                                                                    </tableCellView>
-                                                                                </prototypeCellViews>
-                                                                                <connections>
-                                                                                    <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.regenerate" id="t36-vY-2YY">
-                                                                                        <dictionary key="options">
-                                                                                            <bool key="NSConditionallySetsEditable" value="YES"/>
-                                                                                        </dictionary>
-                                                                                    </binding>
-                                                                                </connections>
-                                                                            </tableColumn>
                                                                             <tableColumn identifier="borg" editable="NO" width="40" minWidth="40" maxWidth="40" id="svn-nk-s71" userLabel="borg">
                                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Borg">
                                                                                     <font key="font" metaFont="smallSystem"/>
@@ -1532,6 +1538,45 @@
                                                                                             <bool key="NSConditionallySetsEditable" value="YES"/>
                                                                                         </dictionary>
                                                                                     </binding>
+                                                                                </connections>
+                                                                            </tableColumn>
+                                                                            <tableColumn editable="NO" width="40" minWidth="40" maxWidth="40" id="gTs-PS-gRx" userLabel="squadron">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Squad">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="RGf-nH-4DU">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="squadronUpgrade"/>
+                                                                                <prototypeCellViews>
+                                                                                    <tableCellView id="FUn-PC-DRn">
+                                                                                        <rect key="frame" x="1161" y="1" width="40" height="17"/>
+                                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                                        <subviews>
+                                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="Ocj-mM-7KN">
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
+                                                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="9sa-Nj-HBk">
+                                                                                                    <font key="font" metaFont="system"/>
+                                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                                                </textFieldCell>
+                                                                                                <connections>
+                                                                                                    <binding destination="FUn-PC-DRn" name="value" keyPath="objectValue.squadronUpgrade" id="2Ag-FU-1OK"/>
+                                                                                                </connections>
+                                                                                            </textField>
+                                                                                        </subviews>
+                                                                                        <connections>
+                                                                                            <outlet property="textField" destination="Ocj-mM-7KN" id="UUr-Pa-EEf"/>
+                                                                                        </connections>
+                                                                                    </tableCellView>
+                                                                                </prototypeCellViews>
+                                                                                <connections>
+                                                                                    <binding destination="Gzr-Z0-87U" name="value" keyPath="arrangedObjects.squadronUpgrade" id="cTo-pZ-Heh"/>
                                                                                 </connections>
                                                                             </tableColumn>
                                                                             <tableColumn identifier="frontArc" editable="NO" width="50" minWidth="50" maxWidth="50" id="oEf-vW-XiT" userLabel="front arc">

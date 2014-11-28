@@ -1,96 +1,48 @@
     <Upgrade>
-      <Title>Vidiian Boarding Party</Title>
-      <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1 that is not Cloaked and has no Active Shields. Discard this card and roll 4 attack dice. For each [HIT] or [CRIT] result, the target ship must discard 1 [CREW] Upgrade of your choice. If you are Grappling the target ship, you may perform this Action as a free Action.</Ability>
-      <Unique>Y</Unique>
+      <Title>Neural Link</Title>
+      <Ability>ACTION: Discard this card to target all friendly Borg ships within Range 1-3. Rearrange the current Drone Tokens on all of these ships any way that you want. You must have the same total number of Drone Tokens between the ships and you cannot exceed the Captain's starting number of Drone Tokens on any of these ships.</Ability>
+      <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Independent</Faction>
-      <Cost>4</Cost>
-      <Id>vidiian_boarding_party_71534</Id>
-      <Set>71534</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Dereth</Title>
-      <Ability>If one of your [CREW] Upgrades (including this one) is affected by an enemy ship, you may disable 1 Upgrade of your choice on that enemy ship.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Independent</Faction>
-      <Cost>1</Cost>
-      <Id>dereth_71534</Id>
-      <Set>71534</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Denara Pel</Title>
-      <Ability>ACTION: Target a ship at Range 1. Discard this card and one [CREW] Upgrade of your choice on the target ship. If you are Grappling the target ship, disable this card instead of discarding it when performing this Action. This ability may be used against a ship that is Cloaked.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Independent</Faction>
-      <Cost>1</Cost>
-      <Id>denara_pel_71534</Id>
-      <Set>71534</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Sulan</Title>
-      <Ability>ACTION: Target a ship at Range 1. Discard this card and one [CREW] Upgrade of your choice on the target ship. If you are Grappling the target ship, you may also disable up to 2 other [CREW] Upgrade on the target ship. This ability may be used against a ship that is Cloaked.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Independent</Faction>
+      <Type>Borg</Type>
+      <Faction>Borg</Faction>
       <Cost>3</Cost>
-      <Id>sulan_71534</Id>
-      <Set>71534</Set>
+      <Id>neural_link_71513b</Id>
+      <Set>71513b</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Hypothermic Charge</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. All damage inflicted by this attack ignores the opposing ship's Shields. If the opposing ship has no Active Shields, you may choose any number of your attack dice and re-roll them. This Upgrade may only be purchased for a Vidiian ship.</Ability>
-      <Unique>N</Unique>
+      <Title>Glinn Daro</Title>
+      <Ability>ACTION: Repair 1 Damage to your Hull or Shields.</Ability>
+      <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>3</Attack>
-      <Range>1-2</Range>
-      <Type>Weapon</Type>
-      <Faction>Independent</Faction>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Dominion</Faction>
+      <Cost>3</Cost>
+      <Id>glinn_daro_71513b</Id>
+      <Set>71513b</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Truce</Title>
+      <Ability>When defending, during the Declare Target step, you may discard this card to cancel that attack. The cancelled attack cannot be directed against a different ship. Place an Auxiliary Power Token beside your ship. If you have already attacked during the round you use this ability, place a 2nd Auxiliary Power Token beside your ship. This Upgrade costs +5 SP if purchased for a Captain with a Skill greater than 5.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Dominion</Faction>
       <Cost>5</Cost>
-      <Id>hypothermic_charge_71534</Id>
-      <Set>71534</Set>
+      <Id>truce_71513b</Id>
+      <Set>71513b</Set>
       <Special>Yes</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Grappler</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. This attack damage the target ship as normal. In addition, if you inflict at least 1 damage to the target ship's Hull, place a red Grapple Token beside that ship and the corresponding blue Grapple Token beside your ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>3</Attack>
-      <Range>1</Range>
-      <Type>Weapon</Type>
-      <Faction>Independent</Faction>
-      <Cost>4</Cost>
-      <Id>grappler_71534</Id>
-      <Set>71534</Set>
-      <Special></Special>
     </Upgrade>

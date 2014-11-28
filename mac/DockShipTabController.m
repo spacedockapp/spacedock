@@ -18,7 +18,10 @@
     NSAlert* alert = [[NSAlert alloc] init];
     NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", ship.title];
     [alert setMessageText: msg];
-    NSString* info = @"This ship is unique and one with the same name already exists in the squadron.";
+    NSString* info = @"This ship is unique and one with the same name, or the assimilated version, already exists in the squadron.";
+    if ([ship.title.lowercaseString containsString:@"assimilated"]) {
+        info = @"This ship is unique and one with the same name, or the non-assimilated version, already exists in the squadron.";
+    }
     [alert setInformativeText: info];
     [alert setAlertStyle: NSInformationalAlertStyle];
     [alert beginSheetModalForWindow: [self window]

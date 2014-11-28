@@ -252,8 +252,6 @@ enum {
         NSString* t = es.plainDescription;
         if (es.flagship) {
             t = [t stringByAppendingString: @" [FS]"];
-        } else if (es.isFighterSquadron) {
-            shipCell.accessoryType = UITableViewCellAccessoryNone;
         }
         shipCell.title.text = t;
     }
@@ -345,7 +343,7 @@ enum {
 
     if (section == kShipsSection) {
         NSInteger shipCount = _squad.equippedShips.count;
-        return row < shipCount && ![_squad.equippedShips[row] isFighterSquadron];
+        return row < shipCount;
     }
 
     if (section == kDetailsSection) {

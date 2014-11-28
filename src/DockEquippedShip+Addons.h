@@ -37,6 +37,7 @@
 -(int)weaponCount;
 -(int)crewCount;
 -(int)borgCount;
+-(int)squadronUpgradeCount;
 -(int)officerLimit;
 -(int)baseCost;
 -(int)attack;

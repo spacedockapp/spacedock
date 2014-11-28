@@ -1,32 +1,16 @@
   <Captain>
-    <Title>Locutus</Title>
-    <Ability>At the start of the game, place 9 Drone Tokens on this card. ACTION: Target a ship within Range 1-3 and spend up to 2 of your Drone Tokens. Disable 1 Active Shield on the target ship for each Drone Token you spent with this Action. You cannot deploy this card to the same ship or fleet as "Jean-Luc Picard." </Ability>
+    <Title>Gul Macet</Title>
+    <Ability>When attacking, during the Roll Attack Dice step, you may add +1 attack die to your roll. If you do so, place an Auxiliary Power Token beside your ship.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>9</Skill>
+    <Skill>5</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Borg</Faction>
-    <Cost>7</Cost>
-    <Id>locutus_71792</Id>
-    <Set>71792</Set>
-    <Special>not_with_jean_luc_picard</Special>
-  </Captain>
-  <Captain>
-    <Title>Vidiian Commander</Title>
-    <Ability>You may add +1 attack die when you initiate an attack with the Grappler or Hypothermic Charge [WEAPON] Upgrades or when performing the Action listed on the Vidiian Boarding Party [CREW] Upgrade.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>7</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Independent</Faction>
-    <Cost>4</Cost>
-    <Id>vidiian_commander_71534</Id>
-    <Set>71534</Set>
+    <Faction>Dominion</Faction>
+    <Cost>3</Cost>
+    <Id>gul_macet_71513b</Id>
+    <Set>71513b</Set>
     <Special></Special>
   </Captain>

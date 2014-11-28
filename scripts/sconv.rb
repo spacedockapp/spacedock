@@ -27,8 +27,10 @@ def process_maneuvers(moves, maneuver_string, color)
     maneuvers = maneuver_string.split(/\s*,\s*/)
     maneuvers.each do |one_move|
       speed, kind = one_move.split(/\s+/)
-      if kind == "straight"
+      if kind == "straight" || kind == "flank" || kind == "stop"
         moves.push({:color => color, :speed => speed.to_i, :kind => kind, :column => 2})
+      elsif kind == "rotate"
+        moves.push({:color => color, :speed => 0, :kind => speed + "-" + kind, :column => 2})
       elsif kind == "reverse"
         moves.push({:color => color, :speed => speed.to_i * -1, :kind => "straight", :column => 2})
       else
@@ -42,9 +44,10 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-11/7/2014 8:39:53	71792 - Cube 112	Unique	Cube 112	Borg	Borg Cube		1 Forward, 2 Forward, 1 Spin	3 Forward, 4 Forward, 2 Spin, 3 Spin, 1 Reverse, 2 Reverse	5 Forward, 6 Forward, 3 Reverse	6	0	10	10	Instead of making a normal attack with your Primary Weapon, you may fire at up to 4 different ships at Range 1-2 with 4 attack dice against each ship.  If you do this, spend 1 Drone Token for each of these attacks after the first.	Regenerate, Scan, Target Lock	82	3	1	1	1	360-degree	
-11/7/2014 8:40:44	71792 - Cube 112	Non-unique	Borg Starship	Borg	Borg Cube	Borg Cube				6	0	10	9		Regenerate, Scan, Target Lock	80	2	1	1	1	360-degree	
-11/17/2014 13:35:21	71534 - Fina Prime	Unique	Fina Prime	Independent	Vidiian Battle Cruiser					3	2	5	3	ACTION: Target a ship at Range 1 and force that ship to discard 1 of its Active Shield Tokens.  Place an Auxiliary Power Token beside your ship.	Battle Stations, Evasive, Scan, Target Lock	26	0	2	0	2	90-degree forward	
+11/24/2014 17:40:58	71513b - Assimilated Vessel 64758	Unique	Trager	Dominion	Cardassian Galor Class	Cardassian Galor Class				4	1	4	4	During the Compare Results step, you may disable 1 of your Shields to cancel 1 [HIT] or [CRIT] result.  You cannot deploy this card to the same fleet as "Assimilated Vessel 64758."	Evasive, Scan, Target Lock	26	0	1	1	2	180-degree forward	Yes	0
+11/24/2014 17:41:45	71513b - Assimilated Vessel 64758	Non-unique	Dominion Starship	Dominion	Cardassian Galor Class	Cardassian Galor Class				4	1	4	3		Evasive, Scan, Target Lock	24	0	1	1	1	180-degree forward		0
+11/24/2014 17:51:12	71513b - Assimilated Vessel 64758	Unique	Assimilated Vessel 64758	Borg, Dominion	Cardassian Galor Class	Cardassian Galor Class				5	1	4	5	When defending, during the Declare Target step, you may spend 1 Drone Token to set 1 of your defense dice on any side that you want.  This die cannot be rolled or re-rolled during that attack.	Evasive, Regenerate, Scan, Target Lock	30	1	1	1	2	180-degree forward		0
+11/24/2014 17:52:06	71513b - Assimilated Vessel 64758	Non-unique	Dominion/Borg Starship	Borg, Dominion	Cardassian Galor Class	Cardassian Galor Class				5	1	4	4		Evasive, Regenerate, Scan, Target Lock	28	1	1	1	1	180-degree forward		0
 SHIPTEXT
 
 
@@ -84,6 +87,7 @@ shipLines.each do |l|
   borg = parts[17]
   crew = parts[18]
   tech = parts[19]
+  squad = parts[23]
   weapon = parts[20]
   expansion = parts[1]
   firing_arcs = parts[21]
@@ -118,6 +122,7 @@ end
     <Tech>#{tech}</Tech>
     <Weapon>#{weapon}</Weapon>
     <Crew>#{crew}</Crew>
+    <SquadronUpgrade>#{squad}</SquadronUpgrade>
     <Has360Arc>#{arc_360}</Has360Arc>
     <Id>#{externalId}</Id>
     <Set>#{setId}</Set>

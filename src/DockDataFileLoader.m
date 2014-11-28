@@ -20,6 +20,7 @@
 #import "DockShipClassDetails+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockSquad.h"
+#import "DockSquadronUpgrade.h"
 #import "DockTalent.h"
 #import "DockTech.h"
 #import "DockUpgrade+Addons.h"
@@ -188,6 +189,8 @@ static NSMutableDictionary* createExistingItemsLookup(NSManagedObjectContext* co
                     modifiedKey = @"battleStations";
                 } else if ([key isEqualToString: @"Type"] && [c isKindOfClass: [DockUpgrade class]]) {
                     modifiedKey = @"upType";
+                } else if ([key isEqualToString:@"Squadron"]) {
+                    modifiedKey = @"squadronUpgrade";
                 } else {
                     modifiedKey = makeKey(key);
                 }
@@ -566,7 +569,8 @@ static NSString* makeKey(NSString* key)
         @"PlusFiveIfNotRemanWarbird",
         @"OnlyKlingonBirdOfPrey",
         @"addonetalentslot",
-        @"not_with_jean_luc_picard"
+        @"not_with_jean_luc_picard",
+        @"PlusFiveIfSkillOverFive"
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];
@@ -600,6 +604,7 @@ static NSString* makeKey(NSString* key)
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockCrew class] entityName: @"Crew" targetType: @"Crew"];
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockTech class] entityName: @"Tech" targetType: @"Tech"];
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockBorg class] entityName: @"Borg" targetType: @"Borg"];
+    [self loadItems: xmlData[@"Upgrades"] itemClass: [DockSquadronUpgrade class] entityName: @"Squadron" targetType: @"Squadron"];
     [self loadItems: xmlData[@"Resources"] itemClass: [DockResource class] entityName: @"Resource" targetType: @"Resource"];
     [self loadItems: xmlData[@"Flagships"] itemClass: [DockFlagship class] entityName: @"Flagship" targetType: nil];
     [self loadItems: xmlData[@"FleetCaptains"] itemClass: [DockFleetCaptain class] entityName: @"FleetCaptain" targetType: kFleetCaptainUpgradeType];

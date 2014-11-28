@@ -321,6 +321,52 @@
 		D4F8B50C1837E4EC0051A486 /* DockSetsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F8B50B1837E4EC0051A486 /* DockSetsListViewController.m */; };
 		D4F8B50F1837EFF20051A486 /* DockSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F8B50E1837EFF20051A486 /* DockSetTableViewCell.m */; };
 		DA2F22D41A0D425F002DB4A8 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = DA2F22D31A0D425F002DB4A8 /* dsa_pub.pem */; };
+		DA3F15FB1A22687D0083989E /* red-left-flank.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F15F71A22687D0083989E /* red-left-flank.pdf */; };
+		DA3F15FC1A22687D0083989E /* red-right-flank.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F15F81A22687D0083989E /* red-right-flank.pdf */; };
+		DA3F15FD1A22687D0083989E /* white-left-flank.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F15F91A22687D0083989E /* white-left-flank.pdf */; };
+		DA3F15FE1A22687D0083989E /* white-right-flank.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F15FA1A22687D0083989E /* white-right-flank.pdf */; };
+		DA3F160B1A2268D60083989E /* red-left-flank.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16071A2268D60083989E /* red-left-flank.png */; };
+		DA3F160C1A2268D60083989E /* red-right-flank.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16081A2268D60083989E /* red-right-flank.png */; };
+		DA3F160D1A2268D60083989E /* white-left-flank.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16091A2268D60083989E /* white-left-flank.png */; };
+		DA3F160E1A2268D60083989E /* white-right-flank.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F160A1A2268D60083989E /* white-right-flank.png */; };
+		DA3F16311A2275C90083989E /* green-left-45-degree-rotate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F160F1A2275C90083989E /* green-left-45-degree-rotate.pdf */; };
+		DA3F16341A2275C90083989E /* green-left-45-degree-rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16101A2275C90083989E /* green-left-45-degree-rotate.png */; };
+		DA3F16351A2275C90083989E /* green-left-90-degree-rotate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16111A2275C90083989E /* green-left-90-degree-rotate.pdf */; };
+		DA3F16381A2275C90083989E /* green-left-90-degree-rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16121A2275C90083989E /* green-left-90-degree-rotate.png */; };
+		DA3F16391A2275C90083989E /* green-left-flank.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16131A2275C90083989E /* green-left-flank.pdf */; };
+		DA3F163C1A2275C90083989E /* green-left-flank.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16141A2275C90083989E /* green-left-flank.png */; };
+		DA3F163D1A2275C90083989E /* green-right-45-degree-rotate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16151A2275C90083989E /* green-right-45-degree-rotate.pdf */; };
+		DA3F16401A2275C90083989E /* green-right-45-degree-rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16161A2275C90083989E /* green-right-45-degree-rotate.png */; };
+		DA3F16411A2275C90083989E /* green-right-90-degree-rotate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16171A2275C90083989E /* green-right-90-degree-rotate.pdf */; };
+		DA3F16441A2275C90083989E /* green-right-90-degree-rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16181A2275C90083989E /* green-right-90-degree-rotate.png */; };
+		DA3F16451A2275C90083989E /* green-right-flank.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16191A2275C90083989E /* green-right-flank.pdf */; };
+		DA3F16481A2275C90083989E /* green-right-flank.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F161A1A2275C90083989E /* green-right-flank.png */; };
+		DA3F16491A2275C90083989E /* green-stop.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F161B1A2275C90083989E /* green-stop.pdf */; };
+		DA3F164C1A2275C90083989E /* green-stop.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F161C1A2275C90083989E /* green-stop.png */; };
+		DA3F164D1A2275C90083989E /* red-left-45-degree-rotate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F161D1A2275C90083989E /* red-left-45-degree-rotate.pdf */; };
+		DA3F16501A2275C90083989E /* red-left-45-degree-rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F161E1A2275C90083989E /* red-left-45-degree-rotate.png */; };
+		DA3F16511A2275C90083989E /* red-left-90-degree-rotate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F161F1A2275C90083989E /* red-left-90-degree-rotate.pdf */; };
+		DA3F16541A2275C90083989E /* red-left-90-degree-rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16201A2275C90083989E /* red-left-90-degree-rotate.png */; };
+		DA3F16551A2275C90083989E /* red-right-45-degree-rotate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16211A2275C90083989E /* red-right-45-degree-rotate.pdf */; };
+		DA3F16581A2275C90083989E /* red-right-45-degree-rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16221A2275C90083989E /* red-right-45-degree-rotate.png */; };
+		DA3F16591A2275C90083989E /* red-right-90-degree-rotate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16231A2275C90083989E /* red-right-90-degree-rotate.pdf */; };
+		DA3F165C1A2275C90083989E /* red-right-90-degree-rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16241A2275C90083989E /* red-right-90-degree-rotate.png */; };
+		DA3F165D1A2275C90083989E /* red-stop.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16251A2275C90083989E /* red-stop.pdf */; };
+		DA3F16601A2275C90083989E /* red-stop.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16261A2275C90083989E /* red-stop.png */; };
+		DA3F16611A2275C90083989E /* white-left-45-degree-rotate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16271A2275C90083989E /* white-left-45-degree-rotate.pdf */; };
+		DA3F16641A2275C90083989E /* white-left-45-degree-rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16281A2275C90083989E /* white-left-45-degree-rotate.png */; };
+		DA3F16651A2275C90083989E /* white-left-90-degree-rotate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16291A2275C90083989E /* white-left-90-degree-rotate.pdf */; };
+		DA3F16681A2275C90083989E /* white-left-90-degree-rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F162A1A2275C90083989E /* white-left-90-degree-rotate.png */; };
+		DA3F16691A2275C90083989E /* white-right-45-degree-rotate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F162B1A2275C90083989E /* white-right-45-degree-rotate.pdf */; };
+		DA3F166C1A2275C90083989E /* white-right-45-degree-rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F162C1A2275C90083989E /* white-right-45-degree-rotate.png */; };
+		DA3F166D1A2275C90083989E /* white-right-90-degree-rotate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F162D1A2275C90083989E /* white-right-90-degree-rotate.pdf */; };
+		DA3F16701A2275C90083989E /* white-right-90-degree-rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F162E1A2275C90083989E /* white-right-90-degree-rotate.png */; };
+		DA3F16711A2275C90083989E /* white-stop.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F162F1A2275C90083989E /* white-stop.pdf */; };
+		DA3F16741A2275C90083989E /* white-stop.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3F16301A2275C90083989E /* white-stop.png */; };
+		DA6DD7D21A1E98AF00CCD443 /* DockSquadronUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6DD7D11A1E98AF00CCD443 /* DockSquadronUpgrade.m */; };
+		DA6DD7D31A1E98AF00CCD443 /* DockSquadronUpgrade.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6DD7D11A1E98AF00CCD443 /* DockSquadronUpgrade.m */; };
+		DA6DD7DA1A1E99E000CCD443 /* DockSquadronUpgrade+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6DD7D91A1E99E000CCD443 /* DockSquadronUpgrade+Addons.m */; };
+		DA6DD7DB1A1E99E000CCD443 /* DockSquadronUpgrade+Addons.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6DD7D91A1E99E000CCD443 /* DockSquadronUpgrade+Addons.m */; };
 		DACF40DC1A107EA4004E2DAF /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DACF40DB1A107EA4004E2DAF /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
@@ -753,6 +799,53 @@
 		D4F8B50D1837EFF20051A486 /* DockSetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockSetTableViewCell.h; sourceTree = "<group>"; };
 		D4F8B50E1837EFF20051A486 /* DockSetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockSetTableViewCell.m; sourceTree = "<group>"; };
 		DA2F22D31A0D425F002DB4A8 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		DA3F15F71A22687D0083989E /* red-left-flank.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "red-left-flank.pdf"; sourceTree = "<group>"; };
+		DA3F15F81A22687D0083989E /* red-right-flank.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "red-right-flank.pdf"; sourceTree = "<group>"; };
+		DA3F15F91A22687D0083989E /* white-left-flank.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "white-left-flank.pdf"; sourceTree = "<group>"; };
+		DA3F15FA1A22687D0083989E /* white-right-flank.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "white-right-flank.pdf"; sourceTree = "<group>"; };
+		DA3F16071A2268D60083989E /* red-left-flank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red-left-flank.png"; path = "images/red-left-flank.png"; sourceTree = SOURCE_ROOT; };
+		DA3F16081A2268D60083989E /* red-right-flank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red-right-flank.png"; path = "images/red-right-flank.png"; sourceTree = SOURCE_ROOT; };
+		DA3F16091A2268D60083989E /* white-left-flank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-left-flank.png"; path = "images/white-left-flank.png"; sourceTree = SOURCE_ROOT; };
+		DA3F160A1A2268D60083989E /* white-right-flank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-right-flank.png"; path = "images/white-right-flank.png"; sourceTree = SOURCE_ROOT; };
+		DA3F160F1A2275C90083989E /* green-left-45-degree-rotate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "green-left-45-degree-rotate.pdf"; sourceTree = "<group>"; };
+		DA3F16101A2275C90083989E /* green-left-45-degree-rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-left-45-degree-rotate.png"; path = "images/green-left-45-degree-rotate.png"; sourceTree = SOURCE_ROOT; };
+		DA3F16111A2275C90083989E /* green-left-90-degree-rotate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "green-left-90-degree-rotate.pdf"; sourceTree = "<group>"; };
+		DA3F16121A2275C90083989E /* green-left-90-degree-rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-left-90-degree-rotate.png"; path = "images/green-left-90-degree-rotate.png"; sourceTree = SOURCE_ROOT; };
+		DA3F16131A2275C90083989E /* green-left-flank.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "green-left-flank.pdf"; sourceTree = "<group>"; };
+		DA3F16141A2275C90083989E /* green-left-flank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-left-flank.png"; path = "images/green-left-flank.png"; sourceTree = SOURCE_ROOT; };
+		DA3F16151A2275C90083989E /* green-right-45-degree-rotate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "green-right-45-degree-rotate.pdf"; sourceTree = "<group>"; };
+		DA3F16161A2275C90083989E /* green-right-45-degree-rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-right-45-degree-rotate.png"; path = "images/green-right-45-degree-rotate.png"; sourceTree = SOURCE_ROOT; };
+		DA3F16171A2275C90083989E /* green-right-90-degree-rotate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "green-right-90-degree-rotate.pdf"; sourceTree = "<group>"; };
+		DA3F16181A2275C90083989E /* green-right-90-degree-rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-right-90-degree-rotate.png"; path = "images/green-right-90-degree-rotate.png"; sourceTree = SOURCE_ROOT; };
+		DA3F16191A2275C90083989E /* green-right-flank.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "green-right-flank.pdf"; sourceTree = "<group>"; };
+		DA3F161A1A2275C90083989E /* green-right-flank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-right-flank.png"; path = "images/green-right-flank.png"; sourceTree = SOURCE_ROOT; };
+		DA3F161B1A2275C90083989E /* green-stop.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "green-stop.pdf"; sourceTree = "<group>"; };
+		DA3F161C1A2275C90083989E /* green-stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-stop.png"; path = "images/green-stop.png"; sourceTree = SOURCE_ROOT; };
+		DA3F161D1A2275C90083989E /* red-left-45-degree-rotate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "red-left-45-degree-rotate.pdf"; sourceTree = "<group>"; };
+		DA3F161E1A2275C90083989E /* red-left-45-degree-rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red-left-45-degree-rotate.png"; path = "images/red-left-45-degree-rotate.png"; sourceTree = SOURCE_ROOT; };
+		DA3F161F1A2275C90083989E /* red-left-90-degree-rotate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "red-left-90-degree-rotate.pdf"; sourceTree = "<group>"; };
+		DA3F16201A2275C90083989E /* red-left-90-degree-rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red-left-90-degree-rotate.png"; path = "images/red-left-90-degree-rotate.png"; sourceTree = SOURCE_ROOT; };
+		DA3F16211A2275C90083989E /* red-right-45-degree-rotate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "red-right-45-degree-rotate.pdf"; sourceTree = "<group>"; };
+		DA3F16221A2275C90083989E /* red-right-45-degree-rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red-right-45-degree-rotate.png"; path = "images/red-right-45-degree-rotate.png"; sourceTree = SOURCE_ROOT; };
+		DA3F16231A2275C90083989E /* red-right-90-degree-rotate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "red-right-90-degree-rotate.pdf"; sourceTree = "<group>"; };
+		DA3F16241A2275C90083989E /* red-right-90-degree-rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red-right-90-degree-rotate.png"; path = "images/red-right-90-degree-rotate.png"; sourceTree = SOURCE_ROOT; };
+		DA3F16251A2275C90083989E /* red-stop.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "red-stop.pdf"; sourceTree = "<group>"; };
+		DA3F16261A2275C90083989E /* red-stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red-stop.png"; path = "images/red-stop.png"; sourceTree = SOURCE_ROOT; };
+		DA3F16271A2275C90083989E /* white-left-45-degree-rotate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "white-left-45-degree-rotate.pdf"; sourceTree = "<group>"; };
+		DA3F16281A2275C90083989E /* white-left-45-degree-rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-left-45-degree-rotate.png"; path = "images/white-left-45-degree-rotate.png"; sourceTree = SOURCE_ROOT; };
+		DA3F16291A2275C90083989E /* white-left-90-degree-rotate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "white-left-90-degree-rotate.pdf"; sourceTree = "<group>"; };
+		DA3F162A1A2275C90083989E /* white-left-90-degree-rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-left-90-degree-rotate.png"; path = "images/white-left-90-degree-rotate.png"; sourceTree = SOURCE_ROOT; };
+		DA3F162B1A2275C90083989E /* white-right-45-degree-rotate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "white-right-45-degree-rotate.pdf"; sourceTree = "<group>"; };
+		DA3F162C1A2275C90083989E /* white-right-45-degree-rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-right-45-degree-rotate.png"; path = "images/white-right-45-degree-rotate.png"; sourceTree = SOURCE_ROOT; };
+		DA3F162D1A2275C90083989E /* white-right-90-degree-rotate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "white-right-90-degree-rotate.pdf"; sourceTree = "<group>"; };
+		DA3F162E1A2275C90083989E /* white-right-90-degree-rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-right-90-degree-rotate.png"; path = "images/white-right-90-degree-rotate.png"; sourceTree = SOURCE_ROOT; };
+		DA3F162F1A2275C90083989E /* white-stop.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "white-stop.pdf"; sourceTree = "<group>"; };
+		DA3F16301A2275C90083989E /* white-stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-stop.png"; path = "images/white-stop.png"; sourceTree = SOURCE_ROOT; };
+		DA6DD7CF1A1E95D700CCD443 /* Space_Dock_ 18.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Space_Dock_ 18.xcdatamodel"; sourceTree = "<group>"; };
+		DA6DD7D01A1E98AF00CCD443 /* DockSquadronUpgrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockSquadronUpgrade.h; sourceTree = "<group>"; };
+		DA6DD7D11A1E98AF00CCD443 /* DockSquadronUpgrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockSquadronUpgrade.m; sourceTree = "<group>"; };
+		DA6DD7D81A1E99E000CCD443 /* DockSquadronUpgrade+Addons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DockSquadronUpgrade+Addons.h"; sourceTree = "<group>"; };
+		DA6DD7D91A1E99E000CCD443 /* DockSquadronUpgrade+Addons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DockSquadronUpgrade+Addons.m"; sourceTree = "<group>"; };
 		DA8A41401A1196D700190B34 /* Space_Dock_17.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Space_Dock_17.xcdatamodel; sourceTree = "<group>"; };
 		DACF40DB1A107EA4004E2DAF /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -963,6 +1056,27 @@
 		D433FE0E181503A20062731A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DA3F16101A2275C90083989E /* green-left-45-degree-rotate.png */,
+				DA3F16121A2275C90083989E /* green-left-90-degree-rotate.png */,
+				DA3F16141A2275C90083989E /* green-left-flank.png */,
+				DA3F16161A2275C90083989E /* green-right-45-degree-rotate.png */,
+				DA3F16181A2275C90083989E /* green-right-90-degree-rotate.png */,
+				DA3F161A1A2275C90083989E /* green-right-flank.png */,
+				DA3F161C1A2275C90083989E /* green-stop.png */,
+				DA3F161E1A2275C90083989E /* red-left-45-degree-rotate.png */,
+				DA3F16201A2275C90083989E /* red-left-90-degree-rotate.png */,
+				DA3F16221A2275C90083989E /* red-right-45-degree-rotate.png */,
+				DA3F16241A2275C90083989E /* red-right-90-degree-rotate.png */,
+				DA3F16261A2275C90083989E /* red-stop.png */,
+				DA3F16281A2275C90083989E /* white-left-45-degree-rotate.png */,
+				DA3F162A1A2275C90083989E /* white-left-90-degree-rotate.png */,
+				DA3F162C1A2275C90083989E /* white-right-45-degree-rotate.png */,
+				DA3F162E1A2275C90083989E /* white-right-90-degree-rotate.png */,
+				DA3F16301A2275C90083989E /* white-stop.png */,
+				DA3F16071A2268D60083989E /* red-left-flank.png */,
+				DA3F16081A2268D60083989E /* red-right-flank.png */,
+				DA3F16091A2268D60083989E /* white-left-flank.png */,
+				DA3F160A1A2268D60083989E /* white-right-flank.png */,
 				D428F11D18FCDE530007D963 /* white-right-spin.png */,
 				D428F11E18FCDE530007D963 /* white-left-spin.png */,
 				D428F11F18FCDE530007D963 /* red-right-spin.png */,
@@ -1045,6 +1159,27 @@
 		D4408D8C18445AF2008BA352 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DA3F160F1A2275C90083989E /* green-left-45-degree-rotate.pdf */,
+				DA3F16111A2275C90083989E /* green-left-90-degree-rotate.pdf */,
+				DA3F16131A2275C90083989E /* green-left-flank.pdf */,
+				DA3F16151A2275C90083989E /* green-right-45-degree-rotate.pdf */,
+				DA3F16171A2275C90083989E /* green-right-90-degree-rotate.pdf */,
+				DA3F16191A2275C90083989E /* green-right-flank.pdf */,
+				DA3F161B1A2275C90083989E /* green-stop.pdf */,
+				DA3F161D1A2275C90083989E /* red-left-45-degree-rotate.pdf */,
+				DA3F161F1A2275C90083989E /* red-left-90-degree-rotate.pdf */,
+				DA3F16211A2275C90083989E /* red-right-45-degree-rotate.pdf */,
+				DA3F16231A2275C90083989E /* red-right-90-degree-rotate.pdf */,
+				DA3F16251A2275C90083989E /* red-stop.pdf */,
+				DA3F16271A2275C90083989E /* white-left-45-degree-rotate.pdf */,
+				DA3F16291A2275C90083989E /* white-left-90-degree-rotate.pdf */,
+				DA3F162B1A2275C90083989E /* white-right-45-degree-rotate.pdf */,
+				DA3F162D1A2275C90083989E /* white-right-90-degree-rotate.pdf */,
+				DA3F162F1A2275C90083989E /* white-stop.pdf */,
+				DA3F15F71A22687D0083989E /* red-left-flank.pdf */,
+				DA3F15F81A22687D0083989E /* red-right-flank.pdf */,
+				DA3F15F91A22687D0083989E /* white-left-flank.pdf */,
+				DA3F15FA1A22687D0083989E /* white-right-flank.pdf */,
 				D460664618FC2C22007A1655 /* green-right-spin.pdf */,
 				D460664718FC2C22007A1655 /* green-left-spin.pdf */,
 				D460664818FC2C22007A1655 /* red-left-spin.pdf */,
@@ -1147,6 +1282,8 @@
 				D4F6866C18F995E90019C067 /* DockFlagship.m */,
 				D4F6866718F995E90019C067 /* DockUpgrade.h */,
 				D4F6866818F995E90019C067 /* DockUpgrade.m */,
+				DA6DD7D01A1E98AF00CCD443 /* DockSquadronUpgrade.h */,
+				DA6DD7D11A1E98AF00CCD443 /* DockSquadronUpgrade.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -1346,6 +1483,8 @@
 				D4AAA2BB17F4DF3D00A99383 /* DockSquad+Addons.m */,
 				D4E4868C18DB424900D3BAB8 /* DockSquadImporter.h */,
 				D4E4868D18DB424900D3BAB8 /* DockSquadImporter.m */,
+				DA6DD7D81A1E99E000CCD443 /* DockSquadronUpgrade+Addons.h */,
+				DA6DD7D91A1E99E000CCD443 /* DockSquadronUpgrade+Addons.m */,
 				D4F671A619BFCE3500F9EDBC /* DockUnique.h */,
 				D4AAA28917F408D400A99383 /* DockUpgrade+Addons.h */,
 				D4AAA28A17F408D400A99383 /* DockUpgrade+Addons.m */,
@@ -1468,8 +1607,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4408DB8184469C4008BA352 /* green-right-bank.pdf in Resources */,
+				DA3F16651A2275C90083989E /* white-left-90-degree-rotate.pdf in Resources */,
 				D4BCA3EC1814EC0900921183 /* MainMenu.xib in Resources */,
 				D4408DC918446B84008BA352 /* red-right-bank.pdf in Resources */,
+				DA3F16351A2275C90083989E /* green-left-90-degree-rotate.pdf in Resources */,
 				D4408DD918446C3A008BA352 /* green-about.pdf in Resources */,
 				D4408DD018446BEF008BA352 /* green-backup.pdf in Resources */,
 				D4F6861D18F97D7D0019C067 /* platform.strings in Resources */,
@@ -1478,37 +1619,56 @@
 				D4D2BD1B191687FA00ADA866 /* FlagshipTile.xib in Resources */,
 				D460664F18FC2C22007A1655 /* red-right-spin.pdf in Resources */,
 				D4408DCB18446B84008BA352 /* red-right-turn.pdf in Resources */,
+				DA3F16691A2275C90083989E /* white-right-45-degree-rotate.pdf in Resources */,
 				D460664E18FC2C22007A1655 /* red-left-spin.pdf in Resources */,
+				DA3F16311A2275C90083989E /* green-left-45-degree-rotate.pdf in Resources */,
 				D4408DA018445AF2008BA352 /* white-straight.pdf in Resources */,
 				D4408D9E18445AF2008BA352 /* white-right-turn.pdf in Resources */,
 				D4408DAF184468D5008BA352 /* green-straight.pdf in Resources */,
 				D4BCA3EB1814EC0900921183 /* InfoPlist.strings in Resources */,
 				D475C66C19169C1700275EF1 /* WeaponTile.xib in Resources */,
 				D4408D9418445AF2008BA352 /* white-about.pdf in Resources */,
+				DA3F15FC1A22687D0083989E /* red-right-flank.pdf in Resources */,
 				D4408DD618446C03008BA352 /* green-right-turn.pdf in Resources */,
 				D4408D9618445AF2008BA352 /* white-backup.pdf in Resources */,
 				D4BCA3F01814EC0900921183 /* space_dock.icns in Resources */,
 				D4BCA3EA1814EC0900921183 /* Credits.rtf in Resources */,
 				D4408DB6184469C4008BA352 /* green-left-bank.pdf in Resources */,
+				DA3F164D1A2275C90083989E /* red-left-45-degree-rotate.pdf in Resources */,
 				D4408DC318446B84008BA352 /* red-backup.pdf in Resources */,
 				D4C8EED5186109F1007BBD1A /* ShipGrid.xib in Resources */,
+				DA3F15FE1A22687D0083989E /* white-right-flank.pdf in Resources */,
+				DA3F15FB1A22687D0083989E /* red-left-flank.pdf in Resources */,
 				D421E4D7197044690055566E /* AdmiralTile.xib in Resources */,
 				D460664C18FC2C22007A1655 /* green-right-spin.pdf in Resources */,
 				D460665118FC2C22007A1655 /* white-left-spin.pdf in Resources */,
 				D475C66A19168CFF00275EF1 /* UpgradeTile.xib in Resources */,
+				DA3F16711A2275C90083989E /* white-stop.pdf in Resources */,
+				DA3F16411A2275C90083989E /* green-right-90-degree-rotate.pdf in Resources */,
 				D4408DD418446C03008BA352 /* green-left-turn.pdf in Resources */,
+				DA3F16491A2275C90083989E /* green-stop.pdf in Resources */,
 				D4EF855B191591CC0049235E /* BuildMat.xib in Resources */,
+				DA3F16611A2275C90083989E /* white-left-45-degree-rotate.pdf in Resources */,
 				D4408D9818445AF2008BA352 /* white-left-bank.pdf in Resources */,
 				D4408D9A18445AF2008BA352 /* white-left-turn.pdf in Resources */,
+				DA3F16551A2275C90083989E /* red-right-45-degree-rotate.pdf in Resources */,
+				DA3F166D1A2275C90083989E /* white-right-90-degree-rotate.pdf in Resources */,
 				D4408DC718446B84008BA352 /* red-left-turn.pdf in Resources */,
 				D460665018FC2C22007A1655 /* white-right-spin.pdf in Resources */,
 				D4408D9C18445AF2008BA352 /* white-right-bank.pdf in Resources */,
 				D4EF85621915E7620049235E /* ShipTile.xib in Resources */,
+				DA3F16511A2275C90083989E /* red-left-90-degree-rotate.pdf in Resources */,
 				D4F7F40E17F2C95D00F5A808 /* Data.xml in Resources */,
 				D4408DC518446B84008BA352 /* red-left-bank.pdf in Resources */,
 				D4408DC118446B84008BA352 /* red-about.pdf in Resources */,
+				DA3F16451A2275C90083989E /* green-right-flank.pdf in Resources */,
+				DA3F165D1A2275C90083989E /* red-stop.pdf in Resources */,
+				DA3F16391A2275C90083989E /* green-left-flank.pdf in Resources */,
+				DA3F163D1A2275C90083989E /* green-right-45-degree-rotate.pdf in Resources */,
+				DA3F15FD1A22687D0083989E /* white-left-flank.pdf in Resources */,
 				D4D2BD19191683F300ADA866 /* CaptainTile.xib in Resources */,
 				D460664D18FC2C22007A1655 /* green-left-spin.pdf in Resources */,
+				DA3F16591A2275C90083989E /* red-right-90-degree-rotate.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1517,10 +1677,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4408DCE18446B84008BA352 /* red-straight.pdf in Resources */,
+				DA3F160D1A2268D60083989E /* white-left-flank.png in Resources */,
+				DA3F16501A2275C90083989E /* red-left-45-degree-rotate.png in Resources */,
 				D4408E0B1845B3C5008BA352 /* red-straight.png in Resources */,
 				D428F12318FCDE530007D963 /* white-right-spin.png in Resources */,
 				D4408DC418446B84008BA352 /* red-backup.pdf in Resources */,
 				D4408DB0184468D5008BA352 /* green-straight.pdf in Resources */,
+				DA3F16741A2275C90083989E /* white-stop.png in Resources */,
 				D4408E071845B3C5008BA352 /* red-left-bank.png in Resources */,
 				D4409399184EBC0B00385361 /* staw-squad-icon-320.png in Resources */,
 				D4408E031845B3C5008BA352 /* green-right-turn.png in Resources */,
@@ -1529,31 +1692,44 @@
 				D4409397184EBBF600385361 /* staw-squad-icon-64.png in Resources */,
 				D4408E051845B3C5008BA352 /* red-about.png in Resources */,
 				D4408E0D1845B3C5008BA352 /* white-backup.png in Resources */,
+				DA3F160C1A2268D60083989E /* red-right-flank.png in Resources */,
 				D433FE26181503A20062731A /* Images.xcassets in Resources */,
 				D4408E0A1845B3C5008BA352 /* red-right-turn.png in Resources */,
+				DA3F164C1A2275C90083989E /* green-stop.png in Resources */,
 				D4408E041845B3C5008BA352 /* green-straight.png in Resources */,
 				D4408DC618446B84008BA352 /* red-left-bank.pdf in Resources */,
 				D47316A818182BFC00046428 /* Data.xml in Resources */,
 				D4408DC218446B84008BA352 /* red-about.pdf in Resources */,
 				D4408D9B18445AF2008BA352 /* white-left-turn.pdf in Resources */,
+				DA3F16401A2275C90083989E /* green-right-45-degree-rotate.png in Resources */,
 				D4408D9718445AF2008BA352 /* white-backup.pdf in Resources */,
+				DA3F16601A2275C90083989E /* red-stop.png in Resources */,
 				D4408DFE1845B3C5008BA352 /* green-about.png in Resources */,
 				D4408E021845B3C5008BA352 /* green-right-bank.png in Resources */,
 				D4408E001845B3C5008BA352 /* green-left-bank.png in Resources */,
 				D433FE12181503A20062731A /* InfoPlist.strings in Resources */,
 				D4408DFF1845B3C5008BA352 /* green-backup.png in Resources */,
+				DA3F16581A2275C90083989E /* red-right-45-degree-rotate.png in Resources */,
+				DA3F16641A2275C90083989E /* white-left-45-degree-rotate.png in Resources */,
 				D4408E101845B3C5008BA352 /* white-right-bank.png in Resources */,
 				D4408E121845B3C5008BA352 /* white-straight.png in Resources */,
 				D4408DB7184469C4008BA352 /* green-left-bank.pdf in Resources */,
+				DA3F160B1A2268D60083989E /* red-left-flank.png in Resources */,
 				D4408E0E1845B3C5008BA352 /* white-left-bank.png in Resources */,
 				D4408D9918445AF2008BA352 /* white-left-bank.pdf in Resources */,
 				D4408DDA18446C3A008BA352 /* green-about.pdf in Resources */,
 				D4408DCC18446B84008BA352 /* red-right-turn.pdf in Resources */,
+				DA3F16381A2275C90083989E /* green-left-90-degree-rotate.png in Resources */,
 				D47316A51818263500046428 /* SpaceDock.storyboard in Resources */,
+				DA3F16701A2275C90083989E /* white-right-90-degree-rotate.png in Resources */,
+				DA3F160E1A2268D60083989E /* white-right-flank.png in Resources */,
 				D4F6861B18F97D050019C067 /* platform.strings in Resources */,
 				D4408DD118446BEF008BA352 /* green-backup.pdf in Resources */,
 				D4408DC818446B84008BA352 /* red-left-turn.pdf in Resources */,
+				DA3F16341A2275C90083989E /* green-left-45-degree-rotate.png in Resources */,
 				D4408DA118445AF2008BA352 /* white-straight.pdf in Resources */,
+				DA3F166C1A2275C90083989E /* white-right-45-degree-rotate.png in Resources */,
+				DA3F163C1A2275C90083989E /* green-left-flank.png in Resources */,
 				D4408E091845B3C5008BA352 /* red-right-bank.png in Resources */,
 				D428F12618FCDE530007D963 /* red-left-spin.png in Resources */,
 				D4408D9D18445AF2008BA352 /* white-right-bank.pdf in Resources */,
@@ -1563,13 +1739,18 @@
 				D428F12518FCDE530007D963 /* red-right-spin.png in Resources */,
 				D428F12418FCDE530007D963 /* white-left-spin.png in Resources */,
 				D4408E0C1845B3C5008BA352 /* white-about.png in Resources */,
+				DA3F16541A2275C90083989E /* red-left-90-degree-rotate.png in Resources */,
 				D4408E061845B3C5008BA352 /* red-backup.png in Resources */,
+				DA3F165C1A2275C90083989E /* red-right-90-degree-rotate.png in Resources */,
 				DACF40DC1A107EA4004E2DAF /* Settings.bundle in Resources */,
 				D428F12818FCDE530007D963 /* green-left-spin.png in Resources */,
 				D4408D9F18445AF2008BA352 /* white-right-turn.pdf in Resources */,
+				DA3F16681A2275C90083989E /* white-left-90-degree-rotate.png in Resources */,
+				DA3F16441A2275C90083989E /* green-right-90-degree-rotate.png in Resources */,
 				D4408DD718446C03008BA352 /* green-right-turn.pdf in Resources */,
 				D4408D9518445AF2008BA352 /* white-about.pdf in Resources */,
 				D4408E111845B3C5008BA352 /* white-right-turn.png in Resources */,
+				DA3F16481A2275C90083989E /* green-right-flank.png in Resources */,
 				D4408E011845B3C5008BA352 /* green-left-turn.png in Resources */,
 				D4408E081845B3C5008BA352 /* red-left-turn.png in Resources */,
 			);
@@ -1674,11 +1855,13 @@
 				D43D58C618D9E4DB0005BE63 /* ISO8601DateFormatter.m in Sources */,
 				D414B9D0197E08B6005629F7 /* DockTabControllerConstants.m in Sources */,
 				D4F671A419BF63F600F9EDBC /* DockSetItem.m in Sources */,
+				DA6DD7DA1A1E99E000CCD443 /* DockSquadronUpgrade+Addons.m in Sources */,
 				D414B9D3197E96B2005629F7 /* DockSquadDetailController.m in Sources */,
 				D41BA80817F67FE0005266E6 /* DockShip+Addons.m in Sources */,
 				D475C66F1916B6E600275EF1 /* DockPaginatedTableView.m in Sources */,
 				D4AAA28B17F408D400A99383 /* DockUpgrade+Addons.m in Sources */,
 				D4158D0B1976DD1B00F7C8E8 /* DockTabController.m in Sources */,
+				DA6DD7D21A1E98AF00CCD443 /* DockSquadronUpgrade.m in Sources */,
 				D43FE80618C3A13D00AECA5F /* DockUpgrade+MacAddons.m in Sources */,
 				D472A41F187CC159004DAC07 /* DockOverrideEditor.m in Sources */,
 				D472A414187CA69B004DAC07 /* DockNoteEditor.m in Sources */,
@@ -1760,6 +1943,7 @@
 				D4C1A7A7196304A10070005E /* NSFileManager+Addons.m in Sources */,
 				D4F85A5B196998C00062A0CE /* DockAdmiral+Addons.m in Sources */,
 				D4B82243189AAA6700CD15AE /* DockCrew+Addons.m in Sources */,
+				DA6DD7DB1A1E99E000CCD443 /* DockSquadronUpgrade+Addons.m in Sources */,
 				D4711F6E18427CA300EFF34B /* DockShipClassDetails+Addons.m in Sources */,
 				D496283A19284C97007EFE5A /* DockReferenceDetailViewController.m in Sources */,
 				D47316AB18182C4C00046428 /* DockDataFileLoader.m in Sources */,
@@ -1776,6 +1960,7 @@
 				D45C058919AAD29200696DAE /* DockOfficer.m in Sources */,
 				D47316B218182C4C00046428 /* DockShip+Addons.m in Sources */,
 				D43AAFB71993B37C002081E4 /* DockSectionHandler.m in Sources */,
+				DA6DD7D31A1E98AF00CCD443 /* DockSquadronUpgrade.m in Sources */,
 				D4F8B50F1837EFF20051A486 /* DockSetTableViewCell.m in Sources */,
 				D415E171186683B800D3B25D /* DockSetItem+Addons.m in Sources */,
 				D4F6867E18F995E90019C067 /* DockSideboard.m in Sources */,
@@ -2137,6 +2322,7 @@
 		D4F7F40C17F2C95D00F5A808 /* Space_Dock.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				DA6DD7CF1A1E95D700CCD443 /* Space_Dock_ 18.xcdatamodel */,
 				DA8A41401A1196D700190B34 /* Space_Dock_17.xcdatamodel */,
 				D4F671A119BF63A800F9EDBC /* Space_Dock_16.xcdatamodel */,
 				D45C058519AAD14500696DAE /* Space_Dock_15.xcdatamodel */,
@@ -2155,7 +2341,7 @@
 				D40AF35A1802FB36000B9FF3 /* Space_Dock_2.xcdatamodel */,
 				D4F7F40D17F2C95D00F5A808 /* Space_Dock.xcdatamodel */,
 			);
-			currentVersion = DA8A41401A1196D700190B34 /* Space_Dock_17.xcdatamodel */;
+			currentVersion = DA6DD7CF1A1E95D700CCD443 /* Space_Dock_ 18.xcdatamodel */;
 			path = Space_Dock.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

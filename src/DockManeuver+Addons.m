@@ -17,4 +17,10 @@
     return [self.kind hasSuffix: @"spin"];
 }
 
+-(BOOL)isFlank
+{
+    return [self.kind hasSuffix: @"flank"];
+}
+
+
 @end

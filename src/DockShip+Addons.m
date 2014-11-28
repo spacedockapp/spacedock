@@ -229,11 +229,10 @@ NSString* asDegrees(NSString* textValue)
 
 -(BOOL)isFighterSquadron
 {
-    NSString* shipClass = self.shipClass;
-    if ([shipClass isEqualToString: @"Federation Attack Fighter"]) {
+    if ([self.externalId isEqualToString: @"federation_attack_fighter_op6prize"]) {
         return YES;
     }
-    if ([shipClass isEqualToString: @"Hideki Class Attack Fighter"]) {
+    if ([self.externalId isEqualToString: @"hideki_class_attack_fighter_op5prize"]) {
         return YES;
     }
     return NO;
@@ -306,14 +305,13 @@ NSString* asDegrees(NSString* textValue)
 
 -(DockResource*)associatedResource
 {
-    NSString* shipClass = self.shipClass;
-    if ([shipClass isEqualToString: @"Federation Attack Fighter"]) {
+    if ([self.externalId isEqualToString: @"federation_attack_fighter_op6prize"]) {
         return [DockResource resourceForId: @"federation_attack_fighters_op6participation" context: self.managedObjectContext];
     }
-    if ([shipClass isEqualToString: @"Hideki Class Attack Fighter"]) {
+    if ([self.externalId isEqualToString: @"hideki_class_attack_fighter_op5prize"]) {
         return [DockResource resourceForId: @"hideki_class_attack_squadron_op5participation" context: self.managedObjectContext];
     }
-    NSLog(@"No associated resource for %@", self);
+    NSLog(@"No associated resource for %@", self.externalId);
     return nil;
 }
 
@@ -383,6 +381,10 @@ NSString* asDegrees(NSString* textValue)
     return [self.borg intValue];
 }
 
+-(int)squadronUpgradeCount
+{
+    return [self.squadronUpgrade intValue];
+}
 -(NSString*)attackString
 {
     if ([self isFighterSquadron]) {
