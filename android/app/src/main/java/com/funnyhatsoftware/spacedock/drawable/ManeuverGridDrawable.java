@@ -191,7 +191,7 @@ public class ManeuverGridDrawable extends Drawable {
             if (maxSpeed > 5) {
                 mVerticalOffset = maxSpeed - 5;
             }
-            if (minSpeed < -2) {
+            if (minSpeed < -3) {
                 if (mVerticalOffset != 0) {
                     throw new IllegalStateException("Maneuver range unsupported, too large");
                 }
