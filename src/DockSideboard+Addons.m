@@ -94,7 +94,20 @@
     if ([upgrade isBorg]) {
         return NO;
     }
-    return ![self upgradeWouldExceedCostLimit: upgrade];
+    if ([upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
+        return NO;
+    }
+    if ([upgrade.externalId isEqualToString:@"biogenic_weapon_71510b"]) {
+        return NO;
+    }
+    if ([upgrade isBorg]) {
+        return NO;
+    }
+    if (!validating) {
+        return YES;
+    } else {
+        return ![self upgradeWouldExceedCostLimit: upgrade];
+    }
 }
 
 -(int)baseCost

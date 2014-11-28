@@ -427,6 +427,7 @@
     [self establishPlaceholdersForType: @"Weapon" limit: self.weaponCount];
     [self establishPlaceholdersForType: @"Tech" limit: self.techCount];
     [self establishPlaceholdersForType: @"Borg" limit: self.borgCount];
+    [self establishPlaceholdersForType: @"Squadron" limit:self.squadronUpgradeCount];
 }
 
 -(DockEquippedUpgrade*)findPlaceholder:(NSString*)upType
@@ -478,10 +479,6 @@
 
     if ([upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
         if (![captain.externalId isEqualToString:@"shinzon_71533"]) {
-            return NO;
-        }
-        
-        if ([self isResourceSideboard]) {
             return NO;
         }
     }
@@ -1312,6 +1309,13 @@
     }
 
     return borgCount;
+}
+
+-(int)squadronUpgradeCount
+{
+    int squadronUpgradeCount = self.ship.squadronUpgradeCount;
+    
+    return squadronUpgradeCount;
 }
 
 -(int)officerLimit

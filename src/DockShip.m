@@ -39,5 +39,6 @@
 @dynamic captainLimit;
 @dynamic equippedShips;
 @dynamic shipClassDetails;
+@dynamic squadronUpgrade;
 
 @end

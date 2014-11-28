@@ -40,6 +40,7 @@
 @property (nonatomic, retain) NSNumber * captainLimit;
 @property (nonatomic, retain) NSSet *equippedShips;
 @property (nonatomic, retain) DockShipClassDetails *shipClassDetails;
+@property (nonatomic, retain) NSNumber * squadronUpgrade;
 @end
 
 @interface DockShip (CoreDataGeneratedAccessors)

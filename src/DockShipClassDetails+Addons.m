@@ -122,11 +122,20 @@
     NSMutableSet* specials = [NSMutableSet setWithCapacity: 0];
 
     for (DockManeuver* m in self.maneuvers) {
-        if ([m.kind isEqualToString: @"about"]) {
+        if ([m.kind hasSuffix: @"spin"]) {
+            [specials addObject: @"spin"];
+        } else if ([m.kind isEqualToString: @"about"]) {
             [specials addObject: @"come about"];
         } else if ([m.speed intValue] < 0 && [m.kind isEqualToString: @"straight"]) {
             [specials addObject: @"backup"];
+        } else if ([m.kind isEqualToString: @"stop"]) {
+            [specials addObject: @"all stop"];
+        } else if ([m.kind hasSuffix: @"rotate"]) {
+            [specials addObject: @"rotate"];
+        } else if ([m.speed intValue] >= 5 && ![m.color isEqualToString:@"red"]) {
+            [specials addObject: @"fast"];
         }
+
     }
     return [[specials allObjects] componentsJoinedByString: @","];
 }
@@ -146,6 +155,16 @@
     id finder = ^(id obj, NSUInteger idx, BOOL *stop) {
         DockManeuver* m = obj;
         return m.isSpin;
+    };
+    NSInteger index =  [self.maneuvers.allObjects indexOfObjectPassingTest: finder];
+    return index != NSNotFound;
+}
+
+-(BOOL)hasFlanks
+{
+    id finder = ^(id obj, NSUInteger idx, BOOL *stop) {
+        DockManeuver* m = obj;
+        return m.isFlank;
     };
     NSInteger index =  [self.maneuvers.allObjects indexOfObjectPassingTest: finder];
     return index != NSNotFound;

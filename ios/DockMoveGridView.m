@@ -23,6 +23,11 @@
 
     NSArray* moveValues = @[@5, @4, @3, @2, @1, @-1, @-2];
     NSSet* speeds = _ship.shipClassDetails.speeds;
+    if ([speeds containsObject:@0] && [speeds containsObject:@5]) {
+        moveValues = @[@5, @4, @3, @2, @1, @0, @-1, @-2];
+    } else if ([speeds containsObject:@0] && ![speeds containsObject:@5]) {
+        moveValues = @[@4, @3, @2, @1, @0, @-1, @-2];
+    }
     if ([speeds containsObject:@-3]) {
         if (![speeds containsObject:@5]) {
             moveValues = [moveValues subarrayWithRange: NSMakeRange(1, moveValues.count - 1)];
@@ -85,6 +90,8 @@
     DockShipClassDetails* details = _ship.shipClassDetails;
     if (details.hasSpins) {
         kinds = @[@"", @"left-spin", @"straight", @"right-spin", @"", @""];
+    } else if (details.hasFlanks) {
+        kinds = @[@"left-90-degree-rotate", @"left-flank", @"straight", @"right-flank", @"right-90-degree-rotate", @""];
     }
 
     for (int i = 0; i < moveValues.count; ++i) {
@@ -117,6 +124,15 @@
                 }
             } else if (details != nil) {
                 NSString* kind = kinds[j - 1];
+                if (speed == 0) {
+                    if ([kind isEqualToString:@"left-flank"]) {
+                        kind = @"left-45-degree-rotate";
+                    } else if ([kind isEqualToString:@"right-flank"]) {
+                        kind = @"right-45-degree-rotate";
+                    } else if ([kind isEqualToString:@"straight"]) {
+                        kind = @"stop";
+                    }
+                }
                 DockManeuver* maneuver = [details getDockManeuver: speed kind: kind];
 
                 if (maneuver != nil) {
@@ -126,6 +142,14 @@
 
                     if (speed < 0) {
                         directionName = @"backup";
+                    } else if (speed == 0) {
+                        if ([directionName isEqualToString:@"left-flank"]) {
+                            directionName = @"left-45-degree-rotate";
+                        } else if ([directionName isEqualToString:@"right-flank"]) {
+                            directionName = @"right-45-degree-rotate";
+                        } else if ([directionName isEqualToString:@"straight"]) {
+                            directionName = @"stop";
+                        }
                     }
 
                     NSString* fileName = [NSString stringWithFormat: @"%@-%@", color, directionName];

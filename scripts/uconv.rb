@@ -6,21 +6,17 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-11/17/2014 13:41:12	71534 - Fina Prime	Unique	Vidiian Boarding Party	Independent	ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1 that is not Cloaked and has no Active Shields.  Discard this card and roll 4 attack dice.  For each [HIT] or [CRIT] result, the target ship must discard 1 [CREW] Upgrade of your choice.  If you are Grappling the target ship, you may perform this Action as a free Action.	Crew	4	
-11/17/2014 13:41:56	71534 - Fina Prime	Unique	Dereth	Independent	If one of your [CREW] Upgrades (including this one) is affected by an enemy ship, you may disable 1 Upgrade of your choice on that enemy ship.	Crew	1	
-11/17/2014 13:43:03	71534 - Fina Prime	Unique	Denara Pel	Independent	ACTION: Target a ship at Range 1.  Discard this card and one [CREW] Upgrade of your choice on the target ship.  If you are Grappling the target ship, disable this card instead of discarding it when performing this Action.  This ability may be used against a ship that is Cloaked.	Crew	1	
-11/17/2014 13:44:10	71534 - Fina Prime	Unique	Sulan	Independent	ACTION: Target a ship at Range 1.  Discard this card and one [CREW] Upgrade of your choice on the target ship.  If you are Grappling the target ship, you may also disable up to 2 other [CREW] Upgrade on the target ship.  This ability may be used against a ship that is Cloaked.	Crew	3	
+11/24/2014 17:56:58	71513b - Assimilated Vessel 64758	Non-unique	Neural Link	Borg	ACTION: Discard this card to target all friendly Borg ships within Range 1-3.  Rearrange the current Drone Tokens on all of these ships any way that you want.  You must have the same total number of Drone Tokens between the ships and you cannot exceed the Captain's starting number of Drone Tokens on any of these ships.	Borg	3	
+11/24/2014 17:59:05	71513b - Assimilated Vessel 64758	Unique	Glinn Daro	Dominion	ACTION: Repair 1 Damage to your Hull or Shields.	Crew	3	
+11/24/2014 18:00:44	71513b - Assimilated Vessel 64758	Unique	Truce	Dominion	When defending, during the Declare Target step, you may discard this card to cancel that attack.  The cancelled attack cannot be directed against a different ship.  Place an Auxiliary Power Token beside your ship.  If you have already attacked during the round you use this ability, place a 2nd Auxiliary Power Token beside your ship.  This Upgrade costs +5 SP if purchased for a Captain with a Skill greater than 5.	Talent	5	Yes
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-11/7/2014 8:44:49	71792 - Cube 112	Unique	Locutus	9	Borg	At the start of the game, place 9 Drone Tokens on this card.  ACTION: Target a ship within Range 1-3 and spend up to 2 of your Drone Tokens.  Disable 1 Active Shield on the target ship for each Drone Token you spent with this Action.  You cannot deploy this card to the same ship or fleet as "Jean-Luc Picard." 	1	7	Yes	
-11/7/2014 8:45:18	71792 - Cube 112	Non-unique	Drone	1	Borg	At the start of the game, place 1 Drone Token on this card.	0	0		
-11/17/2014 13:36:33	71534 - Fina Prime	Unique	Vidiian Commander	7	Independent	You may add +1 attack die when you initiate an attack with the Grappler or Hypothermic Charge [WEAPON] Upgrades or when performing the Action listed on the Vidiian Boarding Party [CREW] Upgrade.	1	4		
+11/24/2014 17:54:51	71513b - Assimilated Vessel 64758	Unique	Gul Macet	5	Dominion	When attacking, during the Roll Attack Dice step, you may add +1 attack die to your roll.  If you do so, place an Auxiliary Power Token beside your ship.	1	3		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-11/17/2014 13:38:13	71534 - Fina Prime	Non-unique	Hypothermic Charge	Independent	3	1-2	ATTACK: Disable this card to perform this attack.  All damage inflicted by this attack ignores the opposing ship's Shields.  If the opposing ship has no Active Shields, you may choose any number of your attack dice and re-roll them.  This Upgrade may only be purchased for a Vidiian ship.	5	Yes
-11/17/2014 13:39:18	71534 - Fina Prime	Non-unique	Grappler	Independent	3	1	ATTACK: Disable this card to perform this attack.  This attack damage the target ship as normal.  In addition, if you inflict at least 1 damage to the target ship's Hull, place a red Grapple Token beside that ship and the corresponding blue Grapple Token beside your ship.	4	
+11/24/2014 17:58:18	71513b - Assimilated Vessel 64758	Non-unique	Magnetometric Guided Charge	Borg	3	1-3	ATTACK: Disable this card to perform this attack.  You may convert 1 of your [BATTLE STATIONS] results into a [CRIT] result.  Target ship does not roll defense dice against this attack.  This Upgrade may only be purchased for a Borg ship.	5	
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT

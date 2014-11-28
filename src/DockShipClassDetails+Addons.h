@@ -8,4 +8,5 @@
 -(NSString*)movesSummary;
 -(NSSet*)speeds;
 -(BOOL)hasSpins;
+-(BOOL)hasFlanks;
 @end
