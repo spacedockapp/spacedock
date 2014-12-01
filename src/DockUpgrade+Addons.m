@@ -640,8 +640,12 @@ static NSDictionary* sItemLabels = nil;
         if (![ship isRemanWarbird]) {
             cost += 5;
         }
-    } else if ([upgradeSpecial isEqualToString:@"PlusFiveIfSkillOverFive"]) {
+    } else if ([upgradeSpecial isEqualToString:@"PlusFiveIfSkillOverFive"] && ![equippedShip isResourceSideboard]) {
         if ([captain.skill intValue] > 5) {
+            cost += 5;
+        }
+    } else if ([upgradeSpecial isEqualToString:@"PlusFiveIfNotRegentsFlagship"]) {
+        if (![ship.title isEqualToString:@"Regent's Flagship"]) {
             cost += 5;
         }
     }

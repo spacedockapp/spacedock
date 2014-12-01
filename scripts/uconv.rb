@@ -6,20 +6,28 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-11/24/2014 17:56:58	71513b - Assimilated Vessel 64758	Non-unique	Neural Link	Borg	ACTION: Discard this card to target all friendly Borg ships within Range 1-3.  Rearrange the current Drone Tokens on all of these ships any way that you want.  You must have the same total number of Drone Tokens between the ships and you cannot exceed the Captain's starting number of Drone Tokens on any of these ships.	Borg	3	
-11/24/2014 17:59:05	71513b - Assimilated Vessel 64758	Unique	Glinn Daro	Dominion	ACTION: Repair 1 Damage to your Hull or Shields.	Crew	3	
-11/24/2014 18:00:44	71513b - Assimilated Vessel 64758	Unique	Truce	Dominion	When defending, during the Declare Target step, you may discard this card to cancel that attack.  The cancelled attack cannot be directed against a different ship.  Place an Auxiliary Power Token beside your ship.  If you have already attacked during the round you use this ability, place a 2nd Auxiliary Power Token beside your ship.  This Upgrade costs +5 SP if purchased for a Captain with a Skill greater than 5.	Talent	5	Yes
+11/30/2014 17:46:29	71535 - Regent's Flagship	Unique	Intendant's Orders	Mirror Universe	During the Planning Phase, you may disable this card to remove up to 2 Disabled Upgrade Tokens from your [CREW] Upgrades.	Talent	2	
+11/30/2014 17:47:34	71535 - Regent's Flagship	Unique	Make It So!	Mirror Universe	During the Activation Phase, after you move, you may discard this card and disable one of your [CREW] Upgrades to perform one additional Action this round as a free Action.	Talent	3	
+11/30/2014 17:48:47	71535 - Regent's Flagship	Unique	I Will Deal With Them Myself	Mirror Universe	During the Roll Attack Dice step, you may discard this card to disable up to 2 of your [CREW] Upgrades.  If you do so, roll 1 additional attack die for that attack for each Upgrade you disabled with this card.	Talent	5	
+11/30/2014 17:50:55	71535 - Regent's Flagship	Mirror Universe Unique	Elim Garak	Mirror Universe	While Elim Garak is assigned to a Mirror Universe ship, add 2 to that ship's Captain's Skill Number.  During the Roll Attack Dice step, you may disable your Captain Card to gain +1 additional die for that attack.	Crew	3	
+11/30/2014 17:51:38	71535 - Regent's Flagship	Mirror Universe Unique	Brunt	Mirror Universe	At the start of the End Phase, you may discard this card to target an enemy ship at Range 1-3.  Place an Auxiliary Power Token beside the target ship.	Crew	1	
+11/30/2014 17:56:05	71535 - Regent's Flagship	Mirror Universe Unique	Bareil Antos	Mirror Universe	ACTION: Disable this card to target a ship at Range 1-3.  Choose a [TECH] Upgrade and roll 1 attack die.  On a [HIT] or a [CRIT] result either discard that [TECH] Upgrade or steal it.  Your ship must have at least 1 [TECH] Upgrade slot in order to steal it.  If the stolen Upgrade exceeds your ship's restrictions, you must discard 1 of your [TECH] Upgrades to open a slot for it.	Crew	2	
+11/30/2014 17:57:00	71535 - Regent's Flagship	Mirror Universe Unique	Odo	Mirror Universe	ACTION: Select one of your disabled [CREW] Upgrades and perform that Upgrade's Action as a free Action.  Then discard that [CREW] Upgrade.	Crew	3	
+11/30/2014 17:58:24	71535 - Regent's Flagship	Non-unique	Cloaking Device	Mirror Universe	Instead of performing a normal Action, you may disable this card to perform the [CLOAK] Action.  While you have a [CLOAK] Token beside your ship, you may perform the [SENSOR ECHO] Action even if this card is disabled.  This Upgrade costs +5 Squadron Points for any ship other than the Regent's Flagship.	Tech	4	Yes
+11/30/2014 17:59:17	71535 - Regent's Flagship	Non-unique	Tractor Beam	Mirror Universe	ACTION: Target a ship at Range 1 and roll 2 attack dice.  For every [HIT] or [CRIT] result, place 1 Auxiliary Power Token beside the target ship.	Tech	3	
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-11/24/2014 17:54:51	71513b - Assimilated Vessel 64758	Unique	Gul Macet	5	Dominion	When attacking, during the Roll Attack Dice step, you may add +1 attack die to your roll.  If you do so, place an Auxiliary Power Token beside your ship.	1	3		
+11/30/2014 17:44:33	71535 - Regent's Flagship	Mirror Universe Unique	Kira Nerys	4	Mirror Universe	When a [CREW] Upgrade on an enemy ship within Range 1-2 of your ship performs an Action that would affect your ship, you may disable this card to prevent that Action from taking effect.  If you do this, the enemy ship cannot take another Action that round.  If the enemy [CREW] Upgrade was disabled to perform the Action, it remains disabled.  If the enemy [CREW] Upgrade was discarded to perform the Action, disable it instead.	1	2		
+11/30/2014 17:44:55	71535 - Regent's Flagship	Non-unique	Mirror Universe	1	Mirror Universe		0	0		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-11/24/2014 17:58:18	71513b - Assimilated Vessel 64758	Non-unique	Magnetometric Guided Charge	Borg	3	1-3	ATTACK: Disable this card to perform this attack.  You may convert 1 of your [BATTLE STATIONS] results into a [CRIT] result.  Target ship does not roll defense dice against this attack.  This Upgrade may only be purchased for a Borg ship.	5	
+11/30/2014 18:01:19	71535 - Regent's Flagship	Non-unique	Photon Torpedoes	Mirror Universe	5	2-3	ATTACK: (Target Lock) Spend your target lock and disable this card to perform this attack.  If fired from a Negh'Var class ship, gain +1 attack die.  You may fire this weapon from your forward or rear firing arcs.	5	
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT
+11/30/2014 17:40:43	71535 - Regent's Flagship	Mirror Universe Unique	Worf	Mirror Universe	FLEET ACTION: Target a friendly ship at Range 1-2 with a Hull Value of 3 or less.  The target ship immediately makes one free attack with its Primary Weapon against an enemy ship in its forward firing arc.  Place an Auxiliarly Power Token beside the target ship.	0	1	2	3	ACTION: Target a friendly ship at Range 1-2 with a Hull Value of 3 or less.  The target ship immediately makes one free attack with its Primary Weapon against an enemy ship in its forward firing arc.  Place an Auxiliarly Power Token beside the target ship.	1	2	
 ADMIRALSTEXT
 
 officers_text = <<-OFFICERSTEXT

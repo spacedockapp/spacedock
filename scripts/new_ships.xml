@@ -1,87 +1,58 @@
   <Ship>
-    <Title>Trager</Title>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Cardassian Galor Class</ShipClass>
-    <Faction>Dominion</Faction>
+    <Title>Regent's Flagship</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+    <ShipClass>Negh'var Class (Mirror)</ShipClass>
+    <Faction>Mirror Universe</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
+    <Attack>5</Attack>
     <Agility>1</Agility>
-    <Hull>4</Hull>
-    <Shield>4</Shield>
-    <Ability>During the Compare Results step, you may disable 1 of your Shields to cancel 1 [HIT] or [CRIT] result.  You cannot deploy this card to the same fleet as "Assimilated Vessel 64758."</Ability>
-    <Cost>26</Cost>
+    <Hull>7</Hull>
+    <Shield>3</Shield>
+    <Ability>Instead of making a normal attack with your Primary Weapon,  you may fire in any direction at up to 2 enemy ships at Range 1 with 4 attack dice against each ship.</Ability>
+    <Cost>32</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
-    <Battlestations>0</Battlestations>
+    <Battlestations>1</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
     <Tech>1</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
+    <Weapon>1</Weapon>
+    <Crew>3</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>trager_71513b</Id>
-    <Set>71513b</Set>
+    <Id>regent_s_flagship_71535</Id>
+    <Set>71535</Set>
   </Ship>
   <Ship>
-    <Title>Assimilated Vessel 64758</Title>
-    <Unique>Y</Unique>
+    <Title>Mirror Universe Starship</Title>
+    <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Cardassian Galor Class</ShipClass>
-    <Faction>Borg</Faction>
-    <AdditionalFaction>Dominion</AdditionalFaction>
+    <ShipClass>Negh'var Class (Mirror)</ShipClass>
+    <Faction>Mirror Universe</Faction>
+    <AdditionalFaction></AdditionalFaction>
     <Attack>5</Attack>
     <Agility>1</Agility>
-    <Hull>4</Hull>
-    <Shield>5</Shield>
-    <Ability>When defending, during the Declare Target step, you may spend 1 Drone Token to set 1 of your defense dice on any side that you want.  This die cannot be rolled or re-rolled during that attack.</Ability>
+    <Hull>7</Hull>
+    <Shield>2</Shield>
+    <Ability></Ability>
     <Cost>30</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
-    <Battlestations>0</Battlestations>
+    <Battlestations>1</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
-    <Regenerate>1</Regenerate>
-    <Borg>1</Borg>
-    <Tech>1</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
-    <Has360Arc>N</Has360Arc>
-    <Id>assimilated_vessel_64758_71513b</Id>
-    <Set>71513b</Set>
-  </Ship>
-  <Ship>
-    <Title>Dominion/Borg Starship</Title>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Cardassian Galor Class</ShipClass>
-    <Faction>Borg</Faction>
-    <AdditionalFaction>Dominion</AdditionalFaction>
-    <Attack>5</Attack>
-    <Agility>1</Agility>
-    <Hull>4</Hull>
-    <Shield>4</Shield>
-    <Ability></Ability>
-    <Cost>28</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>1</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>0</Cloak>
-    <SensorEcho>0</SensorEcho>
-    <Regenerate>1</Regenerate>
-    <Borg>1</Borg>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
     <Tech>1</Tech>
     <Weapon>1</Weapon>
-    <Crew>1</Crew>
+    <Crew>2</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>dominion_borg_starship_71513b</Id>
-    <Set>71513b</Set>
+    <Id>mirror_universe_starship_71535</Id>
+    <Set>71535</Set>
   </Ship>
