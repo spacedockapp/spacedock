@@ -837,7 +837,7 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSString* currentVersion = [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
     NSAlert* alert = [[NSAlert alloc] init];
-    if ([currentVersion compare:remoteVersion] != NSOrderedAscending) {
+    if ([currentVersion compare:remoteVersion] != NSOrderedDescending) {
         [alert addButtonWithTitle: @"Update"];
         [alert addButtonWithTitle: @"Cancel"];
         [alert setMessageText: @"New Game Data Available"];
