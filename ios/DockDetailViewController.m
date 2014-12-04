@@ -22,6 +22,12 @@
     [self recalculateWidth];
 }
 
+-(void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    [self recalculateWidth];
+}
+
 -(void)recalculateWidth
 {
     UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier: @"ability"];
@@ -30,7 +36,6 @@
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    NSLog(@"didRotateFromInterfaceOrientation");
     [super didRotateFromInterfaceOrientation: fromInterfaceOrientation];
     [self recalculateWidth];
     [self.tableView reloadData];

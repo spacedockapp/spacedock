@@ -57,10 +57,19 @@
     id finishLoadBlock = ^() {
         NSError* error;
         _managedObjectContext = [_coreDataManager createContext: NSMainQueueConcurrencyType error: &error];
-        UINavigationController* navigationController = (UINavigationController*)self.window.rootViewController;
+        UINavigationController* navigationController;
+        if ([self.window.rootViewController isKindOfClass:[UISplitViewController class]]) {
+            navigationController = [[(UISplitViewController*)self.window.rootViewController viewControllers] objectAtIndex:0];
+        } else {
+            navigationController = (UINavigationController*)self.window.rootViewController;
+        }
         id controller = [navigationController topViewController];
         DockTopMenuViewController* topMenuViewController = (DockTopMenuViewController*)controller;
         topMenuViewController.managedObjectContext = self.managedObjectContext;
+        
+        if ([self.window.rootViewController isKindOfClass:[UISplitViewController class]]) {
+            [topMenuViewController performSegueWithIdentifier:@"GoToSquads" sender:nil];
+        }
     };
 
     id loadBlock = ^() {
@@ -113,6 +122,11 @@
 
     [defaults registerDefaults: appDefs];
 
+    if ([self.window.rootViewController isKindOfClass:[UISplitViewController class]]) {
+        UISplitViewController* splitViewController = (UISplitViewController*) self.window.rootViewController;
+        splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
+    }
+    
     [self loadAppData];
     [self updateVersionInfo];
 
@@ -123,7 +137,12 @@
 {
     DockSquad* newSquad = [self importSquad: url];
     if (newSquad != nil) {
-        UINavigationController* navigationController = (UINavigationController*)self.window.rootViewController;
+        UINavigationController* navigationController;
+        if ([self.window.rootViewController isKindOfClass:[UISplitViewController class]]) {
+            navigationController = [[(UISplitViewController*)self.window.rootViewController viewControllers] objectAtIndex:0];
+        } else {
+            navigationController = (UINavigationController*)self.window.rootViewController;
+        }
         for (UIViewController* controller in navigationController.viewControllers) {
             if ([controller isKindOfClass: [DockTopMenuViewController class]]) {
                 [navigationController popToViewController: controller animated: NO];

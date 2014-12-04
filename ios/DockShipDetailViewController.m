@@ -14,6 +14,23 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    [self recalculateWidth];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear: animated];
+    [self recalculateWidth];
+}
+
+-(void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    [self recalculateWidth];
+}
+
+-(void)recalculateWidth
+{
     UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier: @"ability"];
     _labelWidth = self.tableView.bounds.size.width - cell.textLabel.bounds.size.width;
 }
