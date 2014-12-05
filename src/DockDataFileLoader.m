@@ -570,7 +570,8 @@ static NSString* makeKey(NSString* key)
         @"OnlyKlingonBirdOfPrey",
         @"addonetalentslot",
         @"not_with_jean_luc_picard",
-        @"PlusFiveIfSkillOverFive"
+        @"PlusFiveIfSkillOverFive",
+        @"PlusFiveIfNotRegentsFlagship"
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];

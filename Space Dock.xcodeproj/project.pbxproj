@@ -320,6 +320,9 @@
 		D4F872A818B5A87600783285 /* DockShipDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F872A718B5A87600783285 /* DockShipDelegate.m */; };
 		D4F8B50C1837E4EC0051A486 /* DockSetsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F8B50B1837E4EC0051A486 /* DockSetsListViewController.m */; };
 		D4F8B50F1837EFF20051A486 /* DockSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F8B50E1837EFF20051A486 /* DockSetTableViewCell.m */; };
+		DA2880D41A30190300A9C736 /* SpaceDock_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2880D31A30190300A9C736 /* SpaceDock_iPad.storyboard */; };
+		DA2880D71A3037A700A9C736 /* DockPushStartSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2880D61A3037A700A9C736 /* DockPushStartSegue.m */; };
+		DA2880DB1A304FDF00A9C736 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2880DA1A304FDF00A9C736 /* Launch Screen.xib */; };
 		DA2F22D41A0D425F002DB4A8 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = DA2F22D31A0D425F002DB4A8 /* dsa_pub.pem */; };
 		DA3F15FB1A22687D0083989E /* red-left-flank.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F15F71A22687D0083989E /* red-left-flank.pdf */; };
 		DA3F15FC1A22687D0083989E /* red-right-flank.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DA3F15F81A22687D0083989E /* red-right-flank.pdf */; };
@@ -798,6 +801,10 @@
 		D4F8B50B1837E4EC0051A486 /* DockSetsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockSetsListViewController.m; sourceTree = "<group>"; };
 		D4F8B50D1837EFF20051A486 /* DockSetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockSetTableViewCell.h; sourceTree = "<group>"; };
 		D4F8B50E1837EFF20051A486 /* DockSetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockSetTableViewCell.m; sourceTree = "<group>"; };
+		DA2880D31A30190300A9C736 /* SpaceDock_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpaceDock_iPad.storyboard; sourceTree = "<group>"; };
+		DA2880D51A3037A700A9C736 /* DockPushStartSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockPushStartSegue.h; sourceTree = "<group>"; };
+		DA2880D61A3037A700A9C736 /* DockPushStartSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockPushStartSegue.m; sourceTree = "<group>"; };
+		DA2880DA1A304FDF00A9C736 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		DA2F22D31A0D425F002DB4A8 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		DA3F15F71A22687D0083989E /* red-left-flank.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "red-left-flank.pdf"; sourceTree = "<group>"; };
 		DA3F15F81A22687D0083989E /* red-right-flank.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "red-right-flank.pdf"; sourceTree = "<group>"; };
@@ -1048,7 +1055,11 @@
 				D433FE25181503A20062731A /* Images.xcassets */,
 				D433FE0E181503A20062731A /* Supporting Files */,
 				D47316A31818260E00046428 /* SpaceDock.storyboard */,
+				DA2880D31A30190300A9C736 /* SpaceDock_iPad.storyboard */,
+				DA2880DA1A304FDF00A9C736 /* Launch Screen.xib */,
 				DACF40DB1A107EA4004E2DAF /* Settings.bundle */,
+				DA2880D51A3037A700A9C736 /* DockPushStartSegue.h */,
+				DA2880D61A3037A700A9C736 /* DockPushStartSegue.m */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -1726,6 +1737,7 @@
 				D4F6861B18F97D050019C067 /* platform.strings in Resources */,
 				D4408DD118446BEF008BA352 /* green-backup.pdf in Resources */,
 				D4408DC818446B84008BA352 /* red-left-turn.pdf in Resources */,
+				DA2880D41A30190300A9C736 /* SpaceDock_iPad.storyboard in Resources */,
 				DA3F16341A2275C90083989E /* green-left-45-degree-rotate.png in Resources */,
 				D4408DA118445AF2008BA352 /* white-straight.pdf in Resources */,
 				DA3F166C1A2275C90083989E /* white-right-45-degree-rotate.png in Resources */,
@@ -1744,6 +1756,7 @@
 				DA3F165C1A2275C90083989E /* red-right-90-degree-rotate.png in Resources */,
 				DACF40DC1A107EA4004E2DAF /* Settings.bundle in Resources */,
 				D428F12818FCDE530007D963 /* green-left-spin.png in Resources */,
+				DA2880DB1A304FDF00A9C736 /* Launch Screen.xib in Resources */,
 				D4408D9F18445AF2008BA352 /* white-right-turn.pdf in Resources */,
 				DA3F16681A2275C90083989E /* white-left-90-degree-rotate.png in Resources */,
 				DA3F16441A2275C90083989E /* green-right-90-degree-rotate.png in Resources */,
@@ -1936,6 +1949,7 @@
 				D4F6866A18F995E90019C067 /* DockUpgrade.m in Sources */,
 				D4F8B50C1837E4EC0051A486 /* DockSetsListViewController.m in Sources */,
 				D4A7B58B18329BA600C66123 /* DockSquadListCell.m in Sources */,
+				DA2880D71A3037A700A9C736 /* DockPushStartSegue.m in Sources */,
 				D4F686A218F995EA0019C067 /* DockManeuver.m in Sources */,
 				D47316B018182C4C00046428 /* DockResource+Addons.m in Sources */,
 				D4F671A519BF63F600F9EDBC /* DockSetItem.m in Sources */,
@@ -2181,7 +2195,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2212,7 +2226,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

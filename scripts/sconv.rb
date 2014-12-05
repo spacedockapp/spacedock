@@ -44,10 +44,8 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-11/24/2014 17:40:58	71513b - Assimilated Vessel 64758	Unique	Trager	Dominion	Cardassian Galor Class	Cardassian Galor Class				4	1	4	4	During the Compare Results step, you may disable 1 of your Shields to cancel 1 [HIT] or [CRIT] result.  You cannot deploy this card to the same fleet as "Assimilated Vessel 64758."	Evasive, Scan, Target Lock	26	0	1	1	2	180-degree forward	Yes	0
-11/24/2014 17:41:45	71513b - Assimilated Vessel 64758	Non-unique	Dominion Starship	Dominion	Cardassian Galor Class	Cardassian Galor Class				4	1	4	3		Evasive, Scan, Target Lock	24	0	1	1	1	180-degree forward		0
-11/24/2014 17:51:12	71513b - Assimilated Vessel 64758	Unique	Assimilated Vessel 64758	Borg, Dominion	Cardassian Galor Class	Cardassian Galor Class				5	1	4	5	When defending, during the Declare Target step, you may spend 1 Drone Token to set 1 of your defense dice on any side that you want.  This die cannot be rolled or re-rolled during that attack.	Evasive, Regenerate, Scan, Target Lock	30	1	1	1	2	180-degree forward		0
-11/24/2014 17:52:06	71513b - Assimilated Vessel 64758	Non-unique	Dominion/Borg Starship	Borg, Dominion	Cardassian Galor Class	Cardassian Galor Class				5	1	4	4		Evasive, Regenerate, Scan, Target Lock	28	1	1	1	1	180-degree forward		0
+11/30/2014 17:35:00	71535 - Regent's Flagship	Mirror Universe Unique	Regent's Flagship	Mirror Universe	Negh'var Class (Mirror)		1 Bank, 1 Forward, 2 Forward	2 Bank, 3 Bank, 3 Forward, 4 Forward, 5 Forward	2 Turn, 3 Turn	5	1	7	3	Instead of making a normal attack with your Primary Weapon,  you may fire in any direction at up to 2 enemy ships at Range 1 with 4 attack dice against each ship.	Battle Stations, Evasive, Scan, Target Lock	32	0	3	1	1	90-degree forward, 90-degree rear		0
+11/30/2014 17:37:40	71535 - Regent's Flagship	Non-unique	Mirror Universe Starship	Mirror Universe	Negh'var Class (Mirror)	Negh'var Class (Mirror)				5	1	7	2		Battle Stations, Evasive, Scan, Target Lock	30	0	2	1	1	90-degree forward, 90-degree rear		0
 SHIPTEXT
 
 

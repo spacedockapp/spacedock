@@ -62,7 +62,7 @@
 
 -(void)addAdditionalPredicatesForSearchTerm:(NSString*)searchTerm formatParts:(NSMutableArray*)formatParts arguments:(NSMutableArray*)arguments
 {
-    [formatParts addObject: @"((title contains[cd] %@ and unique == TRUE) or (shipClass contains[cd] %@ and unique == FALSE))"];
+    [formatParts addObject: @"((title contains[cd] %@ and (unique == TRUE or mirrorUniverseUnique == TRUE)) or (shipClass contains[cd] %@ and unique == FALSE and mirrorUniverseUnique == FALSE))"];
     [arguments addObject: searchTerm];
     [arguments addObject: searchTerm];
 }

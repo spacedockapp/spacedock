@@ -1,0 +1,20 @@
+  <Admiral>
+    <Title>Worf</Title>
+    <Ability>ACTION: Target a friendly ship at Range 1-2 with a Hull Value of 3 or less. The target ship immediately makes one free attack with its Primary Weapon against an enemy ship in its forward firing arc. Place an Auxiliarly Power Token beside the target ship.</Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+    <Skill>3</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Admiral</Type>
+    <Faction>Mirror Universe</Faction>
+    <Cost>2</Cost>
+    <Id>worf_71535</Id>
+    <Set>71535</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: Target a friendly ship at Range 1-2 with a Hull Value of 3 or less. The target ship immediately makes one free attack with its Primary Weapon against an enemy ship in its forward firing arc. Place an Auxiliarly Power Token beside the target ship.</AdmiralAbility>
+    <AdmiralCost>2</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>0</SkillModifier>
+  </Admiral>

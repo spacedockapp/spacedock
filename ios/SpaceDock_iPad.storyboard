@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C68m" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="CGb-hD-QBi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C68m" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" initialViewController="uqx-eR-Maf">
     <dependencies>
         <deployment version="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -10,7 +10,7 @@
             <objects>
                 <tableViewController id="z3Y-97-pZc" userLabel="resources" customClass="DockResourcesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Uzi-57-E5D">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -58,7 +58,7 @@
             <objects>
                 <tableViewController title="Upgrade" id="ItA-jp-4hr" userLabel="upgrades" customClass="DockUpgradesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="u21-Rz-XAh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="EN4-3b-rzR">
@@ -140,12 +140,58 @@
             </objects>
             <point key="canvasLocation" x="-188" y="-266"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iaP-y3-oD5">
+            <objects>
+                <navigationController toolbarHidden="NO" id="3sN-mm-JpR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8gx-61-S3Z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="ygs-wg-iDn">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="hi2-KK-S8V" kind="relationship" relationship="rootViewController" id="Y3R-se-zWL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6de-pI-0PW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1675" y="-371"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="tbo-QD-7Cf">
+            <objects>
+                <tableViewController id="hi2-KK-S8V" userLabel="Details View Controller" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Krz-Qb-qjt">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Detail" id="nqG-oB-kuX">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nqG-oB-kuX" id="8hq-k8-5Rq">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hi2-KK-S8V" id="cXN-V4-LfA"/>
+                            <outlet property="delegate" destination="hi2-KK-S8V" id="Wim-sw-lYG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Ogn-56-JN8"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LgP-2s-VaB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1207" y="-375"/>
+        </scene>
         <!--resource detail-->
         <scene sceneID="WNI-wG-Zxx">
             <objects>
                 <tableViewController id="QUv-6d-xVP" userLabel="resource detail" customClass="DockResourceDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="22" sectionHeaderHeight="22" sectionFooterHeight="22" id="DN8-dJ-cZq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -213,7 +259,7 @@
             <objects>
                 <tableViewController id="Lre-O3-tmx" userLabel="upgrade detail" customClass="DockUpgradeDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="22" sectionHeaderHeight="22" sectionFooterHeight="22" id="s7z-U0-SFU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -282,7 +328,7 @@
             <objects>
                 <tableViewController id="khE-7U-mMQ" userLabel="ship detail view" customClass="DockShipDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="22" sectionHeaderHeight="22" sectionFooterHeight="22" id="zQl-JD-9WJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -353,7 +399,7 @@
             <objects>
                 <viewController id="WM0-DO-tvn" userLabel="moves" customClass="DockMovesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="center" id="AOI-Nj-Jcs" customClass="DockMoveGridView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -366,6 +412,19 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tyg-Cf-8ez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1198" y="392"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="buI-Bz-vZ8">
+            <objects>
+                <splitViewController definesPresentationContext="YES" id="uqx-eR-Maf" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="CGb-hD-QBi" kind="relationship" relationship="masterViewController" id="CzY-Wh-Kwj"/>
+                        <segue destination="3sN-mm-JpR" kind="relationship" relationship="detailViewController" id="lOh-Qf-Ptc"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1cI-E5-CA2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1491" y="-1173"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ki2-aR-xMU">
@@ -391,7 +450,7 @@
             <objects>
                 <tableViewController id="rKi-ah-nKP" customClass="DockTopMenuViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lQY-6g-DL6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -412,7 +471,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="a7T-G7-OqU" kind="push" identifier="GoToSquads" id="ge6-xX-5Yn"/>
+                                                        <segue destination="a7T-G7-OqU" kind="custom" identifier="GoToSquads" customClass="DockPushStartSegue" id="ge6-xX-5Yn"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -433,7 +492,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="qai-jN-X8t" kind="push" identifier="GoToShips" id="me1-T8-16w"/>
+                                                        <segue destination="qai-jN-X8t" kind="custom" identifier="GoToShips" customClass="DockPushStartSegue" id="me1-T8-16w"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -454,7 +513,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="ItA-jp-4hr" kind="push" identifier="GoToCaptains" id="RE2-Ap-3fL"/>
+                                                        <segue destination="ItA-jp-4hr" kind="custom" identifier="GoToCaptains" customClass="DockPushStartSegue" id="RE2-Ap-3fL"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -475,7 +534,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="ItA-jp-4hr" kind="push" identifier="GoToCrew" id="5dv-CO-bAP"/>
+                                                        <segue destination="ItA-jp-4hr" kind="custom" identifier="GoToCrew" customClass="DockPushStartSegue" id="5dv-CO-bAP"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -496,7 +555,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="ItA-jp-4hr" kind="push" identifier="GoToTalents" id="Tdy-fS-NXb"/>
+                                                        <segue destination="ItA-jp-4hr" kind="custom" identifier="GoToTalents" customClass="DockPushStartSegue" id="Tdy-fS-NXb"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -517,7 +576,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="ItA-jp-4hr" kind="push" identifier="GoToTech" id="8is-LK-Gjc"/>
+                                                        <segue destination="ItA-jp-4hr" kind="custom" identifier="GoToTech" customClass="DockPushStartSegue" id="8is-LK-Gjc"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -538,7 +597,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="ItA-jp-4hr" kind="push" identifier="GoToWeapons" id="xuh-dp-0tA"/>
+                                                        <segue destination="ItA-jp-4hr" kind="custom" identifier="GoToWeapons" customClass="DockPushStartSegue" id="xuh-dp-0tA"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -559,7 +618,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="ItA-jp-4hr" kind="push" identifier="GoToBorg" id="wnY-uM-0L3"/>
+                                                        <segue destination="ItA-jp-4hr" kind="custom" identifier="GoToBorg" customClass="DockPushStartSegue" id="wnY-uM-0L3"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -580,7 +639,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="ItA-jp-4hr" kind="push" identifier="GoToSquadron" id="dvW-QN-6FE"/>
+                                                        <segue destination="ItA-jp-4hr" kind="custom" identifier="GoToSquadron" customClass="DockPushStartSegue" id="dvW-QN-6FE"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -601,7 +660,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="ItA-jp-4hr" kind="push" identifier="GoToOfficers" id="nev-Yw-OpA"/>
+                                                        <segue destination="ItA-jp-4hr" kind="custom" identifier="GoToOfficers" customClass="DockPushStartSegue" id="nev-Yw-OpA"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -622,7 +681,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="ItA-jp-4hr" kind="push" identifier="GoToAdmirals" id="QGP-gf-Q6H"/>
+                                                        <segue destination="ItA-jp-4hr" kind="custom" identifier="GoToAdmirals" customClass="DockPushStartSegue" id="QGP-gf-Q6H"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -643,7 +702,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="ItA-jp-4hr" kind="push" identifier="GoToFleetCaptains" id="ba4-FO-r4X"/>
+                                                        <segue destination="ItA-jp-4hr" kind="custom" identifier="GoToFleetCaptains" customClass="DockPushStartSegue" id="ba4-FO-r4X"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -664,7 +723,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="z3Y-97-pZc" kind="push" identifier="GoToResources" id="TwX-09-xdF"/>
+                                                        <segue destination="z3Y-97-pZc" kind="custom" identifier="GoToResources" customClass="DockPushStartSegue" id="TwX-09-xdF"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -685,7 +744,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="gvN-6f-O0Y" kind="push" identifier="GoToFlagships" id="hFa-qp-dtJ"/>
+                                                        <segue destination="gvN-6f-O0Y" kind="custom" identifier="GoToFlagships" customClass="DockPushStartSegue" id="hFa-qp-dtJ"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -706,7 +765,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="Yqd-y8-Y23" kind="push" identifier="GoToSets" id="Kra-dl-hs6"/>
+                                                        <segue destination="Yqd-y8-Y23" kind="custom" identifier="GoToSets" customClass="DockPushStartSegue" id="Kra-dl-hs6"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -727,7 +786,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="lIy-5D-2lF" kind="push" identifier="GoToReference" id="LIM-Rk-KLX"/>
+                                                        <segue destination="lIy-5D-2lF" kind="custom" identifier="GoToReference" customClass="DockPushStartSegue" id="LIM-Rk-KLX"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -757,7 +816,7 @@
             <objects>
                 <tableViewController id="qai-jN-X8t" userLabel="ships" customClass="DockShipsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="muY-c6-rD0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="Eac-c5-Zdf">
@@ -826,7 +885,7 @@
             <objects>
                 <tableViewController title="Equipped Ship" id="WHg-GX-8r1" userLabel="Equipped Ship" customClass="DockEquippedShipController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="33" sectionHeaderHeight="22" sectionFooterHeight="22" id="Pcv-3M-khg" userLabel="Equipped Ship">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -886,7 +945,7 @@
             <objects>
                 <tableViewController id="cZk-Ku-9vR" customClass="DockReferenceDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="22" sectionHeaderHeight="22" sectionFooterHeight="22" id="CoW-EO-t6r">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -954,7 +1013,7 @@
             <objects>
                 <tableViewController title="Reference" id="lIy-5D-2lF" userLabel="reference list" customClass="DockReferenceViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ZU1-Sq-hXu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -995,7 +1054,7 @@
             <objects>
                 <tableViewController id="gvN-6f-O0Y" customClass="DockFlagshipsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5tr-Hs-zOj">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1046,7 +1105,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="pick flagship" id="Goz-Ro-FHv" userLabel="pick flagship" customClass="DockFlagshipsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OkI-6M-cId">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1103,7 +1162,7 @@
             <objects>
                 <tableViewController id="1PZ-TN-dFw" customClass="DockFlagshipDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="22" sectionHeaderHeight="22" sectionFooterHeight="22" id="4w9-Zx-fiN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1171,7 +1230,7 @@
             <objects>
                 <tableViewController title="Details" id="oJc-XV-riK" customClass="DockBuildSheetViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cgt-hP-TJB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -1285,7 +1344,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="rop-iV-gvO">
-                                                    <rect key="frame" x="235" y="8" width="51" height="31"/>
+                                                    <rect key="frame" x="235" y="8" width="79" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </switch>
                                             </subviews>
@@ -1324,7 +1383,7 @@
             <objects>
                 <viewController title="Edit Value" id="2Bj-OL-F4i" userLabel="Edit Value" customClass="DockEditValueController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ys5-PK-IYB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ahoy" borderStyle="roundedRect" minimumFontSize="17" id="Gf6-Gg-Vpr">
@@ -1364,7 +1423,7 @@
             <objects>
                 <tableViewController id="Yqd-y8-Y23" customClass="DockSetsListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Lay-oa-UIy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1419,7 +1478,7 @@
             <objects>
                 <tableViewController id="a7T-G7-OqU" userLabel="squads" customClass="DockSquadsListController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="22" sectionFooterHeight="22" id="w3V-Vy-HcU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1431,21 +1490,21 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z7t-hb-orA">
-                                            <rect key="frame" x="20" y="2" width="200" height="21"/>
+                                            <rect key="frame" x="20" y="2" width="210" height="21"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="upgrade details" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" id="Odj-7I-s8G">
-                                            <rect key="frame" x="20" y="29" width="246" height="32"/>
+                                            <rect key="frame" x="20" y="29" width="260" height="32"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cost" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OWI-cj-w50">
-                                            <rect key="frame" x="232" y="2" width="34" height="21"/>
+                                            <rect key="frame" x="246" y="2" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1493,7 +1552,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="SquadDetail" title="Squad Detail" id="aSy-vS-qmb" userLabel="Squad Detail" customClass="DockSquadDetailController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="22" sectionFooterHeight="22" id="l4r-XH-dee">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1708,9 +1767,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="me1-T8-16w"/>
-        <segue reference="xuh-dp-0tA"/>
         <segue reference="TwX-09-xdF"/>
+        <segue reference="ba4-FO-r4X"/>
+        <segue reference="me1-T8-16w"/>
         <segue reference="YvD-5N-V1B"/>
     </inferredMetricsTieBreakers>
 </document>

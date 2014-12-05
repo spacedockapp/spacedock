@@ -17,6 +17,23 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    [self recalculateWidth];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear: animated];
+    [self recalculateWidth];
+}
+
+-(void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    [self recalculateWidth];
+}
+
+-(void)recalculateWidth
+{
     UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier: @"ability"];
     _labelWidth = self.tableView.bounds.size.width - cell.textLabel.bounds.size.width;
 }
@@ -373,7 +390,7 @@
         NSString* str = _upgrade.ability;
 
         if (str.length > 0) {
-            CGSize size = [str sizeWithFont: [UIFont systemFontOfSize: 14] constrainedToSize: CGSizeMake(_labelWidth - 40, 999) lineBreakMode: NSLineBreakByWordWrapping];
+            CGSize size = [str sizeWithFont: [UIFont systemFontOfSize: 14] constrainedToSize: CGSizeMake(_labelWidth - 5, 9999) lineBreakMode: NSLineBreakByWordWrapping];
             CGFloat rowHeight = size.height + 20;
             return rowHeight;
         }

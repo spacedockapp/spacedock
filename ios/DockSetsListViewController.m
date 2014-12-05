@@ -29,6 +29,19 @@
             [self.tableView selectRowAtIndexPath: indexPath animated: NO scrollPosition: UITableViewScrollPositionNone];
         }
     }
+    
+    if ([DockSet includedSets:self.managedObjectContext].count > 0) {
+        self.selectNone.enabled = YES;
+    } else {
+        self.selectNone.enabled = NO;
+    }
+    
+    if ([DockSet includedSets:self.managedObjectContext].count == [DockSet allSets:self.managedObjectContext].count ) {
+        self.selectAll.enabled = NO;
+    } else {
+        self.selectAll.enabled = YES;
+    }
+
     [super viewWillAppear: animated];
 }
 
@@ -80,7 +93,60 @@
     if (!saveItem(set, &error)) {
         presentError(error);
     }
+    
+    if ([DockSet includedSets:self.managedObjectContext].count > 0) {
+        self.selectNone.enabled = YES;
+    } else {
+        self.selectNone.enabled = NO;
+    }
+    
+    if ([DockSet includedSets:self.managedObjectContext].count == [DockSet allSets:self.managedObjectContext].count ) {
+        self.selectAll.enabled = NO;
+    } else {
+        self.selectAll.enabled = YES;
+    }
 }
+
+-(IBAction)selectAll:(id)sender
+{
+    NSArray* allSets = [DockSet allSets:self.managedObjectContext];
+    NSError* error;
+
+    for (DockSet* s in allSets) {
+        s.include = [NSNumber numberWithBool:YES];
+    }
+
+    if (![self.managedObjectContext save:&error]) {
+        presentError(error);
+    }
+    [self.tableView reloadData];
+    for (DockSet* s in allSets) {
+        if ([s.include boolValue]) {
+            NSIndexPath* indexPath = [self.fetchedResultsController indexPathForObject: s];
+            [self.tableView selectRowAtIndexPath: indexPath animated: NO scrollPosition: UITableViewScrollPositionNone];
+        }
+    }
+    self.selectAll.enabled = NO;
+    self.selectNone.enabled = YES;
+}
+
+-(IBAction)selectNone:(id)sender
+{
+    NSArray* allSets = [DockSet allSets:self.managedObjectContext];
+    NSError* error;
+    
+    for (DockSet* s in allSets) {
+        s.include = [NSNumber numberWithBool:NO];
+    }
+    
+    if (![self.managedObjectContext save:&error]) {
+        presentError(error);
+    }
+    [self.tableView reloadData];
+    self.selectNone.enabled = NO;
+    self.selectAll.enabled = YES;
+}
+
 
 -(NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
 {
