@@ -690,7 +690,15 @@
     }
     
     if ([upgradeSpecial isEqualToString: @"OnlyFedShipHV4CostPWVP1"]) {
-        if (![self.ship isFederation] || [self.ship.hull intValue] < 4) {
+        if ([self.ship isFederation]) {
+            int shipHull = [self.ship.hull intValue];
+            if (self.flagship != nil) {
+                shipHull += self.flagship.hullAdd;
+            }
+            if (shipHull < 4) {
+                return NO;
+            }
+        } else {
             return NO;
         }
     }
