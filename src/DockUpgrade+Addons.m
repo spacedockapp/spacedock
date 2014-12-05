@@ -566,6 +566,9 @@ static NSDictionary* sItemLabels = nil;
             if (equippedShip.isResourceSideboard) {
                 cost = 4;
             }
+            if (equippedShip.flagship != nil) {
+                cost += equippedShip.flagship.attackAdd;
+            }
             cost += 1;
         }
         if ([captainSpecial isEqualToString: @"WeaponUpgradesCostOneLess"]) {
