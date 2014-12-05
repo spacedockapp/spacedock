@@ -466,6 +466,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             cost -= 2;
         }
 
+        if ("PlusFiveIfSkillOverFive".equals(upgradeSpecial) && 5 < captain.getSkill()) {
+            cost += 5;
+        }
+
         if (cost < 0) {
             cost = 0;
         }

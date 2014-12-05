@@ -12,6 +12,7 @@ import com.funnyhatsoftware.spacedock.data.Universe;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 
 public class SetPreference extends MultiSelectListPreference
         implements Preference.OnPreferenceChangeListener {
@@ -24,19 +25,22 @@ public class SetPreference extends MultiSelectListPreference
     public SetPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        ArrayList<Set> sets = Universe.getUniverse().getAllSets();
-        String[] setLabels = new String[sets.size()];
-        String[] setValues = new String[sets.size()];
+        List<Set> sets = Universe.getUniverse().getAllSets();
 
+        List<String> setLabels = new ArrayList<String>();
+        List<String> setValues = new ArrayList<String>();
+//        setLabels.add("Select All");
+//        setValues.add("ALL");
+//        setLabels.add("Select None");
+//        setValues.add("NONE");
         Collections.sort(sets, new Set.SetComparator());
-
-        for (int i = 0; i < sets.size(); i++) {
-            setLabels[i] = sets.get(i).getProductName();
-            setValues[i] = sets.get(i).getExternalId();
-            mObservedSetIds.add(setValues[i]);
+        for (Set set : sets){
+            setLabels.add(set.getProductName());
+            setValues.add(set.getExternalId());
+            mObservedSetIds.add(set.getExternalId());
         }
-        setEntries(setLabels);
-        setEntryValues(setValues);
+        setEntries(setLabels.toArray(new String[setLabels.size()]));
+        setEntryValues(setValues.toArray(new String[setValues.size()]));
         setDefaultValue(mObservedSetIds); // each set enabled by default
         setOnPreferenceChangeListener(this);
     }

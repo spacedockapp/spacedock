@@ -130,6 +130,7 @@ public class ManeuverGridDrawable extends Drawable {
 
     private final int ROTATE_RIGHT_FLAG = 0x1;
     private final int HORIZONTAL_FLIP_FLAG = 0x2;
+    private final int DOWN_ANGLE_RIGHT_FLAG = 0x4;
     private final Matrix mTempMatrix = new Matrix();
     private void addPath(String name, Path p, int flags) {
         mTempMatrix.setScale(mGridSize, mGridSize);
@@ -138,6 +139,9 @@ public class ManeuverGridDrawable extends Drawable {
         }
         if ((flags & ROTATE_RIGHT_FLAG) != 0) {
             mTempMatrix.preRotate(90, 0, 0.5f);
+        }
+        if ((flags & DOWN_ANGLE_RIGHT_FLAG) != 0) {
+            mTempMatrix.preRotate(135, 0, 0.5f);
         }
         p.transform(mTempMatrix);
         mPathMap.put(name, p);
@@ -162,14 +166,46 @@ public class ManeuverGridDrawable extends Drawable {
         addPath("right-turn", getTurn(), 0);
         addPath("left-turn", getTurn(), HORIZONTAL_FLIP_FLAG);
         addPath("about", getAbout(), 0);
+        addPath("right-45-degree-rotate", getRotate(), DOWN_ANGLE_RIGHT_FLAG  | HORIZONTAL_FLIP_FLAG);
+        addPath("left-45-degree-rotate", getRotate(), DOWN_ANGLE_RIGHT_FLAG);
+        addPath("right-90-degree-rotate", getRotate(), ROTATE_RIGHT_FLAG | HORIZONTAL_FLIP_FLAG);
+        addPath("left-90-degree-rotate", getRotate(), ROTATE_RIGHT_FLAG);
+        addPath("stop", getStop(), 0);
+        addPath("right-flank", getStraight(), DOWN_ANGLE_RIGHT_FLAG);
+        addPath("left-flank", getStraight(), DOWN_ANGLE_RIGHT_FLAG | HORIZONTAL_FLIP_FLAG);
+    }
+
+    private static Path getStop() {
+        Path path = new Path();
+        path.addCircle(0, HEAD_WIDTH, HEAD_HEIGHT, Path.Direction.CW);
+        return path;
+    }
+
+    private Path getRotate() {
+        final RectF rect = new RectF();
+        Path path = new Path();
+        path.moveTo(-0.35f, .85f);
+        path.lineTo(-0.35f, 0.5f);
+        rect.set(-0.35f, 0.15f, 0.35f, 0.85f);
+        path.arcTo(rect, -180, 180);
+        path.lineTo(0.35f, .85f);
+        path.lineTo(0.25f, .85f);
+        rect.set(-0.25f, 0.25f, 0.25f, 0.75f);
+        path.arcTo(rect, 0, -180);
+        path.lineTo(-0.25f, .85f);
+        path.lineTo(-0.35f, .85f);
+        path.close();
+        return path;
     }
 
     private int getHorizontalPosition(String kind) {
-        if (kind.equals("straight")) return 0;
-        if (kind.equals("right-bank") || kind.equals("right-spin")) return 1;
-        if (kind.equals("left-bank") || kind.equals("left-spin")) return -1;
-        if (kind.equals("right-turn")) return 2;
-        if (kind.equals("left-turn")) return -2;
+        if (kind.equals("straight") || kind.equals("stop")) return 0;
+        if (kind.equals("right-bank") || kind.equals("right-spin")
+                || kind.equals("right-45-degree-rotate") || kind.equals("right-flank")) return 1;
+        if (kind.equals("left-bank") || kind.equals("left-spin")
+                || kind.equals("left-45-degree-rotate") || kind.equals("left-flank")) return -1;
+        if (kind.equals("right-turn") || kind.equals("right-90-degree-rotate")) return 2;
+        if (kind.equals("left-turn") || kind.equals("left-90-degree-rotate")) return -2;
         if (kind.equals("about")) return 3;
 
         return Integer.MAX_VALUE; // unknown kind of movement
