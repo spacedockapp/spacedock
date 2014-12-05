@@ -564,7 +564,7 @@ static NSDictionary* sItemLabels = nil;
         if ([upgradeSpecial isEqualToString: @"OnlyFedShipHV4CostPWVP1"]) {
             cost += [ship.attack intValue];
             if (equippedShip.isResourceSideboard) {
-                cost = 4;
+                cost = 5;
             }
             if (equippedShip.flagship != nil) {
                 cost += equippedShip.flagship.attackAdd;
