@@ -217,11 +217,14 @@ NSAttributedString* headerText(NSString* string)
             return equippedUpgrade.upgrade.typeCode;
         }
         if ([identifier isEqualToString: @"faction"]) {
+            if ([equippedUpgrade.specialTag hasPrefix:@"Quark"]) {
+                return @"";
+            }
             return equippedUpgrade.upgrade.factionCode;
         }
 
         if ([identifier isEqualToString: @"sp"]) {
-            if ([[equippedUpgrade descriptionForBuildSheet] isEqualToString:@"Federation Elite Talent"] || [[equippedUpgrade descriptionForBuildSheet] isEqualToString:@"Romulan Elite Talent"] ) {
+            if ([[equippedUpgrade descriptionForBuildSheet] isEqualToString:@"Federation Elite Talent"] || [[equippedUpgrade descriptionForBuildSheet] isEqualToString:@"Romulan Elite Talent"] || [[equippedUpgrade descriptionForBuildSheet] isEqualToString:@"Tech Upgrade"] || [[equippedUpgrade descriptionForBuildSheet] isEqualToString:@"Weapon Upgrade"]) {
                 return [NSString stringWithFormat: @"%d",equippedUpgrade.cost];
             }
             if ([[equippedUpgrade overridden] boolValue]) {

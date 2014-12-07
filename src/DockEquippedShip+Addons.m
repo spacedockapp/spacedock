@@ -483,7 +483,7 @@
         }
     }
     
-    if (!upgrade.isPlaceholder && [upgrade isTalent] && [self containsUpgradeWithId:@"shinzon_romulan_talents_71533"]) {
+    if (!upgrade.isPlaceholder && [upgrade isTalent] && [self containsUpgradeWithId:@"shinzon_romulan_talents_71533"] != nil) {
         int talents = 0;
 
         for (DockEquippedUpgrade* eu in self.upgrades) {
@@ -501,6 +501,58 @@
             }
             return artificalLimit > 0;
             //return NO;
+        }
+    }
+    if (!upgrade.isPlaceholder && [upgrade isTech] && [self.captain.externalId isEqualToString:@"tahna_los_op6prize"]) {
+        int tech = self.techCount;
+        
+        for (DockEquippedUpgrade* eu in self.upgrades) {
+            if ([eu.upgrade isTech] && !eu.isPlaceholder) {
+                if (![eu.specialTag hasPrefix:@"TahnaLosTech"]) {
+                    tech --;
+                }
+            }
+        }
+        if (validating) {
+            if (tech == 1 && [upgrade.special length] > 0) {
+                if (![upgrade.special isEqualToString:@"NoMoreThanOnePerShip"] && ![upgrade.special isEqualToString:@"AddTwoWeaponSlots"] )
+                return NO;
+            }
+        }
+    }
+    if (!upgrade.isPlaceholder && [upgrade isTech] && [self containsUpgradeWithId:@"quark_71786"] != nil) {
+        int tech = self.techCount;
+        
+        for (DockEquippedUpgrade* eu in self.upgrades) {
+            if ([eu.upgrade isTech] && !eu.isPlaceholder) {
+                if (![eu.specialTag hasPrefix:@"QuarkTech"]) {
+                    tech --;
+                }
+            }
+        }
+        if (validating) {
+            if (tech == 1 && [upgrade costForShip:self] > 5) {
+                return NO;
+            }
+        }
+    }
+    if (!upgrade.isPlaceholder && [upgrade isWeapon] && [self containsUpgradeWithId:@"quark_weapon_71786"] != nil) {
+        int weapon = self.weaponCount;
+        
+        for (DockEquippedUpgrade* eu in self.upgrades) {
+            if ([eu.upgrade isWeapon] && !eu.isPlaceholder) {
+                if (![eu.specialTag hasPrefix:@"QuarkWeapon"]) {
+                    weapon --;
+                }
+            }
+        }
+        if (validating) {
+            if (weapon == 1 && [upgrade costForShip:self] > 5) {
+                return NO;
+            } else if ([upgrade.special isEqualToString:@"OnlyFedShipHV4CostPWVP1"]) {
+                // This is stupid.
+                return NO;
+            }
         }
     }
     if ([upgrade isFleetCaptain]) {
@@ -703,7 +755,7 @@
         }
     }
 
-    if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [upgrade.upType isEqualToString: @"Tech"] && [self techCount] == 1 && [self containsUpgradeWithId:@"enhanced_hull_plating_71526"]) {
+    if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [upgrade.upType isEqualToString: @"Tech"] && [self techCount] == 1 && [self containsUpgradeWithId:@"enhanced_hull_plating_71526"] != nil) {
             return NO;
     }
 
@@ -845,6 +897,12 @@
                 info = @"This Upgrade may only be purchased for a Reman Warbird";
             } else if ([upgradeSpecial isEqualToString:@"OnlyKlingonBirdOfPrey"]) {
                 info = @"This Upgrade may only be purchased for a Klingon Bird-of-Prey";
+            } else if ([upgrade isTech] && [self.captain.externalId isEqualToString:@"tahna_los_op6prize"]) {
+                info = @"One of the [TECH] Upgrades you deploy to Tahna Los' ship cannot refer to a specific ship or class of ship.";
+            } else if ([upgrade isTech] && [upgrade.cost intValue] > 5 && [self containsUpgradeWithId:@"quark_71786"] != nil) {
+                info = @"You cannot deploy a [TECH] Upgrade with a cost greater than 5 to Quark.";
+            } else if ([upgrade isWeapon] && [upgrade.cost intValue] > 5  && [self containsUpgradeWithId:@"quark_weapon_71786"] != nil) {
+                info = @"You cannot deploy a [WEAPON] Upgrade with a cost greater than 5 to Quark.";
             }
         }
     }
@@ -977,7 +1035,7 @@
         [equippedUpgrade overrideWithCost:0];
     }
     
-    if ([upgrade isTalent] && [upgrade.faction isEqualToString:@"Romulan"] && [self containsUpgradeWithId:@"shinzon_romulan_talents_71533"]) {
+    if ([upgrade isTalent] && [upgrade.faction isEqualToString:@"Romulan"] && [self containsUpgradeWithId:@"shinzon_romulan_talents_71533"] != nil) {
         int romTalents = 0;
         for (DockEquippedUpgrade* eu in self.sortedUpgradesWithoutPlaceholders) {
             if (eu.upgrade.isTalent && [eu.upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
@@ -988,6 +1046,27 @@
         }
         if (romTalents < 4 && ![upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
             equippedUpgrade.specialTag = [NSString stringWithFormat:@"shinzon_ET_%d",romTalents+1];
+        }
+    }
+    
+    if ([upgrade isTech] && [self.captain.externalId isEqualToString:@"tahna_los_op6prize"]) {
+        if ([self upgradesWithSpecialTag:@"TahnaLosTech"].count == 0) {
+            if ([upgrade.special isEqualToString:@""] || [upgrade.special isEqualToString:@"NoMoreThanOnePerShip"] || [upgrade.special isEqualToString:@"AddTwoWeaponSlots"]) {
+                equippedUpgrade.specialTag = @"TahnaLosTech";
+                [equippedUpgrade overrideWithCost:3];
+            }
+        }
+    }
+    if ([upgrade isWeapon] && [self containsUpgradeWithId:@"quark_weapon_71786"] != nil && equippedUpgrade.cost <= 5) {
+        if ([self upgradesWithSpecialTag:@"QuarkWeapon"].count == 0) {
+            equippedUpgrade.specialTag = @"QuarkWeapon";
+            [equippedUpgrade overrideWithCost:0];
+        }
+    }
+    if ([upgrade isTech] && [self containsUpgradeWithId:@"quark_71786"] != nil && equippedUpgrade.cost <= 5) {
+        if ([self upgradesWithSpecialTag:@"QuarkTech"].count == 0) {
+            equippedUpgrade.specialTag = @"QuarkTech";
+            [equippedUpgrade overrideWithCost:0];
         }
     }
     
@@ -1157,6 +1236,17 @@
         if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [eu.upgrade.externalId isEqualToString:@"enhanced_hull_plating_71526"]) {
             continue;
         }
+        if (![self.captain.externalId isEqualToString:@"tahna_los_op6prize"] && [eu.specialTag isEqualToString:@"TahnaLosTech"]) {
+            [onesToRemove addObject:eu];
+        }
+        
+        if ([self containsUpgradeWithId:@"quark_71786"] == nil && [eu.specialTag isEqualToString:@"QuarkTech"]) {
+            [onesToRemove addObject:eu];
+        }
+        if ([self containsUpgradeWithId:@"quark_weapon_71786"] == nil && [eu.specialTag isEqualToString:@"QuarkWeapon"]) {
+            [onesToRemove addObject:eu];
+        }
+
         if (![self canAddUpgrade: eu.upgrade ignoreInstalled: NO validating: NO]) {
             [onesToRemove addObject: eu];
         }
@@ -1389,6 +1479,17 @@
         }
     }
     return nil;
+}
+
+-(NSArray*)upgradesWithSpecialTag:(NSString*)specialTag
+{
+    NSMutableArray* taggedUpgrades = [[NSMutableArray alloc] initWithCapacity: 0];
+    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        if ([eu.specialTag isEqualToString:specialTag]) {
+            [taggedUpgrades addObject:eu];
+        }
+    }
+    return taggedUpgrades;
 }
 
 -(DockEquippedUpgrade*)containsUpgradeWithId:(NSString*)theId

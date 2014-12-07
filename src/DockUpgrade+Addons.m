@@ -681,34 +681,6 @@ static NSDictionary* sItemLabels = nil;
                     cost -= 1;
                 }
             }
-        } else if ([captainSpecial isEqualToString: @"AddsHiddenTechSlot"]) {
-            NSArray* allTech = [equippedShip allUpgradesOfFaction: nil upType: @"Tech"];
-            NSSet* ineligibleTechUpgrades = [NSSet setWithArray: @[
-                                                                   @"OnlyVoyager",
-                                                                   @"OnlySpecies8472Ship",
-                                                                   @"PenaltyOnShipOtherThanDefiant",
-                                                                   @"PenaltyOnShipOtherThanKeldonClass",
-                                                                   @"OnlySpecies8472Ship",
-                                                                   @"CostPlusFiveExceptBajoranInterceptor",
-                                                                   @"PlusFiveForNonKazon",
-                                                                   @"OnlyForRomulanScienceVessel",
-                                                                   @"OnlyForRaptorClassShips",
-                                                                   @"OnlyJemHadarShips",
-                                                                   @"OnlyForRaptorClassShips"
-                                                                   ]];
-            DockEquippedUpgrade* most = nil;
-
-            for (DockEquippedUpgrade* eu in allTech) {
-                NSString* techSpecial = eu.upgrade.special;
-                if (techSpecial == nil || ![ineligibleTechUpgrades containsObject: techSpecial]) {
-                    most = eu;
-                    break;
-                }
-            }
-            
-            if (most.upgrade == self) {
-                cost = 3;
-            }
         } else if ([captainSpecial isEqualToString: @"AllUpgradesMinusOneOnIndepedentShip"]) {
             if ([equippedShip hasFaction: @"Independent"] && ![self isOfficer] && ![self isCaptain] && ![self isAdmiral]) {
                 cost -= 1;

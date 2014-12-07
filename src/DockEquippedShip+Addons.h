@@ -67,6 +67,7 @@
 -(DockEquippedUpgrade*)containsMirrorUniverseUniqueUpgradeWithName:(NSString*)theName;
 -(DockEquippedUpgrade*)containsUpgradeWithId:(NSString*)theId;
 -(DockEquippedUpgrade*)containsUpgradeWithSpecial:(NSString*)special;
+-(NSArray*)upgradesWithSpecialTag:(NSString*)specialTag;
 -(void)changeShip:(DockShip*)newShip;
 -(NSDictionary*)explainCantAddUpgrade:(DockUpgrade*)upgrade;
 -(void)establishPlaceholders;
