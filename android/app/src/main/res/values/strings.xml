@@ -14,6 +14,7 @@
     <string name="tech_slot">Tech</string>
     <string name="borg_slot">Borg</string>
     <string name="talent_slot">Talent</string>
+    <string name="squadron_slot">Squadron</string>
 
     <string name="add_ship">Add ship</string>
     <string name="clear_upgrade_slot">Clear upgrade slot</string>
@@ -75,6 +76,7 @@
         <item>Fleet Captains</item>
         <item>Reference</item>
         <item>Expansions</item>
+        <item>Squadrons</item>
     </string-array>
     <string-array name="empty"/>
     <string name="faction">Faction</string>

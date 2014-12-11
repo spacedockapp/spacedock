@@ -1,4 +1,3 @@
-
 package com.funnyhatsoftware.spacedock.data;
 
 import android.text.TextUtils;
@@ -61,7 +60,7 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public EquippedUpgrade addUpgrade(Upgrade upgrade,
-            EquippedUpgrade maybeReplace, boolean establishPlaceholders) {
+                                      EquippedUpgrade maybeReplace, boolean establishPlaceholders) {
         String upType = upgrade.getUpType();
         if (!upgrade.isPlaceholder()) {
             EquippedUpgrade ph = findPlaceholder(upType);
@@ -385,6 +384,15 @@ public class EquippedShip extends EquippedShipBase {
         return v;
     }
 
+    public int getSquadron() {
+        int v = 0;
+        Ship ship = getShip();
+        if (ship != null) {
+            v = ship.getSquadron();
+        }
+        return v;
+    }
+
     public EquippedUpgrade getEquippedCaptain() {
         for (EquippedUpgrade eu : getUpgrades()) {
             Upgrade upgrade = eu.getUpgrade();
@@ -458,6 +466,7 @@ public class EquippedShip extends EquippedShipBase {
         establishPlaceholdersForType("Weapon", getWeapon());
         establishPlaceholdersForType("Tech", getTech());
         establishPlaceholdersForType("Borg", getBorg());
+        establishPlaceholdersForType("Squadron", getSquadron());
     }
 
     private void establishPlaceholdersForType(String upType, int limit) {
@@ -563,10 +572,10 @@ public class EquippedShip extends EquippedShipBase {
                     "Fighter Squadrons cannot accept upgrades.");
         }
         if (upgrade.isFleetCaptain()) {
-            return canAddFleetCaptain((FleetCaptain)upgrade);
+            return canAddFleetCaptain((FleetCaptain) upgrade);
         }
         if (upgrade.isOfficer()) {
-            return canAddOfficer((Officer)upgrade);
+            return canAddOfficer((Officer) upgrade);
         }
         String upgradeSpecial = upgrade.getSpecial();
         Ship ship = getShip();
@@ -589,13 +598,13 @@ public class EquippedShip extends EquippedShipBase {
                         "This upgrade can only be added to the U.S.S Voyager.");
             }
         }
-        if (upgradeSpecial.equals("OnlyKlingonBirdOfPrey")){
+        if (upgradeSpecial.equals("OnlyKlingonBirdOfPrey")) {
             if (!ship.isKlingonBoP()) {
                 return new Explanation(msg,
                         "This upgrade can only be added to a Klingon Bird Of Prey.");
             }
         }
-        if (upgradeSpecial.equals("OnlyRemanWarbird")){
+        if (upgradeSpecial.equals("OnlyRemanWarbird")) {
             if (!ship.isRemanWarbird()) {
                 return new Explanation(msg,
                         "This upgrade can only be added to a Reman Warbird.");
@@ -681,73 +690,73 @@ public class EquippedShip extends EquippedShipBase {
             }
         }
         Captain captain = getCaptain();
-        if (!"lore_71522".equals(captain.getSpecial()) || !upgrade.isTalent()) {
-            if (upgradeSpecial.equals("OnlyForKlingonCaptain")) {
-                if (!captain.isKlingon()) {
-                    return new Explanation(msg,
-                            "This upgrade can only be added to a Klingon Captain.");
+        if (null != captain) {
+            if (!"lore_71522".equals(captain.getSpecial()) || !upgrade.isTalent()) {
+                if (upgradeSpecial.equals("OnlyForKlingonCaptain")) {
+                    if (!captain.isKlingon()) {
+                        return new Explanation(msg,
+                                "This upgrade can only be added to a Klingon Captain.");
+                    }
                 }
-            }
-            if (upgradeSpecial.equals("OnlyBajoranCaptain")) {
-                if (!captain.isBajoran()) {
+                if (upgradeSpecial.equals("OnlyBajoranCaptain")) {
+                    if (!captain.isBajoran()) {
+                        return new Explanation(msg,
+                                "This upgrade can only be added to a Bajoran Captain.");
+                    }
+                }
+
+                if (upgradeSpecial.equals("OnlySpecies8472Ship")) {
+                    if (!ship.isSpecies8472()) {
+                        return new Explanation(msg,
+                                "This upgrade can only be added to Species 8472 ships.");
+                    }
+                }
+                if (upgradeSpecial.equals("OnlyBorgCaptain")) {
+                    if (!captain.isBorgFaction()) {
+                        return new Explanation(msg,
+                                "This Upgrade may only be purchased for a Borg Captain.");
+                    }
+                }
+                if (upgradeSpecial.equals("OnlyDominionCaptain")) {
+                    if (!captain.isDominion()) {
+                        return new Explanation(msg, "This Upgrade may only be purchased for a Dominion Captain");
+                    }
+                }
+                if (upgradeSpecial.equals("VulcanHighCommand")) {
+                    if (!ship.isVulcan() || !captain.isVulcan()) {
+                        return new Explanation(msg,
+                                "This upgrade may only be purchased for a Vulcan Captain on a Vulcan ship.");
+                    }
+                }
+                if ("only_vulcan_ship".equals(upgradeSpecial)) {
+                    if (!ship.isVulcan()) {
+                        return new Explanation(msg,
+                                "This upgrade may only be purchased for a Vulcan ship.");
+                    }
+                }
+                if ("shinzon_romulan_talents_71533".equals(upgrade.getExternalId()) && !"shinzon_71533".equals(captain.getExternalId())) {
                     return new Explanation(msg,
-                            "This upgrade can only be added to a Bajoran Captain.");
+                            "This talent may only be equiped by Shinzon.");
                 }
             }
 
-            if (upgradeSpecial.equals("OnlySpecies8472Ship")) {
-                if (!ship.isSpecies8472()) {
+            if (upgradeSpecial.equals("OnlyTholianCaptain")) {
+                if (!captain.isTholian()) {
                     return new Explanation(msg,
-                            "This upgrade can only be added to Species 8472 ships.");
+                            "This upgrade can only be added to a Tholian Captain.");
                 }
             }
-            if (upgradeSpecial.equals("OnlyBorgCaptain")) {
-                if (!captain.isBorgFaction()) {
+
+            if ("OnlyNonBorgShipAndNonBorgCaptain".equals(upgradeSpecial)) {
+                if (captain.isBorgFaction() || ship.isBorg()) {
                     return new Explanation(msg,
-                            "This Upgrade may only be purchased for a Borg Captain.");
+                            "This upgrade cannot be added to a Borg captain or Borg Ship.");
                 }
-            }
-            if (upgradeSpecial.equals("OnlyDominionCaptain")) {
-                if (!captain.isDominion()) {
-                    return new Explanation(msg, "This Upgrade may only be purchased for a Dominion Captain");
-                }
-            }
-            if (upgradeSpecial.equals("VulcanHighCommand")) {
-                if (!ship.isVulcan() || !captain.isVulcan()) {
-                    return new Explanation(msg,
-                            "This upgrade may only be purchased for a Vulcan Captain on a Vulcan ship.");
-                }
-            }
-            if ("only_vulcan_ship".equals(upgradeSpecial)) {
-                if (!ship.isVulcan()) {
-                    return new Explanation(msg,
-                            "This upgrade may only be purchased for a Vulcan ship.");
-                }
-            }
-            if ("shinzon_romulan_talents_71533".equals(upgrade.getExternalId()) && !"shinzon_71533".equals(captain.getExternalId())){
-                return new Explanation(msg,
-                        "This talent may only be equiped by Shinzon.");
             }
         }
-
-        if (upgradeSpecial.equals("OnlyTholianCaptain")) {
-            if (!captain.isTholian()) {
-                return new Explanation(msg,
-                        "This upgrade can only be added to a Tholian Captain.");
-            }
-        }
-
-        if ("OnlyNonBorgShipAndNonBorgCaptain".equals(upgradeSpecial)){
-            if (captain.isBorgFaction() || ship.isBorg()){
-                return new Explanation(msg,
-                        "This upgrade cannot be added to a Borg captain or Borg Ship.");
-            }
-        }
-
-
 
         if ("Borg Scout Cube".equalsIgnoreCase(ship.getShipClass())
-                && upgrade.isBorg() && upgrade.getCost() > 5){
+                && upgrade.isBorg() && upgrade.getCost() > 5) {
             return new Explanation(msg,
                     "Cannot equip a Borg upgrade with cost greater than 5 to this ship.");
         }
@@ -884,7 +893,7 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public EquippedUpgrade mostExpensiveUpgradeOfFactionAndType(String faction,
-            String upType) {
+                                                                String upType) {
         ArrayList<EquippedUpgrade> allUpgrades = allUpgradesOfFactionAndType(
                 faction, upType);
         if (allUpgrades.isEmpty()) {
@@ -967,12 +976,13 @@ public class EquippedShip extends EquippedShipBase {
     public static final int SLOT_TYPE_FLAGSHIP = 6;
     public static final int SLOT_TYPE_ADMIRAL = 7;
     public static final int SLOT_TYPE_FLEET_CAPTAIN = 8;
+    public static final int SLOT_TYPE_SQUADRON = 9;
     public static final int SLOT_TYPE_SHIP = 1000;
 
-    public static Class[] CLASS_FOR_SLOT = new Class[] {
+    public static Class[] CLASS_FOR_SLOT = new Class[]{
             Captain.class,
             Crew.class, Weapon.class, Tech.class, Borg.class, Talent.class,
-            Flagship.class, Admiral.class, FleetCaptain.class
+            Flagship.class, Admiral.class, FleetCaptain.class, Squadron.class
     };
 
     private int getUpgradeIndexOfClass(Class slotClass, int slotIndex) {
@@ -1072,7 +1082,7 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public Explanation tryEquipUpgrade(Squad squad, int slotType,
-            int slotIndex, String externalId) {
+                                       int slotIndex, String externalId) {
         Upgrade upgrade;
         if (externalId != null && !externalId.isEmpty()) {
             if (slotType == SLOT_TYPE_CAPTAIN) {
@@ -1117,7 +1127,6 @@ public class EquippedShip extends EquippedShipBase {
             mUpgrades.add(newEu);
         }
         newEu.setEquippedShip(this);
-
         // slot counts may have changed, refresh placeholders + prune slots to
         // new count
         removeIllegalUpgrades();
@@ -1180,7 +1189,10 @@ public class EquippedShip extends EquippedShipBase {
                 o.put(JSONLabels.JSON_LABEL_FLAGSHIP, flagship.getExternalId());
             }
         }
-        o.put(JSONLabels.JSON_LABEL_CAPTAIN, getEquippedCaptain().asJSON());
+        final EquippedUpgrade equippedCaptain = getEquippedCaptain();
+        if (null != equippedCaptain) {
+            o.put(JSONLabels.JSON_LABEL_CAPTAIN, equippedCaptain.asJSON());
+        }
         ArrayList<EquippedUpgrade> sortedUpgrades = getSortedUpgrades();
         JSONArray upgrades = new JSONArray();
         int index = 0;
@@ -1194,7 +1206,7 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public void importUpgrades(Universe universe, JSONObject shipData,
-            boolean strict) throws JSONException {
+                               boolean strict) throws JSONException {
         JSONObject captainObject = shipData
                 .optJSONObject(JSONLabels.JSON_LABEL_CAPTAIN);
         if (captainObject != null) {

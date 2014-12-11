@@ -1,5 +1,9 @@
-
 package com.funnyhatsoftware.spacedock.data;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -10,11 +14,6 @@ import java.util.List;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONTokener;
 
 public class Squad extends SquadBase {
 
@@ -387,7 +386,7 @@ public class Squad extends SquadBase {
             if ("not_with_hugh".equalsIgnoreCase(captain.getSpecial()) && null != containsUpgradeWithName("Hugh")) {
                 return new Explanation(result, "This Captain cannot be added to a squadron that contains Hugh");
             }
-            if ("not_with_jean_luc_picard".equalsIgnoreCase(captain.getSpecial()) && null != containsUpgradeWithName("Jean-Luc Picard")){
+            if ("not_with_jean_luc_picard".equalsIgnoreCase(captain.getSpecial()) && null != containsUpgradeWithName("Jean-Luc Picard")) {
                 return new Explanation(result, "This Captain cannot be added to a squadron that contains Jean-Luc Picard");
             }
             if ("Jean-Luc Picard".equals(captain.getTitle()) && null != containsUpgradeWithName("Locutus")) {
@@ -444,7 +443,6 @@ public class Squad extends SquadBase {
                 return new Explanation(result, explanation);
             }
         }
-
         return targetShip.canAddUpgrade(upgrade, true);
     }
 

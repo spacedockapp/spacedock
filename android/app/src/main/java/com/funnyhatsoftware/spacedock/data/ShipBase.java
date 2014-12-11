@@ -1,6 +1,8 @@
 // Generated code, any edits will be eventually lost.
 package com.funnyhatsoftware.spacedock.data;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -77,6 +79,9 @@ public class ShipBase extends SetItem {
     int mWeapon;
     public int getWeapon() { return mWeapon; }
     public ShipBase setWeapon(int v) { mWeapon = v; return this;}
+    int mSquadron;
+    public int getSquadron() { return mSquadron; }
+    public ShipBase setSquadron(int v) { mSquadron = v; return this;}
     ShipClassDetails mShipClassDetails;
     public ShipClassDetails getShipClassDetails() { return mShipClassDetails; }
     public ShipBase setShipClassDetails(ShipClassDetails v) { mShipClassDetails = v; return this;}
@@ -88,7 +93,7 @@ public class ShipBase extends SetItem {
 
     public void update(Map<String,Object> data) {
         super.update(data);
-        mAbility = DataUtils.stringValue((String)data.get("Ability"), "");
+        mAbility = DataUtils.stringValue((String) data.get("Ability"), "");
         mAgility = DataUtils.intValue((String)data.get("Agility"), 0);
         mAttack = DataUtils.intValue((String)data.get("Attack"), 0);
         mBattleStations = DataUtils.intValue((String)data.get("Battlestations"), 0);
@@ -97,20 +102,21 @@ public class ShipBase extends SetItem {
         mCloak = DataUtils.intValue((String)data.get("Cloak"), 0);
         mCost = DataUtils.intValue((String)data.get("Cost"), 0);
         mCrew = DataUtils.intValue((String)data.get("Crew"), 0);
-        mEvasiveManeuvers = DataUtils.intValue((String)data.get("EvasiveManeuvers"), 0);
+        mEvasiveManeuvers = DataUtils.intValue((String) data.get("EvasiveManeuvers"), 0);
         mExternalId = DataUtils.stringValue((String)data.get("Id"), "");
-        mFaction = DataUtils.stringValue((String)data.get("Faction"), "Independent");
-        mHas360Arc = DataUtils.booleanValue((String)data.get("Has360Arc"));
+        mFaction = DataUtils.stringValue((String) data.get("Faction"), "Independent");
+        mHas360Arc = DataUtils.booleanValue((String) data.get("Has360Arc"));
         mHull = DataUtils.intValue((String)data.get("Hull"), 1);
         mRegenerate = DataUtils.intValue((String)data.get("Regenerate"), 0);
         mScan = DataUtils.intValue((String)data.get("Scan"), 0);
         mSensorEcho = DataUtils.intValue((String)data.get("SensorEcho"), 0);
-        mShield = DataUtils.intValue((String)data.get("Shield"), 0);
-        mShipClass = DataUtils.stringValue((String)data.get("ShipClass"), "");
+        mShield = DataUtils.intValue((String) data.get("Shield"), 0);
+        mShipClass = DataUtils.stringValue((String) data.get("ShipClass"), "");
+        mSquadron = DataUtils.intValue((String)data.get("SquadronUpgrade"), 0);
         mTargetLock = DataUtils.intValue((String)data.get("TargetLock"), 0);
-        mTech = DataUtils.intValue((String)data.get("Tech"), 0);
-        mTitle = DataUtils.stringValue((String)data.get("Title"), "Untitled");
-        mUnique = DataUtils.booleanValue((String)data.get("Unique"));
+        mTech = DataUtils.intValue((String) data.get("Tech"), 0);
+        mTitle = DataUtils.stringValue((String) data.get("Title"), "Untitled");
+        mUnique = DataUtils.booleanValue((String) data.get("Unique"));
         mWeapon = DataUtils.intValue((String)data.get("Weapon"), 0);
     }
 

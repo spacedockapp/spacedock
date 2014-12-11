@@ -1,7 +1,5 @@
 package com.funnyhatsoftware.spacedock.adapter;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,13 +20,15 @@ import com.funnyhatsoftware.spacedock.data.Flagship;
 import com.funnyhatsoftware.spacedock.data.FleetCaptain;
 import com.funnyhatsoftware.spacedock.data.Squad;
 
+import java.util.ArrayList;
+
 public class EditSquadAdapter extends BaseExpandableListAdapter implements
         ExpandableListView.OnGroupClickListener,
         ExpandableListView.OnChildClickListener,
         AdapterView.OnItemClickListener {
     public interface SlotSelectListener {
         void onSlotSelected(int equippedShipNumber, int slotType, int slotNumber,
-                String currentEquipmentId, String prefFaction);
+                            String currentEquipmentId, String prefFaction);
     }
 
     private static final int INVALID_HEADER_ID = 0;
@@ -57,19 +57,22 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         listItemLookup.headerResId = headerResId;
         return listItemLookup;
     }
+
     private static ListItemLookup makeSlot(int slotType, int slotNumber) {
         ListItemLookup listItemLookup = new ListItemLookup();
         listItemLookup.slotType = slotType;
         listItemLookup.slotNumber = slotNumber;
         return listItemLookup;
     }
+
     private static class ListItemLookup {
         int headerResId = INVALID_HEADER_ID;
         int slotType = EquippedShip.SLOT_TYPE_INVALID;
         int slotNumber = 0;
     }
+
     private static void populateLookup(ArrayList<ListItemLookup> arrayList, int count,
-            int headerResId, int slotType) {
+                                       int headerResId, int slotType) {
         if (count > 0) {
             arrayList.add(makeHeader(headerResId));
             for (int i = 0; i < count; i++) {
@@ -77,6 +80,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
             }
         }
     }
+
     private void updateLookup() {
         mShipLookup = new ArrayList[mSquad.getEquippedShips().size()];
         final ArrayList<EquippedShip> ships = mSquad.getEquippedShips();
@@ -97,7 +101,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         int fleetCaptainIndex = -1;
         if (squadHasFleetCaptain) {
             for (int i = 0; i < ships.size(); i++) {
-                if (null != ships.get(i).getFleetCaptain()){
+                if (null != ships.get(i).getFleetCaptain()) {
                     fleetCaptainIndex = i;
                     break;
                 }
@@ -108,12 +112,12 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         int admiralIndex = -1;
         for (int i = 0; i < ships.size(); i++) {
             Admiral admiral = ships.get(i).getAdmiral();
-			if (null != admiral && !admiral.isPlaceholder()) {
-            	admiralIndex = i;
+            if (null != admiral && !admiral.isPlaceholder()) {
+                admiralIndex = i;
                 break;
             }
         }
-        
+
         for (int i = 0; i < mSquad.getEquippedShips().size(); i++) {
             ArrayList<ListItemLookup> l = new ArrayList<ListItemLookup>();
             EquippedShip s = ships.get(i);
@@ -123,11 +127,11 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
                 populateLookup(l, 1, R.string.fleetcaptain_slot, EquippedShip.SLOT_TYPE_FLEET_CAPTAIN);
             }
             if (!s.isResourceSideboard()) {
-				if (i == admiralIndex || 0 > admiralIndex) {
-					populateLookup(l, s.getCaptainLimit(), R.string.admiral_slot,
-							EquippedShip.SLOT_TYPE_ADMIRAL);
-	            }
-			}
+                if (i == admiralIndex || 0 > admiralIndex) {
+                    populateLookup(l, s.getCaptainLimit(), R.string.admiral_slot,
+                            EquippedShip.SLOT_TYPE_ADMIRAL);
+                }
+            }
             populateLookup(l, s.getCaptainLimit(), R.string.captain_slot,
                     EquippedShip.SLOT_TYPE_CAPTAIN);
             populateLookup(l, s.getTalent(), R.string.talent_slot, EquippedShip.SLOT_TYPE_TALENT);
@@ -135,9 +139,11 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
             populateLookup(l, s.getWeapon(), R.string.weapon_slot, EquippedShip.SLOT_TYPE_WEAPON);
             populateLookup(l, s.getTech(), R.string.tech_slot, EquippedShip.SLOT_TYPE_TECH);
             populateLookup(l, s.getBorg(), R.string.borg_slot, EquippedShip.SLOT_TYPE_BORG);
+            populateLookup(l, s.getSquadron(), R.string.squadron_slot, EquippedShip.SLOT_TYPE_SQUADRON);
             mShipLookup[i] = l;
         }
     }
+
     @Override
     public void notifyDataSetChanged() {
         updateLookup();
@@ -194,13 +200,13 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         }
 
         public void reinitialize(int groupPosition, int childPosition,
-                    ListItemLookup listItemLookup) {
+                                 ListItemLookup listItemLookup) {
             mGroupPosition = groupPosition;
             mChildPosition = childPosition;
             mListItemLookup = listItemLookup;
 
             final EquippedShip es = getEquippedShip(mGroupPosition);
-            switch(mItemType) {
+            switch (mItemType) {
                 case ITEM_TYPE_HEADER:
                     // Header, simply set text
                     String headerText = mActivity.getResources().getString(
@@ -264,7 +270,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
     }
 
     public EditSquadAdapter(Activity activity, ExpandableListView listView,
-            Squad squad, SlotSelectListener listener) {
+                            Squad squad, SlotSelectListener listener) {
         // TODO: always maintain one empty extra ship to support add/remove
         mActivity = activity;
         mListView = listView;
@@ -333,7 +339,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded,
-            View convertView, ViewGroup parent) {
+                             View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = buildItem(parent, ITEM_TYPE_GROUP);
         }
@@ -347,14 +353,14 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild,
-            View convertView, ViewGroup parent) {
+                             View convertView, ViewGroup parent) {
         ListItemLookup lookup = mShipLookup[groupPosition].get(childPosition);
         int itemType = lookup.headerResId == INVALID_HEADER_ID ? ITEM_TYPE_SLOT : ITEM_TYPE_HEADER;
         if (convertView == null) {
             convertView = buildItem(parent, itemType);
         }
 
-        SquadListItemHolder holder = (SquadListItemHolder)convertView.getTag();
+        SquadListItemHolder holder = (SquadListItemHolder) convertView.getTag();
         if (holder.mItemType != itemType) throw new IllegalStateException();
         holder.reinitialize(groupPosition, childPosition, lookup);
 
@@ -399,7 +405,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
 
     @Override
     public boolean onChildClick(ExpandableListView parent, View v,
-            int groupPosition, int childPosition, long id) {
+                                int groupPosition, int childPosition, long id) {
         long packedPosition = ExpandableListView.getPackedPositionForChild(
                 groupPosition, childPosition);
         int index = mListView.getFlatListPosition(packedPosition);
@@ -434,7 +440,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
     }
 
     public void insertSetItem(int equippedShipNumber, int slotType, int slotIndex,
-            String externalId) {
+                              String externalId) {
         Explanation explanation;
         if (slotType == EquippedShip.SLOT_TYPE_SHIP) {
             if (equippedShipNumber >= 0) {
@@ -451,7 +457,6 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
                 explanation = es.tryEquipFleetCaptain(mSquad, externalId);
             } else {
                 explanation = es.tryEquipUpgrade(mSquad, slotType, slotIndex, externalId);
-                
             }
         }
         if (explanation.canAdd) {

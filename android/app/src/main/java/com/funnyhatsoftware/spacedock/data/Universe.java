@@ -1,4 +1,3 @@
-
 package com.funnyhatsoftware.spacedock.data;
 
 import android.content.Context;
@@ -58,7 +57,7 @@ public class Universe {
     ArrayMap<String, Reference> referenceItems = new ArrayMap<String, Reference>();
 
     // map of all set item maps
-    ArrayMap<String, ArrayMap<String, ? extends SetItem> > mSetItemMaps
+    ArrayMap<String, ArrayMap<String, ? extends SetItem>> mSetItemMaps
             = new ArrayMap<String, ArrayMap<String, ? extends SetItem>>();
 
     final ArrayMap<String, Upgrade> placeholders = new ArrayMap<String, Upgrade>();
@@ -273,7 +272,7 @@ public class Universe {
         return firstSetName;
     }
 
-    public Map<String, List<SetItem> > getItemsForSet(String setId) {
+    public Map<String, List<SetItem>> getItemsForSet(String setId) {
         Set targetSet = getSet(setId);
         final ArrayMap<String, List<SetItem>> itemsForSet
                 = new ArrayMap<String, List<SetItem>>();
@@ -406,6 +405,8 @@ public class Universe {
                 placeholder = new Crew();
             } else if (upType.equals("Admiral")) {
                 placeholder = new Admiral();
+            } else if (upType.equals("Squadron")) {
+                placeholder = new Squadron();
             } else {
                 return null; // placeholder type not supported
             }

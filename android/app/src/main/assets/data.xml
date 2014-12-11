@@ -1,4 +1,4 @@
-<Data version="2014-11-25@10-13">
+<Data version="2014-12-05@05-53">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1415,10 +1415,47 @@
     <Name>Vidiian Battle Cruiser</Name>
     <Id>vidiian_battle_cruiser</Id>
     <Maneuvers>
-
+          <Maneuver speed="4" kind="straight" color="white" />
+          <Maneuver speed="3" kind="left-turn" color="red" />
+          <Maneuver speed="3" kind="left-bank" color="white" />
+          <Maneuver speed="3" kind="straight" color="white" />
+          <Maneuver speed="3" kind="right-bank" color="white" />
+          <Maneuver speed="3" kind="right-turn" color="red" />
+          <Maneuver speed="3" kind="about" color="red" />
+          <Maneuver speed="2" kind="left-turn" color="white" />
+          <Maneuver speed="2" kind="left-bank" color="white" />
+          <Maneuver speed="2" kind="straight" color="green" />
+          <Maneuver speed="2" kind="right-bank" color="white" />
+          <Maneuver speed="2" kind="right-turn" color="white" />
+          <Maneuver speed="1" kind="left-bank" color="green" />
+          <Maneuver speed="1" kind="straight" color="green" />
+          <Maneuver speed="1" kind="right-bank" color="green" />
     </Maneuvers>
     <FrontArc>90</FrontArc>
     <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+      <Name>Negh'var Class (Mirror)</Name>
+      <Id>negh_var_class_mirror</Id>
+      <Maneuvers>
+          <Maneuver speed="5" kind="straight" color="white" />
+          <Maneuver speed="4" kind="straight" color="white" />
+          <Maneuver speed="3" kind="left-turn" color="red" />
+          <Maneuver speed="3" kind="left-bank" color="white" />
+          <Maneuver speed="3" kind="straight" color="white" />
+          <Maneuver speed="3" kind="right-bank" color="white" />
+          <Maneuver speed="3" kind="right-turn" color="red" />
+          <Maneuver speed="2" kind="left-turn" color="red" />
+          <Maneuver speed="2" kind="left-bank" color="white" />
+          <Maneuver speed="2" kind="straight" color="green" />
+          <Maneuver speed="2" kind="right-bank" color="white" />
+          <Maneuver speed="2" kind="right-turn" color="red" />
+          <Maneuver speed="1" kind="left-bank" color="green" />
+          <Maneuver speed="1" kind="straight" color="green" />
+          <Maneuver speed="1" kind="right-bank" color="green" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
+      <RearArc>90</RearArc>
   </ShipClassDetail>
   </ShipClassDetails>
   <Ships>
@@ -4966,6 +5003,34 @@
       <Set>71534</Set>
   </Ship>
   <Ship>
+      <Title>Vidiian Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Vidiian Battle Cruiser</ShipClass>
+      <Faction>Independent</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>5</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>24</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <Has360Arc>N</Has360Arc>
+      <Id>vidiian_starship_71534</Id>
+      <Set>71534</Set>
+  </Ship>
+  <Ship>
       <Title>Terok Nor</Title>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
@@ -5030,11 +5095,12 @@
       <ShipClass>Hideki Class Attack Squadron</ShipClass>
       <Faction>Dominion</Faction>
       <AdditionalFaction></AdditionalFaction>
-      <Attack>0</Attack>
+      <Attack>6</Attack>
       <Agility>0</Agility>
       <Hull>1</Hull>
       <Shield>0</Shield>
-      <Ability>ATTACK SQUADRON TOKENS: 5 During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade to gain +1 additional attack die for that attack.</Ability>
+      <Ability>ATTACK SQUADRON TOKENS: 5
+During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade to gain +1 additional attack die for that attack.</Ability>
       <Cost>24</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
@@ -5051,6 +5117,36 @@
       <Has360Arc>N</Has360Arc>
       <CaptainLimit>0</CaptainLimit>
       <Id>1st_wave_attack_fighters_71754</Id>
+      <Set>71754</Set>
+  </Ship>
+  <Ship>
+      <Title>Dominion Attack Fighters</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Hideki Class Attack Squadron</ShipClass>
+      <Faction>Dominion</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>6</Attack>
+      <Agility>0</Agility>
+      <Hull>1</Hull>
+      <Shield>0</Shield>
+      <Ability>ATTACK SQUADRON TOKENS: 4</Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>0</Weapon>
+      <Crew>0</Crew>
+      <SquadronUpgrade>2</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <CaptainLimit>0</CaptainLimit>
+      <Id>dominion_attack_fighters_71754</Id>
       <Set>71754</Set>
   </Ship>
   <Ship>
@@ -5139,6 +5235,64 @@
       <Has360Arc>N</Has360Arc>
       <Id>dominion_borg_starship_71513b</Id>
       <Set>71513b</Set>
+  </Ship>
+  <Ship>
+      <Title>Regent's Flagship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <ShipClass>Negh'var Class (Mirror)</ShipClass>
+      <Faction>Mirror Universe</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>5</Attack>
+      <Agility>1</Agility>
+      <Hull>7</Hull>
+      <Shield>3</Shield>
+      <Ability>Instead of making a normal attack with your Primary Weapon,  you may fire in any direction at up to 2 enemy ships at Range 1 with 4 attack dice against each ship.</Ability>
+      <Cost>32</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>3</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>regent_s_flagship_71535</Id>
+      <Set>71535</Set>
+  </Ship>
+  <Ship>
+      <Title>Mirror Universe Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Negh'var Class (Mirror)</ShipClass>
+      <Faction>Mirror Universe</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>5</Attack>
+      <Agility>1</Agility>
+      <Hull>7</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>30</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>mirror_universe_starship_71535</Id>
+      <Set>71535</Set>
   </Ship>
   </Ships>
   <Captains>
@@ -7302,6 +7456,58 @@
       <Set>71534</Set>
       <Special></Special>
   </Captain>
+  <Captain>
+      <Title>Kira Nerys</Title>
+      <Ability>When a [CREW] Upgrade on an enemy ship within Range 1-2 of your ship performs an Action that would affect your ship, you may disable this card to prevent that Action from taking effect. If you do this, the enemy ship cannot take another Action that round. If the enemy [CREW] Upgrade was disabled to perform the Action, it remains disabled. If the enemy [CREW] Upgrade was discarded to perform the Action, disable it instead.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Skill>4</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>2</Cost>
+      <Id>kira_nerys_71535</Id>
+      <Set>71535</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Mirror Universe</Title>
+      <Ability></Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>1</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>0</Cost>
+      <Id>mirror_universe_71535</Id>
+      <Set>71535</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Worf</Title>
+      <Ability>ACTION: Target a friendly ship at Range 1-2 with a Hull Value of 3 or less. The target ship immediately makes one free attack with its Primary Weapon against an enemy ship in its forward firing arc. Place an Auxiliarly Power Token beside the target ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Skill>3</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>2</Cost>
+      <Id>worf_cap_71535</Id>
+      <Set>71535</Set>
+      <Special></Special>
+      <AdmiralAbility>FLEET ACTION: Target a friendly ship at Range 1-2 with a Hull Value of 3 or less. The target ship immediately makes one free attack with its Primary Weapon against an enemy ship in its forward firing arc. Place an Auxiliarly Power Token beside the target ship.</AdmiralAbility>
+      <AdmiralCost>2</AdmiralCost>
+      <AdmiralTalent>1</AdmiralTalent>
+      <SkillModifier>0</SkillModifier>
+  </Captain>
   </Captains>
   <Admirals>
     <Admiral>
@@ -7459,6 +7665,26 @@
         <AdmiralCost>1</AdmiralCost>
         <AdmiralTalent>0</AdmiralTalent>
         <SkillModifier>1</SkillModifier>
+    </Admiral>
+    <Admiral>
+        <Title>Worf</Title>
+        <Ability>ACTION: Target a friendly ship at Range 1-2 with a Hull Value of 3 or less. The target ship immediately makes one free attack with its Primary Weapon against an enemy ship in its forward firing arc. Place an Auxiliarly Power Token beside the target ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+        <Skill>3</Skill>
+        <Talent>1</Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Admiral</Type>
+        <Faction>Mirror Universe</Faction>
+        <Cost>2</Cost>
+        <Id>worf_71535</Id>
+        <Set>71535</Set>
+        <Special></Special>
+        <AdmiralAbility>FLEET ACTION: Target a friendly ship at Range 1-2 with a Hull Value of 3 or less. The target ship immediately makes one free attack with its Primary Weapon against an enemy ship in its forward firing arc. Place an Auxiliarly Power Token beside the target ship.</AdmiralAbility>
+        <AdmiralCost>2</AdmiralCost>
+        <AdmiralTalent>1</AdmiralTalent>
+        <SkillModifier>0</SkillModifier>
     </Admiral>
   </Admirals>
   <Upgrades>
@@ -13412,6 +13638,22 @@
         <Special></Special>
     </Upgrade>
     <Upgrade>
+      <Title>Decisive Orders</Title>
+      <Ability>When attacking a ship that has no Active Shields, during the Modify Attack Dice step, you may discard this card to choose up to 2 of your attack dice and re-roll them (even if the chosen dice have already been re-rolled).</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Independent</Faction>
+      <Cost>4</Cost>
+      <Id>devisive_orders_71534</Id>
+      <Set>71534</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
         <Title>Escort</Title>
         <Ability>ACTION: Disable this card to target a friendly ship within Range 1 of your ship. Each time the target ship defends this round, it adds a number of defense dice to its roll equal to the number of Attack Squadron Tokens on your Ship Card. You cannot attack this round.</Ability>
         <Unique>N</Unique>
@@ -13586,6 +13828,166 @@
         <Id>truce_71513b</Id>
         <Set>71513b</Set>
         <Special>PlusFiveIfSkillOverFive</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Intendant's Orders</Title>
+        <Ability>During the Planning Phase, you may disable this card to remove up to 2 Disabled Upgrade Tokens from your [CREW] Upgrades.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Mirror Universe</Faction>
+        <Cost>2</Cost>
+        <Id>intendant_s_orders_71535</Id>
+        <Set>71535</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Make It So!</Title>
+        <Ability>During the Activation Phase, after you move, you may discard this card and disable one of your [CREW] Upgrades to perform one additional Action this round as a free Action.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Mirror Universe</Faction>
+        <Cost>3</Cost>
+        <Id>make_it_so__71535</Id>
+        <Set>71535</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>I Will Deal With Them Myself</Title>
+        <Ability>During the Roll Attack Dice step, you may discard this card to disable up to 2 of your [CREW] Upgrades. If you do so, roll 1 additional attack die for that attack for each Upgrade you disabled with this card.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Mirror Universe</Faction>
+        <Cost>5</Cost>
+        <Id>i_will_deal_with_them_myself_71535</Id>
+        <Set>71535</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Elim Garak</Title>
+        <Ability>While Elim Garak is assigned to a Mirror Universe ship, add 2 to that ship's Captain's Skill Number. During the Roll Attack Dice step, you may disable your Captain Card to gain +1 additional die for that attack.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Mirror Universe</Faction>
+        <Cost>3</Cost>
+        <Id>elim_garak_71535</Id>
+        <Set>71535</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Brunt</Title>
+        <Ability>At the start of the End Phase, you may discard this card to target an enemy ship at Range 1-3. Place an Auxiliary Power Token beside the target ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Mirror Universe</Faction>
+        <Cost>1</Cost>
+        <Id>brunt_71535</Id>
+        <Set>71535</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Bareil Antos</Title>
+        <Ability>ACTION: Disable this card to target a ship at Range 1-3. Choose a [TECH] Upgrade and roll 1 attack die. On a [HIT] or a [CRIT] result either discard that [TECH] Upgrade or steal it. Your ship must have at least 1 [TECH] Upgrade slot in order to steal it. If the stolen Upgrade exceeds your ship's restrictions, you must discard 1 of your [TECH] Upgrades to open a slot for it.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Mirror Universe</Faction>
+        <Cost>2</Cost>
+        <Id>bareil_antos_71535</Id>
+        <Set>71535</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Odo</Title>
+        <Ability>ACTION: Select one of your disabled [CREW] Upgrades and perform that Upgrade's Action as a free Action. Then discard that [CREW] Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Mirror Universe</Faction>
+        <Cost>3</Cost>
+        <Id>odo_71535</Id>
+        <Set>71535</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Cloaking Device</Title>
+        <Ability>Instead of performing a normal Action, you may disable this card to perform the [CLOAK] Action. While you have a [CLOAK] Token beside your ship, you may perform the [SENSOR ECHO] Action even if this card is disabled. This Upgrade costs +5 Squadron Points for any ship other than the Regent's Flagship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Mirror Universe</Faction>
+        <Cost>4</Cost>
+        <Id>cloaking_device_71535</Id>
+        <Set>71535</Set>
+        <Special>PlusFiveIfNotRegentsFlagship</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Tractor Beam</Title>
+        <Ability>ACTION: Target a ship at Range 1 and roll 2 attack dice. For every [HIT] or [CRIT] result, place 1 Auxiliary Power Token beside the target ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Mirror Universe</Faction>
+        <Cost>3</Cost>
+        <Id>tractor_beam_71535</Id>
+        <Set>71535</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Photon Torpedoes (Negh'Var Bonus)</Title>
+        <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. If fired from a Negh'Var class ship, gain +1 attack die. You may fire this weapon from your forward or rear firing arcs.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>5</Attack>
+        <Range>2-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Mirror Universe</Faction>
+        <Cost>5</Cost>
+        <Id>photon_torpedoes_71535</Id>
+        <Set>71535</Set>
+        <Special></Special>
     </Upgrade>
   </Upgrades>
   <Resources>
@@ -13857,6 +14259,21 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
         <Id>advanced_targeting_systems_71512a</Id>
         <Set>71512a</Set>
       </Resource>
+      <Resource>
+          <Title>High Yield Photon Torpedoes</Title>
+          <Unique>Y</Unique>
+          <Ability>At the start of the game, after the Gather Forces step, place your High Yield Photon Torpedoes Card beside your Ship Cards.
+              
+While you have the High Yield Photon Torpedoes Resource, all of your Photon Torpedoes Upgrades for all of the ships in your fleet gain the following abilities:
+              
+1) During the Roll Attack Dice step, add +1 attack die to your attack roll.
+              
+2) You may re-roll 1 of your blank results once.</Ability>
+          <Type>Resource</Type>
+          <Cost>5</Cost>
+          <Id>high_yield_photon_torpedoes_71513c</Id>
+          <Set>71513c</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -13963,12 +14380,14 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
       <Set id="71529" overallSetName="Wave 9" releaseDate="2014-11-05">I.S.S. Defiant</Set>
       <Set id="71532" overallSetName="Wave 9" releaseDate="2014-11-05">Chang's Bird of Prey</Set>
       <Set id="71533" overallSetName="Wave 9" releaseDate="2014-11-05">Scimitar</Set>
+      <Set id="71513c" overallSetName="Resistance is Futile" releaseDate="2014-11-26">High Yield Photon Torpedoes Resource</Set>
       <Set id="71513b" overallSetName="Resistance is Futile" releaseDate="2014-11-26">Assimilated Vessel 64758</Set>
       <Set id="71513a" overallSetName="Resistance is Futile" releaseDate="2014-11-26">Tactical Cube 001</Set>
       <Set id="71792" overallSetName="Wave 9.5" releaseDate="2014-11-19">Cube 112</Set>
       <Set id="71810" overallSetName="Wave 9.5" releaseDate="2014-11-19">Deep Space 9</Set>
       <Set id="71534" overallSetName="Wave 10" releaseDate="2014-12-03">Fina Prime</Set>
       <Set id="71754" overallSetName="Wave 10" releaseDate="2014-12-03">1st Wave Attack Fighters</Set>
+      <Set id="71535" overallSetName="Wave 10" releaseDate="2014-12-03">Regent's Flagship</Set>
     </Sets>
     <Flagships>
         <Flagship>
