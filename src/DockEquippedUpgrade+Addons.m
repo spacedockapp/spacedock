@@ -60,15 +60,21 @@
         if (upgrade.isFederation && upgrade.isTalent) {
             return @"Federation Elite Talent";
         }
-    } else if ([captain.special isEqualToString: @"AddsHiddenTechSlot"]) {
-        DockEquippedUpgrade* most = [self.equippedShip mostExpensiveUpgradeOfFaction: nil upType: @"Tech"];
-
-        if (most.upgrade == self.upgrade) {
+    } else if ([captain.externalId isEqualToString: @"tahna_los_op6prize"]) {
+        if ([self.specialTag isEqualToString:@"TahnaLosTech"]) {
             return @"Tech Upgrade";
         }
-    } else if ([self.equippedShip containsUpgradeWithId:@"shinzon_romulan_talents_71533"]) {
+    } else if ([self.equippedShip containsUpgradeWithId:@"shinzon_romulan_talents_71533"] != nil) {
         if ( [self.upgrade isTalent] && [self.upgrade.faction isEqualToString:@"Romulan"] && [self.specialTag hasPrefix:@"shinzon_ET_"]) {
             return @"Romulan Elite Talent";
+        }
+    } else if ([self.equippedShip containsUpgradeWithId:@"quark_71786"]) {
+        if ( [self.upgrade isTech] && [self.specialTag isEqualToString:@"QuarkTech"] ) {
+            return @"Tech Upgrade";
+        }
+    } else if ([self.equippedShip containsUpgradeWithId:@"quark_weapon_71786"]) {
+        if ( [self.upgrade isWeapon] && [self.specialTag isEqualToString:@"QuarkWeapon"] ) {
+            return @"Weapon Upgrade";
         }
     }
     return [NSString stringWithFormat: @"%@ [%@]", self.upgrade.title, self.upgrade.setCode];

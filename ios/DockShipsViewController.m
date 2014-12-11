@@ -54,6 +54,41 @@
     return @[factionDescriptor, classDescriptor, uniqueDescriptor, titleDescriptor];
 }
 
+#pragma mark - Fetching
+- (NSPredicate *)makePredicateTemplate
+{
+    NSString* faction = self.faction;
+    NSArray* includedSets = self.includedSets;
+    NSMutableArray* predicateTerms = [NSMutableArray arrayWithCapacity: 0];
+    NSMutableArray* predicateValues = [NSMutableArray arrayWithCapacity: 0];
+    [predicateTerms addObject: @"any sets.externalId in %@"];
+    [predicateValues addObject: includedSets];
+    if (faction != nil && [self useFactionFilter]) {
+        [predicateTerms addObject: @"(faction = %@ or additionalFaction = %@)"];
+        [predicateValues addObject: faction];
+        [predicateValues addObject: faction];
+    }
+    
+    int cost = self.cost;
+    if (cost != 0 && [self useCostFilter]) {
+        [predicateTerms addObject: @"cost = %@"];
+        [predicateValues addObject: [NSNumber numberWithInt: cost]];
+    }
+    
+    NSString* searchTerm = self.searchTerm;
+    if (searchTerm != nil) {
+        [predicateTerms addObject: @"((title contains[cd] %@ and (unique == TRUE or mirrorUniverseUnique == TRUE)) or (shipClass contains[cd] %@ and unique == FALSE and mirrorUniverseUnique == FALSE))"];
+        [predicateValues addObject: searchTerm];
+        [predicateValues addObject: searchTerm];
+    }
+    
+    NSString* predicateTermString = [predicateTerms componentsJoinedByString: @" and "];
+    NSPredicate *predicateTemplate = [NSPredicate predicateWithFormat: predicateTermString argumentArray: predicateValues];
+    
+    return predicateTemplate;
+}
+
+
 #pragma mark - Table view data source methods
 
 // Customize the appearance of table view cells.

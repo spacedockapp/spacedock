@@ -1,4 +1,4 @@
-<Data version="2014-12-01@00-49">
+<Data version="2014-12-05@05-53">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1415,7 +1415,21 @@
     <Name>Vidiian Battle Cruiser</Name>
     <Id>vidiian_battle_cruiser</Id>
     <Maneuvers>
-
+          <Maneuver speed="4" kind="straight" color="white" />
+          <Maneuver speed="3" kind="left-turn" color="red" />
+          <Maneuver speed="3" kind="left-bank" color="white" />
+          <Maneuver speed="3" kind="straight" color="white" />
+          <Maneuver speed="3" kind="right-bank" color="white" />
+          <Maneuver speed="3" kind="right-turn" color="red" />
+          <Maneuver speed="3" kind="about" color="red" />
+          <Maneuver speed="2" kind="left-turn" color="white" />
+          <Maneuver speed="2" kind="left-bank" color="white" />
+          <Maneuver speed="2" kind="straight" color="green" />
+          <Maneuver speed="2" kind="right-bank" color="white" />
+          <Maneuver speed="2" kind="right-turn" color="white" />
+          <Maneuver speed="1" kind="left-bank" color="green" />
+          <Maneuver speed="1" kind="straight" color="green" />
+          <Maneuver speed="1" kind="right-bank" color="green" />
     </Maneuvers>
     <FrontArc>90</FrontArc>
     <RearArc></RearArc>
@@ -4989,6 +5003,34 @@
       <Set>71534</Set>
   </Ship>
   <Ship>
+      <Title>Vidiian Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Vidiian Battle Cruiser</ShipClass>
+      <Faction>Independent</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>5</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>24</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <Has360Arc>N</Has360Arc>
+      <Id>vidiian_starship_71534</Id>
+      <Set>71534</Set>
+  </Ship>
+  <Ship>
       <Title>Terok Nor</Title>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
@@ -5053,11 +5095,12 @@
       <ShipClass>Hideki Class Attack Squadron</ShipClass>
       <Faction>Dominion</Faction>
       <AdditionalFaction></AdditionalFaction>
-      <Attack>0</Attack>
+      <Attack>6</Attack>
       <Agility>0</Agility>
       <Hull>1</Hull>
       <Shield>0</Shield>
-      <Ability>ATTACK SQUADRON TOKENS: 5 During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade to gain +1 additional attack die for that attack.</Ability>
+      <Ability>ATTACK SQUADRON TOKENS: 5
+During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade to gain +1 additional attack die for that attack.</Ability>
       <Cost>24</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>1</TargetLock>
@@ -5074,6 +5117,36 @@
       <Has360Arc>N</Has360Arc>
       <CaptainLimit>0</CaptainLimit>
       <Id>1st_wave_attack_fighters_71754</Id>
+      <Set>71754</Set>
+  </Ship>
+  <Ship>
+      <Title>Dominion Attack Fighters</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Hideki Class Attack Squadron</ShipClass>
+      <Faction>Dominion</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>6</Attack>
+      <Agility>0</Agility>
+      <Hull>1</Hull>
+      <Shield>0</Shield>
+      <Ability>ATTACK SQUADRON TOKENS: 4</Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>0</Weapon>
+      <Crew>0</Crew>
+      <SquadronUpgrade>2</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <CaptainLimit>0</CaptainLimit>
+      <Id>dominion_attack_fighters_71754</Id>
       <Set>71754</Set>
   </Ship>
   <Ship>
@@ -13563,6 +13636,22 @@
         <Id>grappler_71534</Id>
         <Set>71534</Set>
         <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Decisive Orders</Title>
+      <Ability>When attacking a ship that has no Active Shields, during the Modify Attack Dice step, you may discard this card to choose up to 2 of your attack dice and re-roll them (even if the chosen dice have already been re-rolled).</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Independent</Faction>
+      <Cost>4</Cost>
+      <Id>devisive_orders_71534</Id>
+      <Set>71534</Set>
+      <Special></Special>
     </Upgrade>
     <Upgrade>
         <Title>Escort</Title>
