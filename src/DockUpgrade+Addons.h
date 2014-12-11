@@ -12,6 +12,7 @@
 +(NSArray*)findUpgrades:(NSString*)title context:(NSManagedObjectContext*)context;
 -(BOOL)isTalent;
 -(BOOL)isCrew;
+-(BOOL)isTech;
 -(BOOL)isWeapon;
 -(BOOL)isBorg;
 -(BOOL)isCaptain;
