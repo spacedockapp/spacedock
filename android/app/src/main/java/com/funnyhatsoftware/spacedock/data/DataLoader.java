@@ -188,6 +188,9 @@ public class DataLoader extends DefaultHandler {
                 if (type.equalsIgnoreCase("Crew")) {
                     return new Crew();
                 }
+                if (type.equalsIgnoreCase("Squadron")) {
+                    return new Squadron();
+                }
                 return new Weapon();
             }
 
@@ -431,7 +434,9 @@ public class DataLoader extends DefaultHandler {
                 "OnlyRemanWarbird",
                 "PlusFiveIfNotRemanWarbird",
                 "not_with_jean_luc_picard",
-                "OnlyShipClass_CONTAINS_Vidiian"
+                "OnlyShipClass_CONTAINS_Vidiian",
+                "PlusFiveIfSkillOverFive",
+                "PlusFiveIfNotRegentsFlagship"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);

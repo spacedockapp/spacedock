@@ -1,4 +1,3 @@
-
 package com.funnyhatsoftware.spacedock.data;
 
 import java.util.ArrayList;
@@ -109,6 +108,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             return targetShip.getBorg();
         }
 
+        if (isSquadron()) {
+            return targetShip.getSquadron();
+        }
+
         return 0;
     }
 
@@ -122,6 +125,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
 
     public boolean isBorg() {
         return mUpType.equals("Borg");
+    }
+
+    public boolean isSquadron() {
+        return "Squadron".equals(mUpType);
     }
 
     public boolean isCrew() {
@@ -268,7 +275,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
 
         FleetCaptain fleetCaptain = equippedShip.getFleetCaptain();
         String fleetCaptainSpecial = equippedShip.getSquad().getFleetCaptainSpecial();
-        String captainSpecial = captain.getSpecial();
+        String captainSpecial = null == captain ? "" : captain.getSpecial();
         String upgradeSpecial = getSpecial();
         if ("OnlyFedShipHV4CostPWVP1".equals(upgradeSpecial)) {
             cost = ship.getAttack() + 1;
@@ -378,6 +385,8 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         } else if (captainSpecial.equals("AllUpgradesMinusOneOnIndepedentShip")
                 && "Independent".equals(shipFaction) && (!this.isCaptain() && !this.isAdmiral())) {
             cost -= 1;
+        } else if ("PlusFiveIfNotRegentsFlagship".equals(upgradeSpecial) && !ship.isRegentsFlagship()) {
+            cost += 5;
         }
         if (captainSpecial.equals("OneDominionUpgradeCostsMinusTwo") && !shipIsSideboard) {
             if (isDominion()) {
@@ -450,7 +459,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 // do nothing
             } else if (ship.isVulcan() && "add_one_tech_no_faction_penalty_on_vulcan".equals(upgradeSpecial)) {
                 // do nothing
-            } else if ("elim_garak_71786".equals(this.getExternalId())){
+            } else if ("elim_garak_71786".equals(this.getExternalId())) {
                 // do nothing
             } else {
                 cost += 1;
@@ -464,6 +473,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
 
         if (isWeapon() && null != equippedShip.containsUpgradeWithName("Sakonna") && cost <= 5) {
             cost -= 2;
+        }
+
+        if ("PlusFiveIfSkillOverFive".equals(upgradeSpecial) && 5 < captain.getSkill()) {
+            cost += 5;
         }
 
         if (cost < 0) {
@@ -500,14 +513,14 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         if (special.equalsIgnoreCase("Add_Crew_1")) {
             return true;
         }
-        if (special.equalsIgnoreCase("only_suurok_class_limited_weapon_hull_plus_1")){
+        if (special.equalsIgnoreCase("only_suurok_class_limited_weapon_hull_plus_1")) {
             return true;
         }
-        if (special.equalsIgnoreCase("add_one_tech_no_faction_penalty_on_vulcan")){
+        if (special.equalsIgnoreCase("add_one_tech_no_faction_penalty_on_vulcan")) {
             return true;
         }
         if ("quark_weapon_71786".equalsIgnoreCase(this.getExternalId())
-                || "quark_71786".equalsIgnoreCase(this.getExternalId())){
+                || "quark_71786".equalsIgnoreCase(this.getExternalId())) {
             return true;
         }
         return false;

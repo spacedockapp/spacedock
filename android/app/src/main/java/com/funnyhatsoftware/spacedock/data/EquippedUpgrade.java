@@ -1,4 +1,3 @@
-
 package com.funnyhatsoftware.spacedock.data;
 
 import org.json.JSONException;
@@ -44,7 +43,7 @@ public class EquippedUpgrade extends EquippedUpgradeBase {
         if (equippedShip == null) {
             return mUpgrade.getCost();
         }
-        return mUpgrade.calculateCostForShip(equippedShip,this);
+        return mUpgrade.calculateCostForShip(equippedShip, this);
     }
 
     int getCost() {

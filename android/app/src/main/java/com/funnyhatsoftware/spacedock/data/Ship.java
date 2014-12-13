@@ -1,11 +1,10 @@
-
 package com.funnyhatsoftware.spacedock.data;
+
+import android.text.TextUtils;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
-
-import android.text.TextUtils;
 
 public class Ship extends ShipBase implements Factioned, Uniqueness {
 
@@ -38,7 +37,7 @@ public class Ship extends ShipBase implements Factioned, Uniqueness {
     public static Ship nullShip() {
         if (sNullShip == null) {
             sNullShip = new Ship();
-            HashMap<String,Object> emptyData = new HashMap<String, Object>();
+            HashMap<String, Object> emptyData = new HashMap<String, Object>();
             sNullShip.update(emptyData);
         }
         return sNullShip;
@@ -241,7 +240,13 @@ public class Ship extends ShipBase implements Factioned, Uniqueness {
         return "Suurok Class".equals(mShipClass);
     }
 
-    public boolean isVidiian() { return mShipClass.contains("Vidiian"); }
+    public boolean isVidiian() {
+        return mShipClass.contains("Vidiian");
+    }
+
+    public boolean isRegentsFlagship() {
+        return "Regent's Flagship".equals(mTitle);
+    }
 
     public boolean isFighterSquadron() {
         String shipId = getExternalId();

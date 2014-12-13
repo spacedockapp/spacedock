@@ -42,6 +42,7 @@ public class BrowseListFragment extends ListFragment {
         FleetCaptainHolder.TYPE_STRING,
         ReferenceHolder.TYPE_STRING,
         ExpansionHolder.TYPE_STRING,
+        UpgradeHolder.TYPE_STRING_SQUADRON,
     };
 
     @Override
