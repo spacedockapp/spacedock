@@ -1,45 +1,16 @@
   <Ship>
-    <Title>Regent's Flagship</Title>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-    <ShipClass>Negh'var Class (Mirror)</ShipClass>
-    <Faction>Mirror Universe</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>5</Attack>
-    <Agility>1</Agility>
-    <Hull>7</Hull>
-    <Shield>3</Shield>
-    <Ability>Instead of making a normal attack with your Primary Weapon,  you may fire in any direction at up to 2 enemy ships at Range 1 with 4 attack dice against each ship.</Ability>
-    <Cost>32</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>1</Scan>
-    <Battlestations>1</Battlestations>
-    <Cloak>0</Cloak>
-    <SensorEcho>0</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>1</Weapon>
-    <Crew>3</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
-    <Has360Arc>N</Has360Arc>
-    <Id>regent_s_flagship_71535</Id>
-    <Set>71535</Set>
-  </Ship>
-  <Ship>
-    <Title>Mirror Universe Starship</Title>
-    <Unique>N</Unique>
+    <Title>Alpha Hunter</Title>
+    <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Negh'var Class (Mirror)</ShipClass>
-    <Faction>Mirror Universe</Faction>
+    <ShipClass>Hirogen Warship</ShipClass>
+    <Faction>Independent</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>5</Attack>
-    <Agility>1</Agility>
-    <Hull>7</Hull>
-    <Shield>2</Shield>
-    <Ability></Ability>
-    <Cost>30</Cost>
+    <Attack>4</Attack>
+    <Agility>2</Agility>
+    <Hull>3</Hull>
+    <Shield>4</Shield>
+    <Ability>After you move, you may perform a [SENSOR ECHO] Action with the 1 [STRAIGHT] Maneuver as a free Action, even if you are not Cloaked.</Ability>
+    <Cost>26</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
@@ -48,11 +19,11 @@
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>1</Weapon>
-    <Crew>2</Crew>
+    <Tech>2</Tech>
+    <Weapon>2</Weapon>
+    <Crew>1</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>mirror_universe_starship_71535</Id>
-    <Set>71535</Set>
+    <Id>alpha_hunter_71808</Id>
+    <Set>71808</Set>
   </Ship>

@@ -1,21 +1,5 @@
   <Captain>
-    <Title>Kira Nerys</Title>
-    <Ability>When a [CREW] Upgrade on an enemy ship within Range 1-2 of your ship performs an Action that would affect your ship, you may disable this card to prevent that Action from taking effect. If you do this, the enemy ship cannot take another Action that round. If the enemy [CREW] Upgrade was disabled to perform the Action, it remains disabled. If the enemy [CREW] Upgrade was discarded to perform the Action, disable it instead.</Ability>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-    <Skill>4</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Mirror Universe</Faction>
-    <Cost>2</Cost>
-    <Id>kira_nerys_71535</Id>
-    <Set>71535</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Mirror Universe</Title>
+    <Title>Hirogen</Title>
     <Ability></Ability>
     <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
@@ -24,29 +8,41 @@
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Mirror Universe</Faction>
+    <Faction>Independent</Faction>
     <Cost>0</Cost>
-    <Id>mirror_universe_71535</Id>
-    <Set>71535</Set>
+    <Id>hirogen_71808</Id>
+    <Set>71808</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Worf</Title>
-    <Ability>ACTION: Target a friendly ship at Range 1-2 with a Hull Value of 3 or less. The target ship immediately makes one free attack with its Primary Weapon against an enemy ship in its forward firing arc. Place an Auxiliarly Power Token beside the target ship.</Ability>
+    <Title>Karr</Title>
+    <Ability>When attacking, during the Modify Attack Dice step, you may re-roll any 1 of your attack dice twice. In addition, if your Captain's Skill is greater than the target ship's Skill Number, during the Roll Attack Dice step, gain +1 attack die.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>8</Skill>
+    <Talent>2</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Independent</Faction>
+    <Cost>5</Cost>
+    <Id>karr_71808</Id>
+    <Set>71808</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Alpha Hirogen</Title>
+    <Ability>When attacking with your Primary Weapon, you may convert 1 of your blank results into a [HIT] result.</Ability>
     <Unique>N</Unique>
-    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-    <Skill>3</Skill>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>6</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Mirror Universe</Faction>
-    <Cost>2</Cost>
-    <Id>worf_cap_71535</Id>
-    <Set>71535</Set>
+    <Faction>Independent</Faction>
+    <Cost>4</Cost>
+    <Id>alpha_hirogen_71808</Id>
+    <Set>71808</Set>
     <Special></Special>
-    <AdmiralAbility>FLEET ACTION: Target a friendly ship at Range 1-2 with a Hull Value of 3 or less. The target ship immediately makes one free attack with its Primary Weapon against an enemy ship in its forward firing arc. Place an Auxiliarly Power Token beside the target ship.</AdmiralAbility>
-    <AdmiralCost>2</AdmiralCost>
-    <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>0</SkillModifier>
   </Captain>

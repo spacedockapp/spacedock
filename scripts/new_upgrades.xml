@@ -1,118 +1,6 @@
     <Upgrade>
-      <Title>Intendant's Orders</Title>
-      <Ability>During the Planning Phase, you may disable this card to remove up to 2 Disabled Upgrade Tokens from your [CREW] Upgrades.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>2</Cost>
-      <Id>intendant_s_orders_71535</Id>
-      <Set>71535</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Make It So!</Title>
-      <Ability>During the Activation Phase, after you move, you may discard this card and disable one of your [CREW] Upgrades to perform one additional Action this round as a free Action.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>3</Cost>
-      <Id>make_it_so__71535</Id>
-      <Set>71535</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>I Will Deal With Them Myself</Title>
-      <Ability>During the Roll Attack Dice step, you may discard this card to disable up to 2 of your [CREW] Upgrades. If you do so, roll 1 additional attack die for that attack for each Upgrade you disabled with this card.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>5</Cost>
-      <Id>i_will_deal_with_them_myself_71535</Id>
-      <Set>71535</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Elim Garak</Title>
-      <Ability>While Elim Garak is assigned to a Mirror Universe ship, add 2 to that ship's Captain's Skill Number. During the Roll Attack Dice step, you may disable your Captain Card to gain +1 additional die for that attack.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>3</Cost>
-      <Id>elim_garak_71535</Id>
-      <Set>71535</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Brunt</Title>
-      <Ability>At the start of the End Phase, you may discard this card to target an enemy ship at Range 1-3. Place an Auxiliary Power Token beside the target ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>1</Cost>
-      <Id>brunt_71535</Id>
-      <Set>71535</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Bareil Antos</Title>
-      <Ability>ACTION: Disable this card to target a ship at Range 1-3. Choose a [TECH] Upgrade and roll 1 attack die. On a [HIT] or a [CRIT] result either discard that [TECH] Upgrade or steal it. Your ship must have at least 1 [TECH] Upgrade slot in order to steal it. If the stolen Upgrade exceeds your ship's restrictions, you must discard 1 of your [TECH] Upgrades to open a slot for it.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>2</Cost>
-      <Id>bareil_antos_71535</Id>
-      <Set>71535</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Odo</Title>
-      <Ability>ACTION: Select one of your disabled [CREW] Upgrades and perform that Upgrade's Action as a free Action. Then discard that [CREW] Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>3</Cost>
-      <Id>odo_71535</Id>
-      <Set>71535</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Cloaking Device</Title>
-      <Ability>Instead of performing a normal Action, you may disable this card to perform the [CLOAK] Action. While you have a [CLOAK] Token beside your ship, you may perform the [SENSOR ECHO] Action even if this card is disabled. This Upgrade costs +5 Squadron Points for any ship other than the Regent's Flagship.</Ability>
+      <Title>Monotanium Armor Plating</Title>
+      <Ability>Whenever an enemy ship attempts to acquire a target lock on your ship, roll 2 defense dice. If you roll at least 1 [EVADE] result, the [TARGET LOCK] Action has no effect. No ship may be equipped with more than 1 "Monotanium Armor Plating" Upgrade. ACTION: Disable this card to remove a red [TARGET LOCK] Token from beside your ship (and the corresponding blue [TARGET LOCK] Token from beside the locking ship).</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -120,15 +8,15 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>4</Cost>
-      <Id>cloaking_device_71535</Id>
-      <Set>71535</Set>
+      <Faction>Independent</Faction>
+      <Cost>3</Cost>
+      <Id>monotanium_armor_plating_71808</Id>
+      <Set>71808</Set>
       <Special>Yes</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Tractor Beam</Title>
-      <Ability>ACTION: Target a ship at Range 1 and roll 2 attack dice. For every [HIT] or [CRIT] result, place 1 Auxiliary Power Token beside the target ship.</Ability>
+      <Title>Sensor Network</Title>
+      <Ability>During the Planning Phase, after all ships have chosen their Maneuvers, you may disable this card to target one ship anywhere in the play area, look at t hat ship's Maneuver Dial, and then choose your Maneuver. The target ship cannot change its Maneuver after you have looked at it. This Upgrade may only be purchased for a Hirogen ship.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -136,15 +24,79 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>3</Cost>
-      <Id>tractor_beam_71535</Id>
-      <Set>71535</Set>
+      <Faction>Independent</Faction>
+      <Cost>4</Cost>
+      <Id>sensor_network_71808</Id>
+      <Set>71808</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Intercept Course</Title>
+      <Ability>You may discard this card immediately before you move in order to change your Maneuver for this round. If an enemy ship is in your forward firing arc after you complete this move, you may perform a [BATTLESTATIONS] Action as a free Action. This Upgrade may only be purchased for a Hirogen ship and costs +5 SP for any Captain other than Karr or a Hirogen Captain.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Independent</Faction>
+      <Cost>4</Cost>
+      <Id>intercept_course_71808</Id>
+      <Set>71808</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Stalking Mode</Title>
+      <Ability>ACTION: Discard this card to target a ship at Range 1-3. The target ship's Skill Number is reduced by 2. In addition, during the Roll Attack Dice step, gain +1 attack die against the target ship. Both of these effects last until the end of the game.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Independent</Faction>
+      <Cost>5</Cost>
+      <Id>stalking_mode_71808</Id>
+      <Set>71808</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Photon Torpedoes (Negh'Var Bonus)</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. If fired from a Negh'Var class ship, gain +1 attack die. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Title>Full Reverse</Title>
+      <Ability>During the Activation Phase, after you reveal your Maneuver Dial, but before you move, you may discard this card to perform a 1 [REVERSE] or 2 [REVERSE] Full Astern Maneuver instead of your chosen Maneuver. Treat this new Maneuver as a White Maneuver.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Independent</Faction>
+      <Cost>2</Cost>
+      <Id>full_reverse_71808</Id>
+      <Set>71808</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Subnucleonic Beam</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. In addition to inflicting normal damage, for each uncancelled [HIT] or [CRIT] result, disable 1 [CREW] Upgrade on the target ship of your choice. This Upgrade costs +5 SP for any ship other than a Hirogen ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>4</Attack>
+      <Range>1-2</Range>
+      <Type>Weapon</Type>
+      <Faction>Independent</Faction>
+      <Cost>5</Cost>
+      <Id>subnucleonic_beam_71808</Id>
+      <Set>71808</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photon Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one of your [BATTLESTATIONS] results into a [CRIT] result. You may fire this weapon from your forward or rear firing arcs.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -152,9 +104,9 @@
       <Attack>5</Attack>
       <Range>2-3</Range>
       <Type>Weapon</Type>
-      <Faction>Mirror Universe</Faction>
+      <Faction>Independent</Faction>
       <Cost>5</Cost>
-      <Id>photon_torpedoes_71535</Id>
-      <Set>71535</Set>
+      <Id>photon_torpedoes_71808</Id>
+      <Set>71808</Set>
       <Special></Special>
     </Upgrade>
