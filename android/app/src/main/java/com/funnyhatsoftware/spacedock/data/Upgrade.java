@@ -258,11 +258,16 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         if (ship == null) {
             ship = Ship.nullShip();
         }
-        if ("dorsal_phaser_array_71531".equals(this.getExternalId())) {
-            cost = ship.getAttack() + 1;
-        }
+
         String shipFaction = ship.getFaction();
         boolean shipIsSideboard = equippedShip.isResourceSideboard();
+        if ("dorsal_phaser_array_71531".equals(this.getExternalId())) {
+            if (shipIsSideboard) {
+                cost = 6;
+            } else {
+                cost = ship.getAttack() + 1;
+            }
+        }
         String upgradeFaction = mFaction;
         Captain captain = equippedShip.getCaptain();
 
