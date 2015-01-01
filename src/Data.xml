@@ -1,4 +1,4 @@
-<Data version="2015-01-01@01-20">
+<Data version="2015-01-01@01-21">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -2902,7 +2902,7 @@
     <Ship>
       <Title>Federation Attack Fighter</Title>
       <Unique>Y</Unique>
-      <ShipClass>Federation Attack Fighter</ShipClass>
+      <ShipClass>Federation Attack Squadron</ShipClass>
       <Faction>Federation</Faction>
       <Attack>5</Attack>
       <Agility>0</Agility>
