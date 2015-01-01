@@ -1,4 +1,4 @@
-<Data version="2014-12-22@03-00">
+<Data version="2015-01-01@01-20">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -873,6 +873,7 @@
         </Maneuvers>
         <FrontArc>90</FrontArc>
         <RearArc></RearArc>
+        </ShipClassDetail>
         <ShipClassDetail>
             <Name>Borg Tactical Cube</Name>
             <Id>borg_tactical_cube</Id>
@@ -899,7 +900,6 @@
             </Maneuvers>
             <FrontArc></FrontArc>
             <RearArc></RearArc>
-        </ShipClassDetail>
     </ShipClassDetail>
     <ShipClassDetail>
       <Name>Gorn Raider</Name>
@@ -1203,52 +1203,6 @@
         </Maneuvers>
         <FrontArc>180</FrontArc>
         <RearArc>90</RearArc>
-    </ShipClassDetail>
-    <ShipClassDetail>
-      <Name>Borg Octahedron</Name>
-      <Id>borg_octahedron</Id>
-      <Maneuvers>
-          <Maneuver speed="4" kind="left-spin" color="red" />
-          <Maneuver speed="4" kind="straight" color="white" />
-          <Maneuver speed="4" kind="right-spin" color="red" />
-          <Maneuver speed="3" kind="left-spin" color="white" />
-          <Maneuver speed="3" kind="straight" color="white" />
-          <Maneuver speed="3" kind="right-spin" color="white" />
-          <Maneuver speed="2" kind="left-spin" color="white" />
-          <Maneuver speed="2" kind="straight" color="green" />
-          <Maneuver speed="2" kind="right-spin" color="white" />
-          <Maneuver speed="1" kind="left-spin" color="green" />
-          <Maneuver speed="1" kind="straight" color="green" />
-          <Maneuver speed="1" kind="right-spin" color="green" />
-          <Maneuver speed="-1" kind="straight" color="white" />
-          <Maneuver speed="-2" kind="straight" color="white" />
-          <Maneuver speed="-3" kind="straight" color="red" />
-      </Maneuvers>
-      <FrontArc></FrontArc>
-      <RearArc></RearArc>
-    </ShipClassDetail>
-    <ShipClassDetail>
-      <Name>Borg Octahedron</Name>
-      <Id>borg_octahedron</Id>
-      <Maneuvers>
-        <Maneuver speed="4" kind="left-spin" color="red" />
-        <Maneuver speed="4" kind="straight" color="white" />
-        <Maneuver speed="4" kind="right-spin" color="red" />
-        <Maneuver speed="3" kind="left-spin" color="white" />
-        <Maneuver speed="3" kind="straight" color="white" />
-        <Maneuver speed="3" kind="right-spin" color="white" />
-        <Maneuver speed="2" kind="left-spin" color="white" />
-        <Maneuver speed="2" kind="straight" color="green" />
-        <Maneuver speed="2" kind="right-spin" color="white" />
-        <Maneuver speed="1" kind="left-spin" color="green" />
-        <Maneuver speed="1" kind="straight" color="green" />
-        <Maneuver speed="1" kind="right-spin" color="green" />
-        <Maneuver speed="-1" kind="straight" color="white" />
-        <Maneuver speed="-2" kind="straight" color="white" />
-        <Maneuver speed="-3" kind="straight" color="red" />
-      </Maneuvers>
-      <FrontArc></FrontArc>
-      <RearArc></RearArc>
     </ShipClassDetail>
     <ShipClassDetail>
       <Name>Sovereign Class</Name>
@@ -5331,6 +5285,35 @@ During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade
       <Has360Arc>N</Has360Arc>
       <Id>alpha_hunter_71808</Id>
       <Set>71808</Set>
+  </Ship>
+  <Ship>
+      <Title>Federation Attack Squadron</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Federation Attack Squadron</ShipClass>
+      <Faction>Federation</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>5</Attack>
+      <Agility>0</Agility>
+      <Hull>1</Hull>
+      <Shield>1</Shield>
+      <Ability>ATTACK SQUADRON TOKENS: 4</Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>0</Weapon>
+      <Crew>0</Crew>
+      <SquadronUpgrade>2</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>federation_attack_squadron_71753</Id>
+      <Set>71753</Set>
   </Ship>
   </Ships>
   <Captains>
@@ -13112,7 +13095,7 @@ During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade
         <Faction>Independent</Faction>
         <Cost>5</Cost>
         <Id>photon_torpedoes_71528</Id>
-        <Set>71528</Set>
+        <Set>71528,71808</Set>
         <Special></Special>
       </Upgrade>
       <Upgrade>
@@ -14172,20 +14155,132 @@ During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade
         <Special>PlusFivePointsNonHirogen</Special>
     </Upgrade>
     <Upgrade>
-        <Title>Photon Torpedoes</Title>
-        <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one of your [BATTLESTATIONS] results into a [CRIT] result. You may fire this weapon from your forward or rear firing arcs.</Ability>
+        <Title>Defensive Maneuvers</Title>
+        <Ability>When defending, during the Declare Target step, you may disable this card to place an [EVADE] Token beside your ship, even if there is already one there. No ship may be equipped with more than one "Defensive Maneuvers" Upgrade.</Ability>
         <Unique>N</Unique>
         <MirrorUniverseUnique>N</MirrorUniverseUnique>
         <Skill></Skill>
         <Talent></Talent>
-        <Attack>5</Attack>
-        <Range>2-3</Range>
-        <Type>Weapon</Type>
-        <Faction>Independent</Faction>
-        <Cost>5</Cost>
-        <Id>photon_torpedoes_71808</Id>
-        <Set>71808</Set>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Squadron</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>defensive_maneuvers_71753</Id>
+        <Set>71753</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Support Ship</Title>
+        <Ability>When your last Attack Squadron Token is destroyed, discard this card instead of removing that Token. No ship may be equipped with more than one "Support Ship" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Squadron</Type>
+        <Faction>Federation</Faction>
+        <Cost>4</Cost>
+        <Id>support_ship_71753</Id>
+        <Set>71753</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Attack Wave</Title>
+        <Ability>When attacking, during the Roll Attack Dice step, you may disable this card to gain +1 attack die for that attack. No ship may be equipped with more than one "Attack Wave" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Squadron</Type>
+        <Faction>Federation</Faction>
+        <Cost>4</Cost>
+        <Id>attack_wave_71753</Id>
+        <Set>71753</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Squad Leader</Title>
+        <Ability>At the start of the Combat Phase, you may add +2 to your Captain Skill Number until the End Phase. If you do so, place an Auxiliary Power Token beside your ship. OR ACTION: Target a friendly ship at Range 1-2 and perform the Action listed on its Captain Card as a free Action (if possible).</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Squadron</Type>
+        <Faction>Federation</Faction>
+        <Cost>4</Cost>
+        <Id>squad_leader_71753</Id>
+        <Set>71753</Set>
         <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Attack Formation</Title>
+        <Ability>When attacking, during the Roll Attack Dice step, if you are within Range 1 of a friendly ship, you may disable this card to set 1 of your attack dice on any result. That die cannot be rolled or re-rolled during that attack. No ship may be equipped with more than one "Attack Formation" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Squadron</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>attack_formation_71753</Id>
+        <Set>71753</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Tactical Pattern Theta</Title>
+        <Ability>If you damage an opponent's Hull with a [CRIT], you may immediately disable this card to search the Damage Deck for a "Weapons Malfunction" or a "Munitions Failure" card instead of drawing a random Damage Card. Re-shuffle the Damage Deck when you are done.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Squadron</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>tactical_pattern_theta_71753</Id>
+        <Set>71753</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Cover Fire</Title>
+        <Ability>When defending, during the Roll Defense Dice step, you may discard this card to add a number of defense dice to your roll equal to your current Primary Weapon value. No squadron may be equipped with more than one "Cover Fire" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Squadron</Type>
+        <Faction>Federation</Faction>
+        <Cost>4</Cost>
+        <Id>cover_fire_71753</Id>
+        <Set>71753</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Coordinated Attack</Title>
+        <Ability>When attacking, during the Declare Target step, if you do not have a [BATTLESTATIONS] Token beside your ship, you may disable this card to place a [BATTLESTATIONS] Token beside your ship. No ship may be equipped with more than one "Coordinated Attack" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Squadron</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>coordinated_attack_71753</Id>
+        <Set>71753</Set>
+        <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
   </Upgrades>
   <Resources>
@@ -14587,6 +14682,7 @@ While you have the High Yield Photon Torpedoes Resource, all of your Photon Torp
       <Set id="71754" overallSetName="Wave 10" releaseDate="2014-12-03">1st Wave Attack Fighters</Set>
       <Set id="71535" overallSetName="Wave 10" releaseDate="2014-12-03">Regent's Flagship</Set>
       <Set id="71808" overallSetName="Wave 11" releaseDate="2015-01-07">Alpha Hunter</Set>
+      <Set id="71753" overallSetName="Wave 11" releaseDate="2015-01-07">Fighter Squadron 6</Set>
     </Sets>
     <Flagships>
         <Flagship>

@@ -1,29 +1,29 @@
   <Ship>
-    <Title>Alpha Hunter</Title>
-    <Unique>Y</Unique>
+    <Title>Federation Attack Squadron</Title>
+    <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Hirogen Warship</ShipClass>
-    <Faction>Independent</Faction>
+    <ShipClass>Federation Attack Squadron</ShipClass>
+    <Faction>Federation</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>2</Agility>
-    <Hull>3</Hull>
-    <Shield>4</Shield>
-    <Ability>After you move, you may perform a [SENSOR ECHO] Action with the 1 [STRAIGHT] Maneuver as a free Action, even if you are not Cloaked.</Ability>
-    <Cost>26</Cost>
+    <Attack>5</Attack>
+    <Agility>0</Agility>
+    <Hull>1</Hull>
+    <Shield>1</Shield>
+    <Ability>ATTACK SQUADRON TOKENS: 4</Ability>
+    <Cost>20</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
-    <Scan>1</Scan>
-    <Battlestations>1</Battlestations>
+    <Scan>0</Scan>
+    <Battlestations>0</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
-    <Tech>2</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
+    <Tech>0</Tech>
+    <Weapon>0</Weapon>
+    <Crew>0</Crew>
+    <SquadronUpgrade>2</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>alpha_hunter_71808</Id>
-    <Set>71808</Set>
+    <Id>federation_attack_squadron_71753</Id>
+    <Set>71753</Set>
   </Ship>

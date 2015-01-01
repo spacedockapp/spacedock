@@ -44,7 +44,7 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-12/17/2014 18:07:20	71808 - Alpha Hunter	Unique	Alpha Hunter	Independent	Hirogen Warship					4	2	3	4	After you move, you may perform a [SENSOR ECHO] Action with the 1 [FORWARD] Maneuver as a free Action, even if you are not Cloaked.	Battle Stations, Evasive, Scan, Target Lock	26	0	1	2	2	90-degree forward		0
+12/25/2014 11:41:40	71753 - Fighter Squadron 6	Non-unique	Federation Attack Squadron	Federation	Federation Attack Squadron	Federation Attack Fighter				5	0	1	1	ATTACK SQUADRON TOKENS: 4	Evasive, Target Lock	20	0	0	0	0	90-degree forward		2
 SHIPTEXT
 
 

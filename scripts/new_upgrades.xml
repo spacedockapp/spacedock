@@ -1,112 +1,128 @@
     <Upgrade>
-      <Title>Monotanium Armor Plating</Title>
-      <Ability>Whenever an enemy ship attempts to acquire a target lock on your ship, roll 2 defense dice. If you roll at least 1 [EVADE] result, the [TARGET LOCK] Action has no effect. No ship may be equipped with more than 1 "Monotanium Armor Plating" Upgrade. ACTION: Disable this card to remove a red [TARGET LOCK] Token from beside your ship (and the corresponding blue [TARGET LOCK] Token from beside the locking ship).</Ability>
+      <Title>Defensive Maneuvers</Title>
+      <Ability>When defending, during the Declare Target step, you may disable this card to place an [EVADE] Token beside your ship, even if there is already one there. No ship may be equipped with more than one "Defensive Maneuvers" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Independent</Faction>
+      <Type>Squadron</Type>
+      <Faction>Federation</Faction>
       <Cost>3</Cost>
-      <Id>monotanium_armor_plating_71808</Id>
-      <Set>71808</Set>
-      <Special>Yes</Special>
+      <Id>defensive_maneuvers_71753</Id>
+      <Set>71753</Set>
+      <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Sensor Network</Title>
-      <Ability>During the Planning Phase, after all ships have chosen their Maneuvers, you may disable this card to target one ship anywhere in the play area, look at t hat ship's Maneuver Dial, and then choose your Maneuver. The target ship cannot change its Maneuver after you have looked at it. This Upgrade may only be purchased for a Hirogen ship.</Ability>
+      <Title>Support Ship</Title>
+      <Ability>When your last Attack Squadron Token is destroyed, discard this card instead of removing that Token. No ship may be equipped with more than one "Support Ship" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Independent</Faction>
+      <Type>Squadron</Type>
+      <Faction>Federation</Faction>
       <Cost>4</Cost>
-      <Id>sensor_network_71808</Id>
-      <Set>71808</Set>
-      <Special>Yes</Special>
+      <Id>support_ship_71753</Id>
+      <Set>71753</Set>
+      <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Intercept Course</Title>
-      <Ability>You may discard this card immediately before you move in order to change your Maneuver for this round. If an enemy ship is in your forward firing arc after you complete this move, you may perform a [BATTLESTATIONS] Action as a free Action. This Upgrade may only be purchased for a Hirogen ship and costs +5 SP for any Captain other than Karr or a Hirogen Captain.</Ability>
-      <Unique>Y</Unique>
+      <Title>Attack Wave</Title>
+      <Ability>When attacking, during the Roll Attack Dice step, you may disable this card to gain +1 attack die for that attack. No ship may be equipped with more than one "Attack Wave" Upgrade.</Ability>
+      <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Independent</Faction>
+      <Type>Squadron</Type>
+      <Faction>Federation</Faction>
       <Cost>4</Cost>
-      <Id>intercept_course_71808</Id>
-      <Set>71808</Set>
-      <Special>Yes</Special>
+      <Id>attack_wave_71753</Id>
+      <Set>71753</Set>
+      <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Stalking Mode</Title>
-      <Ability>ACTION: Discard this card to target a ship at Range 1-3. The target ship's Skill Number is reduced by 2. In addition, during the Roll Attack Dice step, gain +1 attack die against the target ship. Both of these effects last until the end of the game.</Ability>
-      <Unique>Y</Unique>
+      <Title>Squad Leader</Title>
+      <Ability>At the start of the Combat Phase, you may add +2 to your Captain Skill Number until the End Phase. If you do so, place an Auxiliary Power Token beside your ship. OR ACTION: Target a friendly ship at Range 1-2 and perform the Action listed on its Captain Card as a free Action (if possible).</Ability>
+      <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Independent</Faction>
-      <Cost>5</Cost>
-      <Id>stalking_mode_71808</Id>
-      <Set>71808</Set>
+      <Type>Squadron</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>squad_leader_71753</Id>
+      <Set>71753</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Full Reverse</Title>
-      <Ability>During the Activation Phase, after you reveal your Maneuver Dial, but before you move, you may discard this card to perform a 1 [REVERSE] or 2 [REVERSE] Full Astern Maneuver instead of your chosen Maneuver. Treat this new Maneuver as a White Maneuver.</Ability>
-      <Unique>Y</Unique>
+      <Title>Attack Formation</Title>
+      <Ability>When attacking, during the Roll Attack Dice step, if you are within Range 1 of a friendly ship, you may disable this card to set 1 of your attack dice on any result. That die cannot be rolled or re-rolled during that attack. No ship may be equipped with more than one "Attack Formation" Upgrade.</Ability>
+      <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Independent</Faction>
-      <Cost>2</Cost>
-      <Id>full_reverse_71808</Id>
-      <Set>71808</Set>
-      <Special></Special>
+      <Type>Squadron</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>attack_formation_71753</Id>
+      <Set>71753</Set>
+      <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Subnucleonic Beam</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. In addition to inflicting normal damage, for each uncancelled [HIT] or [CRIT] result, disable 1 [CREW] Upgrade on the target ship of your choice. This Upgrade costs +5 SP for any ship other than a Hirogen ship.</Ability>
+      <Title>Tactical Pattern Theta</Title>
+      <Ability>If you damage an opponent's Hull with a [CRIT], you may immediately disable this card to search the Damage Deck for a "Weapons Malfunction" or a "Munitions Failure" card instead of drawing a random Damage Card. Re-shuffle the Damage Deck when you are done.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>4</Attack>
-      <Range>1-2</Range>
-      <Type>Weapon</Type>
-      <Faction>Independent</Faction>
-      <Cost>5</Cost>
-      <Id>subnucleonic_beam_71808</Id>
-      <Set>71808</Set>
-      <Special>Yes</Special>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Squadron</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>tactical_pattern_theta_71753</Id>
+      <Set>71753</Set>
+      <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert one of your [BATTLESTATIONS] results into a [CRIT] result. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Title>Cover Fire</Title>
+      <Ability>When defending, during the Roll Defense Dice step, you may discard this card to add a number of defense dice to your roll equal to your current Primary Weapon value. No squadron may be equipped with more than one "Cover Fire" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>2-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Independent</Faction>
-      <Cost>5</Cost>
-      <Id>photon_torpedoes_71808</Id>
-      <Set>71808</Set>
-      <Special></Special>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Squadron</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>cover_fire_71753</Id>
+      <Set>71753</Set>
+      <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Coordinated Attack</Title>
+      <Ability>When attacking, during the Declare Target step, if you do not have a [BATTLESTATIONS] Token beside your ship, you may disable this card to place a [BATTLESTATIONS] Token beside your ship. No ship may be equipped with more than one "Coordinated Attack" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Squadron</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>coordinated_attack_71753</Id>
+      <Set>71753</Set>
+      <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
