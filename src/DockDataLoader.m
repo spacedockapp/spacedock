@@ -148,6 +148,7 @@
     [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"3033" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3024" context:context]];
     [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"3111" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3024" context:context]];
     [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"photon_torpedoes_71523" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"photon_torpedoes_u_s_s_yaeger" context:context]];
+    [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"photon_torpedoes_71808" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"photon_torpedoes_71528" context:context]];
     [self mergeGenericShip:[DockShip shipForId: @"1026" context:context] intoShip:[DockShip shipForId: @"1025" context:context]];
     [self mergeGenericShip:[DockShip shipForId: @"ferengi_starship_71646a" context:context] intoShip:[DockShip shipForId: @"1024" context:context]];
     [self mergeGenericShip:[DockShip shipForId: @"vulcan_starship_71527" context:context] intoShip:[DockShip shipForId: @"vulcan_starship_71508" context:context]];
