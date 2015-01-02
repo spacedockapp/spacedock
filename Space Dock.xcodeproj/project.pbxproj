@@ -320,6 +320,7 @@
 		D4F872A818B5A87600783285 /* DockShipDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F872A718B5A87600783285 /* DockShipDelegate.m */; };
 		D4F8B50C1837E4EC0051A486 /* DockSetsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F8B50B1837E4EC0051A486 /* DockSetsListViewController.m */; };
 		D4F8B50F1837EFF20051A486 /* DockSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F8B50E1837EFF20051A486 /* DockSetTableViewCell.m */; };
+		DA1C31931A548097006B9BB9 /* DockSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1C31911A548097006B9BB9 /* DockSplitViewController.m */; };
 		DA2880D41A30190300A9C736 /* SpaceDock_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2880D31A30190300A9C736 /* SpaceDock_iPad.storyboard */; };
 		DA2880D71A3037A700A9C736 /* DockPushStartSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2880D61A3037A700A9C736 /* DockPushStartSegue.m */; };
 		DA2880DB1A304FDF00A9C736 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2880DA1A304FDF00A9C736 /* Launch Screen.xib */; };
@@ -801,6 +802,8 @@
 		D4F8B50B1837E4EC0051A486 /* DockSetsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockSetsListViewController.m; sourceTree = "<group>"; };
 		D4F8B50D1837EFF20051A486 /* DockSetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockSetTableViewCell.h; sourceTree = "<group>"; };
 		D4F8B50E1837EFF20051A486 /* DockSetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockSetTableViewCell.m; sourceTree = "<group>"; };
+		DA1C31911A548097006B9BB9 /* DockSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockSplitViewController.m; sourceTree = "<group>"; };
+		DA1C31921A548097006B9BB9 /* DockSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockSplitViewController.h; sourceTree = "<group>"; };
 		DA2880D31A30190300A9C736 /* SpaceDock_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpaceDock_iPad.storyboard; sourceTree = "<group>"; };
 		DA2880D51A3037A700A9C736 /* DockPushStartSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockPushStartSegue.h; sourceTree = "<group>"; };
 		DA2880D61A3037A700A9C736 /* DockPushStartSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockPushStartSegue.m; sourceTree = "<group>"; };
@@ -974,6 +977,8 @@
 		D41129C119925D2200EC6E30 /* Other View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DA1C31911A548097006B9BB9 /* DockSplitViewController.m */,
+				DA1C31921A548097006B9BB9 /* DockSplitViewController.h */,
 				D457FD16181D58E0009C2E13 /* DockEditValueController.h */,
 				D457FD17181D58E0009C2E13 /* DockEditValueController.m */,
 				D40108E318208F000029FDC4 /* DockTableViewController.h */,
@@ -1904,6 +1909,7 @@
 				D4EDBF3B199516C200D390C3 /* DockAdmiralRowHandler.m in Sources */,
 				D43AAFC31993C867002081E4 /* DockFleetCaptainRowHandler.m in Sources */,
 				D47316B518182C4C00046428 /* DockUtils.m in Sources */,
+				DA1C31931A548097006B9BB9 /* DockSplitViewController.m in Sources */,
 				D433FE21181503A20062731A /* DockShipsViewController.m in Sources */,
 				D4F6869E18F995EA0019C067 /* DockTech.m in Sources */,
 				D427CDE3184A50CF0086EB86 /* DockConstants.m in Sources */,

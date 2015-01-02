@@ -13,6 +13,7 @@
 #import "DockShip+Addons.h"
 #import "DockTopMenuViewController.h"
 #import "DockUpgrade+Addons.h"
+#import "DockSplitViewController.h"
 
 @interface DockAppDelegate ()
 
@@ -124,7 +125,16 @@
 
     if ([self.window.rootViewController isKindOfClass:[UISplitViewController class]]) {
         UISplitViewController* splitViewController = (UISplitViewController*) self.window.rootViewController;
-        splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
+        if ([splitViewController respondsToSelector:@selector(setPreferredDisplayMode:)]) {
+            splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
+        }
+    } else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        DockSplitViewController* splitViewController = [[DockSplitViewController alloc] init];
+        UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:[[UITableViewController alloc] init]];
+        
+        [splitViewController addChildViewController:self.window.rootViewController];
+        [splitViewController addChildViewController:navigationController];
+        self.window.rootViewController = splitViewController;
     }
     
     [self loadAppData];

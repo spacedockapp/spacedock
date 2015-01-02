@@ -44,8 +44,7 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-11/30/2014 17:35:00	71535 - Regent's Flagship	Mirror Universe Unique	Regent's Flagship	Mirror Universe	Negh'var Class (Mirror)		1 Bank, 1 Forward, 2 Forward	2 Bank, 3 Bank, 3 Forward, 4 Forward, 5 Forward	2 Turn, 3 Turn	5	1	7	3	Instead of making a normal attack with your Primary Weapon,  you may fire in any direction at up to 2 enemy ships at Range 1 with 4 attack dice against each ship.	Battle Stations, Evasive, Scan, Target Lock	32	0	3	1	1	90-degree forward, 90-degree rear		0
-11/30/2014 17:37:40	71535 - Regent's Flagship	Non-unique	Mirror Universe Starship	Mirror Universe	Negh'var Class (Mirror)	Negh'var Class (Mirror)				5	1	7	2		Battle Stations, Evasive, Scan, Target Lock	30	0	2	1	1	90-degree forward, 90-degree rear		0
+12/25/2014 11:41:40	71753 - Fighter Squadron 6	Non-unique	Federation Attack Squadron	Federation	Federation Attack Squadron	Federation Attack Fighter				5	0	1	1	ATTACK SQUADRON TOKENS: 4	Evasive, Target Lock	20	0	0	0	0	90-degree forward		2
 SHIPTEXT
 
 

@@ -545,6 +545,11 @@ static NSDictionary* sItemLabels = nil;
         if ([equippedUpgrade.specialTag hasPrefix:@"shinzon_ET_"]) {
             return 0;
         }
+        if ([upgrade.externalId isEqualToString:@"intercept_course_71808"] && ![equippedShip isResourceSideboard]) {
+            if (![captain.externalId isEqualToString:@"karr_71808"] && ![captain.externalId isEqualToString:@"alpha_hirogen_71808"] && ![captain.title containsString:@"Hirogen"]) {
+                cost += 5;
+            }
+        }
     } else if ([upgrade isCrew]) {
         if (([captainSpecial isEqualToString: @"CrewUpgradesCostOneLess"] || [captainSpecial isEqualToString: @"hugh_71522"] ) && !isSideboard) {
             cost -= 1;
@@ -649,6 +654,10 @@ static NSDictionary* sItemLabels = nil;
         }
     } else if ([upgradeSpecial isEqualToString:@"PlusFiveIfNotRegentsFlagship"]) {
         if (![ship.title isEqualToString:@"Regent's Flagship"]) {
+            cost += 5;
+        }
+    } else if ([upgradeSpecial isEqualToString:@"PlusFivePointsNonHirogen"]) {
+        if (![ship.shipClass containsString:@"Hirogen"]) {
             cost += 5;
         }
     }
