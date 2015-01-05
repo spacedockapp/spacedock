@@ -131,7 +131,8 @@
     } else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         DockSplitViewController* splitViewController = [[DockSplitViewController alloc] init];
         UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:[[UITableViewController alloc] init]];
-        
+        navigationController.toolbarHidden = NO;
+        navigationController.hidesBottomBarWhenPushed = NO;
         [splitViewController addChildViewController:self.window.rootViewController];
         [splitViewController addChildViewController:navigationController];
         self.window.rootViewController = splitViewController;
