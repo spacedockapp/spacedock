@@ -1,4 +1,4 @@
-<Data version="2015-01-01@01-21">
+<Data version="2015-01-05@19-48">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -5312,6 +5312,7 @@ During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade
       <Crew>0</Crew>
       <SquadronUpgrade>2</SquadronUpgrade>
       <Has360Arc>N</Has360Arc>
+      <CaptainLimit>0</CaptainLimit>
       <Id>federation_attack_squadron_71753</Id>
       <Set>71753</Set>
   </Ship>
