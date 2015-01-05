@@ -546,7 +546,7 @@ static NSDictionary* sItemLabels = nil;
             return 0;
         }
         if ([upgrade.externalId isEqualToString:@"intercept_course_71808"] && ![equippedShip isResourceSideboard]) {
-            if (![captain.externalId isEqualToString:@"karr_71808"] && ![captain.externalId isEqualToString:@"alpha_hirogen_71808"] && ![captain.title containsString:@"Hirogen"]) {
+            if (![captain.externalId isEqualToString:@"karr_71808"] && ![captain.externalId isEqualToString:@"alpha_hirogen_71808"] && [captain.title rangeOfString:@"Hirogen"].location == NSNotFound) {
                 cost += 5;
             }
         }
@@ -657,7 +657,7 @@ static NSDictionary* sItemLabels = nil;
             cost += 5;
         }
     } else if ([upgradeSpecial isEqualToString:@"PlusFivePointsNonHirogen"]) {
-        if (![ship.shipClass containsString:@"Hirogen"]) {
+        if ([ship.shipClass rangeOfString:@"Hirogen"].location == NSNotFound) {
             cost += 5;
         }
     }

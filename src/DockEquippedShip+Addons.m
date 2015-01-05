@@ -733,7 +733,7 @@
         NSString* shipClass = [self.ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
         if ([upgradeSpecial hasPrefix:@"OnlyShipClass_CONTAINS_"]) {
             NSString* classtomatch = [upgradeSpecial substringFromIndex:23];
-            if (![shipClass containsString:classtomatch]) {
+            if ([shipClass rangeOfString:classtomatch].location == NSNotFound) {
                 return NO;
             }
         } else if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"OnlyShipClass_%@",shipClass]]) {
