@@ -44,7 +44,7 @@
     if (existingItems.count > 0) {
         for(DockCaptain* captain in existingItems) {
             NSSet* captainSets = captain.sets;
-            if ([captainSets intersectsSet: targetShipSets]) {
+            if ([captainSets intersectsSet: targetShipSets] && ![captain isUnique]) {
                 return captain;
             }
         }
@@ -142,6 +142,9 @@ static NSDictionary* sCaptainWeaponSlotAdds = nil;
 
 -(NSString*)sortStringForSet
 {
+    if ([self.externalId isEqualToString:@"gareb_71536"]) {
+        return [NSString stringWithFormat: @"%@:b:%@:%c:%@", self.faction, self.upSortType, 0, self.title];
+    }
     return [NSString stringWithFormat: @"%@:b:%@:%c:%@", self.faction, self.upSortType, 'z' - [self.skill intValue], self.title];
 }
 

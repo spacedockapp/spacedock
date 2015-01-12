@@ -660,6 +660,16 @@ static NSDictionary* sItemLabels = nil;
         if ([ship.shipClass rangeOfString:@"Hirogen"].location == NSNotFound) {
             cost += 5;
         }
+    } else if ([upgradeSpecial hasPrefix:@"Plus5NotShipClass_"]) {
+        NSString* shipClass = [ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus5NotShipClass_%@",shipClass]]) {
+            cost += 5;
+        }
+    } else if ([upgradeSpecial hasPrefix:@"Plus5NotShip_"]) {
+        NSString* shipName = [ship.title stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus5NotShip_%@",shipName]]) {
+            cost += 5;
+        }
     }
 
     if (!isSideboard) {
@@ -765,6 +775,9 @@ static NSDictionary* sItemLabels = nil;
         return 1;
     }
     if ([special isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
+        return 1;
+    }
+    if ([special isEqualToString:@"AddHiddenWeapon"]) {
         return 1;
     }
     return 0;

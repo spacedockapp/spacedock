@@ -843,6 +843,33 @@ static NSString* namePrefix(NSString* originalName)
             return NO;
         }
     }
+    if ([targetShip.ship.shipClass isEqualToString:@"Romulan Drone Ship"]) {
+        if (![targetShip.captain.externalId isEqualToString:@"gareb_71536"] && ![captain.externalId isEqualToString:@"gareb_71536"] && ![captain.externalId isEqualToString:@"romulan_drone_pilot_71536"]) {
+            if (error) {
+                NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected ship.", captain.title];
+                NSString* info = @"This ship may only be assigned Gareb or a Romulan Drone Pilot as its Captain.";
+                NSDictionary* d = @{
+                                    NSLocalizedDescriptionKey: msg,
+                                    NSLocalizedFailureReasonErrorKey: info
+                                    };
+                *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
+            }
+            return NO;
+        } else {
+            return [self passesUniquenessCheck: captain toShip: targetShip error: error];
+        }
+    } else if ([captain.externalId isEqualToString:@"gareb_71536"] && !targetShip.isResourceSideboard) {
+        if (error) {
+            NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected ship.", captain.title];
+            NSString* info = @"Gareb may only be purchased for a Romulan Drone Ship.";
+            NSDictionary* d = @{
+                                NSLocalizedDescriptionKey: msg,
+                                NSLocalizedFailureReasonErrorKey: info
+                                };
+            *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
+        }
+        return NO;
+    }
     
 
     DockCaptain* existingCaptain = [targetShip captain];

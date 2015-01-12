@@ -572,11 +572,14 @@ static NSString* makeKey(NSString* key)
         @"not_with_jean_luc_picard",
         @"PlusFiveIfSkillOverFive",
         @"PlusFiveIfNotRegentsFlagship",
-        @"PlusFivePointsNonHirogen"
+        @"PlusFivePointsNonHirogen",
+        @"AddHiddenWeapon"
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'OnlyShipClass_'"]];
+    [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus5NotShipClass_'"]];
+    [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus5NotShip_'"]];
     return unhandledSpecials;
 }
 

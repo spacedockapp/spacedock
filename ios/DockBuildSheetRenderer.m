@@ -172,6 +172,9 @@ NSString* kBlindBuyKey = @"blindBuy";
         _upgrades = [[NSMutableArray alloc] initWithCapacity: equippedUpgrades.count];
 
         for (DockEquippedUpgrade* upgrade in equippedUpgrades) {
+            if (![upgrade isPlaceholder] && [upgrade.upgrade isCaptain] && [upgrade.specialTag isEqualToString:@"AdditionalCaptain"]) {
+                [_upgrades addObject: upgrade];
+            }
             if (![upgrade isPlaceholder] && ![upgrade.upgrade isCaptain]) {
                 [_upgrades addObject: upgrade];
             }
@@ -197,7 +200,7 @@ NSString* kBlindBuyKey = @"blindBuy";
 
 -(NSString*)handleCaptain:(int)col
 {
-    if (_ship.isFighterSquadron) {
+    if (_ship.isFighterSquadron || _ship.captainCount == 0) {
         return @"";
     }
     
