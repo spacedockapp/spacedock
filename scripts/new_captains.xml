@@ -1,0 +1,32 @@
+  <Captain>
+    <Title>Gareb</Title>
+    <Ability>At the start of the game, after set up, place a Captain Card under this card so that the Skill Number is visible. This is the Captain Skill of this Card. The cost of this card is the cost of the Captain Card at -3 SP (Min 0). Gareb can field 1 [ELITE TALENT] Upgrade for each [ELITE TALENT] icon on the Captain Card. This card cannot be affected by anything that affects Captain Cards and my only be purchased for a Romulan Drone Ship.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>1</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Romulan</Faction>
+    <Cost>0</Cost>
+    <Id>gareb_71536</Id>
+    <Set>71536</Set>
+    <Special>Yes</Special>
+  </Captain>
+  <Captain>
+    <Title>Valdore</Title>
+    <Ability>Add 1 [TECH] Upgrade slot to your Upgrade Bar. When attacking, you may discard 1 of your [TECH] Upgrades to gain +1 attack die.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>6</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Romulan</Faction>
+    <Cost>4</Cost>
+    <Id>valdore_71536</Id>
+    <Set>71536</Set>
+    <Special></Special>
+  </Captain>

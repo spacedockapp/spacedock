@@ -44,7 +44,7 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-12/25/2014 11:41:40	71753 - Fighter Squadron 6	Non-unique	Federation Attack Squadron	Federation	Federation Attack Squadron	Federation Attack Fighter				5	0	1	1	ATTACK SQUADRON TOKENS: 4	Evasive, Target Lock	20	0	0	0	0	90-degree forward		2
+1/6/2015 17:16:52	71536 - Prototype 01	Unique	Prototype 01	Romulan	Romulan Drone Ship					3	3	3	3	During the End Phase of each round, repair 1 damage to your Hull or Shields (your choice).  This ship may only be assigned Gareb or a Romulan Drone Pilot as its Captain.	Evasive, Scan, Target Lock	24	0	0	3	1	90-degree forward		0
 SHIPTEXT
 
 

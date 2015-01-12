@@ -1,29 +1,29 @@
   <Ship>
-    <Title>Federation Attack Squadron</Title>
-    <Unique>N</Unique>
+    <Title>Prototype 01</Title>
+    <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Federation Attack Squadron</ShipClass>
-    <Faction>Federation</Faction>
+    <ShipClass>Romulan Drone Ship</ShipClass>
+    <Faction>Romulan</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>5</Attack>
-    <Agility>0</Agility>
-    <Hull>1</Hull>
-    <Shield>1</Shield>
-    <Ability>ATTACK SQUADRON TOKENS: 4</Ability>
-    <Cost>20</Cost>
+    <Attack>3</Attack>
+    <Agility>3</Agility>
+    <Hull>3</Hull>
+    <Shield>3</Shield>
+    <Ability>During the End Phase of each round, repair 1 damage to your Hull or Shields (your choice).  This ship may only be assigned Gareb or a Romulan Drone Pilot as its Captain.</Ability>
+    <Cost>24</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
+    <Scan>1</Scan>
     <Battlestations>0</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
-    <Tech>0</Tech>
-    <Weapon>0</Weapon>
+    <Tech>3</Tech>
+    <Weapon>1</Weapon>
     <Crew>0</Crew>
-    <SquadronUpgrade>2</SquadronUpgrade>
+    <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>federation_attack_squadron_71753</Id>
-    <Set>71753</Set>
+    <Id>prototype_01_71536</Id>
+    <Set>71536</Set>
   </Ship>

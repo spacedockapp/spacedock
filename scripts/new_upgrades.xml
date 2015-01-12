@@ -1,128 +1,96 @@
     <Upgrade>
-      <Title>Defensive Maneuvers</Title>
-      <Ability>When defending, during the Declare Target step, you may disable this card to place an [EVADE] Token beside your ship, even if there is already one there. No ship may be equipped with more than one "Defensive Maneuvers" Upgrade.</Ability>
+      <Title>Maneuvering Thrusters</Title>
+      <Ability>When defending, during the Declare Target step, you may disable this card to place 1 [EVADE] Token beside your ship, even if there is already one there. This Upgrade costs +5 SP if purchased for any ship other than a Romulan Drone Ship.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Squadron</Type>
-      <Faction>Federation</Faction>
+      <Type>Tech</Type>
+      <Faction>Romulan</Faction>
       <Cost>3</Cost>
-      <Id>defensive_maneuvers_71753</Id>
-      <Set>71753</Set>
-      <Special>NoMoreThanOnePerShip</Special>
+      <Id>maneuvering_thrusters_71536</Id>
+      <Set>71536</Set>
+      <Special>Yes</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Support Ship</Title>
-      <Ability>When your last Attack Squadron Token is destroyed, discard this card instead of removing that Token. No ship may be equipped with more than one "Support Ship" Upgrade.</Ability>
+      <Title>Multi-Spectral Emitters</Title>
+      <Ability>When defending, during the Roll Defense Dice step, you may disable this card and all of your remaining Shields, to roll +2 defense dice. This Upgrade may only be purchased for a Romulan Drone Ship.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Squadron</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>support_ship_71753</Id>
-      <Set>71753</Set>
-      <Special>NoMoreThanOnePerShip</Special>
+      <Type>Tech</Type>
+      <Faction>Romulan</Faction>
+      <Cost>3</Cost>
+      <Id>multi_spectral_emitters_71536</Id>
+      <Set>71536</Set>
+      <Special>Yes</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Attack Wave</Title>
-      <Ability>When attacking, during the Roll Attack Dice step, you may disable this card to gain +1 attack die for that attack. No ship may be equipped with more than one "Attack Wave" Upgrade.</Ability>
-      <Unique>N</Unique>
+      <Title>Core Overload</Title>
+      <Ability>ACTION: Discard this card to perform this Action. At the end of the Activation Phase, after all ships have moved, destroy your ship and roll 3 attack dice. Every ship within Range 1 of your ship suffers normal damage for each [HIT] or [CRIT] result. The "Cheat Death" Upgrade cannot be used in conjunction with this card.</Ability>
+      <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Squadron</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>attack_wave_71753</Id>
-      <Set>71753</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Squad Leader</Title>
-      <Ability>At the start of the Combat Phase, you may add +2 to your Captain Skill Number until the End Phase. If you do so, place an Auxiliary Power Token beside your ship. OR ACTION: Target a friendly ship at Range 1-2 and perform the Action listed on its Captain Card as a free Action (if possible).</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Squadron</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>squad_leader_71753</Id>
-      <Set>71753</Set>
+      <Type>Talent</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>core_overload_71536</Id>
+      <Set>71536</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Attack Formation</Title>
-      <Ability>When attacking, during the Roll Attack Dice step, if you are within Range 1 of a friendly ship, you may disable this card to set 1 of your attack dice on any result. That die cannot be rolled or re-rolled during that attack. No ship may be equipped with more than one "Attack Formation" Upgrade.</Ability>
+      <Title>Backup Sequencer</Title>
+      <Ability>At any time, you may disable this card to activate all of your Shield Tokens by flipping them back to their blue sides. This Upgrade may only be purchased for a Romulan Drone Ship.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Squadron</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>attack_formation_71753</Id>
-      <Set>71753</Set>
-      <Special>NoMoreThanOnePerShip</Special>
+      <Type>Tech</Type>
+      <Faction>Romulan</Faction>
+      <Cost>2</Cost>
+      <Id>backup_sequencer_71536</Id>
+      <Set>71536</Set>
+      <Special>Yes</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Tactical Pattern Theta</Title>
-      <Ability>If you damage an opponent's Hull with a [CRIT], you may immediately disable this card to search the Damage Deck for a "Weapons Malfunction" or a "Munitions Failure" card instead of drawing a random Damage Card. Re-shuffle the Damage Deck when you are done.</Ability>
+      <Title>Reinforced Hull Plating</Title>
+      <Ability>When defending, during the Compare Results step, you may disable this card to cancel 1 [HIT] or [CRIT] result.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Squadron</Type>
-      <Faction>Federation</Faction>
+      <Type>Tech</Type>
+      <Faction>Romulan</Faction>
       <Cost>3</Cost>
-      <Id>tactical_pattern_theta_71753</Id>
-      <Set>71753</Set>
+      <Id>reinforced_hull_plating_71536</Id>
+      <Set>71536</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Cover Fire</Title>
-      <Ability>When defending, during the Roll Defense Dice step, you may discard this card to add a number of defense dice to your roll equal to your current Primary Weapon value. No squadron may be equipped with more than one "Cover Fire" Upgrade.</Ability>
+      <Title>Triphasic Emitter</Title>
+      <Ability>At the start of the game, after Setup, choose a non-Borg [WEAPON] Upgrade and place it face down beneath this card. The chosen Upgrade must have a cost of 5 SP or less. ATTACK: Discard this card to perform this attack. Flip the card that is beneath this card face up and perform the attack listed on that card (if possible). After the attack is complete, discard that card as well.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Squadron</Type>
-      <Faction>Federation</Faction>
+      <Attack>?</Attack>
+      <Range>?</Range>
+      <Type>Weapon</Type>
+      <Faction>Romulan</Faction>
       <Cost>4</Cost>
-      <Id>cover_fire_71753</Id>
-      <Set>71753</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Coordinated Attack</Title>
-      <Ability>When attacking, during the Declare Target step, if you do not have a [BATTLESTATIONS] Token beside your ship, you may disable this card to place a [BATTLESTATIONS] Token beside your ship. No ship may be equipped with more than one "Coordinated Attack" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Squadron</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>coordinated_attack_71753</Id>
-      <Set>71753</Set>
-      <Special>NoMoreThanOnePerShip</Special>
+      <Id>triphasic_emitter_71536</Id>
+      <Set>71536</Set>
+      <Special></Special>
     </Upgrade>

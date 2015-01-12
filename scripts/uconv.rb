@@ -6,20 +6,20 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-12/23/2014 17:42:01	71753 - Fighter Squadron 6	Non-unique	Defensive Maneuvers	Federation	When defending, during the Declare Target step, you may disable this card to place an [EVADE] Token beside your ship, even if there is already one there.  No ship may be equipped with more than one "Defensive Maneuvers" Upgrade.	Squadron	3	Yes
-12/23/2014 17:43:07	71753 - Fighter Squadron 6	Non-unique	Support Ship	Federation	When your last Attack Squadron Token is destroyed, discard this card instead of removing that Token.  No ship may be equipped with more than one "Support Ship" Upgrade.	Squadron	4	Yes
-12/23/2014 17:44:09	71753 - Fighter Squadron 6	Non-unique	Attack Wave	Federation	When attacking, during the Roll Attack Dice step, you may disable this card to gain +1 attack die for that attack.  No ship may be equipped with more than one "Attack Wave" Upgrade.	Squadron	4	Yes
-12/23/2014 17:45:26	71753 - Fighter Squadron 6	Non-unique	Squad Leader	Federation	At the start of the Combat Phase, you may add +2 to your Captain Skill Number until the End Phase.  If you do so, place an Auxiliary Power Token beside your ship.  OR  ACTION: Target a friendly ship at Range 1-2 and perform the Action listed on its Captain Card as a free Action (if possible).	Squadron	4	
-12/23/2014 17:46:53	71753 - Fighter Squadron 6	Non-unique	Attack Formation	Federation	When attacking, during the Roll Attack Dice step, if you are within Range 1 of a friendly ship, you may disable this card to set 1 of your attack dice on any result.  That die cannot be rolled or re-rolled during that attack.  No ship may be equipped with more than one "Attack Formation" Upgrade.	Squadron	3	Yes
-12/23/2014 17:48:11	71753 - Fighter Squadron 6	Non-unique	Tactical Pattern Theta	Federation	If you damage an opponent's Hull with a [CRIT], you may immediately disable this card to search the Damage Deck for a "Weapons Malfunction" or a "Munitions Failure" card instead of drawing a random Damage Card.  Re-shuffle the Damage Deck when you are done.	Squadron	3	
-12/23/2014 17:49:19	71753 - Fighter Squadron 6	Non-unique	Cover Fire	Federation	When defending, during the Roll Defense Dice step, you may discard this card to add a number of defense dice to your roll equal to your current Primary Weapon value.  No squadron may be equipped with more than one "Cover Fire" Upgrade.	Squadron	4	Yes
-12/23/2014 17:50:29	71753 - Fighter Squadron 6	Non-unique	Coordinated Attack	Federation	When attacking, during the Declare Target step, if you do not have a [BATTLE STATIONS] Token beside your ship, you may disable this card to place a [BATTLE STATIONS] Token beside your ship.  No ship may be equipped with more than one "Coordinated Attack" Upgrade.	Squadron	3	Yes
+1/6/2015 17:27:02	71536 - Prototype 01	Non-unique	Maneuvering Thrusters	Romulan	When defending, during the Declare Target step, you may disable this card to place 1 [EVADE] Token beside your ship, even if there is already one there.  This Upgrade costs +5 SP if purchased for any ship other than a Romulan Drone Ship.	Tech	3	Yes
+1/6/2015 17:32:53	71536 - Prototype 01	Non-unique	Multi-Spectral Emitters	Romulan	When defending, during the Roll Defense Dice step, you may disable this card and all of your remaining Shields, to roll +2 defense dice.  This Upgrade may only be purchased for a Romulan Drone Ship.	Tech	3	Yes
+1/6/2015 17:34:48	71536 - Prototype 01	Unique	Core Overload	Romulan	ACTION: Discard this card to perform this Action.  At the end of the Activation Phase, after all ships have moved, destroy your ship and roll 3 attack dice.  Every ship within Range 1 of your ship suffers normal damage for each [HIT] or [CRIT] result.  The "Cheat Death" Upgrade cannot be used in conjunction with this card.	Talent	5	
+1/6/2015 17:36:27	71536 - Prototype 01	Non-unique	Backup Sequencer	Romulan	At any time, you may disable this card to activate all of your Shield Tokens by flipping them back to their blue sides.  This Upgrade may only be purchased for a Romulan Drone Ship.	Tech	2	Yes
+1/6/2015 17:38:56	71536 - Prototype 01	Non-unique	Reinforced Hull Plating	Romulan	When defending, during the Compare Results step, you may disable this card to cancel 1 [HIT] or [CRIT] result.	Tech	3	
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
+1/6/2015 17:19:39	71536 - Prototype 01	Unique	Gareb	1	Romulan	At the start of the game, after set up, place a Captain Card under this card so that the Skill Number is visible.  This is the Captain Skill of this Card.  The cost of this card is the cost of the Captain Card at -3 SP (Min 0). Gareb can field 1 [ELITE TALENT] Upgrade for each [ELITE TALENT] icon on the Captain Card.  T his card cannot be affected by anything that affects Captain Cards and my only be purchased for a Romulan Drone Ship.	0	0	Yes	
+1/6/2015 17:20:34	71536 - Prototype 01	Unique	Valdore	6	Romulan	Add 1 [TECH] Upgrade slot to your Upgrade Bar.  When attacking, you may discard 1 of your [TECH] Upgrades to gain +1 attack die.	1	4		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
+1/6/2015 17:14:58	71536 - Prototype 01	Non-unique	Triphasic Emitter	Romulan	?	?	At the start of the game, after Setup, choose a non-Borg [WEAPON] Upgrade and place it face down beneath this card.  The chosen Upgrade must have a cost of 5 SP or less.  ATTACK: Discard this card to perform this attack.  Flip the card that is beneath this card face up and perform the attack listed on that card (if possible).  After the attack is complete, discard that card as well.	4	
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT

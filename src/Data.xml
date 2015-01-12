@@ -1,4 +1,4 @@
-<Data version="2015-01-05@19-48">
+<Data version="2015-01-11@00-53">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1414,6 +1414,15 @@
   <ShipClassDetail>
       <Name>Hirogen Warship</Name>
       <Id>hirogen_warship</Id>
+      <Maneuvers>
+          
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
+      <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+      <Name>Romulan Drone Ship</Name>
+      <Id>romulan_drone_ship</Id>
       <Maneuvers>
           
       </Maneuvers>
@@ -5316,6 +5325,35 @@ During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade
       <Id>federation_attack_squadron_71753</Id>
       <Set>71753</Set>
   </Ship>
+  <Ship>
+      <Title>Prototype 01</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Romulan Drone Ship</ShipClass>
+      <Faction>Romulan</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>3</Agility>
+      <Hull>3</Hull>
+      <Shield>3</Shield>
+      <Ability>During the End Phase of each round, repair 1 damage to your Hull or Shields (your choice).  This ship may only be assigned Gareb or a Romulan Drone Pilot as its Captain.</Ability>
+      <Cost>24</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>3</Tech>
+      <Weapon>1</Weapon>
+      <Crew>0</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>prototype_01_71536</Id>
+      <Set>71536</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -6582,7 +6620,7 @@ During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade
     </Captain>
     <Captain>
       <Title>Benjamin Maxwell</Title>
-      <Ability>Immediately before you move, you may change your Maneuver. If you do so, discard t his card during the End Phase.</Ability>
+      <Ability>Immediately before you move, you may change your Maneuver. If you do so, discard this card during the End Phase.</Ability>
       <Unique>Y</Unique>
       <Skill>7</Skill>
       <Talent>1</Talent>
@@ -7576,6 +7614,50 @@ During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade
       <Cost>4</Cost>
       <Id>alpha_hirogen_71808</Id>
       <Set>71808</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Gareb</Title>
+      <Ability>At the start of the game, after set up, place a Captain Card under this card so that the Skill Number is visible. This is the Captain Skill of this Card. The cost of this card is the cost of the Captain Card at -3 SP (Min 0). Gareb can field 1 [ELITE TALENT] Upgrade for each [ELITE TALENT] icon on the Captain Card. This card cannot be affected by anything that affects Captain Cards and my only be purchased for a Romulan Drone Ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>1</Skill>
+      <Talent>0</Talent>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>0</Cost>
+      <Id>gareb_71536</Id>
+      <Set>71536</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Romulan Drone Pilot</Title>
+      <Ability></Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>1</Skill>
+      <Talent>0</Talent>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>0</Cost>
+      <Id>romulan_drone_pilot_71536</Id>
+      <Set>71536</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Valdore</Title>
+      <Ability>Add 1 [TECH] Upgrade slot to your Upgrade Bar. When attacking, you may discard 1 of your [TECH] Upgrades to gain +1 attack die.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>valdore_71536</Id>
+      <Set>71536</Set>
       <Special></Special>
   </Captain>
   </Captains>
@@ -14283,6 +14365,102 @@ During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade
         <Set>71753</Set>
         <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Maneuvering Thrusters</Title>
+        <Ability>When defending, during the Declare Target step, you may disable this card to place 1 [EVADE] Token beside your ship, even if there is already one there. This Upgrade costs +5 SP if purchased for any ship other than a Romulan Drone Ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Romulan</Faction>
+        <Cost>3</Cost>
+        <Id>maneuvering_thrusters_71536</Id>
+        <Set>71536</Set>
+        <Special>Plus5NotShipClass_Romulan_Drone_Ship</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Multi-Spectral Emitters</Title>
+        <Ability>When defending, during the Roll Defense Dice step, you may disable this card and all of your remaining Shields, to roll +2 defense dice. This Upgrade may only be purchased for a Romulan Drone Ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Romulan</Faction>
+        <Cost>3</Cost>
+        <Id>multi_spectral_emitters_71536</Id>
+        <Set>71536</Set>
+        <Special>OnlyShipClass_Romulan_Drone_Ship</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Core Overload</Title>
+        <Ability>ACTION: Discard this card to perform this Action. At the end of the Activation Phase, after all ships have moved, destroy your ship and roll 3 attack dice. Every ship within Range 1 of your ship suffers normal damage for each [HIT] or [CRIT] result. The "Cheat Death" Upgrade cannot be used in conjunction with this card.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>core_overload_71536</Id>
+        <Set>71536</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Backup Sequencer</Title>
+        <Ability>At any time, you may disable this card to activate all of your Shield Tokens by flipping them back to their blue sides. This Upgrade may only be purchased for a Romulan Drone Ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Romulan</Faction>
+        <Cost>2</Cost>
+        <Id>backup_sequencer_71536</Id>
+        <Set>71536</Set>
+        <Special>OnlyShipClass_Romulan_Drone_Ship</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Reinforced Hull Plating</Title>
+        <Ability>When defending, during the Compare Results step, you may disable this card to cancel 1 [HIT] or [CRIT] result.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Romulan</Faction>
+        <Cost>3</Cost>
+        <Id>reinforced_hull_plating_71536</Id>
+        <Set>71536</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Triphasic Emitter</Title>
+        <Ability>At the start of the game, after Setup, choose a non-Borg [WEAPON] Upgrade and place it face down beneath this card. The chosen Upgrade must have a cost of 5 SP or less. ATTACK: Discard this card to perform this attack. Flip the card that is beneath this card face up and perform the attack listed on that card (if possible). After the attack is complete, discard that card as well.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>0</Attack>
+        <Range>0</Range>
+        <Type>Weapon</Type>
+        <Faction>Romulan</Faction>
+        <Cost>4</Cost>
+        <Id>triphasic_emitter_71536</Id>
+        <Set>71536</Set>
+        <Special>AddHiddenWeapon</Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -14684,6 +14862,7 @@ While you have the High Yield Photon Torpedoes Resource, all of your Photon Torp
       <Set id="71535" overallSetName="Wave 10" releaseDate="2014-12-03">Regent's Flagship</Set>
       <Set id="71808" overallSetName="Wave 11" releaseDate="2015-01-07">Alpha Hunter</Set>
       <Set id="71753" overallSetName="Wave 11" releaseDate="2015-01-07">Fighter Squadron 6</Set>
+      <Set id="71536" overallSetName="Wave 11" releaseDate="2015-01-07">Prototype 01</Set>
     </Sets>
     <Flagships>
         <Flagship>
