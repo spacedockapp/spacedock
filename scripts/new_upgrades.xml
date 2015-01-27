@@ -1,38 +1,6 @@
     <Upgrade>
-      <Title>Maneuvering Thrusters</Title>
-      <Ability>When defending, during the Declare Target step, you may disable this card to place 1 [EVADE] Token beside your ship, even if there is already one there. This Upgrade costs +5 SP if purchased for any ship other than a Romulan Drone Ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Romulan</Faction>
-      <Cost>3</Cost>
-      <Id>maneuvering_thrusters_71536</Id>
-      <Set>71536</Set>
-      <Special>Yes</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Multi-Spectral Emitters</Title>
-      <Ability>When defending, during the Roll Defense Dice step, you may disable this card and all of your remaining Shields, to roll +2 defense dice. This Upgrade may only be purchased for a Romulan Drone Ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Romulan</Faction>
-      <Cost>3</Cost>
-      <Id>multi_spectral_emitters_71536</Id>
-      <Set>71536</Set>
-      <Special>Yes</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Core Overload</Title>
-      <Ability>ACTION: Discard this card to perform this Action. At the end of the Activation Phase, after all ships have moved, destroy your ship and roll 3 attack dice. Every ship within Range 1 of your ship suffers normal damage for each [HIT] or [CRIT] result. The "Cheat Death" Upgrade cannot be used in conjunction with this card.</Ability>
+      <Title>Surrender As Ordered</Title>
+      <Ability>ACTION: Discard this card to target one enemy ship at Range 1 that is in your forward firing arc. The target ship may choose to not attack this round and disable all of its [WEAPON] Upgrades. If it does this, then your ship cannot attack that ship this round. If the target ship chooses not to do this (or if it has no [WEAPON] Upgrades that are not already disabled), you gain +1 attack dice against that ship this round.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -40,57 +8,57 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Romulan</Faction>
-      <Cost>5</Cost>
-      <Id>core_overload_71536</Id>
-      <Set>71536</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Backup Sequencer</Title>
-      <Ability>At any time, you may disable this card to activate all of your Shield Tokens by flipping them back to their blue sides. This Upgrade may only be purchased for a Romulan Drone Ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Romulan</Faction>
-      <Cost>2</Cost>
-      <Id>backup_sequencer_71536</Id>
-      <Set>71536</Set>
-      <Special>Yes</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Reinforced Hull Plating</Title>
-      <Ability>When defending, during the Compare Results step, you may disable this card to cancel 1 [HIT] or [CRIT] result.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Romulan</Faction>
-      <Cost>3</Cost>
-      <Id>reinforced_hull_plating_71536</Id>
-      <Set>71536</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Triphasic Emitter</Title>
-      <Ability>At the start of the game, after Setup, choose a non-Borg [WEAPON] Upgrade and place it face down beneath this card. The chosen Upgrade must have a cost of 5 SP or less. ATTACK: Discard this card to perform this attack. Flip the card that is beneath this card face up and perform the attack listed on that card (if possible). After the attack is complete, discard that card as well.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>?</Attack>
-      <Range>?</Range>
-      <Type>Weapon</Type>
-      <Faction>Romulan</Faction>
+      <Faction>Klingon</Faction>
       <Cost>4</Cost>
-      <Id>triphasic_emitter_71536</Id>
-      <Set>71536</Set>
+      <Id>surrender_as_ordered_71996</Id>
+      <Set>71996</Set>
       <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>William T. Riker</Title>
+      <Ability>You do not pay a faction penalty when assigning this card to a Klingon Ship. ACTION: Disable this card to increase your Captain Skill to 10 until the End Phase.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>william_t_riker_71996</Id>
+      <Set>71996</Set>
+      <Special>NoPenaltyOnKlingonShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Tunneling Neutrino Beam</Title>
+      <Ability>ACTION: Disable this card to target 1 friendly ship at Range 1. Target ship repairs 1 damage to its Hull. You cannot attack this round. You do not pay a faction penalty when assigning this card to a Klingon ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>tunneling_neutrino_beam_71996</Id>
+      <Set>71996</Set>
+      <Special>NoPenaltyOnKlingonShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Phaser Array Retrofit</Title>
+      <Ability>When attacking with your Primary Weapon at Range 3, you gain +1 attack die and your opponent rolls 1 less defense die. This Upgrade may only be purchased for a Klingon Ship. No ship may be equipped with more than 1 "Phaser Array Retrofit" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>0</Attack>
+      <Range>0</Range>
+      <Type>Weapon</Type>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>phaser_array_retrofit_71996</Id>
+      <Set>71996</Set>
+      <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>

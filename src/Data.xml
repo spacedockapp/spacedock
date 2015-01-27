@@ -1,4 +1,4 @@
-<Data version="2015-01-11@00-53">
+<Data version="2015-01-27@22-45">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -2351,7 +2351,7 @@
       <Cloak></Cloak>
       <SensorEcho></SensorEcho>
       <Tech>1</Tech>
-      <Weapon>0</Weapon>
+      <Weapon>1</Weapon>
       <Crew>0</Crew>
       <Id>1035</Id>
       <Set>71270</Set>
@@ -2446,7 +2446,7 @@
       <Weapon>1</Weapon>
       <Crew>1</Crew>
       <Id>1039</Id>
-      <Set>71273</Set>
+      <Set>71273,71996</Set>
     </Ship>
     <Ship>
       <Title>Koranak</Title>
@@ -2771,7 +2771,7 @@
       <Set>71448</Set>
     </Ship>
     <Ship>
-      <Title>I.R.W. Gal Gath`thong</Title>
+      <Title>I.R.W. Gal Gath'thong</Title>
       <Unique>Y</Unique>
       <ShipClass>Romulan Bird of Prey Class</ShipClass>
       <Faction>Romulan</Faction>
@@ -5354,6 +5354,35 @@ During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade
       <Id>prototype_01_71536</Id>
       <Set>71536</Set>
   </Ship>
+  <Ship>
+      <Title>I.K.S. Pagh</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>K'Vort Class</ShipClass>
+      <Faction>Klingon</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>3</Shield>
+      <Ability>When attacking, you may convert 1 of your [CRIT] results into a [HIT] result.  If you do so, you may then convert 1 of your blank results into a [HIT] result.</Ability>
+      <Cost>26</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>i_k_s_pagh_71996</Id>
+      <Set>71996</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -5438,7 +5467,7 @@ During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade
       <Faction>Klingon</Faction>
       <Cost>0</Cost>
       <Id>2005</Id>
-      <Set>71120,71125,71126,OP2Prize,71269,71273,71448,i_k_s_b_moth,71532</Set>
+      <Set>71120,71125,71126,OP2Prize,71269,71273,71448,i_k_s_b_moth,71532,71996</Set>
     </Captain>
     <Captain>
       <Title>Toreth</Title>
@@ -7658,6 +7687,22 @@ During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade
       <Cost>4</Cost>
       <Id>valdore_71536</Id>
       <Set>71536</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Kargan</Title>
+      <Ability>During the Activation Phase, after you move, if you perform an Action listed on one of your Upgrades, you may immediately perform a [TARGET LOCK] Action as a free Action, if possible. If you do this, place an Auxiliary Power Token beside your ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>kargan_71996</Id>
+      <Set>71996</Set>
       <Special></Special>
   </Captain>
   </Captains>
@@ -14461,6 +14506,70 @@ During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade
         <Set>71536</Set>
         <Special>AddHiddenWeapon</Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Surrender As Ordered</Title>
+        <Ability>ACTION: Discard this card to target one enemy ship at Range 1 that is in your forward firing arc. The target ship may choose to not attack this round and disable all of its [WEAPON] Upgrades. If it does this, then your ship cannot attack that ship this round. If the target ship chooses not to do this (or if it has no [WEAPON] Upgrades that are not already disabled), you gain +1 attack dice against that ship this round.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Klingon</Faction>
+        <Cost>4</Cost>
+        <Id>surrender_as_ordered_71996</Id>
+        <Set>71996</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>William T. Riker</Title>
+        <Ability>You do not pay a faction penalty when assigning this card to a Klingon Ship. ACTION: Disable this card to increase your Captain Skill to 10 until the End Phase.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Federation</Faction>
+        <Cost>4</Cost>
+        <Id>william_t_riker_71996</Id>
+        <Set>71996</Set>
+        <Special>NoPenaltyOnKlingonShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Tunneling Neutrino Beam</Title>
+        <Ability>ACTION: Disable this card to target 1 friendly ship at Range 1. Target ship repairs 1 damage to its Hull. You cannot attack this round. You do not pay a faction penalty when assigning this card to a Klingon ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>tunneling_neutrino_beam_71996</Id>
+        <Set>71996</Set>
+        <Special>NoPenaltyOnKlingonShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Phaser Array Retrofit</Title>
+        <Ability>When attacking with your Primary Weapon at Range 3, you gain +1 attack die and your opponent rolls 1 less defense die. This Upgrade may only be purchased for a Klingon Ship. No ship may be equipped with more than 1 "Phaser Array Retrofit" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>0</Attack>
+        <Range>0</Range>
+        <Type>Weapon</Type>
+        <Faction>Klingon</Faction>
+        <Cost>5</Cost>
+        <Id>phaser_array_retrofit_71996</Id>
+        <Set>71996</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -14746,6 +14855,21 @@ While you have the High Yield Photon Torpedoes Resource, all of your Photon Torp
           <Id>high_yield_photon_torpedoes_71513c</Id>
           <Set>71513c</Set>
       </Resource>
+      <Resource>
+          <Title>Officer Exchange Program</Title>
+          <Unique>Y</Unique>
+          <Ability>This card explains the rules for the Officer Exchange Program Resource and serves as a reference to remind players of its effect.
+
+1) Prior to building your fleet, choose two different Factions.
+
+2) You do not pay a faction penalty when assigning a Captain, Admiral or [CREW] Upgrade of either of the chosen factions to a ship in your fleet of the other chosen faction.
+
+3) In addition, when assigning a Captain or Admiral card of one of the chose factions to a ship in your fleet of the other chose faction, the cost of that card is reduced by 1 SP (min 0). NOTE: This applies to all of your Captain and Admiral cards.</Ability>
+          <Type>Resource</Type>
+          <Cost>0</Cost>
+          <Id>officer_exchange_program_71996a</Id>
+          <Set>71996a</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -14813,7 +14937,7 @@ While you have the High Yield Photon Torpedoes Resource, all of your Photon Torp
 
       <Set id="71276" overallSetName="Wave 3" releaseDate="2014-02-01">U.S.S. Equinox Expansion</Set>
       <Set id="71448" overallSetName="Wave 3" releaseDate="2014-02-01">I.K.S. Somraw Expansion</Set>
-      <Set id="71278" overallSetName="Wave 3" releaseDate="2014-02-01">R.I.S. Gal Gath'thong Expansion</Set>
+      <Set id="71278" overallSetName="Wave 3" releaseDate="2014-02-01">I.R.W. Gal Gath'thong Expansion</Set>
       <Set id="71279" overallSetName="Wave 3" releaseDate="2014-02-01">4th Division Battleship Expansion</Set>
 
       <Set id="71280" overallSetName="Wave 4" releaseDate="2014-04-01">U.S.S. Voyager Expansion</Set>
@@ -14863,6 +14987,8 @@ While you have the High Yield Photon Torpedoes Resource, all of your Photon Torp
       <Set id="71808" overallSetName="Wave 11" releaseDate="2015-01-07">Alpha Hunter</Set>
       <Set id="71753" overallSetName="Wave 11" releaseDate="2015-01-07">Fighter Squadron 6</Set>
       <Set id="71536" overallSetName="Wave 11" releaseDate="2015-01-07">Prototype 01</Set>
+      <Set id="71996a" overallSetName="A Matter of Honor" releaseDate="2015-02-04">Officer Exchange Program Resource</Set>
+      <Set id="71996" overallSetName="A Matter of Honor" releaseDate="2015-02-04">I.K.S. Pagh</Set>
     </Sets>
     <Flagships>
         <Flagship>

@@ -1,9 +1,18 @@
   <ShipClassDetail>
-    <Name>Romulan Drone Ship</Name>
-    <Id>romulan_drone_ship</Id>
+    <Name>K'Vort Class</Name>
+    <Id>k_vort_class</Id>
     <Maneuvers>
 
     </Maneuvers>
     <FrontArc>90</FrontArc>
-    <RearArc></RearArc>
+    <RearArc>90</RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>K'Vort Class</Name>
+    <Id>k_vort_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>90</FrontArc>
+    <RearArc>90</RearArc>
   </ShipClassDetail>

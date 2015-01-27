@@ -1,29 +1,58 @@
   <Ship>
-    <Title>Prototype 01</Title>
-    <Unique>Y</Unique>
+    <Title>Klingon Starship</Title>
+    <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Romulan Drone Ship</ShipClass>
-    <Faction>Romulan</Faction>
+    <ShipClass>K'Vort Class</ShipClass>
+    <Faction>Klingon</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>3</Attack>
-    <Agility>3</Agility>
-    <Hull>3</Hull>
-    <Shield>3</Shield>
-    <Ability>During the End Phase of each round, repair 1 damage to your Hull or Shields (your choice).  This ship may only be assigned Gareb or a Romulan Drone Pilot as its Captain.</Ability>
+    <Attack>4</Attack>
+    <Agility>1</Agility>
+    <Hull>5</Hull>
+    <Shield>2</Shield>
+    <Ability></Ability>
     <Cost>24</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
-    <Scan>1</Scan>
+    <Scan>0</Scan>
     <Battlestations>0</Battlestations>
-    <Cloak>0</Cloak>
-    <SensorEcho>0</SensorEcho>
+    <Cloak>1</Cloak>
+    <SensorEcho>1</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
-    <Tech>3</Tech>
+    <Tech>1</Tech>
     <Weapon>1</Weapon>
-    <Crew>0</Crew>
+    <Crew>1</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>prototype_01_71536</Id>
-    <Set>71536</Set>
+    <Id>klingon_starship_71996</Id>
+    <Set>71996</Set>
+  </Ship>
+  <Ship>
+    <Title>I.K.S. Pagh</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>K'Vort Class</ShipClass>
+    <Faction>Klingon</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>4</Attack>
+    <Agility>1</Agility>
+    <Hull>5</Hull>
+    <Shield>3</Shield>
+    <Ability>When attacking, you may convert 1 of your [CRIT] results into a [HIT] result.  If you do so, you may then convert 1 of your blank results into a [HIT] result.</Ability>
+    <Cost>26</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>0</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>1</Cloak>
+    <SensorEcho>1</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>1</Tech>
+    <Weapon>2</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>i_k_s_pagh_71996</Id>
+    <Set>71996</Set>
   </Ship>

@@ -6,20 +6,18 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-1/6/2015 17:27:02	71536 - Prototype 01	Non-unique	Maneuvering Thrusters	Romulan	When defending, during the Declare Target step, you may disable this card to place 1 [EVADE] Token beside your ship, even if there is already one there.  This Upgrade costs +5 SP if purchased for any ship other than a Romulan Drone Ship.	Tech	3	Yes
-1/6/2015 17:32:53	71536 - Prototype 01	Non-unique	Multi-Spectral Emitters	Romulan	When defending, during the Roll Defense Dice step, you may disable this card and all of your remaining Shields, to roll +2 defense dice.  This Upgrade may only be purchased for a Romulan Drone Ship.	Tech	3	Yes
-1/6/2015 17:34:48	71536 - Prototype 01	Unique	Core Overload	Romulan	ACTION: Discard this card to perform this Action.  At the end of the Activation Phase, after all ships have moved, destroy your ship and roll 3 attack dice.  Every ship within Range 1 of your ship suffers normal damage for each [HIT] or [CRIT] result.  The "Cheat Death" Upgrade cannot be used in conjunction with this card.	Talent	5	
-1/6/2015 17:36:27	71536 - Prototype 01	Non-unique	Backup Sequencer	Romulan	At any time, you may disable this card to activate all of your Shield Tokens by flipping them back to their blue sides.  This Upgrade may only be purchased for a Romulan Drone Ship.	Tech	2	Yes
-1/6/2015 17:38:56	71536 - Prototype 01	Non-unique	Reinforced Hull Plating	Romulan	When defending, during the Compare Results step, you may disable this card to cancel 1 [HIT] or [CRIT] result.	Tech	3	
+1/20/2015 11:38:53	71996 - I.K.S. Pagh	Unique	Surrender As Ordered	Klingon	ACTION: Discard this card to target one enemy ship at Range 1 that is in your forward firing arc.  The target ship may choose to not attack this round and disable all of its [WEAPON] Upgrades.  If it does this, then your ship cannot attack that ship this round.  If the target ship chooses not to do this (or if it has no [WEAPON] Upgrades that are not already disabled), you gain +1 attack dice against that ship this round.	Talent	4	
+1/20/2015 11:40:07	71996 - I.K.S. Pagh	Unique	William T. Riker	Federation	You do not pay a faction penalty when assigning this card to a Klingon Ship.  ACTION: Disable this card to increase your Captain Skill to 10 until the End Phase.	Crew	4	Yes
+1/20/2015 11:44:45	71996 - I.K.S. Pagh	Non-unique	Tunneling Neutrino Beam	Federation	ACTION: Disable this card to target 1 friendly ship at Range 1.  Target ship repairs 1 damage to its Hull.  You cannot attack this round.  You do  not pay a faction penalty when assigning this card to a Klingon ship.	Tech	3	Yes
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-1/6/2015 17:19:39	71536 - Prototype 01	Unique	Gareb	1	Romulan	At the start of the game, after set up, place a Captain Card under this card so that the Skill Number is visible.  This is the Captain Skill of this Card.  The cost of this card is the cost of the Captain Card at -3 SP (Min 0). Gareb can field 1 [ELITE TALENT] Upgrade for each [ELITE TALENT] icon on the Captain Card.  T his card cannot be affected by anything that affects Captain Cards and my only be purchased for a Romulan Drone Ship.	0	0	Yes	
-1/6/2015 17:20:34	71536 - Prototype 01	Unique	Valdore	6	Romulan	Add 1 [TECH] Upgrade slot to your Upgrade Bar.  When attacking, you may discard 1 of your [TECH] Upgrades to gain +1 attack die.	1	4		
+1/20/2015 11:35:13	71996 - I.K.S. Pagh	Non-unique	Klingon	1	Klingon		0	0		
+1/20/2015 11:36:35	71996 - I.K.S. Pagh	Unique	Kargan	6	Klingon	During the Activation Phase, after you move, if you perform an Action listed on one of your Upgrades, you may immediately perform a [TARGET LOCK] Action as a free Action, if possible.  If you do this, place an Auxiliary Power Token beside your ship.	0	4		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-1/6/2015 17:14:58	71536 - Prototype 01	Non-unique	Triphasic Emitter	Romulan	?	?	At the start of the game, after Setup, choose a non-Borg [WEAPON] Upgrade and place it face down beneath this card.  The chosen Upgrade must have a cost of 5 SP or less.  ATTACK: Discard this card to perform this attack.  Flip the card that is beneath this card face up and perform the attack listed on that card (if possible).  After the attack is complete, discard that card as well.	4	
+1/20/2015 11:47:08	71996 - I.K.S. Pagh	Non-unique	Phaser Array Retrofit	Klingon	0	0	When attacking with your Primary Weapon at Range 3, you gain +1 attack die and your opponent rolls 1 less defense die.  This Upgrade may only be purchased for a Klingon Ship.  No ship may be equipped with more than 1 "Phaser Array Retrofit" Upgrade.	5	Yes
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT

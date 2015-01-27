@@ -44,7 +44,8 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-1/6/2015 17:16:52	71536 - Prototype 01	Unique	Prototype 01	Romulan	Romulan Drone Ship					3	3	3	3	During the End Phase of each round, repair 1 damage to your Hull or Shields (your choice).  This ship may only be assigned Gareb or a Romulan Drone Pilot as its Captain.	Evasive, Scan, Target Lock	24	0	0	3	1	90-degree forward		0
+1/20/2015 11:29:53	71996 - I.K.S. Pagh	Non-unique	Klingon Starship	Klingon	K'Vort Class	K'Vort Class				4	1	5	2		Cloak, Evasive, Sensor Echo, Target Lock	24	0	1	1	1	90-degree forward, 90-degree rear		0
+1/20/2015 11:31:27	71996 - I.K.S. Pagh	Unique	I.K.S. Pagh	Klingon	K'Vort Class	K'Vort Class				4	1	5	3	When attacking, you may convert 1 of your [CRIT] results into a [HIT] result.  If you do so, you may then convert 1 of your blank results into a [HIT] result.	Cloak, Evasive, Sensor Echo, Target Lock	26	0	1	1	2	90-degree forward, 90-degree rear		0
 SHIPTEXT
 
 
