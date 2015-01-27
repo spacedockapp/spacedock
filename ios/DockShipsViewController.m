@@ -71,7 +71,7 @@
     
     int cost = self.cost;
     if (cost != 0 && [self useCostFilter]) {
-        [predicateTerms addObject: @"cost = %@"];
+        [predicateTerms addObject: @"cost <= %@"];
         [predicateValues addObject: [NSNumber numberWithInt: cost]];
     }
     

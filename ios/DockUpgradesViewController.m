@@ -114,7 +114,7 @@
         if (_targetShip) {
             upgradeCost = [upgrade costForShip: _targetShip];
         }
-        if (upgradeCost == requiredCost) {
+        if (upgradeCost <= requiredCost) {
             [filtered addObject: upgrade];
         }
     }

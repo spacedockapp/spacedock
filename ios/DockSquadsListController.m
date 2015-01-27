@@ -9,6 +9,7 @@
 @interface DockSquadsListController ()
 @property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
 @property (nonatomic, strong) UIDocumentInteractionController* shareController;
+@property (nonatomic, strong) NSString* fleetCostHighlight;
 @end
 
 @implementation DockSquadsListController
@@ -28,6 +29,9 @@
 {
     [super viewDidLoad];
     NSError* error;
+
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    _fleetCostHighlight = [defaults stringForKey: @"fleetCostHighlight"];
 
     if (![[self fetchedResultsController] performFetch: &error]) {
         /*
@@ -168,7 +172,36 @@
 {
     DockSquadListCell* squadCell = (DockSquadListCell*)cell;
     DockSquad* squad = [self.fetchedResultsController objectAtIndexPath: indexPath];
-    squadCell.cost.text = [NSString stringWithFormat: @"%d", [squad cost]];
+    int cost = [squad cost];
+
+    squadCell.cost.text = [NSString stringWithFormat: @"%d", cost];
+
+    if ([_fleetCostHighlight isEqualToString:@"90/120"]) {
+        if ((cost > 90 && cost < 110) || cost > 120) {
+            squadCell.cost.textColor = [UIColor redColor];
+        } else {
+            squadCell.cost.textColor = [UIColor grayColor];
+        }
+    } else if ([_fleetCostHighlight isEqualToString:@"100"]) {
+        if (cost > 100) {
+            squadCell.cost.textColor = [UIColor redColor];
+        } else {
+            squadCell.cost.textColor = [UIColor grayColor];
+        }
+    } else if ([_fleetCostHighlight isEqualToString:@"120"]) {
+        if (cost > 120) {
+            squadCell.cost.textColor = [UIColor redColor];
+        } else {
+            squadCell.cost.textColor = [UIColor grayColor];
+        }
+    } else if ([_fleetCostHighlight isEqualToString:@"200"]) {
+        if (cost > 200) {
+            squadCell.cost.textColor = [UIColor redColor];
+        } else {
+            squadCell.cost.textColor = [UIColor grayColor];
+        }
+    }
+
     squadCell.details.text = [squad shipsDescription];
     squadCell.title.text = squad.name;
 }

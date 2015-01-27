@@ -36,6 +36,8 @@ enum {
 @property (assign, nonatomic) int targetRow;
 @property (assign, nonatomic) id oldTarget;
 @property (assign, nonatomic) SEL oldAction;
+@property (nonatomic, strong) NSString* fleetCostHighlight;
+
 @end
 
 @implementation DockSquadDetailController
@@ -59,6 +61,8 @@ enum {
         [_printBarItem setAction: @selector(explainCantPrint:)];
         [_printBarItem setTarget: self];
     }
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    _fleetCostHighlight = [defaults stringForKey: @"fleetCostHighlight"];
 }
 
 -(void)didReceiveMemoryWarning
@@ -71,6 +75,38 @@ enum {
 {
     NSIndexPath* costPath = [NSIndexPath indexPathForRow: 1 inSection: 0];
     [self.tableView reloadRowsAtIndexPaths: @[costPath] withRowAnimation: UITableViewRowAnimationAutomatic];
+    
+    if (![_fleetCostHighlight isEqualToString:@"None"]) {
+        UITableViewCell* costRow = [self.tableView cellForRowAtIndexPath:costPath];
+        UILabel* costLabel = costRow.detailTextLabel;
+        int cost = [_squad cost];
+        
+        if ([_fleetCostHighlight isEqualToString:@"90/120"]) {
+            if ((cost > 90 && cost < 110) || cost > 120) {
+                costLabel.textColor = [UIColor redColor];
+            } else {
+                costLabel.textColor = [UIColor blackColor];
+            }
+        } else if ([_fleetCostHighlight isEqualToString:@"100"]) {
+            if (cost > 100) {
+                costLabel.textColor = [UIColor redColor];
+            } else {
+                costLabel.textColor = [UIColor blackColor];
+            }
+        } else if ([_fleetCostHighlight isEqualToString:@"120"]) {
+            if (cost > 120) {
+                costLabel.textColor = [UIColor redColor];
+            } else {
+                costLabel.textColor = [UIColor blackColor];
+            }
+        } else if ([_fleetCostHighlight isEqualToString:@"200"]) {
+            if (cost > 200) {
+                costLabel.textColor = [UIColor redColor];
+            } else {
+                costLabel.textColor = [UIColor blackColor];
+            }
+        }
+    }
 }
 
 -(void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void*)context
@@ -84,6 +120,7 @@ enum {
 {
     [super viewWillAppear: animated];
     [self.tableView reloadData];
+    [self updateCost];
 }
 
 -(void)validatePrinting

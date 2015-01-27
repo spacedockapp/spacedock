@@ -77,7 +77,7 @@
 
     int cost = self.cost;
     if (cost != 0 && [self useCostFilter]) {
-        [predicateTerms addObject: @"cost = %@"];
+        [predicateTerms addObject: @"cost <= %@"];
         [predicateValues addObject: [NSNumber numberWithInt: cost]];
     }
 
@@ -252,7 +252,7 @@
                                               cancelButtonTitle: nil
                                          destructiveButtonTitle: nil
                                               otherButtonTitles: @"All", nil];
-    for (int i = 1; i < 8; ++i) {
+    for (int i = 1; i < 11; ++i) {
         [sheet addButtonWithTitle: [NSString stringWithFormat: @"%d", i]];
     }
     [sheet showFromBarButtonItem: _costBarItem animated: YES];
