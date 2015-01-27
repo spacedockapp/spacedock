@@ -8,7 +8,7 @@
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string>Settings</string>
+			<string>Fleet Build Sheet Settings</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -25,6 +25,16 @@
 			<string>Email</string>
 			<key>Key</key>
 			<string>playerEmail</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Use Light Header</string>
+			<key>Key</key>
+			<string>lightHeader</string>
+			<key>DefaultValue</key>
+			<string>0</string>
 		</dict>
 		<dict>
 			<key>Type</key>

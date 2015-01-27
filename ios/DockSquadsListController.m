@@ -6,9 +6,7 @@
 #import "DockSquadDetailController.h"
 #import "DockSquadListCell.h"
 
-#import <MessageUI/MessageUI.h>
-
-@interface DockSquadsListController ()<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
+@interface DockSquadsListController ()
 @property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
 @property (nonatomic, strong) UIDocumentInteractionController* shareController;
 @end
@@ -242,29 +240,7 @@
     _shareController = nil;
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
-{
-    switch(buttonIndex) {
-    case 0:
-        [self sendViaEmail];
-        break;
-    case 1:
-        [self openInOtherApp];
-        break;
-    }
-}
-
 -(IBAction)share:(id)sender
-{
-    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle: nil
-                                                       delegate: self
-                                              cancelButtonTitle: @"Cancel"
-                                         destructiveButtonTitle: nil
-                                              otherButtonTitles: @"Send a Copy", @"Open in Another App", nil];
-    [sheet showFromBarButtonItem: _shareItem animated: YES];
-}
-
--(void)openInOtherApp
 {
     NSString* tempSquads = NSTemporaryDirectory();
     tempSquads = [tempSquads stringByAppendingPathComponent: @"all_squads.spacedocksquads"];
@@ -272,7 +248,8 @@
     NSURL* url = [[NSURL alloc] initFileURLWithPath: tempSquads];
     _shareController = [UIDocumentInteractionController interactionControllerWithURL: url];
     _shareController.delegate = self;
-    bool didShow = [_shareController presentOpenInMenuFromRect:self.view.bounds inView:self.view animated:YES];
+    _shareController.name = @"Space Dock All Squads";
+    bool didShow = [_shareController presentOptionsMenuFromRect:self.view.bounds inView:self.view animated:YES];
     if (!didShow)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Share"
@@ -282,57 +259,6 @@
                                               otherButtonTitles: nil];
         [alert show];
     }
-}
-
-
--(void)sendViaEmail
-{
-    if ([MFMailComposeViewController canSendMail]) {
-        MFMailComposeViewController* picker = [[MFMailComposeViewController alloc] init];
-        picker.mailComposeDelegate = self;
-
-        [picker setSubject: @"Space Dock All Squads"];
-
-        // Fill out the email body text
-        NSString* textFormat = @"Attached are squads for use with Space Dock on Mac or iOS.";
-        [picker setMessageBody: textFormat isHTML: NO];
-
-        NSError* error;
-        NSData* jsonData = [DockSquad allSquadsAsJSON: self.managedObjectContext error: &error];
-        [picker addAttachmentData: jsonData mimeType: @"text/x-spacedock" fileName: [kSpaceDockAllSquadsName stringByAppendingPathExtension: kSpaceDockSquadListFileExtension]];
-
-        [self presentViewController: picker animated: YES completion: NULL];
-    } else {
-        UIAlertView* view = [[UIAlertView alloc] initWithTitle: @"Can't Send All Squads"
-                                                       message: @"This device is not configured to send mail."
-                                                      delegate: nil
-                                             cancelButtonTitle: @""
-                                             otherButtonTitles: @"",
-                             nil];
-        [view show];
-    }
-}
-
--(void)mailComposeController:(MFMailComposeViewController*)controller
-         didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
-{
-    if (error != nil) {
-        UIAlertView* view = [[UIAlertView alloc] initWithTitle: @"Can't send Squad"
-                                                       message: error.localizedDescription
-                                                      delegate: nil
-                                             cancelButtonTitle: @""
-                                             otherButtonTitles: @"",
-                             nil];
-        [view show];
-    }
-
-    [self dismissViewControllerAnimated: YES completion: NULL];
-}
-
--(void)messageComposeViewController:(MFMessageComposeViewController*)controller
-                didFinishWithResult:(MessageComposeResult)result
-{
-    [self dismissViewControllerAnimated: YES completion: NULL];
 }
 
 -(void)selectSquad:(DockSquad*)squad

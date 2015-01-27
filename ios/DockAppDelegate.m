@@ -118,7 +118,8 @@
         kPlayerEmailKey: @"",
         kEventFactionKey: @"",
         kEventNameKey: @"",
-        kBlindBuyKey: @""
+        kBlindBuyKey: @"",
+        kLightHeaderKey: @""
     };
 
     [defaults registerDefaults: appDefs];

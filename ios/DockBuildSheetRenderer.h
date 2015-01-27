@@ -7,6 +7,7 @@ extern NSString* kPlayerEmailKey;
 extern NSString* kEventFactionKey;
 extern NSString* kEventNameKey;
 extern NSString* kBlindBuyKey;
+extern NSString* kLightHeaderKey;
 
 @interface DockBuildSheetRenderer : NSObject
 @property (strong, nonatomic) NSString* name;
@@ -16,6 +17,7 @@ extern NSString* kBlindBuyKey;
 @property (strong, nonatomic) NSDate* date;
 @property (assign, nonatomic) NSInteger pageIndex;
 @property (assign, nonatomic) BOOL blindbuy;
+@property (assign, nonatomic) BOOL lightHeader;
 -(id)initWithSquad:(DockSquad*)targetSquad;
 -(void)draw:(CGRect)bounds;
 @end

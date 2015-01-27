@@ -14,6 +14,8 @@
 @property (strong, nonatomic) NSString* faction;
 @property (strong, nonatomic) NSDate* date;
 @property (assign, nonatomic) BOOL blindbuy;
+@property (assign, nonatomic) BOOL lightheader;
+
 -(id)initWithSquad:(DockSquad*)squad;
 @end
 
@@ -46,6 +48,7 @@
     renderer.date = _date;
     renderer.blindbuy = _blindbuy;
     renderer.pageIndex = pageIndex;
+    renderer.lightHeader = _lightheader;
     [renderer draw: contentRect];
 }
 
@@ -58,6 +61,9 @@
 @property (assign, nonatomic) IBOutlet UITextField* eventField;
 @property (assign, nonatomic) IBOutlet UITextField* factionField;
 @property (assign, nonatomic) IBOutlet UISwitch* blindbuySwitch;
+@property (assign, nonatomic) BOOL lightheader;
+@property (nonatomic, strong) UIDocumentInteractionController* shareController;
+
 @end
 
 @implementation DockBuildSheetViewController
@@ -80,7 +86,7 @@
     _factionField.text = [defaults stringForKey: kEventFactionKey];
     _eventField.text = [defaults stringForKey: kEventNameKey];
     _blindbuySwitch.on = [defaults boolForKey: kBlindBuyKey];
-    
+    _lightheader = [defaults boolForKey: kLightHeaderKey];
     [super viewWillAppear: animated];
 }
 
@@ -98,12 +104,6 @@
 
 -(IBAction)print:(id)sender
 {
-    UIPrintInteractionController *controller = [UIPrintInteractionController sharedPrintController];
-    if(!controller){
-        NSLog(@"Couldn't get shared UIPrintInteractionController!");
-        return;
-    }
-    
     DockBuildSheetPrintRenderer* renderer = [[DockBuildSheetPrintRenderer alloc] initWithSquad: _squad];
     renderer.name = _nameField.text;
     renderer.email = _emailField.text;
@@ -111,39 +111,44 @@
     renderer.faction = _factionField.text;
     renderer.date = _datePicker.date;
     renderer.blindbuy = _blindbuySwitch.on;
-    controller.printPageRenderer = renderer;
-    UIPrintInteractionCompletionHandler completionHandler =
-    ^(UIPrintInteractionController *printController, BOOL completed, NSError *error) {
-        if(!completed && error){
-            NSLog(@"FAILED! due to error in domain %@ with error code %ld", error.domain, (long)error.code);
-        } else {
-            NSString* selectedPrinter = printController.printInfo.dictionaryRepresentation[@"UIPrintInfoPrinterIDKey"];
-            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setValue: selectedPrinter forKey: @"UIPrintInfoPrinterIDKey"];
-        }
-    };
+    renderer.lightheader = _lightheader;
+
+    NSString* tempPDF = NSTemporaryDirectory();
+    tempPDF = [tempPDF stringByAppendingFormat:@"%@.pdf",_squad.name];
     
-    // Obtain a printInfo so that we can set our printing defaults.
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary* infoDict = @{};
-    NSString* selectedPrinter = [defaults valueForKey: @"UIPrintInfoPrinterIDKey"];
-    if (selectedPrinter != nil) {
-        infoDict = @{ @"UIPrintInfoPrinterIDKey": selectedPrinter};
+    UIGraphicsBeginPDFContextToFile(tempPDF, CGRectZero, nil);
+    [renderer prepareForDrawingPages: NSMakeRange(0, renderer.numberOfPages)];
+    CGRect bounds = UIGraphicsGetPDFContextBounds();
+    for ( int i = 0 ; i < renderer.numberOfPages ; i++ ) {
+        UIGraphicsBeginPDFPage();
+        [renderer drawPageAtIndex:i inRect: bounds];
     }
-    UIPrintInfo *printInfo = [UIPrintInfo printInfoWithDictionary: infoDict];
-    // This application produces General content that contains color.
-    printInfo.outputType = UIPrintInfoOutputGeneral;
-    // We'll use the URL as the job name.
-    printInfo.jobName = @"sheet";
-    // Set duplex so that it is available if the printer supports it. We are
-    // performing portrait printing so we want to duplex along the long edge.
-    printInfo.duplex = UIPrintInfoDuplexLongEdge;
-    // Use this printInfo for this print job.
-    controller.printInfo = printInfo;
+    UIGraphicsEndPDFContext();
     
-    // Be sure the page range controls are present for documents of > 1 page.
-    controller.showsPageRange = YES;
-    [controller presentAnimated:YES completionHandler:completionHandler];  // iPhone
+    NSURL* url = [[NSURL alloc] initFileURLWithPath: tempPDF];
+    _shareController = [UIDocumentInteractionController interactionControllerWithURL: url];
+    _shareController.delegate = self;
+    _shareController.name = [NSString stringWithFormat:@"Fleet Build Sheet for %@",_squad.name];
+    //_shareController.UTI = @"pdf";
+    NSLog(@"View bounds = %f,%f",self.view.bounds.origin.x,self.view.bounds.origin.y);
+    //bool didShow = [_shareController presentOpenInMenuFromRect:self.view.bounds inView:self.view animated:YES];
+    bool didShow = [_shareController presentOptionsMenuFromRect:self.view.bounds inView:self.view animated:YES];
+    if (!didShow)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't Share"
+                                                        message:@"This squad list could not be shared."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+    }
+}
+
+- (void)documentInteractionController:(UIDocumentInteractionController *)controller didEndSendingToApplication:(NSString *)application
+{
+    NSURL* url = _shareController.URL;
+    [[NSFileManager defaultManager] removeItemAtURL: url error: nil];
+    _shareController = nil;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
