@@ -727,6 +727,10 @@ static NSDictionary* sItemLabels = nil;
         } else if ([externalId isEqualToString: @"elim_garak_71786"]) {
         } else if ([upgradeSpecial isEqualToString: @"add_one_tech_no_faction_penalty_on_vulcan"] && [ship isVulcan]) {
         } else if ([fleetCaptainOnThisShip isIndependent] && [ship isIndependent] && [upgrade isCaptain]) {
+        } else if ([upgradeSpecial isEqualToString:@"NoPenaltyOnKlingonShip"]) {
+            if (!([ship.faction isEqualToString:@"Klingon"])) {
+                cost += 1;
+            }
         } else {
             if (upgrade.isAdmiral) {
                 cost += 3;
