@@ -1,4 +1,4 @@
-<Data version="2015-01-27@23-42">
+<Data version="2015-01-29@13-50">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1415,7 +1415,21 @@
       <Name>Hirogen Warship</Name>
       <Id>hirogen_warship</Id>
       <Maneuvers>
-          
+        <Maneuver speed="4" kind="straight" color="white" />
+        <Maneuver speed="3" kind="left-turn" color="white" />
+        <Maneuver speed="3" kind="left-bank" color="white" />
+        <Maneuver speed="3" kind="straight" color="white" />
+        <Maneuver speed="3" kind="right-bank" color="white" />
+        <Maneuver speed="3" kind="right-turn" color="white" />
+        <Maneuver speed="3" kind="about" color="red" />
+        <Maneuver speed="2" kind="left-turn" color="white" />
+        <Maneuver speed="2" kind="left-bank" color="white" />
+        <Maneuver speed="2" kind="straight" color="green" />
+        <Maneuver speed="2" kind="right-bank" color="white" />
+        <Maneuver speed="2" kind="right-turn" color="white" />
+        <Maneuver speed="1" kind="left-bank" color="green" />
+        <Maneuver speed="1" kind="straight" color="green" />
+        <Maneuver speed="1" kind="right-bank" color="green" />
       </Maneuvers>
       <FrontArc>90</FrontArc>
       <RearArc></RearArc>
@@ -1424,10 +1438,24 @@
       <Name>Romulan Drone Ship</Name>
       <Id>romulan_drone_ship</Id>
       <Maneuvers>
-          
+            <Maneuver speed="3" kind="left-turn" color="white" />
+            <Maneuver speed="3" kind="left-bank" color="white" />
+            <Maneuver speed="3" kind="straight" color="white" />
+            <Maneuver speed="3" kind="right-bank" color="white" />
+            <Maneuver speed="3" kind="right-turn" color="white" />
+            <Maneuver speed="3" kind="about" color="white" />
+            <Maneuver speed="2" kind="left-turn" color="white" />
+            <Maneuver speed="2" kind="left-bank" color="green" />
+            <Maneuver speed="2" kind="straight" color="green" />
+            <Maneuver speed="2" kind="right-bank" color="green" />
+            <Maneuver speed="2" kind="right-turn" color="white" />
+            <Maneuver speed="2" kind="about" color="white" />
+            <Maneuver speed="1" kind="left-bank" color="green" />
+            <Maneuver speed="1" kind="straight" color="green" />
+            <Maneuver speed="1" kind="right-bank" color="green" />
       </Maneuvers>
       <FrontArc>90</FrontArc>
-      <RearArc></RearArc>
+      <RearArc>90</RearArc>
   </ShipClassDetail>
   </ShipClassDetails>
   <Ships>
@@ -5296,6 +5324,66 @@ During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade
       <Set>71808</Set>
   </Ship>
   <Ship>
+      <Title>Hirogen Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Hirogen Warship</ShipClass>
+      <Faction>Independent</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
+      <Shield>3</Shield>
+      <Ability></Ability>
+      <Cost>24</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>2</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>hirogen_starship_71808</Id>
+      <Set>71808</Set>
+  </Ship>
+  <Ship>
+      <Title>Fighter Squadron 6</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Federation Attack Squadron</ShipClass>
+      <Faction>Federation</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>5</Attack>
+      <Agility>0</Agility>
+      <Hull>1</Hull>
+      <Shield>1</Shield>
+      <Ability>ATTACK SQUADRON TOKENS: 5
+When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull, during the Modify Attack Dice step, add 1 [HIT] result to your roll.</Ability>
+      <Cost>24</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>0</Weapon>
+      <Crew>0</Crew>
+      <SquadronUpgrade>3</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <CaptainLimit>0</CaptainLimit>
+      <Id>fighter_squadron_6_71753</Id>
+      <Set>71753</Set>
+  </Ship>
+  <Ship>
       <Title>Federation Attack Squadron</Title>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
@@ -5352,6 +5440,35 @@ During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade
       <SquadronUpgrade>0</SquadronUpgrade>
       <Has360Arc>N</Has360Arc>
       <Id>prototype_01_71536</Id>
+      <Set>71536</Set>
+  </Ship>
+  <Ship>
+      <Title>Romulan Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Romulan Drone Ship</ShipClass>
+      <Faction>Romulan</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>3</Agility>
+      <Hull>3</Hull>
+      <Shield>2</Shield>
+      <Ability>This ship may only be assigned Gareb or a Romulan Drone Pilot as its Captain.</Ability>
+      <Cost>22</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>2</Tech>
+      <Weapon>1</Weapon>
+      <Crew>0</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>romulan_starship_71536</Id>
       <Set>71536</Set>
   </Ship>
   <Ship>
@@ -7661,7 +7778,7 @@ During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade
   </Captain>
   <Captain>
       <Title>Romulan Drone Pilot</Title>
-      <Ability></Ability>
+      <Ability>This card cannot be affected by anything that affects Captain Cards and may only be assigned to a Romulan Drone Ship</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>1</Skill>
@@ -14505,6 +14622,22 @@ During the Roll Attack Dice step, you may disable one of your [SQUADRON] Upgrade
         <Id>triphasic_emitter_71536</Id>
         <Set>71536</Set>
         <Special>AddHiddenWeapon</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Propulsion Matrix</Title>
+        <Ability>During the Activation Phase, if you reveal a 3 [STRAIGHT] Maneuver, you may use a 4 [STRAIGHT] or a 5 [STRAIGHT] Maneuver instead. If you do, place an Auxiliary Power Token beside your ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>propulsion_matrix_71536</Id>
+        <Set>71536</Set>
+        <Special></Special>
     </Upgrade>
     <Upgrade>
         <Title>Surrender As Ordered</Title>
