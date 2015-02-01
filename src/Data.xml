@@ -1,4 +1,4 @@
-<Data version="2015-01-29@13-50">
+<Data version="2015-02-01@08-09">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -14702,6 +14702,20 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
         <Id>phaser_array_retrofit_71996</Id>
         <Set>71996</Set>
         <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Turanj</Title>
+        <Ability>Add 1 [WEAPON] Upgrade slot to your Upgrade Bar.
+
+If your Captain's Skill Number is ever below a "4" when you are attacking, during the Deal Damage step, you may discard your Captain Card to add +1 damage. If you do this, this card then becomes your new Captain with a Skill of 7.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Type>Crew</Type>
+        <Faction>Independent</Faction>
+        <Cost>3</Cost>
+        <Id>turanj_71808</Id>
+        <Set>71808</Set>
+        <Special>addoneweaponslot</Special>
     </Upgrade>
   </Upgrades>
   <Resources>
