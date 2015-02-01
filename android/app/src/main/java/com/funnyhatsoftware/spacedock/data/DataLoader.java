@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeSet;
 
@@ -434,13 +435,28 @@ public class DataLoader extends DefaultHandler {
                 "OnlyRemanWarbird",
                 "PlusFiveIfNotRemanWarbird",
                 "not_with_jean_luc_picard",
-                "OnlyShipClass_CONTAINS_Vidiian",
                 "PlusFiveIfSkillOverFive",
-                "PlusFiveIfNotRegentsFlagship"
+                "PlusFiveIfNotRegentsFlagship",
+                "AddHiddenWeapon",
+                "NoPenaltyOnKlingonShip",
+                "PlusFivePointsNonHirogen"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);
         unhandledSpecials.removeAll(Arrays.asList(handledSpecials));
+        Iterator<String> itr = unhandledSpecials.iterator();
+        ArrayList<String> wildcardSpecials = new ArrayList<String>();
+        while (itr.hasNext()) {
+            String unhandledSpecial = itr.next();
+            if (unhandledSpecial.startsWith("OnlyShipClass_")) {
+                wildcardSpecials.add(unhandledSpecial);
+            } else if (unhandledSpecial.startsWith("Plus5NotShipClass_")) {
+                wildcardSpecials.add(unhandledSpecial);
+            }
+        }
+        if (wildcardSpecials.size() > 0) {
+            unhandledSpecials.removeAll(wildcardSpecials);
+        }
         if (unhandledSpecials.size() > 0) {
             Log.e("spacedock", "Unhandled specials: " + TextUtils.join(",", unhandledSpecials));
         }

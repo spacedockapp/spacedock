@@ -652,9 +652,19 @@ public class EquippedShip extends EquippedShipBase {
                 return new Explanation(msg, "This upgrade can only be added once per ship.");
             }
         }
-        if ("OnlyShipClass_CONTAINS_Vidiian".equals(upgradeSpecial)) {
-            if (!ship.isVidiian()) {
-                return new Explanation(msg, "This upgrade can only be purchased for a Vidiian Ship.");
+        if (upgradeSpecial.startsWith("OnlyShipClass_")) {
+            if (upgradeSpecial.startsWith("OnlyShipClass_CONTAINS_")) {
+                String reqMatch = upgradeSpecial.substring(23);
+                
+                if (!ship.getShipClass().contains(reqMatch)) {
+                    return new Explanation(msg, "This upgrade can only be purchased for a " + reqMatch.replace("_", " ") + " Ship.");
+                }
+            } else {
+                String reqClass = upgradeSpecial.substring(14);
+                
+                if (!reqClass.equals(ship.getShipClass().replace(" ", "_"))) {
+                    return new Explanation(msg, "This upgrade can only be purchased for a " + reqClass.replace("_", " ") + " Class Ship.");
+                }
             }
         }
         if (upgradeSpecial.equals("OnlyKazonShip")) {
