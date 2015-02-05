@@ -1,4 +1,4 @@
-<Data version="2015-02-01@08-09">
+<Data version="2015-02-05@23-24">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -5617,7 +5617,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Romulan</Faction>
       <Cost>0</Cost>
       <Id>2007</Id>
-      <Set>71120,71123,71124,71270,71278,OP3Prize,i_r_w_vorta_vor,71533</Set>
+      <Set>71120,71123,71124,71270,71278,OP3Prize,i_r_w_vorta_vor,71533,71274</Set>
     </Captain>
     <Captain>
       <Title>Khan Singh</Title>
