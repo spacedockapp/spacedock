@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -4914,7 +4914,7 @@
                                                     <popUpButton verticalHuggingPriority="750" id="uff-CK-GtC" userLabel="resource">
                                                         <rect key="frame" x="119" y="1" width="178" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                        <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" altersStateOfSelectedItem="NO" selectedItem="C4e-K2-egy" id="C8d-VF-NtP">
+                                                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" altersStateOfSelectedItem="NO" id="C8d-VF-NtP">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="menu"/>
                                                             <menu key="menu" title="OtherViews" id="JrY-qD-Xzd">
@@ -4926,6 +4926,7 @@
                                                             </menu>
                                                         </popUpButtonCell>
                                                         <connections>
+                                                            <action selector="setResource:" target="494" id="ztU-4A-sRh"/>
                                                             <binding destination="YPe-Zs-mE7" name="content" keyPath="arrangedObjects" id="pEJ-bO-Mtx">
                                                                 <dictionary key="options">
                                                                     <bool key="NSInsertsNullPlaceholder" value="YES"/>
@@ -4943,6 +4944,7 @@
                                                                     <bool key="NSValidatesImmediately" value="YES"/>
                                                                 </dictionary>
                                                             </binding>
+                                                            <binding destination="w6h-j0-fyp" name="toolTip" keyPath="selection.resourceAttributes" id="LWo-zD-uly"/>
                                                         </connections>
                                                     </popUpButton>
                                                 </subviews>
@@ -5011,6 +5013,7 @@
             <connections>
                 <outlet property="admiralsTabController" destination="Syr-Fc-NYa" id="5D2-gf-ROv"/>
                 <outlet property="captainsTabController" destination="tcq-Rf-52p" id="IlM-kn-plD"/>
+                <outlet property="exchangeFactionSelection" destination="aHE-sW-1Xj" id="tJq-mT-iyo"/>
                 <outlet property="factionMenu" destination="jzV-EA-Bef" id="s0C-A5-mcz"/>
                 <outlet property="fileMenu" destination="81" id="TGd-PL-0Q3"/>
                 <outlet property="flagshipsTabController" destination="PvV-dr-24S" id="Dz6-dH-v3i"/>
@@ -5215,6 +5218,14 @@
             <connections>
                 <outlet property="outlineView" destination="huB-wd-Wc5" id="9gL-ze-ZrD"/>
                 <outlet property="tabView" destination="EsK-Y6-lVi" id="n8P-HY-dqe"/>
+            </connections>
+        </customObject>
+        <customObject id="aHE-sW-1Xj" customClass="DockExchangeFactionsSelection">
+            <connections>
+                <outlet property="factionA" destination="1An-gn-6ee" id="9tT-yd-ypm"/>
+                <outlet property="factionB" destination="EZe-WW-3dL" id="Wc0-sY-ccN"/>
+                <outlet property="mainWindow" destination="371" id="xas-no-IAw"/>
+                <outlet property="window" destination="B6S-9I-ICV" id="CJn-Eo-pHj"/>
             </connections>
         </customObject>
         <userDefaultsController representsSharedInstance="YES" id="ptf-Fd-SPq"/>
@@ -7116,6 +7127,92 @@ Gw
             <color key="borderColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <color key="fillColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
         </box>
+        <window title="Officer Exchange" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="B6S-9I-ICV">
+            <windowStyleMask key="styleMask" titled="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="109" y="131" width="355" height="144"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <view key="contentView" id="B5B-Q2-Fij">
+                <rect key="frame" x="0.0" y="-6" width="355" height="144"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" id="YF1-mc-eBa">
+                        <rect key="frame" x="18" y="90" width="313" height="34"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Please select the factions to use for the Officer Exchange Program resource" id="XMj-BJ-xF4">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <popUpButton verticalHuggingPriority="750" id="1An-gn-6ee">
+                        <rect key="frame" x="18" y="58" width="145" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="Faction 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="jnn-50-8Lw" id="iJW-7h-meV">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="Z4i-hb-9Sg">
+                                <items>
+                                    <menuItem title="Faction 1" state="on" id="jnn-50-8Lw"/>
+                                    <menuItem title="Item 2" id="2UD-83-gBX"/>
+                                    <menuItem title="Item 3" id="Hyz-B9-Rcs"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                        <connections>
+                            <action selector="selectFaction:" target="aHE-sW-1Xj" id="sqB-QZ-dvA"/>
+                        </connections>
+                    </popUpButton>
+                    <popUpButton verticalHuggingPriority="750" id="EZe-WW-3dL">
+                        <rect key="frame" x="193" y="58" width="145" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="Faction 2" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="cFy-cB-upR" id="Pdg-so-TuS">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="TZe-GO-epc">
+                                <items>
+                                    <menuItem title="Faction 2" state="on" id="cFy-cB-upR"/>
+                                    <menuItem title="Item 2" id="0Av-Cs-tj7"/>
+                                    <menuItem title="Item 3" id="NEn-0D-p8l"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                        <connections>
+                            <action selector="selectFaction:" target="aHE-sW-1Xj" id="FfS-Q0-TDK"/>
+                        </connections>
+                    </popUpButton>
+                    <button verticalHuggingPriority="750" id="Nq5-Ad-EQr">
+                        <rect key="frame" x="215" y="13" width="100" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Set" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="d8i-OO-oAg">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="setResource:" target="aHE-sW-1Xj" id="Xrl-ye-BtF"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" id="vpR-mW-qgj">
+                        <rect key="frame" x="40" y="13" width="100" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IBs-eN-rQD">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="cancel:" target="aHE-sW-1Xj" id="IoR-dx-VlT"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="719.5" y="771"/>
+        </window>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>

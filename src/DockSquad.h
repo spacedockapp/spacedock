@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * notes;
 @property (nonatomic, retain) NSString * uuid;
+@property (nonatomic, retain) NSString * resourceAttributes;
 @property (nonatomic, retain) NSOrderedSet *equippedShips;
 @property (nonatomic, retain) DockResource *resource;
 @end

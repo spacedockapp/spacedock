@@ -129,9 +129,6 @@
     _shareController = [UIDocumentInteractionController interactionControllerWithURL: url];
     _shareController.delegate = self;
     _shareController.name = [NSString stringWithFormat:@"Fleet Build Sheet for %@",_squad.name];
-    //_shareController.UTI = @"pdf";
-    NSLog(@"View bounds = %f,%f",self.view.bounds.origin.x,self.view.bounds.origin.y);
-    //bool didShow = [_shareController presentOpenInMenuFromRect:self.view.bounds inView:self.view animated:YES];
     bool didShow = [_shareController presentOptionsMenuFromRect:self.view.bounds inView:self.view animated:YES];
     if (!didShow)
     {

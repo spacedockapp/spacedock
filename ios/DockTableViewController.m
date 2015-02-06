@@ -58,7 +58,8 @@
 {
     NSSortDescriptor* titleDescriptor = [[NSSortDescriptor alloc] initWithKey: @"title" ascending: YES];
     NSSortDescriptor* factionDescriptor = [[NSSortDescriptor alloc] initWithKey: @"faction" ascending: YES];
-    return @[factionDescriptor, titleDescriptor];
+    NSSortDescriptor* costDescriptor = [[NSSortDescriptor alloc] initWithKey: @"cost" ascending: YES];
+    return @[factionDescriptor, titleDescriptor, costDescriptor];
 }
 
 - (NSPredicate *)makePredicateTemplate
@@ -304,10 +305,13 @@
         case 0:
             [self updateFaction: nil];
             break;
-
         default:
-            faction = [actionSheet buttonTitleAtIndex: buttonIndex];
-            [self updateFaction: faction];
+            if (buttonIndex < 0 || buttonIndex > [actionSheet numberOfButtons] - 1) {
+                break;
+            } else {
+                faction = [actionSheet buttonTitleAtIndex: buttonIndex];
+                [self updateFaction: faction];
+            }
             break;
         }
     }

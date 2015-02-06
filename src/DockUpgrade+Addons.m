@@ -707,6 +707,19 @@ static NSDictionary* sItemLabels = nil;
         }
     }
 
+    BOOL hasExchange = NO;
+    NSString* exFac1;
+    NSString* exFac2;
+    int costWithoutPenalty = cost;
+    if ([equippedShip.squad.resource.externalId isEqualToString:@"officer_exchange_program_71996a"] && equippedShip.squad.resourceAttributes.length > 3) {
+        NSArray* selectedFactions = [equippedShip.squad.resourceAttributes componentsSeparatedByString:@" & "];
+        if (selectedFactions.count == 2) {
+            hasExchange = YES;
+            exFac1 = [selectedFactions objectAtIndex:0];
+            exFac2 = [selectedFactions objectAtIndex:1];
+        }
+    }
+    
     if (![upgrade isOfficer] && !factionsMatch(ship, self) && !equippedShip.isResourceSideboard && !factionsMatch(self, equippedShip.flagship)) {
         if ([captainSpecial isEqualToString: @"UpgradesIgnoreFactionPenalty"] && ![upgrade isCaptain] && ![upgrade isAdmiral]) {
             // do nothing
@@ -739,6 +752,16 @@ static NSDictionary* sItemLabels = nil;
             }
         }
 
+    }
+    if (hasExchange) {
+        if (([upgrade.faction isEqualToString:exFac1] && [ship.faction isEqualToString:exFac2]) || ([upgrade.faction isEqualToString:exFac2] && [ship.faction isEqualToString:exFac1])) {
+            if (cost > costWithoutPenalty) {
+                cost = costWithoutPenalty;
+            }
+            if (upgrade.isCaptain || upgrade.isAdmiral) {
+                cost -= 1;
+            }
+        }
     }
 
     if ([[upgrade externalId] isEqualToString: @"borg_ablative_hull_armor_71283"]) {

@@ -22,6 +22,7 @@
 #import "DockItemSourceListController.h"
 #import "DockNoteEditor.h"
 #import "DockOverrideEditor.h"
+#import "DockExchangeFactionsSelection.h"
 #import "DockResource+Addons.h"
 #import "DockSearchFieldController.h"
 #import "DockSet+Addons.h"
@@ -1102,6 +1103,19 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
         } else {
             [self selectFirstTabWithResults: nil];
         }
+    }
+}
+
+-(IBAction)setResource:(id)sender
+{
+    DockSquad* squad = [self selectedSquad];
+    if (squad == nil)
+    {
+        return;
+    }
+    
+    if ([squad.resource.externalId isEqualToString:@"officer_exchange_program_71996a"]) {
+        [_exchangeFactionSelection show:squad context:_managedObjectContext];
     }
 }
 
