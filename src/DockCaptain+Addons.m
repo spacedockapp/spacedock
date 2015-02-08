@@ -16,7 +16,7 @@
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Captain" inManagedObjectContext: context];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
-    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"cost = 0 and faction like %@", faction];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"cost = 0 and faction like %@ and unique = 0", faction];
     [request setPredicate: predicateTemplate];
     NSError* err;
     NSArray* existingItems = [context executeFetchRequest: request error: &err];

@@ -869,6 +869,17 @@ static NSString* namePrefix(NSString* originalName)
             *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
         }
         return NO;
+    } else if ([captain.externalId isEqualToString:@"romulan_drone_pilot_71536"] && !targetShip.isResourceSideboard) {
+        if (error) {
+            NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected ship.", captain.title];
+            NSString* info = @"Romulan Drone Pilot may only be purchased for a Romulan Drone Ship.";
+            NSDictionary* d = @{
+                                NSLocalizedDescriptionKey: msg,
+                                NSLocalizedFailureReasonErrorKey: info
+                                };
+            *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
+        }
+        return NO;
     }
     
 
