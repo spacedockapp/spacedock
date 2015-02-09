@@ -1,4 +1,4 @@
-<Data version="2015-02-09@00-04">
+<Data version="2015-02-09@23-42">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -15557,7 +15557,7 @@ While the Strike Force Order is a part of your fleet:
           <Set>71280</Set>
         </Reference>
         <Reference>
-          <Title>Ablative Generator Token</Title>
+          <Title>Ablative Generator Token (AGT)</Title>
           <Ability>A ship with an AGT assigned to it follows these special rules:
 
 1) As soon as the ship receives the AGT, disable all of its remaining Shields and remove its [CLOAK] token, if any.
@@ -15714,6 +15714,36 @@ To place an EWT after performing an Energy Web Action, follow these steps:
         <Type>Token</Type>
         <Id>energy_web_token_reference</Id>
         <Set>OPWebPrize</Set>
+    </Reference>
+    <Reference>
+        <Title>Grapple Token</Title>
+        <Ability>Each ship cable of performing the Grappler Action can maintain only 1 Grapple at a time (i.e. Each ship can only have 1 blue Grapple Token assigned to it.)
+While a ship has a Red Grapple Token assigned to it, that ship follows these special rules:
+
+1) When attacking, the ship rolls 1 less attack dice. Each time the ship defends, it rolls 1 less defense die.
+
+2) During the Planning Phase, the ship's owner cannot select a Speed greater then 2.
+
+3) At the end of the Activation Phase, if the grappled ship is no longer within Range 1 of the grappling ship, then remove the corresponding Red and Blue Grapple tokens from beside both ships.
+
+4) During the Combat Phase, a grappled ship may forego its attack, and roll a number of attack dice equal to its Primary Weapon Value. If that ship rolls at least 2 [HIT] or [CRIT] results, remove the corresponding Red and Blue Grapple Tokens from beside both ships. This roll cannot be modified.</Ability>
+        <Type>Token</Type>
+        <Id>grapple_token_reference</Id>
+        <Set>71534</Set>
+    </Reference>
+    <Reference>
+        <Title>Borg Shield Matrix Token (BSMT)</Title>
+        <Type>Token</Type>
+        <Ability>A ship with at least 1 BSMT on its Borg Shield Matrix upgrade gfollows these Special rules:
+
+1) Each time you defend, roll +1 defense die for every BSMT on your Borg Shield Matrix Upgrade (+3 dice max).
+
+2) Whenever an enemy ship attempts to affect your Captain or 1 of your Upgrades, roll 1 attack die for each BSMT on your Borg Shield Matrix Upgrade. If you roll at least 1 [HIT] or [CRIT] result, the attempt fails and your Captain or Upgrade is unaffected. Note: If the attempt required 1 or more of the initiating ship's cards to be disabled or discarded in order to make the attempt, those cards are still disabled or discarded, even if the attempt failed.
+
+If your Borg Shield Matrix Upgrade is disabled, you do not gain the above special abilities.
+If you Borg Shield Matrix Upgrade is discarded, discard all the BSMT on it as well. Borg Shiel Matrix Tokens cannot otherwise be removed from your Borg Shield Matrix Upgrade Card once they are placed.</Ability>
+        <Id>borg_shield_matrix_token_reference</Id>
+        <Set>71530</Set>
     </Reference>
     </ReferenceItems>
 </Data>
