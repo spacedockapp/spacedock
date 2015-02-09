@@ -3,11 +3,13 @@
 #import "DockConstants.h"
 #import "DockEquippedShip+Addons.h"
 #import "DockEquippedUpgrade+Addons.h"
+#import "DockResource+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"
 #import "DockUpgradeDetailViewController.h"
 #import "DockUtilsMobile.h"
+#import "DockSet.h"
 
 @interface DockUpgradesViewController ()
 @property (assign, nonatomic) BOOL wasOverridden;
@@ -15,6 +17,10 @@
 @property (assign, nonatomic) BOOL restore;
 @property (assign, nonatomic) int overrideCost;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* overrideBarItem;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem* factionBarItem;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem* costBarItem;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem* toggleButtonItem;
+
 @end
 
 @implementation DockUpgradesViewController
@@ -65,6 +71,35 @@
         _overrideBarItem.title = nil;
     }
 
+    if (self.targetSet != nil) {
+        NSSet* items = [self.targetSet items];
+        NSUInteger ships = [[[items objectsPassingTest:^BOOL(id obj, BOOL *stop) {
+            return [[obj class] isSubclassOfClass:[DockShip class]];
+        }] allObjects] count];
+        NSUInteger resources = [[[items objectsPassingTest:^BOOL(id obj, BOOL *stop) {
+            return [[obj class] isSubclassOfClass:[DockResource class]];
+        }] allObjects] count];
+        if (ships > 0) {
+            _factionBarItem.title = @"Ships";
+            _factionBarItem.enabled = YES;
+            [_factionBarItem setAction:@selector(switchView:)];
+        } else {
+            _factionBarItem.title = nil;
+            _factionBarItem.enabled = NO;
+        }
+        if (resources > 0) {
+            _costBarItem.title = @"Resources";
+            _costBarItem.enabled = YES;
+            [_costBarItem setAction:@selector(switchView:)];
+        } else {
+            _costBarItem.title = nil;
+            _costBarItem.enabled = NO;
+        }
+        _toggleButtonItem.title = nil;
+        _toggleButtonItem.enabled = NO;
+        [self setTitle:@"Upgrades"];
+    }
+    
     if (indexPath == nil && _targetShip) {
         NSString* faction = _targetShip.ship.faction;
         NSArray* sectionTitles = self.sections;
@@ -270,6 +305,17 @@
 {
     return NO;
 }
+-(void)switchView:(id)sender
+{
+    if ([sender class] == [UIBarButtonItem class]) {
+        UIBarButtonItem* btn = sender;
+        if ([btn.title isEqualToString:@"Ships"]) {
+            [self performSegueWithIdentifier:@"ShipList" sender:sender];
+        } else if ([btn.title isEqualToString:@"Resources"]) {
+            [self performSegueWithIdentifier:@"ResourceList" sender:sender];
+        }
+    }
+}
 
 -(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
@@ -281,6 +327,19 @@
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         DockUpgrade* upgrade = [self objectAtIndexPath: indexPath];
         controller.upgrade = upgrade;
+    }
+    if ([[segue identifier] isEqualToString: @"ShipList"]) {
+        id destination = [segue destinationViewController];
+        DockTableViewController* controller = (DockTableViewController*)destination;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.targetSet = self.targetSet;
+        controller.title = @"Ships";
+    } else if ([[segue identifier] isEqualToString: @"ResourceList"]) {
+        id destination = [segue destinationViewController];
+        DockTableViewController* controller = (DockTableViewController*)destination;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.targetSet = self.targetSet;
+        controller.title = @"Resources";
     }
 }
 

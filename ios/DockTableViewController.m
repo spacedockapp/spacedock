@@ -13,6 +13,19 @@
 
 @implementation DockTableViewController
 
+-(void)switchView:(id)sender
+{
+    UIBarButtonItem* btn = sender;
+    
+    if ([btn.title isEqualToString:@"Ships"]) {
+        [self performSegueWithIdentifier:@"SwitchToShips" sender:sender];
+    } else if ([btn.title isEqualToString:@"Upgrades"]) {
+        
+    } else if ([btn.title isEqualToString:@"Resources"]) {
+        
+    }
+}
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
@@ -96,9 +109,13 @@
 
 -(void)setupFetch:(NSFetchRequest*)fetchRequest context:(NSManagedObjectContext*)context
 {
+
     NSString* entityName = [self entityName];
+
     NSEntityDescription* entity = [NSEntityDescription entityForName: entityName inManagedObjectContext: self.managedObjectContext];
+
     [fetchRequest setEntity: entity];
+
     [fetchRequest setSortDescriptors: [self sortDescriptors]];
     NSArray* includedSets = self.includedSets;
 
@@ -117,6 +134,11 @@
 
 -(void)updateSelectedSets
 {
+    if (_targetSet != nil) {
+        _includedSets = [NSArray arrayWithObjects:_targetSet.externalId, nil];
+        return;
+    }
+    
     NSArray* includedSets = [DockSet includedSets: _managedObjectContext];
     if ( _ignoreSets ) {
         includedSets = [DockSet allSets:_managedObjectContext];

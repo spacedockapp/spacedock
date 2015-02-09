@@ -1,4 +1,5 @@
 #import <UIKit/UIKit.h>
+@class DockSet;
 
 @interface DockTableViewController : UITableViewController<NSFetchedResultsControllerDelegate>
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
@@ -11,6 +12,7 @@
 @property (strong, nonatomic) NSArray* includedSets;
 @property (strong, nonatomic) NSString* faction;
 @property (strong, nonatomic) NSString* searchTerm;
+@property (strong, nonatomic) DockSet* targetSet;
 @property (assign, nonatomic) BOOL ignoreSets;
 @property (assign, nonatomic) int cost;
 -(void)clearFetch;
