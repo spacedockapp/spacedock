@@ -14,6 +14,7 @@
 #import "DockTopMenuViewController.h"
 #import "DockUpgrade+Addons.h"
 #import "DockSplitViewController.h"
+#import "DockResourcesViewController.h"
 
 @interface DockAppDelegate ()
 
@@ -119,7 +120,8 @@
         kEventFactionKey: @"",
         kEventNameKey: @"",
         kBlindBuyKey: @"",
-        kLightHeaderKey: @""
+        kLightHeaderKey: @"",
+        kMarkExpiredResKey: @""
     };
 
     [defaults registerDefaults: appDefs];

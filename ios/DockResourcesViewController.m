@@ -2,12 +2,16 @@
 
 #import "DockDetailViewController.h"
 #import "DockResource.h"
+#import "DockSet+Addons.h"
+
+NSString* kMarkExpiredResKey = @"markExpiredRes";
 
 @interface DockResourcesViewController ()
 @property (nonatomic, weak) DockSquad* targetSquad;
 @property (nonatomic, weak) DockResource* targetResource;
 @property (nonatomic, strong) DockResourcePicked onResourcePicked;
 @property (nonatomic, assign) BOOL disclosureTapped;
+@property (nonatomic, assign) BOOL markExpiredRes;
 @end
 
 @implementation DockResourcesViewController
@@ -20,6 +24,9 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    _markExpiredRes = [defaults boolForKey:kMarkExpiredResKey];
+    
     _disclosureTapped = NO;
     [super viewWillAppear: animated];
     NSIndexPath* indexPath = nil;
@@ -98,6 +105,24 @@
         DockResource* resource = resources[row];
         cell.textLabel.text = [resource title];
         cell.detailTextLabel.text = [resource.cost stringValue];
+        if (_markExpiredRes) {
+            DockSet* set = [resource.sets anyObject];
+            NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+            NSDateComponents *components = [cal components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:set.releaseDate];
+            [components setDay:1];
+            
+            NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
+                                               components:NSMonthCalendarUnit
+                                               fromDate:[cal dateFromComponents:components]
+                                               toDate:[NSDate date] options:0];
+            if (ageComponents.month >= 17) {
+                NSMutableAttributedString* as = cell.textLabel.attributedText.mutableCopy;
+                NSMutableAttributedString* exp = [[NSMutableAttributedString alloc] initWithString:@" (Expired)"];
+                [exp addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0,[exp length])];
+                [as appendAttributedString:exp];
+                cell.textLabel.attributedText = as;
+            }
+        }
     }
 }
 

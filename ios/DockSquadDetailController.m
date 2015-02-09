@@ -10,6 +10,7 @@
 #import "DockEquippedShipController.h"
 #import "DockResource+Addons.h"
 #import "DockResourcesViewController.h"
+#import "DockSet+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockShipsViewController.h"
 #import "DockSquad+Addons.h"
@@ -38,6 +39,7 @@ enum {
 @property (assign, nonatomic) id oldTarget;
 @property (assign, nonatomic) SEL oldAction;
 @property (nonatomic, strong) NSString* fleetCostHighlight;
+@property (nonatomic, assign) BOOL markExpiredRes;
 
 @end
 
@@ -64,6 +66,8 @@ enum {
     }
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     _fleetCostHighlight = [defaults stringForKey: @"fleetCostHighlight"];
+    _markExpiredRes = [defaults boolForKey:kMarkExpiredResKey];
+
 }
 
 -(void)didReceiveMemoryWarning
@@ -223,6 +227,24 @@ enum {
             
             if (_squad.resource != nil) {
                 cell.detailTextLabel.text = _squad.resource.title;
+                if (_markExpiredRes) {
+                    DockSet* set = [_squad.resource.sets anyObject];
+                    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+                    NSDateComponents *components = [cal components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:set.releaseDate];
+                    [components setDay:1];
+                    
+                    NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
+                                                       components:NSMonthCalendarUnit
+                                                       fromDate:[cal dateFromComponents:components]
+                                                       toDate:[NSDate date] options:0];
+                    if (ageComponents.month >= 18) {
+                        NSMutableAttributedString* as = cell.detailTextLabel.attributedText.mutableCopy;
+                        NSMutableAttributedString* exp = [[NSMutableAttributedString alloc] initWithString:@" (Expired)"];
+                        [exp addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0,[exp length])];
+                        [as appendAttributedString:exp];
+                        cell.detailTextLabel.attributedText = as;
+                    }
+                }
             } else {
                 cell.detailTextLabel.text = @"No Resource";
             }
