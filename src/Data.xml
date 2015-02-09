@@ -1,4 +1,4 @@
-<Data version="2015-02-06@02-05">
+<Data version="2015-02-09@00-04">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -7804,7 +7804,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Cost>4</Cost>
       <Id>valdore_71536</Id>
       <Set>71536</Set>
-      <Special></Special>
+      <Special>addonetechslot</Special>
   </Captain>
   <Captain>
       <Title>Kargan</Title>
