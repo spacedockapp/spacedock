@@ -396,7 +396,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             cost += 5;
         } else if (upgradeSpecial.startsWith("Plus5NotShipClass_")) {
             String reqClass = upgradeSpecial.substring(18);
-            if (ship.getShipClass().replace(" ", "_").equals(reqClass)) {
+            if (!ship.getShipClass().replace(" ", "_").equals(reqClass)) {
                 cost += 5;
             }
         }
