@@ -1,4 +1,4 @@
-<Data version="2015-02-09@23-42">
+<Data version="2015-02-11@22-17">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -3209,7 +3209,7 @@
       <Weapon>2</Weapon>
       <Crew>0</Crew>
       <Id>tholia_one_opwebprize</Id>
-      <Set>OPWebPrize</Set>
+      <Set>OPWebPrize,71795</Set>
     </Ship>
     <Ship>
       <Title>Tholian Starship</Title>
@@ -3234,7 +3234,7 @@
       <Weapon>1</Weapon>
       <Crew>0</Crew>
       <Id>tholian_vessel_opwebprize</Id>
-      <Set>OPWebPrize</Set>
+      <Set>OPWebPrize,71795</Set>
     </Ship>
     <Ship>
       <Title>D'Kyr</Title>
@@ -6551,7 +6551,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Independent</Faction>
       <Cost>3</Cost>
       <Id>loskene_opwebprize</Id>
-      <Set>OPWebPrize</Set>
+      <Set>OPWebPrize,71795</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -6566,7 +6566,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Independent</Faction>
       <Cost>0</Cost>
       <Id>tholian_opwebprize</Id>
-      <Set>OPWebPrize</Set>
+      <Set>OPWebPrize,71795</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -7820,6 +7820,24 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Cost>4</Cost>
       <Id>kargan_71996</Id>
       <Set>71996</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Tholian Pilot</Title>
+      <Ability>ACTION: If you performed a Green Maneuver this round, repair 1 Shield Token.
+
+You may only use this Action if this card is equipped to a Tholian ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>2</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Independent</Faction>
+      <Cost>1</Cost>
+      <Id>tholian_pilot_71795</Id>
+      <Set>71795</Set>
       <Special></Special>
   </Captain>
   </Captains>
@@ -10741,7 +10759,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Independent</Faction>
       <Cost>4</Cost>
       <Id>tholian_punctuality_opwebprize</Id>
-      <Set>OPWebPrize</Set>
+      <Set>OPWebPrize,71795</Set>
       <Special>OnlyTholianCaptain</Special>
     </Upgrade>
     <Upgrade>
@@ -10756,7 +10774,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Independent</Faction>
       <Cost>5</Cost>
       <Id>energy_web_opwebprize</Id>
-      <Set>OPWebPrize</Set>
+      <Set>OPWebPrize,71795</Set>
       <Special>OnlyTholianShip</Special>
     </Upgrade>
     <Upgrade>
@@ -10771,7 +10789,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Independent</Faction>
       <Cost>3</Cost>
       <Id>plasma_torpedoes_opwebprize</Id>
-      <Set>OPWebPrize</Set>
+      <Set>OPWebPrize,71795</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -14717,6 +14735,23 @@ If your Captain's Skill Number is ever below a "4" when you are attacking, durin
         <Set>71808</Set>
         <Special>addoneweaponslot</Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Tholian Assembly</Title>
+        <Ability>ACTION: Discard this card to target every Tholian ship within Range 3 of your ship. Each target ship may immediately perform an additional maneuver with a speed of 1.
+
+This Upgrade may only be purchased for Loskene or any other Tholian Captain on a Tholian ship.</Ability>
+        <Unique>Y</Unique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Independent</Faction>
+        <Cost>3</Cost>
+        <Id>tholian_assembly_71795</Id>
+        <Set>71795</Set>
+        <Special>OnlyTholianCaptain</Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -15131,11 +15166,12 @@ While you have the High Yield Photon Torpedoes Resource, all of your Photon Torp
       <Set id="71534" overallSetName="Wave 10" releaseDate="2014-12-03">Fina Prime</Set>
       <Set id="71754" overallSetName="Wave 10" releaseDate="2014-12-03">1st Wave Attack Fighters</Set>
       <Set id="71535" overallSetName="Wave 10" releaseDate="2014-12-03">Regent's Flagship</Set>
-      <Set id="71808" overallSetName="Wave 11" releaseDate="2015-01-07">Alpha Hunter</Set>
-      <Set id="71753" overallSetName="Wave 11" releaseDate="2015-01-07">Fighter Squadron 6</Set>
-      <Set id="71536" overallSetName="Wave 11" releaseDate="2015-01-07">Prototype 01</Set>
+      <Set id="71808" overallSetName="Wave 11" releaseDate="2015-01-28">Alpha Hunter</Set>
+      <Set id="71753" overallSetName="Wave 11" releaseDate="2015-01-28">Fighter Squadron 6</Set>
+      <Set id="71536" overallSetName="Wave 11" releaseDate="2015-01-28">Prototype 01</Set>
       <Set id="71996a" overallSetName="A Matter of Honor" releaseDate="2015-02-04">Officer Exchange Program Resource</Set>
       <Set id="71996" overallSetName="A Matter of Honor" releaseDate="2015-02-04">I.K.S. Pagh</Set>
+      <Set id="71795" overallSetName="Wave 12" releaseDate="2015-03-04">I.K.S. Pagh</Set>
     </Sets>
     <Flagships>
         <Flagship>
@@ -15713,7 +15749,7 @@ To place an EWT after performing an Energy Web Action, follow these steps:
 4) Move your ship so that the back edge of the ship's base touches and lines up with the edge of the new Guide Token. Then remove the first Guide Token.</Ability>
         <Type>Token</Type>
         <Id>energy_web_token_reference</Id>
-        <Set>OPWebPrize</Set>
+        <Set>OPWebPrize,71795</Set>
     </Reference>
     <Reference>
         <Title>Grapple Token</Title>
