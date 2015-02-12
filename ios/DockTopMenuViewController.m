@@ -39,6 +39,24 @@
         indicator.center = CGPointMake(_loadingAlert.bounds.size.width / 2, _loadingAlert.bounds.size.height - 50);
         [indicator startAnimating];
         [_loadingAlert addSubview:indicator];
+        
+        DockDataUpdater* updater = [[DockDataUpdater alloc] init];
+        [updater checkForNewDataVersion:^(NSString *remoteVersion, NSData *downloadData, NSError *error) {
+            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+            NSString* currentVersion = [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
+            if ([currentVersion compare:remoteVersion] == NSOrderedAscending) {
+                NSLog(@"New version available.");
+                UIToolbar* toolbar = self.navigationController.toolbar;
+                UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+                UILabel* label = [[UILabel alloc] init];
+                [label setText:@"Data Update Available"];
+                [label setTextColor:[UIColor darkTextColor]];
+                [label setFont:[UIFont systemFontOfSize:14]];
+                [label sizeToFit];
+                UIBarButtonItem* update = [[UIBarButtonItem alloc] initWithCustomView:label];
+                [toolbar setItems:[NSArray arrayWithObjects:spacer,update,spacer,nil] animated:YES];
+            }
+        }];
     }
 }
 
@@ -160,25 +178,14 @@
 -(void)refresh:(UIRefreshControl *)refresh
 {
     DockDataUpdater* updater = [[DockDataUpdater alloc] init];
+    UIToolbar* toolbar = self.navigationController.toolbar;
+    UIProgressView* progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem* update = [[UIBarButtonItem alloc] initWithCustomView:progressView];
+    [progressView setFrame:CGRectMake(0, 0, toolbar.frame.size.width*.9, progressView.frame.size.height)];
+    [toolbar setItems:[NSArray arrayWithObjects:spacer,update,spacer,nil] animated:YES];
+    updater.progressBar = progressView;
     [updater checkForNewData:^(NSString *remoteVersion, NSData *downloadData, NSError *error) {
-        /*
-        NSURL* url = [[[NSFileManager defaultManager] URLsForDirectory: NSDocumentDirectory inDomains: NSUserDomainMask] lastObject];
-        NSString* appData = [url path];
-        NSString* xmlFile = [appData stringByAppendingPathComponent: @"Data.xml"];
-        [downloadData writeToFile:xmlFile atomically:NO];
-        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-        
-        DockDataLoader* loader = [[DockDataLoader alloc] initWithContext: self.managedObjectContext];
-        NSError* err;
-        [loader loadData: &err];
-        [loader validateSpecials];
-        [loader cleanupDatabase];
-
-        NSString* dataVersion = [NSString stringWithFormat:@"Data Version: %@",[defaults stringForKey: kSpaceDockCurrentDataVersionKey]];
-        refresh.attributedTitle = [[NSAttributedString alloc] initWithString:dataVersion];
-
-        [refresh endRefreshing];
-         */
         [self handleNewData:remoteVersion path:downloadData error:error];
     }];
 }
@@ -202,6 +209,8 @@
         NSString* dataVersion = [NSString stringWithFormat:@"Data Version: %@",[defaults stringForKey: kSpaceDockCurrentDataVersionKey]];
         self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:dataVersion];
     }
+    UIToolbar* toolbar = self.navigationController.toolbar;
+    [toolbar setItems:nil animated:YES];
     [self.refreshControl endRefreshing];
 }
 
