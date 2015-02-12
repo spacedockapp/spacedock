@@ -1401,7 +1401,7 @@
     for (DockEquippedUpgrade* eu in self.upgrades) {
         DockUpgrade* upgrade = eu.upgrade;
         techCount += [upgrade additionalTechSlots];
-        if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [upgrade.externalId isEqualToString:@"enhanced_hull_plating_71526"]) {
+        if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [upgrade.externalId isEqualToString:@"enhanced_hull_plating_71526"] && ![eu.specialTag isEqualToString:@"AdditionalCaptain"]) {
             techCount ++;
         }
     }
@@ -1416,7 +1416,9 @@
 
     for (DockEquippedUpgrade* eu in self.upgrades) {
         DockUpgrade* upgrade = eu.upgrade;
-        weaponCount += [upgrade additionalWeaponSlots];
+        if (![eu.specialTag isEqualToString:@"AdditionalCaptain"]) {
+            weaponCount += [upgrade additionalWeaponSlots];
+        }
     }
 
     return weaponCount;
@@ -1428,7 +1430,9 @@
     crewCount += [self.flagship crewAdd];
     for (DockEquippedUpgrade* eu in self.upgrades) {
         DockUpgrade* upgrade = eu.upgrade;
-        crewCount += [upgrade additionalCrewSlots];
+        if (![eu.specialTag isEqualToString:@"AdditionalCaptain"]) {
+            crewCount += [upgrade additionalCrewSlots];
+        }
     }
 
     return crewCount;
@@ -1472,7 +1476,9 @@
     int borgCount = self.ship.borgCount;
     for (DockEquippedUpgrade* eu in self.upgrades) {
         DockUpgrade* upgrade = eu.upgrade;
-        borgCount += [upgrade additionalBorgSlots];
+        if (![eu.specialTag isEqualToString:@"AdditionalCaptain"]) {
+            borgCount += [upgrade additionalBorgSlots];
+        }
     }
 
     return borgCount;
