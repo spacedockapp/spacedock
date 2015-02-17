@@ -37,26 +37,8 @@
         [_loadingAlert show];
         UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         indicator.center = CGPointMake(_loadingAlert.bounds.size.width / 2, _loadingAlert.bounds.size.height - 50);
-        [indicator startAnimating];
         [_loadingAlert addSubview:indicator];
-        
-        DockDataUpdater* updater = [[DockDataUpdater alloc] init];
-        [updater checkForNewDataVersion:^(NSString *remoteVersion, NSData *downloadData, NSError *error) {
-            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-            NSString* currentVersion = [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
-            if ([currentVersion compare:remoteVersion] == NSOrderedAscending) {
-                NSLog(@"New version available.");
-                UIToolbar* toolbar = self.navigationController.toolbar;
-                UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-                UILabel* label = [[UILabel alloc] init];
-                [label setText:@"Data Update Available"];
-                [label setTextColor:[UIColor darkTextColor]];
-                [label setFont:[UIFont systemFontOfSize:14]];
-                [label sizeToFit];
-                UIBarButtonItem* update = [[UIBarButtonItem alloc] initWithCustomView:label];
-                [toolbar setItems:[NSArray arrayWithObjects:spacer,update,spacer,nil] animated:YES];
-            }
-        }];
+        [indicator startAnimating];
     }
 }
 
@@ -68,6 +50,19 @@
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSString* dataVersion = [NSString stringWithFormat:@"Data Version: %@",[defaults stringForKey: kSpaceDockCurrentDataVersionKey]];
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:dataVersion];
+    
+    DockDataUpdater* updater = [[DockDataUpdater alloc] init];
+    [updater checkForNewDataVersion:^(NSString *remoteVersion, NSData *downloadData, NSError *error) {
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        NSString* currentVersion = [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
+        if ([currentVersion compare:remoteVersion] == NSOrderedAscending) {
+            UIToolbar* toolbar = self.navigationController.toolbar;
+            UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+            UIBarButtonItem* update = [[UIBarButtonItem alloc] initWithTitle:@"Game Data Update Available" style:UIBarButtonItemStylePlain target:self action:@selector(refresh:)];
+            [toolbar setItems:[NSArray arrayWithObjects:spacer,update,spacer,nil] animated:YES];
+        }
+    }];
+
 }
 
 #pragma mark - Segue management
@@ -180,9 +175,15 @@
     DockDataUpdater* updater = [[DockDataUpdater alloc] init];
     UIToolbar* toolbar = self.navigationController.toolbar;
     UIProgressView* progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
+    UILabel* progressLabel = [[UILabel alloc] init];
+    [progressLabel setText:@"Loading latest game data..."];
+    [progressLabel setTextAlignment:NSTextAlignmentCenter];
+    [progressView addSubview:progressLabel];
+    [progressLabel setFrame:CGRectMake(0, 0, toolbar.frame.size.width, toolbar.frame.size.height/2)];
+    [progressLabel setFont:[UIFont systemFontOfSize:[UIFont smallSystemFontSize]]];
     UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem* update = [[UIBarButtonItem alloc] initWithCustomView:progressView];
-    [progressView setFrame:CGRectMake(0, 0, toolbar.frame.size.width*.9, progressView.frame.size.height)];
+    [progressView setFrame:CGRectMake(0, toolbar.frame.size.height/2, toolbar.frame.size.width*.9, toolbar.frame.size.height/2)];
     [toolbar setItems:[NSArray arrayWithObjects:spacer,update,spacer,nil] animated:YES];
     updater.progressBar = progressView;
     [updater checkForNewData:^(NSString *remoteVersion, NSData *downloadData, NSError *error) {
