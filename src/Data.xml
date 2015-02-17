@@ -1,4 +1,4 @@
-<Data version="2015-02-13@00-10">
+<Data version="2015-02-17@07-09">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -4304,7 +4304,7 @@
       <Weapon>2</Weapon>
       <Crew>1</Crew>
       <Id>kazon_starship_71646c</Id>
-      <Set>71646c</Set>
+      <Set>71646c,71793</Set>
     </Ship>
     <Ship>
       <Title>Relora-Sankur</Title>
@@ -5500,6 +5500,35 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Id>i_k_s_pagh_71996</Id>
       <Set>71996</Set>
   </Ship>
+  <Ship>
+      <Title>Ogla-Razik</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Predator Class</ShipClass>
+      <Faction>Kazon</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>3</Shield>
+      <Ability>All friendly Kazon ships with a Hull value of 4 or less within Range 1-2 of this ship gain +1 defense die.</Ability>
+      <Cost>26</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>2</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>ogla_razik_71793</Id>
+      <Set>71793</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -6521,7 +6550,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Kazon</Faction>
       <Cost>0</Cost>
       <Id>kazon_captain_71282</Id>
-      <Set>71282,71646c</Set>
+      <Set>71282,71646c,71793</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -7838,6 +7867,38 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Cost>1</Cost>
       <Id>tholian_pilot_71795</Id>
       <Set>71795</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Razik</Title>
+      <Ability>Disable 1 of your [CREW] Upgrades to re-roll one of your attack or defense dice. OR Discard 1 of your [CREW] Upgrades to re-roll any number of your attack or defense dice.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Kazon</Faction>
+      <Cost>4</Cost>
+      <Id>razik_71793</Id>
+      <Set>71793</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Jabin</Title>
+      <Ability>When defending, your ship rolls +1 defense dice.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>5</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Kazon</Faction>
+      <Cost>3</Cost>
+      <Id>jabin_71793</Id>
+      <Set>71793</Set>
       <Special></Special>
   </Captain>
   </Captains>
@@ -12749,7 +12810,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Faction>Kazon</Faction>
       <Cost>2</Cost>
       <Id>tractor_beam_71646c</Id>
-      <Set>71646c</Set>
+      <Set>71646c,71793</Set>
       <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
@@ -12898,7 +12959,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       </Upgrade>
       <Upgrade>
         <Title>Photonic Charges</Title>
-        <Ability>ATTACK: Disable this card to perform this attack. Place an Auxiliarly Power Token beside the target ship if there is at least 1 uncancelled [HIT] or [CRIT] result.This Upgrade costs +4 SP if purchased for a non-Predator class ship.</Ability>
+        <Ability>ATTACK: Disable this card to perform this attack. Place an Auxiliarly Power Token beside the target ship if there is at least 1 uncancelled [HIT] or [CRIT] result. This Upgrade costs +4 SP if purchased for a non-Predator class ship.</Ability>
         <Unique>N</Unique>
         <MirrorUniverseUnique>N</MirrorUniverseUnique>
         <Skill></Skill>
@@ -12909,7 +12970,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
         <Faction>Kazon</Faction>
         <Cost>4</Cost>
         <Id>photonic_charges_71646c</Id>
-        <Set>71646c</Set>
+        <Set>71646c,71793</Set>
         <Special>PlusFourIfNotPredatorClass</Special>
       </Upgrade>
       <Upgrade>
@@ -14752,6 +14813,70 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>71795</Set>
         <Special>OnlyTholianCaptain</Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Karden</Title>
+        <Ability>ACTION: Disable this card to gain +2 attack dice and roll -2 defense dice this round. This Upgrade may only be purchased for a Kazon ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Kazon</Faction>
+        <Cost>3</Cost>
+        <Id>karden_71793</Id>
+        <Set>71793</Set>
+        <Special>OnlyKazonShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Haliz</Title>
+        <Ability>When defending, during the Declare Target step, you my remove your Captain Card from the game to cancel that attack. If you do this, the attacking ship cannot perform another attack during that round. This card then becomes your Captain Card with a skill of 3. This Upgrade may only be purchased for a Kazon ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Kazon</Faction>
+        <Cost>4</Cost>
+        <Id>haliz_71793</Id>
+        <Set>71793</Set>
+        <Special>OnlyKazonShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>First Maje</Title>
+        <Ability>This Upgrade does not require an Upgrade slot and may only be equipped to a Kazon ship with a Kazon Captain. While this Upgrade is equipped to your ship, you gain 1 additional [TECH] Upgrade slot to your Upgrade Bar and your Captain Skill increases by 2. During the Planning Phase, you may discard this card to target a ship at Range 1. Disable 1 [TECH] Upgrade on the target ship and then steal it, even if it exceeds your ship's restrictions.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Kazon</Faction>
+        <Cost>5</Cost>
+        <Id>first_maje_71793</Id>
+        <Set>71793</Set>
+        <Special>OnlyKazonShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Particle Beam Weapon</Title>
+        <Ability>ATTACK: Disable this card to perform this attack. You may fire this weapon from your forward or rear firing arcs.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>5</Attack>
+        <Range>1-2</Range>
+        <Type>Weapon</Type>
+        <Faction>Kazon</Faction>
+        <Cost>4</Cost>
+        <Id>particle_beam_weapon_71793</Id>
+        <Set>71793</Set>
+        <Special></Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -15052,6 +15177,28 @@ While you have the High Yield Photon Torpedoes Resource, all of your Photon Torp
           <Id>officer_exchange_program_71996a</Id>
           <Set>71996a</Set>
       </Resource>
+      <Resource>
+          <Title>Master Strategist Tokens (MST)</Title>
+          <Unique>Y</Unique>
+          <Type>Resource</Type>
+          <Ability>At the start of the game, place the 6 MSTs beside your ship cards.  During the Activation Phase, instead of performing a  normal Action, any of the ships in your fleet may perform the following Action:
+    ACTION: Place 1 MST beside your ship.
+
+While a Master Strategist Token is beside your ship:
+
+1) Treat it as if it were an [EVASIVE MANEUVERS], a [SCAN], a [BATTLESTATIONS] or a [TARGET LOCK] Token.  You may use this Token as you would any of these Tokens (see pg. 10 of the Rules of Play).  Remove it from the game if it is spent.
+
+2) During the End Phase, place any unused MSTs back beside your ship cards to use again on a later round.
+
+3) When using an MST as a [TARGET LOCK] Token, you may only spend it to re-roll your attack dice (see pg 14).  This does not count as having acquired a target lock with regards to Secondary Weapons (see pg 20).
+
+4) Only one Upgrade Card on each ship can trigger its ability from this Token during the same round (see pg 22).
+
+5) On a round a ship uses this Action, that ship may still use an [EVASIVE MANEUVERS], [SCAN], [BATTLESTATIONS] or [TARGET LOCK] Action as a free Action, if possible.</Ability>
+          <Cost>10</Cost>
+          <Id>master_strategist_tokens_71997r</Id>
+          <Set>71997r</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -15172,6 +15319,8 @@ While you have the High Yield Photon Torpedoes Resource, all of your Photon Torp
       <Set id="71996a" overallSetName="A Matter of Honor" releaseDate="2015-02-04">Officer Exchange Program Resource</Set>
       <Set id="71996" overallSetName="A Matter of Honor" releaseDate="2015-02-04">I.K.S. Pagh</Set>
       <Set id="71795" overallSetName="Wave 12" releaseDate="2015-03-04">Tholia One</Set>
+      <Set id="71997r" overallSetName="Peak Performance" releaseDate="2015-03-04">Master Strategist Tokens Resource</Set>
+      <Set id="71793" overallSetName="Wave 12" releaseDate="2015-03-04">Ogla-Razik</Set>
     </Sets>
     <Flagships>
         <Flagship>

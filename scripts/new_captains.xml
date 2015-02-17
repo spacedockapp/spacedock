@@ -1,7 +1,6 @@
-
   <Captain>
-    <Title>Kargan</Title>
-    <Ability>During the Activation Phase, after you move, if you perform an Action listed on one of your Upgrades, you may immediately perform a [TARGET LOCK] Action as a free Action, if possible. If you do this, place an Auxiliary Power Token beside your ship.</Ability>
+    <Title>Razik</Title>
+    <Ability>Disable 1 of your [CREW] Upgrades to re-roll one of your attack or defense dice. OR Discard 1 of your [CREW] Upgrades to re-roll any number of your attack or defense dice.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>6</Skill>
@@ -9,9 +8,41 @@
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Klingon</Faction>
+    <Faction>Kazon</Faction>
     <Cost>4</Cost>
-    <Id>kargan_71996</Id>
-    <Set>71996</Set>
+    <Id>razik_71793</Id>
+    <Set>71793</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Jabin</Title>
+    <Ability>When defending, your ship rolls +1 defense dice.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>5</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Kazon</Faction>
+    <Cost>3</Cost>
+    <Id>jabin_71793</Id>
+    <Set>71793</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Kazon</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>1</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Kazon</Faction>
+    <Cost>0</Cost>
+    <Id>kazon_71793</Id>
+    <Set>71793</Set>
     <Special></Special>
   </Captain>

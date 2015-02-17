@@ -6,18 +6,20 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-1/20/2015 11:38:53	71996 - I.K.S. Pagh	Unique	Surrender As Ordered	Klingon	ACTION: Discard this card to target one enemy ship at Range 1 that is in your forward firing arc.  The target ship may choose to not attack this round and disable all of its [WEAPON] Upgrades.  If it does this, then your ship cannot attack that ship this round.  If the target ship chooses not to do this (or if it has no [WEAPON] Upgrades that are not already disabled), you gain +1 attack dice against that ship this round.	Talent	4	
-1/20/2015 11:40:07	71996 - I.K.S. Pagh	Unique	William T. Riker	Federation	You do not pay a faction penalty when assigning this card to a Klingon Ship.  ACTION: Disable this card to increase your Captain Skill to 10 until the End Phase.	Crew	4	Yes
-1/20/2015 11:44:45	71996 - I.K.S. Pagh	Non-unique	Tunneling Neutrino Beam	Federation	ACTION: Disable this card to target 1 friendly ship at Range 1.  Target ship repairs 1 damage to its Hull.  You cannot attack this round.  You do  not pay a faction penalty when assigning this card to a Klingon ship.	Tech	3	Yes
+2/16/2015 17:05:22	71793 - Ogla-Razik	Unique	Karden	Kazon	ACTION: Disable this card to gain +2 attack dice and roll -2 defense dice this round.  This Upgrade may only be purchased for a Kazon ship.	Crew	3	Yes
+2/16/2015 17:06:36	71793 - Ogla-Razik	Unique	Haliz	Kazon	When defending, during the Declare Target step, you my remove your Captain Card from the game to cancel that attack.  If you do this, the attacking ship cannot perform another attack during that round.  This card then becomes your Captain Card with a skill of 3.  This Upgrade may only be purchased for a Kazon ship.	Crew	4	Yes
+2/16/2015 17:08:10	71793 - Ogla-Razik	Non-unique	Tractor Beam	Kazon	During the Activation Phase, when a ship within Range 1 of your ship reveals a Maneuver with a number of 3 or higher, before that ship moves, you may discard this card to subtract 2 from that Maneuver's number.  No ship may be equipped with more than 1 of this Upgrade.	Tech	2	Yes
+2/16/2015 17:10:36	71793 - Ogla-Razik	Unique	First Maje	Kazon	This Upgrade does  not require an Upgrade slot and may only be equipped to a Kazon ship with a Kazon Captain.  While this Upgrade is equipped to your ship, you gain 1 additional [TECH] Upgrade slot to your Upgrade Bar and your Captain Skill increases by 2.  During the Planning Phase, you may discard this card to target a ship at Range 1.  Disable 1 [TECH] Upgrade on the target ship and then steal it, even if it exceeds your ship's restrictions.	Talent	5	Yes
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-1/20/2015 11:35:13	71996 - I.K.S. Pagh	Non-unique	Klingon	1	Klingon		0	0		
-1/20/2015 11:36:35	71996 - I.K.S. Pagh	Unique	Kargan	6	Klingon	During the Activation Phase, after you move, if you perform an Action listed on one of your Upgrades, you may immediately perform a [TARGET LOCK] Action as a free Action, if possible.  If you do this, place an Auxiliary Power Token beside your ship.	0	4		
+2/16/2015 16:58:39	71793 - Ogla-Razik	Unique	Razik	6	Kazon	Disable 1 of your [CREW] Upgrades to re-roll one of your attack or defense dice.  OR  Discard 1 of your [CREW] Upgrades to re-roll any number of your attack or defense dice.	0	4		
+2/16/2015 16:59:16	71793 - Ogla-Razik	Unique	Jabin	5	Kazon	When defending, your ship rolls +1 defense dice.	0	3		
+2/16/2015 16:59:41	71793 - Ogla-Razik	Non-unique	Kazon	1	Kazon		0	0		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-1/20/2015 11:47:08	71996 - I.K.S. Pagh	Non-unique	Phaser Array Retrofit	Klingon	0	0	When attacking with your Primary Weapon at Range 3, you gain +1 attack die and your opponent rolls 1 less defense die.  This Upgrade may only be purchased for a Klingon Ship.  No ship may be equipped with more than 1 "Phaser Array Retrofit" Upgrade.	5	Yes
+2/16/2015 17:00:46	71793 - Ogla-Razik	Non-unique	Particle Beam Weapon	Kazon	5	1-2	ATTACK: Disable this card to perform this attack.  You may fire this weapon from your forward or rear firing arcs.	4	
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT

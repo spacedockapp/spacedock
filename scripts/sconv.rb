@@ -44,8 +44,7 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-1/20/2015 11:29:53	71996 - I.K.S. Pagh	Non-unique	Klingon Starship	Klingon	K'Vort Class	K'Vort Class				4	1	5	2		Cloak, Evasive, Sensor Echo, Target Lock	24	0	1	1	1	90-degree forward, 90-degree rear		0
-1/20/2015 11:31:27	71996 - I.K.S. Pagh	Unique	I.K.S. Pagh	Klingon	K'Vort Class	K'Vort Class				4	1	5	3	When attacking, you may convert 1 of your [CRIT] results into a [HIT] result.  If you do so, you may then convert 1 of your blank results into a [HIT] result.	Cloak, Evasive, Sensor Echo, Target Lock	26	0	1	1	2	90-degree forward, 90-degree rear		0
+2/16/2015 16:57:22	71793 - Ogla-Razik	Unique	Ogla-Razik	Kazon	Predator Class	Predator Class				4	1	5	3	All friendly Kazon ships with a Hull value of 4 or less within Range 1-2 of this ship gain +1 defense die.	Battle Stations, Evasive, Scan, Target Lock	26	0	2	1	2	180-degree forward, 90-degree rear		0
 SHIPTEXT
 
 

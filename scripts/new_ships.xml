@@ -1,58 +1,29 @@
   <Ship>
-    <Title>Klingon Starship</Title>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>K'Vort Class</ShipClass>
-    <Faction>Klingon</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>1</Agility>
-    <Hull>5</Hull>
-    <Shield>2</Shield>
-    <Ability></Ability>
-    <Cost>24</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>1</Weapon>
-    <Crew>1</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
-    <Has360Arc>N</Has360Arc>
-    <Id>klingon_starship_71996</Id>
-    <Set>71996</Set>
-  </Ship>
-  <Ship>
-    <Title>I.K.S. Pagh</Title>
+    <Title>Ogla-Razik</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>K'Vort Class</ShipClass>
-    <Faction>Klingon</Faction>
+    <ShipClass>Predator Class</ShipClass>
+    <Faction>Kazon</Faction>
     <AdditionalFaction></AdditionalFaction>
     <Attack>4</Attack>
     <Agility>1</Agility>
     <Hull>5</Hull>
     <Shield>3</Shield>
-    <Ability>When attacking, you may convert 1 of your [CRIT] results into a [HIT] result.  If you do so, you may then convert 1 of your blank results into a [HIT] result.</Ability>
+    <Ability>All friendly Kazon ships with a Hull value of 4 or less within Range 1-2 of this ship gain +1 defense die.</Ability>
     <Cost>26</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
+    <Scan>1</Scan>
+    <Battlestations>1</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
     <Tech>1</Tech>
     <Weapon>2</Weapon>
-    <Crew>1</Crew>
+    <Crew>2</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>i_k_s_pagh_71996</Id>
-    <Set>71996</Set>
+    <Id>ogla_razik_71793</Id>
+    <Set>71793</Set>
   </Ship>

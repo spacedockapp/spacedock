@@ -1,22 +1,6 @@
     <Upgrade>
-      <Title>Surrender As Ordered</Title>
-      <Ability>ACTION: Discard this card to target one enemy ship at Range 1 that is in your forward firing arc. The target ship may choose to not attack this round and disable all of its [WEAPON] Upgrades. If it does this, then your ship cannot attack that ship this round. If the target ship chooses not to do this (or if it has no [WEAPON] Upgrades that are not already disabled), you gain +1 attack dice against that ship this round.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Klingon</Faction>
-      <Cost>4</Cost>
-      <Id>surrender_as_ordered_71996</Id>
-      <Set>71996</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>William T. Riker</Title>
-      <Ability>You do not pay a faction penalty when assigning this card to a Klingon Ship. ACTION: Disable this card to increase your Captain Skill to 10 until the End Phase.</Ability>
+      <Title>Karden</Title>
+      <Ability>ACTION: Disable this card to gain +2 attack dice and roll -2 defense dice this round. This Upgrade may only be purchased for a Kazon ship.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -24,15 +8,31 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>william_t_riker_71996</Id>
-      <Set>71996</Set>
-      <Special>NoPenaltyOnKlingonShip</Special>
+      <Faction>Kazon</Faction>
+      <Cost>3</Cost>
+      <Id>karden_71793</Id>
+      <Set>71793</Set>
+      <Special>Yes</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Tunneling Neutrino Beam</Title>
-      <Ability>ACTION: Disable this card to target 1 friendly ship at Range 1. Target ship repairs 1 damage to its Hull. You cannot attack this round. You do not pay a faction penalty when assigning this card to a Klingon ship.</Ability>
+      <Title>Haliz</Title>
+      <Ability>When defending, during the Declare Target step, you my remove your Captain Card from the game to cancel that attack. If you do this, the attacking ship cannot perform another attack during that round. This card then becomes your Captain Card with a skill of 3. This Upgrade may only be purchased for a Kazon ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Kazon</Faction>
+      <Cost>4</Cost>
+      <Id>haliz_71793</Id>
+      <Set>71793</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Tractor Beam</Title>
+      <Ability>During the Activation Phase, when a ship within Range 1 of your ship reveals a Maneuver with a number of 3 or higher, before that ship moves, you may discard this card to subtract 2 from that Maneuver's number. No ship may be equipped with more than 1 of this Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -40,25 +40,41 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>tunneling_neutrino_beam_71996</Id>
-      <Set>71996</Set>
-      <Special>NoPenaltyOnKlingonShip</Special>
+      <Faction>Kazon</Faction>
+      <Cost>2</Cost>
+      <Id>tractor_beam_71793</Id>
+      <Set>71793</Set>
+      <Special>Yes</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Phaser Array Retrofit</Title>
-      <Ability>When attacking with your Primary Weapon at Range 3, you gain +1 attack die and your opponent rolls 1 less defense die. This Upgrade may only be purchased for a Klingon Ship. No ship may be equipped with more than 1 "Phaser Array Retrofit" Upgrade.</Ability>
+      <Title>First Maje</Title>
+      <Ability>This Upgrade does not require an Upgrade slot and may only be equipped to a Kazon ship with a Kazon Captain. While this Upgrade is equipped to your ship, you gain 1 additional [TECH] Upgrade slot to your Upgrade Bar and your Captain Skill increases by 2. During the Planning Phase, you may discard this card to target a ship at Range 1. Disable 1 [TECH] Upgrade on the target ship and then steal it, even if it exceeds your ship's restrictions.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Kazon</Faction>
+      <Cost>5</Cost>
+      <Id>first_maje_71793</Id>
+      <Set>71793</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Particle Beam Weapon</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. You may fire this weapon from your forward or rear firing arcs.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>0</Attack>
-      <Range>0</Range>
+      <Attack>5</Attack>
+      <Range>1-2</Range>
       <Type>Weapon</Type>
-      <Faction>Klingon</Faction>
-      <Cost>5</Cost>
-      <Id>phaser_array_retrofit_71996</Id>
-      <Set>71996</Set>
-      <Special>NoMoreThanOnePerShip</Special>
+      <Faction>Kazon</Faction>
+      <Cost>4</Cost>
+      <Id>particle_beam_weapon_71793</Id>
+      <Set>71793</Set>
+      <Special></Special>
     </Upgrade>

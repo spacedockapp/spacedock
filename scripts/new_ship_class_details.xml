@@ -1,18 +1,9 @@
   <ShipClassDetail>
-    <Name>K'Vort Class</Name>
-    <Id>k_vort_class</Id>
+    <Name>Predator Class</Name>
+    <Id>predator_class</Id>
     <Maneuvers>
 
     </Maneuvers>
-    <FrontArc>90</FrontArc>
-    <RearArc>90</RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>K'Vort Class</Name>
-    <Id>k_vort_class</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc>90</FrontArc>
+    <FrontArc>180</FrontArc>
     <RearArc>90</RearArc>
   </ShipClassDetail>
