@@ -239,7 +239,7 @@ enum {
                                                        toDate:[NSDate date] options:0];
                     if (ageComponents.month >= 18) {
                         NSMutableAttributedString* as = cell.detailTextLabel.attributedText.mutableCopy;
-                        NSMutableAttributedString* exp = [[NSMutableAttributedString alloc] initWithString:@" (Expired)"];
+                        NSMutableAttributedString* exp = [[NSMutableAttributedString alloc] initWithString:@" (Retired)"];
                         [exp addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0,[exp length])];
                         [as appendAttributedString:exp];
                         cell.detailTextLabel.attributedText = as;
