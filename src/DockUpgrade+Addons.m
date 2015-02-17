@@ -827,7 +827,7 @@ static NSDictionary* sItemLabels = nil;
     if ([special isEqualToString: @"addonetechslot"] || [externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
         return 1;
     }
-    if ([externalId isEqualToString: @"quark_71786"]) {
+    if ([externalId isEqualToString: @"quark_71786"] || [externalId isEqualToString:@"first_maje_71793"]) {
         return 1;
     }
     return 0;

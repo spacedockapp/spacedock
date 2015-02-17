@@ -836,6 +836,16 @@
         return limit > 0;
     }
     
+    if ([upgrade.externalId isEqualToString:@"first_maje_71793"]) {
+        if (![captain isKazon]) {
+            return NO;
+        }
+    } else if (![upgrade isPlaceholder] && [upgrade isTalent] && [captain isKazon] && [self.ship isKazon]) {
+        if (self.talentCount == 1) {
+            return NO;
+        }
+    }
+    
     if (ignoreInstalled) {
         return YES;
     }
@@ -937,6 +947,10 @@
                 info = @"You cannot deploy a [WEAPON] Upgrade with a cost greater than 5 to Triphasic Emitter.";
             } else if ([upgrade isWeapon] && [upgrade.faction isEqualToString:@"Borg"] && [self containsUpgradeWithId:@"triphasic_emitter_71536"] != nil) {
                 info = @"You cannot deploy a Borg [WEAPON] Upgrade to Triphasic Emitter.";
+            } else if ([upgrade.externalId isEqualToString:@"first_maje_71793"]) {
+                info = @"This upgrade can only be purchased for a Kazon captain on a Kazon ship.";
+            } else if ([self.captain isKazon] && [self.ship isKazon] && self.talentCount == 1) {
+                info = @"You can only deploy the First Maje [TALENT] to this captain.";
             }
         }
     }
@@ -1376,7 +1390,9 @@
             talentCount += 4;
         }
     }
-
+    if ([self.captain isKazon] && [self.ship isKazon]) {
+        talentCount ++;
+    }
     return talentCount;
 
 #if 0
