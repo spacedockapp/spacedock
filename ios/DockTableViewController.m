@@ -9,6 +9,7 @@
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* factionBarItem;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* costBarItem;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* toggleButtonItem;
+@property (nonatomic, strong) UIActionSheet* sheet;
 @end
 
 @implementation DockTableViewController
@@ -255,6 +256,12 @@
 
 -(IBAction)faction:(id)sender
 {
+    if (self.sheet != nil) {
+        [self.sheet dismissWithClickedButtonIndex:-1 animated:YES];
+        if ([self.sheet.title isEqualToString:@"Faction"]) {
+            return;
+        }
+    }
     UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle: @"Faction"
                                                        delegate: self
                                               cancelButtonTitle: nil
@@ -265,11 +272,17 @@
     for (NSString* faction in factionsArray) {
         [sheet addButtonWithTitle: faction];
     }
-    [sheet showFromBarButtonItem: _factionBarItem animated: YES];
+    [sheet showFromBarButtonItem: self.factionBarItem animated: YES];
 }
 
 -(IBAction)cost:(id)sender
 {
+    if (self.sheet != nil) {
+        [self.sheet dismissWithClickedButtonIndex:-1 animated:YES];
+        if ([self.sheet.title isEqualToString:@"Cost"]) {
+            return;
+        }
+    }
     UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle: @"Cost"
                                                        delegate: self
                                               cancelButtonTitle: nil
@@ -278,18 +291,24 @@
     for (int i = 1; i < 11; ++i) {
         [sheet addButtonWithTitle: [NSString stringWithFormat: @"%d", i]];
     }
-    [sheet showFromBarButtonItem: _costBarItem animated: YES];
+    [sheet showFromBarButtonItem: self.costBarItem animated: YES];
 }
 
 -(IBAction)toggleAllSets:(id)sender
 {
+    if (self.sheet != nil) {
+        [self.sheet dismissWithClickedButtonIndex:-1 animated:YES];
+        if ([self.sheet.title isEqualToString:@"Show Sets"]) {
+            return;
+        }
+    }
     UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle: @"Show Sets"
                                                        delegate: self
                                               cancelButtonTitle: nil
                                          destructiveButtonTitle: nil
                                               otherButtonTitles: @"All Sets", nil];
     [sheet addButtonWithTitle: @"Selected Sets"];
-    [sheet showFromBarButtonItem: _toggleButtonItem animated: YES];
+    [sheet showFromBarButtonItem: self.toggleButtonItem animated: YES];
 }
 
 -(void)updateFaction:(NSString*)faction
@@ -313,9 +332,24 @@
     [defaults setBool:_ignoreSets forKey: kSpaceDockIgnoreSetsKey];
     [self clearFetch];
 }
+-(void)didPresentActionSheet:(UIActionSheet *)actionSheet
+{
+    self.sheet = actionSheet;
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet
+didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (self.sheet == actionSheet) {
+        self.sheet = nil;
+    }
+}
 
 -(void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    if (buttonIndex < 0 || buttonIndex > [actionSheet numberOfButtons] - 1) {
+        return;
+    }
     NSString* sheetTitle = actionSheet.title;
     if ([sheetTitle isEqualToString: @"Cost"]) {
         [self updateCost: (int)buttonIndex];
@@ -328,12 +362,8 @@
             [self updateFaction: nil];
             break;
         default:
-            if (buttonIndex < 0 || buttonIndex > [actionSheet numberOfButtons] - 1) {
-                break;
-            } else {
-                faction = [actionSheet buttonTitleAtIndex: buttonIndex];
-                [self updateFaction: faction];
-            }
+            faction = [actionSheet buttonTitleAtIndex: buttonIndex];
+            [self updateFaction: faction];
             break;
         }
     }
