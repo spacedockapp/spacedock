@@ -115,7 +115,7 @@ NSString* kMarkExpiredResKey = @"markExpiredRes";
                                                components:NSMonthCalendarUnit
                                                fromDate:[cal dateFromComponents:components]
                                                toDate:[NSDate date] options:0];
-            if (ageComponents.month >= 17) {
+            if (ageComponents.month >= 18) {
                 NSMutableAttributedString* as = cell.textLabel.attributedText.mutableCopy;
                 NSMutableAttributedString* exp = [[NSMutableAttributedString alloc] initWithString:@" (Retired)"];
                 [exp addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0,[exp length])];
