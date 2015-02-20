@@ -30,7 +30,7 @@ extern NSString* kMarkExpiredResources;
                                        components:NSMonthCalendarUnit
                                        fromDate:[cal dateFromComponents:components]
                                        toDate:[NSDate date] options:0];
-    if (ageComponents.month >= 17) {
+    if (ageComponents.month >= 18) {
         NSMutableAttributedString* exp = [[NSMutableAttributedString alloc] initWithString:@" (Retired)"];
         [exp addAttribute:NSForegroundColorAttributeName value:[NSColor redColor] range:NSMakeRange(0,[exp length])];
         [title appendAttributedString:exp];
