@@ -61,6 +61,7 @@ extern NSString* kExpandSquads;
 +(NSURL*)applicationFilesDirectory;
 -(IBAction)printFleetBuildSheet:(id)sender;
 -(IBAction)setResource:(id)sender;
+-(IBAction)toggleMarkExpiredResources:(id)sender;
 
 -(void)selectUpgrade:(DockEquippedUpgrade*)theUpgrade;
 -(void)selectShip:(DockEquippedShip*)theShip;

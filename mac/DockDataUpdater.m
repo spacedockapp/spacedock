@@ -28,9 +28,9 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     [_downloadData appendData: data];
-    
-    float progress = (float)_downloadData.length/(float)_response.expectedContentLength;
+
 #if TARGET_OS_IPHONE
+    float progress = (float)_downloadData.length/(float)_response.expectedContentLength;
     if (_progressBar != nil) {
         UIProgressView* pv = (UIProgressView*)_progressBar;
         pv.progress = progress;
