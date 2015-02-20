@@ -130,6 +130,8 @@ NSString* asDegrees(NSString* textValue)
         return [NSString stringWithFormat:@"%@ (2 Weapons)", self.shipClass];
     } else if ([self.externalId isEqualToString:@"1004"]) {
         return [NSString stringWithFormat:@"%@ (2 Crew)", self.shipClass];
+    } else if ([self.externalId isEqualToString:@"romulan_starship_71794"]) {
+        return [NSString stringWithFormat:@"%@ (2 Weapons/2 Crew)", self.shipClass];
     }
 
     return self.title;
@@ -147,6 +149,8 @@ NSString* asDegrees(NSString* textValue)
         return [NSString stringWithFormat:@"%@ (2 Weapons)", self.shipClass];
     } else if ([self.externalId isEqualToString:@"1004"]) {
         return [NSString stringWithFormat:@"%@ (2 Crew)", self.shipClass];
+    } else if ([self.externalId isEqualToString:@"romulan_starship_71794"]) {
+        return [NSString stringWithFormat:@"%@ (2 Weapons/2 Crew)", self.shipClass];
     }
     
     return self.shipClass;
@@ -240,17 +244,17 @@ NSString* asDegrees(NSString* textValue)
 
 -(BOOL)isSpecies8472
 {
-    return [self.faction isEqualToString: @"Species 8472"];
+    return targetHasFaction(@"Species 8472",self);
 }
 
 -(BOOL)isKazon
 {
-    return [self.faction isEqualToString: @"Kazon"];
+    return targetHasFaction(@"Kazon",self);
 }
 
 -(BOOL)isBorg
 {
-    return [self.faction isEqualToString: @"Borg"];
+    return targetHasFaction(@"Borg",self);
 }
 
 -(BOOL)isVoyager
@@ -338,6 +342,16 @@ NSString* asDegrees(NSString* textValue)
 -(BOOL)isIndependent
 {
     return targetHasFaction(@"Independent", self);
+}
+
+-(BOOL)isRomulan
+{
+    return targetHasFaction(@"Romulan", self);
+}
+
+-(BOOL)isKlingon
+{
+    return targetHasFaction(@"Klingon", self);
 }
 
 -(int)techCount

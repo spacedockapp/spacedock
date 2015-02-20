@@ -505,7 +505,7 @@
             }
         }
 
-        if (![upgrade.faction isEqualToString:@"Romulan"]) {
+        if (![upgrade isRomulan]) {
             int artificalLimit = [upgrade limitForShip: self] - talents - 4;
             if (!validating) {
                 artificalLimit ++;
@@ -742,6 +742,25 @@
         }
     }
     
+    if ([upgradeSpecial isEqualToString:@"OnlyRomulanShip"]) {
+        if (![self.ship isRomulan]) {
+            return NO;
+        }
+    }
+
+    if ([upgradeSpecial isEqualToString:@"OnlyRomulanCaptain"]) {
+        if (![self.captain isRomulan]) {
+            return NO;
+        }
+    }
+
+    if ([upgradeSpecial isEqualToString:@"OnlyRomulanCaptainShip"]) {
+        if (![self.ship isRomulan] || ![self.captain isRomulan]) {
+            return NO;
+        }
+    }
+
+    
     if (validating) {
         if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
             DockEquippedUpgrade* existing = [self containsUpgradeWithId: upgrade.externalId];
@@ -945,7 +964,7 @@
                 info = @"You cannot deploy a [WEAPON] Upgrade with a cost greater than 5 to Quark.";
             } else if ([upgrade isWeapon] && [upgrade.cost intValue] > 5  && [self containsUpgradeWithId:@"triphasic_emitter_71536"] != nil) {
                 info = @"You cannot deploy a [WEAPON] Upgrade with a cost greater than 5 to Triphasic Emitter.";
-            } else if ([upgrade isWeapon] && [upgrade.faction isEqualToString:@"Borg"] && [self containsUpgradeWithId:@"triphasic_emitter_71536"] != nil) {
+            } else if ([upgrade isWeapon] && [upgrade isFactionBorg] && [self containsUpgradeWithId:@"triphasic_emitter_71536"] != nil) {
                 info = @"You cannot deploy a Borg [WEAPON] Upgrade to Triphasic Emitter.";
             } else if ([upgrade.externalId isEqualToString:@"first_maje_71793"]) {
                 info = @"This upgrade can only be purchased for a Kazon captain on a Kazon ship.";
@@ -1096,7 +1115,7 @@
         [equippedUpgrade overrideWithCost:0];
     }
     
-    if ([upgrade isTalent] && [upgrade.faction isEqualToString:@"Romulan"] && [self containsUpgradeWithId:@"shinzon_romulan_talents_71533"] != nil) {
+    if ([upgrade isTalent] && [upgrade isRomulan] && [self containsUpgradeWithId:@"shinzon_romulan_talents_71533"] != nil) {
         int romTalents = 0;
         for (DockEquippedUpgrade* eu in self.sortedUpgradesWithoutPlaceholders) {
             if (eu.upgrade.isTalent && [eu.upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
@@ -1240,7 +1259,7 @@
         }
     } else if ([upgrade.upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
         for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
-            if ([eu.upgrade.faction isEqualToString:@"Romulan"] && [eu.specialTag hasPrefix:@"shinzon_ET_"])
+            if ([eu.upgrade isRomulan] && [eu.specialTag hasPrefix:@"shinzon_ET_"])
             {
                 [toRemove addObject:eu];
             }

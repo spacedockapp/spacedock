@@ -882,7 +882,21 @@ static NSString* namePrefix(NSString* originalName)
         return NO;
     }
     
-
+    if ([captain.special isEqualToString: @"OnlyRomulanShip"]) {
+        if (![targetShip.ship isRomulan]) {
+            if (error) {
+                NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", captain.title];
+                NSString* info = @"This captain can only be deployed to a Romulan ship.";
+                NSDictionary* d = @{
+                                    NSLocalizedDescriptionKey: msg,
+                                    NSLocalizedFailureReasonErrorKey: info
+                                    };
+                *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
+            }
+            return NO;
+        }
+    }
+    
     DockCaptain* existingCaptain = [targetShip captain];
 
     if (captain == existingCaptain) {
@@ -894,6 +908,21 @@ static NSString* namePrefix(NSString* originalName)
 
 -(BOOL)canAddAdmiral:(DockAdmiral*)admiral toShip:(DockEquippedShip*)targetShip error:(NSError**)error
 {
+    if ([admiral.special isEqualToString: @"OnlyRomulanShip"]) {
+        if (![targetShip.ship isRomulan]) {
+            if (error) {
+                NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", admiral.title];
+                NSString* info = @"This admiral can only be deployed to a Romulan ship.";
+                NSDictionary* d = @{
+                                    NSLocalizedDescriptionKey: msg,
+                                    NSLocalizedFailureReasonErrorKey: info
+                                    };
+                *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
+            }
+            return NO;
+        }
+    }
+    
     if (targetShip.admiralCount < 1) {
         if (error) {
             NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected ship.", admiral.title];

@@ -35,6 +35,8 @@
 -(BOOL)isSuurokClass;
 -(BOOL)isPredatorClass;
 -(BOOL)isIndependent;
+-(BOOL)isRomulan;
+-(BOOL)isKlingon;
 -(BOOL)isBajoranInterceptor;
 -(BOOL)isBattleshipOrCruiser;
 -(BOOL)isRaven;

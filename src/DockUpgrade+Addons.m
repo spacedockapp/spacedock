@@ -260,6 +260,11 @@ static NSDictionary* sItemLabels = nil;
     return targetHasFaction(@"Borg", self);
 }
 
+-(BOOL)isRomulan
+{
+    return targetHasFaction(@"Romulan", self);
+}
+
 -(BOOL)isRestrictedOnlyByFaction
 {
     NSString* upgradeId = self.externalId;
@@ -660,6 +665,10 @@ static NSDictionary* sItemLabels = nil;
         if ([ship.shipClass rangeOfString:@"Hirogen"].location == NSNotFound) {
             cost += 5;
         }
+    } else if ([upgradeSpecial isEqualToString:@"PlusFiveIfNotRomulan"]) {
+        if (![ship isRomulan]) {
+            cost += 5;
+        }
     } else if ([upgradeSpecial hasPrefix:@"Plus5NotShipClass_"]) {
         NSString* shipClass = [ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
         if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus5NotShipClass_%@",shipClass]]) {
@@ -741,7 +750,7 @@ static NSDictionary* sItemLabels = nil;
         } else if ([upgradeSpecial isEqualToString: @"add_one_tech_no_faction_penalty_on_vulcan"] && [ship isVulcan]) {
         } else if ([fleetCaptainOnThisShip isIndependent] && [ship isIndependent] && [upgrade isCaptain]) {
         } else if ([upgradeSpecial isEqualToString:@"NoPenaltyOnKlingonShip"]) {
-            if (!([ship.faction isEqualToString:@"Klingon"])) {
+            if (!([ship isKlingon])) {
                 cost += 1;
             }
         } else {
@@ -754,7 +763,7 @@ static NSDictionary* sItemLabels = nil;
 
     }
     if (hasExchange) {
-        if (([upgrade.faction isEqualToString:exFac1] && [ship.faction isEqualToString:exFac2]) || ([upgrade.faction isEqualToString:exFac2] && [ship.faction isEqualToString:exFac1])) {
+        if ((targetHasFaction(exFac1, upgrade) && targetHasFaction(exFac2, ship)) || (targetHasFaction(exFac2, upgrade) && targetHasFaction(exFac1, ship))) {
             if (cost > costWithoutPenalty) {
                 cost = costWithoutPenalty;
             }
