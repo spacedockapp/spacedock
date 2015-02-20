@@ -1,48 +1,52 @@
   <Captain>
-    <Title>Razik</Title>
-    <Ability>Disable 1 of your [CREW] Upgrades to re-roll one of your attack or defense dice. OR Discard 1 of your [CREW] Upgrades to re-roll any number of your attack or defense dice.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>6</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Kazon</Faction>
-    <Cost>4</Cost>
-    <Id>razik_71793</Id>
-    <Set>71793</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Jabin</Title>
-    <Ability>When defending, your ship rolls +1 defense dice.</Ability>
+    <Title>Taris</Title>
+    <Ability>When attacking with your Primary Weapon, during the Declare Target step, you may discard one of your [CREW] Upgrades to target a ship that is not in your forward firing arc.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>5</Skill>
-    <Talent>0</Talent>
+    <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Kazon</Faction>
-    <Cost>3</Cost>
-    <Id>jabin_71793</Id>
-    <Set>71793</Set>
+    <Faction>Romulan</Faction>
+    <Cost>4</Cost>
+    <Id>taris_71794</Id>
+    <Set>71794</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Kazon</Title>
-    <Ability></Ability>
-    <Unique>N</Unique>
+    <Title>Centurion</Title>
+    <Ability>When attacking, you may re-roll one of your [BATTLESTATIONS] results.</Ability>
+    <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>1</Skill>
+    <Skill>2</Skill>
     <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Kazon</Faction>
-    <Cost>0</Cost>
-    <Id>kazon_71793</Id>
-    <Set>71793</Set>
+    <Faction>Romulan</Faction>
+    <Cost>1</Cost>
+    <Id>centurion_71794</Id>
+    <Set>71794</Set>
     <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Mendak</Title>
+    <Ability>ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLESTATIONS] Token(s) beside it and place a [BATTLESTATIONS] Token beside that ship. The target ship cannot perform a [BATTLESTATIONS] Action this round. This card may only be purchased for a Romulan ship.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>6</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Romulan</Faction>
+    <Cost>4</Cost>
+    <Id>mendak_cap_71794</Id>
+    <Set>71794</Set>
+    <Special>OnlyRomulanShip</Special>
+    <AdmiralAbility>FLEET ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLESTATIONS] Token(s) beside it and place a [BATTLESTATIONS] Token beside that ship. The target ship cannot perform a [BATTLESTATIONS] Action this round. This card may only be purchased for a Romulan ship.</AdmiralAbility>
+    <AdmiralCost>4</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>2</SkillModifier>
   </Captain>

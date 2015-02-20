@@ -1,0 +1,20 @@
+  <Admiral>
+    <Title>Mendak</Title>
+    <Ability>ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLESTATIONS] Token(s) beside it and place a [BATTLESTATIONS] Token beside that ship. The target ship cannot perform a [BATTLESTATIONS] Action this round. This card may only be purchased for a Romulan ship.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>6</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Admiral</Type>
+    <Faction>Romulan</Faction>
+    <Cost>4</Cost>
+    <Id>mendak_71794</Id>
+    <Set>71794</Set>
+    <Special>OnlyRomulanShip</Special>
+    <AdmiralAbility>FLEET ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLESTATIONS] Token(s) beside it and place a [BATTLESTATIONS] Token beside that ship. The target ship cannot perform a [BATTLESTATIONS] Action this round. This card may only be purchased for a Romulan ship.</AdmiralAbility>
+    <AdmiralCost>4</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>2</SkillModifier>
+  </Admiral>

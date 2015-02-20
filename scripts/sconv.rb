@@ -44,7 +44,8 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-2/16/2015 16:57:22	71793 - Ogla-Razik	Unique	Ogla-Razik	Kazon	Predator Class	Predator Class				4	1	5	3	All friendly Kazon ships with a Hull value of 4 or less within Range 1-2 of this ship gain +1 defense die.	Battle Stations, Evasive, Scan, Target Lock	26	0	2	1	2	180-degree forward, 90-degree rear		0
+2/18/2015 17:33:28	71794 - I.R.W. Haakona	Unique	I.R.W. Haakona	Romulan	D'deridex Class	D'deridex Class				3	2	6	4	When attacking with your Primary Weapon while cloaked, gain +1 attack die for every other Romulan Ship in your fleet (max +4).	Cloak, Evasive, Sensor Echo, Target Lock	30	0	3	0	2	90-degree forward		0
+2/19/2015 17:02:16	71794 - I.R.W. Haakona	Non-unique	Romulan Starship	Romulan	D'deridex Class	D'deridex Class				3	2	6	3		Cloak, Evasive, Sensor Echo, Target Lock	28	0	2	0	2	90-degree forward		0
 SHIPTEXT
 
 

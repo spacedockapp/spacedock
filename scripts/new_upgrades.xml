@@ -1,54 +1,38 @@
     <Upgrade>
-      <Title>Karden</Title>
-      <Ability>ACTION: Disable this card to gain +2 attack dice and roll -2 defense dice this round. This Upgrade may only be purchased for a Kazon ship.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Kazon</Faction>
-      <Cost>3</Cost>
-      <Id>karden_71793</Id>
-      <Set>71793</Set>
-      <Special>Yes</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Haliz</Title>
-      <Ability>When defending, during the Declare Target step, you my remove your Captain Card from the game to cancel that attack. If you do this, the attacking ship cannot perform another attack during that round. This card then becomes your Captain Card with a skill of 3. This Upgrade may only be purchased for a Kazon ship.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Kazon</Faction>
-      <Cost>4</Cost>
-      <Id>haliz_71793</Id>
-      <Set>71793</Set>
-      <Special>Yes</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Tractor Beam</Title>
-      <Ability>During the Activation Phase, when a ship within Range 1 of your ship reveals a Maneuver with a number of 3 or higher, before that ship moves, you may discard this card to subtract 2 from that Maneuver's number. No ship may be equipped with more than 1 of this Upgrade.</Ability>
+      <Title>Romulan Helmsman</Title>
+      <Ability>During the Activation Phase, if you reveal a Red Maneuver, you may disable this card to treat that maneuver as if it were a White Maneuver. No ship may be equipped with more than one Romulan Helmsman.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Kazon</Faction>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
       <Cost>2</Cost>
-      <Id>tractor_beam_71793</Id>
-      <Set>71793</Set>
-      <Special>Yes</Special>
+      <Id>romulan_helmsman_71794</Id>
+      <Set>71794</Set>
+      <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>First Maje</Title>
-      <Ability>This Upgrade does not require an Upgrade slot and may only be equipped to a Kazon ship with a Kazon Captain. While this Upgrade is equipped to your ship, you gain 1 additional [TECH] Upgrade slot to your Upgrade Bar and your Captain Skill increases by 2. During the Planning Phase, you may discard this card to target a ship at Range 1. Disable 1 [TECH] Upgrade on the target ship and then steal it, even if it exceeds your ship's restrictions.</Ability>
+      <Title>Romulan Security Officer</Title>
+      <Ability>For each Romulan Security Officer equipped to your ship (including this one), your Captain's Skill is +1 (max +3). When defending, you may disable this card to re-roll one of your blank results.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
+      <Cost>2</Cost>
+      <Id>romulan_security_officer_71794</Id>
+      <Set>71794</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Make Them See Us!</Title>
+      <Ability>While cloaked, during the Activation Phase, before revealing your dial you may discard this card to target a ship that you already have Target Locked. Remove your target lock from that ship. If you do t his and your ship's base or maneuver template overlaps the target ship's base during the Execute Maneuver step, inflict an amount of damage equal to the current speed on your maneuver dial to both ships (max 4). The ship whose Captain has the higher Skill Number rolls a number of defense dice against this damage equal to the difference in your Skill Numbers. This Upgrade may only be purchased for a Romulan Captain on a Romulan ship.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -56,15 +40,79 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Kazon</Faction>
+      <Faction>Romulan</Faction>
       <Cost>5</Cost>
-      <Id>first_maje_71793</Id>
-      <Set>71793</Set>
-      <Special>Yes</Special>
+      <Id>make_them_see_us__71794</Id>
+      <Set>71794</Set>
+      <Special>OnlyRomulanCaptainShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Particle Beam Weapon</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Title>Romulan Sub Lieutenant</Title>
+      <Ability>ACTION: Discard t his card to target a ship at Range 1-2. If the target ship has a Hull value of 6 or greater, that ship must disable 2 of its Active Shields, if possible. Otherwise, that ship must disable 1 of its Active Shields, if possible. This Upgrade may only be purchased for a Romulan ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>romulan_sub_lieutenant_71794</Id>
+      <Set>71794</Set>
+      <Special>OnlyRomulanShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Tricobalt Warhead</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. This Upgrade costs +5 SP for any non-Tholian ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>6</Attack>
+      <Range>3</Range>
+      <Type>Weapon</Type>
+      <Faction>Independent</Faction>
+      <Cost>4</Cost>
+      <Id>tricobalt_warhead_71795</Id>
+      <Set>71795</Set>
+      <Special>Plus5NotShipClass_Tholian_Vessel</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Disruptor Pulse</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. During the Declare Target step, target every enemy ship that is in your forward firing arc and within range and perform a separate attack against each of the target ships with this attack. This Upgrade costs +5 SP for any non-Romulan ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>3</Attack>
+      <Range>1-2</Range>
+      <Type>Weapon</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>disruptor_pulse_71794</Id>
+      <Set>71794</Set>
+      <Special>PlusFiveIfNotRomulan</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Disruptor Beams</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. For every damage the defending ship suffers from this attack, roll 1 attack die. If you roll at least one [HIT] or [CRIT] result, add +1 damage.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>1-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>disruptor_beams_71794</Id>
+      <Set>71794</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Plasma Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may re-roll all of your blank results one time. You may fire this weapon from your forward or rear firing arcs.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -72,9 +120,9 @@
       <Attack>5</Attack>
       <Range>1-2</Range>
       <Type>Weapon</Type>
-      <Faction>Kazon</Faction>
-      <Cost>4</Cost>
-      <Id>particle_beam_weapon_71793</Id>
-      <Set>71793</Set>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>plasma_torpedoes_71794</Id>
+      <Set>71794</Set>
       <Special></Special>
     </Upgrade>

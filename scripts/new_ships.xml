@@ -1,29 +1,58 @@
   <Ship>
-    <Title>Ogla-Razik</Title>
+    <Title>I.R.W. Haakona</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Predator Class</ShipClass>
-    <Faction>Kazon</Faction>
+    <ShipClass>D'deridex Class</ShipClass>
+    <Faction>Romulan</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>1</Agility>
-    <Hull>5</Hull>
-    <Shield>3</Shield>
-    <Ability>All friendly Kazon ships with a Hull value of 4 or less within Range 1-2 of this ship gain +1 defense die.</Ability>
-    <Cost>26</Cost>
+    <Attack>3</Attack>
+    <Agility>2</Agility>
+    <Hull>6</Hull>
+    <Shield>4</Shield>
+    <Ability>When attacking with your Primary Weapon while cloaked, gain +1 attack die for every other Romulan Ship in your fleet (max +4).</Ability>
+    <Cost>30</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
-    <Scan>1</Scan>
-    <Battlestations>1</Battlestations>
-    <Cloak>0</Cloak>
-    <SensorEcho>0</SensorEcho>
+    <Scan>0</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>1</Cloak>
+    <SensorEcho>1</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
-    <Tech>1</Tech>
+    <Tech>0</Tech>
+    <Weapon>2</Weapon>
+    <Crew>3</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>i_r_w_haakona_71794</Id>
+    <Set>71794</Set>
+  </Ship>
+  <Ship>
+    <Title>Romulan Starship</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>D'deridex Class</ShipClass>
+    <Faction>Romulan</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>3</Attack>
+    <Agility>2</Agility>
+    <Hull>6</Hull>
+    <Shield>3</Shield>
+    <Ability></Ability>
+    <Cost>28</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>0</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>1</Cloak>
+    <SensorEcho>1</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>0</Tech>
     <Weapon>2</Weapon>
     <Crew>2</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>ogla_razik_71793</Id>
-    <Set>71793</Set>
+    <Id>romulan_starship_71794</Id>
+    <Set>71794</Set>
   </Ship>

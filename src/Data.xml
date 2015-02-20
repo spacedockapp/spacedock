@@ -1,4 +1,4 @@
-<Data version="2015-02-17@07-09">
+<Data version="2015-02-20@04-29">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -5529,6 +5529,64 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Id>ogla_razik_71793</Id>
       <Set>71793</Set>
   </Ship>
+  <Ship>
+      <Title>I.R.W. Haakona</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>D'deridex Class</ShipClass>
+      <Faction>Romulan</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>6</Hull>
+      <Shield>4</Shield>
+      <Ability>When attacking with your Primary Weapon while cloaked, gain +1 attack die for every other Romulan Ship in your fleet (max +4).</Ability>
+      <Cost>30</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>2</Weapon>
+      <Crew>3</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>i_r_w_haakona_71794</Id>
+      <Set>71794</Set>
+  </Ship>
+  <Ship>
+      <Title>Romulan Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>D'deridex Class</ShipClass>
+      <Faction>Romulan</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>6</Hull>
+      <Shield>3</Shield>
+      <Ability></Ability>
+      <Cost>28</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>2</Weapon>
+      <Crew>2</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>romulan_starship_71794</Id>
+      <Set>71794</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -5646,7 +5704,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Romulan</Faction>
       <Cost>0</Cost>
       <Id>2007</Id>
-      <Set>71120,71123,71124,71270,71278,OP3Prize,i_r_w_vorta_vor,71533,71274</Set>
+      <Set>71120,71123,71124,71270,71278,OP3Prize,i_r_w_vorta_vor,71533,71274,71794</Set>
     </Captain>
     <Captain>
       <Title>Khan Singh</Title>
@@ -7901,6 +7959,58 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Set>71793</Set>
       <Special></Special>
   </Captain>
+  <Captain>
+      <Title>Taris</Title>
+      <Ability>When attacking with your Primary Weapon, during the Declare Target step, you may discard one of your [CREW] Upgrades to target a ship that is not in your forward firing arc.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>5</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>taris_71794</Id>
+      <Set>71794</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Centurion</Title>
+      <Ability>When attacking, you may re-roll one of your [BATTLESTATIONS] results.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>2</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>1</Cost>
+      <Id>centurion_71794</Id>
+      <Set>71794</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Mendak</Title>
+      <Ability>ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLESTATIONS] Token(s) beside it and place a [BATTLESTATIONS] Token beside that ship. The target ship cannot perform a [BATTLESTATIONS] Action this round. This card may only be purchased for a Romulan ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>mendak_cap_71794</Id>
+      <Set>71794</Set>
+      <Special>OnlyRomulanShip</Special>
+      <AdmiralAbility>FLEET ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLESTATIONS] Token(s) beside it and place a [BATTLESTATIONS] Token beside that ship. The target ship cannot perform a [BATTLESTATIONS] Action this round. This card may only be purchased for a Romulan ship.</AdmiralAbility>
+      <AdmiralCost>4</AdmiralCost>
+      <AdmiralTalent>1</AdmiralTalent>
+      <SkillModifier>2</SkillModifier>
+  </Captain>
   </Captains>
   <Admirals>
     <Admiral>
@@ -8078,6 +8188,26 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
         <AdmiralCost>2</AdmiralCost>
         <AdmiralTalent>1</AdmiralTalent>
         <SkillModifier>0</SkillModifier>
+    </Admiral>
+    <Admiral>
+        <Title>Mendak</Title>
+        <Ability>ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLESTATIONS] Token(s) beside it and place a [BATTLESTATIONS] Token beside that ship. The target ship cannot perform a [BATTLESTATIONS] Action this round. This card may only be purchased for a Romulan ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill>6</Skill>
+        <Talent>1</Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Admiral</Type>
+        <Faction>Romulan</Faction>
+        <Cost>4</Cost>
+        <Id>mendak_71794</Id>
+        <Set>71794</Set>
+        <Special>OnlyRomulanShip</Special>
+        <AdmiralAbility>FLEET ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLESTATIONS] Token(s) beside it and place a [BATTLESTATIONS] Token beside that ship. The target ship cannot perform a [BATTLESTATIONS] Action this round. This card may only be purchased for a Romulan ship.</AdmiralAbility>
+        <AdmiralCost>4</AdmiralCost>
+        <AdmiralTalent>1</AdmiralTalent>
+        <SkillModifier>2</SkillModifier>
     </Admiral>
   </Admirals>
   <Upgrades>
@@ -8337,7 +8467,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Faction>Romulan</Faction>
       <Cost>5</Cost>
       <Id>3016</Id>
-      <Set>71120,71123,71511</Set>
+      <Set>71120,71123,71511,71794</Set>
     </Upgrade>
     <Upgrade>
       <Title>Artificial Quantum Singularity</Title>
@@ -14877,6 +15007,118 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>71793</Set>
         <Special></Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Romulan Helmsman</Title>
+        <Ability>During the Activation Phase, if you reveal a Red Maneuver, you may disable this card to treat that maneuver as if it were a White Maneuver. No ship may be equipped with more than one Romulan Helmsman.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Romulan</Faction>
+        <Cost>2</Cost>
+        <Id>romulan_helmsman_71794</Id>
+        <Set>71794</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Romulan Security Officer</Title>
+        <Ability>For each Romulan Security Officer equipped to your ship (including this one), your Captain's Skill is +1 (max +3). When defending, you may disable this card to re-roll one of your blank results.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Romulan</Faction>
+        <Cost>2</Cost>
+        <Id>romulan_security_officer_71794</Id>
+        <Set>71794</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Make Them See Us!</Title>
+        <Ability>While cloaked, during the Activation Phase, before revealing your dial you may discard this card to target a ship that you already have Target Locked. Remove your target lock from that ship. If you do t his and your ship's base or maneuver template overlaps the target ship's base during the Execute Maneuver step, inflict an amount of damage equal to the current speed on your maneuver dial to both ships (max 4). The ship whose Captain has the higher Skill Number rolls a number of defense dice against this damage equal to the difference in your Skill Numbers. This Upgrade may only be purchased for a Romulan Captain on a Romulan ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>make_them_see_us__71794</Id>
+        <Set>71794</Set>
+        <Special>OnlyRomulanCaptainShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Romulan Sub Lieutenant</Title>
+        <Ability>ACTION: Discard t his card to target a ship at Range 1-2. If the target ship has a Hull value of 6 or greater, that ship must disable 2 of its Active Shields, if possible. Otherwise, that ship must disable 1 of its Active Shields, if possible. This Upgrade may only be purchased for a Romulan ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Romulan</Faction>
+        <Cost>4</Cost>
+        <Id>romulan_sub_lieutenant_71794</Id>
+        <Set>71794</Set>
+        <Special>OnlyRomulanShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Tricobalt Warhead</Title>
+        <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. This Upgrade costs +5 SP for any non-Tholian ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>6</Attack>
+        <Range>3</Range>
+        <Type>Weapon</Type>
+        <Faction>Independent</Faction>
+        <Cost>4</Cost>
+        <Id>tricobalt_warhead_71795</Id>
+        <Set>71795</Set>
+        <Special>Plus5NotShipClass_Tholian_Vessel</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Disruptor Pulse</Title>
+        <Ability>ATTACK: Disable this card to perform this attack. During the Declare Target step, target every enemy ship that is in your forward firing arc and within range and perform a separate attack against each of the target ships with this attack. This Upgrade costs +5 SP for any non-Romulan ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>3</Attack>
+        <Range>1-2</Range>
+        <Type>Weapon</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>disruptor_pulse_71794</Id>
+        <Set>71794</Set>
+        <Special>PlusFiveIfNotRomulan</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Disruptor Beams</Title>
+        <Ability>ATTACK: Disable this card to perform this attack. For every damage the defending ship suffers from this attack, roll 1 attack die. If you roll at least one [HIT] or [CRIT] result, add +1 damage.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>5</Attack>
+        <Range>1-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>disruptor_beams_71794</Id>
+        <Set>71794</Set>
+        <Special></Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -15321,6 +15563,7 @@ While a Master Strategist Token is beside your ship:
       <Set id="71795" overallSetName="Wave 12" releaseDate="2015-03-04">Tholia One</Set>
       <Set id="71997r" overallSetName="Peak Performance" releaseDate="2015-03-04">Master Strategist Tokens Resource</Set>
       <Set id="71793" overallSetName="Wave 12" releaseDate="2015-03-04">Ogla-Razik</Set>
+      <Set id="71794" overallSetName="Wave 12" releaseDate="2015-03-04">I.R.W. Haakona</Set>
     </Sets>
     <Flagships>
         <Flagship>
