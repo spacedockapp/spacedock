@@ -127,6 +127,9 @@ static NSDictionary* sCaptainWeaponSlotAdds = nil;
         };
     }
 
+    if ([super additionalWeaponSlots]) {
+        return [super additionalWeaponSlots];
+    }
     return [sCaptainWeaponSlotAdds[self.externalId] intValue];
 }
 
