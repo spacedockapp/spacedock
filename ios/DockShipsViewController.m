@@ -85,7 +85,7 @@
     NSMutableArray* predicateValues = [NSMutableArray arrayWithCapacity: 0];
     [predicateTerms addObject: @"any sets.externalId in %@"];
     [predicateValues addObject: includedSets];
-    if (faction != nil && [self useFactionFilter]) {
+    if (faction != nil && [self useFactionFilter] && self.targetSet == nil) {
         [predicateTerms addObject: @"(faction = %@ or additionalFaction = %@)"];
         [predicateValues addObject: faction];
         [predicateValues addObject: faction];

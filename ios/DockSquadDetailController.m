@@ -618,7 +618,12 @@ enum {
             [sheet addButtonWithTitle: faction];
         }
     }
-    [sheet showFromRect:self.view.bounds inView:self.view animated:YES];
+    UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:kResourceRow inSection:kDetailsSection]];
+    if (cell != nil) {
+        [sheet showFromRect:cell.frame inView:self.view animated:YES];
+    } else {
+        [sheet showFromRect:self.tableView.frame inView:self.view animated:YES];
+    }
 }
 
 -(IBAction)export:(id)sender
@@ -699,7 +704,7 @@ enum {
     [sheet showFromBarButtonItem: _cpyBarItem animated: YES];
 }
 
--(void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if ([actionSheet.title isEqualToString:@"Select Faction 1"]) {
         NSString* faction = [actionSheet buttonTitleAtIndex:buttonIndex];

@@ -156,6 +156,15 @@
     return [NSArray arrayWithArray: filtered];
 }
 
+-(NSArray*)sortDescriptors
+{
+    NSSortDescriptor* typeDescriptor = [[NSSortDescriptor alloc] initWithKey: @"upType" ascending: YES];
+    NSSortDescriptor* titleDescriptor = [[NSSortDescriptor alloc] initWithKey: @"title" ascending: YES];
+    NSSortDescriptor* factionDescriptor = [[NSSortDescriptor alloc] initWithKey: @"faction" ascending: YES];
+    NSSortDescriptor* costDescriptor = [[NSSortDescriptor alloc] initWithKey: @"cost" ascending: YES];
+    return @[factionDescriptor, typeDescriptor, titleDescriptor, costDescriptor];
+}
+
 -(void)setupFetch:(NSFetchRequest*)fetchRequest context:(NSManagedObjectContext*)context
 {
     [super setupFetch: fetchRequest context: context];
@@ -177,7 +186,7 @@
         [predicateValues addObject: includedSets];
     }
 
-    if (faction != nil && [self useFactionFilter]) {
+    if (faction != nil && [self useFactionFilter] && self.targetSet == nil) {
         [predicateTerms addObject: @"(faction = %@ or additionalFaction = %@)"];
         [predicateValues addObject: faction];
         [predicateValues addObject: faction];
@@ -235,6 +244,10 @@
     } else {
         cell.textLabel.textColor = [UIColor blackColor];
         cell.detailTextLabel.text = [[upgrade cost] stringValue];
+    }
+    
+    if (self.targetSet != nil) {
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@   %@",upgrade.upType,cell.detailTextLabel.text];
     }
 }
 
