@@ -1,6 +1,9 @@
 #import "DockShipsViewController.h"
 
+#import "DockSet+Addons.h"
 #import "DockEquippedShip+Addons.h"
+#import "DockResource+Addons.h"
+#import "DockUpgrade+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockShipDetailViewController.h"
 #import "DockSquad+Addons.h"
@@ -9,6 +12,8 @@
 @property (nonatomic, strong) DockShipPicked onShipPicked;
 @property (nonatomic, weak) DockShip* targetShip;
 @property (nonatomic, weak) DockSquad* targetSquad;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem* factionBarItem;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem* toggleButtonItem;
 @end
 
 @implementation DockShipsViewController
@@ -40,6 +45,23 @@
         indexPath = [self.fetchedResultsController indexPathForObject: _targetShip];
     }
 
+    if (self.targetSet != nil) {
+        NSSet* items = [self.targetSet items];
+        NSUInteger resources = [[[items objectsPassingTest:^BOOL(id obj, BOOL *stop) {
+            return [[obj class] isSubclassOfClass:[DockResource class]];
+        }] allObjects] count];
+        if (resources > 0) {
+            _factionBarItem.title = @"Resources";
+            _factionBarItem.enabled = YES;
+            [_factionBarItem setAction:@selector(switchView:)];
+        } else {
+            _factionBarItem.title = nil;
+            _factionBarItem.enabled = NO;
+        }
+        _toggleButtonItem.title = nil;
+        _toggleButtonItem.enabled = NO;
+    }
+    
     if (indexPath != nil) {
         [self.tableView selectRowAtIndexPath: indexPath animated: YES scrollPosition: UITableViewScrollPositionMiddle];
     }
@@ -63,7 +85,7 @@
     NSMutableArray* predicateValues = [NSMutableArray arrayWithCapacity: 0];
     [predicateTerms addObject: @"any sets.externalId in %@"];
     [predicateValues addObject: includedSets];
-    if (faction != nil && [self useFactionFilter]) {
+    if (faction != nil && [self useFactionFilter] && self.targetSet == nil) {
         [predicateTerms addObject: @"(faction = %@ or additionalFaction = %@)"];
         [predicateValues addObject: faction];
         [predicateValues addObject: faction];
@@ -71,7 +93,7 @@
     
     int cost = self.cost;
     if (cost != 0 && [self useCostFilter]) {
-        [predicateTerms addObject: @"cost = %@"];
+        [predicateTerms addObject: @"cost <= %@"];
         [predicateValues addObject: [NSNumber numberWithInt: cost]];
     }
     
@@ -163,6 +185,16 @@
     return NO;
 }
 
+-(void)switchView:(id)sender
+{
+    if ([sender class] == [UIBarButtonItem class]) {
+        UIBarButtonItem* btn = sender;
+        if ([btn.title isEqualToString:@"Resources"]) {
+            [self performSegueWithIdentifier:@"ResourceList" sender:sender];
+        }
+    }
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
     NSString* identifier = [segue identifier];
@@ -173,6 +205,13 @@
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         DockShip* ship = [self.fetchedResultsController objectAtIndexPath: indexPath];
         controller.ship = ship;
+    }
+    if ([[segue identifier] isEqualToString: @"ResourceList"]) {
+        id destination = [segue destinationViewController];
+        DockTableViewController* controller = (DockTableViewController*)destination;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.targetSet = self.targetSet;
+        controller.title = @"Resources";
     }
 }
 

@@ -20,5 +20,5 @@
 @dynamic uuid;
 @dynamic equippedShips;
 @dynamic resource;
-
+@dynamic resourceAttributes;
 @end

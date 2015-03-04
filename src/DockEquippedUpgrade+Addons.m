@@ -76,6 +76,10 @@
         if ( [self.upgrade isWeapon] && [self.specialTag isEqualToString:@"QuarkWeapon"] ) {
             return @"Weapon Upgrade";
         }
+    } else if ([self.equippedShip containsUpgradeWithId:@"triphasic_emitter_71536"]) {
+        if ( [self.upgrade isWeapon] && [self.specialTag hasPrefix:@"HiddenWeapon"] ) {
+            return @"Weapon Upgrade";
+        }
     }
     return [NSString stringWithFormat: @"%@ [%@]", self.upgrade.title, self.upgrade.setCode];
 }

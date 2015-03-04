@@ -33,6 +33,7 @@ NSString* kPlayerEmailKey = @"playerEmail";
 NSString* kEventFactionKey = @"eventFaction";
 NSString* kEventNameKey = @"eventName";
 NSString* kBlindBuyKey = @"blindBuy";
+NSString* kLightHeaderKey = @"lightHeader";
 
 @interface DockTextBox : NSObject
 @property (assign, nonatomic) NSInteger alignment;
@@ -172,6 +173,9 @@ NSString* kBlindBuyKey = @"blindBuy";
         _upgrades = [[NSMutableArray alloc] initWithCapacity: equippedUpgrades.count];
 
         for (DockEquippedUpgrade* upgrade in equippedUpgrades) {
+            if (![upgrade isPlaceholder] && [upgrade.upgrade isCaptain] && [upgrade.specialTag isEqualToString:@"AdditionalCaptain"]) {
+                [_upgrades addObject: upgrade];
+            }
             if (![upgrade isPlaceholder] && ![upgrade.upgrade isCaptain]) {
                 [_upgrades addObject: upgrade];
             }
@@ -197,7 +201,7 @@ NSString* kBlindBuyKey = @"blindBuy";
 
 -(NSString*)handleCaptain:(int)col
 {
-    if (_ship.isFighterSquadron) {
+    if (_ship.isFighterSquadron || _ship.captainCount == 0) {
         return @"";
     }
     
@@ -820,14 +824,20 @@ static CGFloat fontSizeForText(CGSize frameSize, UIFont* originalFont, NSString*
     CGRect blackBox = CGRectMake(left, top, pageBounds.size.width, boxHeight);
     [[UIColor blackColor] set];
     UIBezierPath* blackBoxPath = [UIBezierPath bezierPathWithRect: blackBox];
-    [blackBoxPath fill];
+    if (!_lightHeader) {
+        [blackBoxPath fill];
+    } else {
+        [blackBoxPath stroke];
+    }
     
     NSString* fbs = @"Fleet Build Sheet";
     if (_pageIndex > 0) {
         fbs = @"Fleet Build Sheet (cont)";
     }
     DockTextBox* box = [[DockTextBox alloc] initWithText: fbs];
-    box.color = [UIColor whiteColor];
+    if (!_lightHeader) {
+        box.color = [UIColor whiteColor];
+    }
     box.alignment = NSTextAlignmentCenter;
     box.font = [UIFont fontWithName: kLabelFont size:25.0];
     box.centerVertically = YES;

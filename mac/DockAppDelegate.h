@@ -7,6 +7,7 @@
 @class DockItemSourceListController;
 @class DockNoteEditor;
 @class DockOverrideEditor;
+@class DockExchangeFactionsSelection;
 @class DockSetTabController;
 @class DockSetTabController;
 @class DockSquadDetailController;
@@ -43,6 +44,7 @@ extern NSString* kExpandSquads;
 @property (assign) IBOutlet DockFleetBuildSheet* fleetBuildSheet2;
 @property (assign) IBOutlet DockNoteEditor* noteEditor;
 @property (assign) IBOutlet DockOverrideEditor* overrideEditor;
+@property (assign) IBOutlet DockExchangeFactionsSelection* exchangeFactionSelection;
 @property (assign) IBOutlet NSToolbar* toolbar;
 @property (assign) IBOutlet NSSearchField* searchField;
 
@@ -58,6 +60,8 @@ extern NSString* kExpandSquads;
 
 +(NSURL*)applicationFilesDirectory;
 -(IBAction)printFleetBuildSheet:(id)sender;
+-(IBAction)setResource:(id)sender;
+-(IBAction)toggleMarkExpiredResources:(id)sender;
 
 -(void)selectUpgrade:(DockEquippedUpgrade*)theUpgrade;
 -(void)selectShip:(DockEquippedShip*)theShip;

@@ -12,6 +12,48 @@
 		</dict>
 		<dict>
 			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Fleet Cost Highlight</string>
+			<key>Key</key>
+			<string>fleetCostHighlight</string>
+			<key>DefaultValue</key>
+			<string>None</string>
+			<key>Titles</key>
+			<array>
+				<string>None</string>
+				<string>90/120</string>
+				<string>100</string>
+				<string>120</string>
+				<string>200</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>None</string>
+				<string>90/120</string>
+				<string>100</string>
+				<string>120</string>
+				<string>200</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Mark Retired Resources</string>
+			<key>Key</key>
+			<string>markExpiredRes</string>
+			<key>DefaultValue</key>
+			<string>0</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Fleet Build Sheet</string>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
 			<string>Name</string>
@@ -25,6 +67,16 @@
 			<string>Email</string>
 			<key>Key</key>
 			<string>playerEmail</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Use Light Header</string>
+			<key>Key</key>
+			<string>lightHeader</string>
+			<key>DefaultValue</key>
+			<string>0</string>
 		</dict>
 		<dict>
 			<key>Type</key>

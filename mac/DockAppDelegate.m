@@ -22,7 +22,8 @@
 #import "DockItemSourceListController.h"
 #import "DockNoteEditor.h"
 #import "DockOverrideEditor.h"
-#import "DockResource+Addons.h"
+#import "DockExchangeFactionsSelection.h"
+#import "DockResource+MacAddons.h"
 #import "DockSearchFieldController.h"
 #import "DockSet+Addons.h"
 #import "DockSetItem+Addons.h"
@@ -49,7 +50,8 @@ NSString* kExpandSquads = @"expandSquads";
 NSString* kExpandedRows = @"expandedRows";
 NSString* kShowDataModelExport = @"showDataModelExport";
 NSString* kSortSquadsByDate = @"sortSquadsByDate";
-
+NSString* kMarkExpiredResources = @"markExpiredRes";
+NSString* kCheckGameDataUpdates = @"checkGameUpdates";
 @interface DockAppDelegate () <NSToolbarDelegate>
 @property (strong, nonatomic) DockDataUpdater* updater;
 @property (strong, nonatomic) IBOutlet DockSquadDetailController* squadDetailController;
@@ -75,7 +77,9 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
             kInspectorVisible: @NO,
             kExpandSquads: @YES,
             kExpandedRows: @YES,
-            kSortSquadsByDate: @NO
+            kSortSquadsByDate: @NO,
+            kMarkExpiredResources: @NO,
+            kCheckGameDataUpdates: @YES,
         };
 
         [defaults registerDefaults: appDefs];
@@ -234,6 +238,16 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     [center addObserverForName: kCurrentSearchTerm object: nil queue: nil usingBlock: currentSearchTermChangedBlock];
 
     [_itemSourceListController setupForTabs];
+    
+    if ([defaults boolForKey:kCheckGameDataUpdates]) {
+        NSString* currentVersion = [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
+        DockDataUpdater* updater = [[DockDataUpdater alloc] init];
+        [updater checkForNewDataVersion:^(NSString *remoteVersion, NSData *downloadData, NSError *error) {
+            if ([currentVersion compare:remoteVersion] == NSOrderedAscending) {
+                [self checkForNewDataFile:self];
+            }
+        }];
+    }
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.funnyhatsoftware.Space_Dock" in the user's Application Support directory.
@@ -837,7 +851,7 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSString* currentVersion = [defaults stringForKey: kSpaceDockCurrentDataVersionKey];
     NSAlert* alert = [[NSAlert alloc] init];
-    if ([currentVersion compare:remoteVersion] != NSOrderedDescending) {
+    if ([currentVersion compare:remoteVersion] == NSOrderedAscending) {
         [alert addButtonWithTitle: @"Update"];
         [alert addButtonWithTitle: @"Cancel"];
         [alert setMessageText: @"New Game Data Available"];
@@ -892,6 +906,11 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
     self.expandedRows = !self.expandedRows;
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool: _expandedRows forKey: kExpandedRows];
+}
+
+-(IBAction)toggleMarkExpiredResources:(id)sender
+{
+    [self.resourcesTabController.targetController fetch:self];
 }
 
 -(void)showInList:(id)target targetShip:(DockEquippedShip*)targetShip
@@ -1102,6 +1121,19 @@ NSString* kSortSquadsByDate = @"sortSquadsByDate";
         } else {
             [self selectFirstTabWithResults: nil];
         }
+    }
+}
+
+-(IBAction)setResource:(id)sender
+{
+    DockSquad* squad = [self selectedSquad];
+    if (squad == nil)
+    {
+        return;
+    }
+    
+    if ([squad.resource.externalId isEqualToString:@"officer_exchange_program_71996a"]) {
+        [_exchangeFactionSelection show:squad context:_managedObjectContext];
     }
 }
 

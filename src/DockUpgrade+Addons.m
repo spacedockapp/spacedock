@@ -260,6 +260,11 @@ static NSDictionary* sItemLabels = nil;
     return targetHasFaction(@"Borg", self);
 }
 
+-(BOOL)isRomulan
+{
+    return targetHasFaction(@"Romulan", self);
+}
+
 -(BOOL)isRestrictedOnlyByFaction
 {
     NSString* upgradeId = self.externalId;
@@ -546,7 +551,7 @@ static NSDictionary* sItemLabels = nil;
             return 0;
         }
         if ([upgrade.externalId isEqualToString:@"intercept_course_71808"] && ![equippedShip isResourceSideboard]) {
-            if (![captain.externalId isEqualToString:@"karr_71808"] && ![captain.externalId isEqualToString:@"alpha_hirogen_71808"] && ![captain.title containsString:@"Hirogen"]) {
+            if (![captain.externalId isEqualToString:@"karr_71808"] && ![captain.externalId isEqualToString:@"alpha_hirogen_71808"] && [captain.title rangeOfString:@"Hirogen"].location == NSNotFound) {
                 cost += 5;
             }
         }
@@ -657,7 +662,21 @@ static NSDictionary* sItemLabels = nil;
             cost += 5;
         }
     } else if ([upgradeSpecial isEqualToString:@"PlusFivePointsNonHirogen"]) {
-        if (![ship.shipClass containsString:@"Hirogen"]) {
+        if ([ship.shipClass rangeOfString:@"Hirogen"].location == NSNotFound) {
+            cost += 5;
+        }
+    } else if ([upgradeSpecial isEqualToString:@"PlusFiveIfNotRomulan"]) {
+        if (![ship isRomulan]) {
+            cost += 5;
+        }
+    } else if ([upgradeSpecial hasPrefix:@"Plus5NotShipClass_"]) {
+        NSString* shipClass = [ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus5NotShipClass_%@",shipClass]]) {
+            cost += 5;
+        }
+    } else if ([upgradeSpecial hasPrefix:@"Plus5NotShip_"]) {
+        NSString* shipName = [ship.title stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus5NotShip_%@",shipName]]) {
             cost += 5;
         }
     }
@@ -697,6 +716,19 @@ static NSDictionary* sItemLabels = nil;
         }
     }
 
+    BOOL hasExchange = NO;
+    NSString* exFac1;
+    NSString* exFac2;
+    int costWithoutPenalty = cost;
+    if ([equippedShip.squad.resource.externalId isEqualToString:@"officer_exchange_program_71996a"] && equippedShip.squad.resourceAttributes.length > 3) {
+        NSArray* selectedFactions = [equippedShip.squad.resourceAttributes componentsSeparatedByString:@" & "];
+        if (selectedFactions.count == 2) {
+            hasExchange = YES;
+            exFac1 = [selectedFactions objectAtIndex:0];
+            exFac2 = [selectedFactions objectAtIndex:1];
+        }
+    }
+    
     if (![upgrade isOfficer] && !factionsMatch(ship, self) && !equippedShip.isResourceSideboard && !factionsMatch(self, equippedShip.flagship)) {
         if ([captainSpecial isEqualToString: @"UpgradesIgnoreFactionPenalty"] && ![upgrade isCaptain] && ![upgrade isAdmiral]) {
             // do nothing
@@ -717,6 +749,10 @@ static NSDictionary* sItemLabels = nil;
         } else if ([externalId isEqualToString: @"elim_garak_71786"]) {
         } else if ([upgradeSpecial isEqualToString: @"add_one_tech_no_faction_penalty_on_vulcan"] && [ship isVulcan]) {
         } else if ([fleetCaptainOnThisShip isIndependent] && [ship isIndependent] && [upgrade isCaptain]) {
+        } else if ([upgradeSpecial isEqualToString:@"NoPenaltyOnKlingonShip"]) {
+            if (!([ship isKlingon])) {
+                cost += 1;
+            }
         } else {
             if (upgrade.isAdmiral) {
                 cost += 3;
@@ -725,6 +761,16 @@ static NSDictionary* sItemLabels = nil;
             }
         }
 
+    }
+    if (hasExchange) {
+        if ((targetHasFaction(exFac1, upgrade) && targetHasFaction(exFac2, ship)) || (targetHasFaction(exFac2, upgrade) && targetHasFaction(exFac1, ship))) {
+            if (cost > costWithoutPenalty) {
+                cost = costWithoutPenalty;
+            }
+            if (upgrade.isCaptain || upgrade.isAdmiral) {
+                cost -= 1;
+            }
+        }
     }
 
     if ([[upgrade externalId] isEqualToString: @"borg_ablative_hull_armor_71283"]) {
@@ -767,6 +813,9 @@ static NSDictionary* sItemLabels = nil;
     if ([special isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
         return 1;
     }
+    if ([special isEqualToString:@"AddHiddenWeapon"]) {
+        return 1;
+    }
     return 0;
 }
 
@@ -787,7 +836,7 @@ static NSDictionary* sItemLabels = nil;
     if ([special isEqualToString: @"addonetechslot"] || [externalId isEqualToString: @"vulcan_high_command_1_1_71446"]) {
         return 1;
     }
-    if ([externalId isEqualToString: @"quark_71786"]) {
+    if ([externalId isEqualToString: @"quark_71786"] || [externalId isEqualToString:@"first_maje_71793"]) {
         return 1;
     }
     return 0;

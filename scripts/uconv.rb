@@ -6,23 +6,27 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-12/23/2014 17:42:01	71753 - Fighter Squadron 6	Non-unique	Defensive Maneuvers	Federation	When defending, during the Declare Target step, you may disable this card to place an [EVADE] Token beside your ship, even if there is already one there.  No ship may be equipped with more than one "Defensive Maneuvers" Upgrade.	Squadron	3	Yes
-12/23/2014 17:43:07	71753 - Fighter Squadron 6	Non-unique	Support Ship	Federation	When your last Attack Squadron Token is destroyed, discard this card instead of removing that Token.  No ship may be equipped with more than one "Support Ship" Upgrade.	Squadron	4	Yes
-12/23/2014 17:44:09	71753 - Fighter Squadron 6	Non-unique	Attack Wave	Federation	When attacking, during the Roll Attack Dice step, you may disable this card to gain +1 attack die for that attack.  No ship may be equipped with more than one "Attack Wave" Upgrade.	Squadron	4	Yes
-12/23/2014 17:45:26	71753 - Fighter Squadron 6	Non-unique	Squad Leader	Federation	At the start of the Combat Phase, you may add +2 to your Captain Skill Number until the End Phase.  If you do so, place an Auxiliary Power Token beside your ship.  OR  ACTION: Target a friendly ship at Range 1-2 and perform the Action listed on its Captain Card as a free Action (if possible).	Squadron	4	
-12/23/2014 17:46:53	71753 - Fighter Squadron 6	Non-unique	Attack Formation	Federation	When attacking, during the Roll Attack Dice step, if you are within Range 1 of a friendly ship, you may disable this card to set 1 of your attack dice on any result.  That die cannot be rolled or re-rolled during that attack.  No ship may be equipped with more than one "Attack Formation" Upgrade.	Squadron	3	Yes
-12/23/2014 17:48:11	71753 - Fighter Squadron 6	Non-unique	Tactical Pattern Theta	Federation	If you damage an opponent's Hull with a [CRIT], you may immediately disable this card to search the Damage Deck for a "Weapons Malfunction" or a "Munitions Failure" card instead of drawing a random Damage Card.  Re-shuffle the Damage Deck when you are done.	Squadron	3	
-12/23/2014 17:49:19	71753 - Fighter Squadron 6	Non-unique	Cover Fire	Federation	When defending, during the Roll Defense Dice step, you may discard this card to add a number of defense dice to your roll equal to your current Primary Weapon value.  No squadron may be equipped with more than one "Cover Fire" Upgrade.	Squadron	4	Yes
-12/23/2014 17:50:29	71753 - Fighter Squadron 6	Non-unique	Coordinated Attack	Federation	When attacking, during the Declare Target step, if you do not have a [BATTLE STATIONS] Token beside your ship, you may disable this card to place a [BATTLE STATIONS] Token beside your ship.  No ship may be equipped with more than one "Coordinated Attack" Upgrade.	Squadron	3	Yes
+2/18/2015 17:22:06	71794 - I.R.W. Haakona	Non-unique	Romulan Helmsman	Romulan	During the Activation Phase, if you reveal a Red Maneuver, you may disable this card to treat that maneuver as if it were a White Maneuver.  No ship may be equipped with more than one Romulan Helmsman.	Crew	2	Yes
+2/18/2015 17:26:39	71794 - I.R.W. Haakona	Non-unique	Romulan Security Officer	Romulan	For each Romulan Security Officer equipped to your ship (including this one), your Captain's Skill is +1 (max +3).  When defending, you may disable this card to re-roll one of your blank results.	Crew	2	
+2/18/2015 17:31:52	71794 - I.R.W. Haakona	Unique	Make Them See Us!	Romulan	While cloaked, during the Activation Phase, before revealing your dial you may discard this card to target a ship that you already have Target Locked.  Remove your target lock from that ship.  If you do t his and your ship's base or maneuver template overlaps the target ship's base during the Execute Maneuver step, inflict an amount of damage equal to the current speed on your maneuver dial to both ships (max 4).  The ship whose Captain has the higher Skill Number rolls a number of defense dice against this damage equal to the difference in your Skill Numbers.  This  Upgrade may only be purchased for a Romulan Captain on a Romulan ship.	Talent	5	Yes
+2/18/2015 17:35:01	71794 - I.R.W. Haakona	Non-unique	Romulan Sub Lieutenant	Romulan	ACTION: Discard t his card to target a ship at Range 1-2.  If the target ship has a Hull value of 6 or greater, that ship must disable 2 of its Active Shields, if possible.  Otherwise, that ship must disable 1 of its Active Shields, if possible.  This Upgrade may only be purchased for a Romulan ship.	Crew	4	Yes
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
+2/18/2015 17:20:41	71794 - I.R.W. Haakona	Unique	Taris	5	Romulan	When attacking with your Primary Weapon, during the Declare Target step, you may discard one of your [CREW] Upgrades to target a ship that is not in your forward firing arc.	1	4		
+2/18/2015 17:21:01	71794 - I.R.W. Haakona	Non-unique	Romulan	1	Romulan		0	0		
+2/18/2015 17:35:53	71794 - I.R.W. Haakona	Unique	Centurion	2	Romulan	When attacking, you may re-roll one of your [BATTLE STATIONS] results.	0	1		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
+2/18/2015 17:23:40	71795 - Tholia One	Non-unique	Tricobalt Warhead	Independent	6	3	ATTACK: (Target Lock) Spend your target lock and disable this card to perform this attack.  This Upgrade costs +5 SP for any non-Tholian ship.	4	Yes
+2/18/2015 17:25:00	71794 - I.R.W. Haakona	Non-unique	Disruptor Pulse	Romulan	3	1-2	ATTACK: Disable this card to perform this attack.  During the Declare Target step, target every enemy ship that is in your forward firing arc and within range and perform a separate attack against each of the target ships with this attack.  This Upgrade costs +5 SP for any non-Romulan ship.	5	Yes
+2/18/2015 17:37:24	71794 - I.R.W. Haakona	Non-unique	Disruptor Beams	Romulan	5	1-3	ATTACK: Disable this card to perform this attack.  For every damage the defending ship suffers from this attack, roll 1 attack die.  If you roll at least one [HIT] or [CRIT] result, add +1 damage.	5	
+2/18/2015 17:38:35	71794 - I.R.W. Haakona	Non-unique	Plasma Torpedoes	Romulan	5	1-2	ATTACK: (Target Lock) Spend your target lock and disable this card to perform this attack.  You may re-roll all of your blank results one time.  You may fire this weapon from your forward or rear firing arcs.	5	
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT
+2/18/2015 17:29:00	71794 - I.R.W. Haakona	Unique	Mendak	Romulan	FLEET ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLE STATIONS] Token(s) beside it and place a [BATTLE STATIONS] Token beside that ship.  The target ship cannot perform a [BATTLE STATIONS] Action this round.  This card may only be purchased for a Romulan ship.	2	1	4	6	ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLE STATIONS] Token(s) beside it and place a [BATTLE STATIONS] Token beside that ship.  The target ship cannot perform a [BATTLE STATIONS] Action this round.  This card may only be purchased for a Romulan ship.	1	4	Yes
 ADMIRALSTEXT
 
 officers_text = <<-OFFICERSTEXT

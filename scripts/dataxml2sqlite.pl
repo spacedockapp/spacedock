@@ -7,10 +7,23 @@ use DBI;
 use XML::Simple;
 use bigint;
 use Time::Piece;
+use File::Basename;
+use File::Spec::Functions qw(rel2abs);
 
-my $file = $ARGV[0];
-my $dbh = DBI->connect("dbi:SQLite:dbname=".$ARGV[1],"","");
-my $data = XMLin($file,SuppressEmpty => '');
+my $xmlfile;
+my $dbfile;
+
+if ( $#ARGV == 1 ) {
+	$xmlfile = $ARGV[0];
+	$dbfile = $ARGV[1];
+} else {
+	chdir dirname(rel2abs($0));
+	$xmlfile = "../src/Data.xml";
+	$dbfile = "../src/data.db";
+}
+
+my $dbh = DBI->connect("dbi:SQLite:dbname=".$dbfile,"","");
+my $data = XMLin($xmlfile,SuppressEmpty => '');
 my $t = Time::Piece->strptime($data->{'version'},"%Y-%m-%d\@%H-%M");
 print "Version: ".$data->{'version'}."\n";
 print "(".$t->datetime.")\n";
@@ -32,7 +45,7 @@ officers();
 resources();
 reference();
 
-utime($t->epoch,$t->epoch,$ARGV[1]);
+utime($t->epoch,$t->epoch,$dbfile);
 
 sub factions {
 	my $sth = $dbh->prepare("SELECT COUNT(*) AS rows FROM sqlite_master WHERE type = 'table' AND name = 'Factions' LIMIT 1");
@@ -440,7 +453,7 @@ sub ships {
 	} else {
 		my $sth_class = $dbh->prepare("SELECT id FROM ShipClasses WHERE name = ? LIMIT 1");
 		$sth_class->execute($s->{"ShipClass"});
-		$rc = $sth_factionid->bind_columns(\$classid);
+		$rc = $sth_class->bind_columns(\$classid);
 		$sth_class->fetch;
 	}
        $sth->execute(($s->{"Id"} or 0),($s->{"Title"} or 0),($s->{"ShipClass"} or 0),$classid,$unique,$faction,$faction2,($s->{"Attack"} or 0),($s->{"Agility"} or 0),($s->{"Hull"} or 0),($s->{"Shield"} or 0),($s->{"Cost"} or 0),($s->{"EvasiveManeuvers"} or 0),($s->{"TargetLock"} or 0),($s->{"Scan"} or 0),($s->{"Battlestations"} or 0),($s->{"Cloak"} or 0),($s->{"SensorEcho"} or 0),($s->{"Regenerate"} or 0),($s->{"Crew"} or 0),($s->{"Tech"} or 0),($s->{"Weapon"} or 0),($s->{"Borg"} or 0),($s->{"SquadronUpgrade"} or 0),$has360,($s->{"Ability"}));

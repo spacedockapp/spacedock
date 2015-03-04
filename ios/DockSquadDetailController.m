@@ -10,16 +10,18 @@
 #import "DockEquippedShipController.h"
 #import "DockResource+Addons.h"
 #import "DockResourcesViewController.h"
+#import "DockSet+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockShipsViewController.h"
 #import "DockSquad+Addons.h"
 #import "DockSquadsListController.h"
 #import "DockUtilsMobile.h"
+#import "DockUpgrade+Addons.h"
 
 #import <MessageUI/MessageUI.h>
 
 enum {
-    kNameRow, kCostRow, kResourceRow, kSectionOneCount
+    kNameRow, kCostRow, kResourceRow, kResourceAttributesRow, kSectionOneCount
 };
 
 enum {
@@ -36,6 +38,9 @@ enum {
 @property (assign, nonatomic) int targetRow;
 @property (assign, nonatomic) id oldTarget;
 @property (assign, nonatomic) SEL oldAction;
+@property (nonatomic, strong) NSString* fleetCostHighlight;
+@property (nonatomic, assign) BOOL markExpiredRes;
+
 @end
 
 @implementation DockSquadDetailController
@@ -59,6 +64,10 @@ enum {
         [_printBarItem setAction: @selector(explainCantPrint:)];
         [_printBarItem setTarget: self];
     }
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    _fleetCostHighlight = [defaults stringForKey: @"fleetCostHighlight"];
+    _markExpiredRes = [defaults boolForKey:kMarkExpiredResKey];
+
 }
 
 -(void)didReceiveMemoryWarning
@@ -84,6 +93,7 @@ enum {
 {
     [super viewWillAppear: animated];
     [self.tableView reloadData];
+    [self updateCost];
 }
 
 -(void)validatePrinting
@@ -138,7 +148,11 @@ enum {
 -(NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == kDetailsSection) {
-        return kSectionOneCount;
+        if (_squad.resourceAttributes.length == 0) {
+            return kSectionOneCount - 1;
+        } else {
+            return kSectionOneCount;
+        }
     }
 
     if (section == kNotesSection) {
@@ -170,15 +184,67 @@ enum {
             cell.textLabel.text = @"Name";
             cell.detailTextLabel.text = _squad.name;
             cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.detailTextLabel.textColor = [UIColor blackColor];
         } else if (row == kCostRow) {
             cell.textLabel.text = @"Cost";
             cell.detailTextLabel.text = [NSString stringWithFormat: @"%d", _squad.cost];
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            if (![_fleetCostHighlight isEqualToString:@"None"]) {
+                int cost = [_squad cost];
+                
+                if ([_fleetCostHighlight isEqualToString:@"90/120"]) {
+                    if ((cost > 90 && cost < 110) || cost > 120) {
+                        cell.detailTextLabel.textColor = [UIColor redColor];
+                    } else {
+                        cell.detailTextLabel.textColor = [UIColor blackColor];
+                    }
+                } else if ([_fleetCostHighlight isEqualToString:@"100"]) {
+                    if (cost > 100) {
+                        cell.detailTextLabel.textColor = [UIColor redColor];
+                    } else {
+                        cell.detailTextLabel.textColor = [UIColor blackColor];
+                    }
+                } else if ([_fleetCostHighlight isEqualToString:@"120"]) {
+                    if (cost > 120) {
+                        cell.detailTextLabel.textColor = [UIColor redColor];
+                    } else {
+                        cell.detailTextLabel.textColor = [UIColor blackColor];
+                    }
+                } else if ([_fleetCostHighlight isEqualToString:@"200"]) {
+                    if (cost > 200) {
+                        cell.detailTextLabel.textColor = [UIColor redColor];
+                    } else {
+                        cell.detailTextLabel.textColor = [UIColor blackColor];
+                    }
+                }
+            }
+        } else if (row == kResourceAttributesRow) {
+            cell.textLabel.text = @"Factions";
+            cell.detailTextLabel.text = _squad.resourceAttributes;
             cell.accessoryType = UITableViewCellAccessoryNone;
         } else {
             cell.textLabel.text = @"Resource";
             
             if (_squad.resource != nil) {
                 cell.detailTextLabel.text = _squad.resource.title;
+                if (_markExpiredRes) {
+                    DockSet* set = [_squad.resource.sets anyObject];
+                    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+                    NSDateComponents *components = [cal components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:set.releaseDate];
+                    [components setDay:1];
+                    
+                    NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
+                                                       components:NSMonthCalendarUnit
+                                                       fromDate:[cal dateFromComponents:components]
+                                                       toDate:[NSDate date] options:0];
+                    if (ageComponents.month >= 18) {
+                        NSMutableAttributedString* as = cell.detailTextLabel.attributedText.mutableCopy;
+                        NSMutableAttributedString* exp = [[NSMutableAttributedString alloc] initWithString:@" (Retired)"];
+                        [exp addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0,[exp length])];
+                        [as appendAttributedString:exp];
+                        cell.detailTextLabel.attributedText = as;
+                    }
+                }
             } else {
                 cell.detailTextLabel.text = @"No Resource";
             }
@@ -309,6 +375,11 @@ enum {
             }
 
             _squad.resource = nil;
+            _squad.resourceAttributes = nil;
+            NSIndexPath* resourceAttributesPath = [NSIndexPath indexPathForItem:kResourceAttributesRow inSection:kDetailsSection];
+            if (resourceAttributesPath != nil) {
+                [self.tableView deleteRowsAtIndexPaths:@[resourceAttributesPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }
             [self.tableView reloadRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
         }
     } else {
@@ -519,6 +590,7 @@ enum {
 {
     [self.navigationController popViewControllerAnimated: YES];
     _squad.resource = resource;
+    _squad.resourceAttributes = nil;
     NSError* error;
 
     if (!saveItem(_squad,  &error)) {
@@ -526,6 +598,32 @@ enum {
     }
 
     [self.tableView reloadData];
+
+    if ([resource.externalId isEqualToString:@"officer_exchange_program_71996a"]) {
+        [self selectFactionSheet:1];
+    }
+}
+
+-(void)selectFactionSheet:(int)factionN
+{
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle: [NSString stringWithFormat:@"Select Faction %d",factionN]
+                                                       delegate: self
+                                              cancelButtonTitle: nil
+                                         destructiveButtonTitle: nil
+                                              otherButtonTitles: nil];
+    NSSet* factionsSet = [DockUpgrade allFactions: _squad.managedObjectContext];
+    NSArray* factionsArray = [[factionsSet allObjects] sortedArrayUsingSelector: @selector(caseInsensitiveCompare:)];
+    for (NSString* faction in factionsArray) {
+        if (![_squad.resourceAttributes containsString:faction]) {
+            [sheet addButtonWithTitle: faction];
+        }
+    }
+    UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:kResourceRow inSection:kDetailsSection]];
+    if (cell != nil) {
+        [sheet showFromRect:cell.frame inView:self.view animated:YES];
+    } else {
+        [sheet showFromRect:self.tableView.frame inView:self.view animated:YES];
+    }
 }
 
 -(IBAction)export:(id)sender
@@ -606,16 +704,26 @@ enum {
     [sheet showFromBarButtonItem: _cpyBarItem animated: YES];
 }
 
--(void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    switch (buttonIndex) {
-    case 0:
-        [self duplicate];
-        break;
+    if ([actionSheet.title isEqualToString:@"Select Faction 1"]) {
+        NSString* faction = [actionSheet buttonTitleAtIndex:buttonIndex];
+        _squad.resourceAttributes = faction;
+        [self selectFactionSheet:2];
+    } else if ([actionSheet.title isEqualToString:@"Select Faction 2"]) {
+        NSString* faction = [actionSheet buttonTitleAtIndex:buttonIndex];
+        _squad.resourceAttributes = [_squad.resourceAttributes stringByAppendingFormat:@" & %@",faction];
+        [self.tableView reloadData];
+    } else {
+        switch (buttonIndex) {
+        case 0:
+            [self duplicate];
+            break;
 
-    case 1:
-        [self copyToClipboard];
-        break;
+        case 1:
+            [self copyToClipboard];
+            break;
+        }
     }
 }
 

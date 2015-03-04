@@ -9,9 +9,23 @@
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* factionBarItem;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* costBarItem;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem* toggleButtonItem;
+@property (nonatomic, strong) UIActionSheet* sheet;
 @end
 
 @implementation DockTableViewController
+
+-(void)switchView:(id)sender
+{
+    UIBarButtonItem* btn = sender;
+    
+    if ([btn.title isEqualToString:@"Ships"]) {
+        [self performSegueWithIdentifier:@"SwitchToShips" sender:sender];
+    } else if ([btn.title isEqualToString:@"Upgrades"]) {
+        
+    } else if ([btn.title isEqualToString:@"Resources"]) {
+        
+    }
+}
 
 -(void)viewDidLoad
 {
@@ -58,7 +72,8 @@
 {
     NSSortDescriptor* titleDescriptor = [[NSSortDescriptor alloc] initWithKey: @"title" ascending: YES];
     NSSortDescriptor* factionDescriptor = [[NSSortDescriptor alloc] initWithKey: @"faction" ascending: YES];
-    return @[factionDescriptor, titleDescriptor];
+    NSSortDescriptor* costDescriptor = [[NSSortDescriptor alloc] initWithKey: @"cost" ascending: YES];
+    return @[factionDescriptor, titleDescriptor, costDescriptor];
 }
 
 - (NSPredicate *)makePredicateTemplate
@@ -77,7 +92,7 @@
 
     int cost = self.cost;
     if (cost != 0 && [self useCostFilter]) {
-        [predicateTerms addObject: @"cost = %@"];
+        [predicateTerms addObject: @"cost <= %@"];
         [predicateValues addObject: [NSNumber numberWithInt: cost]];
     }
 
@@ -95,9 +110,13 @@
 
 -(void)setupFetch:(NSFetchRequest*)fetchRequest context:(NSManagedObjectContext*)context
 {
+
     NSString* entityName = [self entityName];
+
     NSEntityDescription* entity = [NSEntityDescription entityForName: entityName inManagedObjectContext: self.managedObjectContext];
+
     [fetchRequest setEntity: entity];
+
     [fetchRequest setSortDescriptors: [self sortDescriptors]];
     NSArray* includedSets = self.includedSets;
 
@@ -116,6 +135,11 @@
 
 -(void)updateSelectedSets
 {
+    if (_targetSet != nil) {
+        _includedSets = [NSArray arrayWithObjects:_targetSet.externalId, nil];
+        return;
+    }
+    
     NSArray* includedSets = [DockSet includedSets: _managedObjectContext];
     if ( _ignoreSets ) {
         includedSets = [DockSet allSets:_managedObjectContext];
@@ -232,6 +256,12 @@
 
 -(IBAction)faction:(id)sender
 {
+    if (self.sheet != nil) {
+        [self.sheet dismissWithClickedButtonIndex:-1 animated:YES];
+        if ([self.sheet.title isEqualToString:@"Faction"]) {
+            return;
+        }
+    }
     UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle: @"Faction"
                                                        delegate: self
                                               cancelButtonTitle: nil
@@ -242,31 +272,43 @@
     for (NSString* faction in factionsArray) {
         [sheet addButtonWithTitle: faction];
     }
-    [sheet showFromBarButtonItem: _factionBarItem animated: YES];
+    [sheet showFromBarButtonItem: self.factionBarItem animated: YES];
 }
 
 -(IBAction)cost:(id)sender
 {
+    if (self.sheet != nil) {
+        [self.sheet dismissWithClickedButtonIndex:-1 animated:YES];
+        if ([self.sheet.title isEqualToString:@"Cost"]) {
+            return;
+        }
+    }
     UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle: @"Cost"
                                                        delegate: self
                                               cancelButtonTitle: nil
                                          destructiveButtonTitle: nil
                                               otherButtonTitles: @"All", nil];
-    for (int i = 1; i < 8; ++i) {
+    for (int i = 1; i < 11; ++i) {
         [sheet addButtonWithTitle: [NSString stringWithFormat: @"%d", i]];
     }
-    [sheet showFromBarButtonItem: _costBarItem animated: YES];
+    [sheet showFromBarButtonItem: self.costBarItem animated: YES];
 }
 
 -(IBAction)toggleAllSets:(id)sender
 {
+    if (self.sheet != nil) {
+        [self.sheet dismissWithClickedButtonIndex:-1 animated:YES];
+        if ([self.sheet.title isEqualToString:@"Show Sets"]) {
+            return;
+        }
+    }
     UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle: @"Show Sets"
                                                        delegate: self
                                               cancelButtonTitle: nil
                                          destructiveButtonTitle: nil
                                               otherButtonTitles: @"All Sets", nil];
     [sheet addButtonWithTitle: @"Selected Sets"];
-    [sheet showFromBarButtonItem: _toggleButtonItem animated: YES];
+    [sheet showFromBarButtonItem: self.toggleButtonItem animated: YES];
 }
 
 -(void)updateFaction:(NSString*)faction
@@ -290,9 +332,24 @@
     [defaults setBool:_ignoreSets forKey: kSpaceDockIgnoreSetsKey];
     [self clearFetch];
 }
+-(void)didPresentActionSheet:(UIActionSheet *)actionSheet
+{
+    self.sheet = actionSheet;
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet
+didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (self.sheet == actionSheet) {
+        self.sheet = nil;
+    }
+}
 
 -(void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    if (buttonIndex < 0 || buttonIndex > [actionSheet numberOfButtons] - 1) {
+        return;
+    }
     NSString* sheetTitle = actionSheet.title;
     if ([sheetTitle isEqualToString: @"Cost"]) {
         [self updateCost: (int)buttonIndex];
@@ -304,7 +361,6 @@
         case 0:
             [self updateFaction: nil];
             break;
-
         default:
             faction = [actionSheet buttonTitleAtIndex: buttonIndex];
             [self updateFaction: faction];

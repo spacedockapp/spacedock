@@ -244,7 +244,8 @@
             DockBuildMatTile* tile = nil;
             DockUpgrade* upgrade = equippedUpgrade.upgrade;
             if (upgrade.isCaptain) {
-                tile = [[DockCaptainTile alloc] initWithCaptain: equippedShip.captain];
+                //tile = [[DockCaptainTile alloc] initWithCaptain: equippedShip.captain];
+                tile = [[DockCaptainTile alloc] initWithCaptain: (DockCaptain*)upgrade];
             } else if (upgrade.isAdmiral) {
                 DockAdmiral* admiral = (DockAdmiral*)upgrade;
                 tile = [[DockAdmiralTile alloc] initWithAdmiral: admiral];

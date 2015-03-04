@@ -44,7 +44,8 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-12/25/2014 11:41:40	71753 - Fighter Squadron 6	Non-unique	Federation Attack Squadron	Federation	Federation Attack Squadron	Federation Attack Fighter				5	0	1	1	ATTACK SQUADRON TOKENS: 4	Evasive, Target Lock	20	0	0	0	0	90-degree forward		2
+2/18/2015 17:33:28	71794 - I.R.W. Haakona	Unique	I.R.W. Haakona	Romulan	D'deridex Class	D'deridex Class				3	2	6	4	When attacking with your Primary Weapon while cloaked, gain +1 attack die for every other Romulan Ship in your fleet (max +4).	Cloak, Evasive, Sensor Echo, Target Lock	30	0	3	0	2	90-degree forward		0
+2/19/2015 17:02:16	71794 - I.R.W. Haakona	Non-unique	Romulan Starship	Romulan	D'deridex Class	D'deridex Class				3	2	6	3		Cloak, Evasive, Sensor Echo, Target Lock	28	0	2	0	2	90-degree forward		0
 SHIPTEXT
 
 

@@ -16,7 +16,7 @@
     NSEntityDescription* entity = [NSEntityDescription entityForName: @"Captain" inManagedObjectContext: context];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
-    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"cost = 0 and faction like %@", faction];
+    NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"cost = 0 and faction like %@ and unique = 0", faction];
     [request setPredicate: predicateTemplate];
     NSError* err;
     NSArray* existingItems = [context executeFetchRequest: request error: &err];
@@ -44,7 +44,7 @@
     if (existingItems.count > 0) {
         for(DockCaptain* captain in existingItems) {
             NSSet* captainSets = captain.sets;
-            if ([captainSets intersectsSet: targetShipSets]) {
+            if ([captainSets intersectsSet: targetShipSets] && ![captain isUnique]) {
                 return captain;
             }
         }
@@ -127,6 +127,9 @@ static NSDictionary* sCaptainWeaponSlotAdds = nil;
         };
     }
 
+    if ([super additionalWeaponSlots]) {
+        return [super additionalWeaponSlots];
+    }
     return [sCaptainWeaponSlotAdds[self.externalId] intValue];
 }
 
@@ -142,6 +145,9 @@ static NSDictionary* sCaptainWeaponSlotAdds = nil;
 
 -(NSString*)sortStringForSet
 {
+    if ([self.externalId isEqualToString:@"gareb_71536"]) {
+        return [NSString stringWithFormat: @"%@:b:%@:%c:%@", self.faction, self.upSortType, 0, self.title];
+    }
     return [NSString stringWithFormat: @"%@:b:%@:%c:%@", self.faction, self.upSortType, 'z' - [self.skill intValue], self.title];
 }
 

@@ -14,6 +14,8 @@ space_dock*.zip
 /android/app/src/main/.classpath
 /android/app/src/main/.project
 /android/app/src/main/bin/
+/android/app/src/main/gen/
 /android/app/src/main/libs/
+/android/app/src/main/lint.xml
 /android/app/src/main/project.properties
 /gen/

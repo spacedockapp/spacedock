@@ -3,9 +3,11 @@
 @interface DockDataUpdater () <NSXMLParserDelegate>
 @property (strong, nonatomic) NSURLRequest* request;
 @property (strong, nonatomic) NSURLConnection* connnection;
+@property (strong, nonatomic) NSURLResponse* response;
 @property (strong, nonatomic) NSMutableData *downloadData;
 @property (strong, nonatomic) NSString* remoteVersion;
 @property (strong, nonatomic) DockDataUpdaterFinished onFinished;
+@property (nonatomic) long expectedLength;
 @end
 
 @implementation DockDataUpdater
@@ -20,11 +22,20 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
+    _response = response;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     [_downloadData appendData: data];
+
+#if TARGET_OS_IPHONE
+    float progress = (float)_downloadData.length/(float)_response.expectedContentLength;
+    if (_progressBar != nil) {
+        UIProgressView* pv = (UIProgressView*)_progressBar;
+        pv.progress = progress;
+    }
+#endif
 }
 
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
@@ -49,6 +60,15 @@
 {
     _onFinished = finished;
     NSURL* url = [NSURL URLWithString: @"http://spacedockapp.org/Data.xml"];
+    _request = [NSURLRequest requestWithURL: url];
+    _downloadData = [[NSMutableData alloc] init];
+    _connnection = [NSURLConnection connectionWithRequest: _request delegate: self];
+}
+
+-(void)checkForNewDataVersion:(DockDataUpdaterFinished)finished
+{
+    _onFinished = finished;
+    NSURL* url = [NSURL URLWithString: @"http://spacedockapp.org/DataVersion.php"];
     _request = [NSURLRequest requestWithURL: url];
     _downloadData = [[NSMutableData alloc] init];
     _connnection = [NSURLConnection connectionWithRequest: _request delegate: self];

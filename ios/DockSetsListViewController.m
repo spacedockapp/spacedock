@@ -1,11 +1,14 @@
 #import "DockSetsListViewController.h"
-
+#import "DockUpgrade+Addons.h"
+#import "DockShip+Addons.h"
+#import "DockResource+Addons.h"
 #import "DockSet+Addons.h"
 #import "DockSetTableViewCell.h"
 #import "DockUtilsMobile.h"
 
 @interface DockSetsListViewController ()
 @property (strong, nonatomic) NSDateFormatter* dateFormatter;
+@property (strong, nonatomic) DockSet* targetSet;
 @end
 
 @implementation DockSetsListViewController
@@ -42,6 +45,12 @@
         self.selectAll.enabled = YES;
     }
 
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 1.0; //seconds
+    lpgr.delegate = self;
+    [self.tableView addGestureRecognizer:lpgr];
+    self.targetSet = nil;
     [super viewWillAppear: animated];
 }
 
@@ -146,7 +155,36 @@
     self.selectNone.enabled = NO;
     self.selectAll.enabled = YES;
 }
-
+-(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    CGPoint p = [gestureRecognizer locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:p];
+    if (indexPath == nil) {
+        self.targetSet = nil;
+    } else if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        DockSet* set = [self.fetchedResultsController objectAtIndexPath: indexPath];
+        self.targetSet = set;
+        NSSet* items = [set items];
+        NSUInteger upgrades = [[[items objectsPassingTest:^BOOL(id obj, BOOL *stop) {
+            return [[obj class] isSubclassOfClass:[DockUpgrade class]];
+        }] allObjects] count];
+        NSUInteger ships = [[[items objectsPassingTest:^BOOL(id obj, BOOL *stop) {
+            return [[obj class] isSubclassOfClass:[DockShip class]];
+        }] allObjects] count];
+        NSUInteger resources = [[[items objectsPassingTest:^BOOL(id obj, BOOL *stop) {
+            return [[obj class] isSubclassOfClass:[DockResource class]];
+        }] allObjects] count];
+        if (upgrades > 0) {
+            [self performSegueWithIdentifier:@"UpgradeList" sender:self];
+        } else if (ships > 0) {
+            [self performSegueWithIdentifier:@"ShipList" sender:self];
+        } else if (resources > 0) {
+            [self performSegueWithIdentifier:@"ResourceList" sender:self];
+        } else {
+            self.targetSet = nil;
+        }
+    }
+}
 
 -(NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
 {
@@ -165,6 +203,29 @@
 {
     DockSet* set = [self.fetchedResultsController objectAtIndexPath: indexPath];
     [self setIncludeSet: set shouldInclude: NO];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString: @"UpgradeList"]) {
+        id destination = [segue destinationViewController];
+        DockTableViewController* controller = (DockTableViewController*)destination;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.targetSet = self.targetSet;
+        controller.title = @"Upgrades";
+    } else if ([[segue identifier] isEqualToString: @"ShipList"]) {
+        id destination = [segue destinationViewController];
+        DockTableViewController* controller = (DockTableViewController*)destination;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.targetSet = self.targetSet;
+        controller.title = @"Ships";
+    } else if ([[segue identifier] isEqualToString: @"ResourceList"]) {
+        id destination = [segue destinationViewController];
+        DockTableViewController* controller = (DockTableViewController*)destination;
+        controller.managedObjectContext = self.managedObjectContext;
+        controller.targetSet = self.targetSet;
+        controller.title = @"Resources";
+    }
 }
 
 @end

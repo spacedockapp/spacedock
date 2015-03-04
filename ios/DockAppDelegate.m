@@ -14,6 +14,7 @@
 #import "DockTopMenuViewController.h"
 #import "DockUpgrade+Addons.h"
 #import "DockSplitViewController.h"
+#import "DockResourcesViewController.h"
 
 @interface DockAppDelegate ()
 
@@ -118,7 +119,9 @@
         kPlayerEmailKey: @"",
         kEventFactionKey: @"",
         kEventNameKey: @"",
-        kBlindBuyKey: @""
+        kBlindBuyKey: @"",
+        kLightHeaderKey: @"",
+        kMarkExpiredResKey: @""
     };
 
     [defaults registerDefaults: appDefs];
@@ -131,7 +134,8 @@
     } else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         DockSplitViewController* splitViewController = [[DockSplitViewController alloc] init];
         UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:[[UITableViewController alloc] init]];
-        
+        navigationController.toolbarHidden = NO;
+        navigationController.hidesBottomBarWhenPushed = NO;
         [splitViewController addChildViewController:self.window.rootViewController];
         [splitViewController addChildViewController:navigationController];
         self.window.rootViewController = splitViewController;

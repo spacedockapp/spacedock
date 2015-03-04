@@ -1,128 +1,128 @@
     <Upgrade>
-      <Title>Defensive Maneuvers</Title>
-      <Ability>When defending, during the Declare Target step, you may disable this card to place an [EVADE] Token beside your ship, even if there is already one there. No ship may be equipped with more than one "Defensive Maneuvers" Upgrade.</Ability>
+      <Title>Romulan Helmsman</Title>
+      <Ability>During the Activation Phase, if you reveal a Red Maneuver, you may disable this card to treat that maneuver as if it were a White Maneuver. No ship may be equipped with more than one Romulan Helmsman.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Squadron</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>defensive_maneuvers_71753</Id>
-      <Set>71753</Set>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
+      <Cost>2</Cost>
+      <Id>romulan_helmsman_71794</Id>
+      <Set>71794</Set>
       <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Support Ship</Title>
-      <Ability>When your last Attack Squadron Token is destroyed, discard this card instead of removing that Token. No ship may be equipped with more than one "Support Ship" Upgrade.</Ability>
+      <Title>Romulan Security Officer</Title>
+      <Ability>For each Romulan Security Officer equipped to your ship (including this one), your Captain's Skill is +1 (max +3). When defending, you may disable this card to re-roll one of your blank results.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Squadron</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>support_ship_71753</Id>
-      <Set>71753</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Attack Wave</Title>
-      <Ability>When attacking, during the Roll Attack Dice step, you may disable this card to gain +1 attack die for that attack. No ship may be equipped with more than one "Attack Wave" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Squadron</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>attack_wave_71753</Id>
-      <Set>71753</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Squad Leader</Title>
-      <Ability>At the start of the Combat Phase, you may add +2 to your Captain Skill Number until the End Phase. If you do so, place an Auxiliary Power Token beside your ship. OR ACTION: Target a friendly ship at Range 1-2 and perform the Action listed on its Captain Card as a free Action (if possible).</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Squadron</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>squad_leader_71753</Id>
-      <Set>71753</Set>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
+      <Cost>2</Cost>
+      <Id>romulan_security_officer_71794</Id>
+      <Set>71794</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Attack Formation</Title>
-      <Ability>When attacking, during the Roll Attack Dice step, if you are within Range 1 of a friendly ship, you may disable this card to set 1 of your attack dice on any result. That die cannot be rolled or re-rolled during that attack. No ship may be equipped with more than one "Attack Formation" Upgrade.</Ability>
-      <Unique>N</Unique>
+      <Title>Make Them See Us!</Title>
+      <Ability>While cloaked, during the Activation Phase, before revealing your dial you may discard this card to target a ship that you already have Target Locked. Remove your target lock from that ship. If you do t his and your ship's base or maneuver template overlaps the target ship's base during the Execute Maneuver step, inflict an amount of damage equal to the current speed on your maneuver dial to both ships (max 4). The ship whose Captain has the higher Skill Number rolls a number of defense dice against this damage equal to the difference in your Skill Numbers. This Upgrade may only be purchased for a Romulan Captain on a Romulan ship.</Ability>
+      <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Squadron</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>attack_formation_71753</Id>
-      <Set>71753</Set>
-      <Special>NoMoreThanOnePerShip</Special>
+      <Type>Talent</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>make_them_see_us__71794</Id>
+      <Set>71794</Set>
+      <Special>OnlyRomulanCaptainShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Tactical Pattern Theta</Title>
-      <Ability>If you damage an opponent's Hull with a [CRIT], you may immediately disable this card to search the Damage Deck for a "Weapons Malfunction" or a "Munitions Failure" card instead of drawing a random Damage Card. Re-shuffle the Damage Deck when you are done.</Ability>
+      <Title>Romulan Sub Lieutenant</Title>
+      <Ability>ACTION: Discard t his card to target a ship at Range 1-2. If the target ship has a Hull value of 6 or greater, that ship must disable 2 of its Active Shields, if possible. Otherwise, that ship must disable 1 of its Active Shields, if possible. This Upgrade may only be purchased for a Romulan ship.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Squadron</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>tactical_pattern_theta_71753</Id>
-      <Set>71753</Set>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>romulan_sub_lieutenant_71794</Id>
+      <Set>71794</Set>
+      <Special>OnlyRomulanShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Tricobalt Warhead</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. This Upgrade costs +5 SP for any non-Tholian ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>6</Attack>
+      <Range>3</Range>
+      <Type>Weapon</Type>
+      <Faction>Independent</Faction>
+      <Cost>4</Cost>
+      <Id>tricobalt_warhead_71795</Id>
+      <Set>71795</Set>
+      <Special>Plus5NotShipClass_Tholian_Vessel</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Disruptor Pulse</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. During the Declare Target step, target every enemy ship that is in your forward firing arc and within range and perform a separate attack against each of the target ships with this attack. This Upgrade costs +5 SP for any non-Romulan ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>3</Attack>
+      <Range>1-2</Range>
+      <Type>Weapon</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>disruptor_pulse_71794</Id>
+      <Set>71794</Set>
+      <Special>PlusFiveIfNotRomulan</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Disruptor Beams</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. For every damage the defending ship suffers from this attack, roll 1 attack die. If you roll at least one [HIT] or [CRIT] result, add +1 damage.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>1-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>disruptor_beams_71794</Id>
+      <Set>71794</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Cover Fire</Title>
-      <Ability>When defending, during the Roll Defense Dice step, you may discard this card to add a number of defense dice to your roll equal to your current Primary Weapon value. No squadron may be equipped with more than one "Cover Fire" Upgrade.</Ability>
+      <Title>Plasma Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may re-roll all of your blank results one time. You may fire this weapon from your forward or rear firing arcs.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Squadron</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>cover_fire_71753</Id>
-      <Set>71753</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Coordinated Attack</Title>
-      <Ability>When attacking, during the Declare Target step, if you do not have a [BATTLESTATIONS] Token beside your ship, you may disable this card to place a [BATTLESTATIONS] Token beside your ship. No ship may be equipped with more than one "Coordinated Attack" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Squadron</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>coordinated_attack_71753</Id>
-      <Set>71753</Set>
-      <Special>NoMoreThanOnePerShip</Special>
+      <Attack>5</Attack>
+      <Range>1-2</Range>
+      <Type>Weapon</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>plasma_torpedoes_71794</Id>
+      <Set>71794</Set>
+      <Special></Special>
     </Upgrade>

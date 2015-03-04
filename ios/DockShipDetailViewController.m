@@ -245,6 +245,36 @@ enum {
     }
 }
 
+-(void)tableView:(UITableView*)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender{
+    UIPasteboard *gpBoard = [UIPasteboard generalPasteboard];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.detailTextLabel.text && ![cell.detailTextLabel.text isEqual:@""]) {
+        [gpBoard setString:cell.detailTextLabel.text];
+    } else {
+        [gpBoard setString:cell.textLabel.text];
+    }
+}
+
+
+-(BOOL)tableView:(UITableView*)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (action == @selector(copy:) && [cell.textLabel.text isEqualToString:@"Ability"]) {
+        return YES;
+    } else {
+        return [super canPerformAction:action withSender:sender];
+    }
+}
+
+-(BOOL)tableView:(UITableView*)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath*)indexPath{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([cell.textLabel.text isEqualToString:@"Ability"]) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+
 -(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
     NSString* identifier = [segue identifier];

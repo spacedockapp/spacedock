@@ -392,6 +392,13 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             cost -= 1;
         } else if ("PlusFiveIfNotRegentsFlagship".equals(upgradeSpecial) && !ship.isRegentsFlagship()) {
             cost += 5;
+        } else if ("PlusFivePointsNonHirogen".equals(upgradeSpecial) && !ship.getShipClass().contains("Hirogen")) {
+            cost += 5;
+        } else if (upgradeSpecial.startsWith("Plus5NotShipClass_")) {
+            String reqClass = upgradeSpecial.substring(18);
+            if (!ship.getShipClass().replace(" ", "_").equals(reqClass)) {
+                cost += 5;
+            }
         }
         if (captainSpecial.equals("OneDominionUpgradeCostsMinusTwo") && !shipIsSideboard) {
             if (isDominion()) {
@@ -449,6 +456,8 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 if (!(ship.isFederation())) {
                     cost += 1;
                 }
+            } else if (upgradeSpecial.equals("NoPenaltyOnKlingonShip") && !ship.getFaction().equals("Klingon")) {
+                cost += 1;
             } else if (captainSpecial.equals("CaptainAndTalentsIgnoreFactionPenalty")
                     && (isTalent() || isCaptain())) {
                 // do nothing
@@ -547,7 +556,8 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 || "only_suurok_class_limited_weapon_hull_plus_1".equalsIgnoreCase(special)
                 || "AddOneWeaponAllKazonMinusOne".equalsIgnoreCase(special)
                 || "addoneweaponslot".equalsIgnoreCase(special)
-                || "quark_weapon_71786".equals(this.getExternalId())) {
+                || "quark_weapon_71786".equals(this.getExternalId())
+                || "AddHiddenWeapon".equalsIgnoreCase(special)) {
             return 1;
         }
         if ("AddTwoWeaponSlots".equalsIgnoreCase(special)) {
