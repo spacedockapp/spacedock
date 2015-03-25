@@ -1,38 +1,6 @@
     <Upgrade>
-      <Title>Romulan Helmsman</Title>
-      <Ability>During the Activation Phase, if you reveal a Red Maneuver, you may disable this card to treat that maneuver as if it were a White Maneuver. No ship may be equipped with more than one Romulan Helmsman.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Romulan</Faction>
-      <Cost>2</Cost>
-      <Id>romulan_helmsman_71794</Id>
-      <Set>71794</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Romulan Security Officer</Title>
-      <Ability>For each Romulan Security Officer equipped to your ship (including this one), your Captain's Skill is +1 (max +3). When defending, you may disable this card to re-roll one of your blank results.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Romulan</Faction>
-      <Cost>2</Cost>
-      <Id>romulan_security_officer_71794</Id>
-      <Set>71794</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Make Them See Us!</Title>
-      <Ability>While cloaked, during the Activation Phase, before revealing your dial you may discard this card to target a ship that you already have Target Locked. Remove your target lock from that ship. If you do t his and your ship's base or maneuver template overlaps the target ship's base during the Execute Maneuver step, inflict an amount of damage equal to the current speed on your maneuver dial to both ships (max 4). The ship whose Captain has the higher Skill Number rolls a number of defense dice against this damage equal to the difference in your Skill Numbers. This Upgrade may only be purchased for a Romulan Captain on a Romulan ship.</Ability>
+      <Title>Salvage</Title>
+      <Ability>If a ship is destroyed within Range 1-2 of your ship, you may discard this card and disable all of your Active Shields to steal 1 [TECH] or [WEAPON] Upgrade with a cost of 5 SP or less from that ship even if it exceeds your ship's restrictions. If you do so, place a Disabled Upgrade Token on the stolen Upgrade and place an Auxiliary Power Token beside your ship.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -40,89 +8,57 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Romulan</Faction>
-      <Cost>5</Cost>
-      <Id>make_them_see_us__71794</Id>
-      <Set>71794</Set>
-      <Special>OnlyRomulanCaptainShip</Special>
+      <Faction>Independent</Faction>
+      <Cost>4</Cost>
+      <Id>salvage_71797</Id>
+      <Set>71797</Set>
+      <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Romulan Sub Lieutenant</Title>
-      <Ability>ACTION: Discard t his card to target a ship at Range 1-2. If the target ship has a Hull value of 6 or greater, that ship must disable 2 of its Active Shields, if possible. Otherwise, that ship must disable 1 of its Active Shields, if possible. This Upgrade may only be purchased for a Romulan ship.</Ability>
-      <Unique>N</Unique>
+      <Title>Gorn Raiding Party</Title>
+      <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not cloaked. Target ship must disable 2 of its Active Shields, if possible. If the target ship has no Active Shields or if this Action causes the target ship to have no Active Shields, discard this card and disable all Upgrades on the target ship.</Ability>
+      <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Romulan</Faction>
-      <Cost>4</Cost>
-      <Id>romulan_sub_lieutenant_71794</Id>
-      <Set>71794</Set>
-      <Special>OnlyRomulanShip</Special>
+      <Faction>Independent</Faction>
+      <Cost>5</Cost>
+      <Id>gorn_raiding_party_71797</Id>
+      <Set>71797</Set>
+      <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Tricobalt Warhead</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. This Upgrade costs +5 SP for any non-Tholian ship.</Ability>
+      <Title>Improved Deflector Screens</Title>
+      <Ability>When defending, during the Compare Results step, if you have any Active Shields, cancel 1 [HIT] or [CRIT] result. Discard this Upgrade if all of your Shields are destroyed. This Upgrade may only be purchased for a ship with a Hull value of 3 or less and no ship may be equipped with more than one "Improved Deflector Screens" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>6</Attack>
-      <Range>3</Range>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Independent</Faction>
+      <Cost>4</Cost>
+      <Id>improved_deflector_screens_71797</Id>
+      <Set>71797</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Targeted Phaser Strike</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. In addition to inflicting normal damage, for every [HIT] or [CRIT] result, disable 1 [WEAPON] Upgrade on the target ship (max 2). This Upgrade costs +4 SP for any ship other than a Gorn Raider.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>4</Attack>
+      <Range>1-3</Range>
       <Type>Weapon</Type>
       <Faction>Independent</Faction>
       <Cost>4</Cost>
-      <Id>tricobalt_warhead_71795</Id>
-      <Set>71795</Set>
-      <Special>Plus5NotShipClass_Tholian_Vessel</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Disruptor Pulse</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. During the Declare Target step, target every enemy ship that is in your forward firing arc and within range and perform a separate attack against each of the target ships with this attack. This Upgrade costs +5 SP for any non-Romulan ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>3</Attack>
-      <Range>1-2</Range>
-      <Type>Weapon</Type>
-      <Faction>Romulan</Faction>
-      <Cost>5</Cost>
-      <Id>disruptor_pulse_71794</Id>
-      <Set>71794</Set>
-      <Special>PlusFiveIfNotRomulan</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Disruptor Beams</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. For every damage the defending ship suffers from this attack, roll 1 attack die. If you roll at least one [HIT] or [CRIT] result, add +1 damage.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>1-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Romulan</Faction>
-      <Cost>5</Cost>
-      <Id>disruptor_beams_71794</Id>
-      <Set>71794</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Plasma Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may re-roll all of your blank results one time. You may fire this weapon from your forward or rear firing arcs.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>1-2</Range>
-      <Type>Weapon</Type>
-      <Faction>Romulan</Faction>
-      <Cost>5</Cost>
-      <Id>plasma_torpedoes_71794</Id>
-      <Set>71794</Set>
-      <Special></Special>
+      <Id>targeted_phaser_strike_71797</Id>
+      <Set>71797</Set>
+      <Special>Yes</Special>
     </Upgrade>

@@ -1,6 +1,6 @@
   <Captain>
-    <Title>Taris</Title>
-    <Ability>When attacking with your Primary Weapon, during the Declare Target step, you may discard one of your [CREW] Upgrades to target a ship that is not in your forward firing arc.</Ability>
+    <Title>S'Sesslak</Title>
+    <Ability>When attacking, during the Modify Attack Dice step, you may convert 1 blank result into 1 [BATTLESTATIONS] result OR 1 [BATTLESTATIONS] result into 1 [HIT] result.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>5</Skill>
@@ -8,45 +8,41 @@
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Romulan</Faction>
-    <Cost>4</Cost>
-    <Id>taris_71794</Id>
-    <Set>71794</Set>
+    <Faction>Independent</Faction>
+    <Cost>3</Cost>
+    <Id>s_sesslak_71797</Id>
+    <Set>71797</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Centurion</Title>
-    <Ability>When attacking, you may re-roll one of your [BATTLESTATIONS] results.</Ability>
+    <Title>Slar</Title>
+    <Ability>You may field the "Salvage" [ELITE TALENT] Upgrade.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>2</Skill>
+    <Skill>3</Skill>
     <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Romulan</Faction>
-    <Cost>1</Cost>
-    <Id>centurion_71794</Id>
-    <Set>71794</Set>
+    <Faction>Independent</Faction>
+    <Cost>2</Cost>
+    <Id>slar_71797</Id>
+    <Set>71797</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Mendak</Title>
-    <Ability>ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLESTATIONS] Token(s) beside it and place a [BATTLESTATIONS] Token beside that ship. The target ship cannot perform a [BATTLESTATIONS] Action this round. This card may only be purchased for a Romulan ship.</Ability>
-    <Unique>Y</Unique>
+    <Title>Gornarus</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>6</Skill>
-    <Talent>1</Talent>
+    <Skill>1</Skill>
+    <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Romulan</Faction>
-    <Cost>4</Cost>
-    <Id>mendak_cap_71794</Id>
-    <Set>71794</Set>
-    <Special>OnlyRomulanShip</Special>
-    <AdmiralAbility>FLEET ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLESTATIONS] Token(s) beside it and place a [BATTLESTATIONS] Token beside that ship. The target ship cannot perform a [BATTLESTATIONS] Action this round. This card may only be purchased for a Romulan ship.</AdmiralAbility>
-    <AdmiralCost>4</AdmiralCost>
-    <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>2</SkillModifier>
+    <Faction>Independent</Faction>
+    <Cost>0</Cost>
+    <Id>gornarus_71797</Id>
+    <Set>71797</Set>
+    <Special></Special>
   </Captain>

@@ -514,6 +514,55 @@
             //return NO;
         }
     }
+    
+    if ([upgrade.externalId isEqualToString:@"first_maje_71793"]) {
+        if (![captain isKazon]) {
+            return NO;
+        }
+    } else if (![upgrade isPlaceholder] && [upgrade isTalent] && [captain isKazon] && [self.ship isKazon]) {
+        if (self.talentCount == 1) {
+            return NO;
+        } else {
+            int talents = self.talentCount;
+            for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+                if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                    talents --;
+                }
+            }
+            if (talents == 1 && ![upgrade.externalId isEqualToString:@"first_maje_71793"]) {
+                if ([self containsUpgradeWithId:@"first_maje_71793"] == nil && validating) {
+                    return NO;
+                }
+            } else if (talents < 1 && ![upgrade.externalId isEqualToString:@"first_maje_71793"]) {
+                return NO;
+            }
+        }
+    }
+    
+    if (![upgrade isPlaceholder] && [upgrade isTalent] && [self.captain.externalId isEqualToString:@"slar_71797"]) {
+        if (self.talentCount == 1) {
+            if (![upgrade.externalId isEqualToString:@"salvage_71797"]) {
+                return NO;
+            }
+        } else {
+            int talents = self.talentCount;
+            for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+                if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                    if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                        talents --;
+                    }
+                }
+            }
+            if (talents == 1 && ![upgrade.externalId isEqualToString:@"salvage_71797"]) {
+                if ([self containsUpgradeWithId:@"salvage_71797"] == nil && validating) {
+                    return NO;
+                }
+            } else if (talents < 1 && ![upgrade.externalId isEqualToString:@"salvage_71797"]) {
+                return NO;
+            }
+        }
+    }
+    
     if (!upgrade.isPlaceholder && [upgrade isTech] && [self.captain.externalId isEqualToString:@"tahna_los_op6prize"]) {
         int tech = self.techCount;
         
@@ -853,16 +902,6 @@
             }
         }
         return limit > 0;
-    }
-    
-    if ([upgrade.externalId isEqualToString:@"first_maje_71793"]) {
-        if (![captain isKazon]) {
-            return NO;
-        }
-    } else if (![upgrade isPlaceholder] && [upgrade isTalent] && [captain isKazon] && [self.ship isKazon]) {
-        if (self.talentCount == 1) {
-            return NO;
-        }
     }
     
     if (ignoreInstalled) {
@@ -1410,6 +1449,9 @@
         }
     }
     if ([self.captain isKazon] && [self.ship isKazon]) {
+        talentCount ++;
+    }
+    if ([self.captain.externalId isEqualToString:@"slar_71797"]) {
         talentCount ++;
     }
     return talentCount;
