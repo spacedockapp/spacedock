@@ -6,22 +6,25 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-3/16/2015 18:03:59	71797 - Gornarus	Unique	Salvage	Independent	If a ship is destroyed within Range 1-2 of your ship, you may discard this card and disable all of your Active Shields to steal 1 [TECH] or [WEAPON] Upgrade with a cost of 5 SP or less from that ship even if it exceeds your ship's restrictions.  If you do so, place a Disabled Upgrade Token on the stolen Upgrade and place an Auxiliary Power Token beside your ship.	Talent	4	
-3/16/2015 18:05:41	71797 - Gornarus	Unique	Gorn Raiding Party	Independent	ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not cloaked.  Target ship must disable 2 of its Active Shields, if possible.  If the target ship has no Active Shields or if this Action causes the target ship to have no Active Shields, discard this card and disable all Upgrades on the target ship.	Crew	5	
-3/16/2015 18:07:23	71797 - Gornarus	Non-unique	Improved Deflector Screens	Independent	When defending, during the Compare Results step, if you have any Active Shields, cancel 1 [HIT] or [CRIT] result.  Discard this Upgrade if all of your Shields are destroyed.  This Upgrade may only be purchased for a ship with a Hull value of 3 or less and no ship may be equipped with more than one "Improved Deflector Screens" Upgrade.	Tech	4	Yes
+3/23/2015 17:51:08	71798 - Reklar	Unique	Corak	Dominion	ACTION: Increase your Captain's Skill Number by 3 until the end phase.	Crew	2	
+3/23/2015 17:51:48	71798 - Reklar	Unique	Glinn Tajor	Dominion	When attacking a ship at Range 3, during the Roll Defense Dice step, you may discard this card to force your opponent to roll 1 less defense die.	Crew	3	
+3/23/2015 17:52:51	71798 - Reklar	Non-unique	Subspace Carrier Wave	Dominion	ACTION: Discard this card to target a ship at Range 3 and roll 4 attack dice.  For each [HIT] or [CRIT] result, disable 1 Captain or [CREW] Upgrade of your choice on the target ship, if possible.	Tech	4	
+3/23/2015 17:53:48	71798 - Reklar	Unique	Standard Attack Formation	Dominion	If your ship is within Range 1 of two other friendly ships, when you initiate and attack against a ship that is in the forward firing arcs of all 3 ships, you may discard this card during the Roll Attack Dice step to gain +2 attack dice for that attack.	Talent	4	
+3/23/2015 17:55:09	71798 - Reklar	Unique	Coded Messages	Dominion	ACTION: Discard this card to target 1 friendly Dominion ship that is not within Range 1-3 of your ship.  The target ship immediately performs an additional maneuver listed on its maneuver dial with a speed of 3 or less.  Place a [BATTLE STATIONS] Token beside your ship and the target ship.  This Upgrade may only be purchased for a Dominion ship.	Talent	5	Yes
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-3/16/2015 17:58:44	71797 - Gornarus	Unique	S'Sesslak	5	Independent	When attacking, during the Modify Attack Dice step, you may convert 1 blank result into 1 [BATTLE STATIONS] result OR 1 [BATTLE STATIONS] result into 1 [HIT] result.	1	3		
-3/16/2015 17:59:31	71797 - Gornarus	Unique	Slar	3	Independent	You may field the "Salvage" [ELITE TALENT] Upgrade.	0	2	Yes	
-3/16/2015 18:00:20	71797 - Gornarus	Non-unique	Gornarus	1	Independent		0	0		
+3/23/2015 17:47:56	71798 - Reklar	Unique	Gul Lemec	4	Dominion	When attacking a ship whose Captain has a lower Skill number than Gul Lemec's, gain +1 attack die against that ship.	1	3		
+3/23/2015 17:49:16	71798 - Reklar	Unique	Gul Ocett	3	Dominion	If you damage an opponent's Hull with a [CRIT], you may search the Damage Deck for a "Power Disruption" or a "Minor Explosion" card instead of drawing a random Damage Card.  Re-shuffle the Damage Deck when you are done.	0	2		
+3/23/2015 17:50:04	71798 - Reklar	Non-unique	Cardassian	1	Dominion		0	0		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-3/16/2015 18:02:04	71797 - Gornarus	Non-unique	Targeted Phaser Strike	Independent	4	1-3	ATTACK: Disable this card to perform this attack.  In addition to inflicting normal damage, for every [HIT] or [CRIT] result, disable 1 [WEAPON] Upgrade on the target ship (max 2).  This Upgrade costs +4 SP for any ship other than a Gorn Raider.	4	Yes
+3/23/2015 17:56:44	71798 - Reklar	Non-unique	Aft Weapons Array	Dominion	4	1-3	ATTACK: Disable this card to perform this attack.  You may only target a ship that is not in your forward firing arc with this attack.  This Upgrade may only be purchased for a Dominion ship with a Hull Value of 4 or greater.	4	Yes
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT
+3/25/2015 17:57:32	71798 - Reklar	Unique	Gul Madred	Dominion	FLEET ACTION: Target a ship at Range 1-3.  If the Captain on the target ship has a lower Skill number than Gul Madred, discard that ship's Captain and Gul Madred.  If the Captain on the target ship has a Skill number equal to or greater than Gul Madred, that Captain rolls 2 defense dice.  If at least 1 [BATTLE STATIONS] result is rolled, do not discard that ship's Captain or Gul Madred.	0	0	5	7	ACTION: Target a ship at Range 1-3.  If the Captain on the target ship has a lower Skill number than Gul Madred, discard that ship's Captain and Gul Madred.  If the Captain on the target ship has a Skill number equal to or greater than Gul Madred, that Captain rolls 2 defense dice.  If at least 1 [BATTLE STATIONS] result is rolled, do not discard that ship's Captain or Gul Madred.	1	5	
 ADMIRALSTEXT
 
 officers_text = <<-OFFICERSTEXT

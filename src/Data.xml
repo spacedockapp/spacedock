@@ -1,4 +1,4 @@
-<Data version="2015-03-18@05-22">
+<Data version="2015-03-25@23-12">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1982,7 +1982,7 @@
       <Weapon>1</Weapon>
       <Crew>1</Crew>
       <Id>1020</Id>
-      <Set>71127,71513b</Set>
+      <Set>71127,71513b,71798</Set>
     </Ship>
     <Ship>
       <Title>Gor Portas</Title>
@@ -5616,6 +5616,35 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Id>gornarus_71797</Id>
       <Set>71797</Set>
   </Ship>
+  <Ship>
+      <Title>Reklar</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Cardassian Galor Class</ShipClass>
+      <Faction>Dominion</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>4</Shield>
+      <Ability>ACTION: Place a [BATTLESTATIONS] Token beside your ship.  Each time you defend this round, roll +1 defense die.</Ability>
+      <Cost>26</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>reklar_71798</Id>
+      <Set>71798</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -5985,7 +6014,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Dominion</Faction>
       <Cost>0</Cost>
       <Id>2022</Id>
-      <Set>71127,71275</Set>
+      <Set>71127,71275,71798</Set>
     </Captain>
     <Captain>
       <Title>Thot Gor</Title>
@@ -7731,6 +7760,24 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
         <Set>71513b</Set>
         <Special></Special>
     </Captain>
+    <Captain>
+        <Title>Tactical Drone</Title>
+        <Ability>At the start of the game, place 6 Drone Tokens on this card.
+        
+        When a friendly ship within Range 1 of your ship is defending, during the Roll Defence Dice step, you may spend 1 Drone Token to add +1 defence die to that ship's roll for that attack.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill>6</Skill>
+        <Talent>0</Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Captain</Type>
+        <Faction>Borg</Faction>
+        <Cost>4</Cost>
+        <Id>tactical_drone_71513b</Id>
+        <Set>71513b</Set>
+        <Special></Special>
+    </Captain>
   <Captain>
     <Title>Locutus</Title>
     <Ability>At the start of the game, place 9 Drone Tokens on this card. ACTION: Target a ship within Range 1-3 and spend up to 2 of your Drone Tokens. Disable 1 Active Shield on the target ship for each Drone Token you spent with this Action. You cannot deploy this card to the same ship or fleet as "Jean-Luc Picard." </Ability>
@@ -8073,20 +8120,56 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Special></Special>
   </Captain>
   <Captain>
-      <Title>Gornarus</Title>
-      <Ability></Ability>
-      <Unique>N</Unique>
+      <Title>Gul Lemec</Title>
+      <Ability>When attacking a ship whose Captain has a lower Skill number than Gul Lemec's, gain +1 attack die against that ship.</Ability>
+      <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill>1</Skill>
+      <Skill>4</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>3</Cost>
+      <Id>gul_lemec_71798</Id>
+      <Set>71798</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Gul Ocett</Title>
+      <Ability>If you damage an opponent's Hull with a [CRIT], you may search the Damage Deck for a "Power Disruption" or a "Minor Explosion" card instead of drawing a random Damage Card. Re-shuffle the Damage Deck when you are done.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>3</Skill>
       <Talent>0</Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Captain</Type>
-      <Faction>Independent</Faction>
-      <Cost>0</Cost>
-      <Id>gornarus_71797</Id>
-      <Set>71797</Set>
+      <Faction>Dominion</Faction>
+      <Cost>2</Cost>
+      <Id>gul_ocett_71798</Id>
+      <Set>71798</Set>
       <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Gul Madred</Title>
+      <Ability>ACTION: Target a ship at Range 1-3. If the Captain on the target ship has a lower Skill number than Gul Madred, discard that ship's Captain and Gul Madred. If the Captain on the target ship has a Skill number equal to or greater than Gul Madred, that Captain rolls 2 defense dice. If at least 1 [BATTLESTATIONS] result is rolled, do not discard that ship's Captain or Gul Madred.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>gul_madred_cap_71798</Id>
+      <Set>71798</Set>
+      <Special></Special>
+      <AdmiralAbility>FLEET ACTION: Target a ship at Range 1-3. If the Captain on the target ship has a lower Skill number than Gul Madred, discard that ship's Captain and Gul Madred. If the Captain on the target ship has a Skill number equal to or greater than Gul Madred, that Captain rolls 2 defense dice. If at least 1 [BATTLESTATIONS] result is rolled, do not discard that ship's Captain or Gul Madred.</AdmiralAbility>
+      <AdmiralCost>5</AdmiralCost>
+      <AdmiralTalent>0</AdmiralTalent>
+      <SkillModifier>0</SkillModifier>
   </Captain>
   </Captains>
   <Admirals>
@@ -8285,6 +8368,26 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
         <AdmiralCost>4</AdmiralCost>
         <AdmiralTalent>1</AdmiralTalent>
         <SkillModifier>2</SkillModifier>
+    </Admiral>
+    <Admiral>
+        <Title>Gul Madred</Title>
+        <Ability>ACTION: Target a ship at Range 1-3. If the Captain on the target ship has a lower Skill number than Gul Madred, discard that ship's Captain and Gul Madred. If the Captain on the target ship has a Skill number equal to or greater than Gul Madred, that Captain rolls 2 defense dice. If at least 1 [BATTLESTATIONS] result is rolled, do not discard that ship's Captain or Gul Madred.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill>7</Skill>
+        <Talent>1</Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Admiral</Type>
+        <Faction>Dominion</Faction>
+        <Cost>5</Cost>
+        <Id>gul_madred_71798</Id>
+        <Set>71798</Set>
+        <Special></Special>
+        <AdmiralAbility>FLEET ACTION: Target a ship at Range 1-3. If the Captain on the target ship has a lower Skill number than Gul Madred, discard that ship's Captain and Gul Madred. If the Captain on the target ship has a Skill number equal to or greater than Gul Madred, that Captain rolls 2 defense dice. If at least 1 [BATTLESTATIONS] result is rolled, do not discard that ship's Captain or Gul Madred.</AdmiralAbility>
+        <AdmiralCost>5</AdmiralCost>
+        <AdmiralTalent>0</AdmiralTalent>
+        <SkillModifier>0</SkillModifier>
     </Admiral>
   </Admirals>
   <Upgrades>
@@ -15260,6 +15363,102 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>71797</Set>
         <Special>PlusFourIfNotGornRaider</Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Corak</Title>
+        <Ability>ACTION: Increase your Captain's Skill Number by 3 until the end phase.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Dominion</Faction>
+        <Cost>2</Cost>
+        <Id>corak_71798</Id>
+        <Set>71798</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Glinn Tajor</Title>
+        <Ability>When attacking a ship at Range 3, during the Roll Defense Dice step, you may discard this card to force your opponent to roll 1 less defense die.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Dominion</Faction>
+        <Cost>3</Cost>
+        <Id>glinn_tajor_71798</Id>
+        <Set>71798</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Subspace Carrier Wave</Title>
+        <Ability>ACTION: Discard this card to target a ship at Range 3 and roll 4 attack dice. For each [HIT] or [CRIT] result, disable 1 Captain or [CREW] Upgrade of your choice on the target ship, if possible.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Dominion</Faction>
+        <Cost>4</Cost>
+        <Id>subspace_carrier_wave_71798</Id>
+        <Set>71798</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Standard Attack Formation</Title>
+        <Ability>If your ship is within Range 1 of two other friendly ships, when you initiate and attack against a ship that is in the forward firing arcs of all 3 ships, you may discard this card during the Roll Attack Dice step to gain +2 attack dice for that attack.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Dominion</Faction>
+        <Cost>4</Cost>
+        <Id>standard_attack_formation_71798</Id>
+        <Set>71798</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Coded Messages</Title>
+        <Ability>ACTION: Discard this card to target 1 friendly Dominion ship that is not within Range 1-3 of your ship. The target ship immediately performs an additional maneuver listed on its maneuver dial with a speed of 3 or less. Place a [BATTLESTATIONS] Token beside your ship and the target ship. This Upgrade may only be purchased for a Dominion ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Dominion</Faction>
+        <Cost>5</Cost>
+        <Id>coded_messages_71798</Id>
+        <Set>71798</Set>
+        <Special>OnlyDominionShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Aft Weapons Array</Title>
+        <Ability>ATTACK: Disable this card to perform this attack. You may only target a ship that is not in your forward firing arc with this attack. This Upgrade may only be purchased for a Dominion ship with a Hull Value of 4 or greater.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>4</Attack>
+        <Range>1-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Dominion</Faction>
+        <Cost>4</Cost>
+        <Id>aft_weapons_array_71798</Id>
+        <Set>71798</Set>
+        <Special>OnlyDominionHV4</Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -15706,6 +15905,7 @@ While a Master Strategist Token is beside your ship:
       <Set id="71793" overallSetName="Wave 12" releaseDate="2015-03-04">Ogla-Razik</Set>
       <Set id="71794" overallSetName="Wave 12" releaseDate="2015-03-04">I.R.W. Haakona</Set>
       <Set id="71797" overallSetName="Wave 13" releaseDate="2015-04-01">Gornarus</Set>
+      <Set id="71798" overallSetName="Wave 13" releaseDate="2015-04-01">Reklar</Set>
     </Sets>
     <Flagships>
         <Flagship>

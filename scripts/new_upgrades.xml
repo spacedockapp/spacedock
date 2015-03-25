@@ -1,22 +1,6 @@
     <Upgrade>
-      <Title>Salvage</Title>
-      <Ability>If a ship is destroyed within Range 1-2 of your ship, you may discard this card and disable all of your Active Shields to steal 1 [TECH] or [WEAPON] Upgrade with a cost of 5 SP or less from that ship even if it exceeds your ship's restrictions. If you do so, place a Disabled Upgrade Token on the stolen Upgrade and place an Auxiliary Power Token beside your ship.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Independent</Faction>
-      <Cost>4</Cost>
-      <Id>salvage_71797</Id>
-      <Set>71797</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Gorn Raiding Party</Title>
-      <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not cloaked. Target ship must disable 2 of its Active Shields, if possible. If the target ship has no Active Shields or if this Action causes the target ship to have no Active Shields, discard this card and disable all Upgrades on the target ship.</Ability>
+      <Title>Corak</Title>
+      <Ability>ACTION: Increase your Captain's Skill Number by 3 until the end phase.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -24,15 +8,31 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Independent</Faction>
-      <Cost>5</Cost>
-      <Id>gorn_raiding_party_71797</Id>
-      <Set>71797</Set>
+      <Faction>Dominion</Faction>
+      <Cost>2</Cost>
+      <Id>corak_71798</Id>
+      <Set>71798</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Improved Deflector Screens</Title>
-      <Ability>When defending, during the Compare Results step, if you have any Active Shields, cancel 1 [HIT] or [CRIT] result. Discard this Upgrade if all of your Shields are destroyed. This Upgrade may only be purchased for a ship with a Hull value of 3 or less and no ship may be equipped with more than one "Improved Deflector Screens" Upgrade.</Ability>
+      <Title>Glinn Tajor</Title>
+      <Ability>When attacking a ship at Range 3, during the Roll Defense Dice step, you may discard this card to force your opponent to roll 1 less defense die.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Dominion</Faction>
+      <Cost>3</Cost>
+      <Id>glinn_tajor_71798</Id>
+      <Set>71798</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Subspace Carrier Wave</Title>
+      <Ability>ACTION: Discard this card to target a ship at Range 3 and roll 4 attack dice. For each [HIT] or [CRIT] result, disable 1 Captain or [CREW] Upgrade of your choice on the target ship, if possible.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -40,15 +40,47 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Independent</Faction>
+      <Faction>Dominion</Faction>
       <Cost>4</Cost>
-      <Id>improved_deflector_screens_71797</Id>
-      <Set>71797</Set>
-      <Special>Yes</Special>
+      <Id>subspace_carrier_wave_71798</Id>
+      <Set>71798</Set>
+      <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Targeted Phaser Strike</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. In addition to inflicting normal damage, for every [HIT] or [CRIT] result, disable 1 [WEAPON] Upgrade on the target ship (max 2). This Upgrade costs +4 SP for any ship other than a Gorn Raider.</Ability>
+      <Title>Standard Attack Formation</Title>
+      <Ability>If your ship is within Range 1 of two other friendly ships, when you initiate and attack against a ship that is in the forward firing arcs of all 3 ships, you may discard this card during the Roll Attack Dice step to gain +2 attack dice for that attack.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Dominion</Faction>
+      <Cost>4</Cost>
+      <Id>standard_attack_formation_71798</Id>
+      <Set>71798</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Coded Messages</Title>
+      <Ability>ACTION: Discard this card to target 1 friendly Dominion ship that is not within Range 1-3 of your ship. The target ship immediately performs an additional maneuver listed on its maneuver dial with a speed of 3 or less. Place a [BATTLESTATIONS] Token beside your ship and the target ship. This Upgrade may only be purchased for a Dominion ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>coded_messages_71798</Id>
+      <Set>71798</Set>
+      <Special>OnlyDominionShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Aft Weapons Array</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. You may only target a ship that is not in your forward firing arc with this attack. This Upgrade may only be purchased for a Dominion ship with a Hull Value of 4 or greater.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -56,9 +88,9 @@
       <Attack>4</Attack>
       <Range>1-3</Range>
       <Type>Weapon</Type>
-      <Faction>Independent</Faction>
+      <Faction>Dominion</Faction>
       <Cost>4</Cost>
-      <Id>targeted_phaser_strike_71797</Id>
-      <Set>71797</Set>
-      <Special>Yes</Special>
+      <Id>aft_weapons_array_71798</Id>
+      <Set>71798</Set>
+      <Special>OnlyDominionHV4</Special>
     </Upgrade>

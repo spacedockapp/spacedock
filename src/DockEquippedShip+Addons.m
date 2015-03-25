@@ -809,6 +809,20 @@
         }
     }
 
+    if ([upgradeSpecial isEqualToString:@"OnlyDominionShip"]) {
+        if (![self.ship isDominion]) {
+            return NO;
+        }
+    }
+    
+    if ([upgradeSpecial isEqualToString:@"OnlyDominionHV4"]) {
+        if (![self.ship isDominion]) {
+            return NO;
+        }
+        if ([self.ship.hull intValue] < 4) {
+            return NO;
+        }
+    }
     
     if (validating) {
         if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {

@@ -45,6 +45,7 @@
 -(BOOL)isIntrepidClass;
 -(BOOL)isSovereignClass;
 -(BOOL)isKlingonBirdOfPrey;
+-(BOOL)isDominion;
 -(DockResource*)associatedResource;
 -(int)techCount;
 -(int)weaponCount;

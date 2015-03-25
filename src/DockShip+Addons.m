@@ -354,6 +354,11 @@ NSString* asDegrees(NSString* textValue)
     return targetHasFaction(@"Klingon", self);
 }
 
+-(BOOL)isDominion
+{
+    return targetHasFaction(@"Dominion", self);
+}
+
 -(int)techCount
 {
     return [self.tech intValue];

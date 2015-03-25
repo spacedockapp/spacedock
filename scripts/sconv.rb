@@ -44,7 +44,7 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-3/16/2015 17:57:04	71797 - Gornarus	Unique	Gornarus	Independent	Gorn Raider	Gorn Raider				3	1	3	4	When attacking with your Primary Weapon, if you inflict a Critical Damage to an enemy ship's hull, you may search the Damage Deck for a "Structural Damage" or a "Weapons Malfunction" card instead of drawing a random damage card.  Reshuffle the deck when you are done.	Battle Stations, Evasive, Scan, Target Lock	22	0	1	1	1	90-degree forward		0
+3/23/2015 17:36:34	71798 - Reklar	Unique	Reklar	Dominion	Cardassian Galor Class	Cardassian Galor Class				4	1	4	4	ACTION: Place a [BATTLE STATIONS] Token beside your ship.  Each time you defend this round, roll +1 defense die.	Evasive, Scan, Target Lock	26	0	2	1	1	180-degree forward		0
 SHIPTEXT
 
 
