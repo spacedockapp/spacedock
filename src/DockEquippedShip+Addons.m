@@ -840,6 +840,13 @@
             return NO;
         }
     }
+    
+    if ([upgradeSpecial hasPrefix:@"OnlyShip_"]) {
+        NSString* shipTitle = [self.ship.title stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"OnlyShip_%@",shipTitle]]) {
+            return NO;
+        }
+    }
 
     if ([upgradeSpecial hasPrefix:@"OnlyShipClass_"]) {
         NSString* shipClass = [self.ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];

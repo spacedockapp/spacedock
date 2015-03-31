@@ -1,6 +1,15 @@
   <ShipClassDetail>
-    <Name>Cardassian Galor Class</Name>
-    <Id>cardassian_galor_class</Id>
+    <Name>Constitution Class</Name>
+    <Id>constitution_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>180</FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Constitution Class</Name>
+    <Id>constitution_class</Id>
     <Maneuvers>
 
     </Maneuvers>

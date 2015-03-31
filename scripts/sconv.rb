@@ -44,7 +44,8 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-3/23/2015 17:36:34	71798 - Reklar	Unique	Reklar	Dominion	Cardassian Galor Class	Cardassian Galor Class				4	1	4	4	ACTION: Place a [BATTLE STATIONS] Token beside your ship.  Each time you defend this round, roll +1 defense die.	Evasive, Scan, Target Lock	26	0	2	1	1	180-degree forward		0
+3/27/2015 10:17:05	71796 - I.S.S Enterprise	Non-unique	Mirror Universe Starship	Mirror Universe	Constitution Class	Constitution Class				3	1	4	2		Battle Stations, Evasive, Scan, Target Lock	20	0	1	1	1	180-degree forward		0
+3/27/2015 10:18:11	71796 - I.S.S Enterprise	Mirror Universe Unique	I.S.S. Enterprise	Mirror Universe	Constitution Class	Constitution Class				3	1	4	3	When attacking a ship that you already have target locked, during the Roll Attack Dice step, gain +1 attack die.	Battle Stations, Evasive, Scan, Target Lock	22	0	2	1	2	180-degree forward		0
 SHIPTEXT
 
 

@@ -1,38 +1,70 @@
     <Upgrade>
-      <Title>Corak</Title>
-      <Ability>ACTION: Increase your Captain's Skill Number by 3 until the end phase.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Title>Hikaru Sulu</Title>
+      <Ability>ACTION: Disable this card to acquire a target lock on an enemy ship within Range 1-3 and then perform an Action listed on your Action Bar as a free Action.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Dominion</Faction>
-      <Cost>2</Cost>
-      <Id>corak_71798</Id>
-      <Set>71798</Set>
+      <Faction>Mirror Universe</Faction>
+      <Cost>4</Cost>
+      <Id>hikaru_sulu_71796</Id>
+      <Set>71796</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Glinn Tajor</Title>
-      <Ability>When attacking a ship at Range 3, during the Roll Defense Dice step, you may discard this card to force your opponent to roll 1 less defense die.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Title>Pavel Chekov</Title>
+      <Ability>During the Activation Phase, you may discard this card and your Captain card to perform an Action listed on your Action Bar as a free Action. OR ACTION: If you performed a Green Maneuver this round, add +1 attack die when attacking with a secondary weapon this round.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Dominion</Faction>
+      <Faction>Mirror Universe</Faction>
+      <Cost>5</Cost>
+      <Id>pavel_chekov_71796</Id>
+      <Set>71796</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Marlena Moreau</Title>
+      <Ability>One of your [ELITE TALENT] Upgrades costs -1 SP (min 0). ACTION: Add +3 to your Captain Skill until the End Phase. Your Captain cannot be affected by an enemy Upgrade this round.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Mirror Universe</Faction>
       <Cost>3</Cost>
-      <Id>glinn_tajor_71798</Id>
-      <Set>71798</Set>
+      <Id>marlena_moreau_71796</Id>
+      <Set>71796</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Subspace Carrier Wave</Title>
-      <Ability>ACTION: Discard this card to target a ship at Range 3 and roll 4 attack dice. For each [HIT] or [CRIT] result, disable 1 Captain or [CREW] Upgrade of your choice on the target ship, if possible.</Ability>
+      <Title>Tantalus Field</Title>
+      <Ability>ACTION: Disable this card to target a ship at Range 1. Discard 1 Captain or 1 [CREW] Upgrade on the target ship (your choice). Place an Auxiliary Power Token beside your ship. You cannot perform any free Actions on the round you perform this Action. This Upgrade may only be purchased for the I.S.S. Enterprise.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>6</Cost>
+      <Id>tantalus_field_71796</Id>
+      <Set>71796</Set>
+      <Special>OnlyShip_I.S.S._Enterprise</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Agony Booth</Title>
+      <Ability>During the Activation Phase, you may discard this card to use an Action listed on one of your [CREW] Upgrades as a free Action even if that Upgrade is disabled. No ship may be equipped with more than 1 "Agony Booth" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -40,57 +72,41 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Dominion</Faction>
-      <Cost>4</Cost>
-      <Id>subspace_carrier_wave_71798</Id>
-      <Set>71798</Set>
-      <Special></Special>
+      <Faction>Mirror Universe</Faction>
+      <Cost>3</Cost>
+      <Id>agony_booth_71796</Id>
+      <Set>71796</Set>
+      <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Standard Attack Formation</Title>
-      <Ability>If your ship is within Range 1 of two other friendly ships, when you initiate and attack against a ship that is in the forward firing arcs of all 3 ships, you may discard this card during the Roll Attack Dice step to gain +2 attack dice for that attack.</Ability>
-      <Unique>Y</Unique>
+      <Title>Phaser Barrage</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. During the Roll Attack Dice step, if you roll at least 2 [HIT] or [CRIT] results with this attack, roll 3 additional attack dice. Add all of the results from the additional dice to your total for this attack.</Ability>
+      <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Dominion</Faction>
-      <Cost>4</Cost>
-      <Id>standard_attack_formation_71798</Id>
-      <Set>71798</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Coded Messages</Title>
-      <Ability>ACTION: Discard this card to target 1 friendly Dominion ship that is not within Range 1-3 of your ship. The target ship immediately performs an additional maneuver listed on its maneuver dial with a speed of 3 or less. Place a [BATTLESTATIONS] Token beside your ship and the target ship. This Upgrade may only be purchased for a Dominion ship.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Dominion</Faction>
+      <Attack>3</Attack>
+      <Range>3</Range>
+      <Type>Weapon</Type>
+      <Faction>Mirror Universe</Faction>
       <Cost>5</Cost>
-      <Id>coded_messages_71798</Id>
-      <Set>71798</Set>
-      <Special>OnlyDominionShip</Special>
+      <Id>phaser_barrage_71796</Id>
+      <Set>71796</Set>
+      <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Aft Weapons Array</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. You may only target a ship that is not in your forward firing arc with this attack. This Upgrade may only be purchased for a Dominion ship with a Hull Value of 4 or greater.</Ability>
+      <Title>Photon Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 of your [BATTLESTATIONS] results into a [CRIT] result. You may fire this weapon from your forward or rear firing arcs.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack>4</Attack>
-      <Range>1-3</Range>
+      <Range>2-3</Range>
       <Type>Weapon</Type>
-      <Faction>Dominion</Faction>
-      <Cost>4</Cost>
-      <Id>aft_weapons_array_71798</Id>
-      <Set>71798</Set>
-      <Special>OnlyDominionHV4</Special>
+      <Faction>Mirror Universe</Faction>
+      <Cost>3</Cost>
+      <Id>photon_torpedoes_71796</Id>
+      <Set>71796</Set>
+      <Special></Special>
     </Upgrade>

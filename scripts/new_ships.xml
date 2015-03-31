@@ -1,29 +1,58 @@
   <Ship>
-    <Title>Reklar</Title>
-    <Unique>Y</Unique>
+    <Title>Mirror Universe Starship</Title>
+    <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Cardassian Galor Class</ShipClass>
-    <Faction>Dominion</Faction>
+    <ShipClass>Constitution Class</ShipClass>
+    <Faction>Mirror Universe</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
+    <Attack>3</Attack>
     <Agility>1</Agility>
     <Hull>4</Hull>
-    <Shield>4</Shield>
-    <Ability>ACTION: Place a [BATTLESTATIONS] Token beside your ship.  Each time you defend this round, roll +1 defense die.</Ability>
-    <Cost>26</Cost>
+    <Shield>2</Shield>
+    <Ability></Ability>
+    <Cost>20</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
-    <Battlestations>0</Battlestations>
+    <Battlestations>1</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
     <Tech>1</Tech>
     <Weapon>1</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>mirror_universe_starship_71796</Id>
+    <Set>71796</Set>
+  </Ship>
+  <Ship>
+    <Title>I.S.S. Enterprise</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+    <ShipClass>Constitution Class</ShipClass>
+    <Faction>Mirror Universe</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>3</Attack>
+    <Agility>1</Agility>
+    <Hull>4</Hull>
+    <Shield>3</Shield>
+    <Ability>When attacking a ship that you already have target locked, during the Roll Attack Dice step, gain +1 attack die.</Ability>
+    <Cost>22</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>1</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>1</Tech>
+    <Weapon>2</Weapon>
     <Crew>2</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>reklar_71798</Id>
-    <Set>71798</Set>
+    <Id>i_s_s_enterprise_71796</Id>
+    <Set>71796</Set>
   </Ship>

@@ -6,25 +6,25 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-3/23/2015 17:51:08	71798 - Reklar	Unique	Corak	Dominion	ACTION: Increase your Captain's Skill Number by 3 until the end phase.	Crew	2	
-3/23/2015 17:51:48	71798 - Reklar	Unique	Glinn Tajor	Dominion	When attacking a ship at Range 3, during the Roll Defense Dice step, you may discard this card to force your opponent to roll 1 less defense die.	Crew	3	
-3/23/2015 17:52:51	71798 - Reklar	Non-unique	Subspace Carrier Wave	Dominion	ACTION: Discard this card to target a ship at Range 3 and roll 4 attack dice.  For each [HIT] or [CRIT] result, disable 1 Captain or [CREW] Upgrade of your choice on the target ship, if possible.	Tech	4	
-3/23/2015 17:53:48	71798 - Reklar	Unique	Standard Attack Formation	Dominion	If your ship is within Range 1 of two other friendly ships, when you initiate and attack against a ship that is in the forward firing arcs of all 3 ships, you may discard this card during the Roll Attack Dice step to gain +2 attack dice for that attack.	Talent	4	
-3/23/2015 17:55:09	71798 - Reklar	Unique	Coded Messages	Dominion	ACTION: Discard this card to target 1 friendly Dominion ship that is not within Range 1-3 of your ship.  The target ship immediately performs an additional maneuver listed on its maneuver dial with a speed of 3 or less.  Place a [BATTLE STATIONS] Token beside your ship and the target ship.  This Upgrade may only be purchased for a Dominion ship.	Talent	5	Yes
+3/27/2015 10:06:53	71796 - I.S.S. Enterprise	Mirror Universe Unique	Hikaru Sulu	Mirror Universe	ACTION: Disable this card to acquire a target lock on an enemy ship within Range 1-3 and then perform an Action listed on your Action Bar as a free Action.	Crew	4	
+3/27/2015 10:08:18	71796 - I.S.S. Enterprise	Mirror Universe Unique	Pavel Chekov	Mirror Universe	During the Activation Phase, you may discard this card and your Captain card to perform an Action listed on your Action Bar as a free Action.  OR  ACTION: If you performed a Green Maneuver this round, add +1 attack die when attacking with a secondary weapon this round.	Crew	5	
+3/27/2015 10:09:31	71796 - I.S.S. Enterprise	Mirror Universe Unique	Marlena Moreau	Mirror Universe	One of your [ELITE TALENT] Upgrades costs -1 SP (min 0).  ACTION: Add +3 to your Captain Skill until the End Phase.  Your Captain cannot be affected by an enemy Upgrade this round.	Crew	3	
+3/27/2015 10:11:10	71796 - I.S.S. Enterprise	Mirror Universe Unique	Tantalus Field	Mirror Universe	ACTION: Disable this card to target a ship at Range 1.  Discard 1 Captain or 1 [CREW] Upgrade on the target ship (your choice).  Place an Auxiliary Power Token beside your ship.  You cannot perform any free Actions on the round you perform this Action.  This Upgrade may only be purchased for the I.S.S. Enterprise.	Talent	6	Yes
+3/27/2015 10:12:14	71796 - I.S.S. Enterprise	Non-unique	Agony Booth	Mirror Universe	During the Activation Phase, you may discard this card to use an Action listed on one of your [CREW] Upgrades as a free Action even if that Upgrade is disabled.  No ship may be equipped with more than 1 "Agony Booth" Upgrade.	Tech	3	Yes
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-3/23/2015 17:47:56	71798 - Reklar	Unique	Gul Lemec	4	Dominion	When attacking a ship whose Captain has a lower Skill number than Gul Lemec's, gain +1 attack die against that ship.	1	3		
-3/23/2015 17:49:16	71798 - Reklar	Unique	Gul Ocett	3	Dominion	If you damage an opponent's Hull with a [CRIT], you may search the Damage Deck for a "Power Disruption" or a "Minor Explosion" card instead of drawing a random Damage Card.  Re-shuffle the Damage Deck when you are done.	0	2		
-3/23/2015 17:50:04	71798 - Reklar	Non-unique	Cardassian	1	Dominion		0	0		
+3/27/2015 10:03:44	71796 - I.S.S. Enterprise	Mirror Universe Unique	James T. Kirk	6	Mirror Universe	ACTION: Disable up to 3 of your Upgrades (your choice) to gain +1 attack die on your next attack for each Upgrade you disabled with this Action.	1	4		
+3/27/2015 10:04:37	71796 - I.S.S. Enterprise	Mirror Universe Unique	Mr. Spock	7	Mirror Universe	During the Activation Phase, you may perform one of the Actions listed on any of your Upgrades as a free Action.  If you do so, place an Auxiliary Power Token beside your ship.	1	5		
+3/27/2015 10:04:57	71796 - I.S.S. Enterprise	Non-unique	Mirror Universe	1	Mirror Universe		0	0		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-3/23/2015 17:56:44	71798 - Reklar	Non-unique	Aft Weapons Array	Dominion	4	1-3	ATTACK: Disable this card to perform this attack.  You may only target a ship that is not in your forward firing arc with this attack.  This Upgrade may only be purchased for a Dominion ship with a Hull Value of 4 or greater.	4	Yes
+3/27/2015 10:14:09	71796 - I.S.S Enterprise	Non-unique	Phaser Barrage	Mirror Universe	3	3	ATTACK:  Disable this card to perform this attack.  During the Roll Attack Dice step, if you roll at least 2 [HIT] or [CRIT] results with this attack, roll 3 additional attack dice.  Add all of the results from the additional dice to your total for this attack.	5	
+3/27/2015 10:15:18	71796 - I.S.S Enterprise	Non-unique	Photon Torpedoes	Mirror Universe	4	2-3	ATTACK: (Target Lock) Spend your target lock and disable this card to perform this attack.  You may convert 1 of your [BATTLE STATIONS] results into a [CRIT] result.  You may fire this weapon from your forward or rear firing arcs.	3	
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT
-3/25/2015 17:57:32	71798 - Reklar	Unique	Gul Madred	Dominion	FLEET ACTION: Target a ship at Range 1-3.  If the Captain on the target ship has a lower Skill number than Gul Madred, discard that ship's Captain and Gul Madred.  If the Captain on the target ship has a Skill number equal to or greater than Gul Madred, that Captain rolls 2 defense dice.  If at least 1 [BATTLE STATIONS] result is rolled, do not discard that ship's Captain or Gul Madred.	0	0	5	7	ACTION: Target a ship at Range 1-3.  If the Captain on the target ship has a lower Skill number than Gul Madred, discard that ship's Captain and Gul Madred.  If the Captain on the target ship has a Skill number equal to or greater than Gul Madred, that Captain rolls 2 defense dice.  If at least 1 [BATTLE STATIONS] result is rolled, do not discard that ship's Captain or Gul Madred.	1	5	
 ADMIRALSTEXT
 
 officers_text = <<-OFFICERSTEXT
