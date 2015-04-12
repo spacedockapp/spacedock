@@ -1,4 +1,4 @@
-<Data version="2015-03-31@21-15">
+<Data version="2015-04-12@02-08">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1457,6 +1457,28 @@
       <FrontArc>90</FrontArc>
       <RearArc>90</RearArc>
   </ShipClassDetail>
+  <ShipClassDetail>
+      <Name>Type 7 Shuttlecraft</Name>
+      <Id>type_7_shuttlecraft</Id>
+      <Maneuvers>
+          <Maneuver speed="2" kind="left-turn" color="white" />
+          <Maneuver speed="2" kind="about" color="white" />
+          <Maneuver speed="2" kind="left-bank" color="green" />
+          <Maneuver speed="2" kind="straight" color="green" />
+          <Maneuver speed="2" kind="right-bank" color="green" />
+          <Maneuver speed="2" kind="about" color="white" />
+          <Maneuver speed="2" kind="right-turn" color="white" />
+          <Maneuver speed="1" kind="left-turn" color="white" />
+          <Maneuver speed="1" kind="about" color="white" />
+          <Maneuver speed="1" kind="left-bank" color="green" />
+          <Maneuver speed="1" kind="straight" color="green" />
+          <Maneuver speed="1" kind="about" color="white" />
+          <Maneuver speed="1" kind="right-bank" color="green" />
+          <Maneuver speed="1" kind="right-turn" color="white" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
+      <RearArc></RearArc>
+  </ShipClassDetail>
   </ShipClassDetails>
   <Ships>
     <Ship>
@@ -2147,6 +2169,7 @@
       <Crew>2</Crew>
       <Id>1027</Id>
       <Set>OP1Participation</Set>
+      <Has360Arc>Y</Has360Arc>
     </Ship>
     <Ship>
       <Title>I.K.S. Ch'tang</Title>
@@ -5703,6 +5726,64 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Id>i_s_s_enterprise_71796</Id>
       <Set>71796</Set>
   </Ship>
+  <Ship>
+      <Title>Federation Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Type 7 Shuttlecraft</ShipClass>
+      <Faction>Federation</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>1</Attack>
+      <Agility>2</Agility>
+      <Hull>2</Hull>
+      <Shield>1</Shield>
+      <Ability></Ability>
+      <Cost>12</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>0</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>0</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>federation_starship_71997p</Id>
+      <Set>71997p</Set>
+  </Ship>
+  <Ship>
+      <Title>Sakharov</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Type 7 Shuttlecraft</ShipClass>
+      <Faction>Federation</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>1</Attack>
+      <Agility>2</Agility>
+      <Hull>2</Hull>
+      <Shield>2</Shield>
+      <Ability>At the start of the game, during the Gather Forces Step, you may purchase 1 additional [CREW] or [TECH] Upgrade for this ship.  This Upgrade may exceed the ship's restrictions and cost -2 SP (min 0).</Ability>
+      <Cost>14</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>0</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>0</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>sakharov_71997p</Id>
+      <Set>71997p</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -5753,7 +5834,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Federation</Faction>
       <Cost>0</Cost>
       <Id>2003</Id>
-      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526,71510,71531</Set>
+      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526,71510,71531,71997p</Set>
     </Captain>
     <Captain>
       <Title>Nu'Daq</Title>
@@ -8208,10 +8289,10 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Id>gul_madred_cap_71798</Id>
       <Set>71798</Set>
       <Special></Special>
-      <AdmiralAbility>FLEET ACTION: Target a ship at Range 1-3. If the Captain on the target ship has a lower Skill number than Gul Madred, discard that ship's Captain and Gul Madred. If the Captain on the target ship has a Skill number equal to or greater than Gul Madred, that Captain rolls 2 defense dice. If at least 1 [BATTLESTATIONS] result is rolled, do not discard that ship's Captain or Gul Madred.</AdmiralAbility>
+      <AdmiralAbility>FLEET ACTION: Target a ship at Range 1-3. If the Captain on the target ship has a Skill number of 6 or less, discard that ship's Captain and Gul Madred. If the Captain on the target ship has a Skill number of 7 or higher, that Captain rolls 2 defense dice. If at least 1 [BATTLESTATIONS] result is rolled, do not discard that ship's Captain or Gul Madred.</AdmiralAbility>
       <AdmiralCost>5</AdmiralCost>
-      <AdmiralTalent>0</AdmiralTalent>
-      <SkillModifier>0</SkillModifier>
+      <AdmiralTalent>1</AdmiralTalent>
+      <SkillModifier>2</SkillModifier>
   </Captain>
   <Captain>
       <Title>James T. Kirk</Title>
@@ -8243,6 +8324,22 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Cost>5</Cost>
       <Id>mr_spock_71796</Id>
       <Set>71796</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Data</Title>
+      <Ability>At the start of the game, place 1 [EVASIVE MANEUVERS], 1 [SCAN], and 1 [BATTLESTATIONS] Token on this card. During the Activation Phase, you may take 1 of these Tokens off this card and place it beside your ship, even if there is already one there.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>3</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>data_71997p</Id>
+      <Set>71997p</Set>
       <Special></Special>
   </Captain>
   </Captains>
@@ -8458,10 +8555,10 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
         <Id>gul_madred_71798</Id>
         <Set>71798</Set>
         <Special></Special>
-        <AdmiralAbility>FLEET ACTION: Target a ship at Range 1-3. If the Captain on the target ship has a lower Skill number than Gul Madred, discard that ship's Captain and Gul Madred. If the Captain on the target ship has a Skill number equal to or greater than Gul Madred, that Captain rolls 2 defense dice. If at least 1 [BATTLESTATIONS] result is rolled, do not discard that ship's Captain or Gul Madred.</AdmiralAbility>
+        <AdmiralAbility>FLEET ACTION: Target a ship at Range 1-3. If the Captain on the target ship has a Skill number of 6 or less, discard that ship's Captain and Gul Madred. If the Captain on the target ship has a Skill number of 7 or higher, that Captain rolls 2 defense dice. If at least 1 [BATTLESTATIONS] result is rolled, do not discard that ship's Captain or Gul Madred.</AdmiralAbility>
         <AdmiralCost>5</AdmiralCost>
-        <AdmiralTalent>0</AdmiralTalent>
-        <SkillModifier>0</SkillModifier>
+        <AdmiralTalent>1</AdmiralTalent>
+        <SkillModifier>2</SkillModifier>
     </Admiral>
   </Admirals>
   <Upgrades>
@@ -12940,7 +13037,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
     </Upgrade>
     <Upgrade>
       <Title>Picard Maneuver</Title>
-      <Ability>ACTION: If you performed a 1 [STRAIGHT], a 4 [STRAIGHT], or a 5 [STRAIGHT] Maneuver this round, discard this card and immediately perform an additional 5 [STRAIGHT] Maneuver.  Place an Auxiliary Power Token beside your ship.  All attacks against your ship this round are at -4 attack dice.</Ability>
+      <Ability>ACTION: If you performed a 3 [STRAIGHT], a 4 [STRAIGHT], or a 5 [STRAIGHT] Maneuver this round, discard this card and immediately perform an additional 5 [STRAIGHT] Maneuver.  Place an Auxiliary Power Token beside your ship.  All attacks against your ship this round are at -4 attack dice.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -15645,6 +15742,70 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>71796</Set>
         <Special></Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Sirna Kolrami</Title>
+        <Ability>When defending, during the Compare Results step, if you cancel all of your opponent's [HIT] and [CRIT] results, you may discard this card and disable 1 of your other Upgrades to immediately roll a number of attack dice equal to the number of [HIT] or [CRIT] results that were cancelled (max 4 dice). The attacking ship suffers normal damage for every [HIT] or [CRIT] result you roll with these dice.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>sirna_kolrami_71997p</Id>
+        <Set>71997p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Computer Analysis</Title>
+        <Ability>During the Planning Phase, you may discard this card to remove all the Disabled Upgrade Tokens from all of your other Upgrades.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Federation</Faction>
+        <Cost>4</Cost>
+        <Id>computer_analysis_71997p</Id>
+        <Set>71997p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Escape Transporter</Title>
+        <Ability>When your ship is destroyed, before removing it from the play area, you may discard this card to target a friendly ship at Range 1-2 that is not cloaked and disable all of that ship's remaining Shields. Select up to 3 other Upgrades that were deployed to this ship and redeploy them to the target ship, even if it exceeds that ship's restrictions. If any of the redeployed Upgrades were already disabled, they remain disabled. This Upgrade may only be purchased for a Federation Shuttlecraft.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Federation</Faction>
+        <Cost>2</Cost>
+        <Id>escape_transporter_71997p</Id>
+        <Set>71997p</Set>
+        <Special>OnlyShipClass_Type_7_Shuttlecraft</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Warp Drive</Title>
+        <Ability>During the Activation Phase, if you reveal a 2 [STRAIGHT] Maneuver, you may disable this card to perform a white 3 [STRAIGHT] or a red 4 [STRAIGHT] Maneuver instead. This Upgrade may only be purchased for a Federation Shuttlecraft and no ship may be equipped with more than 1 "Warp Drive" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Federation</Faction>
+        <Cost>2</Cost>
+        <Id>warp_drive_71997p</Id>
+        <Set>71997p</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -16093,6 +16254,7 @@ While a Master Strategist Token is beside your ship:
       <Set id="71797" overallSetName="Wave 13" releaseDate="2015-04-01">Gornarus</Set>
       <Set id="71798" overallSetName="Wave 13" releaseDate="2015-04-01">Reklar</Set>
       <Set id="71796" overallSetName="Wave 13" releaseDate="2015-04-01">I.S.S. Enterprise</Set>
+      <Set id="71997p" overallSetName="Peak Performance" releaseDate="2015-03-04">Sakharov</Set>
     </Sets>
     <Flagships>
         <Flagship>

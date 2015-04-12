@@ -875,7 +875,7 @@ static NSDictionary* sItemLabels = nil;
 
 -(int)additionalTalentSlots
 {
-    if ([self.special isEqualToString: @"addonetalentslot"]) {
+    if ([self.special isEqualToString: @"addonetalentslot"] || [self.externalId isEqualToString:@"william_t_riker_71996"]) {
         return 1;
     }
     return 0;

@@ -1,48 +1,16 @@
   <Captain>
-    <Title>James T. Kirk</Title>
-    <Ability>ACTION: Disable up to 3 of your Upgrades (your choice) to gain +1 attack die on your next attack for each Upgrade you disabled with this Action.</Ability>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-    <Skill>6</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Mirror Universe</Faction>
-    <Cost>4</Cost>
-    <Id>james_t_kirk_71796</Id>
-    <Set>71796</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Mr. Spock</Title>
-    <Ability>During the Activation Phase, you may perform one of the Actions listed on any of your Upgrades as a free Action. If you do so, place an Auxiliary Power Token beside your ship.</Ability>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-    <Skill>7</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Mirror Universe</Faction>
-    <Cost>5</Cost>
-    <Id>mr_spock_71796</Id>
-    <Set>71796</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Mirror Universe</Title>
-    <Ability></Ability>
-    <Unique>N</Unique>
+    <Title>Data</Title>
+    <Ability>At the start of the game, place 1 [EVASIVE MANEUVERS], 1 [SCAN], and 1 [BATTLESTATIONS] Token on this card. During the Activation Phase, you may take 1 of these Tokens off this card and place it beside your ship, even if there is already one there.</Ability>
+    <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>1</Skill>
-    <Talent>0</Talent>
+    <Skill>3</Skill>
+    <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Mirror Universe</Faction>
-    <Cost>0</Cost>
-    <Id>mirror_universe_71796</Id>
-    <Set>71796</Set>
+    <Faction>Federation</Faction>
+    <Cost>2</Cost>
+    <Id>data_71997p</Id>
+    <Set>71997p</Set>
     <Special></Special>
   </Captain>

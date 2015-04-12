@@ -44,8 +44,8 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-3/27/2015 10:17:05	71796 - I.S.S Enterprise	Non-unique	Mirror Universe Starship	Mirror Universe	Constitution Class	Constitution Class				3	1	4	2		Battle Stations, Evasive, Scan, Target Lock	20	0	1	1	1	180-degree forward		0
-3/27/2015 10:18:11	71796 - I.S.S Enterprise	Mirror Universe Unique	I.S.S. Enterprise	Mirror Universe	Constitution Class	Constitution Class				3	1	4	3	When attacking a ship that you already have target locked, during the Roll Attack Dice step, gain +1 attack die.	Battle Stations, Evasive, Scan, Target Lock	22	0	2	1	2	180-degree forward		0
+4/2/2015 2:04:37	71997 - Sakharov	Non-unique	Federation Starship	Federation	Type 7 Shuttlecraft		1 Bank, 1 Forward, 2 Bank, 2 Forward	1 Turn, 2 Turn, 1 Come About, 2 Come About		1	2	2	1		Evasive, Scan	12	0	1	0	0	90-degree forward		0
+4/2/2015 2:06:12	71997 - Sakharov	Unique	Sakharov	Federation	Type 7 Shuttlecraft	Type 7 Shuttlecraft				1	2	2	2	At the start of the game, during the Gather Forces Step, you may purchase 1 additional [CREW] or [TECH] Upgrade for this ship.  This Upgrade may exceed the ship's restrictions and cost -2 SP (min 0).	Evasive, Scan	14	0	1	1	0	90-degree forward		0
 SHIPTEXT
 
 

@@ -8,7 +8,7 @@
 
 @interface DockSetsListViewController ()
 @property (strong, nonatomic) NSDateFormatter* dateFormatter;
-@property (strong, nonatomic) DockSet* targetSet;
+//@property (strong, nonatomic) DockSet* targetSet;
 @end
 
 @implementation DockSetsListViewController

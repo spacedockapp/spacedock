@@ -1,58 +1,58 @@
   <Ship>
-    <Title>Mirror Universe Starship</Title>
+    <Title>Federation Starship</Title>
     <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Constitution Class</ShipClass>
-    <Faction>Mirror Universe</Faction>
+    <ShipClass>Type 7 Shuttlecraft</ShipClass>
+    <Faction>Federation</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>3</Attack>
-    <Agility>1</Agility>
-    <Hull>4</Hull>
-    <Shield>2</Shield>
+    <Attack>1</Attack>
+    <Agility>2</Agility>
+    <Hull>2</Hull>
+    <Shield>1</Shield>
     <Ability></Ability>
-    <Cost>20</Cost>
+    <Cost>12</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
+    <TargetLock>0</TargetLock>
     <Scan>1</Scan>
-    <Battlestations>1</Battlestations>
+    <Battlestations>0</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>1</Weapon>
+    <Tech>0</Tech>
+    <Weapon>0</Weapon>
     <Crew>1</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>mirror_universe_starship_71796</Id>
-    <Set>71796</Set>
+    <Id>federation_starship_71997p</Id>
+    <Set>71997p</Set>
   </Ship>
   <Ship>
-    <Title>I.S.S. Enterprise</Title>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-    <ShipClass>Constitution Class</ShipClass>
-    <Faction>Mirror Universe</Faction>
+    <Title>Sakharov</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Type 7 Shuttlecraft</ShipClass>
+    <Faction>Federation</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>3</Attack>
-    <Agility>1</Agility>
-    <Hull>4</Hull>
-    <Shield>3</Shield>
-    <Ability>When attacking a ship that you already have target locked, during the Roll Attack Dice step, gain +1 attack die.</Ability>
-    <Cost>22</Cost>
+    <Attack>1</Attack>
+    <Agility>2</Agility>
+    <Hull>2</Hull>
+    <Shield>2</Shield>
+    <Ability>At the start of the game, during the Gather Forces Step, you may purchase 1 additional [CREW] or [TECH] Upgrade for this ship.  This Upgrade may exceed the ship's restrictions and cost -2 SP (min 0).</Ability>
+    <Cost>14</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
+    <TargetLock>0</TargetLock>
     <Scan>1</Scan>
-    <Battlestations>1</Battlestations>
+    <Battlestations>0</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
     <Tech>1</Tech>
-    <Weapon>2</Weapon>
-    <Crew>2</Crew>
+    <Weapon>0</Weapon>
+    <Crew>1</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>i_s_s_enterprise_71796</Id>
-    <Set>71796</Set>
+    <Id>sakharov_71997p</Id>
+    <Set>71997p</Set>
   </Ship>

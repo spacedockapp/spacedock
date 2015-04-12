@@ -925,6 +925,12 @@
         return limit > 0;
     }
     
+    if ([upgrade.externalId isEqualToString:@"warp_drive_71997p"]) {
+        if (![self.ship isFederation] || ![self.ship.shipClass isEqualToString:@"Type 7 Shuttlecraft"]) {
+            return NO;
+        }
+    }
+    
     if (ignoreInstalled) {
         return YES;
     }
@@ -996,6 +1002,12 @@
                 info = @"This upgrade can only be added to a Vulcan captain on a Vulcan ship.";
             } else if ([upgradeSpecial isEqualToString: @"PhaserStrike"] || [upgradeSpecial isEqualToString: @"OnlyHull3OrLess"]) {
                 info = @"This upgrade may only be purchased for a ship with a Hull value of 3 or less.";
+            } else if ([upgrade.externalId isEqualToString:@"warp_drive_71997p"]) {
+                if ([self.ship isFederation] && [self.ship.shipClass isEqualToString:@"Type 7 Shuttlecraft"]) {
+                    info = @"No ship may be equipped with more than one of these upgrades.";
+                } else {
+                    info = @"This upgrade may only be equipped by a Federation Shuttlecraft.";
+                }
             } else if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"]) {
                 info = @"No ship may be equipped with more than one of these upgrades.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyBattleshipOrCruiser"]) {

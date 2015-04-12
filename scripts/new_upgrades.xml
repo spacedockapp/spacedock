@@ -1,70 +1,38 @@
     <Upgrade>
-      <Title>Hikaru Sulu</Title>
-      <Ability>ACTION: Disable this card to acquire a target lock on an enemy ship within Range 1-3 and then perform an Action listed on your Action Bar as a free Action.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Title>Sirna Kolrami</Title>
+      <Ability>When defending, during the Compare Results step, if you cancel all of your opponent's [HIT] and [CRIT] results, you may discard this card and disable 1 of your other Upgrades to immediately roll a number of attack dice equal to the number of [HIT] or [CRIT] results that were cancelled (max 4 dice). The attacking ship suffers normal damage for every [HIT] or [CRIT] result you roll with these dice.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>4</Cost>
-      <Id>hikaru_sulu_71796</Id>
-      <Set>71796</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Pavel Chekov</Title>
-      <Ability>During the Activation Phase, you may discard this card and your Captain card to perform an Action listed on your Action Bar as a free Action. OR ACTION: If you performed a Green Maneuver this round, add +1 attack die when attacking with a secondary weapon this round.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Mirror Universe</Faction>
+      <Faction>Federation</Faction>
       <Cost>5</Cost>
-      <Id>pavel_chekov_71796</Id>
-      <Set>71796</Set>
+      <Id>sirna_kolrami_71997p</Id>
+      <Set>71997p</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Marlena Moreau</Title>
-      <Ability>One of your [ELITE TALENT] Upgrades costs -1 SP (min 0). ACTION: Add +3 to your Captain Skill until the End Phase. Your Captain cannot be affected by an enemy Upgrade this round.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>3</Cost>
-      <Id>marlena_moreau_71796</Id>
-      <Set>71796</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Tantalus Field</Title>
-      <Ability>ACTION: Disable this card to target a ship at Range 1. Discard 1 Captain or 1 [CREW] Upgrade on the target ship (your choice). Place an Auxiliary Power Token beside your ship. You cannot perform any free Actions on the round you perform this Action. This Upgrade may only be purchased for the I.S.S. Enterprise.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Title>Computer Analysis</Title>
+      <Ability>During the Planning Phase, you may discard this card to remove all the Disabled Upgrade Tokens from all of your other Upgrades.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>6</Cost>
-      <Id>tantalus_field_71796</Id>
-      <Set>71796</Set>
-      <Special>OnlyShip_I.S.S._Enterprise</Special>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>computer_analysis_71997p</Id>
+      <Set>71997p</Set>
+      <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Agony Booth</Title>
-      <Ability>During the Activation Phase, you may discard this card to use an Action listed on one of your [CREW] Upgrades as a free Action even if that Upgrade is disabled. No ship may be equipped with more than 1 "Agony Booth" Upgrade.</Ability>
+      <Title>Escape Transporter</Title>
+      <Ability>When your ship is destroyed, before removing it from the play area, you may discard this card to target a friendly ship at Range 1-2 that is not cloaked and disable all of that ship's remaining Shields. Select up to 3 other Upgrades that were deployed to this ship and redeploy them to the target ship, even if it exceeds that ship's restrictions. If any of the redeployed Upgrades were already disabled, they remain disabled. This Upgrade may only be purchased for a Federation Shuttlecraft.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -72,41 +40,25 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>3</Cost>
-      <Id>agony_booth_71796</Id>
-      <Set>71796</Set>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>escape_transporter_71997p</Id>
+      <Set>71997p</Set>
+      <Special>OnlyShipClass_Type_7_Shuttlecraft</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Warp Drive</Title>
+      <Ability>During the Activation Phase, if you reveal a 2 [STRAIGHT] Maneuver, you may disable this card to perform a white 3 [STRAIGHT] or a red 4 [STRAIGHT] Maneuver instead. This Upgrade may only be purchased for a Federation Shuttlecraft and no ship may be equipped with more than 1 "Warp Drive" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>warp_drive_71997p</Id>
+      <Set>71997p</Set>
       <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Phaser Barrage</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. During the Roll Attack Dice step, if you roll at least 2 [HIT] or [CRIT] results with this attack, roll 3 additional attack dice. Add all of the results from the additional dice to your total for this attack.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>3</Attack>
-      <Range>3</Range>
-      <Type>Weapon</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>5</Cost>
-      <Id>phaser_barrage_71796</Id>
-      <Set>71796</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 of your [BATTLESTATIONS] results into a [CRIT] result. You may fire this weapon from your forward or rear firing arcs.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>4</Attack>
-      <Range>2-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>3</Cost>
-      <Id>photon_torpedoes_71796</Id>
-      <Set>71796</Set>
-      <Special></Special>
     </Upgrade>
