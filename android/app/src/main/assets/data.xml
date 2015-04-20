@@ -1,4 +1,4 @@
-<Data version="2015-02-09@23-42">
+<Data version="2015-02-20@04-29">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -3209,7 +3209,7 @@
       <Weapon>2</Weapon>
       <Crew>0</Crew>
       <Id>tholia_one_opwebprize</Id>
-      <Set>OPWebPrize</Set>
+      <Set>OPWebPrize,71795</Set>
     </Ship>
     <Ship>
       <Title>Tholian Starship</Title>
@@ -3234,7 +3234,7 @@
       <Weapon>1</Weapon>
       <Crew>0</Crew>
       <Id>tholian_vessel_opwebprize</Id>
-      <Set>OPWebPrize</Set>
+      <Set>OPWebPrize,71795</Set>
     </Ship>
     <Ship>
       <Title>D'Kyr</Title>
@@ -4304,7 +4304,7 @@
       <Weapon>2</Weapon>
       <Crew>1</Crew>
       <Id>kazon_starship_71646c</Id>
-      <Set>71646c</Set>
+      <Set>71646c,71793</Set>
     </Ship>
     <Ship>
       <Title>Relora-Sankur</Title>
@@ -5500,6 +5500,93 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Id>i_k_s_pagh_71996</Id>
       <Set>71996</Set>
   </Ship>
+  <Ship>
+      <Title>Ogla-Razik</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Predator Class</ShipClass>
+      <Faction>Kazon</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>3</Shield>
+      <Ability>All friendly Kazon ships with a Hull value of 4 or less within Range 1-2 of this ship gain +1 defense die.</Ability>
+      <Cost>26</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>2</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>ogla_razik_71793</Id>
+      <Set>71793</Set>
+  </Ship>
+  <Ship>
+      <Title>I.R.W. Haakona</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>D'deridex Class</ShipClass>
+      <Faction>Romulan</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>6</Hull>
+      <Shield>4</Shield>
+      <Ability>When attacking with your Primary Weapon while cloaked, gain +1 attack die for every other Romulan Ship in your fleet (max +4).</Ability>
+      <Cost>30</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>2</Weapon>
+      <Crew>3</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>i_r_w_haakona_71794</Id>
+      <Set>71794</Set>
+  </Ship>
+  <Ship>
+      <Title>Romulan Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>D'deridex Class</ShipClass>
+      <Faction>Romulan</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>6</Hull>
+      <Shield>3</Shield>
+      <Ability></Ability>
+      <Cost>28</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>2</Weapon>
+      <Crew>2</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>romulan_starship_71794</Id>
+      <Set>71794</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -5617,7 +5704,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Romulan</Faction>
       <Cost>0</Cost>
       <Id>2007</Id>
-      <Set>71120,71123,71124,71270,71278,OP3Prize,i_r_w_vorta_vor,71533,71274</Set>
+      <Set>71120,71123,71124,71270,71278,OP3Prize,i_r_w_vorta_vor,71533,71274,71794</Set>
     </Captain>
     <Captain>
       <Title>Khan Singh</Title>
@@ -6521,7 +6608,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Kazon</Faction>
       <Cost>0</Cost>
       <Id>kazon_captain_71282</Id>
-      <Set>71282,71646c</Set>
+      <Set>71282,71646c,71793</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -6551,7 +6638,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Independent</Faction>
       <Cost>3</Cost>
       <Id>loskene_opwebprize</Id>
-      <Set>OPWebPrize</Set>
+      <Set>OPWebPrize,71795</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -6566,7 +6653,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Independent</Faction>
       <Cost>0</Cost>
       <Id>tholian_opwebprize</Id>
-      <Set>OPWebPrize</Set>
+      <Set>OPWebPrize,71795</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -7822,6 +7909,108 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Set>71996</Set>
       <Special></Special>
   </Captain>
+  <Captain>
+      <Title>Tholian Pilot</Title>
+      <Ability>ACTION: If you performed a Green Maneuver this round, repair 1 Shield Token.
+
+You may only use this Action if this card is equipped to a Tholian ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>2</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Independent</Faction>
+      <Cost>1</Cost>
+      <Id>tholian_pilot_71795</Id>
+      <Set>71795</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Razik</Title>
+      <Ability>Disable 1 of your [CREW] Upgrades to re-roll one of your attack or defense dice. OR Discard 1 of your [CREW] Upgrades to re-roll any number of your attack or defense dice.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Kazon</Faction>
+      <Cost>4</Cost>
+      <Id>razik_71793</Id>
+      <Set>71793</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Jabin</Title>
+      <Ability>When defending, your ship rolls +1 defense dice.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>5</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Kazon</Faction>
+      <Cost>3</Cost>
+      <Id>jabin_71793</Id>
+      <Set>71793</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Taris</Title>
+      <Ability>When attacking with your Primary Weapon, during the Declare Target step, you may discard one of your [CREW] Upgrades to target a ship that is not in your forward firing arc.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>5</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>taris_71794</Id>
+      <Set>71794</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Centurion</Title>
+      <Ability>When attacking, you may re-roll one of your [BATTLESTATIONS] results.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>2</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>1</Cost>
+      <Id>centurion_71794</Id>
+      <Set>71794</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Mendak</Title>
+      <Ability>ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLESTATIONS] Token(s) beside it and place a [BATTLESTATIONS] Token beside that ship. The target ship cannot perform a [BATTLESTATIONS] Action this round. This card may only be purchased for a Romulan ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>mendak_cap_71794</Id>
+      <Set>71794</Set>
+      <Special>OnlyRomulanShip</Special>
+      <AdmiralAbility>FLEET ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLESTATIONS] Token(s) beside it and place a [BATTLESTATIONS] Token beside that ship. The target ship cannot perform a [BATTLESTATIONS] Action this round. This card may only be purchased for a Romulan ship.</AdmiralAbility>
+      <AdmiralCost>4</AdmiralCost>
+      <AdmiralTalent>1</AdmiralTalent>
+      <SkillModifier>2</SkillModifier>
+  </Captain>
   </Captains>
   <Admirals>
     <Admiral>
@@ -7999,6 +8188,26 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
         <AdmiralCost>2</AdmiralCost>
         <AdmiralTalent>1</AdmiralTalent>
         <SkillModifier>0</SkillModifier>
+    </Admiral>
+    <Admiral>
+        <Title>Mendak</Title>
+        <Ability>ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLESTATIONS] Token(s) beside it and place a [BATTLESTATIONS] Token beside that ship. The target ship cannot perform a [BATTLESTATIONS] Action this round. This card may only be purchased for a Romulan ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill>6</Skill>
+        <Talent>1</Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Admiral</Type>
+        <Faction>Romulan</Faction>
+        <Cost>4</Cost>
+        <Id>mendak_71794</Id>
+        <Set>71794</Set>
+        <Special>OnlyRomulanShip</Special>
+        <AdmiralAbility>FLEET ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLESTATIONS] Token(s) beside it and place a [BATTLESTATIONS] Token beside that ship. The target ship cannot perform a [BATTLESTATIONS] Action this round. This card may only be purchased for a Romulan ship.</AdmiralAbility>
+        <AdmiralCost>4</AdmiralCost>
+        <AdmiralTalent>1</AdmiralTalent>
+        <SkillModifier>2</SkillModifier>
     </Admiral>
   </Admirals>
   <Upgrades>
@@ -8258,7 +8467,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Romulan</Faction>
       <Cost>5</Cost>
       <Id>3016</Id>
-      <Set>71120,71123,71511</Set>
+      <Set>71120,71123,71511,71794</Set>
     </Upgrade>
     <Upgrade>
       <Title>Artificial Quantum Singularity</Title>
@@ -10741,7 +10950,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Independent</Faction>
       <Cost>4</Cost>
       <Id>tholian_punctuality_opwebprize</Id>
-      <Set>OPWebPrize</Set>
+      <Set>OPWebPrize,71795</Set>
       <Special>OnlyTholianCaptain</Special>
     </Upgrade>
     <Upgrade>
@@ -10756,7 +10965,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Independent</Faction>
       <Cost>5</Cost>
       <Id>energy_web_opwebprize</Id>
-      <Set>OPWebPrize</Set>
+      <Set>OPWebPrize,71795</Set>
       <Special>OnlyTholianShip</Special>
     </Upgrade>
     <Upgrade>
@@ -10771,7 +10980,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Independent</Faction>
       <Cost>3</Cost>
       <Id>plasma_torpedoes_opwebprize</Id>
-      <Set>OPWebPrize</Set>
+      <Set>OPWebPrize,71795</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -12731,7 +12940,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Kazon</Faction>
       <Cost>2</Cost>
       <Id>tractor_beam_71646c</Id>
-      <Set>71646c</Set>
+      <Set>71646c,71793</Set>
       <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
@@ -12880,7 +13089,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       </Upgrade>
       <Upgrade>
         <Title>Photonic Charges</Title>
-        <Ability>ATTACK: Disable this card to perform this attack. Place an Auxiliarly Power Token beside the target ship if there is at least 1 uncancelled [HIT] or [CRIT] result.This Upgrade costs +4 SP if purchased for a non-Predator class ship.</Ability>
+        <Ability>ATTACK: Disable this card to perform this attack. Place an Auxiliarly Power Token beside the target ship if there is at least 1 uncancelled [HIT] or [CRIT] result. This Upgrade costs +4 SP if purchased for a non-Predator class ship.</Ability>
         <Unique>N</Unique>
         <MirrorUniverseUnique>N</MirrorUniverseUnique>
         <Skill></Skill>
@@ -12891,7 +13100,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
         <Faction>Kazon</Faction>
         <Cost>4</Cost>
         <Id>photonic_charges_71646c</Id>
-        <Set>71646c</Set>
+        <Set>71646c,71793</Set>
         <Special>PlusFourIfNotPredatorClass</Special>
       </Upgrade>
       <Upgrade>
@@ -14717,6 +14926,199 @@ If your Captain's Skill Number is ever below a "4" when you are attacking, durin
         <Set>71808</Set>
         <Special>addoneweaponslot</Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Tholian Assembly</Title>
+        <Ability>ACTION: Discard this card to target every Tholian ship within Range 3 of your ship. Each target ship may immediately perform an additional maneuver with a speed of 1.
+
+This Upgrade may only be purchased for Loskene or any other Tholian Captain on a Tholian ship.</Ability>
+        <Unique>Y</Unique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Independent</Faction>
+        <Cost>3</Cost>
+        <Id>tholian_assembly_71795</Id>
+        <Set>71795</Set>
+        <Special>OnlyTholianCaptain</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Karden</Title>
+        <Ability>ACTION: Disable this card to gain +2 attack dice and roll -2 defense dice this round. This Upgrade may only be purchased for a Kazon ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Kazon</Faction>
+        <Cost>3</Cost>
+        <Id>karden_71793</Id>
+        <Set>71793</Set>
+        <Special>OnlyKazonShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Haliz</Title>
+        <Ability>When defending, during the Declare Target step, you my remove your Captain Card from the game to cancel that attack. If you do this, the attacking ship cannot perform another attack during that round. This card then becomes your Captain Card with a skill of 3. This Upgrade may only be purchased for a Kazon ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Kazon</Faction>
+        <Cost>4</Cost>
+        <Id>haliz_71793</Id>
+        <Set>71793</Set>
+        <Special>OnlyKazonShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>First Maje</Title>
+        <Ability>This Upgrade does not require an Upgrade slot and may only be equipped to a Kazon ship with a Kazon Captain. While this Upgrade is equipped to your ship, you gain 1 additional [TECH] Upgrade slot to your Upgrade Bar and your Captain Skill increases by 2. During the Planning Phase, you may discard this card to target a ship at Range 1. Disable 1 [TECH] Upgrade on the target ship and then steal it, even if it exceeds your ship's restrictions.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Kazon</Faction>
+        <Cost>5</Cost>
+        <Id>first_maje_71793</Id>
+        <Set>71793</Set>
+        <Special>OnlyKazonShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Particle Beam Weapon</Title>
+        <Ability>ATTACK: Disable this card to perform this attack. You may fire this weapon from your forward or rear firing arcs.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>5</Attack>
+        <Range>1-2</Range>
+        <Type>Weapon</Type>
+        <Faction>Kazon</Faction>
+        <Cost>4</Cost>
+        <Id>particle_beam_weapon_71793</Id>
+        <Set>71793</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Romulan Helmsman</Title>
+        <Ability>During the Activation Phase, if you reveal a Red Maneuver, you may disable this card to treat that maneuver as if it were a White Maneuver. No ship may be equipped with more than one Romulan Helmsman.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Romulan</Faction>
+        <Cost>2</Cost>
+        <Id>romulan_helmsman_71794</Id>
+        <Set>71794</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Romulan Security Officer</Title>
+        <Ability>For each Romulan Security Officer equipped to your ship (including this one), your Captain's Skill is +1 (max +3). When defending, you may disable this card to re-roll one of your blank results.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Romulan</Faction>
+        <Cost>2</Cost>
+        <Id>romulan_security_officer_71794</Id>
+        <Set>71794</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Make Them See Us!</Title>
+        <Ability>While cloaked, during the Activation Phase, before revealing your dial you may discard this card to target a ship that you already have Target Locked. Remove your target lock from that ship. If you do t his and your ship's base or maneuver template overlaps the target ship's base during the Execute Maneuver step, inflict an amount of damage equal to the current speed on your maneuver dial to both ships (max 4). The ship whose Captain has the higher Skill Number rolls a number of defense dice against this damage equal to the difference in your Skill Numbers. This Upgrade may only be purchased for a Romulan Captain on a Romulan ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>make_them_see_us__71794</Id>
+        <Set>71794</Set>
+        <Special>OnlyRomulanCaptainShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Romulan Sub Lieutenant</Title>
+        <Ability>ACTION: Discard t his card to target a ship at Range 1-2. If the target ship has a Hull value of 6 or greater, that ship must disable 2 of its Active Shields, if possible. Otherwise, that ship must disable 1 of its Active Shields, if possible. This Upgrade may only be purchased for a Romulan ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Romulan</Faction>
+        <Cost>4</Cost>
+        <Id>romulan_sub_lieutenant_71794</Id>
+        <Set>71794</Set>
+        <Special>OnlyRomulanShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Tricobalt Warhead</Title>
+        <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. This Upgrade costs +5 SP for any non-Tholian ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>6</Attack>
+        <Range>3</Range>
+        <Type>Weapon</Type>
+        <Faction>Independent</Faction>
+        <Cost>4</Cost>
+        <Id>tricobalt_warhead_71795</Id>
+        <Set>71795</Set>
+        <Special>Plus5NotShipClass_Tholian_Vessel</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Disruptor Pulse</Title>
+        <Ability>ATTACK: Disable this card to perform this attack. During the Declare Target step, target every enemy ship that is in your forward firing arc and within range and perform a separate attack against each of the target ships with this attack. This Upgrade costs +5 SP for any non-Romulan ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>3</Attack>
+        <Range>1-2</Range>
+        <Type>Weapon</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>disruptor_pulse_71794</Id>
+        <Set>71794</Set>
+        <Special>PlusFiveIfNotRomulan</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Disruptor Beams</Title>
+        <Ability>ATTACK: Disable this card to perform this attack. For every damage the defending ship suffers from this attack, roll 1 attack die. If you roll at least one [HIT] or [CRIT] result, add +1 damage.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>5</Attack>
+        <Range>1-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>disruptor_beams_71794</Id>
+        <Set>71794</Set>
+        <Special></Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -15017,6 +15419,28 @@ While you have the High Yield Photon Torpedoes Resource, all of your Photon Torp
           <Id>officer_exchange_program_71996a</Id>
           <Set>71996a</Set>
       </Resource>
+      <Resource>
+          <Title>Master Strategist Tokens (MST)</Title>
+          <Unique>Y</Unique>
+          <Type>Resource</Type>
+          <Ability>At the start of the game, place the 6 MSTs beside your ship cards.  During the Activation Phase, instead of performing a  normal Action, any of the ships in your fleet may perform the following Action:
+    ACTION: Place 1 MST beside your ship.
+
+While a Master Strategist Token is beside your ship:
+
+1) Treat it as if it were an [EVASIVE MANEUVERS], a [SCAN], a [BATTLESTATIONS] or a [TARGET LOCK] Token.  You may use this Token as you would any of these Tokens (see pg. 10 of the Rules of Play).  Remove it from the game if it is spent.
+
+2) During the End Phase, place any unused MSTs back beside your ship cards to use again on a later round.
+
+3) When using an MST as a [TARGET LOCK] Token, you may only spend it to re-roll your attack dice (see pg 14).  This does not count as having acquired a target lock with regards to Secondary Weapons (see pg 20).
+
+4) Only one Upgrade Card on each ship can trigger its ability from this Token during the same round (see pg 22).
+
+5) On a round a ship uses this Action, that ship may still use an [EVASIVE MANEUVERS], [SCAN], [BATTLESTATIONS] or [TARGET LOCK] Action as a free Action, if possible.</Ability>
+          <Cost>10</Cost>
+          <Id>master_strategist_tokens_71997r</Id>
+          <Set>71997r</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -15131,11 +15555,15 @@ While you have the High Yield Photon Torpedoes Resource, all of your Photon Torp
       <Set id="71534" overallSetName="Wave 10" releaseDate="2014-12-03">Fina Prime</Set>
       <Set id="71754" overallSetName="Wave 10" releaseDate="2014-12-03">1st Wave Attack Fighters</Set>
       <Set id="71535" overallSetName="Wave 10" releaseDate="2014-12-03">Regent's Flagship</Set>
-      <Set id="71808" overallSetName="Wave 11" releaseDate="2015-01-07">Alpha Hunter</Set>
-      <Set id="71753" overallSetName="Wave 11" releaseDate="2015-01-07">Fighter Squadron 6</Set>
-      <Set id="71536" overallSetName="Wave 11" releaseDate="2015-01-07">Prototype 01</Set>
+      <Set id="71808" overallSetName="Wave 11" releaseDate="2015-01-28">Alpha Hunter</Set>
+      <Set id="71753" overallSetName="Wave 11" releaseDate="2015-01-28">Fighter Squadron 6</Set>
+      <Set id="71536" overallSetName="Wave 11" releaseDate="2015-01-28">Prototype 01</Set>
       <Set id="71996a" overallSetName="A Matter of Honor" releaseDate="2015-02-04">Officer Exchange Program Resource</Set>
       <Set id="71996" overallSetName="A Matter of Honor" releaseDate="2015-02-04">I.K.S. Pagh</Set>
+      <Set id="71795" overallSetName="Wave 12" releaseDate="2015-03-04">Tholia One</Set>
+      <Set id="71997r" overallSetName="Peak Performance" releaseDate="2015-03-04">Master Strategist Tokens Resource</Set>
+      <Set id="71793" overallSetName="Wave 12" releaseDate="2015-03-04">Ogla-Razik</Set>
+      <Set id="71794" overallSetName="Wave 12" releaseDate="2015-03-04">I.R.W. Haakona</Set>
     </Sets>
     <Flagships>
         <Flagship>
@@ -15713,7 +16141,7 @@ To place an EWT after performing an Energy Web Action, follow these steps:
 4) Move your ship so that the back edge of the ship's base touches and lines up with the edge of the new Guide Token. Then remove the first Guide Token.</Ability>
         <Type>Token</Type>
         <Id>energy_web_token_reference</Id>
-        <Set>OPWebPrize</Set>
+        <Set>OPWebPrize,71795</Set>
     </Reference>
     <Reference>
         <Title>Grapple Token</Title>

@@ -196,6 +196,10 @@ public class Ship extends ShipBase implements Factioned, Uniqueness {
         return DataUtils.targetHasFaction(Constants.BORG, this);
     }
 
+    public boolean isRomulan() {
+        return DataUtils.targetHasFaction(Constants.ROMULAN, this);
+    }
+
     public boolean isKazon() {
         return DataUtils.targetHasFaction(Constants.KAZON, this);
     }

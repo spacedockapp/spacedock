@@ -638,6 +638,11 @@ public class EquippedShip extends EquippedShipBase {
                 return new Explanation(msg, "This upgrade can only be added to Federation ships.");
             }
         }
+        if ("OnlyRomulanShip".equals(upgradeSpecial)){
+            if (!ship.isRomulan()) {
+                return new Explanation(msg, "This upgrade can only be added to Romulan ships.");
+            }
+        }
         if ("OnlyBattleshipOrCruiser".equals(upgradeSpecial)) {
             if (!ship.isBattleshipOrCruiser()) {
                 return new Explanation(msg, "This upgrade can only be purchased for a Jem'Hadar Battleship or Battle Cruiser.");
@@ -761,6 +766,13 @@ public class EquippedShip extends EquippedShipBase {
                 if (captain.isBorgFaction() || ship.isBorg()) {
                     return new Explanation(msg,
                             "This upgrade cannot be added to a Borg captain or Borg Ship.");
+                }
+            }
+
+            if ("OnlyRomulanCaptainShip".equals(upgradeSpecial)) {
+                if (!captain.isRomulan() || !ship.isRomulan()){
+                    return new Explanation(msg,
+                            "This upgrade can only be added to a Romulan captain on a Romulan Ship.");
                 }
             }
         }
