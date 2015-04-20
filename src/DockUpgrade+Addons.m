@@ -669,6 +669,10 @@ static NSDictionary* sItemLabels = nil;
         if (![ship isRomulan]) {
             cost += 5;
         }
+    } else if ([upgradeSpecial isEqualToString:@"PlusFourIfNotGornRaider"]) {
+        if (![ship.shipClass isEqualToString:@"Gorn Raider"]) {
+            cost += 4;
+        }
     } else if ([upgradeSpecial hasPrefix:@"Plus5NotShipClass_"]) {
         NSString* shipClass = [ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
         if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus5NotShipClass_%@",shipClass]]) {
@@ -871,7 +875,7 @@ static NSDictionary* sItemLabels = nil;
 
 -(int)additionalTalentSlots
 {
-    if ([self.special isEqualToString: @"addonetalentslot"]) {
+    if ([self.special isEqualToString: @"addonetalentslot"] || [self.externalId isEqualToString:@"william_t_riker_71996"]) {
         return 1;
     }
     return 0;

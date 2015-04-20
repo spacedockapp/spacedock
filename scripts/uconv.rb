@@ -6,27 +6,20 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-2/18/2015 17:22:06	71794 - I.R.W. Haakona	Non-unique	Romulan Helmsman	Romulan	During the Activation Phase, if you reveal a Red Maneuver, you may disable this card to treat that maneuver as if it were a White Maneuver.  No ship may be equipped with more than one Romulan Helmsman.	Crew	2	Yes
-2/18/2015 17:26:39	71794 - I.R.W. Haakona	Non-unique	Romulan Security Officer	Romulan	For each Romulan Security Officer equipped to your ship (including this one), your Captain's Skill is +1 (max +3).  When defending, you may disable this card to re-roll one of your blank results.	Crew	2	
-2/18/2015 17:31:52	71794 - I.R.W. Haakona	Unique	Make Them See Us!	Romulan	While cloaked, during the Activation Phase, before revealing your dial you may discard this card to target a ship that you already have Target Locked.  Remove your target lock from that ship.  If you do t his and your ship's base or maneuver template overlaps the target ship's base during the Execute Maneuver step, inflict an amount of damage equal to the current speed on your maneuver dial to both ships (max 4).  The ship whose Captain has the higher Skill Number rolls a number of defense dice against this damage equal to the difference in your Skill Numbers.  This  Upgrade may only be purchased for a Romulan Captain on a Romulan ship.	Talent	5	Yes
-2/18/2015 17:35:01	71794 - I.R.W. Haakona	Non-unique	Romulan Sub Lieutenant	Romulan	ACTION: Discard t his card to target a ship at Range 1-2.  If the target ship has a Hull value of 6 or greater, that ship must disable 2 of its Active Shields, if possible.  Otherwise, that ship must disable 1 of its Active Shields, if possible.  This Upgrade may only be purchased for a Romulan ship.	Crew	4	Yes
+4/2/2015 1:59:49	71997p - Sakharov	Unique	Sirna Kolrami	Federation	When defending, during the Compare Results step, if you cancel all of your opponent's [HIT] and [CRIT] results, you may discard this card and disable 1 of your other Upgrades to immediately roll a number of attack dice equal to the number of [HIT] or [CRIT] results that were cancelled (max 4 dice).  The attacking ship suffers normal damage for every [HIT] or [CRIT] result you roll with these dice.	Crew	5	
+4/2/2015 2:20:51	71997p - Sakharov	Unique	Computer Analysis	Federation	During the Planning Phase, you may discard this card to remove all the Disabled Upgrade Tokens from all of your other Upgrades.	Talent	4	
+4/2/2015 2:23:38	71997p - Sakharov	Non-unique	Escape Transporter	Federation	When your ship is destroyed, before removing it from the play area, you may discard this card to target a friendly ship at Range 1-2 that is not cloaked and disable all of that ship's remaining Shields.  Select up to 3 other Upgrades that were deployed to this ship and redeploy them to the target ship, even if it exceeds that ship's restrictions.  If any of the redeployed Upgrades were already disabled, they remain disabled.  This Upgrade may only be purchased for a Federation Shuttlecraft.	Tech	2	OnlyShipClass_Type_7_Shuttlecraft
+4/2/2015 2:25:12	71997p - Sakharov	Non-unique	Warp Drive	Federation	During the Activation Phase, if you reveal a 2 [FORWARD] Maneuver, you may disable this card to perform a white 3 [FORWARD] or a red 4 [FORWARD] Maneuver instead.  This Upgrade may only be purchased for a Federation Shuttlecraft and no ship may be equipped with more than 1 "Warp Drive" Upgrade.	Tech	2	NoMoreThanOnePerShip
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-2/18/2015 17:20:41	71794 - I.R.W. Haakona	Unique	Taris	5	Romulan	When attacking with your Primary Weapon, during the Declare Target step, you may discard one of your [CREW] Upgrades to target a ship that is not in your forward firing arc.	1	4		
-2/18/2015 17:21:01	71794 - I.R.W. Haakona	Non-unique	Romulan	1	Romulan		0	0		
-2/18/2015 17:35:53	71794 - I.R.W. Haakona	Unique	Centurion	2	Romulan	When attacking, you may re-roll one of your [BATTLE STATIONS] results.	0	1		
+4/2/2015 2:19:49	71997p - Sakharov	Unique	Data	3	Federation	At the start of the game, place 1 [EVASIVE MANEUVERS], 1 [SCAN], and 1 [BATTLE STATIONS] Token on this card.  During the Activation Phase, you may take 1 of these Tokens off this card and place it beside your ship, even if there is already one there.	1	2		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-2/18/2015 17:23:40	71795 - Tholia One	Non-unique	Tricobalt Warhead	Independent	6	3	ATTACK: (Target Lock) Spend your target lock and disable this card to perform this attack.  This Upgrade costs +5 SP for any non-Tholian ship.	4	Yes
-2/18/2015 17:25:00	71794 - I.R.W. Haakona	Non-unique	Disruptor Pulse	Romulan	3	1-2	ATTACK: Disable this card to perform this attack.  During the Declare Target step, target every enemy ship that is in your forward firing arc and within range and perform a separate attack against each of the target ships with this attack.  This Upgrade costs +5 SP for any non-Romulan ship.	5	Yes
-2/18/2015 17:37:24	71794 - I.R.W. Haakona	Non-unique	Disruptor Beams	Romulan	5	1-3	ATTACK: Disable this card to perform this attack.  For every damage the defending ship suffers from this attack, roll 1 attack die.  If you roll at least one [HIT] or [CRIT] result, add +1 damage.	5	
-2/18/2015 17:38:35	71794 - I.R.W. Haakona	Non-unique	Plasma Torpedoes	Romulan	5	1-2	ATTACK: (Target Lock) Spend your target lock and disable this card to perform this attack.  You may re-roll all of your blank results one time.  You may fire this weapon from your forward or rear firing arcs.	5	
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT
-2/18/2015 17:29:00	71794 - I.R.W. Haakona	Unique	Mendak	Romulan	FLEET ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLE STATIONS] Token(s) beside it and place a [BATTLE STATIONS] Token beside that ship.  The target ship cannot perform a [BATTLE STATIONS] Action this round.  This card may only be purchased for a Romulan ship.	2	1	4	6	ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLE STATIONS] Token(s) beside it and place a [BATTLE STATIONS] Token beside that ship.  The target ship cannot perform a [BATTLE STATIONS] Action this round.  This card may only be purchased for a Romulan ship.	1	4	Yes
 ADMIRALSTEXT
 
 officers_text = <<-OFFICERSTEXT

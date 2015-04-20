@@ -1,15 +1,28 @@
   <ShipClassDetail>
-    <Name>D'deridex Class</Name>
-    <Id>d_deridex_class</Id>
+    <Name>Type 7 Shuttlecraft</Name>
+    <Id>type_7_shuttlecraft</Id>
     <Maneuvers>
-
+      <Maneuver speed="2" kind="left-turn" color="white" />
+      <Maneuver speed="2" kind="left-come" color="white" />
+      <Maneuver speed="2" kind="left-bank" color="green" />
+      <Maneuver speed="2" kind="straight" color="green" />
+      <Maneuver speed="2" kind="right-bank" color="green" />
+      <Maneuver speed="2" kind="right-come" color="white" />
+      <Maneuver speed="2" kind="right-turn" color="white" />
+      <Maneuver speed="1" kind="left-turn" color="white" />
+      <Maneuver speed="1" kind="left-come" color="white" />
+      <Maneuver speed="1" kind="left-bank" color="green" />
+      <Maneuver speed="1" kind="straight" color="green" />
+      <Maneuver speed="1" kind="right-come" color="white" />
+      <Maneuver speed="1" kind="right-bank" color="green" />
+      <Maneuver speed="1" kind="right-turn" color="white" />
     </Maneuvers>
     <FrontArc>90</FrontArc>
     <RearArc></RearArc>
   </ShipClassDetail>
   <ShipClassDetail>
-    <Name>D'deridex Class</Name>
-    <Id>d_deridex_class</Id>
+    <Name>Type 7 Shuttlecraft</Name>
+    <Id>type_7_shuttlecraft</Id>
     <Maneuvers>
 
     </Maneuvers>

@@ -578,13 +578,17 @@ static NSString* makeKey(NSString* key)
         @"OnlyRomulanShip",
         @"OnlyRomulanCaptain",
         @"OnlyRomulanCaptainShip",
-        @"PlusFiveIfNotRomulan"
+        @"PlusFiveIfNotRomulan",
+        @"PlusFourIfNotGornRaider",
+        @"OnlyDominionShip",
+        @"OnlyDominionHV4"
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'OnlyShipClass_'"]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus5NotShipClass_'"]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus5NotShip_'"]];
+    [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'OnlyShip_'"]];
     return unhandledSpecials;
 }
 

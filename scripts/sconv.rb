@@ -44,8 +44,8 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-2/18/2015 17:33:28	71794 - I.R.W. Haakona	Unique	I.R.W. Haakona	Romulan	D'deridex Class	D'deridex Class				3	2	6	4	When attacking with your Primary Weapon while cloaked, gain +1 attack die for every other Romulan Ship in your fleet (max +4).	Cloak, Evasive, Sensor Echo, Target Lock	30	0	3	0	2	90-degree forward		0
-2/19/2015 17:02:16	71794 - I.R.W. Haakona	Non-unique	Romulan Starship	Romulan	D'deridex Class	D'deridex Class				3	2	6	3		Cloak, Evasive, Sensor Echo, Target Lock	28	0	2	0	2	90-degree forward		0
+4/2/2015 2:04:37	71997 - Sakharov	Non-unique	Federation Starship	Federation	Type 7 Shuttlecraft		1 Bank, 1 Forward, 2 Bank, 2 Forward	1 Turn, 2 Turn, 1 Come About, 2 Come About		1	2	2	1		Evasive, Scan	12	0	1	0	0	90-degree forward		0
+4/2/2015 2:06:12	71997 - Sakharov	Unique	Sakharov	Federation	Type 7 Shuttlecraft	Type 7 Shuttlecraft				1	2	2	2	At the start of the game, during the Gather Forces Step, you may purchase 1 additional [CREW] or [TECH] Upgrade for this ship.  This Upgrade may exceed the ship's restrictions and cost -2 SP (min 0).	Evasive, Scan	14	0	1	1	0	90-degree forward		0
 SHIPTEXT
 
 

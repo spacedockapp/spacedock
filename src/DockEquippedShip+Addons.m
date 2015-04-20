@@ -514,6 +514,55 @@
             //return NO;
         }
     }
+    
+    if ([upgrade.externalId isEqualToString:@"first_maje_71793"]) {
+        if (![captain isKazon]) {
+            return NO;
+        }
+    } else if (![upgrade isPlaceholder] && [upgrade isTalent] && [captain isKazon] && [self.ship isKazon]) {
+        if (self.talentCount == 1) {
+            return NO;
+        } else {
+            int talents = self.talentCount;
+            for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+                if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                    talents --;
+                }
+            }
+            if (talents == 1 && ![upgrade.externalId isEqualToString:@"first_maje_71793"]) {
+                if ([self containsUpgradeWithId:@"first_maje_71793"] == nil && validating) {
+                    return NO;
+                }
+            } else if (talents < 1 && ![upgrade.externalId isEqualToString:@"first_maje_71793"]) {
+                return NO;
+            }
+        }
+    }
+    
+    if (![upgrade isPlaceholder] && [upgrade isTalent] && [self.captain.externalId isEqualToString:@"slar_71797"]) {
+        if (self.talentCount == 1) {
+            if (![upgrade.externalId isEqualToString:@"salvage_71797"]) {
+                return NO;
+            }
+        } else {
+            int talents = self.talentCount;
+            for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+                if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                    if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                        talents --;
+                    }
+                }
+            }
+            if (talents == 1 && ![upgrade.externalId isEqualToString:@"salvage_71797"]) {
+                if ([self containsUpgradeWithId:@"salvage_71797"] == nil && validating) {
+                    return NO;
+                }
+            } else if (talents < 1 && ![upgrade.externalId isEqualToString:@"salvage_71797"]) {
+                return NO;
+            }
+        }
+    }
+    
     if (!upgrade.isPlaceholder && [upgrade isTech] && [self.captain.externalId isEqualToString:@"tahna_los_op6prize"]) {
         int tech = self.techCount;
         
@@ -760,6 +809,20 @@
         }
     }
 
+    if ([upgradeSpecial isEqualToString:@"OnlyDominionShip"]) {
+        if (![self.ship isDominion]) {
+            return NO;
+        }
+    }
+    
+    if ([upgradeSpecial isEqualToString:@"OnlyDominionHV4"]) {
+        if (![self.ship isDominion]) {
+            return NO;
+        }
+        if ([self.ship.hull intValue] < 4) {
+            return NO;
+        }
+    }
     
     if (validating) {
         if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
@@ -774,6 +837,13 @@
         NSString* legalShipClass = upgrade.targetShipClass;
 
         if (![legalShipClass isEqualToString: self.ship.shipClass]) {
+            return NO;
+        }
+    }
+    
+    if ([upgradeSpecial hasPrefix:@"OnlyShip_"]) {
+        NSString* shipTitle = [self.ship.title stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"OnlyShip_%@",shipTitle]]) {
             return NO;
         }
     }
@@ -855,12 +925,8 @@
         return limit > 0;
     }
     
-    if ([upgrade.externalId isEqualToString:@"first_maje_71793"]) {
-        if (![captain isKazon]) {
-            return NO;
-        }
-    } else if (![upgrade isPlaceholder] && [upgrade isTalent] && [captain isKazon] && [self.ship isKazon]) {
-        if (self.talentCount == 1) {
+    if ([upgrade.externalId isEqualToString:@"warp_drive_71997p"]) {
+        if (![self.ship isFederation] || ![self.ship.shipClass isEqualToString:@"Type 7 Shuttlecraft"]) {
             return NO;
         }
     }
@@ -936,6 +1002,12 @@
                 info = @"This upgrade can only be added to a Vulcan captain on a Vulcan ship.";
             } else if ([upgradeSpecial isEqualToString: @"PhaserStrike"] || [upgradeSpecial isEqualToString: @"OnlyHull3OrLess"]) {
                 info = @"This upgrade may only be purchased for a ship with a Hull value of 3 or less.";
+            } else if ([upgrade.externalId isEqualToString:@"warp_drive_71997p"]) {
+                if ([self.ship isFederation] && [self.ship.shipClass isEqualToString:@"Type 7 Shuttlecraft"]) {
+                    info = @"No ship may be equipped with more than one of these upgrades.";
+                } else {
+                    info = @"This upgrade may only be equipped by a Federation Shuttlecraft.";
+                }
             } else if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"]) {
                 info = @"No ship may be equipped with more than one of these upgrades.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyBattleshipOrCruiser"]) {
@@ -1410,6 +1482,9 @@
         }
     }
     if ([self.captain isKazon] && [self.ship isKazon]) {
+        talentCount ++;
+    }
+    if ([self.captain.externalId isEqualToString:@"slar_71797"]) {
         talentCount ++;
     }
     return talentCount;

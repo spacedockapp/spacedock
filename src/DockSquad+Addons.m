@@ -616,7 +616,17 @@ static NSString* toDataFormat(NSString* label, id element)
         return YES;
     };
     if (compare(shipA.externalId,shipB.externalId) && compare(shipB.externalId,shipA.externalId)) {
-        return YES;
+        if ([shipA.title isEqualToString:shipB.title]) {
+            if (shipA.isUnique && shipB.isUnique) {
+                return NO;
+            } else if (shipA.isMirrorUniverseUnique && shipB.isMirrorUniverseUnique) {
+                return NO;
+            } else {
+                return YES;
+            }
+        } else {
+            return YES;
+        }
     } else {
         return NO;
     }

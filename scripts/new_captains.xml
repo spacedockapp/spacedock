@@ -1,52 +1,16 @@
   <Captain>
-    <Title>Taris</Title>
-    <Ability>When attacking with your Primary Weapon, during the Declare Target step, you may discard one of your [CREW] Upgrades to target a ship that is not in your forward firing arc.</Ability>
+    <Title>Data</Title>
+    <Ability>At the start of the game, place 1 [EVASIVE MANEUVERS], 1 [SCAN], and 1 [BATTLESTATIONS] Token on this card. During the Activation Phase, you may take 1 of these Tokens off this card and place it beside your ship, even if there is already one there.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>5</Skill>
+    <Skill>3</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Romulan</Faction>
-    <Cost>4</Cost>
-    <Id>taris_71794</Id>
-    <Set>71794</Set>
+    <Faction>Federation</Faction>
+    <Cost>2</Cost>
+    <Id>data_71997p</Id>
+    <Set>71997p</Set>
     <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Centurion</Title>
-    <Ability>When attacking, you may re-roll one of your [BATTLESTATIONS] results.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>2</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Romulan</Faction>
-    <Cost>1</Cost>
-    <Id>centurion_71794</Id>
-    <Set>71794</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Mendak</Title>
-    <Ability>ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLESTATIONS] Token(s) beside it and place a [BATTLESTATIONS] Token beside that ship. The target ship cannot perform a [BATTLESTATIONS] Action this round. This card may only be purchased for a Romulan ship.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>6</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Romulan</Faction>
-    <Cost>4</Cost>
-    <Id>mendak_cap_71794</Id>
-    <Set>71794</Set>
-    <Special>OnlyRomulanShip</Special>
-    <AdmiralAbility>FLEET ACTION: Target a friendly ship at Range 1-2 (including your own) that has no [BATTLESTATIONS] Token(s) beside it and place a [BATTLESTATIONS] Token beside that ship. The target ship cannot perform a [BATTLESTATIONS] Action this round. This card may only be purchased for a Romulan ship.</AdmiralAbility>
-    <AdmiralCost>4</AdmiralCost>
-    <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>2</SkillModifier>
   </Captain>
