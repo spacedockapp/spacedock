@@ -1,6 +1,15 @@
 
 package com.funnyhatsoftware.spacedock.data;
 
+import android.text.TextUtils;
+import android.util.Log;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.DefaultHandler;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -15,15 +24,6 @@ import java.util.TreeSet;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-
-import org.xml.sax.Attributes;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-import org.xml.sax.XMLReader;
-import org.xml.sax.helpers.DefaultHandler;
-
-import android.text.TextUtils;
-import android.util.Log;
 
 public class DataLoader extends DefaultHandler {
     Universe universe;
@@ -439,7 +439,11 @@ public class DataLoader extends DefaultHandler {
                 "PlusFiveIfNotRegentsFlagship",
                 "AddHiddenWeapon",
                 "NoPenaltyOnKlingonShip",
-                "PlusFivePointsNonHirogen"
+                "PlusFivePointsNonHirogen",
+                "OnlyRomulanCaptainShip",
+                "OnlyRomulanShip",
+                "PlusFiveIfNotRomulan",
+                "OnlyDominionHV4"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);
@@ -459,6 +463,8 @@ public class DataLoader extends DefaultHandler {
         }
         if (unhandledSpecials.size() > 0) {
             Log.e("spacedock", "Unhandled specials: " + TextUtils.join(",", unhandledSpecials));
+        } else {
+            Log.e("spacedock", "All specials handled");
         }
 
     }

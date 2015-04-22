@@ -171,6 +171,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         return DataUtils.targetHasFaction(Constants.BORG, this);
     }
 
+    public boolean isRomulan() {
+        return DataUtils.targetHasFaction(Constants.ROMULAN, this);
+    }
+
     public boolean isVulcan() {
         return DataUtils.targetHasFaction(Constants.VULCAN, this);
     }
@@ -369,6 +373,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             }
         } else if (upgradeSpecial.equals("PlusFiveIfNotBorgShip")) {
             if (!ship.isBorg()) {
+                cost += 5;
+            }
+        } else if ("PlusFiveIfNotRomulan".equals(upgradeSpecial)) {
+            if (!ship.isRomulan()) {
                 cost += 5;
             }
         } else if (upgradeSpecial.equals("PlusFiveIfNotRaven")) {

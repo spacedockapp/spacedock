@@ -25,4 +25,5 @@ public class Constants {
     public static final String ALL_SQUADS_EXPORT_NAME = "all_squds.spacedocksquads";
     public static final String TACTICAL_CUBE_138 = "tactical_cube_138_71444";
     public static final String BORG_ABLATIVE_ARMOR = "borg_ablative_hull_armor_71283";
+    public static final String ROMULAN = "Romulan";
 }
