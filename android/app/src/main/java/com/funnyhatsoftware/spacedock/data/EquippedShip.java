@@ -704,6 +704,14 @@ public class EquippedShip extends EquippedShipBase {
                 return new Explanation(msg, "This upgrade can only be added to ship with a hull of 4 or greater.");
             }
         }
+        if ("OnlyDominionHV4".equals(upgradeSpecial)) {
+            if (!ship.isDominion()) {
+                return new Explanation(msg, "This upgrade can only be added to a federation ship.");
+            }
+            if (4 > ship.getHull()) {
+                return new Explanation(msg, "This upgrade can only be added to ship with a hull of 4 or greater.");
+            }
+        }
         Captain captain = getCaptain();
         if (null != captain) {
             if (!"lore_71522".equals(captain.getSpecial()) || !upgrade.isTalent()) {

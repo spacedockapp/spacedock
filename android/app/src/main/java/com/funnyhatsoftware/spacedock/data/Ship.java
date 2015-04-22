@@ -184,6 +184,10 @@ public class Ship extends ShipBase implements Factioned, Uniqueness {
         return DataUtils.targetHasFaction(Constants.FEDERATION, this);
     }
 
+    public boolean isDominion() {
+        return DataUtils.targetHasFaction(Constants.DOMINION, this);
+    }
+
     public boolean isBajoran() {
         return DataUtils.targetHasFaction(Constants.BAJORAN, this);
     }

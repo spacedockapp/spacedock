@@ -442,7 +442,8 @@ public class DataLoader extends DefaultHandler {
                 "PlusFivePointsNonHirogen",
                 "OnlyRomulanCaptainShip",
                 "OnlyRomulanShip",
-                "PlusFiveIfNotRomulan"
+                "PlusFiveIfNotRomulan",
+                "OnlyDominionHV4"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);
