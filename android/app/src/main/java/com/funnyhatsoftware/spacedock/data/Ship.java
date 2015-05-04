@@ -228,6 +228,14 @@ public class Ship extends ShipBase implements Factioned, Uniqueness {
         return mTitle.equals("U.S.S. Voyager");
     }
 
+    public boolean isISSEnterprise() {
+        return mTitle.equals("I.S.S. Enterprise");
+    }
+
+    public boolean isGornRaider() {
+        return "Gorn Raider".equals(mShipClass);
+    }
+
     public boolean isHullThreeOrLess() {
         return 3 >= this.getHull();
     }
