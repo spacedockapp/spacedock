@@ -443,7 +443,10 @@ public class DataLoader extends DefaultHandler {
                 "OnlyRomulanCaptainShip",
                 "OnlyRomulanShip",
                 "PlusFiveIfNotRomulan",
-                "OnlyDominionHV4"
+                "OnlyDominionHV4",
+                "OnlyDominionShip",
+                "OnlyShip_I.S.S._Enterprise",
+                "PlusFourIfNotGornRaider"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);

@@ -350,20 +350,24 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if (!ship.isJemhadar()) {
                 cost += 5;
             }
+        } else if ("PlusFourIfNotGornRaider".equals(upgradeSpecial)) {
+            if (!ship.isGornRaider()) {
+                cost += 4;
+            }
         } else if (upgradeSpecial.equals("PlusFiveIfNotRemanWarbird")) {
             if (!ship.isRemanWarbird()) {
                 cost += 5;
             }
         } else if (upgradeSpecial.equals("PenaltyOnShipOtherThanKeldonClass")) {
-            if (!ship.isKeldon()) {
+                if (!ship.isKeldon()) {
                 cost += 5;
             }
         } else if (upgradeSpecial.equals("PlusFiveOnNonSpecies8472")) {
-            if (!ship.isSpecies8472()) {
+                if (!ship.isSpecies8472()) {
                 cost += 5;
             }
         } else if (upgradeSpecial.equals("PlusFiveForNonKazon")) {
-            if (!ship.isKazon()) {
+                if (!ship.isKazon()) {
                 cost += 5;
             }
         } else if (upgradeSpecial.equals("CostPlusFiveExceptBajoranInterceptor")
@@ -372,15 +376,15 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 cost += 5;
             }
         } else if (upgradeSpecial.equals("PlusFiveIfNotBorgShip")) {
-            if (!ship.isBorg()) {
+                if (!ship.isBorg()) {
                 cost += 5;
             }
         } else if ("PlusFiveIfNotRomulan".equals(upgradeSpecial)) {
-            if (!ship.isRomulan()) {
+                if (!ship.isRomulan()) {
                 cost += 5;
             }
         } else if (upgradeSpecial.equals("PlusFiveIfNotRaven")) {
-            if (!ship.isRaven()) {
+                if (!ship.isRaven()) {
                 cost += 5;
             }
         } else if (upgradeSpecial.equals("PlusFiveIfNotMirrorUniverse")) {

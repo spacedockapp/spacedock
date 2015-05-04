@@ -598,6 +598,12 @@ public class EquippedShip extends EquippedShipBase {
                         "This upgrade can only be added to the U.S.S Voyager.");
             }
         }
+        if ("OnlyShip_I.S.S._Enterprise".equals(upgradeSpecial)) {
+            if (!ship.isISSEnterprise()) {
+                return new Explanation(msg,
+                        "This upgrade can only be added to the I.S.S Enterprise.");
+            }
+        }
         if (upgradeSpecial.equals("OnlyKlingonBirdOfPrey")) {
             if (!ship.isKlingonBoP()) {
                 return new Explanation(msg,
@@ -641,6 +647,11 @@ public class EquippedShip extends EquippedShipBase {
         if ("OnlyRomulanShip".equals(upgradeSpecial)){
             if (!ship.isRomulan()) {
                 return new Explanation(msg, "This upgrade can only be added to Romulan ships.");
+            }
+        }
+        if ("OnlyDominionShip".equals(upgradeSpecial)) {
+            if (!ship.isDominion()) {
+                return new Explanation(msg, "This upgrade can only be added to Dominion ships.");
             }
         }
         if ("OnlyBattleshipOrCruiser".equals(upgradeSpecial)) {
