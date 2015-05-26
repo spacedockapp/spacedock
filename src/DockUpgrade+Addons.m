@@ -900,6 +900,18 @@ static NSDictionary* sItemLabels = nil;
     if ([self.special isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
         return 1;
     }
+    if ([self.special isEqualToString:@"assault_vessel_upgrade_c_71803"] || [self.special isEqualToString:@"assault_vessel_upgrade_t_71803"] || [self.special isEqualToString:@"assault_vessel_upgrade_w_71803"] ) {
+        return 1;
+    }
+    return 0;
+}
+
+-(int)additionalSheild
+{
+    if ([self.special isEqualToString:@"assault_vessel_upgrade_c_71803"] || [self.special isEqualToString:@"assault_vessel_upgrade_t_71803"] || [self.special isEqualToString:@"assault_vessel_upgrade_w_71803"] ) {
+        return 1;
+    }
+
     return 0;
 }
 

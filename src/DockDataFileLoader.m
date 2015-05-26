@@ -590,6 +590,7 @@ static NSString* makeKey(NSString* key)
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus5NotShipClass_'"]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus5NotShip_'"]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'OnlyShip_'"]];
+    [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'NoMoreThanOnePerShip'"]];
     return unhandledSpecials;
 }
 

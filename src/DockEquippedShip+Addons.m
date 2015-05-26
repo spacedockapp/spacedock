@@ -208,7 +208,12 @@
 
 -(int)shield
 {
-    return [self.ship.shield intValue] + [self.flagship shieldAdd];
+    int shield = [self.ship.shield intValue] + [self.flagship shieldAdd];
+    for (DockEquippedUpgrade* eu in self.upgrades) {
+        DockUpgrade* upgrade = eu.upgrade;
+        shield += [upgrade additionalShield];
+    }
+    return shield;
 }
 
 -(NSString*)attackString
@@ -676,6 +681,12 @@
             return NO;
         }
     }
+    
+    if ([upgradeSpecial isEqualToString: @"OnlyBajoran"] || [upgradeSpecial isEqualToString: @"NoMoreThanOnePerShipBajoran"]) {
+        if (![self.ship isBajoran]) {
+            return NO;
+        }
+    }
 
     if ([upgradeSpecial isEqualToString: @"OnlyDominionCaptain"]) {
         if (![self.captain isDominion]) {
@@ -719,7 +730,7 @@
         }
     }
 
-    if ([upgradeSpecial isEqualToString: @"OnlyFederationShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"]) {
+    if ([upgradeSpecial isEqualToString: @"OnlyFederationShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString:@"ony_federation_ship_limited3"] || [upgradeSpecial isEqualToString:@"NoMoreThanOnePerShipFederation"]) {
         if (![self.ship isFederation]) {
             return NO;
         }
@@ -826,6 +837,11 @@
             return NO;
         }
     }
+    if ([upgradeSpecial isEqualToString:@"ony_federation_ship_limited3"]) {
+        if ([self.ship.hull intValue] > 3) {
+            return NO;
+        }
+    }
     if ([upgradeSpecial isEqualToString:@"OnlyDominionHV4"]) {
         if (![self.ship isDominion]) {
             return NO;
@@ -836,7 +852,7 @@
     }
     
     if (validating) {
-        if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"]) {
+        if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"]) {
             DockEquippedUpgrade* existing = [self containsUpgradeWithId: upgrade.externalId];
             if (existing != nil) {
                 return NO;
@@ -938,6 +954,12 @@
     
     if ([upgrade.externalId isEqualToString:@"warp_drive_71997p"]) {
         if (![self.ship isFederation] || ![self.ship.shipClass isEqualToString:@"Type 7 Shuttlecraft"]) {
+            return NO;
+        }
+    }
+    
+    if ([upgrade.externalId isEqualToString:@"causality_paradox_71799"]) {
+        if (![self.captain.externalId isEqualToString:@"annorax_71799"] && ![self.captain.externalId isEqualToString:@"obrist_71799"] && ![self.captain.externalId isEqualToString:@"krenim_71799"]) {
             return NO;
         }
     }

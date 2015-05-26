@@ -1,16 +1,45 @@
   <Ship>
-    <Title>I.S.S. Avenger</Title>
+    <Title>Kyana Prime</Title>
     <Unique>N</Unique>
     <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-    <ShipClass>Terran NX Class</ShipClass>
-    <Faction>Mirror Universe</Faction>
+    <ShipClass>Krenim Weapon Ship</ShipClass>
+    <Faction>Independent</Faction>
+    <AdditionalFaction>Mirror Universe</AdditionalFaction>
+    <Attack>4</Attack>
+    <Agility>1</Agility>
+    <Hull>6</Hull>
+    <Shield>4</Shield>
+    <Ability>ACTION: Roll 3 defense dice.  For every [EVADE] result, place 1 [EVADE] Token beside your ship.</Ability>
+    <Cost>30</Cost>
+    <EvasiveManeuvers>0</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>1</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>2</Tech>
+    <Weapon>2</Weapon>
+    <Crew>0</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>kyana_prime_71799</Id>
+    <Set>71799</Set>
+  </Ship>
+  <Ship>
+    <Title>U.S.S. Hood</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Excelsior Class</ShipClass>
+    <Faction>Federation</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>2</Attack>
-    <Agility>3</Agility>
-    <Hull>3</Hull>
-    <Shield>0</Shield>
-    <Ability>During the Roll Attack Dice step, if there is an Auxiliary Power Token beside your ship, gain +2 attack dice when attacking with your Primary Weapon.</Ability>
-    <Cost>16</Cost>
+    <Attack>3</Attack>
+    <Agility>1</Agility>
+    <Hull>5</Hull>
+    <Shield>4</Shield>
+    <Ability>When you initiate an attack against a cloaked ship, roll +1 attack die.</Ability>
+    <Cost>26</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
@@ -21,9 +50,154 @@
     <Borg>0</Borg>
     <Tech>1</Tech>
     <Weapon>1</Weapon>
+    <Crew>3</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>u_s_s_hood_71998</Id>
+    <Set>71998</Set>
+  </Ship>
+  <Ship>
+    <Title>U.S.S. Pegasus</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Oberth Class</ShipClass>
+    <Faction>Federation</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>2</Attack>
+    <Agility>3</Agility>
+    <Hull>3</Hull>
+    <Shield>2</Shield>
+    <Ability>All of your [TECH] Upgrades cost -1 SP.</Ability>
+    <Cost>20</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>2</Tech>
+    <Weapon>0</Weapon>
     <Crew>2</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>i_s_s_avenger_71800</Id>
+    <Id>u_s_s_pegasus_71801</Id>
+    <Set>71801</Set>
+  </Ship>
+  <Ship>
+    <Title>Mirror Universe Starship</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Terran NX Class</ShipClass>
+    <Faction>Mirror Universe</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>2</Attack>
+    <Agility>3</Agility>
+    <Hull>3</Hull>
+    <Shield>0</Shield>
+    <Ability></Ability>
+    <Cost>16</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>1</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>1</Tech>
+    <Weapon>0</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>mirror_universe_starship_71800</Id>
     <Set>71800</Set>
+  </Ship>
+  <Ship>
+    <Title>Krenim Starship</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Krenim Weapon Ship</ShipClass>
+    <Faction>Independent</Faction>
+    <AdditionalFaction>Mirror Universe</AdditionalFaction>
+    <Attack>4</Attack>
+    <Agility>1</Agility>
+    <Hull>6</Hull>
+    <Shield>3</Shield>
+    <Ability></Ability>
+    <Cost>28</Cost>
+    <EvasiveManeuvers>0</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>1</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>2</Tech>
+    <Weapon>1</Weapon>
+    <Crew>0</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>krenim_starship_71799</Id>
+    <Set>71799</Set>
+  </Ship>
+  <Ship>
+    <Title>Federation Starship</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Oberth Class</ShipClass>
+    <Faction>Federation</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>2</Attack>
+    <Agility>3</Agility>
+    <Hull>3</Hull>
+    <Shield>1</Shield>
+    <Ability></Ability>
+    <Cost>18</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>2</Tech>
+    <Weapon>0</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>federation_starship_71801</Id>
+    <Set>71801</Set>
+  </Ship>
+  <Ship>
+    <Title>Ratosha</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Bajoran Scout Ship</ShipClass>
+    <Faction>Bajoran</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>2</Attack>
+    <Agility>2</Agility>
+    <Hull>3</Hull>
+    <Shield>2</Shield>
+    <Ability>After you move, if your ship is within Range 1 of a friendly ship you may perform a [BATTLESTATIONS] Action as a free Action.</Ability>
+    <Cost>18</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>1</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>0</Tech>
+    <Weapon>0</Weapon>
+    <Crew>2</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>ratosha_71803</Id>
+    <Set>71803</Set>
   </Ship>

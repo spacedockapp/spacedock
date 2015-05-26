@@ -1,40 +1,40 @@
   <Admiral>
-    <Title>Black</Title>
-    <Ability>ACTION: Perform a [SENSOR ECHO] Action with a 1 [STRAIGHT] Maneuver Template, even if your ship is not cloaked or does not have the [SENSOR ECHO] icon on its Action Bar. Each time you defend this round, during the Modify Defense Dice step, you may re-roll one of your blank results. Place an Auxiliary Power Token beside your ship.</Ability>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-    <Skill>4</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Admiral</Type>
-    <Faction>Mirror Universe</Faction>
-    <Cost>3</Cost>
-    <Id>black_71800</Id>
-    <Set>71800</Set>
-    <Special></Special>
-    <AdmiralAbility>FLEET ACTION: Perform a [SENSOR ECHO] Action with a 1 [STRAIGHT] Maneuver Template, even if your ship is not cloaked or does not have the [SENSOR ECHO] icon on its Action Bar. Each time you defend this round, during the Modify Defense Dice step, you may re-roll one of your blank results. Place an Auxiliary Power Token beside your ship.</AdmiralAbility>
-    <AdmiralCost>3</AdmiralCost>
-    <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>1</SkillModifier>
-  </Admiral>
-  <Admiral>
-    <Title>Gardner</Title>
-    <Ability>ACTION: When attacking with your Primary Weapon, during the Roll Attack Dice step, gain +1 attack die this round. Each time you defend this round, during the Roll Defense Dice step, roll -1 defense die. You cannot perform free Actions this round.</Ability>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+    <Title>Erik Pressman</Title>
+    <Ability>ACTION: Disable 1 of your [TECH] Upgrade to gain +1 attack die with your Primary Weapon this round. OR ACTION: Discard 1 of your [TECH] Upgrades to gain +2 attack dice with your Primary Weapon this round.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>3</Skill>
     <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Admiral</Type>
-    <Faction>Mirror Universe</Faction>
+    <Faction>Federation</Faction>
     <Cost>2</Cost>
-    <Id>gardner_71800</Id>
-    <Set>71800</Set>
+    <Id>erik_pressman_71801</Id>
+    <Set>71801</Set>
     <Special></Special>
-    <AdmiralAbility>FLEET ACTION: When attacking with your Primary Weapon, during the Roll Attack Dice step, gain +1 attack die this round. Each time you defend this round, during the Roll Defense Dice step, roll -1 defense die. You cannot perform free Actions this round.</AdmiralAbility>
+    <AdmiralAbility>FLEET ACTION: Disable 1 of your [TECH] Upgrade to gain +1 attack die with your Primary Weapon this round. OR FLEET ACTION: Discard 1 of your [TECH] Upgrades to gain +2 attack dice with your Primary Weapon this round.</AdmiralAbility>
     <AdmiralCost>2</AdmiralCost>
     <AdmiralTalent>0</AdmiralTalent>
-    <SkillModifier>0</SkillModifier>
+    <SkillModifier>-1</SkillModifier>
+  </Admiral>
+  <Admiral>
+    <Title>Jaro Essa</Title>
+    <Ability>ACTION: Discard 1 of your Bajoran [CREW] Upgrades to perform this Action. Each time you defend this round, during the Roll Defense Dice step, roll 2 additional dice. This card may only be purchased for a Bajoran ship.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>2</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Admiral</Type>
+    <Faction>Bajoran</Faction>
+    <Cost>1</Cost>
+    <Id>jaro_essa_71803</Id>
+    <Set>71803</Set>
+    <Special>Yes</Special>
+    <AdmiralAbility>FLEET ACTION: Discard 1 of your Bajoran [CREW] Upgrades to perform this Action. Each time you defend this round, during the Roll Defense Dice step, roll 2 additional dice. This card may only be purchased for a Bajoran ship.</AdmiralAbility>
+    <AdmiralCost>1</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
   </Admiral>

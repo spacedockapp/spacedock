@@ -44,7 +44,14 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-4/23/2015 12:43:10	71800 - ISS Avenger	Mirror Universe Unique	I.S.S. Avenger	Mirror Universe	Terran NX Class	Federation NX Class				2	3	3	0	During the Roll Attack Dice step, if there is an Auxiliary Power Token beside your ship, gain +2 attack dice when attacking with your Primary Weapon.	Battle Stations, Evasive, Scan, Target Lock	16	0	2	1	1	90-degree forward, 90-degree rear		0
+4/28/2015 17:04:11	71799 - Kyana Prime	Mirror Universe Unique	Kyana Prime	Independent, Mirror Universe	Krenim Weapon Ship		1 Bank, 1 Straight, 2 Bank, 2 Straight	2 Turn, 3 Straight, 3 Bank	3 Turn, 1 Reverse, 2 Reverse	4	1	6	4	ACTION: Roll 3 defense dice.  For every [EVADE] result, place 1 [EVADE] Token beside your ship.	Battle Stations, Scan, Target Lock	30	0	0	2	2	90-degree forward		0
+4/28/2015 17:05:13	71998 - USS Hood	Unique	U.S.S. Hood	Federation	Excelsior Class	Excelsior Class				3	1	5	4	When you initiate an attack against a cloaked ship, roll +1 attack die.	Battle Stations, Evasive, Scan, Target Lock	26	0	3	1	1	180-degree forward, 90-degree rear		0
+5/6/2015 23:06:50	71801 - USS Pegasus	Unique	U.S.S. Pegasus	Federation	Oberth Class		1 Bank, 1 Straight, 2 Bank, 2 Straight	2 Turn, 2 Come About, 3 Bank, 3 Straight, 3 Turn, 3 Come About		2	3	3	2	All of your [TECH] Upgrades cost -1 SP.	Evasive, Scan, Target Lock	20	0	2	2	0	90-degree forward		0
+5/18/2015 18:07:36	71800 - ISS Avenger	Non-unique	Mirror Universe Starship	Mirror Universe	Terran NX Class	Federation NX Class				2	3	3	0		Battle Stations, Evasive, Scan, Target Lock	16	0	1	1	0	90-degree forward, 90-degree rear		0
+5/18/2015 18:08:33	71799 - Kyana Prime	Non-unique	Krenim Starship	Independent, Mirror Universe	Krenim Weapon Ship	Krenim Weapon Ship				4	1	6	3		Battle Stations, Scan, Target Lock	28	0	0	2	1	90-degree forward		0
+5/18/2015 18:09:17	71801 - USS Pegasus	Non-unique	Federation Starship	Federation	Oberth Class	Oberth Class				2	3	3	1		Evasive, Scan, Target Lock	18	0	1	2	0	90-degree forward		0
+5/24/2015 17:26:19	71803 - Ratosha	Non-unique	Bajoran Starship	Bajoran	Bajoran Scout Ship	Bajoran Scout Ship				2	2	3	1		Battle Stations, Evasive, Scan, Target Lock	16	0	1	0	0	90-degree forward		0
+5/24/2015 17:27:40	71803 - Ratosha	Unique	Ratosha	Bajoran	Bajoran Scout Ship	Bajoran Scout Ship				2	2	3	2	After you move, if your ship is within Range 1 of a friendly ship you may perform a [BATTLE STATIONS] Action as a free Action.	Battle Stations, Evasive, Scan, Target Lock	18	0	2	0	0	90-degree forward		0
 SHIPTEXT
 
 

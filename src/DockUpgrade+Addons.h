@@ -42,6 +42,7 @@
 -(int)additionalHull;
 -(int)additionalTalentSlots;
 -(int)additionalAttack;
+-(int)additionalShield;
 -(NSString*)targetShipClass;
 -(NSString*)upSortType;
 -(NSString*)typeCode;

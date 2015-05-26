@@ -1,56 +1,209 @@
-  <Captain>
-    <Title>Soval</Title>
-    <Ability>You do not pay a faction penalty when deploying any Upgrades to your ship.</Ability>
+71803
+71801
+71998
+
+
+
+<Captain>
+    <Title>Annorax</Title>
+    <Ability>Add 1 [TECH] Upgrade slot to your Upgrade Bar. If Annorax is assigned to a Krenim weapon ship, any time you roll dice, for any reason, you may disable 1 of your Upgrades to choose one of those dice and re-roll it.</Ability>
     <Unique>N</Unique>
     <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-    <Skill>4</Skill>
+    <Skill>8</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Mirror Universe</Faction>
-    <Cost>3</Cost>
-    <Id>soval_71800</Id>
-    <Set>71800</Set>
+    <Faction>Independent</Faction>
+    <AdditionalFaction>Mirror Universe</AdditionalFaction>
+    <Cost>5</Cost>
+    <Id>annorax_71799</Id>
+    <Set>71799</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Black</Title>
-    <Ability>ACTION: Perform a [SENSOR ECHO] Action with a 1 [STRAIGHT] Maneuver Template, even if your ship is not cloaked or does not have the [SENSOR ECHO] icon on its Action Bar. Each time you defend this round, during the Modify Defense Dice step, you may re-roll one of your blank results. Place an Auxiliary Power Token beside your ship.</Ability>
+    <Title>Obrist</Title>
+    <Ability>At the start of the game, place 1 Mission Token on this card. ACTION: If you performed a Green Maneuver this round, discard the Mission Token from this card and 1 of your [WEAPON] Upgrade to target a ship at Range 1-2. You cannot attack or be attacked by that ship this round. You cannot perform any free Actions this round.</Ability>
     <Unique>N</Unique>
     <MirrorUniverseUnique>Y</MirrorUniverseUnique>
     <Skill>4</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Independent</Faction>
+    <AdditionalFaction>Mirror Universe</AdditionalFaction>
+    <Cost>3</Cost>
+    <Id>obrist_71799</Id>
+    <Set>71799</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Krenim</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>1</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Independent</Faction>
+    <AdditionalFaction>Mirror Universe</AdditionalFaction>
+    <Cost>0</Cost>
+    <Id>krenim_71799</Id>
+    <Set>71799</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Federation</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>1</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
+    <Cost>0</Cost>
+    <Id>federation_71998</Id>
+    <Set>71998</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Robert DeSoto</Title>
+    <Ability>Each time you defend, you may re-roll a number of your defense dice equal to the number of [CREW] Upgrades assigned to your ship (max 3 dice).</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>4</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
+    <Cost>3</Cost>
+    <Id>robert_desoto_71998</Id>
+    <Set>71998</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Ronald Moore</Title>
+    <Ability>If your ship has a Hull Value of 3 or less, during the Activation Phase, you may disable this card to place a [BATTLESTATIONS] Token beside your ship.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>2</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
+    <Cost>1</Cost>
+    <Id>ronald_moore_71801</Id>
+    <Set>71801</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Federation</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>1</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
+    <Cost>0</Cost>
+    <Id>federation_71801</Id>
+    <Set>71801</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Day Kannu</Title>
+    <Ability>When attacking with your Primary Weapon, during the Roll Attack Dice step, you may set one of your attack dice on the result of your choice. If you do so, place an Auxiliary Power Token beside your ship. This die cannot be rolled or re-rolld during the round you use this ability.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>4</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Bajoran</Faction>
+    <Cost>3</Cost>
+    <Id>day_kannu_71803</Id>
+    <Set>71803</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Bajoran</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>1</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Bajoran</Faction>
+    <Cost>0</Cost>
+    <Id>bajoran_71803</Id>
+    <Set>71803</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Krim</Title>
+    <Ability>Add 1 [CREW] Upgrade slot to your Upgrade Bar. When defending, during the Modify Defense Dice step, you may re-roll 1 of your defense dice for every damage card assigned to your ship (max 3 dice).</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>6</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Mirror Universe</Faction>
-    <Cost>3</Cost>
-    <Id>black_cap_71800</Id>
-    <Set>71800</Set>
-    <Special></Special>
-    <AdmiralAbility>FLEET ACTION: Perform a [SENSOR ECHO] Action with a 1 [STRAIGHT] Maneuver Template, even if your ship is not cloaked or does not have the [SENSOR ECHO] icon on its Action Bar. Each time you defend this round, during the Modify Defense Dice step, you may re-roll one of your blank results. Place an Auxiliary Power Token beside your ship.</AdmiralAbility>
-    <AdmiralCost>3</AdmiralCost>
-    <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>1</SkillModifier>
+    <Faction>Bajoran</Faction>
+    <Cost>4</Cost>
+    <Id>krim_71803</Id>
+    <Set>71803</Set>
+    <Special>Yes</Special>
   </Captain>
   <Captain>
-    <Title>Gardner</Title>
-    <Ability>ACTION: When attacking with your Primary Weapon, during the Roll Attack Dice step, gain +1 attack die this round. Each time you defend this round, during the Roll Defense Dice step, roll -1 defense die. You cannot perform free Actions this round.</Ability>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+    <Title>Erik Pressman</Title>
+    <Ability>ACTION: Disable 1 of your [TECH] Upgrade to gain +1 attack die with your Primary Weapon this round. OR ACTION: Discard 1 of your [TECH] Upgrades to gain +2 attack dice with your Primary Weapon this round.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>3</Skill>
     <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Mirror Universe</Faction>
+    <Faction>Federation</Faction>
     <Cost>2</Cost>
-    <Id>gardner_cap_71800</Id>
-    <Set>71800</Set>
+    <Id>erik_pressman_cap_71801</Id>
+    <Set>71801</Set>
     <Special></Special>
-    <AdmiralAbility>FLEET ACTION: When attacking with your Primary Weapon, during the Roll Attack Dice step, gain +1 attack die this round. Each time you defend this round, during the Roll Defense Dice step, roll -1 defense die. You cannot perform free Actions this round.</AdmiralAbility>
+    <AdmiralAbility>FLEET ACTION: Disable 1 of your [TECH] Upgrade to gain +1 attack die with your Primary Weapon this round. OR FLEET ACTION: Discard 1 of your [TECH] Upgrades to gain +2 attack dice with your Primary Weapon this round.</AdmiralAbility>
     <AdmiralCost>2</AdmiralCost>
     <AdmiralTalent>0</AdmiralTalent>
-    <SkillModifier>0</SkillModifier>
+    <SkillModifier>-1</SkillModifier>
+  </Captain>
+  <Captain>
+    <Title>Jaro Essa</Title>
+    <Ability>ACTION: Discard 1 of your Bajoran [CREW] Upgrades to perform this Action. Each time you defend this round, during the Roll Defense Dice step, roll 2 additional dice. This card may only be purchased for a Bajoran ship.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>2</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Bajoran</Faction>
+    <Cost>1</Cost>
+    <Id>jaro_essa_cap_71803</Id>
+    <Set>71803</Set>
+    <Special>Yes</Special>
+    <AdmiralAbility>FLEET ACTION: Discard 1 of your Bajoran [CREW] Upgrades to perform this Action. Each time you defend this round, during the Roll Defense Dice step, roll 2 additional dice. This card may only be purchased for a Bajoran ship.</AdmiralAbility>
+    <AdmiralCost>1</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
   </Captain>
