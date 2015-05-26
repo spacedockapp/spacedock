@@ -1,64 +1,112 @@
     <Upgrade>
-      <Title>Sirna Kolrami</Title>
-      <Ability>When defending, during the Compare Results step, if you cancel all of your opponent's [HIT] and [CRIT] results, you may discard this card and disable 1 of your other Upgrades to immediately roll a number of attack dice equal to the number of [HIT] or [CRIT] results that were cancelled (max 4 dice). The attacking ship suffers normal damage for every [HIT] or [CRIT] result you roll with these dice.</Ability>
-      <Unique>Y</Unique>
+      <Title>Sabotage</Title>
+      <Ability>ACTION: Discard this card to target a ship at Range 1-3. Target ship must disable 2 Active Shields, if possible. If the target ship has no Active Shields or if this Action causes the target ship to have no Active Shields, place an Auxiliary Power Token beside the target ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>4</Cost>
+      <Id>sabotage_71800</Id>
+      <Set>71800</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Orion Tactical Officer</Title>
+      <Ability>If you damage an opponent's Hull with a [CRIT], you may immediately discard this card to search the Damage Deck for a "Weapons Malfunction" or a "Munitions Failure" card instead of drawing a random Damage Card. Re-shuffle the Damage Deck when you are done. No ship may be equipped with more than one "Orion Tactical Officer" Upgrade.</Ability>
+      <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>sirna_kolrami_71997p</Id>
-      <Set>71997p</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Computer Analysis</Title>
-      <Ability>During the Planning Phase, you may discard this card to remove all the Disabled Upgrade Tokens from all of your other Upgrades.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>computer_analysis_71997p</Id>
-      <Set>71997p</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Escape Transporter</Title>
-      <Ability>When your ship is destroyed, before removing it from the play area, you may discard this card to target a friendly ship at Range 1-2 that is not cloaked and disable all of that ship's remaining Shields. Select up to 3 other Upgrades that were deployed to this ship and redeploy them to the target ship, even if it exceeds that ship's restrictions. If any of the redeployed Upgrades were already disabled, they remain disabled. This Upgrade may only be purchased for a Federation Shuttlecraft.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
+      <Faction>Mirror Universe</Faction>
       <Cost>2</Cost>
-      <Id>escape_transporter_71997p</Id>
-      <Set>71997p</Set>
-      <Special>OnlyShipClass_Type_7_Shuttlecraft</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Warp Drive</Title>
-      <Ability>During the Activation Phase, if you reveal a 2 [STRAIGHT] Maneuver, you may disable this card to perform a white 3 [STRAIGHT] or a red 4 [STRAIGHT] Maneuver instead. This Upgrade may only be purchased for a Federation Shuttlecraft and no ship may be equipped with more than 1 "Warp Drive" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>2</Cost>
-      <Id>warp_drive_71997p</Id>
-      <Set>71997p</Set>
+      <Id>orion_tactical_officer_71800</Id>
+      <Set>71800</Set>
       <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Andorian Helmsman</Title>
+      <Ability>During the Combat Phase, after you complete your attack, you may discard this card to immediately perform a 1 or 2 Maneuver (straight or bank). If you do so, place an Auxiliary Power Token beside your ship. No ship may be equipped with more than one "Andorian Helmsman" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>2</Cost>
+      <Id>andorian_helmsman_71800</Id>
+      <Set>71800</Set>
+      <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Emergency Bulkheads</Title>
+      <Ability>ACTION: Disable this card to flip all critical damage cards assigned to your ship face down. If your ship is not cloaked and you have no Active Shields, each time you defend this round, roll +1 defense die.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>4</Cost>
+      <Id>emergency_bulkheads_71800</Id>
+      <Set>71800</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Enhanced Hull Plating</Title>
+      <Ability>During the Roll Defense Dice step of the Combat Phase, if your ship is not Cloaked and you have no Active Shields, you may add up to 2 [EVADE] results to your defense roll. If you do so, place 1 Auxiliary Power Token beside your ship for each [EVADE] result you added with this Upgrade. This Upgrade may only be purchased for a Mirror Universe ship with a Hull value of 4 or less. You cannot deploy more than 1 "Enhanced Hull Plating" Upgrade to any ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>4</Cost>
+      <Id>enhanced_hull_plating_71800</Id>
+      <Set>71800</Set>
+      <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photonic Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>4</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>2</Cost>
+      <Id>photonic_torpedoes_71800</Id>
+      <Set>71800</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Plasma Cannons</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>3</Attack>
+      <Range>1-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>2</Cost>
+      <Id>plasma_cannons_71800</Id>
+      <Set>71800</Set>
+      <Special></Special>
     </Upgrade>

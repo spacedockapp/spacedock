@@ -815,6 +815,17 @@
         }
     }
     
+    if ([upgradeSpecial isEqualToString:@"ony_mu_ship_limited"]) {
+        if (![self.ship isMirrorUniverse]) {
+            return NO;
+        }
+    }
+    
+    if ([upgradeSpecial isEqualToString:@"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"]) {
+        if ([self.ship.hull intValue] > 4) {
+            return NO;
+        }
+    }
     if ([upgradeSpecial isEqualToString:@"OnlyDominionHV4"]) {
         if (![self.ship isDominion]) {
             return NO;
@@ -825,7 +836,7 @@
     }
     
     if (validating) {
-        if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
+        if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"]) {
             DockEquippedUpgrade* existing = [self containsUpgradeWithId: upgrade.externalId];
             if (existing != nil) {
                 return NO;
@@ -1008,7 +1019,7 @@
                 } else {
                     info = @"This upgrade may only be equipped by a Federation Shuttlecraft.";
                 }
-            } else if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"]) {
+            } else if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"]) {
                 info = @"No ship may be equipped with more than one of these upgrades.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyBattleshipOrCruiser"]) {
                 info = @"This upgrade may only be purchased for a Jem'Hadar Battle Cruiser or Battleship.";

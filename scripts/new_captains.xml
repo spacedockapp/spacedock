@@ -1,16 +1,56 @@
   <Captain>
-    <Title>Data</Title>
-    <Ability>At the start of the game, place 1 [EVASIVE MANEUVERS], 1 [SCAN], and 1 [BATTLESTATIONS] Token on this card. During the Activation Phase, you may take 1 of these Tokens off this card and place it beside your ship, even if there is already one there.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>3</Skill>
+    <Title>Soval</Title>
+    <Ability>You do not pay a faction penalty when deploying any Upgrades to your ship.</Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+    <Skill>4</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>2</Cost>
-    <Id>data_71997p</Id>
-    <Set>71997p</Set>
+    <Faction>Mirror Universe</Faction>
+    <Cost>3</Cost>
+    <Id>soval_71800</Id>
+    <Set>71800</Set>
     <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Black</Title>
+    <Ability>ACTION: Perform a [SENSOR ECHO] Action with a 1 [STRAIGHT] Maneuver Template, even if your ship is not cloaked or does not have the [SENSOR ECHO] icon on its Action Bar. Each time you defend this round, during the Modify Defense Dice step, you may re-roll one of your blank results. Place an Auxiliary Power Token beside your ship.</Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+    <Skill>4</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Mirror Universe</Faction>
+    <Cost>3</Cost>
+    <Id>black_cap_71800</Id>
+    <Set>71800</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: Perform a [SENSOR ECHO] Action with a 1 [STRAIGHT] Maneuver Template, even if your ship is not cloaked or does not have the [SENSOR ECHO] icon on its Action Bar. Each time you defend this round, during the Modify Defense Dice step, you may re-roll one of your blank results. Place an Auxiliary Power Token beside your ship.</AdmiralAbility>
+    <AdmiralCost>3</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
+  </Captain>
+  <Captain>
+    <Title>Gardner</Title>
+    <Ability>ACTION: When attacking with your Primary Weapon, during the Roll Attack Dice step, gain +1 attack die this round. Each time you defend this round, during the Roll Defense Dice step, roll -1 defense die. You cannot perform free Actions this round.</Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+    <Skill>3</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Mirror Universe</Faction>
+    <Cost>2</Cost>
+    <Id>gardner_cap_71800</Id>
+    <Set>71800</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: When attacking with your Primary Weapon, during the Roll Attack Dice step, gain +1 attack die this round. Each time you defend this round, during the Roll Defense Dice step, roll -1 defense die. You cannot perform free Actions this round.</AdmiralAbility>
+    <AdmiralCost>2</AdmiralCost>
+    <AdmiralTalent>0</AdmiralTalent>
+    <SkillModifier>0</SkillModifier>
   </Captain>
