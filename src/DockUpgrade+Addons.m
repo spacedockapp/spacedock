@@ -906,7 +906,7 @@ static NSDictionary* sItemLabels = nil;
     return 0;
 }
 
--(int)additionalSheild
+-(int)additionalShield
 {
     if ([self.special isEqualToString:@"assault_vessel_upgrade_c_71803"] || [self.special isEqualToString:@"assault_vessel_upgrade_t_71803"] || [self.special isEqualToString:@"assault_vessel_upgrade_w_71803"] ) {
         return 1;
