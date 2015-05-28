@@ -1,4 +1,4 @@
-<Data version="2015-05-28@15-22">
+<Data version="2015-05-28@18-15">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -7149,7 +7149,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Borg</Faction>
       <Cost>0</Cost>
       <Id>drone_71283</Id>
-      <Set>71283,71444,71522,71525,71646d,71511,71513a,71792</Set>
+      <Set>71283,71444,71522,71525,71646d,71511,71513a,71792,71530</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -7767,7 +7767,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Mirror Universe</Faction>
       <Cost>0</Cost>
       <Id>mirror_universe_captain_71510b</Id>
-      <Set>71510b,71646c,71529,71535,71796,71800</Set>
+      <Set>71510b,71646b,71529,71535,71796,71800</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -10150,7 +10150,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Faction>Dominion</Faction>
       <Cost>5</Cost>
       <Id>3058</Id>
-      <Set>71128</Set>
+      <Set>71128,71271</Set>
     </Upgrade>
     <Upgrade>
       <Title>Energy Dissipator</Title>
