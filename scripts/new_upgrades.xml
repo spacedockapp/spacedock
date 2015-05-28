@@ -1,250 +1,38 @@
     <Upgrade>
-      <Title>Causality Paradox</Title>
-      <Ability>ACTION: Discard this card to target a ship at Range 1-3. Discard 1 Upgrade of your choice on the target ship. Then remove 1 Disabled Upgrade Token from 1 of your Upgrades, if possible. This Upgrade may only be purchased for Annorax or any other Krenim Captain assigned to a Krenim weapon ship.</Ability>
+      <Title>Klingon Stealth Team</Title>
+      <Ability>ACTION: Discard this card to target a ship at Range 2-3 that is not Cloaked. Disable 1 [TECH] or [WEAPON] Upgrade of your choice on target ship and then discard 1 [CREW] Upgrade of your choice on that ship, if possible. This Upgrade may only be purchased for a Klingon ship and no ship may be equipped with more than one Klingon Stealth Team Upgrade.</Ability>
       <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Independent</Faction>
-      <AdditionalFaction>Mirror Universe</AdditionalFaction>
-      <Cost>5</Cost>
-      <Id>causality_paradox_71799</Id>
-      <Set>71799</Set>
-      <Special>OnlyShipClass_Krenim_Weapon_Ship</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Temporal Wave Front</Title>
-      <Ability>ACTION: Discard this card to target every ship in your forward firing arc within Range 1-3. Each target ship must roll 3 defense dice. For every blank result a ship rolls, that ship must disable one of its cards at random (Captain, Admiral or Upgrade card). This Upgrade by only be purchased for a Krenim weapon ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Independent</Faction>
-      <AdditionalFaction>Mirror Universe</AdditionalFaction>
-      <Cost>6</Cost>
-      <Id>temporal_wave_front_71799</Id>
-      <Set>71799</Set>
-      <Special>OnlyShipClass_Krenim_Weapon_Ship</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Temporal Core</Title>
-      <Ability>ACTION: Disable this card to perform this Action. When defending this round, all ships roll -2 attack dice against your ship until the End Phase. This Action cannot reduce an attack below 1 attack die. You cannot perform any free Actions this round. This Upgrade may only be purchased for a Krenim weapon ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Independent</Faction>
-      <AdditionalFaction>Mirror Universe</AdditionalFaction>
-      <Cost>6</Cost>
-      <Id>temporal_core_71799</Id>
-      <Set>71799</Set>
-      <Special>OnlyShipClass_Krenim_Weapon_Ship</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Spatial Distortion</Title>
-      <Ability>ACTION: Discard this card to remove your ship from the play area and discard all Tokens that are beside your ship except for Auxiliary Power Tokens. During the End Phase, place your ship back in the play area. You cannot place your ship within Range 1-3 of any enemy ship. This Upgrade may only be purchased for Krenim weapon ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Independent</Faction>
-      <AdditionalFaction>Mirror Universe</AdditionalFaction>
-      <Cost>6</Cost>
-      <Id>spatial_distortion_71799</Id>
-      <Set>71799</Set>
-      <Special>OnlyShipClass_Krenim_Weapon_Ship</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Tachyon Detection Grid</Title>
-      <Ability>ACTION: Discard this card to target your ship and up to 2 friendly ships within Range 1 of your ship. All cloaked enemy ships within Range 1 of the target ships cannot perform the [SENSOR ECHO] Action this round and immediately flip their [CLOAK] Tokens over to their red sides. In addition, all enemy ships within Range 1 of the target ships roll -1 defense die each time they defend this round. This Upgrade may only be purchased for a Federation ship.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>6</Cost>
-      <Id>tachyon_detection_grid_71998</Id>
-      <Set>71998</Set>
-      <Special>OnlyFederationShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>William T. Riker</Title>
-      <Ability>Each time you defend, roll +1 defense die and you may convert 1 of your [BATTLESTATIONS] results into an [EVADE] result. If your Captain Card is disabled, each time you defend, roll +2 defense dice and you may convert up to 2 of your [BATTLESTATIONS] results into [EVADE] results.</Ability>
-      <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Federation</Faction>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>klingon_stealth_team_71999p</Id>
+      <Set>71999p</Set>
+      <Special>NoMoreThanOnePerShipKlingon</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Cloaked Mines</Title>
+      <Ability>During the Planning Phase, you may discard this card to place a Minefield Token within Range 1 of your ship (in any direction), but not within Range 3 of an enemy ship. If an enemy ship passes within Range 1 of the token, roll 3 attack dice (-1 if the target ship immediately performs a [SCAN] Action). Any [HIT] or [CRIT] damage the target ship as normal. The affected ship does not roll any defense dice.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Klingon</Faction>
       <Cost>3</Cost>
-      <Id>william_t_riker_71998</Id>
-      <Set>71998</Set>
+      <Id>cloaked_mines_71999p</Id>
+      <Set>71999p</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Systems Upgrade</Title>
-      <Ability>You may fill any slot on your Upgrade Bar with this Upgrade. Add 1 [TECH] icon to your Upgrade Bar. Your starting Shield Value is at +1. This Upgrade may only be purchased for a Federation ship and no ship may be equipped with more than one "Systems Upgrade" card.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>2</Cost>
-      <Id>systems_upgrade_71998</Id>
-      <Set>71998</Set>
-      <Special>FedNoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Specialized Shields</Title>
-      <Ability>When defending, while your ship still has Active Shields, during the Modify Defense Dice step, you may re-roll 1 of your blank results. When suffering damage from an obstacle or a minefield, subtract 1 damage from the total damage. This Upgrade may only be purchased for a Federation ship with a Hull value of 3 or less.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>specialized_shields_71801</Id>
-      <Set>71801</Set>
-      <Special>ony_federation_ship_limited3</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Phasing Cloaking Device</Title>
-      <Ability>Add the [CLOAK] and [SENSOR ECHO] icons to your Action Bar. Each time your ship performs the [CLOAK] Action, roll 1 attack die. If you roll a [HIT] result, suffer 1 damage to your Hull. While cloaked, your ship: 1) may only perform green maneuvers, 2) does not lose its actions when overlapping another ship's base or an obstacle and 3) suffers no damage when overlapping obstacles. This Upgrade costs +5 SP for any ship other than a Federation Oberth Class.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>phasing_cloaking_device_71801</Id>
-      <Set>71801</Set>
-      <Special>Plus5NotShipClass_Oberth_Class</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Escape Pod</Title>
-      <Ability>When your ship is destroyed, before removing it from the play area, place 1 Escape Pod Token in the play area within Range 1 of your ship and then choose your Captain and/or up to 2 of your [CREW] Upgrades and place them under this card. Do not discard these cards with the ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>1</Cost>
-      <Id>escape_pod_71801</Id>
-      <Set>71801</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Andy Simonson</Title>
-      <Ability>After completing your ship's move, before declaring your Action for this round, you may discard this card to target a ship within Range 1-3 of your ship and look at that ship's chosen Maneuver.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>2</Cost>
-      <Id>andy_simonson_71801</Id>
-      <Set>71801</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Phil Wallace</Title>
-      <Ability>Before you move, after revealing your Maneuver Dial, you may disable this card to reduce your ship's Speed by 1 (min 1).</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>2</Cost>
-      <Id>phil_wallace_71801</Id>
-      <Set>71801</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Dawn Velazquez</Title>
-      <Ability>ACTION: Discard your Captain Card to immediately perform an additional maneuver from your maneuver dial with a speed of 3 or less. You cannot attack this round. This card then becomes your Captain with a Skill of 3. You cannot perform this action if Dawn Velazquez is your captain. This card may only be purchased for a Federation ship with a Hull Value of 3 or less.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>dawn_velazquez_71801</Id>
-      <Set>71801</Set>
-      <Special>ony_federation_ship_limited3</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Eric Motz</Title>
-      <Ability>Add 1 [TECH] Upgrade slot to your Upgrade Bar.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>2</Cost>
-      <Id>eric_motz_71801</Id>
-      <Set>71801</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>William T. Riker</Title>
-      <Ability>Your Captain's Skill Number is +3. If your Captain is disabled or if you have no Captain, your ship's Skill Number is a 5. If you receive a "Communications Failure" or "Injured Captain" critical damage card, immediately flip if face down.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>william_t_riker_71801</Id>
-      <Set>71801</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Provisional Government</Title>
-      <Ability>ACTION: Discard this card to target a ship at Range 1-3. You cannot attack that ship and that ship cannot attack your ship this round.</Ability>
+      <Title>Mauk-to'Vor</Title>
+      <Ability>ACTION: Discard this card and your Captain Card to gain a number of attack dice for your first attack this round equal to 1/2 of that Captain's Skill number, rounded down (max +3). Place an Auxiliary Power Token beside your ship. You cannot perform any free Actions this round. This Upgrade may only be purchased for a Klingon Captain assigned to a Klingon ship.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -252,107 +40,25 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Bajoran</Faction>
+      <Faction>Klingon</Faction>
       <Cost>5</Cost>
-      <Id>provisional_government_71803</Id>
-      <Set>71803</Set>
+      <Id>mauk_to_vor_71999p</Id>
+      <Set>71999p</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Assault Vessel Upgrade</Title>
-      <Ability>You may fill any slot on your Upgrade Bar with this Upgrade. Your Primary Weapon and Shield values are at +1. This Upgrade may only be purchased for a Bajoran Scout Ship and no ship may be equipped with more than 1 Assault Vessel Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>?</Type>
-      <Faction>Bajoran</Faction>
-      <Cost>4</Cost>
-      <Id>assault_vessel_upgrade_71803</Id>
-      <Set>71803</Set>
-      <Special>NoMoreThanOnePerShipBajoran</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Bajoran Militia</Title>
-      <Ability>ACTION: During the Combat Phase, add a number of attack dice equal to the number of Bajoran Militia Upgrades assigned to your ship (max +3) until the End Phase. This Upgrade may only be purchased for a Bajoran ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Bajoran</Faction>
-      <Cost>3</Cost>
-      <Id>bajoran_militia_71803</Id>
-      <Set>71803</Set>
-      <Special>OnlyBajoran</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>More Than Meets the Eye</Title>
-      <Ability>You may discard this card to place a [SCAN] Token beside your ship, even if there is already one there. You cannot perform a [SCAN] Action as a free Action during the round you use this ability.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Bajoran</Faction>
-      <Cost>1</Cost>
-      <Id>more_than_meets_the_eye_71803</Id>
-      <Set>71803</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Chroniton Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. All damage inflicted by this attack ignores the opposing ship's Shields. You may fire this weapon from your forward or rear firing arcs. This Upgrade costs +5 SP for any ship other than a Krenim weapon ship.</Ability>
+      <Title>Ambush Attack</Title>
+      <Ability>ATTACK: Discard this card to perform this attack. If your ship is cloaked, gain +1 attack die for this attack. If your ship is not in the target ship's forward or rear firing arcs, you may convert all of your [BATTLESTATIONS] results into [HIT] results. No ship may be equipped with more than one Ambush Attack Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack>5</Attack>
-      <Range>2-3</Range>
+      <Range>1-2</Range>
       <Type>Weapon</Type>
-      <Faction>Independent</Faction>
-      <AdditionalFaction>Mirror Universe</AdditionalFaction>
-      <Cost>6</Cost>
-      <Id>chroniton_torpedoes_71799</Id>
-      <Set>71799</Set>
-      <Special>Plus5NotShipClass_Krenim_Weapon_Ship</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Temporal Incursion</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and discard this card to perform this attack. In addition to normal damage, for every uncancelled [CRIT] result, discard 1 Upgrade at random on the target ship. Then for every uncancelled [HIT] result, disable 1 Upgrade at random on the target ship. This Upgrade may only be purchased for a Krenim weapon ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>8</Attack>
-      <Range>3</Range>
-      <Type>Weapon</Type>
-      <Faction>Independent</Faction>
-      <AdditionalFaction>Mirror Universe</AdditionalFaction>
-      <Cost>9</Cost>
-      <Id>temporal_incursion_71799</Id>
-      <Set>71799</Set>
-      <Special>OnlyShipClass_Krenim_Weapon_Ship</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Type 8 Phaser Array</Title>
-      <Ability>When attacking with your Primary Weapon, gain +1 attack die. This Upgrade may only be purchased for a ship with a Primary Weapon Value of 3 or less. No ship may be equipped with more than one "Type 8 Phaser Array" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Weapon</Type>
-      <Faction>Federation</Faction>
-      <Cost>2</Cost>
-      <Id>type_8_phaser_array_71998</Id>
-      <Set>71998</Set>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>ambush_attack_71999p</Id>
+      <Set>71999p</Set>
       <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>

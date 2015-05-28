@@ -1,4 +1,4 @@
-<Data version="2015-05-28@15-20">
+<Data version="2015-05-28@15-22">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -6085,6 +6085,64 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Id>ratosha_71803</Id>
       <Set>71803</Set>
   </Ship>
+  <Ship>
+      <Title>I.K.S. Korinar</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>B'rel Class</ShipClass>
+      <Faction>Klingon</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>3</Hull>
+      <Shield>3</Shield>
+      <Ability>While you are cloaked, if you initiate an attack at Range 1 with your Primary Weapon, gain +1 attack die for that attack.</Ability>
+      <Cost>22</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>i_k_s_korinar_71999p</Id>
+      <Set>71999p</Set>
+  </Ship>
+  <Ship>
+      <Title>Klingon Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>B'rel Class</ShipClass>
+      <Faction>Klingon</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>3</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>klingon_starship_71999p</Id>
+      <Set>71999p</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -8812,7 +8870,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Cost>4</Cost>
       <Id>krim_71803</Id>
       <Set>71803</Set>
-      <Special>Yes</Special>
+      <Special>Add_Crew_1</Special>
   </Captain>
   <Captain>
       <Title>Erik Pressman</Title>
@@ -8848,11 +8906,27 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Cost>1</Cost>
       <Id>jaro_essa_cap_71803</Id>
       <Set>71803</Set>
-      <Special>Yes</Special>
+      <Special>OnlyBajoran</Special>
       <AdmiralAbility>FLEET ACTION: Discard 1 of your Bajoran [CREW] Upgrades to perform this Action. Each time you defend this round, during the Roll Defense Dice step, roll 2 additional dice. This card may only be purchased for a Bajoran ship.</AdmiralAbility>
       <AdmiralCost>1</AdmiralCost>
       <AdmiralTalent>1</AdmiralTalent>
       <SkillModifier>1</SkillModifier>
+  </Captain>
+  <Captain>
+      <Title>Kurn</Title>
+      <Ability>You do not pay a faction penalty when assigning Kurn to any ship. Kurn may field the "Mauk-to'Vor" [ELITE TALENT] Upgrade at a cost of 3 SP.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>4</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>3</Cost>
+      <Id>kurn_71999p</Id>
+      <Set>71999p</Set>
+      <Special>CaptainIgnoresPenalty</Special>
   </Captain>
   </Captains>
   <Admirals>
@@ -9146,7 +9220,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
         <Cost>1</Cost>
         <Id>jaro_essa_71803</Id>
         <Set>71803</Set>
-        <Special>Yes</Special>
+        <Special>OnlyBajoran</Special>
         <AdmiralAbility>FLEET ACTION: Discard 1 of your Bajoran [CREW] Upgrades to perform this Action. Each time you defend this round, during the Roll Defense Dice step, roll 2 additional dice. This card may only be purchased for a Bajoran ship.</AdmiralAbility>
         <AdmiralCost>1</AdmiralCost>
         <AdmiralTalent>1</AdmiralTalent>
@@ -16932,6 +17006,70 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>71998p</Set>
         <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Klingon Stealth Team</Title>
+        <Ability>ACTION: Discard this card to target a ship at Range 2-3 that is not Cloaked. Disable 1 [TECH] or [WEAPON] Upgrade of your choice on target ship and then discard 1 [CREW] Upgrade of your choice on that ship, if possible. This Upgrade may only be purchased for a Klingon ship and no ship may be equipped with more than one Klingon Stealth Team Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Klingon</Faction>
+        <Cost>5</Cost>
+        <Id>klingon_stealth_team_71999p</Id>
+        <Set>71999p</Set>
+        <Special>NoMoreThanOnePerShipKlingon</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Cloaked Mines</Title>
+        <Ability>During the Planning Phase, you may discard this card to place a Minefield Token within Range 1 of your ship (in any direction), but not within Range 3 of an enemy ship. If an enemy ship passes within Range 1 of the token, roll 3 attack dice (-1 if the target ship immediately performs a [SCAN] Action). Any [HIT] or [CRIT] damage the target ship as normal. The affected ship does not roll any defense dice.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Klingon</Faction>
+        <Cost>3</Cost>
+        <Id>cloaked_mines_71999p</Id>
+        <Set>71999p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Mauk-to'Vor</Title>
+        <Ability>ACTION: Discard this card and your Captain Card to gain a number of attack dice for your first attack this round equal to 1/2 of that Captain's Skill number, rounded down (max +3). Place an Auxiliary Power Token beside your ship. You cannot perform any free Actions this round. This Upgrade may only be purchased for a Klingon Captain assigned to a Klingon ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Klingon</Faction>
+        <Cost>5</Cost>
+        <Id>mauk_to_vor_71999p</Id>
+        <Set>71999p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Ambush Attack</Title>
+        <Ability>ATTACK: Discard this card to perform this attack. If your ship is cloaked, gain +1 attack die for this attack. If your ship is not in the target ship's forward or rear firing arcs, you may convert all of your [BATTLESTATIONS] results into [HIT] results. No ship may be equipped with more than one Ambush Attack Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>5</Attack>
+        <Range>1-2</Range>
+        <Type>Weapon</Type>
+        <Faction>Klingon</Faction>
+        <Cost>5</Cost>
+        <Id>ambush_attack_71999p</Id>
+        <Set>71999p</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -16949,7 +17087,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Type>Resource</Type>
         <Cost>5</Cost>
         <Id>4001</Id>
-        <Set>OP1Participation</Set>
+        <Set>OP1Participation2</Set>
       </Resource>
       <Resource>
         <Title>Command Tokens</Title>
@@ -16973,7 +17111,7 @@ COMMAND TOKENS:
         <Type>Resource</Type>
         <Cost>5</Cost>
         <Id>4002</Id>
-        <Set>OP2Participation</Set>
+        <Set>OP2Participation2</Set>
       </Resource>
       <Resource>
         <Title>Reinforcements Sideboard</Title>
@@ -17089,7 +17227,7 @@ The Full About Maneuver follows the normal movement rules with the following exc
         <Type>Resource</Type>
         <Cost>5</Cost>
         <Id>skilled_helmsman_opwebparticipation</Id>
-        <Set>OPWebParticipation</Set>
+        <Set>OPWebParticipation2</Set>
       </Resource>
       <Resource>
         <Title>Chief Engineer</Title>
@@ -17109,7 +17247,7 @@ When a Chief Engineer Token is spent, it is removed from the game and cannot be 
         <Type>Resource</Type>
         <Cost>5</Cost>
         <Id>chief_engineer_oparenaparticipation</Id>
-        <Set>OPArenaParticipation</Set>
+        <Set>OPArenaParticipation2</Set>
       </Resource>
       <Resource>
         <Title>Counter Attack Die</Title>
@@ -17220,9 +17358,7 @@ While you have the High Yield Photon Torpedoes Resource, all of your Photon Torp
       <Resource>
           <Title>Officer Exchange Program</Title>
           <Unique>Y</Unique>
-          <Ability>This card explains the rules for the Officer Exchange Program Resource and serves as a reference to remind players of its effect.
-
-1) Prior to building your fleet, choose two different Factions.
+          <Ability>1) Prior to building your fleet, choose two different Factions.
 
 2) You do not pay a faction penalty when assigning a Captain, Admiral or [CREW] Upgrade of either of the chosen factions to a ship in your fleet of the other chosen faction.
 
@@ -17254,106 +17390,145 @@ While a Master Strategist Token is beside your ship:
           <Id>master_strategist_tokens_71997r</Id>
           <Set>71997r</Set>
       </Resource>
+      <Resource>
+          <Title>Evasive Action Template</Title>
+          <Unique>Y</Unique>
+          <Type>Resource</Type>
+          <Ability>At the start of the game, place the Evasive Action Maneuver Template beside your ship cards.  For the duration of the battle, you may perform the Evasive Action Maneuver once per round with any one of your ships.
+
+The Evasive Action Maneuver follows the normal movement rules with the following exceptions:
+
+1) During the Activation Phase, if you reveal a Red Maneuver or a Come About Maneuver on one of your ship's Maneuver Dials, you may disregard that ship's chosen maneuver and instead use the Evasive Action Maneuver.
+              
+2) Then choose to move that ship to the right or the left, place the Evasive Action Maneuver Template accordingly and finish performing the maneuver as normal.
+              
+3) The Evasive Action Maneuver is considered a Red Maneuver (place an Auxiliary Power Token beside the ship).  If the ship does not have the Come About Maneuver on its Maneuver dial, place a 2nd Auxiliary Power Token beside the ship.</Ability>
+          <Cost>5</Cost>
+          <Id>evasive_action_template_71998r</Id>
+          <Set>71998r</Set>
+      </Resource>
+      <Resource>
+          <Title>Damage Control Team</Title>
+          <Unique>Y</Unique>
+          <Type>Resource</Type>
+          <Ability>At the start of the battle, place 5 Auxiliary Power Tokens on top of this card.
+
+1) When a ship in your fleet is defending, during the Compare Results step, you may:
+              a) Remove one of the Auxiliary Power Tokens from this card and place it beside that ship to cancel 1 [HIT] result, OR
+
+              b) Remove one of the Auxiliary Power Tokens from this card and place it beside that ship to convert 1 [CRIT] result into a [HIT] result, OR
+
+              c) Remove 2 of the Auxiliary Power Tokens from this card and place 1 of them beside that ship to cancel 1 [CRIT] result.  The other token is removed from the game.
+
+              2) No additional Auxiliary Power Tokens may be added to this card for the duration of the battle.</Ability>
+          <Cost>5</Cost>
+          <Id>damage_control_team_71999r</Id>
+          <Set>71999r</Set>
+      </Resource>
     </Resources>
     <Sets>
 
       <Set id="GenCon2013Promo" overallSetName="Promo Card" releaseDate="2013-08-15">Khan Singh GenCon 2013 Promo</Set>
 
-      <Set id="OP1Participation" overallSetName="Organized Play" releaseDate="2013-09-15">Dominion War OP1 Participation Prize</Set>
-      <Set id="OP1Prize"         overallSetName="Organized Play" releaseDate="2013-09-15">Dominion War OP1 Competitive Prize</Set>
+    <Set id="OP1Participation" overallSetName="The Dominion War" releaseDate="2013-09-15">Deep Space 9 Ship Cards</Set>
+    <Set id="OP1Participation2" overallSetName="The Dominion War" releaseDate="2013-09-15">Elite Attack Die Resource</Set>
+      <Set id="OP1Prize"         overallSetName="The Dominion War" releaseDate="2013-09-15">Krayton</Set>
 
-      <Set id="OP2Participation" overallSetName="Organized Play" releaseDate="2013-10-15">Dominion War OP2 Participation Prize</Set>
-      <Set id="OP2Prize"         overallSetName="Organized Play" releaseDate="2013-10-15">Dominion War OP2 Competitive Prize</Set>
+    <Set id="OP2Participation" overallSetName="The Dominion War" releaseDate="2013-10-15">Red Shirt Crew</Set>
+    <Set id="OP2Participation2" overallSetName="The Dominion War" releaseDate="2013-10-15">Command Tokens Resource</Set>
+      <Set id="OP2Prize"         overallSetName="The Dominion War" releaseDate="2013-10-15">IKS Ch'tang</Set>
 
-      <Set id="OP3Participation" overallSetName="Organized Play" releaseDate="2013-11-15">Dominion War OP3 Participation Prize</Set>
-      <Set id="OP3Prize"         overallSetName="Organized Play" releaseDate="2013-11-15">Dominion War OP3 Competitive Prize</Set>
+      <Set id="OP3Participation" overallSetName="The Dominion War" releaseDate="2013-11-15">Reinforcements Sideboard Resource</Set>
+      <Set id="OP3Prize"         overallSetName="The Dominion War" releaseDate="2013-11-15">P.W.B. Aj'Rmr</Set>
 
-      <Set id="OP4Participation" overallSetName="Organized Play" releaseDate="2013-12-15">Dominion War OP4 Participation Prize</Set>
-      <Set id="OP4Prize"         overallSetName="Organized Play" releaseDate="2013-12-15">Dominion War OP4 Competitive Prize</Set>
+      <Set id="OP4Participation" overallSetName="The Dominion War" releaseDate="2013-12-15">Flagship Resource</Set>
+      <Set id="OP4Prize"         overallSetName="The Dominion War" releaseDate="2013-12-15">U.S.S. Sutherland</Set>
 
-      <Set id="OP5Participation" overallSetName="Organized Play" releaseDate="2014-02-15">Dominion War OP5 Participation Prize</Set>
-      <Set id="OP5Prize"         overallSetName="Organized Play" releaseDate="2014-02-15">Dominion War OP5 Competitive Prize</Set>
+      <Set id="OP5Participation" overallSetName="The Dominion War" releaseDate="2014-02-15">Hideki Class Attack Fighter Resource</Set>
+      <Set id="OP5Prize"         overallSetName="The Dominion War" releaseDate="2014-02-15">Rav Laerst</Set>
 
-      <Set id="OP6Participation" overallSetName="Organized Play" releaseDate="2014-03-15">Dominion War OP6 Participation Prize</Set>
-      <Set id="OP6Prize"         overallSetName="Organized Play" releaseDate="2014-03-15">Dominion War OP6 Competitive Prize</Set>
+      <Set id="OP6Participation" overallSetName="The Dominion War" releaseDate="2014-03-15">Federation Attack Fighter Resource</Set>
+      <Set id="OP6Prize"         overallSetName="The Dominion War" releaseDate="2014-03-15">Akorem</Set>
 
-      <Set id="OPWebParticipation" overallSetName="Organized Play" releaseDate="2014-04-15">Tholian Web Participation Prize</Set>
-      <Set id="OPWebPrize"         overallSetName="Organized Play" releaseDate="2014-04-15">Tholian Web Competitive Prize</Set>
+      <Set id="OPWebParticipation" overallSetName="The Tholian Web" releaseDate="2014-04-15">Red Alert Talent</Set>
+      <Set id="OPWebParticipation2" overallSetName="The Tholian Web" releaseDate="2014-04-15">Skilled Helmsman Resource</Set>
+      <Set id="OPWebPrize"         overallSetName="The Tholian Web" releaseDate="2014-04-15">Tholia One</Set>
 
-      <Set id="OPArenaParticipation" overallSetName="Organized Play" releaseDate="2014-05-28">Arena Participation Prize</Set>
-      <Set id="OPArenaPrize"         overallSetName="Organized Play" releaseDate="2014-05-28">Arena Competitive Prize</Set>
+      <Set id="OPArenaParticipation" overallSetName="Arena" releaseDate="2014-05-28">Full Alert Talent</Set>
+      <Set id="OPArenaParticipation2" overallSetName="Arena" releaseDate="2014-05-28">Cheif Engineer Resource</Set>
+      <Set id="OPArenaPrize"         overallSetName="Arena" releaseDate="2014-05-28">S'Gorn</Set>
 
-      <Set id="CollectiveOP1" overallSetName="Organized Play" releaseDate="2014-06-24">The Collective OP1 Participation Prize</Set>
-      <Set id="71508"             overallSetName="Organized Play" releaseDate="2014-06-25">Ti'Mur Competitive Prize</Set>
+      <Set id="CollectiveOP1" overallSetName="The Collective" releaseDate="2014-06-24">Counter Attack Die Resource</Set>
+      <Set id="71508"             overallSetName="The Collective" releaseDate="2014-06-24">Ti'Mur</Set>
 
-      <Set id="CollectiveOP2" overallSetName="Organized Play" releaseDate="2014-07-29">The Collective OP2 Participation Prize</Set>
-      <Set id="71509"             overallSetName="Organized Play" releaseDate="2014-07-30">U.S.S. Raven Competitive Prize</Set>
+      <Set id="CollectiveOP2" overallSetName="The Collective" releaseDate="2014-07-29">Fleet Captain Resource</Set>
+      <Set id="71509"             overallSetName="The Collective" releaseDate="2014-07-29">U.S.S. Raven</Set>
 
-      <Set id="CollectiveOP3" overallSetName="Organized Play" releaseDate="2014-09-01">The Collective OP3 Participation Prize</Set>
-      <Set id="71510"             overallSetName="Organized Play" releaseDate="2014-09-01">U.S.S. Stargazer Competitive Prize</Set>
-      <Set id="71510b"             overallSetName="Organized Play" releaseDate="2014-09-01">Assimilation Target Prime</Set>
+      <Set id="CollectiveOP3" overallSetName="The Collective" releaseDate="2014-09-01">Officer Resource</Set>
+      <Set id="71510"             overallSetName="The Collective" releaseDate="2014-09-01">U.S.S. Stargazer</Set>
+      <Set id="71510b"             overallSetName="The Collective" releaseDate="2014-09-01">Assimilation Target Prime</Set>
 
-      <Set id="i_k_s_b_moth" overallSetName="The Collective Boosters" releaseDate="2014-07-25">I.K.S. B'Moth Expansion</Set>
-      <Set id="gavroche" overallSetName="The Collective Boosters" releaseDate="2014-07-25">Gavroche Expansion</Set>
-      <Set id="i_r_w_vorta_vor" overallSetName="The Collective Boosters" releaseDate="2014-07-25">I.R.W. Vorta Vor Expansion</Set>
-      <Set id="3rd_wing_attack_ship" overallSetName="The Collective Boosters" releaseDate="2014-07-25">3rd Wing Attack Ship Expansion</Set>
-      <Set id="u_s_s_yaeger" overallSetName="The Collective Boosters" releaseDate="2014-07-25">U.S.S. Yeager Expansion</Set>
+      <Set id="i_k_s_b_moth" overallSetName="The Collective Boosters" releaseDate="2014-07-25">I.K.S. B'Moth</Set>
+      <Set id="gavroche" overallSetName="The Collective Boosters" releaseDate="2014-07-25">Gavroche</Set>
+      <Set id="i_r_w_vorta_vor" overallSetName="The Collective Boosters" releaseDate="2014-07-25">I.R.W. Vorta Vor</Set>
+      <Set id="3rd_wing_attack_ship" overallSetName="The Collective Boosters" releaseDate="2014-07-25">3rd Wing Attack Ship</Set>
+      <Set id="u_s_s_yaeger" overallSetName="The Collective Boosters" releaseDate="2014-07-25">U.S.S. Yeager</Set>
 
       <Set id="71120" overallSetName="Core" releaseDate="2013-08-01">Starter Set</Set>
-      <Set id="71121" overallSetName="Wave 0" releaseDate="2013-08-02">U.S.S. Reliant Expansion</Set>
-      <Set id="71122" overallSetName="Wave 0" releaseDate="2013-08-02">U.S.S. Enterprise Expansion</Set>
-      <Set id="71123" overallSetName="Wave 0" releaseDate="2013-08-02">I.R.W. Valdore Expansion</Set>
-      <Set id="71124" overallSetName="Wave 0" releaseDate="2013-08-02">R.I.S. Apnex Expansion</Set>
-      <Set id="71125" overallSetName="Wave 0" releaseDate="2013-08-02">I.K.S. Gr'oth Expansion</Set>
-      <Set id="71126" overallSetName="Wave 0" releaseDate="2013-08-02">I.K.S. Negh'var Expansion</Set>
-      <Set id="71127" overallSetName="Wave 0" releaseDate="2013-08-02">Kraxon Expansion</Set>
-      <Set id="71128" overallSetName="Wave 0" releaseDate="2013-08-02">Gor Portas Expansion</Set>
+      <Set id="71121" overallSetName="Wave 0" releaseDate="2013-08-02">U.S.S. Reliant</Set>
+      <Set id="71122" overallSetName="Wave 0" releaseDate="2013-08-02">U.S.S. Enterprise</Set>
+      <Set id="71123" overallSetName="Wave 0" releaseDate="2013-08-02">I.R.W. Valdore</Set>
+      <Set id="71124" overallSetName="Wave 0" releaseDate="2013-08-02">R.I.S. Apnex</Set>
+      <Set id="71125" overallSetName="Wave 0" releaseDate="2013-08-02">I.K.S. Gr'oth</Set>
+      <Set id="71126" overallSetName="Wave 0" releaseDate="2013-08-02">I.K.S. Negh'var</Set>
+      <Set id="71127" overallSetName="Wave 0" releaseDate="2013-08-02">Kraxon</Set>
+      <Set id="71128" overallSetName="Wave 0" releaseDate="2013-08-02">Gor Portas</Set>
 
-      <Set id="71268" overallSetName="Wave 1" releaseDate="2013-10-01">U.S.S. Defiant Expansion</Set>
-      <Set id="71269" overallSetName="Wave 1" releaseDate="2013-10-01">I.K.S. Kronos One Expansion</Set>
-      <Set id="71270" overallSetName="Wave 1" releaseDate="2013-10-01">I.R.W. Praetus Expansion</Set>
-      <Set id="71271" overallSetName="Wave 1" releaseDate="2013-10-01">5th Wing Patrol Ship Expansion</Set>
+      <Set id="71268" overallSetName="Wave 1" releaseDate="2013-10-01">U.S.S. Defiant</Set>
+      <Set id="71269" overallSetName="Wave 1" releaseDate="2013-10-01">I.K.S. Kronos One</Set>
+      <Set id="71270" overallSetName="Wave 1" releaseDate="2013-10-01">I.R.W. Praetus</Set>
+      <Set id="71271" overallSetName="Wave 1" releaseDate="2013-10-01">5th Wing Patrol Ship</Set>
 
-      <Set id="71272" overallSetName="Wave 2" releaseDate="2013-12-01">U.S.S. Excelsior Expansion</Set>
-      <Set id="71273" overallSetName="Wave 2" releaseDate="2013-12-01">I.K.S. Koraga Expansion</Set>
-      <Set id="71274" overallSetName="Wave 2" releaseDate="2013-12-01">R.I.S. Vo Expansion</Set>
-      <Set id="71275" overallSetName="Wave 2" releaseDate="2013-12-01">Koranak Expansion</Set>
+      <Set id="71272" overallSetName="Wave 2" releaseDate="2013-12-01">U.S.S. Excelsior</Set>
+      <Set id="71273" overallSetName="Wave 2" releaseDate="2013-12-01">I.K.S. Koraga</Set>
+      <Set id="71274" overallSetName="Wave 2" releaseDate="2013-12-01">R.I.S. Vo</Set>
+      <Set id="71275" overallSetName="Wave 2" releaseDate="2013-12-01">Koranak</Set>
 
-      <Set id="71276" overallSetName="Wave 3" releaseDate="2014-02-01">U.S.S. Equinox Expansion</Set>
-      <Set id="71448" overallSetName="Wave 3" releaseDate="2014-02-01">I.K.S. Somraw Expansion</Set>
-      <Set id="71278" overallSetName="Wave 3" releaseDate="2014-02-01">I.R.W. Gal Gath'thong Expansion</Set>
-      <Set id="71279" overallSetName="Wave 3" releaseDate="2014-02-01">4th Division Battleship Expansion</Set>
+      <Set id="71276" overallSetName="Wave 3" releaseDate="2014-02-01">U.S.S. Equinox</Set>
+      <Set id="71448" overallSetName="Wave 3" releaseDate="2014-02-01">I.K.S. Somraw</Set>
+      <Set id="71278" overallSetName="Wave 3" releaseDate="2014-02-01">I.R.W. Gal Gath'thong</Set>
+      <Set id="71279" overallSetName="Wave 3" releaseDate="2014-02-01">4th Division Battleship</Set>
 
-      <Set id="71280" overallSetName="Wave 4" releaseDate="2014-04-01">U.S.S. Voyager Expansion</Set>
-      <Set id="71281" overallSetName="Wave 4" releaseDate="2014-04-01">Bioship Alpha Expansion</Set>
-      <Set id="71282" overallSetName="Wave 4" releaseDate="2014-04-01">Nistrim Raider Expansion</Set>
-      <Set id="71283" overallSetName="Wave 4" releaseDate="2014-04-01">Borg Sphere 4270 Expansion</Set>
+      <Set id="71280" overallSetName="Wave 4" releaseDate="2014-04-01">U.S.S. Voyager</Set>
+      <Set id="71281" overallSetName="Wave 4" releaseDate="2014-04-01">Bioship Alpha</Set>
+      <Set id="71282" overallSetName="Wave 4" releaseDate="2014-04-01">Nistrim Raider</Set>
+      <Set id="71283" overallSetName="Wave 4" releaseDate="2014-04-01">Borg Sphere 4270</Set>
 
-      <Set id="71444" overallSetName="Wave 5" releaseDate="2014-06-01">Tactical Cube Expansion</Set>
-      <Set id="71445" overallSetName="Wave 5" releaseDate="2014-06-01">Interceptor Five Expansion</Set>
-      <Set id="71446" overallSetName="Wave 5" releaseDate="2014-06-01">D'Kyr Expansion</Set>
+      <Set id="71444" overallSetName="Wave 5" releaseDate="2014-06-01">Tactical Cube</Set>
+      <Set id="71445" overallSetName="Wave 5" releaseDate="2014-06-01">Interceptor Five</Set>
+      <Set id="71446" overallSetName="Wave 5" releaseDate="2014-06-01">D'Kyr</Set>
 
-      <Set id="71523" overallSetName="Wave 6" releaseDate="2014-07-01">U.S.S. Enterprise (Refit) Expansion</Set>
-      <Set id="71522" overallSetName="Wave 6" releaseDate="2014-07-01">Soong Expansion</Set>
-      <Set id="71524" overallSetName="Wave 6" releaseDate="2014-07-01">Battle Cruiser Expansion</Set>
+      <Set id="71523" overallSetName="Wave 6" releaseDate="2014-07-01">U.S.S. Enterprise (Refit)</Set>
+      <Set id="71522" overallSetName="Wave 6" releaseDate="2014-07-01">Soong</Set>
+      <Set id="71524" overallSetName="Wave 6" releaseDate="2014-07-01">Battle Cruiser</Set>
 
-      <Set id="71786" overallSetName="Promo Card" releaseDate="2014-08-13">DS9 Promo</Set>
+      <Set id="71786" overallSetName="Promo Card" releaseDate="2014-08-13">DS9 GenCon Promo</Set>
 
-      <Set id="71525" overallSetName="Wave 7" releaseDate="2014-09-03">Scout Cube Expansion</Set>
-      <Set id="71526" overallSetName="Wave 7" releaseDate="2014-09-03">Enterprise NX-01 Expansion</Set>
-      <Set id="71527" overallSetName="Wave 7" releaseDate="2014-09-03">Ni'Var Expansion</Set>
+      <Set id="71525" overallSetName="Wave 7" releaseDate="2014-09-03">Scout Cube</Set>
+      <Set id="71526" overallSetName="Wave 7" releaseDate="2014-09-03">Enterprise NX-01</Set>
+      <Set id="71527" overallSetName="Wave 7" releaseDate="2014-09-03">Ni'Var</Set>
 
-      <Set id="71646a" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Bok's Marauder Expansion</Set>
-      <Set id="71646b" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Prakesh Expansion</Set>
-      <Set id="71646c" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Relora-Sankur Expansion</Set>
-      <Set id="71646d" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Scout 255 Expansion</Set>
-      <Set id="71646e" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Tal'Kir Expansion</Set>
+      <Set id="71646a" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Bok's Marauder</Set>
+      <Set id="71646b" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Prakesh</Set>
+      <Set id="71646c" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Relora-Sankur</Set>
+      <Set id="71646d" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Scout 255</Set>
+      <Set id="71646e" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Tal'Kir</Set>
 
-      <Set id="71528" overallSetName="Wave 8" releaseDate="2014-10-01">Val Jean Expansion</Set>
-      <Set id="71530" overallSetName="Wave 8" releaseDate="2014-10-01">Queen Vessel Prime Expansion</Set>
-      <Set id="71531" overallSetName="Wave 8" releaseDate="2014-10-01">U.S.S. Enterprise-E Expansion</Set>
+      <Set id="71528" overallSetName="Wave 8" releaseDate="2014-10-01">Val Jean</Set>
+      <Set id="71530" overallSetName="Wave 8" releaseDate="2014-10-01">Queen Vessel Prime</Set>
+      <Set id="71531" overallSetName="Wave 8" releaseDate="2014-10-01">U.S.S. Enterprise-E</Set>
 
-      <Set id="71511" overallSetName="Organized Play" releaseDate="2014-10-01">Avatar of Tomed Expansion</Set>
+      <Set id="71511" overallSetName="Resistance is Futile" releaseDate="2014-10-01">Avatar of Tomed</Set>
       <Set id="71512" overallSetName="Resistance is Futile" releaseDate="2014-10-29">Assimilated Vessel 80279</Set>
       <Set id="71511a" overallSetName="Resistance is Futile" releaseDate="2014-09-24">Improved Shields Resource</Set>
       <Set id="71512a" overallSetName="Resistance is Futile" releaseDate="2014-10-29">Advanced Targeting Systems Resource</Set>
@@ -17373,7 +17548,7 @@ While a Master Strategist Token is beside your ship:
       <Set id="71536" overallSetName="Wave 11" releaseDate="2015-01-28">Prototype 01</Set>
       <Set id="71996a" overallSetName="A Matter of Honor" releaseDate="2015-02-04">Officer Exchange Program Resource</Set>
       <Set id="71996" overallSetName="A Matter of Honor" releaseDate="2015-02-04">I.K.S. Pagh</Set>
-      <Set id="71795" overallSetName="Wave 12" releaseDate="2015-03-04">Tholia One</Set>
+      <Set id="71795" overallSetName="Wave 12" releaseDate="2015-03-04">Tholia One (Retail)</Set>
       <Set id="71997r" overallSetName="Peak Performance" releaseDate="2015-03-04">Master Strategist Tokens Resource</Set>
       <Set id="71793" overallSetName="Wave 12" releaseDate="2015-03-04">Ogla-Razik</Set>
       <Set id="71794" overallSetName="Wave 12" releaseDate="2015-03-04">I.R.W. Haakona</Set>
@@ -17381,11 +17556,14 @@ While a Master Strategist Token is beside your ship:
       <Set id="71798" overallSetName="Wave 13" releaseDate="2015-04-01">Reklar</Set>
       <Set id="71796" overallSetName="Wave 13" releaseDate="2015-04-01">I.S.S. Enterprise</Set>
       <Set id="71997p" overallSetName="Peak Performance" releaseDate="2015-03-04">Sakharov</Set>
-      <Set id="71998p" overallSetName="Q Continuum" releaseDate="2015-03-04">U.S.S. Hood</Set>
+      <Set id="71998p" overallSetName="Q Continuum" releaseDate="2015-04-01">U.S.S. Hood</Set>
+      <Set id="71998r" overallSetName="Q Continuum" releaseDate="2015-04-01">Evasive Action Template Resource</Set>
       <Set id="71800" overallSetName="Wave 14" releaseDate="2015-05-06">I.S.S. Avenger</Set>
       <Set id="71799" overallSetName="Wave 14" releaseDate="2015-05-06">Kyana Prime</Set>
       <Set id="71801" overallSetName="Wave 14" releaseDate="2015-05-06">U.S.S. Pegasus</Set>
       <Set id="71803" overallSetName="Wave 15" releaseDate="2015-06-03">Ratosha</Set>
+      <Set id="71999p" overallSetName="Q Continuum" releaseDate="2015-05-06">IKS Korinar</Set>
+      <Set id="71999r" overallSetName="Q Continuum" releaseDate="2015-05-06">Damage Control Team Resource</Set>
     </Sets>
     <Flagships>
         <Flagship>
@@ -17994,6 +18172,23 @@ If your Borg Shield Matrix Upgrade is disabled, you do not gain the above specia
 If you Borg Shield Matrix Upgrade is discarded, discard all the BSMT on it as well. Borg Shiel Matrix Tokens cannot otherwise be removed from your Borg Shield Matrix Upgrade Card once they are placed.</Ability>
         <Id>borg_shield_matrix_token_reference</Id>
         <Set>71530</Set>
+    </Reference>
+    <Reference>
+        <Title>Escape Pod Token (EPT)</Title>
+        <Type>Token</Type>
+        <Ability>While an Escape Pod Token is in the play area:
+
+1) During the Activation Phase, after all ships have moved, the Escape Pod must move 1 [FORWARD] in the direction of the arrow on the Token.  If it overlaps a friendly ship's base after this move, it is considered to be picked up by the ship (see below).  If it overlaps an enemy ship's base after its move, it is destroyed.
+
+2) During the Combat Phase, it cannot attack, but it may be attacked.  It has 0 Agility, a Hull Value of 1, and 0 Shields.
+
+3) The cards beneath the "Escape Pod" Upgrade card cannot use their text abilities and cannot be affected by enemy Upgrades.
+
+If a friendly ship is within Range 1 of an EPT at the end of the Activation Phase (or it is placed directly on a friendly ship's base), the EPT is considered picked up.  Remove the EPT from the game and discard the "Escape Pod" Upgrade Card.  Place all of the cards beneath it beside that ship's cards.  These cards are now considered to be deployed to that ship.
+
+NOTE: The [CREW] Upgrade cards may exceed the ship's restrictions, but there may only be 1 Captain Card assigned to the ship.  You may keep either your original Captain card or the one from the Escape Pod and remove the other one from the game.</Ability>
+        <Id>escape_pod_token_reference</Id>
+        <Set>71801</Set>
     </Reference>
     </ReferenceItems>
 </Data>

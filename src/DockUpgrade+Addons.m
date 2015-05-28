@@ -555,6 +555,9 @@ static NSDictionary* sItemLabels = nil;
                 cost += 5;
             }
         }
+        if ([upgrade.externalId isEqualToString:@"mauk_to_vor_71999p"] && [captain.externalId isEqualToString:@"kurn_71999p"]) {
+            cost = 3;
+        }
     } else if ([upgrade isCrew]) {
         if (([captainSpecial isEqualToString: @"CrewUpgradesCostOneLess"] || [captainSpecial isEqualToString: @"hugh_71522"] ) && !isSideboard) {
             cost -= 1;
@@ -760,6 +763,7 @@ static NSDictionary* sItemLabels = nil;
             if (!([ship isKlingon])) {
                 cost += 1;
             }
+        } else if ([upgradeSpecial isEqualToString:@"CaptainIgnoresPenalty"]) {
         } else {
             if (upgrade.isAdmiral) {
                 cost += 3;
