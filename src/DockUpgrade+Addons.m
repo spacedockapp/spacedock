@@ -776,7 +776,9 @@ static NSDictionary* sItemLabels = nil;
     if (hasExchange) {
         if ((targetHasFaction(exFac1, upgrade) && targetHasFaction(exFac2, ship)) || (targetHasFaction(exFac2, upgrade) && targetHasFaction(exFac1, ship))) {
             if (cost > costWithoutPenalty) {
-                cost = costWithoutPenalty;
+                if (upgrade.isCrew || upgrade.isCaptain || upgrade.isAdmiral) {
+                    cost = costWithoutPenalty;
+                }
             }
             if (upgrade.isCaptain || upgrade.isAdmiral) {
                 cost -= 1;
