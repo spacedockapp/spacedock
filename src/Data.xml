@@ -1,4 +1,4 @@
-<Data version="2015-05-26@05-47">
+<Data version="2015-05-28@15-20">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -16627,6 +16627,38 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Special>NoMoreThanOnePerShipFederation</Special>
     </Upgrade>
     <Upgrade>
+        <Title>Systems Upgrade</Title>
+        <Ability>You may fill any slot on your Upgrade Bar with this Upgrade. Add 1 [TECH] icon to your Upgrade Bar. Your starting Shield Value is at +1. This Upgrade may only be purchased for a Federation ship and no ship may be equipped with more than one "Systems Upgrade" card.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Federation</Faction>
+        <Cost>2</Cost>
+        <Id>systems_upgrade_c_71998p</Id>
+        <Set>71998p</Set>
+        <Special>NoMoreThanOnePerShipFederation</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Systems Upgrade</Title>
+        <Ability>You may fill any slot on your Upgrade Bar with this Upgrade. Add 1 [TECH] icon to your Upgrade Bar. Your starting Shield Value is at +1. This Upgrade may only be purchased for a Federation ship and no ship may be equipped with more than one "Systems Upgrade" card.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Weapon</Type>
+        <Faction>Federation</Faction>
+        <Cost>2</Cost>
+        <Id>systems_upgrade_w_71998p</Id>
+        <Set>71998p</Set>
+        <Special>NoMoreThanOnePerShipFederation</Special>
+    </Upgrade>
+    <Upgrade>
         <Title>Specialized Shields</Title>
         <Ability>When defending, while your ship still has Active Shields, during the Modify Defense Dice step, you may re-roll 1 of your blank results. When suffering damage from an obstacle or a minefield, subtract 1 damage from the total damage. This Upgrade may only be purchased for a Federation ship with a Hull value of 3 or less.</Ability>
         <Unique>N</Unique>
@@ -16736,7 +16768,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Cost>2</Cost>
         <Id>eric_motz_71801</Id>
         <Set>71801</Set>
-        <Special></Special>
+        <Special>addonetechslot</Special>
     </Upgrade>
     <Upgrade>
         <Title>William T. Riker</Title>

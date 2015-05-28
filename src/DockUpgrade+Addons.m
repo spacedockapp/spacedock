@@ -599,6 +599,9 @@ static NSDictionary* sItemLabels = nil;
         if ([ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [upgrade.externalId isEqualToString:@"enhanced_hull_plating_71526"]) {
             cost = 0;
         }
+        if ([ship.externalId isEqualToString:@"u_s_s_pegasus_71801"]) {
+            cost -= 1;
+        }
     }
 
     if ([upgradeSpecial isEqualToString: @"costincreasedifnotbreen"]) {
@@ -843,6 +846,9 @@ static NSDictionary* sItemLabels = nil;
     if ([externalId isEqualToString: @"quark_71786"] || [externalId isEqualToString:@"first_maje_71793"]) {
         return 1;
     }
+    if ([externalId isEqualToString:@"systems_upgrade_71998p"] || [externalId isEqualToString:@"systems_upgrade_c_71998p"] || [externalId isEqualToString:@"systems_upgrade_w_71998p"]) {
+        return 1;
+    }
     return 0;
 }
 
@@ -900,7 +906,7 @@ static NSDictionary* sItemLabels = nil;
     if ([self.special isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
         return 1;
     }
-    if ([self.special isEqualToString:@"assault_vessel_upgrade_c_71803"] || [self.special isEqualToString:@"assault_vessel_upgrade_t_71803"] || [self.special isEqualToString:@"assault_vessel_upgrade_w_71803"] ) {
+    if ([self.externalId isEqualToString:@"assault_vessel_upgrade_c_71803"] || [self.externalId isEqualToString:@"assault_vessel_upgrade_t_71803"] || [self.externalId isEqualToString:@"assault_vessel_upgrade_w_71803"] ) {
         return 1;
     }
     return 0;
@@ -908,7 +914,7 @@ static NSDictionary* sItemLabels = nil;
 
 -(int)additionalShield
 {
-    if ([self.special isEqualToString:@"assault_vessel_upgrade_c_71803"] || [self.special isEqualToString:@"assault_vessel_upgrade_t_71803"] || [self.special isEqualToString:@"assault_vessel_upgrade_w_71803"] ) {
+    if ([self.special isEqualToString:@"assault_vessel_upgrade_c_71803"] || [self.externalId isEqualToString:@"assault_vessel_upgrade_t_71803"] || [self.externalId isEqualToString:@"assault_vessel_upgrade_w_71803"] || [self.externalId isEqualToString:@"systems_upgrade_71998p"] || [self.externalId isEqualToString:@"systems_upgrade_c_71998p"] || [self.externalId isEqualToString:@"systems_upgrade_w_71998p"]) {
         return 1;
     }
 
