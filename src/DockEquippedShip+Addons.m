@@ -1294,6 +1294,29 @@
         [equippedUpgrade overrideWithCost:0];
     }
     
+    if ([self.ship.externalId isEqualToString:@"sakharov_71997p"] && [upgrade isTech] && ![upgrade isPlaceholder]) {
+        if ([self upgradesWithSpecialTag:@"SakhovBonus"].count == 0) {
+            int cost = equippedUpgrade.cost - 2;
+            if (cost < 0) {
+                cost = 0;
+            }
+            equippedUpgrade.specialTag = @"SakhovBonus";
+            [equippedUpgrade overrideWithCost:cost];
+        }
+        NSLog(@"Bonus = %ld",[self upgradesWithSpecialTag:@"SakhovBonus"].count);
+    }
+    
+    if ([self.ship.externalId isEqualToString:@"sakharov_c_71997p"] && [upgrade isCrew] && ![upgrade isPlaceholder]) {
+        if ([self upgradesWithSpecialTag:@"SakhovBonus"].count == 0) {
+            int cost = equippedUpgrade.cost - 2;
+            if (cost < 0) {
+                cost = 0;
+            }
+            equippedUpgrade.specialTag = @"SakhovBonus";
+            [equippedUpgrade overrideWithCost:cost];
+        }
+    }
+    
     return equippedUpgrade;
 }
 
@@ -1459,6 +1482,25 @@
     for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
         if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [eu.upgrade.externalId isEqualToString:@"enhanced_hull_plating_71526"]) {
             continue;
+        }
+        if ([eu.specialTag isEqualToString:@"SakhovBonus"]) {
+            if ([self.ship.externalId isEqualToString:@"sakharov_71997p"] || [self.ship.externalId isEqualToString:@"sakharov_c_71997p"]) {
+                if ([self upgradesWithSpecialTag:@"SakhovBonus"].count > 1) {
+                    [eu removeCostOverride];
+                    eu.specialTag = @"";
+                }
+                if ([eu.upgrade isTech] && ![self.ship.externalId isEqualToString:@"sakharov_71997p"]) {
+                    [eu removeCostOverride];
+                    eu.specialTag = @"";
+                }
+                if ([eu.upgrade isCrew] && ![self.ship.externalId isEqualToString:@"sakharov_c_71997p"]) {
+                    [eu removeCostOverride];
+                    eu.specialTag = @"";
+                }
+            } else {
+                [eu removeCostOverride];
+                eu.specialTag = @"";
+            }
         }
         if (![self.captain.externalId isEqualToString:@"tahna_los_op6prize"] && [eu.specialTag isEqualToString:@"TahnaLosTech"]) {
             [onesToRemove addObject:eu];
