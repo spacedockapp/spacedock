@@ -1,4 +1,4 @@
-<Data version="2015-05-31@20-39">
+<Data version="2015-06-03@03-09">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -16987,7 +16987,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
     </Upgrade>
     <Upgrade>
         <Title>Chroniton Torpedoes</Title>
-        <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. All damage inflicted by this attack ignores the opposing ship's Shields. You may fire this weapon from your forward or rear firing arcs. This Upgrade costs +5 SP for any ship other than a Krenim weapon ship.</Ability>
+        <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. All damage inflicted by this attack ignores the opposing ship's Shields. You may fire this weapon from your forward or rear firing arcs. This Upgrade costs +6 SP for any ship other than a Krenim weapon ship.</Ability>
         <Unique>N</Unique>
         <MirrorUniverseUnique>N</MirrorUniverseUnique>
         <Skill></Skill>
@@ -17000,7 +17000,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Cost>6</Cost>
         <Id>chroniton_torpedoes_71799</Id>
         <Set>71799</Set>
-        <Special>Plus5NotShipClass_Krenim_Weapon_Ship</Special>
+        <Special>Plus6NotShipClass_Krenim_Weapon_Ship</Special>
     </Upgrade>
     <Upgrade>
         <Title>Temporal Incursion</Title>

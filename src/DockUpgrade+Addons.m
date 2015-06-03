@@ -689,6 +689,16 @@ static NSDictionary* sItemLabels = nil;
         if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus5NotShip_%@",shipName]]) {
             cost += 5;
         }
+    } else if ([upgradeSpecial hasPrefix:@"Plus6NotShipClass_"]) {
+        NSString* shipClass = [ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus6NotShipClass_%@",shipClass]]) {
+            cost += 6;
+        }
+    } else if ([upgradeSpecial hasPrefix:@"Plus6NotShip_"]) {
+        NSString* shipName = [ship.title stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus6NotShip_%@",shipName]]) {
+            cost += 6;
+        }
     }
 
     if (!isSideboard) {
