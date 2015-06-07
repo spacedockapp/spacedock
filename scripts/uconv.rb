@@ -6,17 +6,17 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-4/2/2015 1:59:49	71997p - Sakharov	Unique	Sirna Kolrami	Federation	When defending, during the Compare Results step, if you cancel all of your opponent's [HIT] and [CRIT] results, you may discard this card and disable 1 of your other Upgrades to immediately roll a number of attack dice equal to the number of [HIT] or [CRIT] results that were cancelled (max 4 dice).  The attacking ship suffers normal damage for every [HIT] or [CRIT] result you roll with these dice.	Crew	5	
-4/2/2015 2:20:51	71997p - Sakharov	Unique	Computer Analysis	Federation	During the Planning Phase, you may discard this card to remove all the Disabled Upgrade Tokens from all of your other Upgrades.	Talent	4	
-4/2/2015 2:23:38	71997p - Sakharov	Non-unique	Escape Transporter	Federation	When your ship is destroyed, before removing it from the play area, you may discard this card to target a friendly ship at Range 1-2 that is not cloaked and disable all of that ship's remaining Shields.  Select up to 3 other Upgrades that were deployed to this ship and redeploy them to the target ship, even if it exceeds that ship's restrictions.  If any of the redeployed Upgrades were already disabled, they remain disabled.  This Upgrade may only be purchased for a Federation Shuttlecraft.	Tech	2	OnlyShipClass_Type_7_Shuttlecraft
-4/2/2015 2:25:12	71997p - Sakharov	Non-unique	Warp Drive	Federation	During the Activation Phase, if you reveal a 2 [FORWARD] Maneuver, you may disable this card to perform a white 3 [FORWARD] or a red 4 [FORWARD] Maneuver instead.  This Upgrade may only be purchased for a Federation Shuttlecraft and no ship may be equipped with more than 1 "Warp Drive" Upgrade.	Tech	2	NoMoreThanOnePerShip
+5/26/2015 17:01:23	71999p - IKS Korinar	Non-unique	Klingon Stealth Team	Klingon	ACTION: Discard this card to target a ship at Range 2-3 that is not Cloaked.  Disable 1 [TECH] or [WEAPON] Upgrade of your choice on target ship and then discard 1 [CREW] Upgrade of your choice on that ship, if possible.  This Upgrade may only be purchased for a Klingon ship and no ship may be equipped with more than one Klingon Stealth Team Upgrade.	Crew	5	Yes
+5/26/2015 17:03:05	71999p - IKS Korinar	Non-unique	Cloaked Mines	Klingon	During the Planning Phase, you may discard this card to place a Minefield Token within Range 1 of your ship (in any direction), but not within Range 3 of an enemy ship.  If an enemy ship passes within Range 1 of the token, roll 3 attack dice (-1 if the target ship immediately performs a [SCAN] Action).  Any [HIT] or [CRIT] damage the target ship as normal.  The affected ship does not roll any defense dice.	Tech	3	
+5/27/2015 6:20:34	71999p - IKS Korinar	Unique	Mauk-to'Vor	Klingon	ACTION: Discard this card and your Captain Card to gain a number of attack dice for your first attack this round equal to 1/2 of that Captain's Skill number, rounded down (max +3).  Place an Auxiliary Power Token beside your ship.  You cannot perform any free Actions this round.  This Upgrade may only be purchased for a Klingon Captain assigned to a Klingon ship.	Talent	5	
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-4/2/2015 2:19:49	71997p - Sakharov	Unique	Data	3	Federation	At the start of the game, place 1 [EVASIVE MANEUVERS], 1 [SCAN], and 1 [BATTLE STATIONS] Token on this card.  During the Activation Phase, you may take 1 of these Tokens off this card and place it beside your ship, even if there is already one there.	1	2		
+5/26/2015 16:58:42	71999p - IKS Korinar	Unique	Kurn	4	Klingon	You do not pay a faction penalty when assigning Kurn to any ship.  Kurn may field the "Mauk-to'Vor" [ELITE TALENT] Upgrade at a cost of 3 SP.	0	3	Yes	
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
+5/26/2015 17:05:11	71999p - IKS Korinar	Non-unique	Ambush Attack	Klingon	5	1-2	ATTACK: Discard this card to perform this attack.  If your ship is cloaked, gain +1 attack die for this attack.  If your ship is not in the target ship's forward or rear firing arcs, you may convert all of your [BATTLE STATIONS] results into [HIT] results.  No ship may be equipped with more than one Ambush Attack Upgrade.	5	Yes
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT

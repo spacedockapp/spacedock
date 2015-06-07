@@ -208,7 +208,12 @@
 
 -(int)shield
 {
-    return [self.ship.shield intValue] + [self.flagship shieldAdd];
+    int shield = [self.ship.shield intValue] + [self.flagship shieldAdd];
+    for (DockEquippedUpgrade* eu in self.upgrades) {
+        DockUpgrade* upgrade = eu.upgrade;
+        shield += [upgrade additionalShield];
+    }
+    return shield;
 }
 
 -(NSString*)attackString
@@ -562,6 +567,30 @@
             }
         }
     }
+
+    if (![upgrade isPlaceholder] && [upgrade isTalent] && [self.captain.externalId isEqualToString:@"kurn_71999p"]) {
+        if (self.talentCount == 1) {
+            if (![upgrade.externalId isEqualToString:@"mauk_to_vor_71999p"]) {
+                return NO;
+            }
+        } else {
+            int talents = self.talentCount;
+            for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+                if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                    if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                        talents --;
+                    }
+                }
+            }
+            if (talents == 1 && ![upgrade.externalId isEqualToString:@"mauk_to_vor_71999p"]) {
+                if ([self containsUpgradeWithId:@"mauk_to_vor_71999p"] == nil && validating) {
+                    return NO;
+                }
+            } else if (talents < 1 && ![upgrade.externalId isEqualToString:@"mauk_to_vor_71999p"]) {
+                return NO;
+            }
+        }
+    }
     
     if (!upgrade.isPlaceholder && [upgrade isTech] && [self.captain.externalId isEqualToString:@"tahna_los_op6prize"]) {
         int tech = self.techCount;
@@ -676,6 +705,12 @@
             return NO;
         }
     }
+    
+    if ([upgradeSpecial isEqualToString: @"OnlyBajoran"] || [upgradeSpecial isEqualToString: @"NoMoreThanOnePerShipBajoran"]) {
+        if (![self.ship isBajoran]) {
+            return NO;
+        }
+    }
 
     if ([upgradeSpecial isEqualToString: @"OnlyDominionCaptain"]) {
         if (![self.captain isDominion]) {
@@ -719,7 +754,7 @@
         }
     }
 
-    if ([upgradeSpecial isEqualToString: @"OnlyFederationShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"]) {
+    if ([upgradeSpecial isEqualToString: @"OnlyFederationShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString:@"ony_federation_ship_limited3"] || [upgradeSpecial isEqualToString:@"NoMoreThanOnePerShipFederation"]) {
         if (![self.ship isFederation]) {
             return NO;
         }
@@ -815,6 +850,22 @@
         }
     }
     
+    if ([upgradeSpecial isEqualToString:@"ony_mu_ship_limited"]) {
+        if (![self.ship isMirrorUniverse]) {
+            return NO;
+        }
+    }
+    
+    if ([upgradeSpecial isEqualToString:@"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"]) {
+        if ([self.ship.hull intValue] > 4) {
+            return NO;
+        }
+    }
+    if ([upgradeSpecial isEqualToString:@"ony_federation_ship_limited3"]) {
+        if ([self.ship.hull intValue] > 3) {
+            return NO;
+        }
+    }
     if ([upgradeSpecial isEqualToString:@"OnlyDominionHV4"]) {
         if (![self.ship isDominion]) {
             return NO;
@@ -825,7 +876,7 @@
     }
     
     if (validating) {
-        if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"]) {
+        if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"]) {
             DockEquippedUpgrade* existing = [self containsUpgradeWithId: upgrade.externalId];
             if (existing != nil) {
                 return NO;
@@ -931,6 +982,12 @@
         }
     }
     
+    if ([upgrade.externalId isEqualToString:@"causality_paradox_71799"]) {
+        if (![self.captain.externalId isEqualToString:@"annorax_71799"] && ![self.captain.externalId isEqualToString:@"obrist_71799"] && ![self.captain.externalId isEqualToString:@"krenim_71799"]) {
+            return NO;
+        }
+    }
+    
     if (ignoreInstalled) {
         return YES;
     }
@@ -1008,7 +1065,7 @@
                 } else {
                     info = @"This upgrade may only be equipped by a Federation Shuttlecraft.";
                 }
-            } else if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"]) {
+            } else if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"]) {
                 info = @"No ship may be equipped with more than one of these upgrades.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyBattleshipOrCruiser"]) {
                 info = @"This upgrade may only be purchased for a Jem'Hadar Battle Cruiser or Battleship.";
@@ -1237,6 +1294,29 @@
         [equippedUpgrade overrideWithCost:0];
     }
     
+    if ([self.ship.externalId isEqualToString:@"sakharov_71997p"] && [upgrade isTech] && ![upgrade isPlaceholder]) {
+        if ([self upgradesWithSpecialTag:@"SakhovBonus"].count == 0) {
+            int cost = equippedUpgrade.cost - 2;
+            if (cost < 0) {
+                cost = 0;
+            }
+            equippedUpgrade.specialTag = @"SakhovBonus";
+            [equippedUpgrade overrideWithCost:cost];
+        }
+        NSLog(@"Bonus = %ld",[self upgradesWithSpecialTag:@"SakhovBonus"].count);
+    }
+    
+    if ([self.ship.externalId isEqualToString:@"sakharov_c_71997p"] && [upgrade isCrew] && ![upgrade isPlaceholder]) {
+        if ([self upgradesWithSpecialTag:@"SakhovBonus"].count == 0) {
+            int cost = equippedUpgrade.cost - 2;
+            if (cost < 0) {
+                cost = 0;
+            }
+            equippedUpgrade.specialTag = @"SakhovBonus";
+            [equippedUpgrade overrideWithCost:cost];
+        }
+    }
+    
     return equippedUpgrade;
 }
 
@@ -1403,6 +1483,25 @@
         if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [eu.upgrade.externalId isEqualToString:@"enhanced_hull_plating_71526"]) {
             continue;
         }
+        if ([eu.specialTag isEqualToString:@"SakhovBonus"]) {
+            if ([self.ship.externalId isEqualToString:@"sakharov_71997p"] || [self.ship.externalId isEqualToString:@"sakharov_c_71997p"]) {
+                if ([self upgradesWithSpecialTag:@"SakhovBonus"].count > 1) {
+                    [eu removeCostOverride];
+                    eu.specialTag = @"";
+                }
+                if ([eu.upgrade isTech] && ![self.ship.externalId isEqualToString:@"sakharov_71997p"]) {
+                    [eu removeCostOverride];
+                    eu.specialTag = @"";
+                }
+                if ([eu.upgrade isCrew] && ![self.ship.externalId isEqualToString:@"sakharov_c_71997p"]) {
+                    [eu removeCostOverride];
+                    eu.specialTag = @"";
+                }
+            } else {
+                [eu removeCostOverride];
+                eu.specialTag = @"";
+            }
+        }
         if (![self.captain.externalId isEqualToString:@"tahna_los_op6prize"] && [eu.specialTag isEqualToString:@"TahnaLosTech"]) {
             [onesToRemove addObject:eu];
         }
@@ -1484,7 +1583,7 @@
     if ([self.captain isKazon] && [self.ship isKazon]) {
         talentCount ++;
     }
-    if ([self.captain.externalId isEqualToString:@"slar_71797"]) {
+    if ([self.captain.externalId isEqualToString:@"slar_71797"] || [self.captain.externalId isEqualToString:@"kurn_71999p"]) {
         talentCount ++;
     }
     return talentCount;

@@ -190,7 +190,8 @@
 {
     NSIndexPath* firstObjectIndex = [NSIndexPath indexPathForRow: 0 inSection: section];
     DockSet* set = [self.fetchedResultsController objectAtIndexPath: firstObjectIndex];
-    return [self.dateFormatter stringFromDate: set.releaseDate];
+    NSString* releaseDate = [self.dateFormatter stringFromDate: set.releaseDate];
+    return [NSString stringWithFormat:@"%@ - %@", releaseDate, set.name];
 }
 
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath

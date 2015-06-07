@@ -1,22 +1,38 @@
     <Upgrade>
-      <Title>Sirna Kolrami</Title>
-      <Ability>When defending, during the Compare Results step, if you cancel all of your opponent's [HIT] and [CRIT] results, you may discard this card and disable 1 of your other Upgrades to immediately roll a number of attack dice equal to the number of [HIT] or [CRIT] results that were cancelled (max 4 dice). The attacking ship suffers normal damage for every [HIT] or [CRIT] result you roll with these dice.</Ability>
-      <Unique>Y</Unique>
+      <Title>Klingon Stealth Team</Title>
+      <Ability>ACTION: Discard this card to target a ship at Range 2-3 that is not Cloaked. Disable 1 [TECH] or [WEAPON] Upgrade of your choice on target ship and then discard 1 [CREW] Upgrade of your choice on that ship, if possible. This Upgrade may only be purchased for a Klingon ship and no ship may be equipped with more than one Klingon Stealth Team Upgrade.</Ability>
+      <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Federation</Faction>
+      <Faction>Klingon</Faction>
       <Cost>5</Cost>
-      <Id>sirna_kolrami_71997p</Id>
-      <Set>71997p</Set>
+      <Id>klingon_stealth_team_71999p</Id>
+      <Set>71999p</Set>
+      <Special>NoMoreThanOnePerShipKlingon</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Cloaked Mines</Title>
+      <Ability>During the Planning Phase, you may discard this card to place a Minefield Token within Range 1 of your ship (in any direction), but not within Range 3 of an enemy ship. If an enemy ship passes within Range 1 of the token, roll 3 attack dice (-1 if the target ship immediately performs a [SCAN] Action). Any [HIT] or [CRIT] damage the target ship as normal. The affected ship does not roll any defense dice.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Klingon</Faction>
+      <Cost>3</Cost>
+      <Id>cloaked_mines_71999p</Id>
+      <Set>71999p</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Computer Analysis</Title>
-      <Ability>During the Planning Phase, you may discard this card to remove all the Disabled Upgrade Tokens from all of your other Upgrades.</Ability>
+      <Title>Mauk-to'Vor</Title>
+      <Ability>ACTION: Discard this card and your Captain Card to gain a number of attack dice for your first attack this round equal to 1/2 of that Captain's Skill number, rounded down (max +3). Place an Auxiliary Power Token beside your ship. You cannot perform any free Actions this round. This Upgrade may only be purchased for a Klingon Captain assigned to a Klingon ship.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -24,41 +40,25 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>computer_analysis_71997p</Id>
-      <Set>71997p</Set>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>mauk_to_vor_71999p</Id>
+      <Set>71999p</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Escape Transporter</Title>
-      <Ability>When your ship is destroyed, before removing it from the play area, you may discard this card to target a friendly ship at Range 1-2 that is not cloaked and disable all of that ship's remaining Shields. Select up to 3 other Upgrades that were deployed to this ship and redeploy them to the target ship, even if it exceeds that ship's restrictions. If any of the redeployed Upgrades were already disabled, they remain disabled. This Upgrade may only be purchased for a Federation Shuttlecraft.</Ability>
+      <Title>Ambush Attack</Title>
+      <Ability>ATTACK: Discard this card to perform this attack. If your ship is cloaked, gain +1 attack die for this attack. If your ship is not in the target ship's forward or rear firing arcs, you may convert all of your [BATTLESTATIONS] results into [HIT] results. No ship may be equipped with more than one Ambush Attack Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>2</Cost>
-      <Id>escape_transporter_71997p</Id>
-      <Set>71997p</Set>
-      <Special>OnlyShipClass_Type_7_Shuttlecraft</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Warp Drive</Title>
-      <Ability>During the Activation Phase, if you reveal a 2 [STRAIGHT] Maneuver, you may disable this card to perform a white 3 [STRAIGHT] or a red 4 [STRAIGHT] Maneuver instead. This Upgrade may only be purchased for a Federation Shuttlecraft and no ship may be equipped with more than 1 "Warp Drive" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>2</Cost>
-      <Id>warp_drive_71997p</Id>
-      <Set>71997p</Set>
+      <Attack>5</Attack>
+      <Range>1-2</Range>
+      <Type>Weapon</Type>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>ambush_attack_71999p</Id>
+      <Set>71999p</Set>
       <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>

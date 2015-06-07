@@ -140,6 +140,11 @@ NSString* asDegrees(NSString* textValue)
 -(NSString*)descriptiveTitle
 {
     if (self.isAnyKindOfUnique) {
+        if ([self.externalId isEqualToString:@"sakharov_c_71997p"]) {
+            return [NSString stringWithFormat:@"%@ (Extra Crew)", self.title];
+        } else if ([self.externalId isEqualToString:@"sakharov_71997p"]) {
+            return [NSString stringWithFormat:@"%@ (Extra Tech)", self.title];
+        }
         return self.title;
     }
 

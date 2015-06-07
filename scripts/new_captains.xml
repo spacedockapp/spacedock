@@ -1,16 +1,16 @@
   <Captain>
-    <Title>Data</Title>
-    <Ability>At the start of the game, place 1 [EVASIVE MANEUVERS], 1 [SCAN], and 1 [BATTLESTATIONS] Token on this card. During the Activation Phase, you may take 1 of these Tokens off this card and place it beside your ship, even if there is already one there.</Ability>
+    <Title>Kurn</Title>
+    <Ability>You do not pay a faction penalty when assigning Kurn to any ship. Kurn may field the "Mauk-to'Vor" [ELITE TALENT] Upgrade at a cost of 3 SP.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>3</Skill>
-    <Talent>1</Talent>
+    <Skill>4</Skill>
+    <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>2</Cost>
-    <Id>data_71997p</Id>
-    <Set>71997p</Set>
-    <Special></Special>
+    <Faction>Klingon</Faction>
+    <Cost>3</Cost>
+    <Id>kurn_71999p</Id>
+    <Set>71999p</Set>
+    <Special>Yes</Special>
   </Captain>
