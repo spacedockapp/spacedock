@@ -44,8 +44,10 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-5/26/2015 16:57:08	71999p - IKS Korinar	Unique	I.K.S. Korinar	Klingon	B'rel Class	B'rel Class				4	1	3	3	While you are cloaked, if you initiate an attack at Range 1 with your Primary Weapon, gain +1 attack die for that attack.	Cloak, Evasive, Sensor Echo, Target Lock	22	0	1	1	2	90-degree forward, 90-degree rear		0
-5/26/2015 16:56:06	71999p - IKS Korinar	Non-unique	Klingon Starship	Klingon	B'rel Class	B'rel Class				4	1	3	2		Cloak, Evasive, Sensor Echo, Target Lock	20	0	1	1	1	90-degree forward, 90-degree rear		0
+5/28/2015 22:37:27	71802 - USS Prometheus	Non-unique	Federation Starship	Federation	Prometheus Class		1 Forward, 2 Forward, 2 Bank	3 Forward, 3 Bank, 3 Turn, 4 Forward, 4 Bank, 5 Forward, 6 Forward	1 Reverse	5	1	4	4		Battle Stations, Evasive, Scan, Target Lock	28	0	1	2	2	90-degree forward, 90-degree rear		0
+5/28/2015 22:38:29	71804 - IKS Ning'tao	Non-unique	Klingon Starship	Klingon	B'rel Class	B'rel Class				4	1	3	2		Cloak, Evasive, Sensor Echo, Target Lock	20	0	1	1	1	90-degree forward, 90-degree rear		0
+5/30/2015 12:19:22	71804 - IKS Ning'tao	Unique	I.K.S. Ning'tao	Klingon	B'rel Class	B'rel Class				4	1	3	3	After performing a [SENSOR ECHO] Action, you may Come About (reverse direction).  If you do so, place an Auxiliary Power Token beside your ship.	Cloak, Evasive, Sensor Echo, Target Lock	22	0	1	1	2	90-degree forward, 90-degree rear		0
+5/30/2015 12:22:16	71802 - USS Prometheus	Unique	U.S.S. Prometheus	Federation	Prometheus Class	Prometheus Class				5	1	4	5	ACTION: If you performed a [FORWARD] Maneuver this round, immediately perform an additional 1 [FORWARD] or 2 [FORWARD] Maneuver.	Battle Stations, Evasive, Scan, Target Lock	30	0	2	2	2	90-degree forward, 90-degree rear		0
 SHIPTEXT
 
 

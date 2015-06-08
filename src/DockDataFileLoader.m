@@ -585,7 +585,13 @@ static NSString* makeKey(NSString* key)
         @"ony_mu_ship_limited",
         @"CaptainIgnoresPenalty",
         @"OnlyBajoran",
-        @"ony_federation_ship_limited3"
+        @"ony_federation_ship_limited3",
+        @"RomulanHijackers",
+        @"OnlyKlingon",
+        @"PlusFiveIfNotKlingon",
+        @"Plus4NotPrometheus",
+        @"OnlyKlingonCaptainShip"
+        
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];

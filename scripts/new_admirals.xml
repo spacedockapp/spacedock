@@ -1,0 +1,20 @@
+  <Admiral>
+    <Title>Martok</Title>
+    <Ability>ACTION: When attacking with your Primary Weapon, gain +1 attack die and roll -2 defense dice this round. You may convert 1 of your [HIT] results into a [CRIT] result.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>7</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Admiral</Type>
+    <Faction>Klingon</Faction>
+    <Cost>4</Cost>
+    <Id>martok_71804</Id>
+    <Set>71804</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: When attacking with your Primary Weapon, gain +1 attack die and roll -2 defense dice this round. You may convert 1 of your [HIT] results into a [CRIT] result.</AdmiralAbility>
+    <AdmiralCost>4</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
+  </Admiral>

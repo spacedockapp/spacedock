@@ -1,7 +1,71 @@
     <Upgrade>
-      <Title>Klingon Stealth Team</Title>
-      <Ability>ACTION: Discard this card to target a ship at Range 2-3 that is not Cloaked. Disable 1 [TECH] or [WEAPON] Upgrade of your choice on target ship and then discard 1 [CREW] Upgrade of your choice on that ship, if possible. This Upgrade may only be purchased for a Klingon ship and no ship may be equipped with more than one Klingon Stealth Team Upgrade.</Ability>
-      <Unique>N</Unique>
+      <Title>EMH Mark II</Title>
+      <Ability>This Upgrade counts as either a [CREW] Upgrade or a [TECH] Upgrade (your choice). ACTION: Discard this card to target a ship at Range 1. Disable all [CREW] Upgrades on the target ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>emh_mark_ii_c_71802</Id>
+      <Set>71802</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>EMH Mark II</Title>
+        <Ability>This Upgrade counts as either a [CREW] Upgrade or a [TECH] Upgrade (your choice). ACTION: Discard this card to target a ship at Range 1. Disable all [CREW] Upgrades on the target ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>emh_mark_ii_t_71802</Id>
+        <Set>71802</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Tactical Prototype</Title>
+      <Ability>You may disable this card to perform an [EVADE], [SCAN] or [BATTLESTATIONS] Action while you have an Auxiliary Power Token beside your ship. Your ship must have the appropriate Action on its Action Bar in order to use this ability, and you cannot perform any free Actions during the round in which you use this ability.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>tactical_prototype_71802</Id>
+      <Set>71802</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Romulan Hijackers</Title>
+      <Ability>While this card is assigned to your ship, you may only have a Romulan Captain and Romulan [CREW] Upgrades assigned to your ship and all of your non-Borg [TECH] and [WEAPON] Upgrades cost -1 SP. In addition, if this card is assigned to a non-Romulan ship, you do not pay a Faction penalty for any of your Romulan upgrades (including this one). When attacking with your Primary Weapon, if your ship is not within Range 1-3 of any other friendly ships, during the Roll Attack Dice step, you may disable this card to gain +1 attack die.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>romulan_hijackers_71802</Id>
+      <Set>71802</Set>
+      <Special>RomulanHijackers</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Darok</Title>
+      <Ability>After your ship moves, you may discard Darok to perform an additional Action as a free Action this round. This Upgrade may only be purchased for a Klingon ship.</Ability>
+      <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
@@ -10,14 +74,14 @@
       <Type>Crew</Type>
       <Faction>Klingon</Faction>
       <Cost>5</Cost>
-      <Id>klingon_stealth_team_71999p</Id>
-      <Set>71999p</Set>
-      <Special>NoMoreThanOnePerShipKlingon</Special>
+      <Id>darok_71804</Id>
+      <Set>71804</Set>
+      <Special>OnlyKlingon</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Cloaked Mines</Title>
-      <Ability>During the Planning Phase, you may discard this card to place a Minefield Token within Range 1 of your ship (in any direction), but not within Range 3 of an enemy ship. If an enemy ship passes within Range 1 of the token, roll 3 attack dice (-1 if the target ship immediately performs a [SCAN] Action). Any [HIT] or [CRIT] damage the target ship as normal. The affected ship does not roll any defense dice.</Ability>
-      <Unique>N</Unique>
+      <Title>Inverse Graviton Burst</Title>
+      <Ability>ACTION: Discard this card to target every ship at Range 1-3. Place 1 Auxiliary Power Token beside your ship and each of the targeted ships. This Upgrade costs +5 SP if purchased for a non-Klingon ship.</Ability>
+      <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
@@ -25,14 +89,14 @@
       <Range></Range>
       <Type>Tech</Type>
       <Faction>Klingon</Faction>
-      <Cost>3</Cost>
-      <Id>cloaked_mines_71999p</Id>
-      <Set>71999p</Set>
-      <Special></Special>
+      <Cost>5</Cost>
+      <Id>inverse_graviton_burst_71804</Id>
+      <Set>71804</Set>
+      <Special>PlusFiveIfNotKlingon</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Mauk-to'Vor</Title>
-      <Ability>ACTION: Discard this card and your Captain Card to gain a number of attack dice for your first attack this round equal to 1/2 of that Captain's Skill number, rounded down (max +3). Place an Auxiliary Power Token beside your ship. You cannot perform any free Actions this round. This Upgrade may only be purchased for a Klingon Captain assigned to a Klingon ship.</Ability>
+      <Title>Long Live the Empire!</Title>
+      <Ability>When attacking with your Primary Weapon, during the Roll Attack Dice step, you may discard this card to add up to 3 attack die to your attack. If you do so, immediately after you complete the attack, your ship suffers 1 damage to your Hull or Shields (your choice) for each additional die you added with this ability. This Upgrade may only be purchased for a Klingon Captain assigned to a Klingon ship.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -42,23 +106,87 @@
       <Type>Talent</Type>
       <Faction>Klingon</Faction>
       <Cost>5</Cost>
-      <Id>mauk_to_vor_71999p</Id>
-      <Set>71999p</Set>
+      <Id>long_live_the_empire__71804</Id>
+      <Set>71804</Set>
+      <Special>OnlyKlingonCaptainShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Regenerative Shielding</Title>
+      <Ability>During the Planning Phase, you may disable this card to repair 1 of your Shield Tokens. This Upgrade costs +4 SP for any ship other than the U.S.S. Prometheus and no ship may be equipped with more than 1 Regenerative Shielding Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>regenerative_shielding_71802</Id>
+      <Set>71802</Set>
+      <Special>Plus4NotPrometheus</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Ablative Hull Armor</Title>
+      <Ability>When defending, during the Modify Defense Dice step, convert all of your opponent's [CRIT] results into [HIT] results. Place all t he damage cards that your ship receives beneath this card. Once there are 3 damage cards beneath this card, discard this Upgrade and all damage cards beneath it. All excess damage affects the ship as normal. This Upgrade may only be purchased for a Prometheus Class ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>7</Cost>
+      <Id>ablative_hull_armor_71802</Id>
+      <Set>71802</Set>
+      <Special>OnlyShipClass_Prometheus</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Strafing Attack</Title>
+      <Ability>ATTACK: Discard this card to perform this attack. After completing this attack, you may immediately target up to 2 other ships within Range 1 of your ship and make an additional 3 dice attack against each of those ships. The additional target ships do not need to be in your forward firing arc. You cannot perform this attack the if you performed a Full Astern Maneuver this round.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>3</Attack>
+      <Range>1</Range>
+      <Type>Weapon</Type>
+      <Faction>Klingon</Faction>
+      <Cost>6</Cost>
+      <Id>strafing_attack_71804</Id>
+      <Set>71804</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Ambush Attack</Title>
-      <Ability>ATTACK: Discard this card to perform this attack. If your ship is cloaked, gain +1 attack die for this attack. If your ship is not in the target ship's forward or rear firing arcs, you may convert all of your [BATTLESTATIONS] results into [HIT] results. No ship may be equipped with more than one Ambush Attack Upgrade.</Ability>
+      <Title>Photon Torpedoes (Prometheus Bonus)</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your Target Lock and disable this card to perform this attack. If fired from a Prometheus class ship, add +1 attack die. You may fire this weapon from your forward or rear firing arcs.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack>5</Attack>
-      <Range>1-2</Range>
+      <Range>2-3</Range>
       <Type>Weapon</Type>
-      <Faction>Klingon</Faction>
+      <Faction>Federation</Faction>
       <Cost>5</Cost>
-      <Id>ambush_attack_71999p</Id>
-      <Set>71999p</Set>
-      <Special>NoMoreThanOnePerShip</Special>
+      <Id>photon_torpedoes_71802</Id>
+      <Set>71802</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Multi-Vector Assault Mode</Title>
+      <Ability>ACTION: Place a Multi-Vector Assault Mode Token beside your ship. You cannot perform any free Actions this round. ATTACK [TARGET LOCK]: Disable this card, spend your target lock and spend your Multi-Vector Assault Mode Token to perform this attack. You may fire this weapon in any direction. This Upgrade may only be purchased for a Prometheus Class ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>8</Attack>
+      <Range>1</Range>
+      <Type>Weapon</Type>
+      <Faction>Federation</Faction>
+      <Cost>8</Cost>
+      <Id>multi_vector_assault_mode_71802</Id>
+      <Set>71802</Set>
+      <Special>OnlyShipClass_Prometheus</Special>
     </Upgrade>

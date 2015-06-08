@@ -422,6 +422,8 @@
             DockUpgrade* zcc = nil;
             if (self.isResourceSideboard) {
                 zcc = [DockCaptain zeroCostCaptain: faction context: self.managedObjectContext];
+            } else if ([self containsUpgradeWithId:@"romulan_hijackers_71802"]) {
+                zcc = [DockCaptain zeroCostCaptain:@"Romulan" context:self.managedObjectContext];
             } else {
                 zcc = [DockCaptain zeroCostCaptainForShip: self.ship];
             }
@@ -882,6 +884,27 @@
             return NO;
         }
     }
+    if ([upgradeSpecial isEqualToString:@"OnlyKlingon"]) {
+        if (![self.ship isKlingon]) {
+            return NO;
+        }
+    }
+    if ([upgradeSpecial isEqualToString:@"OnlyKlingonCaptainShip"]) {
+        if (![self.ship isKlingon]) {
+            return NO;
+        }
+        if (![self.captain isKlingon]) {
+            return NO;
+        }
+    }
+    
+    if (![upgrade isPlaceholder] && [self containsUpgradeWithId:@"romulan_hijackers_71802"] != nil) {
+        if ([upgrade isCaptain] || [upgrade isCrew]) {
+            if (![upgrade isRomulan]) {
+                return NO;
+            }
+        }
+    }
     
     if (validating) {
         if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"]) {
@@ -1109,6 +1132,14 @@
                 info = @"You can only deploy the First Maje [TALENT] to this captain.";
             } else if ([self.ship isShuttle] && [upgrade isWeapon] && [upgrade costForShip:self] > 3) {
                 info = @"You cannot deploy a [WEAPON] Upgrade with a cost greater than 3 to a shuttlecraft.";
+            } else if ([upgradeSpecial isEqualToString:@"OnlyKlingon"]) {
+                info = @"This Upgrade may only be purchased for a Klingon ship.";
+            } else if ([upgradeSpecial isEqualToString:@"OnlyKlingonCaptainShip"]) {
+                info = @"This Upgrade may only be purchased for a Klingon Captain on a Klingon ship.";
+            } else if ([self containsUpgradeWithId:@"romulan_hijackers_71802"] != nil && ![upgrade isRomulan] && [upgrade isCaptain]) {
+                info = @"You may only deploy a Romulan Captain while this ship is equipped with the Romulan Hijackers Upgrade";
+            } else if ([self containsUpgradeWithId:@"romulan_hijackers_71802"] != nil && ![upgrade isRomulan] && [upgrade isCrew]) {
+                info = @"You may only deploy Romulan Crew Upgrades while this ship is equipped with the Romulan Hijackers Upgrade";
             }
         }
     }
@@ -1325,6 +1356,10 @@
             equippedUpgrade.specialTag = @"SakhovBonus";
             [equippedUpgrade overrideWithCost:cost];
         }
+    }
+    
+    if ([upgrade.externalId isEqualToString:@"romulan_hijackers_71802"]) {
+        [self removeIllegalUpgrades];
     }
     
     return equippedUpgrade;

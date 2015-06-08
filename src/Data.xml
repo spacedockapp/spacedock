@@ -1,4 +1,4 @@
-<Data version="2015-06-03@03-09">
+<Data version="2015-06-08@05-15">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1547,6 +1547,29 @@
       </Maneuvers>
       <FrontArc>90</FrontArc>
       <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+      <Name>Prometheus Class</Name>
+      <Id>prometheus_class</Id>
+      <Maneuvers>
+          <Maneuver speed="6" kind="straight" color="white" />
+          <Maneuver speed="5" kind="straight" color="white" />
+          <Maneuver speed="4" kind="left-bank" color="white" />
+          <Maneuver speed="4" kind="straight" color="white" />
+          <Maneuver speed="4" kind="right-bank" color="white" />
+          <Maneuver speed="3" kind="left-turn" color="white" />
+          <Maneuver speed="3" kind="left-bank" color="white" />
+          <Maneuver speed="3" kind="straight" color="white" />
+          <Maneuver speed="3" kind="right-bank" color="white" />
+          <Maneuver speed="3" kind="right-turn" color="white" />
+          <Maneuver speed="2" kind="left-bank" color="green" />
+          <Maneuver speed="2" kind="straight" color="green" />
+          <Maneuver speed="2" kind="right-bank" color="green" />
+          <Maneuver speed="1" kind="straight" color="green" />
+          <Maneuver speed="-1" kind="straight" color="red" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
+      <RearArc>90</RearArc>
   </ShipClassDetail>
   </ShipClassDetails>
   <Ships>
@@ -6170,7 +6193,94 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <SquadronUpgrade>0</SquadronUpgrade>
       <Has360Arc>N</Has360Arc>
       <Id>klingon_starship_71999p</Id>
-      <Set>71999p</Set>
+      <Set>71999p,71804</Set>
+  </Ship>
+  <Ship>
+      <Title>Federation Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Prometheus Class</ShipClass>
+      <Faction>Federation</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>5</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>4</Shield>
+      <Ability></Ability>
+      <Cost>28</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>2</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>federation_starship_71802</Id>
+      <Set>71802</Set>
+  </Ship>
+  <Ship>
+      <Title>I.K.S. Ning'tao</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>B'rel Class</ShipClass>
+      <Faction>Klingon</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>3</Hull>
+      <Shield>3</Shield>
+      <Ability>After performing a [SENSOR ECHO] Action, you may Come About (reverse direction).  If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+      <Cost>22</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>i_k_s_ning_tao_71804</Id>
+      <Set>71804</Set>
+  </Ship>
+  <Ship>
+      <Title>U.S.S. Prometheus</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Prometheus Class</ShipClass>
+      <Faction>Federation</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>5</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>5</Shield>
+      <Ability>ACTION: If you performed a [STRAIGHT] Maneuver this round, immediately perform an additional 1 [STRAIGHT] or 2 [STRAIGHT] Maneuver.</Ability>
+      <Cost>30</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>2</Tech>
+      <Weapon>2</Weapon>
+      <Crew>2</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>u_s_s_prometheus_71802</Id>
+      <Set>71802</Set>
   </Ship>
   </Ships>
   <Captains>
@@ -6222,7 +6332,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Federation</Faction>
       <Cost>0</Cost>
       <Id>2003</Id>
-      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526,71510,71531,71997p,71801,71998p</Set>
+      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526,71510,71531,71997p,71801,71998p,71802</Set>
     </Captain>
     <Captain>
       <Title>Nu'Daq</Title>
@@ -6256,7 +6366,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Klingon</Faction>
       <Cost>0</Cost>
       <Id>2005</Id>
-      <Set>71120,71125,71126,OP2Prize,71269,71273,71448,i_k_s_b_moth,71532,71996</Set>
+      <Set>71120,71125,71126,OP2Prize,71269,71273,71448,i_k_s_b_moth,71532,71996,71804</Set>
     </Captain>
     <Captain>
       <Title>Toreth</Title>
@@ -8957,6 +9067,106 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Set>71999p</Set>
       <Special>CaptainIgnoresPenalty</Special>
   </Captain>
+  <Captain>
+      <Title>The Doctor</Title>
+      <Ability>At the start of the Combat Phase, you may attempt to increase your Skill Number. If you do so, roll 1 attack die. If you roll a [HIT] or [CRIT] result, your Captain Skill is a 10 until the End Phase. Otherwise, your Captain Skill is a 0 until the End Phase. Either way, place an Auxiliary Power Token beside your ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>2</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>1</Cost>
+      <Id>the_doctor_71802</Id>
+      <Set>71802</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Kor</Title>
+      <Ability>Add 1 [CREW] Upgrade Slot to your Upgrade Bar. Each time you attack, during the Modify Attack Dice step, you may select any number of attack dice (up to the number of non-disabled [CREW] Upgrades assigned to your ship) and re-roll those dice once.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>8</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>kor_71804</Id>
+      <Set>71804</Set>
+      <Special>Add_Crew_1</Special>
+  </Captain>
+  <Captain>
+      <Title>Worf</Title>
+      <Ability>When defending, during the Roll Defense Dice step, you may roll up to 2 additional defense dice. If you do so, place 1 Auxiliary Power Token beside your ship for each extra die you rolled.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>4</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>3</Cost>
+      <Id>worf_71804</Id>
+      <Set>71804</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Kor</Title>
+      <Ability>ACTION: If your ship is not cloaked, all enemy ships at Range 1-3 must attack your ship this round, if possible. When defending against each of these attacks, roll +2 defense dice.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>kor_b_71804</Id>
+      <Set>71804</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Rekar</Title>
+      <Ability>When attacking with a Secondary Weapon, you may add +1 attack die to the attack. If you do so, discard that [WEAPON] Upgrade after the attack is completed.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>5</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>3</Cost>
+      <Id>rekar_71802</Id>
+      <Set>71802</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Martok</Title>
+      <Ability>ACTION: When attacking with your Primary Weapon, gain +1 attack die and roll -2 defense dice this round. You may convert 1 of your [HIT] results into a [CRIT] result.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>martok_cap_71804</Id>
+      <Set>71804</Set>
+      <Special></Special>
+      <AdmiralAbility>FLEET ACTION: When attacking with your Primary Weapon, gain +1 attack die and roll -2 defense dice this round. You may convert 1 of your [HIT] results into a [CRIT] result.</AdmiralAbility>
+      <AdmiralCost>4</AdmiralCost>
+      <AdmiralTalent>1</AdmiralTalent>
+      <SkillModifier>1</SkillModifier>
+  </Captain>
   </Captains>
   <Admirals>
     <Admiral>
@@ -9252,6 +9462,26 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
         <Special>OnlyBajoran</Special>
         <AdmiralAbility>FLEET ACTION: Discard 1 of your Bajoran [CREW] Upgrades to perform this Action. Each time you defend this round, during the Roll Defense Dice step, roll 2 additional dice. This card may only be purchased for a Bajoran ship.</AdmiralAbility>
         <AdmiralCost>1</AdmiralCost>
+        <AdmiralTalent>1</AdmiralTalent>
+        <SkillModifier>1</SkillModifier>
+    </Admiral>
+    <Admiral>
+        <Title>Martok</Title>
+        <Ability>ACTION: When attacking with your Primary Weapon, gain +1 attack die and roll -2 defense dice this round. You may convert 1 of your [HIT] results into a [CRIT] result.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill>7</Skill>
+        <Talent>1</Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Admiral</Type>
+        <Faction>Klingon</Faction>
+        <Cost>4</Cost>
+        <Id>martok_71804</Id>
+        <Set>71804</Set>
+        <Special></Special>
+        <AdmiralAbility>FLEET ACTION: When attacking with your Primary Weapon, gain +1 attack die and roll -2 defense dice this round. You may convert 1 of your [HIT] results into a [CRIT] result.</AdmiralAbility>
+        <AdmiralCost>4</AdmiralCost>
         <AdmiralTalent>1</AdmiralTalent>
         <SkillModifier>1</SkillModifier>
     </Admiral>
@@ -10551,7 +10781,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Faction>Klingon</Faction>
       <Cost>5</Cost>
       <Id>3073</Id>
-      <Set>71269,71273,71532,71512</Set>
+      <Set>71269,71273,71532,71512,71804</Set>
     </Upgrade>
     <Upgrade>
       <Title>Kerla</Title>
@@ -17099,6 +17329,198 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>71999p</Set>
         <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
+    <Upgrade>
+        <Title>EMH Mark II</Title>
+        <Ability>This Upgrade counts as either a [CREW] Upgrade or a [TECH] Upgrade (your choice). ACTION: Discard this card to target a ship at Range 1. Disable all [CREW] Upgrades on the target ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>emh_mark_ii_c_71802</Id>
+        <Set>71802</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>EMH Mark II</Title>
+        <Ability>This Upgrade counts as either a [CREW] Upgrade or a [TECH] Upgrade (your choice). ACTION: Discard this card to target a ship at Range 1. Disable all [CREW] Upgrades on the target ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>emh_mark_ii_t_71802</Id>
+        <Set>71802</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Tactical Prototype</Title>
+        <Ability>You may disable this card to perform an [EVADE], [SCAN] or [BATTLESTATIONS] Action while you have an Auxiliary Power Token beside your ship. Your ship must have the appropriate Action on its Action Bar in order to use this ability, and you cannot perform any free Actions during the round in which you use this ability.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Federation</Faction>
+        <Cost>4</Cost>
+        <Id>tactical_prototype_71802</Id>
+        <Set>71802</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Romulan Hijackers</Title>
+        <Ability>While this card is assigned to your ship, you may only have a Romulan Captain and Romulan [CREW] Upgrades assigned to your ship and all of your non-Borg [TECH] and [WEAPON] Upgrades cost -1 SP. In addition, if this card is assigned to a non-Romulan ship, you do not pay a Faction penalty for any of your Romulan upgrades (including this one). When attacking with your Primary Weapon, if your ship is not within Range 1-3 of any other friendly ships, during the Roll Attack Dice step, you may disable this card to gain +1 attack die.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Romulan</Faction>
+        <Cost>4</Cost>
+        <Id>romulan_hijackers_71802</Id>
+        <Set>71802</Set>
+        <Special>RomulanHijackers</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Darok</Title>
+        <Ability>After your ship moves, you may discard Darok to perform an additional Action as a free Action this round. This Upgrade may only be purchased for a Klingon ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Klingon</Faction>
+        <Cost>5</Cost>
+        <Id>darok_71804</Id>
+        <Set>71804</Set>
+        <Special>OnlyKlingon</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Inverse Graviton Burst</Title>
+        <Ability>ACTION: Discard this card to target every ship at Range 1-3. Place 1 Auxiliary Power Token beside your ship and each of the targeted ships. This Upgrade costs +5 SP if purchased for a non-Klingon ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Klingon</Faction>
+        <Cost>5</Cost>
+        <Id>inverse_graviton_burst_71804</Id>
+        <Set>71804</Set>
+        <Special>PlusFiveIfNotKlingon</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Long Live the Empire!</Title>
+        <Ability>When attacking with your Primary Weapon, during the Roll Attack Dice step, you may discard this card to add up to 3 attack die to your attack. If you do so, immediately after you complete the attack, your ship suffers 1 damage to your Hull or Shields (your choice) for each additional die you added with this ability. This Upgrade may only be purchased for a Klingon Captain assigned to a Klingon ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Klingon</Faction>
+        <Cost>5</Cost>
+        <Id>long_live_the_empire__71804</Id>
+        <Set>71804</Set>
+        <Special>OnlyKlingonCaptainShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Regenerative Shielding</Title>
+        <Ability>During the Planning Phase, you may disable this card to repair 1 of your Shield Tokens. This Upgrade costs +4 SP for any ship other than the U.S.S. Prometheus and no ship may be equipped with more than 1 Regenerative Shielding Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Federation</Faction>
+        <Cost>4</Cost>
+        <Id>regenerative_shielding_71802</Id>
+        <Set>71802</Set>
+        <Special>Plus4NotPrometheus</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Ablative Hull Armor</Title>
+        <Ability>When defending, during the Modify Defense Dice step, convert all of your opponent's [CRIT] results into [HIT] results. Place all t he damage cards that your ship receives beneath this card. Once there are 3 damage cards beneath this card, discard this Upgrade and all damage cards beneath it. All excess damage affects the ship as normal. This Upgrade may only be purchased for a Prometheus Class ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Federation</Faction>
+        <Cost>7</Cost>
+        <Id>ablative_hull_armor_71802</Id>
+        <Set>71802</Set>
+        <Special>OnlyShipClass_Prometheus</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Strafing Attack</Title>
+        <Ability>ATTACK: Discard this card to perform this attack. After completing this attack, you may immediately target up to 2 other ships within Range 1 of your ship and make an additional 3 dice attack against each of those ships. The additional target ships do not need to be in your forward firing arc. You cannot perform this attack the if you performed a Full Astern Maneuver this round.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>3</Attack>
+        <Range>1</Range>
+        <Type>Weapon</Type>
+        <Faction>Klingon</Faction>
+        <Cost>6</Cost>
+        <Id>strafing_attack_71804</Id>
+        <Set>71804</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Photon Torpedoes (Prometheus Bonus)</Title>
+        <Ability>ATTACK: [TARGET LOCK] Spend your Target Lock and disable this card to perform this attack. If fired from a Prometheus class ship, add +1 attack die. You may fire this weapon from your forward or rear firing arcs.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>5</Attack>
+        <Range>2-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>photon_torpedoes_71802</Id>
+        <Set>71802</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Multi-Vector Assault Mode</Title>
+        <Ability>ACTION: Place a Multi-Vector Assault Mode Token beside your ship. You cannot perform any free Actions this round. ATTACK [TARGET LOCK]: Disable this card, spend your target lock and spend your Multi-Vector Assault Mode Token to perform this attack. You may fire this weapon in any direction. This Upgrade may only be purchased for a Prometheus Class ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>8</Attack>
+        <Range>1</Range>
+        <Type>Weapon</Type>
+        <Faction>Federation</Faction>
+        <Cost>8</Cost>
+        <Id>multi_vector_assault_mode_71802</Id>
+        <Set>71802</Set>
+        <Special>OnlyShipClass_Prometheus</Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -17459,49 +17881,49 @@ The Evasive Action Maneuver follows the normal movement rules with the following
 
       <Set id="GenCon2013Promo" overallSetName="Promo Card" releaseDate="2013-08-15">Khan Singh GenCon 2013 Promo</Set>
 
-    <Set id="OP1Participation" overallSetName="The Dominion War" releaseDate="2013-09-15">Deep Space 9 Ship Cards</Set>
-    <Set id="OP1Participation2" overallSetName="The Dominion War" releaseDate="2013-09-15">Elite Attack Die Resource</Set>
-      <Set id="OP1Prize"         overallSetName="The Dominion War" releaseDate="2013-09-15">Krayton</Set>
+    <Set id="OP1Participation" overallSetName="The Dominion War" releaseDate="2013-09-13">Deep Space 9 Ship Cards</Set>
+    <Set id="OP1Participation2" overallSetName="The Dominion War" releaseDate="2013-09-13">Elite Attack Die Resource</Set>
+      <Set id="OP1Prize"         overallSetName="The Dominion War" releaseDate="2013-09-13">Krayton</Set>
 
-    <Set id="OP2Participation" overallSetName="The Dominion War" releaseDate="2013-10-15">Red Shirt Crew</Set>
-    <Set id="OP2Participation2" overallSetName="The Dominion War" releaseDate="2013-10-15">Command Tokens Resource</Set>
-      <Set id="OP2Prize"         overallSetName="The Dominion War" releaseDate="2013-10-15">IKS Ch'tang</Set>
+    <Set id="OP2Participation" overallSetName="The Dominion War" releaseDate="2013-10-13">Red Shirt Crew</Set>
+    <Set id="OP2Participation2" overallSetName="The Dominion War" releaseDate="2013-10-13">Command Tokens Resource</Set>
+      <Set id="OP2Prize"         overallSetName="The Dominion War" releaseDate="2013-10-13">IKS Ch'tang</Set>
 
-      <Set id="OP3Participation" overallSetName="The Dominion War" releaseDate="2013-11-15">Reinforcements Sideboard Resource</Set>
-      <Set id="OP3Prize"         overallSetName="The Dominion War" releaseDate="2013-11-15">P.W.B. Aj'Rmr</Set>
+      <Set id="OP3Participation" overallSetName="The Dominion War" releaseDate="2013-11-13">Reinforcements Sideboard Resource</Set>
+      <Set id="OP3Prize"         overallSetName="The Dominion War" releaseDate="2013-11-13">P.W.B. Aj'Rmr</Set>
 
-      <Set id="OP4Participation" overallSetName="The Dominion War" releaseDate="2013-12-15">Flagship Resource</Set>
-      <Set id="OP4Prize"         overallSetName="The Dominion War" releaseDate="2013-12-15">U.S.S. Sutherland</Set>
+      <Set id="OP4Participation" overallSetName="The Dominion War" releaseDate="2013-12-14">Flagship Resource</Set>
+      <Set id="OP4Prize"         overallSetName="The Dominion War" releaseDate="2013-12-14">U.S.S. Sutherland</Set>
 
-      <Set id="OP5Participation" overallSetName="The Dominion War" releaseDate="2014-02-15">Hideki Class Attack Fighter Resource</Set>
-      <Set id="OP5Prize"         overallSetName="The Dominion War" releaseDate="2014-02-15">Rav Laerst</Set>
+      <Set id="OP5Participation" overallSetName="The Dominion War" releaseDate="2014-02-14">Hideki Class Attack Fighter Resource</Set>
+      <Set id="OP5Prize"         overallSetName="The Dominion War" releaseDate="2014-02-14">Rav Laerst</Set>
 
-      <Set id="OP6Participation" overallSetName="The Dominion War" releaseDate="2014-03-15">Federation Attack Fighter Resource</Set>
-      <Set id="OP6Prize"         overallSetName="The Dominion War" releaseDate="2014-03-15">Akorem</Set>
+      <Set id="OP6Participation" overallSetName="The Dominion War" releaseDate="2014-03-14">Federation Attack Fighter Resource</Set>
+      <Set id="OP6Prize"         overallSetName="The Dominion War" releaseDate="2014-03-14">Akorem</Set>
 
-      <Set id="OPWebParticipation" overallSetName="The Tholian Web" releaseDate="2014-04-15">Red Alert Talent</Set>
-      <Set id="OPWebParticipation2" overallSetName="The Tholian Web" releaseDate="2014-04-15">Skilled Helmsman Resource</Set>
-      <Set id="OPWebPrize"         overallSetName="The Tholian Web" releaseDate="2014-04-15">Tholia One</Set>
+      <Set id="OPWebParticipation" overallSetName="The Tholian Web" releaseDate="2014-04-14">Red Alert Talent</Set>
+      <Set id="OPWebParticipation2" overallSetName="The Tholian Web" releaseDate="2014-04-14">Skilled Helmsman Resource</Set>
+      <Set id="OPWebPrize"         overallSetName="The Tholian Web" releaseDate="2014-04-14">Tholia One</Set>
 
-      <Set id="OPArenaParticipation" overallSetName="Arena" releaseDate="2014-05-28">Full Alert Talent</Set>
-      <Set id="OPArenaParticipation2" overallSetName="Arena" releaseDate="2014-05-28">Cheif Engineer Resource</Set>
-      <Set id="OPArenaPrize"         overallSetName="Arena" releaseDate="2014-05-28">S'Gorn</Set>
+      <Set id="OPArenaParticipation" overallSetName="Arena" releaseDate="2014-05-14">Full Alert Talent</Set>
+      <Set id="OPArenaParticipation2" overallSetName="Arena" releaseDate="2014-05-14">Cheif Engineer Resource</Set>
+      <Set id="OPArenaPrize"         overallSetName="Arena" releaseDate="2014-05-14">S'Gorn</Set>
 
-      <Set id="CollectiveOP1" overallSetName="The Collective" releaseDate="2014-06-24">Counter Attack Die Resource</Set>
-      <Set id="71508"             overallSetName="The Collective" releaseDate="2014-06-24">Ti'Mur</Set>
+      <Set id="CollectiveOP1" overallSetName="The Collective" releaseDate="2014-06-14">Counter Attack Die Resource</Set>
+      <Set id="71508"             overallSetName="The Collective" releaseDate="2014-06-14">Ti'Mur</Set>
 
-      <Set id="CollectiveOP2" overallSetName="The Collective" releaseDate="2014-07-29">Fleet Captain Resource</Set>
-      <Set id="71509"             overallSetName="The Collective" releaseDate="2014-07-29">U.S.S. Raven</Set>
+      <Set id="CollectiveOP2" overallSetName="The Collective" releaseDate="2014-07-14">Fleet Captain Resource</Set>
+      <Set id="71509"             overallSetName="The Collective" releaseDate="2014-07-14">U.S.S. Raven</Set>
 
-      <Set id="CollectiveOP3" overallSetName="The Collective" releaseDate="2014-09-01">Officer Resource</Set>
-      <Set id="71510"             overallSetName="The Collective" releaseDate="2014-09-01">U.S.S. Stargazer</Set>
-      <Set id="71510b"             overallSetName="The Collective" releaseDate="2014-09-01">Assimilation Target Prime</Set>
+      <Set id="CollectiveOP3" overallSetName="The Collective" releaseDate="2014-08-14">Officer Resource</Set>
+      <Set id="71510"             overallSetName="The Collective" releaseDate="2014-08-14">U.S.S. Stargazer</Set>
+      <Set id="71510b"             overallSetName="The Collective" releaseDate="2014-08-14">Assimilation Target Prime</Set>
 
-      <Set id="i_k_s_b_moth" overallSetName="The Collective Boosters" releaseDate="2014-07-25">I.K.S. B'Moth</Set>
-      <Set id="gavroche" overallSetName="The Collective Boosters" releaseDate="2014-07-25">Gavroche</Set>
-      <Set id="i_r_w_vorta_vor" overallSetName="The Collective Boosters" releaseDate="2014-07-25">I.R.W. Vorta Vor</Set>
-      <Set id="3rd_wing_attack_ship" overallSetName="The Collective Boosters" releaseDate="2014-07-25">3rd Wing Attack Ship</Set>
-      <Set id="u_s_s_yaeger" overallSetName="The Collective Boosters" releaseDate="2014-07-25">U.S.S. Yeager</Set>
+      <Set id="i_k_s_b_moth" overallSetName="The Collective Boosters" releaseDate="2014-06-14">I.K.S. B'Moth</Set>
+      <Set id="gavroche" overallSetName="The Collective Boosters" releaseDate="2014-06-14">Gavroche</Set>
+      <Set id="i_r_w_vorta_vor" overallSetName="The Collective Boosters" releaseDate="2014-06-14">I.R.W. Vorta Vor</Set>
+      <Set id="3rd_wing_attack_ship" overallSetName="The Collective Boosters" releaseDate="2014-06-14">3rd Wing Attack Ship</Set>
+      <Set id="u_s_s_yaeger" overallSetName="The Collective Boosters" releaseDate="2014-06-14">U.S.S. Yeager</Set>
 
       <Set id="71120" overallSetName="Core" releaseDate="2013-08-01">Starter Set</Set>
       <Set id="71121" overallSetName="Wave 0" releaseDate="2013-08-02">U.S.S. Reliant</Set>
@@ -17547,26 +17969,26 @@ The Evasive Action Maneuver follows the normal movement rules with the following
       <Set id="71526" overallSetName="Wave 7" releaseDate="2014-09-03">Enterprise NX-01</Set>
       <Set id="71527" overallSetName="Wave 7" releaseDate="2014-09-03">Ni'Var</Set>
 
-      <Set id="71646a" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Bok's Marauder</Set>
-      <Set id="71646b" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Prakesh</Set>
-      <Set id="71646c" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Relora-Sankur</Set>
-      <Set id="71646d" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Scout 255</Set>
-      <Set id="71646e" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-24">Tal'Kir</Set>
+      <Set id="71646a" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-14">Bok's Marauder</Set>
+      <Set id="71646b" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-14">Prakesh</Set>
+      <Set id="71646c" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-14">Relora-Sankur</Set>
+      <Set id="71646d" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-14">Scout 255</Set>
+      <Set id="71646e" overallSetName="Resistance is Futile Boosters" releaseDate="2014-09-14">Tal'Kir</Set>
 
       <Set id="71528" overallSetName="Wave 8" releaseDate="2014-10-01">Val Jean</Set>
       <Set id="71530" overallSetName="Wave 8" releaseDate="2014-10-01">Queen Vessel Prime</Set>
       <Set id="71531" overallSetName="Wave 8" releaseDate="2014-10-01">U.S.S. Enterprise-E</Set>
 
-      <Set id="71511" overallSetName="Resistance is Futile" releaseDate="2014-10-01">Avatar of Tomed</Set>
-      <Set id="71512" overallSetName="Resistance is Futile" releaseDate="2014-10-29">Assimilated Vessel 80279</Set>
-      <Set id="71511a" overallSetName="Resistance is Futile" releaseDate="2014-09-24">Improved Shields Resource</Set>
-      <Set id="71512a" overallSetName="Resistance is Futile" releaseDate="2014-10-29">Advanced Targeting Systems Resource</Set>
+      <Set id="71511" overallSetName="Resistance is Futile" releaseDate="2014-09-14">Avatar of Tomed</Set>
+      <Set id="71512" overallSetName="Resistance is Futile" releaseDate="2014-10-14">Assimilated Vessel 80279</Set>
+      <Set id="71511a" overallSetName="Resistance is Futile" releaseDate="2014-09-14">Improved Shields Resource</Set>
+      <Set id="71512a" overallSetName="Resistance is Futile" releaseDate="2014-10-14">Advanced Targeting Systems Resource</Set>
       <Set id="71529" overallSetName="Wave 9" releaseDate="2014-11-05">I.S.S. Defiant</Set>
       <Set id="71532" overallSetName="Wave 9" releaseDate="2014-11-05">Chang's Bird of Prey</Set>
       <Set id="71533" overallSetName="Wave 9" releaseDate="2014-11-05">Scimitar</Set>
-      <Set id="71513c" overallSetName="Resistance is Futile" releaseDate="2014-11-26">High Yield Photon Torpedoes Resource</Set>
-      <Set id="71513b" overallSetName="Resistance is Futile" releaseDate="2014-11-26">Assimilated Vessel 64758</Set>
-      <Set id="71513a" overallSetName="Resistance is Futile" releaseDate="2014-11-26">Tactical Cube 001</Set>
+      <Set id="71513c" overallSetName="Resistance is Futile" releaseDate="2014-11-14">High Yield Photon Torpedoes Resource</Set>
+      <Set id="71513b" overallSetName="Resistance is Futile" releaseDate="2014-11-14">Assimilated Vessel 64758</Set>
+      <Set id="71513a" overallSetName="Resistance is Futile" releaseDate="2014-11-14">Tactical Cube 001</Set>
       <Set id="71792" overallSetName="Wave 9.5" releaseDate="2014-11-19">Cube 112</Set>
       <Set id="71810" overallSetName="Wave 9.5" releaseDate="2014-11-19">Deep Space 9</Set>
       <Set id="71534" overallSetName="Wave 10" releaseDate="2014-12-03">Fina Prime</Set>
@@ -17575,24 +17997,26 @@ The Evasive Action Maneuver follows the normal movement rules with the following
       <Set id="71808" overallSetName="Wave 11" releaseDate="2015-01-28">Alpha Hunter</Set>
       <Set id="71753" overallSetName="Wave 11" releaseDate="2015-01-28">Fighter Squadron 6</Set>
       <Set id="71536" overallSetName="Wave 11" releaseDate="2015-01-28">Prototype 01</Set>
-      <Set id="71996a" overallSetName="A Matter of Honor" releaseDate="2015-02-04">Officer Exchange Program Resource</Set>
-      <Set id="71996" overallSetName="A Matter of Honor" releaseDate="2015-02-04">I.K.S. Pagh</Set>
+      <Set id="71996a" overallSetName="A Matter of Honor" releaseDate="2015-01-15">Officer Exchange Program Resource</Set>
+      <Set id="71996" overallSetName="A Matter of Honor" releaseDate="2015-01-15">I.K.S. Pagh</Set>
       <Set id="71795" overallSetName="Wave 12" releaseDate="2015-03-04">Tholia One (Retail)</Set>
-      <Set id="71997r" overallSetName="Peak Performance" releaseDate="2015-03-04">Master Strategist Tokens Resource</Set>
+      <Set id="71997r" overallSetName="Peak Performance" releaseDate="2015-04-15">Master Strategist Tokens Resource</Set>
       <Set id="71793" overallSetName="Wave 12" releaseDate="2015-03-04">Ogla-Razik</Set>
       <Set id="71794" overallSetName="Wave 12" releaseDate="2015-03-04">I.R.W. Haakona</Set>
       <Set id="71797" overallSetName="Wave 13" releaseDate="2015-04-01">Gornarus</Set>
       <Set id="71798" overallSetName="Wave 13" releaseDate="2015-04-01">Reklar</Set>
       <Set id="71796" overallSetName="Wave 13" releaseDate="2015-04-01">I.S.S. Enterprise</Set>
-      <Set id="71997p" overallSetName="Peak Performance" releaseDate="2015-03-04">Sakharov</Set>
+      <Set id="71997p" overallSetName="Peak Performance" releaseDate="2015-04-15">Sakharov</Set>
       <Set id="71998p" overallSetName="Q Continuum" releaseDate="2015-04-01">U.S.S. Hood</Set>
       <Set id="71998r" overallSetName="Q Continuum" releaseDate="2015-04-01">Evasive Action Template Resource</Set>
       <Set id="71800" overallSetName="Wave 14" releaseDate="2015-05-06">I.S.S. Avenger</Set>
       <Set id="71799" overallSetName="Wave 14" releaseDate="2015-05-06">Kyana Prime</Set>
       <Set id="71801" overallSetName="Wave 14" releaseDate="2015-05-06">U.S.S. Pegasus</Set>
       <Set id="71803" overallSetName="Wave 15" releaseDate="2015-06-03">Ratosha</Set>
-      <Set id="71999p" overallSetName="Q Continuum" releaseDate="2015-05-06">IKS Korinar</Set>
-      <Set id="71999r" overallSetName="Q Continuum" releaseDate="2015-05-06">Damage Control Team Resource</Set>
+      <Set id="71804" overallSetName="Wave 15" releaseDate="2015-06-03">IKS Ning'tao</Set>
+      <Set id="71802" overallSetName="Wave 15" releaseDate="2015-06-03">USS Prometheus</Set>
+      <Set id="71999p" overallSetName="Q Continuum" releaseDate="2015-05-15">IKS Korinar</Set>
+      <Set id="71999r" overallSetName="Q Continuum" releaseDate="2015-05-15">Damage Control Team Resource</Set>
     </Sets>
     <Flagships>
         <Flagship>
