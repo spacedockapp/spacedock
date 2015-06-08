@@ -681,6 +681,14 @@
             return [[upgrade cost] intValue] <= 5;
         }
     }
+    
+    if ([upgrade isWeapon]) {
+        if ([self.ship isShuttle]) {
+            if ( [upgrade costForShip:self] > 3 ) {
+                return NO;
+            }
+        }
+    }
 
     if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
         if (![self.ship isJemhadar]) {
@@ -1099,6 +1107,8 @@
                 info = @"This upgrade can only be purchased for a Kazon captain on a Kazon ship.";
             } else if ([self.captain isKazon] && [self.ship isKazon] && self.talentCount == 1) {
                 info = @"You can only deploy the First Maje [TALENT] to this captain.";
+            } else if ([self.ship isShuttle] && [upgrade isWeapon] && [upgrade costForShip:self] > 3) {
+                info = @"You cannot deploy a [WEAPON] Upgrade with a cost greater than 3 to a shuttlecraft.";
             }
         }
     }

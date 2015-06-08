@@ -25,6 +25,7 @@
 -(BOOL)isFerengi;
 -(BOOL)isBajoran;
 -(BOOL)isFighterSquadron;
+-(BOOL)isShuttle;
 -(BOOL)isSpecies8472;
 -(BOOL)isKazon;
 -(BOOL)isBorg;
