@@ -1,4 +1,4 @@
-<Data version="2015-06-08@05-15">
+<Data version="2015-06-09@15-20">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -8911,7 +8911,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Cost>5</Cost>
       <Id>annorax_71799</Id>
       <Set>71799</Set>
-      <Special></Special>
+      <Special>addonetechslot</Special>
   </Captain>
   <Captain>
       <Title>Obrist</Title>
