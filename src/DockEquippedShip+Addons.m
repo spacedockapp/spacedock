@@ -1344,7 +1344,7 @@
             equippedUpgrade.specialTag = @"SakhovBonus";
             [equippedUpgrade overrideWithCost:cost];
         }
-        NSLog(@"Bonus = %ld",[self upgradesWithSpecialTag:@"SakhovBonus"].count);
+
     }
     
     if ([self.ship.externalId isEqualToString:@"sakharov_c_71997p"] && [upgrade isCrew] && ![upgrade isPlaceholder]) {
