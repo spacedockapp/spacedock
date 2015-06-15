@@ -1,4 +1,4 @@
-<Data version="2015-06-12@14-08">
+<Data version="2015-06-15@20-15">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -17471,7 +17471,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Cost>7</Cost>
         <Id>ablative_hull_armor_71802</Id>
         <Set>71802</Set>
-        <Special>OnlyShipClass_Prometheus</Special>
+        <Special>OnlyShipClass_Prometheus_Class</Special>
     </Upgrade>
     <Upgrade>
         <Title>Strafing Attack</Title>
