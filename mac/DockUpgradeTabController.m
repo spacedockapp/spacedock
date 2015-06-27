@@ -81,7 +81,7 @@
         }
     }
 
-    if (![ship canAddUpgrade: upgrade ignoreInstalled: NO validating: NO]) {
+    if (![ship canAddUpgrade: upgrade ignoreInstalled: NO validating: YES]) {
         [self explainCantAddUpgrade: ship upgrade: upgrade];
         return nil;
     }

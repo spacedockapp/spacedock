@@ -877,7 +877,7 @@
         }
     }
     if ([upgradeSpecial isEqualToString:@"limited_max_weapon_3"]) {
-        if ([self.ship.weapon intValue] > 3) {
+        if ([self.ship.attack intValue] > 3) {
             return NO;
         }
     }
@@ -1145,6 +1145,11 @@
                 info = @"You may only deploy a Romulan Captain while this ship is equipped with the Romulan Hijackers Upgrade";
             } else if ([self containsUpgradeWithId:@"romulan_hijackers_71802"] != nil && ![upgrade isRomulan] && [upgrade isCrew]) {
                 info = @"You may only deploy Romulan Crew Upgrades while this ship is equipped with the Romulan Hijackers Upgrade";
+            } else if ([upgradeSpecial isEqualToString:@"limited_max_weapon_3"]) {
+                info = @"You may only deploy this upgrade to a ship with a Primary Weapon Value of 3 or less.";
+                if ([self containsUpgradeWithId:upgrade.externalId]) {
+                    info = @"No ship may be equipped with more than one of these upgrades.";
+                }
             }
         }
     }
