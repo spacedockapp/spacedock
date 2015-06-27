@@ -9,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string>space_dock</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.funnyhatsoftware.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
