@@ -1,4 +1,4 @@
-<Data version="2015-06-27@15-45">
+<Data version="2015-06-27@16-59">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -17263,7 +17263,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Cost>2</Cost>
         <Id>type_8_phaser_array_71998p</Id>
         <Set>71998p</Set>
-        <Special>NoMoreThanOnePerShip</Special>
+        <Special>limited_max_weapon_3</Special>
     </Upgrade>
     <Upgrade>
         <Title>Klingon Stealth Team</Title>

@@ -876,6 +876,11 @@
             return NO;
         }
     }
+    if ([upgradeSpecial isEqualToString:@"limited_max_weapon_3"]) {
+        if ([self.ship.weapon intValue] > 3) {
+            return NO;
+        }
+    }
     if ([upgradeSpecial isEqualToString:@"OnlyDominionHV4"]) {
         if (![self.ship isDominion]) {
             return NO;
@@ -907,7 +912,7 @@
     }
     
     if (validating) {
-        if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"]) {
+        if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString:@"limited_max_weapon_3"]) {
             DockEquippedUpgrade* existing = [self containsUpgradeWithId: upgrade.externalId];
             if (existing != nil) {
                 return NO;

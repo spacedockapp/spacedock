@@ -590,7 +590,8 @@ static NSString* makeKey(NSString* key)
         @"OnlyKlingon",
         @"PlusFiveIfNotKlingon",
         @"Plus4NotPrometheus",
-        @"OnlyKlingonCaptainShip"
+        @"OnlyKlingonCaptainShip",
+        @"limited_max_weapon_3"
         
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
