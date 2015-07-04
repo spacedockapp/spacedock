@@ -116,7 +116,7 @@
     NSString* tempPDF = NSTemporaryDirectory();
     tempPDF = [tempPDF stringByAppendingFormat:@"%@.pdf",_squad.name];
     
-    UIGraphicsBeginPDFContextToFile(tempPDF, CGRectZero, nil);
+    UIGraphicsBeginPDFContextToFile(tempPDF, CGRectZero, [[NSDictionary alloc] init]);
     [renderer prepareForDrawingPages: NSMakeRange(0, renderer.numberOfPages)];
     CGRect bounds = UIGraphicsGetPDFContextBounds();
     for ( int i = 0 ; i < renderer.numberOfPages ; i++ ) {
