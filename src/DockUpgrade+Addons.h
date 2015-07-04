@@ -32,6 +32,7 @@
 -(BOOL)isVulcan;
 -(BOOL)isFactionBorg;
 -(BOOL)isRomulan;
+-(BOOL)isQContinuum;
 -(BOOL)isRestrictedOnlyByFaction;
 -(NSComparisonResult)compareTo:(DockUpgrade*)other;
 -(int)limitForShip:(DockEquippedShip*)targetShip;

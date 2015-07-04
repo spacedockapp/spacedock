@@ -54,20 +54,26 @@ sub factions {
 	if ( $rows < 1 ) {
 	    my $sth = $dbh->prepare("CREATE TABLE Factions (_id integer,faction text,primary key(_id asc))");
 	    $sth->execute;
-	    $sth = $dbh->prepare("INSERT INTO Factions (faction) VALUES(?)");
-	    $sth->execute("Federation");
-	    $sth->execute("Klingon");
-	    $sth->execute("Romulan");
-	    $sth->execute("Dominion");
-	    $sth->execute("Borg");
-	    $sth->execute("Species 8472");
-	    $sth->execute("Kazon");
-	    $sth->execute("Bajoran");
-	    $sth->execute("Ferengi");
-	    $sth->execute("Vulcan");
-	    $sth->execute("Independent");
-	    $sth->execute("Mirror Universe");
 	}
+	$sth = $dbh->prepare("SELECT COUNT(*) as rows FROM Factions");
+	$sth->execute;
+	($rows,undef) = $sth->fetchrow_array;
+
+	$sth = $dbh->prepare("INSERT INTO Factions (faction) VALUES(?)");
+
+	$sth->execute("Federation") if ($rows < 1);
+	$sth->execute("Klingon") if ($rows < 2);
+	$sth->execute("Romulan") if ($rows < 3);
+	$sth->execute("Dominion") if ($rows < 4);
+	$sth->execute("Borg") if ($rows < 5);
+	$sth->execute("Species 8472") if ($rows < 6);
+	$sth->execute("Kazon") if ($rows < 7);
+	$sth->execute("Bajoran") if ($rows < 8);
+	$sth->execute("Ferengi") if ($rows < 9);
+	$sth->execute("Vulcan") if ($rows < 10);
+	$sth->execute("Independent") if ($rows < 11);
+	$sth->execute("Mirror Universe") if ($rows < 12);
+	$sth->execute("Q Continuum") if ($rows < 13);
 }
 
 sub sets {

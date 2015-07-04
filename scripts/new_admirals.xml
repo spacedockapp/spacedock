@@ -1,19 +1,39 @@
   <Admiral>
-    <Title>Martok</Title>
-    <Ability>ACTION: When attacking with your Primary Weapon, gain +1 attack die and roll -2 defense dice this round. You may convert 1 of your [HIT] results into a [CRIT] result.</Ability>
+    <Title>Q</Title>
+    <Ability>ACTION: Rotate your ship 180-degrees. Place a number of Auxiliary Power tokens beside your ship equal to the speed of the maneuver you revealed this round.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>2</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Admiral</Type>
+    <Faction>Q Continuum</Faction>
+    <Cost>1</Cost>
+    <Id>q_72000b</Id>
+    <Set>72000b</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: Rotate your ship 180-degrees. Place a number of Auxiliary Power tokens beside your ship equal to the speed of the maneuver you revealed this round.</AdmiralAbility>
+    <AdmiralCost>1</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>-1</SkillModifier>
+  </Admiral>
+  <Admiral>
+    <Title>William T. Riker</Title>
+    <Ability>ACTION: Place a [SCAN] Token beside your ship. You may then perform 1 Action from your Upgrade Bar as a free Action. You cannot perform the [SCAN] Action as a free Action this round.</Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
     <Skill>7</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Admiral</Type>
-    <Faction>Klingon</Faction>
+    <Faction>Mirror Universe</Faction>
     <Cost>4</Cost>
-    <Id>martok_71804</Id>
-    <Set>71804</Set>
+    <Id>william_t_riker_71807</Id>
+    <Set>71807</Set>
     <Special></Special>
-    <AdmiralAbility>FLEET ACTION: When attacking with your Primary Weapon, gain +1 attack die and roll -2 defense dice this round. You may convert 1 of your [HIT] results into a [CRIT] result.</AdmiralAbility>
+    <AdmiralAbility>FLEET ACTION: Place a [SCAN] Token beside your ship. You may then perform 1 Action from your Upgrade Bar as a free Action. You cannot perform the [SCAN] Action as a free Action this round.</AdmiralAbility>
     <AdmiralCost>4</AdmiralCost>
     <AdmiralTalent>1</AdmiralTalent>
     <SkillModifier>1</SkillModifier>
