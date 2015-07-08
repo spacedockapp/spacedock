@@ -1,4 +1,4 @@
-<Data version="2015-07-04@17-57">
+<Data version="2015-07-08@05-38">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -7977,7 +7977,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
     </Captain>
     <Captain>
       <Title>Benjamin Sisko</Title>
-      <Ability>During the Roll Defense Dice step of the Combat Phase, if your ship is in the forward firing arc of 2 or more ships, roll 1 extra defense die against all attacks from those ships. Each time your ship receives a Damage Card (normal or critical), incrase your Captain Skill by +1 for the rest of the game (max +2). The bonus Skill remains even if the damage is later repaired.</Ability>
+      <Ability>During the Roll Defense Dice step of the Combat Phase, if your ship is in the forward firing arc of 2 or more ships, roll 1 extra defense die against all attacks from those ships. Each time your ship receives a Damage Card (normal or critical), increase your Captain Skill by +1 for the rest of the game (max +2). The bonus Skill remains even if the damage is later repaired.</Ability>
       <Unique>Y</Unique>
       <Skill>7</Skill>
       <Talent>1</Talent>
