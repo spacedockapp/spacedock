@@ -601,7 +601,7 @@ static NSDictionary* sItemLabels = nil;
             }
         }
         if ([equippedShip containsUpgradeWithId:@"romulan_hijackers_71802"] != nil) {
-            if (![upgrade isBorg]) {
+            if (![upgrade isFactionBorg]) {
                 cost -= 1;
             }
         }
@@ -616,7 +616,7 @@ static NSDictionary* sItemLabels = nil;
             cost -= 1;
         }
         if ([equippedShip containsUpgradeWithId:@"romulan_hijackers_71802"] != nil) {
-            if (![upgrade isBorg]) {
+            if (![upgrade isFactionBorg]) {
                 cost -= 1;
             }
         }
