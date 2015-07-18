@@ -1,4 +1,4 @@
-<Data version="2015-07-08@05-38">
+<Data version="2015-07-18@08-03">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -18441,7 +18441,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Cost>2</Cost>
         <Id>additional_phaser_array_72000p</Id>
         <Set>72000p</Set>
-        <Special>NoMoreThanOnePerShipAndOnlyDderidex</Special>
+        <Special>OnlyDderidexAndNoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
         <Title>Photon Torpedoes</Title>
