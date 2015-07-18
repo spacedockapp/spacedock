@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.funnyhatsoftware.spacedock"
-    android:versionCode="53"
-    android:versionName="1.1.15 (53)" >
+    android:versionCode="54"
+    android:versionName="1.1.16 (54)" >
 
     <uses-sdk
         android:minSdkVersion="14"
