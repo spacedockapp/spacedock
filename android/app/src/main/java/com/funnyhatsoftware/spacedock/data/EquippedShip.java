@@ -454,6 +454,8 @@ public class EquippedShip extends EquippedShipBase {
                 if (isResourceSideboard()) {
                     Upgrade zcc = Captain.zeroCostCaptain("Federation");
                     addUpgrade(zcc, null, false);
+                } else if (null != containsUpgrade(Universe.getUniverse().getUpgrade("romulan_hijackers_71802"))) {
+                    Upgrade zcc = Captain.zeroCostCaptain("Romulan");
                 } else {
                     Upgrade zcc = Captain.zeroCostCaptainForShip(getShip());
                     addUpgrade(zcc, null, false);
@@ -689,9 +691,51 @@ public class EquippedShip extends EquippedShipBase {
                         "This upgrade can only be added to Kazon ships.");
             }
         }
+        if ("OnlyBajoran".equals(upgradeSpecial)) {
+            if (!ship.isBajoran()) {
+                return new Explanation(msg, "This upgrade can only be added to a Bajoran ship.");
+            }
+        }
+        if ("OnlyKlingon".equals(upgradeSpecial)) {
+            if (!ship.isKlingon()) {
+                return new Explanation(msg, "This upgrade can only be added to a Klingon ship.");
+            }
+        }
         if ("NoMoreThanOnePerShip".equals(upgradeSpecial) || "OnlyBorgShipAndNoMoreThanOnePerShip".equals(upgradeSpecial)) {
             if (addingNew && null != containsUpgrade(upgrade)) {
                 return new Explanation(msg, "This upgrade can only be added once per ship.");
+            }
+        }
+        if ("NoMoreThanOnePerShipBajoran".equals(upgradeSpecial)) {
+            if (addingNew && null != containsUpgrade(upgrade)) {
+                return new Explanation(msg, "This upgrade can only be added once per ship.");
+            }
+            if (!ship.isBajoran()) {
+                return new Explanation(msg, "This upgrade can only be added to a Bajoran ship.");
+            }
+        }
+        if ("NoMoreThanOnePerShipKlingon".equals(upgradeSpecial)) {
+            if (addingNew && null != containsUpgrade(upgrade)) {
+                return new Explanation(msg, "This upgrade can only be added once per ship.");
+            }
+            if (!ship.isKlingon()) {
+                return new Explanation(msg, "This upgrade can only be added to a Klingon ship.");
+            }
+        }
+        if ("NoMoreThanOnePerShipFederation".equals(upgradeSpecial)) {
+            if (addingNew && null != containsUpgrade(upgrade)) {
+                return new Explanation(msg, "This upgrade can only be added once per ship.");
+            }
+            if (!ship.isFederation()) {
+                return new Explanation(msg, "This upgrade can only be added to a Federation ship.");
+            }
+        }
+        if ("NoMoreThanOnePerShipFerengi".equals(upgradeSpecial)) {
+            if (addingNew && null != containsUpgrade(upgrade)) {
+                return new Explanation(msg, "This upgrade can only be added once per ship.");
+            }
+            if (!ship.isFerengi()) {
+                return new Explanation(msg, "This upgrade can only be added to a Ferengi ship.");
             }
         }
         if ("OnlyBorgShipAndNoMoreThanOnePerShip".equals(upgradeSpecial)) {
@@ -705,6 +749,36 @@ public class EquippedShip extends EquippedShipBase {
             }
             if (!ship.isFederation()) {
                 return new Explanation(msg, "This upgrade can only be added to a federation ship.");
+            }
+        }
+        if ("ony_federation_ship_limited3".equals(upgradeSpecial)) {
+            if (addingNew && null != containsUpgrade(upgrade)) {
+                return new Explanation(msg, "This upgrade can only be added once per ship.");
+            }
+            if (!ship.isFederation()) {
+                return new Explanation(msg, "This upgrade can only be added to a federation ship.");
+            }
+            if (3 < ship.getHull()) {
+                return new Explanation(msg, "This upgrade can only be added to ship with a hull of 3 or less.");
+            }
+        }
+        if ("ony_mu_ship_limited".equals(upgradeSpecial)) {
+            if (addingNew && null != containsUpgrade(upgrade)) {
+                return new Explanation(msg, "This upgrade can only be added once per ship.");
+            }
+            if (!ship.isMirrorUniverse()) {
+                return new Explanation(msg, "This upgrade can only be added to a Mirror Universe ship.");
+            }
+            if (4 < ship.getHull()) {
+                return new Explanation(msg, "This upgrade can only be added to ship with a hull of 4 or less.");
+            }
+        }
+        if ("limited_max_weapon_3".equals(upgradeSpecial)) {
+            if (addingNew && null != containsUpgrade(upgrade)) {
+                return new Explanation(msg, "This upgrade can only be added once per ship.");
+            }
+            if (3 < ship.getAttack()) {
+                return new Explanation(msg, "This upgrade can only be added to ship with a attack of 3 or less.");
             }
         }
         if ("OnlyFedShipHV4CostPWVP1".equals(upgradeSpecial)) {
@@ -723,6 +797,15 @@ public class EquippedShip extends EquippedShipBase {
                 return new Explanation(msg, "This upgrade can only be added to ship with a hull of 4 or greater.");
             }
         }
+        if ("OnlyDderidexAndNoMoreThanOnePerShip".equals(upgradeSpecial)) {
+            if (addingNew && null != containsUpgrade(upgrade)) {
+                return new Explanation(msg, "This upgrade can only be added once per ship.");
+            }
+
+            if (!ship.getShipClass().equals("D'deridex Class")) {
+                return new Explanation(msg, "This upgrade can only be added to a D'deridex class ship.");
+            }
+        }
         Captain captain = getCaptain();
         if (null != captain) {
             if (!"lore_71522".equals(captain.getSpecial()) || !upgrade.isTalent()) {
@@ -736,6 +819,12 @@ public class EquippedShip extends EquippedShipBase {
                     if (!captain.isBajoran()) {
                         return new Explanation(msg,
                                 "This upgrade can only be added to a Bajoran Captain.");
+                    }
+                }
+                if (upgradeSpecial.equals("OnlyKlingonCaptainShip")) {
+                    if (!captain.isKlingon() || !ship.isKlingon()) {
+                        return new Explanation(msg,
+                                "This upgrade can only be added to a Klingon Captain on a Klingon Ship.");
                     }
                 }
 
@@ -800,6 +889,14 @@ public class EquippedShip extends EquippedShipBase {
                 && upgrade.isBorg() && upgrade.getCost() > 5) {
             return new Explanation(msg,
                     "Cannot equip a Borg upgrade with cost greater than 5 to this ship.");
+        }
+
+        if (null != containsUpgrade(Universe.getUniverse().getUpgrade("romulan_hijackers_71802"))) {
+            if (upgrade.isCrew()) {
+                if (!upgrade.isRomulan()) {
+                    return new Explanation(msg,"You may only deploy Romulan Crew Upgrades while this ship is equipped with the Romulan Hijackers Upgrade");
+                }
+            }
         }
 
         int limit = upgrade.limitForShip(this);
