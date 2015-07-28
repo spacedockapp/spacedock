@@ -1352,8 +1352,6 @@ public class EquippedShip extends EquippedShipBase {
                     .optString(JSONLabels.JSON_LABEL_UPGRADE_ID);
             Captain captain = universe.getCaptain(captainId);
             addUpgrade(captain, null, false);
-        } else if (strict) {
-            throw new RuntimeException("Can't find captain object.");
         }
 
         String flagshipId = shipData.optString(JSONLabels.JSON_LABEL_FLAGSHIP);
