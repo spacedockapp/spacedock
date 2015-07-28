@@ -244,6 +244,7 @@
     } else {
         cell.textLabel.textColor = [UIColor blackColor];
         cell.detailTextLabel.text = [[upgrade cost] stringValue];
+        cell.accessoryType = UITableViewCellAccessoryDetailButton;
     }
     
     if (self.targetSet != nil) {

@@ -235,9 +235,13 @@
 
 -(UITableViewCell*)cellForSet:(UITableView*)tableView
 {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"default"];
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"ability"];
     cell.textLabel.text = @"Set";
+    if ([_upgrade.setName containsString:@","]) {
+        cell.textLabel.text = @"Sets";
+    }
     cell.detailTextLabel.text = _upgrade.setName;
+    cell.detailTextLabel.numberOfLines = 0;
     return cell;
 }
 
@@ -385,10 +389,30 @@
 {
     NSInteger lastRowIndex = [self rowCount] - 1;
     NSInteger row = [indexPath indexAtPosition: 1];
-
+    NSInteger setRowIndex = 5;
+    if ([_upgrade isAdmiral]) {
+        setRowIndex = 6;
+    } else if ([_upgrade isFleetCaptain]) {
+        setRowIndex = 9;
+    } else if ([_upgrade isCaptain]) {
+        setRowIndex = 7;
+    } else if ([_upgrade isWeapon]) {
+        setRowIndex = 7;
+    }
+    
     if (row == lastRowIndex) {
         NSString* str = _upgrade.ability;
-
+        
+        if (str.length > 0) {
+            CGSize size = [str sizeWithFont: [UIFont systemFontOfSize: 14] constrainedToSize: CGSizeMake(_labelWidth - 5, 9999) lineBreakMode: NSLineBreakByWordWrapping];
+            CGFloat rowHeight = size.height + 20;
+            return rowHeight;
+        }
+    }
+    
+    if (row == setRowIndex) {
+        NSString* str = _upgrade.setName;
+        
         if (str.length > 0) {
             CGSize size = [str sizeWithFont: [UIFont systemFontOfSize: 14] constrainedToSize: CGSizeMake(_labelWidth - 5, 9999) lineBreakMode: NSLineBreakByWordWrapping];
             CGFloat rowHeight = size.height + 20;

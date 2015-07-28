@@ -41,6 +41,7 @@
 {
     DockReference* reference = [self.fetchedResultsController objectAtIndexPath: indexPath];
     cell.textLabel.text = reference.title;
+    cell.accessoryType = UITableViewCellAccessoryDetailButton;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
