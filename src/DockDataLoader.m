@@ -133,6 +133,23 @@
         NSError* error;
         [self loadData:&error];
     }
+    
+    DockCrew* crew3of5 = [DockCrew crewForId:@"third_of_five_c_71525" context:context];
+    DockCrew* crew3of5old = [DockCrew crewForId:@"third_of_five_71525" context:context];
+    if (crew3of5 != nil && crew3of5old != nil) {
+    NSArray* allSquads = [DockSquad allSquads: context];
+        for (DockSquad* s in allSquads) {
+            for (DockEquippedShip* sh in [s equippedShips]) {
+                for (DockEquippedUpgrade* eu in sh.sortedUpgrades) {
+                    if ([eu.upgrade.externalId isEqualToString:@"third_of_five_71525"] && eu.upgrade.isCrew) {
+                        [eu setUpgrade:crew3of5];
+                    }
+                }
+            }
+        }
+        [context deleteObject:crew3of5old];
+    }
+    
     [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"3119" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3012" context:context]];
     [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"3052" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3011" context:context]];
     [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"photon_torpedoes_71448" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3045" context:context]];

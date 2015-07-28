@@ -492,6 +492,14 @@ static NSString* makeKey(NSString* key)
         }
         [_managedObjectContext deleteObject: extraFed];
     }
+    
+    DockUpgrade* wrongLure = [DockUpgrade upgradeForId:@"lure_71805" context: _managedObjectContext];
+    if (wrongLure != nil && [wrongLure isTech]) {
+        for (DockSquad* s in allSquads) {
+            [s purgeUpgrade: wrongLure];
+        }
+        [_managedObjectContext deleteObject: wrongLure];
+    }
 }
 
 -(NSSet*)validateSpecials
