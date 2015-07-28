@@ -1,4 +1,4 @@
-<Data version="2015-07-18@08-03">
+<Data version="2015-07-27@04-54">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -6448,7 +6448,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Title>Kreechta</Title>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <ShipClass>D'kora Class</ShipClass>
+      <ShipClass>D'Kora Class</ShipClass>
       <Faction>Ferengi</Faction>
       <AdditionalFaction></AdditionalFaction>
       <Attack>3</Attack>
@@ -14245,7 +14245,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Type>Crew</Type>
       <Faction>Borg</Faction>
       <Cost>5</Cost>
-      <Id>third_of_five_71525</Id>
+      <Id>third_of_five_c_71525</Id>
       <Set>71525</Set>
       <Special>not_with_hugh</Special>
     </Upgrade>
@@ -18035,7 +18035,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Talent></Talent>
         <Attack></Attack>
         <Range></Range>
-        <Type>Tech</Type>
+        <Type>Talent</Type>
         <Faction>Independent</Faction>
         <Cost>5</Cost>
         <Id>lure_71805</Id>
