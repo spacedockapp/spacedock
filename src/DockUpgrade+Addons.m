@@ -265,6 +265,11 @@ static NSDictionary* sItemLabels = nil;
     return targetHasFaction(@"Romulan", self);
 }
 
+-(BOOL)isQContinuum
+{
+    return targetHasFaction(@"Q Continuum", self);
+}
+
 -(BOOL)isRestrictedOnlyByFaction
 {
     NSString* upgradeId = self.externalId;
@@ -595,6 +600,11 @@ static NSDictionary* sItemLabels = nil;
                 cost -= 1;
             }
         }
+        if ([equippedShip containsUpgradeWithId:@"romulan_hijackers_71802"] != nil) {
+            if (![upgrade isFactionBorg]) {
+                cost -= 1;
+            }
+        }
     } else if ([upgrade isTech]) {
         if ([fleetCaptainSpecial isEqualToString: @"TechUpgradesCostOneLess"]) {
             cost -= 1;
@@ -604,6 +614,11 @@ static NSDictionary* sItemLabels = nil;
         }
         if ([ship.externalId isEqualToString:@"u_s_s_pegasus_71801"]) {
             cost -= 1;
+        }
+        if ([equippedShip containsUpgradeWithId:@"romulan_hijackers_71802"] != nil) {
+            if (![upgrade isFactionBorg]) {
+                cost -= 1;
+            }
         }
     }
 
@@ -679,6 +694,24 @@ static NSDictionary* sItemLabels = nil;
         if (![ship.shipClass isEqualToString:@"Gorn Raider"]) {
             cost += 4;
         }
+    } else if ([upgradeSpecial isEqualToString:@"PlusFiveIfNotKlingon"]) {
+        if (![ship isKlingon]) {
+            cost += 5;
+        }
+    } else if ([upgradeSpecial isEqualToString:@"Plus4NotPrometheus"]) {
+        if (![ship.title isEqualToString:@"U.S.S. Prometheus"]) {
+            cost += 4;
+        }
+    } else if ([upgradeSpecial hasPrefix:@"Plus3NotShipClass_"]) {
+        NSString* shipClass = [ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus3NotShipClass_%@",shipClass]]) {
+            cost += 3;
+        }
+    } else if ([upgradeSpecial hasPrefix:@"Plus3NotShip_"]) {
+        NSString* shipName = [ship.title stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus3NotShip_%@",shipName]]) {
+            cost += 3;
+        }
     } else if ([upgradeSpecial hasPrefix:@"Plus5NotShipClass_"]) {
         NSString* shipClass = [ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
         if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus5NotShipClass_%@",shipClass]]) {
@@ -752,6 +785,7 @@ static NSDictionary* sItemLabels = nil;
     if (![upgrade isOfficer] && !factionsMatch(ship, self) && !equippedShip.isResourceSideboard && !factionsMatch(self, equippedShip.flagship)) {
         if ([captainSpecial isEqualToString: @"UpgradesIgnoreFactionPenalty"] && ![upgrade isCaptain] && ![upgrade isAdmiral]) {
             // do nothing
+        } else if (self.isQContinuum) {
         } else if ([captainSpecial isEqualToString: @"NoPenaltyOnFederationOrBajoranShip"]  && [upgrade isCaptain]) {
             if (!([ship isFederation] || [ship isBajoran])) {
                 cost += 1;
@@ -774,6 +808,7 @@ static NSDictionary* sItemLabels = nil;
                 cost += 1;
             }
         } else if ([upgradeSpecial isEqualToString:@"CaptainIgnoresPenalty"]) {
+        } else if ([equippedShip containsUpgradeWithId:@"romulan_hijackers_71802"] != nil && [upgrade isRomulan]) {
         } else {
             if (upgrade.isAdmiral) {
                 cost += 3;

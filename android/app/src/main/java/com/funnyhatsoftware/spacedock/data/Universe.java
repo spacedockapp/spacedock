@@ -482,8 +482,8 @@ public class Universe {
         if (mAllFactions == null) {
             TreeSet<String> factions = new TreeSet<String>();
 
-            for (Ship ship : ships.values()) {
-                factions.add(ship.getFaction());
+            for (Captain captain : captains.values()) {
+                factions.add(captain.getFaction());
             }
 
             mAllFactions = new ArrayList<String>();

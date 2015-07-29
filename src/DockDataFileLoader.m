@@ -492,6 +492,14 @@ static NSString* makeKey(NSString* key)
         }
         [_managedObjectContext deleteObject: extraFed];
     }
+    
+    DockUpgrade* wrongLure = [DockUpgrade upgradeForId:@"lure_71805" context: _managedObjectContext];
+    if (wrongLure != nil && [wrongLure isTech]) {
+        for (DockSquad* s in allSquads) {
+            [s purgeUpgrade: wrongLure];
+        }
+        [_managedObjectContext deleteObject: wrongLure];
+    }
 }
 
 -(NSSet*)validateSpecials
@@ -585,11 +593,20 @@ static NSString* makeKey(NSString* key)
         @"ony_mu_ship_limited",
         @"CaptainIgnoresPenalty",
         @"OnlyBajoran",
-        @"ony_federation_ship_limited3"
+        @"ony_federation_ship_limited3",
+        @"RomulanHijackers",
+        @"OnlyKlingon",
+        @"PlusFiveIfNotKlingon",
+        @"Plus4NotPrometheus",
+        @"OnlyKlingonCaptainShip",
+        @"limited_max_weapon_3",
+        @"OnlyDderidexAndNoMoreThanOnePerShip"
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'OnlyShipClass_'"]];
+    [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus3NotShipClass_'"]];
+    [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus3NotShip_'"]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus5NotShipClass_'"]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus5NotShip_'"]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus6NotShipClass_'"]];

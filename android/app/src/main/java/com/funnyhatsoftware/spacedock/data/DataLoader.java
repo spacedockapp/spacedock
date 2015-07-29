@@ -446,7 +446,18 @@ public class DataLoader extends DefaultHandler {
                 "OnlyDominionHV4",
                 "OnlyDominionShip",
                 "OnlyShip_I.S.S._Enterprise",
-                "PlusFourIfNotGornRaider"
+                "PlusFourIfNotGornRaider",
+                "CaptainIgnoresPenalty",
+                "OnlyBajoran",
+                "OnlyDderidexAndNoMoreThanOnePerShip",
+                "OnlyKlingon",
+                "OnlyKlingonCaptainShip",
+                "Plus4NotPrometheus",
+                "PlusFiveIfNotKlingon",
+                "RomulanHijackers",
+                "limited_max_weapon_3",
+                "ony_federation_ship_limited3",
+                "ony_mu_ship_limited"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);
@@ -457,7 +468,21 @@ public class DataLoader extends DefaultHandler {
             String unhandledSpecial = itr.next();
             if (unhandledSpecial.startsWith("OnlyShipClass_")) {
                 wildcardSpecials.add(unhandledSpecial);
+            } else if (unhandledSpecial.startsWith("Plus3NotShipClass_")) {
+                wildcardSpecials.add(unhandledSpecial);
+            } else if (unhandledSpecial.startsWith("Plus3NotShip_")) {
+                wildcardSpecials.add(unhandledSpecial);
             } else if (unhandledSpecial.startsWith("Plus5NotShipClass_")) {
+                wildcardSpecials.add(unhandledSpecial);
+            } else if (unhandledSpecial.startsWith("Plus5NotShip_")) {
+                wildcardSpecials.add(unhandledSpecial);
+            } else if (unhandledSpecial.startsWith("Plus6NotShipClass_")) {
+                wildcardSpecials.add(unhandledSpecial);
+            } else if (unhandledSpecial.startsWith("Plus6NotShip_")) {
+                wildcardSpecials.add(unhandledSpecial);
+            } else if (unhandledSpecial.startsWith("OnlyShip_")) {
+                wildcardSpecials.add(unhandledSpecial);
+            } else if (unhandledSpecial.startsWith("NoMoreThanOnePerShip")) {
                 wildcardSpecials.add(unhandledSpecial);
             }
         }

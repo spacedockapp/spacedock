@@ -247,6 +247,20 @@ NSString* asDegrees(NSString* textValue)
     return NO;
 }
 
+-(BOOL)isShuttle
+{
+    if ([self.externalId isEqualToString: @"sakharov_71997p"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString: @"sakharov_c_71997p"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString: @"federation_starship_71997p"]) {
+        return YES;
+    }
+    return NO;
+}
+
 -(BOOL)isSpecies8472
 {
     return targetHasFaction(@"Species 8472",self);
@@ -387,6 +401,9 @@ NSString* asDegrees(NSString* textValue)
 -(int)admiralCount
 {
     if (self.isFighterSquadron) {
+        return 0;
+    }
+    if (self.isShuttle) {
         return 0;
     }
     return 1;

@@ -395,6 +395,11 @@ public class Squad extends SquadBase {
             if ("hugh_71522".equalsIgnoreCase(captain.getSpecial()) && null != containsUpgradeWithName("Third of Five")) {
                 return new Explanation(result, "This Captain cannot be added to a squadron that contains Third of Five");
             }
+            if (null != targetShip.containsUpgrade(Universe.getUniverse().getUpgrade("romulan_hijackers_71802"))) {
+                if (!captain.isRomulan()) {
+                    return new Explanation(result, "You may only deploy a Romulan captain while this ship is equipped with the Romulan Hijackers Upgrade.");
+                }
+            }
         }
 
         if (captain.getMirrorUniverseUnique()) {

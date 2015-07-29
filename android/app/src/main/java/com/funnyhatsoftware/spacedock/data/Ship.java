@@ -207,6 +207,9 @@ public class Ship extends ShipBase implements Factioned, Uniqueness {
     public boolean isKazon() {
         return DataUtils.targetHasFaction(Constants.KAZON, this);
     }
+    public boolean isKlingon() {
+        return DataUtils.targetHasFaction(Constants.KLINGON, this);
+    }
 
     public boolean isTholian() {
         return mShipClass.contains("Tholian");
@@ -214,6 +217,10 @@ public class Ship extends ShipBase implements Factioned, Uniqueness {
 
     public boolean isVulcan() {
         return DataUtils.targetHasFaction(Constants.VULCAN, this);
+    }
+
+    public boolean isFerengi() {
+        return DataUtils.targetHasFaction(Constants.FERENGI, this);
     }
 
     public boolean isIndependent() {

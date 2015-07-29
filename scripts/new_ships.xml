@@ -1,16 +1,74 @@
   <Ship>
-    <Title>I.K.S. Korinar</Title>
+    <Title>U.S.S. Dauntless</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>B'rel Class</ShipClass>
-    <Faction>Klingon</Faction>
+    <ShipClass>Dauntless Class</ShipClass>
+    <Faction>Independent</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>1</Agility>
-    <Hull>3</Hull>
+    <Attack>2</Attack>
+    <Agility>2</Agility>
+    <Hull>4</Hull>
+    <Shield>5</Shield>
+    <Ability>Each time you perform an Action or use an ability on any of your [TECH] Upgrades, place 1 Mission Token on this card.  During the Roll Attack dice step, you may spend up to 2 of these tokens to gain +1 attack die for that attack for each token spent.</Ability>
+    <Cost>26</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>1</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>4</Tech>
+    <Weapon>0</Weapon>
+    <Crew>0</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>u_s_s_dauntless_71805</Id>
+    <Set>71805</Set>
+  </Ship>
+  <Ship>
+    <Title>I.R.W. Terix</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+    <ShipClass>D'deridex Class</ShipClass>
+    <Faction>Mirror Universe</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>3</Attack>
+    <Agility>2</Agility>
+    <Hull>6</Hull>
+    <Shield>4</Shield>
+    <Ability>After you perform a Green Maneuver, you may immediately perform a [SCAN] Action as a free Action.</Ability>
+    <Cost>30</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>0</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>1</Cloak>
+    <SensorEcho>1</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>2</Tech>
+    <Weapon>2</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>i_r_w_terix_72000p</Id>
+    <Set>72000p</Set>
+  </Ship>
+  <Ship>
+    <Title>Mirror Universe Starship</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>D'deridex Class</ShipClass>
+    <Faction>Mirror Universe</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>3</Attack>
+    <Agility>2</Agility>
+    <Hull>6</Hull>
     <Shield>3</Shield>
-    <Ability>While you are cloaked, if you initiate an attack at Range 1 with your Primary Weapon, gain +1 attack die for that attack.</Ability>
-    <Cost>22</Cost>
+    <Ability></Ability>
+    <Cost>28</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>0</Scan>
@@ -24,35 +82,122 @@
     <Crew>1</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>i_k_s_korinar_71999p</Id>
-    <Set>71999p</Set>
+    <Id>mirror_universe_starship_72000p</Id>
+    <Set>72000p</Set>
   </Ship>
   <Ship>
-    <Title>Klingon Starship</Title>
+    <Title>Independent Starship</Title>
     <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>B'rel Class</ShipClass>
-    <Faction>Klingon</Faction>
+    <ShipClass>Dauntless Class</ShipClass>
+    <Faction>Independent</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>1</Agility>
-    <Hull>3</Hull>
-    <Shield>2</Shield>
+    <Attack>2</Attack>
+    <Agility>2</Agility>
+    <Hull>4</Hull>
+    <Shield>4</Shield>
     <Ability></Ability>
-    <Cost>20</Cost>
+    <Cost>24</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
+    <Scan>1</Scan>
+    <Battlestations>1</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
-    <Tech>1</Tech>
+    <Tech>3</Tech>
+    <Weapon>0</Weapon>
+    <Crew>0</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>independent_starship_71805</Id>
+    <Set>71805</Set>
+  </Ship>
+  <Ship>
+    <Title>Kreechta</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>D'kora Class</ShipClass>
+    <Faction>Ferengi</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>3</Attack>
+    <Agility>1</Agility>
+    <Hull>4</Hull>
+    <Shield>3</Shield>
+    <Ability>When attacking a ship that has damaged Shields, during the Modify Attack Dice step, you may re-roll a number of your Attack dice up to the number of the defending ship's damaged Shields.</Ability>
+    <Cost>22</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>2</Tech>
     <Weapon>1</Weapon>
     <Crew>1</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>klingon_starship_71999p</Id>
-    <Set>71999p</Set>
+    <Id>kreechta_71806</Id>
+    <Set>71806</Set>
+  </Ship>
+  <Ship>
+    <Title>U.S.S. Pasteur</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+    <ShipClass>Olympic Class</ShipClass>
+    <Faction>Mirror Universe</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>1</Attack>
+    <Agility>1</Agility>
+    <Hull>5</Hull>
+    <Shield>4</Shield>
+    <Ability>After you perform a maneuver with a speed of 5 or greater, you may immediately perform an [EVADE] Action as a free Action.</Ability>
+    <Cost>22</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>0</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>1</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>2</Tech>
+    <Weapon>0</Weapon>
+    <Crew>2</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>u_s_s_pasteur_71807</Id>
+    <Set>71807</Set>
+  </Ship>
+  <Ship>
+    <Title>Mirror Universe Starship</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Olympic Class</ShipClass>
+    <Faction>Mirror Universe</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>1</Attack>
+    <Agility>1</Agility>
+    <Hull>5</Hull>
+    <Shield>3</Shield>
+    <Ability></Ability>
+    <Cost>20</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>0</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>1</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>2</Tech>
+    <Weapon>0</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>mirror_universe_starship_71807</Id>
+    <Set>71807</Set>
   </Ship>

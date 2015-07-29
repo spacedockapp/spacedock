@@ -907,6 +907,20 @@ static NSString* namePrefix(NSString* originalName)
         }
     }
     
+    if ([targetShip containsUpgradeWithId:@"romulan_hijackers_71802"] != nil) {
+        if (![captain isRomulan]) {
+            if (error) {
+                NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", captain.title];
+                NSString* info = @"You may only deploy a Romulan captain while this ship is equipped with the Romulan Hijackers Upgrade.";
+                NSDictionary* d = @{
+                                    NSLocalizedDescriptionKey: msg,
+                                    NSLocalizedFailureReasonErrorKey: info
+                                    };
+                *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
+            }
+            return NO;
+        }
+    }
     DockCaptain* existingCaptain = [targetShip captain];
 
     if (captain == existingCaptain) {

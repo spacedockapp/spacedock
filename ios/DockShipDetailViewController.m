@@ -208,7 +208,7 @@ enum {
         return [self cell: tableView forKey: @"setName" label: @"Set"];
 
     case kShipDetailMoves:
-        return [self cell: tableView forKey: @"movesSummary" label: @"Key Moves" accessory: UITableViewCellAccessoryDetailDisclosureButton];
+        return [self cell: tableView forKey: @"movesSummary" label: @"Key Moves" accessory: UITableViewCellAccessoryDetailButton];
 
     case kShipDetailActions:
         return [self cellForActions: tableView];

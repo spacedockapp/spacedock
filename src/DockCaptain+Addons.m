@@ -22,6 +22,9 @@
     NSArray* existingItems = [context executeFetchRequest: request error: &err];
 
     if (existingItems.count > 0) {
+        if ((DockUpgrade*)existingItems[0] == [DockUpgrade upgradeForId:@"romulan_drone_pilot_71536" context:context]) {
+            return existingItems[1];
+        }
         return existingItems[0];
     }
 

@@ -163,9 +163,11 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         return mUpType.equals(Constants.OFFICER_TYPE);
     }
 
-    private boolean isDominion() {
+    public boolean isDominion() {
         return DataUtils.targetHasFaction("Dominion", this);
     }
+
+    public boolean isKlingon() { return DataUtils.targetHasFaction(Constants.KLINGON, this); }
 
     public boolean isBorgFaction() {
         return DataUtils.targetHasFaction(Constants.BORG, this);
@@ -191,6 +193,9 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         return DataUtils.targetHasFaction(Constants.MIRROR_UNIVERSE, this);
     }
 
+    public boolean isQContinuum() {
+        return DataUtils.targetHasFaction("Q Continuum", this);
+    }
     public String targetShipClass() {
 
         if (mSpecial.equals("OnlyForRomulanScienceVessel")) {
@@ -328,6 +333,11 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if ("WeaponUpgradesCostOneLess".equals(fleetCaptainSpecial)) {
                 cost -= 1;
             }
+            if (null != equippedShip.containsUpgrade(Universe.getUniverse().getUpgrade("romulan_hijackers_71802"))) {
+                if (!isBorgFaction()) {
+                    cost -= 1;
+                }
+            }
         } else if (isTech()) {
             if ("VulcanAndFedTechUpgradesMinus2".equals(captainSpecial) &&
                     ("Federation".equals(upgradeFaction) || "Vulcan".equals(upgradeFaction))) {
@@ -335,6 +345,11 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             }
             if ("TechUpgradesCostOneLess".equals(fleetCaptainSpecial)) {
                 cost -= 1;
+            }
+            if (null != equippedShip.containsUpgrade(Universe.getUniverse().getUpgrade("romulan_hijackers_71802"))) {
+                if (!isBorgFaction()) {
+                    cost -= 1;
+                }
             }
         }
 
@@ -406,10 +421,41 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             cost += 5;
         } else if ("PlusFivePointsNonHirogen".equals(upgradeSpecial) && !ship.getShipClass().contains("Hirogen")) {
             cost += 5;
+        } else if ("PlusFiveIfNotKlingon".equals(upgradeSpecial) && !ship.isKlingon()) {
+            cost += 5;
+        } else if ("Plus4NotPrometheus".equals(upgradeSpecial)) {
+            if (!ship.getTitle().equals("U.S.S. Prometheus")) {
+                cost += 4;
+            }
+        } else if (upgradeSpecial.startsWith("Plus3NotShipClass_")) {
+            String reqClass = upgradeSpecial.substring(18);
+            if (!ship.getShipClass().replace(" ", "_").equals(reqClass)) {
+                cost += 3;
+            }
+        } else if (upgradeSpecial.startsWith("Plus3NotShip_")) {
+            String reqShip = upgradeSpecial.substring(13);
+            if (!ship.getTitle().replace(" ", "_").equals(reqShip)) {
+                cost += 3;
+            }
         } else if (upgradeSpecial.startsWith("Plus5NotShipClass_")) {
             String reqClass = upgradeSpecial.substring(18);
             if (!ship.getShipClass().replace(" ", "_").equals(reqClass)) {
                 cost += 5;
+            }
+        } else if (upgradeSpecial.startsWith("Plus5NotShip_")) {
+            String reqShip = upgradeSpecial.substring(13);
+            if (!ship.getTitle().replace(" ", "_").equals(reqShip)) {
+                cost += 5;
+            }
+        } else if (upgradeSpecial.startsWith("Plus6NotShipClass_")) {
+            String reqClass = upgradeSpecial.substring(18);
+            if (!ship.getShipClass().replace(" ", "_").equals(reqClass)) {
+                cost += 6;
+            }
+        } else if (upgradeSpecial.startsWith("Plus6NotShip_")) {
+            String reqShip = upgradeSpecial.substring(13);
+            if (!ship.getTitle().replace(" ", "_").equals(reqShip)) {
+                cost += 6;
             }
         }
         if (captainSpecial.equals("OneDominionUpgradeCostsMinusTwo") && !shipIsSideboard) {
@@ -460,6 +506,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 && !DataUtils.targetHasFaction(equippedShip.getFlagshipFaction(), this)) {
             if (captainSpecial.equals("UpgradesIgnoreFactionPenalty") && !isCaptain() && !isAdmiral()) {
                 // do nothing
+            } else if (captainSpecial.equals("CaptainIgnoresPenalty") && isCaptain()) {
+                // do nothing
+            } else if (this.isQContinuum()) {
+                // do nothing
             } else if (captainSpecial.equals("NoPenaltyOnFederationOrBajoranShip") && isCaptain()) {
                 if (!(ship.isFederation() || ship.isBajoran())) {
                     cost += 1;
@@ -476,6 +526,8 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             } else if (captainSpecial.equals("lore_71522") && isTalent()) {
                 // do nothing
             } else if (captainSpecial.equals("hugh_71522") && isBorgFaction()) {
+                // do nothing
+            } else if (null != equippedShip.containsUpgrade(Universe.getUniverse().getUpgrade("romulan_hijackers_71802")) && isRomulan()) {
                 // do nothing
             } else if (isAdmiral()) {
                 cost += 3;

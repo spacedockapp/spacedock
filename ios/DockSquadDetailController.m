@@ -364,7 +364,6 @@ enum {
     [self.tableView beginUpdates];
     NSInteger section = [indexPath indexAtPosition: 0];
     NSInteger row = [indexPath indexAtPosition: 1];
-
     if (section == 0) {
         if (editingStyle == UITableViewCellEditingStyleDelete) {
             DockResource* resource = _squad.resource;
@@ -373,14 +372,35 @@ enum {
                 NSIndexPath* sideboardPath = [NSIndexPath indexPathForRow: _squad.equippedShips.count - 1 inSection: 1];
                 [self.tableView deleteRowsAtIndexPaths: @[sideboardPath] withRowAnimation: UITableViewRowAnimationNone];
             }
+            
+            if (resource.isFighterSquadron) {
+                for (DockEquippedShip* es in _squad.equippedShips) {
+                    if (es.isFighterSquadron) {
+                        [_squad removeEquippedShip:es];
+                    }
+                }
+                
+                NSError* error;
+                
+                if (!saveItem(_squad, &error)) {
+                    presentError(error);
+                }
 
-            _squad.resource = nil;
-            _squad.resourceAttributes = nil;
-            NSIndexPath* resourceAttributesPath = [NSIndexPath indexPathForItem:kResourceAttributesRow inSection:kDetailsSection];
-            if (resourceAttributesPath != nil) {
-                [self.tableView deleteRowsAtIndexPaths:@[resourceAttributesPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView reloadSections:[NSIndexSet indexSetWithIndex: kShipsSection] withRowAnimation:UITableViewRowAnimationAutomatic];
             }
+            
+            if (_squad.resourceAttributes != nil) {
+                NSIndexPath* resourceAttributesPath = [NSIndexPath indexPathForItem:kResourceAttributesRow inSection:kDetailsSection];
+                if (resourceAttributesPath != nil) {
+                    [self.tableView deleteRowsAtIndexPaths:@[resourceAttributesPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                }
+            }
+            _squad.resource = nil;
+            
+            _squad.resourceAttributes = nil;
+
             [self.tableView reloadRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
+            
         }
     } else {
         if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -402,7 +422,7 @@ enum {
             [self.tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
         }
     }
-
+    
     [self.tableView endUpdates];
     [self validatePrinting];
 }

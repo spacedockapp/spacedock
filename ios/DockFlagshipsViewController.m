@@ -49,6 +49,9 @@
     } else {
         cell.textLabel.textColor = [UIColor blackColor];
     }
+    if (_targetShip == nil && _targetSquad == nil) {
+        cell.accessoryType = UITableViewCellAccessoryDetailButton;
+    }
 }
 
 -(BOOL)tableView:(UITableView*)tableView shouldHighlightRowAtIndexPath:(NSIndexPath*)indexPath

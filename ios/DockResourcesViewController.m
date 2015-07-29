@@ -124,6 +124,9 @@ NSString* kMarkExpiredResKey = @"markExpiredRes";
             }
         }
     }
+    if (_targetSquad == nil) {
+        cell.accessoryType = UITableViewCellAccessoryDetailButton;
+    }
 }
 
 -(BOOL)tableView:(UITableView*)tableView shouldHighlightRowAtIndexPath:(NSIndexPath*)indexPath

@@ -126,7 +126,7 @@
         [extrasSection addRowHandler: handler];
     }
 
-    if (![sectionTitles containsObject: kAdmiralUpgradeType] && !_equippedShip.isResourceSideboard && _equippedShip.captainCount > 0) {
+    if (![sectionTitles containsObject: kAdmiralUpgradeType] && !_equippedShip.isResourceSideboard && _equippedShip.captainCount > 0 && !_equippedShip.ship.isShuttle) {
         DockAdmiralRowHandler* admiralHandler = [[DockAdmiralRowHandler alloc] init];
         admiralHandler.equippedShip = _equippedShip;
         admiralHandler.controller = self;

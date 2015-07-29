@@ -422,6 +422,8 @@
             DockUpgrade* zcc = nil;
             if (self.isResourceSideboard) {
                 zcc = [DockCaptain zeroCostCaptain: faction context: self.managedObjectContext];
+            } else if ([self containsUpgradeWithId:@"romulan_hijackers_71802"]) {
+                zcc = [DockCaptain zeroCostCaptain:@"Romulan" context:self.managedObjectContext];
             } else {
                 zcc = [DockCaptain zeroCostCaptainForShip: self.ship];
             }
@@ -681,6 +683,14 @@
             return [[upgrade cost] intValue] <= 5;
         }
     }
+    
+    if ([upgrade isWeapon]) {
+        if ([self.ship isShuttle]) {
+            if ( [upgrade costForShip:self] > 3 ) {
+                return NO;
+            }
+        }
+    }
 
     if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
         if (![self.ship isJemhadar]) {
@@ -748,8 +758,8 @@
         }
     }
 
-    if ([upgradeSpecial isEqualToString: @"OnlyBorgShip"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"]) {
-        if (![self.ship isBorg]) {
+    if ([upgradeSpecial isEqualToString: @"OnlyDderidexAndNoMoreThanOnePerShip"]) {
+        if (![self.ship.shipClass isEqualToString:@"D'deridex Class"]) {
             return NO;
         }
     }
@@ -778,7 +788,7 @@
         }
     }
 
-    if ([upgradeSpecial isEqualToString: @"OnlyFerengiShip"]) {
+    if ([upgradeSpecial isEqualToString: @"OnlyFerengiShip"] || [upgradeSpecial isEqualToString:@"NoMoreThanOnePerShipFerengi"]) {
         if (![self.ship isFerengi]) {
             return NO;
         }
@@ -866,6 +876,11 @@
             return NO;
         }
     }
+    if ([upgradeSpecial isEqualToString:@"limited_max_weapon_3"]) {
+        if ([self.ship.attack intValue] > 3) {
+            return NO;
+        }
+    }
     if ([upgradeSpecial isEqualToString:@"OnlyDominionHV4"]) {
         if (![self.ship isDominion]) {
             return NO;
@@ -874,9 +889,30 @@
             return NO;
         }
     }
+    if ([upgradeSpecial isEqualToString:@"OnlyKlingon"]) {
+        if (![self.ship isKlingon]) {
+            return NO;
+        }
+    }
+    if ([upgradeSpecial isEqualToString:@"OnlyKlingonCaptainShip"]) {
+        if (![self.ship isKlingon]) {
+            return NO;
+        }
+        if (![self.captain isKlingon]) {
+            return NO;
+        }
+    }
+    
+    if (![upgrade isPlaceholder] && [self containsUpgradeWithId:@"romulan_hijackers_71802"] != nil) {
+        if ([upgrade isCaptain] || [upgrade isCrew]) {
+            if (![upgrade isRomulan]) {
+                return NO;
+            }
+        }
+    }
     
     if (validating) {
-        if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"]) {
+        if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString:@"limited_max_weapon_3"] || [upgradeSpecial isEqualToString:@"OnlyDderidexAndNoMoreThanOnePerShip"]) {
             DockEquippedUpgrade* existing = [self containsUpgradeWithId: upgrade.externalId];
             if (existing != nil) {
                 return NO;
@@ -1065,7 +1101,7 @@
                 } else {
                     info = @"This upgrade may only be equipped by a Federation Shuttlecraft.";
                 }
-            } else if ([upgradeSpecial isEqualToString: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"]) {
+            } else if ([upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString:@"OnlyDderidexAndNoMoreThanOnePerShip"]) {
                 info = @"No ship may be equipped with more than one of these upgrades.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyBattleshipOrCruiser"]) {
                 info = @"This upgrade may only be purchased for a Jem'Hadar Battle Cruiser or Battleship.";
@@ -1099,6 +1135,21 @@
                 info = @"This upgrade can only be purchased for a Kazon captain on a Kazon ship.";
             } else if ([self.captain isKazon] && [self.ship isKazon] && self.talentCount == 1) {
                 info = @"You can only deploy the First Maje [TALENT] to this captain.";
+            } else if ([self.ship isShuttle] && [upgrade isWeapon] && [upgrade costForShip:self] > 3) {
+                info = @"You cannot deploy a [WEAPON] Upgrade with a cost greater than 3 to a shuttlecraft.";
+            } else if ([upgradeSpecial isEqualToString:@"OnlyKlingon"]) {
+                info = @"This Upgrade may only be purchased for a Klingon ship.";
+            } else if ([upgradeSpecial isEqualToString:@"OnlyKlingonCaptainShip"]) {
+                info = @"This Upgrade may only be purchased for a Klingon Captain on a Klingon ship.";
+            } else if ([self containsUpgradeWithId:@"romulan_hijackers_71802"] != nil && ![upgrade isRomulan] && [upgrade isCaptain]) {
+                info = @"You may only deploy a Romulan Captain while this ship is equipped with the Romulan Hijackers Upgrade";
+            } else if ([self containsUpgradeWithId:@"romulan_hijackers_71802"] != nil && ![upgrade isRomulan] && [upgrade isCrew]) {
+                info = @"You may only deploy Romulan Crew Upgrades while this ship is equipped with the Romulan Hijackers Upgrade";
+            } else if ([upgradeSpecial isEqualToString:@"limited_max_weapon_3"]) {
+                info = @"You may only deploy this upgrade to a ship with a Primary Weapon Value of 3 or less.";
+                if ([self containsUpgradeWithId:upgrade.externalId]) {
+                    info = @"No ship may be equipped with more than one of these upgrades.";
+                }
             }
         }
     }
@@ -1303,7 +1354,7 @@
             equippedUpgrade.specialTag = @"SakhovBonus";
             [equippedUpgrade overrideWithCost:cost];
         }
-        NSLog(@"Bonus = %ld",[self upgradesWithSpecialTag:@"SakhovBonus"].count);
+
     }
     
     if ([self.ship.externalId isEqualToString:@"sakharov_c_71997p"] && [upgrade isCrew] && ![upgrade isPlaceholder]) {
@@ -1315,6 +1366,10 @@
             equippedUpgrade.specialTag = @"SakhovBonus";
             [equippedUpgrade overrideWithCost:cost];
         }
+    }
+    
+    if ([upgrade.externalId isEqualToString:@"romulan_hijackers_71802"]) {
+        [self removeIllegalUpgrades];
     }
     
     return equippedUpgrade;
