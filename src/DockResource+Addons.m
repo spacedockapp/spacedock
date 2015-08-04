@@ -1,4 +1,5 @@
 #import "DockResource+Addons.h"
+#import "DockEquippedShip+Addons.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 
@@ -117,6 +118,21 @@ NSString* kOfficerCardsExternalId = @"officer_cards_collectiveop3";
 -(NSString*)asPlainTextFormat
 {
     return [NSString stringWithFormat: @"%@ (%@)\n", self.title, [self cost]];
+}
+
+-(NSNumber*)costForSquad:(DockSquad*)squad
+{
+    if ([self.externalId isEqualToString:@"emergency_force_fields_72001r"]) {
+        int shields = 0;
+        for (DockEquippedShip* ship in squad.equippedShips) {
+            shields += ship.shield;
+        }
+        float cost = (float)shields/2.0f;
+
+        return [NSNumber numberWithInt:ceil(cost)];
+    } else {
+        return self.cost;
+    }
 }
 
 @end

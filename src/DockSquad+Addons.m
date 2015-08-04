@@ -440,7 +440,7 @@ static BOOL sIsImporting = NO;
 
     DockResource* resource = self.resource;
     if (![resource isEquippedIntoSquad: self]) {
-        cost += [self.resource.cost intValue];
+        cost += [[self.resource costForSquad:self] intValue];
     }
     
     if (self.additionalPoints != nil) {
