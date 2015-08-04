@@ -1,0 +1,4 @@
+#!/bin/bash
+./scripts/dataxml2sqlite.pl 
+cp -v src/Data.xml android/app/src/main/assets/data.xml 
+
