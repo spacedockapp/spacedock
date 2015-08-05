@@ -500,6 +500,18 @@ static NSString* makeKey(NSString* key)
         }
         [_managedObjectContext deleteObject: wrongLure];
     }
+    NSArray* upgIO = [DockUpgrade findUpgrades:@"Impulse Overload" context: _managedObjectContext];
+    if (upgIO.count > 2) {
+        NSLog(@"Found %ld",upgIO.count);
+        BOOL duperemoved = NO;
+        for (DockUpgrade* wrongImpulseOverload in upgIO) {
+            NSLog(@"%@ -> %d",wrongImpulseOverload.externalId,[wrongImpulseOverload.cost intValue]);
+            if ([wrongImpulseOverload.externalId isEqualToString:@"impulse_overload_oparenaprize"] && !duperemoved) {
+                [_managedObjectContext deleteObject: wrongImpulseOverload];
+                duperemoved = YES;
+            }
+        }
+    }
 }
 
 -(NSSet*)validateSpecials
