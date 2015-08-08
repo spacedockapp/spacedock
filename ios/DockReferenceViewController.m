@@ -44,6 +44,12 @@
     cell.accessoryType = UITableViewCellAccessoryDetailButton;
 }
 
+-(void)tableView:(UITableView*)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath*)indexPath
+{
+    [self.tableView selectRowAtIndexPath: indexPath animated: NO scrollPosition: UITableViewScrollPositionMiddle];
+    [self performSegueWithIdentifier: @"ShowReferenceDetails" sender: self];
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
     NSString* identifier = [segue identifier];
