@@ -6,6 +6,7 @@
 #import "DockEquippedFlagship.h"
 #import "DockEquippedUpgrade+Addons.h"
 #import "DockOverrideEditor.h"
+#import "DockResourceTabController.h"
 #import "DockShip+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockTabControllerConstants.h"
@@ -176,11 +177,15 @@ NSString* kCurrentEquippedUpgrade = @"CurrentEquippedUpgrade";
     id target = [[_squadDetailController selectedObjects] objectAtIndex: 0];
     DockEquippedShip* targetShip = [self selectedEquippedShip];
     [self deleteTarget: target targetShip: targetShip];
+    NSTableView* resTable = self.appDelegate.resourcesTableView;
+    [resTable reloadData];
 }
 
 -(IBAction)deleteSelectedShip:(id)sender
 {
     [self deleteSelected: sender];
+    NSTableView* resTable = self.appDelegate.resourcesTableView;
+    [resTable reloadData];
 }
 
 -(IBAction)changeSelectedShip:(id)sender

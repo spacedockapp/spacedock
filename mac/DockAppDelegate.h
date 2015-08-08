@@ -35,6 +35,7 @@ extern NSString* kExpandSquads;
 @property (assign) IBOutlet DockTabController* referenceTabController;
 @property (assign) IBOutlet DockItemSourceListController* itemSourceListController;
 @property (assign) IBOutlet NSTableView* upgradesTableView;
+@property (assign) IBOutlet NSTableView* resourcesTableView;
 @property (assign) IBOutlet NSTableView* setsTableView;
 @property (assign) IBOutlet NSTableView* squadsTableView;
 @property (assign) IBOutlet NSMenu* factionMenu;

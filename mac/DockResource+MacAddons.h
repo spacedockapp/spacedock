@@ -10,4 +10,5 @@
 
 @interface DockResource (MacAddons)
 -(NSAttributedString*)styledTitle;
+-(NSNumber*)costForSquad;
 @end
