@@ -1,4 +1,4 @@
-<Data version="2015-08-05@00-07">
+<Data version="2015-08-11@22-40">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -11306,7 +11306,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Faction>Ferengi</Faction>
       <Cost>4</Cost>
       <Id>3061</Id>
-      <Set>OP1Prize</Set>
+      <Set>OP1Prize,71806</Set>
     </Upgrade>
     <Upgrade>
       <Title>Farek</Title>
@@ -11339,7 +11339,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Faction>Ferengi</Faction>
       <Cost>3</Cost>
       <Id>3063</Id>
-      <Set>OP1Prize</Set>
+      <Set>OP1Prize,71806</Set>
     </Upgrade>
 
     <Upgrade>
@@ -18705,22 +18705,6 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Special>OnlyFerengiCaptainFerengiShip</Special>
     </Upgrade>
     <Upgrade>
-        <Title>EM Pulse</Title>
-        <Ability>ACTION: Disable this card to target a ship at Range 1-2 that is not in your forward firing arc. Place an Auxiliary Power Token beside the target ship. The target ship rolls 2 less attack dice this round.</Ability>
-        <Unique>N</Unique>
-        <MirrorUniverseUnique>N</MirrorUniverseUnique>
-        <Skill></Skill>
-        <Talent></Talent>
-        <Attack></Attack>
-        <Range></Range>
-        <Type>Tech</Type>
-        <Faction>Ferengi</Faction>
-        <Cost>4</Cost>
-        <Id>em_pulse_71806</Id>
-        <Set>71806</Set>
-        <Special></Special>
-    </Upgrade>
-    <Upgrade>
         <Title>Maximum Shields</Title>
         <Ability>ACTION: Discard this card to place 2 additional Shield Tokens beside your ship. When taking damage this round, remove these Tokens first. You cannot attack this round. If either or both of these Tokens are unused, discard them during the End Phase.</Ability>
         <Unique>N</Unique>
@@ -18877,22 +18861,6 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Faction>Ferengi</Faction>
         <Cost>5</Cost>
         <Id>photon_torpedoes_71806</Id>
-        <Set>71806</Set>
-        <Special></Special>
-    </Upgrade>
-    <Upgrade>
-        <Title>Missile Launchers</Title>
-        <Ability>ATTACK: Disable this card to perform this attack. Make 2 attacks against ship(s) in your forward firing arc. Roll separate attack dice for each of these attacks. Any [CRIT] results that would damage an opponent's Shields inflict critical damage to that ship's Hull instead.</Ability>
-        <Unique>N</Unique>
-        <MirrorUniverseUnique>N</MirrorUniverseUnique>
-        <Skill></Skill>
-        <Talent></Talent>
-        <Attack>2</Attack>
-        <Range>1-2</Range>
-        <Type>Weapon</Type>
-        <Faction>Ferengi</Faction>
-        <Cost>3</Cost>
-        <Id>missile_launchers_71806</Id>
         <Set>71806</Set>
         <Special></Special>
     </Upgrade>
