@@ -124,6 +124,9 @@ public class Captain extends CaptainBase {
     public boolean isDominion() {
         return getFaction().equals(Constants.DOMINION);
     }
+    public boolean isFederation() {
+        return getFaction().equals(Constants.FEDERATION);
+    }
 
     public boolean isTholian() {
         String externalId = getExternalId();
