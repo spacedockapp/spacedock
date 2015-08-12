@@ -68,6 +68,19 @@ public class Resource extends ResourceBase {
         return associated;
     }
 
+    public int getCostForSquad(Squad squad) {
+        float cost = 0;
+        int shield = 0;
+        if (!getExternalId().equals("emergency_force_fields_72001r")) {
+            return getCost();
+        } else {
+            for (EquippedShip ship : squad.getEquippedShips()) {
+                shield += ship.getShield();
+            }
+            cost = (float)shield/2.0f;
+            return (int)Math.ceil(cost);
+        }
+    }
     /**
      * Returns true if the Resource is built into Squad as either a ship, or an upgrade
      * (TODO: better name)
