@@ -190,7 +190,6 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
             onSetItemReturned(itemId);
             Spinner resourceSpinner = (Spinner) mView.findViewById(R.id.resource_spinner);
             ResourceSpinnerAdapter.createForSpinner(getActivity(), resourceSpinner, mAdapter.getSquad());
-            System.out.println("Resouce cost should be:" + mAdapter.getSquad().getResource().getCostForSquad(mAdapter.getSquad()));
         }
     }
 
