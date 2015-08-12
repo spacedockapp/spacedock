@@ -594,6 +594,12 @@
         }
     }
     
+    if (!upgrade.isPlaceholder && [upgrade isTalent] && [self.captain.externalId isEqualToString:@"k_temoc_72009"]) {
+        if (!upgrade.isKlingon) {
+            return NO;
+        }
+    }
+    
     if (!upgrade.isPlaceholder && [upgrade isTech] && [self.captain.externalId isEqualToString:@"tahna_los_op6prize"]) {
         int tech = self.techCount;
         
@@ -606,7 +612,7 @@
         }
         if (validating) {
             if (tech == 1 && [upgrade.special length] > 0) {
-                if (![upgrade.special isEqualToString:@"NoMoreThanOnePerShip"] && ![upgrade.special isEqualToString:@"AddTwoWeaponSlots"] )
+                if (![upgrade.special isEqualToString:@"NoMoreThanOnePerShip"] && ![upgrade.special isEqualToString:@"AddTwoWeaponSlots"] && ![upgrade.special hasSuffix:@"NoMoreThanOnePerShip"])
                 return NO;
             }
         }
@@ -661,6 +667,24 @@
                 return NO;
             } else if ([upgrade.special isEqualToString:@"OnlyFedShipHV4CostPWVP1"]) {
                 // This is stupid.
+                return NO;
+            }
+        }
+    }
+    if (!upgrade.isPlaceholder && [upgrade isCrew] && [self containsUpgradeWithId:@"cryogenic_stasis_72009"] != nil) {
+        int crew = self.crewCount;
+        int cost = 0;
+        for (DockEquippedUpgrade* eu in self.upgrades) {
+            if ([eu.upgrade isCrew] && !eu.isPlaceholder) {
+                if (![eu.specialTag hasPrefix:@"HiddenCrewCS"]) {
+                    crew --;
+                } else {
+                    cost += eu.nonOverriddenCost;
+                }
+            }
+        }
+        if (validating) {
+            if ((crew == 1 || crew == 2) && ([upgrade costForShip:self] + cost) > 5) {
                 return NO;
             }
         }
@@ -769,7 +793,14 @@
             return NO;
         }
     }
-
+    if ([upgradeSpecial isEqualToString:@"OnlyFederationCaptainShip"]) {
+        if (![self.ship isFederation]) {
+            return NO;
+        }
+        if (![self.captain isFederation]) {
+            return NO;
+        }
+    }
     if ([upgradeSpecial isEqualToString: @"only_vulcan_ship"]) {
         if (![self.ship isVulcan]) {
             return NO;
@@ -902,6 +933,11 @@
             return NO;
         }
     }
+    if ([upgradeSpecial isEqualToString:@"OnlyIntrepidAndNoMoreThanOnePerShip"]) {
+        if (![self.ship.shipClass isEqualToString:@"Intrepid Class"]) {
+            return NO;
+        }
+    }
     
     if (![upgrade isPlaceholder] && [self containsUpgradeWithId:@"romulan_hijackers_71802"] != nil) {
         if ([upgrade isCaptain] || [upgrade isCrew]) {
@@ -912,7 +948,7 @@
     }
     
     if (validating) {
-        if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString:@"limited_max_weapon_3"] || [upgradeSpecial isEqualToString:@"OnlyDderidexAndNoMoreThanOnePerShip"]) {
+        if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString:@"limited_max_weapon_3"] || [upgradeSpecial hasSuffix:@"NoMoreThanOnePerShip"]) {
             DockEquippedUpgrade* existing = [self containsUpgradeWithId: upgrade.externalId];
             if (existing != nil) {
                 return NO;
@@ -1101,7 +1137,7 @@
                 } else {
                     info = @"This upgrade may only be equipped by a Federation Shuttlecraft.";
                 }
-            } else if ([upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString:@"OnlyDderidexAndNoMoreThanOnePerShip"]) {
+            } else if ([upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasSuffix:@"NoMoreThanOnePerShip"]) {
                 info = @"No ship may be equipped with more than one of these upgrades.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyBattleshipOrCruiser"]) {
                 info = @"This upgrade may only be purchased for a Jem'Hadar Battle Cruiser or Battleship.";
@@ -1141,6 +1177,8 @@
                 info = @"This Upgrade may only be purchased for a Klingon ship.";
             } else if ([upgradeSpecial isEqualToString:@"OnlyKlingonCaptainShip"]) {
                 info = @"This Upgrade may only be purchased for a Klingon Captain on a Klingon ship.";
+            } else if ([upgradeSpecial isEqualToString:@"OnlyFederationCaptainShip"]) {
+                info = @"This Upgrade may only be purchased for a Federation Captain on a Federation ship.";
             } else if ([self containsUpgradeWithId:@"romulan_hijackers_71802"] != nil && ![upgrade isRomulan] && [upgrade isCaptain]) {
                 info = @"You may only deploy a Romulan Captain while this ship is equipped with the Romulan Hijackers Upgrade";
             } else if ([self containsUpgradeWithId:@"romulan_hijackers_71802"] != nil && ![upgrade isRomulan] && [upgrade isCrew]) {
@@ -1295,79 +1333,94 @@
         [equippedUpgrade overrideWithCost:0];
     }
     
-    if ([upgrade isTalent] && [upgrade isRomulan] && [self containsUpgradeWithId:@"shinzon_romulan_talents_71533"] != nil) {
-        int romTalents = 0;
-        for (DockEquippedUpgrade* eu in self.sortedUpgradesWithoutPlaceholders) {
-            if (eu.upgrade.isTalent && [eu.upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
-                continue;
-            } else if ([eu.specialTag hasPrefix:@"shinzon_ET_"]) {
-                romTalents ++;
+    if (![upgrade isPlaceholder]) {
+        if ([upgrade isTalent] && [upgrade isRomulan] && [self containsUpgradeWithId:@"shinzon_romulan_talents_71533"] != nil) {
+            int romTalents = 0;
+            for (DockEquippedUpgrade* eu in self.sortedUpgradesWithoutPlaceholders) {
+                if (eu.upgrade.isTalent && [eu.upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
+                    continue;
+                } else if ([eu.specialTag hasPrefix:@"shinzon_ET_"]) {
+                    romTalents ++;
+                }
+            }
+            if (romTalents < 4 && ![upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
+                equippedUpgrade.specialTag = [NSString stringWithFormat:@"shinzon_ET_%d",romTalents+1];
             }
         }
-        if (romTalents < 4 && ![upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
-            equippedUpgrade.specialTag = [NSString stringWithFormat:@"shinzon_ET_%d",romTalents+1];
-        }
-    }
-    
-    if ([upgrade isTech] && [self.captain.externalId isEqualToString:@"tahna_los_op6prize"]) {
-        if ([self upgradesWithSpecialTag:@"TahnaLosTech"].count == 0) {
-            if ([upgrade.special isEqualToString:@""] || [upgrade.special isEqualToString:@"NoMoreThanOnePerShip"] || [upgrade.special isEqualToString:@"AddTwoWeaponSlots"]) {
-                equippedUpgrade.specialTag = @"TahnaLosTech";
-                [equippedUpgrade overrideWithCost:3];
+        
+        if ([upgrade isTech] && [self.captain.externalId isEqualToString:@"tahna_los_op6prize"]) {
+            if ([self upgradesWithSpecialTag:@"TahnaLosTech"].count == 0) {
+                if ([upgrade.special isEqualToString:@""] || [upgrade.special isEqualToString:@"NoMoreThanOnePerShip"] || [upgrade.special isEqualToString:@"AddTwoWeaponSlots"]) {
+                    equippedUpgrade.specialTag = @"TahnaLosTech";
+                    [equippedUpgrade overrideWithCost:3];
+                }
             }
         }
-    }
-    if ([upgrade isWeapon] && [self containsUpgradeWithId:@"quark_weapon_71786"] != nil && equippedUpgrade.cost <= 5) {
-        if ([self upgradesWithSpecialTag:@"QuarkWeapon"].count == 0) {
-            equippedUpgrade.specialTag = @"QuarkWeapon";
-            [equippedUpgrade overrideWithCost:0];
-        }
-    }
-    if ([upgrade isTech] && [self containsUpgradeWithId:@"quark_71786"] != nil && equippedUpgrade.cost <= 5) {
-        if ([self upgradesWithSpecialTag:@"QuarkTech"].count == 0) {
-            equippedUpgrade.specialTag = @"QuarkTech";
-            [equippedUpgrade overrideWithCost:0];
-        }
-    }
-    if ([upgrade isWeapon] && [self containsUpgradeWithId:@"triphasic_emitter_71536"] != nil && equippedUpgrade.cost <= 5) {
-        if ([self upgradesWithSpecialTag:@"HiddenWeaponTE"].count < [self containsUpgradeWithIdCount:@"triphasic_emitter_71536"]) {
-            equippedUpgrade.specialTag = @"HiddenWeaponTE";
-            [equippedUpgrade overrideWithCost:0];
-        }
-    }
-    
-    if ([upgrade isCaptain] && [self.captain.externalId isEqualToString:@"gareb_71536"]) {
-        int cost = equippedUpgrade.cost - 3;
-        if (cost < 0) {
-            cost = 0;
-        }
-        [self.equippedCaptain overrideWithCost:cost];
-        [equippedUpgrade overrideWithCost:0];
-    }
-    
-    if ([self.ship.externalId isEqualToString:@"sakharov_71997p"] && [upgrade isTech] && ![upgrade isPlaceholder]) {
-        if ([self upgradesWithSpecialTag:@"SakhovBonus"].count == 0) {
-            int cost = equippedUpgrade.cost - 2;
-            if (cost < 0) {
-                cost = 0;
+        if ([upgrade isWeapon] && [self containsUpgradeWithId:@"quark_weapon_71786"] != nil && equippedUpgrade.cost <= 5) {
+            if ([self upgradesWithSpecialTag:@"QuarkWeapon"].count == 0) {
+                equippedUpgrade.specialTag = @"QuarkWeapon";
+                [equippedUpgrade overrideWithCost:0];
             }
-            equippedUpgrade.specialTag = @"SakhovBonus";
-            [equippedUpgrade overrideWithCost:cost];
+        }
+        if ([upgrade isTech] && [self containsUpgradeWithId:@"quark_71786"] != nil && equippedUpgrade.cost <= 5) {
+            if ([self upgradesWithSpecialTag:@"QuarkTech"].count == 0) {
+                equippedUpgrade.specialTag = @"QuarkTech";
+                [equippedUpgrade overrideWithCost:0];
+            }
+        }
+        if ([upgrade isWeapon] && [self containsUpgradeWithId:@"triphasic_emitter_71536"] != nil && equippedUpgrade.cost <= 5) {
+            if ([self upgradesWithSpecialTag:@"HiddenWeaponTE"].count < [self containsUpgradeWithIdCount:@"triphasic_emitter_71536"]) {
+                equippedUpgrade.specialTag = @"HiddenWeaponTE";
+                [equippedUpgrade overrideWithCost:0];
+            }
+        }
+        if ([upgrade isCrew] && [self containsUpgradeWithId:@"cryogenic_stasis_72009"] != nil && equippedUpgrade.cost <= 5) {
+            if ([self upgradesWithSpecialTag:@"HiddenCrewCS"].count < 2) {
+                int cost = 0;
+                for (DockEquippedUpgrade* eu in [self upgradesWithSpecialTag:@"HiddenCrewCS"]) {
+                    cost += eu.nonOverriddenCost;
+                }
+                cost += equippedUpgrade.cost;
+                if (cost <= 5) {
+                    equippedUpgrade.specialTag = @"HiddenCrewCS";
+                    [equippedUpgrade overrideWithCost:0];
+                }
+            }
         }
 
-    }
-    
-    if ([self.ship.externalId isEqualToString:@"sakharov_c_71997p"] && [upgrade isCrew] && ![upgrade isPlaceholder]) {
-        if ([self upgradesWithSpecialTag:@"SakhovBonus"].count == 0) {
-            int cost = equippedUpgrade.cost - 2;
+        
+        if ([upgrade isCaptain] && [self.captain.externalId isEqualToString:@"gareb_71536"]) {
+            int cost = equippedUpgrade.cost - 3;
             if (cost < 0) {
                 cost = 0;
             }
-            equippedUpgrade.specialTag = @"SakhovBonus";
-            [equippedUpgrade overrideWithCost:cost];
+            [self.equippedCaptain overrideWithCost:cost];
+            [equippedUpgrade overrideWithCost:0];
+        }
+        
+        if ([self.ship.externalId isEqualToString:@"sakharov_71997p"] && [upgrade isTech] && ![upgrade isPlaceholder]) {
+            if ([self upgradesWithSpecialTag:@"SakhovBonus"].count == 0) {
+                int cost = equippedUpgrade.cost - 2;
+                if (cost < 0) {
+                    cost = 0;
+                }
+                equippedUpgrade.specialTag = @"SakhovBonus";
+                [equippedUpgrade overrideWithCost:cost];
+            }
+
+        }
+        
+        if ([self.ship.externalId isEqualToString:@"sakharov_c_71997p"] && [upgrade isCrew] && ![upgrade isPlaceholder]) {
+            if ([self upgradesWithSpecialTag:@"SakhovBonus"].count == 0) {
+                int cost = equippedUpgrade.cost - 2;
+                if (cost < 0) {
+                    cost = 0;
+                }
+                equippedUpgrade.specialTag = @"SakhovBonus";
+                [equippedUpgrade overrideWithCost:cost];
+            }
         }
     }
-    
     if ([upgrade.externalId isEqualToString:@"romulan_hijackers_71802"]) {
         [self removeIllegalUpgrades];
     }

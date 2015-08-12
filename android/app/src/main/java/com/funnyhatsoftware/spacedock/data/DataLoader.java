@@ -457,7 +457,14 @@ public class DataLoader extends DefaultHandler {
                 "RomulanHijackers",
                 "limited_max_weapon_3",
                 "ony_federation_ship_limited3",
-                "ony_mu_ship_limited"
+                "ony_mu_ship_limited",
+                "KTemoc",
+                "Plus3NotKlingonAndNoMoreThanOnePerShip",
+                "Plus2NotRomulanAndNoMoreThanOnePerShip",
+                "OnlyFederationCaptainShip",
+                "OnlyIntrepidAndNoMoreThanOnePerShip",
+                "Add2HiddenCrew5"
+
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);
@@ -471,6 +478,10 @@ public class DataLoader extends DefaultHandler {
             } else if (unhandledSpecial.startsWith("Plus3NotShipClass_")) {
                 wildcardSpecials.add(unhandledSpecial);
             } else if (unhandledSpecial.startsWith("Plus3NotShip_")) {
+                wildcardSpecials.add(unhandledSpecial);
+            } else if (unhandledSpecial.startsWith("Plus4NotShipClass_")) {
+                wildcardSpecials.add(unhandledSpecial);
+            } else if (unhandledSpecial.startsWith("Plus4NotShip_")) {
                 wildcardSpecials.add(unhandledSpecial);
             } else if (unhandledSpecial.startsWith("Plus5NotShipClass_")) {
                 wildcardSpecials.add(unhandledSpecial);

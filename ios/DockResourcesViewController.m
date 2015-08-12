@@ -1,7 +1,7 @@
 #import "DockResourcesViewController.h"
 
 #import "DockDetailViewController.h"
-#import "DockResource.h"
+#import "DockResource+Addons.h"
 #import "DockSet+Addons.h"
 
 NSString* kMarkExpiredResKey = @"markExpiredRes";
@@ -104,7 +104,7 @@ NSString* kMarkExpiredResKey = @"markExpiredRes";
     } else {
         DockResource* resource = resources[row];
         cell.textLabel.text = [resource title];
-        cell.detailTextLabel.text = [resource.cost stringValue];
+        cell.detailTextLabel.text = [[resource costForSquad:_targetSquad] stringValue];
         if (_markExpiredRes) {
             DockSet* set = [resource.sets anyObject];
             NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];

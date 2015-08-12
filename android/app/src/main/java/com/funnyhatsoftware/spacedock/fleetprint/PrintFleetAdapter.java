@@ -313,9 +313,9 @@ public class PrintFleetAdapter extends PrintDocumentAdapter {
                 canvas.drawText("Inc", mPageWidth - 51, 562, mDataPaint);
                 canvas.drawText("Inc", 34 + ((tW * 5) - (tW / 2)), 608, mDataPaint);
             } else {
-                canvas.drawText(Integer.toString(mSquad.getResource().getCost()), mPageWidth - 51,
+                canvas.drawText(Integer.toString(mSquad.getResource().getCostForSquad(mSquad)), mPageWidth - 51,
                         562, mDataPaint);
-                canvas.drawText(Integer.toString(mSquad.getResource().getCost()),
+                canvas.drawText(Integer.toString(mSquad.getResource().getCostForSquad(mSquad)),
                         34 + ((tW * 5) - (tW / 2)), 608, mDataPaint);
             }
         }

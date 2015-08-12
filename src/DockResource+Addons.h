@@ -17,4 +17,5 @@ extern NSString* kOfficerCardsExternalId;
 -(BOOL)isEquippedIntoSquad:(DockSquad*)thisSquad;
 -(DockShip*)associatedShip;
 -(NSString*)asPlainTextFormat;
+-(NSNumber*)costForSquad:(DockSquad*)squad;
 @end

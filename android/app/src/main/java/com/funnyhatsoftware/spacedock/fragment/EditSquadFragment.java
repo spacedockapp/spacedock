@@ -48,7 +48,7 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
     }
 
     EditSquadAdapter mAdapter;
-
+    View mView;
     /**
      * These three ints store information associated with the current slot request, so that the
      * fragment can tell its adapter where a returned item should be inserted
@@ -95,7 +95,7 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
         String squadUuid = getArguments().getString(ARG_SQUAD_UUID);
         Squad squad = Universe.getUniverse().getSquadByUUID(squadUuid);
         mAdapter = new EditSquadAdapter(getActivity(), elv, squad, this);
-
+        mView = view;
         Spinner resourceSpinner = (Spinner) view.findViewById(R.id.resource_spinner);
         ResourceSpinnerAdapter.createForSpinner(getActivity(), resourceSpinner, squad);
     }
@@ -188,6 +188,9 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
         if (requestCode == REQUEST_ITEM && resultCode == Activity.RESULT_OK) {
             String itemId = data.getStringExtra(SetItemListActivity.EXTRA_ITEM_RESULT_ID);
             onSetItemReturned(itemId);
+            Spinner resourceSpinner = (Spinner) mView.findViewById(R.id.resource_spinner);
+            ResourceSpinnerAdapter.createForSpinner(getActivity(), resourceSpinner, mAdapter.getSquad());
+            System.out.println("Resouce cost should be:" + mAdapter.getSquad().getResource().getCostForSquad(mAdapter.getSquad()));
         }
     }
 

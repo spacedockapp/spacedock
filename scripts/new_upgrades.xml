@@ -1,6 +1,6 @@
     <Upgrade>
-      <Title>Auto-Navigation</Title>
-      <Ability>Add 1 [TECH] Upgrade to your Upgrade Bar. While this card is assigned to your ship, you do not need to have a Captain Card assigned to your ship and your ship has a Skill Number of 2. When you reveal your chosen maneuver, you may disable this card to change that maneuver to any Green Maneuver on your ship's dial.</Ability>
+      <Title>Cryogenic Stasis</Title>
+      <Ability>At the start of the game, place 2 non-Borg [CREW] Upgrades with a cost of 5 or less face down beneath this card. ACTION: Flip one of those Upgrades that is beneath this card face up (your choice) and deploy it to your ship, even if it exceeds your ship's restrictions. Then place 2 Time Tokens on that Upgrade. Discard this card when there are no more Upgrades beneath it.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -8,47 +8,15 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Independent</Faction>
-      <Cost>2</Cost>
-      <Id>auto_navigation_71805</Id>
-      <Set>71805</Set>
-      <Special>addonetechslot</Special>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>cryogenic_stasis_72009</Id>
+      <Set>72009</Set>
+      <Special>Yes</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Quantum Slipstream Drive</Title>
-      <Ability>If you reveal a maneuver with a speed of 5 or greater, before performing the maneuver, you may discard this card to remove your ship from the play area and discard all tokens from beside your ship except for Auxiliary Power Tokens. Then, immediately place it back in the play area, but not within Range 1-3 of any other ship. You cannot attack during the round you use this ability.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Independent</Faction>
-      <Cost>6</Cost>
-      <Id>quantum_slipstream_drive_71805</Id>
-      <Set>71805</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Power Distribution Grid</Title>
-      <Ability>During the Activation Phase, before you move, you may discard this card to disregard your chosen Maneuver and perform one of the [RIGHT TURN] or [LEFT TURN] Maneuvers on your Maneuver dial instead. Treat this as a red maneuver.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Independent</Faction>
-      <Cost>2</Cost>
-      <Id>power_distribution_grid_71805</Id>
-      <Set>71805</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Emergency Shutdown</Title>
-      <Ability>During the Activation Phase, before you move, you may discard this card to disregard your chosen Maneuver and not move. If you do so, you lose your Perform Action step for that round.</Ability>
+      <Title>Devotion to Duty</Title>
+      <Ability>ACTION: When attacking with your Primary Weapon this round, during the Roll Attack Dice step, you may discard this card to gain +1 attack die for every damage card assigned to your ship (max +2). This Upgrade may only be purchased for a Klingon Captain assigned to a Klingon ship.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -56,224 +24,15 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Independent</Faction>
-      <Cost>3</Cost>
-      <Id>emergency_shutdown_71805</Id>
-      <Set>71805</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Lure</Title>
-      <Ability>During the Planning Phase, after all ships have chosen their maneuvers, you may discard this card to target an enemy ship that is not within Range 1-3 of your ship. If you do this, change that ship's chosen Maneuver. The target ship cannot look at or change their dial after you reset it. If the new maneuver would cause the ship to exit the play area or overlap another ship, the target ship may disregard the maneuver and not move that turn.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Independent</Faction>
-      <Cost>5</Cost>
-      <Id>lure_71805</Id>
-      <Set>71805</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Force Field</Title>
-      <Ability>If an enemy ship causes one of your Upgrades to be disabled or discard, you may disable this card to roll 1 defense die. If you roll an [EVADE] result, the targeted Upgrade is not disabled or discard. This Upgrade costs +5 SP for any other ship other than a Dauntless class ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Independent</Faction>
-      <Cost>3</Cost>
-      <Id>force_field_71805</Id>
-      <Set>71805</Set>
-      <Special>Plus5NotShipClass_Dauntless_Class</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Navigational Deflector</Title>
-      <Ability>When taking damage this round, you may discard this card to cancel 1 [HIT] result. If the damage is from a minefield or an obstacle, disable this card instead of discarding it. You may roll defense dice against obstacles or minefields. No ship may be equipped with more t han one Navigational Deflector Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Independent</Faction>
+      <Faction>Klingon</Faction>
       <Cost>4</Cost>
-      <Id>navigational_deflector_71805</Id>
-      <Set>71805</Set>
-      <Special>NoMoreThanOnePerShip</Special>
+      <Id>devotion_to_duty_72009</Id>
+      <Set>72009</Set>
+      <Special>OnlyKlingonCaptainShip</Special>
     </Upgrade>
-    <Upgrade>
-      <Title>Particle Synthesis</Title>
-      <Ability>ACTION: Disable this card and discard one of your [TECH] Upgrades to repair either 1 damage to your Hull or up to 2 of your Shield Tokens. This Upgrade may only be purchased for a Dauntless-class ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Independent</Faction>
-      <Cost>5</Cost>
-      <Id>particle_synthesis_71805</Id>
-      <Set>71805</Set>
-      <Special>OnlyShipClass_Dauntless_Class</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Deception</Title>
-      <Ability>At the start of the Combat Phase, before any ships have attacked, if there is not a [BATTLESTATIONS] Token beside your ship, you may discard this card to play 1 [BATTLESTATIONS] Token beside your ship. In addition, if your ship is Cloaked, you may place 1 [EVADE] Token beside your ship (even if there is one there already).</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>5</Cost>
-      <Id>deception_72000p</Id>
-      <Set>72000p</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Taibak</Title>
-      <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Discard this card to steal 1 [CREW] Upgrade on the target ship, even if it exceeds your ship's restrictions.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>4</Cost>
-      <Id>taibak_72000p</Id>
-      <Set>72000p</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Long Range Scanners</Title>
-      <Ability>ACTION: Perform a [SCAN] Action and then place an Auxiliary Power Token beside your ship. During the End Phase if there is a [SCAN] Token beside your ship, you may discard this card to leave that token beside your ship instead of removing it. This Upgrade costs +3 points for any ship other than a D'deridex-class ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>3</Cost>
-      <Id>long_range_scanners_72000p</Id>
-      <Set>72000p</Set>
-      <Special>Plus3NotShipClass_D'deridex_Class</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Quinn</Title>
-      <Ability>When your ship is defending, during the Compare Results step, you may discard this card to cancel 1 [HIT] or [CRIT] result.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Q Continuum</Faction>
-      <Cost>2</Cost>
-      <Id>quinn_72000b</Id>
-      <Set>72000b</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Think Fast</Title>
-      <Ability>During the Roll Attack Dice step, when attacking with a Primary Weapon, you may discard this card and disable 1 of your other Upgrades to gain +1 attack die for that attack. OR During the Roll Defense Dice step, you may discard this card and disable 1 of your other Upgrades to roll +1 defense die.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Q Continuum</Faction>
-      <Cost>1</Cost>
-      <Id>think_fast_72000b</Id>
-      <Set>72000b</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-        <Title>Q2</Title>
-        <Ability>This Upgrade counts as either a [CREW], an [ELITE TALENT], a [TECH], or a [WEAPON] Upgrade (your choice). Whenever a friendly ship within Range 1 of your ship receives damage, you may discard this card to transfer all of that damage to your ship.</Ability>
-        <Unique>Y</Unique>
-        <MirrorUniverseUnique>N</MirrorUniverseUnique>
-        <Skill></Skill>
-        <Talent></Talent>
-        <Attack></Attack>
-        <Range></Range>
-        <Type>Crew</Type>
-        <Faction>Q Continuum</Faction>
-        <Cost>5</Cost>
-        <Id>q2_c_72000b</Id>
-        <Set>72000b</Set>
-        <Special></Special>
-    </Upgrade>
-    <Upgrade>
-        <Title>Q2</Title>
-        <Ability>This Upgrade counts as either a [CREW], an [ELITE TALENT], a [TECH], or a [WEAPON] Upgrade (your choice). Whenever a friendly ship within Range 1 of your ship receives damage, you may discard this card to transfer all of that damage to your ship.</Ability>
-        <Unique>Y</Unique>
-        <MirrorUniverseUnique>N</MirrorUniverseUnique>
-        <Skill></Skill>
-        <Talent></Talent>
-        <Attack></Attack>
-        <Range></Range>
-        <Type>Talent</Type>
-        <Faction>Q Continuum</Faction>
-        <Cost>5</Cost>
-        <Id>q2_e_72000b</Id>
-        <Set>72000b</Set>
-        <Special></Special>
-    </Upgrade>
-    <Upgrade>
-        <Title>Q2</Title>
-        <Ability>This Upgrade counts as either a [CREW], an [ELITE TALENT], a [TECH], or a [WEAPON] Upgrade (your choice). Whenever a friendly ship within Range 1 of your ship receives damage, you may discard this card to transfer all of that damage to your ship.</Ability>
-        <Unique>Y</Unique>
-        <MirrorUniverseUnique>N</MirrorUniverseUnique>
-        <Skill></Skill>
-        <Talent></Talent>
-        <Attack></Attack>
-        <Range></Range>
-        <Type>Tech</Type>
-        <Faction>Q Continuum</Faction>
-        <Cost>5</Cost>
-        <Id>q2_t_72000b</Id>
-        <Set>72000b</Set>
-        <Special></Special>
-    </Upgrade>
-    <Upgrade>
-        <Title>Q2</Title>
-        <Ability>This Upgrade counts as either a [CREW], an [ELITE TALENT], a [TECH], or a [WEAPON] Upgrade (your choice). Whenever a friendly ship within Range 1 of your ship receives damage, you may discard this card to transfer all of that damage to your ship.</Ability>
-        <Unique>Y</Unique>
-        <MirrorUniverseUnique>N</MirrorUniverseUnique>
-        <Skill></Skill>
-        <Talent></Talent>
-        <Attack></Attack>
-        <Range></Range>
-        <Type>Weapon</Type>
-        <Faction>Q Continuum</Faction>
-        <Cost>5</Cost>
-        <Id>q2_w_72000b</Id>
-        <Set>72000b</Set>
-        <Special></Special>
-    </Upgrade>
-
     <Upgrade>
       <Title>Tactical Officer</Title>
-      <Ability>At the end of the Activation Phase, if you are in the forward firing arc of enemy ship, you may discard this card to immediately perform a 3 [STRAIGHT] or 4 [STRAIGHT] Maneuver. You cannot attack on the round you use this ability. No ship may be equipped with more than 1 Tactical Officer Upgrade.</Ability>
+      <Ability>If your ship is not Cloaked, during the Modify Attack Dice step, you may disable this card to re-roll all of your blank results once. This Upgrade costs +3 SP for any non-Klingon ship and no ship may be equipped with more than 1 Tactical Officer Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -281,15 +40,31 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Ferengi</Faction>
-      <Cost>4</Cost>
-      <Id>tactical_officer_71806</Id>
-      <Set>71806</Set>
-      <Special>NoMoreThanOnePerShip</Special>
+      <Faction>Klingon</Faction>
+      <Cost>2</Cost>
+      <Id>tactical_officer_72009</Id>
+      <Set>72009</Set>
+      <Special>Plus3NotKlingonAndNoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Acquisition</Title>
-      <Ability>ACTION: Discard this card to target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Steal 1 non-Borg [TECH] or [WEAPON] Upgrade of your choice on the target ship, even if the Upgrade exceeds your ship's restrictions. This Upgrade may only be purchased for a Ferengi ship with a Ferengi Captain.</Ability>
+      <Title>K'Ehleyr</Title>
+      <Ability>ACTION: Discard this card to target a ship at Range 1. Your ship cannot attack the target ship and the target ship cannot attack your ship this round.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>k_ehleyr_72009</Id>
+      <Set>72009</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Section 31</Title>
+      <Ability>At any time, you may discard this card to achieve the effect of spending either a [BATTLESTATIONS], an [EVADE], or a [TARGET LOCK] Token as if you spent the appropriate Token from beside your ship. You may only use the [TARGET LOCK] effect for re-rolling your dice.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -297,15 +72,47 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Ferengi</Faction>
-      <Cost>4</Cost>
-      <Id>acquisition_71806</Id>
-      <Set>71806</Set>
-      <Special>OnlyFerengiCaptainShip</Special>
+      <Faction>Independent</Faction>
+      <Cost>3</Cost>
+      <Id>section_31_72001</Id>
+      <Set>72001</Set>
+      <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Marauder</Title>
-      <Ability>After you move, you may disable this card to perform a [BATTLESTATIONS] Action as a free Action. This Upgrade may only be purchased for a Ferengi ship with a Ferengi Captain.</Ability>
+      <Title>Variable Geometry Pylons</Title>
+      <Ability>Before you move, you may disable this card to increase your speed by 1 or decrease your speed by 1. If you do this, treat the maneuver as a White Maneuver. You cannot perform any Actions on the round you use this ability. This Upgrade may only be purchased for an Intrepid-class ship and no ship may be equipped with more than 1 Variable Geometry Pylons Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>variable_geometry_pylons_72001</Id>
+      <Set>72001</Set>
+      <Special>OnlyIntrepidAndNoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Luther Sloan</Title>
+      <Ability>You do not pay a faction penalty when assigning this card to a Federation ship. During the Planning Phase, after all ships have been assigned a Maneuver Dial, you may discard this card to look at up to 3 ships' Maneuver Dials. You may then change your chosen Maneuver.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Independent</Faction>
+      <Cost>3</Cost>
+      <Id>luther_sloan_72001</Id>
+      <Set>72001</Set>
+      <Special>NoPenaltyOnFederationShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Coordinated Attack</Title>
+      <Ability>If your ship has not already attacked this round, you may discard this card to perform an attack with your Primary Weapon at -1 attack die immediately after a friendly ship attacks, regardless of initiative order. This Upgrade may only be purchased for a Romulan Captain on a Romulan ship.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -313,175 +120,111 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Ferengi</Faction>
-      <Cost>2</Cost>
-      <Id>marauder_71806</Id>
-      <Set>71806</Set>
-      <Special>OnlyFerengiCaptainShip</Special>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>coordinated_attack_72010</Id>
+      <Set>72010</Set>
+      <Special>OnlyRomulanCaptainShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>EM Pulse</Title>
-      <Ability>ACTION: Disable this card to target a ship at Range 1-2 that is not in your forward firing arc. Place an Auxiliary Power Token beside the target ship. The target ship rolls 2 less attack dice this round.</Ability>
+      <Title>Bridge Officer</Title>
+      <Ability>When you are instructed to place Time Tokens on one of your [WEAPON] Upgrades, place 1 less Time Token than required. This Upgrade costs +2 SP for any non-Romulan ship and no ship may be equipped with more than 1 Bridge Officer Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Ferengi</Faction>
-      <Cost>4</Cost>
-      <Id>em_pulse_71806</Id>
-      <Set>71806</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Maximum Shields</Title>
-      <Ability>ACTION: Discard this card to place 2 additional Shield Tokens beside your ship. When taking damage this round, remove these Tokens first. You cannot attack this round. If either or both of these Tokens are unused, discard them during the End Phase.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Ferengi</Faction>
-      <Cost>4</Cost>
-      <Id>maximum_shields_71806</Id>
-      <Set>71806</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Ferengi Probe</Title>
-      <Ability>If there is a [SCAN] Token beside your ship, you may disable this card to double your Range Combat Bonuses. This Upgrade may only be purchased for a Ferengi ship and no ship may be equipped with more than 1 Ferengi Probe Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Ferengi</Faction>
-      <Cost>4</Cost>
-      <Id>ferengi_probe_71806</Id>
-      <Set>71806</Set>
-      <Special>NoMoreThanOnePerShipFerengi</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Nell Chilton</Title>
-      <Ability>When defending, during the Deal Damage step, after your ship suffers at least 1 damage to its Hull, you may discard this card to immediately perform an additional Green Maneuver.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Mirror Universe</Faction>
+      <Faction>Romulan</Faction>
       <Cost>3</Cost>
-      <Id>nell_chilton_71807</Id>
-      <Set>71807</Set>
-      <Special></Special>
+      <Id>bridge_officer_72010</Id>
+      <Set>72010</Set>
+      <Special>Plus2NotRomulanAndNoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Alyssa Ogawa</Title>
-      <Ability>ACTION: Remove 1 Disabled Upgrade Token from 1 of your [TECH] or [CREW] Upgrades and then perform a [SCAN] or [EVADE] Action as a free Action.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Title>Tal'aura</Title>
+      <Ability>ACTION: Discard this card to target a ship at Range 3. Discard 1 [CREW] Upgrade of your choice on the target ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>2</Cost>
-      <Id>alyssa_ogawa_71807</Id>
-      <Set>71807</Set>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>tal_aura_72010</Id>
+      <Set>72010</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Impulse Drive</Title>
-      <Ability>During the Activation Phase, if you reveal a 1, 2 or 3 Maneuver (Straight or Bank), before you move you may disable this card. If you do so, and the maneuver is a white maneuver, treat it as a green maneuver. If the maneuver is a red maneuver treat it as a white maneuver.</Ability>
-      <Unique>N</Unique>
+      <Title>Persistence</Title>
+      <Ability>When you attack with your Primary Weapon, during the Roll Attack Dice step, if you roll a [HIT] or [CRIT] result on each one of your dice, you may discard this card to roll +2 additional attack dice (+4 against Borg ships). Add all [HIT] or [CRIT] results from the additional dice to your total for that attack. Any Blank or [BATTLESTATIONS] results from the additional dice are not added.</Ability>
+      <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>3</Cost>
-      <Id>impulse_drive_71807</Id>
-      <Set>71807</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Inverse Tachyon Pulse</Title>
-      <Ability>When you initiate an attack while there is a [SCAN] Token beside your ship, you may disable this card. If you do so, the defending ship rolls -1 defense dice against that attack. No ship may be equipped with more than 1 Inverse Tachyon Pulse Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>2</Cost>
-      <Id>inverse_tachyon_pulse_71807</Id>
-      <Set>71807</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Yellow Alert</Title>
-      <Ability>At the start of the Combat Phase, before any attacks are made, you may discard this card. If you do so, place either 1 [EVADE] or 1 [BATTLESTATIONS] Token beside your ship (even if there is already one there).</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>2</Cost>
-      <Id>yellow_alert_71807</Id>
-      <Set>71807</Set>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>persistence_72008</Id>
+      <Set>72008</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Starfleet Intelligence</Title>
-      <Ability>When defending, during the Modify Defense Dice step, you may discard this card to re-roll any number of your defense dice. OR When attacking, during the Modify Attack Dice step, you may discard this card to re-roll any number of your attack dice.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Title>Federation Task Force</Title>
+      <Ability>ACTION: Discard this card to target up to 2 friendly ships within Range 1-2. Your ship and the target ships may immediately perform a [TARGET LOCK] Action as a free Action, if possible. This Upgrade may only be purchased for a Federation ship with a Federation Captain.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Mirror Universe</Faction>
-      <Cost>3</Cost>
-      <Id>starfleet_intelligence_71807</Id>
-      <Set>71807</Set>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>federation_task_force_72008</Id>
+      <Set>72008</Set>
+      <Special>OnlyFederationCaptainShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Intercept</Title>
+      <Ability>If a friendly ship within Range 1 of your ship is attacked, and your s hip is also in the attacking ship's firing arc, you may discard this card to force the attacking ship to perform its attack against your ship instead of the target ship. After the attack is complete, you may perform an additional green maneuver.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>intercept_72008</Id>
+      <Set>72008</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Additional Phaser Array</Title>
-      <Ability>When attacking with your Primary Weapon at a ship in your forward firing arc, gain +1 attack die. This Upgrade may only be purchased for a D'deridex-class ship and no ship may be equipped with more than 1 Additional Phaser Array Upgrade.</Ability>
+      <Title>Rapid Reload</Title>
+      <Ability>This Upgrade counts as a [CREW], [TECH] or [WEAPON] Upgrade (your choice). When you are instructed to place Time Tokens on one of your [WEAPON] Upgrades, you may disable this card to place only 1 Time Token instead of the required amount.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Weapon</Type>
-      <Faction>Mirror Universe</Faction>
+      <Type>?</Type>
+      <Faction>Federation</Faction>
       <Cost>2</Cost>
-      <Id>additional_phaser_array_72000p</Id>
-      <Set>72000p</Set>
-      <Special>NoMoreThanOnePerShipAndOnlyDderidex</Special>
+      <Id>rapid_reload_72008</Id>
+      <Set>72008</Set>
+      <Special></Special>
     </Upgrade>
     <Upgrade>
       <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and disable this card to perform this attack. You may convert 1 of your [BATTLESTATIONS] results into a [CRIT] result. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. You may convert 1 of your [BATTLESTATIONS] results into 1 [CRIT] result. You may fire this weapon from your forward or rear firing arcs.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -489,25 +232,121 @@
       <Attack>5</Attack>
       <Range>2-3</Range>
       <Type>Weapon</Type>
-      <Faction>Ferengi</Faction>
+      <Faction>Klingon</Faction>
       <Cost>5</Cost>
-      <Id>photon_torpedoes_71806</Id>
-      <Set>71806</Set>
+      <Id>photon_torpedoes_72009</Id>
+      <Set>72009</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Missile Launchers</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. Make 2 attacks against ship(s) in your forward firing arc. Roll separate attack dice for each of these attacks. Any [CRIT] results that would damage an opponent's Shields inflict critical damage to that ship's Hull instead.</Ability>
+      <Title>Concussive Charges</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. For every uncanceled [HIT] or [CRIT] result, the target ship loses 1 token of your choice that has been placed beside it in the play area. You may fire this weapon from your forward or rear firing arcs.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>2</Attack>
+      <Attack>4</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>concussive_charges_72009</Id>
+      <Set>72009</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Tricobalt Device</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and discard this card to perform this attack. You may only fire this weapon from your forward firing arc. This Upgrade costs +4 SP if purchased for any ship other than an Intrepid-class ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>6</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Federation</Faction>
+      <Cost>6</Cost>
+      <Id>tricobalt_device_72001</Id>
+      <Set>72001</Set>
+      <Special>Plus4NotShipClass_Intrepid_Class</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photon Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. You may convert 1 of your [BATTLESTATIONS] results into 1 [CRIT] result. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>photon_torpedoes_72010</Id>
+      <Set>72010</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Plasma Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. You may re-roll all of your blank results one time. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
       <Range>1-2</Range>
       <Type>Weapon</Type>
-      <Faction>Ferengi</Faction>
-      <Cost>3</Cost>
-      <Id>missile_launchers_71806</Id>
-      <Set>71806</Set>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>plasma_torpedoes_72010</Id>
+      <Set>72010</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Flanking Attack</Title>
+      <Ability>ATTACK: Discard this card to perform this attack. The defending ship rolls -1 defense die against this attack. You may only fire this weapon from your forward firing arc and you may only perform this attack if your ship is not within the forward or rear firing arc of the defending ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>6</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Romulan</Faction>
+      <Cost>6</Cost>
+      <Id>flanking_attack_72010</Id>
+      <Set>72010</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Quantum Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. If the target ship is hit, add 1 [HIT] result to your total damage. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Federation</Faction>
+      <Cost>6</Cost>
+      <Id>quantum_torpedoes_72008</Id>
+      <Set>72008</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photon Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. You may convert 1 of your [BATTLESTATIONS] results into 1 [CRIT] result. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>photon_torpedoes_72008</Id>
+      <Set>72008</Set>
       <Special></Special>
     </Upgrade>

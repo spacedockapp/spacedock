@@ -45,7 +45,7 @@ public class ResourceSpinnerAdapter extends ArrayAdapter<ResourceSpinnerAdapter.
             } else {
                 mLabel = resource.equippedIntoSquad(squad)
                         ? mResource.getTitle() // cost built into Squad when used
-                        : mResource.getTitle() + " (" + mResource.getCost() + ")";
+                        : mResource.getTitle() + " (" + mResource.getCostForSquad(squad) + ")";
             }
         }
 
