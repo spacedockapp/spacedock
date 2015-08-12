@@ -622,6 +622,11 @@ static NSDictionary* sItemLabels = nil;
         }
     }
 
+    if ([captain.externalId isEqualToString:@"k_temoc_72009"]) {
+        if (upgrade.isKlingon) {
+            cost -= 1;
+        }
+    }
     if ([upgradeSpecial isEqualToString: @"costincreasedifnotbreen"]) {
         if (![ship isBreen]) {
             cost += 5;
@@ -702,6 +707,14 @@ static NSDictionary* sItemLabels = nil;
         if (![ship.title isEqualToString:@"U.S.S. Prometheus"]) {
             cost += 4;
         }
+    } else if ([upgradeSpecial isEqualToString:@"Plus3NotKlingonAndNoMoreThanOnePerShip"]) {
+        if (![ship isKlingon]) {
+            cost += 3;
+        }
+    } else if ([upgradeSpecial isEqualToString:@"Plus2NotRomulanAndNoMoreThanOnePerShip"]) {
+        if (![ship isRomulan]) {
+            cost += 2;
+        }
     } else if ([upgradeSpecial hasPrefix:@"Plus3NotShipClass_"]) {
         NSString* shipClass = [ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
         if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus3NotShipClass_%@",shipClass]]) {
@@ -711,6 +724,16 @@ static NSDictionary* sItemLabels = nil;
         NSString* shipName = [ship.title stringByReplacingOccurrencesOfString:@" " withString:@"_"];
         if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus3NotShip_%@",shipName]]) {
             cost += 3;
+        }
+    } else if ([upgradeSpecial hasPrefix:@"Plus4NotShipClass_"]) {
+        NSString* shipClass = [ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus4NotShipClass_%@",shipClass]]) {
+            cost += 4;
+        }
+    } else if ([upgradeSpecial hasPrefix:@"Plus4NotShip_"]) {
+        NSString* shipName = [ship.title stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus4NotShip_%@",shipName]]) {
+            cost += 4;
         }
     } else if ([upgradeSpecial hasPrefix:@"Plus5NotShipClass_"]) {
         NSString* shipClass = [ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
@@ -806,6 +829,12 @@ static NSDictionary* sItemLabels = nil;
         } else if ([upgradeSpecial isEqualToString:@"NoPenaltyOnKlingonShip"]) {
             if (!([ship isKlingon])) {
                 cost += 1;
+            }
+        } else if ([captain.externalId isEqualToString:@"k_temoc_72009"] && !upgrade.isKlingon) {
+            if (upgrade.isAdmiral) {
+                cost += 6;
+            } else {
+                cost += 2;
             }
         } else if ([upgradeSpecial isEqualToString:@"CaptainIgnoresPenalty"]) {
         } else if ([equippedShip containsUpgradeWithId:@"romulan_hijackers_71802"] != nil && [upgrade isRomulan]) {
@@ -916,6 +945,9 @@ static NSDictionary* sItemLabels = nil;
     NSString* special = self.special;
     if ([special isEqualToString: @"Add_Crew_1"]) {
         return 1;
+    }
+    if ([special isEqualToString:@"Add2HiddenCrew5"]) {
+        return 2;
     }
     return 0;
 }

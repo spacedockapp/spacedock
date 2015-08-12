@@ -269,6 +269,10 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         return getEquippedShip(shipIndex).getUpgradeAtSlot(slotType, slotNumber);
     }
 
+    public Squad getSquad() {
+        return mSquad;
+    }
+
     public EditSquadAdapter(Activity activity, ExpandableListView listView,
                             Squad squad, SlotSelectListener listener) {
         // TODO: always maintain one empty extra ship to support add/remove

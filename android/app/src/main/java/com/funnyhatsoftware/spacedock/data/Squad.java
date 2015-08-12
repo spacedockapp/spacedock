@@ -261,7 +261,8 @@ public class Squad extends SquadBase {
         if (resource != null && !resource.equippedIntoSquad(this)) {
             // flagship cost taken into account when assigned to EquippedShip
             // Fighters appear as ships
-            cost += resource.getCost();
+            //cost += resource.getCost();
+            cost += resource.getCostForSquad(this);
         }
 
         cost += getAdditionalPoints();

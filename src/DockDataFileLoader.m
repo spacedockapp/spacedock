@@ -500,6 +500,16 @@ static NSString* makeKey(NSString* key)
         }
         [_managedObjectContext deleteObject: wrongLure];
     }
+    NSArray* upgIO = [DockUpgrade findUpgrades:@"Impulse Overload" context: _managedObjectContext];
+    if (upgIO.count > 2) {
+        BOOL duperemoved = NO;
+        for (DockUpgrade* wrongImpulseOverload in upgIO) {
+            if ([wrongImpulseOverload.externalId isEqualToString:@"impulse_overload_oparenaprize"] && !duperemoved) {
+                [_managedObjectContext deleteObject: wrongImpulseOverload];
+                duperemoved = YES;
+            }
+        }
+    }
 }
 
 -(NSSet*)validateSpecials
@@ -600,13 +610,21 @@ static NSString* makeKey(NSString* key)
         @"Plus4NotPrometheus",
         @"OnlyKlingonCaptainShip",
         @"limited_max_weapon_3",
-        @"OnlyDderidexAndNoMoreThanOnePerShip"
+        @"OnlyDderidexAndNoMoreThanOnePerShip",
+        @"OnlyFederationCaptainShip",
+        @"Add2HiddenCrew5",
+        @"KTemoc",
+        @"Plus3NotKlingonAndNoMoreThanOnePerShip",
+        @"OnlyIntrepidAndNoMoreThanOnePerShip",
+        @"Plus2NotRomulanAndNoMoreThanOnePerShip",
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'OnlyShipClass_'"]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus3NotShipClass_'"]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus3NotShip_'"]];
+    [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus4NotShipClass_'"]];
+    [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus4NotShip_'"]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus5NotShipClass_'"]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus5NotShip_'"]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus6NotShipClass_'"]];

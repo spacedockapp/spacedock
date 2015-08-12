@@ -132,6 +132,10 @@ NSString* asDegrees(NSString* textValue)
         return [NSString stringWithFormat:@"%@ (2 Crew)", self.shipClass];
     } else if ([self.externalId isEqualToString:@"romulan_starship_71794"]) {
         return [NSString stringWithFormat:@"%@ (2 Weapons/2 Crew)", self.shipClass];
+    } else if ([self.externalId isEqualToString:@"federation_starship_71280"]) {
+        return [NSString stringWithFormat:@"%@ (2 Crew)", self.shipClass];
+    } else if ([self.externalId isEqualToString:@"federation_starship_72001p"]) {
+        return [NSString stringWithFormat:@"%@ (2 Weapons)", self.shipClass];
     }
 
     return self.title;
@@ -156,8 +160,12 @@ NSString* asDegrees(NSString* textValue)
         return [NSString stringWithFormat:@"%@ (2 Crew)", self.shipClass];
     } else if ([self.externalId isEqualToString:@"romulan_starship_71794"]) {
         return [NSString stringWithFormat:@"%@ (2 Weapons/2 Crew)", self.shipClass];
+    } else if ([self.externalId isEqualToString:@"federation_starship_71280"]) {
+        return [NSString stringWithFormat:@"%@ (2 Crew)", self.shipClass];
+    } else if ([self.externalId isEqualToString:@"federation_starship_72001p"]) {
+        return [NSString stringWithFormat:@"%@ (2 Weapons)", self.shipClass];
     }
-    
+
     return self.shipClass;
 }
 

@@ -673,13 +673,13 @@ public class EquippedShip extends EquippedShipBase {
         if (upgradeSpecial.startsWith("OnlyShipClass_")) {
             if (upgradeSpecial.startsWith("OnlyShipClass_CONTAINS_")) {
                 String reqMatch = upgradeSpecial.substring(23);
-                
+
                 if (!ship.getShipClass().contains(reqMatch)) {
                     return new Explanation(msg, "This upgrade can only be purchased for a " + reqMatch.replace("_", " ") + " Ship.");
                 }
             } else {
                 String reqClass = upgradeSpecial.substring(14);
-                
+
                 if (!reqClass.equals(ship.getShipClass().replace(" ", "_"))) {
                     return new Explanation(msg, "This upgrade can only be purchased for a " + reqClass.replace("_", " ") + " Class Ship.");
                 }
@@ -701,7 +701,7 @@ public class EquippedShip extends EquippedShipBase {
                 return new Explanation(msg, "This upgrade can only be added to a Klingon ship.");
             }
         }
-        if ("NoMoreThanOnePerShip".equals(upgradeSpecial) || "OnlyBorgShipAndNoMoreThanOnePerShip".equals(upgradeSpecial)) {
+        if ("NoMoreThanOnePerShip".equals(upgradeSpecial) || "OnlyBorgShipAndNoMoreThanOnePerShip".equals(upgradeSpecial) || upgradeSpecial.endsWith("NoMoreThanOnePerShip")) {
             if (addingNew && null != containsUpgrade(upgrade)) {
                 return new Explanation(msg, "This upgrade can only be added once per ship.");
             }
@@ -806,6 +806,11 @@ public class EquippedShip extends EquippedShipBase {
                 return new Explanation(msg, "This upgrade can only be added to a D'deridex class ship.");
             }
         }
+        if ("OnlyIntrepidAndNoMoreThanOnePerShip".equals(upgradeSpecial)) {
+            if (!ship.getShipClass().equals("Intrepid Class")) {
+                return new Explanation(msg, "This upgrade can only be added to an Intrepid class ship.");
+            }
+        }
         Captain captain = getCaptain();
         if (null != captain) {
             if (!"lore_71522".equals(captain.getSpecial()) || !upgrade.isTalent()) {
@@ -861,6 +866,12 @@ public class EquippedShip extends EquippedShipBase {
                     return new Explanation(msg,
                             "This talent may only be equiped by Shinzon.");
                 }
+                if (captain.getExternalId().equals("k_temoc_72009") && upgrade.isTalent()) {
+                    if (!upgrade.isKlingon()) {
+                        return new Explanation(msg,
+                                "K'Temoc may only field Klingon [TALENT] upgrades.");
+                    }
+                }
             }
 
             if (upgradeSpecial.equals("OnlyTholianCaptain")) {
@@ -877,10 +888,17 @@ public class EquippedShip extends EquippedShipBase {
                 }
             }
 
-            if ("OnlyRomulanCaptainShip".equals(upgradeSpecial)) {
+            if ("OnlyRomulanCaptainShip".equals(upgradeSpecial)){
                 if (!captain.isRomulan() || !ship.isRomulan()){
                     return new Explanation(msg,
                             "This upgrade can only be added to a Romulan captain on a Romulan Ship.");
+                }
+            }
+
+            if ("OnlyFederationCaptainShip".equals(upgradeSpecial)) {
+                if (!captain.isFederation() || !ship.isFederation()) {
+                    return new Explanation(msg,
+                            "This upgrade can only be added to a Federation captain on a Federation Ship.");
                 }
             }
         }

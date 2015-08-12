@@ -6,9 +6,11 @@
 //  Copyright (c) 2015 Robert George. All rights reserved.
 //
 
+#import "DockEquippedShip+MacAddons.h"
 #import "DockResource+MacAddons.h"
 #import "DockResource+Addons.h"
 #import "DockSet+Addons.h"
+#import "DockSquad+Addons.h"
 
 extern NSString* kMarkExpiredResources;
 
@@ -37,5 +39,10 @@ extern NSString* kMarkExpiredResources;
     }
     
     return title;
+}
+-(NSNumber*)costForSquad
+{
+    DockSquad* squad = [DockEquippedShip currentTargetShip].squad;
+    return [self costForSquad:squad];
 }
 @end

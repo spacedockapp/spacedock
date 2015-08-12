@@ -395,4 +395,15 @@ didDismissWithButtonIndex:(NSInteger)buttonIndex
     [searchBar resignFirstResponder];
 }
 
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:NO animated:YES];
+}
+
+
 @end
