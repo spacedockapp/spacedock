@@ -34,7 +34,7 @@ public class EquippedShip extends EquippedShipBase {
     }
 
     public boolean isResourceSideboard() {
-        return false;
+        return (mShip == null);
     }
 
     public String getShipExternalId() {
@@ -1335,7 +1335,7 @@ public class EquippedShip extends EquippedShipBase {
     public JSONObject asJSON() throws JSONException {
         JSONObject o = new JSONObject();
         Ship ship = getShip();
-        if (ship == null) {
+        if (isResourceSideboard()) {
             o.put(JSONLabels.JSON_LABEL_SIDEBOARD, true);
         } else {
             o.put(JSONLabels.JSON_LABEL_SHIP_ID, ship.getExternalId());
