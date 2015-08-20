@@ -952,6 +952,14 @@
             DockEquippedUpgrade* existing = [self containsUpgradeWithId: upgrade.externalId];
             if (existing != nil) {
                 return NO;
+            } else if ([upgrade.externalId isEqualToString:@"systems_upgrade_71998p"]
+                      || [upgrade.externalId isEqualToString:@"systems_upgrade_c_71998p"]
+                      || [upgrade.externalId isEqualToString:@"systems_upgrade_w_71998p"]) {
+                if ([self containsUpgradeWithId:@"systems_upgrade_71998p"] != nil
+                    ||[self containsUpgradeWithId:@"systems_upgrade_c_71998p"] != nil
+                    ||[self containsUpgradeWithId:@"systems_upgrade_w_71998p"] != nil) {
+                    return NO;
+                }
             }
         }
     }
