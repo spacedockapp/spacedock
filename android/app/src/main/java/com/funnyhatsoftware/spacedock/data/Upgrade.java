@@ -423,7 +423,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 cost += 5;
             }
         } else if (captainSpecial.equals("AllUpgradesMinusOneOnIndepedentShip")
-                && "Independent".equals(shipFaction) && (!this.isCaptain() && !this.isAdmiral())) {
+                && DataUtils.targetHasFaction(Constants.INDEPENDENT,ship) && (!this.isCaptain() && !this.isAdmiral())) {
             cost -= 1;
         } else if ("PlusFiveIfNotRegentsFlagship".equals(upgradeSpecial) && !ship.isRegentsFlagship()) {
             cost += 5;
