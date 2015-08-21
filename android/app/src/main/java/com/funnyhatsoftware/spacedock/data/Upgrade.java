@@ -356,7 +356,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             }
         }
 
-        if (captain.getExternalId().equals("k_temoc_72009")) {
+        if (captain != null && captain.getExternalId().equals("k_temoc_72009")) {
             if (isKlingon()) {
                 cost -= 1;
             }
