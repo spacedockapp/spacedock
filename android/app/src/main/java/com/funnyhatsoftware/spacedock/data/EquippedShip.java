@@ -909,6 +909,17 @@ public class EquippedShip extends EquippedShipBase {
                     "Cannot equip a Borg upgrade with cost greater than 5 to this ship.");
         }
 
+        if ("systems_upgrade_71998p".equals(upgrade.getExternalId())
+                || "systems_upgrade_c_71998p".equals(upgrade.getExternalId())
+                || "systems_upgrade_w_71998p".equals(upgrade.getExternalId())) {
+            if (addingNew) {
+                if (null != containsUpgrade(Universe.getUniverse().getUpgrade("systems_upgrade_71998p"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("systems_upgrade_c_71998p"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("systems_upgrade_w_71998p"))) {
+                    return new Explanation(msg, "This upgrade can only be added once per ship.");
+                }
+            }
+        }
         if (null != containsUpgrade(Universe.getUniverse().getUpgrade("romulan_hijackers_71802"))) {
             if (upgrade.isCrew()) {
                 if (!upgrade.isRomulan()) {
