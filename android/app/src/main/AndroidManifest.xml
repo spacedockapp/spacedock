@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.funnyhatsoftware.spacedock"
     android:versionCode="60"
-    android:versionName="1.1.19 (60)" >
+    android:versionName="1.1.20 (60)" >
 
     <uses-sdk
         android:minSdkVersion="14"
