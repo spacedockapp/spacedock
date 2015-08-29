@@ -1,23 +1,49 @@
   <ShipClassDetail>
-    <Name>Akira Class</Name>
-    <Id>akira_class</Id>
+    <Name>Species 8472 Bioship</Name>
+    <Id>species_8472_bioship</Id>
     <Maneuvers>
-      <Maneuver speed="4" kind="straight" color="white" />
-      <Maneuver speed="3" kind="left-turn" color="red" />
-      <Maneuver speed="3" kind="left-bank" color="white" />
-      <Maneuver speed="3" kind="left-come" color="red" />
+
+    </Maneuvers>
+    <FrontArc>90</FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Species 8472 Bioship</Name>
+    <Id>species_8472_bioship</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>90</FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Ferengi Shuttle</Name>
+    <Id>ferengi_shuttle</Id>
+    <Maneuvers>
       <Maneuver speed="3" kind="straight" color="white" />
-      <Maneuver speed="3" kind="right-bank" color="white" />
-      <Maneuver speed="3" kind="right-come" color="red" />
-      <Maneuver speed="3" kind="right-turn" color="red" />
       <Maneuver speed="2" kind="left-turn" color="white" />
+      <Maneuver speed="2" kind="left-come" color="white" />
       <Maneuver speed="2" kind="left-bank" color="white" />
       <Maneuver speed="2" kind="straight" color="green" />
+      <Maneuver speed="2" kind="right-come" color="white" />
       <Maneuver speed="2" kind="right-bank" color="white" />
       <Maneuver speed="2" kind="right-turn" color="white" />
+      <Maneuver speed="1" kind="left-turn" color="white" />
+      <Maneuver speed="1" kind="left-come" color="white" />
       <Maneuver speed="1" kind="left-bank" color="green" />
       <Maneuver speed="1" kind="straight" color="green" />
+      <Maneuver speed="1" kind="right-come" color="white" />
       <Maneuver speed="1" kind="right-bank" color="green" />
+      <Maneuver speed="1" kind="right-turn" color="white" />
+    </Maneuvers>
+    <FrontArc>90</FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Ferengi Shuttle</Name>
+    <Id>ferengi_shuttle</Id>
+    <Maneuvers>
+
     </Maneuvers>
     <FrontArc>90</FrontArc>
     <RearArc></RearArc>

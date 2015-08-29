@@ -1,80 +1,20 @@
   <Admiral>
-    <Title>William Ross</Title>
-    <Ability>ACTION: Target a ship within Range 1-2 that is in your forward firing arc. If the target ship attacks this round, that ship rolls 1 less attack die this round.</Ability>
+    <Title>Zek</Title>
+    <Ability>ACTION: Target a ship at Range 1. Disable 1 of your Upgrades and 1 Upgrade (your choice) on the target ship. This card may only be purchased for a Ferengi ship.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>6</Skill>
+    <Skill>2</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Admiral</Type>
-    <Faction>Federation</Faction>
-    <Cost>4</Cost>
-    <Id>william_ross_72001</Id>
-    <Set>72001</Set>
-    <Special></Special>
-    <AdmiralAbility>FLEET ACTION: Target a ship within Range 1-2 that is in your forward firing arc. If the target ship attacks this round, that ship rolls 1 less attack die this round.</AdmiralAbility>
-    <AdmiralCost>4</AdmiralCost>
+    <Faction>Ferengi</Faction>
+    <Cost>1</Cost>
+    <Id>zek_72013</Id>
+    <Set>72013</Set>
+    <Special>Yes</Special>
+    <AdmiralAbility>FLEET ACTION: Target a ship at Range 1. Disable 1 of your Upgrades and 1 Upgrade (your choice) on the target ship. This card may only be purchased for a Ferengi ship.</AdmiralAbility>
+    <AdmiralCost>1</AdmiralCost>
     <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>2</SkillModifier>
-  </Admiral>
-  <Admiral>
-    <Title>Velal</Title>
-    <Ability>ACTION: Each time you defend this round, during the Roll Defense Dice step, you may choose to roll 2 less defense dice. If you do so, add 1 [EVADE] result to your roll.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>5</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Admiral</Type>
-    <Faction>Romulan</Faction>
-    <Cost>3</Cost>
-    <Id>velal_72010</Id>
-    <Set>72010</Set>
-    <Special></Special>
-    <AdmiralAbility>FLEET ACTION: Each time you defend this round, during the Roll Defense Dice step, you may choose to roll 2 less defense dice. If you do so, add 1 [EVADE] result to your roll.</AdmiralAbility>
-    <AdmiralCost>3</AdmiralCost>
-    <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>1</SkillModifier>
-  </Admiral>
-  <Admiral>
-    <Title>Shanthi</Title>
-    <Ability>ACTION: Target a ship at Range 1-2. When attacking that ship this round, you may re-roll all of your blank results once. In addition, if the target ship is Cloaked, immediately flip that ship's [CLOAK] Token over to its red side.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>4</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Admiral</Type>
-    <Faction>Federation</Faction>
-    <Cost>2</Cost>
-    <Id>shanthi_72008</Id>
-    <Set>72008</Set>
-    <Special></Special>
-    <AdmiralAbility>FLEET ACTION: Target a ship at Range 1-2. When attacking that ship this round, you may re-roll all of your blank results once. In addition, if the target ship is Cloaked, immediately flip that ship's [CLOAK] Token over to its red side.</AdmiralAbility>
-    <AdmiralCost>2</AdmiralCost>
-    <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>1</SkillModifier>
-  </Admiral>
-  <Admiral>
-    <Title>Hayes</Title>
-    <Ability>ACTION: All friendly ships within Range 1 of your ship gain +1 attack die this round (+2 attack dice against Borg ships).</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>5</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Admiral</Type>
-    <Faction>Federation</Faction>
-    <Cost>3</Cost>
-    <Id>hayes_72008</Id>
-    <Set>72008</Set>
-    <Special></Special>
-    <AdmiralAbility>FLEET ACTION: All friendly ships within Range 1 of your ship gain +1 attack die this round (+2 attack dice against Borg ships).</AdmiralAbility>
-    <AdmiralCost>3</AdmiralCost>
-    <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>1</SkillModifier>
+    <SkillModifier>0</SkillModifier>
   </Admiral>

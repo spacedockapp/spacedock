@@ -1,86 +1,38 @@
     <Upgrade>
-      <Title>Cryogenic Stasis</Title>
-      <Ability>At the start of the game, place 2 non-Borg [CREW] Upgrades with a cost of 5 or less face down beneath this card. ACTION: Flip one of those Upgrades that is beneath this card face up (your choice) and deploy it to your ship, even if it exceeds your ship's restrictions. Then place 2 Time Tokens on that Upgrade. Discard this card when there are no more Upgrades beneath it.</Ability>
+      <Title>Telepathy</Title>
+      <Ability>You may discard this card immediately before you move in order to change your Maneuver for that round.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Species 8472</Faction>
+      <Cost>4</Cost>
+      <Id>telepathy_72012</Id>
+      <Set>72012</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Biological Technology</Title>
+      <Ability>Place 1 Mission Token on this card at the start of each Planning Phase. When attacking, you may spend up to 2 of these tokens to add an equal number of attack dice. When defending, you may spend up to 2 of these tokens to add an equal number of defense dice. This Upgrade may only be purchased for a Species 8472 ship and no ship may be equipped with more than 1 "Biological Technology" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
       <Type>Tech</Type>
-      <Faction>Klingon</Faction>
+      <Faction>Species 8472</Faction>
       <Cost>5</Cost>
-      <Id>cryogenic_stasis_72009</Id>
-      <Set>72009</Set>
+      <Id>biological_technology_72012</Id>
+      <Set>72012</Set>
       <Special>Yes</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Devotion to Duty</Title>
-      <Ability>ACTION: When attacking with your Primary Weapon this round, during the Roll Attack Dice step, you may discard this card to gain +1 attack die for every damage card assigned to your ship (max +2). This Upgrade may only be purchased for a Klingon Captain assigned to a Klingon ship.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Klingon</Faction>
-      <Cost>4</Cost>
-      <Id>devotion_to_duty_72009</Id>
-      <Set>72009</Set>
-      <Special>OnlyKlingonCaptainShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Tactical Officer</Title>
-      <Ability>If your ship is not Cloaked, during the Modify Attack Dice step, you may disable this card to re-roll all of your blank results once. This Upgrade costs +3 SP for any non-Klingon ship and no ship may be equipped with more than 1 Tactical Officer Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Klingon</Faction>
-      <Cost>2</Cost>
-      <Id>tactical_officer_72009</Id>
-      <Set>72009</Set>
-      <Special>Plus3NotKlingonAndNoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>K'Ehleyr</Title>
-      <Ability>ACTION: Discard this card to target a ship at Range 1. Your ship cannot attack the target ship and the target ship cannot attack your ship this round.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Klingon</Faction>
-      <Cost>5</Cost>
-      <Id>k_ehleyr_72009</Id>
-      <Set>72009</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Section 31</Title>
-      <Ability>At any time, you may discard this card to achieve the effect of spending either a [BATTLESTATIONS], an [EVADE], or a [TARGET LOCK] Token as if you spent the appropriate Token from beside your ship. You may only use the [TARGET LOCK] effect for re-rolling your dice.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Independent</Faction>
-      <Cost>3</Cost>
-      <Id>section_31_72001</Id>
-      <Set>72001</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Variable Geometry Pylons</Title>
-      <Ability>Before you move, you may disable this card to increase your speed by 1 or decrease your speed by 1. If you do this, treat the maneuver as a White Maneuver. You cannot perform any Actions on the round you use this ability. This Upgrade may only be purchased for an Intrepid-class ship and no ship may be equipped with more than 1 Variable Geometry Pylons Upgrade.</Ability>
+      <Title>Biogenic Field</Title>
+      <Ability>When defending, you roll +1 defense die (+3 vs a Borg ship). In addition, when an enemy card ability affects one of your cards, roll 1 attack die (3 dice against a Borg card ability). If your roll a [BATTLESTATIONS] result, the card effect is cancelled. This Upgrade may only be purchased for a Species 8472 ship and no ship may be equipped with more than 1 "Biogenic Field" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -88,15 +40,63 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>variable_geometry_pylons_72001</Id>
-      <Set>72001</Set>
-      <Special>OnlyIntrepidAndNoMoreThanOnePerShip</Special>
+      <Faction>Species 8472</Faction>
+      <Cost>6</Cost>
+      <Id>biogenic_field_72012</Id>
+      <Set>72012</Set>
+      <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Luther Sloan</Title>
-      <Ability>You do not pay a faction penalty when assigning this card to a Federation ship. During the Planning Phase, after all ships have been assigned a Maneuver Dial, you may discard this card to look at up to 3 ships' Maneuver Dials. You may then change your chosen Maneuver.</Ability>
+      <Title>Electrodynamic Fluid</Title>
+      <Ability>ACTION: Discard this card to immediately perform a 2nd maneuver from your Maneuver Dial with a speed of 3 or less. OR ACTION: Disable this card to perform a [SENSOR ECHO] Action even if your ship is not cloaked. This Upgrade may only be purchased for a Species 8472 ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Species 8472</Faction>
+      <Cost>5</Cost>
+      <Id>electrodynamic_fluid_72012</Id>
+      <Set>72012</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Fluidic Space</Title>
+      <Ability>Instead of making a normal move, you may discard this card to remove your ship from the play area and immediately place it back anywhere in the play area, but not within Range 1-2 of any other ship. You cannot attack or perform any Actions on the round you use this ability. This Upgrade costs +5 SP if purchased for a non-Species 8472 ship and no ship may be equipped with more than 1 "Fluidic Space" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Species 8472</Faction>
+      <Cost>6</Cost>
+      <Id>fluidic_space_72012</Id>
+      <Set>72012</Set>
+      <Special>Yes</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Grand Nagus</Title>
+      <Ability>ACTION: Discard this card to target every friendly Ferengi ship within Range 1-3. Each target ship may immediately perform an additional green maneuver.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Ferengi</Faction>
+      <Cost>5</Cost>
+      <Id>grand_nagus_72013</Id>
+      <Set>72013</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Odo</Title>
+      <Ability>During the Planning Phase, you may target a ship within Range 1-3 and choose 1 [CREW] Upgrade on the target ship. If you do so, treat this card as an exact copy of the chosen Upgrade until the end of the End Phase in which you use this ability. If the chosen Upgrade's Action or ability requires it to be disabled or discarded, you must disable or discard this card to use it.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -105,46 +105,14 @@
       <Range></Range>
       <Type>Crew</Type>
       <Faction>Independent</Faction>
-      <Cost>3</Cost>
-      <Id>luther_sloan_72001</Id>
-      <Set>72001</Set>
-      <Special>NoPenaltyOnFederationShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Coordinated Attack</Title>
-      <Ability>If your ship has not already attacked this round, you may discard this card to perform an attack with your Primary Weapon at -1 attack die immediately after a friendly ship attacks, regardless of initiative order. This Upgrade may only be purchased for a Romulan Captain on a Romulan ship.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Romulan</Faction>
       <Cost>5</Cost>
-      <Id>coordinated_attack_72010</Id>
-      <Set>72010</Set>
-      <Special>OnlyRomulanCaptainShip</Special>
+      <Id>odo_72013</Id>
+      <Set>72013</Set>
+      <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Bridge Officer</Title>
-      <Ability>When you are instructed to place Time Tokens on one of your [WEAPON] Upgrades, place 1 less Time Token than required. This Upgrade costs +2 SP for any non-Romulan ship and no ship may be equipped with more than 1 Bridge Officer Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Romulan</Faction>
-      <Cost>3</Cost>
-      <Id>bridge_officer_72010</Id>
-      <Set>72010</Set>
-      <Special>Plus2NotRomulanAndNoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Tal'aura</Title>
-      <Ability>ACTION: Discard this card to target a ship at Range 3. Discard 1 [CREW] Upgrade of your choice on the target ship.</Ability>
+      <Title>Nog</Title>
+      <Ability>When defending, during the Roll Attack Dice step, you may discard this card to force the attacking ship to roll -2 attack dice for that attack.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -152,201 +120,105 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Romulan</Faction>
-      <Cost>5</Cost>
-      <Id>tal_aura_72010</Id>
-      <Set>72010</Set>
+      <Faction>Ferengi</Faction>
+      <Cost>3</Cost>
+      <Id>nog_72013</Id>
+      <Set>72013</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Persistence</Title>
-      <Ability>When you attack with your Primary Weapon, during the Roll Attack Dice step, if you roll a [HIT] or [CRIT] result on each one of your dice, you may discard this card to roll +2 additional attack dice (+4 against Borg ships). Add all [HIT] or [CRIT] results from the additional dice to your total for that attack. Any Blank or [BATTLESTATIONS] results from the additional dice are not added.</Ability>
+      <Title>Rom</Title>
+      <Ability>ACTION: Repair 1 Shield Token. If this card is assigned to a Ferengi ship, you may repair up to 2 Shield Tokens instead of 1.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>persistence_72008</Id>
-      <Set>72008</Set>
+      <Type>Crew</Type>
+      <Faction>Ferengi</Faction>
+      <Cost>3</Cost>
+      <Id>rom_72013</Id>
+      <Set>72013</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Federation Task Force</Title>
-      <Ability>ACTION: Discard this card to target up to 2 friendly ships within Range 1-2. Your ship and the target ships may immediately perform a [TARGET LOCK] Action as a free Action, if possible. This Upgrade may only be purchased for a Federation ship with a Federation Captain.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>federation_task_force_72008</Id>
-      <Set>72008</Set>
-      <Special>OnlyFederationCaptainShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Intercept</Title>
-      <Ability>If a friendly ship within Range 1 of your ship is attacked, and your s hip is also in the attacking ship's firing arc, you may discard this card to force the attacking ship to perform its attack against your ship instead of the target ship. After the attack is complete, you may perform an additional green maneuver.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>intercept_72008</Id>
-      <Set>72008</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Rapid Reload</Title>
-      <Ability>This Upgrade counts as a [CREW], [TECH] or [WEAPON] Upgrade (your choice). When you are instructed to place Time Tokens on one of your [WEAPON] Upgrades, you may disable this card to place only 1 Time Token instead of the required amount.</Ability>
+      <Title>Cargo Hold</Title>
+      <Ability>Add 2 Upgrade slots ([CREW] or [TECH]) to your Upgrade Bar. These Upgrades cannot have a cost greater than 4 SP. This Upgrade may only be purchased for a Ferengi ship and no ship may be equipped with more than 1 "Cargo Hold" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>?</Type>
-      <Faction>Federation</Faction>
-      <Cost>2</Cost>
-      <Id>rapid_reload_72008</Id>
-      <Set>72008</Set>
+      <Type>Tech</Type>
+      <Faction>Ferengi</Faction>
+      <Cost>1</Cost>
+      <Id>cargo_hold_72013</Id>
+      <Set>72013</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. You may convert 1 of your [BATTLESTATIONS] results into 1 [CRIT] result. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Title>Inversion Wave</Title>
+      <Ability>Instead of making a normal move, you may discard this card to place your ship anywhere in the play area within Range 1-3 of your current position. Remove all Tokens (except Critical Hit Tokens) from beside your ship and place an Auxiliary Power Token beside your ship. You cannot attack on the round you use this ability. No ship may be equipped with more than 1 "Inversion Wave" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>2-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Klingon</Faction>
-      <Cost>5</Cost>
-      <Id>photon_torpedoes_72009</Id>
-      <Set>72009</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Concussive Charges</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. For every uncanceled [HIT] or [CRIT] result, the target ship loses 1 token of your choice that has been placed beside it in the play area. You may fire this weapon from your forward or rear firing arcs.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>4</Attack>
-      <Range>2-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Klingon</Faction>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Ferengi</Faction>
       <Cost>4</Cost>
-      <Id>concussive_charges_72009</Id>
-      <Set>72009</Set>
-      <Special></Special>
+      <Id>inversion_wave_72013</Id>
+      <Set>72013</Set>
+      <Special>Yes</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Tricobalt Device</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and discard this card to perform this attack. You may only fire this weapon from your forward firing arc. This Upgrade costs +4 SP if purchased for any ship other than an Intrepid-class ship.</Ability>
-      <Unique>N</Unique>
+      <Title>Smugglers</Title>
+      <Ability>ACTION: Target a ship at Range 1-3. Discard this card to steal 1 [TECH] or [WEAPON] Upgrade from the target ship, even if it exceeds your ship's restrictions. If the Smugglers Upgrade is assigned to a Ferengi Shuttle, the stolen Upgrade is flipped face down and cannot be used by your ship. The shuttle may exchange the stolen Upgrade with a docking ship. The docking ship may then flip the stolen Upgrade face up and use it. This Upgrade may only be purchased for a Ferengi Captain assigned to a Ferengi ship.</Ability>
+      <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>6</Attack>
-      <Range>2-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Federation</Faction>
-      <Cost>6</Cost>
-      <Id>tricobalt_device_72001</Id>
-      <Set>72001</Set>
-      <Special>Plus4NotShipClass_Intrepid_Class</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. You may convert 1 of your [BATTLESTATIONS] results into 1 [CRIT] result. You may fire this weapon from your forward or rear firing arcs.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>2-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Romulan</Faction>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Ferengi</Faction>
       <Cost>5</Cost>
-      <Id>photon_torpedoes_72010</Id>
-      <Set>72010</Set>
-      <Special></Special>
+      <Id>smugglers_72013</Id>
+      <Set>72013</Set>
+      <Special>Yes</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Plasma Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. You may re-roll all of your blank results one time. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Title>Biological Weapon</Title>
+      <Ability>ATTACK: Discard this card to perform this attack. If this attack hits, in addition to normal damage, discard 1 [CREW] Upgrade of your choice on the defending ship for each [BATTLESTATIONS] result (max 2). This Upgrade may only be purchased for a Species 8472 Bioship.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack>5</Attack>
-      <Range>1-2</Range>
-      <Type>Weapon</Type>
-      <Faction>Romulan</Faction>
-      <Cost>5</Cost>
-      <Id>plasma_torpedoes_72010</Id>
-      <Set>72010</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Flanking Attack</Title>
-      <Ability>ATTACK: Discard this card to perform this attack. The defending ship rolls -1 defense die against this attack. You may only fire this weapon from your forward firing arc and you may only perform this attack if your ship is not within the forward or rear firing arc of the defending ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>6</Attack>
       <Range>2-3</Range>
       <Type>Weapon</Type>
-      <Faction>Romulan</Faction>
+      <Faction>Species 8472</Faction>
       <Cost>6</Cost>
-      <Id>flanking_attack_72010</Id>
-      <Set>72010</Set>
-      <Special></Special>
+      <Id>biological_weapon_72012</Id>
+      <Set>72012</Set>
+      <Special>Yes</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Quantum Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. If the target ship is hit, add 1 [HIT] result to your total damage. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Title>Energy Blast</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and discard this card to perform this attack. This Upgrade may only be purchased for a Species 8472 Bioship.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>5</Attack>
+      <Attack>8</Attack>
       <Range>2-3</Range>
       <Type>Weapon</Type>
-      <Faction>Federation</Faction>
-      <Cost>6</Cost>
-      <Id>quantum_torpedoes_72008</Id>
-      <Set>72008</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. You may convert 1 of your [BATTLESTATIONS] results into 1 [CRIT] result. You may fire this weapon from your forward or rear firing arcs.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>2-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>photon_torpedoes_72008</Id>
-      <Set>72008</Set>
-      <Special></Special>
+      <Faction>Species 8472</Faction>
+      <Cost>8</Cost>
+      <Id>energy_blast_72012</Id>
+      <Set>72012</Set>
+      <Special>Yes</Special>
     </Upgrade>

@@ -1,128 +1,68 @@
   <Captain>
-    <Title>K'Temoc</Title>
-    <Ability>All of your Klingon Upgrades cost -1 SP. The faction penalty is doubled for any non-Klingon Upgrades assigned to your ship. K'Temoc may only field Klingon [ELITE TALENT] Upgrades.</Ability>
+    <Title>Bioship Beta Pilot</Title>
+    <Ability>When attacking, during the Modify Attack Dice step, you may re-roll 1 of your blank results. If your ship was just destroyed and another friendly ship is within Range 1-2 of your ship, you may replace that ship's Captain Card with this card. If this Captain fielded an [ELITE TALENT] Upgrade, you may assign that Upgrade to the new ship as well, if possible.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>5</Skill>
+    <Skill>8</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Klingon</Faction>
-    <Cost>3</Cost>
-    <Id>k_temoc_72009</Id>
-    <Set>72009</Set>
-    <Special>Yes</Special>
+    <Faction>Species 8472</Faction>
+    <Cost>6</Cost>
+    <Id>bioship_beta_pilot_72012</Id>
+    <Set>72012</Set>
+    <Special></Special>
   </Captain>
   <Captain>
-    <Title>Morag</Title>
-    <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Disable 1 Upgrade of your choice on the target ship and place an Auxiliary Power Token beside your ship.</Ability>
+    <Title>Quark</Title>
+    <Ability>ACTION: Discard all of your Upgrades to target a ship at Range 1-2. Target ship cannot attack your ship this round. You must discard at least 1 Upgrade to use this Action. You cannot attack or perform any free Actions this round.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>3</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Ferengi</Faction>
+    <Cost>2</Cost>
+    <Id>quark_72013</Id>
+    <Set>72013</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Brunt</Title>
+    <Ability>ACTION: When defending this round, during the Modify Attack Dice step, you may force 1 opposing ship to re-roll 1 of its attack dice (your choice). You may field the Grand Nagus [ELITE TALENT] Upgrade. If you use the Action listed on it, you must discard this card as well.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>4</Skill>
     <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Klingon</Faction>
-    <Cost>2</Cost>
-    <Id>morag_72009</Id>
-    <Set>72009</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Suran</Title>
-    <Ability>ACTION: When attacking this round, during the Roll Attack Dice step, if you are within range 1 of a friendly ship, set 1 of your attack dice on the result of your choice. This die cannot be rolled or re-rolled.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>6</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Romulan</Faction>
-    <Cost>4</Cost>
-    <Id>suran_72010</Id>
-    <Set>72010</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>William Ross</Title>
-    <Ability>ACTION: Target a ship within Range 1-2 that is in your forward firing arc. If the target ship attacks this round, that ship rolls 1 less attack die this round.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>6</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>4</Cost>
-    <Id>william_ross_cap_72001</Id>
-    <Set>72001</Set>
-    <Special></Special>
-    <AdmiralAbility>FLEET ACTION: Target a ship within Range 1-2 that is in your forward firing arc. If the target ship attacks this round, that ship rolls 1 less attack die this round.</AdmiralAbility>
-    <AdmiralCost>4</AdmiralCost>
-    <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>2</SkillModifier>
-  </Captain>
-  <Captain>
-    <Title>Velal</Title>
-    <Ability>ACTION: Each time you defend this round, during the Roll Defense Dice step, you may choose to roll 2 less defense dice. If you do so, add 1 [EVADE] result to your roll.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>5</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Romulan</Faction>
+    <Faction>Ferengi</Faction>
     <Cost>3</Cost>
-    <Id>velal_cap_72010</Id>
-    <Set>72010</Set>
-    <Special></Special>
-    <AdmiralAbility>FLEET ACTION: Each time you defend this round, during the Roll Defense Dice step, you may choose to roll 2 less defense dice. If you do so, add 1 [EVADE] result to your roll.</AdmiralAbility>
-    <AdmiralCost>3</AdmiralCost>
-    <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>1</SkillModifier>
+    <Id>brunt_72013</Id>
+    <Set>72013</Set>
+    <Special>Yes</Special>
   </Captain>
   <Captain>
-    <Title>Shanthi</Title>
-    <Ability>ACTION: Target a ship at Range 1-2. When attacking that ship this round, you may re-roll all of your blank results once. In addition, if the target ship is Cloaked, immediately flip that ship's [CLOAK] Token over to its red side.</Ability>
+    <Title>Zek</Title>
+    <Ability>ACTION: Target a ship at Range 1. Disable 1 of your Upgrades and 1 Upgrade (your choice) on the target ship. This card may only be purchased for a Ferengi ship.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>4</Skill>
+    <Skill>2</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>2</Cost>
-    <Id>shanthi_cap_72008</Id>
-    <Set>72008</Set>
-    <Special></Special>
-    <AdmiralAbility>FLEET ACTION: Target a ship at Range 1-2. When attacking that ship this round, you may re-roll all of your blank results once. In addition, if the target ship is Cloaked, immediately flip that ship's [CLOAK] Token over to its red side.</AdmiralAbility>
-    <AdmiralCost>2</AdmiralCost>
+    <Faction>Ferengi</Faction>
+    <Cost>1</Cost>
+    <Id>zek_cap_72013</Id>
+    <Set>72013</Set>
+    <Special>Yes</Special>
+    <AdmiralAbility>FLEET ACTION: Target a ship at Range 1. Disable 1 of your Upgrades and 1 Upgrade (your choice) on the target ship. This card may only be purchased for a Ferengi ship.</AdmiralAbility>
+    <AdmiralCost>1</AdmiralCost>
     <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>1</SkillModifier>
-  </Captain>
-  <Captain>
-    <Title>Hayes</Title>
-    <Ability>ACTION: All friendly ships within Range 1 of your ship gain +1 attack die this round (+2 attack dice against Borg ships).</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>5</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>3</Cost>
-    <Id>hayes_cap_72008</Id>
-    <Set>72008</Set>
-    <Special></Special>
-    <AdmiralAbility>FLEET ACTION: All friendly ships within Range 1 of your ship gain +1 attack die this round (+2 attack dice against Borg ships).</AdmiralAbility>
-    <AdmiralCost>3</AdmiralCost>
-    <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>1</SkillModifier>
+    <SkillModifier>0</SkillModifier>
   </Captain>
