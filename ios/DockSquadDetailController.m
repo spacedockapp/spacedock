@@ -94,6 +94,7 @@ enum {
     [super viewWillAppear: animated];
     [self.tableView reloadData];
     [self updateCost];
+    [_squad addObserver: self forKeyPath: @"cost" options: 0 context: 0];
 }
 
 -(void)validatePrinting
@@ -115,7 +116,6 @@ enum {
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear: animated];
-    [_squad addObserver: self forKeyPath: @"cost" options: 0 context: 0];
     [self validatePrinting];
 }
 
