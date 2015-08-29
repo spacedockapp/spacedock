@@ -1,4 +1,4 @@
-<Data version="2015-08-11@22-40">
+<Data version="2015-08-29@00-01">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1637,6 +1637,29 @@
           <Maneuver speed="1" kind="left-bank" color="green" />
           <Maneuver speed="1" kind="straight" color="green" />
           <Maneuver speed="1" kind="right-bank" color="green" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
+      <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+      <Name>Ferengi Shuttle</Name>
+      <Id>ferengi_shuttle</Id>
+      <Maneuvers>
+          <Maneuver speed="3" kind="straight" color="white" />
+          <Maneuver speed="2" kind="left-turn" color="white" />
+          <Maneuver speed="2" kind="about" color="white" />
+          <Maneuver speed="2" kind="left-bank" color="white" />
+          <Maneuver speed="2" kind="straight" color="green" />
+          <Maneuver speed="2" kind="about" color="white" />
+          <Maneuver speed="2" kind="right-bank" color="white" />
+          <Maneuver speed="2" kind="right-turn" color="white" />
+          <Maneuver speed="1" kind="left-turn" color="white" />
+          <Maneuver speed="1" kind="about" color="white" />
+          <Maneuver speed="1" kind="left-bank" color="green" />
+          <Maneuver speed="1" kind="straight" color="green" />
+          <Maneuver speed="1" kind="about" color="white" />
+          <Maneuver speed="1" kind="right-bank" color="green" />
+          <Maneuver speed="1" kind="right-turn" color="white" />
       </Maneuvers>
       <FrontArc>90</FrontArc>
       <RearArc></RearArc>
@@ -3369,7 +3392,7 @@
       <Weapon>1</Weapon>
       <Crew>0</Crew>
       <Id>species_8472_bioship_71281</Id>
-      <Set>71281</Set>
+      <Set>71281,72012</Set>
     </Ship>
     <Ship>
       <Title>Tholia One</Title>
@@ -6729,6 +6752,93 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Id>federation_starship_72008</Id>
       <Set>72008</Set>
   </Ship>
+  <Ship>
+      <Title>Bioship Beta</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Species 8472 Bioship</ShipClass>
+      <Faction>Species 8472</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>6</Attack>
+      <Agility>2</Agility>
+      <Hull>5</Hull>
+      <Shield>6</Shield>
+      <Ability>When defending, during the Compare Results step, you may cancel 1 [HIT] result.  If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+      <Cost>38</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>1</Regenerate>
+      <Borg>0</Borg>
+      <Tech>3</Tech>
+      <Weapon>2</Weapon>
+      <Crew>0</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>bioship_beta_72012</Id>
+      <Set>72012</Set>
+  </Ship>
+  <Ship>
+      <Title>Quark's Treasure</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Ferengi Shuttle</ShipClass>
+      <Faction>Ferengi</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>2</Attack>
+      <Agility>2</Agility>
+      <Hull>2</Hull>
+      <Shield>2</Shield>
+      <Ability>You do not pay a faction penalty when assigning any [CREW] or [TECH] Upgrades to this ship.  You do not place an Auxiliary Power Token beside your ship when using the "Docking" or "Launching" Actions.</Ability>
+      <Cost>16</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>0</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>0</Weapon>
+      <Crew>2</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>quark_s_treasure_72013</Id>
+      <Set>72013</Set>
+  </Ship>
+  <Ship>
+      <Title>Ferengi Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Ferengi Shuttle</ShipClass>
+      <Faction>Ferengi</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>2</Attack>
+      <Agility>2</Agility>
+      <Hull>2</Hull>
+      <Shield>1</Shield>
+      <Ability></Ability>
+      <Cost>14</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>0</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>0</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>ferengi_starship_72013</Id>
+      <Set>72013</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -7184,7 +7294,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Ferengi</Faction>
       <Cost>0</Cost>
       <Id>2027</Id>
-      <Set>OP1Prize,71646a,71806</Set>
+      <Set>OP1Prize,71646a,71806,72013</Set>
     </Captain>
     <Captain>
       <Title>Martok</Title>
@@ -7765,7 +7875,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Species 8472</Faction>
       <Cost>0</Cost>
       <Id>species_8472_captain_71281</Id>
-      <Set>71281</Set>
+      <Set>71281,72012</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -9894,6 +10004,74 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <AdmiralTalent>1</AdmiralTalent>
       <SkillModifier>1</SkillModifier>
   </Captain>
+  <Captain>
+      <Title>Bioship Beta Pilot</Title>
+      <Ability>When attacking, during the Modify Attack Dice step, you may re-roll 1 of your blank results. If your ship was just destroyed and another friendly ship is within Range 1-2 of your ship, you may replace that ship's Captain Card with this card. If this Captain fielded an [ELITE TALENT] Upgrade, you may assign that Upgrade to the new ship as well, if possible.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>8</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Species 8472</Faction>
+      <Cost>6</Cost>
+      <Id>bioship_beta_pilot_72012</Id>
+      <Set>72012</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Quark</Title>
+      <Ability>ACTION: Discard all of your Upgrades to target a ship at Range 1-2. Target ship cannot attack your ship this round. You must discard at least 1 Upgrade to use this Action. You cannot attack or perform any free Actions this round.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>3</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Ferengi</Faction>
+      <Cost>2</Cost>
+      <Id>quark_72013</Id>
+      <Set>72013</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Brunt</Title>
+      <Ability>ACTION: When defending this round, during the Modify Attack Dice step, you may force 1 opposing ship to re-roll 1 of its attack dice (your choice). You may field the Grand Nagus [ELITE TALENT] Upgrade. If you use the Action listed on it, you must discard this card as well.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>4</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Ferengi</Faction>
+      <Cost>3</Cost>
+      <Id>brunt_72013</Id>
+      <Set>72013</Set>
+      <Special>OnlyGrandNagusTalent</Special>
+  </Captain>
+  <Captain>
+      <Title>Zek</Title>
+      <Ability>ACTION: Target a ship at Range 1. Disable 1 of your Upgrades and 1 Upgrade (your choice) on the target ship. This card may only be purchased for a Ferengi ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>2</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Ferengi</Faction>
+      <Cost>1</Cost>
+      <Id>zek_cap_72013</Id>
+      <Set>72013</Set>
+      <Special>OnlyFerengiShip</Special>
+      <AdmiralAbility>FLEET ACTION: Target a ship at Range 1. Disable 1 of your Upgrades and 1 Upgrade (your choice) on the target ship. This card may only be purchased for a Ferengi ship.</AdmiralAbility>
+      <AdmiralCost>1</AdmiralCost>
+      <AdmiralTalent>1</AdmiralTalent>
+      <SkillModifier>0</SkillModifier>
+  </Captain>
   </Captains>
   <Admirals>
     <Admiral>
@@ -10331,6 +10509,26 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
         <AdmiralCost>3</AdmiralCost>
         <AdmiralTalent>1</AdmiralTalent>
         <SkillModifier>1</SkillModifier>
+    </Admiral>
+    <Admiral>
+        <Title>Zek</Title>
+        <Ability>ACTION: Target a ship at Range 1. Disable 1 of your Upgrades and 1 Upgrade (your choice) on the target ship. This card may only be purchased for a Ferengi ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill>2</Skill>
+        <Talent>1</Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Admiral</Type>
+        <Faction>Ferengi</Faction>
+        <Cost>1</Cost>
+        <Id>zek_72013</Id>
+        <Set>72013</Set>
+        <Special>OnlyFerengiShip</Special>
+        <AdmiralAbility>FLEET ACTION: Target a ship at Range 1. Disable 1 of your Upgrades and 1 Upgrade (your choice) on the target ship. This card may only be purchased for a Ferengi ship.</AdmiralAbility>
+        <AdmiralCost>1</AdmiralCost>
+        <AdmiralTalent>1</AdmiralTalent>
+        <SkillModifier>0</SkillModifier>
     </Admiral>
   </Admirals>
   <Upgrades>
@@ -19248,6 +19446,262 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>72008</Set>
         <Special></Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Telepathy</Title>
+        <Ability>You may discard this card immediately before you move in order to change your Maneuver for that round.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Species 8472</Faction>
+        <Cost>4</Cost>
+        <Id>telepathy_72012</Id>
+        <Set>72012</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Biological Technology</Title>
+        <Ability>Place 1 Mission Token on this card at the start of each Planning Phase. When attacking, you may spend up to 2 of these tokens to add an equal number of attack dice. When defending, you may spend up to 2 of these tokens to add an equal number of defense dice. This Upgrade may only be purchased for a Species 8472 ship and no ship may be equipped with more than 1 "Biological Technology" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Species 8472</Faction>
+        <Cost>5</Cost>
+        <Id>biological_technology_72012</Id>
+        <Set>72012</Set>
+        <Special>NoMoreThanOnePerShipAndOnlySpecies8472Ship</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Biogenic Field</Title>
+        <Ability>When defending, you roll +1 defense die (+3 vs a Borg ship). In addition, when an enemy card ability affects one of your cards, roll 1 attack die (3 dice against a Borg card ability). If your roll a [BATTLESTATIONS] result, the card effect is cancelled. This Upgrade may only be purchased for a Species 8472 ship and no ship may be equipped with more than 1 "Biogenic Field" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Species 8472</Faction>
+        <Cost>6</Cost>
+        <Id>biogenic_field_72012</Id>
+        <Set>72012</Set>
+        <Special>NoMoreThanOnePerShipAndOnlySpecies8472Ship</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Electrodynamic Fluid</Title>
+        <Ability>ACTION: Discard this card to immediately perform a 2nd maneuver from your Maneuver Dial with a speed of 3 or less. OR ACTION: Disable this card to perform a [SENSOR ECHO] Action even if your ship is not cloaked. This Upgrade may only be purchased for a Species 8472 ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Species 8472</Faction>
+        <Cost>5</Cost>
+        <Id>electrodynamic_fluid_72012</Id>
+        <Set>72012</Set>
+        <Special>OnlySpecies8472Ship</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Fluidic Space</Title>
+        <Ability>Instead of making a normal move, you may discard this card to remove your ship from the play area and immediately place it back anywhere in the play area, but not within Range 1-2 of any other ship. You cannot attack or perform any Actions on the round you use this ability. This Upgrade costs +5 SP if purchased for a non-Species 8472 ship and no ship may be equipped with more than 1 "Fluidic Space" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Species 8472</Faction>
+        <Cost>6</Cost>
+        <Id>fluidic_space_72012</Id>
+        <Set>72012</Set>
+        <Special>NoMoreThanOnePerShipAndOnlySpecies8472Ship</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Grand Nagus</Title>
+        <Ability>ACTION: Discard this card to target every friendly Ferengi ship within Range 1-3. Each target ship may immediately perform an additional green maneuver.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Ferengi</Faction>
+        <Cost>5</Cost>
+        <Id>grand_nagus_72013</Id>
+        <Set>72013</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Odo</Title>
+        <Ability>During the Planning Phase, you may target a ship within Range 1-3 and choose 1 [CREW] Upgrade on the target ship. If you do so, treat this card as an exact copy of the chosen Upgrade until the end of the End Phase in which you use this ability. If the chosen Upgrade's Action or ability requires it to be disabled or discarded, you must disable or discard this card to use it.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Independent</Faction>
+        <Cost>5</Cost>
+        <Id>odo_72013</Id>
+        <Set>72013</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Nog</Title>
+        <Ability>When defending, during the Roll Attack Dice step, you may discard this card to force the attacking ship to roll -2 attack dice for that attack.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Ferengi</Faction>
+        <Cost>3</Cost>
+        <Id>nog_72013</Id>
+        <Set>72013</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Rom</Title>
+        <Ability>ACTION: Repair 1 Shield Token. If this card is assigned to a Ferengi ship, you may repair up to 2 Shield Tokens instead of 1.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Ferengi</Faction>
+        <Cost>3</Cost>
+        <Id>rom_72013</Id>
+        <Set>72013</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Cargo Hold</Title>
+        <Ability>Add 2 Upgrade slots ([CREW]) to your Upgrade Bar. These Upgrades cannot have a cost greater than 4 SP. This Upgrade may only be purchased for a Ferengi ship and no ship may be equipped with more than 1 "Cargo Hold" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Ferengi</Faction>
+        <Cost>1</Cost>
+        <Id>cargo_hold_20_72013</Id>
+        <Set>72013</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Cargo Hold</Title>
+        <Ability>Add 2 Upgrade slots ([CREW] and [TECH]) to your Upgrade Bar. These Upgrades cannot have a cost greater than 4 SP. This Upgrade may only be purchased for a Ferengi ship and no ship may be equipped with more than 1 "Cargo Hold" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Ferengi</Faction>
+        <Cost>1</Cost>
+        <Id>cargo_hold_11_72013</Id>
+        <Set>72013</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Cargo Hold</Title>
+        <Ability>Add 2 Upgrade slots ([TECH]) to your Upgrade Bar. These Upgrades cannot have a cost greater than 4 SP. This Upgrade may only be purchased for a Ferengi ship and no ship may be equipped with more than 1 "Cargo Hold" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Ferengi</Faction>
+        <Cost>1</Cost>
+        <Id>cargo_hold_02_72013</Id>
+        <Set>72013</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Inversion Wave</Title>
+        <Ability>Instead of making a normal move, you may discard this card to place your ship anywhere in the play area within Range 1-3 of your current position. Remove all Tokens (except Critical Hit Tokens) from beside your ship and place an Auxiliary Power Token beside your ship. You cannot attack on the round you use this ability. No ship may be equipped with more than 1 "Inversion Wave" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Ferengi</Faction>
+        <Cost>4</Cost>
+        <Id>inversion_wave_72013</Id>
+        <Set>72013</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Smugglers</Title>
+        <Ability>ACTION: Target a ship at Range 1-3. Discard this card to steal 1 [TECH] or [WEAPON] Upgrade from the target ship, even if it exceeds your ship's restrictions. If the Smugglers Upgrade is assigned to a Ferengi Shuttle, the stolen Upgrade is flipped face down and cannot be used by your ship. The shuttle may exchange the stolen Upgrade with a docking ship. The docking ship may then flip the stolen Upgrade face up and use it. This Upgrade may only be purchased for a Ferengi Captain assigned to a Ferengi ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Ferengi</Faction>
+        <Cost>5</Cost>
+        <Id>smugglers_72013</Id>
+        <Set>72013</Set>
+        <Special>OnlyFerengiCaptainFerengiShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Biological Weapon</Title>
+        <Ability>ATTACK: Discard this card to perform this attack. If this attack hits, in addition to normal damage, discard 1 [CREW] Upgrade of your choice on the defending ship for each [BATTLESTATIONS] result (max 2). This Upgrade may only be purchased for a Species 8472 Bioship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>5</Attack>
+        <Range>2-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Species 8472</Faction>
+        <Cost>6</Cost>
+        <Id>biological_weapon_72012</Id>
+        <Set>72012</Set>
+        <Special>OnlySpecies8472Ship</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Energy Blast</Title>
+        <Ability>ATTACK: [TARGET LOCK] Spend your target lock and discard this card to perform this attack. This Upgrade may only be purchased for a Species 8472 Bioship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>8</Attack>
+        <Range>2-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Species 8472</Faction>
+        <Cost>8</Cost>
+        <Id>energy_blast_72012</Id>
+        <Set>72012</Set>
+        <Special>OnlySpecies8472Ship</Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -19795,6 +20249,8 @@ A player cannot use these abilities for a ship that has no Captain Card or whose
       <Set id="72008" overallSetName="Wave 17" releaseDate="2015-08-05">U.S.S. Thunderchild</Set>
       <Set id="72001p" overallSetName="Year of Hell" releaseDate="2015-08-15">U.S.S. Bellerophon</Set>
       <Set id="72001r" overallSetName="Year of Hell" releaseDate="2015-08-15">Emergency Force Fields Resource</Set>
+      <Set id="72012" overallSetName="Wave 18" releaseDate="2015-09-02">Bioship Beta</Set>
+      <Set id="72013" overallSetName="Wave 18" releaseDate="2015-09-02">Quark's Treasure</Set>
 
     </Sets>
     <Flagships>
