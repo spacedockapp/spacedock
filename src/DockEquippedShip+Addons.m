@@ -600,6 +600,30 @@
         }
     }
     
+    if (![upgrade isPlaceholder] && [upgrade isTalent] && [self.captain.externalId isEqualToString:@"brunt_72013"]) {
+        if (self.talentCount == 1) {
+            if (![upgrade.title isEqualToString:@"Grand Nagus"]) {
+                return NO;
+            }
+        } else {
+            int talents = self.talentCount;
+            for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+                if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                    if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                        talents --;
+                    }
+                }
+            }
+            if (talents == 1 && ![upgrade.title isEqualToString:@"Grand Nagus"]) {
+                if ([self containsUpgradeWithName:@"Grand Nagus"] == nil && validating) {
+                    return NO;
+                }
+            } else if (talents < 1 && ![upgrade.title isEqualToString:@"Grand Nagus"]) {
+                return NO;
+            }
+        }
+    }
+    
     if (!upgrade.isPlaceholder && [upgrade isTech] && [self.captain.externalId isEqualToString:@"tahna_los_op6prize"]) {
         int tech = self.techCount;
         
@@ -689,6 +713,60 @@
             }
         }
     }
+    if (!upgrade.isPlaceholder && [upgrade isCrew] && ([self containsUpgradeWithId:@"cargo_hold_20_72013"] != nil)) {
+        int crew = self.crewCount;
+        for (DockEquippedUpgrade* eu in self.upgrades) {
+            if ([eu.upgrade isCrew] && !eu.isPlaceholder) {
+                if (![eu.specialTag hasPrefix:@"CargoHoldCrew"]) {
+                    crew --;
+                }
+            }
+        }
+        if (validating) {
+            if ((crew == 1 || crew == 2) && [upgrade costForShip:self] > 4) {
+                return NO;
+            }
+        }
+    }
+    if (!upgrade.isPlaceholder && [upgrade isTech] && [self containsUpgradeWithId:@"cargo_hold_02_72013"] != nil) {
+        int tech = self.techCount;
+        for (DockEquippedUpgrade* eu in self.upgrades) {
+            if ([eu.upgrade isTech] && !eu.isPlaceholder) {
+                if (![eu.specialTag hasPrefix:@"CargoHoldTech"]) {
+                    tech --;
+                }
+            }
+        }
+        if (validating) {
+            if ((tech == 1 || tech == 2) && [upgrade costForShip:self] > 4) {
+                return NO;
+            }
+        }
+    }
+    if (!upgrade.isPlaceholder && ([upgrade isTech]||[upgrade isCrew]) && [self containsUpgradeWithId:@"cargo_hold_11_72013"] != nil) {
+        int tech = self.techCount;
+        int crew = self.crewCount;
+        for (DockEquippedUpgrade* eu in self.upgrades) {
+            if ([eu.upgrade isTech] && !eu.isPlaceholder) {
+                if (![eu.specialTag hasPrefix:@"CargoHoldTech"]) {
+                    tech --;
+                }
+            }
+            if ([eu.upgrade isCrew] && !eu.isPlaceholder) {
+                if (![eu.specialTag hasPrefix:@"CargoHoldCrew"]) {
+                    crew --;
+                }
+            }
+        }
+        if (validating) {
+            if ([upgrade isTech] && (tech == 1 || tech == 2) && [upgrade costForShip:self] > 4) {
+                return NO;
+            }
+            if ([upgrade isCrew] && (crew == 1 || crew == 2) && [upgrade costForShip:self] > 4) {
+                return NO;
+            }
+        }
+    }
     if ([upgrade isFleetCaptain]) {
         DockFleetCaptain* fleetCaptain = (DockFleetCaptain*)upgrade;
         return [self canAddFleetCaptain: fleetCaptain error: nil];
@@ -764,7 +842,7 @@
         }
     }
 
-    if ([upgradeSpecial isEqualToString: @"OnlySpecies8472Ship"]) {
+    if ([upgradeSpecial isEqualToString: @"OnlySpecies8472Ship"] || [upgradeSpecial isEqualToString:@"NoMoreThanOnePerShipAndOnlySpecies8472Ship"]) {
         if (![self.ship isSpecies8472]) {
             return NO;
         }
@@ -1108,8 +1186,15 @@
             }
         } else {
             NSString* upgradeSpecial = upgrade.special;
-            
-            if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
+            if ([upgrade isTalent] && [self.captain.externalId isEqualToString:@"brunt_72013"] && ![upgrade.title isEqualToString:@"grand_nagus_72013"]) {
+                info = @"Brunt may only deploy the Grand Nagus [TALENT].";
+            } else if ([upgrade.externalId isEqualToString:@"first_maje_71793"]) {
+                info = @"This upgrade can only be purchased for a Kazon captain on a Kazon ship.";
+            } else if ([upgrade isTalent] && [self.captain isKazon] && [self.ship isKazon] && self.talentCount == 1) {
+                info = @"You can only deploy the First Maje [TALENT] to this captain.";
+            } else if ([self containsUpgrade:upgrade] && ([upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasSuffix:@"NoMoreThanOnePerShip"])) {
+                info = @"No ship may be equipped with more than one of these upgrades.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
                 info = @"This upgrade can only be added to Jem'hadar ships.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyForKlingonCaptain"]) {
                 info = @"This upgrade can only be added to a Klingon Captain.";
@@ -1117,7 +1202,7 @@
                 info = @"This upgrade can only be added to a Bajoran Captain.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyDominionCaptain"]) {
                 info = @"This upgrade can only be added to a Dominion Captain.";
-            } else if ([upgradeSpecial isEqualToString: @"OnlySpecies8472Ship"]) {
+            } else if ([upgradeSpecial hasSuffix: @"OnlySpecies8472Ship"]) {
                 info = @"This upgrade can only be added to Species 8472 ships.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyKazonShip"]) {
                 info = @"This upgrade can only be added to Kazon ships.";
@@ -1145,8 +1230,6 @@
                 } else {
                     info = @"This upgrade may only be equipped by a Federation Shuttlecraft.";
                 }
-            } else if ([upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasSuffix:@"NoMoreThanOnePerShip"]) {
-                info = @"No ship may be equipped with more than one of these upgrades.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyBattleshipOrCruiser"]) {
                 info = @"This upgrade may only be purchased for a Jem'Hadar Battle Cruiser or Battleship.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyFerengiShip"]) {
@@ -1175,10 +1258,6 @@
                 info = @"You cannot deploy a [WEAPON] Upgrade with a cost greater than 5 to Triphasic Emitter.";
             } else if ([upgrade isWeapon] && [upgrade isFactionBorg] && [self containsUpgradeWithId:@"triphasic_emitter_71536"] != nil) {
                 info = @"You cannot deploy a Borg [WEAPON] Upgrade to Triphasic Emitter.";
-            } else if ([upgrade.externalId isEqualToString:@"first_maje_71793"]) {
-                info = @"This upgrade can only be purchased for a Kazon captain on a Kazon ship.";
-            } else if ([self.captain isKazon] && [self.ship isKazon] && self.talentCount == 1) {
-                info = @"You can only deploy the First Maje [TALENT] to this captain.";
             } else if ([self.ship isShuttle] && [upgrade isWeapon] && [upgrade costForShip:self] > 3) {
                 info = @"You cannot deploy a [WEAPON] Upgrade with a cost greater than 3 to a shuttlecraft.";
             } else if ([upgradeSpecial isEqualToString:@"OnlyKlingon"]) {
@@ -1195,6 +1274,14 @@
                 info = @"You may only deploy this upgrade to a ship with a Primary Weapon Value of 3 or less.";
                 if ([self containsUpgradeWithId:upgrade.externalId]) {
                     info = @"No ship may be equipped with more than one of these upgrades.";
+                }
+            } else if ([self containsUpgradeWithId:@"cargo_hold_11_72013"] != nil || [self containsUpgradeWithId:@"cargo_hold_20_72013"] != nil) {
+                if ([upgrade isCrew] && [upgrade costForShip:self] > 4) {
+                    info = @"You may only deploy [CREW] upgrades with a cost of 4 or less for Cargo Hold.";
+                }
+            } else if ([self containsUpgradeWithId:@"cargo_hold_11_72013"] != nil || [self containsUpgradeWithId:@"cargo_hold_02_72013"] != nil) {
+                if ([upgrade isTech] && [upgrade costForShip:self] > 4) {
+                    info = @"You may only deploy [TECH] upgrades with a cost of 4 or less for Cargo Hold.";
                 }
             }
         }
@@ -1699,7 +1786,7 @@
     if ([self.captain isKazon] && [self.ship isKazon]) {
         talentCount ++;
     }
-    if ([self.captain.externalId isEqualToString:@"slar_71797"] || [self.captain.externalId isEqualToString:@"kurn_71999p"]) {
+    if ([self.captain.externalId isEqualToString:@"slar_71797"] || [self.captain.externalId isEqualToString:@"kurn_71999p"] || [self.captain.externalId isEqualToString:@"brunt_72013"]) {
         talentCount ++;
     }
     return talentCount;

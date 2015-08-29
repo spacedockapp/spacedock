@@ -138,6 +138,9 @@ static NSDictionary* sItemLabels = nil;
             @"jean_luc_picard_b_71531": @"Tech",
             @"jean_luc_picard_c_71531": @"Weapon",
             @"jean_luc_picard_d_71531": @"Crew",
+            @"cargo_hold_20_72013": @"2/0",
+            @"cargo_hold_11_72013": @"1/1",
+            @"cargo_hold_02_72013": @"0/2",
         };
     }
 
@@ -929,6 +932,12 @@ static NSDictionary* sItemLabels = nil;
     if ([externalId isEqualToString:@"systems_upgrade_71998p"] || [externalId isEqualToString:@"systems_upgrade_c_71998p"] || [externalId isEqualToString:@"systems_upgrade_w_71998p"]) {
         return 1;
     }
+    if ([externalId isEqualToString:@"cargo_hold_11_72013"]) {
+        return 1;
+    }
+    if ([externalId isEqualToString:@"cargo_hold_02_72013"]) {
+        return 2;
+    }
     return 0;
 }
 
@@ -947,6 +956,12 @@ static NSDictionary* sItemLabels = nil;
         return 1;
     }
     if ([special isEqualToString:@"Add2HiddenCrew5"]) {
+        return 2;
+    }
+    if ([externalId isEqualToString:@"cargo_hold_11_72013"]) {
+        return 1;
+    }
+    if ([externalId isEqualToString:@"cargo_hold_20_72013"]) {
         return 2;
     }
     return 0;

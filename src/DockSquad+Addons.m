@@ -907,6 +907,21 @@ static NSString* namePrefix(NSString* originalName)
         }
     }
     
+    if ([captain.special isEqualToString: @"OnlyFerengiShip"]) {
+        if (![targetShip.ship isFerengi]) {
+            if (error) {
+                NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", captain.title];
+                NSString* info = @"This captain can only be deployed to a Ferengi ship.";
+                NSDictionary* d = @{
+                                    NSLocalizedDescriptionKey: msg,
+                                    NSLocalizedFailureReasonErrorKey: info
+                                    };
+                *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
+            }
+            return NO;
+        }
+    }
+    
     if ([targetShip containsUpgradeWithId:@"romulan_hijackers_71802"] != nil) {
         if (![captain isRomulan]) {
             if (error) {
@@ -937,6 +952,21 @@ static NSString* namePrefix(NSString* originalName)
             if (error) {
                 NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", admiral.title];
                 NSString* info = @"This admiral can only be deployed to a Romulan ship.";
+                NSDictionary* d = @{
+                                    NSLocalizedDescriptionKey: msg,
+                                    NSLocalizedFailureReasonErrorKey: info
+                                    };
+                *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
+            }
+            return NO;
+        }
+    }
+    
+    if ([admiral.special isEqualToString: @"OnlyFerengiShip"]) {
+        if (![targetShip.ship isFerengi]) {
+            if (error) {
+                NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", admiral.title];
+                NSString* info = @"This admiral can only be deployed to a Ferengi ship.";
                 NSDictionary* d = @{
                                     NSLocalizedDescriptionKey: msg,
                                     NSLocalizedFailureReasonErrorKey: info
