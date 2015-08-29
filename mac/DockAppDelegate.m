@@ -866,13 +866,15 @@ NSString* kCheckGameDataUpdates = @"checkGameUpdates";
         NSString* info = [NSString stringWithFormat: @"Current data version is %@ and version %@ is available. Would you like to update?", currentVersion, remoteVersion];
         [alert setInformativeText: info];
         [alert setAlertStyle: NSInformationalAlertStyle];
+    
         id completion = ^(NSModalResponse returnCode) {
-            [self updateInfo: downloadData];
+            if (returnCode == NSAlertFirstButtonReturn) {
+                [self updateInfo: downloadData];
+            }
         };
         [alert beginSheetModalForWindow: [self window]
                           completionHandler: completion];
     } else {
-        [alert addButtonWithTitle: @"OK"];
         [alert setMessageText: @"Game Data Up to Date"];
         NSString* info = [NSString stringWithFormat: @"Installed data is version %@ and is the most recent version available.", currentVersion];
         [alert setInformativeText: info];
