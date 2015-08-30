@@ -67,7 +67,6 @@ enum {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     _fleetCostHighlight = [defaults stringForKey: @"fleetCostHighlight"];
     _markExpiredRes = [defaults boolForKey:kMarkExpiredResKey];
-
 }
 
 -(void)didReceiveMemoryWarning
@@ -620,6 +619,7 @@ enum {
     [self.tableView reloadData];
 
     if ([resource.externalId isEqualToString:@"officer_exchange_program_71996a"]) {
+        _squad.resourceAttributes = @"";
         [self selectFactionSheet:1];
     }
 }
@@ -634,7 +634,7 @@ enum {
     NSSet* factionsSet = [DockUpgrade allFactions: _squad.managedObjectContext];
     NSArray* factionsArray = [[factionsSet allObjects] sortedArrayUsingSelector: @selector(caseInsensitiveCompare:)];
     for (NSString* faction in factionsArray) {
-        if (![_squad.resourceAttributes containsString:faction]) {
+        if ([_squad.resourceAttributes rangeOfString:faction].location == NSNotFound) {
             [sheet addButtonWithTitle: faction];
         }
     }
@@ -733,6 +733,11 @@ enum {
     } else if ([actionSheet.title isEqualToString:@"Select Faction 2"]) {
         NSString* faction = [actionSheet buttonTitleAtIndex:buttonIndex];
         _squad.resourceAttributes = [_squad.resourceAttributes stringByAppendingFormat:@" & %@",faction];
+        NSError* error;
+        
+        if (!saveItem(_squad,  &error)) {
+            presentError(error);
+        }
         [self.tableView reloadData];
     } else {
         switch (buttonIndex) {

@@ -237,7 +237,7 @@
 {
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: @"ability"];
     cell.textLabel.text = @"Set";
-    if ([_upgrade.setName containsString:@","]) {
+    if ([_upgrade.setName rangeOfString:@","].location != NSNotFound) {
         cell.textLabel.text = @"Sets";
     }
     cell.detailTextLabel.text = _upgrade.setName;
