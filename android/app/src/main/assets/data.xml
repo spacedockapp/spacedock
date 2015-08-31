@@ -1,4 +1,4 @@
-<Data version="2015-08-29@00-01">
+<Data version="2015-08-31@00-31">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -19604,7 +19604,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Cost>1</Cost>
         <Id>cargo_hold_20_72013</Id>
         <Set>72013</Set>
-        <Special></Special>
+        <Special>NoMoreThanOnePerShipFerengi</Special>
     </Upgrade>
     <Upgrade>
         <Title>Cargo Hold</Title>
@@ -19620,7 +19620,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Cost>1</Cost>
         <Id>cargo_hold_11_72013</Id>
         <Set>72013</Set>
-        <Special></Special>
+        <Special>NoMoreThanOnePerShipFerengi</Special>
     </Upgrade>
     <Upgrade>
         <Title>Cargo Hold</Title>
@@ -19636,7 +19636,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Cost>1</Cost>
         <Id>cargo_hold_02_72013</Id>
         <Set>72013</Set>
-        <Special></Special>
+        <Special>NoMoreThanOnePerShipFerengi</Special>
     </Upgrade>
     <Upgrade>
         <Title>Inversion Wave</Title>
