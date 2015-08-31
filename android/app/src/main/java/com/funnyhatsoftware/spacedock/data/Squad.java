@@ -401,6 +401,11 @@ public class Squad extends SquadBase {
                     return new Explanation(result, "You may only deploy a Romulan captain while this ship is equipped with the Romulan Hijackers Upgrade.");
                 }
             }
+            if ("OnlyFerengiShip".equals(captain.getSpecial())) {
+                if (!targetShip.getShip().isFerengi()) {
+                    return new Explanation(result, "You may only deploy this Captain to a Ferengi ship.");
+                }
+            }
         }
 
         if (captain.getMirrorUniverseUnique()) {
@@ -436,6 +441,11 @@ public class Squad extends SquadBase {
         }
         if ("not_with_hugh".equalsIgnoreCase(upgrade.getSpecial()) && null != containsUpgradeWithName("Hugh")) {
             return new Explanation(result, "This Upgrade cannot be added to a squadron that contains Hugh");
+        }
+        if ("OnlyFerengiShip".equals(upgrade.getSpecial())) {
+            if (!targetShip.getShip().isFerengi()) {
+                return new Explanation(result, "You may only deploy this " + upgrade.getUpType() + " to a Ferengi ship.");
+            }
         }
 
         if (upgrade.getMirrorUniverseUnique()) {

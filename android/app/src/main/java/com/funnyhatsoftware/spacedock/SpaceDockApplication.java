@@ -73,12 +73,12 @@ public class SpaceDockApplication extends Application {
         if (!seenSetIds.containsAll(allSetIds) || !allSetIds.containsAll(seenSetIds)) {
             // Seen Sets differ from those in universe
             String toastText = universe.getSetChangeString(seenSetIds);
-            seenSetIds = allSetIds;
+
             if (sharedPrefs.getBoolean("pref_key_auto_add_new_sets", true)) {
                 // auto add newly seen sets - ask universe for valid selected sets, plus new ones
                 setIds = universe.getSetSelectionPlusNewSets(setIds, seenSetIds);
 
-                storeSelectedAndSeenSets(sharedPrefs, setIds, seenSetIds);
+                storeSelectedAndSeenSets(sharedPrefs, setIds, allSetIds);
                 toastText += " enabled, and added to library.";
             } else {
                 storeSeenSets(sharedPrefs, seenSetIds);
@@ -88,7 +88,6 @@ public class SpaceDockApplication extends Application {
         } else if (seenSetIds == allSetIds) {
             storeSeenSets(sharedPrefs, seenSetIds);
         }
-
         updateSetPreferences(setIds);
     }
 

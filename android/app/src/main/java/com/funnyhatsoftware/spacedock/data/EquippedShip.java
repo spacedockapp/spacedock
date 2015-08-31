@@ -340,6 +340,12 @@ public class EquippedShip extends EquippedShipBase {
         if (flagship != null) {
             v += flagship.getTalent();
         }
+        if (getCaptain().getExternalId().equals("brunt_72013")){
+            v += 1;
+        }
+        if (getCaptain().isKazon() && getShip().isKazon()) {
+            v += 1;
+        }
         return v;
     }
 
@@ -701,7 +707,7 @@ public class EquippedShip extends EquippedShipBase {
                 return new Explanation(msg, "This upgrade can only be added to a Klingon ship.");
             }
         }
-        if ("NoMoreThanOnePerShip".equals(upgradeSpecial) || "OnlyBorgShipAndNoMoreThanOnePerShip".equals(upgradeSpecial) || upgradeSpecial.endsWith("NoMoreThanOnePerShip")) {
+        if ("NoMoreThanOnePerShip".equals(upgradeSpecial) || "OnlyBorgShipAndNoMoreThanOnePerShip".equals(upgradeSpecial) || upgradeSpecial.endsWith("NoMoreThanOnePerShip") || upgradeSpecial.startsWith("NoMoreThanOnePerShip")) {
             if (addingNew && null != containsUpgrade(upgrade)) {
                 return new Explanation(msg, "This upgrade can only be added once per ship.");
             }
@@ -725,7 +731,16 @@ public class EquippedShip extends EquippedShipBase {
         if ("NoMoreThanOnePerShipFederation".equals(upgradeSpecial)) {
             if (addingNew && null != containsUpgrade(upgrade)) {
                 return new Explanation(msg, "This upgrade can only be added once per ship.");
+            } else if (addingNew && (upgrade.getExternalId().equals("systems_upgrade_71998p")
+                || upgrade.getExternalId().equals("systems_upgrade_c_71998p")
+                || upgrade.getExternalId().equals("systems_upgrade_w_71998p"))) {
+                if (null != containsUpgrade(Universe.getUniverse().getUpgrade("systems_upgrade_71998p"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("systems_upgrade_c_71998p"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("systems_upgrade_w_71998p"))) {
+                    return new Explanation(msg, "This upgrade can only be added once per ship.");
+                }
             }
+
             if (!ship.isFederation()) {
                 return new Explanation(msg, "This upgrade can only be added to a Federation ship.");
             }
@@ -733,6 +748,14 @@ public class EquippedShip extends EquippedShipBase {
         if ("NoMoreThanOnePerShipFerengi".equals(upgradeSpecial)) {
             if (addingNew && null != containsUpgrade(upgrade)) {
                 return new Explanation(msg, "This upgrade can only be added once per ship.");
+            } else if (addingNew && (upgrade.getExternalId().equals("cargo_hold_20_72013")
+                    || upgrade.getExternalId().equals("cargo_hold_11_72013")
+                    || upgrade.getExternalId().equals("cargo_hold_02_72013"))) {
+                if (null != containsUpgrade(Universe.getUniverse().getUpgrade("cargo_hold_20_72013"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("cargo_hold_11_72013"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("cargo_hold_02_72013"))) {
+                    return new Explanation(msg, "This upgrade can only be added once per ship.");
+                }
             }
             if (!ship.isFerengi()) {
                 return new Explanation(msg, "This upgrade can only be added to a Ferengi ship.");
@@ -833,7 +856,7 @@ public class EquippedShip extends EquippedShipBase {
                     }
                 }
 
-                if (upgradeSpecial.equals("OnlySpecies8472Ship")) {
+                if (upgradeSpecial.equals("OnlySpecies8472Ship") || upgradeSpecial.endsWith("OnlySpecies8472Ship")) {
                     if (!ship.isSpecies8472()) {
                         return new Explanation(msg,
                                 "This upgrade can only be added to Species 8472 ships.");
@@ -899,6 +922,30 @@ public class EquippedShip extends EquippedShipBase {
                 if (!captain.isFederation() || !ship.isFederation()) {
                     return new Explanation(msg,
                             "This upgrade can only be added to a Federation captain on a Federation Ship.");
+                }
+            }
+
+            if (upgrade.isTalent() && !upgrade.isPlaceholder()) {
+                if (getCaptain().getExternalId().equals("brunt_72013")) {
+                    int limit = getTalent();
+                    if (limit == 1) {
+                        if (!upgrade.getTitle().equals("Grand Nagus")) {
+                            return new Explanation(msg,
+                                    "Brunt may only field the Grand Nagus [TALENT] Upgrade");
+                        }
+                    } else {
+                        for (EquippedUpgrade eu : mUpgrades) {
+                            if (!eu.isPlaceholder() && eu.getUpgrade().isTalent()) {
+                                limit--;
+                            }
+                        }
+                        if (limit <= 1 && containsUpgradeWithName("Grand Nagus") == null) {
+                            if (addingNew && !upgrade.getTitle().equals("Grand Nagus")) {
+                                return new Explanation(msg,
+                                        "Brunt may only field the Grand Nagus [TALENT] Upgrade");
+                            }
+                        }
+                    }
                 }
             }
         }
