@@ -443,6 +443,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if (!isRomulan()) {
                 cost += 2;
             }
+        } else if ("Hull4NoRearPlus5NonFed".equals(upgradeSpecial)) {
+            if (!ship.isFederation()) {
+                cost += 5;
+            }
         } else if (upgradeSpecial.startsWith("Plus3NotShipClass_")) {
             String reqClass = upgradeSpecial.substring(18);
             if (!ship.getShipClass().replace(" ", "_").equals(reqClass)) {
@@ -659,7 +663,8 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 || "AddHiddenWeapon".equalsIgnoreCase(special)) {
             return 1;
         }
-        if ("AddTwoWeaponSlots".equalsIgnoreCase(special)) {
+        if ("AddTwoWeaponSlots".equalsIgnoreCase(special)
+                || "AddTwoWeaponSlotsAndNoMoreThanOnePerShip".equalsIgnoreCase(special) ){
             return 2;
         }
         return 0;

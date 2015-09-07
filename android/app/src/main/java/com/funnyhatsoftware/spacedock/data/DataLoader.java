@@ -463,7 +463,10 @@ public class DataLoader extends DefaultHandler {
                 "Plus2NotRomulanAndNoMoreThanOnePerShip",
                 "OnlyFederationCaptainShip",
                 "OnlyIntrepidAndNoMoreThanOnePerShip",
-                "Add2HiddenCrew5"
+                "Add2HiddenCrew5",
+                "OnlyGrandNagusTalent",
+                "AddTwoWeaponSlotsAndNoMoreThanOnePerShip",
+                "Hull4NoRearPlus5NonFed"
 
         };
 

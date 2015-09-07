@@ -834,6 +834,14 @@ public class EquippedShip extends EquippedShipBase {
                 return new Explanation(msg, "This upgrade can only be added to an Intrepid class ship.");
             }
         }
+        if ("Hull4NoRearPlus5NonFed".equals(upgradeSpecial)) {
+            if (ship.getShipClassDetails().hasRearFiringArc()) {
+                return new Explanation(msg, "This upgrade can only be added to a ship without a rear firing arc.");
+            }
+            if (ship.getHull() < 4) {
+                return new Explanation(msg, "This upgrade can only be added to a ship with a hull of 4 or greater.");
+            }
+        }
         Captain captain = getCaptain();
         if (null != captain) {
             if (!"lore_71522".equals(captain.getSpecial()) || !upgrade.isTalent()) {
