@@ -14,6 +14,7 @@
 #import "DockSet+Addons.h"
 #import "DockSetItem+Addons.h"
 #import "DockShip+Addons.h"
+#import "DockShipClassDetails+Addons.h"
 #import "DockSideboard+Addons.h"
 #import "DockSquad+Addons.h"
 #import "DockUpgrade+Addons.h"
@@ -1082,6 +1083,19 @@
             return NO;
         }
     }
+    
+    if ([upgradeSpecial isEqualToString:@"Hull4NoRearPlus5NonFed"]) {
+        int shipHull = [self.ship.hull intValue];
+        if (self.flagship != nil) {
+            shipHull += self.flagship.hullAdd;
+        }
+        if (shipHull < 4) {
+            return NO;
+        }
+        if (![self.ship.shipClassDetails.rearArc isEqualToString:@""]) {
+            return NO;
+        }
+    }
 
     if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [upgrade.upType isEqualToString: @"Tech"] && [self techCount] == 1 && [self containsUpgradeWithId:@"enhanced_hull_plating_71526"] != nil) {
             return NO;
@@ -1282,6 +1296,12 @@
             } else if ([self containsUpgradeWithId:@"cargo_hold_11_72013"] != nil || [self containsUpgradeWithId:@"cargo_hold_02_72013"] != nil) {
                 if ([upgrade isTech] && [upgrade costForShip:self] > 4) {
                     info = @"You may only deploy [TECH] upgrades with a cost of 4 or less for Cargo Hold.";
+                }
+            } else if ([upgradeSpecial isEqualToString:@"Hull4NoRearPlus5NonFed"]) {
+                if ([self.ship.hull intValue] < 4) {
+                    info = @"You may only deploy this upgrade to a ship with a Hull of 4 or greater.";
+                } else if (![self.ship.shipClassDetails.rearArc isEqualToString:@""]) {
+                    info = @"You may only deploy this upgrade to a ship without a rear firing arc.";
                 }
             }
         }

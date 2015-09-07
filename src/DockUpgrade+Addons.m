@@ -718,6 +718,10 @@ static NSDictionary* sItemLabels = nil;
         if (![ship isRomulan]) {
             cost += 2;
         }
+    }  else if ([upgradeSpecial isEqualToString:@"Hull4NoRearPlus5NonFed"]) {
+        if (![ship isFederation]) {
+            cost += 5;
+        }
     } else if ([upgradeSpecial hasPrefix:@"Plus3NotShipClass_"]) {
         NSString* shipClass = [ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
         if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus3NotShipClass_%@",shipClass]]) {
@@ -905,6 +909,9 @@ static NSDictionary* sItemLabels = nil;
     }
     if ([special isEqualToString:@"AddHiddenWeapon"]) {
         return 1;
+    }
+    if ([special isEqualToString:@"AddTwoWeaponSlotsAndNoMoreThanOnePerShip"]) {
+        return 2;
     }
     return 0;
 }
