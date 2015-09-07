@@ -1,20 +1,20 @@
   <Admiral>
-    <Title>Zek</Title>
-    <Ability>ACTION: Target a ship at Range 1. Disable 1 of your Upgrades and 1 Upgrade (your choice) on the target ship. This card may only be purchased for a Ferengi ship.</Ability>
+    <Title>Haden</Title>
+    <Ability>ACTION: Target a ship at Range 1-2 that does not have your ship in its forward firing arc. If you attack that ship this round, gain +1 attack die and roll 1 less defense die.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>2</Skill>
-    <Talent>1</Talent>
+    <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Admiral</Type>
-    <Faction>Ferengi</Faction>
+    <Faction>Federation</Faction>
     <Cost>1</Cost>
-    <Id>zek_72013</Id>
-    <Set>72013</Set>
-    <Special>Yes</Special>
-    <AdmiralAbility>FLEET ACTION: Target a ship at Range 1. Disable 1 of your Upgrades and 1 Upgrade (your choice) on the target ship. This card may only be purchased for a Ferengi ship.</AdmiralAbility>
+    <Id>haden_72011</Id>
+    <Set>72011</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: Target a ship at Range 1-2 that does not have your ship in its forward firing arc. If you attack that ship this round, gain +1 attack die and roll 1 less defense die.</AdmiralAbility>
     <AdmiralCost>1</AdmiralCost>
-    <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>0</SkillModifier>
+    <AdmiralTalent>0</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
   </Admiral>

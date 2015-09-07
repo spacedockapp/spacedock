@@ -1,68 +1,52 @@
   <Captain>
-    <Title>Bioship Beta Pilot</Title>
-    <Ability>When attacking, during the Modify Attack Dice step, you may re-roll 1 of your blank results. If your ship was just destroyed and another friendly ship is within Range 1-2 of your ship, you may replace that ship's Captain Card with this card. If this Captain fielded an [ELITE TALENT] Upgrade, you may assign that Upgrade to the new ship as well, if possible.</Ability>
-    <Unique>Y</Unique>
+    <Title>Federation</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>8</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Species 8472</Faction>
-    <Cost>6</Cost>
-    <Id>bioship_beta_pilot_72012</Id>
-    <Set>72012</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Quark</Title>
-    <Ability>ACTION: Discard all of your Upgrades to target a ship at Range 1-2. Target ship cannot attack your ship this round. You must discard at least 1 Upgrade to use this Action. You cannot attack or perform any free Actions this round.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>3</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Ferengi</Faction>
-    <Cost>2</Cost>
-    <Id>quark_72013</Id>
-    <Set>72013</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Brunt</Title>
-    <Ability>ACTION: When defending this round, during the Modify Attack Dice step, you may force 1 opposing ship to re-roll 1 of its attack dice (your choice). You may field the Grand Nagus [ELITE TALENT] Upgrade. If you use the Action listed on it, you must discard this card as well.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>4</Skill>
+    <Skill>1</Skill>
     <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Ferengi</Faction>
-    <Cost>3</Cost>
-    <Id>brunt_72013</Id>
-    <Set>72013</Set>
-    <Special>Yes</Special>
+    <Faction>Federation</Faction>
+    <Cost>0</Cost>
+    <Id>federation_72011</Id>
+    <Set>72011</Set>
+    <Special></Special>
   </Captain>
   <Captain>
-    <Title>Zek</Title>
-    <Ability>ACTION: Target a ship at Range 1. Disable 1 of your Upgrades and 1 Upgrade (your choice) on the target ship. This card may only be purchased for a Ferengi ship.</Ability>
+    <Title>Benjamin Maxwell</Title>
+    <Ability>When attacking a ship with one of your secondary weapons, during the Modify Attack Dice step, you may re-roll and 1 of your Attack dice.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>2</Skill>
+    <Skill>6</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Ferengi</Faction>
+    <Faction>Federation</Faction>
+    <Cost>4</Cost>
+    <Id>benjamin_maxwell_72011</Id>
+    <Set>72011</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Haden</Title>
+    <Ability>ACTION: Target a ship at Range 1-2 that does not have your ship in its forward firing arc. If you attack that ship this round, gain +1 attack die and roll 1 less defense die.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>2</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
     <Cost>1</Cost>
-    <Id>zek_cap_72013</Id>
-    <Set>72013</Set>
-    <Special>Yes</Special>
-    <AdmiralAbility>FLEET ACTION: Target a ship at Range 1. Disable 1 of your Upgrades and 1 Upgrade (your choice) on the target ship. This card may only be purchased for a Ferengi ship.</AdmiralAbility>
+    <Id>haden_cap_72011</Id>
+    <Set>72011</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: Target a ship at Range 1-2 that does not have your ship in its forward firing arc. If you attack that ship this round, gain +1 attack die and roll 1 less defense die.</AdmiralAbility>
     <AdmiralCost>1</AdmiralCost>
-    <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>0</SkillModifier>
+    <AdmiralTalent>0</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
   </Captain>

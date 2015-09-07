@@ -1,6 +1,6 @@
     <Upgrade>
-      <Title>Telepathy</Title>
-      <Ability>You may discard this card immediately before you move in order to change your Maneuver for that round.</Ability>
+      <Title>Prefix Code</Title>
+      <Ability>ACTION: Discard this card to target a ship at Range 1-2 of your ship. Disable up to 2 Shield Tokens on the target ship. Place an Auxiliary Power Token beside your ship.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -8,95 +8,31 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Species 8472</Faction>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>prefix_code_72011</Id>
+      <Set>72011</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Terry</Title>
+      <Ability>ACTION: Disable this card and 2 of your Active Shields to repair 1 damage to your ship's Hull.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
       <Cost>4</Cost>
-      <Id>telepathy_72012</Id>
-      <Set>72012</Set>
+      <Id>terry_72011</Id>
+      <Set>72011</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Biological Technology</Title>
-      <Ability>Place 1 Mission Token on this card at the start of each Planning Phase. When attacking, you may spend up to 2 of these tokens to add an equal number of attack dice. When defending, you may spend up to 2 of these tokens to add an equal number of defense dice. This Upgrade may only be purchased for a Species 8472 ship and no ship may be equipped with more than 1 "Biological Technology" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Species 8472</Faction>
-      <Cost>5</Cost>
-      <Id>biological_technology_72012</Id>
-      <Set>72012</Set>
-      <Special>Yes</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Biogenic Field</Title>
-      <Ability>When defending, you roll +1 defense die (+3 vs a Borg ship). In addition, when an enemy card ability affects one of your cards, roll 1 attack die (3 dice against a Borg card ability). If your roll a [BATTLESTATIONS] result, the card effect is cancelled. This Upgrade may only be purchased for a Species 8472 ship and no ship may be equipped with more than 1 "Biogenic Field" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Species 8472</Faction>
-      <Cost>6</Cost>
-      <Id>biogenic_field_72012</Id>
-      <Set>72012</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Electrodynamic Fluid</Title>
-      <Ability>ACTION: Discard this card to immediately perform a 2nd maneuver from your Maneuver Dial with a speed of 3 or less. OR ACTION: Disable this card to perform a [SENSOR ECHO] Action even if your ship is not cloaked. This Upgrade may only be purchased for a Species 8472 ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Species 8472</Faction>
-      <Cost>5</Cost>
-      <Id>electrodynamic_fluid_72012</Id>
-      <Set>72012</Set>
-      <Special>Yes</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Fluidic Space</Title>
-      <Ability>Instead of making a normal move, you may discard this card to remove your ship from the play area and immediately place it back anywhere in the play area, but not within Range 1-2 of any other ship. You cannot attack or perform any Actions on the round you use this ability. This Upgrade costs +5 SP if purchased for a non-Species 8472 ship and no ship may be equipped with more than 1 "Fluidic Space" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Species 8472</Faction>
-      <Cost>6</Cost>
-      <Id>fluidic_space_72012</Id>
-      <Set>72012</Set>
-      <Special>Yes</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Grand Nagus</Title>
-      <Ability>ACTION: Discard this card to target every friendly Ferengi ship within Range 1-3. Each target ship may immediately perform an additional green maneuver.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Ferengi</Faction>
-      <Cost>5</Cost>
-      <Id>grand_nagus_72013</Id>
-      <Set>72013</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Odo</Title>
-      <Ability>During the Planning Phase, you may target a ship within Range 1-3 and choose 1 [CREW] Upgrade on the target ship. If you do so, treat this card as an exact copy of the chosen Upgrade until the end of the End Phase in which you use this ability. If the chosen Upgrade's Action or ability requires it to be disabled or discarded, you must disable or discard this card to use it.</Ability>
+      <Title>Elizabeth Lense</Title>
+      <Ability>At any time, you may discard this card to remove 1 disabled Upgrade Token from one of your [CREW] or [TECH] Upgrades and then place 2 Time Tokens on that Upgrade.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -104,63 +40,15 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Independent</Faction>
-      <Cost>5</Cost>
-      <Id>odo_72013</Id>
-      <Set>72013</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Nog</Title>
-      <Ability>When defending, during the Roll Attack Dice step, you may discard this card to force the attacking ship to roll -2 attack dice for that attack.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Ferengi</Faction>
-      <Cost>3</Cost>
-      <Id>nog_72013</Id>
-      <Set>72013</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Rom</Title>
-      <Ability>ACTION: Repair 1 Shield Token. If this card is assigned to a Ferengi ship, you may repair up to 2 Shield Tokens instead of 1.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Ferengi</Faction>
-      <Cost>3</Cost>
-      <Id>rom_72013</Id>
-      <Set>72013</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Cargo Hold</Title>
-      <Ability>Add 2 Upgrade slots ([CREW] or [TECH]) to your Upgrade Bar. These Upgrades cannot have a cost greater than 4 SP. This Upgrade may only be purchased for a Ferengi ship and no ship may be equipped with more than 1 "Cargo Hold" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Ferengi</Faction>
+      <Faction>Federation</Faction>
       <Cost>1</Cost>
-      <Id>cargo_hold_72013</Id>
-      <Set>72013</Set>
+      <Id>elizabeth_lense_72011</Id>
+      <Set>72011</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Inversion Wave</Title>
-      <Ability>Instead of making a normal move, you may discard this card to place your ship anywhere in the play area within Range 1-3 of your current position. Remove all Tokens (except Critical Hit Tokens) from beside your ship and place an Auxiliary Power Token beside your ship. You cannot attack on the round you use this ability. No ship may be equipped with more than 1 "Inversion Wave" Upgrade.</Ability>
+      <Title>High Energy Sensor Sweep</Title>
+      <Ability>After you move, you may disable 1 Active Shield to perform a free [SCAN] Action. No ship may be equipped with more than 1 High Energy Sensor Sweep Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -168,31 +56,47 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Ferengi</Faction>
-      <Cost>4</Cost>
-      <Id>inversion_wave_72013</Id>
-      <Set>72013</Set>
-      <Special>Yes</Special>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>high_energy_sensor_sweep_72011</Id>
+      <Set>72011</Set>
+      <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Smugglers</Title>
-      <Ability>ACTION: Target a ship at Range 1-3. Discard this card to steal 1 [TECH] or [WEAPON] Upgrade from the target ship, even if it exceeds your ship's restrictions. If the Smugglers Upgrade is assigned to a Ferengi Shuttle, the stolen Upgrade is flipped face down and cannot be used by your ship. The shuttle may exchange the stolen Upgrade with a docking ship. The docking ship may then flip the stolen Upgrade face up and use it. This Upgrade may only be purchased for a Ferengi Captain assigned to a Ferengi ship.</Ability>
-      <Unique>Y</Unique>
+      <Title>Aft Torpedo Launcher</Title>
+      <Ability>You may fill one of your [CREW], [TECH] or [WEAPON] Upgrade slots with this card. When attacking with a Photon Torpedoes Upgrade, you may disable this card to target a ship that is not in your forward firing arc. This Upgrade may only be purchased for a ship with a Hull of 4 or greater that does not have a rear firing arc and costs +5 SP if purchased for any non-Federation ship.</Ability>
+      <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Ferengi</Faction>
-      <Cost>5</Cost>
-      <Id>smugglers_72013</Id>
-      <Set>72013</Set>
-      <Special>Yes</Special>
+      <Type>?</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>aft_torpedo_launcher_72011</Id>
+      <Set>72011</Set>
+      <Special>Hull4NoRearPlus5NonFed</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Biological Weapon</Title>
-      <Ability>ATTACK: Discard this card to perform this attack. If this attack hits, in addition to normal damage, discard 1 [CREW] Upgrade of your choice on the defending ship for each [BATTLESTATIONS] result (max 2). This Upgrade may only be purchased for a Species 8472 Bioship.</Ability>
+      <Title>Arsenal</Title>
+      <Ability>Add 2 [WEAPON] Upgrades to your Upgrade Bar. When placing Time Tokens on one of your other [WEAPON] Upgrades, you may place 1 of those tokens on this card. No ship may be equipped with more than 1 "Arsenal" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Weapon</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>arsenal_72011</Id>
+      <Set>72011</Set>
+      <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Quantum Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. If the target ship is hit, add 1 [HIT] result to your total damage. You may fire this weapon from your forward or rear firing arcs.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -200,25 +104,25 @@
       <Attack>5</Attack>
       <Range>2-3</Range>
       <Type>Weapon</Type>
-      <Faction>Species 8472</Faction>
+      <Faction>Federation</Faction>
       <Cost>6</Cost>
-      <Id>biological_weapon_72012</Id>
-      <Set>72012</Set>
-      <Special>Yes</Special>
+      <Id>quantum_torpedoes_72011</Id>
+      <Set>72011,72008</Set>
+      <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Energy Blast</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and discard this card to perform this attack. This Upgrade may only be purchased for a Species 8472 Bioship.</Ability>
+      <Title>Photon Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. You may convert 1 of your [BATTLESTATIONS] results into 1 [CRIT] result. You may fire this weapon from your forward or rear firing arcs.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>8</Attack>
+      <Attack>5</Attack>
       <Range>2-3</Range>
       <Type>Weapon</Type>
-      <Faction>Species 8472</Faction>
-      <Cost>8</Cost>
-      <Id>energy_blast_72012</Id>
-      <Set>72012</Set>
-      <Special>Yes</Special>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>photon_torpedoes_72011</Id>
+      <Set>72011</Set>
+      <Special></Special>
     </Upgrade>

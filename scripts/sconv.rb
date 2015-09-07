@@ -44,10 +44,8 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-8/25/2015 16:57:20	72012 - Bioship Beta	Unique	Bioship Beta	Species 8472	Species 8472 Bioship	Species 8472 Bioship				6	2	5	6	When defending, during the Compare Results step, you may cancel 1 [HIT] result.  If you do so, place an Auxiliary Power Token beside your ship.	Evasive, Regenerate, Scan, Target Lock	38	0	0	3	2	90-degree forward		0
-8/25/2015 17:02:39	72012 - Bioship Beta	Non-unique	Species 8472 Starship	Species 8472	Species 8472 Bioship	Species 8472 Bioship				6	2	5	5		Evasive, Regenerate, Scan, Target Lock	36	0	0	3	1	90-degree forward		0
-8/28/2015 9:42:06	72013 - Quark's Treasure	Unique	Quark's Treasure	Ferengi	Ferengi Shuttle		1 Forward, 1 Bank, 2 Forward	1 Turn, 2 Bank, 2 Turn, 3 Forward, 1 Come About, 2 Come About		2	2	2	2	You do not pay a faction penalty when assigning any [CREW] or [TECH] Upgrades to this ship.  You do not place an Auxiliary Power Token beside your ship when using the "Docking" or "Launching" Actions.	Evasive, Scan	16	0	2	1	0	90-degree forward		0
-8/28/2015 9:42:48	72013 - Quark's Treasure	Non-unique	Ferengi Starship	Ferengi	Ferengi Shuttle	Ferengi Shuttle				2	2	2	1		Evasive, Scan	14	0	1	1	0	90-degree forward		0
+9/3/2015 14:04:42	72011 - USS Phoenix	Non-unique	Federation Starship	Federation	Nebula Class	Nebula Class				4	1	4	3		Battle Stations, Evasive, Scan, Target Lock	24	0	1	1	2	90-degree forward		0
+9/3/2015 14:06:05	72011 - USS Phoenix	Unique	U.S.S. Phoenix	Federation	Nebula Class	Nebula Class				4	1	4	4	Before you move, you may change your maneuver to another maneuver on your Maneuver Dial with the same speed.  If you do so, place an Auxiliary Power Token beside your ship.	Battle Stations, Evasive, Scan, Target Lock	26	0	2	1	2	90-degree forward		0
 SHIPTEXT
 
 

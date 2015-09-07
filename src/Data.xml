@@ -1,4 +1,4 @@
-<Data version="2015-08-31@00-31">
+<Data version="2015-09-07@02-36">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -6839,6 +6839,64 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Id>ferengi_starship_72013</Id>
       <Set>72013</Set>
   </Ship>
+  <Ship>
+      <Title>Federation Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Nebula Class</ShipClass>
+      <Faction>Federation</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>3</Shield>
+      <Ability></Ability>
+      <Cost>24</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>federation_starship_72011</Id>
+      <Set>72011</Set>
+  </Ship>
+  <Ship>
+      <Title>U.S.S. Phoenix</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Nebula Class</ShipClass>
+      <Faction>Federation</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>4</Shield>
+      <Ability>Before you move, you may change your maneuver to another maneuver on your Maneuver Dial with the same speed.  If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+      <Cost>26</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>2</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>u_s_s_phoenix_72011</Id>
+      <Set>72011</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -6889,7 +6947,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Federation</Faction>
       <Cost>0</Cost>
       <Id>2003</Id>
-      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526,71510,71531,71997p,71801,71998p,71802,72001p,72008</Set>
+      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526,71510,71531,71997p,71801,71998p,71802,72001p,72008,72011</Set>
     </Captain>
     <Captain>
       <Title>Nu'Daq</Title>
@@ -10072,6 +10130,42 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <AdmiralTalent>1</AdmiralTalent>
       <SkillModifier>0</SkillModifier>
   </Captain>
+  <Captain>
+      <Title>Benjamin Maxwell</Title>
+      <Ability>When attacking a ship with one of your secondary weapons, during the Modify Attack Dice step, you may re-roll and 1 of your Attack dice.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>benjamin_maxwell_72011</Id>
+      <Set>72011</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Haden</Title>
+      <Ability>ACTION: Target a ship at Range 1-2 that does not have your ship in its forward firing arc. If you attack that ship this round, gain +1 attack die and roll 1 less defense die.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>2</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>1</Cost>
+      <Id>haden_cap_72011</Id>
+      <Set>72011</Set>
+      <Special></Special>
+      <AdmiralAbility>FLEET ACTION: Target a ship at Range 1-2 that does not have your ship in its forward firing arc. If you attack that ship this round, gain +1 attack die and roll 1 less defense die.</AdmiralAbility>
+      <AdmiralCost>1</AdmiralCost>
+      <AdmiralTalent>0</AdmiralTalent>
+      <SkillModifier>1</SkillModifier>
+  </Captain>
   </Captains>
   <Admirals>
     <Admiral>
@@ -10529,6 +10623,26 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
         <AdmiralCost>1</AdmiralCost>
         <AdmiralTalent>1</AdmiralTalent>
         <SkillModifier>0</SkillModifier>
+    </Admiral>
+    <Admiral>
+        <Title>Haden</Title>
+        <Ability>ACTION: Target a ship at Range 1-2 that does not have your ship in its forward firing arc. If you attack that ship this round, gain +1 attack die and roll 1 less defense die.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill>2</Skill>
+        <Talent>0</Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Admiral</Type>
+        <Faction>Federation</Faction>
+        <Cost>1</Cost>
+        <Id>haden_72011</Id>
+        <Set>72011</Set>
+        <Special></Special>
+        <AdmiralAbility>FLEET ACTION: Target a ship at Range 1-2 that does not have your ship in its forward firing arc. If you attack that ship this round, gain +1 attack die and roll 1 less defense die.</AdmiralAbility>
+        <AdmiralCost>1</AdmiralCost>
+        <AdmiralTalent>0</AdmiralTalent>
+        <SkillModifier>1</SkillModifier>
     </Admiral>
   </Admirals>
   <Upgrades>
@@ -19443,7 +19557,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Faction>Federation</Faction>
         <Cost>5</Cost>
         <Id>photon_torpedoes_72008</Id>
-        <Set>72008</Set>
+        <Set>72008,72011</Set>
         <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -19701,6 +19815,134 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Id>energy_blast_72012</Id>
         <Set>72012</Set>
         <Special>OnlySpecies8472Ship</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Prefix Code</Title>
+        <Ability>ACTION: Discard this card to target a ship at Range 1-2 of your ship. Disable up to 2 Shield Tokens on the target ship. Place an Auxiliary Power Token beside your ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>prefix_code_72011</Id>
+        <Set>72011</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Terry</Title>
+        <Ability>ACTION: Disable this card and 2 of your Active Shields to repair 1 damage to your ship's Hull.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Federation</Faction>
+        <Cost>4</Cost>
+        <Id>terry_72011</Id>
+        <Set>72011</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Elizabeth Lense</Title>
+        <Ability>At any time, you may discard this card to remove 1 disabled Upgrade Token from one of your [CREW] or [TECH] Upgrades and then place 2 Time Tokens on that Upgrade.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Federation</Faction>
+        <Cost>1</Cost>
+        <Id>elizabeth_lense_72011</Id>
+        <Set>72011</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>High Energy Sensor Sweep</Title>
+        <Ability>After you move, you may disable 1 Active Shield to perform a free [SCAN] Action. No ship may be equipped with more than 1 High Energy Sensor Sweep Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>high_energy_sensor_sweep_72011</Id>
+        <Set>72011</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Aft Torpedo Launcher</Title>
+        <Ability>You may fill one of your [CREW], [TECH] or [WEAPON] Upgrade slots with this card. When attacking with a Photon Torpedoes Upgrade, you may disable this card to target a ship that is not in your forward firing arc. This Upgrade may only be purchased for a ship with a Hull of 4 or greater that does not have a rear firing arc and costs +5 SP if purchased for any non-Federation ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>aft_torpedo_launcher_c_72011</Id>
+        <Set>72011</Set>
+        <Special>Hull4NoRearPlus5NonFed</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Aft Torpedo Launcher</Title>
+        <Ability>You may fill one of your [CREW], [TECH] or [WEAPON] Upgrade slots with this card. When attacking with a Photon Torpedoes Upgrade, you may disable this card to target a ship that is not in your forward firing arc. This Upgrade may only be purchased for a ship with a Hull of 4 or greater that does not have a rear firing arc and costs +5 SP if purchased for any non-Federation ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>aft_torpedo_launcher_t_72011</Id>
+        <Set>72011</Set>
+        <Special>Hull4NoRearPlus5NonFed</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Aft Torpedo Launcher</Title>
+        <Ability>You may fill one of your [CREW], [TECH] or [WEAPON] Upgrade slots with this card. When attacking with a Photon Torpedoes Upgrade, you may disable this card to target a ship that is not in your forward firing arc. This Upgrade may only be purchased for a ship with a Hull of 4 or greater that does not have a rear firing arc and costs +5 SP if purchased for any non-Federation ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Weapon</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>aft_torpedo_launcher_w_72011</Id>
+        <Set>72011</Set>
+        <Special>Hull4NoRearPlus5NonFed</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Arsenal</Title>
+        <Ability>Add 2 [WEAPON] Upgrades to your Upgrade Bar. When placing Time Tokens on one of your other [WEAPON] Upgrades, you may place 1 of those tokens on this card. No ship may be equipped with more than 1 "Arsenal" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Weapon</Type>
+        <Faction>Federation</Faction>
+        <Cost>4</Cost>
+        <Id>arsenal_72011</Id>
+        <Set>72011</Set>
+        <Special>AddTwoWeaponSlotsAndNoMoreThanOnePerShip</Special>
     </Upgrade>
   </Upgrades>
   <Resources>
@@ -20249,9 +20491,9 @@ A player cannot use these abilities for a ship that has no Captain Card or whose
       <Set id="72008" overallSetName="Wave 17" releaseDate="2015-08-05">U.S.S. Thunderchild</Set>
       <Set id="72001p" overallSetName="Year of Hell" releaseDate="2015-08-15">U.S.S. Bellerophon</Set>
       <Set id="72001r" overallSetName="Year of Hell" releaseDate="2015-08-15">Emergency Force Fields Resource</Set>
-      <Set id="72012" overallSetName="Wave 18" releaseDate="2015-09-02">Bioship Beta</Set>
-      <Set id="72013" overallSetName="Wave 18" releaseDate="2015-09-02">Quark's Treasure</Set>
-
+      <Set id="72012" overallSetName="Wave 18" releaseDate="2015-09-09">Bioship Beta</Set>
+      <Set id="72013" overallSetName="Wave 18" releaseDate="2015-09-09">Quark's Treasure</Set>
+      <Set id="72011" overallSetName="Wave 18" releaseDate="2015-09-09">U.S.S. Phoenix</Set>
     </Sets>
     <Flagships>
         <Flagship>
