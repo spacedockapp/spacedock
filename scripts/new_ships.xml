@@ -1,58 +1,29 @@
   <Ship>
-    <Title>U.S.S. Intrepid</Title>
+    <Title>Bioship Omega</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Constitution Class</ShipClass>
-    <Faction>Federation</Faction>
+    <ShipClass>Species 8472 Bioship</ShipClass>
+    <Faction>Species 8472</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>3</Attack>
-    <Agility>1</Agility>
-    <Hull>4</Hull>
-    <Shield>3</Shield>
-    <Ability>When attacking a ship at Range 3, if there is a [SCAN] token beside your ship, the defending ship rolls -2 defense dice instead of -1.</Ability>
-    <Cost>22</Cost>
+    <Attack>6</Attack>
+    <Agility>2</Agility>
+    <Hull>5</Hull>
+    <Shield>6</Shield>
+    <Ability>During the Deal Damage step, if you inflict 2 critical damage to an enemy ship's hull, you may immediately flip those damage cards face down and rotate the damaged ship's facing by 90-degrees (right or left).</Ability>
+    <Cost>38</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
-    <Battlestations>1</Battlestations>
+    <Battlestations>0</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
-    <Regenerate>0</Regenerate>
+    <Regenerate>1</Regenerate>
     <Borg>0</Borg>
-    <Tech>0</Tech>
+    <Tech>3</Tech>
     <Weapon>2</Weapon>
-    <Crew>2</Crew>
+    <Crew>0</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>u_s_s_intrepid_72002p</Id>
-    <Set>72002p</Set>
-  </Ship>
-  <Ship>
-    <Title>I.R.W. Belak</Title>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>D'deridex Class</ShipClass>
-    <Faction>Romulan</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>3</Attack>
-    <Agility>2</Agility>
-    <Hull>6</Hull>
-    <Shield>4</Shield>
-    <Ability>When defending, you may re-roll 1 of your [BATTLESTATIONS] results.  If your ship is cloaked, you may re-roll all of your [BATTLESTATIONS] results.</Ability>
-    <Cost>30</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>2</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
-    <Has360Arc>N</Has360Arc>
-    <Id>i_r_w_belak_72221a</Id>
-    <Set>72221a</Set>
+    <Id>bioship_omega_72221b</Id>
+    <Set>72221b</Set>
   </Ship>

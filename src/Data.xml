@@ -1,4 +1,4 @@
-<Data version="2015-09-11@05-25">
+<Data version="2015-09-11@23-41">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -3392,7 +3392,7 @@
       <Weapon>1</Weapon>
       <Crew>0</Crew>
       <Id>species_8472_bioship_71281</Id>
-      <Set>71281,72012</Set>
+      <Set>71281,72012,72221b</Set>
     </Ship>
     <Ship>
       <Title>Tholia One</Title>
@@ -6955,6 +6955,35 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Id>i_r_w_belak_72221a</Id>
       <Set>72221a</Set>
   </Ship>
+  <Ship>
+      <Title>Bioship Omega</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Species 8472 Bioship</ShipClass>
+      <Faction>Species 8472</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>6</Attack>
+      <Agility>2</Agility>
+      <Hull>5</Hull>
+      <Shield>6</Shield>
+      <Ability>During the Deal Damage step, if you inflict 2 critical damage to an enemy ship's hull, you may immediately flip those damage cards face down and rotate the damaged ship's facing by 90-degrees (right or left).</Ability>
+      <Cost>38</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>1</Regenerate>
+      <Borg>0</Borg>
+      <Tech>3</Tech>
+      <Weapon>2</Weapon>
+      <Crew>0</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>bioship_omega_72221b</Id>
+      <Set>72221b</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -7991,7 +8020,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Species 8472</Faction>
       <Cost>0</Cost>
       <Id>species_8472_captain_71281</Id>
-      <Set>71281,72012</Set>
+      <Set>71281,72012,72221b</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -10259,6 +10288,22 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <AdmiralCost>1</AdmiralCost>
       <AdmiralTalent>1</AdmiralTalent>
       <SkillModifier>-1</SkillModifier>
+  </Captain>
+  <Captain>
+      <Title>Bioship Omega Pilot</Title>
+      <Ability>ACTION: Disable this card and 2 of your Active Shields to target a ship at Range 1. Inflict 1 critical damage to the target ship's hull. This card may only be purchased for a Species 8472 ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>2</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Species 8472</Faction>
+      <Cost>1</Cost>
+      <Id>bioship_omega_pilot_72221b</Id>
+      <Set>72221b</Set>
+      <Special>OnlySpecies8472Ship</Special>
   </Captain>
   </Captains>
   <Admirals>
@@ -20202,6 +20247,70 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>72221a</Set>
         <Special></Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Neuro Peptides</Title>
+        <Ability>During the Activation Phase, you may discard this card to perform an Action from your Action Bar as a free Action. This Upgrade may only be purchased for a Species 8472 ship and no ship may be equipped with more than 1 "Neuro Peptides" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Species 8472</Faction>
+        <Cost>2</Cost>
+        <Id>neuro_peptides_72221b</Id>
+        <Set>72221b</Set>
+        <Special>NoMoreThanOnePerShipAndOnlySpecies8472Ship</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Organic Conduits</Title>
+        <Ability>When you reveal a red maneuver, you may discard this card to treat that maneuver as a white maneuver. This Upgrade may only be purchased for a Species 8472 ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Species 8472</Faction>
+        <Cost>1</Cost>
+        <Id>organic_conduits_72221b</Id>
+        <Set>72221b</Set>
+        <Special>OnlySpecies8472Ship</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Resistant Hull</Title>
+        <Ability>You may roll your full defense dice in spite of the presence of an opposing ship's [SCAN] Token. In addition, if a [BORG] Upgrade affects your ship, Captain or one of your Upgrades, roll 1 defense die. If you roll an [EVADE] result, the effect is cancelled. The Upgrade may only be purchased for a Species 8472 ship and no ship may be equipped with more than 1 "Resistant Hull" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Species 8472</Faction>
+        <Cost>1</Cost>
+        <Id>resistant_hull_72221b</Id>
+        <Set>72221b</Set>
+        <Special>NoMoreThanOnePerShipAndOnlySpecies8472Ship</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Energy Weapon</Title>
+        <Ability>During the Activation Phase, if an enemy ship ends its move in your forward firing arc, you may discard this card to immediately perform an additional attack against that ship with your Primary Weapon at -3 attack dice. If you do so, place an Auxiliary Power Token beside your ship. This Upgrade may only be purchased for a Species 8472 Bioship and no ship may be equipped with more than 1 "Energy Weapon" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Weapon</Type>
+        <Faction>Species 8472</Faction>
+        <Cost>4</Cost>
+        <Id>energy_weapon_72221b</Id>
+        <Set>72221b</Set>
+        <Special>NoMoreThanOnePerShipAndOnlySpecies8472Ship</Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -20775,7 +20884,8 @@ When there are no more Mission Tokens left on this card, remove it from the game
       <Set id="72011" overallSetName="Wave 18" releaseDate="2015-09-09">U.S.S. Phoenix</Set>
       <Set id="72002p" overallSetName="Balance of Terror" releaseDate="2015-09-15">U.S.S. Intrepid</Set>
       <Set id="72002r" overallSetName="Balance of Terror" releaseDate="2015-09-15">Sabotage Resource</Set>
-      <Set id="72221a" overallSetName="2015-2016 Blind Boosters" releaseDate="2015-10-01">I.R.W. Belak</Set>
+      <Set id="72221a" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">I.R.W. Belak</Set>
+      <Set id="72221b" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">Bioship Omega</Set>
     </Sets>
     <Flagships>
         <Flagship>

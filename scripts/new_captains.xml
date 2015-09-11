@@ -1,36 +1,16 @@
   <Captain>
-    <Title>Lovok</Title>
-    <Ability>During the Modify Attack Dice step, you may re-roll all of your blank results. If you do so, place an Auxiliary Power Token beside your ship. Lovok may field the "Tal Shiar" [ELITE TALENT] Upgrade.</Ability>
+    <Title>Bioship Omega Pilot</Title>
+    <Ability>ACTION: Disable this card and 2 of your Active Shields to target a ship at Range 1. Inflict 1 critical damage to the target ship's hull. This card may only be purchased for a Species 8472 ship.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>3</Skill>
+    <Skill>2</Skill>
     <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Romulan</Faction>
-    <Cost>2</Cost>
-    <Id>lovok_72221a</Id>
-    <Set>72221a</Set>
-    <Special>OnlyTalShiarTalent</Special>
-  </Captain>
-  <Captain>
-    <Title>Matt Decker</Title>
-    <Ability>ACTION: Target a ship within Range 1 of your ship (including your ship). Target ship gains +1 attack die this round and suffers 1 damage to its Hull.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>2</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Federation</Faction>
+    <Faction>Species 8472</Faction>
     <Cost>1</Cost>
-    <Id>matt_decker_cap_72002p</Id>
-    <Set>72002p</Set>
-    <Special></Special>
-    <AdmiralAbility>FLEET ACTION: Target a ship within Range 1 of your ship (including your ship). Target ship gains +1 attack die this round and suffers 1 damage to its Hull.</AdmiralAbility>
-    <AdmiralCost>1</AdmiralCost>
-    <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>-1</SkillModifier>
+    <Id>bioship_omega_pilot_72221b</Id>
+    <Set>72221b</Set>
+    <Special>Yes</Special>
   </Captain>

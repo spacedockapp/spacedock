@@ -6,27 +6,21 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-9/8/2015 17:18:29	72002p - USS Intrepid	Unique	Flag Officer	Federation	After you move, you may discard this card to target 1 friendly ship within Range 1-2 of your ship. The target ship may immediately perform 1 free Action.	Talent	4	
-9/8/2015 17:19:17	72002p - USS Intrepid	Non-unique	Vulcan Engineer	Federation	ACTION: If there are no enemy ships within Range 1-3 of your ship, repair 1 of your Shield Tokens.  You do not pay a faction penalty when assigning this card to a Vulcan ship.	Crew	3	
-9/8/2015 18:31:11	72002p - USS Intrepid	Non-unique	Astrogator	Federation	ACTION: Discard this card to perform an additional non-red maneuver on your maneuver dial with a speed of 1 or 2.  This  Upgrade may only be purchased for a Constitution-class ship and you may fill a [CREW] or [WEAPON] slot on your Upgrade Bar with this Upgrade.  No ship may be equipped with more than 1 Astrogator Upgrade.	?	3	Yes
-9/10/2015 10:42:06	72221a - IRW Belak	Unique	Tal Shiar	Romulan	During the Planning Phase, after all ships have chosen their maneuvers, you may discard this card to target a ship at Range 1-3 and look at that ship's maneuver dial.  Then place a [BATTLE STATIONS] Token beside your ship.  You cannot perform a [BATTLE STATIONS] Action (even as a free Action) this round.  This Upgrade may only be purchased for a Romulan Captain.	Talent	5	Yes
-9/10/2015 10:43:42	72221a - IRW Belak	Unique	Tellera	Romulan	ACTION: Target a ship at Range 1-2 and roll 1 attack die.  If you roll a [HIT] or [CRIT] result, discard this card and 1 [CREW] Upgrade on the target ship.	Crew	3	
-9/10/2015 10:47:46	72221a - IRW Belak	Non-unique	Modified Cloaking Device	Romulan	On the round you perform a [CLOAK] Action, your ship can only be target locked by a ship that is within Range 1 of your ship.  In addition, you may roll your full defense dice in spite of the presence of an opposing ship's [SCAN] Token while you are cloaked.	Tech	5	
+9/11/2015 11:51:31	72221b - Bioship Omega	Non-unique	Neuro Peptides	Species 8472	During the Activation Phase, you may discard this card to perform an Action from your Action Bar as a free Action.  This Upgrade may only be purchased for a Species 8472 ship and no ship may be equipped with more than 1 "Neuro Peptides" Upgrade.	Tech	2	Yes
+9/11/2015 11:52:34	72221b - Bioship Omega	Non-unique	Organic Conduits	Species 8472	When you reveal a red maneuver, you may discard this card to treat that maneuver as a white maneuver.  This Upgrade may only be purchased for a Species 8472 ship.	Tech	1	Yes
+9/11/2015 11:54:31	72221b - Bioship Omega	Non-unique	Resistant Hull	Species 8472	You may roll your full defense dice in spite of the presence of an opposing ship's [SCAN] Token.  In addition, if a [BORG] Upgrade affects your ship, Captain or one of your Upgrades, roll 1 defense die.  If you roll an [EVADE] result, the effect is cancelled.  The Upgrade may only be purchased for a Species 8472 ship and no ship may be equipped with more than 1 "Resistant Hull" Upgrade.	Tech	1	Yes
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-9/8/2015 17:17:18	72002p - USS Intrepid	Non-unique	Federation	1	Federation		0	0		
-9/10/2015 10:37:20	72221a - IRW Belak	Non-unique	Romulan	1	Romulan		0	0		
-9/10/2015 10:40:04	72221a - IRW Belak	Unique	Lovok	3	Romulan	During the Modify Attack Dice step, you may re-roll all of your blank results.  If you do so, place an Auxiliary Power Token beside your ship.  Lovok may field the "Tal Shiar" [ELITE TALENT] Upgrade.	0	2	Yes	
+9/11/2015 11:46:23	72221b - Bioship Omega	Non-unique	Species 8472	1	Species 8472		0	0		
+9/11/2015 11:47:29	72221b - Bioship Omega	Unique	Bioship Omega Pilot	2	Species 8472	ACTION: Disable this card and 2 of your Active Shields to target a ship at Range 1.  Inflict 1 critical damage to the target ship's hull.  This card may only be purchased for a Species 8472 ship.	0	1	Yes	
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-9/8/2015 17:21:12	72002p - USS Intrepid	Non-unique	Dual Phaser Banks	Federation			When attacking with your Primary Weapon, during the Roll Attack Dice step, you may disable this card to gain +1 attack die.   This Upgrade may only be purchased for a Federation ship and costs +3 SP for any ship other than a Constitution-class ship. No ship may be equipped with more than 1 Dual Phaser Banks Upgrade. 	3	Yes
-9/10/2015 10:44:59	72221a - IRW Belak	Non-unique	Aft Disruptor Emitters	Romulan	3	1-3	ATTACK: Disable this card to perform this attack.  You may only fire this weapon at a ship that is not in your forward firing arc.	2	
+9/11/2015 11:49:35	72221b - Bioship Omega	Non-unique	Energy Weapon	Species 8472			During the Activation Phase, if an enemy ship ends its move in your forward firing arc, you may discard this card to immediately perform an additional attack against that ship with your Primary Weapon at -3 attack dice.  If you do so, place an Auxiliary Power Token beside your ship.  This Upgrade may only be purchased for a Species 8472 Bioship and no ship may be equipped with more than 1 "Energy Weapon" Upgrade.	4	Yes
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT
-9/8/2015 17:39:56	72002p - USS Intrepid	Unique	Matt Decker	Federation	FLEET ACTION: Target a ship within Range 1 of your ship (including your ship). Target ship gains +1 attack die this round and suffers 1 damage to its Hull.	-1	1	1	2	ACTION: Target a ship within Range 1 of your ship (including your ship). Target ship gains +1 attack die this round and suffers 1 damage to its Hull.	1	1	
 ADMIRALSTEXT
 
 officers_text = <<-OFFICERSTEXT

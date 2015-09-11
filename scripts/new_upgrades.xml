@@ -1,102 +1,6 @@
     <Upgrade>
-      <Title>Flag Officer</Title>
-      <Ability>After you move, you may discard this card to target 1 friendly ship within Range 1-2 of your ship. The target ship may immediately perform 1 free Action.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>flag_officer_72002p</Id>
-      <Set>72002p</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Vulcan Engineer</Title>
-      <Ability>ACTION: If there are no enemy ships within Range 1-3 of your ship, repair 1 of your Shield Tokens. You do not pay a faction penalty when assigning this card to a Vulcan ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>vulcan_engineer_72002p</Id>
-      <Set>72002p</Set>
-      <Special>no_faction_penalty_on_vulcan</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Astrogator</Title>
-      <Ability>ACTION: Discard this card to perform an additional non-red maneuver on your maneuver dial with a speed of 1 or 2. This Upgrade may only be purchased for a Constitution-class ship and you may fill a [CREW] or [WEAPON] slot on your Upgrade Bar with this Upgrade. No ship may be equipped with more than 1 Astrogator Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>astrogator_c_72002p</Id>
-      <Set>72002p</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-        <Title>Astrogator</Title>
-        <Ability>ACTION: Discard this card to perform an additional non-red maneuver on your maneuver dial with a speed of 1 or 2. This Upgrade may only be purchased for a Constitution-class ship and you may fill a [CREW] or [WEAPON] slot on your Upgrade Bar with this Upgrade. No ship may be equipped with more than 1 Astrogator Upgrade.</Ability>
-        <Unique>N</Unique>
-        <MirrorUniverseUnique>N</MirrorUniverseUnique>
-        <Skill></Skill>
-        <Talent></Talent>
-        <Attack></Attack>
-        <Range></Range>
-        <Type>Weapon</Type>
-        <Faction>Federation</Faction>
-        <Cost>3</Cost>
-        <Id>astrogator_w_72002p</Id>
-        <Set>72002p</Set>
-        <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Tal Shiar</Title>
-      <Ability>During the Planning Phase, after all ships have chosen their maneuvers, you may discard this card to target a ship at Range 1-3 and look at that ship's maneuver dial. Then place a [BATTLESTATIONS] Token beside your ship. You cannot perform a [BATTLESTATIONS] Action (even as a free Action) this round. This Upgrade may only be purchased for a Romulan Captain.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Romulan</Faction>
-      <Cost>5</Cost>
-      <Id>tal_shiar_72221a</Id>
-      <Set>72221a</Set>
-      <Special>OnlyRomulanCaptain</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Tellera</Title>
-      <Ability>ACTION: Target a ship at Range 1-2 and roll 1 attack die. If you roll a [HIT] or [CRIT] result, discard this card and 1 [CREW] Upgrade on the target ship.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Romulan</Faction>
-      <Cost>3</Cost>
-      <Id>tellera_72221a</Id>
-      <Set>72221a</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Modified Cloaking Device</Title>
-      <Ability>On the round you perform a [CLOAK] Action, your ship can only be target locked by a ship that is within Range 1 of your ship. In addition, you may roll your full defense dice in spite of the presence of an opposing ship's [SCAN] Token while you are cloaked.</Ability>
+      <Title>Neuro Peptides</Title>
+      <Ability>During the Activation Phase, you may discard this card to perform an Action from your Action Bar as a free Action. This Upgrade may only be purchased for a Species 8472 ship and no ship may be equipped with more than 1 "Neuro Peptides" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -104,15 +8,47 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Romulan</Faction>
-      <Cost>5</Cost>
-      <Id>modified_cloaking_device_72221a</Id>
-      <Set>72221a</Set>
-      <Special></Special>
+      <Faction>Species 8472</Faction>
+      <Cost>2</Cost>
+      <Id>neuro_peptides_72221b</Id>
+      <Set>72221b</Set>
+      <Special>NoMoreThanOnePerShipAndOnlySpecies8472Ship</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Dual Phaser Banks</Title>
-      <Ability>When attacking with your Primary Weapon, during the Roll Attack Dice step, you may disable this card to gain +1 attack die. This Upgrade may only be purchased for a Federation ship and costs +3 SP for any ship other than a Constitution-class ship. No ship may be equipped with more than 1 Dual Phaser Banks Upgrade. </Ability>
+      <Title>Organic Conduits</Title>
+      <Ability>When you reveal a red maneuver, you may discard this card to treat that maneuver as a white maneuver. This Upgrade may only be purchased for a Species 8472 ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Species 8472</Faction>
+      <Cost>1</Cost>
+      <Id>organic_conduits_72221b</Id>
+      <Set>72221b</Set>
+      <Special>OnlySpecies8472Ship</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Resistant Hull</Title>
+      <Ability>You may roll your full defense dice in spite of the presence of an opposing ship's [SCAN] Token. In addition, if a [BORG] Upgrade affects your ship, Captain or one of your Upgrades, roll 1 defense die. If you roll an [EVADE] result, the effect is cancelled. The Upgrade may only be purchased for a Species 8472 ship and no ship may be equipped with more than 1 "Resistant Hull" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Species 8472</Faction>
+      <Cost>1</Cost>
+      <Id>resistant_hull_72221b</Id>
+      <Set>72221b</Set>
+      <Special>NoMoreThanOnePerShipAndOnlySpecies8472Ship</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Energy Weapon</Title>
+      <Ability>During the Activation Phase, if an enemy ship ends its move in your forward firing arc, you may discard this card to immediately perform an additional attack against that ship with your Primary Weapon at -3 attack dice. If you do so, place an Auxiliary Power Token beside your ship. This Upgrade may only be purchased for a Species 8472 Bioship and no ship may be equipped with more than 1 "Energy Weapon" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -120,25 +56,9 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Weapon</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>dual_phaser_banks_72002p</Id>
-      <Set>72002p</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Aft Disruptor Emitters</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. You may only fire this weapon at a ship that is not in your forward firing arc.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>3</Attack>
-      <Range>1-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Romulan</Faction>
-      <Cost>2</Cost>
-      <Id>aft_disruptor_emitters_72221a</Id>
-      <Set>72221a</Set>
-      <Special></Special>
+      <Faction>Species 8472</Faction>
+      <Cost>4</Cost>
+      <Id>energy_weapon_72221b</Id>
+      <Set>72221b</Set>
+      <Special>NoMoreThanOnePerShipAndOnlySpecies8472Ship</Special>
     </Upgrade>
