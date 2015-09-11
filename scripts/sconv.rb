@@ -44,8 +44,10 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-9/3/2015 14:04:42	72011 - USS Phoenix	Non-unique	Federation Starship	Federation	Nebula Class	Nebula Class				4	1	4	3		Battle Stations, Evasive, Scan, Target Lock	24	0	1	1	2	90-degree forward		0
-9/3/2015 14:06:05	72011 - USS Phoenix	Unique	U.S.S. Phoenix	Federation	Nebula Class	Nebula Class				4	1	4	4	Before you move, you may change your maneuver to another maneuver on your Maneuver Dial with the same speed.  If you do so, place an Auxiliary Power Token beside your ship.	Battle Stations, Evasive, Scan, Target Lock	26	0	2	1	2	90-degree forward		0
+9/8/2015 17:14:34	72002p - USS Intrepid	Non-unique	Federation Starship	Federation	Constitution Class	Constitution Class				3	1	4	2		Battle Stations, Evasive, Scan, Target Lock	20	0	2	0	1	180-degree forward		0
+9/8/2015 17:16:16	72002p - USS Intrepid	Unique	U.S.S. Intrepid	Federation	Constitution Class	Constitution Class				3	1	4	3	When attacking a ship at Range 3, if there is a [SCAN] token beside your ship, the defending ship rolls -2 defense dice instead of -1.	Battle Stations, Evasive, Scan, Target Lock	22	0	2	0	2	180-degree forward		0
+9/10/2015 10:06:45	72221a - IRW Belak	Non-unique	Romulan Starship	Romulan	D'deridex Class	D'deridex Class				3	2	6	3		Evasive, Cloak, Target Lock, Sensor Echo	28	0	2	1	1	90-degree forward		0
+9/10/2015 10:08:13	72221a - IRW Belak	Unique	I.R.W. Belak	Romulan	D'deridex Class	D'deridex Class				3	2	6	4	When defending, you may re-roll 1 of your [BATTLE STATIONS] results.  If your ship is cloaked, you may re-roll all of your [BATTLE STATIONS] results.	Evasive, Cloak, Target Lock, Sensor Echo	30	0	1	2	2	90-degree forward		0
 SHIPTEXT
 
 

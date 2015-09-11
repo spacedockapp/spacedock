@@ -1,20 +1,20 @@
   <Admiral>
-    <Title>Haden</Title>
-    <Ability>ACTION: Target a ship at Range 1-2 that does not have your ship in its forward firing arc. If you attack that ship this round, gain +1 attack die and roll 1 less defense die.</Ability>
+    <Title>Matt Decker</Title>
+    <Ability>ACTION: Target a ship within Range 1 of your ship (including your ship). Target ship gains +1 attack die this round and suffers 1 damage to its Hull.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>2</Skill>
-    <Talent>0</Talent>
+    <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Admiral</Type>
     <Faction>Federation</Faction>
     <Cost>1</Cost>
-    <Id>haden_72011</Id>
-    <Set>72011</Set>
+    <Id>matt_decker_72002p</Id>
+    <Set>72002p</Set>
     <Special></Special>
-    <AdmiralAbility>FLEET ACTION: Target a ship at Range 1-2 that does not have your ship in its forward firing arc. If you attack that ship this round, gain +1 attack die and roll 1 less defense die.</AdmiralAbility>
+    <AdmiralAbility>FLEET ACTION: Target a ship within Range 1 of your ship (including your ship). Target ship gains +1 attack die this round and suffers 1 damage to its Hull.</AdmiralAbility>
     <AdmiralCost>1</AdmiralCost>
-    <AdmiralTalent>0</AdmiralTalent>
-    <SkillModifier>1</SkillModifier>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>-1</SkillModifier>
   </Admiral>

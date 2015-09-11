@@ -1,52 +1,36 @@
   <Captain>
-    <Title>Federation</Title>
-    <Ability></Ability>
-    <Unique>N</Unique>
+    <Title>Lovok</Title>
+    <Ability>During the Modify Attack Dice step, you may re-roll all of your blank results. If you do so, place an Auxiliary Power Token beside your ship. Lovok may field the "Tal Shiar" [ELITE TALENT] Upgrade.</Ability>
+    <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>1</Skill>
+    <Skill>3</Skill>
     <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>0</Cost>
-    <Id>federation_72011</Id>
-    <Set>72011</Set>
-    <Special></Special>
+    <Faction>Romulan</Faction>
+    <Cost>2</Cost>
+    <Id>lovok_72221a</Id>
+    <Set>72221a</Set>
+    <Special>OnlyTalShiarTalent</Special>
   </Captain>
   <Captain>
-    <Title>Benjamin Maxwell</Title>
-    <Ability>When attacking a ship with one of your secondary weapons, during the Modify Attack Dice step, you may re-roll and 1 of your Attack dice.</Ability>
+    <Title>Matt Decker</Title>
+    <Ability>ACTION: Target a ship within Range 1 of your ship (including your ship). Target ship gains +1 attack die this round and suffers 1 damage to its Hull.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>6</Skill>
+    <Skill>2</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
     <Faction>Federation</Faction>
-    <Cost>4</Cost>
-    <Id>benjamin_maxwell_72011</Id>
-    <Set>72011</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Haden</Title>
-    <Ability>ACTION: Target a ship at Range 1-2 that does not have your ship in its forward firing arc. If you attack that ship this round, gain +1 attack die and roll 1 less defense die.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>2</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Federation</Faction>
     <Cost>1</Cost>
-    <Id>haden_cap_72011</Id>
-    <Set>72011</Set>
+    <Id>matt_decker_cap_72002p</Id>
+    <Set>72002p</Set>
     <Special></Special>
-    <AdmiralAbility>FLEET ACTION: Target a ship at Range 1-2 that does not have your ship in its forward firing arc. If you attack that ship this round, gain +1 attack die and roll 1 less defense die.</AdmiralAbility>
+    <AdmiralAbility>FLEET ACTION: Target a ship within Range 1 of your ship (including your ship). Target ship gains +1 attack die this round and suffers 1 damage to its Hull.</AdmiralAbility>
     <AdmiralCost>1</AdmiralCost>
-    <AdmiralTalent>0</AdmiralTalent>
-    <SkillModifier>1</SkillModifier>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>-1</SkillModifier>
   </Captain>

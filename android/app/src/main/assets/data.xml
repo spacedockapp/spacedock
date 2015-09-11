@@ -1,4 +1,4 @@
-<Data version="2015-09-07@02-36">
+<Data version="2015-09-11@05-25">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1768,7 +1768,7 @@
       <Weapon>1</Weapon>
       <Crew>2</Crew>
       <Id>1004</Id>
-      <Set>71120</Set>
+      <Set>71120,72221a</Set>
     </Ship>
     <Ship>
       <Title>I.K.S. Maht-H'A</Title>
@@ -1925,7 +1925,7 @@
       <Weapon>1</Weapon>
       <Crew>2</Crew>
       <Id>1010</Id>
-      <Set>71122</Set>
+      <Set>71122,72002p</Set>
     </Ship>
     <Ship>
       <Title>I.R.W. Valdore</Title>
@@ -6897,6 +6897,64 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Id>u_s_s_phoenix_72011</Id>
       <Set>72011</Set>
   </Ship>
+  <Ship>
+      <Title>U.S.S. Intrepid</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Constitution Class</ShipClass>
+      <Faction>Federation</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>4</Hull>
+      <Shield>3</Shield>
+      <Ability>When attacking a ship at Range 3, if there is a [SCAN] token beside your ship, the defending ship rolls -2 defense dice instead of -1.</Ability>
+      <Cost>22</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>2</Weapon>
+      <Crew>2</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>u_s_s_intrepid_72002p</Id>
+      <Set>72002p</Set>
+  </Ship>
+  <Ship>
+      <Title>I.R.W. Belak</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>D'deridex Class</ShipClass>
+      <Faction>Romulan</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>6</Hull>
+      <Shield>4</Shield>
+      <Ability>When defending, you may re-roll 1 of your [BATTLESTATIONS] results.  If your ship is cloaked, you may re-roll all of your [BATTLESTATIONS] results.</Ability>
+      <Cost>30</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>2</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>i_r_w_belak_72221a</Id>
+      <Set>72221a</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -6947,7 +7005,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Federation</Faction>
       <Cost>0</Cost>
       <Id>2003</Id>
-      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526,71510,71531,71997p,71801,71998p,71802,72001p,72008,72011</Set>
+      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526,71510,71531,71997p,71801,71998p,71802,72001p,72008,72011,72002p</Set>
     </Captain>
     <Captain>
       <Title>Nu'Daq</Title>
@@ -7014,7 +7072,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Romulan</Faction>
       <Cost>0</Cost>
       <Id>2007</Id>
-      <Set>71120,71123,71124,71270,71278,OP3Prize,i_r_w_vorta_vor,71533,71274,71794,72010</Set>
+      <Set>71120,71123,71124,71270,71278,OP3Prize,i_r_w_vorta_vor,71533,71274,71794,72010,72221a</Set>
     </Captain>
     <Captain>
       <Title>Khan Singh</Title>
@@ -10166,6 +10224,42 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <AdmiralTalent>0</AdmiralTalent>
       <SkillModifier>1</SkillModifier>
   </Captain>
+  <Captain>
+      <Title>Lovok</Title>
+      <Ability>During the Modify Attack Dice step, you may re-roll all of your blank results. If you do so, place an Auxiliary Power Token beside your ship. Lovok may field the "Tal Shiar" [ELITE TALENT] Upgrade.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>3</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>2</Cost>
+      <Id>lovok_72221a</Id>
+      <Set>72221a</Set>
+      <Special>OnlyTalShiarTalent</Special>
+  </Captain>
+  <Captain>
+      <Title>Matt Decker</Title>
+      <Ability>ACTION: Target a ship within Range 1 of your ship (including your ship). Target ship gains +1 attack die this round and suffers 1 damage to its Hull.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>2</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>1</Cost>
+      <Id>matt_decker_cap_72002p</Id>
+      <Set>72002p</Set>
+      <Special></Special>
+      <AdmiralAbility>FLEET ACTION: Target a ship within Range 1 of your ship (including your ship). Target ship gains +1 attack die this round and suffers 1 damage to its Hull.</AdmiralAbility>
+      <AdmiralCost>1</AdmiralCost>
+      <AdmiralTalent>1</AdmiralTalent>
+      <SkillModifier>-1</SkillModifier>
+  </Captain>
   </Captains>
   <Admirals>
     <Admiral>
@@ -10643,6 +10737,26 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
         <AdmiralCost>1</AdmiralCost>
         <AdmiralTalent>0</AdmiralTalent>
         <SkillModifier>1</SkillModifier>
+    </Admiral>
+    <Admiral>
+        <Title>Matt Decker</Title>
+        <Ability>ACTION: Target a ship within Range 1 of your ship (including your ship). Target ship gains +1 attack die this round and suffers 1 damage to its Hull.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill>2</Skill>
+        <Talent>1</Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Admiral</Type>
+        <Faction>Federation</Faction>
+        <Cost>1</Cost>
+        <Id>matt_decker_72002p</Id>
+        <Set>72002p</Set>
+        <Special></Special>
+        <AdmiralAbility>FLEET ACTION: Target a ship within Range 1 of your ship (including your ship). Target ship gains +1 attack die this round and suffers 1 damage to its Hull.</AdmiralAbility>
+        <AdmiralCost>1</AdmiralCost>
+        <AdmiralTalent>1</AdmiralTalent>
+        <SkillModifier>-1</SkillModifier>
     </Admiral>
   </Admirals>
   <Upgrades>
@@ -19944,6 +20058,150 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>72011</Set>
         <Special>AddTwoWeaponSlotsAndNoMoreThanOnePerShip</Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Flag Officer</Title>
+        <Ability>After you move, you may discard this card to target 1 friendly ship within Range 1-2 of your ship. The target ship may immediately perform 1 free Action.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Federation</Faction>
+        <Cost>4</Cost>
+        <Id>flag_officer_72002p</Id>
+        <Set>72002p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Vulcan Engineer</Title>
+        <Ability>ACTION: If there are no enemy ships within Range 1-3 of your ship, repair 1 of your Shield Tokens. You do not pay a faction penalty when assigning this card to a Vulcan ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>vulcan_engineer_72002p</Id>
+        <Set>72002p</Set>
+        <Special>no_faction_penalty_on_vulcan</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Astrogator</Title>
+        <Ability>ACTION: Discard this card to perform an additional non-red maneuver on your maneuver dial with a speed of 1 or 2. This Upgrade may only be purchased for a Constitution-class ship and you may fill a [CREW] or [WEAPON] slot on your Upgrade Bar with this Upgrade. No ship may be equipped with more than 1 Astrogator Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>astrogator_c_72002p</Id>
+        <Set>72002p</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Astrogator</Title>
+        <Ability>ACTION: Discard this card to perform an additional non-red maneuver on your maneuver dial with a speed of 1 or 2. This Upgrade may only be purchased for a Constitution-class ship and you may fill a [CREW] or [WEAPON] slot on your Upgrade Bar with this Upgrade. No ship may be equipped with more than 1 Astrogator Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Weapon</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>astrogator_w_72002p</Id>
+        <Set>72002p</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Tal Shiar</Title>
+        <Ability>During the Planning Phase, after all ships have chosen their maneuvers, you may discard this card to target a ship at Range 1-3 and look at that ship's maneuver dial. Then place a [BATTLESTATIONS] Token beside your ship. You cannot perform a [BATTLESTATIONS] Action (even as a free Action) this round. This Upgrade may only be purchased for a Romulan Captain.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>tal_shiar_72221a</Id>
+        <Set>72221a</Set>
+        <Special>OnlyRomulanCaptain</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Tellera</Title>
+        <Ability>ACTION: Target a ship at Range 1-2 and roll 1 attack die. If you roll a [HIT] or [CRIT] result, discard this card and 1 [CREW] Upgrade on the target ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Romulan</Faction>
+        <Cost>3</Cost>
+        <Id>tellera_72221a</Id>
+        <Set>72221a</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Modified Cloaking Device</Title>
+        <Ability>On the round you perform a [CLOAK] Action, your ship can only be target locked by a ship that is within Range 1 of your ship. In addition, you may roll your full defense dice in spite of the presence of an opposing ship's [SCAN] Token while you are cloaked.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>modified_cloaking_device_72221a</Id>
+        <Set>72221a</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Dual Phaser Banks</Title>
+        <Ability>When attacking with your Primary Weapon, during the Roll Attack Dice step, you may disable this card to gain +1 attack die. This Upgrade may only be purchased for a Federation ship and costs +3 SP for any ship other than a Constitution-class ship. No ship may be equipped with more than 1 Dual Phaser Banks Upgrade. </Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Weapon</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>dual_phaser_banks_72002p</Id>
+        <Set>72002p</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Aft Disruptor Emitters</Title>
+        <Ability>ATTACK: Disable this card to perform this attack. You may only fire this weapon at a ship that is not in your forward firing arc.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>3</Attack>
+        <Range>1-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Romulan</Faction>
+        <Cost>2</Cost>
+        <Id>aft_disruptor_emitters_72221a</Id>
+        <Set>72221a</Set>
+        <Special></Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -20339,6 +20597,27 @@ A player cannot use these abilities for a ship that has no Captain Card or whose
           <Id>emergency_force_fields_72001r</Id>
           <Set>72001r</Set>
       </Resource>
+      <Resource>
+          <Title>Sabotage</Title>
+          <Unique>Y</Unique>
+          <Type>Resource</Type>
+          <Ability>At the start of the game, place 5 Mission Tokens on top of this card.
+
+Once per round, one of your ships may:
+              
+    1) When attacking, spend 1 Mission Token from this card to force the defending ship to re-roll up to 2 dice of your choice. OR
+
+    2) When attacking, spend 1 Mission Token from this card to force the defending ship to roll 1 less defense die. OR
+
+    3) When defending, spend 1 Mission Token from this card to force the attacking ship to re-roll up to 2 dice of your choice. OR
+
+    4) When defending, spend 1 Mission Token from this card to force the attacking ship to roll 1 less attack die.
+
+When there are no more Mission Tokens left on this card, remove it from the game.</Ability>
+          <Cost>5</Cost>
+          <Id>sabotage_72002r</Id>
+          <Set>72002r</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -20494,6 +20773,9 @@ A player cannot use these abilities for a ship that has no Captain Card or whose
       <Set id="72012" overallSetName="Wave 18" releaseDate="2015-09-09">Bioship Beta</Set>
       <Set id="72013" overallSetName="Wave 18" releaseDate="2015-09-09">Quark's Treasure</Set>
       <Set id="72011" overallSetName="Wave 18" releaseDate="2015-09-09">U.S.S. Phoenix</Set>
+      <Set id="72002p" overallSetName="Balance of Terror" releaseDate="2015-09-15">U.S.S. Intrepid</Set>
+      <Set id="72002r" overallSetName="Balance of Terror" releaseDate="2015-09-15">Sabotage Resource</Set>
+      <Set id="72221a" overallSetName="2015-2016 Blind Boosters" releaseDate="2015-10-01">I.R.W. Belak</Set>
     </Sets>
     <Flagships>
         <Flagship>

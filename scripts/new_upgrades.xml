@@ -1,6 +1,6 @@
     <Upgrade>
-      <Title>Prefix Code</Title>
-      <Ability>ACTION: Discard this card to target a ship at Range 1-2 of your ship. Disable up to 2 Shield Tokens on the target ship. Place an Auxiliary Power Token beside your ship.</Ability>
+      <Title>Flag Officer</Title>
+      <Ability>After you move, you may discard this card to target 1 friendly ship within Range 1-2 of your ship. The target ship may immediately perform 1 free Action.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -9,31 +9,15 @@
       <Range></Range>
       <Type>Talent</Type>
       <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>prefix_code_72011</Id>
-      <Set>72011</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Terry</Title>
-      <Ability>ACTION: Disable this card and 2 of your Active Shields to repair 1 damage to your ship's Hull.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
       <Cost>4</Cost>
-      <Id>terry_72011</Id>
-      <Set>72011</Set>
+      <Id>flag_officer_72002p</Id>
+      <Set>72002p</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Elizabeth Lense</Title>
-      <Ability>At any time, you may discard this card to remove 1 disabled Upgrade Token from one of your [CREW] or [TECH] Upgrades and then place 2 Time Tokens on that Upgrade.</Ability>
-      <Unique>Y</Unique>
+      <Title>Vulcan Engineer</Title>
+      <Ability>ACTION: If there are no enemy ships within Range 1-3 of your ship, repair 1 of your Shield Tokens. You do not pay a faction penalty when assigning this card to a Vulcan ship.</Ability>
+      <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
@@ -41,14 +25,78 @@
       <Range></Range>
       <Type>Crew</Type>
       <Faction>Federation</Faction>
-      <Cost>1</Cost>
-      <Id>elizabeth_lense_72011</Id>
-      <Set>72011</Set>
+      <Cost>3</Cost>
+      <Id>vulcan_engineer_72002p</Id>
+      <Set>72002p</Set>
+      <Special>no_faction_penalty_on_vulcan</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Astrogator</Title>
+      <Ability>ACTION: Discard this card to perform an additional non-red maneuver on your maneuver dial with a speed of 1 or 2. This Upgrade may only be purchased for a Constitution-class ship and you may fill a [CREW] or [WEAPON] slot on your Upgrade Bar with this Upgrade. No ship may be equipped with more than 1 Astrogator Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>astrogator_c_72002p</Id>
+      <Set>72002p</Set>
+      <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Astrogator</Title>
+        <Ability>ACTION: Discard this card to perform an additional non-red maneuver on your maneuver dial with a speed of 1 or 2. This Upgrade may only be purchased for a Constitution-class ship and you may fill a [CREW] or [WEAPON] slot on your Upgrade Bar with this Upgrade. No ship may be equipped with more than 1 Astrogator Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Weapon</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>astrogator_w_72002p</Id>
+        <Set>72002p</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Tal Shiar</Title>
+      <Ability>During the Planning Phase, after all ships have chosen their maneuvers, you may discard this card to target a ship at Range 1-3 and look at that ship's maneuver dial. Then place a [BATTLESTATIONS] Token beside your ship. You cannot perform a [BATTLESTATIONS] Action (even as a free Action) this round. This Upgrade may only be purchased for a Romulan Captain.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>tal_shiar_72221a</Id>
+      <Set>72221a</Set>
+      <Special>OnlyRomulanCaptain</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Tellera</Title>
+      <Ability>ACTION: Target a ship at Range 1-2 and roll 1 attack die. If you roll a [HIT] or [CRIT] result, discard this card and 1 [CREW] Upgrade on the target ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
+      <Cost>3</Cost>
+      <Id>tellera_72221a</Id>
+      <Set>72221a</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>High Energy Sensor Sweep</Title>
-      <Ability>After you move, you may disable 1 Active Shield to perform a free [SCAN] Action. No ship may be equipped with more than 1 High Energy Sensor Sweep Upgrade.</Ability>
+      <Title>Modified Cloaking Device</Title>
+      <Ability>On the round you perform a [CLOAK] Action, your ship can only be target locked by a ship that is within Range 1 of your ship. In addition, you may roll your full defense dice in spite of the presence of an opposing ship's [SCAN] Token while you are cloaked.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -56,73 +104,41 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Federation</Faction>
+      <Faction>Romulan</Faction>
       <Cost>5</Cost>
-      <Id>high_energy_sensor_sweep_72011</Id>
-      <Set>72011</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Aft Torpedo Launcher</Title>
-      <Ability>You may fill one of your [CREW], [TECH] or [WEAPON] Upgrade slots with this card. When attacking with a Photon Torpedoes Upgrade, you may disable this card to target a ship that is not in your forward firing arc. This Upgrade may only be purchased for a ship with a Hull of 4 or greater that does not have a rear firing arc and costs +5 SP if purchased for any non-Federation ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>?</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>aft_torpedo_launcher_72011</Id>
-      <Set>72011</Set>
-      <Special>Hull4NoRearPlus5NonFed</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Arsenal</Title>
-      <Ability>Add 2 [WEAPON] Upgrades to your Upgrade Bar. When placing Time Tokens on one of your other [WEAPON] Upgrades, you may place 1 of those tokens on this card. No ship may be equipped with more than 1 "Arsenal" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Weapon</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>arsenal_72011</Id>
-      <Set>72011</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Quantum Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. If the target ship is hit, add 1 [HIT] result to your total damage. You may fire this weapon from your forward or rear firing arcs.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>2-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Federation</Faction>
-      <Cost>6</Cost>
-      <Id>quantum_torpedoes_72011</Id>
-      <Set>72011,72008</Set>
+      <Id>modified_cloaking_device_72221a</Id>
+      <Set>72221a</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. You may convert 1 of your [BATTLESTATIONS] results into 1 [CRIT] result. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Title>Dual Phaser Banks</Title>
+      <Ability>When attacking with your Primary Weapon, during the Roll Attack Dice step, you may disable this card to gain +1 attack die. This Upgrade may only be purchased for a Federation ship and costs +3 SP for any ship other than a Constitution-class ship. No ship may be equipped with more than 1 Dual Phaser Banks Upgrade. </Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>2-3</Range>
+      <Attack></Attack>
+      <Range></Range>
       <Type>Weapon</Type>
       <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>photon_torpedoes_72011</Id>
-      <Set>72011</Set>
+      <Cost>3</Cost>
+      <Id>dual_phaser_banks_72002p</Id>
+      <Set>72002p</Set>
+      <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Aft Disruptor Emitters</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. You may only fire this weapon at a ship that is not in your forward firing arc.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>3</Attack>
+      <Range>1-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Romulan</Faction>
+      <Cost>2</Cost>
+      <Id>aft_disruptor_emitters_72221a</Id>
+      <Set>72221a</Set>
       <Special></Special>
     </Upgrade>
