@@ -6,18 +6,18 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-9/11/2015 11:51:31	72221b - Bioship Omega	Non-unique	Neuro Peptides	Species 8472	During the Activation Phase, you may discard this card to perform an Action from your Action Bar as a free Action.  This Upgrade may only be purchased for a Species 8472 ship and no ship may be equipped with more than 1 "Neuro Peptides" Upgrade.	Tech	2	Yes
-9/11/2015 11:52:34	72221b - Bioship Omega	Non-unique	Organic Conduits	Species 8472	When you reveal a red maneuver, you may discard this card to treat that maneuver as a white maneuver.  This Upgrade may only be purchased for a Species 8472 ship.	Tech	1	Yes
-9/11/2015 11:54:31	72221b - Bioship Omega	Non-unique	Resistant Hull	Species 8472	You may roll your full defense dice in spite of the presence of an opposing ship's [SCAN] Token.  In addition, if a [BORG] Upgrade affects your ship, Captain or one of your Upgrades, roll 1 defense die.  If you roll an [EVADE] result, the effect is cancelled.  The Upgrade may only be purchased for a Species 8472 ship and no ship may be equipped with more than 1 "Resistant Hull" Upgrade.	Tech	1	Yes
+9/11/2015 21:46:29	72221c - Aldara	Unique	Glinn Lasaran	Dominion	When defending, during the Roll Defense Dice step, you may discard this card to roll +2 Defense Dice.	Crew	3	
+9/11/2015 21:47:38	72221c - Aldara	Unique	Concentrated Firepower	Dominion	ACTION: Discard this card to target 1 enemy ship at Range 3.  Every friendly ship (including this ship) that attacks the target ship this round with its Primary Weapon gains +1 attack die.	Talent	5	
+9/11/2015 21:49:46	72221c - Aldara	Non-unique	High Energy Subspace Field	Dominion	Between any of the Phases, you may discard this card to target a ship at Range 1-3.  Remove 1 Token ([EVADE], [SCAN], or [BATTLE STATIONS]) from beside that ship and place the same Token beside your ship.  You cannot perform any Actions, including free Actions, before or after you use this ability during that round.  This Upgrade costs +5 SP if purchased for any non-Dominion ship and no ship may be equipped with more than 1 "High Energy Subspace Field" Upgrade.	Tech	5	Yes
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-9/11/2015 11:46:23	72221b - Bioship Omega	Non-unique	Species 8472	1	Species 8472		0	0		
-9/11/2015 11:47:29	72221b - Bioship Omega	Unique	Bioship Omega Pilot	2	Species 8472	ACTION: Disable this card and 2 of your Active Shields to target a ship at Range 1.  Inflict 1 critical damage to the target ship's hull.  This card may only be purchased for a Species 8472 ship.	0	1	Yes	
+9/11/2015 21:43:07	72221c - Aldara	Unique	Gul Jasad	5	Dominion	ACTION: When attacking this round, during the Roll Attack Dice step, you may add +1 attack die for each friendly ship within Range 1-2 of your ship (max +2).  If you do so, place an Auxiliary Power Token beside your ship.	1	3		
+9/11/2015 21:43:29	72221c - Aldara	Non-unique	Dominion	1	Dominion		0	0		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-9/11/2015 11:49:35	72221b - Bioship Omega	Non-unique	Energy Weapon	Species 8472			During the Activation Phase, if an enemy ship ends its move in your forward firing arc, you may discard this card to immediately perform an additional attack against that ship with your Primary Weapon at -3 attack dice.  If you do so, place an Auxiliary Power Token beside your ship.  This Upgrade may only be purchased for a Species 8472 Bioship and no ship may be equipped with more than 1 "Energy Weapon" Upgrade.	4	Yes
+9/11/2015 21:45:29	72221c - Aldara	Non-unique	Aft Weapons Array	Dominion	4	1-3	ATTACK: Disable this card to perform this attack.  You may only fire this weapon at an opposing ship that is not in your forward firing arc.  This card costs +5 SP if purchased for any ship other than a Cardassian Galor-class ship and no ship may be equipped with more than one "Aft Weapons Array" Upgrade.	3	Yes
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT

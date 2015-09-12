@@ -1,6 +1,38 @@
     <Upgrade>
-      <Title>Neuro Peptides</Title>
-      <Ability>During the Activation Phase, you may discard this card to perform an Action from your Action Bar as a free Action. This Upgrade may only be purchased for a Species 8472 ship and no ship may be equipped with more than 1 "Neuro Peptides" Upgrade.</Ability>
+      <Title>Glinn Lasaran</Title>
+      <Ability>When defending, during the Roll Defense Dice step, you may discard this card to roll +2 Defense Dice.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Dominion</Faction>
+      <Cost>3</Cost>
+      <Id>glinn_lasaran_72221c</Id>
+      <Set>72221c</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Concentrated Firepower</Title>
+      <Ability>ACTION: Discard this card to target 1 enemy ship at Range 3. Every friendly ship (including this ship) that attacks the target ship this round with its Primary Weapon gains +1 attack die.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>concentrated_firepower_72221c</Id>
+      <Set>72221c</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>High Energy Subspace Field</Title>
+      <Ability>Between any of the Phases, you may discard this card to target a ship at Range 1-3. Remove 1 Token ([EVADE], [SCAN], or [BATTLESTATIONS]) from beside that ship and place the same Token beside your ship. You cannot perform any Actions, including free Actions, before or after you use this ability during that round. This Upgrade costs +5 SP if purchased for any non-Dominion ship and no ship may be equipped with more than 1 "High Energy Subspace Field" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -8,57 +40,25 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Species 8472</Faction>
-      <Cost>2</Cost>
-      <Id>neuro_peptides_72221b</Id>
-      <Set>72221b</Set>
-      <Special>NoMoreThanOnePerShipAndOnlySpecies8472Ship</Special>
+      <Faction>Dominion</Faction>
+      <Cost>5</Cost>
+      <Id>Plus5NotDominionAndNoMoreThanOnePerShip</Id>
+      <Set>72221c</Set>
+      <Special>Yes</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Organic Conduits</Title>
-      <Ability>When you reveal a red maneuver, you may discard this card to treat that maneuver as a white maneuver. This Upgrade may only be purchased for a Species 8472 ship.</Ability>
+      <Title>Aft Weapons Array</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. You may only fire this weapon at an opposing ship that is not in your forward firing arc. This card costs +5 SP if purchased for any ship other than a Cardassian Galor-class ship and no ship may be equipped with more than one "Aft Weapons Array" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Species 8472</Faction>
-      <Cost>1</Cost>
-      <Id>organic_conduits_72221b</Id>
-      <Set>72221b</Set>
-      <Special>OnlySpecies8472Ship</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Resistant Hull</Title>
-      <Ability>You may roll your full defense dice in spite of the presence of an opposing ship's [SCAN] Token. In addition, if a [BORG] Upgrade affects your ship, Captain or one of your Upgrades, roll 1 defense die. If you roll an [EVADE] result, the effect is cancelled. The Upgrade may only be purchased for a Species 8472 ship and no ship may be equipped with more than 1 "Resistant Hull" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Species 8472</Faction>
-      <Cost>1</Cost>
-      <Id>resistant_hull_72221b</Id>
-      <Set>72221b</Set>
-      <Special>NoMoreThanOnePerShipAndOnlySpecies8472Ship</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Energy Weapon</Title>
-      <Ability>During the Activation Phase, if an enemy ship ends its move in your forward firing arc, you may discard this card to immediately perform an additional attack against that ship with your Primary Weapon at -3 attack dice. If you do so, place an Auxiliary Power Token beside your ship. This Upgrade may only be purchased for a Species 8472 Bioship and no ship may be equipped with more than 1 "Energy Weapon" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
+      <Attack>4</Attack>
+      <Range>1-3</Range>
       <Type>Weapon</Type>
-      <Faction>Species 8472</Faction>
-      <Cost>4</Cost>
-      <Id>energy_weapon_72221b</Id>
-      <Set>72221b</Set>
-      <Special>NoMoreThanOnePerShipAndOnlySpecies8472Ship</Special>
+      <Faction>Dominion</Faction>
+      <Cost>3</Cost>
+      <Id>aft_weapons_array_72221c</Id>
+      <Set>72221c</Set>
+      <Special>Plus5NotShipClass_Cardassian_Galor_ClassAndNoMoreThanOnePerShip</Special>
     </Upgrade>

@@ -1,16 +1,16 @@
   <Captain>
-    <Title>Bioship Omega Pilot</Title>
-    <Ability>ACTION: Disable this card and 2 of your Active Shields to target a ship at Range 1. Inflict 1 critical damage to the target ship's hull. This card may only be purchased for a Species 8472 ship.</Ability>
+    <Title>Gul Jasad</Title>
+    <Ability>ACTION: When attacking this round, during the Roll Attack Dice step, you may add +1 attack die for each friendly ship within Range 1-2 of your ship (max +2). If you do so, place an Auxiliary Power Token beside your ship.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>2</Skill>
-    <Talent>0</Talent>
+    <Skill>5</Skill>
+    <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Species 8472</Faction>
-    <Cost>1</Cost>
-    <Id>bioship_omega_pilot_72221b</Id>
-    <Set>72221b</Set>
-    <Special>Yes</Special>
+    <Faction>Dominion</Faction>
+    <Cost>3</Cost>
+    <Id>gul_jasad_72221c</Id>
+    <Set>72221c</Set>
+    <Special></Special>
   </Captain>

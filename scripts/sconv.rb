@@ -44,8 +44,8 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-9/11/2015 11:44:03	72221b - Bioship Omega	Non-unique	Species 8472 Starship	Species 8472	Species 8472 Bioship	Species 8472 Bioship				6	2	5	5		Evasive, Regenerate, Scan, Target Lock	36	0	0	3	1	90-degree forward		0
-9/11/2015 11:45:30	72221b - Bioship Omega	Unique	Bioship Omega	Species 8472	Species 8472 Bioship	Species 8472 Bioship				6	2	5	6	During the Deal Damage step, if you inflict 2 critical damage to an enemy ship's hull, you may immediately flip those damage cards face down and rotate the damaged ship's facing by 90-degrees (right or left).	Evasive, Regenerate, Scan, Target Lock	38	0	0	3	2	90-degree forward		0
+9/11/2015 21:37:32	72221c - Aldara	Non-unique	Dominion Starship	Dominion	Cardassian Galor Class	Cardassian Galor Class				4	1	4	3		Evasive, Scan, Target Lock	24	0	1	1	1	180-degree forward		0
+9/11/2015 21:39:27	72221c - Aldara	Unique	Aldara	Dominion	Cardassian Galor Class	Cardassian Galor Class				4	1	4	4	When a ship that started the Activation Phase in your forward arc moves, if you have not yet moved, you may immediately change your maneuver.  You may only use this ability once per round.	Evasive, Scan, Target Lock	26	0	1	2	1	180-degree forward		0
 SHIPTEXT
 
 
