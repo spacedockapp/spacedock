@@ -1,22 +1,6 @@
     <Upgrade>
-      <Title>Glinn Lasaran</Title>
-      <Ability>When defending, during the Roll Defense Dice step, you may discard this card to roll +2 Defense Dice.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Dominion</Faction>
-      <Cost>3</Cost>
-      <Id>glinn_lasaran_72221c</Id>
-      <Set>72221c</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Concentrated Firepower</Title>
-      <Ability>ACTION: Discard this card to target 1 enemy ship at Range 3. Every friendly ship (including this ship) that attacks the target ship this round with its Primary Weapon gains +1 attack die.</Ability>
+      <Title>Defy Orders</Title>
+      <Ability>At the end of the Activation Phase, after all ships have moved, if you have an enemy ship in your forward firing arc, you may discard this card to immediately perform an additional green or white maneuver. You cannot attack during the round you use this ability.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -24,15 +8,15 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Dominion</Faction>
-      <Cost>5</Cost>
-      <Id>concentrated_firepower_72221c</Id>
-      <Set>72221c</Set>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>defy_orders_72221d</Id>
+      <Set>72221d</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>High Energy Subspace Field</Title>
-      <Ability>Between any of the Phases, you may discard this card to target a ship at Range 1-3. Remove 1 Token ([EVADE], [SCAN], or [BATTLESTATIONS]) from beside that ship and place the same Token beside your ship. You cannot perform any Actions, including free Actions, before or after you use this ability during that round. This Upgrade costs +5 SP if purchased for any non-Dominion ship and no ship may be equipped with more than 1 "High Energy Subspace Field" Upgrade.</Ability>
+      <Title>Micro Power Relays</Title>
+      <Ability>ACTION: Repair 1 non-critical damage to your Hull. OR ACTION: Flip over all critical damage cards assigned to your ship.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -40,25 +24,105 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Dominion</Faction>
-      <Cost>5</Cost>
-      <Id>Plus5NotDominionAndNoMoreThanOnePerShip</Id>
-      <Set>72221c</Set>
-      <Special>Yes</Special>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>micro_power_relays_72221d</Id>
+      <Set>72221d</Set>
+      <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Aft Weapons Array</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. You may only fire this weapon at an opposing ship that is not in your forward firing arc. This card costs +5 SP if purchased for any ship other than a Cardassian Galor-class ship and no ship may be equipped with more than one "Aft Weapons Array" Upgrade.</Ability>
+      <Title>Tuvok</Title>
+      <Ability>At any time, you may discard this card to perform a [SCAN] Action as a free Action.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>tuvok_72221d</Id>
+      <Set>72221d</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Hon-Tihl</Title>
+      <Ability>When attacking with your Primary Weapon, during the Roll Attack Dice step, you may discard this card to gain +2 attack dice for that attack. If you targeted an Attack Squadron with that attack, after resolving the attack, you may immediately make a second attack against the same Attack Squadron using only 2 attack dice; the number of dice for the second attack cannot be increased in any way. You cannot roll any defense dice during the round you use this ability.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>5</Cost>
+      <Id>hon_tihl_72221e</Id>
+      <Set>72221e</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Covert Mission</Title>
+      <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Discard this card to steal 1 [WEAPON] Upgrade on that ship with a cost of 5 or less even if it exceeds your ship's restrictions.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>5</Cost>
+      <Id>covert_mission_72221e</Id>
+      <Set>72221e</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Reactor Core</Title>
+      <Ability>During the Activation Phase, after you reveal your maneuver, before you move, you may disable this card to increase or decrease your speed by 1. Your new maneuver must be one that is on your maneuver dial and is treated as a red maneuver. No ship may be equipped with more than 1 "Reactor Core" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>4</Attack>
-      <Range>1-3</Range>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>2</Cost>
+      <Id>reactor_core_72221e</Id>
+      <Set>72221e</Set>
+      <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Upgraded Phasers</Title>
+      <Ability>When attacking with your Primary Weapon, gain +1 attack die. Once per round, if you hit an Attack Squadron with your Primary Weapon you may immediately make a second attack against that same target. This Upgrade costs +5 SP for any non-Federation ship and may only be deployed to a ship with a Primary Weapon value of 3 or less. No ship may be equipped with more than 1 "Upgraded Phasers" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
       <Type>Weapon</Type>
-      <Faction>Dominion</Faction>
+      <Faction>Federation</Faction>
       <Cost>3</Cost>
-      <Id>aft_weapons_array_72221c</Id>
-      <Set>72221c</Set>
-      <Special>Plus5NotShipClass_Cardassian_Galor_ClassAndNoMoreThanOnePerShip</Special>
+      <Id>upgraded_phasers_72221d</Id>
+      <Set>72221d</Set>
+      <Special>limited_max_weapon_3AndPlus5NonFed</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Thalmerite Explosive</Title>
+      <Ability>ATTACK: Discard this card to perform this attack. If the defending ship is not cloaked and has no Active Shields and you have at least 1 uncanceled [CRIT] result, draw 2 Damage Cards (instead of 1) and choose which one to place beside the enemy's Ship Card; discard the unused Damage Cards. If this attack is fired at Range 1 and hits, your ship suffers 1 damage.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>6</Attack>
+      <Range>1-2</Range>
+      <Type>Weapon</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>5</Cost>
+      <Id>thalmerite_explosive_72221e</Id>
+      <Set>72221e</Set>
+      <Special></Special>
     </Upgrade>

@@ -1,29 +1,87 @@
   <Ship>
-    <Title>Aldara</Title>
+    <Title>U.S.S. Lakota</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Cardassian Galor Class</ShipClass>
-    <Faction>Dominion</Faction>
+    <ShipClass>Excelsior Class</ShipClass>
+    <Faction>Federation</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
+    <Attack>3</Attack>
     <Agility>1</Agility>
-    <Hull>4</Hull>
+    <Hull>5</Hull>
     <Shield>4</Shield>
-    <Ability>When a ship that started the Activation Phase in your forward arc moves, if you have not yet moved, you may immediately change your maneuver.  You may only use this ability once per round.</Ability>
+    <Ability>When attacking, during the Modify Attack Dice step, you may convert 1 of your [HIT] results into 1 [CRIT] result.  If you do so, place an Auxiliary Power Token beside your ship.</Ability>
     <Cost>26</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
-    <Battlestations>0</Battlestations>
+    <Battlestations>1</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
-    <Tech>2</Tech>
+    <Tech>1</Tech>
+    <Weapon>2</Weapon>
+    <Crew>2</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>u_s_s_lakota_72221d</Id>
+    <Set>72221d</Set>
+  </Ship>
+  <Ship>
+    <Title>Mirror Universe Starship</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Vor'cha Class</ShipClass>
+    <Faction>Mirror Universe</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>5</Attack>
+    <Agility>1</Agility>
+    <Hull>5</Hull>
+    <Shield>2</Shield>
+    <Ability></Ability>
+    <Cost>26</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>0</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>1</Cloak>
+    <SensorEcho>1</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>1</Tech>
     <Weapon>1</Weapon>
     <Crew>1</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>aldara_72221c</Id>
-    <Set>72221c</Set>
+    <Id>mirror_universe_starship_72221e</Id>
+    <Set>72221e</Set>
+  </Ship>
+  <Ship>
+    <Title>I.K.S. Toh'Kaht</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+    <ShipClass>Vor'cha Class</ShipClass>
+    <Faction>Mirror Universe</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>5</Attack>
+    <Agility>1</Agility>
+    <Hull>5</Hull>
+    <Shield>3</Shield>
+    <Ability>ACTION: Place a [SCAN] Token and an Auxiliary Power Token beside your ship.</Ability>
+    <Cost>28</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>0</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>1</Cloak>
+    <SensorEcho>1</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>1</Tech>
+    <Weapon>2</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>i_k_s_toh_kaht_72221e</Id>
+    <Set>72221e</Set>
   </Ship>

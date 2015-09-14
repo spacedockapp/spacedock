@@ -1,18 +1,36 @@
   <ShipClassDetail>
-    <Name>Cardassian Galor Class</Name>
-    <Id>cardassian_galor_class</Id>
+    <Name>Excelsior Class</Name>
+    <Id>excelsior_class</Id>
     <Maneuvers>
 
     </Maneuvers>
     <FrontArc>180</FrontArc>
+    <RearArc>90</RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Excelsior Class</Name>
+    <Id>excelsior_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>180</FrontArc>
+    <RearArc>90</RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Vor'cha Class</Name>
+    <Id>vor_cha_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>90</FrontArc>
     <RearArc></RearArc>
   </ShipClassDetail>
   <ShipClassDetail>
-    <Name>Cardassian Galor Class</Name>
-    <Id>cardassian_galor_class</Id>
+    <Name>Vor'cha Class</Name>
+    <Id>vor_cha_class</Id>
     <Maneuvers>
 
     </Maneuvers>
-    <FrontArc>180</FrontArc>
+    <FrontArc>90</FrontArc>
     <RearArc></RearArc>
   </ShipClassDetail>
