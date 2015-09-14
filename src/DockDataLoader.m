@@ -149,7 +149,8 @@
         }
         [context deleteObject:crew3of5old];
     }
-    
+
+    [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"Plus5NotDominionAndNoMoreThanOnePerShip" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"high_energy_subspace_field_72221c" context:context]];
     [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"3119" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3012" context:context]];
     [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"3052" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3011" context:context]];
     [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"photon_torpedoes_71448" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3045" context:context]];

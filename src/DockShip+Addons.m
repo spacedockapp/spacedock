@@ -274,6 +274,12 @@ NSString* asDegrees(NSString* textValue)
     if ([self.externalId isEqualToString: @"federation_starship_71997p"]) {
         return YES;
     }
+    if ([self.externalId isEqualToString:@"quark_s_treasure_72013"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"ferengi_starship_72013"]) {
+        return YES;
+    }
     return NO;
 }
 

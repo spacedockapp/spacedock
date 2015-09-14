@@ -844,6 +844,8 @@ static NSDictionary* sItemLabels = nil;
                 cost += 2;
             }
         } else if ([upgradeSpecial isEqualToString:@"CaptainIgnoresPenalty"]) {
+        } else if ([equippedShip.ship.externalId isEqualToString:@"quark_s_treasure_72013"] && [upgrade isTech]) {
+        } else if ([equippedShip.ship.externalId isEqualToString:@"quark_s_treasure_72013"] && [upgrade isCrew]) {
         } else if ([equippedShip containsUpgradeWithId:@"romulan_hijackers_71802"] != nil && [upgrade isRomulan]) {
         } else {
             if (upgrade.isAdmiral) {
