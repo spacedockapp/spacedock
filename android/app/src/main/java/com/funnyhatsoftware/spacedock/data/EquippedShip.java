@@ -340,10 +340,10 @@ public class EquippedShip extends EquippedShipBase {
         if (flagship != null) {
             v += flagship.getTalent();
         }
-        if (getCaptain().getExternalId().equals("brunt_72013")){
+        if (getCaptain() != null && getCaptain().getExternalId().equals("brunt_72013")){
             v += 1;
         }
-        if (getCaptain().isKazon() && getShip().isKazon()) {
+        if (getCaptain() != null && getCaptain().isKazon() && getShip().isKazon()) {
             v += 1;
         }
         return v;
@@ -934,7 +934,7 @@ public class EquippedShip extends EquippedShipBase {
             }
 
             if (upgrade.isTalent() && !upgrade.isPlaceholder()) {
-                if (getCaptain().getExternalId().equals("brunt_72013")) {
+                if (getCaptain() != null && getCaptain().getExternalId().equals("brunt_72013")) {
                     int limit = getTalent();
                     if (limit == 1) {
                         if (!upgrade.getTitle().equals("Grand Nagus")) {
