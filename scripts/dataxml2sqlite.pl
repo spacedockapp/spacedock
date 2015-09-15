@@ -74,6 +74,7 @@ sub factions {
 	$sth->execute("Independent") if ($rows < 11);
 	$sth->execute("Mirror Universe") if ($rows < 12);
 	$sth->execute("Q Continuum") if ($rows < 13);
+        $sth->execute("Xindi") if ($rows < 14);
 }
 
 sub sets {

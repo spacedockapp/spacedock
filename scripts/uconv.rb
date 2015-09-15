@@ -6,24 +6,18 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-9/13/2015 15:08:40	72221d - USS Lakota	Unique	Defy Orders	Federation	At the end of the Activation Phase, after all ships have moved, if you have an enemy ship in your forward firing arc, you may discard this card to immediately perform an additional green or white maneuver.  You cannot attack during the round you use this ability.	Talent	4	
-9/13/2015 15:09:44	72221d - USS Lakota	Non-unique	Micro Power Relays	Federation	ACTION: Repair 1 non-critical damage to your Hull.  OR  ACTION: Flip over all critical damage cards assigned to your ship.	Tech	3	
-9/13/2015 15:10:28	72221d - USS Lakota	Unique	Tuvok	Federation	At any time, you may discard this card to perform a [SCAN] Action as a free Action.	Crew	3	
-9/13/2015 20:11:24	72221e - IKS Toh'Kaht	Mirror Universe Unique	Hon-Tihl	Mirror Universe	When attacking with your Primary Weapon, during the Roll Attack Dice step, you may discard this card to gain +2 attack dice for that attack.  If you targeted an Attack Squadron with that attack, after resolving the attack, you may immediately make a second attack against the same Attack Squadron using only 2 attack dice; the number of dice for the second attack cannot be increased in any way.  You cannot roll any defense dice during the round you use this ability.	Crew	5	
-9/13/2015 20:12:36	72221e - IKS Toh'Kaht	Mirror Universe Unique	Covert Mission	Mirror Universe	ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields.  Discard this card to steal 1 [WEAPON] Upgrade on that ship with a cost of 5 or less even if it exceeds your ship's restrictions.	Talent	5	
-9/13/2015 20:19:06	72221e - IKS Toh'Kaht	Non-unique	Reactor Core	Mirror Universe	During the Activation Phase, after you reveal your maneuver, before you move, you may disable this card to increase or decrease your speed by 1.  Your new maneuver must be one that is on your maneuver dial and is treated as a red maneuver.  No ship may be equipped with more than 1 "Reactor Core" Upgrade.	Tech	2	Yes
+9/14/2015 18:20:06	72003p - Diaspora	Unique	Neuro Toxin	Xindi	If an Upgrade on your ship is affected by an opposing ship, you may discard this card to disable the Captain and every [CREW] Upgrade on the opposing ship.	Talent	5	
+9/14/2015 18:21:57	72003p - Diaspora	Non-unique	Phase Deflector Pulse	Xindi	If your ship executes a maneuver that would cause its base to overlap another ship's base, after moving your ship backward along the template until it no longer overlaps the other ship, you may discard this card to immediately perform an additional 2 [FORWARD] Maneuver.  If you do so, you do not lose your "Perform Action" step.  This Upgrade may only be purchased for a Xindi ship and no ship may be equipped with more than 1 "Phase Deflector Pulse" Upgrade.	Tech	5	Yes
+9/14/2015 18:23:01	72003p - Diaspora	Non-unique	Insectoid Riflemen	Xindi	ACTION: If your ship is not Cloaked, disabled all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields.  Discard this card to disable all [CREW] Upgrades on the target ship and then place an Auxiliary Power Token beside that ship.	Crew	5	
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-9/13/2015 15:03:02	72221d - USS Lakota	Non-unique	Federation	1	Federation		0	0		
-9/13/2015 15:04:14	72221d - USS Lakota	Unique	Erika Benteen	4	Federation	ACTION: Disable this card and all of your [WEAPON] Upgrades to target a ship at Range 1-3.  Your ship cannot attack the target ship and that ship cannot attack your ship this round.  You must disable at least 1 [WEAPON] Upgrade to use this Action.	1	3		
-9/13/2015 20:07:42	72221e - IKS Toh'Kaht	Non-unique	Mirror Universe	1	Mirror Universe		0	0		
-9/13/2015 20:08:32	72221e - IKS Toh'Kaht	Mirror Universe Unique	Kaybok	3	Mirror Universe	When attacking, during the Modify Attack Dice step, you may re-roll a number of your attack dice equal to the number of [TECH] and [WEAPON] Upgrades deployed to the defending ship.	1	2		
+9/14/2015 18:14:08	72003p - Diaspora	Non-unique	Xindi	1	Xindi		0	0		
+9/14/2015 18:15:21	72003p - Diaspora	Unique	Insectoid Commander	6	Xindi	When attacking, during the Roll Attack Dice step, you may remove 1 Token ([EVADE] or [BATTLE STATIONS]) from beside your ship to roll +1 attack die for that attack.	1	4		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-9/13/2015 15:12:40	72221d - USS Lakota	Non-unique	Upgraded Phasers	Federation			When attacking with your Primary Weapon, gain +1 attack die.  Once per round, if you hit an Attack Squadron with your Primary Weapon you may immediately make a second attack against that same target.  This Upgrade costs +5 SP for any non-Federation ship and may only be deployed to a ship with a Primary Weapon value of 3 or less.  No ship may be equipped with more than 1 "Upgraded Phasers" Upgrade.	3	Yes
-9/13/2015 20:15:21	72221e - IKS Toh'Kaht	Non-unique	Thalmerite Explosive	Mirror Universe	6	1-2	ATTACK: Discard this card to perform this attack.  If the defending ship is not cloaked and has no Active Shields and you have at least 1 uncanceled [CRIT] result, draw 2 Damage Cards (instead of 1) and choose which one to place beside the enemy's Ship Card; discard the unused Damage Cards.  If this attack is fired at Range 1 and hits, your ship suffers 1 damage.	5	
+9/14/2015 18:24:56	72003p - Diaspora	Non-unique	Pulse-Firing Particle Cannon	Xindi	3	1-3	ATTACK: Disable this card to perform this attack.  You may only fire this weapon from your forward firing arc.  Once per round, if this attack hits, you may immediately make an additional attack with this weapon against the same target with half the attack dice rounded down.  This Upgrade costs +5 SP if purchased for a non-Xindi ship.	4	Yes
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT

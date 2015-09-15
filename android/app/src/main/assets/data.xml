@@ -1,4 +1,4 @@
-<Data version="2015-09-14@05-32">
+<Data version="2015-09-15@07-27">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1462,14 +1462,12 @@
       <Id>type_7_shuttlecraft</Id>
       <Maneuvers>
           <Maneuver speed="2" kind="left-turn" color="white" />
-          <Maneuver speed="2" kind="about" color="white" />
           <Maneuver speed="2" kind="left-bank" color="green" />
           <Maneuver speed="2" kind="straight" color="green" />
           <Maneuver speed="2" kind="right-bank" color="green" />
           <Maneuver speed="2" kind="about" color="white" />
           <Maneuver speed="2" kind="right-turn" color="white" />
           <Maneuver speed="1" kind="left-turn" color="white" />
-          <Maneuver speed="1" kind="about" color="white" />
           <Maneuver speed="1" kind="left-bank" color="green" />
           <Maneuver speed="1" kind="straight" color="green" />
           <Maneuver speed="1" kind="about" color="white" />
@@ -1624,7 +1622,6 @@
           <Maneuver speed="4" kind="straight" color="white" />
           <Maneuver speed="3" kind="left-turn" color="red" />
           <Maneuver speed="3" kind="left-bank" color="white" />
-          <Maneuver speed="3" kind="about" color="red" />
           <Maneuver speed="3" kind="straight" color="white" />
           <Maneuver speed="3" kind="right-bank" color="white" />
           <Maneuver speed="3" kind="about" color="red" />
@@ -1647,19 +1644,40 @@
       <Maneuvers>
           <Maneuver speed="3" kind="straight" color="white" />
           <Maneuver speed="2" kind="left-turn" color="white" />
-          <Maneuver speed="2" kind="about" color="white" />
           <Maneuver speed="2" kind="left-bank" color="white" />
           <Maneuver speed="2" kind="straight" color="green" />
           <Maneuver speed="2" kind="about" color="white" />
           <Maneuver speed="2" kind="right-bank" color="white" />
           <Maneuver speed="2" kind="right-turn" color="white" />
           <Maneuver speed="1" kind="left-turn" color="white" />
-          <Maneuver speed="1" kind="about" color="white" />
           <Maneuver speed="1" kind="left-bank" color="green" />
           <Maneuver speed="1" kind="straight" color="green" />
           <Maneuver speed="1" kind="about" color="white" />
           <Maneuver speed="1" kind="right-bank" color="green" />
           <Maneuver speed="1" kind="right-turn" color="white" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
+      <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+      <Name>Xindi Insectoid Starship</Name>
+      <Id>xindi_insectoid_starship</Id>
+      <Maneuvers>
+          <Maneuver speed="4" kind="straight" color="white" />
+          <Maneuver speed="3" kind="left-turn" color="white" />
+          <Maneuver speed="3" kind="left-bank" color="white" />
+          <Maneuver speed="3" kind="straight" color="white" />
+          <Maneuver speed="3" kind="right-bank" color="white" />
+          <Maneuver speed="3" kind="about" color="red" />
+          <Maneuver speed="3" kind="right-turn" color="white" />
+          <Maneuver speed="2" kind="left-turn" color="white" />
+          <Maneuver speed="2" kind="left-bank" color="white" />
+          <Maneuver speed="2" kind="straight" color="green" />
+          <Maneuver speed="2" kind="right-bank" color="white" />
+          <Maneuver speed="2" kind="right-turn" color="white" />
+          <Maneuver speed="1" kind="left-bank" color="green" />
+          <Maneuver speed="1" kind="straight" color="green" />
+          <Maneuver speed="1" kind="right-bank" color="green" />
       </Maneuvers>
       <FrontArc>90</FrontArc>
       <RearArc></RearArc>
@@ -7100,6 +7118,64 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Id>i_k_s_toh_kaht_72221e</Id>
       <Set>72221e</Set>
   </Ship>
+  <Ship>
+      <Title>Xindi Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Xindi Insectoid Starship</ShipClass>
+      <Faction>Xindi</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
+      <Shield>1</Shield>
+      <Ability></Ability>
+      <Cost>18</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>0</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>xindi_starship_72003p</Id>
+      <Set>72003p</Set>
+  </Ship>
+  <Ship>
+      <Title>Diaspora</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Xindi Insectoid Starship</ShipClass>
+      <Faction>Xindi</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>3</Hull>
+      <Shield>2</Shield>
+      <Ability>During the Roll Attack Dice step, if there is a [BATTLESTATIONS] Token beside your ship, you may discard that Token to re-roll all of your attack dice.</Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>diaspora_72003p</Id>
+      <Set>72003p</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -10467,6 +10543,38 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Cost>2</Cost>
       <Id>kaybok_72221e</Id>
       <Set>72221e</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Xindi</Title>
+      <Ability></Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>1</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Xindi</Faction>
+      <Cost>0</Cost>
+      <Id>xindi_72003p</Id>
+      <Set>72003p</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Insectoid Commander</Title>
+      <Ability>When attacking, during the Roll Attack Dice step, you may remove 1 Token ([EVADE] or [BATTLESTATIONS]) from beside your ship to roll +1 attack die for that attack.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Xindi</Faction>
+      <Cost>4</Cost>
+      <Id>insectoid_commander_72003p</Id>
+      <Set>72003p</Set>
       <Special></Special>
   </Captain>
   </Captains>
@@ -15735,7 +15843,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
     </Upgrade>
     <Upgrade>
       <Title>Dispersion Field</Title>
-      <Ability>While this card is deployed to your ship, none of your other Upgrades can be affected by your opponents. In addition, you may roll your full defense dice in spite of the presence of an opposing ship’s [SCAN] Token.</Ability>
+      <Ability>While this card is deployed to your ship, none of your other Upgrades can be affected by your opponents. In addition, you may roll your full defense dice in spite of the presence of an opposing ship's [SCAN] Token.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -15767,7 +15875,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
     </Upgrade>
     <Upgrade>
       <Title>Kov</Title>
-      <Ability>ACTION: Discard this card to repair up to 2 damage to your ship’s Hull or Shields.</Ability>
+      <Ability>ACTION: Discard this card to repair up to 2 damage to your ship's Hull or Shields.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -15879,7 +15987,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       </Upgrade>
       <Upgrade>
         <Title>Proton beam</Title>
-        <Ability>ATTACK: Disable this card to perform this attack. All damage inflicted by this attack ignores the opposing ship’s Shields. This upgrade costs +5 SP for any non-Borg ship.</Ability>
+        <Ability>ATTACK: Disable this card to perform this attack. All damage inflicted by this attack ignores the opposing ship's Shields. This upgrade costs +5 SP for any non-Borg ship.</Ability>
         <Unique>N</Unique>
         <MirrorUniverseUnique>N</MirrorUniverseUnique>
         <Skill></Skill>
@@ -20667,6 +20775,70 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>72221e</Set>
         <Special></Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Neuro Toxin</Title>
+        <Ability>If an Upgrade on your ship is affected by an opposing ship, you may discard this card to disable the Captain and every [CREW] Upgrade on the opposing ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Xindi</Faction>
+        <Cost>5</Cost>
+        <Id>neuro_toxin_72003p</Id>
+        <Set>72003p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Phase Deflector Pulse</Title>
+        <Ability>If your ship executes a maneuver that would cause its base to overlap another ship's base, after moving your ship backward along the template until it no longer overlaps the other ship, you may discard this card to immediately perform an additional 2 [STRAIGHT] Maneuver. If you do so, you do not lose your "Perform Action" step. This Upgrade may only be purchased for a Xindi ship and no ship may be equipped with more than 1 "Phase Deflector Pulse" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Xindi</Faction>
+        <Cost>5</Cost>
+        <Id>phase_deflector_pulse_72003p</Id>
+        <Set>72003p</Set>
+        <Special>NoMoreThanOnePerShipAndOnlyXindi</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Insectoid Riflemen</Title>
+        <Ability>ACTION: If your ship is not Cloaked, disabled all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Discard this card to disable all [CREW] Upgrades on the target ship and then place an Auxiliary Power Token beside that ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Xindi</Faction>
+        <Cost>5</Cost>
+        <Id>insectoid_riflemen_72003p</Id>
+        <Set>72003p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Pulse-Firing Particle Cannon</Title>
+        <Ability>ATTACK: Disable this card to perform this attack. You may only fire this weapon from your forward firing arc. Once per round, if this attack hits, you may immediately make an additional attack with this weapon against the same target with half the attack dice rounded down. This Upgrade costs +5 SP if purchased for a non-Xindi ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>3</Attack>
+        <Range>1-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Xindi</Faction>
+        <Cost>4</Cost>
+        <Id>pulse_firing_particle_cannon_72003p</Id>
+        <Set>72003p</Set>
+        <Special>Plus5NotXindi</Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -21083,6 +21255,25 @@ When there are no more Mission Tokens left on this card, remove it from the game
           <Id>sabotage_72002r</Id>
           <Set>72002r</Set>
       </Resource>
+      <Resource>
+          <Title>Protocol</Title>
+          <Unique>Y</Unique>
+          <Type>Resource</Type>
+          <Ability>Once per round, one of your ships may use one of the following abilities:
+
+1) When performing an [EVADE], a [SCAN], or a [BATTLE STATIONS] Action from your Action Bar, place 2 of the appropriate type Tokens beside your ship instead of 1.
+
+OR
+
+2) When performing a [CLOAK] Action from your Action Bar, place your [CLOAK] Token beside your ship instead of on your ship's base.  That ship cannot be target locked that round.
+
+OR
+
+3) When performing a [SENSOR ECHO] Action from your Action Bar, you may use a 1 [FORWARD], 2 [FORWARD], or a 3 [FORWARD] Maneuver Template.</Ability>
+          <Cost>5</Cost>
+          <Id>protocol_72003r</Id>
+          <Set>72003r</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -21245,6 +21436,8 @@ When there are no more Mission Tokens left on this card, remove it from the game
       <Set id="72221c" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">Aldara</Set>
       <Set id="72221d" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">U.S.S. Lakota</Set>
       <Set id="72221e" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">I.K.S. Toh'Kaht</Set>
+      <Set id="72003r" overallSetName="Temporal Cold War" releaseDate="2015-10-15">Protocol Resource</Set>
+      <Set id="72003p" overallSetName="Temporal Cold War" releaseDate="2015-10-15">Diaspora</Set>
     </Sets>
     <Flagships>
         <Flagship>
@@ -21701,7 +21894,7 @@ While the Strike Force Order is a part of your fleet:
           <Title>Drone Tokens</Title>
           <Ability>Each Drone Token has a Drone number listed on the face, as well as a Captain Skill Number listed on the back. The Drone Tokens are placed in a stack on top of the Captain Card in descending order (from highest to lowest) of their Drone numbers.
 
-NOTE: The Drone number listed on the token at the top of the stack is always considered the ship's current Captain Skill. At the start of the game, place the Drone Token that has the starting Captain Skill beside the ship (this will be the reverse side of the token that reads “START” on the face).
+NOTE: The Drone number listed on the token at the top of the stack is always considered the ship's current Captain Skill. At the start of the game, place the Drone Token that has the starting Captain Skill beside the ship (this will be the reverse side of the token that reads "START" on the face).
 
 When a Drone Token is used, remove one Token from the top of the stack and flip it over. Then remove the Drone Token that is beside the ship from play and replace it with the token that you just removed from the stack.
 
@@ -21738,6 +21931,7 @@ After rotating the ship, complete the selected maneuver as normal using the appr
             <Title>Initiative</Title>
             <Ability>Ships have initiative, a distinction used to resolve timing conflicts involving Captains of equal Skill. The ships belonging to the player with the LOWEST point total at the start of the game always have initiative. The next lowest point total have initiative, and so on. If two or more players' squadron point totals are equal at the start of the game, then use the ship's Faction to determine the order of initiative as follows:
 
+    Q Continuum
     Federation
     Klingon
     Romulan
@@ -21745,6 +21939,7 @@ After rotating the ship, complete the selected maneuver as normal using the appr
     Borg
     Species 8472
     Kazon
+    Xindi
     Bajoran
     Ferengi
     Vulcan
@@ -21900,6 +22095,42 @@ PERMANENT EFFECT TOKEN: Some Upgrades instruct a player to place a Permanent Eff
         </Ability>
         <Id>continuous_effect_token_reference</Id>
         <Set>72008,72009,72010</Set>
+    </Reference>
+    <Reference>
+        <Title>Shuttlecrafts</Title>
+        <Ability>Shuttlecrafts are treated as normal ships with the following exceptions.
+
+1) Shuttlecrafts can only attack enemy ships at Range 1-2.
+
+2) A shuttlecraft is either considered "Active" (in the play area) or "Inactive" (docked on another ship).
+
+3) If, through the use of an ability, you are able to deploy a [WEAPON] Upgrade to a shuttlecraft, you cannot deploy a [WEAPON] Upgrade to that shuttlecraft with a cost of more than 3 SP (with the exception of the Antimatter Mines Upgrade).
+
+4) For each Shuttlecraft assigned to your fleet there must be 1 ship with a hull value of 4 or more (referred to as a "Capital Ship").
+
+DOCKING A SHUTTLECRAFT: During the Activation Phase, a player may use the following Action to dock his shuttlecraft on another ship with a Hull Value of 4 or more:
+
+ACTION: Place the Captain and all of the Upgrades assigned to the shuttlecraft beneath the shuttlecraft's Ship Card and place them beside the docking ship's cards. Then remove your shuttlecraft from the play area and place it on top of its Ship Card. All of the tokens that were beside the shuttlecraft are place back in the supply. Place an Auxiliary Power Token beside the docking ship.
+
+NOTE: A player may only use the docking Action if after his shuttlecraft moves, its base overlaps a friendly ship's base, OR if after one of his ships moves, that ship's base overlaps a friendly shuttlecraft's base. Otherwise, if a shuttlecraft's base overlaps or is overlapped by another ship's base, the shuttlecraft suffers 1 damage in addition to the normal overlap rules (see pg. 18).
+
+While a shuttlecraft is docked on another ship it is considered to be "Inactive" and the following applies to it:
+
+a) None of its cards (Ship, Captain, Admiral or Upgrades) can be used for their text abilities or affected by an enemy ship. NOTE: These cards are considered to be out of play and are not considered to be deployed to the docking ship.
+
+b) The shuttlecraft is destroyed if the docking ship is destroyed.
+
+c) You may exchange cards from the shuttlecraft to the docking ship and vice versa by spending the docking ship's Action to perform the following Action:
+
+ACTION: Remove a Captain and/or any number of Upgrades from beneath your shuttlecraft's Ship Card and assign them to the docking ship. Then remove a Captain and/or any number of Upgrades from the docking ship and place them beneath your shuttlecraft's Ship Card. Both ship's [sic] must still have a Captain and all Upgrade restrictions still apply.
+
+NOTE: You cannot switch cards that have an extra cost or can only be deployed to a specific ship or type of ship by using this Action.
+
+LAUNCHING A SHUTTLECRAFT: During the Planning Phase, a player may launch a shuttlecraft from the docking ship's Ship Card and places [sic] it in the play area within Range 1 of the Docking ship. Then he separates the shuttlecraft's cards from the docking ship's cards, takes them out from beneath the shuttlecraft's Ship Card and places an Auxiliary Power Token beside both ships. He then chooses a Maneuver for his Active shuttlecraft. NOTE: A Shuttlecraft cannot be placed on top of another ship's base when launching.
+</Ability>
+        <Type>Rules</Type>
+        <Id>shuttlecrafts_reference</Id>
+        <Set>71997p,72013</Set>
     </Reference>
     </ReferenceItems>
 </Data>

@@ -44,10 +44,8 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-9/13/2015 15:05:38	72221d - USS Lakota	Non-unique	Federation Starship	Federation	Excelsior Class	Excelsior Class				3	1	5	3		Battle Stations, Evasive, Scan, Target Lock	24	0	2	1	1	180-degree forward, 90-degree rear		0
-9/13/2015 15:06:57	72221d - USS Lakota	Unique	U.S.S. Lakota	Federation	Excelsior Class	Excelsior Class				3	1	5	4	When attacking, during the Modify Attack Dice step, you may convert 1 of your [HIT] results into 1 [CRIT] result.  If you do so, place an Auxiliary Power Token beside your ship.	Battle Stations, Evasive, Scan, Target Lock	26	0	2	1	2	180-degree forward, 90-degree rear		0
-9/13/2015 20:05:25	72221e - IKS Toh'Kaht	Non-unique	Mirror Universe Starship	Mirror Universe	Vor'cha Class	Vor'cha Class				5	1	5	2		Cloak, Evasive, Sensor Echo, Target Lock	26	0	1	1	1	90-degree forward		0
-9/13/2015 20:06:41	72221e - IKS Toh'Kaht	Mirror Universe Unique	I.K.S. Toh'Kaht	Mirror Universe	Vor'cha Class	Vor'cha Class				5	1	5	3	ACTION: Place a [SCAN] Token and an Auxiliary Power Token beside your ship.	Cloak, Evasive, Sensor Echo, Target Lock	28	0	1	1	2	90-degree forward		0
+9/14/2015 18:17:25	72003p - Diaspora	Non-unique	Xindi Starship	Xindi	Xindi Insectoid Starship		1 Bank, 1 Forward, 2 Forward	2 Turn, 2 Bank, 3 Turn, 3 Bank, 3 Forward, 4 Forward	3 Come About	3	2	3	1		Battle Stations, Evasive, Target Lock	18	0	0	1	1	90-degree forward		0
+9/14/2015 18:18:44	72003p - Diaspora	Unique	Diaspora	Xindi	Xindi Insectoid Starship	Xindi Insectoid Starship				3	2	3	2	During the Roll Attack Dice step, if there is a [BATTLE STATIONS] Token beside your ship, you may discard that Token to re-roll all of your attack dice.	Battle Stations, Evasive, Target Lock	20	0	1	1	1	90-degree forward		0
 SHIPTEXT
 
 

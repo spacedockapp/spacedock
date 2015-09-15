@@ -1,51 +1,51 @@
   <Ship>
-    <Title>U.S.S. Lakota</Title>
-    <Unique>Y</Unique>
+    <Title>Xindi Starship</Title>
+    <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Excelsior Class</ShipClass>
-    <Faction>Federation</Faction>
+    <ShipClass>Xindi Insectoid Starship</ShipClass>
+    <Faction>Xindi</Faction>
     <AdditionalFaction></AdditionalFaction>
     <Attack>3</Attack>
-    <Agility>1</Agility>
-    <Hull>5</Hull>
-    <Shield>4</Shield>
-    <Ability>When attacking, during the Modify Attack Dice step, you may convert 1 of your [HIT] results into 1 [CRIT] result.  If you do so, place an Auxiliary Power Token beside your ship.</Ability>
-    <Cost>26</Cost>
+    <Agility>2</Agility>
+    <Hull>3</Hull>
+    <Shield>1</Shield>
+    <Ability></Ability>
+    <Cost>18</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
-    <Scan>1</Scan>
+    <Scan>0</Scan>
     <Battlestations>1</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
     <Tech>1</Tech>
-    <Weapon>2</Weapon>
-    <Crew>2</Crew>
+    <Weapon>1</Weapon>
+    <Crew>0</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>u_s_s_lakota_72221d</Id>
-    <Set>72221d</Set>
+    <Id>xindi_starship_72003p</Id>
+    <Set>72003p</Set>
   </Ship>
   <Ship>
-    <Title>Mirror Universe Starship</Title>
-    <Unique>N</Unique>
+    <Title>Diaspora</Title>
+    <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Vor'cha Class</ShipClass>
-    <Faction>Mirror Universe</Faction>
+    <ShipClass>Xindi Insectoid Starship</ShipClass>
+    <Faction>Xindi</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>5</Attack>
-    <Agility>1</Agility>
-    <Hull>5</Hull>
+    <Attack>3</Attack>
+    <Agility>2</Agility>
+    <Hull>3</Hull>
     <Shield>2</Shield>
-    <Ability></Ability>
-    <Cost>26</Cost>
+    <Ability>During the Roll Attack Dice step, if there is a [BATTLESTATIONS] Token beside your ship, you may discard that Token to re-roll all of your attack dice.</Ability>
+    <Cost>20</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
+    <Battlestations>1</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
     <Tech>1</Tech>
@@ -53,35 +53,6 @@
     <Crew>1</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>mirror_universe_starship_72221e</Id>
-    <Set>72221e</Set>
-  </Ship>
-  <Ship>
-    <Title>I.K.S. Toh'Kaht</Title>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
-    <ShipClass>Vor'cha Class</ShipClass>
-    <Faction>Mirror Universe</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>5</Attack>
-    <Agility>1</Agility>
-    <Hull>5</Hull>
-    <Shield>3</Shield>
-    <Ability>ACTION: Place a [SCAN] Token and an Auxiliary Power Token beside your ship.</Ability>
-    <Cost>28</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
-    <Has360Arc>N</Has360Arc>
-    <Id>i_k_s_toh_kaht_72221e</Id>
-    <Set>72221e</Set>
+    <Id>diaspora_72003p</Id>
+    <Set>72003p</Set>
   </Ship>
