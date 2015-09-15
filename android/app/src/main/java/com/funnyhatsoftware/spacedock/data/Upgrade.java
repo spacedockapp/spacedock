@@ -559,6 +559,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 // do nothing
             } else if (null != equippedShip.containsUpgrade(Universe.getUniverse().getUpgrade("romulan_hijackers_71802")) && isRomulan()) {
                 // do nothing
+            } else if (equippedShip.getExternalId().equals("quark_s_treasure_72013") && isTech()) {
+                // do nothing
+            } else if (equippedShip.getExternalId().equals("quark_s_treasure_72013") && isCrew()) {
+                // do nothing
             } else if (captain.getExternalId().equals("k_temoc_72009")) {
                 if (isAdmiral()) {
                     cost += 6;
@@ -684,6 +688,12 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 if (externalId.equals("vulcan_high_command_1_1_71446")) {
                     return 1;
                 }
+                if (externalId.equals("cargo_hold_11_72013")) {
+                    return 1;
+                }
+                if (externalId.equals("cargo_hold_20_72013")) {
+                    return 2;
+                }
             }
         }
         return 0;
@@ -710,6 +720,12 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                     || externalId.equals("systems_upgrade_w_71998p")
                     ) {
                 return 1;
+            }
+            if (externalId.equals("cargo_hold_11_72013")) {
+                return 1;
+            }
+            if (externalId.equals("cargo_hold_02_72013")) {
+                return 2;
             }
         }
         return 0;
