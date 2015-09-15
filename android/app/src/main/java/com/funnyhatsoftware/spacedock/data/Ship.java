@@ -271,6 +271,12 @@ public class Ship extends ShipBase implements Factioned, Uniqueness {
         return "Regent's Flagship".equals(mTitle);
     }
 
+    public boolean isShuttle() {
+        if (getShipClass().equals("Type 7 Shuttlecraft")) {
+            return true;
+        }
+        return getShipClass().equals("Ferengi Shuttle");
+    }
     public boolean isFighterSquadron() {
         String shipId = getExternalId();
         if (shipId != null) {

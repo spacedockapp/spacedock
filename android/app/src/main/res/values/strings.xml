@@ -24,6 +24,8 @@
     <string name="indicator_unique">*</string>
 
     <string name="menu_settings">Settings</string>
+    <string name="menu_update">Check for Data Update</string>
+    <string name="menu_loadupdate">Load Game Data Update</string>
     <string name="menu_create_squad">Create Squad</string>
     <string name="menu_share_all_squads">Share All Squads</string>
     <string name="menu_share_squad">Share Squad</string>
@@ -46,6 +48,8 @@
     <string name="pref_summary_set_selection">Only items from the selected expansions are shown in the app.</string>
     <string name="pref_title_auto_add_new_sets">Auto enable new expansions</string>
     <string name="pref_summary_auto_add_new_sets">On update, newly available expansions will be enabled automatically.</string>
+    <string name="pref_title_check_updates">Check for Game Data Updates on Launch</string>
+    <string name="pref_summary_check_updates">Check online for updated Game Data when launching the app.</string>
 
     <string name="toast_invalid_set_selection">Set selection invalid. You must select at least one set to display.</string>
 

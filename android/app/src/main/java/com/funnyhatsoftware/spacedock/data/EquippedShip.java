@@ -37,6 +37,8 @@ public class EquippedShip extends EquippedShipBase {
         return (mShip == null);
     }
 
+    public boolean isShuttle() { return mShip.isShuttle(); }
+
     public String getShipExternalId() {
         if (mShip == null) {
             return "[sideboard]";
@@ -983,6 +985,14 @@ public class EquippedShip extends EquippedShipBase {
             }
         }
 
+        if (ship.isShuttle() && upgrade.isWeapon()) {
+            EquippedUpgrade tmpEu = new EquippedUpgrade();
+            tmpEu.setUpgrade(upgrade);
+            if (upgrade.calculateCostForShip(this,tmpEu) > 3) {
+                return new Explanation(msg, "You cannot deploy a [WEAPON] Upgrade with a cost greater than 3 to a shuttlecraft.");
+            }
+        }
+
         int limit = upgrade.limitForShip(this);
         if (limit <= 0) {
             String expl;
@@ -997,6 +1007,7 @@ public class EquippedShip extends EquippedShipBase {
             }
             return new Explanation(msg, expl);
         }
+
         return Explanation.SUCCESS;
     }
 

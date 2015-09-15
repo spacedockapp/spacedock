@@ -126,7 +126,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
             } else if (i == fleetCaptainIndex || fleetCaptainUnassigned) {
                 populateLookup(l, 1, R.string.fleetcaptain_slot, EquippedShip.SLOT_TYPE_FLEET_CAPTAIN);
             }
-            if (!s.isResourceSideboard()) {
+            if (!s.isResourceSideboard() && !s.isShuttle()) {
                 if (i == admiralIndex || 0 > admiralIndex) {
                     populateLookup(l, s.getCaptainLimit(), R.string.admiral_slot,
                             EquippedShip.SLOT_TYPE_ADMIRAL);
