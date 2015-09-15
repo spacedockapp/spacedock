@@ -559,9 +559,9 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 // do nothing
             } else if (null != equippedShip.containsUpgrade(Universe.getUniverse().getUpgrade("romulan_hijackers_71802")) && isRomulan()) {
                 // do nothing
-            } else if (equippedShip.getExternalId().equals("quark_s_treasure_72013") && isTech()) {
+            } else if (ship.getExternalId().equals("quark_s_treasure_72013") && isTech()) {
                 // do nothing
-            } else if (equippedShip.getExternalId().equals("quark_s_treasure_72013") && isCrew()) {
+            } else if (ship.getExternalId().equals("quark_s_treasure_72013") && isCrew()) {
                 // do nothing
             } else if (captain.getExternalId().equals("k_temoc_72009")) {
                 if (isAdmiral()) {
