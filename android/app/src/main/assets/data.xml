@@ -1,4 +1,4 @@
-<Data version="2015-09-15@07-27">
+<Data version="2015-09-16@19-44">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -2700,7 +2700,7 @@
       <Weapon>1</Weapon>
       <Crew>1</Crew>
       <Id>1039</Id>
-      <Set>71273,71996</Set>
+      <Set>71273,71996,72221f</Set>
     </Ship>
     <Ship>
       <Title>Koranak</Title>
@@ -7176,6 +7176,35 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Id>diaspora_72003p</Id>
       <Set>72003p</Set>
   </Ship>
+  <Ship>
+      <Title>I.K.S. Buruk</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>K'Vort Class</ShipClass>
+      <Faction>Klingon</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>3</Shield>
+      <Ability>When defending, if your ship is not cloaked and there is a friendly ship within Range 1-2 of your ship, you may roll +1 defense die.  If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+      <Cost>26</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>i_k_s_buruk_72221f</Id>
+      <Set>72221f</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -7260,7 +7289,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Klingon</Faction>
       <Cost>0</Cost>
       <Id>2005</Id>
-      <Set>71120,71125,71126,OP2Prize,71269,71273,71448,i_k_s_b_moth,71532,71996,71804,72009</Set>
+      <Set>71120,71125,71126,OP2Prize,71269,71273,71448,i_k_s_b_moth,71532,71996,71804,72009,72221f</Set>
     </Captain>
     <Captain>
       <Title>Toreth</Title>
@@ -10575,6 +10604,22 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Cost>4</Cost>
       <Id>insectoid_commander_72003p</Id>
       <Set>72003p</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Duras</Title>
+      <Ability>During the Roll Attack Dice step, you may discard any number of your Upgrades to gain +1 attack die for each Upgrade discarded with this ability for that attack.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>duras_72221f</Id>
+      <Set>72221f</Set>
       <Special></Special>
   </Captain>
   </Captains>
@@ -20839,6 +20884,70 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>72003p</Set>
         <Special>Plus5NotXindi</Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Targeting Systems</Title>
+        <Ability>During the Activation Phase, you may discard this card to perform the [TARGET LOCK] Action as a free Action. No ship may be equipped with more than 1 "Targeting Systems" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Klingon</Faction>
+        <Cost>4</Cost>
+        <Id>targeting_systems_72221f</Id>
+        <Set>72221f</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Kurak</Title>
+        <Ability>When defending, during the Deal Damage step, you may discard this card to disable up to 2 of your Shield Tokens instead of losing them. This card costs +5 SP if purchased for a non-Klingon ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Klingon</Faction>
+        <Cost>3</Cost>
+        <Id>kurak_72221f</Id>
+        <Set>72221f</Set>
+        <Special>Plus5NotKlingon</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Dishonorable Tactics</Title>
+        <Ability>When attacking with your Primary Weapon, during the Modify Attack Dice step, you may discard this card to target a friendly ship within Range 1-3 of your ship. Disable 1 Upgrade on the target ship to re-roll any number of your attack dice. You may discard that Upgrade to re-roll any of those dice a 2nd time.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Klingon</Faction>
+        <Cost>3</Cost>
+        <Id>dishonorable_tactics_72221f</Id>
+        <Set>72221f</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Ambush Attack</Title>
+        <Ability>At the start of the Combat Phase, if your ship is cloaked, you may discard this card to perform your attack before every other ship. This attack must be made with your Primary Weapon. If this attack hits an attack squadron, disable 1 [SQUADRON] Upgrad on the defending attack squadron, if possible.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Weapon</Type>
+        <Faction>Klingon</Faction>
+        <Cost>5</Cost>
+        <Id>ambush_attack_72221f</Id>
+        <Set>72221f</Set>
+        <Special></Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -21436,6 +21545,7 @@ OR
       <Set id="72221c" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">Aldara</Set>
       <Set id="72221d" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">U.S.S. Lakota</Set>
       <Set id="72221e" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">I.K.S. Toh'Kaht</Set>
+      <Set id="72221f" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">I.K.S. Buruk</Set>
       <Set id="72003r" overallSetName="Temporal Cold War" releaseDate="2015-10-15">Protocol Resource</Set>
       <Set id="72003p" overallSetName="Temporal Cold War" releaseDate="2015-10-15">Diaspora</Set>
     </Sets>

@@ -6,18 +6,18 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-9/14/2015 18:20:06	72003p - Diaspora	Unique	Neuro Toxin	Xindi	If an Upgrade on your ship is affected by an opposing ship, you may discard this card to disable the Captain and every [CREW] Upgrade on the opposing ship.	Talent	5	
-9/14/2015 18:21:57	72003p - Diaspora	Non-unique	Phase Deflector Pulse	Xindi	If your ship executes a maneuver that would cause its base to overlap another ship's base, after moving your ship backward along the template until it no longer overlaps the other ship, you may discard this card to immediately perform an additional 2 [FORWARD] Maneuver.  If you do so, you do not lose your "Perform Action" step.  This Upgrade may only be purchased for a Xindi ship and no ship may be equipped with more than 1 "Phase Deflector Pulse" Upgrade.	Tech	5	Yes
-9/14/2015 18:23:01	72003p - Diaspora	Non-unique	Insectoid Riflemen	Xindi	ACTION: If your ship is not Cloaked, disabled all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields.  Discard this card to disable all [CREW] Upgrades on the target ship and then place an Auxiliary Power Token beside that ship.	Crew	5	
+9/16/2015 13:32:48	72221f - IKS Buruk	Non-unique	Targeting Systems	Klingon	During the Activation Phase, you may discard this card to perform the [TARGET LOCK] Action as a free Action.  No ship may be equipped with more than 1 "Targeting Systems" Upgrade.	Tech	4	Yes
+9/16/2015 13:33:38	72221f - IKS Buruk	Unique	Kurak	Klingon	When defending, during the Deal Damage step, you may discard this card to disable up to 2 of your Shield Tokens instead of losing them.  This card costs +5 SP if purchased for a non-Klingon ship.	Crew	3	Yes
+9/16/2015 13:35:22	72221f - IKS Buruk	Unique	Dishonorable Tactics	Klingon	When attacking with your Primary Weapon, during the Modify Attack Dice step, you may discard this card to target a friendly ship within Range 1-3 of your ship.  Disable 1 Upgrade on the target ship to re-roll any number of your attack dice.  You may discard that Upgrade to re-roll any of those dice a 2nd time.	Talent	3	
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-9/14/2015 18:14:08	72003p - Diaspora	Non-unique	Xindi	1	Xindi		0	0		
-9/14/2015 18:15:21	72003p - Diaspora	Unique	Insectoid Commander	6	Xindi	When attacking, during the Roll Attack Dice step, you may remove 1 Token ([EVADE] or [BATTLE STATIONS]) from beside your ship to roll +1 attack die for that attack.	1	4		
+9/16/2015 13:36:16	72221f - IKS Buruk	Non-unique	Klingon	1	Klingon		0	0		
+9/16/2015 13:37:28	72221f - IKS Buruk	Unique	Duras	6	Klingon	During the Roll Attack Dice step, you may discard any number of your Upgrades to gain +1 attack die for each Upgrade discarded with this ability for that attack.	1	4		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-9/14/2015 18:24:56	72003p - Diaspora	Non-unique	Pulse-Firing Particle Cannon	Xindi	3	1-3	ATTACK: Disable this card to perform this attack.  You may only fire this weapon from your forward firing arc.  Once per round, if this attack hits, you may immediately make an additional attack with this weapon against the same target with half the attack dice rounded down.  This Upgrade costs +5 SP if purchased for a non-Xindi ship.	4	Yes
+9/16/2015 13:31:10	72221f - IKS Buruk	Unique	Ambush Attack	Klingon			At the start of the Combat Phase, if your ship is cloaked, you may discard this card to perform your attack before every other ship.  This attack must be made with your Primary Weapon.  If this attack hits an attack squadron, disable 1 [SQUADRON] Upgrad on the defending attack squadron, if possible.	5	
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT

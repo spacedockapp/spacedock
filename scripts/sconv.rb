@@ -44,8 +44,8 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-9/14/2015 18:17:25	72003p - Diaspora	Non-unique	Xindi Starship	Xindi	Xindi Insectoid Starship		1 Bank, 1 Forward, 2 Forward	2 Turn, 2 Bank, 3 Turn, 3 Bank, 3 Forward, 4 Forward	3 Come About	3	2	3	1		Battle Stations, Evasive, Target Lock	18	0	0	1	1	90-degree forward		0
-9/14/2015 18:18:44	72003p - Diaspora	Unique	Diaspora	Xindi	Xindi Insectoid Starship	Xindi Insectoid Starship				3	2	3	2	During the Roll Attack Dice step, if there is a [BATTLE STATIONS] Token beside your ship, you may discard that Token to re-roll all of your attack dice.	Battle Stations, Evasive, Target Lock	20	0	1	1	1	90-degree forward		0
+9/16/2015 13:39:16	72221f - IKS Buruk	Non-unique	Klingon Starship	Klingon	K'vort Class	K'vort Class				4	1	5	2		Cloak, Evasive, Sensor Echo, Target Lock	24	0	1	1	1	90-degree forward, 90-degree rear		0
+9/16/2015 13:40:49	72221f - IKS Buruk	Unique	I.K.S. Buruk	Klingon	K'vort Class	K'vort Class				4	1	5	3	When defending, if your ship is not cloaked and there is a friendly ship within Range 1-2 of your ship, you may roll +1 defense die.  If you do so, place an Auxiliary Power Token beside your ship.	Cloak, Evasive, Sensor Echo, Target Lock	26	0	1	1	2	90-degree forward, 90-degree rear		0
 SHIPTEXT
 
 

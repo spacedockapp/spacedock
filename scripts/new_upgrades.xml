@@ -1,22 +1,6 @@
     <Upgrade>
-      <Title>Neuro Toxin</Title>
-      <Ability>If an Upgrade on your ship is affected by an opposing ship, you may discard this card to disable the Captain and every [CREW] Upgrade on the opposing ship.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Xindi</Faction>
-      <Cost>5</Cost>
-      <Id>neuro_toxin_72003p</Id>
-      <Set>72003p</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Phase Deflector Pulse</Title>
-      <Ability>If your ship executes a maneuver that would cause its base to overlap another ship's base, after moving your ship backward along the template until it no longer overlaps the other ship, you may discard this card to immediately perform an additional 2 [STRAIGHT] Maneuver. If you do so, you do not lose your "Perform Action" step. This Upgrade may only be purchased for a Xindi ship and no ship may be equipped with more than 1 "Phase Deflector Pulse" Upgrade.</Ability>
+      <Title>Targeting Systems</Title>
+      <Ability>During the Activation Phase, you may discard this card to perform the [TARGET LOCK] Action as a free Action. No ship may be equipped with more than 1 "Targeting Systems" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -24,41 +8,57 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Xindi</Faction>
-      <Cost>5</Cost>
-      <Id>phase_deflector_pulse_72003p</Id>
-      <Set>72003p</Set>
-      <Special>NoMoreThanOnePerShipAndOnlyXindi</Special>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>targeting_systems_72221f</Id>
+      <Set>72221f</Set>
+      <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Insectoid Riflemen</Title>
-      <Ability>ACTION: If your ship is not Cloaked, disabled all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Discard this card to disable all [CREW] Upgrades on the target ship and then place an Auxiliary Power Token beside that ship.</Ability>
-      <Unique>N</Unique>
+      <Title>Kurak</Title>
+      <Ability>When defending, during the Deal Damage step, you may discard this card to disable up to 2 of your Shield Tokens instead of losing them. This card costs +5 SP if purchased for a non-Klingon ship.</Ability>
+      <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Xindi</Faction>
-      <Cost>5</Cost>
-      <Id>insectoid_riflemen_72003p</Id>
-      <Set>72003p</Set>
-      <Special></Special>
+      <Faction>Klingon</Faction>
+      <Cost>3</Cost>
+      <Id>kurak_72221f</Id>
+      <Set>72221f</Set>
+      <Special>Plus5NotKlingon</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Pulse-Firing Particle Cannon</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. You may only fire this weapon from your forward firing arc. Once per round, if this attack hits, you may immediately make an additional attack with this weapon against the same target with half the attack dice rounded down. This Upgrade costs +5 SP if purchased for a non-Xindi ship.</Ability>
-      <Unique>N</Unique>
+      <Title>Dishonorable Tactics</Title>
+      <Ability>When attacking with your Primary Weapon, during the Modify Attack Dice step, you may discard this card to target a friendly ship within Range 1-3 of your ship. Disable 1 Upgrade on the target ship to re-roll any number of your attack dice. You may discard that Upgrade to re-roll any of those dice a 2nd time.</Ability>
+      <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>3</Attack>
-      <Range>1-3</Range>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Klingon</Faction>
+      <Cost>3</Cost>
+      <Id>dishonorable_tactics_72221f</Id>
+      <Set>72221f</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Ambush Attack</Title>
+      <Ability>At the start of the Combat Phase, if your ship is cloaked, you may discard this card to perform your attack before every other ship. This attack must be made with your Primary Weapon. If this attack hits an attack squadron, disable 1 [SQUADRON] Upgrad on the defending attack squadron, if possible.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
       <Type>Weapon</Type>
-      <Faction>Xindi</Faction>
-      <Cost>4</Cost>
-      <Id>pulse_firing_particle_cannon_72003p</Id>
-      <Set>72003p</Set>
-      <Special>Plus5NotXindi</Special>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>ambush_attack_72221f</Id>
+      <Set>72221f</Set>
+      <Special></Special>
     </Upgrade>
