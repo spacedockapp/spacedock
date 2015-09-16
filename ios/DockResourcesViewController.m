@@ -105,6 +105,7 @@ NSString* kMarkExpiredResKey = @"markExpiredRes";
         DockResource* resource = resources[row];
         cell.textLabel.text = [resource title];
         cell.detailTextLabel.text = [[resource costForSquad:_targetSquad] stringValue];
+        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
         if (_markExpiredRes) {
             DockSet* set = [resource.sets anyObject];
             NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
