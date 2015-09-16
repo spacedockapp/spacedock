@@ -103,7 +103,9 @@ NSString* kMarkExpiredResKey = @"markExpiredRes";
         cell.accessoryType = UITableViewCellAccessoryNone;
     } else {
         DockResource* resource = resources[row];
-        cell.textLabel.text = [resource title];
+        cell.textLabel.text = [[resource title] stringByAppendingString:@"      "];
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        cell.textLabel.adjustsLetterSpacingToFitWidth = YES;
         cell.detailTextLabel.text = [[resource costForSquad:_targetSquad] stringValue];
         cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
         if (_markExpiredRes) {
@@ -117,8 +119,8 @@ NSString* kMarkExpiredResKey = @"markExpiredRes";
                                                fromDate:[cal dateFromComponents:components]
                                                toDate:[NSDate date] options:0];
             if (ageComponents.month >= 18) {
-                NSMutableAttributedString* as = cell.textLabel.attributedText.mutableCopy;
-                NSMutableAttributedString* exp = [[NSMutableAttributedString alloc] initWithString:@" (Retired)"];
+                NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithString:[resource title]];
+                NSMutableAttributedString* exp = [[NSMutableAttributedString alloc] initWithString:@" (Retired)      "];
                 [exp addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0,[exp length])];
                 [as appendAttributedString:exp];
                 cell.textLabel.attributedText = as;
