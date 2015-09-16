@@ -470,8 +470,14 @@ public class DataLoader extends DefaultHandler {
                 "Add2HiddenCrew5",
                 "OnlyGrandNagusTalent",
                 "AddTwoWeaponSlotsAndNoMoreThanOnePerShip",
-                "Hull4NoRearPlus5NonFed"
-
+                "Hull4NoRearPlus5NonFed",
+                "no_faction_penalty_on_vulcan",
+                "limited_max_weapon_3AndPlus5NonFed",
+                "Plus5NotDominionAndNoMoreThanOnePerShip",
+                "Plus5NotKlingon",
+                "Plus5NotXindi",
+                "OnlyTalShiarTalent",
+                "OnlyRomulanCaptain"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);

@@ -931,6 +931,13 @@ public class EquippedShip extends EquippedShipBase {
                 }
             }
 
+            if ("OnlyRomulanCaptain".equals(upgradeSpecial)){
+                if (!captain.isRomulan()){
+                    return new Explanation(msg,
+                            "This upgrade can only be added to a Romulan captain.");
+                }
+            }
+
             if ("OnlyFederationCaptainShip".equals(upgradeSpecial)) {
                 if (!captain.isFederation() || !ship.isFederation()) {
                     return new Explanation(msg,
