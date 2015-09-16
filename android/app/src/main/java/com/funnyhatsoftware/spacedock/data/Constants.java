@@ -28,4 +28,5 @@ public class Constants {
     public static final String ROMULAN = "Romulan";
     public static final String FERENGI = "Ferengi";
     public static final String QCONTINUUM = "Q Continuum";
+    public static final String XINDI = "Xindi";
 }

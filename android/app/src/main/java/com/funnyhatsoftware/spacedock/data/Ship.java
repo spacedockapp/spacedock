@@ -231,6 +231,10 @@ public class Ship extends ShipBase implements Factioned, Uniqueness {
         return DataUtils.targetHasFaction(Constants.MIRROR_UNIVERSE, this);
     }
 
+    public boolean isXindi() {
+        return DataUtils.targetHasFaction(Constants.XINDI, this);
+    }
+
     public boolean isVoyager() {
         return mTitle.equals("U.S.S. Voyager");
     }

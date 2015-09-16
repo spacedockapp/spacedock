@@ -406,6 +406,11 @@ public class Squad extends SquadBase {
                     return new Explanation(result, "You may only deploy this Captain to a Ferengi ship.");
                 }
             }
+            if ("OnlySpecies8472Ship".equals(captain.getSpecial())) {
+                if (!targetShip.getShip().isSpecies8472()) {
+                    return new Explanation(result, "You may only deploy this Captain to a Species 8472 ship.");
+                }
+            }
         }
 
         if (captain.getMirrorUniverseUnique()) {

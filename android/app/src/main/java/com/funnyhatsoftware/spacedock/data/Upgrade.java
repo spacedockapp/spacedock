@@ -447,6 +447,22 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if (!ship.isFederation()) {
                 cost += 5;
             }
+        } else if ("limited_max_weapon_3AndPlus5NonFed".equals(upgradeSpecial)) {
+            if (!ship.isFederation()) {
+                cost += 5;
+            }
+        } else if ("Plus5NotDominionAndNoMoreThanOnePerShip".equals(upgradeSpecial)) {
+            if (!ship.isDominion()) {
+                cost += 5;
+            }
+        } else if ("Plus5NotKlingon".equals(upgradeSpecial)) {
+            if (!ship.isKlingon()) {
+                cost += 5;
+            }
+        } else if ("Plus5NotXindi".equals(upgradeSpecial)) {
+            if (!ship.isXindi()) {
+                cost += 5;
+            }
         } else if (upgradeSpecial.startsWith("Plus3NotShipClass_")) {
             String reqClass = upgradeSpecial.substring(18);
             if (!ship.getShipClass().replace(" ", "_").equals(reqClass)) {
@@ -562,6 +578,8 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             } else if (ship.getExternalId().equals("quark_s_treasure_72013") && isTech()) {
                 // do nothing
             } else if (ship.getExternalId().equals("quark_s_treasure_72013") && isCrew()) {
+                // do nothing
+            } else if (upgradeSpecial.equals("no_faction_penalty_on_vulcan")) {
                 // do nothing
             } else if (captain.getExternalId().equals("k_temoc_72009")) {
                 if (isAdmiral()) {
