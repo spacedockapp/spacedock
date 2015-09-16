@@ -1224,8 +1224,10 @@
             }
         } else {
             NSString* upgradeSpecial = upgrade.special;
-            if ([upgrade isTalent] && [self.captain.externalId isEqualToString:@"brunt_72013"] && ![upgrade.title isEqualToString:@"grand_nagus_72013"]) {
+            if ([upgrade isTalent] && [self.captain.externalId isEqualToString:@"brunt_72013"] && ![upgrade.title isEqualToString:@"Grand Nagus"]) {
                 info = @"Brunt may only deploy the Grand Nagus [TALENT].";
+            } else if ([upgrade isTalent] && [self.captain.externalId isEqualToString:@"lovok_72221a"] && ![upgrade.title isEqualToString:@"Tal Shiar"]) {
+                info = @"Lovok may only deploy the Tal Shiar [TALENT].";
             } else if ([upgrade.externalId isEqualToString:@"first_maje_71793"]) {
                 info = @"This upgrade can only be purchased for a Kazon captain on a Kazon ship.";
             } else if ([upgrade isTalent] && [self.captain isKazon] && [self.ship isKazon] && self.talentCount == 1) {
