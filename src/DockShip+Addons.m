@@ -400,6 +400,11 @@ NSString* asDegrees(NSString* textValue)
     return targetHasFaction(@"Dominion", self);
 }
 
+-(BOOL)isXindi
+{
+    return targetHasFaction(@"Xindi", self);
+}
+
 -(int)techCount
 {
     return [self.tech intValue];

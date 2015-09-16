@@ -620,6 +620,12 @@ static NSString* makeKey(NSString* key)
         @"OnlyGrandNagusTalent",
         @"Hull4NoRearPlus5NonFed",
         @"AddTwoWeaponSlotsAndNoMoreThanOnePerShip",
+        @"no_faction_penalty_on_vulcan",
+        @"limited_max_weapon_3AndPlus5NonFed",
+        @"Plus5NotDominionAndNoMoreThanOnePerShip",
+        @"Plus5NotKlingon",
+        @"Plus5NotXindi",
+        @"OnlyTalShiarTalent",
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];

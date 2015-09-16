@@ -921,6 +921,21 @@ static NSString* namePrefix(NSString* originalName)
             return NO;
         }
     }
+
+    if ([captain.special isEqualToString: @"OnlySpecies8472Ship"]) {
+        if (![targetShip.ship isSpecies8472]) {
+            if (error) {
+                NSString* msg = [NSString stringWithFormat: @"Can't add %@ to the selected squadron.", captain.title];
+                NSString* info = @"This captain can only be deployed to a Species 8472 ship.";
+                NSDictionary* d = @{
+                                    NSLocalizedDescriptionKey: msg,
+                                    NSLocalizedFailureReasonErrorKey: info
+                                    };
+                *error = [NSError errorWithDomain: DockErrorDomain code: kIllegalUpgrade userInfo: d];
+            }
+            return NO;
+        }
+    }
     
     if ([targetShip containsUpgradeWithId:@"romulan_hijackers_71802"] != nil) {
         if (![captain isRomulan]) {

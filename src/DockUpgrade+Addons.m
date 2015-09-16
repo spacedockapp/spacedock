@@ -722,6 +722,22 @@ static NSDictionary* sItemLabels = nil;
         if (![ship isFederation]) {
             cost += 5;
         }
+    }  else if ([upgradeSpecial isEqualToString:@"limited_max_weapon_3AndPlus5NonFed"]) {
+        if (![ship isFederation]) {
+            cost += 5;
+        }
+    }  else if ([upgradeSpecial isEqualToString:@"Plus5NotDominionAndNoMoreThanOnePerShip"]) {
+        if (![ship isDominion]) {
+            cost += 5;
+        }
+    }  else if ([upgradeSpecial isEqualToString:@"Plus5NotXindi"]) {
+        if (![ship isXindi]) {
+            cost += 5;
+        }
+    }  else if ([upgradeSpecial isEqualToString:@"Plus5NotKlingon"]) {
+        if (![ship isKlingon]) {
+            cost += 5;
+        }
     } else if ([upgradeSpecial hasPrefix:@"Plus3NotShipClass_"]) {
         NSString* shipClass = [ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
         if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus3NotShipClass_%@",shipClass]]) {
@@ -847,6 +863,7 @@ static NSDictionary* sItemLabels = nil;
         } else if ([equippedShip.ship.externalId isEqualToString:@"quark_s_treasure_72013"] && [upgrade isTech]) {
         } else if ([equippedShip.ship.externalId isEqualToString:@"quark_s_treasure_72013"] && [upgrade isCrew]) {
         } else if ([equippedShip containsUpgradeWithId:@"romulan_hijackers_71802"] != nil && [upgrade isRomulan]) {
+        } else if ([upgradeSpecial isEqualToString:@"no_faction_penalty_on_vulcan"] && [ship isVulcan]) {
         } else {
             if (upgrade.isAdmiral) {
                 cost += 3;
