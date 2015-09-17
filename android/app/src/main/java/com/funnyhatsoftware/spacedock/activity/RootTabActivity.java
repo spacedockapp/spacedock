@@ -52,7 +52,9 @@ public class RootTabActivity extends FragmentTabActivity implements
         }
 
         SpaceDockApplication app = (SpaceDockApplication)getApplication();
-        checkForUpdates();
+        if (savedInstanceState == null) {
+            checkForUpdates();
+        }
     }
 
     @Override

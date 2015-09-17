@@ -7,6 +7,7 @@ import android.content.res.AssetManager;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.support.v4.util.ArrayMap;
+import android.util.Log;
 
 import com.funnyhatsoftware.spacedock.activity.RootTabActivity;
 import com.funnyhatsoftware.spacedock.data.Captain.CaptainComparator;
@@ -260,13 +261,32 @@ public class Universe {
             inputStream.close();
         } catch (Exception e) {
             worked = false;
+            Log.e("spacedock","Error loading data:" + e.getMessage());
         }
 
         if (!worked) {
             File stashDir = Environment
                     .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
             File brokenFile = new File(stashDir, "broken.spacedocksquads");
-            allSquadsFile.renameTo(brokenFile);
+            if(!allSquadsFile.renameTo(brokenFile)) {
+                File sharedSquads = new File(context.getFilesDir(), "shared_squads");
+                brokenFile = new File(sharedSquads, "broken.spacedocksquads");
+                InputStream in = new FileInputStream(allSquadsFile);
+                OutputStream out = new FileOutputStream(brokenFile);
+                byte[] buf = new byte[1024];
+                int len;
+                try {
+                    while ((len = in.read(buf)) > 0) {
+                        out.write(buf, 0, len);
+                    }
+                    in.close();
+                    out.close();
+                } catch (Exception e) {
+                    allSquadsFile.renameTo(brokenFile);
+                    Log.e("spacedock", "Could not copy bad squads, had to rename it.");
+                }
+            }
+            Log.e("spacedock", "Renamed file to" + brokenFile.getAbsolutePath());
         }
         Collections.sort(mSquads, new SquadComparator());
         return worked;

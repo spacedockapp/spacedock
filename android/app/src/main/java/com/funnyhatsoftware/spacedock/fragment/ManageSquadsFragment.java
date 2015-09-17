@@ -8,13 +8,16 @@ import java.util.HashSet;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.FileProvider;
 import android.text.Spannable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -58,6 +61,44 @@ public class ManageSquadsFragment extends FullscreenListFragment {
 
         if (savedInstanceState != null) {
             mSquadUuid = savedInstanceState.getString(SAVE_KEY_SELECTED_SQUAD);
+        } else {
+            String fullName = getString(R.string.broken_spacedocksquads);
+            File sharedSquads = new File(getActivity().getFilesDir(), "shared_squads");
+            File broken = new File(sharedSquads, fullName);
+            if (broken.exists()) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                alert.setTitle("Error Loading Squads");
+                alert.setMessage("An error occurred loading the saved squads. Would you like to save the old squads file or delete it?");
+                alert.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        FragmentActivity activity = getActivity();
+                        Intent sendIntent = new Intent();
+                        sendIntent.setAction(Intent.ACTION_SEND);
+                        String fullName = getActivity().getString(R.string.broken_spacedocksquads);
+                        File sharedSquads = new File(activity.getFilesDir(), "shared_squads");
+                        File allSquads = new File(sharedSquads, fullName);
+                        Uri contentUri = FileProvider.getUriForFile(activity, "com.funnyhatsoftware.spacedock", allSquads);
+                        sendIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
+                        sendIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, fullName);
+                        sendIntent.setType("*/*");
+                        startActivity(Intent.createChooser(sendIntent, getActivity().getString(R.string.save_broken_squads_to)));
+                    }
+                });
+                alert.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        FragmentActivity activity = getActivity();
+                        Intent sendIntent = new Intent();
+                        sendIntent.setAction(Intent.ACTION_SEND);
+                        String fullName = getActivity().getString(R.string.broken_spacedocksquads);
+                        File sharedSquads = new File(activity.getFilesDir(), "shared_squads");
+                        File allSquads = new File(sharedSquads, fullName);
+                        allSquads.delete();
+                    }
+                });
+                alert.show();
+            }
         }
     }
 
