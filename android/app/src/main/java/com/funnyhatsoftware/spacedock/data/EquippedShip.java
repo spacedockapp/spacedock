@@ -707,6 +707,11 @@ public class EquippedShip extends EquippedShipBase {
                 return new Explanation(msg, "This upgrade can only be added to a Bajoran ship.");
             }
         }
+        if ("OnlyBajoranFederation".equals(upgradeSpecial)) {
+            if (!ship.isBajoran() && !ship.isFederation()) {
+                return new Explanation(msg, "This upgrade can only be added to a Bajoran or Federation ship.");
+            }
+        }
         if ("OnlyKlingon".equals(upgradeSpecial)) {
             if (!ship.isKlingon()) {
                 return new Explanation(msg, "This upgrade can only be added to a Klingon ship.");
@@ -723,6 +728,22 @@ public class EquippedShip extends EquippedShipBase {
             }
             if (!ship.isBajoran()) {
                 return new Explanation(msg, "This upgrade can only be added to a Bajoran ship.");
+            }
+        }
+        if ("NoMoreThanOnePerShipBajoranInterceptor".equals(upgradeSpecial)) {
+            if (addingNew && null != containsUpgrade(upgrade)) {
+                return new Explanation(msg, "This upgrade can only be added once per ship.");
+            }
+            if (!ship.getShipClass().equals("Bajoran Interceptor")) {
+                return new Explanation(msg, "This upgrade can only be added to a Bajoran Interceptor.");
+            }
+        }
+        if ("NoMoreThanOnePerShipBajoranScout".equals(upgradeSpecial)) {
+            if (addingNew && null != containsUpgrade(upgrade)) {
+                return new Explanation(msg, "This upgrade can only be added once per ship.");
+            }
+            if (!ship.getShipClass().equals("Bajoran Scout Ship")) {
+                return new Explanation(msg, "This upgrade can only be added to a Bajoran Scout Ship.");
             }
         }
         if ("NoMoreThanOnePerShipKlingon".equals(upgradeSpecial)) {

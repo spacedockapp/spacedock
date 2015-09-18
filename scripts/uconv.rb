@@ -6,18 +6,18 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-9/16/2015 13:32:48	72221f - IKS Buruk	Non-unique	Targeting Systems	Klingon	During the Activation Phase, you may discard this card to perform the [TARGET LOCK] Action as a free Action.  No ship may be equipped with more than 1 "Targeting Systems" Upgrade.	Tech	4	Yes
-9/16/2015 13:33:38	72221f - IKS Buruk	Unique	Kurak	Klingon	When defending, during the Deal Damage step, you may discard this card to disable up to 2 of your Shield Tokens instead of losing them.  This card costs +5 SP if purchased for a non-Klingon ship.	Crew	3	Yes
-9/16/2015 13:35:22	72221f - IKS Buruk	Unique	Dishonorable Tactics	Klingon	When attacking with your Primary Weapon, during the Modify Attack Dice step, you may discard this card to target a friendly ship within Range 1-3 of your ship.  Disable 1 Upgrade on the target ship to re-roll any number of your attack dice.  You may discard that Upgrade to re-roll any of those dice a 2nd time.	Talent	3	
+9/17/2015 21:27:25	72221g - Interceptor 8	Unique	Ro Laren	Bajoran	When attacking, during the Roll Attack Dice step, you may discard this card to roll +2 attack dice for that attack.  In addition, if this Upgrade is deployed to a Bajoran ship, during the Modify Attack Dice step, you may re-roll all of your [BATTLE STATIONS] results for that attack.  This Upgrade may only be purchased for a Bajoran or Federation ship.	Crew	5	Yes
+9/17/2015 21:28:32	72221g - Interceptor 8	Unique	Pursuit	Bajoran	When attacking a ship that you already have target locked, during the Roll Attack Dice step, you may discard this card to roll +2 attack dice.  This Upgrade may only be purchased for a ship with a Hull value of 3 or less.	Talent	5	Yes
+9/17/2015 21:29:47	72221g - Interceptor 8	Non-unique	Navigational Sensors	Bajoran	After performing a Come About Maneuver, you may disable this card to immediately perform an additional maneuver.  This Upgrade may only be purchased for a Bajoran Interceptor and no ship may be equipped with more than 1 "Navigational Sensors" Upgrade.	Tech	5	Yes
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-9/16/2015 13:36:16	72221f - IKS Buruk	Non-unique	Klingon	1	Klingon		0	0		
-9/16/2015 13:37:28	72221f - IKS Buruk	Unique	Duras	6	Klingon	During the Roll Attack Dice step, you may discard any number of your Upgrades to gain +1 attack die for each Upgrade discarded with this ability for that attack.	1	4		
+9/17/2015 21:23:20	72221g - Interceptor 8	Non-unique	Bajoran	1	Bajoran		0	0		
+9/17/2015 21:23:59	72221g - Interceptor 8	Unique	Shakaar Edon	6	Bajoran	When attacking, you may re-roll all of your blank results.	1	4		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-9/16/2015 13:31:10	72221f - IKS Buruk	Unique	Ambush Attack	Klingon			At the start of the Combat Phase, if your ship is cloaked, you may discard this card to perform your attack before every other ship.  This attack must be made with your Primary Weapon.  If this attack hits an attack squadron, disable 1 [SQUADRON] Upgrad on the defending attack squadron, if possible.	5	
+9/17/2015 21:25:45	72221g - Interceptor 8	Non-unique	Phaser Strike	Bajoran	4	1-3	ACTION: During the Combat Phase, you may attack with this Weapon as if you had a Captain Skill of "10".  ATTACK: Disable this card to perform this attack.  Range combat bonuses apply to this attack.  This Upgrade may only be purchased for a ship with a Hull value of 3 or less and costs +5 SP for any ship other than a Bajoran Interceptor.	5	Yes
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT

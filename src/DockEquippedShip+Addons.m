@@ -848,6 +848,12 @@
             return NO;
         }
     }
+    
+    if ([upgradeSpecial isEqualToString: @"OnlyBajoranFederation"]) {
+        if (![self.ship isBajoran] && ![self.ship isFederation]) {
+            return NO;
+        }
+    }
 
     if ([upgradeSpecial isEqualToString: @"OnlyDominionCaptain"]) {
         if (![self.captain isDominion]) {
@@ -1047,6 +1053,18 @@
             if (![upgrade isRomulan]) {
                 return NO;
             }
+        }
+    }
+    
+    if ([upgradeSpecial isEqualToString:@"NoMoreThanOnePerShipBajoranInterceptor"]) {
+        if (![self.ship.shipClass isEqualToString:@"Bajoran Interceptor"]) {
+            return NO;
+        }
+    }
+    
+    if ([upgradeSpecial isEqualToString:@"NoMoreThanOnePerShipBajoranScout"]) {
+        if (![self.ship.shipClass isEqualToString:@"Bajoran Scout Ship"]) {
+            return NO;
         }
     }
     
@@ -1334,6 +1352,10 @@
                 } else if (![self.ship.shipClassDetails.rearArc isEqualToString:@""]) {
                     info = @"You may only deploy this upgrade to a ship without a rear firing arc.";
                 }
+            } else if ([upgradeSpecial isEqualToString:@"NoMoreThanOnePerShipBajoranInterceptor"]) {
+                info = @"You may only deploy this upgrade to a Bajoran Interceptor";
+            } else if ([upgradeSpecial isEqualToString:@"NoMoreThanOnePerShipBajoranScout"]) {
+                info = @"You may only deploy this upgrade to a Bajoran Scout Ship";
             }
         }
     }

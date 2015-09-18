@@ -1,22 +1,6 @@
     <Upgrade>
-      <Title>Targeting Systems</Title>
-      <Ability>During the Activation Phase, you may discard this card to perform the [TARGET LOCK] Action as a free Action. No ship may be equipped with more than 1 "Targeting Systems" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Klingon</Faction>
-      <Cost>4</Cost>
-      <Id>targeting_systems_72221f</Id>
-      <Set>72221f</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Kurak</Title>
-      <Ability>When defending, during the Deal Damage step, you may discard this card to disable up to 2 of your Shield Tokens instead of losing them. This card costs +5 SP if purchased for a non-Klingon ship.</Ability>
+      <Title>Ro Laren</Title>
+      <Ability>When attacking, during the Roll Attack Dice step, you may discard this card to roll +2 attack dice for that attack. In addition, if this Upgrade is deployed to a Bajoran ship, during the Modify Attack Dice step, you may re-roll all of your [BATTLESTATIONS] results for that attack. This Upgrade may only be purchased for a Bajoran or Federation ship.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -24,15 +8,15 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Klingon</Faction>
-      <Cost>3</Cost>
-      <Id>kurak_72221f</Id>
-      <Set>72221f</Set>
-      <Special>Plus5NotKlingon</Special>
+      <Faction>Bajoran</Faction>
+      <Cost>5</Cost>
+      <Id>ro_laren_72221g</Id>
+      <Set>72221g</Set>
+      <Special>OnlyBajoranFederation</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Dishonorable Tactics</Title>
-      <Ability>When attacking with your Primary Weapon, during the Modify Attack Dice step, you may discard this card to target a friendly ship within Range 1-3 of your ship. Disable 1 Upgrade on the target ship to re-roll any number of your attack dice. You may discard that Upgrade to re-roll any of those dice a 2nd time.</Ability>
+      <Title>Pursuit</Title>
+      <Ability>When attacking a ship that you already have target locked, during the Roll Attack Dice step, you may discard this card to roll +2 attack dice. This Upgrade may only be purchased for a ship with a Hull value of 3 or less.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -40,25 +24,41 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Klingon</Faction>
-      <Cost>3</Cost>
-      <Id>dishonorable_tactics_72221f</Id>
-      <Set>72221f</Set>
-      <Special></Special>
+      <Faction>Bajoran</Faction>
+      <Cost>5</Cost>
+      <Id>pursuit_72221g</Id>
+      <Set>72221g</Set>
+      <Special>OnlyHull3OrLess</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Ambush Attack</Title>
-      <Ability>At the start of the Combat Phase, if your ship is cloaked, you may discard this card to perform your attack before every other ship. This attack must be made with your Primary Weapon. If this attack hits an attack squadron, disable 1 [SQUADRON] Upgrad on the defending attack squadron, if possible.</Ability>
-      <Unique>Y</Unique>
+      <Title>Navigational Sensors</Title>
+      <Ability>After performing a Come About Maneuver, you may disable this card to immediately perform an additional maneuver. This Upgrade may only be purchased for a Bajoran Interceptor and no ship may be equipped with more than 1 "Navigational Sensors" Upgrade.</Ability>
+      <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Weapon</Type>
-      <Faction>Klingon</Faction>
+      <Type>Tech</Type>
+      <Faction>Bajoran</Faction>
       <Cost>5</Cost>
-      <Id>ambush_attack_72221f</Id>
-      <Set>72221f</Set>
-      <Special></Special>
+      <Id>navigational_sensors_72221g</Id>
+      <Set>72221g</Set>
+      <Special>NoMoreThanOnePerShipBajoranInterceptor</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Phaser Strike</Title>
+      <Ability>ACTION: During the Combat Phase, you may attack with this Weapon as if you had a Captain Skill of "10". ATTACK: Disable this card to perform this attack. Range combat bonuses apply to this attack. This Upgrade may only be purchased for a ship with a Hull value of 3 or less and costs +5 SP for any ship other than a Bajoran Interceptor.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>4</Attack>
+      <Range>1-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Bajoran</Faction>
+      <Cost>5</Cost>
+      <Id>phaser_strike_72221g</Id>
+      <Set>72221g</Set>
+      <Special>PhaserStrike</Special>
     </Upgrade>

@@ -1,4 +1,4 @@
-<Data version="2015-09-16@19-44">
+<Data version="2015-09-18@05-55">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -3587,7 +3587,7 @@
       <Weapon>1</Weapon>
       <Crew>0</Crew>
       <Id>bajoran_interceptor_71445</Id>
-      <Set>71445</Set>
+      <Set>71445,72221g</Set>
     </Ship>
     <Ship>
       <Title>Vulcan Starship</Title>
@@ -7205,6 +7205,35 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Id>i_k_s_buruk_72221f</Id>
       <Set>72221f</Set>
   </Ship>
+  <Ship>
+      <Title>Interceptor 8</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Bajoran Interceptor</ShipClass>
+      <Faction>Bajoran</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>2</Attack>
+      <Agility>3</Agility>
+      <Hull>3</Hull>
+      <Shield>0</Shield>
+      <Ability>When attacking, if your ship is not in the target ship's forward firing arc, add +1 attack die.</Ability>
+      <Cost>16</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>interceptor_8_72221g</Id>
+      <Set>72221g</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -8106,7 +8135,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Bajoran</Faction>
       <Cost>0</Cost>
       <Id>bajoran_captain_op6prize</Id>
-      <Set>OP6Prize,71445,71803</Set>
+      <Set>OP6Prize,71445,71803,72221g</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -10620,6 +10649,22 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Cost>4</Cost>
       <Id>duras_72221f</Id>
       <Set>72221f</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Shakaar Edon</Title>
+      <Ability>When attacking, you may re-roll all of your blank results.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Bajoran</Faction>
+      <Cost>4</Cost>
+      <Id>shakaar_edon_72221g</Id>
+      <Set>72221g</Set>
       <Special></Special>
   </Captain>
   </Captains>
@@ -18799,7 +18844,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Cost>4</Cost>
         <Id>assault_vessel_upgrade_c_71803</Id>
         <Set>71803</Set>
-        <Special>NoMoreThanOnePerShipBajoran</Special>
+        <Special>NoMoreThanOnePerShipBajoranScout</Special>
     </Upgrade>
     <Upgrade>
         <Title>Assault Vessel Upgrade</Title>
@@ -18815,7 +18860,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Cost>4</Cost>
         <Id>assault_vessel_upgrade_t_71803</Id>
         <Set>71803</Set>
-        <Special>NoMoreThanOnePerShipBajoran</Special>
+        <Special>NoMoreThanOnePerShipBajoranScout</Special>
     </Upgrade>
     <Upgrade>
         <Title>Assault Vessel Upgrade</Title>
@@ -18831,7 +18876,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Cost>4</Cost>
         <Id>assault_vessel_upgrade_w_71803</Id>
         <Set>71803</Set>
-        <Special>NoMoreThanOnePerShipBajoran</Special>
+        <Special>NoMoreThanOnePerShipBajoranScout</Special>
     </Upgrade>
     <Upgrade>
         <Title>Bajoran Militia</Title>
@@ -20948,6 +20993,70 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>72221f</Set>
         <Special></Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Ro Laren</Title>
+        <Ability>When attacking, during the Roll Attack Dice step, you may discard this card to roll +2 attack dice for that attack. In addition, if this Upgrade is deployed to a Bajoran ship, during the Modify Attack Dice step, you may re-roll all of your [BATTLESTATIONS] results for that attack. This Upgrade may only be purchased for a Bajoran or Federation ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Bajoran</Faction>
+        <Cost>5</Cost>
+        <Id>ro_laren_72221g</Id>
+        <Set>72221g</Set>
+        <Special>OnlyBajoranFederation</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Pursuit</Title>
+        <Ability>When attacking a ship that you already have target locked, during the Roll Attack Dice step, you may discard this card to roll +2 attack dice. This Upgrade may only be purchased for a ship with a Hull value of 3 or less.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Bajoran</Faction>
+        <Cost>5</Cost>
+        <Id>pursuit_72221g</Id>
+        <Set>72221g</Set>
+        <Special>OnlyHull3OrLess</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Navigational Sensors</Title>
+        <Ability>After performing a Come About Maneuver, you may disable this card to immediately perform an additional maneuver. This Upgrade may only be purchased for a Bajoran Interceptor and no ship may be equipped with more than 1 "Navigational Sensors" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Bajoran</Faction>
+        <Cost>5</Cost>
+        <Id>navigational_sensors_72221g</Id>
+        <Set>72221g</Set>
+        <Special>NoMoreThanOnePerShipBajoranInterceptor</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Phaser Strike</Title>
+        <Ability>ACTION: During the Combat Phase, you may attack with this Weapon as if you had a Captain Skill of "10". ATTACK: Disable this card to perform this attack. Range combat bonuses apply to this attack. This Upgrade may only be purchased for a ship with a Hull value of 3 or less and costs +5 SP for any ship other than a Bajoran Interceptor.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>4</Attack>
+        <Range>1-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Bajoran</Faction>
+        <Cost>5</Cost>
+        <Id>phaser_strike_72221g</Id>
+        <Set>72221g</Set>
+        <Special>PhaserStrike</Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -21546,6 +21655,7 @@ OR
       <Set id="72221d" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">U.S.S. Lakota</Set>
       <Set id="72221e" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">I.K.S. Toh'Kaht</Set>
       <Set id="72221f" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">I.K.S. Buruk</Set>
+      <Set id="72221g" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">Interceptor 8</Set>
       <Set id="72003r" overallSetName="Temporal Cold War" releaseDate="2015-10-15">Protocol Resource</Set>
       <Set id="72003p" overallSetName="Temporal Cold War" releaseDate="2015-10-15">Diaspora</Set>
     </Sets>

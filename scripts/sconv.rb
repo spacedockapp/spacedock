@@ -44,8 +44,8 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-9/16/2015 13:39:16	72221f - IKS Buruk	Non-unique	Klingon Starship	Klingon	K'vort Class	K'vort Class				4	1	5	2		Cloak, Evasive, Sensor Echo, Target Lock	24	0	1	1	1	90-degree forward, 90-degree rear		0
-9/16/2015 13:40:49	72221f - IKS Buruk	Unique	I.K.S. Buruk	Klingon	K'vort Class	K'vort Class				4	1	5	3	When defending, if your ship is not cloaked and there is a friendly ship within Range 1-2 of your ship, you may roll +1 defense die.  If you do so, place an Auxiliary Power Token beside your ship.	Cloak, Evasive, Sensor Echo, Target Lock	26	0	1	1	2	90-degree forward, 90-degree rear		0
+9/17/2015 21:21:17	72221g - Interceptor 8	Non-unique	Bajoran Starship	Bajoran	Bajoran Interceptor	Bajoran Interceptor				2	3	3	0		Battle Stations, Evasive, Target Lock	16	0	0	1	1	90-degree forward		0
+9/17/2015 21:22:37	72221g - Interceptor 8	Unique	Interceptor 8	Bajoran	Bajoran Interceptor	Bajoran Interceptor				2	3	3	0	When attacking, if your ship is not in the target ship's forward firing arc, add +1 attack die.	Battle Stations, Evasive, Scan, Target Lock	16	0	1	1	1	90-degree forward		0
 SHIPTEXT
 
 

@@ -1,7 +1,7 @@
 
   <Captain>
-    <Title>Duras</Title>
-    <Ability>During the Roll Attack Dice step, you may discard any number of your Upgrades to gain +1 attack die for each Upgrade discarded with this ability for that attack.</Ability>
+    <Title>Shakaar Edon</Title>
+    <Ability>When attacking, you may re-roll all of your blank results.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>6</Skill>
@@ -9,9 +9,9 @@
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Klingon</Faction>
+    <Faction>Bajoran</Faction>
     <Cost>4</Cost>
-    <Id>duras_72221f</Id>
-    <Set>72221f</Set>
+    <Id>shakaar_edon_72221g</Id>
+    <Set>72221g</Set>
     <Special></Special>
   </Captain>

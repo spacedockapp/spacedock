@@ -626,6 +626,7 @@ static NSString* makeKey(NSString* key)
         @"Plus5NotKlingon",
         @"Plus5NotXindi",
         @"OnlyTalShiarTalent",
+        @"OnlyBajoranFederation"
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];
