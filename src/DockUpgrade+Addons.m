@@ -738,6 +738,10 @@ static NSDictionary* sItemLabels = nil;
         if (![ship isKlingon]) {
             cost += 5;
         }
+    }  else if ([upgradeSpecial isEqualToString:@"Plus4NotVulcan"]) {
+        if (![ship isVulcan]) {
+            cost += 4;
+        }
     } else if ([upgradeSpecial hasPrefix:@"Plus3NotShipClass_"]) {
         NSString* shipClass = [ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
         if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus3NotShipClass_%@",shipClass]]) {

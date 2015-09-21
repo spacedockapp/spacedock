@@ -1,7 +1,6 @@
-
   <Captain>
-    <Title>Shakaar Edon</Title>
-    <Ability>When attacking, you may re-roll all of your blank results.</Ability>
+    <Title>Culluh</Title>
+    <Ability>When defending, roll +1 defense die for every [TECH] Upgrade deployed to your ship (max +2).</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>6</Skill>
@@ -9,9 +8,25 @@
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Bajoran</Faction>
+    <Faction>Kazon</Faction>
     <Cost>4</Cost>
-    <Id>shakaar_edon_72221g</Id>
-    <Set>72221g</Set>
+    <Id>culluh_72221h</Id>
+    <Set>72221h</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Tavin</Title>
+    <Ability>At any time, you may replace 1 [EVADE], [SCAN] or [BATTLESTATIONS] Token beside your ship for 1 [EVADE], [SCAN] or [BATTLESTATIONS] Token. If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>4</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Vulcan</Faction>
+    <Cost>3</Cost>
+    <Id>tavin_72221i</Id>
+    <Set>72221i</Set>
     <Special></Special>
   </Captain>

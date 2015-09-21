@@ -1,17 +1,45 @@
-
   <Ship>
-    <Title>Interceptor 8</Title>
+    <Title>Nistrim-Culluh</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Bajoran Interceptor</ShipClass>
-    <Faction>Bajoran</Faction>
+    <ShipClass>Predator Class</ShipClass>
+    <Faction>Kazon</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>2</Attack>
-    <Agility>3</Agility>
-    <Hull>3</Hull>
-    <Shield>0</Shield>
-    <Ability>When attacking, if your ship is not in the target ship's forward firing arc, add +1 attack die.</Ability>
-    <Cost>16</Cost>
+    <Attack>4</Attack>
+    <Agility>1</Agility>
+    <Hull>5</Hull>
+    <Shield>3</Shield>
+    <Ability>When attacking a ship at Range 3, during the Roll Attack Dice step, gain +1 attack die for every friendly ship within Range 1 of your ship (max +2).</Ability>
+    <Cost>26</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>0</Scan>
+    <Battlestations>1</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>2</Tech>
+    <Weapon>1</Weapon>
+    <Crew>2</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>nistrim_culluh_72221h</Id>
+    <Set>72221h</Set>
+  </Ship>
+  <Ship>
+    <Title>Seleya</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>D'Kyr Class</ShipClass>
+    <Faction>Vulcan</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>3</Attack>
+    <Agility>1</Agility>
+    <Hull>5</Hull>
+    <Shield>4</Shield>
+    <Ability>When defending, if you have a [SCAN] Token beside your ship, roll +1 defense die.</Ability>
+    <Cost>26</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
@@ -21,10 +49,10 @@
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
     <Tech>1</Tech>
-    <Weapon>1</Weapon>
+    <Weapon>2</Weapon>
     <Crew>1</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>interceptor_8_72221g</Id>
-    <Set>72221g</Set>
+    <Id>seleya_72221i</Id>
+    <Set>72221i</Set>
   </Ship>

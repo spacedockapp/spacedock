@@ -6,18 +6,24 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-9/17/2015 21:27:25	72221g - Interceptor 8	Unique	Ro Laren	Bajoran	When attacking, during the Roll Attack Dice step, you may discard this card to roll +2 attack dice for that attack.  In addition, if this Upgrade is deployed to a Bajoran ship, during the Modify Attack Dice step, you may re-roll all of your [BATTLE STATIONS] results for that attack.  This Upgrade may only be purchased for a Bajoran or Federation ship.	Crew	5	Yes
-9/17/2015 21:28:32	72221g - Interceptor 8	Unique	Pursuit	Bajoran	When attacking a ship that you already have target locked, during the Roll Attack Dice step, you may discard this card to roll +2 attack dice.  This Upgrade may only be purchased for a ship with a Hull value of 3 or less.	Talent	5	Yes
-9/17/2015 21:29:47	72221g - Interceptor 8	Non-unique	Navigational Sensors	Bajoran	After performing a Come About Maneuver, you may disable this card to immediately perform an additional maneuver.  This Upgrade may only be purchased for a Bajoran Interceptor and no ship may be equipped with more than 1 "Navigational Sensors" Upgrade.	Tech	5	Yes
+9/20/2015 15:37:39	72221h - Nistrim-Culluh	Unique	Ambition	Kazon	When attacking a ship that has more Upgrades assigned to it, you may discard this card to either gain + 2 attack dice during the Roll Attack Dice step, or re-roll any number of your attack dice during the Modify Attack Dice step.  This Upgrade may only be purchased for a Kazon Captain assigned to a Kazon ship.	Talent	5	Yes
+9/20/2015 15:38:38	72221h - Nistrim-Culluh	Non-unique	Stolen Technology	Kazon	ACTION: Discard this card to perform the Action listed on a non-Borg [TECH] Upgrade deployed to an opposing ship within Range 1-3 of your ship.  This Upgrade may only be purchased for a Kazon ship.	Tech	3	Yes
+9/20/2015 15:39:12	72221h - Nistrim-Culluh	Unique	Rulat	Kazon	When attacking or defending, you may discard this card to re-roll any number of your dice.	Crew	3	
+9/21/2015 17:59:26	72221i - Seleya	Unique	Solin	Vulcan	ACTION: Discard this card to repair up to 2 Shield Tokens.  This Upgrade costs +4 SP if purchased for any non-Vulcan ship.	Crew	4	Yes
+9/21/2015 18:00:56	72221i - Seleya	Non-unique	Power Distribution Net	Vulcan	ACTION: Disable this card and up to 3 of your Active Shields to immediately perform a green or white maneuver with a speed equal to the number of Shields you disabled with this Action.  This Upgrade may only be purchased for a Vulcan ship and no ship may be equipped with more than 1 "Power Distribution Net" Upgrade.	Tech	5	Yes
+9/21/2015 18:02:45	72221i - Seleya	Unique	V'tosh Ka'tur	Vulcan	When attacking, during the Roll Attack Dice step, you may discard this card and up to 3 of your other Upgrades and/or Active Shields.  Gain +1 attack die for that attack for each Upgrade or Shield you discarded with this ability.  This Upgrade may only be purchased for a Vulcan Captain assigned to a Vulcan ship.	Talent	5	Yes
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-9/17/2015 21:23:20	72221g - Interceptor 8	Non-unique	Bajoran	1	Bajoran		0	0		
-9/17/2015 21:23:59	72221g - Interceptor 8	Unique	Shakaar Edon	6	Bajoran	When attacking, you may re-roll all of your blank results.	1	4		
+9/20/2015 15:35:20	72221h - Nistrim-Culluh	Non-unique	Kazon	1	Kazon		0	0		
+9/20/2015 15:36:08	72221h - Nistrim-Culluh	Unique	Culluh	6	Kazon	When defending, roll +1 defense die for every [TECH] Upgrade deployed to your ship (max +2).	1	4		
+9/21/2015 17:57:04	72221i - Seleya	Non-unique	Vulcan	1	Vulcan		0	0		
+9/21/2015 17:58:12	72221i - Seleya	Unique	Tavin	4	Vulcan	At any time, you may replace 1 [EVADE], [SCAN] or [BATTLE STATIONS] Token beside your ship for 1 [EVADE], [SCAN] or [BATTLE STATIONS] Token.  If you do so, place an Auxiliary Power Token beside your ship.	1	3		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-9/17/2015 21:25:45	72221g - Interceptor 8	Non-unique	Phaser Strike	Bajoran	4	1-3	ACTION: During the Combat Phase, you may attack with this Weapon as if you had a Captain Skill of "10".  ATTACK: Disable this card to perform this attack.  Range combat bonuses apply to this attack.  This Upgrade may only be purchased for a ship with a Hull value of 3 or less and costs +5 SP for any ship other than a Bajoran Interceptor.	5	Yes
+9/20/2015 15:41:00	72221h - Nistrim-Culluh	Non-unique	Photonic Charges	Kazon	4	1	ATTACK: Disable this card to perform this attack.  Place an Auxiliary Power Token beside the target ship if there is at least 1 uncancelled [HIT] or [CRIT] result.  This Upgrade costs +4 if purchased for a non-Predator class ship.	4	Yes
+9/21/2015 18:03:55	72221i - Seleya	Non-unique	Aft Particle Beam	Vulcan	4	1-3	ATTACK: Disable this card to perform this attack.  You may only fire this weapon from your rear firing arc.	3	
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT

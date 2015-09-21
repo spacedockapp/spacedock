@@ -44,8 +44,10 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-9/17/2015 21:21:17	72221g - Interceptor 8	Non-unique	Bajoran Starship	Bajoran	Bajoran Interceptor	Bajoran Interceptor				2	3	3	0		Battle Stations, Evasive, Target Lock	16	0	0	1	1	90-degree forward		0
-9/17/2015 21:22:37	72221g - Interceptor 8	Unique	Interceptor 8	Bajoran	Bajoran Interceptor	Bajoran Interceptor				2	3	3	0	When attacking, if your ship is not in the target ship's forward firing arc, add +1 attack die.	Battle Stations, Evasive, Scan, Target Lock	16	0	1	1	1	90-degree forward		0
+9/20/2015 15:32:33	72221h - Nistrim-Culluh	Non-unique	Kazon Starship	Kazon	Predator Class	Predator Class				4	1	5	2		Battle Stations, Evasive, Target Lock	24	0	1	1	2	180-degree forward, 90-degree rear		0
+9/20/2015 15:34:01	72221h - Nistrim-Culluh	Unique	Nistrim-Culluh	Kazon	Predator Class	Predator Class				4	1	5	3	When attacking a ship at Range 3, during the Roll Attack Dice step, gain +1 attack die for every friendly ship within Range 1 of your ship (max +2).	Battle Stations, Evasive, Target Lock	26	0	2	2	1	180-degree forward, 90-degree rear		0
+9/21/2015 18:06:03	72221i - Seleya	Non-unique	Vulcan Starship	Vulcan	D'Kyr Class	D'Kyr Class				3	1	5	3		Battle Stations, Evasive, Scan, Target Lock	24	0	1	1	1	180-degree forward, 90-degree rear		0
+9/21/2015 18:06:59	72221i - Seleya	Unique	Seleya	Vulcan	D'Kyr Class	D'Kyr Class				3	1	5	4	When defending, if you have a [SCAN] Token beside your ship, roll +1 defense die.	Battle Stations, Evasive, Scan, Target Lock	26	0	1	1	2	180-degree forward, 90-degree rear		0
 SHIPTEXT
 
 

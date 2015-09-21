@@ -884,6 +884,12 @@
             return NO;
         }
     }
+    
+    if ([upgradeSpecial isEqualToString: @"OnlyKazonCaptainShip"]) {
+        if (![self.ship isKazon] || ![self.captain isKazon]) {
+            return NO;
+        }
+    }
 
     if ([upgradeSpecial isEqualToString: @"OnlyBorgShip"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"]) {
         if (![self.ship isBorg]) {
@@ -1264,6 +1270,8 @@
                 info = @"This upgrade can only be added to Species 8472 ships.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyKazonShip"]) {
                 info = @"This upgrade can only be added to Kazon ships.";
+            } else if ([upgradeSpecial isEqualToString: @"OnlyKazonCaptainShip"]) {
+                info = @"This upgrade can only be added to a Kazon Captain on a Kazon ship.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyBorgShip"]) {
                 info = @"This upgrade can only be added to Borg ships.";
             } else if ([upgradeSpecial isEqualToString: @"only_vulcan_ship"]) {
