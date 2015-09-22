@@ -929,6 +929,12 @@ public class EquippedShip extends EquippedShipBase {
                                 "K'Temoc may only field Klingon [TALENT] upgrades.");
                     }
                 }
+                if (upgradeSpecial.equals("OnlyKazonCaptainShip")) {
+                    if (!captain.isKazon() || !ship.isKazon()) {
+                        return new Explanation(msg,
+                                "This upgrade can only be added to a Kazon Captain on a Kazon Ship.");
+                    }
+                }
             }
 
             if (upgradeSpecial.equals("OnlyTholianCaptain")) {

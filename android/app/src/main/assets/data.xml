@@ -1,4 +1,4 @@
-<Data version="2015-09-18@05-55">
+<Data version="2015-09-21@23-31">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -3613,7 +3613,7 @@
       <Weapon>1</Weapon>
       <Crew>1</Crew>
       <Id>d_kyr_class_71446</Id>
-      <Set>71446,71646e</Set>
+      <Set>71446,71646e,72221i</Set>
     </Ship>
     <Ship>
       <Title>S'Gorn</Title>
@@ -4530,7 +4530,7 @@
       <Weapon>2</Weapon>
       <Crew>1</Crew>
       <Id>kazon_starship_71646c</Id>
-      <Set>71646c,71793</Set>
+      <Set>71646c,71793,72221h</Set>
     </Ship>
     <Ship>
       <Title>Relora-Sankur</Title>
@@ -7234,6 +7234,64 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Id>interceptor_8_72221g</Id>
       <Set>72221g</Set>
   </Ship>
+  <Ship>
+      <Title>Nistrim-Culluh</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Predator Class</ShipClass>
+      <Faction>Kazon</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>3</Shield>
+      <Ability>When attacking a ship at Range 3, during the Roll Attack Dice step, gain +1 attack die for every friendly ship within Range 1 of your ship (max +2).</Ability>
+      <Cost>26</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>2</Tech>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>nistrim_culluh_72221h</Id>
+      <Set>72221h</Set>
+  </Ship>
+  <Ship>
+      <Title>Seleya</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>D'Kyr Class</ShipClass>
+      <Faction>Vulcan</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>1</Agility>
+      <Hull>5</Hull>
+      <Shield>4</Shield>
+      <Ability>When defending, if you have a [SCAN] Token beside your ship, roll +1 defense die.</Ability>
+      <Cost>26</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>seleya_72221i</Id>
+      <Set>72221i</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -8255,7 +8313,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Kazon</Faction>
       <Cost>0</Cost>
       <Id>kazon_captain_71282</Id>
-      <Set>71282,71646c,71793</Set>
+      <Set>71282,71646c,71793,72221h</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -8345,7 +8403,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Vulcan</Faction>
       <Cost>0</Cost>
       <Id>vulcan_captain_71446</Id>
-      <Set>71446,71508,71527,71646e</Set>
+      <Set>71446,71508,71527,71646e,72221i</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -10665,6 +10723,38 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Cost>4</Cost>
       <Id>shakaar_edon_72221g</Id>
       <Set>72221g</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Culluh</Title>
+      <Ability>When defending, roll +1 defense die for every [TECH] Upgrade deployed to your ship (max +2).</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Kazon</Faction>
+      <Cost>4</Cost>
+      <Id>culluh_72221h</Id>
+      <Set>72221h</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Tavin</Title>
+      <Ability>At any time, you may replace 1 [EVADE], [SCAN] or [BATTLESTATIONS] Token beside your ship for 1 [EVADE], [SCAN] or [BATTLESTATIONS] Token. If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>4</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Vulcan</Faction>
+      <Cost>3</Cost>
+      <Id>tavin_72221i</Id>
+      <Set>72221i</Set>
       <Special></Special>
   </Captain>
   </Captains>
@@ -21057,6 +21147,134 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>72221g</Set>
         <Special>PhaserStrike</Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Ambition</Title>
+        <Ability>When attacking a ship that has more Upgrades assigned to it, you may discard this card to either gain + 2 attack dice during the Roll Attack Dice step, or re-roll any number of your attack dice during the Modify Attack Dice step. This Upgrade may only be purchased for a Kazon Captain assigned to a Kazon ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Kazon</Faction>
+        <Cost>5</Cost>
+        <Id>ambition_72221h</Id>
+        <Set>72221h</Set>
+        <Special>OnlyKazonCaptainShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Stolen Technology</Title>
+        <Ability>ACTION: Discard this card to perform the Action listed on a non-Borg [TECH] Upgrade deployed to an opposing ship within Range 1-3 of your ship. This Upgrade may only be purchased for a Kazon ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Kazon</Faction>
+        <Cost>3</Cost>
+        <Id>stolen_technology_72221h</Id>
+        <Set>72221h</Set>
+        <Special>OnlyKazonShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Rulat</Title>
+        <Ability>When attacking or defending, you may discard this card to re-roll any number of your dice.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Kazon</Faction>
+        <Cost>3</Cost>
+        <Id>rulat_72221h</Id>
+        <Set>72221h</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Solin</Title>
+        <Ability>ACTION: Discard this card to repair up to 2 Shield Tokens. This Upgrade costs +4 SP if purchased for any non-Vulcan ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Vulcan</Faction>
+        <Cost>4</Cost>
+        <Id>solin_72221i</Id>
+        <Set>72221i</Set>
+        <Special>Plus4NotVulcan</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Power Distribution Net</Title>
+        <Ability>ACTION: Disable this card and up to 3 of your Active Shields to immediately perform a green or white maneuver with a speed equal to the number of Shields you disabled with this Action. This Upgrade may only be purchased for a Vulcan ship and no ship may be equipped with more than 1 "Power Distribution Net" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Vulcan</Faction>
+        <Cost>5</Cost>
+        <Id>power_distribution_net_72221i</Id>
+        <Set>72221i</Set>
+        <Special>NoMoreThanOnePerShipAndOnlyVulcanShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>V'tosh Ka'tur</Title>
+        <Ability>When attacking, during the Roll Attack Dice step, you may discard this card and up to 3 of your other Upgrades and/or Active Shields. Gain +1 attack die for that attack for each Upgrade or Shield you discarded with this ability. This Upgrade may only be purchased for a Vulcan Captain assigned to a Vulcan ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Vulcan</Faction>
+        <Cost>5</Cost>
+        <Id>v_tosh_ka_tur_72221i</Id>
+        <Set>72221i</Set>
+        <Special>OnlyVulcanCaptainVulcanShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Photonic Charges</Title>
+        <Ability>ATTACK: Disable this card to perform this attack. Place an Auxiliary Power Token beside the target ship if there is at least 1 uncancelled [HIT] or [CRIT] result. This Upgrade costs +4 if purchased for a non-Predator class ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>4</Attack>
+        <Range>1</Range>
+        <Type>Weapon</Type>
+        <Faction>Kazon</Faction>
+        <Cost>4</Cost>
+        <Id>photonic_charges_72221h</Id>
+        <Set>72221h</Set>
+        <Special>Plus4NotShipClass_Predator_Class</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Aft Particle Beam</Title>
+        <Ability>ATTACK: Disable this card to perform this attack. You may only fire this weapon from your rear firing arc.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>4</Attack>
+        <Range>1-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Vulcan</Faction>
+        <Cost>3</Cost>
+        <Id>aft_particle_beam_72221i</Id>
+        <Set>72221i</Set>
+        <Special></Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -21656,6 +21874,8 @@ OR
       <Set id="72221e" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">I.K.S. Toh'Kaht</Set>
       <Set id="72221f" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">I.K.S. Buruk</Set>
       <Set id="72221g" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">Interceptor 8</Set>
+      <Set id="72221h" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">Nistrim-Culluh</Set>
+      <Set id="72221i" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">Seleya</Set>
       <Set id="72003r" overallSetName="Temporal Cold War" releaseDate="2015-10-15">Protocol Resource</Set>
       <Set id="72003p" overallSetName="Temporal Cold War" releaseDate="2015-10-15">Diaspora</Set>
     </Sets>
