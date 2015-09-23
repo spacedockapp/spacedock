@@ -1,49 +1,20 @@
   <Ship>
-    <Title>Nistrim-Culluh</Title>
+    <Title>Nunk's Marauder</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Predator Class</ShipClass>
-    <Faction>Kazon</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>1</Agility>
-    <Hull>5</Hull>
-    <Shield>3</Shield>
-    <Ability>When attacking a ship at Range 3, during the Roll Attack Dice step, gain +1 attack die for every friendly ship within Range 1 of your ship (max +2).</Ability>
-    <Cost>26</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>1</Battlestations>
-    <Cloak>0</Cloak>
-    <SensorEcho>0</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>2</Tech>
-    <Weapon>1</Weapon>
-    <Crew>2</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
-    <Has360Arc>N</Has360Arc>
-    <Id>nistrim_culluh_72221h</Id>
-    <Set>72221h</Set>
-  </Ship>
-  <Ship>
-    <Title>Seleya</Title>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>D'Kyr Class</ShipClass>
-    <Faction>Vulcan</Faction>
+    <ShipClass>D'Kora Class</ShipClass>
+    <Faction>Ferengi</Faction>
     <AdditionalFaction></AdditionalFaction>
     <Attack>3</Attack>
     <Agility>1</Agility>
-    <Hull>5</Hull>
-    <Shield>4</Shield>
-    <Ability>When defending, if you have a [SCAN] Token beside your ship, roll +1 defense die.</Ability>
-    <Cost>26</Cost>
+    <Hull>4</Hull>
+    <Shield>3</Shield>
+    <Ability>During the Activation Phase, you may perform a [SCAN] Action as a free Action.  If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+    <Cost>22</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
-    <Battlestations>1</Battlestations>
+    <Battlestations>0</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
@@ -53,6 +24,6 @@
     <Crew>1</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>seleya_72221i</Id>
-    <Set>72221i</Set>
+    <Id>nunk_s_marauder_72221j</Id>
+    <Set>72221j</Set>
   </Ship>

@@ -1,6 +1,6 @@
   <Captain>
-    <Title>Culluh</Title>
-    <Ability>When defending, roll +1 defense die for every [TECH] Upgrade deployed to your ship (max +2).</Ability>
+    <Title>Nunk</Title>
+    <Ability>After you move, if an opposing ship within Range 1-3 of your ship has a [SCAN] Token beside it, you may perform a [BATTLESTATIONS] Token as a free Action.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>6</Skill>
@@ -8,25 +8,9 @@
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Kazon</Faction>
+    <Faction>Ferengi</Faction>
     <Cost>4</Cost>
-    <Id>culluh_72221h</Id>
-    <Set>72221h</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Tavin</Title>
-    <Ability>At any time, you may replace 1 [EVADE], [SCAN] or [BATTLESTATIONS] Token beside your ship for 1 [EVADE], [SCAN] or [BATTLESTATIONS] Token. If you do so, place an Auxiliary Power Token beside your ship.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>4</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Vulcan</Faction>
-    <Cost>3</Cost>
-    <Id>tavin_72221i</Id>
-    <Set>72221i</Set>
+    <Id>nunk_72221j</Id>
+    <Set>72221j</Set>
     <Special></Special>
   </Captain>

@@ -1,38 +1,6 @@
     <Upgrade>
-      <Title>Ambition</Title>
-      <Ability>When attacking a ship that has more Upgrades assigned to it, you may discard this card to either gain + 2 attack dice during the Roll Attack Dice step, or re-roll any number of your attack dice during the Modify Attack Dice step. This Upgrade may only be purchased for a Kazon Captain assigned to a Kazon ship.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Kazon</Faction>
-      <Cost>5</Cost>
-      <Id>ambition_72221h</Id>
-      <Set>72221h</Set>
-      <Special>OnlyKazonCaptainShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Stolen Technology</Title>
-      <Ability>ACTION: Discard this card to perform the Action listed on a non-Borg [TECH] Upgrade deployed to an opposing ship within Range 1-3 of your ship. This Upgrade may only be purchased for a Kazon ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Kazon</Faction>
-      <Cost>3</Cost>
-      <Id>stolen_technology_72221h</Id>
-      <Set>72221h</Set>
-      <Special>OnlyKazonShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Rulat</Title>
-      <Ability>When attacking or defending, you may discard this card to re-roll any number of your dice.</Ability>
+      <Title>Omag</Title>
+      <Ability>Between any of the Phases, you may discard this card to remove a Disabled Upgrade Token from 1 of your [WEAPON] Upgrades. OR When attacking, during the Declare Target step, you may discard this card to target a ship at Range 1-3. Choose 1 non-Borg [WEAPON] Upgrade on the target ship with a printed cost of 4 or less and disable it to perform its attack as if it were deployed to your ship.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -40,31 +8,15 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Kazon</Faction>
-      <Cost>3</Cost>
-      <Id>rulat_72221h</Id>
-      <Set>72221h</Set>
+      <Faction>Ferengi</Faction>
+      <Cost>5</Cost>
+      <Id>omag_72221j</Id>
+      <Set>72221j</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Solin</Title>
-      <Ability>ACTION: Discard this card to repair up to 2 Shield Tokens. This Upgrade costs +4 SP if purchased for any non-Vulcan ship.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Vulcan</Faction>
-      <Cost>4</Cost>
-      <Id>solin_72221i</Id>
-      <Set>72221i</Set>
-      <Special>Plus4NotVulcan</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Power Distribution Net</Title>
-      <Ability>ACTION: Disable this card and up to 3 of your Active Shields to immediately perform a green or white maneuver with a speed equal to the number of Shields you disabled with this Action. This Upgrade may only be purchased for a Vulcan ship and no ship may be equipped with more than 1 "Power Distribution Net" Upgrade.</Ability>
+      <Title>Geodesic Pulse</Title>
+      <Ability>ACTION: Immediately perform an additional maneuver with a speed of 2 or less. You do not lose your Perform Action step if your ship's base overlaps another ship's base with this maneuver. In addition, you do not suffer any damage from Obstacles. You cannot attack this round.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -72,15 +24,15 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Vulcan</Faction>
+      <Faction>Ferengi</Faction>
       <Cost>5</Cost>
-      <Id>power_distribution_net_72221i</Id>
-      <Set>72221i</Set>
-      <Special>NoMoreThanOnePerShipAndOnlyVulcanShip</Special>
+      <Id>geodesic_pulse_72221j</Id>
+      <Set>72221j</Set>
+      <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>V'tosh Ka'tur</Title>
-      <Ability>When attacking, during the Roll Attack Dice step, you may discard this card and up to 3 of your other Upgrades and/or Active Shields. Gain +1 attack die for that attack for each Upgrade or Shield you discarded with this ability. This Upgrade may only be purchased for a Vulcan Captain assigned to a Vulcan ship.</Ability>
+      <Title>Kidnap</Title>
+      <Ability>ACTION: Disable all of your remaining Shields and target a ship at Rnage 1-2 that is not cloaked and has no Active Shields. Discard this card to steal 1 [CREW] Upgrade on the target ship. If the stolen Upgrade exceeds your ship's restrictions, discard that Upgrade instead of stealing it. This Upgrade may only be purchased for a Ferengi Captain assigned to a Ferengi ship.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -88,31 +40,15 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Vulcan</Faction>
+      <Faction>Ferengi</Faction>
       <Cost>5</Cost>
-      <Id>v_tosh_ka_tur_72221i</Id>
-      <Set>72221i</Set>
-      <Special>OnlyVulcanCaptainVulcanShip</Special>
+      <Id>kidnap_72221j</Id>
+      <Set>72221j</Set>
+      <Special>OnlyFerengiCaptainFerengiShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Photonic Charges</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. Place an Auxiliary Power Token beside the target ship if there is at least 1 uncancelled [HIT] or [CRIT] result. This Upgrade costs +4 if purchased for a non-Predator class ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>4</Attack>
-      <Range>1</Range>
-      <Type>Weapon</Type>
-      <Faction>Kazon</Faction>
-      <Cost>4</Cost>
-      <Id>photonic_charges_72221h</Id>
-      <Set>72221h</Set>
-      <Special>Plus4NotShipClass_Predator_Class</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Aft Particle Beam</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. You may only fire this weapon from your rear firing arc.</Ability>
+      <Title>Weapon Ports</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. While this card is disabled, you roll 1 less defense die. If you hit an Attack Squadron with this attack, during the Deal Damage step, discard 1 Attack Squadron Token for each uncanceled [HIT] or [CRIT] result (max 3). You may only fire this weapon fro your forward firing arc.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -120,9 +56,9 @@
       <Attack>4</Attack>
       <Range>1-3</Range>
       <Type>Weapon</Type>
-      <Faction>Vulcan</Faction>
-      <Cost>3</Cost>
-      <Id>aft_particle_beam_72221i</Id>
-      <Set>72221i</Set>
+      <Faction>Ferengi</Faction>
+      <Cost>4</Cost>
+      <Id>weapon_ports_72221j</Id>
+      <Set>72221j</Set>
       <Special></Special>
     </Upgrade>

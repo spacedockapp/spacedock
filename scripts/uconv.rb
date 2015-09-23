@@ -6,24 +6,18 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-9/20/2015 15:37:39	72221h - Nistrim-Culluh	Unique	Ambition	Kazon	When attacking a ship that has more Upgrades assigned to it, you may discard this card to either gain + 2 attack dice during the Roll Attack Dice step, or re-roll any number of your attack dice during the Modify Attack Dice step.  This Upgrade may only be purchased for a Kazon Captain assigned to a Kazon ship.	Talent	5	Yes
-9/20/2015 15:38:38	72221h - Nistrim-Culluh	Non-unique	Stolen Technology	Kazon	ACTION: Discard this card to perform the Action listed on a non-Borg [TECH] Upgrade deployed to an opposing ship within Range 1-3 of your ship.  This Upgrade may only be purchased for a Kazon ship.	Tech	3	Yes
-9/20/2015 15:39:12	72221h - Nistrim-Culluh	Unique	Rulat	Kazon	When attacking or defending, you may discard this card to re-roll any number of your dice.	Crew	3	
-9/21/2015 17:59:26	72221i - Seleya	Unique	Solin	Vulcan	ACTION: Discard this card to repair up to 2 Shield Tokens.  This Upgrade costs +4 SP if purchased for any non-Vulcan ship.	Crew	4	Yes
-9/21/2015 18:00:56	72221i - Seleya	Non-unique	Power Distribution Net	Vulcan	ACTION: Disable this card and up to 3 of your Active Shields to immediately perform a green or white maneuver with a speed equal to the number of Shields you disabled with this Action.  This Upgrade may only be purchased for a Vulcan ship and no ship may be equipped with more than 1 "Power Distribution Net" Upgrade.	Tech	5	Yes
-9/21/2015 18:02:45	72221i - Seleya	Unique	V'tosh Ka'tur	Vulcan	When attacking, during the Roll Attack Dice step, you may discard this card and up to 3 of your other Upgrades and/or Active Shields.  Gain +1 attack die for that attack for each Upgrade or Shield you discarded with this ability.  This Upgrade may only be purchased for a Vulcan Captain assigned to a Vulcan ship.	Talent	5	Yes
+9/22/2015 20:22:57	72221j - Nunk's Marauder	Unique	Omag	Ferengi	Between any of the Phases, you may discard this card to remove a Disabled Upgrade Token from 1 of your [WEAPON] Upgrades. OR When attacking, during the Declare Target step, you may discard this card to target a ship at Range 1-3.  Choose 1 non-Borg [WEAPON] Upgrade on the target ship with a printed cost of 4 or less and disable it to perform its attack as if it were deployed to your ship.	Crew	5	
+9/22/2015 20:24:00	72221j - Nunk's Marauder	Non-unique	Geodesic Pulse	Ferengi	ACTION: Immediately perform an additional maneuver with a speed of 2 or less.  You do not lose your Perform Action step if your ship's base overlaps another ship's base with this maneuver.  In addition, you do not suffer any damage from Obstacles.  You cannot attack this round.	Tech	5	
+9/22/2015 20:25:23	72221j - Nunk's Marauder	Unique	Kidnap	Ferengi	ACTION: Disable all of your remaining Shields and target a ship at Rnage 1-2 that is not cloaked and has no Active Shields.  Discard this card to steal 1 [CREW] Upgrade on the target ship.  If the stolen Upgrade exceeds your ship's restrictions, discard that Upgrade instead of stealing it.  This Upgrade may only be purchased for a Ferengi Captain assigned to a Ferengi ship.	Talent	5	Yes
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-9/20/2015 15:35:20	72221h - Nistrim-Culluh	Non-unique	Kazon	1	Kazon		0	0		
-9/20/2015 15:36:08	72221h - Nistrim-Culluh	Unique	Culluh	6	Kazon	When defending, roll +1 defense die for every [TECH] Upgrade deployed to your ship (max +2).	1	4		
-9/21/2015 17:57:04	72221i - Seleya	Non-unique	Vulcan	1	Vulcan		0	0		
-9/21/2015 17:58:12	72221i - Seleya	Unique	Tavin	4	Vulcan	At any time, you may replace 1 [EVADE], [SCAN] or [BATTLE STATIONS] Token beside your ship for 1 [EVADE], [SCAN] or [BATTLE STATIONS] Token.  If you do so, place an Auxiliary Power Token beside your ship.	1	3		
+9/22/2015 20:19:48	72221j - Nunk's Marauder	Non-unique	Ferengi	1	Ferengi		0	0		
+9/22/2015 20:20:42	72221j - Nunk's Marauder	Unique	Nunk	6	Ferengi	After you move, if an opposing ship within Range 1-3 of your ship has a [SCAN] Token beside it, you may perform a [BATTLE STATIONS] Token as a free Action.	1	4		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-9/20/2015 15:41:00	72221h - Nistrim-Culluh	Non-unique	Photonic Charges	Kazon	4	1	ATTACK: Disable this card to perform this attack.  Place an Auxiliary Power Token beside the target ship if there is at least 1 uncancelled [HIT] or [CRIT] result.  This Upgrade costs +4 if purchased for a non-Predator class ship.	4	Yes
-9/21/2015 18:03:55	72221i - Seleya	Non-unique	Aft Particle Beam	Vulcan	4	1-3	ATTACK: Disable this card to perform this attack.  You may only fire this weapon from your rear firing arc.	3	
+9/22/2015 20:16:19	72221j - Nunk's Marauder	Non-unique	Weapon Ports	Ferengi	4	1-3	ATTACK: Disable this card to perform this attack.  While this card is disabled, you roll 1 less defense die.  If you hit an Attack Squadron with this attack, during the Deal Damage step, discard 1 Attack Squadron Token for each uncanceled [HIT] or [CRIT] result (max 3).  You may only fire this weapon fro your forward firing arc.	4	
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT

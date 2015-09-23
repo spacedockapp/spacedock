@@ -44,10 +44,8 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-9/20/2015 15:32:33	72221h - Nistrim-Culluh	Non-unique	Kazon Starship	Kazon	Predator Class	Predator Class				4	1	5	2		Battle Stations, Evasive, Target Lock	24	0	1	1	2	180-degree forward, 90-degree rear		0
-9/20/2015 15:34:01	72221h - Nistrim-Culluh	Unique	Nistrim-Culluh	Kazon	Predator Class	Predator Class				4	1	5	3	When attacking a ship at Range 3, during the Roll Attack Dice step, gain +1 attack die for every friendly ship within Range 1 of your ship (max +2).	Battle Stations, Evasive, Target Lock	26	0	2	2	1	180-degree forward, 90-degree rear		0
-9/21/2015 18:06:03	72221i - Seleya	Non-unique	Vulcan Starship	Vulcan	D'Kyr Class	D'Kyr Class				3	1	5	3		Battle Stations, Evasive, Scan, Target Lock	24	0	1	1	1	180-degree forward, 90-degree rear		0
-9/21/2015 18:06:59	72221i - Seleya	Unique	Seleya	Vulcan	D'Kyr Class	D'Kyr Class				3	1	5	4	When defending, if you have a [SCAN] Token beside your ship, roll +1 defense die.	Battle Stations, Evasive, Scan, Target Lock	26	0	1	1	2	180-degree forward, 90-degree rear		0
+9/22/2015 20:17:43	72221j - Nunk's Marauder	Non-unique	Ferengi Starship	Ferengi	D'Kora Class	D'Kora Class				3	1	4	2		Evasive, Scan, Target Lock	20	0	1	1	1	90-degree forward		0
+9/22/2015 20:19:00	72221j - Nunk's Marauder	Unique	Nunk's Marauder	Ferengi	D'Kora Class	D'Kora Class				3	1	4	3	During the Activation Phase, you may perform a [SCAN] Action as a free Action.  If you do so, place an Auxiliary Power Token beside your ship.	Evasive, Scan, Target Lock	22	0	1	1	2	90-degree forward		0
 SHIPTEXT
 
 
