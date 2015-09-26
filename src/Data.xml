@@ -1,4 +1,4 @@
-<Data version="2015-09-23@05-48">
+<Data version="2015-09-26@16-02">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1681,6 +1681,29 @@
       </Maneuvers>
       <FrontArc>90</FrontArc>
       <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+      <Name>Delta Flyer Class Shuttlecraft</Name>
+      <Id>delta_flyer_class_shuttlecraft</Id>
+      <Maneuvers>
+          <Maneuver speed="3" kind="left-bank" color="white" />
+          <Maneuver speed="3" kind="straight" color="white" />
+          <Maneuver speed="3" kind="right-bank" color="white" />
+          <Maneuver speed="2" kind="left-turn" color="white" />
+          <Maneuver speed="2" kind="left-bank" color="green" />
+          <Maneuver speed="2" kind="about" color="white" />
+          <Maneuver speed="2" kind="straight" color="green" />
+          <Maneuver speed="2" kind="right-bank" color="green" />
+          <Maneuver speed="2" kind="right-turn" color="white" />
+          <Maneuver speed="1" kind="left-turn" color="white" />
+          <Maneuver speed="1" kind="left-bank" color="green" />
+          <Maneuver speed="1" kind="straight" color="green" />
+          <Maneuver speed="1" kind="about" color="white" />
+          <Maneuver speed="1" kind="right-bank" color="green" />
+          <Maneuver speed="1" kind="right-turn" color="white" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
+      <RearArc>90</RearArc>
   </ShipClassDetail>
   </ShipClassDetails>
   <Ships>
@@ -7321,6 +7344,64 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Id>nunk_s_marauder_72221j</Id>
       <Set>72221j</Set>
   </Ship>
+  <Ship>
+      <Title>Federation Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Delta Flyer Class Shuttlecraft</ShipClass>
+      <Faction>Federation</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>2</Hull>
+      <Shield>2</Shield>
+      <Ability>You may deploy [WEAPON] Upgrades with a cost of 4 SP or less to this ship.</Ability>
+      <Cost>18</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>federation_starship_72014</Id>
+      <Set>72014</Set>
+  </Ship>
+  <Ship>
+      <Title>Delta Flyer</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Delta Flyer Class Shuttlecraft</ShipClass>
+      <Faction>Federation</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>2</Agility>
+      <Hull>2</Hull>
+      <Shield>3</Shield>
+      <Ability>You may deploy [WEAPON] Upgrades with a cost of 4 SP or less to this ship.  You may fire your Primary Weapon from your rear firing arc at -1 attack die.</Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>delta_flyer_72014</Id>
+      <Set>72014</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -7371,7 +7452,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Federation</Faction>
       <Cost>0</Cost>
       <Id>2003</Id>
-      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526,71510,71531,71997p,71801,71998p,71802,72001p,72008,72011,72002p,72221d</Set>
+      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526,71510,71531,71997p,71801,71998p,71802,72001p,72008,72011,72002p,72221d,72014</Set>
     </Captain>
     <Captain>
       <Title>Nu'Daq</Title>
@@ -10801,6 +10882,38 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Id>nunk_72221j</Id>
       <Set>72221j</Set>
       <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Tom Paris</Title>
+      <Ability>If you reveal a 3 [STRAIGHT] Maneuver, you may perform a 4 [STRAIGHT] Maneuver instead. If you do so, place an Auxiliary Power Token beside your ship. If this card is assigned to a shuttlecraft, you cannot perform a "Docking" Action on the round you use this ability.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>4</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>tom_paris_72014</Id>
+      <Set>72014</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Tuvok</Title>
+      <Ability>Add 1 [TECH] Upgrade to your Upgrade Bar. That Upgrade costs -1 SP.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>5</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>tuvok_72014</Id>
+      <Set>72014</Set>
+      <Special>addonetechslot</Special>
   </Captain>
   </Captains>
   <Admirals>
@@ -21384,6 +21497,134 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>72221j</Set>
         <Special></Special>
     </Upgrade>
+    <Upgrade>
+        <Title>B'Elanna Torres</Title>
+        <Ability>When defending, during the Compare Results step, you may disable this card and 1 of your Active Shields to cancel 1 [HIT] or [CRIT] result.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Federation</Faction>
+        <Cost>4</Cost>
+        <Id>b_elanna_torres_72014</Id>
+        <Set>72014</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Harry Kim</Title>
+        <Ability>ACTION: Disable this card to place 2 [EVADE] Tokens beside your ship. You cannot roll any defense dice this round. You cannot perform an [EVADE] Action this round, even as a free Action.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>harry_kim_72014</Id>
+        <Set>72014</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Seven of Nine</Title>
+        <Ability>During the Activation Phase, you may disable this card to perform a [BATTLESTATIONS] Action as a free Action.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Federation</Faction>
+        <Cost>4</Cost>
+        <Id>seven_of_nine_72014</Id>
+        <Set>72014</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Parametallic Hull Plating</Title>
+        <Ability>During the Compare Results step, you may discard this card to cancel 1 [HIT] or [CRIT] result. This Upgrade costs +3 SP for any non-Federation ship and no ship may be equipped with more than 1 "Parametallic Hull Plating" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Federation</Faction>
+        <Cost>2</Cost>
+        <Id>parametallic_hull_plating_72014</Id>
+        <Set>72014</Set>
+        <Special>Plus3NotFederationNoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Immersion Shielding</Title>
+        <Ability>Add +1 to your ship's Shield value. In addition, you may re-roll the attack die when your ship overlaps and Obstacle. This Upgrade costs +3 SP for any non-Federation ship and no ship may be equipped with more than 1 "Immersion Shielding" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>immersion_shielding_72014</Id>
+        <Set>72014</Set>
+        <Special>Plus3NotFederationNoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Unimatrix Shielding</Title>
+        <Ability>Add +2 to your ship's Shield value. When defending against an attack from a Borg ship, during the Compare Results step, you may disable up to 2 of your Active Shields to cancel an equal number of [HIT] or [CRIT] results. This Upgrade costs +5 SP for any non-Federation ship and no ship may be equipped with more than 1 "Unimatrix Shielding" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>unimatrix_shielding_72014</Id>
+        <Set>72014</Set>
+        <Special>Plus5NotFederationNoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Photonic Missiles</Title>
+        <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. If this attack hits, in additional to normal damage, place an Auxiliary Power Token beside the defending ship. You may fire this weapon from your forward or rear firing arcs.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>3</Attack>
+        <Range>1-2</Range>
+        <Type>Weapon</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>photonic_missiles_72014</Id>
+        <Set>72014</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Photon Torpedoes</Title>
+        <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. If fired from a shuttlecraft, discard this card instead of placing the Time Tokens and the Range is 1-2. You may fire this weapon from your forward or rear firing arcs.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>5</Attack>
+        <Range>2-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Federation</Faction>
+        <Cost>4</Cost>
+        <Id>photon_torpedoes_72014</Id>
+        <Set>72014</Set>
+        <Special></Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -21988,6 +22229,7 @@ OR
       <Set id="72221j" overallSetName="2015-2016 Reinforcement Boosters" releaseDate="2015-10-01">Nunk's Marauder</Set>
       <Set id="72003r" overallSetName="Temporal Cold War" releaseDate="2015-10-15">Protocol Resource</Set>
       <Set id="72003p" overallSetName="Temporal Cold War" releaseDate="2015-10-15">Diaspora</Set>
+      <Set id="72014" overallSetName="Wave 19" releaseDate="2015-10-07">Delta Flyer</Set>
     </Sets>
     <Flagships>
         <Flagship>

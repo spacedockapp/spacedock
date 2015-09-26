@@ -6,18 +6,23 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-9/22/2015 20:22:57	72221j - Nunk's Marauder	Unique	Omag	Ferengi	Between any of the Phases, you may discard this card to remove a Disabled Upgrade Token from 1 of your [WEAPON] Upgrades. OR When attacking, during the Declare Target step, you may discard this card to target a ship at Range 1-3.  Choose 1 non-Borg [WEAPON] Upgrade on the target ship with a printed cost of 4 or less and disable it to perform its attack as if it were deployed to your ship.	Crew	5	
-9/22/2015 20:24:00	72221j - Nunk's Marauder	Non-unique	Geodesic Pulse	Ferengi	ACTION: Immediately perform an additional maneuver with a speed of 2 or less.  You do not lose your Perform Action step if your ship's base overlaps another ship's base with this maneuver.  In addition, you do not suffer any damage from Obstacles.  You cannot attack this round.	Tech	5	
-9/22/2015 20:25:23	72221j - Nunk's Marauder	Unique	Kidnap	Ferengi	ACTION: Disable all of your remaining Shields and target a ship at Rnage 1-2 that is not cloaked and has no Active Shields.  Discard this card to steal 1 [CREW] Upgrade on the target ship.  If the stolen Upgrade exceeds your ship's restrictions, discard that Upgrade instead of stealing it.  This Upgrade may only be purchased for a Ferengi Captain assigned to a Ferengi ship.	Talent	5	Yes
+9/24/2015 10:43:54	72014 - Delta Flyer	Unique	B'Elanna Torres	Federation	When defending, during the Compare Results step, you may disable this card and 1 of your Active Shields to cancel 1 [HIT] or [CRIT] result.	Crew	4	
+9/24/2015 10:44:55	72014 - Delta Flyer	Unique	Harry Kim	Federation	ACTION: Disable this card to place 2 [EVADE] Tokens beside your ship.  You cannot roll any defense dice this round.  You cannot perform an [EVADE] Action this round, even as a free Action.	Crew	3	
+9/24/2015 10:45:56	72014 - Delta Flyer	Unique	Seven of Nine	Federation	During the Activation Phase, you may disable this card to perform a [BATTLE STATIONS] Action as a free Action.	Crew	4	
+9/24/2015 10:47:19	72014 - Delta Flyer	Non-unique	Parametallic Hull Plating	Federation	During the Compare Results step, you may discard this card to cancel 1 [HIT] or [CRIT] result.  This Upgrade costs +3 SP for any non-Federation ship and no ship may be equipped with more than 1 "Parametallic Hull Plating" Upgrade.	Tech	2	Yes
+9/24/2015 10:48:29	72014 - Delta Flyer	Non-unique	Immersion Shielding	Federation	Add +1 to your ship's Shield value.  In addition, you may re-roll the attack die when your ship overlaps and Obstacle.  This Upgrade costs +3 SP for any non-Federation ship and no ship may be equipped with more than 1 "Immersion Shielding" Upgrade.	Tech	3	Yes
+9/24/2015 10:55:13	72014 - Delta Flyer	Non-unique	Unimatrix Shielding	Federation	Add +2 to your ship's Shield value.  When defending against an attack from a Borg ship, during the Compare Results step, you may disable up to 2 of your Active Shields to cancel an equal number of [HIT] or [CRIT] results.  This Upgrade costs +5 SP for any non-Federation ship and no ship may be equipped with more than 1 "Unimatrix Shielding" Upgrade.	Tech	5	Yes
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-9/22/2015 20:19:48	72221j - Nunk's Marauder	Non-unique	Ferengi	1	Ferengi		0	0		
-9/22/2015 20:20:42	72221j - Nunk's Marauder	Unique	Nunk	6	Ferengi	After you move, if an opposing ship within Range 1-3 of your ship has a [SCAN] Token beside it, you may perform a [BATTLE STATIONS] Token as a free Action.	1	4		
+9/24/2015 10:40:01	72014 - Delta Flyer	Non-unique	Federation	1	Federation		0	0		
+9/24/2015 10:41:28	72014 - Delta Flyer	Unique	Tom Paris	4	Federation	If you reveal a 3 [FORWARD] Maneuver, you may perform a 4 [FORWARD] Maneuver instead.  If you do so, place an Auxiliary Power Token beside your ship.  If this card is assigned to a shuttlecraft, you cannot perform a "Docking" Action on the round you use this ability.	0	2		
+9/24/2015 10:42:00	72014 - Delta Flyer	Unique	Tuvok	5	Federation	Add 1 [TECH] Upgrade to your Upgrade Bar.  That Upgrade costs -1 SP.	0	3	Yes	
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-9/22/2015 20:16:19	72221j - Nunk's Marauder	Non-unique	Weapon Ports	Ferengi	4	1-3	ATTACK: Disable this card to perform this attack.  While this card is disabled, you roll 1 less defense die.  If you hit an Attack Squadron with this attack, during the Deal Damage step, discard 1 Attack Squadron Token for each uncanceled [HIT] or [CRIT] result (max 3).  You may only fire this weapon fro your forward firing arc.	4	
+9/24/2015 10:57:24	72014 - Delta Flyer	Non-unique	Photonic Missiles	Federation	3	1-2	ATTACK: (Target Lock) Spend your target lock and place 3 Time Tokens on this card to perform this attack.  If this attack hits, in additional to normal damage, place an Auxiliary Power Token beside the defending ship.  You may fire this weapon from your forward or rear firing arcs.	3	
+9/24/2015 10:59:54	72014 - Delta Flyer	Non-unique	Photon Torpedoes	Federation	5	2-3	ATTACK: (Target Lock) Spend your target lock and place 3 Time Tokens on this card to perform this attack.  If fired from a shuttlecraft, discard this card instead of placing the Time Tokens and the Range is 1-2.  You may fire this weapon from your forward or rear firing arcs.	4	
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT

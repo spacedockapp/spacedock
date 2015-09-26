@@ -1,6 +1,6 @@
     <Upgrade>
-      <Title>Omag</Title>
-      <Ability>Between any of the Phases, you may discard this card to remove a Disabled Upgrade Token from 1 of your [WEAPON] Upgrades. OR When attacking, during the Declare Target step, you may discard this card to target a ship at Range 1-3. Choose 1 non-Borg [WEAPON] Upgrade on the target ship with a printed cost of 4 or less and disable it to perform its attack as if it were deployed to your ship.</Ability>
+      <Title>B'Elanna Torres</Title>
+      <Ability>When defending, during the Compare Results step, you may disable this card and 1 of your Active Shields to cancel 1 [HIT] or [CRIT] result.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -8,15 +8,47 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Ferengi</Faction>
-      <Cost>5</Cost>
-      <Id>omag_72221j</Id>
-      <Set>72221j</Set>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>b_elanna_torres_72014</Id>
+      <Set>72014</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Geodesic Pulse</Title>
-      <Ability>ACTION: Immediately perform an additional maneuver with a speed of 2 or less. You do not lose your Perform Action step if your ship's base overlaps another ship's base with this maneuver. In addition, you do not suffer any damage from Obstacles. You cannot attack this round.</Ability>
+      <Title>Harry Kim</Title>
+      <Ability>ACTION: Disable this card to place 2 [EVADE] Tokens beside your ship. You cannot roll any defense dice this round. You cannot perform an [EVADE] Action this round, even as a free Action.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>harry_kim_72014</Id>
+      <Set>72014</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Seven of Nine</Title>
+      <Ability>During the Activation Phase, you may disable this card to perform a [BATTLESTATIONS] Action as a free Action.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Federation</Faction>
+      <Cost>4</Cost>
+      <Id>seven_of_nine_72014</Id>
+      <Set>72014</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Parametallic Hull Plating</Title>
+      <Ability>During the Compare Results step, you may discard this card to cancel 1 [HIT] or [CRIT] result. This Upgrade costs +3 SP for any non-Federation ship and no ship may be equipped with more than 1 "Parametallic Hull Plating" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -24,41 +56,73 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Ferengi</Faction>
-      <Cost>5</Cost>
-      <Id>geodesic_pulse_72221j</Id>
-      <Set>72221j</Set>
-      <Special></Special>
+      <Faction>Federation</Faction>
+      <Cost>2</Cost>
+      <Id>parametallic_hull_plating_72014</Id>
+      <Set>72014</Set>
+      <Special>Plus3NotFederationNoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Kidnap</Title>
-      <Ability>ACTION: Disable all of your remaining Shields and target a ship at Rnage 1-2 that is not cloaked and has no Active Shields. Discard this card to steal 1 [CREW] Upgrade on the target ship. If the stolen Upgrade exceeds your ship's restrictions, discard that Upgrade instead of stealing it. This Upgrade may only be purchased for a Ferengi Captain assigned to a Ferengi ship.</Ability>
-      <Unique>Y</Unique>
+      <Title>Immersion Shielding</Title>
+      <Ability>Add +1 to your ship's Shield value. In addition, you may re-roll the attack die when your ship overlaps and Obstacle. This Upgrade costs +3 SP for any non-Federation ship and no ship may be equipped with more than 1 "Immersion Shielding" Upgrade.</Ability>
+      <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Ferengi</Faction>
-      <Cost>5</Cost>
-      <Id>kidnap_72221j</Id>
-      <Set>72221j</Set>
-      <Special>OnlyFerengiCaptainFerengiShip</Special>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>immersion_shielding_72014</Id>
+      <Set>72014</Set>
+      <Special>Plus3NotFederationNoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Weapon Ports</Title>
-      <Ability>ATTACK: Disable this card to perform this attack. While this card is disabled, you roll 1 less defense die. If you hit an Attack Squadron with this attack, during the Deal Damage step, discard 1 Attack Squadron Token for each uncanceled [HIT] or [CRIT] result (max 3). You may only fire this weapon fro your forward firing arc.</Ability>
+      <Title>Unimatrix Shielding</Title>
+      <Ability>Add +2 to your ship's Shield value. When defending against an attack from a Borg ship, during the Compare Results step, you may disable up to 2 of your Active Shields to cancel an equal number of [HIT] or [CRIT] results. This Upgrade costs +5 SP for any non-Federation ship and no ship may be equipped with more than 1 "Unimatrix Shielding" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>4</Attack>
-      <Range>1-3</Range>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>unimatrix_shielding_72014</Id>
+      <Set>72014</Set>
+      <Special>Plus5NotFederationNoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photonic Missiles</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. If this attack hits, in additional to normal damage, place an Auxiliary Power Token beside the defending ship. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>3</Attack>
+      <Range>1-2</Range>
       <Type>Weapon</Type>
-      <Faction>Ferengi</Faction>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>photonic_missiles_72014</Id>
+      <Set>72014</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Photon Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. If fired from a shuttlecraft, discard this card instead of placing the Time Tokens and the Range is 1-2. You may fire this weapon from your forward or rear firing arcs.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>2-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Federation</Faction>
       <Cost>4</Cost>
-      <Id>weapon_ports_72221j</Id>
-      <Set>72221j</Set>
+      <Id>photon_torpedoes_72014</Id>
+      <Set>72014</Set>
       <Special></Special>
     </Upgrade>

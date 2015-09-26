@@ -1,18 +1,32 @@
   <ShipClassDetail>
-    <Name>D'Kora Class</Name>
-    <Id>d_kora_class</Id>
+    <Name>Delta Flyer Class Shuttlecraft</Name>
+    <Id>delta_flyer_class_shuttlecraft</Id>
     <Maneuvers>
-
+      <Maneuver speed="3" kind="left-bank" color="white" />
+      <Maneuver speed="3" kind="straight" color="white" />
+      <Maneuver speed="3" kind="right-bank" color="white" />
+      <Maneuver speed="2" kind="left-turn" color="white" />
+      <Maneuver speed="2" kind="left-bank" color="green" />
+      <Maneuver speed="2" kind="about" color="white" />
+      <Maneuver speed="2" kind="straight" color="green" />
+      <Maneuver speed="2" kind="right-bank" color="green" />
+      <Maneuver speed="2" kind="right-turn" color="white" />
+      <Maneuver speed="1" kind="left-turn" color="white" />
+      <Maneuver speed="1" kind="left-bank" color="green" />
+      <Maneuver speed="1" kind="straight" color="green" />
+      <Maneuver speed="1" kind="about" color="white" />
+      <Maneuver speed="1" kind="right-bank" color="green" />
+      <Maneuver speed="1" kind="right-turn" color="white" />
     </Maneuvers>
     <FrontArc>90</FrontArc>
-    <RearArc></RearArc>
+    <RearArc>90</RearArc>
   </ShipClassDetail>
   <ShipClassDetail>
-    <Name>D'Kora Class</Name>
-    <Id>d_kora_class</Id>
+    <Name>Delta Flyer Class Shuttlecraft</Name>
+    <Id>delta_flyer_class_shuttlecraft</Id>
     <Maneuvers>
 
     </Maneuvers>
     <FrontArc>90</FrontArc>
-    <RearArc></RearArc>
+    <RearArc>90</RearArc>
   </ShipClassDetail>
