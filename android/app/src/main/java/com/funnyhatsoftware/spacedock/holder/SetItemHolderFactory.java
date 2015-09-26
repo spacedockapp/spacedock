@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.funnyhatsoftware.spacedock.data.Borg;
 import com.funnyhatsoftware.spacedock.data.Crew;
+import com.funnyhatsoftware.spacedock.data.Officer;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Squadron;
 import com.funnyhatsoftware.spacedock.data.Talent;
@@ -71,6 +72,7 @@ public abstract class SetItemHolderFactory {
         registerHolderFactory(UpgradeHolder.getFactory(Tech.class, UpgradeHolder.TYPE_STRING_TECH));
         registerHolderFactory(UpgradeHolder.getFactory(Borg.class, UpgradeHolder.TYPE_STRING_BORG));
         registerHolderFactory(UpgradeHolder.getFactory(Squadron.class,UpgradeHolder.TYPE_STRING_SQUADRON));
+        registerHolderFactory(UpgradeHolder.getFactory(Officer.class,UpgradeHolder.TYPE_STRING_OFFICER));
     }
 
     private final Class mClazz;

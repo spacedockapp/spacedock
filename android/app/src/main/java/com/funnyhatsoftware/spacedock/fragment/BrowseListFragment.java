@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.activity.SetItemListActivity;
+import com.funnyhatsoftware.spacedock.data.Upgrade;
 import com.funnyhatsoftware.spacedock.holder.AdmiralHolder;
 import com.funnyhatsoftware.spacedock.holder.CaptainHolder;
 import com.funnyhatsoftware.spacedock.holder.ExpansionHolder;
@@ -43,6 +44,7 @@ public class BrowseListFragment extends ListFragment {
         ReferenceHolder.TYPE_STRING,
         ExpansionHolder.TYPE_STRING,
         UpgradeHolder.TYPE_STRING_SQUADRON,
+        UpgradeHolder.TYPE_STRING_OFFICER,
     };
 
     @Override

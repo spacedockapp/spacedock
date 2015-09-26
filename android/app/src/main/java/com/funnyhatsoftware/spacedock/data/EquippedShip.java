@@ -480,6 +480,7 @@ public class EquippedShip extends EquippedShipBase {
         establishPlaceholdersForType("Tech", getTech());
         establishPlaceholdersForType("Borg", getBorg());
         establishPlaceholdersForType("Squadron", getSquadron());
+        establishPlaceholdersForType("Officer", getOfficerLimit());
     }
 
     private void establishPlaceholdersForType(String upType, int limit) {
@@ -1043,11 +1044,17 @@ public class EquippedShip extends EquippedShipBase {
             }
         }
 
-        if (ship.isShuttle() && upgrade.isWeapon()) {
+        if (ship.isShuttle() && upgrade.isWeapon() && !upgrade.getExternalId().equals("3007")) {
             EquippedUpgrade tmpEu = new EquippedUpgrade();
             tmpEu.setUpgrade(upgrade);
-            if (upgrade.calculateCostForShip(this,tmpEu) > 3) {
-                return new Explanation(msg, "You cannot deploy a [WEAPON] Upgrade with a cost greater than 3 to a shuttlecraft.");
+            if (ship.getExternalId().equals("delta_flyer_72014")) {
+                if (upgrade.calculateCostForShip(this,tmpEu) > 4) {
+                    return new Explanation(msg, "You cannot deploy a [WEAPON] Upgrade with a cost greater than 4 to the Delta Flyer.");
+                }
+            } else {
+                if (upgrade.calculateCostForShip(this, tmpEu) > 3) {
+                    return new Explanation(msg, "You cannot deploy a [WEAPON] Upgrade with a cost greater than 3 to a shuttlecraft.");
+                }
             }
         }
 
@@ -1095,7 +1102,7 @@ public class EquippedShip extends EquippedShipBase {
         int crewCount = crewUpgrades.size();
         ArrayList<EquippedUpgrade> officerUpgrades = allUpgradesOfType(Constants.OFFICER_TYPE);
         int limit = getOfficerLimit();
-        if (officerUpgrades.size() >= limit) {
+        if (officerUpgrades.size() > limit) {
             String msg = String.format("Can't add %s to the selected squadron.", officer.getTitle());
             String info = null;
             if (crewCount > 0) {
@@ -1268,12 +1275,13 @@ public class EquippedShip extends EquippedShipBase {
     public static final int SLOT_TYPE_ADMIRAL = 7;
     public static final int SLOT_TYPE_FLEET_CAPTAIN = 8;
     public static final int SLOT_TYPE_SQUADRON = 9;
+    public static final int SLOT_TYPE_OFFICER = 10;
     public static final int SLOT_TYPE_SHIP = 1000;
 
     public static Class[] CLASS_FOR_SLOT = new Class[]{
             Captain.class,
             Crew.class, Weapon.class, Tech.class, Borg.class, Talent.class,
-            Flagship.class, Admiral.class, FleetCaptain.class, Squadron.class
+            Flagship.class, Admiral.class, FleetCaptain.class, Squadron.class, Officer.class
     };
 
     private int getUpgradeIndexOfClass(Class slotClass, int slotIndex) {
@@ -1390,6 +1398,17 @@ public class EquippedShip extends EquippedShipBase {
                     return explanation; // disallowed, abort!
                 }
                 upgrade = fleetCaptain;
+            } else if (SLOT_TYPE_OFFICER == slotType) {
+                Officer officer = Universe.getUniverse().getOfficer(externalId);
+                Explanation explanation = squad.canAddUpgrade(officer, this);
+                if (!explanation.canAdd) {
+                    return explanation; // disallowed, abort!
+                }
+                explanation = canAddOfficer(officer);
+                if (!explanation.canAdd) {
+                    return explanation;
+                }
+                upgrade = officer;
             } else {
                 upgrade = SLOT_TYPE_ADMIRAL == slotType ? Universe
                         .getUniverse().getAdmiral(externalId) : Universe

@@ -554,6 +554,8 @@ public class Universe {
                 placeholder = new Admiral();
             } else if (upType.equals("Squadron")) {
                 placeholder = new Squadron();
+            } else if (upType.equals("Officer")) {
+                placeholder = new Officer();
             } else {
                 return null; // placeholder type not supported
             }
@@ -669,14 +671,25 @@ public class Universe {
             throw new IllegalArgumentException();
 
         ArrayList<Upgrade> matchingUpgrades = new ArrayList<Upgrade>();
-        for (Upgrade upgrade : upgrades.values()) {
-            if (!isMemberOfIncludedSet(upgrade)) {
-                continue;
+        if (upType == "Officer") {
+            for (Officer officer : mOfficers.values()) {
+                if (!isMemberOfIncludedSet(officer)) {
+                    continue;
+                }
+                if (faction.equals(officer.getFaction()) || faction.equals(officer.getAdditionalFaction())) {
+                    matchingUpgrades.add(officer);
+                }
             }
-            if ((upType == null || upgrade.getUpType().equals(upType))
-                    && (faction.equals(upgrade.getFaction())
-                    || faction.equals(upgrade.getAdditionalFaction()))) {
-                matchingUpgrades.add(upgrade);
+        } else {
+            for (Upgrade upgrade : upgrades.values()) {
+                if (!isMemberOfIncludedSet(upgrade)) {
+                    continue;
+                }
+                if ((upType == null || upgrade.getUpType().equals(upType))
+                        && (faction.equals(upgrade.getFaction())
+                        || faction.equals(upgrade.getAdditionalFaction()))) {
+                    matchingUpgrades.add(upgrade);
+                }
             }
         }
         Collections.sort(matchingUpgrades, new UpgradeComparitor());

@@ -467,6 +467,14 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if (!ship.isVulcan()) {
                 cost += 4;
             }
+        } else if ("Plus3NotFederationNoMoreThanOnePerShip".equals(upgradeSpecial)) {
+            if (!ship.isFederation()) {
+                cost += 3;
+            }
+        } else if ("Plus5NotFederationNoMoreThanOnePerShip".equals(upgradeSpecial)) {
+            if (!ship.isFederation()) {
+                cost += 5;
+            }
         } else if (upgradeSpecial.startsWith("Plus3NotShipClass_")) {
             String reqClass = upgradeSpecial.substring(18);
             if (!ship.getShipClass().replace(" ", "_").equals(reqClass)) {
@@ -671,7 +679,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
 
     public int additionalTalentSlots() {
         String externalId = getExternalId();
-        if (externalId != null && externalId.equals("elim_garak_71786")) {
+        if (externalId != null && externalId.equals("william_t_riker_71996")) {
+            return 1;
+        }
+        if (externalId != null && getSpecial().equals("addonetalentslot")) {
             return 1;
         }
         return 0;

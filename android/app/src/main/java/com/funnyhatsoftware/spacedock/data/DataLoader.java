@@ -480,7 +480,9 @@ public class DataLoader extends DefaultHandler {
                 "OnlyRomulanCaptain",
                 "OnlyBajoranFederation",
                 "OnlyKazonCaptainShip",
-                "Plus4NotVulcan"
+                "Plus4NotVulcan",
+                "Plus3NotFederationNoMoreThanOnePerShip",
+                "Plus5NotFederationNoMoreThanOnePerShip"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);
