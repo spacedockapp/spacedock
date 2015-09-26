@@ -811,10 +811,16 @@
         }
     }
     
-    if ([upgrade isWeapon]) {
+    if ([upgrade isWeapon] && ![upgrade.externalId isEqualToString:@"3007"]) {
         if ([self.ship isShuttle]) {
-            if ( [upgrade costForShip:self] > 3 ) {
-                return NO;
+            if ( [self.ship.externalId isEqualToString:@"delta_flyer_72014"]) {
+                if ( [upgrade costForShip:self] > 4) {
+                    return NO;
+                }
+            } else {
+                if ([upgrade costForShip:self] > 3 ) {
+                    return NO;
+                }
             }
         }
     }

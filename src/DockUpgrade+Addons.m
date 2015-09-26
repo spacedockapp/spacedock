@@ -742,6 +742,14 @@ static NSDictionary* sItemLabels = nil;
         if (![ship isVulcan]) {
             cost += 4;
         }
+    }  else if ([upgradeSpecial isEqualToString:@"Plus3NotFederationNoMoreThanOnePerShip"]) {
+        if (![ship isFederation]) {
+            cost += 3;
+        }
+    }  else if ([upgradeSpecial isEqualToString:@"Plus5NotFederationNoMoreThanOnePerShip"]) {
+        if (![ship isFederation]) {
+            cost += 5;
+        }
     } else if ([upgradeSpecial hasPrefix:@"Plus3NotShipClass_"]) {
         NSString* shipClass = [ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
         if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus3NotShipClass_%@",shipClass]]) {
@@ -1042,8 +1050,11 @@ static NSDictionary* sItemLabels = nil;
 
 -(int)additionalShield
 {
-    if ([self.special isEqualToString:@"assault_vessel_upgrade_c_71803"] || [self.externalId isEqualToString:@"assault_vessel_upgrade_t_71803"] || [self.externalId isEqualToString:@"assault_vessel_upgrade_w_71803"] || [self.externalId isEqualToString:@"systems_upgrade_71998p"] || [self.externalId isEqualToString:@"systems_upgrade_c_71998p"] || [self.externalId isEqualToString:@"systems_upgrade_w_71998p"]) {
+    if ([self.externalId isEqualToString:@"assault_vessel_upgrade_c_71803"] || [self.externalId isEqualToString:@"assault_vessel_upgrade_t_71803"] || [self.externalId isEqualToString:@"assault_vessel_upgrade_w_71803"] || [self.externalId isEqualToString:@"systems_upgrade_71998p"] || [self.externalId isEqualToString:@"systems_upgrade_c_71998p"] || [self.externalId isEqualToString:@"systems_upgrade_w_71998p"] || [self.externalId isEqualToString:@"immersion_shielding_72014"]) {
         return 1;
+    }
+    if ([self.externalId isEqualToString:@"unimatrix_shielding_72014"]) {
+        return 2;
     }
 
     return 0;
