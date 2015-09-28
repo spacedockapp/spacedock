@@ -39,6 +39,7 @@ enum {
 @property (assign, nonatomic) id oldTarget;
 @property (assign, nonatomic) SEL oldAction;
 @property (nonatomic, strong) NSString* fleetCostHighlight;
+@property (nonatomic, assign) BOOL mark50spShip;
 @property (nonatomic, assign) BOOL markExpiredRes;
 
 @end
@@ -66,6 +67,7 @@ enum {
     }
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     _fleetCostHighlight = [defaults stringForKey: @"fleetCostHighlight"];
+    _mark50spShip = [defaults boolForKey: @"mark50spShip"];
     _markExpiredRes = [defaults boolForKey:kMarkExpiredResKey];
 }
 
@@ -191,7 +193,13 @@ enum {
             if (![_fleetCostHighlight isEqualToString:@"None"]) {
                 int cost = [_squad cost];
                 
-                if ([_fleetCostHighlight isEqualToString:@"90/120"]) {
+                if ([_fleetCostHighlight isEqualToString:@"90/130"]) {
+                    if ((cost > 90 && cost < 110) || cost > 130) {
+                        cell.detailTextLabel.textColor = [UIColor redColor];
+                    } else {
+                        cell.detailTextLabel.textColor = [UIColor blackColor];
+                    }
+                } else if ([_fleetCostHighlight isEqualToString:@"90/120"]) {
                     if ((cost > 90 && cost < 110) || cost > 120) {
                         cell.detailTextLabel.textColor = [UIColor redColor];
                     } else {
@@ -312,6 +320,11 @@ enum {
         DockEquippedShipCell* shipCell = (DockEquippedShipCell*)cell;
         DockEquippedShip* es = _squad.equippedShips[row];
         shipCell.cost.text = [NSString stringWithFormat: @"%d", [es cost]];
+        if (_mark50spShip && [es cost] > 50) {
+            shipCell.cost.textColor = [UIColor redColor];
+        } else {
+            shipCell.cost.textColor = [UIColor blackColor];
+        }
         shipCell.details.text = [es upgradesDescription];
         shipCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         NSString* t = es.plainDescription;

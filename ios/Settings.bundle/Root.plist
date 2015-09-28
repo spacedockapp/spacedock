@@ -22,6 +22,7 @@
 			<key>Titles</key>
 			<array>
 				<string>None</string>
+				<string>90/130</string>
 				<string>90/120</string>
 				<string>100</string>
 				<string>120</string>
@@ -30,11 +31,22 @@
 			<key>Values</key>
 			<array>
 				<string>None</string>
+				<string>90/130</string>
 				<string>90/120</string>
 				<string>100</string>
 				<string>120</string>
 				<string>200</string>
 			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Highlight 50sp Ship Limit</string>
+			<key>Key</key>
+			<string>mark50spShip</string>
+			<key>DefaultValue</key>
+			<string>0</string>
 		</dict>
 		<dict>
 			<key>Type</key>

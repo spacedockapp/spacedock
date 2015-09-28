@@ -28,6 +28,7 @@
 
 @interface DockEquippedShipController ()
 @property (strong, nonatomic) NSArray* sections;
+@property (nonatomic, assign) BOOL mark50spShip;
 @end
 
 @implementation DockEquippedShipController
@@ -35,6 +36,8 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    _mark50spShip = [defaults boolForKey: @"mark50spShip"];
 }
 
 -(void)createSectionAndRowHandlers
@@ -49,6 +52,7 @@
     DockShipRowHandler* shipRowHandler = [[DockShipRowHandler alloc] init];
     shipRowHandler.controller = self;
     shipRowHandler.equippedShip = _equippedShip;
+    shipRowHandler.mark50spShip = _mark50spShip;
     [currentSection addRowHandler: shipRowHandler];
     [sections addObject: currentSection];
 

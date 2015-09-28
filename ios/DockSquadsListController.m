@@ -176,12 +176,18 @@
 
     squadCell.cost.text = [NSString stringWithFormat: @"%d", cost];
 
-    if ([_fleetCostHighlight isEqualToString:@"90/120"]) {
-        if ((cost > 90 && cost < 110) || cost > 120) {
+    if ([_fleetCostHighlight isEqualToString:@"90/130"]) {
+        if ((cost > 90 && cost < 110) || cost > 130) {
             squadCell.cost.textColor = [UIColor redColor];
         } else {
             squadCell.cost.textColor = [UIColor grayColor];
         }
+    } else if ([_fleetCostHighlight isEqualToString:@"90/120"]) {
+            if ((cost > 90 && cost < 110) || cost > 120) {
+                squadCell.cost.textColor = [UIColor redColor];
+            } else {
+                squadCell.cost.textColor = [UIColor grayColor];
+            }
     } else if ([_fleetCostHighlight isEqualToString:@"100"]) {
         if (cost > 100) {
             squadCell.cost.textColor = [UIColor redColor];
