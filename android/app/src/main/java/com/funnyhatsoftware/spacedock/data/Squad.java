@@ -479,6 +479,8 @@ public class Squad extends SquadBase {
                     removeFleetCaptain();
                 } else if (oldResource.getIsFighterSquadron()) {
                     removeFighterSquadron();
+                } else if (oldResource.isOfficers()) {
+                    removeOfficers();
                 }
             }
 
@@ -504,6 +506,12 @@ public class Squad extends SquadBase {
     void removeFleetCaptain() {
         for (EquippedShip ship : mEquippedShips) {
             ship.removeFleetCaptain();
+        }
+    }
+
+    void removeOfficers() {
+        for (EquippedShip ship : mEquippedShips) {
+            ship.removeOfficers();
         }
     }
 

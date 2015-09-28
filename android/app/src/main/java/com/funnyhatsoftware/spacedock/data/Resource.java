@@ -10,6 +10,7 @@ public class Resource extends ResourceBase {
     public static final String kFleetCaptainExternalId = "fleet_captain_collectiveop2";
     public static final String kHidekiExternalId = "hideki_class_attack_squadron_op5participation";
     public static final String kFedFighterExternalId = "federation_attack_fighters_op6participation";
+    public static final String kOfficersExternalId = "officer_cards_collectiveop3";
 
     static class ResourceComparator implements Comparator<Resource> {
         @Override
@@ -47,6 +48,8 @@ public class Resource extends ResourceBase {
     }
 
     public boolean isFleetCaptain() { return mExternalId.equals(kFleetCaptainExternalId);}
+
+    public boolean isOfficers() { return mExternalId.equals(kOfficersExternalId);}
 
     public boolean getIsFighterSquadron() {
         return mExternalId.equals(kHidekiExternalId) || mExternalId.equals(kFedFighterExternalId);
@@ -90,6 +93,6 @@ public class Resource extends ResourceBase {
     public boolean equippedIntoSquad(Squad squad) {
 
         return getIsFlagship() || isFleetCaptain() || getIsSideboard()
-                || getIsFighterSquadron();
+                || getIsFighterSquadron() || isOfficers();
     }
 }

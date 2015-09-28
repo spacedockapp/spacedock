@@ -327,7 +327,11 @@ public class EquippedShip extends EquippedShipBase {
 
     public int getOfficerLimit() {
         ArrayList<EquippedUpgrade> crewUpgrades = allUpgradesOfType(Constants.CREW_TYPE);
-        return 2 * crewUpgrades.size();
+        int max = 2 * crewUpgrades.size();
+        if (max > 4) {
+            max = 4;
+        }
+        return max;
     }
 
     public int getTalent() {
@@ -1169,6 +1173,12 @@ public class EquippedShip extends EquippedShipBase {
         }
     }
 
+    public void removeOfficers() {
+        ArrayList <EquippedUpgrade> officers = allUpgradesOfType(Constants.OFFICER_TYPE);
+        for (EquippedUpgrade eu : officers) {
+            removeUpgrade(eu);
+        }
+    }
     public String getFlagshipFaction() {
         Flagship flagship = getFlagship();
         if (flagship == null) {

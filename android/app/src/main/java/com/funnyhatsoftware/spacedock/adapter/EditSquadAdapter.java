@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.data.Admiral;
+import com.funnyhatsoftware.spacedock.data.Constants;
 import com.funnyhatsoftware.spacedock.data.EquippedShip;
 import com.funnyhatsoftware.spacedock.data.EquippedUpgrade;
 import com.funnyhatsoftware.spacedock.data.Explanation;
@@ -109,6 +110,19 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
         }
         final boolean fleetCaptainUnassigned = squadHasFleetCaptain && fleetCaptainIndex < 0;
 
+        final boolean squadHasOfficers = null != mSquad.getResource() && mSquad.getResource().isOfficers();
+        int officerCount = 0;
+        if (squadHasOfficers) {
+            for (int i = 0; i < ships.size(); i++) {
+                ArrayList<EquippedUpgrade> officers = ships.get(i).allUpgradesOfType(Constants.OFFICER_TYPE);
+                officerCount += officers.size();
+                if (officerCount >= 4) {
+                    officerCount = 4;
+                    break;
+                }
+            }
+        }
+
         int admiralIndex = -1;
         for (int i = 0; i < ships.size(); i++) {
             Admiral admiral = ships.get(i).getAdmiral();
@@ -136,11 +150,17 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
                     EquippedShip.SLOT_TYPE_CAPTAIN);
             populateLookup(l, s.getTalent(), R.string.talent_slot, EquippedShip.SLOT_TYPE_TALENT);
             populateLookup(l, s.getCrew(), R.string.crew_slot, EquippedShip.SLOT_TYPE_CREW);
+            if (squadHasOfficers) {
+                int officerLimit = s.getOfficerLimit();
+                ArrayList<EquippedUpgrade> officers = s.allUpgradesOfType(Constants.OFFICER_TYPE);
+                officerCount -= officers.size();
+                officerLimit -= officerCount;
+                populateLookup(l, officerLimit, R.string.officer_slot, EquippedShip.SLOT_TYPE_OFFICER);
+            }
             populateLookup(l, s.getWeapon(), R.string.weapon_slot, EquippedShip.SLOT_TYPE_WEAPON);
             populateLookup(l, s.getTech(), R.string.tech_slot, EquippedShip.SLOT_TYPE_TECH);
             populateLookup(l, s.getBorg(), R.string.borg_slot, EquippedShip.SLOT_TYPE_BORG);
             populateLookup(l, s.getSquadron(), R.string.squadron_slot, EquippedShip.SLOT_TYPE_SQUADRON);
-            populateLookup(l, s.getOfficerLimit(), R.string.officer_slot, EquippedShip.SLOT_TYPE_OFFICER);
             mShipLookup[i] = l;
         }
     }
