@@ -31,6 +31,7 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.UnknownHostException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -225,6 +226,8 @@ public class RootTabActivity extends FragmentTabActivity implements
                 newVersion = loader.dataVersion;
             } catch (MalformedURLException e) {
                 universe.updateAvailable = false;
+            } catch (UnknownHostException e) {
+                return null;
             } catch (IOException e) {
                 universe.updateAvailable = false;
                 e.printStackTrace();
@@ -241,7 +244,7 @@ public class RootTabActivity extends FragmentTabActivity implements
         @Override
         protected void onPostExecute(String result) {
             Universe universe = Universe.getUniverse();
-            if (universe.getVersion() != null && result.compareTo(universe.getVersion()) > 0) {
+            if (universe.getVersion() != null && result != null && result.compareTo(universe.getVersion()) > 0) {
                 universe.updateAvailable = true;
                 _activity.updateAvailable();
             } else {
@@ -249,8 +252,10 @@ public class RootTabActivity extends FragmentTabActivity implements
             }
             if (pd != null) {
                 pd.dismiss();
-                if (_activity != null) {
-                    Toast.makeText(_activity.getApplicationContext(),"Game Data is Up to Date", Toast.LENGTH_LONG).show();
+                if (_activity != null && result != null) {
+                    Toast.makeText(_activity.getApplicationContext(), "Game Data is Up to Date", Toast.LENGTH_LONG).show();
+                } else if (_activity != null && result == null) {
+                    Toast.makeText(_activity.getApplicationContext(), "Unable to connect to Space Dock sever at this time. Please try again later.", Toast.LENGTH_LONG).show();
                 }
             }
         }
