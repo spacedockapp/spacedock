@@ -30,8 +30,8 @@ public class ResourceSpinnerAdapter extends ArrayAdapter<ResourceSpinnerAdapter.
     public static void createForSpinner(Activity activity, Spinner resourceSpinner, Squad squad) {
         ResourceSpinnerAdapter resourceAdapter = new ResourceSpinnerAdapter(activity, squad);
         resourceSpinner.setAdapter(resourceAdapter);
-        resourceSpinner.setOnItemSelectedListener(resourceAdapter);
         resourceSpinner.setSelection(resourceAdapter.getPositionOfResource(squad.getResource()));
+        resourceSpinner.setOnItemSelectedListener(resourceAdapter);
     }
 
     protected static class ResourceWrapper {
@@ -89,8 +89,10 @@ public class ResourceSpinnerAdapter extends ArrayAdapter<ResourceSpinnerAdapter.
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Resource previousResource = mSquad.getResource();
         Resource selectedResource = getItem(position).mResource;
-        mSquad.setResource(selectedResource);
-        mListener.onResourceChanged(previousResource, selectedResource);
+        if (previousResource != selectedResource) {
+            mSquad.setResource(selectedResource);
+            mListener.onResourceChanged(previousResource, selectedResource);
+        }
     }
 
     @Override

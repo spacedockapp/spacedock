@@ -559,6 +559,20 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 cost = 3;
             }
         }
+
+        boolean hasExchange = false;
+        String exFac1 = "";
+        String exFac2 = "";
+        int costWithoutPenalty = cost;
+        if (equippedShip.getSquad().getResource() != null && equippedShip.getSquad().getResource().isOfficerExchangeProgram()) {
+            if (equippedShip.getSquad().getResourceAttributes() != null && equippedShip.getSquad().getResourceAttributes().contains(" & ")) {
+                String resourceAttributes = equippedShip.getSquad().getResourceAttributes();
+                hasExchange = true;
+                exFac1 = resourceAttributes.substring(0, resourceAttributes.lastIndexOf(" & "));
+                exFac2 = resourceAttributes.substring(resourceAttributes.lastIndexOf(" & ") + 3);
+            }
+        }
+
         if (!DataUtils.factionsMatch(ship, this)
                 && !equippedShip.isResourceSideboard()
                 && !DataUtils.targetHasFaction(equippedShip.getFlagshipFaction(), this)) {
@@ -611,6 +625,19 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 // do nothing
             } else {
                 cost += 1;
+            }
+        }
+
+        if (hasExchange) {
+            if ((DataUtils.targetHasFaction(exFac1,this) && DataUtils.targetHasFaction(exFac2, ship)) || (DataUtils.targetHasFaction(exFac2,this) && DataUtils.targetHasFaction(exFac1, ship))) {
+                if (cost > costWithoutPenalty) {
+                    if (isCrew() || isCaptain() || isAdmiral()) {
+                        cost = costWithoutPenalty;
+                    }
+                }
+                if (isCaptain() || isAdmiral()) {
+                    cost -= 1;
+                }
             }
         }
 

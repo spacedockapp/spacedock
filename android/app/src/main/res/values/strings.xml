@@ -34,11 +34,16 @@
     <string name="menu_edit_squad">Edit Squad</string>
     <string name="menu_rename_squad">Rename Squad</string>
     <string name="menu_delete_squad">Delete Squad</string>
+    <string name="menu_additional_points">Edit Additional Points</string>
+    <string name="menu_notes">Edit Notes</string>
 
     <string name="dialog_request_squad_name">Squad Name</string>
     <string name="dialog_accept">OK</string>
     <string name="dialog_reject">Cancel</string>
     <string name="dialog_error_empty_squad_name">Squad name must not be empty.</string>
+    <string name="dialog_additional_points">Additional Points</string>
+    <string name="dialog_error_nan">Additional points must be a number.</string>
+    <string name="dialog_notes">Notes</string>
 
     <string name="title_settings">Settings</string>
 

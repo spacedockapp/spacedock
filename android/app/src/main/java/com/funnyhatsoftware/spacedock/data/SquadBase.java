@@ -24,6 +24,9 @@ public class SquadBase extends Base {
     Resource mResource;
     public Resource getResource() { return mResource; }
     public SquadBase setResource(Resource v) { mResource = v; return this;}
+    String mResourceAttributes;
+    public String getResourceAttributes() { return mResourceAttributes; }
+    public SquadBase setResourceAttributes(String v) { mResourceAttributes = v; return this;}
     ArrayList<EquippedShip> mEquippedShips = new ArrayList<EquippedShip>();
     @SuppressWarnings("unchecked")
     public ArrayList<EquippedShip> getEquippedShips() { return (ArrayList<EquippedShip>)mEquippedShips.clone(); }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.funnyhatsoftware.spacedock.R;
@@ -98,6 +100,7 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
         mView = view;
         Spinner resourceSpinner = (Spinner) view.findViewById(R.id.resource_spinner);
         ResourceSpinnerAdapter.createForSpinner(getActivity(), resourceSpinner, squad);
+        ((SquadTabActivity)getActivity()).updateTitleAndCost();
     }
 
     @Override
@@ -127,6 +130,34 @@ public class EditSquadFragment extends Fragment implements EditSquadAdapter.Slot
                         public void onTextValueCommitted(String inputText) {
                             squad.setName(inputText);
                             ((SquadTabActivity)getActivity()).updateTitleAndCost(); // TODO: clean this up
+                        }
+                    }
+            );
+            return true;
+        } else if (itemId == R.id.menu_additional_points) {
+                TextEntryDialog.create(context, Integer.toString(squad.getAdditionalPoints()),
+                        R.string.dialog_additional_points,
+                        R.string.dialog_error_nan,
+                        new TextEntryDialog.OnAcceptListener() {
+                            @Override
+                            public void onTextValueCommitted(String inputText) {
+                                squad.setAdditionalPoints(new Integer(inputText).intValue());
+                                notifyDataSetChanged();
+                                ((SquadTabActivity) getActivity()).updateTitleAndCost(); // TODO: clean this up
+                            }
+                        }
+                );
+                return true;
+        } else if (itemId == R.id.menu_notes) {
+            TextEntryDialog.create(context, squad.getNotes(),
+                    R.string.dialog_notes,
+                    R.string.dialog_notes,
+                    new TextEntryDialog.OnAcceptListener() {
+                        @Override
+                        public void onTextValueCommitted(String inputText) {
+                            squad.setNotes(inputText);
+                            notifyDataSetChanged();
+                            ((SquadTabActivity) getActivity()).updateTitleAndCost(); // TODO: clean this up
                         }
                     }
             );

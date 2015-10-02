@@ -21,6 +21,7 @@ public class Squad extends SquadBase {
     public static final String JSON_LABEL_SIDEBOARD = "sideboard";
     public static final String JSON_LABEL_SHIPS = "ships";
     public static final String JSON_LABEL_RESOURCE = "resource";
+    public static final String JSON_LABEL_RESOURCE_ATTRIBUTES = "resourceAttributes";
     public static final String JSON_LABEL_UUID = "uuid";
     public static final String JSON_LABEL_ADDITIONAL_POINTS = "additionalPoints";
     public static final String JSON_LABEL_NAME = "name";
@@ -136,10 +137,14 @@ public class Squad extends SquadBase {
                     .toString()));
         }
         String resourceId = jsonObject.optString(JSON_LABEL_RESOURCE, "");
+        String resourceAttribs = jsonObject.optString(JSON_LABEL_RESOURCE_ATTRIBUTES, "");
         if (resourceId.length() > 0) {
             Resource resource = universe.resources.get(resourceId);
             if (strict && resource == null) {
                 throw new RuntimeException("Can't find resource " + resourceId);
+            }
+            if (resourceAttribs.length() > 0) {
+                setResourceAttributes(resourceAttribs);
             }
             setResource(resource);
         }
@@ -186,6 +191,10 @@ public class Squad extends SquadBase {
         Resource resource = getResource();
         if (resource != null) {
             o.put(JSON_LABEL_RESOURCE, resource.getExternalId());
+            String resourceAttributes = getResourceAttributes();
+            if (resourceAttributes != null) {
+                o.put(JSON_LABEL_RESOURCE_ATTRIBUTES,resourceAttributes);
+            }
         }
         ArrayList<EquippedShip> equippedShips = getEquippedShips();
         JSONArray shipsArray = new JSONArray();

@@ -29,10 +29,23 @@ public class TextEntryDialog {
         builder.setPositiveButton(R.string.dialog_accept, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String inputText = input.getText().toString();
-                if (inputText == null || inputText.isEmpty()) {
-                    Toast.makeText(context, errorEmptyStringResId, Toast.LENGTH_SHORT).show();
+                if (errorEmptyStringResId == R.string.dialog_error_empty_squad_name) {
+                    String inputText = input.getText().toString();
+                    if (inputText == null || inputText.isEmpty()) {
+                        Toast.makeText(context, errorEmptyStringResId, Toast.LENGTH_SHORT).show();
+                    } else {
+                        listener.onTextValueCommitted(inputText);
+                    }
+                } else if (errorEmptyStringResId == R.string.dialog_error_nan) {
+                    String inputText = input.getText().toString();
+                    try {
+                        Integer myNum = new Integer(input.getText().toString());
+                        listener.onTextValueCommitted(inputText);
+                    } catch (NumberFormatException nfe) {
+                        System.out.println("Could not parse " + nfe);
+                    }
                 } else {
+                    String inputText = input.getText().toString();
                     listener.onTextValueCommitted(inputText);
                 }
             }

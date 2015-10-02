@@ -11,4 +11,15 @@
         android:showAsAction="never"
         android:title="@string/menu_rename_squad"
         android:visible="true"/>
+    <item
+        android:id="@+id/menu_additional_points"
+        android:showAsAction="never"
+        android:title="@string/menu_additional_points"
+        android:visible="true"/>
+    <item
+        android:id="@+id/menu_notes"
+        android:showAsAction="never"
+        android:title="@string/menu_notes"
+        android:visible="true"/>
+
 </menu>
