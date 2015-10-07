@@ -354,6 +354,11 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                     cost -= 1;
                 }
             }
+            if (upgradeSpecial.equals("costincreasedifnotromulansciencevesselAndNoMoreThanOnePerShip")) {
+                if (!ship.isRomulanScienceVessel()) {
+                    cost += 5;
+                }
+            }
         }
 
         if (captain != null && captain.getExternalId().equals("k_temoc_72009")) {
@@ -424,6 +429,9 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             }
         } else if (captainSpecial.equals("AllUpgradesMinusOneOnIndepedentShip")
                 && DataUtils.targetHasFaction(Constants.INDEPENDENT,ship) && (!this.isCaptain() && !this.isAdmiral())) {
+            cost -= 1;
+        } else if (captainSpecial.equals("KlingonUpgradesCostOneLess")
+                && this.isKlingon() && (!this.isCaptain() && !this.isAdmiral())) {
             cost -= 1;
         } else if ("PlusFiveIfNotRegentsFlagship".equals(upgradeSpecial) && !ship.isRegentsFlagship()) {
             cost += 5;

@@ -352,6 +352,9 @@ public class EquippedShip extends EquippedShipBase {
         if (getCaptain() != null && getCaptain().getExternalId().equals("lovok_72221a")){
             v += 1;
         }
+        if (getCaptain() != null && getCaptain().getExternalId().equals("telek_r_mor_72016")){
+            v += 1;
+        }
         if (getCaptain() != null && getCaptain().isKazon() && getShip().isKazon()) {
             v += 1;
         }
@@ -1016,6 +1019,27 @@ public class EquippedShip extends EquippedShipBase {
                             if (addingNew && !upgrade.getTitle().equals("Tal Shiar")) {
                                 return new Explanation(msg,
                                         "Lovok may only field the Tal Shiar [TALENT] Upgrade");
+                            }
+                        }
+                    }
+                }
+                if (getCaptain() != null && getCaptain().getExternalId().equals("telek_r_mor_72016")) {
+                    int limit = getTalent();
+                    if (limit == 1) {
+                        if (!upgrade.getTitle().equals("Secret Research")) {
+                            return new Explanation(msg,
+                                    "Telek R'Mor may only field the Secret Research [TALENT] Upgrade");
+                        }
+                    } else {
+                        for (EquippedUpgrade eu : mUpgrades) {
+                            if (!eu.isPlaceholder() && eu.getUpgrade().isTalent()) {
+                                limit--;
+                            }
+                        }
+                        if (limit <= 1 && containsUpgradeWithName("Secret Research") == null) {
+                            if (addingNew && !upgrade.getTitle().equals("Secret Research")) {
+                                return new Explanation(msg,
+                                        "Telek R'Mor may only field the Secret Research [TALENT] Upgrade");
                             }
                         }
                     }

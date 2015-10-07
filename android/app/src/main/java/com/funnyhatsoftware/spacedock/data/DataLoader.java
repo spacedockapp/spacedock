@@ -482,7 +482,10 @@ public class DataLoader extends DefaultHandler {
                 "OnlyKazonCaptainShip",
                 "Plus4NotVulcan",
                 "Plus3NotFederationNoMoreThanOnePerShip",
-                "Plus5NotFederationNoMoreThanOnePerShip"
+                "Plus5NotFederationNoMoreThanOnePerShip",
+                "costincreasedifnotromulansciencevesselAndNoMoreThanOnePerShip",
+                "OnlySecretResearchTalent",
+                "KlingonUpgradesCostOneLess"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);
