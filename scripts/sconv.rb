@@ -45,8 +45,10 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-9/24/2015 10:37:15	72014 - Delta Flyer	Non-unique	Federation Starship	Federation	Delta Flyer Class Shuttlecraft		1 Bank, 1 Forward, 2 Bank, 2 Forward	1 Turn, 2 Turn, 3 Bank, 3 Forward, 1 Come About, 2 Come About		3	2	2	2	You may deploy [WEAPON] Upgrades with a cost of 4 SP or less to this ship.	Evasive, Scan, Target Lock	18	0	1	1	1	90-degree forward, 90-degree rear		0
-9/24/2015 10:38:05	72014 - Delta Flyer	Unique	Delta Flyer	Federation	Delta Flyer Class Shuttlecraft	Delta Flyer Class Shuttle				3	2	2	3	You may deploy [WEAPON] Upgrades with a cost of 4 SP or less to this ship.  You may fire your Primary Weapon from your rear firing arc at -1 attack die.	Evasive, Scan, Target Lock	20	0	2	1	1	90-degree forward, 90-degree rear		0
+10/3/2015 14:15:51	72015 - IKS Rotarran	Non-unique	Klingon Starship	Klingon	B'rel Class	B'rel Class				4	1	3	2		Cloak, Evasive, Sensor Echo, Target Lock	20	0	2	0	1	90-degree forward, 90-degree rear		0
+10/3/2015 14:17:46	72015 - IKS Rotarran	Unique	I.K.S. Rotarran	Klingon	B'rel Class	B'rel Class				4	1	3	3	ACTION: Perform a 2nd maneuver on your maneuver dial with a speed of 1 or 2.  Place an Auxiliary Power Token beside your ship.  You cannot attack this round.	Cloak, Evasive, Sensor Echo, Target Lock	22	0	2	1	1	90-degree forward, 90-degree rear		0
+10/6/2015 14:00:10	72016 - RIS Talvath	Unique	R.I.S. Talvath	Romulan	Romulan Science Vessel	Romulan Science Vessel				1	2	2	2	ACTION: If you are within Range 1-3 of at least 1 enemy ship, roll 3 defense dice.  For every [EVADE] result, place 1 [EVADE] Token beside your ship.  You cannot perform any free Actions this round.	Cloak, Evasive, Sensor Echo	14	0	0	3	0	90-degree forward		0
+10/6/2015 14:01:48	72016 - RIS Talvath	Non-unique	Romulan Starship	Romulan	Romulan Science Vessel	Romulan Science Vessel				1	2	2	1		Cloak, Evasive, Sensor Echo	12	0	0	2	0	90-degree forward		0
 SHIPTEXT
 
 

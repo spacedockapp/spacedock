@@ -1,0 +1,20 @@
+  <Admiral>
+    <Title>Alidar Jarok</Title>
+    <Ability>ACTION: Target a ship within Range 1 and remove 1 Token ([EVADE], [SCAN], [BATTLESTATIONS], or [TARGET LOCK]) from beside that ship. If you remove a [TARGET LOCK] Token with this ability, also remove the corresponding [TARGET LOCK] Token.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>6</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Admiral</Type>
+    <Faction>Romulan</Faction>
+    <Cost>4</Cost>
+    <Id>alidar_jarok_72016</Id>
+    <Set>72016</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: Target a ship within Range 1 and remove 1 Token ([EVADE], [SCAN], [BATTLESTATIONS], or [TARGET LOCK]) from beside that ship. If you remove a [TARGET LOCK] Token with this ability, also remove the corresponding [TARGET LOCK] Token.</AdmiralAbility>
+    <AdmiralCost>4</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>2</SkillModifier>
+  </Admiral>

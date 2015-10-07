@@ -1,4 +1,4 @@
-<Data version="2015-09-26@16-02">
+<Data version="2015-10-07@14-55">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -369,7 +369,7 @@
       <RearArc></RearArc>
     </ShipClassDetail>
     <ShipClassDetail>
-      <Name>B'rel Class</Name>
+      <Name>B'Rel Class</Name>
       <Id>5016</Id>
       <Maneuvers>
         <Maneuver speed="4" kind="straight" color="white" />
@@ -380,9 +380,9 @@
         <Maneuver speed="3" kind="right-turn" color="white" />
         <Maneuver speed="3" kind="about" color="red" />
         <Maneuver speed="2" kind="left-turn" color="white" />
-        <Maneuver speed="2" kind="left-bank" color="green" />
+        <Maneuver speed="2" kind="left-bank" color="white" />
         <Maneuver speed="2" kind="straight" color="green" />
-        <Maneuver speed="2" kind="right-bank" color="green" />
+        <Maneuver speed="2" kind="right-bank" color="white" />
         <Maneuver speed="2" kind="right-turn" color="white" />
         <Maneuver speed="1" kind="left-bank" color="green" />
         <Maneuver speed="1" kind="straight" color="green" />
@@ -409,29 +409,6 @@
       </Maneuvers>
       <FrontArc>90</FrontArc>
       <RearArc></RearArc>
-    </ShipClassDetail>
-    <ShipClassDetail>
-      <Name>B'Rel Class</Name>
-      <Id>5018</Id>
-      <Maneuvers>
-        <Maneuver speed="4" kind="straight" color="white" />
-        <Maneuver speed="3" kind="left-turn" color="white" />
-        <Maneuver speed="3" kind="left-bank" color="white" />
-        <Maneuver speed="3" kind="straight" color="white" />
-        <Maneuver speed="3" kind="right-bank" color="white" />
-        <Maneuver speed="3" kind="right-turn" color="white" />
-        <Maneuver speed="3" kind="about" color="red" />
-        <Maneuver speed="2" kind="left-turn" color="white" />
-        <Maneuver speed="2" kind="left-bank" color="white" />
-        <Maneuver speed="2" kind="straight" color="green" />
-        <Maneuver speed="2" kind="right-bank" color="white" />
-        <Maneuver speed="2" kind="right-turn" color="white" />
-        <Maneuver speed="1" kind="left-bank" color="green" />
-        <Maneuver speed="1" kind="straight" color="green" />
-        <Maneuver speed="1" kind="right-bank" color="green" />
-      </Maneuvers>
-      <FrontArc>90</FrontArc>
-      <RearArc>90</RearArc>
     </ShipClassDetail>
     <ShipClassDetail>
       <Name>Romulan Bird-Of-Prey Class</Name>
@@ -2049,7 +2026,7 @@
       <Set>71124</Set>
     </Ship>
     <Ship>
-      <Title>Romulan Science Vessel</Title>
+      <Title>Romulan Starship</Title>
       <Unique>N</Unique>
       <ShipClass>Romulan Science Vessel</ShipClass>
       <Faction>Romulan</Faction>
@@ -2074,7 +2051,7 @@
       </Weapon>
       <Crew>1</Crew>
       <Id>1014</Id>
-      <Set>71124</Set>
+      <Set>71124,72016</Set>
     </Ship>
     <Ship>
       <Title>I.K.S. Gr'oth</Title>
@@ -4891,7 +4868,7 @@
         <Title>Klingon/Borg Starship</Title>
         <Unique>N</Unique>
         <MirrorUniverseUnique>N</MirrorUniverseUnique>
-        <ShipClass>B'rel Class</ShipClass>
+        <ShipClass>B'Rel Class</ShipClass>
         <Faction>Borg</Faction>
         <AdditionalFaction>Klingon</AdditionalFaction>
         <Attack>5</Attack>
@@ -4919,7 +4896,7 @@
         <Title>Assimilated Vessel 80279</Title>
         <Unique>Y</Unique>
         <MirrorUniverseUnique>N</MirrorUniverseUnique>
-        <ShipClass>B'rel Class</ShipClass>
+        <ShipClass>B'Rel Class</ShipClass>
         <Faction>Borg</Faction>
         <AdditionalFaction>Klingon</AdditionalFaction>
         <Attack>5</Attack>
@@ -4947,7 +4924,7 @@
         <Title>Korok's Bird-of-Prey</Title>
         <Unique>Y</Unique>
         <MirrorUniverseUnique>N</MirrorUniverseUnique>
-        <ShipClass>B'rel Class</ShipClass>
+        <ShipClass>B'Rel Class</ShipClass>
         <Faction>Klingon</Faction>
         <AdditionalFaction></AdditionalFaction>
         <Attack>4</Attack>
@@ -6275,7 +6252,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Title>I.K.S. Korinar</Title>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <ShipClass>B'rel Class</ShipClass>
+      <ShipClass>B'Rel Class</ShipClass>
       <Faction>Klingon</Faction>
       <AdditionalFaction></AdditionalFaction>
       <Attack>4</Attack>
@@ -6304,7 +6281,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Title>Klingon Starship</Title>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <ShipClass>B'rel Class</ShipClass>
+      <ShipClass>B'Rel Class</ShipClass>
       <Faction>Klingon</Faction>
       <AdditionalFaction></AdditionalFaction>
       <Attack>4</Attack>
@@ -6327,7 +6304,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <SquadronUpgrade>0</SquadronUpgrade>
       <Has360Arc>N</Has360Arc>
       <Id>klingon_starship_71999p</Id>
-      <Set>71999p,71804</Set>
+      <Set>71999p,71804,72015</Set>
   </Ship>
   <Ship>
       <Title>Federation Starship</Title>
@@ -6362,7 +6339,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Title>I.K.S. Ning'tao</Title>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <ShipClass>B'rel Class</ShipClass>
+      <ShipClass>B'Rel Class</ShipClass>
       <Faction>Klingon</Faction>
       <AdditionalFaction></AdditionalFaction>
       <Attack>4</Attack>
@@ -7402,6 +7379,64 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Id>delta_flyer_72014</Id>
       <Set>72014</Set>
   </Ship>
+  <Ship>
+      <Title>I.K.S. Rotarran</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>B'Rel Class</ShipClass>
+      <Faction>Klingon</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>3</Hull>
+      <Shield>3</Shield>
+      <Ability>ACTION: Perform a 2nd maneuver on your maneuver dial with a speed of 1 or 2.  Place an Auxiliary Power Token beside your ship.  You cannot attack this round.</Ability>
+      <Cost>22</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>i_k_s_rotarran_72015</Id>
+      <Set>72015</Set>
+  </Ship>
+  <Ship>
+      <Title>R.I.S. Talvath</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Romulan Science Vessel</ShipClass>
+      <Faction>Romulan</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>1</Attack>
+      <Agility>2</Agility>
+      <Hull>2</Hull>
+      <Shield>2</Shield>
+      <Ability>ACTION: If you are within Range 1-3 of at least 1 enemy ship, roll 3 defense dice.  For every [EVADE] result, place 1 [EVADE] Token beside your ship.  You cannot perform any free Actions this round.</Ability>
+      <Cost>14</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>0</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>3</Tech>
+      <Weapon>0</Weapon>
+      <Crew>0</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>r_i_s_talvath_72016</Id>
+      <Set>72016</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -7486,7 +7521,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Klingon</Faction>
       <Cost>0</Cost>
       <Id>2005</Id>
-      <Set>71120,71125,71126,OP2Prize,71269,71273,71448,i_k_s_b_moth,71532,71996,71804,72009,72221f</Set>
+      <Set>71120,71125,71126,OP2Prize,71269,71273,71448,i_k_s_b_moth,71532,71996,71804,72009,72221f,72015</Set>
     </Captain>
     <Captain>
       <Title>Toreth</Title>
@@ -7519,7 +7554,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Romulan</Faction>
       <Cost>0</Cost>
       <Id>2007</Id>
-      <Set>71120,71123,71124,71270,71278,OP3Prize,i_r_w_vorta_vor,71533,71274,71794,72010,72221a</Set>
+      <Set>71120,71123,71124,71270,71278,OP3Prize,i_r_w_vorta_vor,71533,71274,71794,72010,72221a,72016</Set>
     </Captain>
     <Captain>
       <Title>Khan Singh</Title>
@@ -10915,6 +10950,58 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Set>72014</Set>
       <Special>addonetechslot</Special>
   </Captain>
+  <Captain>
+      <Title>Martok</Title>
+      <Ability>All of your Klingon Upgrades cost -1SP. ACTION: When attacking this round, during the Roll Attack Dice step, you may roll 2 less attack dice to add 1 [HIT] result to your roll. If you only have Klingon cards assigned to your ship, roll 1 less attack die, instead of 2.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>martok_72015</Id>
+      <Set>72015</Set>
+      <Special>KlingonUpgradesCostOneLess</Special>
+  </Captain>
+  <Captain>
+      <Title>Telek R'Mor</Title>
+      <Ability>Each time you defend, if you have at least 1 [SCAN] Token beside your ship, roll +1 defense die. You may field the "Secret Research" [ELITE TALENT] Upgrade.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>3</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>2</Cost>
+      <Id>telek_r_mor_72016</Id>
+      <Set>72016</Set>
+      <Special>OnlySecretResearchTalent</Special>
+  </Captain>
+  <Captain>
+      <Title>Alidar Jarok</Title>
+      <Ability>ACTION: Target a ship within Range 1 and remove 1 Token ([EVADE], [SCAN], [BATTLESTATIONS], or [TARGET LOCK]) from beside that ship. If you remove a [TARGET LOCK] Token with this ability, also remove the corresponding [TARGET LOCK] Token.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>alidar_jarok_cap_72016</Id>
+      <Set>72016</Set>
+      <Special></Special>
+      <AdmiralAbility>FLEET ACTION: Target a ship within Range 1 and remove 1 Token ([EVADE], [SCAN], [BATTLESTATIONS], or [TARGET LOCK]) from beside that ship. If you remove a [TARGET LOCK] Token with this ability, also remove the corresponding [TARGET LOCK] Token.</AdmiralAbility>
+      <AdmiralCost>4</AdmiralCost>
+      <AdmiralTalent>1</AdmiralTalent>
+      <SkillModifier>2</SkillModifier>
+  </Captain>
   </Captains>
   <Admirals>
     <Admiral>
@@ -11412,6 +11499,26 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
         <AdmiralCost>1</AdmiralCost>
         <AdmiralTalent>1</AdmiralTalent>
         <SkillModifier>-1</SkillModifier>
+    </Admiral>
+    <Admiral>
+        <Title>Alidar Jarok</Title>
+        <Ability>ACTION: Target a ship within Range 1 and remove 1 Token ([EVADE], [SCAN], [BATTLESTATIONS], or [TARGET LOCK]) from beside that ship. If you remove a [TARGET LOCK] Token with this ability, also remove the corresponding [TARGET LOCK] Token.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill>6</Skill>
+        <Talent>1</Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Admiral</Type>
+        <Faction>Romulan</Faction>
+        <Cost>4</Cost>
+        <Id>alidar_jarok_72016</Id>
+        <Set>72016</Set>
+        <Special></Special>
+        <AdmiralAbility>FLEET ACTION: Target a ship within Range 1 and remove 1 Token ([EVADE], [SCAN], [BATTLESTATIONS], or [TARGET LOCK]) from beside that ship. If you remove a [TARGET LOCK] Token with this ability, also remove the corresponding [TARGET LOCK] Token.</AdmiralAbility>
+        <AdmiralCost>4</AdmiralCost>
+        <AdmiralTalent>1</AdmiralTalent>
+        <SkillModifier>2</SkillModifier>
     </Admiral>
   </Admirals>
   <Upgrades>
@@ -20214,7 +20321,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Faction>Klingon</Faction>
         <Cost>5</Cost>
         <Id>photon_torpedoes_72009</Id>
-        <Set>72009</Set>
+        <Set>72009,72015</Set>
         <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -21625,6 +21732,246 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>72014</Set>
         <Special></Special>
     </Upgrade>
+    <Upgrade>
+        <Title>The Day Is Ours!</Title>
+        <Ability>During the Roll Attack Dice step, you may discard this card to add 1 [CRIT] result to your roll. This card may only be purchased for a Klingon Captain assigned to a Klingon ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Klingon</Faction>
+        <Cost>4</Cost>
+        <Id>the_day_is_ours__72015</Id>
+        <Set>72015</Set>
+        <Special>OnlyKlingonCaptainShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Alert Status One</Title>
+        <Ability>ACTION: Discard this card to place a [BATTLESTATIONS] Token beside your ship. You cannot perform a [BATTLESTATIONS] Action as a free Action this round.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Klingon</Faction>
+        <Cost>3</Cost>
+        <Id>altert_status_one_72015</Id>
+        <Set>72015</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Supreme Commander</Title>
+        <Ability>ACTION: Discard this card to target 1 friendly ship within Range 1-3. The target ship immediately performs a free Action from its Action Bar. If the target ship is a Klingon ship, it may perform any Action as a free Action.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Klingon</Faction>
+        <Cost>5</Cost>
+        <Id>supreme_commander_72015</Id>
+        <Set>72015</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Leskit</Title>
+        <Ability>After you reveal a red maneuver, before you move, you may discard this card to treat the maneuver as a green maneuver. If your ship is cloaked when you do this, you may immediately perform a [SENSOR ECHO] Action as a free Action.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Klingon</Faction>
+        <Cost>3</Cost>
+        <Id>leskit_72015</Id>
+        <Set>72015</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Tavana</Title>
+        <Ability>ACTION: Disable this card to repair 1 Shield Token. In addition, if your ship is cloaked, you may repair 1 damage to your Hull. You roll -2 attack dice on all of your attacks this round.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Klingon</Faction>
+        <Cost>5</Cost>
+        <Id>tavana_72015</Id>
+        <Set>72015</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Kornan</Title>
+        <Ability>ACTION: Discard this card to acquire a target lock on a ship within Range 1-3 of your ship and then perform an Action from your Action Bar (not [TARGET LOCK]) as a free Action.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Klingon</Faction>
+        <Cost>5</Cost>
+        <Id>kornan_72015</Id>
+        <Set>72015</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Worf</Title>
+        <Ability>Increase your Captain's Skill by +1 (+3 for a Klingon Captain). This ability cannot be used on this card. If your Captain is disabled, discard, or affected by a critical damage card, treat this card as your Captain Card with a Skill of 5. If your Captain becomes non-disabled or unaffected by the critical damage card, that Captain Card is restored.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Klingon</Faction>
+        <Cost>2</Cost>
+        <Id>worf_72015</Id>
+        <Set>72015</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Jadzia Dax</Title>
+        <Ability>You do not pay a faction penalty when assigning this card to a Klingon ship. You may disable this card and spend your [SCAN] Token to convert 1 of your [BATTLESTATIONS] results into a [HIT] or an [EVADE] result.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>jadzia_dax_72015</Id>
+        <Set>72015</Set>
+        <Special>NoPenaltyOnKlingonShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Secret Research</Title>
+        <Ability>Add the [SCAN] Action to your Action Bar. If this card is discarded, you no longer have the [SCAN] Action on your Action Bar. During the Activation Phase, you may discard this card to perform a [SCAN] Action as a free Action. This card costs +5 SP if purchased for any ship other than a Romulan Science Vessel.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>secret_research_72016</Id>
+        <Set>72016</Set>
+        <Special>costincreasedifnotromulansciencevessel</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Test Cylinder</Title>
+        <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at any Range. Disable this card and 1 [CREW] Upgrade of your choice on the target ship. This Upgrade may only be purchased for a Romulan Science Vessel.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Romulan</Faction>
+        <Cost>3</Cost>
+        <Id>test_cylinder_72016</Id>
+        <Set>72016</Set>
+        <Special>OnlyForRomulanScienceVessel</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Temporal Displacement</Title>
+        <Ability>When defending, during the Compare Results step, you may discard this card to cancel all of the attacking ship's [HIT] and [CRIT] results. All cards that were used during the attack are returned to the state that they were in prior to the attack. The attacking ship cannot perform any more attacks during the round this ability is used. This card may only be purchased for a Romulan Science Vessel.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>temporal_displacement_72016</Id>
+        <Set>72016</Set>
+        <Special>OnlyForRomulanScienceVessel</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Warp Core Ejection System</Title>
+        <Ability>ACTION: Discard this card to repair 1 damage to your Hull and flip any "Warp Core Breach" critical damage cards assigned to your ship face down. For the rest of the game, you cannot perform any maneuvers with a speed greater than 1 and you cannot receive a "Warp Core Breach" critical damage card. If you do, immediately flip the card face down and treat it as normal damage. No ship may be assigned with more than one "Warp Core Ejection System" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Romulan</Faction>
+        <Cost>4</Cost>
+        <Id>warp_core_ejection_system_72016</Id>
+        <Set>72016</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Advanced Scanning</Title>
+        <Ability>Add the [SCAN] Action to your Action Bar. If this card is discarded, you no longer have the [SCAN] Action on your Action Bar. Whenever you perform the [SCAN] Action, you may place 1 additional [SCAN] Token beside your ship. If you do so, place an Auxiliary Power Token beside your ship. This card costs +5 SP for any ship other than a Romulan Science Vessel.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>advanced_scanning_72016</Id>
+        <Set>72016</Set>
+        <Special>costincreasedifnotromulansciencevessel</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Signal Amplifier</Title>
+        <Ability>You may discard this card and spend 1 [SCAN] Token to add +2 attack dice or +2 defense dice. This Upgrade costs +5 Squadron Points for any ship other than a Romulan Science Vessel and no ship may be equipped with more than 1 "Signal Amplifier" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>signal_amplifier_72016</Id>
+        <Set>72016</Set>
+        <Special>costincreasedifnotromulansciencevesselAndNoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Graviton Field Generator</Title>
+        <Ability>ACTION: Disable this card and up to 2 of your Active Shields to immediately perform an additional [STRAIGHT] maneuver with a speed equal to the number of shields you disabled with this Action. OR ACTION: If you performed a green maneuver this round, discard this card to place 2 Shield Tokens beside your ship. When suffering damage this round, remove these Shield Tokens first.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>graviton_field_generator_72016</Id>
+        <Set>72016</Set>
+        <Special></Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -22230,6 +22577,8 @@ OR
       <Set id="72003r" overallSetName="Temporal Cold War" releaseDate="2015-10-15">Protocol Resource</Set>
       <Set id="72003p" overallSetName="Temporal Cold War" releaseDate="2015-10-15">Diaspora</Set>
       <Set id="72014" overallSetName="Wave 19" releaseDate="2015-10-07">Delta Flyer</Set>
+      <Set id="72015" overallSetName="Wave 19" releaseDate="2015-10-07">I.K.S. Rotarran</Set>
+      <Set id="72016" overallSetName="Wave 19" releaseDate="2015-10-07">R.I.S. Talvath</Set>
     </Sets>
     <Flagships>
         <Flagship>
