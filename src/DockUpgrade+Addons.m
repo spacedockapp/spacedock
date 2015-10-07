@@ -576,7 +576,7 @@ static NSDictionary* sItemLabels = nil;
                 cost += 5;
             }
         }
-
+        
         if ([fleetCaptainSpecial isEqualToString: @"CrewUpgradesCostOneLess"] && !isSideboard) {
             cost -= 1;
         }
@@ -621,6 +621,11 @@ static NSDictionary* sItemLabels = nil;
         if ([equippedShip containsUpgradeWithId:@"romulan_hijackers_71802"] != nil) {
             if (![upgrade isFactionBorg]) {
                 cost -= 1;
+            }
+        }
+        if ([upgradeSpecial isEqualToString: @"costincreasedifnotromulansciencevesselAndNoMoreThanOnePerShip"]) {
+            if (![ship isRomulanScienceVessel]) {
+                cost += 5;
             }
         }
     }
@@ -822,6 +827,10 @@ static NSDictionary* sItemLabels = nil;
             }
         } else if ([captainSpecial isEqualToString: @"AllUpgradesMinusOneOnIndepedentShip"]) {
             if ([equippedShip hasFaction: @"Independent"] && ![self isOfficer] && ![self isCaptain] && ![self isAdmiral]) {
+                cost -= 1;
+            }
+        } else if ([captainSpecial isEqualToString: @"KlingonUpgradesCostOneLess"]) {
+            if ([self isKlingon] && ![self isOfficer] && ![self isCaptain] && ![self isAdmiral]) {
                 cost -= 1;
             }
         }
