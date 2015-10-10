@@ -1,4 +1,4 @@
-<Data version="2015-10-07@14-55">
+<Data version="2015-10-10@15-44">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -15661,7 +15661,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Cost>4</Cost>
       <Id>enhanced_hull_plating_71526</Id>
       <Set>71526</Set>
-      <Special>ony_federation_ship_limited</Special>
+      <Special>NoMoreThanOnePerShipFederation</Special>
     </Upgrade>
     <Upgrade>
       <Title>T'Pol</Title>
