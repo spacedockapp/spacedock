@@ -1075,9 +1075,9 @@ public class EquippedShip extends EquippedShipBase {
         if (ship.isShuttle() && upgrade.isWeapon() && !upgrade.getExternalId().equals("3007")) {
             EquippedUpgrade tmpEu = new EquippedUpgrade();
             tmpEu.setUpgrade(upgrade);
-            if (ship.getExternalId().equals("delta_flyer_72014")) {
+            if (ship.getShipClass().equals("Delta Flyer Class Shuttlecraft")) {
                 if (upgrade.calculateCostForShip(this,tmpEu) > 4) {
-                    return new Explanation(msg, "You cannot deploy a [WEAPON] Upgrade with a cost greater than 4 to the Delta Flyer.");
+                    return new Explanation(msg, "You cannot deploy a [WEAPON] Upgrade with a cost greater than 4 to a Delta Flyer Class Shuttlecraft.");
                 }
             } else {
                 if (upgrade.calculateCostForShip(this, tmpEu) > 3) {

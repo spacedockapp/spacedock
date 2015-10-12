@@ -837,7 +837,7 @@
     
     if ([upgrade isWeapon] && ![upgrade.externalId isEqualToString:@"3007"]) {
         if ([self.ship isShuttle]) {
-            if ( [self.ship.externalId isEqualToString:@"delta_flyer_72014"]) {
+            if ( [self.ship.shipClass isEqualToString:@"Delta Flyer Class Shuttlecraft"]) {
                 if ( [upgrade costForShip:self] > 4) {
                     return NO;
                 }
