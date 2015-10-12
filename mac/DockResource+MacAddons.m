@@ -36,6 +36,10 @@ extern NSString* kMarkExpiredResources;
         NSMutableAttributedString* exp = [[NSMutableAttributedString alloc] initWithString:@" (Retired)"];
         [exp addAttribute:NSForegroundColorAttributeName value:[NSColor redColor] range:NSMakeRange(0,[exp length])];
         [title appendAttributedString:exp];
+    } else if (ageComponents.month == 17) {
+        NSMutableAttributedString* exp = [[NSMutableAttributedString alloc] initWithString:@" (Retiring)"];
+        [exp addAttribute:NSForegroundColorAttributeName value:[NSColor orangeColor] range:NSMakeRange(0,[exp length])];
+        [title appendAttributedString:exp];
     }
     
     return title;

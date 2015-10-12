@@ -250,6 +250,12 @@ enum {
                         [exp addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0,[exp length])];
                         [as appendAttributedString:exp];
                         cell.detailTextLabel.attributedText = as;
+                    } else if (ageComponents.month == 17) {
+                        NSMutableAttributedString* as = cell.detailTextLabel.attributedText.mutableCopy;
+                        NSMutableAttributedString* exp = [[NSMutableAttributedString alloc] initWithString:@" (Retiring)"];
+                        [exp addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(0,[exp length])];
+                        [as appendAttributedString:exp];
+                        cell.detailTextLabel.attributedText = as;
                     }
                 }
             } else {

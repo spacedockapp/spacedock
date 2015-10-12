@@ -124,6 +124,12 @@ NSString* kMarkExpiredResKey = @"markExpiredRes";
                 [exp addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0,[exp length])];
                 [as appendAttributedString:exp];
                 cell.textLabel.attributedText = as;
+            } else if (ageComponents.month == 17) {
+                NSMutableAttributedString* as = [[NSMutableAttributedString alloc] initWithString:[resource title]];
+                NSMutableAttributedString* exp = [[NSMutableAttributedString alloc] initWithString:@" (Retiring)      "];
+                [exp addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(0,[exp length])];
+                [as appendAttributedString:exp];
+                cell.textLabel.attributedText = as;
             }
         }
     }
