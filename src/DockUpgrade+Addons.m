@@ -173,6 +173,38 @@ static NSDictionary* sItemLabels = nil;
     return [self.upType isEqualToString: @"Weapon"];
 }
 
+-(BOOL)isQMark
+{
+    if ([self.externalId isEqualToString:@"systems_upgrade_w_71998p"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"assault_vessel_upgrade_w_71803"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"aft_torpedo_launcher_w_72011"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"systems_upgrade_c_71998p"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"assault_vessel_upgrade_c_71803"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"aft_torpedo_launcher_c_72011"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"systems_upgrade_71998p"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"assault_vessel_upgrade_t_71803"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"aft_torpedo_launcher_t_72011"]) {
+        return YES;
+    }
+    return NO;
+}
+
 -(BOOL)isCaptain
 {
     return [self.upType isEqualToString: @"Captain"];
@@ -566,8 +598,8 @@ static NSDictionary* sItemLabels = nil;
         if ([upgrade.externalId isEqualToString:@"mauk_to_vor_71999p"] && [captain.externalId isEqualToString:@"kurn_71999p"]) {
             cost = 3;
         }
-    } else if ([upgrade isCrew]) {
-        if (([captainSpecial isEqualToString: @"CrewUpgradesCostOneLess"] || [captainSpecial isEqualToString: @"hugh_71522"] ) && !isSideboard) {
+    } else if ([upgrade isCrew] && ![upgrade isQMark]) {
+        if (([captainSpecial isEqualToString: @"CrewUpgradesCostOneLess"] || [captainSpecial isEqualToString: @"hugh_71522"] ) && !isSideboard && ![upgrade isQMark]) {
             cost -= 1;
         }
 
@@ -581,7 +613,7 @@ static NSDictionary* sItemLabels = nil;
             cost -= 1;
         }
 
-    } else if ([upgrade isWeapon]) {
+    } else if ([upgrade isWeapon] && ![upgrade isQMark]) {
         if ([upgradeSpecial isEqualToString: @"OnlyFedShipHV4CostPWVP1"]) {
             cost += [ship.attack intValue];
             if (equippedShip.isResourceSideboard) {
@@ -608,7 +640,7 @@ static NSDictionary* sItemLabels = nil;
                 cost -= 1;
             }
         }
-    } else if ([upgrade isTech]) {
+    } else if ([upgrade isTech] && ![upgrade isQMark]) {
         if ([fleetCaptainSpecial isEqualToString: @"TechUpgradesCostOneLess"]) {
             cost -= 1;
         }
@@ -631,7 +663,7 @@ static NSDictionary* sItemLabels = nil;
     }
 
     if ([captain.externalId isEqualToString:@"k_temoc_72009"]) {
-        if (upgrade.isKlingon) {
+        if (upgrade.isKlingon && !upgrade.isCaptain && !upgrade.isAdmiral) {
             cost -= 1;
         }
     }
@@ -807,7 +839,7 @@ static NSDictionary* sItemLabels = nil;
                 }
             }
         } else if ([captainSpecial isEqualToString: @"VulcanAndFedTechUpgradesMinus2"]) {
-            if ([upgrade isTech] && ([upgrade isFederation] || [upgrade isVulcan])) {
+            if ([upgrade isTech] && ([upgrade isFederation] || [upgrade isVulcan]) && ![upgrade isQMark]) {
                 cost -= 2;
             }
         } else if ([captainSpecial isEqualToString: @"AddTwoCrewSlotsDominionCostBonus"]) {
@@ -875,15 +907,13 @@ static NSDictionary* sItemLabels = nil;
                 cost += 1;
             }
         } else if ([captain.externalId isEqualToString:@"k_temoc_72009"] && !upgrade.isKlingon) {
-            if (upgrade.isAdmiral) {
-                cost += 6;
-            } else {
+            if (![upgrade isAdmiral] && ![upgrade isCaptain]) {
                 cost += 2;
             }
         } else if ([upgradeSpecial isEqualToString:@"CaptainIgnoresPenalty"]) {
         } else if ([equippedShip.ship.externalId isEqualToString:@"quark_s_treasure_72013"] && [upgrade isTech]) {
         } else if ([equippedShip.ship.externalId isEqualToString:@"quark_s_treasure_72013"] && [upgrade isCrew]) {
-        } else if ([equippedShip containsUpgradeWithId:@"romulan_hijackers_71802"] != nil && [upgrade isRomulan]) {
+        } else if ([equippedShip containsUpgradeWithId:@"romulan_hijackers_71802"] != nil && [upgrade isRomulan] && ![upgrade isCaptain] && ![upgrade isAdmiral]) {
         } else if ([upgradeSpecial isEqualToString:@"no_faction_penalty_on_vulcan"] && [ship isVulcan]) {
         } else {
             if (upgrade.isAdmiral) {
@@ -896,7 +926,7 @@ static NSDictionary* sItemLabels = nil;
     }
     if (hasExchange) {
         if ((targetHasFaction(exFac1, upgrade) && targetHasFaction(exFac2, ship)) || (targetHasFaction(exFac2, upgrade) && targetHasFaction(exFac1, ship))) {
-            if (cost > costWithoutPenalty) {
+            if (cost > costWithoutPenalty && ![upgrade isQMark]) {
                 if (upgrade.isCrew || upgrade.isCaptain || upgrade.isAdmiral) {
                     cost = costWithoutPenalty;
                 }
@@ -913,7 +943,7 @@ static NSDictionary* sItemLabels = nil;
         }
     }
 
-    if ([upgrade isWeapon] && [equippedShip containsUpgradeWithId: @"sakonna_gavroche"] != nil) {
+    if ([upgrade isWeapon] && [equippedShip containsUpgradeWithId: @"sakonna_gavroche"] != nil && ![upgrade isQMark]) {
         if (cost <= 5) {
             cost -= 2;
         }

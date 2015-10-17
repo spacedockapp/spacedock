@@ -139,6 +139,36 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         return mUpType.equals("Weapon");
     }
 
+    public boolean isQMark() {
+        if (this.getExternalId().equals("systems_upgrade_w_71998p")) {
+            return true;
+        }
+        if (this.getExternalId().equals("assault_vessel_upgrade_w_71803")) {
+            return true;
+        }
+        if (this.getExternalId().equals("aft_torpedo_launcher_w_72011")) {
+            return true;
+        }
+        if (this.getExternalId().equals("systems_upgrade_c_71998p")) {
+            return true;
+        }
+        if (this.getExternalId().equals("assault_vessel_upgrade_c_71803")) {
+            return true;
+        }
+        if (this.getExternalId().equals("aft_torpedo_launcher_c_72011")) {
+            return true;
+        }
+        if (this.getExternalId().equals("systems_upgrade_71998p")) {
+            return true;
+        }
+        if (this.getExternalId().equals("assault_vessel_upgrade_t_71803")) {
+            return true;
+        }
+        if (this.getExternalId().equals("aft_torpedo_launcher_t_72011")) {
+            return true;
+        }
+        return false;
+    }
     public boolean isCostFiveOrLess() {
         return 5 >= mCost;
     }
@@ -308,7 +338,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                     }
                 }
             }
-        } else if (isCrew()) {
+        } else if (isCrew() && !isQMark()) {
             if ((captainSpecial.equals("CrewUpgradesCostOneLess") || captainSpecial.equals("hugh_71522"))
                     && !shipIsSideboard) {
                 cost -= 1;
@@ -321,7 +351,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                     cost += 5;
                 }
             }
-        } else if (isWeapon()) {
+        } else if (isWeapon() && !isQMark()) {
             if (captainSpecial.equals("WeaponUpgradesCostOneLess")) {
                 cost -= 1;
             }
@@ -338,7 +368,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                     cost -= 1;
                 }
             }
-        } else if (isTech()) {
+        } else if (isTech() && !isQMark()) {
             if ("VulcanAndFedTechUpgradesMinus2".equals(captainSpecial) &&
                     ("Federation".equals(upgradeFaction) || "Vulcan".equals(upgradeFaction))) {
                 cost -= 2;
@@ -362,7 +392,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         }
 
         if (captain != null && captain.getExternalId().equals("k_temoc_72009")) {
-            if (isKlingon()) {
+            if (isKlingon() && !isCaptain() && !isAdmiral()) {
                 cost -= 1;
             }
         }
@@ -607,7 +637,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 // do nothing
             } else if (captainSpecial.equals("hugh_71522") && isBorgFaction()) {
                 // do nothing
-            } else if (null != equippedShip.containsUpgrade(Universe.getUniverse().getUpgrade("romulan_hijackers_71802")) && isRomulan()) {
+            } else if (null != equippedShip.containsUpgrade(Universe.getUniverse().getUpgrade("romulan_hijackers_71802")) && isRomulan() && !isCaptain() && !isAdmiral()) {
                 // do nothing
             } else if (ship.getExternalId().equals("quark_s_treasure_72013") && isTech()) {
                 // do nothing
@@ -616,9 +646,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             } else if (upgradeSpecial.equals("no_faction_penalty_on_vulcan")) {
                 // do nothing
             } else if (captain.getExternalId().equals("k_temoc_72009")) {
-                if (isAdmiral()) {
-                    cost += 6;
-                } else {
+                if (!isAdmiral()) {
                     cost += 2;
                 }
             } else if (isAdmiral()) {
@@ -638,7 +666,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
 
         if (hasExchange) {
             if ((DataUtils.targetHasFaction(exFac1,this) && DataUtils.targetHasFaction(exFac2, ship)) || (DataUtils.targetHasFaction(exFac2,this) && DataUtils.targetHasFaction(exFac1, ship))) {
-                if (cost > costWithoutPenalty) {
+                if (cost > costWithoutPenalty && !isQMark()) {
                     if (isCrew() || isCaptain() || isAdmiral()) {
                         cost = costWithoutPenalty;
                     }
@@ -654,7 +682,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             cost = 7;
         }
 
-        if (isWeapon() && null != equippedShip.containsUpgradeWithName("Sakonna") && cost <= 5) {
+        if (isWeapon() && null != equippedShip.containsUpgradeWithName("Sakonna") && cost <= 5  && !isQMark()) {
             cost -= 2;
         }
 

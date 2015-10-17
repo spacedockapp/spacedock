@@ -15,6 +15,7 @@
 -(BOOL)isTech;
 -(BOOL)isWeapon;
 -(BOOL)isBorg;
+-(BOOL)isQMark;
 -(BOOL)isCaptain;
 -(BOOL)isAdmiral;
 -(BOOL)isFleetCaptain;
