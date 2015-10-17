@@ -1574,7 +1574,7 @@
                 [equippedUpgrade overrideWithCost:0];
             }
         }
-        if ([upgrade isWeapon] && [self containsUpgradeWithId:@"triphasic_emitter_71536"] != nil && equippedUpgrade.cost <= 5) {
+        if ([upgrade isWeapon] && [self containsUpgradeWithId:@"triphasic_emitter_71536"] != nil && equippedUpgrade.cost <= 5 && ![upgrade.externalId isEqualToString:@"triphasic_emitter_71536"]) {
             if ([self upgradesWithSpecialTag:@"HiddenWeaponTE"].count < [self containsUpgradeWithIdCount:@"triphasic_emitter_71536"]) {
                 equippedUpgrade.specialTag = @"HiddenWeaponTE";
                 [equippedUpgrade overrideWithCost:0];
