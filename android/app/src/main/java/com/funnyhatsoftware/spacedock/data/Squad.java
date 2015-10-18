@@ -410,6 +410,17 @@ public class Squad extends SquadBase {
                     return new Explanation(result, "You may only deploy a Romulan captain while this ship is equipped with the Romulan Hijackers Upgrade.");
                 }
             }
+            if (targetShip.getShip().getShipClass().equals("Romulan Drone Ship")) {
+                if (targetShip.getCaptain() != null && !targetShip.getCaptain().getExternalId().equals("gareb_71536")) {
+                    if (!captain.getExternalId().equals("gareb_71536") && !captain.getExternalId().equals("romulan_drone_pilot_71536")) {
+                        return new Explanation(result, "This ship may only be assigned Gareb or a Romulan Drone Pilot as its Captain.");
+                    }
+                }
+            } else if (captain.getExternalId().equals("gareb_71536")) {
+                return new Explanation(result,"Gareb may only be purchased for a Romulan Drone Ship.");
+            } else if (captain.getExternalId().equals("romulan_drone_pilot_71536")) {
+                return new Explanation(result,"Romulan Drone Pilot may only be purchased for a Romulan Drone Ship.");
+            }
             if ("OnlyFerengiShip".equals(captain.getSpecial())) {
                 if (!targetShip.getShip().isFerengi()) {
                     return new Explanation(result, "You may only deploy this Captain to a Ferengi ship.");

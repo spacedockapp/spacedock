@@ -142,7 +142,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
             }
             if (!s.isResourceSideboard() && !s.isShuttle()) {
                 if (i == admiralIndex || 0 > admiralIndex) {
-                    populateLookup(l, s.getCaptainLimit(), R.string.admiral_slot,
+                    populateLookup(l, s.getAdmiralLimit(), R.string.admiral_slot,
                             EquippedShip.SLOT_TYPE_ADMIRAL);
                 }
             }
@@ -258,7 +258,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
                     } else {
                         EquippedUpgrade upgrade = es.getUpgradeAtSlot(
                                 mListItemLookup.slotType, mListItemLookup.slotNumber);
-                        if (upgrade.getUpgrade().isPlaceholder()) {
+                        if (upgrade == null || upgrade.getUpgrade().isPlaceholder()) {
                             mTitleTextView.setText(R.string.empty_upgrade_slot);
                             mCostTextView.setText(R.string.indicator_not_applicable);
                         } else {

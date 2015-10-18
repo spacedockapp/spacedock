@@ -29,6 +29,8 @@ public class EquippedUpgrade extends EquippedUpgradeBase {
         return getUpgrade().getPlainDescription();
     }
 
+    public String getExternalId() { return getUpgrade().getExternalId(); }
+
     int getBaseCost() {
 
         if (mUpgrade.isPlaceholder()) {

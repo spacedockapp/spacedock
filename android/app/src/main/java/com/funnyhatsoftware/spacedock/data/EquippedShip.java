@@ -318,11 +318,19 @@ public class EquippedShip extends EquippedShipBase {
         } else {
             v = 1;
         }
+        if (getCaptain() != null && getCaptain().getExternalId().equals("gareb_71536")) {
+            v ++;
+        }
         return v;
     }
 
     public int getAdmiralLimit() {
-        return getCaptainLimit();
+        int v = 0;
+        v = getCaptainLimit();
+        if (v > 1) {
+            v = 1;
+        }
+        return v;
     }
 
     public int getOfficerLimit() {
@@ -479,7 +487,16 @@ public class EquippedShip extends EquippedShipBase {
                     addUpgrade(zcc, null, false);
                 }
             }
-            establishPlaceholdersForType("Admiral", getCaptainLimit());
+            int current = equipped("Captain");
+            if (current > getCaptainLimit()) {
+                removeOverLimit("Captain",current,getCaptainLimit());
+            } else {
+                for (int i=current; i < getCaptainLimit(); i++) {
+                    Upgrade zcc = Captain.zeroCostCaptainForShip(getShip());
+                    addUpgrade(zcc, null, false);
+                }
+            }
+            establishPlaceholdersForType("Admiral", getAdmiralLimit());
         }
         establishPlaceholdersForType("Talent", getTalent());
         establishPlaceholdersForType("Crew", getCrew());
@@ -542,6 +559,34 @@ public class EquippedShip extends EquippedShipBase {
 
     public void removeIllegalUpgrades() {
         ArrayList<EquippedUpgrade> onesToRemove = new ArrayList<EquippedUpgrade>();
+
+        EquippedUpgrade captain = getEquippedCaptain();
+        if (captain != null) {
+            Explanation explanation = mSquad.canAddCaptain(getCaptain(),this);
+            if (!explanation.canAdd) {
+                Log.e("spacedock","Must remove " + captain.getTitle());
+                String captainId = captain.getExternalId();
+                if (getShip().getShipClass().equals("Romulan Drone Ship")) {
+                    Captain gareb = Universe.getUniverse().getCaptain("gareb_71536");
+                    Explanation explanation1 = mSquad.canAddCaptain(gareb,this);
+                    if (explanation1.canAdd) {
+                        Log.e("spacedock","Adding Gareb");
+                        removeUpgrade(captain);
+                        addUpgrade((Upgrade) gareb);
+                        Log.e("spacedock", "Trying to add " + captain.getTitle());
+                        Explanation explanation2 = tryEquipUpgrade(mSquad,SLOT_TYPE_CAPTAIN,1,captainId);
+                        if (explanation2.canAdd) {
+                            Log.e("spacedock", "Could not add " + explanation2.explanation);
+                        }
+                    } else {
+                        Log.e("spacedock","Cannot add Gareb");
+                        onesToRemove.add(captain);
+                    }
+                } else {
+                    onesToRemove.add(captain);
+                }
+            }
+        }
         for (EquippedUpgrade eu : getSortedUpgrades()) {
             Upgrade upgrade = eu.getUpgrade();
             if (upgrade != null) {
@@ -1465,11 +1510,32 @@ public class EquippedShip extends EquippedShipBase {
         if (oldEuIndex >= 0) {
             // swap out old upgrade
             EquippedUpgrade oldUpgrade = mUpgrades.get(oldEuIndex);
+            if (oldUpgrade != null && !oldUpgrade.isPlaceholder() && oldUpgrade.getExternalId().equals("gareb_71536")) {
+                String result = String.format(
+                        "Can't add %s to the selected squadron",
+                        newEu.getTitle());
+                return new Explanation(result, "This ship may only be assigned Gareb or a Romulan Drone Pilot as its Captain.");
+            }
             oldUpgrade.setEquippedShip(null);
             mUpgrades.set(oldEuIndex, newEu);
         } else {
             mUpgrades.add(newEu);
         }
+
+        if (getCaptain() != null && getCaptain().getExternalId().equals("gareb_71536") && newEu.isCaptain()) {
+            if (!newEu.getExternalId().equals("gareb_71536")) {
+                EquippedUpgrade gareb = getEquippedCaptain();
+                int cost = newEu.getCost() - 2;
+                if (cost < 0) {
+                    cost = 0;
+                }
+                gareb.setOverridden(true);
+                gareb.setOverriddenCost(cost);
+                newEu.setOverridden(true);
+                newEu.setOverriddenCost(0);
+            }
+        }
+
         newEu.setEquippedShip(this);
         // slot counts may have changed, refresh placeholders + prune slots to
         // new count
@@ -1541,7 +1607,7 @@ public class EquippedShip extends EquippedShipBase {
         JSONArray upgrades = new JSONArray();
         int index = 0;
         for (EquippedUpgrade upgrade : sortedUpgrades) {
-            if (!upgrade.isPlaceholder() && !upgrade.isCaptain()) {
+            if (!upgrade.isPlaceholder() && !upgrade.isEqualToUpgrade(getEquippedCaptain().getUpgrade())) {
                 upgrades.put(index++, upgrade.asJSON());
             }
         }
@@ -1557,7 +1623,11 @@ public class EquippedShip extends EquippedShipBase {
             String captainId = captainObject
                     .optString(JSONLabels.JSON_LABEL_UPGRADE_ID);
             Captain captain = universe.getCaptain(captainId);
-            addUpgrade(captain, null, false);
+            EquippedUpgrade eu = addUpgrade(captain, null, false);
+            if (captainObject.optBoolean(JSONLabels.JSON_LABEL_COST_IS_OVERRIDDEN)) {
+                eu.setOverridden(true);
+                eu.setOverriddenCost(captainObject.optInt(JSONLabels.JSON_LABEL_OVERRIDDEN_COST));
+            }
         }
 
         String flagshipId = shipData.optString(JSONLabels.JSON_LABEL_FLAGSHIP);

@@ -358,6 +358,10 @@ public class Universe {
         if (maybeOfficer != null) {
             return maybeOfficer;
         }
+        Upgrade maybeCaptain = captains.get(upgradeId);
+        if (maybeCaptain != null) {
+            return maybeCaptain;
+        }
         return getUpgrade(upgradeId);
     }
 
