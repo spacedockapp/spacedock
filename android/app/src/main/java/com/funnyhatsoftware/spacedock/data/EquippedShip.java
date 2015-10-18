@@ -572,22 +572,15 @@ public class EquippedShip extends EquippedShipBase {
         if (captain != null) {
             Explanation explanation = mSquad.canAddCaptain(getCaptain(),this);
             if (!explanation.canAdd) {
-                Log.e("spacedock","Must remove " + captain.getTitle());
                 String captainId = captain.getExternalId();
                 if (getShip().getShipClass().equals("Romulan Drone Ship")) {
                     Captain gareb = Universe.getUniverse().getCaptain("gareb_71536");
                     Explanation explanation1 = mSquad.canAddCaptain(gareb,this);
                     if (explanation1.canAdd) {
-                        Log.e("spacedock","Adding Gareb");
                         removeUpgrade(captain);
                         addUpgrade((Upgrade) gareb);
-                        Log.e("spacedock", "Trying to add " + captain.getTitle());
                         Explanation explanation2 = tryEquipUpgrade(mSquad,SLOT_TYPE_CAPTAIN,1,captainId);
-                        if (explanation2.canAdd) {
-                            Log.e("spacedock", "Could not add " + explanation2.explanation);
-                        }
                     } else {
-                        Log.e("spacedock","Cannot add Gareb");
                         onesToRemove.add(captain);
                     }
                 } else {
