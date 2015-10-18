@@ -31,6 +31,11 @@ public class EquippedShip extends EquippedShipBase {
     public EquippedShip(Ship inShip) {
         super();
         mShip = inShip;
+
+        if (inShip.getExternalId().equals("enterprise_nx_01_71526")) {
+            Upgrade hullPlating = Universe.getUniverse().getUpgrade("enhanced_hull_plating_71526");
+            addUpgrade(hullPlating,null,false);
+        }
     }
 
     public boolean isResourceSideboard() {
@@ -289,6 +294,9 @@ public class EquippedShip extends EquippedShipBase {
             Upgrade upgrade = eu.getUpgrade();
             if (upgrade != null) {
                 v += upgrade.additionalTechSlots();
+                if (upgrade.getExternalId().equals("enhanced_hull_plating_71526") && getExternalId().equals("enterprise_nx_01_71526")) {
+                    v += 1;
+                }
             }
         }
 
@@ -1406,7 +1414,18 @@ public class EquippedShip extends EquippedShipBase {
         if (!explanation.canAdd) {
             return explanation; // disallowed, abort!
         }
+        if (this.getExternalId().equals("enterprise_nx_01_71526") && !ship.getExternalId().equals("enterprise_nx_01_71526")) {
+            EquippedUpgrade hullPlating = containsUpgrade(Universe.getUniverse().getUpgrade("enhanced_hull_plating_71526"));
+            if (hullPlating != null) {
+                removeUpgrade(hullPlating);
+            }
+        }
         setShip(ship);
+
+        if (ship.getExternalId().equals("enterprise_nx_01_71526")) {
+            Upgrade hullPlating = Universe.getUniverse().getUpgrade("enhanced_hull_plating_71526");
+            addUpgrade(hullPlating,null,false);
+        }
 
         // TODO: consider swapping zero cost captain for new faction?
         removeIllegalUpgrades();
@@ -1670,4 +1689,7 @@ public class EquippedShip extends EquippedShipBase {
         return mShip != null && mShip.isFighterSquadron();
     }
 
+    public String getExternalId() {
+        return getShipExternalId();
+    }
 }
