@@ -1,6 +1,6 @@
     <Upgrade>
-      <Title>The Day Is Ours!</Title>
-      <Ability>During the Roll Attack Dice step, you may discard this card to add 1 [CRIT] result to your roll. This card may only be purchased for a Klingon Captain assigned to a Klingon ship.</Ability>
+      <Title>Ibix Dynasty</Title>
+      <Ability>Add 2 [WEAPON] Upgrade slots to your Upgrade Bar. If this card is discarded, your ship loses these Upgrade slots. When defending, before any dice are rolled, you may discard this card and 1 of your [WEAPON] Upgrades to cancel the attack.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -8,143 +8,31 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Klingon</Faction>
-      <Cost>4</Cost>
-      <Id>the_day_is_ours__72015</Id>
-      <Set>72015</Set>
-      <Special>OnlyKlingonCaptainShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Alert Status One</Title>
-      <Ability>ACTION: Discard this card to place a [BATTLESTATIONS] Token beside your ship. You cannot perform a [BATTLESTATIONS] Action as a free Action this round.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Klingon</Faction>
-      <Cost>3</Cost>
-      <Id>altert_status_one_72015</Id>
-      <Set>72015</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Supreme Commander</Title>
-      <Ability>ACTION: Discard this card to target 1 friendly ship within Range 1-3. The target ship immediately performs a free Action from its Action Bar. If the target ship is a Klingon ship, it may perform any Action as a free Action.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Klingon</Faction>
+      <Faction>Xindi</Faction>
       <Cost>5</Cost>
-      <Id>supreme_commander_72015</Id>
-      <Set>72015</Set>
-      <Special></Special>
+      <Id>ibix_dynasty_72004p</Id>
+      <Set>72004p</Set>
+      <Special>AddTwoWeaponSlots</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Leskit</Title>
-      <Ability>After you reveal a red maneuver, before you move, you may discard this card to treat the maneuver as a green maneuver. If your ship is cloaked when you do this, you may immediately perform a [SENSOR ECHO] Action as a free Action.</Ability>
-      <Unique>Y</Unique>
+      <Title>Aquatic Councilor</Title>
+      <Ability>When defending, during the Roll Defense Dice step, you may disable this card to roll 1 additional defense die. OR When defending, during the Roll Defense Dice step, you may discard this card to roll 2 additional defense dice.</Ability>
+      <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Klingon</Faction>
-      <Cost>3</Cost>
-      <Id>leskit_72015</Id>
-      <Set>72015</Set>
+      <Faction>Xindi</Faction>
+      <Cost>5</Cost>
+      <Id>aquatic_councilor_72004p</Id>
+      <Set>72004p</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Tavana</Title>
-      <Ability>ACTION: Disable this card to repair 1 Shield Token. In addition, if your ship is cloaked, you may repair 1 damage to your Hull. You roll -2 attack dice on all of your attacks this round.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Klingon</Faction>
-      <Cost>5</Cost>
-      <Id>tavana_72015</Id>
-      <Set>72015</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Kornan</Title>
-      <Ability>ACTION: Discard this card to acquire a target lock on a ship within Range 1-3 of your ship and then perform an Action from your Action Bar (not [TARGET LOCK]) as a free Action.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Klingon</Faction>
-      <Cost>5</Cost>
-      <Id>kornan_72015</Id>
-      <Set>72015</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Worf</Title>
-      <Ability>Increase your Captain's Skill by +1 (+3 for a Klingon Captain). This ability cannot be used on this card. If your Captain is disabled, discard, or affected by a critical damage card, treat this card as your Captain Card with a Skill of 5. If your Captain becomes non-disabled or unaffected by the critical damage card, that Captain Card is restored.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Klingon</Faction>
-      <Cost>2</Cost>
-      <Id>worf_72015</Id>
-      <Set>72015</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Jadzia Dax</Title>
-      <Ability>You do not pay a faction penalty when assigning this card to a Klingon ship. You may disable this card and spend your [SCAN] Token to convert 1 of your [BATTLESTATIONS] results into a [HIT] or an [EVADE] result.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>jadzia_dax_72015</Id>
-      <Set>72015</Set>
-      <Special>NoPenaltyOnKlingonShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Secret Research</Title>
-      <Ability>Add the [SCAN] Action to your Action Bar. If this card is discarded, you no longer have the [SCAN] Action on your Action Bar. During the Activation Phase, you may discard this card to perform a [SCAN] Action as a free Action. This card costs +5 SP if purchased for any ship other than a Romulan Science Vessel.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Romulan</Faction>
-      <Cost>5</Cost>
-      <Id>secret_research_72016</Id>
-      <Set>72016</Set>
-      <Special>costincreasedifnotromulansciencevessel</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Test Cylinder</Title>
-      <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at any Range. Disable this card and 1 [CREW] Upgrade of your choice on the target ship. This Upgrade may only be purchased for a Romulan Science Vessel.</Ability>
+      <Title>Escape Pod</Title>
+      <Ability>Whenever one of your [CREW] Upgrades is supposed to be discarded, you may place that Upgrade beneath this card instead. While and Upgrade is beneath this card it cannot be targeted or used in any way. If your ship is destroyed, you may remove the [CREW] Upgrade from beneath this card and deploy it to a friendly ship within Range 1-3 of your ship.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -152,89 +40,25 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Tech</Type>
-      <Faction>Romulan</Faction>
-      <Cost>3</Cost>
-      <Id>test_cylinder_72016</Id>
-      <Set>72016</Set>
-      <Special>OnlyForRomulanScienceVessel</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Temporal Displacement</Title>
-      <Ability>When defending, during the Compare Results step, you may discard this card to cancel all of the attacking ship's [HIT] and [CRIT] results. All cards that were used during the attack are returned to the state that they were in prior to the attack. The attacking ship cannot perform any more attacks during the round this ability is used. This card may only be purchased for a Romulan Science Vessel.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Romulan</Faction>
-      <Cost>5</Cost>
-      <Id>temporal_displacement_72016</Id>
-      <Set>72016</Set>
-      <Special>OnlyForRomulanScienceVessel</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Warp Core Ejection System</Title>
-      <Ability>ACTION: Discard this card to repair 1 damage to your Hull and flip any "Warp Core Breach" critical damage cards assigned to your ship face down. For the rest of the game, you cannot perform any maneuvers with a speed greater than 1 and you cannot receive a "Warp Core Breach" critical damage card. If you do, immediately flip the card face down and treat it as normal damage. No ship may be assigned with more than one "Warp Core Ejection System" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Romulan</Faction>
-      <Cost>4</Cost>
-      <Id>warp_core_ejection_system_72016</Id>
-      <Set>72016</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Advanced Scanning</Title>
-      <Ability>Add the [SCAN] Action to your Action Bar. If this card is discarded, you no longer have the [SCAN] Action on your Action Bar. Whenever you perform the [SCAN] Action, you may place 1 additional [SCAN] Token beside your ship. If you do so, place an Auxiliary Power Token beside your ship. This card costs +5 SP for any ship other than a Romulan Science Vessel.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Romulan</Faction>
-      <Cost>5</Cost>
-      <Id>advanced_scanning_72016</Id>
-      <Set>72016</Set>
-      <Special>costincreasedifnotromulansciencevessel</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Signal Amplifier</Title>
-      <Ability>You may discard this card and spend 1 [SCAN] Token to add +2 attack dice or +2 defense dice. This Upgrade costs +5 Squadron Points for any ship other than a Romulan Science Vessel and no ship may be equipped with more than 1 "Signal Amplifier" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Romulan</Faction>
-      <Cost>5</Cost>
-      <Id>signal_amplifier_72016</Id>
-      <Set>72016</Set>
-      <Special>costincreasedifnotromulansciencevesselAndNoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Graviton Field Generator</Title>
-      <Ability>ACTION: Disable this card and up to 2 of your Active Shields to immediately perform an additional [STRAIGHT] maneuver with a speed equal to the number of shields you disabled with this Action. OR ACTION: If you performed a green maneuver this round, discard this card to place 2 Shield Tokens beside your ship. When suffering damage this round, remove these Shield Tokens first.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Romulan</Faction>
-      <Cost>5</Cost>
-      <Id>graviton_field_generator_72016</Id>
-      <Set>72016</Set>
+      <Faction>Xindi</Faction>
+      <Cost>1</Cost>
+      <Id>escape_pod_72004p</Id>
+      <Set>72004p</Set>
       <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Prototype Weapon</Title>
+      <Ability>ATTACK: Discard this card and your Captain Card to perform this attack. Place a Mission Token in the play area in your forward firing arc, within Range 1 of your ship that is not on top of another ship's base. Using a 360-degree arc from the Mission Token, target all ships in a line up to Range 2 and make a separate attack against each ship in the line (at -1 attack die for each ship past the first). Remove the Mission Token from the play area after the attack. This Upgrade may only be purchased for a Xindi ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>5</Attack>
+      <Range>1</Range>
+      <Type>Weapon</Type>
+      <Faction>Xindi</Faction>
+      <Cost>5</Cost>
+      <Id>prototype_weapon_72004p</Id>
+      <Set>72004p</Set>
+      <Special>OnlyXindi</Special>
     </Upgrade>

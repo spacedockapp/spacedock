@@ -45,10 +45,8 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-10/3/2015 14:15:51	72015 - IKS Rotarran	Non-unique	Klingon Starship	Klingon	B'rel Class	B'rel Class				4	1	3	2		Cloak, Evasive, Sensor Echo, Target Lock	20	0	2	0	1	90-degree forward, 90-degree rear		0
-10/3/2015 14:17:46	72015 - IKS Rotarran	Unique	I.K.S. Rotarran	Klingon	B'rel Class	B'rel Class				4	1	3	3	ACTION: Perform a 2nd maneuver on your maneuver dial with a speed of 1 or 2.  Place an Auxiliary Power Token beside your ship.  You cannot attack this round.	Cloak, Evasive, Sensor Echo, Target Lock	22	0	2	1	1	90-degree forward, 90-degree rear		0
-10/6/2015 14:00:10	72016 - RIS Talvath	Unique	R.I.S. Talvath	Romulan	Romulan Science Vessel	Romulan Science Vessel				1	2	2	2	ACTION: If you are within Range 1-3 of at least 1 enemy ship, roll 3 defense dice.  For every [EVADE] result, place 1 [EVADE] Token beside your ship.  You cannot perform any free Actions this round.	Cloak, Evasive, Sensor Echo	14	0	0	3	0	90-degree forward		0
-10/6/2015 14:01:48	72016 - RIS Talvath	Non-unique	Romulan Starship	Romulan	Romulan Science Vessel	Romulan Science Vessel				1	2	2	1		Cloak, Evasive, Sensor Echo	12	0	0	2	0	90-degree forward		0
+10/16/2015 19:16:35	72004p - Azati Prime	Unique	Azati Prime	Xindi	Xindi Aquatic Cruiser		1 Forward, 1 Bank, 2 Forward	2 Bank, 3 Forward, 3 Bank, 4 Forward	2 Turn, 3 Turn, 1 Reverse	4	4	6	3	When defending, during the Roll Attack Dice step, you may discard a Token from beside your ship ([EVADE], [SCAN], or [BATTLE STATIONS]) to force the attacking ship to roll 1 less attack die.	Battle Stations, Evasive, Scan, Target Lock	28	0	1	2	2	180-degree forward		0
+10/16/2015 19:17:49	72004p - Azati Prime	Non-unique	Xindi Starship	Xindi	Xindi Aquatic Cruiser	Xindi Aquatic Cruiser				4	1	6	2		Battle Stations, Evasive, Scan, Target Lock	26	0	1	1	2	180-degree forward		0
 SHIPTEXT
 
 

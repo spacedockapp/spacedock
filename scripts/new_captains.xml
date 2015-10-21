@@ -1,52 +1,32 @@
   <Captain>
-    <Title>Martok</Title>
-    <Ability>All of your Klingon Upgrades cost -1SP. ACTION: When attacking this round, during the Roll Attack Dice step, you may roll 2 less attack dice to add 1 [HIT] result to your roll. If you only have Klingon cards assigned to your ship, roll 1 less attack die, instead of 2.</Ability>
-    <Unique>Y</Unique>
+    <Title>Xindi</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>7</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Klingon</Faction>
-    <Cost>4</Cost>
-    <Id>martok_72015</Id>
-    <Set>72015</Set>
-    <Special>KlingonUpgradesCostOneLess</Special>
-  </Captain>
-  <Captain>
-    <Title>Telek R'Mor</Title>
-    <Ability>Each time you defend, if you have at least 1 [SCAN] Token beside your ship, roll +1 defense die. You may field the "Secret Research" [ELITE TALENT] Upgrade.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>3</Skill>
+    <Skill>1</Skill>
     <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Romulan</Faction>
-    <Cost>2</Cost>
-    <Id>telek_r_mor_72016</Id>
-    <Set>72016</Set>
-    <Special>OnlySecretResearchTalent</Special>
+    <Faction>Xindi</Faction>
+    <Cost>0</Cost>
+    <Id>xindi_72004p</Id>
+    <Set>72004p</Set>
+    <Special></Special>
   </Captain>
   <Captain>
-    <Title>Alidar Jarok</Title>
-    <Ability>ACTION: Target a ship within Range 1 and remove 1 Token ([EVADE], [SCAN], [BATTLESTATIONS], or [TARGET LOCK]) from beside that ship. If you remove a [TARGET LOCK] Token with this ability, also remove the corresponding [TARGET LOCK] Token.</Ability>
+    <Title>Kiaphet Amman'sor</Title>
+    <Ability>When defending, during the Modify Defense Dice step, you may re-roll one of your blank results. If your ship's Hull value is greater than the attacking ship's Hull value, you may re-roll all of your blank results.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>6</Skill>
+    <Skill>5</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Romulan</Faction>
-    <Cost>4</Cost>
-    <Id>alidar_jarok_cap_72016</Id>
-    <Set>72016</Set>
+    <Faction>Xindi</Faction>
+    <Cost>3</Cost>
+    <Id>kiaphet_amman_sor_72004p</Id>
+    <Set>72004p</Set>
     <Special></Special>
-    <AdmiralAbility>FLEET ACTION: Target a ship within Range 1 and remove 1 Token ([EVADE], [SCAN], [BATTLESTATIONS], or [TARGET LOCK]) from beside that ship. If you remove a [TARGET LOCK] Token with this ability, also remove the corresponding [TARGET LOCK] Token.</AdmiralAbility>
-    <AdmiralCost>4</AdmiralCost>
-    <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>2</SkillModifier>
   </Captain>

@@ -1103,6 +1103,11 @@
             return NO;
         }
     }
+    if ([upgradeSpecial isEqualToString:@"OnlyXindi"] || [upgradeSpecial isEqualToString:@"NoMoreThanOnePerShipAndOnlyXindi"]) {
+        if (![self.ship isXindi]) {
+            return NO;
+        }
+    }
     
     if (validating) {
         if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString:@"limited_max_weapon_3"] || [upgradeSpecial hasSuffix:@"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString:@"limited_max_weapon_3AndPlus5NonFed"]) {

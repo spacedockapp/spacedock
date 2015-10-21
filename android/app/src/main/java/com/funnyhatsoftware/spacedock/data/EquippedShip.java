@@ -1026,6 +1026,13 @@ public class EquippedShip extends EquippedShipBase {
                 }
             }
 
+            if (upgradeSpecial.equals("OnlyXindi") || upgradeSpecial.endsWith("OnlyXindi")) {
+                if (!ship.isXindi()) {
+                    return new Explanation(msg,
+                            "This upgrade can only be added to Xindi ships.");
+                }
+            }
+
             if (upgrade.isTalent() && !upgrade.isPlaceholder()) {
                 if (getCaptain() != null && getCaptain().getExternalId().equals("brunt_72013")) {
                     int limit = getTalent();

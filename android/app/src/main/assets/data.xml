@@ -1,4 +1,4 @@
-<Data version="2015-10-10@15-44">
+<Data version="2015-10-21@00-58">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1681,6 +1681,29 @@
       </Maneuvers>
       <FrontArc>90</FrontArc>
       <RearArc>90</RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+      <Name>Xindi Aquatic Cruiser</Name>
+      <Id>xindi_aquatic_cruiser</Id>
+      <Maneuvers>
+          <Maneuver speed="4" kind="straight" color="white" />
+          <Maneuver speed="3" kind="left-turn" color="red" />
+          <Maneuver speed="3" kind="left-bank" color="white" />
+          <Maneuver speed="3" kind="straight" color="white" />
+          <Maneuver speed="3" kind="right-bank" color="white" />
+          <Maneuver speed="3" kind="right-turn" color="red" />
+          <Maneuver speed="2" kind="left-turn" color="red" />
+          <Maneuver speed="2" kind="left-bank" color="white" />
+          <Maneuver speed="2" kind="straight" color="green" />
+          <Maneuver speed="2" kind="right-bank" color="white" />
+          <Maneuver speed="2" kind="right-turn" color="red" />
+          <Maneuver speed="1" kind="left-bank" color="green" />
+          <Maneuver speed="1" kind="straight" color="green" />
+          <Maneuver speed="1" kind="right-bank" color="green" />
+          <Maneuver speed="-1" kind="straight" color="red" />
+      </Maneuvers>
+      <FrontArc>180</FrontArc>
+      <RearArc></RearArc>
   </ShipClassDetail>
   </ShipClassDetails>
   <Ships>
@@ -7437,6 +7460,64 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Id>r_i_s_talvath_72016</Id>
       <Set>72016</Set>
   </Ship>
+  <Ship>
+      <Title>Azati Prime</Title>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Xindi Aquatic Cruiser</ShipClass>
+      <Faction>Xindi</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>4</Agility>
+      <Hull>6</Hull>
+      <Shield>3</Shield>
+      <Ability>When defending, during the Roll Attack Dice step, you may discard a Token from beside your ship ([EVADE], [SCAN], or [BATTLESTATIONS]) to force the attacking ship to roll 1 less attack die.</Ability>
+      <Cost>28</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>2</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>azati_prime_72004p</Id>
+      <Set>72004p</Set>
+  </Ship>
+  <Ship>
+      <Title>Xindi Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Xindi Aquatic Cruiser</ShipClass>
+      <Faction>Xindi</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>6</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>26</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>1</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>1</Tech>
+      <Weapon>2</Weapon>
+      <Crew>1</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>xindi_starship_72004p</Id>
+      <Set>72004p</Set>
+  </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -10819,7 +10900,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Faction>Xindi</Faction>
       <Cost>0</Cost>
       <Id>xindi_72003p</Id>
-      <Set>72003p</Set>
+      <Set>72003p,72004p</Set>
       <Special></Special>
   </Captain>
   <Captain>
@@ -11001,6 +11082,22 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <AdmiralCost>4</AdmiralCost>
       <AdmiralTalent>1</AdmiralTalent>
       <SkillModifier>2</SkillModifier>
+  </Captain>
+  <Captain>
+      <Title>Kiaphet Amman'sor</Title>
+      <Ability>When defending, during the Modify Defense Dice step, you may re-roll one of your blank results. If your ship's Hull value is greater than the attacking ship's Hull value, you may re-roll all of your blank results.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>5</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Xindi</Faction>
+      <Cost>3</Cost>
+      <Id>kiaphet_amman_sor_72004p</Id>
+      <Set>72004p</Set>
+      <Special></Special>
   </Captain>
   </Captains>
   <Admirals>
@@ -21972,6 +22069,70 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>72016</Set>
         <Special></Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Ibix Dynasty</Title>
+        <Ability>Add 2 [WEAPON] Upgrade slots to your Upgrade Bar. If this card is discarded, your ship loses these Upgrade slots. When defending, before any dice are rolled, you may discard this card and 1 of your [WEAPON] Upgrades to cancel the attack.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Xindi</Faction>
+        <Cost>5</Cost>
+        <Id>ibix_dynasty_72004p</Id>
+        <Set>72004p</Set>
+        <Special>AddTwoWeaponSlots</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Aquatic Councilor</Title>
+        <Ability>When defending, during the Roll Defense Dice step, you may disable this card to roll 1 additional defense die. OR When defending, during the Roll Defense Dice step, you may discard this card to roll 2 additional defense dice.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Xindi</Faction>
+        <Cost>5</Cost>
+        <Id>aquatic_councilor_72004p</Id>
+        <Set>72004p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Escape Pod</Title>
+        <Ability>Whenever one of your [CREW] Upgrades is supposed to be discarded, you may place that Upgrade beneath this card instead. While and Upgrade is beneath this card it cannot be targeted or used in any way. If your ship is destroyed, you may remove the [CREW] Upgrade from beneath this card and deploy it to a friendly ship within Range 1-3 of your ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Xindi</Faction>
+        <Cost>1</Cost>
+        <Id>escape_pod_72004p</Id>
+        <Set>72004p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Prototype Weapon</Title>
+        <Ability>ATTACK: Discard this card and your Captain Card to perform this attack. Place a Mission Token in the play area in your forward firing arc, within Range 1 of your ship that is not on top of another ship's base. Using a 360-degree arc from the Mission Token, target all ships in a line up to Range 2 and make a separate attack against each ship in the line (at -1 attack die for each ship past the first). Remove the Mission Token from the play area after the attack. This Upgrade may only be purchased for a Xindi ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>5</Attack>
+        <Range>1</Range>
+        <Type>Weapon</Type>
+        <Faction>Xindi</Faction>
+        <Cost>5</Cost>
+        <Id>prototype_weapon_72004p</Id>
+        <Set>72004p</Set>
+        <Special>OnlyXindi</Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -22407,6 +22568,24 @@ OR
           <Id>protocol_72003r</Id>
           <Set>72003r</Set>
       </Resource>
+      <Resource>
+          <Title>Advanced Technology</Title>
+          <Unique>Y</Unique>
+          <Type>Resource</Type>
+          <Ability>During the Activation Phase, any ship in your fleet may:
+
+
+1) Disable one of its [TECH] Upgrades to use an Action from its Action Bar as a free Action.
+
+OR
+
+2) Discard one of its already disabled [TECH] Upgrades to use an Action from its Action Bar as a free Action.
+
+A ship cannot perform any other free Actions on the round that it uses either of these abilities.</Ability>
+          <Cost>5</Cost>
+          <Id>advanced_technology_72004r</Id>
+          <Set>72004r</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -22579,6 +22758,8 @@ OR
       <Set id="72014" overallSetName="Wave 19" releaseDate="2015-10-07">Delta Flyer</Set>
       <Set id="72015" overallSetName="Wave 19" releaseDate="2015-10-07">I.K.S. Rotarran</Set>
       <Set id="72016" overallSetName="Wave 19" releaseDate="2015-10-07">R.I.S. Talvath</Set>
+      <Set id="72004r" overallSetName="Temporal Cold War" releaseDate="2015-11-15">Advanced Technology Resource</Set>
+      <Set id="72004p" overallSetName="Temporal Cold War" releaseDate="2015-11-15">Azati Prime</Set>
     </Sets>
     <Flagships>
         <Flagship>
