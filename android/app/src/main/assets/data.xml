@@ -1,4 +1,4 @@
-<Data version="2015-10-21@00-58">
+<Data version="2015-10-23@02-14">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -7468,7 +7468,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Xindi</Faction>
       <AdditionalFaction></AdditionalFaction>
       <Attack>4</Attack>
-      <Agility>4</Agility>
+      <Agility>1</Agility>
       <Hull>6</Hull>
       <Shield>3</Shield>
       <Ability>When defending, during the Roll Attack Dice step, you may discard a Token from beside your ship ([EVADE], [SCAN], or [BATTLESTATIONS]) to force the attacking ship to roll 1 less attack die.</Ability>
