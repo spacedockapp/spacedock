@@ -1,4 +1,4 @@
-<Data version="2015-10-23@02-14">
+<Data version="2015-10-23@03-41">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -6327,7 +6327,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <SquadronUpgrade>0</SquadronUpgrade>
       <Has360Arc>N</Has360Arc>
       <Id>klingon_starship_71999p</Id>
-      <Set>71999p,71804,72015</Set>
+      <Set>71999p,71804</Set>
   </Ship>
   <Ship>
       <Title>Federation Starship</Title>
@@ -7429,6 +7429,35 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <SquadronUpgrade>0</SquadronUpgrade>
       <Has360Arc>N</Has360Arc>
       <Id>i_k_s_rotarran_72015</Id>
+      <Set>72015</Set>
+  </Ship>
+  <Ship>
+      <Title>Klingon Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>B'Rel Class</ShipClass>
+      <Faction>Klingon</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>4</Attack>
+      <Agility>1</Agility>
+      <Hull>3</Hull>
+      <Shield>2</Shield>
+      <Ability></Ability>
+      <Cost>20</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>0</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>1</Cloak>
+      <SensorEcho>1</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>0</Tech>
+      <Weapon>1</Weapon>
+      <Crew>2</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>klingon_starship_72015</Id>
       <Set>72015</Set>
   </Ship>
   <Ship>
