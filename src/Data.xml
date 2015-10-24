@@ -1,4 +1,4 @@
-<Data version="2015-10-23@03-41">
+<Data version="2015-10-24@00-06">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -5992,7 +5992,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Agility>2</Agility>
       <Hull>2</Hull>
       <Shield>2</Shield>
-      <Ability>At the start of the game, during the Gather Forces Step, you may purchase 1 additional [CREW] or [TECH] Upgrade for this ship.  This Upgrade may exceed the ship's restrictions and cost -2 SP (min 0).</Ability>
+      <Ability>At the start of the game, during the Gather Forces Step, you may purchase 1 additional [TECH] Upgrade for this ship.  This Upgrade may exceed the ship's restrictions and cost -2 SP (min 0).</Ability>
       <Cost>14</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>0</TargetLock>
@@ -6021,7 +6021,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Agility>2</Agility>
       <Hull>2</Hull>
       <Shield>2</Shield>
-      <Ability>At the start of the game, during the Gather Forces Step, you may purchase 1 additional [CREW] or [TECH] Upgrade for this ship.  This Upgrade may exceed the ship's restrictions and cost -2 SP (min 0).</Ability>
+      <Ability>At the start of the game, during the Gather Forces Step, you may purchase 1 additional [CREW] Upgrade for this ship.  This Upgrade may exceed the ship's restrictions and cost -2 SP (min 0).</Ability>
       <Cost>14</Cost>
       <EvasiveManeuvers>1</EvasiveManeuvers>
       <TargetLock>0</TargetLock>
@@ -9256,7 +9256,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
     </Captain>
     <Captain>
       <Title>Jean-Luc Picard</Title>
-      <Ability>Add 1 [CREW], [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
+      <Ability>Add 1 [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
@@ -9272,7 +9272,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
     </Captain>
     <Captain>
       <Title>Jean-Luc Picard</Title>
-      <Ability>Add 1 [CREW], [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
+      <Ability>Add 1 [TECH] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
@@ -9288,7 +9288,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
     </Captain>
     <Captain>
       <Title>Jean-Luc Picard</Title>
-      <Ability>Add 1 [CREW], [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
+      <Ability>Add 1 [WEAPON] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
@@ -9304,7 +9304,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
     </Captain>
     <Captain>
       <Title>Jean-Luc Picard</Title>
-      <Ability>Add 1 [CREW], [TECH], [WEAPON] or [TALENT] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
+      <Ability>Add 1 [CREW] Upgrade to your Upgrade Bar (your choice). At the start of the game, after Setup, choose 1 Faction. Whenever you attack a ship of that Faction, you may roll 1 less attack die to add 1 [CRIT] result to your roll. Each time you defend against a ship of that Faction, roll +1 defense die.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>8</Skill>
@@ -9336,7 +9336,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
     </Captain>
     <Captain>
       <Title>Chakotay</Title>
-      <Ability>Add 1 [WEAPON] or [CREW] Upgrade to your Upgrade bar (your choice). ACTION: Perform a 2nd Maneuver on your Maneuver Dial with a number of 3 or less. Place an Auxiliary Power Token beside your ship. If the extra Maneuver is a Red Maneuver, place a 2nd Auxiliary Power Token beside your ship.</Ability>
+      <Ability>Add 1 [CREW] Upgrade to your Upgrade bar (your choice). ACTION: Perform a 2nd Maneuver on your Maneuver Dial with a number of 3 or less. Place an Auxiliary Power Token beside your ship. If the extra Maneuver is a Red Maneuver, place a 2nd Auxiliary Power Token beside your ship.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>6</Skill>
@@ -9352,7 +9352,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
     </Captain>
     <Captain>
       <Title>Chakotay</Title>
-      <Ability>Add 1 [WEAPON] or [CREW] Upgrade to your Upgrade bar (your choice). ACTION: Perform a 2nd Maneuver on your Maneuver Dial with a number of 3 or less. Place an Auxiliary Power Token beside your ship. If the extra Maneuver is a Red Maneuver, place a 2nd Auxiliary Power Token beside your ship.</Ability>
+      <Ability>Add 1 [WEAPON] Upgrade to your Upgrade bar (your choice). ACTION: Perform a 2nd Maneuver on your Maneuver Dial with a number of 3 or less. Place an Auxiliary Power Token beside your ship. If the extra Maneuver is a Red Maneuver, place a 2nd Auxiliary Power Token beside your ship.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>6</Skill>
@@ -9368,7 +9368,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
     </Captain>
     <Captain>
       <Title>Calvin Hudson</Title>
-      <Ability>Add 1 [TECH], [WEAPON] or [CREW] Upgrade to your Upgrade Bar (your choice). If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP.</Ability>
+      <Ability>Add 1 [CREW] Upgrade to your Upgrade Bar (your choice). If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>5</Skill>
@@ -9384,7 +9384,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
     </Captain>
     <Captain>
       <Title>Calvin Hudson</Title>
-      <Ability>Add 1 [TECH], [WEAPON] or [CREW] Upgrade to your Upgrade Bar (your choice). If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP.</Ability>
+      <Ability>Add 1 [TECH] Upgrade to your Upgrade Bar (your choice). If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>5</Skill>
@@ -9400,7 +9400,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
     </Captain>
     <Captain>
       <Title>Calvin Hudson</Title>
-      <Ability>Add 1 [TECH], [WEAPON] or [CREW] Upgrade to your Upgrade Bar (your choice). If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP.</Ability>
+      <Ability>Add 1 [WEAPON] Upgrade to your Upgrade Bar (your choice). If this card is assigned to an Independent ship, all of your Upgrades cost -1 SP.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill>5</Skill>
