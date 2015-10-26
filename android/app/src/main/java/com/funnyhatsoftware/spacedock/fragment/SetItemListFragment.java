@@ -19,6 +19,7 @@ import com.funnyhatsoftware.spacedock.R;
 import com.funnyhatsoftware.spacedock.adapter.HeaderAdapter;
 import com.funnyhatsoftware.spacedock.adapter.SeparatedListAdapter;
 import com.funnyhatsoftware.spacedock.adapter.SetItemAdapter;
+import com.funnyhatsoftware.spacedock.data.Set;
 import com.funnyhatsoftware.spacedock.data.SetItem;
 import com.funnyhatsoftware.spacedock.data.Universe;
 import com.funnyhatsoftware.spacedock.holder.CaptainHolder;
@@ -117,6 +118,21 @@ public class SetItemListFragment extends ListFragment {
                         faction, layoutResId, setItemHolderFactory);
                 if (factionAdapter != null) {
                     multiAdapter.addSection(faction, factionAdapter);
+                }
+            }
+            contentAdapter = multiAdapter;
+        } else if (setItemHolderFactory.getType().equals("Expansion")) {
+            SeparatedListAdapter multiAdapter = new SeparatedListAdapter(getActivity());
+            ArrayList<Set> sets = Universe.getUniverse().getSets();
+            ArrayList<String> sections = new ArrayList<String>();
+            for (Set set : sets) {
+                String section = set.getSection();
+                if (!sections.contains(section)) {
+                    sections.add(section);
+                    SetItemAdapter setItemAdapter = SetItemAdapter.CreateFactionAdapter(context, section, layoutResId, setItemHolderFactory);
+                    if (setItemAdapter != null) {
+                        multiAdapter.addSection(section, setItemAdapter);
+                    }
                 }
             }
             contentAdapter = multiAdapter;

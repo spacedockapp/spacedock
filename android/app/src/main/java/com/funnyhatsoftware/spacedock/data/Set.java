@@ -1,6 +1,7 @@
 
 package com.funnyhatsoftware.spacedock.data;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -31,5 +32,12 @@ public class Set extends SetBase {
 
     public void remove(SetItem item) {
         mItems.remove(item);
+    }
+
+    public String getSection() {
+        String dateString = DateFormat.getDateInstance().format(getReleaseDate());
+        String section = dateString + " - " + getWave();
+
+        return section;
     }
 }

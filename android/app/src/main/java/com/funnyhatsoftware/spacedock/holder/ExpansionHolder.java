@@ -53,7 +53,7 @@ public class ExpansionHolder extends SetItemHolder {
 
             @Override
             public List<? extends SetItem> getItemsForFaction(String faction) {
-                List<Set> setList = Universe.getUniverse().getAllSets();
+                List<Set> setList = Universe.getUniverse().getSetsForSection(faction);
                 Collections.sort(setList, new Set.SetComparator());
                 List<Expansion> list = new ArrayList<Expansion>();
                 for (Set set : setList) {
@@ -89,7 +89,7 @@ public class ExpansionHolder extends SetItemHolder {
     public void reinitializeStubViews(Resources res, SetItem item) {
         Set set = ((Expansion) item).mSet;
         String dateString = DateFormat.getDateInstance().format(set.getReleaseDate());
-        mReleaseDate.setText(dateString);
-        mOverallSetName.setText(set.getWave());
+        //mReleaseDate.setText(dateString);
+        //mOverallSetName.setText(set.getWave());
     }
 }

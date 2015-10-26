@@ -737,6 +737,21 @@ public class Universe {
         return setsCopy;
     }
 
+    public ArrayList<Set> getSetsForSection(String section) {
+        if (section == null) {
+            return getSets();
+        }
+        ArrayList<Set> setsCopy = new ArrayList<Set>();
+        for (Set set : sets.values()) {
+            if (set.getSection().equals(section)) {
+                setsCopy.add(set);
+            }
+        }
+        //setsCopy.addAll(sets.values());
+        Collections.sort(setsCopy, new SetComparator());
+        return setsCopy;
+    }
+
     public List<String> getSelectedFactions() {
         if (mSelectedFaction == null) {
             return getAllFactions();
