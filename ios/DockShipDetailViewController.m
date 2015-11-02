@@ -235,16 +235,29 @@ enum {
     CGFloat rowHeight = tableView.rowHeight;
     NSInteger lastRowIndex = [self rowCount] - 1;
     NSInteger row = [indexPath indexAtPosition: 1];
-
+    NSInteger setRowIndex = 19;
+    
     if (row == lastRowIndex) {
         NSString* str = _ship.ability;
 
         if (str.length > 0) {
-            CGSize size = [str sizeWithFont: [UIFont systemFontOfSize: 14] constrainedToSize: CGSizeMake(_labelWidth - 40, 999) lineBreakMode: NSLineBreakByWordWrapping];
-            return size.height + rowHeight / 2;
+            CGSize size = [str sizeWithFont: [UIFont systemFontOfSize: 14] constrainedToSize: CGSizeMake(_labelWidth - 5, 9999) lineBreakMode: NSLineBreakByWordWrapping];
+            CGFloat rowHeight = size.height + 20;
+            return rowHeight;
         }
+
     }
 
+    if (row == setRowIndex) {
+        NSString* str = _ship.setName;
+        
+        if (str.length > 0) {
+            CGSize size = [str sizeWithFont: [UIFont systemFontOfSize: 14] constrainedToSize: CGSizeMake(_labelWidth - 5, 9999) lineBreakMode: NSLineBreakByWordWrapping];
+            CGFloat rowHeight = size.height + 20;
+            return rowHeight;
+        }
+    }
+    
     return rowHeight;
 }
 

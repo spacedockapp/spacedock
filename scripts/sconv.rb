@@ -45,8 +45,10 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-10/16/2015 19:16:35	72004p - Azati Prime	Unique	Azati Prime	Xindi	Xindi Aquatic Cruiser		1 Forward, 1 Bank, 2 Forward	2 Bank, 3 Forward, 3 Bank, 4 Forward	2 Turn, 3 Turn, 1 Reverse	4	4	6	3	When defending, during the Roll Attack Dice step, you may discard a Token from beside your ship ([EVADE], [SCAN], or [BATTLE STATIONS]) to force the attacking ship to roll 1 less attack die.	Battle Stations, Evasive, Scan, Target Lock	28	0	1	2	2	180-degree forward		0
-10/16/2015 19:17:49	72004p - Azati Prime	Non-unique	Xindi Starship	Xindi	Xindi Aquatic Cruiser	Xindi Aquatic Cruiser				4	1	6	2		Battle Stations, Evasive, Scan, Target Lock	26	0	1	1	2	180-degree forward		0
+10/26/2015 14:20:23	72017 - USS Hathaway	Non-unique	Federation Starship	Federation	Constellation Class	Constellation Class				3	1	4	2		Battle Stations, Evasive, Scan, Target Lock	20	0	1	0	1	180-degree forward		0
+10/26/2015 14:21:37	72017 - USS Hathaway	Unique	U.S.S. Hathaway	Federation	Constellation Class	Constellation Class				3	1	4	3	During the Activation Phase, you may perform a second Action from your Action Bar as a free Action.  If you do so, place an Auxiliary Power Token beside your ship.	Battle Stations, Evasive, Scan, Target Lock	22	0	2	1	1	180-degree forward		0
+10/29/2015 14:07:22	72018 - Halik Raider	Non-unique	Kazon Starship	Kazon	Kazon Raider	Kazon Raider				2	2	3	2		Battle Stations, Evasive, Target Lock	18	0	2	0	1	180-degree forward		0
+10/29/2015 14:08:46	72018 - Halik Raider	Unique	Halik Raider	Kazon	Kazon Raider	Kazon Raider				2	2	3	3	When defending, during the Roll Defense Dice step, you may disable one of your Active Shields to gain +2 defense dice for that attack.	Battle Stations, Evasive, Target Lock	20	0	2	0	2	180-degree forward		0
 SHIPTEXT
 
 

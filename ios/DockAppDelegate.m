@@ -54,7 +54,23 @@
     return nil;
 }
 
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL succeeded))completionHandler
+{
+    NSString* bundle = [[NSBundle mainBundle] bundleIdentifier];
+    
+    if ([shortcutItem.type isEqualToString:[bundle stringByAppendingString:@".GoToSquads"]]) {
+        [self loadAppData:@"GoToSquads"];
+    } else if ([shortcutItem.type isEqualToString:[bundle stringByAppendingString:@".GoToReference"]]) {
+        [self loadAppData:@"GoToReference"];
+    }
+}
+
 -(void)loadAppData
+{
+    [self loadAppData:nil];
+}
+
+-(void)loadAppData:(NSString *)segueId
 {
     id finishLoadBlock = ^() {
         NSError* error;
@@ -65,11 +81,14 @@
         } else {
             navigationController = (UINavigationController*)self.window.rootViewController;
         }
-        id controller = [navigationController topViewController];
+        id controller = [navigationController.viewControllers firstObject];
         DockTopMenuViewController* topMenuViewController = (DockTopMenuViewController*)controller;
         topMenuViewController.managedObjectContext = self.managedObjectContext;
         
-        if ([self.window.rootViewController isKindOfClass:[UISplitViewController class]]) {
+        if (segueId != nil) {
+            [navigationController popToRootViewControllerAnimated:YES];
+            [topMenuViewController performSegueWithIdentifier:segueId sender:nil];
+        } else if ([self.window.rootViewController isKindOfClass:[UISplitViewController class]]) {
             [topMenuViewController performSegueWithIdentifier:@"GoToSquads" sender:nil];
         }
     };
@@ -141,9 +160,22 @@
         self.window.rootViewController = splitViewController;
     }
     
+    if ([UIApplicationShortcutItem class]) {
+        UIApplicationShortcutItem* shortcutItem = [launchOptions objectForKey:UIApplicationLaunchOptionsShortcutItemKey];
+        NSString* bundle = [[NSBundle mainBundle] bundleIdentifier];
+        
+        if ([shortcutItem.type isEqualToString:[bundle stringByAppendingString:@".GoToSquads"]]) {
+            [self loadAppData:@"GoToSquads"];
+        } else if ([shortcutItem.type isEqualToString:[bundle stringByAppendingString:@".GoToReference"]]) {
+            [self loadAppData:@"GoToReference"];
+        } else {
+            [self loadAppData];
+        }
+        return NO;
+    }
     [self loadAppData];
     [self updateVersionInfo];
-
+    
     return YES;
 }
 

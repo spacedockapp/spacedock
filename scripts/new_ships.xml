@@ -1,45 +1,16 @@
   <Ship>
-    <Title>Azati Prime</Title>
+    <Title>U.S.S. Hathaway</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Xindi Aquatic Cruiser</ShipClass>
-    <Faction>Xindi</Faction>
+    <ShipClass>Constellation Class</ShipClass>
+    <Faction>Federation</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>4</Agility>
-    <Hull>6</Hull>
-    <Shield>3</Shield>
-    <Ability>When defending, during the Roll Attack Dice step, you may discard a Token from beside your ship ([EVADE], [SCAN], or [BATTLESTATIONS]) to force the attacking ship to roll 1 less attack die.</Ability>
-    <Cost>28</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>1</Scan>
-    <Battlestations>1</Battlestations>
-    <Cloak>0</Cloak>
-    <SensorEcho>0</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>2</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
-    <Has360Arc>N</Has360Arc>
-    <Id>azati_prime_72004p</Id>
-    <Set>72004p</Set>
-  </Ship>
-  <Ship>
-    <Title>Xindi Starship</Title>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Xindi Aquatic Cruiser</ShipClass>
-    <Faction>Xindi</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
+    <Attack>3</Attack>
     <Agility>1</Agility>
-    <Hull>6</Hull>
-    <Shield>2</Shield>
-    <Ability></Ability>
-    <Cost>26</Cost>
+    <Hull>4</Hull>
+    <Shield>3</Shield>
+    <Ability>During the Activation Phase, you may perform a second Action from your Action Bar as a free Action.  If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+    <Cost>22</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
@@ -49,10 +20,39 @@
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
     <Tech>1</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
+    <Weapon>1</Weapon>
+    <Crew>2</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>xindi_starship_72004p</Id>
-    <Set>72004p</Set>
+    <Id>u_s_s_hathaway_72017</Id>
+    <Set>72017</Set>
+  </Ship>
+  <Ship>
+    <Title>Halik Raider</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Kazon Raider</ShipClass>
+    <Faction>Kazon</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>2</Attack>
+    <Agility>2</Agility>
+    <Hull>3</Hull>
+    <Shield>3</Shield>
+    <Ability>When defending, during the Roll Defense Dice step, you may disable one of your Active Shields to gain +2 defense dice for that attack.</Ability>
+    <Cost>20</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>0</Scan>
+    <Battlestations>1</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>0</Tech>
+    <Weapon>2</Weapon>
+    <Crew>2</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>halik_raider_72018</Id>
+    <Set>72018</Set>
   </Ship>

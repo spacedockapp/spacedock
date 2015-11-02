@@ -787,6 +787,10 @@ static NSDictionary* sItemLabels = nil;
         if (![ship isFederation]) {
             cost += 5;
         }
+    }  else if ([upgradeSpecial isEqualToString:@"Plus5NotKazonNoMoreThanOnePerShip"]) {
+        if (![ship isKazon]) {
+            cost += 5;
+        }
     } else if ([upgradeSpecial hasPrefix:@"Plus3NotShipClass_"]) {
         NSString* shipClass = [ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
         if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"Plus3NotShipClass_%@",shipClass]]) {
@@ -1014,6 +1018,9 @@ static NSDictionary* sItemLabels = nil;
     }
     if ([externalId isEqualToString:@"cargo_hold_02_72013"]) {
         return 2;
+    }
+    if ([special isEqualToString:@"Add3FedTech4Less"]) {
+        return 3;
     }
     return 0;
 }

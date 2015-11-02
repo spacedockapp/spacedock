@@ -523,6 +523,27 @@
         }
     }
     
+    if (!upgrade.isPlaceholder && [upgrade isTech] && [self containsUpgradeWithSpecial:@"Add3FedTech4Less"] != nil) {
+        int tech = 0;
+        
+        for (DockEquippedUpgrade* eu in self.upgrades) {
+            if ([eu.upgrade isTech] && !eu.isPlaceholder) {
+                if (![eu.specialTag hasPrefix:@"fed3_tech_"]) {
+                    tech ++;
+                }
+            }
+        }
+        
+        if (![upgrade isFederation] || [upgrade costForShip:self] > 4) {
+            int artificalLimit = [upgrade limitForShip: self] - tech - 3;
+            if (!validating) {
+                artificalLimit ++;
+            }
+            return artificalLimit > 0;
+            //return NO;
+        }
+    }
+    
     if ([upgrade.externalId isEqualToString:@"first_maje_71793"]) {
         if (![captain isKazon]) {
             return NO;
@@ -1122,6 +1143,10 @@
                     ||[self containsUpgradeWithId:@"systems_upgrade_w_71998p"] != nil) {
                     return NO;
                 }
+            } else if ([upgrade.externalId isEqualToString:@"unremarkable_species_72018"] || [upgrade.externalId isEqualToString:@"unremarkable_species_c_72018"] || [upgrade.externalId isEqualToString:@"unremarkable_species_t_72018"] || [upgrade.externalId isEqualToString:@"unremarkable_species_w_72018"]) {
+                if ([self containsUpgradeWithId:@"unremarkable_species_72018"]  != nil || [self containsUpgradeWithId:@"unremarkable_species_c_72018"]  != nil || [self containsUpgradeWithId:@"unremarkable_species_t_72018"]  != nil || [self containsUpgradeWithId:@"unremarkable_species_w_72018"] != nil) {
+                    return NO;
+                }
             }
         }
     }
@@ -1232,13 +1257,19 @@
     }
     
     if ([upgrade.externalId isEqualToString:@"warp_drive_71997p"]) {
-        if (![self.ship isFederation] || ![self.ship.shipClass isEqualToString:@"Type 7 Shuttlecraft"]) {
+        if (![self.ship isFederation] || ![self.ship isShuttle]) {
             return NO;
         }
     }
     
     if ([upgrade.externalId isEqualToString:@"causality_paradox_71799"]) {
-        if (![self.captain.externalId isEqualToString:@"annorax_71799"] && ![self.captain.externalId isEqualToString:@"obrist_71799"] && ![self.captain.externalId isEqualToString:@"krenim_71799"]) {
+        if (![self.captain.externalId isEqualToString:@"annorax_71799"] && ![self.captain.externalId isEqualToString:@"krenim_71799"]) {
+            return NO;
+        }
+    }
+    
+    if ([upgrade.externalId isEqualToString:@"unremarkable_species_72018"] || [upgrade.externalId isEqualToString:@"unremarkable_species_c_72018"] || [upgrade.externalId isEqualToString:@"unremarkable_species_t_72018"] || [upgrade.externalId isEqualToString:@"unremarkable_species_w_72018"]) {
+        if ([self.ship isBorg]) {
             return NO;
         }
     }
@@ -1559,6 +1590,18 @@
             }
         }
         
+        if ([upgrade isTech] && [upgrade isFederation] && [self containsUpgradeWithSpecial:@"Add3FedTech4Less"] != nil) {
+            int fedTech = 0;
+            for (DockEquippedUpgrade* eu in self.sortedUpgradesWithoutPlaceholders) {
+                if ([eu.specialTag hasPrefix:@"fed3_tech_"]) {
+                    fedTech ++;
+                }
+            }
+            if (fedTech < 3) {
+                equippedUpgrade.specialTag = [NSString stringWithFormat:@"fed3_tech_%d",fedTech+1];
+            }
+        }
+        
         if ([upgrade isTech] && [self.captain.externalId isEqualToString:@"tahna_los_op6prize"]) {
             if ([self upgradesWithSpecialTag:@"TahnaLosTech"].count == 0) {
                 if ([upgrade.special isEqualToString:@""] || [upgrade.special isEqualToString:@"NoMoreThanOnePerShip"] || [upgrade.special isEqualToString:@"AddTwoWeaponSlots"]) {
@@ -1731,6 +1774,13 @@
     } else if ([upgrade.upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
         for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
             if ([eu.upgrade isRomulan] && [eu.specialTag hasPrefix:@"shinzon_ET_"])
+            {
+                [toRemove addObject:eu];
+            }
+        }
+    } else if ([upgrade.upgrade.special isEqualToString:@"Add3FedTech4Less"]) {
+        for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+            if ([eu.upgrade isFederation] && [eu.specialTag hasPrefix:@"fed3_tech_"])
             {
                 [toRemove addObject:eu];
             }
