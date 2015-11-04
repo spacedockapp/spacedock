@@ -1,4 +1,4 @@
-<Data version="2015-11-02@04-13">
+<Data version="2015-11-03@23-44">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1703,6 +1703,29 @@
           <Maneuver speed="-1" kind="straight" color="red" />
       </Maneuvers>
       <FrontArc>180</FrontArc>
+      <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+      <Name>Scorpion Class Attack Squadron</Name>
+      <Id>scorpion_class_attack_squadron</Id>
+      <Maneuvers>
+          <Maneuver speed="3" kind="left-turn" color="red" />
+          <Maneuver speed="3" kind="left-bank" color="white" />
+          <Maneuver speed="3" kind="straight" color="white" />
+          <Maneuver speed="3" kind="about" color="red" />
+          <Maneuver speed="3" kind="right-bank" color="white" />
+          <Maneuver speed="3" kind="right-turn" color="red" />
+          <Maneuver speed="2" kind="left-turn" color="white" />
+          <Maneuver speed="2" kind="left-bank" color="white" />
+          <Maneuver speed="2" kind="about" color="white" />
+          <Maneuver speed="2" kind="straight" color="green" />
+          <Maneuver speed="2" kind="right-bank" color="white" />
+          <Maneuver speed="2" kind="right-turn" color="white" />
+          <Maneuver speed="1" kind="left-bank" color="green" />
+          <Maneuver speed="1" kind="straight" color="green" />
+          <Maneuver speed="1" kind="right-bank" color="green" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
       <RearArc></RearArc>
   </ShipClassDetail>
   </ShipClassDetails>
@@ -7630,6 +7653,67 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Crew>1</Crew>
       <Id>kazon_starship_72221h</Id>
       <Set>72221h</Set>
+    </Ship>
+    <Ship>
+        <Title>Romulan Attack Fighters</Title>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Scorpion Class Attack Squadron</ShipClass>
+        <Faction>Romulan</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>3</Attack>
+        <Agility>0</Agility>
+        <Hull>1</Hull>
+        <Shield>1</Shield>
+        <Ability>ATTACK SQUADRON TOKENS: 4</Ability>
+        <Cost>20</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>0</Scan>
+        <Battlestations>0</Battlestations>
+        <Cloak>0</Cloak>
+        <SensorEcho>0</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>0</Tech>
+        <Weapon>0</Weapon>
+        <Crew>0</Crew>
+        <CaptainLimit>0</CaptainLimit>
+        <SquadronUpgrade>2</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>romulan_attack_fighters_72019</Id>
+        <Set>72019</Set>
+    </Ship>
+    <Ship>
+        <Title>Scorpion 4</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Scorpion Class Attack Squadron</ShipClass>
+        <Faction>Romulan</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>4</Attack>
+        <Agility>0</Agility>
+        <Hull>1</Hull>
+        <Shield>1</Shield>
+        <Ability>ATTACK SQUADRON TOKENS: 5
+            If you attack during a round in which you performed a Come About Maneuver, during the Modify Attack Dice step, you may re-roll all of your blank results.</Ability>
+        <Cost>24</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>0</Scan>
+        <Battlestations>0</Battlestations>
+        <Cloak>0</Cloak>
+        <SensorEcho>0</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>0</Tech>
+        <Weapon>0</Weapon>
+        <Crew>0</Crew>
+        <CaptainLimit>0</CaptainLimit>
+        <SquadronUpgrade>3</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>scorpion_4_72019</Id>
+        <Set>72019</Set>
     </Ship>
   </Ships>
   <Captains>
@@ -22518,6 +22602,134 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>72018</Set>
         <Special></Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Cloaked Fighters</Title>
+        <Ability>Add the [CLOAK] Action to your Action Bar. While your squadron is Cloaked, you cannot perform a maneuver with a speed greater than 1. This Upgrade may only be purchased for a Scorpion class attack squadron and no ship may be equipped with more than one "Cloaked Fighters" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Squadron</Type>
+        <Faction>Romulan</Faction>
+        <Cost>4</Cost>
+        <Id>cloaked_fighters_72019</Id>
+        <Set>72019</Set>
+        <Special>OPSOnlyShipClass_Scorpion_Class_Attack_Squadron</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Hidden Formation</Title>
+        <Ability>Add the [SENSOR ECHO] Action to your Action Bar. When performing the [SENSOR ECHO] Action, you may only use a 1 [STRAIGHT] Maneuver Template. If your squadron is Cloaked, after performing a [SENSOR ECHO] Action, you may discard this card to immediately perform an additional [SENSOR ECHO] Action as a free Action. If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Squadron</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>hidden_formation_72019</Id>
+        <Set>72019</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Focused Strike</Title>
+        <Ability>If you damage an opposing ship's Hull with a critical damage, you may discard this card to draw 3 Damage Cards (instead of 1) and choose which one to place beside the enemy ship's Ship Card; discard the unused Damage Cards. No ship may be equipped with more than one "Focused Strike" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Squadron</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>focused_strike_72019</Id>
+        <Set>72019</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Torpedo Strike</Title>
+        <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. You may fire this weapon from your forward or rear firing arcs. No ship may be equipped with more than one "Torpedo Attack" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Squadron</Type>
+        <Faction>Romulan</Faction>
+        <Cost>4</Cost>
+        <Id>torpedo_strike_72019</Id>
+        <Set>72019</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Cover Fire</Title>
+        <Ability>When defending, during the Roll Defense Dice step, you may discard this card to add a number of defense dice to your roll equal to your current Primary Weapon value. No ship may be equipped with more than one "Cover Fire" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Squadron</Type>
+        <Faction>Romulan</Faction>
+        <Cost>4</Cost>
+        <Id>cover_fire_72019</Id>
+        <Set>72019</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Reconnaissance</Title>
+        <Ability>ACTION: Place a [SCAN] Token and an Auxiliary Power Token beside your ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Squadron</Type>
+        <Faction>Romulan</Faction>
+        <Cost>2</Cost>
+        <Id>reconnaissance_72019</Id>
+        <Set>72019</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Thrusters</Title>
+        <Ability>During the Activation Phase, if your ship is not Cloaked and you reveal a green maneuver on your maneuver dial you may discard this card to add 1 to your maneuver speed.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Squadron</Type>
+        <Faction>Romulan</Faction>
+        <Cost>3</Cost>
+        <Id>thrusters_72019</Id>
+        <Set>72019</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Support Ship</Title>
+        <Ability>When your last Attack Squadron Token is destroyed, discard this card instead of removing that Token. No ship may be equipped with more than one "Support Ship" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Squadron</Type>
+        <Faction>Romulan</Faction>
+        <Cost>4</Cost>
+        <Id>support_ship_72019</Id>
+        <Set>72019</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -23147,6 +23359,7 @@ A ship cannot perform any other free Actions on the round that it uses either of
       <Set id="72004p" overallSetName="Temporal Cold War" releaseDate="2015-11-15">Azati Prime</Set>
       <Set id="72017" overallSetName="Wave 20" releaseDate="2015-11-04">U.S.S. Hathaway</Set>
       <Set id="72018" overallSetName="Wave 20" releaseDate="2015-11-04">Halik Raider</Set>
+      <Set id="72019" overallSetName="Wave 20" releaseDate="2015-11-04">Scorpion 4</Set>
     </Sets>
     <Flagships>
         <Flagship>

@@ -1,58 +1,59 @@
   <Ship>
-    <Title>U.S.S. Hathaway</Title>
-    <Unique>Y</Unique>
+    <Title>Romulan Attack Fighters</Title>
+    <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Constellation Class</ShipClass>
-    <Faction>Federation</Faction>
+    <ShipClass>Scorpion Class Attack Squadron</ShipClass>
+    <Faction>Romulan</Faction>
     <AdditionalFaction></AdditionalFaction>
     <Attack>3</Attack>
-    <Agility>1</Agility>
-    <Hull>4</Hull>
-    <Shield>3</Shield>
-    <Ability>During the Activation Phase, you may perform a second Action from your Action Bar as a free Action.  If you do so, place an Auxiliary Power Token beside your ship.</Ability>
-    <Cost>22</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>1</Scan>
-    <Battlestations>1</Battlestations>
-    <Cloak>0</Cloak>
-    <SensorEcho>0</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>1</Weapon>
-    <Crew>2</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
-    <Has360Arc>N</Has360Arc>
-    <Id>u_s_s_hathaway_72017</Id>
-    <Set>72017</Set>
-  </Ship>
-  <Ship>
-    <Title>Halik Raider</Title>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Kazon Raider</ShipClass>
-    <Faction>Kazon</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>2</Attack>
-    <Agility>2</Agility>
-    <Hull>3</Hull>
-    <Shield>3</Shield>
-    <Ability>When defending, during the Roll Defense Dice step, you may disable one of your Active Shields to gain +2 defense dice for that attack.</Ability>
+    <Agility>0</Agility>
+    <Hull>1</Hull>
+    <Shield>1</Shield>
+    <Ability>ATTACK SQUADRON TOKENS: 4</Ability>
     <Cost>20</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>0</Scan>
-    <Battlestations>1</Battlestations>
+    <Battlestations>0</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
     <Tech>0</Tech>
-    <Weapon>2</Weapon>
-    <Crew>2</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
+    <Weapon>0</Weapon>
+    <Crew>0</Crew>
+    <SquadronUpgrade>2</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>halik_raider_72018</Id>
-    <Set>72018</Set>
+    <Id>romulan_attack_fighters_72019</Id>
+    <Set>72019</Set>
+  </Ship>
+  <Ship>
+    <Title>Scorpion 4</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Scorpion Class Attack Squadron</ShipClass>
+    <Faction>Romulan</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>4</Attack>
+    <Agility>0</Agility>
+    <Hull>1</Hull>
+    <Shield>1</Shield>
+    <Ability>ATTACK SQUADRON TOKENS: 5
+If you attack during a round in which you performed a Come About Maneuver, during the Modify Attack Dice step, you may re-roll all of your blank results.</Ability>
+    <Cost>24</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>0</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>0</Tech>
+    <Weapon>0</Weapon>
+    <Crew>0</Crew>
+    <SquadronUpgrade>3</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>scorpion_4_72019</Id>
+    <Set>72019</Set>
   </Ship>

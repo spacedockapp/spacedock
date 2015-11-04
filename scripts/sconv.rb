@@ -45,10 +45,8 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-10/26/2015 14:20:23	72017 - USS Hathaway	Non-unique	Federation Starship	Federation	Constellation Class	Constellation Class				3	1	4	2		Battle Stations, Evasive, Scan, Target Lock	20	0	1	0	1	180-degree forward		0
-10/26/2015 14:21:37	72017 - USS Hathaway	Unique	U.S.S. Hathaway	Federation	Constellation Class	Constellation Class				3	1	4	3	During the Activation Phase, you may perform a second Action from your Action Bar as a free Action.  If you do so, place an Auxiliary Power Token beside your ship.	Battle Stations, Evasive, Scan, Target Lock	22	0	2	1	1	180-degree forward		0
-10/29/2015 14:07:22	72018 - Halik Raider	Non-unique	Kazon Starship	Kazon	Kazon Raider	Kazon Raider				2	2	3	2		Battle Stations, Evasive, Target Lock	18	0	2	0	1	180-degree forward		0
-10/29/2015 14:08:46	72018 - Halik Raider	Unique	Halik Raider	Kazon	Kazon Raider	Kazon Raider				2	2	3	3	When defending, during the Roll Defense Dice step, you may disable one of your Active Shields to gain +2 defense dice for that attack.	Battle Stations, Evasive, Target Lock	20	0	2	0	2	180-degree forward		0
+11/3/2015 13:45:35	72019 - Scorpion 4	Non-unique	Romulan Attack Fighters	Romulan	Scorpion Class Attack Squadron		1 Forward, 1 Bank, 2 Forward	2 Bank, 2 Turn, 2 Come About, 3 Forward, 3 Bank	3 Turn, 3 Come About	3	0	1	1	ATTACK SQUADRON TOKENS: 4	Evasive, Target Lock	20	0	0	0	0	90-degree forward		2
+11/3/2015 13:47:07	72019 - Scorpion 4	Unique	Scorpion 4	Romulan	Scorpion Class Attack Squadron	Scorpion Class Attack Squadron				4	0	1	1	ATTACK SQUADRON TOKENS: 5  If you attack during a round in which you performed a Come About Maneuver, during the Modify Attack Dice step, you may re-roll all of your blank results.	Evasive, Target Lock	24	0	0	0	0	90-degree forward		3
 SHIPTEXT
 
 
