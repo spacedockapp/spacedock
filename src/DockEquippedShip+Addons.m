@@ -1131,7 +1131,7 @@
     }
     
     if (validating) {
-        if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString:@"limited_max_weapon_3"] || [upgradeSpecial hasSuffix:@"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString:@"limited_max_weapon_3AndPlus5NonFed"]) {
+        if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString:@"limited_max_weapon_3"] || [upgradeSpecial hasSuffix:@"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString:@"limited_max_weapon_3AndPlus5NonFed"] || [upgradeSpecial hasPrefix:@"OPSOnlyShipClass_"]) {
             DockEquippedUpgrade* existing = [self containsUpgradeWithId: upgrade.externalId];
             if (existing != nil) {
                 return NO;
@@ -1174,6 +1174,17 @@
                 return NO;
             }
         } else if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"OnlyShipClass_%@",shipClass]]) {
+            return NO;
+        }
+    }
+    if ([upgradeSpecial hasPrefix:@"OPSOnlyShipClass_"]) {
+        NSString* shipClass = [self.ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        if ([upgradeSpecial hasPrefix:@"OPSOnlyShipClass_CONTAINS_"]) {
+            NSString* classtomatch = [upgradeSpecial substringFromIndex:26];
+            if ([shipClass rangeOfString:classtomatch].location == NSNotFound) {
+                return NO;
+            }
+        } else if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"OPSOnlyShipClass_%@",shipClass]]) {
             return NO;
         }
     }
@@ -1322,7 +1333,7 @@
                 info = @"This upgrade can only be purchased for a Kazon captain on a Kazon ship.";
             } else if ([upgrade isTalent] && [self.captain isKazon] && [self.ship isKazon] && self.talentCount == 1) {
                 info = @"You can only deploy the First Maje [TALENT] to this captain.";
-            } else if ([self containsUpgrade:upgrade] && ([upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasSuffix:@"NoMoreThanOnePerShip"])) {
+            } else if ([self containsUpgrade:upgrade] && ([upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasSuffix:@"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix:@"OPSOnlyShipClass_"])) {
                 info = @"No ship may be equipped with more than one of these upgrades.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
                 info = @"This upgrade can only be added to Jem'hadar ships.";

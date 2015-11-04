@@ -635,7 +635,8 @@ static NSString* makeKey(NSString* key)
         @"OnlySecretResearchTalent",
         @"KlingonUpgradesCostOneLess",
         @"OnlyXindi",
-        @"Add3FedTech4Less"
+        @"Add3FedTech4Less",
+        @"Plus5NotKazonNoMoreThanOnePerShip"
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];
@@ -650,6 +651,16 @@ static NSString* makeKey(NSString* key)
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'Plus6NotShip_'"]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'OnlyShip_'"]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'NoMoreThanOnePerShip'"]];
+    [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'OPSOnlyShipClass_'"]];
+
+#if TARGET_IPHONE_SIMULATOR
+    if (unhandledSpecials.count > 0) {
+        NSLog(@"Unhandled specials: %@",[unhandledSpecials.allObjects componentsJoinedByString:@", "]);
+    } else {
+        NSLog(@"All specials handled");
+    }
+#endif
+    
     return unhandledSpecials;
 }
 
