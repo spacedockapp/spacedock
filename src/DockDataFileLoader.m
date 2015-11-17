@@ -652,6 +652,7 @@ static NSString* makeKey(NSString* key)
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'OnlyShip_'"]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'NoMoreThanOnePerShip'"]];
     [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'OPSOnlyShipClass_'"]];
+    [unhandledSpecials filterUsingPredicate:[NSPredicate predicateWithFormat:@"NOT SELF BEGINSWITH 'OPSPlus5NotShipClass_'"]];
 
 #if TARGET_IPHONE_SIMULATOR
     if (unhandledSpecials.count > 0) {
