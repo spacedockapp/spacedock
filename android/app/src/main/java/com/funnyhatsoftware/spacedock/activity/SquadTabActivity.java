@@ -60,6 +60,13 @@ public class SquadTabActivity extends FragmentTabActivity implements
                 resourceAttributesTextView.setVisibility(View.GONE);
             }
         }
+        FragmentPagerAdapter pagerAdapter = getPagerAdapter();
+        if (pagerAdapter != null){
+            DisplaySquadFragment displayFrag = (DisplaySquadFragment)getPagerAdapter().getItem(0);
+            if (displayFrag.isInLayout()) {
+                displayFrag.updateSquad();
+            }
+        }
     }
 
     @Override
@@ -134,7 +141,6 @@ public class SquadTabActivity extends FragmentTabActivity implements
             squad.setResourceAttributes(null);
         }
         if (selectedResource != null && selectedResource.isOfficerExchangeProgram()) {
-            System.out.println(squad.getResourceAttributes());
             if (squad.getResourceAttributes() == null) {
                 AlertDialog.Builder oepDialog = new AlertDialog.Builder(this);
                 LayoutInflater layoutInflater = LayoutInflater.from(this);

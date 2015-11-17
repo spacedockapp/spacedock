@@ -523,6 +523,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if (!ship.isFederation()) {
                 cost += 5;
             }
+        } else if ("Plus5NotKazonNoMoreThanOnePerShip".equals(upgradeSpecial)) {
+            if (!ship.isKazon()) {
+                cost += 5;
+            }
         } else if (upgradeSpecial.startsWith("Plus3NotShipClass_")) {
             String reqClass = upgradeSpecial.substring(18);
             if (!ship.getShipClass().replace(" ", "_").equals(reqClass)) {

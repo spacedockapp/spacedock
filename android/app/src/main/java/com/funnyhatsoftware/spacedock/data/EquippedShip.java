@@ -750,6 +750,21 @@ public class EquippedShip extends EquippedShipBase {
                 }
             }
         }
+        if (upgradeSpecial.startsWith("OPSOnlyShipClass_")) {
+            if (upgradeSpecial.startsWith("OPSOnlyShipClass_CONTAINS_")) {
+                String reqMatch = upgradeSpecial.substring(26);
+
+                if (!ship.getShipClass().contains(reqMatch)) {
+                    return new Explanation(msg, "This upgrade can only be purchased for a " + reqMatch.replace("_", " ") + " Ship.");
+                }
+            } else {
+                String reqClass = upgradeSpecial.substring(17);
+
+                if (!reqClass.equals(ship.getShipClass().replace(" ", "_"))) {
+                    return new Explanation(msg, "This upgrade can only be purchased for a " + reqClass.replace("_", " ") + " Class Ship.");
+                }
+            }
+        }
         if (upgradeSpecial.equals("OnlyKazonShip")) {
             if (!ship.isKazon()) {
                 return new Explanation(msg,
@@ -771,7 +786,7 @@ public class EquippedShip extends EquippedShipBase {
                 return new Explanation(msg, "This upgrade can only be added to a Klingon ship.");
             }
         }
-        if ("NoMoreThanOnePerShip".equals(upgradeSpecial) || "OnlyBorgShipAndNoMoreThanOnePerShip".equals(upgradeSpecial) || upgradeSpecial.endsWith("NoMoreThanOnePerShip") || upgradeSpecial.startsWith("NoMoreThanOnePerShip")) {
+        if ("NoMoreThanOnePerShip".equals(upgradeSpecial) || "OnlyBorgShipAndNoMoreThanOnePerShip".equals(upgradeSpecial) || upgradeSpecial.endsWith("NoMoreThanOnePerShip") || upgradeSpecial.startsWith("NoMoreThanOnePerShip") || upgradeSpecial.startsWith("OPSOnlyShipClass")) {
             if (addingNew && null != containsUpgrade(upgrade)) {
                 return new Explanation(msg, "This upgrade can only be added once per ship.");
             }

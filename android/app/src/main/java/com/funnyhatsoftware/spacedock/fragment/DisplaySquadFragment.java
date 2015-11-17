@@ -195,4 +195,7 @@ public class DisplaySquadFragment extends FullscreenListFragment {
         return super.onOptionsItemSelected(item);
     }
 
+    public void updateSquad() {
+        initAdapter();
+    }
 }

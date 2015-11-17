@@ -486,7 +486,10 @@ public class DataLoader extends DefaultHandler {
                 "costincreasedifnotromulansciencevesselAndNoMoreThanOnePerShip",
                 "OnlySecretResearchTalent",
                 "KlingonUpgradesCostOneLess",
-                "OnlyXindi"
+                "OnlyXindi",
+                "Add3FedTech4Less",
+                "TechUpgradesCostOneLess",
+                "Plus5NotKazonNoMoreThanOnePerShip"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);
@@ -516,6 +519,8 @@ public class DataLoader extends DefaultHandler {
             } else if (unhandledSpecial.startsWith("OnlyShip_")) {
                 wildcardSpecials.add(unhandledSpecial);
             } else if (unhandledSpecial.startsWith("NoMoreThanOnePerShip")) {
+                wildcardSpecials.add(unhandledSpecial);
+            } else if (unhandledSpecial.startsWith("OPSOnlyShipClass_")) {
                 wildcardSpecials.add(unhandledSpecial);
             }
         }
