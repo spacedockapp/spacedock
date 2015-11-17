@@ -641,8 +641,10 @@ static NSDictionary* sItemLabels = nil;
             }
         }
     } else if ([upgrade isTech] && ![upgrade isQMark]) {
-        if ([fleetCaptainSpecial isEqualToString: @"TechUpgradesCostOneLess"]) {
-            cost -= 1;
+        for (DockEquippedUpgrade* eu in equippedShip.upgrades) {
+            if ([eu.upgrade.special isEqualToString:@"TechUpgradesCostOneLess"]) {
+                cost -= 1;
+            }
         }
         if ([ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [upgrade.externalId isEqualToString:@"enhanced_hull_plating_71526"]) {
             cost = 0;

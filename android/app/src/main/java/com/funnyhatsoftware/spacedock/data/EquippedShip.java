@@ -34,7 +34,7 @@ public class EquippedShip extends EquippedShipBase {
 
         if (inShip.getExternalId().equals("enterprise_nx_01_71526")) {
             Upgrade hullPlating = Universe.getUniverse().getUpgrade("enhanced_hull_plating_71526");
-            addUpgrade(hullPlating,null,false);
+            addUpgrade(hullPlating, null, false);
         }
     }
 
@@ -1139,6 +1139,26 @@ public class EquippedShip extends EquippedShipBase {
             }
         }
 
+        if (upgrade.isTech() && null != containsUpgradeWithSpecial("Add3FedTech4Less")) {
+            int tech = 0;
+            for(EquippedUpgrade eu : mUpgrades) {
+                if (eu.getUpgrade().isTech() && !eu.isPlaceholder()) {
+                    tech ++;
+                }
+            }
+            EquippedUpgrade tmpEu = new EquippedUpgrade();
+            tmpEu.setUpgrade(upgrade);
+            if (!upgrade.isFederation() || upgrade.calculateCostForShip(this,tmpEu) > 4) {
+                int artificialLimit = getTech() - tech - 3;
+                if (!addingNew) {
+                    artificialLimit ++;
+                }
+                if (artificialLimit > 0) {
+                    return new Explanation(msg,"You can only deploy Federation [TECH] Upgrades costing 4 or less to " + containsUpgradeWithSpecial("Add3FedTech4Less").getTitle() + ".");
+                }
+            }
+        }
+
         int limit = upgrade.limitForShip(this);
         if (limit <= 0) {
             String expl;
@@ -1208,6 +1228,15 @@ public class EquippedShip extends EquippedShipBase {
     public EquippedUpgrade containsUpgradeWithName(String theName) {
         for (EquippedUpgrade eu : mUpgrades) {
             if (eu.getUpgrade().getTitle().equals(theName)) {
+                return eu;
+            }
+        }
+        return null;
+    }
+
+    public EquippedUpgrade containsUpgradeWithSpecial(String theName) {
+        for (EquippedUpgrade eu : mUpgrades) {
+            if (eu.getUpgrade().getSpecial().equals(theName)) {
                 return eu;
             }
         }
@@ -1424,7 +1453,7 @@ public class EquippedShip extends EquippedShipBase {
 
         if (ship.getExternalId().equals("enterprise_nx_01_71526")) {
             Upgrade hullPlating = Universe.getUniverse().getUpgrade("enhanced_hull_plating_71526");
-            addUpgrade(hullPlating,null,false);
+            addUpgrade(hullPlating, null, false);
         }
 
         // TODO: consider swapping zero cost captain for new faction?
@@ -1555,6 +1584,19 @@ public class EquippedShip extends EquippedShipBase {
             }
         }
 
+        if (upgrade.isTech() && null != containsUpgradeWithSpecial("Add3FedTech4Less")) {
+            int tech = 0;
+            for(EquippedUpgrade eu : mUpgrades) {
+                if (eu.getUpgrade().isTech() && !eu.isPlaceholder() && eu.getUpgrade().isFederation() && eu.getOverriddenCost() == 0) {
+                    tech ++;
+                }
+            }
+            if (tech > 0) {
+                newEu.setOverridden(true);
+                newEu.setOverriddenCost(0);
+            }
+        }
+
         newEu.setEquippedShip(this);
         // slot counts may have changed, refresh placeholders + prune slots to
         // new count
@@ -1608,6 +1650,7 @@ public class EquippedShip extends EquippedShipBase {
     public JSONObject asJSON() throws JSONException {
         JSONObject o = new JSONObject();
         Ship ship = getShip();
+
         if (isResourceSideboard()) {
             o.put(JSONLabels.JSON_LABEL_SIDEBOARD, true);
         } else {
@@ -1618,16 +1661,20 @@ public class EquippedShip extends EquippedShipBase {
                 o.put(JSONLabels.JSON_LABEL_FLAGSHIP, flagship.getExternalId());
             }
         }
+
         final EquippedUpgrade equippedCaptain = getEquippedCaptain();
         if (null != equippedCaptain) {
             o.put(JSONLabels.JSON_LABEL_CAPTAIN, equippedCaptain.asJSON());
         }
+
         ArrayList<EquippedUpgrade> sortedUpgrades = getSortedUpgrades();
         JSONArray upgrades = new JSONArray();
         int index = 0;
         for (EquippedUpgrade upgrade : sortedUpgrades) {
-            if (!upgrade.isPlaceholder() && !upgrade.isEqualToUpgrade(getEquippedCaptain().getUpgrade())) {
-                upgrades.put(index++, upgrade.asJSON());
+            if (!upgrade.isPlaceholder()) {
+                if (null == equippedCaptain || !upgrade.equals(equippedCaptain.getUpgrade())) {
+                    upgrades.put(index++, upgrade.asJSON());
+                }
             }
         }
         o.put(JSONLabels.JSON_LABEL_UPGRADES, upgrades);

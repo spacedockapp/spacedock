@@ -193,6 +193,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         return mUpType.equals(Constants.OFFICER_TYPE);
     }
 
+    public boolean isFederation() {
+        return DataUtils.targetHasFaction("Federation", this);
+    }
+
     public boolean isDominion() {
         return DataUtils.targetHasFaction("Dominion", this);
     }
@@ -391,6 +395,9 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             }
             if (equippedShip.getExternalId().equals("enterprise_nx_01_71526") && getExternalId().equals("enhanced_hull_plating_71526")) {
                 cost = 0;
+            }
+            if (equippedShip.containsUpgradeWithSpecial("TechUpgradesCostOneLess") != null) {
+                cost -= 1;
             }
         }
 
@@ -825,6 +832,9 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             }
             if (externalId.equals("cargo_hold_02_72013")) {
                 return 2;
+            }
+            if (special.equals("Add3FedTech4Less")) {
+                return 3;
             }
         }
         return 0;
