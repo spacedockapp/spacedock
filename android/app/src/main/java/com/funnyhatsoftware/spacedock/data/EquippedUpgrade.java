@@ -31,6 +31,12 @@ public class EquippedUpgrade extends EquippedUpgradeBase {
 
     public String getExternalId() { return getUpgrade().getExternalId(); }
 
+    String mSpecialTag;
+
+    public String getSpecialTag() { return mSpecialTag; }
+
+    public void setSpecialTag(String specialTag) { mSpecialTag = specialTag; }
+
     int getBaseCost() {
 
         if (mUpgrade.isPlaceholder()) {
@@ -81,6 +87,9 @@ public class EquippedUpgrade extends EquippedUpgradeBase {
         if (getOverridden()) {
             o.put(JSONLabels.JSON_LABEL_COST_IS_OVERRIDDEN, true);
             o.put(JSONLabels.JSON_LABEL_OVERRIDDEN_COST, getOverriddenCost());
+        }
+        if (getSpecialTag() != null && getSpecialTag().length() > 0) {
+            o.put(JSONLabels.JSON_LABEL_SPECIALTAG,getSpecialTag());
         }
         return o;
     }

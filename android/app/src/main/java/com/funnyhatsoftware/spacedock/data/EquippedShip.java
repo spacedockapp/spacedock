@@ -1158,7 +1158,9 @@ public class EquippedShip extends EquippedShipBase {
             int tech = 0;
             for(EquippedUpgrade eu : mUpgrades) {
                 if (eu.getUpgrade().isTech() && !eu.isPlaceholder()) {
-                    tech ++;
+                    if (eu.getSpecialTag() == null || eu.getSpecialTag().startsWith("fed3_tech_")) {
+                        tech++;
+                    }
                 }
             }
             EquippedUpgrade tmpEu = new EquippedUpgrade();
@@ -1168,7 +1170,7 @@ public class EquippedShip extends EquippedShipBase {
                 if (!addingNew) {
                     artificialLimit ++;
                 }
-                if (artificialLimit > 0) {
+                if (artificialLimit <= 0) {
                     return new Explanation(msg,"You can only deploy Federation [TECH] Upgrades costing 4 or less to " + containsUpgradeWithSpecial("Add3FedTech4Less").getTitle() + ".");
                 }
             }
@@ -1588,7 +1590,8 @@ public class EquippedShip extends EquippedShipBase {
         if (getCaptain() != null && getCaptain().getExternalId().equals("gareb_71536") && newEu.isCaptain()) {
             if (!newEu.getExternalId().equals("gareb_71536")) {
                 EquippedUpgrade gareb = getEquippedCaptain();
-                int cost = newEu.getCost() - 2;
+
+                int cost = newEu.getUpgrade().calculateCostForShip(this,newEu) - 3;
                 if (cost < 0) {
                     cost = 0;
                 }
@@ -1600,15 +1603,18 @@ public class EquippedShip extends EquippedShipBase {
         }
 
         if (upgrade.isTech() && null != containsUpgradeWithSpecial("Add3FedTech4Less")) {
-            int tech = 0;
-            for(EquippedUpgrade eu : mUpgrades) {
-                if (eu.getUpgrade().isTech() && !eu.isPlaceholder() && eu.getUpgrade().isFederation() && eu.getOverriddenCost() == 0) {
-                    tech ++;
+            if (upgrade.isFederation() && upgrade.calculateCostForShip(this, newEu) <= 4) {
+                int tech = 0;
+                for (EquippedUpgrade eu : mUpgrades) {
+                    if (eu.getUpgrade().isTech() && !eu.isPlaceholder() && eu.getSpecialTag() != null && eu.getSpecialTag().startsWith("fed3_tech_")) {
+                        tech++;
+                    }
                 }
-            }
-            if (tech > 0) {
-                newEu.setOverridden(true);
-                newEu.setOverriddenCost(0);
+                if (tech < 3) {
+                    newEu.setOverridden(true);
+                    newEu.setOverriddenCost(0);
+                    newEu.setSpecialTag("fed3_tech_" + Integer.toString(tech + 1));
+                }
             }
         }
 
@@ -1687,7 +1693,7 @@ public class EquippedShip extends EquippedShipBase {
         int index = 0;
         for (EquippedUpgrade upgrade : sortedUpgrades) {
             if (!upgrade.isPlaceholder()) {
-                if (null == equippedCaptain || !upgrade.equals(equippedCaptain.getUpgrade())) {
+                if (null == equippedCaptain || !upgrade.isEqualToUpgrade(equippedCaptain.getUpgrade())) {
                     upgrades.put(index++, upgrade.asJSON());
                 }
             }
@@ -1736,6 +1742,9 @@ public class EquippedShip extends EquippedShipBase {
                         eu.setOverridden(true);
                         eu.setOverriddenCost(upgradeData
                                 .optInt(JSONLabels.JSON_LABEL_OVERRIDDEN_COST));
+                    }
+                    if (upgradeData.optString(JSONLabels.JSON_LABEL_SPECIALTAG) != null) {
+                        eu.setSpecialTag(upgradeData.optString(JSONLabels.JSON_LABEL_SPECIALTAG));
                     }
                 } else if (strict) {
                     throw new RuntimeException("Can't find upgrade '" + upgradeId
