@@ -1158,7 +1158,7 @@ public class EquippedShip extends EquippedShipBase {
             int tech = 0;
             for(EquippedUpgrade eu : mUpgrades) {
                 if (eu.getUpgrade().isTech() && !eu.isPlaceholder()) {
-                    if (eu.getSpecialTag() == null || eu.getSpecialTag().startsWith("fed3_tech_")) {
+                    if (eu.getSpecialTag() == null || !eu.getSpecialTag().startsWith("fed3_tech_")) {
                         tech++;
                     }
                 }
