@@ -244,5 +244,10 @@ public class SetItemListFragment extends ListFragment {
         SetItem item = (SetItem) mAdapter.getItem(position);
         String externalId = item.getExternalId();
         mListener.onItemSelected(mItemType, externalId);
+        if (mItemType.equals(ShipHolder.TYPE_STRING) && externalId == null) {
+            getFragmentManager().beginTransaction()
+                    .remove(this)
+                    .commit();
+        }
     }
 }
