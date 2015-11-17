@@ -1,4 +1,4 @@
-<Data version="2015-11-03@23-44">
+<Data version="2015-11-17@08-01">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -14156,7 +14156,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Special>OnlyVoyager</Special>
     </Upgrade>
     <Upgrade>
-      <Title>B'elanna Torres</Title>
+      <Title>B'Elanna Torres</Title>
       <Ability>Add 1 additional [WEAPON] icon and 1 additional [TECH] icon to your ship's Upgrade Bar.</Ability>
       <Unique>Y</Unique>
       <Skill></Skill>
@@ -21416,7 +21416,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Cost>3</Cost>
         <Id>aft_weapons_array_72221c</Id>
         <Set>72221c</Set>
-        <Special>Plus5NotShipClass_Cardassian_Galor_ClassAndNoMoreThanOnePerShip</Special>
+        <Special>OPSPlus5NotShipClass_Cardassian_Galor_Class</Special>
     </Upgrade>
     <Upgrade>
         <Title>Defy Orders</Title>
