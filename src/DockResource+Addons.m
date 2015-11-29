@@ -130,6 +130,16 @@ NSString* kOfficerCardsExternalId = @"officer_cards_collectiveop3";
         float cost = (float)shields/2.0f;
 
         return [NSNumber numberWithInt:ceil(cost)];
+    } else if ([self.externalId isEqualToString:@"main_power_grid_72005r"]) {
+            int hull = 0;
+            for (DockEquippedShip* ship in squad.equippedShips) {
+                if (ship.hull > 3) {
+                    hull ++;
+                }
+            }
+            float cost = 3.0f + ((float)hull*2.0f);
+            
+            return [NSNumber numberWithInt:ceil(cost)];
     } else {
         return self.cost;
     }

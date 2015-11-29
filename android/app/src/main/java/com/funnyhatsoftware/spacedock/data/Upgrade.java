@@ -167,6 +167,24 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         if (this.getExternalId().equals("aft_torpedo_launcher_t_72011")) {
             return true;
         }
+        if (this.getExternalId().equals("temporal_observatory_c_72005g")) {
+            return true;
+        }
+        if (this.getExternalId().equals("temporal_observatory_t_72005g")) {
+            return true;
+        }
+        if (this.getExternalId().equals("temporal_observatory_w_72005g")) {
+            return true;
+        }
+        if (this.getExternalId().equals("maintenance_crew_c_72022")) {
+            return true;
+        }
+        if (this.getExternalId().equals("maintenance_crew_t_72022")) {
+            return true;
+        }
+        if (this.getExternalId().equals("maintenance_crew_w_72022")) {
+            return true;
+        }
         return false;
     }
     public boolean isCostFiveOrLess() {
@@ -654,6 +672,8 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 // do nothing
             } else if (captainSpecial.equals("lore_71522") && isTalent()) {
                 // do nothing
+            } else if (captainSpecial.equals("NoPenaltyOnTalent") && isTalent()) {
+                // do nothing
             } else if (captainSpecial.equals("hugh_71522") && isBorgFaction()) {
                 // do nothing
             } else if (null != equippedShip.containsUpgrade(Universe.getUniverse().getUpgrade("romulan_hijackers_71802")) && isRomulan() && !isCaptain() && !isAdmiral()) {
@@ -786,6 +806,9 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 || "AddTwoWeaponSlotsAndNoMoreThanOnePerShip".equalsIgnoreCase(special) ){
             return 2;
         }
+        if ("maintenance_crew_w_72022".equalsIgnoreCase(getExternalId())) {
+            return 1;
+        }
         return 0;
     }
 
@@ -811,6 +834,16 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 }
             }
         }
+        if ("maintenance_crew_c_72022".equalsIgnoreCase(getExternalId())) {
+            return 2;
+        }
+        if ("maintenance_crew_t_72022".equalsIgnoreCase(getExternalId())) {
+            return 1;
+        }
+        if ("maintenance_crew_w_72022".equalsIgnoreCase(getExternalId())) {
+            return 1;
+        }
+
         return 0;
     }
 
@@ -846,6 +879,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 return 3;
             }
         }
+        if ("maintenance_crew_t_72022".equalsIgnoreCase(getExternalId())) {
+            return 1;
+        }
+
         return 0;
     }
 

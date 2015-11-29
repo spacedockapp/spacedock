@@ -76,15 +76,24 @@ public class Resource extends ResourceBase {
 
     public int getCostForSquad(Squad squad) {
         float cost = 0;
-        int shield = 0;
-        if (!getExternalId().equals("emergency_force_fields_72001r")) {
-            return getCost();
-        } else {
+        if (getExternalId().equals("emergency_force_fields_72001r")) {
+            int shield = 0;
             for (EquippedShip ship : squad.getEquippedShips()) {
                 shield += ship.getShield();
             }
             cost = (float)shield/2.0f;
             return (int)Math.ceil(cost);
+        } else if (getExternalId().equals("main_power_grid_72005r")) {
+            int hull = 0;
+            for (EquippedShip ship : squad.getEquippedShips()) {
+                if (ship.getHull() > 3) {
+                    hull++;
+                }
+            }
+            cost = 3.0f + ((float)hull*2.0f);
+            return (int)cost;
+        } else {
+            return getCost();
         }
     }
     /**

@@ -1147,6 +1147,10 @@
                 if ([self containsUpgradeWithId:@"unremarkable_species_72018"]  != nil || [self containsUpgradeWithId:@"unremarkable_species_c_72018"]  != nil || [self containsUpgradeWithId:@"unremarkable_species_t_72018"]  != nil || [self containsUpgradeWithId:@"unremarkable_species_w_72018"] != nil) {
                     return NO;
                 }
+            } else if ([upgrade.externalId isEqualToString:@"maintenance_crew_c_72022"] || [upgrade.externalId isEqualToString:@"maintenance_crew_t_72022"] || [upgrade.externalId isEqualToString:@"maintenance_crew_w_72022"]) {
+                if ([self containsUpgradeWithId:@"maintenance_crew_c_72022"]  != nil || [self containsUpgradeWithId:@"maintenance_crew_t_72022"]  != nil || [self containsUpgradeWithId:@"maintenance_crew_w_72022"]  != nil) {
+                    return NO;
+                }
             }
         }
     }

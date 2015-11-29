@@ -834,6 +834,24 @@ public class EquippedShip extends EquippedShipBase {
                         || null != containsUpgrade(Universe.getUniverse().getUpgrade("systems_upgrade_w_71998p"))) {
                     return new Explanation(msg, "This upgrade can only be added once per ship.");
                 }
+            } else if (addingNew && (upgrade.getExternalId().equals("unremarkable_species_72018")
+                    || upgrade.getExternalId().equals("unremarkable_species_c_72018")
+                    || upgrade.getExternalId().equals("unremarkable_species_t_72018")
+                    || upgrade.getExternalId().equals("unremarkable_species_w_72018"))) {
+                if (null != containsUpgrade(Universe.getUniverse().getUpgrade("unremarkable_species_72018"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("unremarkable_species_c_72018"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("unremarkable_species_t_72018"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("unremarkable_species_w_72018"))) {
+                    return new Explanation(msg, "This upgrade can only be added once per ship.");
+                }
+            } else if (addingNew && (upgrade.getExternalId().equals("maintenance_crew_c_72022")
+                    || upgrade.getExternalId().equals("maintenance_crew_t_72022")
+                    || upgrade.getExternalId().equals("maintenance_crew_w_72022"))) {
+                if (null != containsUpgrade(Universe.getUniverse().getUpgrade("maintenance_crew_c_72022"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("maintenance_crew_t_72022"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("maintenance_crew_w_72022"))) {
+                    return new Explanation(msg, "This upgrade can only be added once per ship.");
+                }
             }
 
             if (!ship.isFederation()) {

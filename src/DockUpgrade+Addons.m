@@ -202,6 +202,24 @@ static NSDictionary* sItemLabels = nil;
     if ([self.externalId isEqualToString:@"aft_torpedo_launcher_t_72011"]) {
         return YES;
     }
+    if ([self.externalId isEqualToString:@"temporal_observatory_c_72005g"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"temporal_observatory_t_72005g"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"temporal_observatory_w_72005g"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"maintenance_crew_c_72022"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"maintenance_crew_t_72022"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"maintenance_crew_w_72022"]) {
+        return YES;
+    }
     return NO;
 }
 
@@ -910,6 +928,8 @@ static NSDictionary* sItemLabels = nil;
                    [upgrade isFactionBorg]) {
         } else if ([captainSpecial isEqualToString: @"lore_71522"] &&
                    [upgrade isTalent]) {
+        } else if ([captainSpecial isEqualToString: @"NoPenaltyOnTalent"] &&
+                   [upgrade isTalent]) {
         } else if ([externalId isEqualToString: @"elim_garak_71786"]) {
         } else if ([upgradeSpecial isEqualToString: @"add_one_tech_no_faction_penalty_on_vulcan"] && [ship isVulcan]) {
         } else if ([fleetCaptainOnThisShip isIndependent] && [ship isIndependent] && [upgrade isCaptain]) {
@@ -994,6 +1014,9 @@ static NSDictionary* sItemLabels = nil;
     if ([special isEqualToString:@"AddTwoWeaponSlotsAndNoMoreThanOnePerShip"]) {
         return 2;
     }
+    if ([externalId isEqualToString:@"maintenance_crew_w_72022"]) {
+        return 1;
+    }
     return 0;
 }
 
@@ -1029,6 +1052,9 @@ static NSDictionary* sItemLabels = nil;
     if ([special isEqualToString:@"Add3FedTech4Less"]) {
         return 3;
     }
+    if ([externalId isEqualToString:@"maintenance_crew_t_72022"]) {
+        return 1;
+    }
     return 0;
 }
 
@@ -1054,6 +1080,15 @@ static NSDictionary* sItemLabels = nil;
     }
     if ([externalId isEqualToString:@"cargo_hold_20_72013"]) {
         return 2;
+    }
+    if ([externalId isEqualToString:@"maintenance_crew_c_72022"]) {
+        return 2;
+    }
+    if ([externalId isEqualToString:@"maintenance_crew_t_72022"]) {
+        return 1;
+    }
+    if ([externalId isEqualToString:@"maintenance_crew_w_72022"]) {
+        return 1;
     }
     return 0;
 }
