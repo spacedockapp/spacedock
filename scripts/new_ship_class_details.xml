@@ -1,16 +1,16 @@
   <ShipClassDetail>
-    <Name>Scorpion Class Attack Squadron</Name>
-    <Id>scorpion_class_attack_squadron</Id>
+    <Name>Xindi Reptilian Warship</Name>
+    <Id>xindi_reptilian_warship</Id>
     <Maneuvers>
+      <Maneuver speed="4" kind="straight" color="white" />
       <Maneuver speed="3" kind="left-turn" color="red" />
       <Maneuver speed="3" kind="left-bank" color="white" />
-      <Maneuver speed="3" kind="straight" color="white" />
       <Maneuver speed="3" kind="about" color="red" />
+      <Maneuver speed="3" kind="straight" color="white" />
       <Maneuver speed="3" kind="right-bank" color="white" />
       <Maneuver speed="3" kind="right-turn" color="red" />
       <Maneuver speed="2" kind="left-turn" color="white" />
       <Maneuver speed="2" kind="left-bank" color="white" />
-      <Maneuver speed="2" kind="about" color="white" />
       <Maneuver speed="2" kind="straight" color="green" />
       <Maneuver speed="2" kind="right-bank" color="white" />
       <Maneuver speed="2" kind="right-turn" color="white" />
@@ -22,11 +22,25 @@
     <RearArc></RearArc>
   </ShipClassDetail>
   <ShipClassDetail>
-    <Name>Scorpion Class Attack Squadron</Name>
-    <Id>scorpion_class_attack_squadron</Id>
+    <Name>Cardassian ATR-4107</Name>
+    <Id>cardassian_atr_4107</Id>
     <Maneuvers>
-
+      <Maneuver speed="5" kind="straight" color="white" />
+      <Maneuver speed="4" kind="straight" color="white" />
+      <Maneuver speed="3" kind="left-turn" color="red" />
+      <Maneuver speed="3" kind="left-bank" color="white" />
+      <Maneuver speed="3" kind="straight" color="white" />
+      <Maneuver speed="3" kind="right-bank" color="white" />
+      <Maneuver speed="3" kind="right-turn" color="red" />
+      <Maneuver speed="2" kind="left-turn" color="red" />
+      <Maneuver speed="2" kind="left-bank" color="white" />
+      <Maneuver speed="2" kind="straight" color="green" />
+      <Maneuver speed="2" kind="right-bank" color="white" />
+      <Maneuver speed="2" kind="right-turn" color="red" />
+      <Maneuver speed="1" kind="left-bank" color="green" />
+      <Maneuver speed="1" kind="straight" color="green" />
+      <Maneuver speed="1" kind="right-bank" color="green" />
     </Maneuvers>
-    <FrontArc>90</FrontArc>
+    <FrontArc>180</FrontArc>
     <RearArc></RearArc>
   </ShipClassDetail>

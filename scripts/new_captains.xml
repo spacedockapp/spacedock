@@ -1,0 +1,32 @@
+  <Captain>
+    <Title>Kolo</Title>
+    <Ability>When a friendly ship within Range 1 of your ship is defending, during the Declare Target step, your ship may become the target of the attack instead of the friendly ship. Treat the attack as though your ship were the same Range as the friendly ship.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>5</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Xindi</Faction>
+    <Cost>3</Cost>
+    <Id>kolo_72005p</Id>
+    <Set>72005p</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Vosk</Title>
+    <Ability>Vosk does not pay a faction penalty when fielding an [ELITE TALENT] Upgrade. Once per game, when an opposing Upgrade causes one of your Upgrades to be discarded, you may place 3 Time Tokens on that card instead.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>7</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Mirror Universe</Faction>
+    <Cost>4</Cost>
+    <Id>vosk_72005g</Id>
+    <Set>72005g</Set>
+    <Special>NoPenaltyOnTalent</Special>
+  </Captain>

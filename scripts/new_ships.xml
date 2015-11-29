@@ -1,59 +1,118 @@
   <Ship>
-    <Title>Romulan Attack Fighters</Title>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Scorpion Class Attack Squadron</ShipClass>
-    <Faction>Romulan</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>3</Attack>
-    <Agility>0</Agility>
-    <Hull>1</Hull>
-    <Shield>1</Shield>
-    <Ability>ATTACK SQUADRON TOKENS: 4</Ability>
-    <Cost>20</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>0</Cloak>
-    <SensorEcho>0</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>0</Tech>
-    <Weapon>0</Weapon>
-    <Crew>0</Crew>
-    <SquadronUpgrade>2</SquadronUpgrade>
-    <Has360Arc>N</Has360Arc>
-    <Id>romulan_attack_fighters_72019</Id>
-    <Set>72019</Set>
-  </Ship>
-  <Ship>
-    <Title>Scorpion 4</Title>
+    <Title>Xindus</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Scorpion Class Attack Squadron</ShipClass>
-    <Faction>Romulan</Faction>
+    <ShipClass>Xindi Reptilian Warship</ShipClass>
+    <Faction>Xindi</Faction>
     <AdditionalFaction></AdditionalFaction>
     <Attack>4</Attack>
-    <Agility>0</Agility>
-    <Hull>1</Hull>
-    <Shield>1</Shield>
-    <Ability>ATTACK SQUADRON TOKENS: 5
-If you attack during a round in which you performed a Come About Maneuver, during the Modify Attack Dice step, you may re-roll all of your blank results.</Ability>
-    <Cost>24</Cost>
+    <Agility>1</Agility>
+    <Hull>4</Hull>
+    <Shield>2</Shield>
+    <Ability>When firing a Photon Torpedo Upgrade, place 1 less Time Token on that Upgrade.</Ability>
+    <Cost>22</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>1</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>1</Tech>
+    <Weapon>2</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>xindus_72005p</Id>
+    <Set>72005p</Set>
+  </Ship>
+  <Ship>
+    <Title>Xindi Starship</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Xindi Reptilian Warship</ShipClass>
+    <Faction>Xindi</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>4</Attack>
+    <Agility>1</Agility>
+    <Hull>4</Hull>
+    <Shield>1</Shield>
+    <Ability></Ability>
+    <Cost>20</Cost>
+    <EvasiveManeuvers>0</EvasiveManeuvers>
+    <TargetLock>0</TargetLock>
     <Scan>0</Scan>
     <Battlestations>0</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
-    <Tech>0</Tech>
-    <Weapon>0</Weapon>
-    <Crew>0</Crew>
-    <SquadronUpgrade>3</SquadronUpgrade>
+    <Tech>1</Tech>
+    <Weapon>1</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>scorpion_4_72019</Id>
-    <Set>72019</Set>
+    <Id>xindi_starship_72005p</Id>
+    <Set>72005p</Set>
+  </Ship>
+  <Ship>
+    <Title>Dominion Starship</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Cardassian ATR-4107</ShipClass>
+    <Faction>Dominion</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>6</Attack>
+    <Agility>0</Agility>
+    <Hull>4</Hull>
+    <Shield>4</Shield>
+    <Ability>You cannot assign a Captain or an Admiral to this ship.</Ability>
+    <Cost>28</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>0</Tech>
+    <Weapon>3</Weapon>
+    <Crew>0</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <CaptainLimit>0</CaptainLimit>
+    <Has360Arc>N</Has360Arc>
+    <Id>dominion_starship_72022</Id>
+    <Set>72022</Set>
+  </Ship>
+  <Ship>
+    <Title>Dreadnaught</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Cardassian ATR-4107</ShipClass>
+    <Faction>Dominion</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>6</Attack>
+    <Agility>0</Agility>
+    <Hull>4</Hull>
+    <Shield>5</Shield>
+    <Ability>You cannot assign a Captain or an Admiral to this ship.  When defending, during the Compare Results step, you may discard up to 2 of your Upgrades to cancel an equal number of the attacking ship's dice.</Ability>
+    <Cost>30</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>1</Tech>
+    <Weapon>3</Weapon>
+    <Crew>0</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <CaptainLimit>0</CaptainLimit>
+    <Has360Arc>N</Has360Arc>
+    <Id>dreadnaught_72022</Id>
+    <Set>72022</Set>
   </Ship>

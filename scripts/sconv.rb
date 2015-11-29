@@ -45,8 +45,10 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-11/3/2015 13:45:35	72019 - Scorpion 4	Non-unique	Romulan Attack Fighters	Romulan	Scorpion Class Attack Squadron		1 Forward, 1 Bank, 2 Forward	2 Bank, 2 Turn, 2 Come About, 3 Forward, 3 Bank	3 Turn, 3 Come About	3	0	1	1	ATTACK SQUADRON TOKENS: 4	Evasive, Target Lock	20	0	0	0	0	90-degree forward		2
-11/3/2015 13:47:07	72019 - Scorpion 4	Unique	Scorpion 4	Romulan	Scorpion Class Attack Squadron	Scorpion Class Attack Squadron				4	0	1	1	ATTACK SQUADRON TOKENS: 5  If you attack during a round in which you performed a Come About Maneuver, during the Modify Attack Dice step, you may re-roll all of your blank results.	Evasive, Target Lock	24	0	0	0	0	90-degree forward		3
+11/13/2015 11:38:25	72005p - Xindus	Unique	Xindus	Xindi	Xindi Reptilian Warship		1 Bank, 1 Forward, 2 Forward	2 Turn, 2 Bank, 3 Bank, 3 Forward, 4 Forward	3 Turn, 3 Come About	4	1	4	2	When firing a Photon Torpedo Upgrade, place 1 less Time Token on that Upgrade.	Battle Stations, Evasive, Scan, Target Lock	22	0	1	1	2	90-degree forward		0
+11/13/2015 11:39:21	72005p - Xindus	Non-unique	Xindi Starship	Xindi	Xindi Reptilian Warship	Xindi Reptilian Warship				4	1	4	1			20	0	1	1	1	90-degree forward		0
+11/20/2015 10:10:00	72022 - Dreadnaught	Non-unique	Dominion Starship	Dominion	Cardassian ATR-4107		1 Bank, 1 Forward, 2 Forward	2 Bank, 3 Bank, 3 Forward, 4 Forward, 5 Forward	2 Turn, 3 Turn	6	0	4	4	You cannot assign a Captain or an Admiral to this ship.	Evasive, Scan, Target Lock	28	0	0	0	3	180-degree forward	Yes	0
+11/20/2015 10:11:59	72022 - Dreadnaught	Unique	Dreadnaught	Dominion	Cardassian ATR-4107	Cardassian ATR-4107				6	0	4	5	You cannot assign a Captain or an Admiral to this ship.  When defending, during the Compare Results step, you may discard up to 2 of your Upgrades to cancel an equal number of the attacking ship's dice.	Evasive, Scan, Target Lock	30	0	0	1	3	180-degree forward	Yes	0
 SHIPTEXT
 
 
