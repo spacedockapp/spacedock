@@ -789,6 +789,24 @@ public class EquippedShip extends EquippedShipBase {
         if ("NoMoreThanOnePerShip".equals(upgradeSpecial) || "OnlyBorgShipAndNoMoreThanOnePerShip".equals(upgradeSpecial) || upgradeSpecial.endsWith("NoMoreThanOnePerShip") || upgradeSpecial.startsWith("NoMoreThanOnePerShip") || upgradeSpecial.startsWith("OPSOnlyShipClass")  || upgradeSpecial.startsWith("OPSPlus")) {
             if (addingNew && null != containsUpgrade(upgrade)) {
                 return new Explanation(msg, "This upgrade can only be added once per ship.");
+            } else if (addingNew && (upgrade.getExternalId().equals("unremarkable_species_72018")
+                    || upgrade.getExternalId().equals("unremarkable_species_c_72018")
+                    || upgrade.getExternalId().equals("unremarkable_species_t_72018")
+                    || upgrade.getExternalId().equals("unremarkable_species_w_72018"))) {
+                if (null != containsUpgrade(Universe.getUniverse().getUpgrade("unremarkable_species_72018"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("unremarkable_species_c_72018"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("unremarkable_species_t_72018"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("unremarkable_species_w_72018"))) {
+                    return new Explanation(msg, "This upgrade can only be added once per ship.");
+                }
+            } else if (addingNew && (upgrade.getExternalId().equals("maintenance_crew_c_72022")
+                    || upgrade.getExternalId().equals("maintenance_crew_t_72022")
+                    || upgrade.getExternalId().equals("maintenance_crew_w_72022"))) {
+                if (null != containsUpgrade(Universe.getUniverse().getUpgrade("maintenance_crew_c_72022"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("maintenance_crew_t_72022"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("maintenance_crew_w_72022"))) {
+                    return new Explanation(msg, "This upgrade can only be added once per ship.");
+                }
             }
         }
         if ("NoMoreThanOnePerShipBajoran".equals(upgradeSpecial)) {
@@ -832,24 +850,6 @@ public class EquippedShip extends EquippedShipBase {
                 if (null != containsUpgrade(Universe.getUniverse().getUpgrade("systems_upgrade_71998p"))
                         || null != containsUpgrade(Universe.getUniverse().getUpgrade("systems_upgrade_c_71998p"))
                         || null != containsUpgrade(Universe.getUniverse().getUpgrade("systems_upgrade_w_71998p"))) {
-                    return new Explanation(msg, "This upgrade can only be added once per ship.");
-                }
-            } else if (addingNew && (upgrade.getExternalId().equals("unremarkable_species_72018")
-                    || upgrade.getExternalId().equals("unremarkable_species_c_72018")
-                    || upgrade.getExternalId().equals("unremarkable_species_t_72018")
-                    || upgrade.getExternalId().equals("unremarkable_species_w_72018"))) {
-                if (null != containsUpgrade(Universe.getUniverse().getUpgrade("unremarkable_species_72018"))
-                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("unremarkable_species_c_72018"))
-                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("unremarkable_species_t_72018"))
-                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("unremarkable_species_w_72018"))) {
-                    return new Explanation(msg, "This upgrade can only be added once per ship.");
-                }
-            } else if (addingNew && (upgrade.getExternalId().equals("maintenance_crew_c_72022")
-                    || upgrade.getExternalId().equals("maintenance_crew_t_72022")
-                    || upgrade.getExternalId().equals("maintenance_crew_w_72022"))) {
-                if (null != containsUpgrade(Universe.getUniverse().getUpgrade("maintenance_crew_c_72022"))
-                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("maintenance_crew_t_72022"))
-                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("maintenance_crew_w_72022"))) {
                     return new Explanation(msg, "This upgrade can only be added once per ship.");
                 }
             }

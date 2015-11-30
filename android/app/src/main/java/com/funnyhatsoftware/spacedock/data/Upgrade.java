@@ -684,7 +684,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 // do nothing
             } else if (upgradeSpecial.equals("no_faction_penalty_on_vulcan")) {
                 // do nothing
-            } else if (captain.getExternalId().equals("k_temoc_72009")) {
+            } else if (captain != null && captain.getExternalId().equals("k_temoc_72009")) {
                 if (!isAdmiral()) {
                     cost += 2;
                 }
