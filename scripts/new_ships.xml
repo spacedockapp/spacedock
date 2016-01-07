@@ -1,15 +1,15 @@
   <Ship>
-    <Title>Xindus</Title>
+    <Title>Robinson</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Xindi Reptilian Warship</ShipClass>
-    <Faction>Xindi</Faction>
+    <ShipClass>Jem'Hadar Attack Ship</ShipClass>
+    <Faction>Federation</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>1</Agility>
-    <Hull>4</Hull>
-    <Shield>2</Shield>
-    <Ability>When firing a Photon Torpedo Upgrade, place 1 less Time Token on that Upgrade.</Ability>
+    <Attack>3</Attack>
+    <Agility>2</Agility>
+    <Hull>3</Hull>
+    <Shield>3</Shield>
+    <Ability>When defending, if you are hit and you don't already have a "Warp Core Breach" critical damage card assigned to your ship, you may choose to ignore up to 3 damage being inflicted to your ship and suffer a "Warp Core Breach" critical damage instead.</Ability>
     <Cost>22</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
@@ -19,55 +19,84 @@
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
+    <Tech>0</Tech>
+    <Weapon>0</Weapon>
+    <Crew>4</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>xindus_72005p</Id>
-    <Set>72005p</Set>
+    <Id>robinson_72020</Id>
+    <Set>72020</Set>
   </Ship>
   <Ship>
-    <Title>Xindi Starship</Title>
+    <Title>Bajoran Starship</Title>
     <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Xindi Reptilian Warship</ShipClass>
-    <Faction>Xindi</Faction>
+    <ShipClass>Bajoran Lightship</ShipClass>
+    <Faction>Bajoran</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>1</Agility>
-    <Hull>4</Hull>
-    <Shield>1</Shield>
+    <Attack>1</Attack>
+    <Agility>2</Agility>
+    <Hull>3</Hull>
+    <Shield>0</Shield>
     <Ability></Ability>
-    <Cost>20</Cost>
-    <EvasiveManeuvers>0</EvasiveManeuvers>
+    <Cost>12</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>0</TargetLock>
-    <Scan>0</Scan>
+    <Scan>1</Scan>
     <Battlestations>0</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
     <Tech>1</Tech>
-    <Weapon>1</Weapon>
-    <Crew>1</Crew>
+    <Weapon>0</Weapon>
+    <Crew>0</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>xindi_starship_72005p</Id>
-    <Set>72005p</Set>
+    <Id>bajoran_starship_72021</Id>
+    <Set>72021</Set>
   </Ship>
   <Ship>
-    <Title>Dominion Starship</Title>
+    <Title>Denorios</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Bajoran Lightship</ShipClass>
+    <Faction>Bajoran</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>1</Attack>
+    <Agility>2</Agility>
+    <Hull>3</Hull>
+    <Shield>0</Shield>
+    <Ability>When defending, during the Compare Results step, you may place an Auxiliary Power Token beside your ship to cancel 1 [HIT] result.</Ability>
+    <Cost>12</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>0</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>2</Tech>
+    <Weapon>0</Weapon>
+    <Crew>0</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>denorios_72021</Id>
+    <Set>72021</Set>
+  </Ship>
+  <Ship>
+    <Title>Xindi Starship</Title>
     <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Cardassian ATR-4107</ShipClass>
-    <Faction>Dominion</Faction>
+    <ShipClass>Xindi Weapon</ShipClass>
+    <Faction>Xindi</Faction>
     <AdditionalFaction></AdditionalFaction>
     <Attack>6</Attack>
     <Agility>0</Agility>
-    <Hull>4</Hull>
-    <Shield>4</Shield>
-    <Ability>You cannot assign a Captain or an Admiral to this ship.</Ability>
+    <Hull>8</Hull>
+    <Shield>0</Shield>
+    <Ability></Ability>
     <Cost>28</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
@@ -77,42 +106,98 @@
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
-    <Tech>0</Tech>
-    <Weapon>3</Weapon>
-    <Crew>0</Crew>
+    <Tech>1</Tech>
+    <Weapon>2</Weapon>
+    <Crew>1</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
-    <CaptainLimit>0</CaptainLimit>
     <Has360Arc>N</Has360Arc>
-    <Id>dominion_starship_72022</Id>
-    <Set>72022</Set>
+    <Id>xindi_starship_72360</Id>
+    <Set>72360</Set>
   </Ship>
   <Ship>
-    <Title>Dreadnaught</Title>
+    <Title>Weapon Zero</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Cardassian ATR-4107</ShipClass>
-    <Faction>Dominion</Faction>
+    <ShipClass>Xindi Weapon</ShipClass>
+    <Faction>Xindi</Faction>
     <AdditionalFaction></AdditionalFaction>
     <Attack>6</Attack>
     <Agility>0</Agility>
-    <Hull>4</Hull>
-    <Shield>5</Shield>
-    <Ability>You cannot assign a Captain or an Admiral to this ship.  When defending, during the Compare Results step, you may discard up to 2 of your Upgrades to cancel an equal number of the attacking ship's dice.</Ability>
+    <Hull>8</Hull>
+    <Shield>0</Shield>
+    <Ability>When defending, during the Roll Defense Dice step, you may roll 1 defense die for each [HIT] or [CRIT] result rolled by the attacking ship.  If you do so, place an auxiliary Power Token beside your ship.</Ability>
     <Cost>30</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
-    <Battlestations>0</Battlestations>
+    <Battlestations>1</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
     <Tech>1</Tech>
     <Weapon>3</Weapon>
-    <Crew>0</Crew>
+    <Crew>1</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
-    <CaptainLimit>0</CaptainLimit>
     <Has360Arc>N</Has360Arc>
-    <Id>dreadnaught_72022</Id>
-    <Set>72022</Set>
+    <Id>weapon_zero_72360</Id>
+    <Set>72360</Set>
+  </Ship>
+  <Ship>
+    <Title>I.R.W. T'Met</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>D'deridex Class</ShipClass>
+    <Faction>Romulan</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>3</Attack>
+    <Agility>2</Agility>
+    <Hull>6</Hull>
+    <Shield>4</Shield>
+    <Ability>ACTION: If your ship is not Cloaked, when attacking with your Primary Weapon at Range 1 this round, gain +1 attack die and roll -1 defense die.</Ability>
+    <Cost>30</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>0</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>1</Cloak>
+    <SensorEcho>1</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>2</Tech>
+    <Weapon>2</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>i_r_w_t_met_72315p</Id>
+    <Set>72315p</Set>
+  </Ship>
+  <Ship>
+    <Title>U.S.S. Valiant</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Defiant Class</ShipClass>
+    <Faction>Federation</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>3</Attack>
+    <Agility>2</Agility>
+    <Hull>3</Hull>
+    <Shield>4</Shield>
+    <Ability>When attacking with Photon Torpedoes, during the Roll Attack Dice step, you may discard the Photon Torpedoes Upgrade to gain 1 additional attack die.</Ability>
+    <Cost>24</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>1</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>1</Tech>
+    <Weapon>1</Weapon>
+    <Crew>3</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>u_s_s_valiant_72023</Id>
+    <Set>72023</Set>
   </Ship>
