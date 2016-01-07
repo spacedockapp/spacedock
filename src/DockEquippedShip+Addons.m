@@ -694,6 +694,52 @@
         }
     }
     
+    if (![upgrade isPlaceholder] && [upgrade isTalent] && [self.captain.special isEqualToString:@"TwoBajoranTalents"]) {
+        if (self.talentCount == 2) {
+            if (![upgrade isBajoran]) {
+                return NO;
+            }
+        } else {
+            int talents = self.talentCount;
+            for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+                if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                    if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                        talents --;
+                    }
+                }
+            }
+            if (talents <= 2 && ![upgrade isBajoran]) {
+                return NO;
+            } else if (talents < 1 && ![upgrade isBajoran]) {
+                return NO;
+            }
+        }
+    }
+    
+    if (![upgrade isPlaceholder] && [upgrade isTalent] && [self.captain.special isEqualToString:@"OneRomulanTalentDiscIfFleetHasRomulan"]) {
+        if (self.talentCount == 1) {
+            if (![upgrade isRomulan]) {
+                return NO;
+            }
+        } else {
+            int talents = self.talentCount;
+            for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+                if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                    if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                        talents --;
+                    }
+                }
+            }
+            if (talents == 1 && ![upgrade isRomulan]) {
+                if ([self upgradesWithSpecialTag:@"DiscRomTalent"].count == 0 && validating) {
+                    return NO;
+                }
+            } else if (talents < 1 && ![upgrade isRomulan]) {
+                return NO;
+            }
+        }
+    }
+    
     if (!upgrade.isPlaceholder && [upgrade isTech] && [self.captain.externalId isEqualToString:@"tahna_los_op6prize"]) {
         int tech = self.techCount;
         
@@ -890,6 +936,12 @@
 
     if ([upgradeSpecial isEqualToString: @"OnlyBajoranCaptain"]) {
         if (![self.captain isBajoran]) {
+            return NO;
+        }
+    }
+    
+    if ([upgradeSpecial isEqualToString: @"OnlyBajoranCaptainShip"]) {
+        if (![self.captain isBajoran] || ![self.ship isBajoran]) {
             return NO;
         }
     }
@@ -1445,6 +1497,8 @@
                 info = @"You may only deploy this upgrade to a Bajoran Interceptor";
             } else if ([upgradeSpecial isEqualToString:@"NoMoreThanOnePerShipBajoranScout"]) {
                 info = @"You may only deploy this upgrade to a Bajoran Scout Ship";
+            } else if ([upgradeSpecial isEqualToString:@"OnlyBajoranCaptainShip"]) {
+                info = @"You may only deploy this upgrade to a Bajoran Captain assigned to a Bajoran Ship";
             }
         }
     }
@@ -1687,6 +1741,22 @@
                 }
                 equippedUpgrade.specialTag = @"SakhovBonus";
                 [equippedUpgrade overrideWithCost:cost];
+            }
+        }
+        if ([upgrade isTalent] && [upgrade isRomulan] && [self.captain.special isEqualToString:@"OneRomulanTalentDiscIfFleetHasRomulan"]) {
+            if ([self upgradesWithSpecialTag:@"DiscRomTalent"].count == 0) {
+                BOOL rom = NO;
+                for (DockEquippedShip* es in [self.squad equippedShips]) {
+                    if (es != self) {
+                        if ([es.ship isRomulan]) {
+                            rom = YES;
+                        }
+                    }
+                }
+                if (rom) {
+                    equippedUpgrade.specialTag = @"DiscRomTalent";
+                    [equippedUpgrade overrideWithCost:equippedUpgrade.cost - 1];
+                }
             }
         }
     }
@@ -1969,6 +2039,22 @@
     }
     if ([self.captain.externalId isEqualToString:@"slar_71797"] || [self.captain.externalId isEqualToString:@"kurn_71999p"] || [self.captain.externalId isEqualToString:@"brunt_72013"] || [self.captain.externalId isEqualToString:@"lovok_72221a"] || [self.captain.externalId isEqualToString:@"telek_r_mor_72016"]) {
         talentCount ++;
+    }
+    if ([self.captain.special isEqualToString:@"OneRomulanTalentDiscIfFleetHasRomulan"]) {
+        BOOL rom = NO;
+        for (DockEquippedShip* es in [self.squad equippedShips]) {
+            if (es != self) {
+                if ([es.ship isRomulan]) {
+                    rom = YES;
+                }
+            }
+        }
+        if (rom) {
+            talentCount ++;
+        }
+    }
+    if ([self.captain.special isEqualToString:@"TwoBajoranTalents"]) {
+        talentCount += 2;
     }
     return talentCount;
 
