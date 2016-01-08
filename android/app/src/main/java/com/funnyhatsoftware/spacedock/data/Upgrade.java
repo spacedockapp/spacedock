@@ -241,6 +241,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         return DataUtils.targetHasFaction(Constants.KAZON, this);
     }
 
+    public boolean isBajoran() {
+        return DataUtils.targetHasFaction(Constants.BAJORAN, this);
+    }
+
     public boolean isMirrorUniverse() {
         return DataUtils.targetHasFaction(Constants.MIRROR_UNIVERSE, this);
     }

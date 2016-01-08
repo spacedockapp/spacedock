@@ -490,7 +490,10 @@ public class DataLoader extends DefaultHandler {
                 "Add3FedTech4Less",
                 "TechUpgradesCostOneLess",
                 "Plus5NotKazonNoMoreThanOnePerShip",
-                "NoPenaltyOnTalent"
+                "NoPenaltyOnTalent",
+                "OneRomulanTalentDiscIfFleetHasRomulan",
+                "OnlyBajoranCaptainShip",
+                "TwoBajoranTalents"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);

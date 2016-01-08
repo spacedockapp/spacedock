@@ -374,6 +374,26 @@ public class EquippedShip extends EquippedShipBase {
         if (getCaptain() != null && getCaptain().isKazon() && getShip().isKazon()) {
             v += 1;
         }
+        if (getCaptain() != null && getCaptain().getSpecial().equals("TwoBajoranTalents")) {
+            v += 2;
+        }
+        if (getCaptain() != null && getCaptain().getSpecial().equals("OneRomulanTalentDiscIfFleetHasRomulan")) {
+            if (mSquad != null) {
+                ArrayList<EquippedShip> ships = mSquad.getEquippedShips();
+                boolean rom = false;
+                for (EquippedShip ship : ships) {
+                    if (ship != this) {
+                        if (ship.getShip().isRomulan()) {
+                            rom = true;
+                        }
+                    }
+                }
+                if (rom) {
+                    v += 1;
+                }
+            }
+        }
+
         return v;
     }
 
@@ -776,6 +796,11 @@ public class EquippedShip extends EquippedShipBase {
                 return new Explanation(msg, "This upgrade can only be added to a Bajoran ship.");
             }
         }
+        if ("OnlyBajoranShip".equals(upgradeSpecial)) {
+            if (!ship.isBajoran() || !getCaptain().isBajoran()) {
+                return new Explanation(msg, "This upgrade can only be added to a Bajoran Captain assigned to a Bajoran ship.");
+            }
+        }
         if ("OnlyBajoranFederation".equals(upgradeSpecial)) {
             if (!ship.isBajoran() && !ship.isFederation()) {
                 return new Explanation(msg, "This upgrade can only be added to a Bajoran or Federation ship.");
@@ -1126,6 +1151,48 @@ public class EquippedShip extends EquippedShipBase {
                             if (addingNew && !upgrade.getTitle().equals("Secret Research")) {
                                 return new Explanation(msg,
                                         "Telek R'Mor may only field the Secret Research [TALENT] Upgrade");
+                            }
+                        }
+                    }
+                }
+                if (getCaptain() != null && getCaptain().getSpecial().equals("OneRomulanTalentDiscIfFleetHasRomulan")) {
+                    int limit = getTalent();
+                    if (limit == 1) {
+                        if (!upgrade.isRomulan()) {
+                            return new Explanation(msg,
+                                    getCaptain().getTitle() + " may only field a Romulan [TALENT] Upgrade");
+                        }
+                    } else {
+                        for (EquippedUpgrade eu : mUpgrades) {
+                            if (!eu.isPlaceholder() && eu.getUpgrade().isTalent()) {
+                                limit--;
+                            }
+                        }
+                        if (limit <= 1 && !upgrade.isRomulan()) {
+                            if (addingNew && !upgrade.isRomulan()) {
+                                return new Explanation(msg,
+                                        getCaptain().getTitle() + " may only field a Romulan [TALENT] Upgrade");
+                            }
+                        }
+                    }
+                }
+                if (getCaptain() != null && getCaptain().getSpecial().equals("TwoBajoranTalents")) {
+                    int limit = getTalent();
+                    if (limit == 2) {
+                        if (!upgrade.isBajoran()) {
+                            return new Explanation(msg,
+                                    getCaptain().getTitle() + " may only field the Bajoran [TALENT] Upgrades");
+                        }
+                    } else {
+                        for (EquippedUpgrade eu : mUpgrades) {
+                            if (!eu.isPlaceholder() && eu.getUpgrade().isTalent()) {
+                                limit--;
+                            }
+                        }
+                        if (limit <= 2) {
+                            if (addingNew && !upgrade.isBajoran()) {
+                                return new Explanation(msg,
+                                        getCaptain().getTitle() + " may only field the Bajoran [TALENT] Upgrades");
                             }
                         }
                     }
@@ -1632,6 +1699,33 @@ public class EquippedShip extends EquippedShipBase {
                     newEu.setOverridden(true);
                     newEu.setOverriddenCost(0);
                     newEu.setSpecialTag("fed3_tech_" + Integer.toString(tech + 1));
+                }
+            }
+        }
+
+        if (upgrade.isTalent() && upgrade.isRomulan() && getCaptain() != null && getCaptain().getSpecial().equals("OneRomulanTalentDiscIfFleetHasRomulan")) {
+            boolean discApplied = false;
+
+            for (EquippedUpgrade eu : this.mUpgrades) {
+                if (eu.getSpecialTag() != null && eu.getSpecialTag().equals("DiscRomTalent")) {
+                    discApplied = true;
+                }
+            }
+            if (!discApplied) {
+                ArrayList<EquippedShip> ships = getSquad().getEquippedShips();
+                boolean rom = false;
+                for (EquippedShip ship : ships) {
+                    if (ship != this) {
+                        if (ship.getShip().isRomulan()) {
+                            rom = true;
+                        }
+                    }
+                }
+                if (rom) {
+                    int cost = newEu.getUpgrade().calculateCostForShip(this,newEu) - 1;
+                    newEu.setOverridden(true);
+                    newEu.setOverriddenCost(cost);
+                    newEu.setSpecialTag("DiscRomTalent");
                 }
             }
         }

@@ -152,6 +152,11 @@ public class Squad extends SquadBase {
         }
 
         JSONArray ships = jsonObject.getJSONArray(JSON_LABEL_SHIPS);
+
+        boolean hasRomulanShip = false;
+        EquippedShip shipWithTebok = null;
+        JSONObject shipWithTebokData = null;
+
         for (int i = 0; i < ships.length(); ++i) {
             JSONObject shipData = ships.getJSONObject(i);
             boolean shipIsSideboard = shipData.optBoolean(JSON_LABEL_SIDEBOARD);
@@ -168,9 +173,46 @@ public class Squad extends SquadBase {
                 }
             }
             if (currentShip != null && !currentShip.isFighterSquadron()) {
-                currentShip.importUpgrades(universe, shipData, strict);
-                if (!shipIsSideboard) {
-                    addEquippedShip(currentShip);
+                if (!hasRomulanShip) {
+                    JSONObject captainObject = shipData
+                            .optJSONObject(JSONLabels.JSON_LABEL_CAPTAIN);
+                    if (captainObject != null && !shipIsSideboard) {
+                        String captainId = captainObject
+                                .optString(JSONLabels.JSON_LABEL_UPGRADE_ID);
+                        Captain captain = universe.getCaptain(captainId);
+                        if (!captain.getSpecial().equals("OneRomulanTalentDiscIfFleetHasRomulan")) {
+                            if (currentShip.getShip().isRomulan()) {
+                                hasRomulanShip = true;
+                            }
+                        } else {
+                            shipWithTebok = currentShip;
+                            shipWithTebokData = shipData;
+                        }
+                    }
+                }
+                if (shipWithTebok != null && shipWithTebok == currentShip && i < (ships.length() - 1)) {
+                    if (hasRomulanShip) {
+                        addEquippedShip(shipWithTebok);
+                        shipWithTebok.importUpgrades(universe, shipWithTebokData, strict);
+                        shipWithTebok = null;
+                        shipWithTebokData = null;
+                    }
+                } else {
+                    if (!shipIsSideboard) {
+                        addEquippedShip(currentShip);
+                    }
+                    currentShip.importUpgrades(universe, shipData, strict);
+                }
+                if (shipWithTebok != null && shipWithTebok != currentShip) {
+                    if (hasRomulanShip) {
+                        addEquippedShip(shipWithTebok);
+                        shipWithTebok.importUpgrades(universe, shipWithTebokData, strict);
+                        shipWithTebok = null;
+                        shipWithTebokData = null;
+                    } else if (i == (ships.length() - 1)) {
+                        addEquippedShip(shipWithTebok);
+                        shipWithTebok.importUpgrades(universe, shipWithTebokData, strict);
+                    }
                 }
             }
         }

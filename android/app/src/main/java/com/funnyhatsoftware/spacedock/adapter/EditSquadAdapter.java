@@ -453,7 +453,7 @@ public class EditSquadAdapter extends BaseExpandableListAdapter implements
             currentEquipmentId = (fleetCaptain == null) ? null : fleetCaptain.getExternalId();
         } else {
             EquippedUpgrade equippedUpgrade = getEquippedUpgrade(groupPosition, slotType, slotNumber);
-            currentEquipmentId = equippedUpgrade.getUpgrade().getExternalId();
+            currentEquipmentId = (equippedUpgrade == null) ? null : equippedUpgrade.getUpgrade().getExternalId();
         }
 
         // Make upgrades with faction == ship faction most visible
