@@ -1,80 +1,32 @@
   <Captain>
-    <Title>Benjamin Sisko</Title>
-    <Ability>Each time your ship suffers 1 or more damage to its Hull, you may roll 1 attack die. A [HIT] or a [CRIT] damages the attacking ship as normal. If the result is a [BATTLESTATIONS] result, place a [BATTLESTATIONS] Token beside your ship. If you choose to roll this die, place an Auxiliary Power Token beside your ship.</Ability>
-    <Unique>Y</Unique>
+    <Title>Andorian</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>8</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>5</Cost>
-    <Id>benjamin_sisko_72020</Id>
-    <Set>72020</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Akorem Laan</Title>
-    <Ability>Akorem Laan can field up to 2 Bajoran [ELITE TALENT] Upgrades.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>2</Skill>
+    <Skill>1</Skill>
     <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Bajoran</Faction>
-    <Cost>1</Cost>
-    <Id>akorem_laan_72021</Id>
-    <Set>72021</Set>
-    <Special>TwoBajoranTalents</Special>
-  </Captain>
-  <Captain>
-    <Title>Dolim</Title>
-    <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Discard 1 [CREW] Upgrade on the target ship. Your ship has a Captain Skill of 1 until the End Phase this round.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>8</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Xindi</Faction>
-    <Cost>5</Cost>
-    <Id>dolim_72360</Id>
-    <Set>72360</Set>
+    <Faction>Independent</Faction>
+    <Cost>0</Cost>
+    <Id>andorian_72025</Id>
+    <Set>72025</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Tebok</Title>
-    <Ability>During the Gather Forces step, if there is at least one other Romulan ship in your starting fleet, Tebok may field 1 Romulan [TALENT] Upgrade at a cost of -1 SP.</Ability>
+    <Title>Thy'lek Shran</Title>
+    <Ability>Whenever you perform an [EVADE] or [SCAN] Action, you may target a friendly ship within Range 1 of your ship. If you do so, place a Token of the same type beside the target ship and an Auxiliary Power Token beside your ship.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>3</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Romulan</Faction>
-    <Cost>2</Cost>
-    <Id>tebok_72315p</Id>
-    <Set>72315p</Set>
-    <Special>OneRomulanTalentDiscIfFleetHasRomulan</Special>
-  </Captain>
-  <Captain>
-    <Title>Tim Watters</Title>
-    <Ability>Add 1 [CREW] Upgrade slot to your Upgrade Bar. ACTION: Remove all Disabled Upgrade Tokens from all of your [CREW] Upgrades.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>4</Skill>
+    <Skill>6</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>3</Cost>
-    <Id>tim_watters_72023</Id>
-    <Set>72023</Set>
+    <Faction>Independent</Faction>
+    <Cost>4</Cost>
+    <Id>thy_lek_shran_72025</Id>
+    <Set>72025</Set>
     <Special></Special>
   </Captain>

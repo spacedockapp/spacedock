@@ -1,4 +1,4 @@
-<Data version="2016-01-07@01-14">
+<Data version="2016-01-08@18-20">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1816,6 +1816,15 @@
           <Maneuver speed="1" kind="straight" color="green" />
           <Maneuver speed="1" kind="right-bank" color="green" />
           <Maneuver speed="-1" kind="straight" color="red" />
+      </Maneuvers>
+      <FrontArc>90</FrontArc>
+      <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+      <Name>Andorian Battle Cruiser</Name>
+      <Id>andorian_battle_cruiser</Id>
+      <Maneuvers>
+          
       </Maneuvers>
       <FrontArc>90</FrontArc>
       <RearArc></RearArc>
@@ -8128,6 +8137,64 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
         <Id>u_s_s_valiant_72023</Id>
         <Set>72023</Set>
     </Ship>
+    <Ship>
+        <Title>Andorian Starship</Title>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Andorian Battle Cruiser</ShipClass>
+        <Faction>Independent</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>3</Attack>
+        <Agility>1</Agility>
+        <Hull>4</Hull>
+        <Shield>2</Shield>
+        <Ability></Ability>
+        <Cost>20</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>1</Scan>
+        <Battlestations>1</Battlestations>
+        <Cloak>0</Cloak>
+        <SensorEcho>0</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>1</Tech>
+        <Weapon>1</Weapon>
+        <Crew>1</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>andorian_starship_72025</Id>
+        <Set>72025</Set>
+    </Ship>
+    <Ship>
+        <Title>Kumari</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Andorian Battle Cruiser</ShipClass>
+        <Faction>Independent</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>3</Attack>
+        <Agility>1</Agility>
+        <Hull>4</Hull>
+        <Shield>3</Shield>
+        <Ability>You may perform an [EVADE] or a [SCAN] Action while there is an Auxiliary Power Token beside your ship.</Ability>
+        <Cost>22</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>1</Scan>
+        <Battlestations>1</Battlestations>
+        <Cloak>0</Cloak>
+        <SensorEcho>0</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>1</Tech>
+        <Weapon>2</Weapon>
+        <Crew>1</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>kumari_72025</Id>
+        <Set>72025</Set>
+    </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -11851,6 +11918,38 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Cost>3</Cost>
       <Id>tim_watters_72023</Id>
       <Set>72023</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Andorian</Title>
+      <Ability></Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>1</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Independent</Faction>
+      <Cost>0</Cost>
+      <Id>andorian_72025</Id>
+      <Set>72025</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Thy'lek Shran</Title>
+      <Ability>Whenever you perform an [EVADE] or [SCAN] Action, you may target a friendly ship within Range 1 of your ship. If you do so, place a Token of the same type beside the target ship and an Auxiliary Power Token beside your ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Independent</Faction>
+      <Cost>4</Cost>
+      <Id>thy_lek_shran_72025</Id>
+      <Set>72025</Set>
       <Special></Special>
   </Captain>
   </Captains>
@@ -24007,6 +24106,102 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>72315p</Set>
         <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Talas</Title>
+        <Ability>When a friendly ship within Range 1 of your ship is declared the target of an attack, you may discard this card to target that ship. If you do so, the target ship may spend your [EVADE] or [BATTLESTATIONS] Tokens as if it were beside that ship during this attack.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Independent</Faction>
+        <Cost>3</Cost>
+        <Id>talas_72025</Id>
+        <Set>72025</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Tractor Beam</Title>
+        <Ability>ACTION: Discard this card to target a friendly ship within Range 1. That ship performs an additional green maneuver with a speed of 1. The target ship rolls +1 defense die this round.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Independent</Faction>
+        <Cost>4</Cost>
+        <Id>tractor_beam_72025</Id>
+        <Set>72025</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Long Range Sensors</Title>
+        <Ability>When defending, if there is a [SCAN] Token beside your ship, during the Roll Defense Dice step, you may disable this card to roll +1 defense die for that attack.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Independent</Faction>
+        <Cost>3</Cost>
+        <Id>long_range_sensors_72025</Id>
+        <Set>72025</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Diversion</Title>
+        <Ability>When an opposing ship declares an attack against a friendly ship that is within Range 1 of your ship, if you are also in the attacking ship's forward firing arc, you may discard this card to force the attacking ship to make its attack against your ship instead. The attack is made at -2 attack dice.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Independent</Faction>
+        <Cost>5</Cost>
+        <Id>diversion_72025</Id>
+        <Set>72025</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Advanced Weaponry</Title>
+        <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. If you inflict a critical damage, you may search the damage deck and choose either a "Weapons Malfunction" or "Munitions Failure" critical damage card, then reshuffle the deck. You may only fire this weapon from your forward firing arc.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>5</Attack>
+        <Range>1-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Independent</Faction>
+        <Cost>5</Cost>
+        <Id>advanced_weaponry_72025</Id>
+        <Set>72025</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Particle Cannon Array</Title>
+        <Ability>ATTACK: Place 2 Time Tokens on this card to perform this attack. You may only fire this weapon from your forward firing arc.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>4</Attack>
+        <Range>1-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Independent</Faction>
+        <Cost>3</Cost>
+        <Id>particle_cannon_array_72025</Id>
+        <Set>72025</Set>
+        <Special></Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -24676,7 +24871,8 @@ If the ship performing this Action does not have the Action listed on its Action
       <Set id="72005g" overallSetName="Temporal Cold War" releaseDate="2015-12-15">Temporal Cold War Cards</Set>
       <Set id="72315p" overallSetName="The Void" releaseDate="2016-01-15">I.R.W. T'Met</Set>
       <Set id="72315r" overallSetName="The Void" releaseDate="2016-01-15">Tactics Resource</Set>
-      <Set id="72023" overallSetName="Wave 22" releaseDate="2015-01-13">USS Valiant</Set>
+      <Set id="72023" overallSetName="Wave 22" releaseDate="2016-01-13">USS Valiant</Set>
+      <Set id="72025" overallSetName="Wave 22" releaseDate="2016-01-13">Kumari</Set>
     </Sets>
     <Flagships>
         <Flagship>
