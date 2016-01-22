@@ -1,4 +1,4 @@
-<Data version="2016-01-22@23-45">
+<Data version="2016-01-22@23-54">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1824,9 +1824,23 @@
       <Name>Andorian Battle Cruiser</Name>
       <Id>andorian_battle_cruiser</Id>
       <Maneuvers>
-          
+          <Maneuver speed="4" kind="straight" color="white" />
+          <Maneuver speed="3" kind="left-turn" color="red" />
+          <Maneuver speed="3" kind="left-bank" color="white" />
+          <Maneuver speed="3" kind="straight" color="white" />
+          <Maneuver speed="3" kind="about" color="red" />
+          <Maneuver speed="3" kind="right-bank" color="white" />
+          <Maneuver speed="3" kind="right-turn" color="red" />
+          <Maneuver speed="2" kind="left-turn" color="white" />
+          <Maneuver speed="2" kind="left-bank" color="white" />
+          <Maneuver speed="2" kind="straight" color="green" />
+          <Maneuver speed="2" kind="right-bank" color="white" />
+          <Maneuver speed="2" kind="right-turn" color="white" />
+          <Maneuver speed="1" kind="left-bank" color="green" />
+          <Maneuver speed="1" kind="straight" color="green" />
+          <Maneuver speed="1" kind="right-bank" color="green" />
       </Maneuvers>
-      <FrontArc>90</FrontArc>
+      <FrontArc>180</FrontArc>
       <RearArc></RearArc>
   </ShipClassDetail>
   </ShipClassDetails>
@@ -2985,7 +2999,7 @@
       <Weapon></Weapon>
       <Crew></Crew>
       <Id>1047</Id>
-      <Set>71274</Set>
+      <Set>71274,72024</Set>
     </Ship>
     <Ship>
       <Title>U.S.S. Sutherland</Title>
@@ -8195,6 +8209,35 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
         <Id>kumari_72025</Id>
         <Set>72025</Set>
     </Ship>
+    <Ship>
+        <Title>R.I.S. Pi</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Romulan Scout Vessel</ShipClass>
+        <Faction>Romulan</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>1</Attack>
+        <Agility>3</Agility>
+        <Hull>2</Hull>
+        <Shield>2</Shield>
+        <Ability>During the Activation Phase, you may perform a [SCAN] Action as a free Action.  If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+        <Cost>16</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>0</TargetLock>
+        <Scan>1</Scan>
+        <Battlestations>0</Battlestations>
+        <Cloak>1</Cloak>
+        <SensorEcho>1</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>1</Tech>
+        <Weapon>0</Weapon>
+        <Crew>1</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>r_i_s_pi_72024</Id>
+        <Set>72024</Set>
+    </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -8312,7 +8355,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Romulan</Faction>
       <Cost>0</Cost>
       <Id>2007</Id>
-      <Set>71120,71123,71124,71270,71278,OP3Prize,i_r_w_vorta_vor,71533,71274,71794,72010,72221a,72016,72315p</Set>
+      <Set>71120,71123,71124,71270,71278,OP3Prize,i_r_w_vorta_vor,71533,71274,71794,72010,72221a,72016,72315p,72024</Set>
     </Captain>
     <Captain>
       <Title>Khan Singh</Title>
@@ -11950,6 +11993,22 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Cost>4</Cost>
       <Id>thy_lek_shran_72025</Id>
       <Set>72025</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Bochra</Title>
+      <Ability>If Bochra is assigned as a captain of a Romulan Scout Vessel, during the Combat Phase, if there is a [SCAN] Token beside your ship, roll +1 attack die and +1 defense die.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>2</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>1</Cost>
+      <Id>bochra_72024</Id>
+      <Set>72024</Set>
       <Special></Special>
   </Captain>
   </Captains>
@@ -24202,6 +24261,102 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>72025</Set>
         <Special></Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Covert Mission</Title>
+        <Ability>This Upgrade may be fielded by any Captain. If the Captain's card does not have an [ELITE TALENT] icon, this Upgrade costs +1 SP. During the End Phase of each round, place 1 Mission Token on this card (max 3). ACTION: Discard this card to gain +1 attack die for each Mission Token on this card for your first attack this round.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>covert_mission_72024</Id>
+        <Set>72024</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Pardek</Title>
+        <Ability>ACTION: Discard this card to target a ship at Range 3. Your ship cannot attack the target ship and that ship cannot attack your ship this round.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>pardek_72024</Id>
+        <Set>72024</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Patahk</Title>
+        <Ability>When attacking with your Primary Weapon, during the Roll Attack Dice step, you may discard this card to gain +1 attack die for that attack.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Romulan</Faction>
+        <Cost>1</Cost>
+        <Id>patahk_72024</Id>
+        <Set>72024</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Distress Signal</Title>
+        <Ability>When defending, if there is a friendly ship within Range 1-2 of your ship with a Hull value greater than your ship, during the Roll Defense Dice step, you may discard this card to roll +2 defense dice. No ship may be equipped with more than 1 "Distress Signal" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Romulan</Faction>
+        <Cost>2</Cost>
+        <Id>distress_signal_72024</Id>
+        <Set>72024</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Graviton Field Generator</Title>
+        <Ability>When defending, if your ship is not Cloaked, during the Deal Damage step, you may discard this card to add 1 Shield Token. This Shield Token may not exceed your ship's starting Shield value and is treated like a normal Shield Token. No ship may be equipped with more than 1 "Graviton Field Generator" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Romulan</Faction>
+        <Cost>2</Cost>
+        <Id>graviton_field_generator_72024</Id>
+        <Set>72024</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Self Destruct Sequence</Title>
+        <Ability>ACTION: Destroy your ship and target every ship within Range 1 of your ship. Each target ship suffers 1 damage. No ship may be equipped with more than one "Self Destruct Sequence" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Romulan</Faction>
+        <Cost>3</Cost>
+        <Id>self_destruct_sequence_72024</Id>
+        <Set>72024</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -24873,6 +25028,7 @@ If the ship performing this Action does not have the Action listed on its Action
       <Set id="72315r" overallSetName="The Void" releaseDate="2016-01-15">Tactics Resource</Set>
       <Set id="72023" overallSetName="Wave 22" releaseDate="2016-01-13">USS Valiant</Set>
       <Set id="72025" overallSetName="Wave 22" releaseDate="2016-01-13">Kumari</Set>
+      <Set id="72024" overallSetName="Wave 22" releaseDate="2016-01-13">R.I.S. Pi</Set>
     </Sets>
     <Flagships>
         <Flagship>

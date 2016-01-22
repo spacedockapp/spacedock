@@ -6,20 +6,20 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-1/7/2016 13:31:53	72025 - Kumari	Unique	Talas	Independent	When a friendly ship within Range 1 of your ship is declared the target of an attack, you may discard this card to target that ship.  If you do so, the target ship may spend your [EVADE] or [BATTLE STATIONS] Tokens as if it were beside that ship during this attack.	Crew	3	
-1/7/2016 13:32:55	72025 - Kumari	Non-unique	Tractor Beam	Independent	ACTION: Discard this card to target a friendly ship within Range 1.  That ship performs an additional green maneuver with a speed of 1.  The target ship rolls +1 defense die this round.	Tech	4	
-1/7/2016 13:33:52	72025 - Kumari	Non-unique	Long Range Sensors	Independent	When defending, if there is a [SCAN] Token beside your ship, during the Roll Defense Dice step, you may disable this card to roll +1 defense die for that attack.	Tech	3	
-1/7/2016 13:35:10	72025 - Kumari	Unique	Diversion	Independent	When an opposing ship declares an attack against a friendly ship that is within Range 1 of your ship, if you are also in the attacking ship's forward firing arc, you may discard this card to force the attacking ship to make its attack against your ship instead.  The attack is made at -2 attack dice.	Talent	5	
+1/11/2016 14:57:01	72024 - RIS Pi	Unique	Covert Mission	Romulan	This Upgrade may be fielded by any Captain.  If the Captain's card does not have an [ELITE TALENT] icon, this Upgrade costs +1 SP.  During the End Phase of each round, place 1 Mission Token on this card (max 3).  ACTION: Discard this card to gain +1 attack die for each Mission Token on this card for your first attack this round.	Talent	5	Yes
+1/11/2016 14:58:06	72024 - RIS Pi	Unique	Pardek	Romulan	ACTION: Discard this card to target a ship at Range 3.  Your ship cannot attack the target ship and that ship cannot attack your ship this round.	Crew	5	
+1/11/2016 14:59:03	72024 - RIS Pi	Unique	Patahk	Romulan	When attacking with your Primary Weapon, during the Roll Attack Dice step, you may discard this card to gain +1 attack die for that attack.	Crew	1	
+1/11/2016 15:15:10	72024 - RIS Pi	Non-unique	Distress Signal	Romulan	When defending, if there is a friendly ship within Range 1-2 of your ship with a Hull value greater than your ship, during the Roll Defense Dice step, you may discard this card to roll +2 defense dice.  No ship may be equipped with more than 1 "Distress Signal" Upgrade.	Tech	2	Yes
+1/11/2016 15:26:28	72024 - RIS Pi	Non-unique	Graviton Field Generator	Romulan	When defending, if your ship is not Cloaked, during the Deal Damage step, you may discard this card to add 1 Shield Token.  This Shield Token may not exceed your ship's starting Shield value and is treated like a normal Shield Token.  No ship may be equipped with more than 1 "Graviton Field Generator" Upgrade.	Tech	2	Yes
+1/11/2016 15:27:34	72024 - RIS Pi	Non-unique	Self Destruct Sequence	Romulan	ACTION: Destroy your ship and target every ship within Range 1 of your ship.  Each target ship suffers 1 damage.  No ship may be equipped with more than one "Self Destruct Sequence" Upgrade.	Tech	3	Yes
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-1/7/2016 13:26:07	72025 - Kumari	Non-unique	Andorian	1	Independent		0	0		
-1/7/2016 13:27:26	72025 - Kumari	Unique	Thy'lek Shran	6	Independent	Whenever you perform an [EVADE] or [SCAN] Action, you may target a friendly ship within Range 1 of your ship.  If you do so, place a Token of the same type beside the target ship and an Auxiliary Power Token beside your ship.	1	4		
+1/11/2016 14:47:01	72024 - RIS Pi	Non-unique	Romulan	1	Romulan		0	0		
+1/11/2016 14:47:57	72024 - RIS Pi	Unique	Bochra	2	Romulan	If Bochra is assigned as a captain of a Romulan Scout Vessel, during the Combat Phase, if there is a [SCAN] Token beside your ship, roll +1 attack die and +1 defense die.	0	1		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
-1/7/2016 13:29:32	72025 - Kumari	Non-unique	Advanced Weaponry	Independent	5	1-3	ATTACK: (Target Lock) Spend your target lock and place 3 Time Tokens on this card to perform this attack.  If you inflict a critical damage, you may search the damage deck and choose either a "Weapons Malfunction" or "Munitions Failure" critical damage card, then reshuffle the deck.  You may only fire this weapon from your forward firing arc.	5	
-1/7/2016 13:30:23	72025 - Kumari	Non-unique	Particle Cannon Array	Independent	4	1-3	ATTACK: Place 2 Time Tokens on this card to perform this attack.  You may only fire this weapon from your forward firing arc.	3	
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT

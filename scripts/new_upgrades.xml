@@ -1,54 +1,6 @@
     <Upgrade>
-      <Title>Talas</Title>
-      <Ability>When a friendly ship within Range 1 of your ship is declared the target of an attack, you may discard this card to target that ship. If you do so, the target ship may spend your [EVADE] or [BATTLESTATIONS] Tokens as if it were beside that ship during this attack.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Independent</Faction>
-      <Cost>3</Cost>
-      <Id>talas_72025</Id>
-      <Set>72025</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Tractor Beam</Title>
-      <Ability>ACTION: Discard this card to target a friendly ship within Range 1. That ship performs an additional green maneuver with a speed of 1. The target ship rolls +1 defense die this round.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Independent</Faction>
-      <Cost>4</Cost>
-      <Id>tractor_beam_72025</Id>
-      <Set>72025</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Long Range Sensors</Title>
-      <Ability>When defending, if there is a [SCAN] Token beside your ship, during the Roll Defense Dice step, you may disable this card to roll +1 defense die for that attack.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Independent</Faction>
-      <Cost>3</Cost>
-      <Id>long_range_sensors_72025</Id>
-      <Set>72025</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Diversion</Title>
-      <Ability>When an opposing ship declares an attack against a friendly ship that is within Range 1 of your ship, if you are also in the attacking ship's forward firing arc, you may discard this card to force the attacking ship to make its attack against your ship instead. The attack is made at -2 attack dice.</Ability>
+      <Title>Covert Mission</Title>
+      <Ability>This Upgrade may be fielded by any Captain. If the Captain's card does not have an [ELITE TALENT] icon, this Upgrade costs +1 SP. During the End Phase of each round, place 1 Mission Token on this card (max 3). ACTION: Discard this card to gain +1 attack die for each Mission Token on this card for your first attack this round.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -56,41 +8,89 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Independent</Faction>
+      <Faction>Romulan</Faction>
       <Cost>5</Cost>
-      <Id>diversion_72025</Id>
-      <Set>72025</Set>
+      <Id>covert_mission_72024</Id>
+      <Set>72024</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Advanced Weaponry</Title>
-      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. If you inflict a critical damage, you may search the damage deck and choose either a "Weapons Malfunction" or "Munitions Failure" critical damage card, then reshuffle the deck. You may only fire this weapon from your forward firing arc.</Ability>
+      <Title>Pardek</Title>
+      <Ability>ACTION: Discard this card to target a ship at Range 3. Your ship cannot attack the target ship and that ship cannot attack your ship this round.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>pardek_72024</Id>
+      <Set>72024</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Patahk</Title>
+      <Ability>When attacking with your Primary Weapon, during the Roll Attack Dice step, you may discard this card to gain +1 attack die for that attack.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Romulan</Faction>
+      <Cost>1</Cost>
+      <Id>patahk_72024</Id>
+      <Set>72024</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Distress Signal</Title>
+      <Ability>When defending, if there is a friendly ship within Range 1-2 of your ship with a Hull value greater than your ship, during the Roll Defense Dice step, you may discard this card to roll +2 defense dice. No ship may be equipped with more than 1 "Distress Signal" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>1-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Independent</Faction>
-      <Cost>5</Cost>
-      <Id>advanced_weaponry_72025</Id>
-      <Set>72025</Set>
-      <Special></Special>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Romulan</Faction>
+      <Cost>2</Cost>
+      <Id>distress_signal_72024</Id>
+      <Set>72024</Set>
+      <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Particle Cannon Array</Title>
-      <Ability>ATTACK: Place 2 Time Tokens on this card to perform this attack. You may only fire this weapon from your forward firing arc.</Ability>
+      <Title>Graviton Field Generator</Title>
+      <Ability>When defending, if your ship is not Cloaked, during the Deal Damage step, you may discard this card to add 1 Shield Token. This Shield Token may not exceed your ship's starting Shield value and is treated like a normal Shield Token. No ship may be equipped with more than 1 "Graviton Field Generator" Upgrade.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>4</Attack>
-      <Range>1-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Independent</Faction>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Romulan</Faction>
+      <Cost>2</Cost>
+      <Id>graviton_field_generator_72024</Id>
+      <Set>72024</Set>
+      <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Self Destruct Sequence</Title>
+      <Ability>ACTION: Destroy your ship and target every ship within Range 1 of your ship. Each target ship suffers 1 damage. No ship may be equipped with more than one "Self Destruct Sequence" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Romulan</Faction>
       <Cost>3</Cost>
-      <Id>particle_cannon_array_72025</Id>
-      <Set>72025</Set>
-      <Special></Special>
+      <Id>self_destruct_sequence_72024</Id>
+      <Set>72024</Set>
+      <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>

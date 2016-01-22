@@ -1,5 +1,5 @@
   <Captain>
-    <Title>Andorian</Title>
+    <Title>Romulan</Title>
     <Ability></Ability>
     <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
@@ -8,25 +8,25 @@
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Independent</Faction>
+    <Faction>Romulan</Faction>
     <Cost>0</Cost>
-    <Id>andorian_72025</Id>
-    <Set>72025</Set>
+    <Id>romulan_72024</Id>
+    <Set>72024</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Thy'lek Shran</Title>
-    <Ability>Whenever you perform an [EVADE] or [SCAN] Action, you may target a friendly ship within Range 1 of your ship. If you do so, place a Token of the same type beside the target ship and an Auxiliary Power Token beside your ship.</Ability>
+    <Title>Bochra</Title>
+    <Ability>If Bochra is assigned as a captain of a Romulan Scout Vessel, during the Combat Phase, if there is a [SCAN] Token beside your ship, roll +1 attack die and +1 defense die.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>6</Skill>
-    <Talent>1</Talent>
+    <Skill>2</Skill>
+    <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Independent</Faction>
-    <Cost>4</Cost>
-    <Id>thy_lek_shran_72025</Id>
-    <Set>72025</Set>
+    <Faction>Romulan</Faction>
+    <Cost>1</Cost>
+    <Id>bochra_72024</Id>
+    <Set>72024</Set>
     <Special></Special>
   </Captain>
