@@ -670,6 +670,9 @@ static NSDictionary* sItemLabels = nil;
         if ([ship.externalId isEqualToString:@"u_s_s_pegasus_71801"]) {
             cost -= 1;
         }
+        if ([fleetCaptainSpecial isEqualToString: @"TechUpgradesCostOneLess"]) {
+            cost -= 1;
+        }
         if ([equippedShip containsUpgradeWithId:@"romulan_hijackers_71802"] != nil) {
             if (![upgrade isFactionBorg]) {
                 cost -= 1;
