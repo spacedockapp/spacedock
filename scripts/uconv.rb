@@ -6,20 +6,19 @@ require_relative "common"
 
 # Timestamp		Upgrade Name	Faction	Ability	Type	Cost														
 upgrade = <<-UPGRADETEXT
-1/11/2016 14:57:01	72024 - RIS Pi	Unique	Covert Mission	Romulan	This Upgrade may be fielded by any Captain.  If the Captain's card does not have an [ELITE TALENT] icon, this Upgrade costs +1 SP.  During the End Phase of each round, place 1 Mission Token on this card (max 3).  ACTION: Discard this card to gain +1 attack die for each Mission Token on this card for your first attack this round.	Talent	5	Yes
-1/11/2016 14:58:06	72024 - RIS Pi	Unique	Pardek	Romulan	ACTION: Discard this card to target a ship at Range 3.  Your ship cannot attack the target ship and that ship cannot attack your ship this round.	Crew	5	
-1/11/2016 14:59:03	72024 - RIS Pi	Unique	Patahk	Romulan	When attacking with your Primary Weapon, during the Roll Attack Dice step, you may discard this card to gain +1 attack die for that attack.	Crew	1	
-1/11/2016 15:15:10	72024 - RIS Pi	Non-unique	Distress Signal	Romulan	When defending, if there is a friendly ship within Range 1-2 of your ship with a Hull value greater than your ship, during the Roll Defense Dice step, you may discard this card to roll +2 defense dice.  No ship may be equipped with more than 1 "Distress Signal" Upgrade.	Tech	2	Yes
-1/11/2016 15:26:28	72024 - RIS Pi	Non-unique	Graviton Field Generator	Romulan	When defending, if your ship is not Cloaked, during the Deal Damage step, you may discard this card to add 1 Shield Token.  This Shield Token may not exceed your ship's starting Shield value and is treated like a normal Shield Token.  No ship may be equipped with more than 1 "Graviton Field Generator" Upgrade.	Tech	2	Yes
-1/11/2016 15:27:34	72024 - RIS Pi	Non-unique	Self Destruct Sequence	Romulan	ACTION: Destroy your ship and target every ship within Range 1 of your ship.  Each target ship suffers 1 damage.  No ship may be equipped with more than one "Self Destruct Sequence" Upgrade.	Tech	3	Yes
+2/3/2016 14:22:53	72326 - USS Montgolfier	Non-unique	Subspace Transmitter	Federation	ACTION: Disable this card to target a friendly ship within Range 1-3 of your ship.  Place a [SCAN] Token beside your ship and the target ship.  You cannot perform a [SCAN] Action as a free Action this round.	Tech	5	
+2/3/2016 14:23:33	72326 - USS Montgolfier	Non-unique	Thruster Array	Federation	ACTION: Discard this card to immediately perform a 1 [REVERSE] or 2 [REVERSE] Maneuver.  Treat this maneuver as a red maneuver.	Tech	3	
+2/3/2016 14:24:52	72326 - USS Montgolfier	Unique	Wesley Crusher	Federation	During the Activation Phase, after you move, if there is an Auxiliary Power Token beside your ship, you may disable this card to perform an Action from your Action Bar.  OR  During the Activation Phase, after you move, you may disable this card to perform an Action listed on one of your [TECH] Upgrades as a free Action.	Crew	5	
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
-1/11/2016 14:47:01	72024 - RIS Pi	Non-unique	Romulan	1	Romulan		0	0		
-1/11/2016 14:47:57	72024 - RIS Pi	Unique	Bochra	2	Romulan	If Bochra is assigned as a captain of a Romulan Scout Vessel, during the Combat Phase, if there is a [SCAN] Token beside your ship, roll +1 attack die and +1 defense die.	0	1		
+2/3/2016 14:15:03	72326 - USS Montgolfier	Non-unique	Federation	1	Federation		0	0		
+2/3/2016 14:16:03	72326 - USS Montgolfier	Unique	Orfil Quinteros	5	Federation	ACTION: Roll 3 defense dice.  Repair 1 damage to your Hull for every [EVADE] result.  Place 1 Auxiliary Power Token beside your ship for each point of damage you repair with this Action.	0	3		
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
+2/3/2016 14:20:31	72326 - USS Montgolfier	Non-unique	Heavy Graviton Beam	Federation	3	1-2	ATTACK: Discard this card to perform this attack.  The defending ship rolls -1 defense die against this attack.  You may only fire this weapon from your forward firing arc.  If fired against a Borg ship, add +3 attack dice to this attack.  The defending Borg ship cannot roll any defense dice against this attack.	4	
+2/3/2016 14:21:37	72326 - USS Montgolfier	Non-unique	Photon Torpedoes	Federation	5	2-3	ATTACK: (Target Lock) Spend your target lock and place 3 Time Tokens on this card to perform this attack.  You may convert 1 of your [BATTLE STATIONS] results into 1 [CRIT] result.  You may fire this weapon from your forward or rear firing arcs.	5	
 WEAPONSTEXT
 
 admirals_text = <<-ADMIRALSTEXT

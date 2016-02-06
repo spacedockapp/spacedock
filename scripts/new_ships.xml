@@ -1,13 +1,13 @@
   <Ship>
-    <Title>Andorian Starship</Title>
+    <Title>Federation Starship</Title>
     <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Andorian Battle Cruiser</ShipClass>
-    <Faction>Independent</Faction>
+    <ShipClass>Saber Class</ShipClass>
+    <Faction>Federation</Faction>
     <AdditionalFaction></AdditionalFaction>
     <Attack>3</Attack>
-    <Agility>1</Agility>
-    <Hull>4</Hull>
+    <Agility>2</Agility>
+    <Hull>3</Hull>
     <Shield>2</Shield>
     <Ability></Ability>
     <Cost>20</Cost>
@@ -19,26 +19,26 @@
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>1</Weapon>
+    <Tech>0</Tech>
+    <Weapon>2</Weapon>
     <Crew>1</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>andorian_starship_72025</Id>
-    <Set>72025</Set>
+    <Id>federation_starship_72326</Id>
+    <Set>72326</Set>
   </Ship>
   <Ship>
-    <Title>Kumari</Title>
+    <Title>U.S.S. Montgolfier</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Andorian Battle Cruiser</ShipClass>
-    <Faction>Independent</Faction>
+    <ShipClass>Saber Class</ShipClass>
+    <Faction>Federation</Faction>
     <AdditionalFaction></AdditionalFaction>
     <Attack>3</Attack>
-    <Agility>1</Agility>
-    <Hull>4</Hull>
+    <Agility>2</Agility>
+    <Hull>3</Hull>
     <Shield>3</Shield>
-    <Ability>You may perform an [EVADE] or a [SCAN] Action while there is an Auxiliary Power Token beside your ship.</Ability>
+    <Ability>If your ship has an opposing ship target locked, during the Activation Phase, you may switch the target lock to a different ship within Range 1-3 as a free Action.</Ability>
     <Cost>22</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
@@ -53,64 +53,6 @@
     <Crew>1</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>kumari_72025</Id>
-    <Set>72025</Set>
-  </Ship>
-  <Ship>
-    <Title>Romulan Starship</Title>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Romulan Scout Vessel</ShipClass>
-    <Faction>Romulan</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>1</Attack>
-    <Agility>3</Agility>
-    <Hull>2</Hull>
-    <Shield>1</Shield>
-    <Ability></Ability>
-    <Cost>14</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>0</TargetLock>
-    <Scan>1</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>0</Weapon>
-    <Crew>0</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
-    <Has360Arc>N</Has360Arc>
-    <Id>romulan_starship_72024</Id>
-    <Set>72024</Set>
-  </Ship>
-  <Ship>
-    <Title>R.I.S. Pi</Title>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Romulan Scout Vessel</ShipClass>
-    <Faction>Romulan</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>1</Attack>
-    <Agility>3</Agility>
-    <Hull>2</Hull>
-    <Shield>2</Shield>
-    <Ability>During the Activation Phase, you may perform a [SCAN] Action as a free Action.  If you do so, place an Auxiliary Power Token beside your ship.</Ability>
-    <Cost>16</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>0</TargetLock>
-    <Scan>1</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>0</Weapon>
-    <Crew>1</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
-    <Has360Arc>N</Has360Arc>
-    <Id>r_i_s_pi_72024</Id>
-    <Set>72024</Set>
+    <Id>u_s_s_montgolfier_72326</Id>
+    <Set>72326</Set>
   </Ship>

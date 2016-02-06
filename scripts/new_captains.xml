@@ -1,5 +1,5 @@
   <Captain>
-    <Title>Romulan</Title>
+    <Title>Federation</Title>
     <Ability></Ability>
     <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
@@ -8,25 +8,25 @@
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Romulan</Faction>
+    <Faction>Federation</Faction>
     <Cost>0</Cost>
-    <Id>romulan_72024</Id>
-    <Set>72024</Set>
+    <Id>federation_72326</Id>
+    <Set>72326</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Bochra</Title>
-    <Ability>If Bochra is assigned as a captain of a Romulan Scout Vessel, during the Combat Phase, if there is a [SCAN] Token beside your ship, roll +1 attack die and +1 defense die.</Ability>
+    <Title>Orfil Quinteros</Title>
+    <Ability>ACTION: Roll 3 defense dice. Repair 1 damage to your Hull for every [EVADE] result. Place 1 Auxiliary Power Token beside your ship for each point of damage you repair with this Action.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>2</Skill>
+    <Skill>5</Skill>
     <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Romulan</Faction>
-    <Cost>1</Cost>
-    <Id>bochra_72024</Id>
-    <Set>72024</Set>
+    <Faction>Federation</Faction>
+    <Cost>3</Cost>
+    <Id>orfil_quinteros_72326</Id>
+    <Set>72326</Set>
     <Special></Special>
   </Captain>

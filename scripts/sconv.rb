@@ -45,10 +45,8 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-1/7/2016 13:38:05	72025 - Kumari	Non-unique	Andorian Starship	Independent	Andorian Battle Cruiser		1 Forward, 1 Bank, 2 Forward	2 Bank, 2 Turn, 3 Forward, 3 Bank, 4 Forward	3 Turn, 3 Come About	3	1	4	2		Battle Stations, Evasive, Scan, Target Lock	20	0	1	1	1	180-degree forward		0
-1/7/2016 13:39:13	72025 - Kumari	Unique	Kumari	Independent	Andorian Battle Cruiser	Andorian Battle Cruiser				3	1	4	3	You may perform an [EVADE] or a [SCAN] Action while there is an Auxiliary Power Token beside your ship.	Battle Stations, Evasive, Scan, Target Lock	22	0	1	1	2	180-degree forward		0
-1/11/2016 14:50:00	72024 - RIS Pi	Non-unique	Romulan Starship	Romulan	Romulan Scout Vessel	Romulan Scout Vessel				1	3	2	1		Cloak, Evasive, Scan, Sensor Echo	14	0	0	1	0	90-degree forward		0
-1/11/2016 14:52:10	72024 - RIS Pi	Unique	R.I.S. Pi	Romulan	Romulan Scout Vessel	Romulan Scout Vessel				1	3	2	2	During the Activation Phase, you may perform a [SCAN] Action as a free Action.  If you do so, place an Auxiliary Power Token beside your ship.	Cloak, Evasive, Scan, Sensor Echo	16	0	1	1	0	90-degree forward		0
+2/3/2016 14:17:33	72326 - USS Montgolfier	Non-unique	Federation Starship	Federation	Saber Class	Saber Class				3	2	3	2		Battle Stations, Evasive, Scan, Target Lock	20	0	1	0	2	90-degree forward		0
+2/3/2016 14:18:41	72326 - USS Montgolfier	Unique	U.S.S. Montgolfier	Federation	Saber Class	Saber Class				3	2	3	3	If your ship has an opposing ship target locked, during the Activation Phase, you may switch the target lock to a different ship within Range 1-3 as a free Action.	Battle Stations, Evasive, Scan, Target Lock	22	0	1	1	2	90-degree forward		0
 SHIPTEXT
 
 
