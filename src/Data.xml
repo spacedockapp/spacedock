@@ -24843,7 +24843,7 @@ A player cannot use these abilities for a ship that has no Captain Card or whose
           <Set>72000r</Set>
       </Resource>
       <Resource>
-          <Title>Emergency Force Fields</Title>
+          <Title>Emergency Force Field</Title>
           <Unique>Y</Unique>
           <Type>Resource</Type>
           <Ability>Each time a ship in your fleet defends, during the Compare Results step, you may:
@@ -24856,7 +24856,7 @@ A player cannot use these abilities for a ship that has no Captain Card or whose
               
     If a ship uses either ability, place an Auxiliary Power Token beside that ship.
               
-    The cost of this resource is a number of SP equal to the total combined starting shield values of all ships in your fleet divided by 2 (rounded up).</Ability>
+    The cost of this resource is a number of SP equal to the total combined starting shield values of all ships in your fleet divided by 2 (rounded up). For example, if your fleet has a total combined Shield Value of 15, the cost of this resource would be 8.</Ability>
           <Cost>0</Cost>
           <Id>emergency_force_fields_72001r</Id>
           <Set>72001r</Set>
