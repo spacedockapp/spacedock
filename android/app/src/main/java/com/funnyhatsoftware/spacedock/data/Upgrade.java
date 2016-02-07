@@ -418,8 +418,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if (equippedShip.getExternalId().equals("enterprise_nx_01_71526") && getExternalId().equals("enhanced_hull_plating_71526")) {
                 cost = 0;
             }
-            if (equippedShip.containsUpgradeWithSpecial("TechUpgradesCostOneLess") != null) {
-                cost -= 1;
+            for (EquippedUpgrade eu : equippedShip.getUpgrades()) {
+                if (!eu.getUpgrade().isFleetCaptain() && eu.getUpgrade().getSpecial().equals("TechUpgradesCostOneLess")) {
+                    cost -= 1;
+                }
             }
         }
 

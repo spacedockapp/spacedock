@@ -660,7 +660,7 @@ static NSDictionary* sItemLabels = nil;
         }
     } else if ([upgrade isTech] && ![upgrade isQMark]) {
         for (DockEquippedUpgrade* eu in equippedShip.upgrades) {
-            if ([eu.upgrade.special isEqualToString:@"TechUpgradesCostOneLess"]) {
+            if (![eu.upgrade isFleetCaptain] && [eu.upgrade.special isEqualToString:@"TechUpgradesCostOneLess"]) {
                 cost -= 1;
             }
         }
