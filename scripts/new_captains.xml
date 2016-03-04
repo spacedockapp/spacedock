@@ -1,32 +1,48 @@
   <Captain>
-    <Title>Federation</Title>
-    <Ability></Ability>
-    <Unique>N</Unique>
+    <Title>Barak</Title>
+    <Ability>When attacking with Photon Torpedoes, you may discard the Photon Torpedoes Upgrade to gain +1 attack die for that attack.</Ability>
+    <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>1</Skill>
+    <Skill>3</Skill>
     <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>0</Cost>
-    <Id>federation_72326</Id>
-    <Set>72326</Set>
+    <Faction>Klingon</Faction>
+    <Cost>2</Cost>
+    <Id>barak_72327</Id>
+    <Set>72327</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Orfil Quinteros</Title>
-    <Ability>ACTION: Roll 3 defense dice. Repair 1 damage to your Hull for every [EVADE] result. Place 1 Auxiliary Power Token beside your ship for each point of damage you repair with this Action.</Ability>
+    <Title>Vrax</Title>
+    <Ability>You may deploy the "Reman Bodyguards" Upgrade to your ship at a cost of -2 SP, even if it exceeds your ship's restrictions.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>5</Skill>
-    <Talent>0</Talent>
+    <Skill>3</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Romulan</Faction>
+    <Cost>2</Cost>
+    <Id>vrax_72328</Id>
+    <Set>72328</Set>
+    <Special>Yes</Special>
+  </Captain>
+  <Captain>
+    <Title>Matt Decker</Title>
+    <Ability>If this card is assigned to a Federation ship, during the Roll Attack Dice step, you may disable this card to gain +1 attack die for that attack. If you ship is destroyed, you may immediately target a friendly ship within Range 1-2 of your ship. If you do so, discard the Captain Card from the target ship. This card becomes the new Captain Card for that ship.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>3</Skill>
+    <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
     <Faction>Federation</Faction>
-    <Cost>3</Cost>
-    <Id>orfil_quinteros_72326</Id>
-    <Set>72326</Set>
+    <Cost>2</Cost>
+    <Id>matt_decker_72316p</Id>
+    <Set>72316p</Set>
     <Special></Special>
   </Captain>

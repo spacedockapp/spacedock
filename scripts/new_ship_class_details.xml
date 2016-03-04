@@ -1,6 +1,24 @@
   <ShipClassDetail>
-    <Name>Saber Class</Name>
-    <Id>saber_class</Id>
+    <Name>K'T'Inga Class</Name>
+    <Id>k_t_inga_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>90</FrontArc>
+    <RearArc>90</RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>K'T'Inga Class</Name>
+    <Id>k_t_inga_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>90</FrontArc>
+    <RearArc>90</RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Romulan Bird-of-Prey</Name>
+    <Id>romulan_bird_of_prey</Id>
     <Maneuvers>
 
     </Maneuvers>
@@ -8,11 +26,29 @@
     <RearArc></RearArc>
   </ShipClassDetail>
   <ShipClassDetail>
-    <Name>Saber Class</Name>
-    <Id>saber_class</Id>
+    <Name>Romulan Bird-of-Prey</Name>
+    <Id>romulan_bird_of_prey</Id>
     <Maneuvers>
 
     </Maneuvers>
     <FrontArc>90</FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Constitution Class</Name>
+    <Id>constitution_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>180</FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Constitution Class</Name>
+    <Id>constitution_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>180</FrontArc>
     <RearArc></RearArc>
   </ShipClassDetail>

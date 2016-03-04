@@ -45,8 +45,12 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-2/3/2016 14:17:33	72326 - USS Montgolfier	Non-unique	Federation Starship	Federation	Saber Class	Saber Class				3	2	3	2		Battle Stations, Evasive, Scan, Target Lock	20	0	1	0	2	90-degree forward		0
-2/3/2016 14:18:41	72326 - USS Montgolfier	Unique	U.S.S. Montgolfier	Federation	Saber Class	Saber Class				3	2	3	3	If your ship has an opposing ship target locked, during the Activation Phase, you may switch the target lock to a different ship within Range 1-3 as a free Action.	Battle Stations, Evasive, Scan, Target Lock	22	0	1	1	2	90-degree forward		0
+2/13/2016 0:19:00	72327 - IKS Amar	Non-unique	Klingon Starship	Klingon	K'T'Inga Class	K'T'Inga Class				4	1	4	2		Cloak, Evasive, Sensor Echo, Target Lock	22	0	1	0	2	90-degree forward, 90-degree rear		0
+2/13/2016 0:20:05	72327 - IKS Amar	Unique	I.K.S. Amar	Klingon	K'T'Inga Class	K'T'Inga Class				4	1	4	3	When attacking, if you do not hit the defending ship, place an [EVADE] Token beside your ship.	Cloak, Evasive, Sensor Echo, Target Lock	24	0	2	0	2	90-degree forward, 90-degree rear		0
+2/17/2016 14:50:00	72328 - IRW Jazkal	Non-unique	Romulan Starship	Romulan	Romulan Bird-of-Prey	Romulan Bird-of-Prey				2	2	3	0		Evasive, Target Lock	14	0	0	1	1	90-degree forward		0
+2/17/2016 14:53:08	72328 - IRW Jazkal	Unique	I.R.W. Jazkal	Romulan	Romulan Bird-of-Prey	Romulan Bird-of-Prey				2	2	3	0	While there is a [SCAN] Token beside your ship, you cannot be targeted by any [ELITE TALENT] Upgrades and you roll +1 defense die against all attacks made with [WEAPON] Upgrades.	Evasive, Scan, Target Lock	14	0	1	1	1	90-degree forward		0
+2/24/2016 13:57:24	72316p - USS Constellation	Non-unique	Federation Starship	Federation	Constitution Class	Constitution Class				3	1	4	2		Battle Stations, Evasive, Scan, Target Lock	20	0	2	0	1	180-degree forward		0
+2/24/2016 13:59:07	72316p - USS Constellation	Unique	U.S.S. Constellation	Federation	Constitution Class	Constitution Class				3	1	4	3	If all of your Shields have been destroyed, when attacking with your Primary Weapon, you may gain +2 attack dice.  If you do so, place an Auxiliary Power Token beside your ship.  You cannot roll any defense dice during a round in which you use this ability.	Battle Stations, Evasive, Scan, Target Lock	22	0	2	0	2	180-degree forward		0
 SHIPTEXT
 
 

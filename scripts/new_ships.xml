@@ -1,16 +1,74 @@
   <Ship>
-    <Title>Federation Starship</Title>
-    <Unique>N</Unique>
+    <Title>I.K.S. Amar</Title>
+    <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Saber Class</ShipClass>
+    <ShipClass>K'T'Inga Class</ShipClass>
+    <Faction>Klingon</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>4</Attack>
+    <Agility>1</Agility>
+    <Hull>4</Hull>
+    <Shield>3</Shield>
+    <Ability>When attacking, if you do not hit the defending ship, place an [EVADE] Token beside your ship.</Ability>
+    <Cost>24</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>0</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>1</Cloak>
+    <SensorEcho>1</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>0</Tech>
+    <Weapon>2</Weapon>
+    <Crew>2</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>i_k_s_amar_72327</Id>
+    <Set>72327</Set>
+  </Ship>
+  <Ship>
+    <Title>I.R.W. Jazkal</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Romulan Bird-of-Prey</ShipClass>
+    <Faction>Romulan</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>2</Attack>
+    <Agility>2</Agility>
+    <Hull>3</Hull>
+    <Shield>0</Shield>
+    <Ability>While there is a [SCAN] Token beside your ship, you cannot be targeted by any [ELITE TALENT] Upgrades and you roll +1 defense die against all attacks made with [WEAPON] Upgrades.</Ability>
+    <Cost>14</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>1</Tech>
+    <Weapon>1</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>i_r_w_jazkal_72328</Id>
+    <Set>72328</Set>
+  </Ship>
+  <Ship>
+    <Title>U.S.S. Constellation</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Constitution Class</ShipClass>
     <Faction>Federation</Faction>
     <AdditionalFaction></AdditionalFaction>
     <Attack>3</Attack>
-    <Agility>2</Agility>
-    <Hull>3</Hull>
-    <Shield>2</Shield>
-    <Ability></Ability>
-    <Cost>20</Cost>
+    <Agility>1</Agility>
+    <Hull>4</Hull>
+    <Shield>3</Shield>
+    <Ability>If all of your Shields have been destroyed, when attacking with your Primary Weapon, you may gain +2 attack dice.  If you do so, place an Auxiliary Power Token beside your ship.  You cannot roll any defense dice during a round in which you use this ability.</Ability>
+    <Cost>22</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
@@ -21,38 +79,9 @@
     <Borg>0</Borg>
     <Tech>0</Tech>
     <Weapon>2</Weapon>
-    <Crew>1</Crew>
+    <Crew>2</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>federation_starship_72326</Id>
-    <Set>72326</Set>
-  </Ship>
-  <Ship>
-    <Title>U.S.S. Montgolfier</Title>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Saber Class</ShipClass>
-    <Faction>Federation</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>3</Attack>
-    <Agility>2</Agility>
-    <Hull>3</Hull>
-    <Shield>3</Shield>
-    <Ability>If your ship has an opposing ship target locked, during the Activation Phase, you may switch the target lock to a different ship within Range 1-3 as a free Action.</Ability>
-    <Cost>22</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>1</Scan>
-    <Battlestations>1</Battlestations>
-    <Cloak>0</Cloak>
-    <SensorEcho>0</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
-    <Has360Arc>N</Has360Arc>
-    <Id>u_s_s_montgolfier_72326</Id>
-    <Set>72326</Set>
+    <Id>u_s_s_constellation_72316p</Id>
+    <Set>72316p</Set>
   </Ship>
