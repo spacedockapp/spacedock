@@ -5,4 +5,5 @@
 -(NSComparisonResult)compareTo:(DockManeuver*)other;
 -(BOOL)isSpin;
 -(BOOL)isFlank;
+-(BOOL)isComeAbout;
 @end

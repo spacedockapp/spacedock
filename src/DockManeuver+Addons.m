@@ -22,5 +22,8 @@
     return [self.kind hasSuffix: @"flank"];
 }
 
-
+-(BOOL)isComeAbout
+{
+    return [self.kind isEqualToString: @"about"];
+}
 @end

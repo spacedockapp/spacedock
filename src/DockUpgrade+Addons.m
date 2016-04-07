@@ -220,6 +220,21 @@ static NSDictionary* sItemLabels = nil;
     if ([self.externalId isEqualToString:@"maintenance_crew_w_72022"]) {
         return YES;
     }
+    if ([self.externalId isEqualToString:@"auxiliary_control_room_t_72316p"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"auxiliary_control_room_w_72316p"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"automated_distress_beacon_c_72316p"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"automated_distress_beacon_t_72316p"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"automated_distress_beacon_w_72316p"]) {
+        return YES;
+    }
     return NO;
 }
 
@@ -758,11 +773,19 @@ static NSDictionary* sItemLabels = nil;
         if (![ship isRomulan]) {
             cost += 5;
         }
+    } else if ([upgradeSpecial isEqualToString:@"OPSPlusFiveNotRomulan"]) {
+        if (![ship isRomulan]) {
+            cost += 5;
+        }
     } else if ([upgradeSpecial isEqualToString:@"PlusFourIfNotGornRaider"]) {
         if (![ship.shipClass isEqualToString:@"Gorn Raider"]) {
             cost += 4;
         }
     } else if ([upgradeSpecial isEqualToString:@"PlusFiveIfNotKlingon"]) {
+        if (![ship isKlingon]) {
+            cost += 5;
+        }
+    } else if ([upgradeSpecial isEqualToString:@"PlusFiveNotKlingonAndMustHaveComeAbout"]) {
         if (![ship isKlingon]) {
             cost += 5;
         }
@@ -896,6 +919,10 @@ static NSDictionary* sItemLabels = nil;
         } else if ([captainSpecial isEqualToString: @"KlingonUpgradesCostOneLess"]) {
             if ([self isKlingon] && ![self isOfficer] && ![self isCaptain] && ![self isAdmiral]) {
                 cost -= 1;
+            }
+        } else if ([captainSpecial isEqualToString:@"RemanBodyguardsLess2"]) {
+            if ([[self title] isEqualToString:@"Reman Bodyguards"]) {
+                cost -= 2;
             }
         }
     }
@@ -1056,6 +1083,9 @@ static NSDictionary* sItemLabels = nil;
         return 3;
     }
     if ([externalId isEqualToString:@"maintenance_crew_t_72022"]) {
+        return 1;
+    }
+    if ([externalId isEqualToString:@"AddOneTechMinus1"]) {
         return 1;
     }
     return 0;

@@ -9,4 +9,5 @@
 -(NSSet*)speeds;
 -(BOOL)hasSpins;
 -(BOOL)hasFlanks;
+-(BOOL)hasComeAbout;
 @end

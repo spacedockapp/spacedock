@@ -34,7 +34,9 @@ public class EquippedShip extends EquippedShipBase {
 
         if (inShip.getExternalId().equals("enterprise_nx_01_71526")) {
             Upgrade hullPlating = Universe.getUniverse().getUpgrade("enhanced_hull_plating_71526");
-            addUpgrade(hullPlating, null, false);
+            if (containsUpgrade(Universe.getUniverse().getUpgrade("enhanced_hull_plating_71526")) == null) {
+                addUpgrade(hullPlating, null, false);
+            }
         }
     }
 
@@ -435,6 +437,15 @@ public class EquippedShip extends EquippedShipBase {
                 v += upgrade.additionalCrewSlots();
             }
         }
+        if (getCaptain().getSpecial().equals("RemanBodyguardsLess2")) {
+            if (v == 0) {
+                v++;
+            } else {
+                if (containsUpgradeWithName("Reman Bodyguards") != null) {
+                    v++;
+                }
+            }
+        }
         return v;
     }
 
@@ -832,6 +843,20 @@ public class EquippedShip extends EquippedShipBase {
                         || null != containsUpgrade(Universe.getUniverse().getUpgrade("maintenance_crew_w_72022"))) {
                     return new Explanation(msg, "This upgrade can only be added once per ship.");
                 }
+            } else if (addingNew && (upgrade.getExternalId().equals("auxiliary_control_room_t_72316p")
+                    || upgrade.getExternalId().equals("auxiliary_control_room_w_72316p"))) {
+                if (null != containsUpgrade(Universe.getUniverse().getUpgrade("auxiliary_control_room_t_72316p"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("auxiliary_control_room_w_72316p"))) {
+                    return new Explanation(msg, "This upgrade can only be added once per ship.");
+                }
+            } else if (addingNew && (upgrade.getExternalId().equals("automated_distress_beacon_c_72316p")
+                    || upgrade.getExternalId().equals("automated_distress_beacon_t_72316p")
+                    || upgrade.getExternalId().equals("automated_distress_beacon_w_72316p"))) {
+                if (null != containsUpgrade(Universe.getUniverse().getUpgrade("automated_distress_beacon_c_72316p"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("automated_distress_beacon_t_72316p"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("automated_distress_beacon_w_72316p"))) {
+                    return new Explanation(msg, "This upgrade can only be added once per ship.");
+                }
             }
         }
         if ("NoMoreThanOnePerShipBajoran".equals(upgradeSpecial)) {
@@ -978,6 +1003,16 @@ public class EquippedShip extends EquippedShipBase {
             }
             if (ship.getHull() < 4) {
                 return new Explanation(msg, "This upgrade can only be added to a ship with a hull of 4 or greater.");
+            }
+        }
+        if ("PlusFiveNotKlingonAndMustHaveComeAbout".equals(upgradeSpecial)) {
+            if (ship.getShipClassDetails().getMovesSummary().contains("come about")) {
+                return new Explanation(msg, "This upgrade can only be added to a ship with a come about maneuver.");
+            }
+        }
+        if ("MustHaveBS".equals(upgradeSpecial)) {
+            if (ship.getBattleStations() == 0) {
+                return new Explanation(msg, "This upgrade can only be added to a ship with a battle stations ship action.");
             }
         }
         Captain captain = getCaptain();
@@ -1699,6 +1734,25 @@ public class EquippedShip extends EquippedShipBase {
                     newEu.setOverridden(true);
                     newEu.setOverriddenCost(0);
                     newEu.setSpecialTag("fed3_tech_" + Integer.toString(tech + 1));
+                }
+            }
+        }
+
+        if (upgrade.isTech() && null != containsUpgradeWithSpecial("AddOneTechMinus1")) {
+            if (upgrade.isRomulan()) {
+                int tech = 0;
+                for (EquippedUpgrade eu : mUpgrades) {
+                    if (eu.getUpgrade().isTech() && !eu.isPlaceholder() && eu.getSpecialTag() != null && eu.getSpecialTag().startsWith("nijil_tech_")) {
+                        tech++;
+                    }
+                }
+                if (tech < 1) {
+                    int cost = upgrade.calculateCostForShip(this, newEu);
+                    if (cost > 1) {
+                        newEu.setOverridden(true);
+                        newEu.setOverriddenCost(cost - 1);
+                    }
+                    newEu.setSpecialTag("nijil_tech_" + Integer.toString(tech + 1));
                 }
             }
         }

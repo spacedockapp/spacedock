@@ -170,4 +170,13 @@
     return index != NSNotFound;
 }
 
+-(BOOL)hasComeAbout
+{
+    id finder = ^(id obj, NSUInteger idx, BOOL *stop) {
+        DockManeuver* m = obj;
+        return m.isComeAbout;
+    };
+    NSInteger index =  [self.maneuvers.allObjects indexOfObjectPassingTest: finder];
+    return index != NSNotFound;
+}
 @end

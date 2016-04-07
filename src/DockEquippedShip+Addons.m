@@ -544,6 +544,27 @@
         }
     }
     
+    if (!upgrade.isPlaceholder && [upgrade isTech] && [self containsUpgradeWithSpecial:@"AddOneTechMinus1"] != nil) {
+        int tech = 0;
+        
+        for (DockEquippedUpgrade* eu in self.upgrades) {
+            if ([eu.upgrade isTech] && !eu.isPlaceholder) {
+                if (![eu.specialTag hasPrefix:@"nijil_tech_"]) {
+                    tech ++;
+                }
+            }
+        }
+        
+        if (![upgrade isRomulan]) {
+            int artificalLimit = [upgrade limitForShip: self] - tech - 1;
+            if (!validating) {
+                artificalLimit ++;
+            }
+            return artificalLimit > 0;
+            //return NO;
+        }
+    }
+    
     if ([upgrade.externalId isEqualToString:@"first_maje_71793"]) {
         if (![captain isKazon]) {
             return NO;
@@ -1203,6 +1224,14 @@
                 if ([self containsUpgradeWithId:@"maintenance_crew_c_72022"]  != nil || [self containsUpgradeWithId:@"maintenance_crew_t_72022"]  != nil || [self containsUpgradeWithId:@"maintenance_crew_w_72022"]  != nil) {
                     return NO;
                 }
+            } else if ([upgrade.externalId isEqualToString:@"auxiliary_control_room_t_72316p"] || [upgrade.externalId isEqualToString:@"auxiliary_control_room_w_72316p"]) {
+                if ([self containsUpgradeWithId:@"auxiliary_control_room_t_72316p"]  != nil || [self containsUpgradeWithId:@"auxiliary_control_room_2_72316p"]  != nil) {
+                    return NO;
+                }
+            } else if ([upgrade.externalId isEqualToString:@"automated_distress_beacon_c_72316p"] || [upgrade.externalId isEqualToString:@"automated_distress_beacon_t_72316p"] || [upgrade.externalId isEqualToString:@"automated_distress_beacon_w_72316p"]) {
+                if ([self containsUpgradeWithId:@"automated_distress_beacon_c_72316p"]  != nil || [self containsUpgradeWithId:@"automated_distress_beacon_t_72316p"]  != nil || [self containsUpgradeWithId:@"automated_distress_beacon_w_72316p"]  != nil) {
+                    return NO;
+                }
             }
         }
     }
@@ -1268,6 +1297,18 @@
             return NO;
         }
         if (![self.ship.shipClassDetails.rearArc isEqualToString:@""]) {
+            return NO;
+        }
+    }
+    
+    if ([upgradeSpecial isEqualToString:@"MustHaveBS"]) {
+        if (self.ship.battleStations.intValue == 0) {
+            return NO;
+        }
+    }
+    
+    if ([upgradeSpecial isEqualToString:@"PlusFiveNotKlingonAndMustHaveComeAbout"]) {
+        if (self.ship.shipClassDetails.hasComeAbout == 0) {
             return NO;
         }
     }
@@ -1389,7 +1430,7 @@
                 info = @"This upgrade can only be purchased for a Kazon captain on a Kazon ship.";
             } else if ([upgrade isTalent] && [self.captain isKazon] && [self.ship isKazon] && self.talentCount == 1) {
                 info = @"You can only deploy the First Maje [TALENT] to this captain.";
-            } else if ([self containsUpgrade:upgrade] && ([upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasSuffix:@"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix:@"OPSOnlyShipClass_"])) {
+            } else if ([self containsUpgrade:upgrade] && ([upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasSuffix:@"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix:@"OPSOnlyShipClass_"] || [upgradeSpecial hasPrefix:@"OPSPlus"])) {
                 info = @"No ship may be equipped with more than one of these upgrades.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
                 info = @"This upgrade can only be added to Jem'hadar ships.";
@@ -1671,6 +1712,22 @@
             }
         }
         
+        if ([upgrade isTech] && [upgrade isRomulan] && [self containsUpgradeWithSpecial:@"AddOneTechMinus1"] != nil) {
+            int romTech = 0;
+            for (DockEquippedUpgrade* eu in self.sortedUpgradesWithoutPlaceholders) {
+                if ([eu.specialTag hasPrefix:@"nijil_tech_"]) {
+                    romTech ++;
+                }
+            }
+            if (romTech < 1) {
+                int cost = [equippedUpgrade.upgrade costForShip:self];
+                if (cost > 1) {
+                    [equippedUpgrade overrideWithCost:cost - 1];
+                }
+                equippedUpgrade.specialTag = [NSString stringWithFormat:@"nijil_tech_%d",romTech+1];
+            }
+        }
+        
         if ([upgrade isTech] && [self.captain.externalId isEqualToString:@"tahna_los_op6prize"]) {
             if ([self upgradesWithSpecialTag:@"TahnaLosTech"].count == 0) {
                 if ([upgrade.special isEqualToString:@""] || [upgrade.special isEqualToString:@"NoMoreThanOnePerShip"] || [upgrade.special isEqualToString:@"AddTwoWeaponSlots"]) {
@@ -1870,7 +1927,14 @@
                 [toRemove addObject:eu];
             }
         }
+    } else if ([upgrade.upgrade.special isEqualToString:@"AddOneTechMinus1"]) {
+    for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+        if ([eu.upgrade isRomulan] && [eu.specialTag hasPrefix:@"nijil_tech_"])
+        {
+            [toRemove addObject:eu];
+        }
     }
+}
     [self removeUpgrades: toRemove];
     [self didChangeValueForKey: @"cost"];
 }
@@ -2114,6 +2178,15 @@
         }
     }
 
+    if ([[self.captain special] isEqualToString:@"RemanBodyguardsLess2"]) {
+        if (crewCount == 0) {
+            crewCount ++;
+        } else {
+            if ([self containsUpgradeWithName:@"Reman Bodyguards"] != nil) {
+                crewCount ++;
+            }
+        }
+    }
     return crewCount;
 }
 

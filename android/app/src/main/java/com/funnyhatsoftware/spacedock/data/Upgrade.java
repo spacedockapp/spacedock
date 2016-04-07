@@ -185,6 +185,21 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         if (this.getExternalId().equals("maintenance_crew_w_72022")) {
             return true;
         }
+        if (this.getExternalId().equals("auxiliary_control_room_t_72316p")) {
+            return true;
+        }
+        if (this.getExternalId().equals("auxiliary_control_room_w_72316p")) {
+            return true;
+        }
+        if (this.getExternalId().equals("automated_distress_beacon_c_72316p")) {
+            return true;
+        }
+        if (this.getExternalId().equals("automated_distress_beacon_t_72316p")) {
+            return true;
+        }
+        if (this.getExternalId().equals("automated_distress_beacon_w_72316p")) {
+            return true;
+        }
         return false;
     }
     public boolean isCostFiveOrLess() {
@@ -451,15 +466,15 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 cost += 5;
             }
         } else if (upgradeSpecial.equals("PenaltyOnShipOtherThanKeldonClass")) {
-                if (!ship.isKeldon()) {
+            if (!ship.isKeldon()) {
                 cost += 5;
             }
         } else if (upgradeSpecial.equals("PlusFiveOnNonSpecies8472")) {
-                if (!ship.isSpecies8472()) {
+            if (!ship.isSpecies8472()) {
                 cost += 5;
             }
         } else if (upgradeSpecial.equals("PlusFiveForNonKazon")) {
-                if (!ship.isKazon()) {
+            if (!ship.isKazon()) {
                 cost += 5;
             }
         } else if (upgradeSpecial.equals("CostPlusFiveExceptBajoranInterceptor")
@@ -468,15 +483,15 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 cost += 5;
             }
         } else if (upgradeSpecial.equals("PlusFiveIfNotBorgShip")) {
-                if (!ship.isBorg()) {
+            if (!ship.isBorg()) {
                 cost += 5;
             }
         } else if ("PlusFiveIfNotRomulan".equals(upgradeSpecial)) {
-                if (!ship.isRomulan()) {
+            if (!ship.isRomulan()) {
                 cost += 5;
             }
         } else if (upgradeSpecial.equals("PlusFiveIfNotRaven")) {
-                if (!ship.isRaven()) {
+            if (!ship.isRaven()) {
                 cost += 5;
             }
         } else if (upgradeSpecial.equals("PlusFiveIfNotMirrorUniverse")) {
@@ -492,7 +507,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 cost += 5;
             }
         } else if (captainSpecial.equals("AllUpgradesMinusOneOnIndepedentShip")
-                && DataUtils.targetHasFaction(Constants.INDEPENDENT,ship) && (!this.isCaptain() && !this.isAdmiral())) {
+                && DataUtils.targetHasFaction(Constants.INDEPENDENT, ship) && (!this.isCaptain() && !this.isAdmiral())) {
             cost -= 1;
         } else if (captainSpecial.equals("KlingonUpgradesCostOneLess")
                 && this.isKlingon() && (!this.isCaptain() && !this.isAdmiral())) {
@@ -596,6 +611,17 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if (!ship.getShipClass().replace(" ", "_").equals(reqClass)) {
                 cost += 5;
             }
+        } else if (upgradeSpecial.startsWith("OPSPlusFiveNotRomulan")) {
+            if (!ship.isRomulan()) {
+                cost += 5;
+            }
+        } else if (upgradeSpecial.startsWith("PlusFiveNotKlingonAndMustHaveComeAbout")) {
+            if (!ship.isKlingon()) {
+                cost += 5;
+            }
+        }
+        if (captainSpecial.equals("RemanBodyguardsLess2") && getTitle().equals("Reman Bodyguards")) {
+            cost -= 2;
         }
         if (captainSpecial.equals("OneDominionUpgradeCostsMinusTwo") && !shipIsSideboard) {
             if (isDominion()) {
@@ -640,6 +666,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 cost = 3;
             }
         }
+
 
         boolean hasExchange = false;
         String exFac1 = "";
@@ -858,7 +885,8 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         if (special != null) {
             if (special.equalsIgnoreCase("AddsOneWeaponOneTech")
                     || "addonetechslot".equalsIgnoreCase(special)
-                    || "add_one_tech_no_faction_penalty_on_vulcan".equalsIgnoreCase(special)) {
+                    || "add_one_tech_no_faction_penalty_on_vulcan".equalsIgnoreCase(special)
+                    || "AddOneTechMinus1".equals(special)) {
                 return 1;
             }
         }
