@@ -437,7 +437,7 @@ public class EquippedShip extends EquippedShipBase {
                 v += upgrade.additionalCrewSlots();
             }
         }
-        if (getCaptain().getSpecial().equals("RemanBodyguardsLess2")) {
+        if (getCaptain() != null && getCaptain().getSpecial().equals("RemanBodyguardsLess2")) {
             if (v == 0) {
                 v++;
             } else {
