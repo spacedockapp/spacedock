@@ -645,7 +645,8 @@ static NSString* makeKey(NSString* key)
         @"PlusFiveNotKlingonAndMustHaveComeAbout",
         @"AddOneTechMinus1",
         @"MustHaveBS",
-        @"OPSPlusFiveNotRomulan"
+        @"OPSPlusFiveNotRomulan",
+        @"OnlyKlingonTalent"
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];

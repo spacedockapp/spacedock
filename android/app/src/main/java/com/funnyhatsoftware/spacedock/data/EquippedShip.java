@@ -1190,6 +1190,31 @@ public class EquippedShip extends EquippedShipBase {
                         }
                     }
                 }
+                if (getCaptain() != null && getCaptain().getSpecial().equals("OnlyKlingonTalent")) {
+                    int limit = getTalent();
+                    if (limit == 1) {
+                        if (!upgrade.isKlingon()) {
+                            return new Explanation(msg,
+                                    "This Captain may only field 1 Klingon [TALENT] Upgrade");
+                        }
+                    } else {
+                        boolean hasKT = false;
+                        for (EquippedUpgrade eu : mUpgrades) {
+                            if (!eu.isPlaceholder() && eu.getUpgrade().isTalent()) {
+                                limit--;
+                                if (eu.getUpgrade().isKlingon()) {
+                                    hasKT = true;
+                                }
+                            }
+                        }
+                        if (limit <= 1 && !hasKT) {
+                            if (addingNew && !upgrade.isKlingon()) {
+                                return new Explanation(msg,
+                                        "This Captain may only field 1 Klingon [TALENT] Upgrade");
+                            }
+                        }
+                    }
+                }
                 if (getCaptain() != null && getCaptain().getSpecial().equals("OneRomulanTalentDiscIfFleetHasRomulan")) {
                     int limit = getTalent();
                     if (limit == 1) {

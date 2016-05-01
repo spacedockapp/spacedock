@@ -715,6 +715,34 @@
         }
     }
     
+    if (![upgrade isPlaceholder] && [upgrade isTalent] && [self.captain.special isEqualToString:@"OnlyKlingonTalent"]) {
+        if (self.talentCount == 1) {
+            if (![upgrade isKlingon]) {
+                return NO;
+            }
+        } else {
+            int talents = self.talentCount;
+            bool hasKT = NO;
+            for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+                if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                    if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                        talents --;
+                        if ([eu.upgrade isKlingon]) {
+                            hasKT = YES;
+                        }
+                    }
+                }
+            }
+            if (talents == 1 && ![upgrade isKlingon]) {
+                if (!hasKT && validating) {
+                    return NO;
+                }
+            } else if (talents < 1 && ![upgrade isKlingon]) {
+                return NO;
+            }
+        }
+    }
+    
     if (![upgrade isPlaceholder] && [upgrade isTalent] && [self.captain.special isEqualToString:@"TwoBajoranTalents"]) {
         if (self.talentCount == 2) {
             if (![upgrade isBajoran]) {
@@ -1540,6 +1568,8 @@
                 info = @"You may only deploy this upgrade to a Bajoran Scout Ship";
             } else if ([upgradeSpecial isEqualToString:@"OnlyBajoranCaptainShip"]) {
                 info = @"You may only deploy this upgrade to a Bajoran Captain assigned to a Bajoran Ship";
+            } else if ([upgrade isTalent] && [self.captain.special isEqualToString:@"OnlyKlingonTalent"]) {
+                info = @"This Captain may only field 1 Klingon [TALENT] Upgrade";
             }
         }
     }
