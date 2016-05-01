@@ -1,6 +1,70 @@
   <Captain>
-    <Title>Barak</Title>
-    <Ability>When attacking with Photon Torpedoes, you may discard the Photon Torpedoes Upgrade to gain +1 attack die for that attack.</Ability>
+    <Title>Khan Singh</Title>
+    <Ability>You may use any Upgrades without paying a Faction penalty. Up to 3 of the Upgrades you purchase for you ship cost exactly 4 SP each and are placed face down beside your Ship Card. Each Upgrade remains face down until you decide to use it, and then it is turned face up for the rest of the game. The printed cost on these Upgrades cannot be greater than 6.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>7</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Independent</Faction>
+    <Cost>4</Cost>
+    <Id>khan_singh_72317p</Id>
+    <Set>72317p</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Klingon</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>1</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Klingon</Faction>
+    <Cost>0</Cost>
+    <Id>klingon_72334</Id>
+    <Set>72334</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Kurn</Title>
+    <Ability>During the Combat Phase, each time you defend, you may re-roll 1 of your [BATTLESTATIONS] results. If this card is assigned to a Klingon ship, you may re-roll up to 2 of your [BATTLESTATIONS] results. Kurn may field 1 Klingon [ELITE TALENT] Upgrade.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>5</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Klingon</Faction>
+    <Cost>3</Cost>
+    <Id>kurn_72334</Id>
+    <Set>72334</Set>
+    <Special>OnlyKlingonTalent</Special>
+  </Captain>
+  <Captain>
+    <Title>Romulan</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>1</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Romulan</Faction>
+    <Cost>0</Cost>
+    <Id>romulan_72333</Id>
+    <Set>72333</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Tal</Title>
+    <Ability>If your ship is not Cloaked, you may perform a [BATTLESTATIONS] Action as your Standard Action, even if the [BATTLESTATIONS] Action is not on your ship's Action Bar. You cannot perform any free Actions during the round in which you use this ability.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>3</Skill>
@@ -8,41 +72,81 @@
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Klingon</Faction>
+    <Faction>Romulan</Faction>
     <Cost>2</Cost>
-    <Id>barak_72327</Id>
-    <Set>72327</Set>
+    <Id>tal_72333</Id>
+    <Set>72333</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Vrax</Title>
-    <Ability>You may deploy the "Reman Bodyguards" Upgrade to your ship at a cost of -2 SP, even if it exceeds your ship's restrictions.</Ability>
+    <Title>Klingon</Title>
+    <Ability></Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>1</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Klingon</Faction>
+    <Cost>0</Cost>
+    <Id>klingon_72318p</Id>
+    <Set>72318p</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Kruge</Title>
+    <Ability>Add 1 [CREW] Upgrade slot to your Upgrade Bar. When attacking with your Primary Weapon, during the Deal Damage step, you may discard one of your [CREW] Upgrades to inflict 1 additional damage to the defending ship.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>3</Skill>
+    <Skill>7</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Klingon</Faction>
+    <Cost>4</Cost>
+    <Id>kruge_72318p</Id>
+    <Set>72318p</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Gowron</Title>
+    <Ability>ACTION: If there is not already a [BATTLESTATIONS] Token beside your ship, place 1 [BATTLESTATIONS] Token beside your ship. In addition, if your ship is a Klingon ship with a Klingon Captain assigned to it, you may immediately perform an additional Action from your Action Bar as a free Action.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>5</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Klingon</Faction>
+    <Cost>3</Cost>
+    <Id>gowron_cap_72334</Id>
+    <Set>72334</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: If there is not already a [BATTLESTATIONS] Token beside your ship, place 1 [BATTLESTATIONS] Token beside your ship. In addition, if your ship is a Klingon ship with a Klingon Captain assigned to it, you may immediately perform an additional Action from your Action Bar as a free Action.</AdmiralAbility>
+    <AdmiralCost>3</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>0</SkillModifier>
+  </Captain>
+  <Captain>
+    <Title>Liviana Charvanek</Title>
+    <Ability>ACTION: If your ship has the [CLOAK] ACTION on its Action Bar, place a [CLOAK] Token beside your ship then immediately perform an additional Action from your Action Bar as a free Action.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>5</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
     <Faction>Romulan</Faction>
-    <Cost>2</Cost>
-    <Id>vrax_72328</Id>
-    <Set>72328</Set>
-    <Special>Yes</Special>
-  </Captain>
-  <Captain>
-    <Title>Matt Decker</Title>
-    <Ability>If this card is assigned to a Federation ship, during the Roll Attack Dice step, you may disable this card to gain +1 attack die for that attack. If you ship is destroyed, you may immediately target a friendly ship within Range 1-2 of your ship. If you do so, discard the Captain Card from the target ship. This card becomes the new Captain Card for that ship.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>3</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>2</Cost>
-    <Id>matt_decker_72316p</Id>
-    <Set>72316p</Set>
+    <Cost>3</Cost>
+    <Id>liviana_charvanek_cap_72333</Id>
+    <Set>72333</Set>
     <Special></Special>
+    <AdmiralAbility>FLEET ACTION: If your ship has the [CLOAK] ACTION on its Action Bar, place a [CLOAK] Token beside your ship then immediately perform an additional Action from your Action Bar as a free Action.</AdmiralAbility>
+    <AdmiralCost>3</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
   </Captain>

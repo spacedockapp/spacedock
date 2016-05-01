@@ -1,0 +1,40 @@
+  <Admiral>
+    <Title>Gowron</Title>
+    <Ability>ACTION: If there is not already a [BATTLESTATIONS] Token beside your ship, place 1 [BATTLESTATIONS] Token beside your ship. In addition, if your ship is a Klingon ship with a Klingon Captain assigned to it, you may immediately perform an additional Action from your Action Bar as a free Action.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>5</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Admiral</Type>
+    <Faction>Klingon</Faction>
+    <Cost>3</Cost>
+    <Id>gowron_72334</Id>
+    <Set>72334</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: If there is not already a [BATTLESTATIONS] Token beside your ship, place 1 [BATTLESTATIONS] Token beside your ship. In addition, if your ship is a Klingon ship with a Klingon Captain assigned to it, you may immediately perform an additional Action from your Action Bar as a free Action.</AdmiralAbility>
+    <AdmiralCost>3</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>0</SkillModifier>
+  </Admiral>
+  <Admiral>
+    <Title>Liviana Charvanek</Title>
+    <Ability>ACTION: If your ship has the [CLOAK] ACTION on its Action Bar, place a [CLOAK] Token beside your ship then immediately perform an additional Action from your Action Bar as a free Action.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>5</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Admiral</Type>
+    <Faction>Romulan</Faction>
+    <Cost>3</Cost>
+    <Id>liviana_charvanek_72333</Id>
+    <Set>72333</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: If your ship has the [CLOAK] ACTION on its Action Bar, place a [CLOAK] Token beside your ship then immediately perform an additional Action from your Action Bar as a free Action.</AdmiralAbility>
+    <AdmiralCost>3</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
+  </Admiral>

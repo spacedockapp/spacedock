@@ -1,74 +1,16 @@
   <Ship>
-    <Title>I.K.S. Amar</Title>
+    <Title>U.S.S. Reliant</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>K'T'Inga Class</ShipClass>
-    <Faction>Klingon</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>1</Agility>
-    <Hull>4</Hull>
-    <Shield>3</Shield>
-    <Ability>When attacking, if you do not hit the defending ship, place an [EVADE] Token beside your ship.</Ability>
-    <Cost>24</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>0</Tech>
-    <Weapon>2</Weapon>
-    <Crew>2</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
-    <Has360Arc>N</Has360Arc>
-    <Id>i_k_s_amar_72327</Id>
-    <Set>72327</Set>
-  </Ship>
-  <Ship>
-    <Title>I.R.W. Jazkal</Title>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Romulan Bird-of-Prey</ShipClass>
-    <Faction>Romulan</Faction>
+    <ShipClass>Miranda Class</ShipClass>
+    <Faction>Independent</Faction>
     <AdditionalFaction></AdditionalFaction>
     <Attack>2</Attack>
     <Agility>2</Agility>
     <Hull>3</Hull>
-    <Shield>0</Shield>
-    <Ability>While there is a [SCAN] Token beside your ship, you cannot be targeted by any [ELITE TALENT] Upgrades and you roll +1 defense die against all attacks made with [WEAPON] Upgrades.</Ability>
-    <Cost>14</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>1</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>0</Cloak>
-    <SensorEcho>0</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>1</Weapon>
-    <Crew>1</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
-    <Has360Arc>N</Has360Arc>
-    <Id>i_r_w_jazkal_72328</Id>
-    <Set>72328</Set>
-  </Ship>
-  <Ship>
-    <Title>U.S.S. Constellation</Title>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Constitution Class</ShipClass>
-    <Faction>Federation</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>3</Attack>
-    <Agility>1</Agility>
-    <Hull>4</Hull>
     <Shield>3</Shield>
-    <Ability>If all of your Shields have been destroyed, when attacking with your Primary Weapon, you may gain +2 attack dice.  If you do so, place an Auxiliary Power Token beside your ship.  You cannot roll any defense dice during a round in which you use this ability.</Ability>
-    <Cost>22</Cost>
+    <Ability>When attacking with your Primary Weapon, during the Modify Attack Dice step, you may disable any number of your Active Shields to re-roll a number of your attack dice equal to the number of Shields you disabled.</Ability>
+    <Cost>20</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
@@ -82,6 +24,122 @@
     <Crew>2</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>u_s_s_constellation_72316p</Id>
-    <Set>72316p</Set>
+    <Id>u_s_s_reliant_72317p</Id>
+    <Set>72317p</Set>
+  </Ship>
+  <Ship>
+    <Title>I.K.S. Drovana</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Vor'cha Class</ShipClass>
+    <Faction>Klingon</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>5</Attack>
+    <Agility>1</Agility>
+    <Hull>5</Hull>
+    <Shield>3</Shield>
+    <Ability>When defending, during the Compare Results step, you may discard 1 of your non-disabled Upgrades to cancel 1 [HIT] or [CRIT] result.</Ability>
+    <Cost>28</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>0</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>1</Cloak>
+    <SensorEcho>1</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>1</Tech>
+    <Weapon>2</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>i_k_s_drovana_72334</Id>
+    <Set>72334</Set>
+  </Ship>
+  <Ship>
+    <Title>Romulan Battlecruiser</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>D7 Class</ShipClass>
+    <Faction>Romulan</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>3</Attack>
+    <Agility>1</Agility>
+    <Hull>3</Hull>
+    <Shield>1</Shield>
+    <Ability></Ability>
+    <Cost>16</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>0</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>1</Cloak>
+    <SensorEcho>1</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>0</Tech>
+    <Weapon>1</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>romulan_battlecruiser_72333</Id>
+    <Set>72333</Set>
+  </Ship>
+  <Ship>
+    <Title>I.R.W. Algeron</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>D7 Class</ShipClass>
+    <Faction>Romulan</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>3</Attack>
+    <Agility>1</Agility>
+    <Hull>3</Hull>
+    <Shield>2</Shield>
+    <Ability>When attacking with your Primary Weapon, if your ship is not Cloaked, during the Declare Target step, you may perform a 1 [STRAIGHT] Maneuver before choosing an enemy ship to attack.</Ability>
+    <Cost>18</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>0</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>1</Cloak>
+    <SensorEcho>1</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>1</Tech>
+    <Weapon>1</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>i_r_w_algeron_72333</Id>
+    <Set>72333</Set>
+  </Ship>
+  <Ship>
+    <Title>Kruge's Bird-of-Prey</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>B'rel Class</ShipClass>
+    <Faction>Klingon</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>4</Attack>
+    <Agility>1</Agility>
+    <Hull>3</Hull>
+    <Shield>3</Shield>
+    <Ability>ACTION: Once this round, if you inflict a critical damage on an enemy ship's Hull, you may search the Damage Deck for a "Direct Hit" damage card and place it beside the enemy's Ship Card.  Shuffle the Damage Deck when you are done.</Ability>
+    <Cost>22</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>0</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>1</Cloak>
+    <SensorEcho>1</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>0</Tech>
+    <Weapon>2</Weapon>
+    <Crew>2</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>kruge_s_bird_of_prey_72318p</Id>
+    <Set>72318p</Set>
   </Ship>
