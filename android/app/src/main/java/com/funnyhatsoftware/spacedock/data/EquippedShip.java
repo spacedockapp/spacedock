@@ -762,6 +762,11 @@ public class EquippedShip extends EquippedShipBase {
                 return new Explanation(msg, "This upgrade can only be purchased for a Jem'Hadar Battleship or Battle Cruiser.");
             }
         }
+        if ("limited_max_weapon_3AndPlus5NonFed".equals(upgradeSpecial)) {
+            if (ship.getAttack() > 3) {
+                return new Explanation(msg, "You may only deploy this upgrade to a ship with a Primary Weapon Value of 3 or less.");
+            }
+        }
         if ("combat_vessel_variant_71508".equals(upgradeSpecial)
                 || "only_suurok_class_limited_weapon_hull_plus_1".equals(upgradeSpecial)) {
             if (!ship.isSuurok()) {
