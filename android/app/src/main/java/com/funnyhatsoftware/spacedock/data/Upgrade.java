@@ -506,12 +506,6 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if (!ship.isGalaxy() && !ship.isIntrepid() && !ship.isSovereign()) {
                 cost += 5;
             }
-        } else if (captainSpecial.equals("AllUpgradesMinusOneOnIndepedentShip")
-                && DataUtils.targetHasFaction(Constants.INDEPENDENT, ship) && (!this.isCaptain() && !this.isAdmiral())) {
-            cost -= 1;
-        } else if (captainSpecial.equals("KlingonUpgradesCostOneLess")
-                && this.isKlingon() && (!this.isCaptain() && !this.isAdmiral())) {
-            cost -= 1;
         } else if ("PlusFiveIfNotRegentsFlagship".equals(upgradeSpecial) && !ship.isRegentsFlagship()) {
             cost += 5;
         } else if ("PlusFivePointsNonHirogen".equals(upgradeSpecial) && !ship.getShipClass().contains("Hirogen")) {
@@ -624,6 +618,14 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if (!ship.isKlingon()) {
                 cost += 5;
             }
+        }
+        if (captainSpecial.equals("AllUpgradesMinusOneOnIndepedentShip")
+                && DataUtils.targetHasFaction(Constants.INDEPENDENT, ship) && (!this.isCaptain() && !this.isAdmiral())) {
+                cost -= 1;
+        }
+        if (captainSpecial.equals("KlingonUpgradesCostOneLess")
+                && this.isKlingon() && (!this.isCaptain() && !this.isAdmiral())) {
+            cost -= 1;
         }
         if (captainSpecial.equals("RemanBodyguardsLess2") && getTitle().equals("Reman Bodyguards")) {
             cost -= 2;
