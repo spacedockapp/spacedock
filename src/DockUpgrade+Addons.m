@@ -882,6 +882,11 @@ static NSDictionary* sItemLabels = nil;
         if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"OPSPlus5NotShipClass_%@",shipClass]]) {
             cost += 5;
         }
+    } else if ([upgradeSpecial hasPrefix:@"OPSPlus3NotShipClass_"]) {
+        NSString* shipClass = [ship.shipClass stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+        if (![upgradeSpecial isEqualToString:[NSString stringWithFormat:@"OPSPlus3NotShipClass_%@",shipClass]]) {
+            cost += 3;
+        }
     }
 
     if (!isSideboard) {

@@ -611,6 +611,11 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if (!ship.getShipClass().replace(" ", "_").equals(reqClass)) {
                 cost += 5;
             }
+        } else if (upgradeSpecial.startsWith("OPSPlus3NotShipClass_")) {
+            String reqClass = upgradeSpecial.substring(21);
+            if (!ship.getShipClass().replace(" ", "_").equals(reqClass)) {
+                cost += 3;
+            }
         } else if (upgradeSpecial.startsWith("OPSPlusFiveNotRomulan")) {
             if (!ship.isRomulan()) {
                 cost += 5;

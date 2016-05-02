@@ -1055,7 +1055,7 @@
         }
     }
 
-    if ([upgradeSpecial isEqualToString: @"OnlyFederationShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString:@"ony_federation_ship_limited3"] || [upgradeSpecial isEqualToString:@"NoMoreThanOnePerShipFederation"]) {
+    if ([upgradeSpecial isEqualToString: @"OnlyFederationShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString:@"ony_federation_ship_limited3"] || [upgradeSpecial isEqualToString:@"NoMoreThanOnePerShipFederation"] || [upgrade.externalId isEqualToString:@"dual_phaser_banks_72002p"]) {
         if (![self.ship isFederation]) {
             return NO;
         }

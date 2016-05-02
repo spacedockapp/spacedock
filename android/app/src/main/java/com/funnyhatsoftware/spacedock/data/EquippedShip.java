@@ -742,6 +742,11 @@ public class EquippedShip extends EquippedShipBase {
                 return new Explanation(msg, "This upgrade can only be added to Federation ships.");
             }
         }
+        if ("dual_phaser_banks_72002p".equals(upgrade.getExternalId())) {
+            if (!ship.isFederation()) {
+                return new Explanation(msg, "This upgrade can only be added to Federation ships.");
+            }
+        }
         if ("OnlyRomulanShip".equals(upgradeSpecial)){
             if (!ship.isRomulan()) {
                 return new Explanation(msg, "This upgrade can only be added to Romulan ships.");

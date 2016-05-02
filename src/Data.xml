@@ -1,4 +1,4 @@
-<Data version="2016-05-02@15-29">
+<Data version="2016-05-02@17-06">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -22424,7 +22424,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Cost>3</Cost>
         <Id>dual_phaser_banks_72002p</Id>
         <Set>72002p</Set>
-        <Special>NoMoreThanOnePerShip</Special>
+        <Special>OPSPlus3NotShipClass_Constitution_Class</Special>
     </Upgrade>
     <Upgrade>
         <Title>Aft Disruptor Emitters</Title>
