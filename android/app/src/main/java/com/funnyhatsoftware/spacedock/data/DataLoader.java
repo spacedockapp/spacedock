@@ -534,7 +534,9 @@ public class DataLoader extends DefaultHandler {
                 wildcardSpecials.add(unhandledSpecial);
             } else if (unhandledSpecial.startsWith("OPSPlus5NotShipClass_")) {
                 wildcardSpecials.add(unhandledSpecial);
-            }
+            } else if (unhandledSpecial.startsWith("OPSPlus3NotShipClass_")) {
+            wildcardSpecials.add(unhandledSpecial);
+        }
         }
         if (wildcardSpecials.size() > 0) {
             unhandledSpecials.removeAll(wildcardSpecials);
