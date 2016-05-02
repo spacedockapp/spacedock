@@ -1092,6 +1092,12 @@ public class EquippedShip extends EquippedShipBase {
                                 "This upgrade can only be added to a Kazon Captain on a Kazon Ship.");
                     }
                 }
+                if (upgradeSpecial.equals("OnlyVulcanCaptainVulcanShip")) {
+                    if (!captain.isVulcan() || !ship.isVulcan()) {
+                        return new Explanation(msg,
+                                "This upgrade can only be added to a Vulcan Captain on a Vulcan Ship.");
+                    }
+                }
             }
 
             if (upgradeSpecial.equals("OnlyTholianCaptain")) {
