@@ -328,6 +328,10 @@ public class Ship extends ShipBase implements Factioned, Uniqueness {
             actions.add("Lock");
         }
 
+        if (mRegenerate > 0) {
+            actions.add("Regen");
+        }
+
         return actions;
     }
 
