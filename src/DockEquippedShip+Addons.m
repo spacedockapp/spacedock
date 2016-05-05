@@ -1846,6 +1846,12 @@
                 }
             }
         }
+        if ([self.captain.externalId isEqualToString:@"khan_singh_72317p"] && equippedUpgrade.cost <= 6 && !equippedUpgrade.upgrade.isCaptain && !equippedUpgrade.upgrade.isAdmiral) {
+            if ([self upgradesWithSpecialTag:@"KhanDiscounted"].count < 3) {
+                equippedUpgrade.specialTag = @"KhanDiscounted";
+                [equippedUpgrade overrideWithCost:4];
+            }
+        }
     }
     if ([upgrade.externalId isEqualToString:@"romulan_hijackers_71802"]) {
         [self removeIllegalUpgrades];
@@ -2063,6 +2069,9 @@
         if ([self containsUpgradeWithIdCount:@"triphasic_emitter_71536"] > ([self upgradesWithSpecialTag:@"HiddenWeaponTE"].count + tecount) && [eu.specialTag isEqualToString:@"HiddenWeaponTE"]) {
             [onesToRemove addObject:eu];
             tecount ++;
+        }
+        if (![self.captain.externalId isEqualToString:@"khan_singh_72317p"] && [eu.specialTag isEqualToString:@"KhanDiscounted"]) {
+            [onesToRemove addObject:eu];
         }
         if (![self canAddUpgrade: eu.upgrade ignoreInstalled: NO validating: NO]) {
             [onesToRemove addObject: eu];

@@ -1,4 +1,4 @@
-<Data version="2016-05-02@17-06">
+<Data version="2016-05-05@15-17">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -12350,7 +12350,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Cost>4</Cost>
       <Id>khan_singh_72317p</Id>
       <Set>72317p</Set>
-      <Special></Special>
+      <Special>UpgradesIgnoreFactionPenalty</Special>
   </Captain>
   <Captain>
       <Title>Kurn</Title>

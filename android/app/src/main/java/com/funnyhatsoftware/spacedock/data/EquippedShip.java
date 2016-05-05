@@ -606,16 +606,23 @@ public class EquippedShip extends EquippedShipBase {
                 String captainId = captain.getExternalId();
                 if (getShip().getShipClass().equals("Romulan Drone Ship")) {
                     Captain gareb = Universe.getUniverse().getCaptain("gareb_71536");
-                    Explanation explanation1 = mSquad.canAddCaptain(gareb,this);
+                    Explanation explanation1 = mSquad.canAddCaptain(gareb, this);
                     if (explanation1.canAdd) {
                         removeUpgrade(captain);
                         addUpgrade((Upgrade) gareb);
-                        Explanation explanation2 = tryEquipUpgrade(mSquad,SLOT_TYPE_CAPTAIN,1,captainId);
+                        Explanation explanation2 = tryEquipUpgrade(mSquad, SLOT_TYPE_CAPTAIN, 1, captainId);
                     } else {
                         onesToRemove.add(captain);
                     }
                 } else {
                     onesToRemove.add(captain);
+                }
+            }
+            for(EquippedUpgrade eu : mUpgrades) {
+                if (!captain.getExternalId().equals("khan_singh_72317p") && !eu.isPlaceholder()) {
+                    if (eu.getSpecialTag() != null && eu.getSpecialTag().equals("KhanDiscounted")) {
+                        onesToRemove.add(eu);
+                    }
                 }
             }
         }
@@ -1822,6 +1829,24 @@ public class EquippedShip extends EquippedShipBase {
                     newEu.setOverriddenCost(cost);
                     newEu.setSpecialTag("DiscRomTalent");
                 }
+            }
+        }
+
+        if (!newEu.isPlaceholder() && getCaptain() != null && getCaptain().getExternalId().equals("khan_singh_72317p")) {
+            int cost = newEu.getUpgrade().calculateCostForShip(this,newEu);
+            int count = 0;
+            for(EquippedUpgrade eu : mUpgrades) {
+                if (!eu.isPlaceholder()) {
+                    if (eu.getSpecialTag() != null && eu.getSpecialTag().equals("KhanDiscounted")) {
+                        count++;
+                    }
+                }
+            }
+            if (!newEu.isCaptain() && !newEu.getUpgrade().isAdmiral() && cost <= 6 && count < 3) {
+                System.out.println("Discounted.");
+                newEu.setSpecialTag("KhanDiscounted");
+                newEu.setOverridden(true);
+                newEu.setOverriddenCost(4);
             }
         }
 
