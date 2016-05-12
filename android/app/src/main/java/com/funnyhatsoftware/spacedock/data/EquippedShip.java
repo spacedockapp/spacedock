@@ -600,6 +600,7 @@ public class EquippedShip extends EquippedShipBase {
         ArrayList<EquippedUpgrade> onesToRemove = new ArrayList<EquippedUpgrade>();
 
         EquippedUpgrade captain = getEquippedCaptain();
+        int totalTE = 0;
         if (captain != null) {
             Explanation explanation = mSquad.canAddCaptain(getCaptain(),this);
             if (!explanation.canAdd) {
@@ -624,6 +625,9 @@ public class EquippedShip extends EquippedShipBase {
                         onesToRemove.add(eu);
                     }
                 }
+                if (eu.getUpgrade().getExternalId().equals("triphasic_emitter_71536")) {
+                    totalTE++;
+                }
             }
         }
         for (EquippedUpgrade eu : getSortedUpgrades()) {
@@ -632,6 +636,13 @@ public class EquippedShip extends EquippedShipBase {
                 Explanation explanation = canAddUpgrade(upgrade, false);
                 if (!explanation.canAdd) {
                     onesToRemove.add(eu);
+                }
+                if (eu.getSpecialTag() != null && eu.getSpecialTag().equals("HiddenWeaponTE")) {
+                    if (totalTE > 0) {
+                        totalTE--;
+                    } else {
+                        onesToRemove.add(eu);
+                    }
                 }
             }
         }
@@ -1782,6 +1793,26 @@ public class EquippedShip extends EquippedShipBase {
                     newEu.setOverridden(true);
                     newEu.setOverriddenCost(0);
                     newEu.setSpecialTag("fed3_tech_" + Integer.toString(tech + 1));
+                }
+            }
+        }
+
+        if (upgrade.isWeapon() && !upgrade.getExternalId().equals("triphasic_emitter_71536") && null != containsUpgrade(Universe.getUniverse().getUpgrade("triphasic_emitter_71536"))) {
+            if (upgrade.calculateCostForShip(this, newEu) <= 5) {
+                int totalTE = 0;
+                int totalHidden = 0;
+                for (EquippedUpgrade eu : mUpgrades) {
+                    if (eu.getUpgrade().isWeapon() && !eu.isPlaceholder() && eu.getSpecialTag() != null && eu.getSpecialTag().equals("HiddenWeaponTE")) {
+                        totalHidden++;
+                    } else if (eu.getUpgrade().getExternalId().equals("triphasic_emitter_71536")) {
+                        totalTE++;
+                    }
+                }
+
+                if (totalHidden < totalTE) {
+                    newEu.setOverridden(true);
+                    newEu.setOverriddenCost(0);
+                    newEu.setSpecialTag("HiddenWeaponTE");
                 }
             }
         }
