@@ -1,4 +1,4 @@
-<Data version="2016-05-12@23-18">
+<Data version="2016-05-16@19-44">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -23352,7 +23352,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Cost>5</Cost>
         <Id>secret_research_72016</Id>
         <Set>72016</Set>
-        <Special>costincreasedifnotromulansciencevessel</Special>
+        <Special>Plus5NotShipClass_Romulan_Science_Vessel</Special>
     </Upgrade>
     <Upgrade>
         <Title>Test Cylinder</Title>
