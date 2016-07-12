@@ -630,6 +630,9 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         if (captainSpecial.equals("RemanBodyguardsLess2") && getTitle().equals("Reman Bodyguards")) {
             cost -= 2;
         }
+        if (captainSpecial.equals("FedCrewUpgradesCostOneLess") && isCrew() && isFederation()) {
+            cost -= 1;
+        }
         if (captainSpecial.equals("OneDominionUpgradeCostsMinusTwo") && !shipIsSideboard) {
             if (isDominion()) {
                 EquippedUpgrade most = equippedShip.mostExpensiveUpgradeOfFaction("Dominion");
@@ -773,6 +776,14 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             cost = 0;
         }
 
+        if (upgradeSpecial.equals("BSVT")) {
+            if (ship.getShipClass().equals("Borg Sphere")) {
+                cost = -15;
+            } else {
+                cost = -10;
+            }
+        }
+
         return cost;
 
     }
@@ -847,6 +858,9 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             return 2;
         }
         if ("maintenance_crew_w_72022".equalsIgnoreCase(getExternalId())) {
+            return 1;
+        }
+        if ("addoneweaponslotfortorpedoes".equals(getSpecial())) {
             return 1;
         }
         return 0;

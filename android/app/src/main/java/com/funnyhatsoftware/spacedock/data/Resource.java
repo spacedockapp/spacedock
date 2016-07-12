@@ -90,8 +90,15 @@ public class Resource extends ResourceBase {
                     hull++;
                 }
             }
-            cost = 3.0f + ((float)hull*2.0f);
-            return (int)cost;
+            cost = 3.0f + ((float) hull * 2.0f);
+            return (int) cost;
+        } else if (getExternalId().equals("improved_hull_72319r")) {
+            int hull = 0;
+            for (EquippedShip ship : squad.getEquippedShips()) {
+                hull += ship.getHull();
+            }
+            cost = (float)hull/2.0f;
+            return (int)Math.ceil(cost);
         } else {
             return getCost();
         }

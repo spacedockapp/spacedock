@@ -1291,6 +1291,29 @@ public class EquippedShip extends EquippedShipBase {
                         }
                     }
                 }
+                if (upgradeSpecial.equals("OnlyBorgQueen") && getCaptain() != null && !getCaptain().getTitle().equals("Borg Queen")) {
+                    return new Explanation(msg,
+                            "This upgrade may only be assinged to the Borg Queen");
+                }
+            }
+        }
+
+        if (!upgrade.isPlaceholder() && upgrade.isWeapon() && this.containsUpgradeWithSpecial("addoneweaponslotfortorpedoes") != null) {
+            int limit = getWeapon() - 1;
+            for (EquippedUpgrade eu : mUpgrades) {
+                if (!eu.isPlaceholder() && eu.getUpgrade().isWeapon()) {
+                    if (!eu.getTitle().equals("Photon Torpedoes"))
+                        limit--;
+                }
+            }
+
+            if (!upgrade.getTitle().equals("Photon Torpedoes")) {
+                if (!addingNew) {
+                    limit++;
+                }
+                if (limit < 1) {
+                    return new Explanation(msg, "You may only equip a Photon Torpedoes upgrade in this slot.");
+                }
             }
         }
 
@@ -1353,6 +1376,13 @@ public class EquippedShip extends EquippedShipBase {
                     return new Explanation(msg,"You can only deploy Federation [TECH] Upgrades costing 4 or less to " + containsUpgradeWithSpecial("Add3FedTech4Less").getTitle() + ".");
                 }
             }
+        }
+
+        if (upgradeSpecial.equals("BSVT") && this.getSquad().containsUniqueUpgradeWithName("Borg Support Vehicle Dock") == null) {
+            return new Explanation(msg,"The Borg Support Vehicle Token may only be applied when a ship in your fleet is equipped with the Borg Support Vehicle Dock upgrade.");
+        }
+        if (upgradeSpecial.equals("BSVT") && this.getHull() > 7) {
+            return new Explanation(msg,"The Borg Support Vehicle Token may only be applied when a ship with a Hull Value of 7 or less.");
         }
 
         int limit = upgrade.limitForShip(this);

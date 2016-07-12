@@ -499,7 +499,11 @@ public class DataLoader extends DefaultHandler {
                 "OPSPlusFiveNotRomulan",
                 "PlusFiveNotKlingonAndMustHaveComeAbout",
                 "RemanBodyguardsLess2",
-                "OnlyKlingonTalent"
+                "OnlyKlingonTalent",
+                "BSVT",
+                "OnlyBorgQueen",
+                "addoneweaponslotfortorpedoes",
+                "FedCrewUpgradesCostOneLess"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);

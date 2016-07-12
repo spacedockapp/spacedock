@@ -565,6 +565,27 @@
         }
     }
     
+    if (!upgrade.isPlaceholder && [upgrade isWeapon] && [self containsUpgradeWithSpecial:@"addoneweaponslotfortorpedoes"] != nil) {
+        int torp = 0;
+        
+        for (DockEquippedUpgrade* eu in self.upgrades) {
+            if ([eu.upgrade isWeapon] && !eu.isPlaceholder) {
+                if (![eu.title isEqualToString:@"Photon Torpedoes"]) {
+                    torp ++;
+                }
+            }
+        }
+        
+        if (![upgrade.title isEqualToString:@"Photon Torpedoes"]) {
+            int artificalLimit = [upgrade limitForShip: self] - torp - 1;
+            if (!validating) {
+                artificalLimit ++;
+            }
+            return artificalLimit > 0;
+            //return NO;
+        }
+    }
+    
     if ([upgrade.externalId isEqualToString:@"first_maje_71793"]) {
         if (![captain isKazon]) {
             return NO;
@@ -940,6 +961,11 @@
     if ([upgrade isTalent]) {
         if ([captain.special isEqualToString: @"lore_71522"]) {
             return [upgrade isRestrictedOnlyByFaction];
+        }
+        if ([upgrade.special isEqualToString:@"OnlyBorgQueen"]) {
+            if (![captain.title isEqualToString:@"Borg Queen"]) {
+                return NO;
+            }
         }
     }
 
@@ -1410,6 +1436,15 @@
         }
     }
     
+    if ([upgradeSpecial isEqualToString:@"BSVT"]) {
+        if ([self.squad containsUpgradeWithName:@"Borg Support Vehicle Dock"] == nil) {
+            return NO;
+        }
+        if (self.hull > 7) {
+            return NO;
+        }
+    }
+    
     if (ignoreInstalled) {
         return YES;
     }
@@ -1570,6 +1605,12 @@
                 info = @"You may only deploy this upgrade to a Bajoran Captain assigned to a Bajoran Ship";
             } else if ([upgrade isTalent] && [self.captain.special isEqualToString:@"OnlyKlingonTalent"]) {
                 info = @"This Captain may only field 1 Klingon [TALENT] Upgrade";
+            } else if ([upgradeSpecial isEqualToString:@"OnlyBorgQueen"] && ![self.captain.title isEqualToString:@"Borg Queen"]) {
+                info = @"This upgrade may only be assigned to the Borg Queen";
+            } else if ([upgradeSpecial isEqualToString:@"BSVT"] && [self.squad containsUpgradeWithName:@"Borg Support Vehicle Dock"] == nil) {
+                info = @"The Borg Support Vehicle Token may only be applied when a ship in your fleet is equipped with the Borg Support Vehicle Dock upgrade.";
+            } else if ([upgradeSpecial isEqualToString:@"BSVT"] && self.hull > 7) {
+                info = @"The Borg Support Vehicle Token may only be applied when a ship with a Hull Value of 7 or less.";
             }
         }
     }
@@ -2272,6 +2313,12 @@
         }
     }
 
+    if ([self containsUpgradeWithSpecial:@"BSVT"] != nil) {
+        borgCount += 1;
+    }
+    if (borgCount == 0 && [self.squad containsUpgradeWithName:@"Borg Support Vehicle Dock"] != nil && [self.squad containsUpgradeWithSpecial:@"BSVT"] == nil) {
+        borgCount += 1;
+    }
     return borgCount;
 }
 

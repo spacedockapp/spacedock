@@ -929,6 +929,10 @@ static NSDictionary* sItemLabels = nil;
             if ([[self title] isEqualToString:@"Reman Bodyguards"]) {
                 cost -= 2;
             }
+        } else if ([captainSpecial isEqualToString:@"FedCrewUpgradesCostOneLess"]) {
+            if ([self isCrew] && [self isFederation]) {
+                cost -= 1;
+            }
         }
     }
 
@@ -1019,7 +1023,13 @@ static NSDictionary* sItemLabels = nil;
     if (cost < 0) {
         cost = 0;
     }
-    
+    if ([upgradeSpecial isEqualToString:@"BSVT"]) {
+        if ([ship.shipClass isEqualToString:@"Borg Sphere"]) {
+            cost = -15;
+        } else {
+            cost = -10;
+        }
+    }
     return cost;
 }
 
@@ -1050,6 +1060,9 @@ static NSDictionary* sItemLabels = nil;
         return 2;
     }
     if ([externalId isEqualToString:@"maintenance_crew_w_72022"]) {
+        return 1;
+    }
+    if ([special isEqualToString:@"addoneweaponslotfortorpedoes"]) {
         return 1;
     }
     return 0;
