@@ -1,69 +1,55 @@
   <ShipClassDetail>
-    <Name>Miranda Class</Name>
-    <Id>miranda_class</Id>
+    <Name>Borg Cube</Name>
+    <Id>borg_cube</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc></FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Borg Sphere</Name>
+    <Id>borg_sphere</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc></FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Borg Sphere</Name>
+    <Id>borg_sphere</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc></FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Borg Cube</Name>
+    <Id>borg_cube</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc></FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Constitution Class (Refit)</Name>
+    <Id>constitution_class_refit_</Id>
     <Maneuvers>
 
     </Maneuvers>
     <FrontArc>180</FrontArc>
-    <RearArc>90</RearArc>
+    <RearArc></RearArc>
   </ShipClassDetail>
   <ShipClassDetail>
-    <Name>Miranda Class</Name>
-    <Id>miranda_class</Id>
+    <Name>Constitution Class (Refit)</Name>
+    <Id>constitution_class_refit_</Id>
     <Maneuvers>
 
     </Maneuvers>
     <FrontArc>180</FrontArc>
-    <RearArc>90</RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>Vor'cha Class</Name>
-    <Id>vor_cha_class</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc>90</FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>Vor'cha Class</Name>
-    <Id>vor_cha_class</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc>90</FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>D7 Class</Name>
-    <Id>d7_class</Id>
-    <Maneuvers>
-      <Maneuver speed="4" kind="straight" color="white" />
-      <Maneuver speed="3" kind="left-turn" color="white" />
-      <Maneuver speed="3" kind="left-bank" color="white" />
-      <Maneuver speed="3" kind="straight" color="white" />
-      <Maneuver speed="3" kind="about" color="red" />
-      <Maneuver speed="3" kind="right-bank" color="white" />
-      <Maneuver speed="3" kind="right-turn" color="white" />
-      <Maneuver speed="2" kind="left-turn" color="white" />
-      <Maneuver speed="2" kind="left-bank" color="green" />
-      <Maneuver speed="2" kind="straight" color="green" />
-      <Maneuver speed="2" kind="right-bank" color="green" />
-      <Maneuver speed="2" kind="right-turn" color="white" />
-      <Maneuver speed="1" kind="left-bank" color="green" />
-      <Maneuver speed="1" kind="straight" color="green" />
-      <Maneuver speed="1" kind="right-bank" color="green" />
-    </Maneuvers>
-    <FrontArc>90</FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>D7 Class</Name>
-    <Id>d7_class</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc>90</FrontArc>
     <RearArc></RearArc>
   </ShipClassDetail>
   <ShipClassDetail>
@@ -82,5 +68,23 @@
 
     </Maneuvers>
     <FrontArc>90</FrontArc>
+    <RearArc>90</RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Excelsior Class</Name>
+    <Id>excelsior_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>180</FrontArc>
+    <RearArc>90</RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Excelsior Class</Name>
+    <Id>excelsior_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>180</FrontArc>
     <RearArc>90</RearArc>
   </ShipClassDetail>
