@@ -1,4 +1,4 @@
-<Data version="2016-07-12@20-44">
+<Data version="2016-08-09@17-21">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1919,7 +1919,7 @@
       <Weapon>1</Weapon>
       <Crew>3</Crew>
       <Id>1002</Id>
-      <Set>71120</Set>
+      <Set>71120,72336</Set>
     </Ship>
     <Ship>
       <Title>I.R.W. Khazara</Title>
@@ -3999,7 +3999,7 @@
       <Weapon>1</Weapon>
       <Crew>1</Crew>
       <Id>romulan_bird_of_prey_class_i_r_w_vorta_vor</Id>
-      <Set>i_r_w_vorta_vor</Set>
+      <Set>i_r_w_vorta_vor,72321p</Set>
     </Ship>
     <Ship>
       <Title>3rd Wing Attack Ship</Title>
@@ -8754,6 +8754,64 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
         <Id>u_s_s_cairo_72320p</Id>
         <Set>72320p</Set>
     </Ship>
+    <Ship>
+        <Title>U.S.S. Venture</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Galaxy Class</ShipClass>
+        <Faction>Federation</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>4</Attack>
+        <Agility>1</Agility>
+        <Hull>5</Hull>
+        <Shield>4</Shield>
+        <Ability>If you attack a ship that is in the forward firing arc of another friendly ship, you gain +1 attack die.</Ability>
+        <Cost>28</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>1</Scan>
+        <Battlestations>1</Battlestations>
+        <Cloak>0</Cloak>
+        <SensorEcho>0</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>1</Tech>
+        <Weapon>2</Weapon>
+        <Crew>2</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>u_s_s_venture_72336</Id>
+        <Set>72336</Set>
+    </Ship>
+    <Ship>
+        <Title>I.R.W. Rateg</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Romulan Bird of Prey Class</ShipClass>
+        <Faction>Romulan</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>2</Attack>
+        <Agility>2</Agility>
+        <Hull>3</Hull>
+        <Shield>2</Shield>
+        <Ability>When defending, if your ship is Cloaked, you may re-roll up to 2 of your defense dice.</Ability>
+        <Cost>18</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>0</Scan>
+        <Battlestations>0</Battlestations>
+        <Cloak>1</Cloak>
+        <SensorEcho>1</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>1</Tech>
+        <Weapon>2</Weapon>
+        <Crew>1</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>i_r_w_rateg_72321p</Id>
+        <Set>72321p</Set>
+    </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -8804,7 +8862,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Federation</Faction>
       <Cost>0</Cost>
       <Id>2003</Id>
-      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526,71510,71531,71997p,71801,71998p,71802,72001p,72008,72011,72002p,72221d,72014,72017,72020,72023,72326,72316p,72319g,72319p</Set>
+      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526,71510,71531,71997p,71801,71998p,71802,72001p,72008,72011,72002p,72221d,72014,72017,72020,72023,72326,72316p,72319g,72319p,72320p,72336</Set>
     </Captain>
     <Captain>
       <Title>Nu'Daq</Title>
@@ -12760,22 +12818,6 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Special>FedCrewUpgradesCostOneLess</Special>
   </Captain>
   <Captain>
-      <Title>Federation</Title>
-      <Ability></Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill>1</Skill>
-      <Talent>0</Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Captain</Type>
-      <Faction>Federation</Faction>
-      <Cost>0</Cost>
-      <Id>federation_72320p</Id>
-      <Set>72320p</Set>
-      <Special></Special>
-  </Captain>
-  <Captain>
       <Title>Edward Jellico</Title>
       <Ability>At any time, you may disable 1 of your [TECH] or [WEAPON] Upgrades to place 1 [EVADE], [SCAN], or [BATTLESTATIONS] Token beside your ship. You may only use this ability once per round.</Ability>
       <Unique>Y</Unique>
@@ -12805,6 +12847,22 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Cost>3</Cost>
       <Id>tal_72321p</Id>
       <Set>72321p</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Donald Varley</Title>
+      <Ability>Your ship may perform a [SCAN] Action as a free Action each round.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>4</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>donald_varley_72336</Id>
+      <Set>72336</Set>
       <Special></Special>
   </Captain>
   </Captains>
@@ -22278,7 +22336,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Faction>Federation</Faction>
         <Cost>5</Cost>
         <Id>photon_torpedoes_72008</Id>
-        <Set>72008,72011,72017,72326</Set>
+        <Set>72008,72011,72017,72326,72336</Set>
         <Special></Special>
     </Upgrade>
     <Upgrade>
@@ -26121,6 +26179,166 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>72320p</Set>
         <Special></Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Galaxy Wing Squadron</Title>
+        <Ability>ACTION: Discard this card to target all friendly Galaxy-class ships within Range 1-2. Target ships gain +1 attack die this round.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>galaxy_wing_squadron_72336</Id>
+        <Set>72336</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Computer Core</Title>
+        <Ability>You can fill a [CREW] or [WEAPON] Upgrade slot with this Upgrade. Add 1 [TECH] Upgrade to your Upgrade Bar. ACTION: You may re-roll any 1 die this round.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>computer_core_c_72336</Id>
+        <Set>72336</Set>
+        <Special>addonetechslot</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Computer Core</Title>
+        <Ability>You can fill a [CREW] or [WEAPON] Upgrade slot with this Upgrade. Add 1 [TECH] Upgrade to your Upgrade Bar. ACTION: You may re-roll any 1 die this round.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Weapon</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>computer_core_w_72336</Id>
+        <Set>72336</Set>
+        <Special>addonetechslot</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Maximum Warp</Title>
+        <Ability>ACTION: If you performed a [STRAIGHT] Maneuver this round, you may disable this card to immediately perform an additional [STRAIGHT] Maneuver with a speed of 2 or less. You cannot perform any free Actions this round.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>maximum_warp_72336</Id>
+        <Set>72336</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>High-Capacity Deflector Shield Grid</Title>
+        <Ability>If you have at least 1 Active Shield, during the Compare Results step, you may discard this card to negate up to 2 damage. No ship may be equipped with more than 1 "High-Capacity Deflector Shield Grid" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>high_capacity_deflector_shield_grid_72336</Id>
+        <Set>72336</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Nanclus</Title>
+        <Ability>ACTION: Discard this card to target an opposing ship at Range 1-3. The target ship gains +1 attack die this round, but cannot roll defense dice this round.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>nanclus_72321p</Id>
+        <Set>72321p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Control Central</Title>
+        <Ability>After performing your Action, you may disable this card to perform one of the Actions on your Action Bar as a free Action. No ship may be equipped with more than one "Control Central" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Romulan</Faction>
+        <Cost>4</Cost>
+        <Id>control_central_72321p</Id>
+        <Set>72321p</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Military Secrets</Title>
+        <Ability>When attacking, during the Roll Defense Dice step, you may discard this card to force the defending shp to roll 1 less defense die (-2 defense dice if that ship is Cloaked).</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Romulan</Faction>
+        <Cost>4</Cost>
+        <Id>military_secrets_72321p</Id>
+        <Set>72321p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Additional Phaser Array</Title>
+        <Ability>After you make an attack with your Primary Weapon, you may disable this card to make an additional attack with your Primary Weapon at -2 attack dice. No ship may be equipped with more than 1 "Additional Phaser Arrays" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Weapon</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>additional_phaser_array_72336</Id>
+        <Set>72336</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Main Batteries</Title>
+        <Ability>Add 1 [WEAPON] Upgrade icon to your Upgrade Bar. ATTACK: Place 2 Time Tokens on this card to perform this attack. Treat this attack as if it were an attack made with a Primary Weapon. No ship may be equipped with more than one "Main Batteries" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>3</Attack>
+        <Range>1-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Romulan</Faction>
+        <Cost>3</Cost>
+        <Id>main_batteries_72321p</Id>
+        <Set>72321p</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -26677,6 +26895,21 @@ Remove this card from the game when there are no [EVADE] Tokens left on this car
           <Id>intercepted_messages_72320r</Id>
           <Set>72320r</Set>
       </Resource>
+      <Resource>
+          <Title>Condition Alert</Title>
+          <Unique>Y</Unique>
+          <Type>Resource</Type>
+          <Ability>At the start of the game, place 6 Mission Tokens on this card.
+
+During the End Phase, if a ship in your fleet has exactly 1 unused Token beside it ([EVADE] or [BATTLE STATIONS]), you may remove 1 Mission Token from this card to leave that Token beside the ship instead of removing it.
+
+You may only use this ability once per round.
+
+Remove this card from the game when there are no Mission Tokens left on this card.</Ability>
+          <Cost>5</Cost>
+          <Id>condition_alert_72321r</Id>
+          <Set>72321r</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -26878,12 +27111,14 @@ Remove this card from the game when there are no [EVADE] Tokens left on this car
       <Set id="72318p" overallSetName="The Classic Movies" releaseDate="2016-05-15">Kruge's Bird-of-Prey</Set>
       <Set id="72318r" overallSetName="The Classic Movies" releaseDate="2016-05-15">Emergency Power Resource</Set>
       <Set id="72006" overallSetName="Wave 24.5" releaseDate="2016-06-15">Cube 384/Sphere 936</Set>
-      <Set id="72319p" overallSetName="The Classic Movies" releaseDate="2016-06-15">HMS Bounty</Set>
+      <Set id="72319p" overallSetName="The Classic Movies" releaseDate="2016-06-15">H.M.S. Bounty</Set>
       <Set id="72319r" overallSetName="The Classic Movies" releaseDate="2016-06-15">Improved Hull Resource</Set>
-      <Set id="72319g" overallSetName="The Classic Movies" releaseDate="2016-06-15">USS Enterprise-A</Set>
+      <Set id="72319g" overallSetName="The Classic Movies" releaseDate="2016-06-15">U.S.S. Enterprise-A</Set>
       <Set id="72320p" overallSetName="Tin Man" releaseDate="2016-07-15">USS Cairo</Set>
       <Set id="72320r" overallSetName="Tin Man" releaseDate="2016-07-15">Intercepted Messages Resource</Set>
-      <Set id="72321p" overallSetName="The Corbomite Maneuver" releaseDate="2016-08-15">IRW Rateg</Set>
+      <Set id="72321p" overallSetName="The Corbomite Maneuver" releaseDate="2016-08-15">I.R.W. Rateg</Set>
+      <Set id="72321r" overallSetName="The Corbomite Maneuver" releaseDate="2016-08-15">Condition Alert Resource</Set>
+      <Set id="72336" overallSetName="Wave 25" releaseDate="2016-07-27">U.S.S. Venture</Set>
     </Sets>
     <Flagships>
         <Flagship>

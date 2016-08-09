@@ -1,60 +1,6 @@
   <ShipClassDetail>
-    <Name>Borg Cube</Name>
-    <Id>borg_cube</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc></FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>Borg Sphere</Name>
-    <Id>borg_sphere</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc></FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>Borg Sphere</Name>
-    <Id>borg_sphere</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc></FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>Borg Cube</Name>
-    <Id>borg_cube</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc></FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>Constitution Class (Refit)</Name>
-    <Id>constitution_class_refit_</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc>180</FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>Constitution Class (Refit)</Name>
-    <Id>constitution_class_refit_</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc>180</FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>B'rel Class</Name>
-    <Id>b_rel_class</Id>
+    <Name>Galaxy Class</Name>
+    <Id>galaxy_class</Id>
     <Maneuvers>
 
     </Maneuvers>
@@ -62,8 +8,8 @@
     <RearArc>90</RearArc>
   </ShipClassDetail>
   <ShipClassDetail>
-    <Name>B'rel Class</Name>
-    <Id>b_rel_class</Id>
+    <Name>Galaxy Class</Name>
+    <Id>galaxy_class</Id>
     <Maneuvers>
 
     </Maneuvers>
@@ -71,20 +17,20 @@
     <RearArc>90</RearArc>
   </ShipClassDetail>
   <ShipClassDetail>
-    <Name>Excelsior Class</Name>
-    <Id>excelsior_class</Id>
+    <Name>Romulan Bird of Prey</Name>
+    <Id>romulan_bird_of_prey</Id>
     <Maneuvers>
 
     </Maneuvers>
-    <FrontArc>180</FrontArc>
-    <RearArc>90</RearArc>
+    <FrontArc>90</FrontArc>
+    <RearArc></RearArc>
   </ShipClassDetail>
   <ShipClassDetail>
-    <Name>Excelsior Class</Name>
-    <Id>excelsior_class</Id>
+    <Name>Romulan Bird of Prey</Name>
+    <Id>romulan_bird_of_prey</Id>
     <Maneuvers>
 
     </Maneuvers>
-    <FrontArc>180</FrontArc>
-    <RearArc>90</RearArc>
+    <FrontArc>90</FrontArc>
+    <RearArc></RearArc>
   </ShipClassDetail>

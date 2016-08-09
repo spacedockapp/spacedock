@@ -1,102 +1,6 @@
   <Captain>
-    <Title>Borg Queen</Title>
-    <Ability>At the start of the game, place 6 Drone Tokens on this card. ACTION: Target a ship at Range 1 and spend 2 of your Drone Tokens. Disable 1 [CREW] Upgrade on the target ship (your choice) and steal it even if it exceeds your ship's restrictions.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>6</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Borg</Faction>
-    <Cost>4</Cost>
-    <Id>borg_queen_72006</Id>
-    <Set>72006</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Tactical Drone</Title>
-    <Ability>At the start of the game, place 4 Drone Tokens on this card. ACTION: Spend 2 of your Drone Tokens to target a ship at Range 1-2. Discard 1 [EVADE], 1 [SCAN], or 1 [BATTLESTATIONS] Token from beside that ship. Place a [SCAN] Token beside your ship.</Ability>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>4</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Borg</Faction>
-    <Cost>3</Cost>
-    <Id>tactical_drone_72006</Id>
-    <Set>72006</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>James T. Kirk</Title>
-    <Ability>ACTION: Place a [BATTLESTATIONS] Token beside your ship. When attacking this round, during the Modify Attack Dice step, you may spend this Token to re-roll up to 2 of your attack dice OR when defending this round, during the Modify Defense Dice step, you may spend this Token to re-roll up to 2 of your defense dice. You may still perform the [BATTLESTATIONS] Action as a free Action this round, if possible.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>9</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>6</Cost>
-    <Id>james_t_kirk_72319g</Id>
-    <Set>72319g</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>James T. Kirk</Title>
-    <Ability>All of your Federation [CREW] Upgrades cost -1 SP. Whenever one of your [CREW] Upgrades is supposed to be disabled, you may place 3 Time Tokens on that Upgrade instead.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>8</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>5</Cost>
-    <Id>james_t_kirk_72319p</Id>
-    <Set>72319p</Set>
-    <Special>FedCrewUpgradesCostOneLess</Special>
-  </Captain>
-  <Captain>
-    <Title>Federation</Title>
-    <Ability></Ability>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>1</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>0</Cost>
-    <Id>federation_72320p</Id>
-    <Set>72320p</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Edward Jellico</Title>
-    <Ability>At any time, you may disable 1 of your [TECH] or [WEAPON] Upgrades to place 1 [EVADE], [SCAN], or [BATTLESTATIONS] Token beside your ship. You may only use this ability once per round.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>6</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>4</Cost>
-    <Id>edward_jellico_72320p</Id>
-    <Set>72320p</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Tal</Title>
-    <Ability>If this card is assigned to a Romulan ship, when attacking at Range 1 with your Primary Weapon, during the Roll Attack Dice step, gain +1 attack die.</Ability>
+    <Title>Donald Varley</Title>
+    <Ability>Your ship may perform a [SCAN] Action as a free Action each round.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>4</Skill>
@@ -104,9 +8,9 @@
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Romulan</Faction>
+    <Faction>Federation</Faction>
     <Cost>3</Cost>
-    <Id>tal_72321p</Id>
-    <Set>72321p</Set>
+    <Id>donald_varley_72336</Id>
+    <Set>72336</Set>
     <Special></Special>
   </Captain>

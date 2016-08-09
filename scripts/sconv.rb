@@ -45,16 +45,10 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-5/26/2016 14:06:09	72006 - Cube 384/Sphere 936	Non-unique	Borg Starship	Borg	Borg Cube	Borg Cube				6	0	10	9		Regenerate, Scan, Target Lock	50	1	1	1	2	360-degree		0
-5/26/2016 14:07:28	72006 - Cube 384/Sphere 936	Non-unique	Borg Starship	Borg	Borg Sphere	Borg Sphere				6	0	7	6		Regenerate, Scan, Target Lock	38	1	1	1	1	360-degree		0
-5/26/2016 14:08:58	72006 - Cube 384/Sphere 936	Unique	Sphere 936	Borg	Borg Sphere	Borg Sphere				6	0	7	7	If this ship is a support ship, you may equip 1 Upgrade (of your choice) at -2 SP to this ship and you may use a 1 [FORWARD], 2 [FORWARD] or a 3 [FORWARD] Maneuver Template to place it in the play area when it becomes Active.	Regenerate, Scan, Target Lock	40	2	1	1	1	360-degree		0
-5/26/2016 14:10:42	72006 - Cube 384/Sphere 936	Unique	Cube 384	Borg	Borg Cube	Borg Cube				6	0	10	10	Your shields cannot be affected by Upgrades from an opponent's fleet.	Regenerate, Scan, Target Lock	52	2	1	1	2	360-degree		0
-6/15/2016 17:04:47	72319g - USS Enterprise-A	Non-unique	Federation Starship	Federation	Constitution Class (Refit)	Constitution Class (Refit)				3	1	4	3		Battle Stations, Evasive, Scan, Target Lock	22	0	3	0	1	180-degree forward		0
-6/15/2016 17:07:23	72319g - USS Enterprise-A	Unique	U.S.S. Enterprise-A	Federation	Constitution Class (Refit)	Constitution Class (Refit)				3	1	4	4	When attacking, during the Roll Attack Dice step, if there is a [SCAN] Token beside your ship, gain +1 attack die (+2 if the defending ship is Cloaked).	Battle Stations, Evasive, Scan, Target Lock	24	0	3	1	1	180-degree forward		0
-6/17/2016 11:16:56	72319p - HMS Bounty	Non-unique	Klingon Starship	Klingon	B'rel Class	B'rel Class				4	1	3	2		Cloak, Evasive, Sensor Echo, Target Lock	20	0	2	0	1	90-degree forward, 90-degree rear		0
-6/17/2016 11:18:24	72319p - HMS Bounty	Unique	H.M.S. Bounty	Federation	B'rel Class	B'rel Class				4	1	3	3	If there are only Federation cards assigned to this ship, add the [SCAN] and [BATTLE STATIONS] icons to the Action Bar.  This ship cannot be in the same fleet as Kruge's Bird-of-Prey.	Cloak, Evasive, Sensor Echo, Target Lock	22	0	4	0	1	90-degree forward, 90-degree rear		0
-6/22/2016 23:28:49	72320p - USS Cairo	Unique	U.S.S. Cairo	Federation	Excelsior Class	Excelsior Class				3	1	5	4		Battle Stations, Evasive, Scan, Target Lock	26	0	2	1	2	180-degree forward, 90-degree rear		0
-6/22/2016 23:31:53	72320p - USS Cairo	Non-unique	Federation Starship	Federation	Excelsior Class	Excelsior Class				3	1	5	3		Battle Stations, Evasive, Scan, Target Lock	24	0	2	1	1	180-degree forward, 90-degree rear		0
+7/20/2016 16:26:38	72336 - USS Venture	Unique	U.S.S. Venture	Federation	Galaxy Class	Galaxy Class				4	1	5	4	If you attack a ship that is in the forward firing arc of another friendly ship, you gain +1 attack die.	Battle Stations, Evasive, Scan, Target Lock	28	0	2	1	2	90-degree forward, 90-degree rear		0
+7/26/2016 14:41:38	72336 - USS Venture	Non-unique	Federation Starship	Federation	Galaxy Class	Galaxy Class				4	1	5	3		Battle Stations, Evasive, Scan, Target Lock	26	0	3	0	1	90-degree forward, 90-degree rear		0
+7/28/2016 7:58:21	72321p - IRW Rateg	Non-unique	Romulan Starship	Romulan	Romulan Bird of Prey	Romulan Bird of Prey				2	2	3	1		Cloak, Evasive, Sensor Echo, Target Lock	16	0	1	1	1	90-degree forward		0
+7/28/2016 7:59:30	72321p - IRW Rateg	Unique	I.R.W. Rateg	Romulan	Romulan Bird of Prey	Romulan Bird of Prey				2	2	3	2	When defending, if your ship is Cloaked, you may re-roll up to 2 of your defense dice.	Cloak, Evasive, Sensor Echo, Target Lock	18	0	1	1	2	90-degree forward		0
 SHIPTEXT
 
 
