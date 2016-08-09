@@ -1,4 +1,4 @@
-<Data version="2016-08-09@17-21">
+<Data version="2016-08-09@17-22">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -26108,10 +26108,26 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Talent></Talent>
         <Attack></Attack>
         <Range></Range>
-        <Type>Weapon</Type>
+        <Type>Tech</Type>
         <Faction>Federation</Faction>
         <Cost>5</Cost>
-        <Id>delta_shift_w_72320p</Id>
+        <Id>delta_shift_t_72320p</Id>
+        <Set>72320p</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Delta Shift</Title>
+        <Ability>This Upgrade may be assigned to any ship without requiring an Upgrade slot. When one of your [CREW] Upgrades is supposed to be disabled or discarded, you may discard this card instead. No ship may be equipped with more than one "Delta Shift" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>delta_shift_e_72320p</Id>
         <Set>72320p</Set>
         <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
