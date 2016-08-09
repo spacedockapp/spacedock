@@ -1,4 +1,4 @@
-<Data version="2016-08-09@17-22">
+<Data version="2016-08-09@17-24">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -8736,7 +8736,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
         <Agility>1</Agility>
         <Hull>5</Hull>
         <Shield>4</Shield>
-        <Ability></Ability>
+        <Ability>When defending, if there is an Auxiliary Power Token beside your ship, during the Roll Defence Dice step, roll +1 defense die.</Ability>
         <Cost>26</Cost>
         <EvasiveManeuvers>1</EvasiveManeuvers>
         <TargetLock>1</TargetLock>
@@ -26108,10 +26108,10 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Talent></Talent>
         <Attack></Attack>
         <Range></Range>
-        <Type>Tech</Type>
+        <Type>Weapon</Type>
         <Faction>Federation</Faction>
         <Cost>5</Cost>
-        <Id>delta_shift_t_72320p</Id>
+        <Id>delta_shift_w_72320p</Id>
         <Set>72320p</Set>
         <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
