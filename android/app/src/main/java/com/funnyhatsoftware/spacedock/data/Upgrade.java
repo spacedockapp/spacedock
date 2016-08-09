@@ -884,7 +884,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         if ("addoneweaponslotfortorpedoes".equals(getSpecial())) {
             return 1;
         }
-        if (getExternalId() != null && getExternalId().equals("delta_shift_w_72320p")) {
+        if (getExternalId() != null && getExternalId().equals("delta_shift_e_72320p")) {
             return 1;
         }
         return 0;
@@ -921,7 +921,7 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         if ("maintenance_crew_w_72022".equalsIgnoreCase(getExternalId())) {
             return 1;
         }
-        if (getExternalId() != null && getExternalId().equals("delta_shift_w_72320p")) {
+        if (getExternalId() != null && getExternalId().equals("delta_shift_c_72320p")) {
             return 1;
         }
         return 0;
