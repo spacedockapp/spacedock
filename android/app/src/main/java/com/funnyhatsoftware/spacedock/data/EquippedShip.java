@@ -885,6 +885,22 @@ public class EquippedShip extends EquippedShipBase {
                         || null != containsUpgrade(Universe.getUniverse().getUpgrade("automated_distress_beacon_w_72316p"))) {
                     return new Explanation(msg, "This upgrade can only be added once per ship.");
                 }
+            } else if (addingNew && (upgrade.getExternalId().equals("computer_core_c_72336")
+                    || upgrade.getExternalId().equals("computer_core_w_72336"))) {
+                if (null != containsUpgrade(Universe.getUniverse().getUpgrade("computer_core_c_72336"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("computer_core_w_72336"))) {
+                    return new Explanation(msg, "This upgrade can only be added once per ship.");
+                }
+            } else if (addingNew && (upgrade.getExternalId().equals("delta_shift_c_72320p")
+                    || upgrade.getExternalId().equals("delta_shift_t_72320p")
+                    || upgrade.getExternalId().equals("delta_shift_w_72320p")
+                    || upgrade.getExternalId().equals("delta_shift_e_72320p"))) {
+                if (null != containsUpgrade(Universe.getUniverse().getUpgrade("delta_shift_c_72320p"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("delta_shift_t_72320p"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("delta_shift_w_72320p"))
+                        || null != containsUpgrade(Universe.getUniverse().getUpgrade("delta_shift_e_72320p"))) {
+                    return new Explanation(msg, "This upgrade can only be added once per ship.");
+                }
             }
         }
         if ("NoMoreThanOnePerShipBajoran".equals(upgradeSpecial)) {
@@ -1302,12 +1318,12 @@ public class EquippedShip extends EquippedShipBase {
             int limit = getWeapon() - 1;
             for (EquippedUpgrade eu : mUpgrades) {
                 if (!eu.isPlaceholder() && eu.getUpgrade().isWeapon()) {
-                    if (!eu.getTitle().equals("Photon Torpedoes"))
+                    if (!eu.getTitle().startsWith("Photon Torpedoes"))
                         limit--;
                 }
             }
 
-            if (!upgrade.getTitle().equals("Photon Torpedoes")) {
+            if (!upgrade.getTitle().startsWith("Photon Torpedoes")) {
                 if (!addingNew) {
                     limit++;
                 }

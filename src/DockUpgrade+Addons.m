@@ -235,6 +235,24 @@ static NSDictionary* sItemLabels = nil;
     if ([self.externalId isEqualToString:@"automated_distress_beacon_w_72316p"]) {
         return YES;
     }
+    if ([self.externalId isEqualToString:@"computer_core_c_72336"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"computer_core_w_72336"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"delta_shift_c_72320p"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"delta_shift_t_72320p"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"delta_shift_w_72320p"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"delta_shift_e_72320p"]) {
+        return YES;
+    }
     return NO;
 }
 
@@ -1065,6 +1083,9 @@ static NSDictionary* sItemLabels = nil;
     if ([special isEqualToString:@"addoneweaponslotfortorpedoes"]) {
         return 1;
     }
+    if ([special isEqualToString:@"delta_shift_w_72320p"]) {
+        return 1;
+    }
     return 0;
 }
 
@@ -1106,6 +1127,9 @@ static NSDictionary* sItemLabels = nil;
     if ([externalId isEqualToString:@"AddOneTechMinus1"]) {
         return 1;
     }
+    if ([externalId isEqualToString:@"delta_shift_t_72320p"]) {
+        return 1;
+    }
     return 0;
 }
 
@@ -1141,6 +1165,9 @@ static NSDictionary* sItemLabels = nil;
     if ([externalId isEqualToString:@"maintenance_crew_w_72022"]) {
         return 1;
     }
+    if ([externalId isEqualToString:@"delta_shift_c_72320p"]) {
+        return 1;
+    }
     return 0;
 }
 
@@ -1157,6 +1184,9 @@ static NSDictionary* sItemLabels = nil;
 -(int)additionalTalentSlots
 {
     if ([self.special isEqualToString: @"addonetalentslot"] || [self.externalId isEqualToString:@"william_t_riker_71996"]) {
+        return 1;
+    }
+    if ([self.externalId isEqualToString:@"delta_shift_e_72320p"]) {
         return 1;
     }
     return 0;

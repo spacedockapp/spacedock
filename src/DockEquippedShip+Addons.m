@@ -570,13 +570,13 @@
         
         for (DockEquippedUpgrade* eu in self.upgrades) {
             if ([eu.upgrade isWeapon] && !eu.isPlaceholder) {
-                if (![eu.title isEqualToString:@"Photon Torpedoes"]) {
+                if (![eu.title hasPrefix:@"Photon Torpedoes"]) {
                     torp ++;
                 }
             }
         }
         
-        if (![upgrade.title isEqualToString:@"Photon Torpedoes"]) {
+        if (![upgrade.title hasPrefix:@"Photon Torpedoes"]) {
             int artificalLimit = [upgrade limitForShip: self] - torp - 1;
             if (!validating) {
                 artificalLimit ++;
@@ -1284,6 +1284,14 @@
                 }
             } else if ([upgrade.externalId isEqualToString:@"automated_distress_beacon_c_72316p"] || [upgrade.externalId isEqualToString:@"automated_distress_beacon_t_72316p"] || [upgrade.externalId isEqualToString:@"automated_distress_beacon_w_72316p"]) {
                 if ([self containsUpgradeWithId:@"automated_distress_beacon_c_72316p"]  != nil || [self containsUpgradeWithId:@"automated_distress_beacon_t_72316p"]  != nil || [self containsUpgradeWithId:@"automated_distress_beacon_w_72316p"]  != nil) {
+                    return NO;
+                }
+            } else if ([upgrade.externalId isEqualToString:@"computer_core_c_72336"] || [upgrade.externalId isEqualToString:@"computer_core_w_72336"]) {
+                if ([self containsUpgradeWithId:@"computer_core_c_72336"] != nil || [self containsUpgradeWithId:@"computer_core_w_72336"] != nil) {
+                    return NO;
+                }
+            } else if ([upgrade.externalId isEqualToString:@"delta_shift_c_72320p"] || [upgrade.externalId isEqualToString:@"delta_shift_t_72320p"] || [upgrade.externalId isEqualToString:@"delta_shift_w_72320p"] || [upgrade.externalId isEqualToString:@"delta_shift_e_72320p"]) {
+                if ([self containsUpgradeWithId:@"delta_shift_c_72320p"]  != nil || [self containsUpgradeWithId:@"delta_shift_t_72320p"]  != nil || [self containsUpgradeWithId:@"delta_shift_w_72320p"]  != nil || [self containsUpgradeWithId:@"delta_shift_e_72320p"] != nil) {
                     return NO;
                 }
             }
