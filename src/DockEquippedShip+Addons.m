@@ -2320,13 +2320,6 @@
             borgCount += [upgrade additionalBorgSlots];
         }
     }
-
-    if ([self containsUpgradeWithSpecial:@"BSVT"] != nil) {
-        borgCount += 1;
-    }
-    if (borgCount == 0 && [self.squad containsUpgradeWithName:@"Borg Support Vehicle Dock"] != nil && [self.squad containsUpgradeWithSpecial:@"BSVT"] == nil) {
-        borgCount += 1;
-    }
     return borgCount;
 }
 

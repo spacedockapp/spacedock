@@ -218,6 +218,21 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         if (this.getExternalId().equals("delta_shift_e_72320p")) {
             return true;
         }
+        if (this.getExternalId().equals("borg_support_vehicle_token_72006")) {
+            return true;
+        }
+        if (this.getExternalId().equals("borg_support_vehicle_token_c_72006")) {
+            return true;
+        }
+        if (this.getExternalId().equals("borg_support_vehicle_token_t_72006")) {
+            return true;
+        }
+        if (this.getExternalId().equals("borg_support_vehicle_token_w_72006")) {
+            return true;
+        }
+        if (this.getExternalId().equals("borg_support_vehicle_token_e_72006")) {
+            return true;
+        }
         return false;
     }
     public boolean isCostFiveOrLess() {
@@ -859,6 +874,9 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         if (externalId != null && externalId.equals("delta_shift_e_72320p")) {
             return 1;
         }
+        if (externalId != null && externalId.equals("borg_support_vehicle_token_e_72006")) {
+            return 1;
+        }
         return 0;
     }
 
@@ -884,7 +902,13 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         if ("addoneweaponslotfortorpedoes".equals(getSpecial())) {
             return 1;
         }
-        if (getExternalId() != null && getExternalId().equals("delta_shift_e_72320p")) {
+        if (getExternalId() != null && getExternalId().equals("delta_shift_w_72320p")) {
+            return 1;
+        }
+        if (getExternalId() != null && getExternalId().equals("borg_support_vehicle_token_w_72006")) {
+            return 1;
+        }
+        if (getExternalId() != null && getExternalId().equals("main_batteries_72321p")) {
             return 1;
         }
         return 0;
@@ -922,6 +946,9 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             return 1;
         }
         if (getExternalId() != null && getExternalId().equals("delta_shift_c_72320p")) {
+            return 1;
+        }
+        if (getExternalId() != null && getExternalId().equals("borg_support_vehicle_token_c_72006")) {
             return 1;
         }
         return 0;
@@ -966,6 +993,9 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         if (getExternalId() != null && getExternalId().equals("delta_shift_t_72320p")) {
             return 1;
         }
+        if (getExternalId() != null && getExternalId().equals("borg_support_vehicle_token_t_72006")) {
+            return 1;
+        }
 
         return 0;
     }
@@ -976,6 +1006,9 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if ("OnlyNonBorgShipAndNonBorgCaptain".equals(special)) {
                 return 1;
             }
+        }
+        if (getExternalId() != null && getExternalId().equals("borg_support_vehicle_token_72006")) {
+            return 1;
         }
         return 0;
     }

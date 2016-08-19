@@ -253,6 +253,21 @@ static NSDictionary* sItemLabels = nil;
     if ([self.externalId isEqualToString:@"delta_shift_e_72320p"]) {
         return YES;
     }
+    if ([self.externalId isEqualToString:@"borg_support_vehicle_token_c_72006"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"borg_support_vehicle_token_t_72006"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"borg_support_vehicle_token_w_72006"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"borg_support_vehicle_token_e_72006"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"borg_support_vehicle_token_72006"]) {
+        return YES;
+    }
     return NO;
 }
 
@@ -1086,6 +1101,12 @@ static NSDictionary* sItemLabels = nil;
     if ([special isEqualToString:@"delta_shift_w_72320p"]) {
         return 1;
     }
+    if ([externalId isEqualToString:@"borg_support_vehicle_token_w_72006"]) {
+        return 1;
+    }
+    if ([externalId isEqualToString:@"main_batteries_72321p"]) {
+        return 1;
+    }
     return 0;
 }
 
@@ -1130,6 +1151,9 @@ static NSDictionary* sItemLabels = nil;
     if ([externalId isEqualToString:@"delta_shift_t_72320p"]) {
         return 1;
     }
+    if ([externalId isEqualToString:@"borg_support_vehicle_token_t_72006"]) {
+        return 1;
+    }
     return 0;
 }
 
@@ -1168,6 +1192,9 @@ static NSDictionary* sItemLabels = nil;
     if ([externalId isEqualToString:@"delta_shift_c_72320p"]) {
         return 1;
     }
+    if ([externalId isEqualToString:@"borg_support_vehicle_token_c_72006"]) {
+        return 1;
+    }
     return 0;
 }
 
@@ -1176,6 +1203,9 @@ static NSDictionary* sItemLabels = nil;
     NSString* externalId = self.externalId;
 
     if ([externalId isEqualToString: @"borg_alliance_71511"] || [self.special isEqualToString:@"AddOneBorgSlot"]) {
+        return 1;
+    }
+    if ([externalId isEqualToString:@"borg_support_vehicle_token_72006"]) {
         return 1;
     }
     return 0;

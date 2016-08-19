@@ -1,4 +1,4 @@
-<Data version="2016-08-09@17-24">
+<Data version="2016-08-18@23-47">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -25932,6 +25932,70 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Talent></Talent>
         <Attack></Attack>
         <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Borg</Faction>
+        <Cost>0</Cost>
+        <Id>borg_support_vehicle_token_c_72006</Id>
+        <Set>72006</Set>
+        <Special>BSVT</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Borg Support Vehicle Token</Title>
+        <Ability>A ship with a Borg Support Vehicle Token (BSVT) assigned to it is considered to be a "support ship." The support ship may be any ship with a Hull Value of 7 or less. During Set Up, the cost of this ship is -10 SP (-15 SP if it is a Borg Sphere). This ship must be assigned a Captain and may be equipped with any Upgrades as normal.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Borg</Faction>
+        <Cost>0</Cost>
+        <Id>borg_support_vehicle_token_t_72006</Id>
+        <Set>72006</Set>
+        <Special>BSVT</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Borg Support Vehicle Token</Title>
+        <Ability>A ship with a Borg Support Vehicle Token (BSVT) assigned to it is considered to be a "support ship." The support ship may be any ship with a Hull Value of 7 or less. During Set Up, the cost of this ship is -10 SP (-15 SP if it is a Borg Sphere). This ship must be assigned a Captain and may be equipped with any Upgrades as normal.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Weapon</Type>
+        <Faction>Borg</Faction>
+        <Cost>0</Cost>
+        <Id>borg_support_vehicle_token_w_72006</Id>
+        <Set>72006</Set>
+        <Special>BSVT</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Borg Support Vehicle Token</Title>
+        <Ability>A ship with a Borg Support Vehicle Token (BSVT) assigned to it is considered to be a "support ship." The support ship may be any ship with a Hull Value of 7 or less. During Set Up, the cost of this ship is -10 SP (-15 SP if it is a Borg Sphere). This ship must be assigned a Captain and may be equipped with any Upgrades as normal.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Borg</Faction>
+        <Cost>0</Cost>
+        <Id>borg_support_vehicle_token_e_72006</Id>
+        <Set>72006</Set>
+        <Special>BSVT</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Borg Support Vehicle Token</Title>
+        <Ability>A ship with a Borg Support Vehicle Token (BSVT) assigned to it is considered to be a "support ship." The support ship may be any ship with a Hull Value of 7 or less. During Set Up, the cost of this ship is -10 SP (-15 SP if it is a Borg Sphere). This ship must be assigned a Captain and may be equipped with any Upgrades as normal.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
         <Type>Borg</Type>
         <Faction>Borg</Faction>
         <Cost>0</Cost>
@@ -27011,7 +27075,7 @@ Remove this card from the game when there are no Mission Tokens left on this car
 
       <Set id="71523" overallSetName="Wave 6" releaseDate="2014-07-01">U.S.S. Enterprise (Refit)</Set>
       <Set id="71522" overallSetName="Wave 6" releaseDate="2014-07-01">Soong</Set>
-      <Set id="71524" overallSetName="Wave 6" releaseDate="2014-07-01">Battle Cruiser</Set>
+      <Set id="71524" overallSetName="Wave 6" releaseDate="2014-07-01">2nd Division Battle Cruiser</Set>
 
       <Set id="71786" overallSetName="Promo Card" releaseDate="2014-08-13">DS9 GenCon Promo</Set>
 
