@@ -412,6 +412,10 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                     }
                 }
             }
+            if (captain != null && captain.getExternalId().equals("kurn_71999p")
+                && getExternalId().equals("mauk_to_vor_71999p")) {
+                cost = 3;
+            }
         } else if (isCrew() && !isQMark()) {
             if ((captainSpecial.equals("CrewUpgradesCostOneLess") || captainSpecial.equals("hugh_71522"))
                     && !shipIsSideboard) {

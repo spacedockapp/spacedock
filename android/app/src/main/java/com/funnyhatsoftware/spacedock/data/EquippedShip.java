@@ -395,7 +395,9 @@ public class EquippedShip extends EquippedShipBase {
                 }
             }
         }
-
+        if (getCaptain() != null && getCaptain().getExternalId().equals("kurn_71999p")) {
+            v += 1;
+        }
         return v;
     }
 
@@ -1050,7 +1052,7 @@ public class EquippedShip extends EquippedShipBase {
             }
         }
         if ("PlusFiveNotKlingonAndMustHaveComeAbout".equals(upgradeSpecial)) {
-            if (ship.getShipClassDetails().getMovesSummary().contains("come about")) {
+            if (!ship.getShipClassDetails().getMovesSummary().contains("come about")) {
                 return new Explanation(msg, "This upgrade can only be added to a ship with a come about maneuver.");
             }
         }
@@ -1303,6 +1305,27 @@ public class EquippedShip extends EquippedShipBase {
                             if (addingNew && !upgrade.isBajoran()) {
                                 return new Explanation(msg,
                                         getCaptain().getTitle() + " may only field the Bajoran [TALENT] Upgrades");
+                            }
+                        }
+                    }
+                }
+                if (getCaptain() != null && getCaptain().getExternalId().equals("kurn_71999p")) {
+                    int limit = getTalent();
+                    if (limit == 1) {
+                        if (!upgrade.getTitle().equals("Mauk-to'Vor")) {
+                            return new Explanation(msg,
+                                    "Kurn may only field the Mauk-to'Vor [TALENT] Upgrade");
+                        }
+                    } else {
+                        for (EquippedUpgrade eu : mUpgrades) {
+                            if (!eu.isPlaceholder() && eu.getUpgrade().isTalent()) {
+                                limit--;
+                            }
+                        }
+                        if (limit <= 1 && containsUpgradeWithName("Mauk-to'Vor") == null) {
+                            if (addingNew && !upgrade.getTitle().equals("Mauk-to'Vor")) {
+                                return new Explanation(msg,
+                                        "Kurn may only field the Mauk-to'Vor [TALENT] Upgrade");
                             }
                         }
                     }
