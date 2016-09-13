@@ -152,6 +152,8 @@ NSString* asDegrees(NSString* textValue)
             return [NSString stringWithFormat:@"%@ (Extra Crew)", self.title];
         } else if ([self.externalId isEqualToString:@"sakharov_71997p"]) {
             return [NSString stringWithFormat:@"%@ (Extra Tech)", self.title];
+        } else if ([self.shipClassDetails.externalId isEqualToString:@"constitution_refit_class"]) {
+            return [NSString stringWithFormat:@"%@ (Refit)", self.title];
         }
         return self.title;
     }
@@ -172,6 +174,8 @@ NSString* asDegrees(NSString* textValue)
         return [NSString stringWithFormat:@"%@ (2 Crew)", self.shipClass];
     } else if ([self.externalId isEqualToString:@"federation_starship_72011"]) {
         return [NSString stringWithFormat:@"%@ (2 Weapons)", self.shipClass];
+    } else if ([self.shipClassDetails.externalId isEqualToString:@"constitution_refit_class"]) {
+        return [NSString stringWithFormat:@"%@ (Refit)", self.shipClass];
     }
 
     return self.shipClass;

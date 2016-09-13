@@ -503,7 +503,8 @@ public class DataLoader extends DefaultHandler {
                 "BSVT",
                 "OnlyBorgQueen",
                 "addoneweaponslotfortorpedoes",
-                "FedCrewUpgradesCostOneLess"
+                "FedCrewUpgradesCostOneLess",
+                "KuvahMagh2Less"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);

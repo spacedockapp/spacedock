@@ -45,10 +45,10 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-7/20/2016 16:26:38	72336 - USS Venture	Unique	U.S.S. Venture	Federation	Galaxy Class	Galaxy Class				4	1	5	4	If you attack a ship that is in the forward firing arc of another friendly ship, you gain +1 attack die.	Battle Stations, Evasive, Scan, Target Lock	28	0	2	1	2	90-degree forward, 90-degree rear		0
-7/26/2016 14:41:38	72336 - USS Venture	Non-unique	Federation Starship	Federation	Galaxy Class	Galaxy Class				4	1	5	3		Battle Stations, Evasive, Scan, Target Lock	26	0	3	0	1	90-degree forward, 90-degree rear		0
-7/28/2016 7:58:21	72321p - IRW Rateg	Non-unique	Romulan Starship	Romulan	Romulan Bird of Prey	Romulan Bird of Prey				2	2	3	1		Cloak, Evasive, Sensor Echo, Target Lock	16	0	1	1	1	90-degree forward		0
-7/28/2016 7:59:30	72321p - IRW Rateg	Unique	I.R.W. Rateg	Romulan	Romulan Bird of Prey	Romulan Bird of Prey				2	2	3	2	When defending, if your ship is Cloaked, you may re-roll up to 2 of your defense dice.	Cloak, Evasive, Sensor Echo, Target Lock	18	0	1	1	2	90-degree forward		0
+8/31/2016 23:41:54	72350 - USS Enterprise-B	Non-unique	Federation Starship	Federation	Excelsior Class	Excelsior Class				3	1	5	3			24	0	2	1	1	180-degree forward, 90-degree rear		0
+8/31/2016 23:43:59	72350 - USS Enterprise-B	Unique	U.S.S. Enterprise-B	Federation	Excelsior Class	Excelsior Class				3	1	5	4	During the Combat Phase, you may replace 1 [BATTLE STATIONS], [SCAN] or blue [TARGET LOCK] Token that is beside your ship with an [EVADE] Token.	Battle Stations, Evasive, Scan, Target Lock	26	0	3	1	1	180-degree forward, 90-degree rear		0
+9/1/2016 11:28:25	72322p - Kohlar's Battle Cruiser	Unique	Kohlar's Battle Cruiser	Klingon	D7 Class	D7 Class				3	1	3	3	During the End Phase, if your [CLOAK] Token is on its red side, you may flip it back to its green side.  If you do so, place an Auxiliary Power Token beside your ship.	Cloak, Evasive, Sensor Echo, Target Lock	20	0	3	0	1	90-degree forward		0
+9/1/2016 11:29:59	72322p - Kohlar's Battle Cruiser	Non-unique	Klingon Starship	Klingon	D7 Class	D7 Class				3	1	3	1		Battle Stations, Evasive, Target Lock	16	0	1	0	1	90-degree forward		0
 SHIPTEXT
 
 

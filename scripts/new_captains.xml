@@ -1,16 +1,32 @@
   <Captain>
-    <Title>Donald Varley</Title>
-    <Ability>Your ship may perform a [SCAN] Action as a free Action each round.</Ability>
+    <Title>John Harriman</Title>
+    <Ability>During the Activation Phase, you may perform an [EVADE] Action as a free Action. If you do so, place Auxilary Power Token beside your ship.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>4</Skill>
-    <Talent>1</Talent>
+    <Skill>2</Skill>
+    <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
     <Faction>Federation</Faction>
-    <Cost>3</Cost>
-    <Id>donald_varley_72336</Id>
-    <Set>72336</Set>
+    <Cost>1</Cost>
+    <Id>john_harriman_72350</Id>
+    <Set>72350</Set>
     <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Kohlar</Title>
+    <Ability>Your Captain Skill number increases by +2 for each damage card assigned to your ship (max +4). If the damage to your ship is repaired, your Skill Number decreases accordingly. You may field the "Kuvah'Magh" [ELITE TALENT] Upgrade at a cost of -2.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>3</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Klingon</Faction>
+    <Cost>2</Cost>
+    <Id>kohlar_72322p</Id>
+    <Set>72322p</Set>
+    <Special>KuvahMagh2Less</Special>
   </Captain>

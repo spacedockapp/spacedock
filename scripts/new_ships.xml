@@ -1,16 +1,16 @@
   <Ship>
-    <Title>U.S.S. Venture</Title>
+    <Title>U.S.S. Enterprise-B</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Galaxy Class</ShipClass>
+    <ShipClass>Excelsior Class</ShipClass>
     <Faction>Federation</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
+    <Attack>3</Attack>
     <Agility>1</Agility>
     <Hull>5</Hull>
     <Shield>4</Shield>
-    <Ability>If you attack a ship that is in the forward firing arc of another friendly ship, you gain +1 attack die.</Ability>
-    <Cost>28</Cost>
+    <Ability>During the Combat Phase, you may replace 1 [BATTLESTATIONS], [SCAN] or blue [TARGET LOCK] Token that is beside your ship with an [EVADE] Token.</Ability>
+    <Cost>26</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
@@ -20,26 +20,26 @@
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
     <Tech>1</Tech>
-    <Weapon>2</Weapon>
-    <Crew>2</Crew>
+    <Weapon>1</Weapon>
+    <Crew>3</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>u_s_s_venture_72336</Id>
-    <Set>72336</Set>
+    <Id>u_s_s_enterprise_b_72350</Id>
+    <Set>72350</Set>
   </Ship>
   <Ship>
-    <Title>I.R.W. Rateg</Title>
+    <Title>Kohlar's Battle Cruiser</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Romulan Bird of Prey</ShipClass>
-    <Faction>Romulan</Faction>
+    <ShipClass>D7 Class</ShipClass>
+    <Faction>Klingon</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>2</Attack>
-    <Agility>2</Agility>
+    <Attack>3</Attack>
+    <Agility>1</Agility>
     <Hull>3</Hull>
-    <Shield>2</Shield>
-    <Ability>When defending, if your ship is Cloaked, you may re-roll up to 2 of your defense dice.</Ability>
-    <Cost>18</Cost>
+    <Shield>3</Shield>
+    <Ability>During the End Phase, if your [CLOAK] Token is on its red side, you may flip it back to its green side.  If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+    <Cost>20</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>0</Scan>
@@ -48,11 +48,12 @@
     <SensorEcho>1</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
+    <Tech>0</Tech>
+    <Weapon>1</Weapon>
+    <Crew>3</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>i_r_w_rateg_72321p</Id>
-    <Set>72321p</Set>
+    <Id>kohlar_s_battle_cruiser_72322p</Id>
+    <Set>72322p</Set>
   </Ship>
+

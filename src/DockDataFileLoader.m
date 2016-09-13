@@ -650,7 +650,8 @@ static NSString* makeKey(NSString* key)
         @"BSVT",
         @"OnlyBorgQueen",
         @"addoneweaponslotfortorpedoes",
-        @"FedCrewUpgradesCostOneLess"
+        @"FedCrewUpgradesCostOneLess",
+        @"KuvahMagh2Less"
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];

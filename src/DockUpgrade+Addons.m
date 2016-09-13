@@ -664,6 +664,9 @@ static NSDictionary* sItemLabels = nil;
         if ([upgrade.externalId isEqualToString:@"mauk_to_vor_71999p"] && [captain.externalId isEqualToString:@"kurn_71999p"]) {
             cost = 3;
         }
+        if ([upgrade.title isEqualToString:@"Kuvah'Magh"] && [captain.special isEqualToString:@"KuvahMagh2Less"]) {
+            cost -= 2;
+        }
     } else if ([upgrade isCrew] && ![upgrade isQMark]) {
         if (([captainSpecial isEqualToString: @"CrewUpgradesCostOneLess"] || [captainSpecial isEqualToString: @"hugh_71522"] ) && !isSideboard && ![upgrade isQMark]) {
             cost -= 1;
