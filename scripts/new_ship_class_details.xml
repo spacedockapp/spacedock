@@ -1,24 +1,6 @@
   <ShipClassDetail>
-    <Name>Excelsior Class</Name>
-    <Id>excelsior_class</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc>180</FrontArc>
-    <RearArc>90</RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>Excelsior Class</Name>
-    <Id>excelsior_class</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc>180</FrontArc>
-    <RearArc>90</RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>D7 Class</Name>
-    <Id>d7_class</Id>
+    <Name>Vor'Cha Class</Name>
+    <Id>vor_cha_class</Id>
     <Maneuvers>
 
     </Maneuvers>
@@ -26,11 +8,47 @@
     <RearArc></RearArc>
   </ShipClassDetail>
   <ShipClassDetail>
-    <Name>D7 Class</Name>
-    <Id>d7_class</Id>
+    <Name>Vor'Cha Class</Name>
+    <Id>vor_cha_class</Id>
     <Maneuvers>
 
     </Maneuvers>
     <FrontArc>90</FrontArc>
     <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Xindi Insectoid Starship</Name>
+    <Id>xindi_insectoid_starship</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>90</FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Xindi Insectoid Starship</Name>
+    <Id>xindi_insectoid_starship</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>90</FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>K'Vort Class</Name>
+    <Id>k_vort_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>90</FrontArc>
+    <RearArc>90</RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>K'Vort Class</Name>
+    <Id>k_vort_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>90</FrontArc>
+    <RearArc>90</RearArc>
   </ShipClassDetail>

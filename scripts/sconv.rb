@@ -45,10 +45,12 @@ end
 
 # Timestamp	Uniqueness	Ship Name	Faction	Ship Class	Attack	Agility	Hull	Shield	Ability	Action Bar	Cost	Borg Upgrade Slots	Crew Upgrade Slots	Tech Upgrade Slots	Weapon Upgrade Slots	Expansion Pack	Maneuver Grid	Firing Arcs	Build/Price Adjustment	Green Maneuvers	White Maneuvers	Red Maneuvers										
 ship = <<-SHIPTEXT
-8/31/2016 23:41:54	72350 - USS Enterprise-B	Non-unique	Federation Starship	Federation	Excelsior Class	Excelsior Class				3	1	5	3			24	0	2	1	1	180-degree forward, 90-degree rear		0
-8/31/2016 23:43:59	72350 - USS Enterprise-B	Unique	U.S.S. Enterprise-B	Federation	Excelsior Class	Excelsior Class				3	1	5	4	During the Combat Phase, you may replace 1 [BATTLE STATIONS], [SCAN] or blue [TARGET LOCK] Token that is beside your ship with an [EVADE] Token.	Battle Stations, Evasive, Scan, Target Lock	26	0	3	1	1	180-degree forward, 90-degree rear		0
-9/1/2016 11:28:25	72322p - Kohlar's Battle Cruiser	Unique	Kohlar's Battle Cruiser	Klingon	D7 Class	D7 Class				3	1	3	3	During the End Phase, if your [CLOAK] Token is on its red side, you may flip it back to its green side.  If you do so, place an Auxiliary Power Token beside your ship.	Cloak, Evasive, Sensor Echo, Target Lock	20	0	3	0	1	90-degree forward		0
-9/1/2016 11:29:59	72322p - Kohlar's Battle Cruiser	Non-unique	Klingon Starship	Klingon	D7 Class	D7 Class				3	1	3	1		Battle Stations, Evasive, Target Lock	16	0	1	0	1	90-degree forward		0
+9/30/2016 14:04:36	72323p - IKS Bortas	Non-unique	Klingon Starship	Klingon	Vor'Cha Class	Vor'Cha Class				5	1	5	2		Cloak, Evasive, Sensor Echo, Target Lock	26	0	1	1	1	90-degree forward		0
+9/30/2016 14:09:14	72323p - IKS Bortas	Unique	I.K.S. Bortas	Klingon	Vor'Cha Class	Vor'Cha Class				5	1	5	3	When defending, during the Modify Defense step, you may re-roll one of your defense dice.  If you do so, place an Auxiliary Power Token beside your ship.	Cloak, Evasive, Sensor Echo, Target Lock	28	0	2	1	1	90-degree forward		0
+10/20/2016 12:45:54	72341 - Orassin	Non-unique	Xindi Starship	Xindi	Xindi Insectoid Starship	Xindi Insectoid Starship				3	2	3	1		Battle Stations, Evasive, Target Lock	18	0	0	1	1	90-degree forward		0
+10/20/2016 12:50:53	72341 - Orassin	Unique	Orassin	Xindi	Xindi Insectoid Starship	Xindi Insectoid Starship				3	2	3	2	When attacking, during the Modify Attack Dice step, you may spend your [BATTLE STATIONS] Token to convert one of your [HIT] results into a [CRIT] result.	Battle Stations, Evasive, Target Lock	20	0	0	2	1	90-degree forward		0
+10/27/2016 15:01:06	72324p - IKS Hegh'ta	Non-unique	Klingon Starship	Klingon	K'Vort Class	K'Vort Class				4	1	5	2		Cloak, Evasive, Sensor Echo, Target Lock	24	0	1	1	1	90-degree forward, 90-degree rear		0
+10/27/2016 15:03:08	72324p - IKS Hegh'ta	Unique	I.K.S. Hegh'ta	Klingon	K'Vort Class	K'Vort Class				4	1	5	3	If your ship is within Range 1 of a friendly ship, each time that ship defends, it rolls +1 defense die.  This ability may only be used for 1 friendly ship per round.	Cloak, Evasive, Sensor Echo, Target Lock	26	0	2	1	1	90-degree forward, 90-degree rear		0
 SHIPTEXT
 
 

@@ -1,32 +1,48 @@
   <Captain>
-    <Title>John Harriman</Title>
-    <Ability>During the Activation Phase, you may perform an [EVADE] Action as a free Action. If you do so, place Auxilary Power Token beside your ship.</Ability>
+    <Title>Gowron</Title>
+    <Ability>If this card is assigned to a Klingon ship and all of your Shields have been destroyed, you may gain +1 attack die on all of your attacks. If any of your Shield Tokens are repaired, you lose this bonus attack die.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>2</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>1</Cost>
-    <Id>john_harriman_72350</Id>
-    <Set>72350</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Kohlar</Title>
-    <Ability>Your Captain Skill number increases by +2 for each damage card assigned to your ship (max +4). If the damage to your ship is repaired, your Skill Number decreases accordingly. You may field the "Kuvah'Magh" [ELITE TALENT] Upgrade at a cost of -2.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>3</Skill>
+    <Skill>5</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
     <Faction>Klingon</Faction>
-    <Cost>2</Cost>
-    <Id>kohlar_72322p</Id>
-    <Set>72322p</Set>
-    <Special>KuvahMagh2Less</Special>
+    <Cost>3</Cost>
+    <Id>gowron_72323p</Id>
+    <Set>72323p</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Insectoid Councilor</Title>
+    <Ability>ACTION: Each time your ship attacks this roound, during the Modify Defense Dice step, you may convert one of your opponent's [EVADE] results into a blank result. Inflict one damage to your ship's Shields or Hull.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>7</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Xindi</Faction>
+    <Cost>4</Cost>
+    <Id>insectoid_councilor_72341</Id>
+    <Set>72341</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Kurn</Title>
+    <Ability>ACTION: If your ship is within Range 1 of an Obstacle, roll 2 attack dice. Every ship within Range 1 fo the Obstacle suffers damage as normal for each [HIT] or [CRIT] result. Ships do not roll defense dice against this.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>6</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Klingon</Faction>
+    <Cost>4</Cost>
+    <Id>kurn_72324p</Id>
+    <Set>72324p</Set>
+    <Special></Special>
   </Captain>

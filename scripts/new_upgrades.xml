@@ -1,70 +1,6 @@
     <Upgrade>
-      <Title>Resonance Burst</Title>
-      <Ability>When attacking, during the Declare Target step, you may discard this card to target a ship in your forward firing arc and within Range 1 of your ship. The target ship must discard 1 Token ([EVADE], [BATTLESTATIONS], [SCAN], or [TARGET LOCK]) that is beside it of its choice. If there is a [CLOAK] Token beside the target ship, flip it over to its red side. No ship may be equipped with more than one "Resonance Burst" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>resonance_burst_72350</Id>
-      <Set>72350</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Deflector Control</Title>
-      <Ability>ACTION: Repair 1 Shield Token. OR Discard this card to flip up to 3 of your disabled Shield Tokens over to their Active sides. You cannot use this Action if your ship is Cloaked. No ship may be equipped with more than one "Deflector Control" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>deflector_control_72350</Id>
-      <Set>72350</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Full Reverse</Title>
-      <Ability>During the Activation Phase, if you reveal a [REVERSE] Maneuver, you may disable this card to add 1 to the speed of that maneuver. No ship may be equipped with more than one "Full Reverse" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>2</Cost>
-      <Id>full_reverse_72350</Id>
-      <Set>72350</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Holo-Communicator</Title>
-      <Ability>During the Activation Phase, you may disable this card to target a friendly ship within Range 1-2. If you do so, you may perform the Action listed on that ship's Captain Card. No ship may be equipped with more than one "Holo-Communicator" Upgrade.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>holo_communicator_72350</Id>
-      <Set>72350</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Demora Sulu</Title>
-      <Ability>If your ship is hit, after the Deal Damage phase, you may discard this card to immediately execute a maneuver from your Maneuver Dial with a speed of 3 or less.</Ability>
+      <Title>Worf</Title>
+      <Ability>When attacking a ship with no Active Shields, you may disable this card to gain +1 attack die. Your ship cannot roll any defense dice during the round in which you use this ability.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -72,15 +8,15 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>demora_sulu_72350</Id>
-      <Set>72350</Set>
+      <Faction>Klingon</Faction>
+      <Cost>3</Cost>
+      <Id>worf_72323p</Id>
+      <Set>72323p</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Kuvah'Magh</Title>
-      <Ability>When attacking with your Primary Weapon, during the Roll Attack Dice step, you may discard this card to gain +1 attack die for that attack for every Klingon [CREW] Upgrade deployed to your ship (max +3). Then suffer 1 critical damage to your Hull.</Ability>
+      <Title>Aim and Fire!</Title>
+      <Ability>When attacking with your Primary Weapon, you may discard this card to target a ship at Range 1-2. The target ship cannot re-roll any of its defense dice against that attack.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -90,45 +26,141 @@
       <Type>Talent</Type>
       <Faction>Klingon</Faction>
       <Cost>5</Cost>
-      <Id>kuvah_magh_72322p</Id>
-      <Set>72322p</Set>
+      <Id>aim_and_fire__72323p</Id>
+      <Set>72323p</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Morak</Title>
-      <Ability>ACTION: If your ship is not Cloaked, disable this card to repair 1 of your Shield Tokens. OR ACTION: Discard this card to flip up to 3 of your Disabled Shields over to their Active sides. If you do this while your ship is Cloaked, flip your [CLOAK] Token to its red side.</Ability>
+      <Title>Cry of the Warrior</Title>
+      <Ability>When attacking, during the Roll Attack Dice step, you may discard this card to gain +1 attack die for each opposing ship that has your ship in its forward firing arc (max +3). The next time your ship rolls defense dice, roll -1 defense dice for each additional attack die you gained with this ability.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
-      <Type>Crew</Type>
+      <Type>Talent</Type>
       <Faction>Klingon</Faction>
       <Cost>5</Cost>
-      <Id>morak_72322p</Id>
-      <Set>72322p</Set>
+      <Id>cry_of_the_warrior_72323p</Id>
+      <Set>72323p</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Ch'Rega</Title>
-      <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Disable this card and any 2 [CREW] Upgrades of your choice on the target ship.</Ability>
+      <Title>Emergency Override</Title>
+      <Ability>ACTION: If you executed a green maneuver this round, disable this card to repair 1 of your Shields.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Klingon</Faction>
+      <Cost>2</Cost>
+      <Id>emergency_override_72323p</Id>
+      <Set>72323p</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Thalen</Title>
+      <Ability>Add 1 [WEAPON] Upgrade slot to your Upgrade bar. If the additional [WEAPON] Upgrade is a Xindi [WEAPON] Upgrade, its cost is -2 SP. When firing a secondary weapon, you may disable this card to gain +1 attack die (max 6).</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack></Attack>
       <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Xindi</Faction>
+      <Cost>5</Cost>
+      <Id>thalen_72341</Id>
+      <Set>72341</Set>
+      <Special>addoneweaponslot1xindi2less</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Xindi Council</Title>
+      <Ability>Place 1 Mission Token on this card for each damage your ship suffers to it's Hull or Shields (max 4). When attacking or defending, you may discard this card to re-roll a number of your attack or defense dice up to the number of Mission Tokens on this card. This card may only be fielded by a Xindi Captain assigned to a Xindi ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Xindi</Faction>
+      <Cost>4</Cost>
+      <Id>xindi_council_72341</Id>
+      <Set>72341</Set>
+      <Special>OnlyXindiCaptainShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Insectoid Raiding Party</Title>
+      <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Discard this card to discard any Upgrade with a cost of 5 SP or less on the target ship. This Upgrade costs +5 SP if purchased for any ship other than a Xindi ship and no ship may be equipped with more than one "Insectoid Raiding Party" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
       <Type>Crew</Type>
-      <Faction>Klingon</Faction>
+      <Faction>Xindi</Faction>
+      <Cost>3</Cost>
+      <Id>insectoid_raiding_party_72341</Id>
+      <Set>72341</Set>
+      <Special>OPSPlus5NotXindi</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Hatchery</Title>
+      <Ability>Add 1 [CREW] Upgrade slot to your Upgrade Bar. At the start of the game, during the Gather Forces step, place a Xindi [CREW] Upgrade face down beneath this card. When one of your rother [CREW] Upgrades is discarded, discard this card and flip the card beneath this card face up. That card is now deployed to your ship and may be used normally. This Upgrade may only be purchased for a Xindi ship and no ship may be equipped with more than one "Hatchery" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Xindi</Faction>
       <Cost>2</Cost>
-      <Id>ch_rega_72322p</Id>
-      <Set>72322p</Set>
+      <Id>hatchery_72341</Id>
+      <Set>72341</Set>
+      <Special>NoMoreThanOnePerShipAndOnlyXindi</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Change Course</Title>
+      <Ability>This card may fill a [CREW], [ELITE TALENT], [TECH] or [WEAPON] Upgrade slot. During the Åctivation Phase, when you reveal your maneuver, you may discard this card to change your maneuver to any maneuver on your Maneuver Card. No ship may be equipped with more than one "Change Course" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>?</Type>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>change_course_72324p</Id>
+      <Set>72324p</Set>
+      <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>On My Command</Title>
+      <Ability>During the Combat Phase, when it is your turn to attack, you may discard this card to delay your attack until after all other ships have completed their attacks. If you do so, roll +2 attack dice for your first attack during the round you use this ability.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Klingon</Faction>
+      <Cost>5</Cost>
+      <Id>on_my_command_72324p</Id>
+      <Set>72324p</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>T'Greth</Title>
-      <Ability>ACTION: Place a [BATTLESTATIONS] Token beside your ship. Then place an Auxiliary Power Token beside your ship. You cannot perform a [BATTLESTATIONS] Action this round.</Ability>
+      <Title>Toral</Title>
+      <Ability>During the Modify Defense Dice step, you may discard this card to re-roll up to 2 of your defense dice. If this card is deployed to a Klingon ship, you may disable it instead of discarding it.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -138,23 +170,55 @@
       <Type>Crew</Type>
       <Faction>Klingon</Faction>
       <Cost>4</Cost>
-      <Id>t_greth_72322p</Id>
-      <Set>72322p</Set>
+      <Id>toral_72324p</Id>
+      <Set>72324p</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Improved Phasers</Title>
-      <Ability>ATTACK: Place 2 Time Tokens on this card to perform this attack. Treat this as an attack with your Primary Weapon.</Ability>
+      <Title>Auxiliary Power to Shields</Title>
+      <Ability>When defending, during the Deal Damage step, you may discard this card to immediately repair up to 2 of your Shields that were destoyed with that attack. Place 1 Auxiliary Power Token beside your ship for each Shield Token you repair with this ability. No ship may be equipped with more than one "Auxiliary Power to Shields" Upgrade.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Tech</Type>
+      <Faction>Klingon</Faction>
+      <Cost>4</Cost>
+      <Id>auxiliary_power_to_shields_72324p</Id>
+      <Set>72324p</Set>
+      <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Pulse-Firing Particle Cannon</Title>
+      <Ability>ATTACK: Disable this card to perform this attack. You may only fire t his weapon from your forward firing arc. If this attack hits, you may immediately make a second attack with this weapon against the same target at -1 attack die. The target ship rolls 1 less defense die against the second attack. This Upgrade costs +5 SP if purchased for a non-Xindi ship.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack>3</Attack>
+      <Range>1-3</Range>
+      <Type>Weapon</Type>
+      <Faction>Xindi</Faction>
+      <Cost>4</Cost>
+      <Id>pulse_firing_particle_cannon_72341</Id>
+      <Set>72341</Set>
+      <Special>Plus5NotXindi</Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Xindi Torpedoes</Title>
+      <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. You may only fire this weapon from your forward firing arc.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack>4</Attack>
-      <Range>1-3</Range>
+      <Range>2-3</Range>
       <Type>Weapon</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>improved_phasers_72350</Id>
-      <Set>72350</Set>
+      <Faction>Xindi</Faction>
+      <Cost>2</Cost>
+      <Id>xindi_torpedoes_72341</Id>
+      <Set>72341</Set>
       <Special></Special>
     </Upgrade>
