@@ -1,22 +1,86 @@
   <Captain>
-    <Title>Gowron</Title>
-    <Ability>If this card is assigned to a Klingon ship and all of your Shields have been destroyed, you may gain +1 attack die on all of your attacks. If any of your Shield Tokens are repaired, you lose this bonus attack die.</Ability>
+    <Title>Movar</Title>
+    <Ability>During the Gather Forces step, you may switch one of your [CREW], [TECH], or [WEAPON] Upgrade slots on your ship for a [CREW], [TECH], [WEAPON], or [ELITE TALENT] Upgrade slot.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>5</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Romulan</Faction>
+    <Cost>3</Cost>
+    <Id>movar_72325g</Id>
+    <Set>72325g</Set>
+    <Special>Yes</Special>
+  </Captain>
+  <Captain>
+    <Title>Lursa</Title>
+    <Ability>You may perform a [CLOAK] or [SENSOR ECHO] Action as a free Action (if your ship has the appropriate Action on its Action Bar). If B'Etor is the Captain of your ship, you may fill one of your [CREW] Upgrade slots with this card and gain +4 to your Captain Skill.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>4</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
     <Faction>Klingon</Faction>
     <Cost>3</Cost>
-    <Id>gowron_72323p</Id>
-    <Set>72323p</Set>
+    <Id>lursa_b_72325p</Id>
+    <Set>72325p</Set>
+    <Special>Yes</Special>
+  </Captain>
+  <Captain>
+    <Title>B'Etor</Title>
+    <Ability>A friendly ship within Range 1-2 of your ship may use the Action or ability on your [ELITE TALENT] Upgrade as if it were assigned to that ship. If Lursa is the Captain of your ship, you may fill one of your [CREW] Upgrade slots with this card and gain +4 to your Captain Skill.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>4</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Klingon</Faction>
+    <Cost>3</Cost>
+    <Id>b_etor_b_72325p</Id>
+    <Set>72325p</Set>
+    <Special>Yes</Special>
+  </Captain>
+  <Captain>
+    <Title>Aquatic Councilor</Title>
+    <Ability>When defending, during the Modify Defense Dice step, you may convert 1 of your [BATTLESTATIONS] results into an [EVADE] result.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>2</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Xindi</Faction>
+    <Cost>1</Cost>
+    <Id>aquatic_councilor_72338</Id>
+    <Set>72338</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Insectoid Councilor</Title>
-    <Ability>ACTION: Each time your ship attacks this roound, during the Modify Defense Dice step, you may convert one of your opponent's [EVADE] results into a blank result. Inflict one damage to your ship's Shields or Hull.</Ability>
+    <Title>Jean-Luc Picard</Title>
+    <Ability>Your ship costs -2 SP and each Upgrade assigned to your ship costs -1 SP (max -5 SP total).</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>8</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
+    <Cost>5</Cost>
+    <Id>jean_luc_picard_72224p</Id>
+    <Set>72224p</Set>
+    <Special>Yes</Special>
+  </Captain>
+  <Captain>
+    <Title>Sela</Title>
+    <Ability>ACTION: When defending this round, the attacking ship cannot benefit from or spend a [SCAN] Token that is beside it, nor can that ship spend a [BATTLESTATIONS] Token that is beside it against your ship.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>7</Skill>
@@ -24,25 +88,33 @@
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Xindi</Faction>
+    <Faction>Romulan</Faction>
     <Cost>4</Cost>
-    <Id>insectoid_councilor_72341</Id>
-    <Set>72341</Set>
+    <Id>sela_cap_72325g</Id>
+    <Set>72325g</Set>
     <Special></Special>
+    <AdmiralAbility>FLEET ACTION: When defending this round, the attacking ship cannot benefit from or spend a [SCAN] Token that is beside it, nor can that ship spend a [BATTLESTATIONS] Token that is beside it against your ship.</AdmiralAbility>
+    <AdmiralCost>4</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
   </Captain>
   <Captain>
-    <Title>Kurn</Title>
-    <Ability>ACTION: If your ship is within Range 1 of an Obstacle, roll 2 attack dice. Every ship within Range 1 fo the Obstacle suffers damage as normal for each [HIT] or [CRIT] result. Ships do not roll defense dice against this.</Ability>
+    <Title>Kiaphet Amman'sor</Title>
+    <Ability>ACTION: When defending this round, roll +1 defense die. In addition, if this card is assigned to a Xindi ship, when attacking this round, gain +1 attack die.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>6</Skill>
+    <Skill>4</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Klingon</Faction>
-    <Cost>4</Cost>
-    <Id>kurn_72324p</Id>
-    <Set>72324p</Set>
+    <Faction>Xindi</Faction>
+    <Cost>3</Cost>
+    <Id>kiaphet_amman_sor_cap_72338</Id>
+    <Set>72338</Set>
     <Special></Special>
+    <AdmiralAbility>FLEET ACTION: When defending this round, roll +1 defense die. In addition, if this card is assigned to a Xindi ship, when attacking this round, gain +1 attack die.</AdmiralAbility>
+    <AdmiralCost>3</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
   </Captain>

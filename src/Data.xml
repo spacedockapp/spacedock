@@ -1,4 +1,4 @@
-<Data version="2016-12-02@00-05">
+<Data version="2017-02-28@20-27">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -1919,7 +1919,7 @@
       <Weapon>1</Weapon>
       <Crew>3</Crew>
       <Id>1002</Id>
-      <Set>71120,72336</Set>
+      <Set>71120,72336,72224p</Set>
     </Ship>
     <Ship>
       <Title>I.R.W. Khazara</Title>
@@ -2655,7 +2655,7 @@
       <Weapon>2</Weapon>
       <Crew>1</Crew>
       <Id>1043</Id>
-      <Set>OP3Prize,71511,72315p</Set>
+      <Set>OP3Prize,71511,72315p,72325g</Set>
     </Ship>
     <Ship>
       <Title>U.S.S. Defiant</Title>
@@ -7626,7 +7626,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <SquadronUpgrade>0</SquadronUpgrade>
       <Has360Arc>N</Has360Arc>
       <Id>klingon_starship_72015</Id>
-      <Set>72015,72318p,72319p</Set>
+      <Set>72015,72318p,72319p,72325p</Set>
   </Ship>
   <Ship>
       <Title>R.I.S. Talvath</Title>
@@ -7713,7 +7713,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <SquadronUpgrade>0</SquadronUpgrade>
       <Has360Arc>N</Has360Arc>
       <Id>xindi_starship_72004p</Id>
-      <Set>72004p</Set>
+      <Set>72004p,72338</Set>
   </Ship>
   <Ship>
       <Title>U.S.S. Hathaway</Title>
@@ -8965,6 +8965,122 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
         <Id>i_k_s_hegh_ta_72324p</Id>
         <Set>72324p</Set>
     </Ship>
+    <Ship>
+        <Title>Sela's Warbird</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>D'deridex Class</ShipClass>
+        <Faction>Romulan</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>3</Attack>
+        <Agility>1</Agility>
+        <Hull>6</Hull>
+        <Shield>4</Shield>
+        <Ability>During the Activation Phase, if your ship is Cloaked and performs a [SENSOR ECHO] Action, you may flip your [CLOAK] Token over to its red side and immediately perform an additional [SENSOR ECHO] Action as a free Action.</Ability>
+        <Cost>30</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>0</Scan>
+        <Battlestations>0</Battlestations>
+        <Cloak>1</Cloak>
+        <SensorEcho>1</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>2</Tech>
+        <Weapon>1</Weapon>
+        <Crew>2</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>sela_s_warbird_72325g</Id>
+        <Set>72325g</Set>
+    </Ship>
+    <Ship>
+        <Title>I.K.S. Toral</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>B'Rel Class</ShipClass>
+        <Faction>Klingon</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>4</Attack>
+        <Agility>1</Agility>
+        <Hull>3</Hull>
+        <Shield>3</Shield>
+        <Ability>When defending, during the Roll Defense Dice step, if your ship is not Cloaked, you may roll +2 defense dice. If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+        <Cost>22</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>0</Scan>
+        <Battlestations>0</Battlestations>
+        <Cloak>1</Cloak>
+        <SensorEcho>1</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>1</Tech>
+        <Weapon>1</Weapon>
+        <Crew>2</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>i_k_s_toral_72325p</Id>
+        <Set>72325p</Set>
+    </Ship>
+    <Ship>
+        <Title>Calindra</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Xindi Aquatic Cruiser</ShipClass>
+        <Faction>Xindi</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>4</Attack>
+        <Agility>1</Agility>
+        <Hull>6</Hull>
+        <Shield>3</Shield>
+        <Ability>When defending, during the Modify Defense Dice step, you may discard a blue [TARGET LOCK] Token from beside your ship to re-roll all of your defense dice.</Ability>
+        <Cost>28</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>1</Scan>
+        <Battlestations>1</Battlestations>
+        <Cloak>0</Cloak>
+        <SensorEcho>0</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>3</Tech>
+        <Weapon>1</Weapon>
+        <Crew>1</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>calindra_72338</Id>
+        <Set>72338</Set>
+    </Ship>
+    <Ship>
+        <Title>U.S.S. Enterprise-D</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Galaxy Class</ShipClass>
+        <Faction>Federation</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>4</Attack>
+        <Agility>1</Agility>
+        <Hull>5</Hull>
+        <Shield>4</Shield>
+        <Ability>During the Roll Attack Dice or Roll Defense Dice step of the Combat Phase, you may switch an [EVADE], [SCAN], or [TARGET LOCK] Token that is beside your ship for a [BATTLESTATIONS] Token.</Ability>
+        <Cost>28</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>1</Scan>
+        <Battlestations>1</Battlestations>
+        <Cloak>0</Cloak>
+        <SensorEcho>0</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>1</Tech>
+        <Weapon>2</Weapon>
+        <Crew>2</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>u_s_s_enterprise_d_72224p</Id>
+        <Set>72224p</Set>
+    </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -9015,7 +9131,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Federation</Faction>
       <Cost>0</Cost>
       <Id>2003</Id>
-      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526,71510,71531,71997p,71801,71998p,71802,72001p,72008,72011,72002p,72221d,72014,72017,72020,72023,72326,72316p,72319g,72319p,72320p,72336,72350</Set>
+      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526,71510,71531,71997p,71801,71998p,71802,72001p,72008,72011,72002p,72221d,72014,72017,72020,72023,72326,72316p,72319g,72319p,72320p,72336,72350,72224p</Set>
     </Captain>
     <Captain>
       <Title>Nu'Daq</Title>
@@ -9049,7 +9165,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Klingon</Faction>
       <Cost>0</Cost>
       <Id>2005</Id>
-      <Set>71120,71125,71126,OP2Prize,71269,71273,71448,i_k_s_b_moth,71532,71996,71804,72009,72221f,72015,72327,72334,72318p,72322p,72323p,72324p</Set>
+      <Set>71120,71125,71126,OP2Prize,71269,71273,71448,i_k_s_b_moth,71532,71996,71804,72009,72221f,72015,72327,72334,72318p,72322p,72323p,72324p,72325p</Set>
     </Captain>
     <Captain>
       <Title>Toreth</Title>
@@ -12347,7 +12463,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Faction>Xindi</Faction>
       <Cost>0</Cost>
       <Id>xindi_72003p</Id>
-      <Set>72003p,72004p,72005p,72360,72341</Set>
+      <Set>72003p,72004p,72005p,72360,72341,72338</Set>
       <Special></Special>
   </Captain>
   <Captain>
@@ -13098,6 +13214,126 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Set>72324p</Set>
       <Special></Special>
   </Captain>
+  <Captain>
+      <Title>Movar</Title>
+      <Ability>During the Gather Forces step, you may switch one of your [CREW], [TECH], or [WEAPON] Upgrade slots on your ship for a [CREW], [TECH], [WEAPON], or [ELITE TALENT] Upgrade slot.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>5</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>3</Cost>
+      <Id>movar_72325g</Id>
+      <Set>72325g</Set>
+      <Special>Yes</Special>
+  </Captain>
+  <Captain>
+      <Title>Lursa</Title>
+      <Ability>You may perform a [CLOAK] or [SENSOR ECHO] Action as a free Action (if your ship has the appropriate Action on its Action Bar). If B'Etor is the Captain of your ship, you may fill one of your [CREW] Upgrade slots with this card and gain +4 to your Captain Skill.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>4</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>3</Cost>
+      <Id>lursa_b_72325p</Id>
+      <Set>72325p</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>B'Etor</Title>
+      <Ability>A friendly ship within Range 1-2 of your ship may use the Action or ability on your [ELITE TALENT] Upgrade as if it were assigned to that ship. If Lursa is the Captain of your ship, you may fill one of your [CREW] Upgrade slots with this card and gain +4 to your Captain Skill.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>4</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Klingon</Faction>
+      <Cost>3</Cost>
+      <Id>b_etor_b_72325p</Id>
+      <Set>72325p</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Aquatic Councilor</Title>
+      <Ability>When defending, during the Modify Defense Dice step, you may convert 1 of your [BATTLESTATIONS] results into an [EVADE] result.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>2</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Xindi</Faction>
+      <Cost>1</Cost>
+      <Id>aquatic_councilor_72338</Id>
+      <Set>72338</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Jean-Luc Picard</Title>
+      <Ability>Your ship costs -2 SP and each Upgrade assigned to your ship costs -1 SP (max -5 SP total).</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>8</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>5</Cost>
+      <Id>jean_luc_picard_72224p</Id>
+      <Set>72224p</Set>
+      <Special>Yes</Special>
+  </Captain>
+  <Captain>
+      <Title>Sela</Title>
+      <Ability>ACTION: When defending this round, the attacking ship cannot benefit from or spend a [SCAN] Token that is beside it, nor can that ship spend a [BATTLESTATIONS] Token that is beside it against your ship.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>7</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>4</Cost>
+      <Id>sela_cap_72325g</Id>
+      <Set>72325g</Set>
+      <Special></Special>
+      <AdmiralAbility>FLEET ACTION: When defending this round, the attacking ship cannot benefit from or spend a [SCAN] Token that is beside it, nor can that ship spend a [BATTLESTATIONS] Token that is beside it against your ship.</AdmiralAbility>
+      <AdmiralCost>4</AdmiralCost>
+      <AdmiralTalent>1</AdmiralTalent>
+      <SkillModifier>1</SkillModifier>
+  </Captain>
+  <Captain>
+      <Title>Kiaphet Amman'sor</Title>
+      <Ability>ACTION: When defending this round, roll +1 defense die. In addition, if this card is assigned to a Xindi ship, when attacking this round, gain +1 attack die.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>4</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Xindi</Faction>
+      <Cost>3</Cost>
+      <Id>kiaphet_amman_sor_cap_72338</Id>
+      <Set>72338</Set>
+      <Special></Special>
+      <AdmiralAbility>FLEET ACTION: When defending this round, roll +1 defense die. In addition, if this card is assigned to a Xindi ship, when attacking this round, gain +1 attack die.</AdmiralAbility>
+      <AdmiralCost>3</AdmiralCost>
+      <AdmiralTalent>1</AdmiralTalent>
+      <SkillModifier>1</SkillModifier>
+  </Captain>
   </Captains>
   <Admirals>
     <Admiral>
@@ -13652,6 +13888,46 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
         <Set>72333</Set>
         <Special></Special>
         <AdmiralAbility>FLEET ACTION: If your ship has the [CLOAK] ACTION on its Action Bar, place a [CLOAK] Token beside your ship then immediately perform an additional Action from your Action Bar as a free Action.</AdmiralAbility>
+        <AdmiralCost>3</AdmiralCost>
+        <AdmiralTalent>1</AdmiralTalent>
+        <SkillModifier>1</SkillModifier>
+    </Admiral>
+    <Admiral>
+        <Title>Sela</Title>
+        <Ability>ACTION: When defending this round, the attacking ship cannot benefit from or spend a [SCAN] Token that is beside it, nor can that ship spend a [BATTLESTATIONS] Token that is beside it against your ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill>7</Skill>
+        <Talent>1</Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Admiral</Type>
+        <Faction>Romulan</Faction>
+        <Cost>4</Cost>
+        <Id>sela_72325g</Id>
+        <Set>72325g</Set>
+        <Special></Special>
+        <AdmiralAbility>FLEET ACTION: When defending this round, the attacking ship cannot benefit from or spend a [SCAN] Token that is beside it, nor can that ship spend a [BATTLESTATIONS] Token that is beside it against your ship.</AdmiralAbility>
+        <AdmiralCost>4</AdmiralCost>
+        <AdmiralTalent>1</AdmiralTalent>
+        <SkillModifier>1</SkillModifier>
+    </Admiral>
+    <Admiral>
+        <Title>Kiaphet Amman'sor</Title>
+        <Ability>ACTION: When defending this round, roll +1 defense die. In addition, if this card is assigned to a Xindi ship, when attacking this round, gain +1 attack die.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill>4</Skill>
+        <Talent>1</Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Admiral</Type>
+        <Faction>Xindi</Faction>
+        <Cost>3</Cost>
+        <Id>kiaphet_amman_sor_72338</Id>
+        <Set>72338</Set>
+        <Special></Special>
+        <AdmiralAbility>FLEET ACTION: When defending this round, roll +1 defense die. In addition, if this card is assigned to a Xindi ship, when attacking this round, gain +1 attack die.</AdmiralAbility>
         <AdmiralCost>3</AdmiralCost>
         <AdmiralTalent>1</AdmiralTalent>
         <SkillModifier>1</SkillModifier>
@@ -27084,6 +27360,326 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>72341</Set>
         <Special></Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Lursa</Title>
+        <Ability>You may perform a [CLOAK] or [SENSOR ECHO] Action as a free Action (if your ship has the appropriate Action on its Action Bar). If B'Etor is the Captain of your ship, you may fill one of your [CREW] Upgrade slots with this card and gain +4 to your Captain Skill.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Klingon</Faction>
+        <Cost>3</Cost>
+        <Id>lursa_72325p</Id>
+        <Set>72325p</Set>
+        <Special>OnlyLBCaptain</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>B'Etor</Title>
+        <Ability>A friendly ship within Range 1-2 of your ship may use the Action or ability on your [ELITE TALENT] Upgrade as if it were assigned to that ship. If Lursa is the Captain of your ship, you may fill one of your [CREW] Upgrade slots with this card and gain +4 to your Captain Skill.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Klingon</Faction>
+        <Cost>3</Cost>
+        <Id>b_etor_72325p</Id>
+        <Set>72325p</Set>
+        <Special>OnlyLBCaptain</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Enemy of the Empire</Title>
+        <Ability>When attacking, during the Roll Attack Dice step, you may discard this card to gain +1 attack die. If the defending ship is a Klingon ship or a ship with a Klingon Captain or Upgrade assigned to it, disable this card instead of discarding it.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Klingon</Faction>
+        <Cost>5</Cost>
+        <Id>enemy_of_the_empire_72325p</Id>
+        <Set>72325p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Interrogation</Title>
+        <Ability>When attacking, during the Roll Attack Dice step, you may discard this card to gain a number of attack dice equal to 1 plus the number of Upgrades on the defending ship (max +3). This Upgrade may only be fielded by a Klingon Captain assigned to a Klingon ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Klingon</Faction>
+        <Cost>5</Cost>
+        <Id>interrogation_72325p</Id>
+        <Set>72325p</Set>
+        <Special>OnlyKlingonCaptainShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Kulge</Title>
+        <Ability>ACTION: Discard this card to disable your Captain Card and place a [BATTLESTATIONS] Token beside your ship. While your Captain Card is disabled, your Captain Skill is "0" and you may perform the [BATTLESTATIONS] Action as if it was on your Action Bar.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Klingon</Faction>
+        <Cost>5</Cost>
+        <Id>kulge_72325p</Id>
+        <Set>72325p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Aft Shields</Title>
+        <Ability>If you are not Cloaked and defending against an attack from a ship that is not in your forward firing arc, during the Compare Results step, you may discard this card to cancel up to 2 of the attacking ship's [HIT] or [CRIT] results. If you do so, place an Auxiliary Power Token beside your ship. No ship may be equipped with more than one "Aft Shields" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Klingon</Faction>
+        <Cost>4</Cost>
+        <Id>aft_shields_72325p</Id>
+        <Set>72325p</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Klingon-Romulan Alliance</Title>
+        <Ability>If your ship is within Range 1-2 of a friendly Klingon or Romulan ship, during the Modify Defense dice step, you may discard this card to re-roll any number of your defense dice. This card may only be fielded by a Klingon or Romulan Captain assigned to a Klingon or Romulan ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Romulan</Faction>
+        <Cost>4</Cost>
+        <Id>klingon_romulan_alliance_72325g</Id>
+        <Set>72325g</Set>
+        <Special>OnlyKlingonORRomulanCaptainShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Reverse Course</Title>
+        <Ability>During the Activation Phase, you may disregard your chosen maneuver and execute a Full Astern [REVERSE] Maneuver with a speed of 1 or 2 instead.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Romulan</Faction>
+        <Cost>5</Cost>
+        <Id>reverse_course_72325g</Id>
+        <Set>72325g</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Tokath</Title>
+        <Ability>ACTION: Discard this card to remove 2 Disabled Upgrade Tokens from your other Upgrades.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Romulan</Faction>
+        <Cost>2</Cost>
+        <Id>tokath_72325g</Id>
+        <Set>72325g</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Tachyon Pulse</Title>
+        <Ability>When defending, during the Roll Defense Dice step, you may disable this card to roll +1 defense die (+2 defense dice if the attacking ship has a [SCAN] Token beside it). No ship may be equipped with more than one "Taychon Pulse" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Romulan</Faction>
+        <Cost>4</Cost>
+        <Id>tachyon_pulse_72325g</Id>
+        <Set>72325g</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Retaltion</Title>
+        <Ability>When another ship in your fleet is destroyed, discard this card to immediately make an attack with your Primary Weapon at -1 attack die. This attack is in addition to your normal attack for the round. If there is no ship to target with this additional attack, place a Mission Token on this card instead of discarding it. If you do this, on your next attack, discard this card to gain +3 attack dice for that attack. This Upgrade may only be purchased for a Xindi Captain assigned to a Xindi ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Xindi</Faction>
+        <Cost>5</Cost>
+        <Id>retaltion_72338</Id>
+        <Set>72338</Set>
+        <Special>OnlyXindiCaptainShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Raijin</Title>
+        <Ability>ACTION: Discard this card to target a ship at Range 1-3. Choose 1 Upgrade on the target ship and place 2 Time Tokens on that Upgrade.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Xindi</Faction>
+        <Cost>4</Cost>
+        <Id>raijin_72338</Id>
+        <Set>72338</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Trellium-D</Title>
+        <Ability>Place 2 Mission Tokens on this card. During the Compare Results step, you may discard up to 2 of these Tokens to cancel one [HIT] or [CRIT] result for each Token discarded. This Upgrade costs +4 SP for any non-Xindi ship and no ship may be equipped with more than one "Trellium-D" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Xindi</Faction>
+        <Cost>4</Cost>
+        <Id>trellium_d_72338</Id>
+        <Set>72338</Set>
+        <Special>OPSPlus4NotXindi</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Biometric Hologram</Title>
+        <Ability>When attacking, during the Roll Attack Dice step, you may discard this card to gain +2 attack dice. If the attack hits, disable all [CREW] Upgrades on the defending ship. This Upgrade may only be purchased for a Xindi ship and no ship may be equipped with more than one "Biometric Hologram" Upgrade.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Xindi</Faction>
+        <Cost>5</Cost>
+        <Id>biometric_hologram_72338</Id>
+        <Set>72338</Set>
+        <Special>NoMoreThanOnePerShipAndOnlyXindi</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Subspace Vortex</Title>
+        <Ability>ACTION: Discard this card to execute an additional 4 [STRAIGHT], 5 [STRAIGHT], or 6 [STRAIGHT] Maneuver. Place an Auxiliary Power Token beside your ship. This Upgrade costs +5 SP for any non-Xindi ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Xindi</Faction>
+        <Cost>5</Cost>
+        <Id>subspace_vortex_72338</Id>
+        <Set>72338</Set>
+        <Special>Plus5NotXindi</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Transporter</Title>
+        <Ability>ACTION: Disable this card to target a friendly ship within Range 1-2 and disable all remaining Shields on both ships. Then switch a [CREW] Upgrade between the ships. No ship may be equipped with more than one "Transporter" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>transporter_72224p</Id>
+        <Set>72224p</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Dispersal Pattern Sierra</Title>
+        <Ability>When attacking with a Photon Torpedo, during the Declare Target step, you may discard this card to target 2 or 3 different ships in your forward firing arc with the attack. If you target 2 different ships, each attack is at -1 attack die. If you target 3 different ships, each attack is at -2 attack dice.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>dispersal_pattern_sierra_72224p</Id>
+        <Set>72224p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Natasha Yar</Title>
+        <Ability>Add 2 [WEAPON] Upgrade slots to your Upgrade Bar. When attacking, during the Modify Attack Dice step, you may place 2 Time Tokens on this card to re-roll up to three of your attack dice.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Federation</Faction>
+        <Cost>4</Cost>
+        <Id>natasha_yar_72224p</Id>
+        <Set>72224p</Set>
+        <Special>AddTwoWeaponSlots</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Xindi Torpedoes</Title>
+        <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. If fired from a Xindi Aquatic Cruiser, add +1 attack die.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>4</Attack>
+        <Range>2-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Xindi</Faction>
+        <Cost>3</Cost>
+        <Id>xindi_torpedoes_72338</Id>
+        <Set>72338</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Aft Phaser Emitters</Title>
+        <Ability>ATTACK: You may fire this weapon from your rear firing arc. The Attack Value is equal to the ship's Primary Weapon Value -1. This Upgrade may only be purchased for a Federation ship with a Hull Value of 4 or greater and the SP is equal to the ship's Primary Weapon Value.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>*</Attack>
+        <Range>1-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Federation</Faction>
+        <Cost>1</Cost>
+        <Id>aft_phaser_emitters_72224p</Id>
+        <Set>72224p</Set>
+        <Special>OnlyFedShipHV4CostPWV</Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -27704,6 +28300,34 @@ Discard this card when there are no more Auxiliary Power Tokens on this card.</A
           <Id>auxiliary_power_72324r</Id>
           <Set>72324r</Set>
       </Resource>
+      <Resource>
+          <Title>All Stop</Title>
+          <Unique>Y</Unique>
+          <Type>Resource</Type>
+          <Ability>At the start of the game, place 5 Mission Tokens on this card.
+
+Each round, during the Activation Phase, one ship in your fleet may disregard its chosen maneuver and not move  A ship that uses this ability must skip its Perform Action step.
+
+If you use this ability, remove one Mission Token from this card and place it back in the supply.
+
+Discard this card when there are no more Mission Tokens on this card.</Ability>
+          <Cost>5</Cost>
+          <Id>all_stop_72325r</Id>
+          <Set>72325r</Set>
+      </Resource>
+      <Resource>
+          <Title>Senior Staff</Title>
+          <Unique>Y</Unique>
+          <Type>Resource</Type>
+          <Ability>Each ship in your fleet my field 1 additional [ELITE TALENT] Upgrade for every [CREW] Upgrade assigned to it.  Each [ELITE TALENT] Upgrade is placed next to the [CREW] Upgrade that fielded it.
+
+If the [CREW] Upgrade is ever discarded, you must also discard the [ELITE TALENT] Upgrade that was fielded by that [CREW] Upgrade.
+
+The cost of this resource is 1 SP for each additional [ELITE TALENT] Upgrade you assign to your fleet.</Ability>
+          <Cost>0</Cost>
+          <Id>senior_staff_72224r</Id>
+          <Set>72224r</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -27921,6 +28545,12 @@ Discard this card when there are no more Auxiliary Power Tokens on this card.</A
       <Set id="72323r" overallSetName="Klingon Civil War" releaseDate="2016-10-15">Fleet Commander Resource</Set>
       <Set id="72324p" overallSetName="Klingon Civil War" releaseDate="2016-11-15">I.K.S. Hegh'ta</Set>
       <Set id="72324r" overallSetName="Klingon Civil War" releaseDate="2016-11-15">Auxiliary Power Resource</Set>
+      <Set id="72338" overallSetName="Wave 28" releaseDate="2016-01-11">Calindra</Set>
+      <Set id="72325p" overallSetName="Klingon Civil War" releaseDate="2017-01-15">I.K.S. Toral</Set>
+      <Set id="72325r" overallSetName="Klingon Civil War" releaseDate="2017-01-15">All Stop Resource</Set>
+      <Set id="72325g" overallSetName="Klingon Civil War" releaseDate="2017-01-15">Sela's Warbird</Set>
+      <Set id="72224p" overallSetName="Yesterday’s Enterprise" releaseDate="2017-02-15">U.S.S. Enterprise-D</Set>
+      <Set id="72224r" overallSetName="Yesterday’s Enterprise" releaseDate="2017-02-15">Senior Staff Resource</Set>
     </Sets>
     <Flagships>
         <Flagship>

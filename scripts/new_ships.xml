@@ -1,16 +1,45 @@
   <Ship>
-    <Title>I.K.S. Bortas</Title>
+    <Title>Sela's Warbird</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Vor'Cha Class</ShipClass>
+    <ShipClass>D'deridex Class</ShipClass>
+    <Faction>Romulan</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>3</Attack>
+    <Agility>1</Agility>
+    <Hull>6</Hull>
+    <Shield>4</Shield>
+    <Ability>During the Activation Phase, if your ship is Cloaked and performs a [SENSOR ECHO] Action, you may flip your [CLOAK] Token over to its red side and immediately perform an additional [SENSOR ECHO] Action as a free Action.</Ability>
+    <Cost>30</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>0</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>1</Cloak>
+    <SensorEcho>1</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>2</Tech>
+    <Weapon>1</Weapon>
+    <Crew>2</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>sela_s_warbird_72325g</Id>
+    <Set>72325g</Set>
+  </Ship>
+  <Ship>
+    <Title>I.K.S. Toral</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>B'Rel Class</ShipClass>
     <Faction>Klingon</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>5</Attack>
+    <Attack>4</Attack>
     <Agility>1</Agility>
-    <Hull>5</Hull>
+    <Hull>3</Hull>
     <Shield>3</Shield>
-    <Ability>When defending, during the Modify Defense step, you may re-roll one of your defense dice.  If you do so, place an Auxiliary Power Token beside your ship.</Ability>
-    <Cost>28</Cost>
+    <Ability>When defending, during the Roll Defense Dice step, if your ship is not Cloaked, you may roll +2 defense dice. If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+    <Cost>22</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>0</Scan>
@@ -24,64 +53,64 @@
     <Crew>2</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>i_k_s_bortas_72323p</Id>
-    <Set>72323p</Set>
+    <Id>i_k_s_toral_72325p</Id>
+    <Set>72325p</Set>
   </Ship>
   <Ship>
-    <Title>Orassin</Title>
+    <Title>Calindra</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Xindi Insectoid Starship</ShipClass>
+    <ShipClass>Xindi Aquatic Cruiser</ShipClass>
     <Faction>Xindi</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>3</Attack>
-    <Agility>2</Agility>
-    <Hull>3</Hull>
-    <Shield>2</Shield>
-    <Ability>When attacking, during the Modify Attack Dice step, you may spend your [BATTLESTATIONS] Token to convert one of your [HIT] results into a [CRIT] result.</Ability>
-    <Cost>20</Cost>
+    <Attack>4</Attack>
+    <Agility>1</Agility>
+    <Hull>6</Hull>
+    <Shield>3</Shield>
+    <Ability>When defending, during the Modify Defense Dice step, you may discard a blue [TARGET LOCK] Token from beside your ship to re-roll all of your defense dice.</Ability>
+    <Cost>28</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
+    <Scan>1</Scan>
     <Battlestations>1</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
-    <Tech>2</Tech>
+    <Tech>3</Tech>
     <Weapon>1</Weapon>
-    <Crew>0</Crew>
+    <Crew>1</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>orassin_72341</Id>
-    <Set>72341</Set>
+    <Id>calindra_72338</Id>
+    <Set>72338</Set>
   </Ship>
   <Ship>
-    <Title>I.K.S. Hegh'ta</Title>
+    <Title>U.S.S. Enterprise-D</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>K'Vort Class</ShipClass>
-    <Faction>Klingon</Faction>
+    <ShipClass>Galaxy Class</ShipClass>
+    <Faction>Federation</Faction>
     <AdditionalFaction></AdditionalFaction>
     <Attack>4</Attack>
     <Agility>1</Agility>
     <Hull>5</Hull>
-    <Shield>3</Shield>
-    <Ability>If your ship is within Range 1 of a friendly ship, each time that ship defends, it rolls +1 defense die.  This ability may only be used for 1 friendly ship per round.</Ability>
-    <Cost>26</Cost>
+    <Shield>4</Shield>
+    <Ability>During the Roll Attack Dice or Roll Defense Dice step of the Combat Phase, you may switch an [EVADE], [SCAN], or [TARGET LOCK] Token that is beside your ship for a [BATTLESTATIONS] Token.</Ability>
+    <Cost>28</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
+    <Scan>1</Scan>
+    <Battlestations>1</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
     <Tech>1</Tech>
-    <Weapon>1</Weapon>
+    <Weapon>2</Weapon>
     <Crew>2</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>i_k_s_hegh_ta_72324p</Id>
-    <Set>72324p</Set>
+    <Id>u_s_s_enterprise_d_72224p</Id>
+    <Set>72224p</Set>
   </Ship>

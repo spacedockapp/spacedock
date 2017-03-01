@@ -1,0 +1,40 @@
+  <Admiral>
+    <Title>Sela</Title>
+    <Ability>ACTION: When defending this round, the attacking ship cannot benefit from or spend a [SCAN] Token that is beside it, nor can that ship spend a [BATTLESTATIONS] Token that is beside it against your ship.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>7</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Admiral</Type>
+    <Faction>Romulan</Faction>
+    <Cost>4</Cost>
+    <Id>sela_72325g</Id>
+    <Set>72325g</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: When defending this round, the attacking ship cannot benefit from or spend a [SCAN] Token that is beside it, nor can that ship spend a [BATTLESTATIONS] Token that is beside it against your ship.</AdmiralAbility>
+    <AdmiralCost>4</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
+  </Admiral>
+  <Admiral>
+    <Title>Kiaphet Amman'sor</Title>
+    <Ability>ACTION: When defending this round, roll +1 defense die. In addition, if this card is assigned to a Xindi ship, when attacking this round, gain +1 attack die.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>4</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Admiral</Type>
+    <Faction>Xindi</Faction>
+    <Cost>3</Cost>
+    <Id>kiaphet_amman_sor_72338</Id>
+    <Set>72338</Set>
+    <Special></Special>
+    <AdmiralAbility>FLEET ACTION: When defending this round, roll +1 defense die. In addition, if this card is assigned to a Xindi ship, when attacking this round, gain +1 attack die.</AdmiralAbility>
+    <AdmiralCost>3</AdmiralCost>
+    <AdmiralTalent>1</AdmiralTalent>
+    <SkillModifier>1</SkillModifier>
+  </Admiral>
