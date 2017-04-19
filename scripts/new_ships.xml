@@ -1,74 +1,16 @@
   <Ship>
-    <Title>Sela's Warbird</Title>
+    <Title>U.S.S. Defiant NCC-1764</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>D'deridex Class</ShipClass>
-    <Faction>Romulan</Faction>
-    <AdditionalFaction></AdditionalFaction>
+    <ShipClass>Constitution Class</ShipClass>
+    <Faction>Federation</Faction>
+    <AdditionalFaction>Mirror Universe</AdditionalFaction>
     <Attack>3</Attack>
     <Agility>1</Agility>
-    <Hull>6</Hull>
-    <Shield>4</Shield>
-    <Ability>During the Activation Phase, if your ship is Cloaked and performs a [SENSOR ECHO] Action, you may flip your [CLOAK] Token over to its red side and immediately perform an additional [SENSOR ECHO] Action as a free Action.</Ability>
-    <Cost>30</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>2</Tech>
-    <Weapon>1</Weapon>
-    <Crew>2</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
-    <Has360Arc>N</Has360Arc>
-    <Id>sela_s_warbird_72325g</Id>
-    <Set>72325g</Set>
-  </Ship>
-  <Ship>
-    <Title>I.K.S. Toral</Title>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>B'Rel Class</ShipClass>
-    <Faction>Klingon</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>1</Agility>
-    <Hull>3</Hull>
+    <Hull>4</Hull>
     <Shield>3</Shield>
-    <Ability>When defending, during the Roll Defense Dice step, if your ship is not Cloaked, you may roll +2 defense dice. If you do so, place an Auxiliary Power Token beside your ship.</Ability>
+    <Ability>When attacking, if your ship is not in the target ship's forward firing arc, during the Modify Attack Dice step, you may re-roll all of your blank results.</Ability>
     <Cost>22</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>0</Scan>
-    <Battlestations>0</Battlestations>
-    <Cloak>1</Cloak>
-    <SensorEcho>1</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>1</Weapon>
-    <Crew>2</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
-    <Has360Arc>N</Has360Arc>
-    <Id>i_k_s_toral_72325p</Id>
-    <Set>72325p</Set>
-  </Ship>
-  <Ship>
-    <Title>Calindra</Title>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Xindi Aquatic Cruiser</ShipClass>
-    <Faction>Xindi</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>1</Agility>
-    <Hull>6</Hull>
-    <Shield>3</Shield>
-    <Ability>When defending, during the Modify Defense Dice step, you may discard a blue [TARGET LOCK] Token from beside your ship to re-roll all of your defense dice.</Ability>
-    <Cost>28</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
@@ -77,27 +19,27 @@
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
-    <Tech>3</Tech>
-    <Weapon>1</Weapon>
-    <Crew>1</Crew>
+    <Tech>0</Tech>
+    <Weapon>2</Weapon>
+    <Crew>2</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>calindra_72338</Id>
-    <Set>72338</Set>
+    <Id>u_s_s_defiant_ncc_1764_72225p</Id>
+    <Set>72225p</Set>
   </Ship>
   <Ship>
-    <Title>U.S.S. Enterprise-D</Title>
+    <Title>Muratas</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Galaxy Class</ShipClass>
-    <Faction>Federation</Faction>
+    <ShipClass>Xindi Reptilian Warship</ShipClass>
+    <Faction>Xindi</Faction>
     <AdditionalFaction></AdditionalFaction>
     <Attack>4</Attack>
     <Agility>1</Agility>
-    <Hull>5</Hull>
-    <Shield>4</Shield>
-    <Ability>During the Roll Attack Dice or Roll Defense Dice step of the Combat Phase, you may switch an [EVADE], [SCAN], or [TARGET LOCK] Token that is beside your ship for a [BATTLESTATIONS] Token.</Ability>
-    <Cost>28</Cost>
+    <Hull>4</Hull>
+    <Shield>2</Shield>
+    <Ability>When attacking, during the Modify Attack Dice step, you may disable one of your Active Shields to re-roll up to 2 of your attack dice.</Ability>
+    <Cost>22</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
@@ -108,9 +50,67 @@
     <Borg>0</Borg>
     <Tech>1</Tech>
     <Weapon>2</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>muratas_72335</Id>
+    <Set>72335</Set>
+  </Ship>
+  <Ship>
+    <Title>Delta Flyer II</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Delta Flyer Class Shuttlecraft</ShipClass>
+    <Faction>Federation</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>3</Attack>
+    <Agility>2</Agility>
+    <Hull>2</Hull>
+    <Shield>3</Shield>
+    <Ability>You may deploy [WEAPON] Upgrades with a cost of 4 SP or less to this ship.  You may place an Auxiliary Power Token beside your ship to perform a [BATTLESTATIONS] Action.</Ability>
+    <Cost>20</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>2</Tech>
+    <Weapon>1</Weapon>
     <Crew>2</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>u_s_s_enterprise_d_72224p</Id>
-    <Set>72224p</Set>
+    <Id>delta_flyer_ii_72226p</Id>
+    <Set>72226p</Set>
   </Ship>
+<Ship>
+    <Title>Xindi Starship</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Xindi Reptilian Warship</ShipClass>
+    <Faction>Xindi</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>4</Attack>
+    <Agility>1</Agility>
+    <Hull>4</Hull>
+    <Shield>1</Shield>
+    <Ability></Ability>
+    <Cost>20</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>1</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>1</Tech>
+    <Weapon>1</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>xindi_starship_72335</Id>
+    <Set>72335</Set>
+</Ship>

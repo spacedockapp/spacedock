@@ -1,4 +1,4 @@
-<Data version="2017-03-01@06-59">
+<Data version="2017-04-19@03-39">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -2129,7 +2129,7 @@
       <Weapon>1</Weapon>
       <Crew>2</Crew>
       <Id>1010</Id>
-      <Set>71122,72002p,72316p</Set>
+      <Set>71122,72002p,72316p,72225p</Set>
     </Ship>
     <Ship>
       <Title>I.R.W. Valdore</Title>
@@ -7539,7 +7539,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <SquadronUpgrade>0</SquadronUpgrade>
       <Has360Arc>N</Has360Arc>
       <Id>federation_starship_72014</Id>
-      <Set>72014</Set>
+      <Set>72014,72226p</Set>
   </Ship>
   <Ship>
       <Title>Delta Flyer</Title>
@@ -7916,7 +7916,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
         <SquadronUpgrade>0</SquadronUpgrade>
         <Has360Arc>N</Has360Arc>
         <Id>xindi_starship_72005p</Id>
-        <Set>72005p</Set>
+        <Set>72005p,72335</Set>
     </Ship>
     <Ship>
         <Title>Dominion Starship</Title>
@@ -9081,6 +9081,93 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
         <Id>u_s_s_enterprise_d_72224p</Id>
         <Set>72224p</Set>
     </Ship>
+    <Ship>
+        <Title>U.S.S. Defiant NCC-1764</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Constitution Class</ShipClass>
+        <Faction>Federation</Faction>
+        <AdditionalFaction>Mirror Universe</AdditionalFaction>
+        <Attack>3</Attack>
+        <Agility>1</Agility>
+        <Hull>4</Hull>
+        <Shield>3</Shield>
+        <Ability>When attacking, if your ship is not in the target ship's forward firing arc, during the Modify Attack Dice step, you may re-roll all of your blank results.</Ability>
+        <Cost>22</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>1</Scan>
+        <Battlestations>1</Battlestations>
+        <Cloak>0</Cloak>
+        <SensorEcho>0</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>0</Tech>
+        <Weapon>2</Weapon>
+        <Crew>2</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>u_s_s_defiant_ncc_1764_72225p</Id>
+        <Set>72225p</Set>
+    </Ship>
+    <Ship>
+        <Title>Muratas</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Xindi Reptilian Warship</ShipClass>
+        <Faction>Xindi</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>4</Attack>
+        <Agility>1</Agility>
+        <Hull>4</Hull>
+        <Shield>2</Shield>
+        <Ability>When attacking, during the Modify Attack Dice step, you may disable one of your Active Shields to re-roll up to 2 of your attack dice.</Ability>
+        <Cost>22</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>1</Scan>
+        <Battlestations>1</Battlestations>
+        <Cloak>0</Cloak>
+        <SensorEcho>0</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>1</Tech>
+        <Weapon>2</Weapon>
+        <Crew>1</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>muratas_72335</Id>
+        <Set>72335</Set>
+    </Ship>
+    <Ship>
+        <Title>Delta Flyer II</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Delta Flyer Class Shuttlecraft</ShipClass>
+        <Faction>Federation</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>3</Attack>
+        <Agility>2</Agility>
+        <Hull>2</Hull>
+        <Shield>3</Shield>
+        <Ability>You may deploy [WEAPON] Upgrades with a cost of 4 SP or less to this ship.  You may place an Auxiliary Power Token beside your ship to perform a [BATTLESTATIONS] Action.</Ability>
+        <Cost>20</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>1</Scan>
+        <Battlestations>0</Battlestations>
+        <Cloak>0</Cloak>
+        <SensorEcho>0</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>2</Tech>
+        <Weapon>1</Weapon>
+        <Crew>2</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>delta_flyer_ii_72226p</Id>
+        <Set>72226p</Set>
+    </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -9131,7 +9218,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Federation</Faction>
       <Cost>0</Cost>
       <Id>2003</Id>
-      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526,71510,71531,71997p,71801,71998p,71802,72001p,72008,72011,72002p,72221d,72014,72017,72020,72023,72326,72316p,72319g,72319p,72320p,72336,72350,72224p</Set>
+      <Set>71120,71121,71122,71268,71272,71276,71280,OP4Prize,u_s_s_yaeger,71523,71509,71526,71510,71531,71997p,71801,71998p,71802,72001p,72008,72011,72002p,72221d,72014,72017,72020,72023,72326,72316p,72319g,72319p,72320p,72336,72350,72224p,72226p</Set>
     </Captain>
     <Captain>
       <Title>Nu'Daq</Title>
@@ -10705,7 +10792,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <Faction>Mirror Universe</Faction>
       <Cost>0</Cost>
       <Id>mirror_universe_captain_71510b</Id>
-      <Set>71510b,71646b,71529,71535,71796,71800,71807,72000p,72221e</Set>
+      <Set>71510b,71646b,71529,71535,71796,71800,71807,72000p,72221e,72225p</Set>
       <Special></Special>
     </Captain>
     <Captain>
@@ -12463,7 +12550,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Faction>Xindi</Faction>
       <Cost>0</Cost>
       <Id>xindi_72003p</Id>
-      <Set>72003p,72004p,72005p,72360,72341,72338</Set>
+      <Set>72003p,72004p,72005p,72360,72341,72338,72335</Set>
       <Special></Special>
   </Captain>
   <Captain>
@@ -13228,7 +13315,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Cost>3</Cost>
       <Id>movar_72325g</Id>
       <Set>72325g</Set>
-      <Special>Yes</Special>
+      <Special>Movar</Special>
   </Captain>
   <Captain>
       <Title>Lursa</Title>
@@ -13292,7 +13379,7 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Cost>5</Cost>
       <Id>jean_luc_picard_72224p</Id>
       <Set>72224p</Set>
-      <Special>Yes</Special>
+      <Special>Ship2LessAndUpgrades1Less</Special>
   </Captain>
   <Captain>
       <Title>Sela</Title>
@@ -13333,6 +13420,70 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <AdmiralCost>3</AdmiralCost>
       <AdmiralTalent>1</AdmiralTalent>
       <SkillModifier>1</SkillModifier>
+  </Captain>
+  <Captain>
+      <Title>Jonathan Archer</Title>
+      <Ability>When attacking, during the Compare Results step, you may place an Auxilliary Power Token beside your ship to convert 1 of your [CRIT] results into 2 [HIT] results.</Ability>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Mirror Universe</Faction>
+      <Cost>4</Cost>
+      <Id>jonathan_archer_72225p</Id>
+      <Set>72225p</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Dolim</Title>
+      <Ability>During the Gather Forces step, you may treat any of the [CREW] or [TECH] Upgrade slots on your Upgrade Bar as [WEAPON] Upgrade slots. All of your [WEAPON] Upgrades cost -1 SP (-5 max).</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>8</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Xindi</Faction>
+      <Cost>5</Cost>
+      <Id>dolim_72335</Id>
+      <Set>72335</Set>
+      <Special>WeaponUpgradesCostOneLess</Special>
+  </Captain>
+  <Captain>
+      <Title>Degra</Title>
+      <Ability>When attacking with a Secondary [WEAPON] Upgrade, gain +1 attack die (+2 attack dice if the attack is made with a Xindi [WEAPON] Upgrade).</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>4</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Xindi</Faction>
+      <Cost>3</Cost>
+      <Id>degra_72335</Id>
+      <Set>72335</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Tom Paris</Title>
+      <Ability>If this card is assigned to a ship with a Hull value of 2 or less, whenever your ship executes a red maneuver, treat it as a white maneuver instead. If this card is assigned to a shuttlecraft, you cannot perform a "Docking" Action on the round you use this ability.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>4</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>3</Cost>
+      <Id>tom_paris_72226p</Id>
+      <Set>72226p</Set>
+      <Special></Special>
   </Captain>
   </Captains>
   <Admirals>
@@ -27680,6 +27831,230 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Set>72224p</Set>
         <Special>OnlyFedShipHV4CostPWV</Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Charles Tucker III</Title>
+        <Ability>ACTION: Disable this card to remove up to 2 Disabled Upgrade Tokens or up to 4 Time Tokens from any of your [TECH] or [WEAPON] Upgrades.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Mirror Universe</Faction>
+        <Cost>4</Cost>
+        <Id>charles_tucker_iii_72225p</Id>
+        <Set>72225p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>T'Pol</Title>
+        <Ability>ACTION: Discard this card to target a ship within Range 1-3. Disable 1 [CREW] Upgrade and/or 1 [TECH] or [WEAPON] Upgrade on the target ship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Mirror Universe</Faction>
+        <Cost>4</Cost>
+        <Id>t_pol_72225p</Id>
+        <Set>72225p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Assault Team</Title>
+        <Ability>ACTION: If your ship is not Cloaked, disable all of your remaining Shields and target a ship at Range 1-2 that is not Cloaked and has no Active Shields. Discard this card to place 2 Time Tokens on all Upgrades on the target ship that do not already have Time Tokens on them.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Mirror Universe</Faction>
+        <Cost>5</Cost>
+        <Id>assault_team_72225p</Id>
+        <Set>72225p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Reptilian Analysis Team</Title>
+        <Ability>Add 1 [TECH] Upgrade to your Upgrade Bar. When you are supposed to disable a [TECH] Upgrade, you may disable this card instead and place 3 Time Tokens on the [TECH] Upgrade (2 Time Tokens if it is a Xindi [TECH] Upgrade). This Upgrade may only be purchased for a Xindi ship and no ship may be equipped with more than one "Reptilian Analysis Team" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Xindi</Faction>
+        <Cost>5</Cost>
+        <Id>reptilian_analysis_team_72335</Id>
+        <Set>72335</Set>
+        <Special>addonetechslot</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Thermal Chamber</Title>
+        <Ability>ACTION: Remove all Disabled Upgrade Tokens from all of your Xindi [CREW] Upgrades and add +4 to your Captain Skill number for this round. This Upgrade may only be purchased for a Xindi-Reptilian warship.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Xindi</Faction>
+        <Cost>3</Cost>
+        <Id>thermal_chamber_72335</Id>
+        <Set>72335</Set>
+        <Special>OnlyShipClass_Xindi_Reptilian_Warship</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Sensor Encoders</Title>
+        <Ability>When defending, you may disable this card to re-roll 1 of your defense dice. If a friendly ship is destroyed, you may discard this card. If you do so, your ship gains +1 Agility for the rest of the game. This Upgrade may only be purchased for a Xindi-Reptilian warship and no ship may be equipped with more than one "Sensor Encoders" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Xindi</Faction>
+        <Cost>3</Cost>
+        <Id>sensor_encoders_72335</Id>
+        <Set>72335</Set>
+        <Special>OPSOnlyShipClass_Xindi_Reptilian_Warship</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Patience is for the Dead</Title>
+        <Ability>At the start of the Combat Phase, before any ships have attacked, you may discard this card to attack before all other ships. You cannot roll any defense dice during the round you use this ability.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Xindi</Faction>
+        <Cost>5</Cost>
+        <Id>patience_is_for_the_dead_72335</Id>
+        <Set>72335</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>B'Elanna Torres</Title>
+        <Ability>If your ship ends its move overlapping another ship's base, you may discard this card to perform an Action from your ship's Action Bar.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Federation</Faction>
+        <Cost>3</Cost>
+        <Id>b_elanna_torres_72226p</Id>
+        <Set>72226p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Impulse Thrusters</Title>
+        <Ability>ACTION: If your ship executed a [STRAIGHT] maneuver with a speed of 3 or less this round, disable this card to immediately execute an additional 1 [STRAIGHT] maneuver. No ship may be equipped with more than one "Impulse Thrusters" Upgrade.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Tech</Type>
+        <Faction>Federation</Faction>
+        <Cost>4</Cost>
+        <Id>impulse_thrusters_72226p</Id>
+        <Set>72226p</Set>
+        <Special>NoMoreThanOnePerShip</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Quick Thinking</Title>
+        <Ability>ACTION: Discard this card to immediately perform a [SENSOR ECHO] Action, even if your ship is not cloaked.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>quick_thinking_72226p</Id>
+        <Set>72226p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Aft Photon Torpedoes</Title>
+        <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. You may convert 1 of your [BATTLESTATIONS] results into a [CRIT] result. You may only target a ship that is not in your forward firing arc with this attack.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>4</Attack>
+        <Range>2-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Federation</Faction>
+        <Cost>4</Cost>
+        <Id>aft_photon_torpedoes_72225p</Id>
+        <Set>72225p</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Particle Beam Weapon</Title>
+        <Ability>ATTACK: The Attack Value of this weapon is equal to the ship's Primary Weapon Value +1. This Upgrade may only be purchased for a Xindi ship and the SP cost is equal to the ship's Primary Weapon Value.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range>1-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Xindi</Faction>
+        <Cost>1</Cost>
+        <Id>particle_beam_weapon_72335</Id>
+        <Set>72335</Set>
+        <Special>OnlyXindiANDCostPWV</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Xindi Torpedoes</Title>
+        <Ability>ATTACK: [TARGET LOCK] Spend your target lock and place 3 Time Tokens on this card to perform this attack. If fired from a Xindi-Reptilian warship, add +1 attack die.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>4</Attack>
+        <Range>2-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Xindi</Faction>
+        <Cost>3</Cost>
+        <Id>xindi_torpedoes_72335</Id>
+        <Set>72335</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Pulse Phased Weapons</Title>
+        <Ability>ATTACK: Place 3 Time Tokens on this card to perform this attack. Make 2 separate attacks with this weapon. These attacks are defended against separately and may be used against different ships. You may only fire this weapon from your forward firing arc and may not increase the number of dice rolled in your attack.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>3</Attack>
+        <Range>1</Range>
+        <Type>Weapon</Type>
+        <Faction>Federation</Faction>
+        <Cost>5</Cost>
+        <Id>pulse_phased_weapons_72226p</Id>
+        <Set>72226p</Set>
+        <Special></Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -28328,6 +28703,38 @@ The cost of this resource is 1 SP for each additional [ELITE TALENT] Upgrade you
           <Id>senior_staff_72224r</Id>
           <Set>72224r</Set>
       </Resource>
+      <Resource>
+          <Title>Senior Staff</Title>
+          <Unique>Y</Unique>
+          <Type>Mutiny</Type>
+          <Ability>At the start of the game, place 3 Mission Tokens on this card.
+
+Once per round, during an opposing ship's Perform Action step, if that ship chooses to perform an Action from its Action Bar, you may remove 1 Mission Token from this card to prevent that ship from performing that Action.
+
+NOTE: This ability occurs after the Action is announced, but before the Action is performed and the opposing ship cannot perform any additional Action(s) during the round in which you use this ability.
+
+Remove this card from the game when there are no Mission Tokens left on this card.</Ability>
+          <Cost>10</Cost>
+          <Id>mutiny_72225r</Id>
+          <Set>72225r</Set>
+      </Resource>
+      <Resource>
+          <Title>Co-Pilot</Title>
+          <Unique>Y</Unique>
+          <Type>Resource</Type>
+          <Ability>At the start of the game, place 5 Mission Tokens on this card.
+
+Once per round, during the Combat Phase, you may remove one Mission Token from this card to use one of the following abilities for one of your ships:
+
+1) Add +3 to your Captain Skill Number.  2) Re-roll one of your attack or defense dice. OR
+
+3) Place an [EVADE] or a [BATTLE STATIONS] Token beside your ship.
+
+Remove this card from the game when there are no Mission Tokens left on this card.</Ability>
+          <Cost>5</Cost>
+          <Id>mutiny_72226r</Id>
+          <Set>72226r</Set>
+      </Resource>
     </Resources>
     <Sets>
 
@@ -28551,6 +28958,12 @@ The cost of this resource is 1 SP for each additional [ELITE TALENT] Upgrade you
       <Set id="72325g" overallSetName="Klingon Civil War" releaseDate="2017-01-15">Sela's Warbird</Set>
       <Set id="72224p" overallSetName="Yesterday’s Enterprise" releaseDate="2017-02-15">U.S.S. Enterprise-D</Set>
       <Set id="72224r" overallSetName="Yesterday’s Enterprise" releaseDate="2017-02-15">Senior Staff Resource</Set>
+      <Set id="72335" overallSetName="Wave 29" releaseDate="2017-03-16">Muratas</Set>
+      <Set id="72225r" overallSetName="In a Mirror, Darkly" releaseDate="2017-03-15">Mutiny Resource</Set>
+      <Set id="72225p" overallSetName="In a Mirror, Darkly" releaseDate="2017-03-15">U.S.S. Defiant NCC-1764</Set>
+      <Set id="72226r" overallSetName="Drive" releaseDate="2017-04-15">Co-Pilot Resource</Set>
+      <Set id="72226p" overallSetName="Drive" releaseDate="2017-04-15">Delta Flyer II</Set>
+
     </Sets>
     <Flagships>
         <Flagship>

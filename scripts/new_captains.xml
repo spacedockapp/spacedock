@@ -1,70 +1,22 @@
   <Captain>
-    <Title>Movar</Title>
-    <Ability>During the Gather Forces step, you may switch one of your [CREW], [TECH], or [WEAPON] Upgrade slots on your ship for a [CREW], [TECH], [WEAPON], or [ELITE TALENT] Upgrade slot.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>5</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Romulan</Faction>
-    <Cost>3</Cost>
-    <Id>movar_72325g</Id>
-    <Set>72325g</Set>
-    <Special>Yes</Special>
-  </Captain>
-  <Captain>
-    <Title>Lursa</Title>
-    <Ability>You may perform a [CLOAK] or [SENSOR ECHO] Action as a free Action (if your ship has the appropriate Action on its Action Bar). If B'Etor is the Captain of your ship, you may fill one of your [CREW] Upgrade slots with this card and gain +4 to your Captain Skill.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>4</Skill>
+    <Title>Jonathan Archer</Title>
+    <Ability>When attacking, during the Compare Results step, you may place an Auxilliary Power Token beside your ship to convert 1 of your [CRIT] results into 2 [HIT] results.</Ability>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+    <Skill>6</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Klingon</Faction>
-    <Cost>3</Cost>
-    <Id>lursa_b_72325p</Id>
-    <Set>72325p</Set>
-    <Special>Yes</Special>
-  </Captain>
-  <Captain>
-    <Title>B'Etor</Title>
-    <Ability>A friendly ship within Range 1-2 of your ship may use the Action or ability on your [ELITE TALENT] Upgrade as if it were assigned to that ship. If Lursa is the Captain of your ship, you may fill one of your [CREW] Upgrade slots with this card and gain +4 to your Captain Skill.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>4</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Klingon</Faction>
-    <Cost>3</Cost>
-    <Id>b_etor_b_72325p</Id>
-    <Set>72325p</Set>
-    <Special>Yes</Special>
-  </Captain>
-  <Captain>
-    <Title>Aquatic Councilor</Title>
-    <Ability>When defending, during the Modify Defense Dice step, you may convert 1 of your [BATTLESTATIONS] results into an [EVADE] result.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>2</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Xindi</Faction>
-    <Cost>1</Cost>
-    <Id>aquatic_councilor_72338</Id>
-    <Set>72338</Set>
+    <Faction>Mirror Universe</Faction>
+    <Cost>4</Cost>
+    <Id>jonathan_archer_72225p</Id>
+    <Set>72225p</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Jean-Luc Picard</Title>
-    <Ability>Your ship costs -2 SP and each Upgrade assigned to your ship costs -1 SP (max -5 SP total).</Ability>
+    <Title>Dolim</Title>
+    <Ability>During the Gather Forces step, you may treat any of the [CREW] or [TECH] Upgrade slots on your Upgrade Bar as [WEAPON] Upgrade slots. All of your [WEAPON] Upgrades cost -1 SP (-5 max).</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>8</Skill>
@@ -72,35 +24,31 @@
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Federation</Faction>
+    <Faction>Xindi</Faction>
     <Cost>5</Cost>
-    <Id>jean_luc_picard_72224p</Id>
-    <Set>72224p</Set>
-    <Special>Yes</Special>
+    <Id>dolim_72335</Id>
+    <Set>72335</Set>
+    <Special>WeaponUpgradesCostOneLess</Special>
   </Captain>
   <Captain>
-    <Title>Sela</Title>
-    <Ability>ACTION: When defending this round, the attacking ship cannot benefit from or spend a [SCAN] Token that is beside it, nor can that ship spend a [BATTLESTATIONS] Token that is beside it against your ship.</Ability>
+    <Title>Degra</Title>
+    <Ability>When attacking with a Secondary [WEAPON] Upgrade, gain +1 attack die (+2 attack dice if the attack is made with a Xindi [WEAPON] Upgrade).</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>7</Skill>
-    <Talent>1</Talent>
+    <Skill>4</Skill>
+    <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Romulan</Faction>
-    <Cost>4</Cost>
-    <Id>sela_cap_72325g</Id>
-    <Set>72325g</Set>
+    <Faction>Xindi</Faction>
+    <Cost>3</Cost>
+    <Id>degra_72335</Id>
+    <Set>72335</Set>
     <Special></Special>
-    <AdmiralAbility>FLEET ACTION: When defending this round, the attacking ship cannot benefit from or spend a [SCAN] Token that is beside it, nor can that ship spend a [BATTLESTATIONS] Token that is beside it against your ship.</AdmiralAbility>
-    <AdmiralCost>4</AdmiralCost>
-    <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>1</SkillModifier>
   </Captain>
   <Captain>
-    <Title>Kiaphet Amman'sor</Title>
-    <Ability>ACTION: When defending this round, roll +1 defense die. In addition, if this card is assigned to a Xindi ship, when attacking this round, gain +1 attack die.</Ability>
+    <Title>Tom Paris</Title>
+    <Ability>If this card is assigned to a ship with a Hull value of 2 or less, whenever your ship executes a red maneuver, treat it as a white maneuver instead. If this card is assigned to a shuttlecraft, you cannot perform a "Docking" Action on the round you use this ability.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>4</Skill>
@@ -108,13 +56,9 @@
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Xindi</Faction>
+    <Faction>Federation</Faction>
     <Cost>3</Cost>
-    <Id>kiaphet_amman_sor_cap_72338</Id>
-    <Set>72338</Set>
+    <Id>tom_paris_72226p</Id>
+    <Set>72226p</Set>
     <Special></Special>
-    <AdmiralAbility>FLEET ACTION: When defending this round, roll +1 defense die. In addition, if this card is assigned to a Xindi ship, when attacking this round, gain +1 attack die.</AdmiralAbility>
-    <AdmiralCost>3</AdmiralCost>
-    <AdmiralTalent>1</AdmiralTalent>
-    <SkillModifier>1</SkillModifier>
   </Captain>
