@@ -370,6 +370,10 @@ static NSDictionary* sItemLabels = nil;
 {
     return targetHasFaction(@"Q Continuum", self);
 }
+-(BOOL)isXindi
+{
+    return targetHasFaction(@"Xindi", self);
+}
 
 -(BOOL)isRestrictedOnlyByFaction
 {
@@ -693,6 +697,24 @@ static NSDictionary* sItemLabels = nil;
             }
             cost += 1;
         }
+        if ([upgradeSpecial isEqualToString: @"OnlyFedShipHV4CostPWVP"]) {
+            cost += [ship.attack intValue];
+            if (equippedShip.isResourceSideboard) {
+                cost = 5;
+            }
+            if (equippedShip.flagship != nil) {
+                cost += equippedShip.flagship.attackAdd;
+            }
+        }
+        if ([upgradeSpecial isEqualToString:@"OnlyXindiANDCostPWV"]) {
+            cost += [ship.attack intValue];
+            if (equippedShip.isResourceSideboard) {
+                cost = 5;
+                if (equippedShip.flagship != nil) {
+                    cost += equippedShip.flagship.attackAdd;
+                }
+            }
+        }
         if ([captainSpecial isEqualToString: @"WeaponUpgradesCostOneLess"]) {
             cost -= 1;
         }
@@ -740,6 +762,9 @@ static NSDictionary* sItemLabels = nil;
         if (upgrade.isKlingon && !upgrade.isCaptain && !upgrade.isAdmiral) {
             cost -= 1;
         }
+    }
+    if ([captain.special isEqualToString:@"Ship2LessAndUpgrades1Less"] && ![upgrade isCaptain]) {
+        cost -= 1;
     }
     if ([upgradeSpecial isEqualToString: @"costincreasedifnotbreen"]) {
         if (![ship isBreen]) {
@@ -850,6 +875,14 @@ static NSDictionary* sItemLabels = nil;
             cost += 5;
         }
     }  else if ([upgradeSpecial isEqualToString:@"Plus5NotXindi"]) {
+        if (![ship isXindi]) {
+            cost += 5;
+        }
+    }  else if ([upgradeSpecial isEqualToString:@"OPSPlus4NotXindi"]) {
+        if (![ship isXindi]) {
+            cost += 4;
+        }
+    }  else if ([upgradeSpecial isEqualToString:@"OPSPlus5NotXindi"]) {
         if (![ship isXindi]) {
             cost += 5;
         }
@@ -1108,6 +1141,12 @@ static NSDictionary* sItemLabels = nil;
         return 1;
     }
     if ([externalId isEqualToString:@"main_batteries_72321p"]) {
+        return 1;
+    }
+    if ([special isEqualToString:@"addoneweaponslot1xindi2less"]) {
+        return 1;
+    }
+    if ([special isEqualToString:@"addoneweaponslot1xindi2less"]) {
         return 1;
     }
     return 0;

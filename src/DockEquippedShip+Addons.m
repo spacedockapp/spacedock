@@ -249,6 +249,13 @@
         cost += 10;
     }
 
+    if ([self.captain.special isEqualToString:@"Ship2LessAndUpgrades1Less"]) {
+        cost -= 2;
+        if (cost < 0) {
+            cost = 0;
+        }
+    }
+    
     return cost;
 }
 
@@ -859,6 +866,9 @@
             } else if ([upgrade.special isEqualToString:@"OnlyFedShipHV4CostPWVP1"]) {
                 // This is stupid.
                 return NO;
+            } else if ([upgrade.special isEqualToString:@"OnlyFedShipHV4CostPWVP"]) {
+                // This is stupid.
+                return NO;
             }
         }
     }
@@ -876,6 +886,9 @@
             if (weapon == 1 && [upgrade costForShip:self] > 5) {
                 return NO;
             } else if ([upgrade.special isEqualToString:@"OnlyFedShipHV4CostPWVP1"]) {
+                // This is stupid.
+                return NO;
+            } else if ([upgrade.special isEqualToString:@"OnlyFedShipHV4CostPWVP"]) {
                 // This is stupid.
                 return NO;
             }
@@ -1226,6 +1239,23 @@
             return NO;
         }
     }
+    if ([upgradeSpecial isEqualToString:@"OnlyKlingonORRomulanCaptainShip"]) {
+        if (![self.ship isKlingon] && ![self.ship isRomulan]) {
+            return NO;
+        }
+        if (![self.captain isKlingon] && ![self.ship isRomulan]) {
+            return NO;
+        }
+    }
+    if ([upgradeSpecial isEqualToString:@"OnlyXindiCaptainShip"]) {
+        if (![self.ship isXindi]) {
+            return NO;
+        }
+        if (![self.captain isXindi]) {
+            return NO;
+        }
+    }
+    
     if ([upgradeSpecial isEqualToString:@"OnlyIntrepidAndNoMoreThanOnePerShip"]) {
         if (![self.ship.shipClass isEqualToString:@"Intrepid Class"]) {
             return NO;
@@ -1251,8 +1281,13 @@
             return NO;
         }
     }
-    if ([upgradeSpecial isEqualToString:@"OnlyXindi"] || [upgradeSpecial isEqualToString:@"NoMoreThanOnePerShipAndOnlyXindi"]) {
+    if ([upgradeSpecial isEqualToString:@"OnlyXindi"] || [upgradeSpecial isEqualToString:@"NoMoreThanOnePerShipAndOnlyXindi"] || [upgradeSpecial isEqualToString:@"OnlyXindiANDCostPWV"]) {
         if (![self.ship isXindi]) {
+            return NO;
+        }
+    }
+    if ([upgradeSpecial isEqualToString:@"OnlyLBCaptain"]) {
+        if (![self.captain.title isEqualToString:@"Lursa"] && ![self.captain.title isEqualToString:@"B'Etor"]) {
             return NO;
         }
     }
@@ -1337,6 +1372,20 @@
     }
     
     if ([upgradeSpecial isEqualToString: @"OnlyFedShipHV4CostPWVP1"]) {
+        if ([self.ship isFederation]) {
+            int shipHull = [self.ship.hull intValue];
+            if (self.flagship != nil) {
+                shipHull += self.flagship.hullAdd;
+            }
+            if (shipHull < 4) {
+                return NO;
+            }
+        } else {
+            return NO;
+        }
+    }
+    
+    if ([upgradeSpecial isEqualToString: @"OnlyFedShipHV4CostPWVP"]) {
         if ([self.ship isFederation]) {
             int shipHull = [self.ship.hull intValue];
             if (self.flagship != nil) {
@@ -1549,7 +1598,7 @@
                 info = @"This Upgrade may only be purchased for a Ferengi Captain assigned to a Ferengi ship.";
             } else if ([upgradeSpecial isEqualToString: @"not_with_hugh"]) {
                 info = @"You cannot deploy this card to the same ship or fleet as Hugh.";
-            } else if ([upgradeSpecial isEqualToString: @"OnlyFedShipHV4CostPWVP1"]) {
+            } else if ([upgradeSpecial isEqualToString: @"OnlyFedShipHV4CostPWVP1"] || [upgradeSpecial isEqualToString: @"OnlyFedShipHV4CostPWVP"]) {
                 info = @"This Upgrade may only be purchased for a Federation ship with a Hull Value of 4 or greater.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyNonBorgShipAndNonBorgCaptain"]) {
                 info = @"This Upgrade may only be purchased for a non-Borg ship with a non-Borg Captain.";
@@ -1899,6 +1948,15 @@
             if ([self upgradesWithSpecialTag:@"KhanDiscounted"].count < 3) {
                 equippedUpgrade.specialTag = @"KhanDiscounted";
                 [equippedUpgrade overrideWithCost:4];
+            }
+        }
+        if ([self upgradesWithSpecialTag:@"xindixtraweapon"].count == 0 && equippedUpgrade.upgrade.isWeapon && [self containsUpgradeWithSpecial:@"addoneweaponslot1xindi2less"] != nil) {
+            equippedUpgrade.specialTag = @"xindixtraweapon";
+            int thisCost = [equippedUpgrade cost];
+            if (thisCost <= 2) {
+                [equippedUpgrade overrideWithCost:0];
+            } else {
+                [equippedUpgrade overrideWithCost:thisCost-2];
             }
         }
     }
