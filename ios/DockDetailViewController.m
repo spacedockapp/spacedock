@@ -114,7 +114,7 @@
         NSString* str = [self attributeForRow: row];
 
         if (str.length > 0) {
-            CGSize size = [str sizeWithFont: [UIFont systemFontOfSize: 14] constrainedToSize: CGSizeMake(_labelWidth - 5, 9999) lineBreakMode: NSLineBreakByWordWrapping];
+            CGSize size = [str boundingRectWithSize:CGSizeMake(_labelWidth - 5, 9999) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize: 14]} context:nil].size;
             CGFloat rowHeight = size.height + 20;
             return rowHeight;
         }

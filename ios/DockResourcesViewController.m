@@ -105,17 +105,16 @@ NSString* kMarkExpiredResKey = @"markExpiredRes";
         DockResource* resource = resources[row];
         cell.textLabel.text = [[resource title] stringByAppendingString:@"      "];
         cell.textLabel.adjustsFontSizeToFitWidth = YES;
-        cell.textLabel.adjustsLetterSpacingToFitWidth = YES;
         cell.detailTextLabel.text = [[resource costForSquad:_targetSquad] stringValue];
         cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
         if (_markExpiredRes) {
             DockSet* set = [resource.sets anyObject];
             NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-            NSDateComponents *components = [cal components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:set.releaseDate];
+            NSDateComponents *components = [cal components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:set.releaseDate];
             [components setDay:1];
             
             NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
-                                               components:NSMonthCalendarUnit
+                                               components:NSCalendarUnitMonth
                                                fromDate:[cal dateFromComponents:components]
                                                toDate:[NSDate date] options:0];
             if (ageComponents.month >= 18) {

@@ -109,7 +109,7 @@
             if (j == 0) {
                 if (hasSpeed) {
                     NSString* move = [NSString stringWithFormat: @"%d", absSpeed];
-                    CGSize moveStringSize = [move sizeWithFont: font];
+                    CGSize moveStringSize = [move sizeWithAttributes: @{NSFontAttributeName:font}];
                     CGFloat deltaX = (rowSize - moveStringSize.width) / 2.0;
                     CGFloat deltaY = (rowSize - moveStringSize.height) / 2.0;
                     CGPoint movePoint = CGPointMake(x + deltaX, y + deltaY + lineWidth * 0.);
@@ -120,7 +120,7 @@
                         [[UIColor whiteColor] set];
                     }
 
-                    [move drawAtPoint: movePoint withFont: font];
+                    [move drawAtPoint: movePoint withAttributes: @{NSFontAttributeName:font}];
                 }
             } else if (details != nil) {
                 NSString* kind = kinds[j - 1];

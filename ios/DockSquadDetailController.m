@@ -237,11 +237,11 @@ enum {
                 if (_markExpiredRes) {
                     DockSet* set = [_squad.resource.sets anyObject];
                     NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-                    NSDateComponents *components = [cal components:(NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:set.releaseDate];
+                    NSDateComponents *components = [cal components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:set.releaseDate];
                     [components setDay:1];
                     
                     NSDateComponents *ageComponents = [[NSCalendar currentCalendar]
-                                                       components:NSMonthCalendarUnit
+                                                       components:NSCalendarUnitMonth
                                                        fromDate:[cal dateFromComponents:components]
                                                        toDate:[NSDate date] options:0];
                     if (ageComponents.month >= 18) {
