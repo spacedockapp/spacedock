@@ -142,6 +142,13 @@ public class EquippedShip extends EquippedShipBase {
             cost += eu.calculateCost();
         }
 
+        if (getCaptain().getSpecial().equals("Ship2LessAndUpgrades1Less")) {
+            cost -= 2;
+            if (cost < 0) {
+                cost = 0;
+            }
+        }
+
         if (getFlagship() != null) {
             cost += 10;
         }
@@ -1021,6 +1028,14 @@ public class EquippedShip extends EquippedShipBase {
                 return new Explanation(msg, "This upgrade can only be added to ship with a hull of 4 or greater.");
             }
         }
+        if ("OnlyFedShipHV4CostPWV".equals(upgradeSpecial)) {
+            if (!ship.isFederation()) {
+                return new Explanation(msg, "This upgrade can only be added to a federation ship.");
+            }
+            if (4 > ship.getHull()) {
+                return new Explanation(msg, "This upgrade can only be added to ship with a hull of 4 or greater.");
+            }
+        }
         if ("OnlyDominionHV4".equals(upgradeSpecial)) {
             if (!ship.isDominion()) {
                 return new Explanation(msg, "This upgrade can only be added to a federation ship.");
@@ -1080,6 +1095,16 @@ public class EquippedShip extends EquippedShipBase {
                     if (!captain.isKlingon() || !ship.isKlingon()) {
                         return new Explanation(msg,
                                 "This upgrade can only be added to a Klingon Captain on a Klingon Ship.");
+                    }
+                }
+                if (upgradeSpecial.equals("OnlyKlingonORRomulanCaptainShip")) {
+                    if (!captain.isKlingon() && !captain.isRomulan()) {
+                        return new Explanation(msg,
+                                "This upgrade can only be added to a Klingon or Romulan Captain on a Klingon or Romulan Ship.");
+                    }
+                    if (!ship.isKlingon() && !ship.isRomulan()) {
+                        return new Explanation(msg,
+                                "This upgrade can only be added to a Klingon or Romulan Captain on a Klingon or Romulan Ship.");
                     }
                 }
 
@@ -1171,13 +1196,30 @@ public class EquippedShip extends EquippedShipBase {
                 }
             }
 
-            if (upgradeSpecial.equals("OnlyXindi") || upgradeSpecial.endsWith("OnlyXindi")) {
+            if (upgradeSpecial.equals("OnlyXindi") || upgradeSpecial.endsWith("OnlyXindi") || upgradeSpecial.startsWith("OnlyXindi")) {
                 if (!ship.isXindi()) {
                     return new Explanation(msg,
                             "This upgrade can only be added to Xindi ships.");
                 }
             }
 
+            if (upgradeSpecial.equals("OnlyXindiCaptainShip")) {
+                if (!ship.isXindi() || !captain.isXindi()) {
+                    return new Explanation(msg,
+                            "This upgrade can only be added to a Xindi ship with a Xindi Captain.");
+                }
+            }
+            if (upgradeSpecial.equals("OnlyLBCaptain")) {
+                if (!captain.getTitle().equals("Lursa") && !captain.getTitle().equals("B'Etor")) {
+                    if (upgrade.getTitle().equals("Lursa")) {
+                        return new Explanation(msg,
+                                "B'Etor must be the captain when assigning Lursa as Crew.");
+                    } else {
+                        return new Explanation(msg,
+                                "Lursa must be the captain when assigning B'Etor as Crew.");
+                    }
+                }
+            }
             if (upgrade.isTalent() && !upgrade.isPlaceholder()) {
                 if (getCaptain() != null && getCaptain().getExternalId().equals("brunt_72013")) {
                     int limit = getTalent();
@@ -1947,6 +1989,26 @@ public class EquippedShip extends EquippedShipBase {
                 newEu.setSpecialTag("KhanDiscounted");
                 newEu.setOverridden(true);
                 newEu.setOverriddenCost(4);
+            }
+        }
+
+        if (!newEu.isPlaceholder() && newEu.getUpgrade().isWeapon() && containsUpgradeWithSpecial("addoneweaponslot1xindi2less") != null) {
+            int thisCost = newEu.getCost();
+            int xindiDisc = 0;
+            for(EquippedUpgrade eu : mUpgrades) {
+                if (eu.getUpgrade().isTech() && !eu.isPlaceholder()) {
+                    if (eu.getSpecialTag() == null || !eu.getSpecialTag().equals("xindixtraweapon")) {
+                        xindiDisc++;
+                    }
+                }
+            }
+            if (xindiDisc == 0) {
+                newEu.setSpecialTag("xindixtraweapon");
+                if (thisCost <= 2) {
+                    newEu.setOverriddenCost(0);
+                } else {
+                    newEu.setOverriddenCost(thisCost - 2);
+                }
             }
         }
 

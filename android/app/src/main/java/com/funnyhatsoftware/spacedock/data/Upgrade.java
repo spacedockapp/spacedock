@@ -300,6 +300,11 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
     public boolean isQContinuum() {
         return DataUtils.targetHasFaction("Q Continuum", this);
     }
+
+    public boolean isXindi() {
+        return DataUtils.targetHasFaction("Xindi", this);
+    }
+
     public String targetShipClass() {
 
         if (mSpecial.equals("OnlyForRomulanScienceVessel")) {
@@ -398,6 +403,12 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
         if ("OnlyFedShipHV4CostPWVP1".equals(upgradeSpecial)) {
             cost = ship.getAttack() + 1;
         }
+        if ("OnlyFedShipHV4CostPWV".equals(upgradeSpecial)) {
+            cost = ship.getAttack();
+        }
+        if ("OnlyXindiANDCostPWV".equals(upgradeSpecial)) {
+            cost = ship.getAttack();
+        }
         if (isTalent()) {
             if (captainSpecial.equals("BaselineTalentCostToThree")
                     && upgradeFaction.equals("Federation") && !shipIsSideboard) {
@@ -485,6 +496,9 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
             if (isKlingon() && !isCaptain() && !isAdmiral()) {
                 cost -= 1;
             }
+        }
+        if (captain != null && captainSpecial.equals("Ship2LessAndUpgrades1Less") && !equippedUpgrade.isCaptain()) {
+            cost -= 1;
         }
         if (upgradeSpecial.equals("costincreasedifnotbreen")) {
             if (!ship.isBreen()) {
@@ -582,6 +596,14 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 cost += 5;
             }
         } else if ("Plus5NotXindi".equals(upgradeSpecial)) {
+            if (!ship.isXindi()) {
+                cost += 5;
+            }
+        } else if ("OPSPlus4NotXindi".equals(upgradeSpecial)) {
+            if (!ship.isXindi()) {
+                cost += 4;
+            }
+        } else if ("OPSPlus5NotXindi".equals(upgradeSpecial)) {
             if (!ship.isXindi()) {
                 cost += 5;
             }
@@ -897,7 +919,8 @@ public class Upgrade extends UpgradeBase implements Factioned, Uniqueness {
                 || "AddOneWeaponAllKazonMinusOne".equalsIgnoreCase(special)
                 || "addoneweaponslot".equalsIgnoreCase(special)
                 || "quark_weapon_71786".equals(this.getExternalId())
-                || "AddHiddenWeapon".equalsIgnoreCase(special)) {
+                || "AddHiddenWeapon".equalsIgnoreCase(special)
+                || "addoneweaponslot1xindi2less".equalsIgnoreCase(special)) {
             return 1;
         }
         if ("AddTwoWeaponSlots".equalsIgnoreCase(special)

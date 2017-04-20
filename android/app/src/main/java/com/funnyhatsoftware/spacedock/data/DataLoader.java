@@ -504,7 +504,16 @@ public class DataLoader extends DefaultHandler {
                 "OnlyBorgQueen",
                 "addoneweaponslotfortorpedoes",
                 "FedCrewUpgradesCostOneLess",
-                "KuvahMagh2Less"
+                "KuvahMagh2Less",
+                "OPSPlus5NotXindi",
+                "OPSPlus4NotXindi",
+                "OnlyFedShipHV4CostPWV",
+                "OnlyKlingonORRomulanCaptainShip",
+                "OnlyLBCaptain",
+                "OnlyXindiANDCostPWV",
+                "OnlyXindiCaptainShip",
+                "Ship2LessAndUpgrades1Less",
+                "addoneweaponslot1xindi2less"
         };
 
         TreeSet<String> unhandledSpecials = new TreeSet<String>(allSpecials);
