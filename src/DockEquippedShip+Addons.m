@@ -866,7 +866,7 @@
             } else if ([upgrade.special isEqualToString:@"OnlyFedShipHV4CostPWVP1"]) {
                 // This is stupid.
                 return NO;
-            } else if ([upgrade.special isEqualToString:@"OnlyFedShipHV4CostPWVP"]) {
+            } else if ([upgrade.special isEqualToString:@"OnlyFedShipHV4CostPWV"]) {
                 // This is stupid.
                 return NO;
             }
@@ -888,7 +888,7 @@
             } else if ([upgrade.special isEqualToString:@"OnlyFedShipHV4CostPWVP1"]) {
                 // This is stupid.
                 return NO;
-            } else if ([upgrade.special isEqualToString:@"OnlyFedShipHV4CostPWVP"]) {
+            } else if ([upgrade.special isEqualToString:@"OnlyFedShipHV4CostPWV"]) {
                 // This is stupid.
                 return NO;
             }
@@ -1385,7 +1385,7 @@
         }
     }
     
-    if ([upgradeSpecial isEqualToString: @"OnlyFedShipHV4CostPWVP"]) {
+    if ([upgradeSpecial isEqualToString: @"OnlyFedShipHV4CostPWV"]) {
         if ([self.ship isFederation]) {
             int shipHull = [self.ship.hull intValue];
             if (self.flagship != nil) {

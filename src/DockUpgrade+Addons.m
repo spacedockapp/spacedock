@@ -1146,9 +1146,6 @@ static NSDictionary* sItemLabels = nil;
     if ([special isEqualToString:@"addoneweaponslot1xindi2less"]) {
         return 1;
     }
-    if ([special isEqualToString:@"addoneweaponslot1xindi2less"]) {
-        return 1;
-    }
     return 0;
 }
 
