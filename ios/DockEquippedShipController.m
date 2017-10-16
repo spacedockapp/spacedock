@@ -152,6 +152,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [self.equippedShip establishPlaceholders];
     [self createSectionAndRowHandlers];
     [super viewWillAppear: animated];
 }

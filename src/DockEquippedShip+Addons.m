@@ -443,6 +443,9 @@
         } else {
             for (int i = current; i < self.captainCount; ++i) {
                 DockUpgrade* zcc = [DockCaptain zeroCostCaptainForShip: self.ship];
+                if ([self.squad.resource.externalId isEqualToString:@"fleet_commander_72323r"] && ![self.captain isPlaceholder]) {
+                    zcc = [DockUpgrade placeholder:@"Captain" inContext:self.managedObjectContext];
+                }
                 [self addUpgrade: zcc maybeReplace: nil establishPlaceholders: NO];
             }
         }
@@ -2140,6 +2143,7 @@
 {
     NSMutableArray* onesToRemove = [[NSMutableArray alloc] initWithCapacity: 0];
     int tecount = 0;
+    int capcount = 0;
     for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
         if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [eu.upgrade.externalId isEqualToString:@"enhanced_hull_plating_71526"]) {
             continue;
@@ -2178,6 +2182,12 @@
             tecount ++;
         }
         if (![self.captain.externalId isEqualToString:@"khan_singh_72317p"] && [eu.specialTag isEqualToString:@"KhanDiscounted"]) {
+            [onesToRemove addObject:eu];
+        }
+        if ([eu.upgrade isCaptain]) {
+            capcount ++;
+        }
+        if (capcount > self.captainCount) {
             [onesToRemove addObject:eu];
         }
         if (![self canAddUpgrade: eu.upgrade ignoreInstalled: NO validating: NO]) {
@@ -2355,6 +2365,26 @@
     if ([self.captain.externalId isEqualToString:@"gareb_71536"])
     {
         return 2;
+    }
+    if ([self.squad.resource.externalId isEqualToString:@"fleet_commander_72323r"]) {
+        int capCount = 0;
+        for (DockEquippedShip *ship in self.squad.equippedShips) {
+            if (ship != self) {
+                for (DockEquippedUpgrade *cap in [ship upgrades]) {
+                    if (![cap.upgrade isPlaceholder]) {
+                        if ([cap.upgrade isCaptain]) {
+                            capCount ++;
+                        }
+                    }
+                }
+                if (capCount > 1) {
+                    break;
+                } else {
+                    capCount = 0;
+                }
+            }
+        }
+        return (capCount>1)? 1 : 2;
     }
     return self.ship.captainCount;
 }
