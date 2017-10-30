@@ -20,4 +20,4 @@ BOOL factionsMatch(id<DockFactioned> a, id<DockFactioned> b);
 NSString* combinedFactionString(id<DockFactioned> a);
 NSString* uniqueAsString(id<DockUnique> a);
 
-NSURL* applicationFilesDirectory();
+NSURL* applicationFilesDirectory(void);
