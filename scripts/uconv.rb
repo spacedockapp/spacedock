@@ -36,6 +36,11 @@ upgrade = <<-UPGRADETEXT
 UPGRADETEXT
 
 captains_text = <<-CAPTAINSTEXT
+8/10/2017 18:14:55	72940 - USS Grissom	Unique	J.T. Esteban	3	Federation	The Captain's Discretion [TALENT] Upgrade may be equipped to this Captain.  WHEN THIS SHIP WOULD BE DESTROYED:  Move up to 2 [CREW] Upgrades equipped to this ship to another friendly ship even if it exceeds that ship's restrictions.	0	2			
+8/17/2017 16:26:59	72938 - IKS Ves Batlh	Unique	Klaang	2	Klingon	WHEN ATTACKING: If the defending ship is an [INDEPENDENT] ship or has an [INDEPENDENT] Captain equipped to it:  This ship rolls +1 attack die.	1	2			
+8/17/2017 16:30:34	72938 - IKS Ves Batlh	Unique	Duras, Son of Toral	6	Klingon	ACTIVATION PHASE: After an enemy ship in Range moves:  You may change this ship's Maneuver.	1	4		1-2	
+8/17/2017 16:33:05	72939 - Prototype 02	Unique	Jhamel	3	Independent, Romulan	This card cannot be affected by anything that affects a Captain, and this card counts as a Roman Drone Pilot.  ACTION: Target an opposing ship in this ship's Primary Firing Arc.  The target ship rolls -2 attack dice against this ship.	3	2	Yes	1-2	Romulan Drone Ship
+8/17/2017 16:37:15	72939 - Prototype 02	Non-unique	Romulan Drone Pilot	1	Romulan	This card cannot be affected by anything that affects a Captain.	0	0			Romulan Drone Ship
 CAPTAINSTEXT
 
 weapons_text = <<-WEAPONSTEXT
@@ -90,7 +95,15 @@ upgrade_lines.each do |raw_parts|
     upType = parts.shift
     cost = parts.shift
     special = parts.shift
+    range = parts.shift
+    if !range.nil?
+	ability = "#{ability} [RANGE #{range}]"
+    end
+    restrictions = parts.shift
     unique = uniqueText == "Unique" ? "Y" : "N"
+    if uniqueText == "One Per Ship"
+	special = "#{special}NoMoreThanOnePerShip"
+    end
     mirrorUniverseUnique = uniqueText == "Mirror Universe Unique" ? "Y" : "N"
     setId = set_id_from_expansion(expansion)
     externalId = make_external_id(setId, title)
@@ -109,7 +122,7 @@ upgrade_lines.each do |raw_parts|
       <Cost>#{cost}</Cost>
       <Id>#{externalId}</Id>
       <Set>#{setId}</Set>
-      <Special>#{special}</Special>
+      <Special>#{special}</Special>#{restrictions}
     </Upgrade>
     SHIPXML
     new_upgrades.puts upgradeXml
@@ -130,7 +143,11 @@ weapons_lines.each do |raw_parts|
     upType = "Weapon"
     cost = parts.shift
     special = parts.shift
+    restrictions = parts.shift
     unique = uniqueText == "Unique" ? "Y" : "N"
+    if uniqueText == "One Per Ship"
+	special = "#{special}NoMoreThanOnePerShip"
+    end
     mirrorUniverseUnique = uniqueText == "Mirror Universe Unique" ? "Y" : "N"
     setId = set_id_from_expansion(expansion)
     externalId = make_external_id(setId, title)
@@ -149,7 +166,7 @@ weapons_lines.each do |raw_parts|
       <Cost>#{cost}</Cost>
       <Id>#{externalId}</Id>
       <Set>#{setId}</Set>
-      <Special>#{special}</Special>
+      <Special>#{special}</Special>#{restrictions}
     </Upgrade>
     SHIPXML
     new_upgrades.puts upgradeXml

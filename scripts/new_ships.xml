@@ -1,74 +1,45 @@
   <Ship>
-    <Title>U.S.S. Defiant NCC-1764</Title>
+    <Title>Prototype 02</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Constitution Class</ShipClass>
-    <Faction>Federation</Faction>
-    <AdditionalFaction>Mirror Universe</AdditionalFaction>
+    <ShipClass>Romulan Drone Ship</ShipClass>
+    <Faction>Romulan</Faction>
+    <AdditionalFaction></AdditionalFaction>
     <Attack>3</Attack>
-    <Agility>1</Agility>
-    <Hull>4</Hull>
+    <Agility>3</Agility>
+    <Hull>3</Hull>
     <Shield>3</Shield>
-    <Ability>When attacking, if your ship is not in the target ship's forward firing arc, during the Modify Attack Dice step, you may re-roll all of your blank results.</Ability>
-    <Cost>22</Cost>
+    <Ability>PLANNING PHASE: Place an [AUX] Token beside this ship.  Remove 1 [TIME] Token from each [TECH] Upgrade equipped to this ship.  This ship may only be equipped with Gareb or a Romulan Drone Pilot as its Captain.</Ability>
+    <Cost>19</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
-    <Battlestations>1</Battlestations>
+    <Battlestations>0</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
-    <Tech>0</Tech>
-    <Weapon>2</Weapon>
-    <Crew>2</Crew>
+    <Tech>3</Tech>
+    <Weapon>1</Weapon>
+    <Crew>0</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>u_s_s_defiant_ncc_1764_72225p</Id>
-    <Set>72225p</Set>
+    <Id>prototype_02_72939</Id>
+    <Set>72939</Set>
   </Ship>
   <Ship>
-    <Title>Muratas</Title>
+    <Title>Dreadnought</Title>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Xindi Reptilian Warship</ShipClass>
-    <Faction>Xindi</Faction>
+    <ShipClass>Cardassian ATR-4107</ShipClass>
+    <Faction>Dominion</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>1</Agility>
+    <Attack>6</Attack>
+    <Agility>0</Agility>
     <Hull>4</Hull>
-    <Shield>2</Shield>
-    <Ability>When attacking, during the Modify Attack Dice step, you may disable one of your Active Shields to re-roll up to 2 of your attack dice.</Ability>
-    <Cost>22</Cost>
-    <EvasiveManeuvers>1</EvasiveManeuvers>
-    <TargetLock>1</TargetLock>
-    <Scan>1</Scan>
-    <Battlestations>1</Battlestations>
-    <Cloak>0</Cloak>
-    <SensorEcho>0</SensorEcho>
-    <Regenerate>0</Regenerate>
-    <Borg>0</Borg>
-    <Tech>1</Tech>
-    <Weapon>2</Weapon>
-    <Crew>1</Crew>
-    <SquadronUpgrade>0</SquadronUpgrade>
-    <Has360Arc>N</Has360Arc>
-    <Id>muratas_72335</Id>
-    <Set>72335</Set>
-  </Ship>
-  <Ship>
-    <Title>Delta Flyer II</Title>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Delta Flyer Class Shuttlecraft</ShipClass>
-    <Faction>Federation</Faction>
-    <AdditionalFaction></AdditionalFaction>
-    <Attack>3</Attack>
-    <Agility>2</Agility>
-    <Hull>2</Hull>
-    <Shield>3</Shield>
-    <Ability>You may deploy [WEAPON] Upgrades with a cost of 4 SP or less to this ship.  You may place an Auxiliary Power Token beside your ship to perform a [BATTLESTATIONS] Action.</Ability>
-    <Cost>20</Cost>
+    <Shield>5</Shield>
+    <Ability>You cannot equip a Captain or Admiral to this ship.  While this ship has no damage cards, treat its Captain Skill as 12.</Ability>
+    <Cost>29</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
@@ -78,30 +49,59 @@
     <Regenerate>0</Regenerate>
     <Borg>0</Borg>
     <Tech>2</Tech>
-    <Weapon>1</Weapon>
-    <Crew>2</Crew>
+    <Weapon>2</Weapon>
+    <Crew>0</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>delta_flyer_ii_72226p</Id>
-    <Set>72226p</Set>
+    <Id>dreadnought_72937</Id>
+    <Set>72937</Set>
   </Ship>
-<Ship>
-    <Title>Xindi Starship</Title>
+  <Ship>
+    <Title>Dominion Starship</Title>
     <Unique>N</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <ShipClass>Xindi Reptilian Warship</ShipClass>
-    <Faction>Xindi</Faction>
+    <ShipClass>Cardassian ATR-4107</ShipClass>
+    <Faction>Dominion</Faction>
     <AdditionalFaction></AdditionalFaction>
-    <Attack>4</Attack>
-    <Agility>1</Agility>
+    <Attack>6</Attack>
+    <Agility>0</Agility>
     <Hull>4</Hull>
-    <Shield>1</Shield>
-    <Ability></Ability>
-    <Cost>20</Cost>
+    <Shield>4</Shield>
+    <Ability>You cannot equip a Captain or Admiral to this ship.</Ability>
+    <Cost>24</Cost>
     <EvasiveManeuvers>1</EvasiveManeuvers>
     <TargetLock>1</TargetLock>
     <Scan>1</Scan>
-    <Battlestations>1</Battlestations>
+    <Battlestations>0</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>0</Tech>
+    <Weapon>3</Weapon>
+    <Crew>0</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>dominion_starship_72937</Id>
+    <Set>72937</Set>
+  </Ship>
+  <Ship>
+    <Title>I.K.S. Ves Batlh</Title>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Raptor Class</ShipClass>
+    <Faction>Klingon</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>3</Attack>
+    <Agility>1</Agility>
+    <Hull>3</Hull>
+    <Shield>2</Shield>
+    <Ability>WHEN THIS SHIP SUFFERS DAMAGE FROM AN OBSTACLE OR MINEFIELD:  Reduce the damage by 1.</Ability>
+    <Cost>13</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>0</Battlestations>
     <Cloak>0</Cloak>
     <SensorEcho>0</SensorEcho>
     <Regenerate>0</Regenerate>
@@ -111,6 +111,93 @@
     <Crew>1</Crew>
     <SquadronUpgrade>0</SquadronUpgrade>
     <Has360Arc>N</Has360Arc>
-    <Id>xindi_starship_72335</Id>
-    <Set>72335</Set>
-</Ship>
+    <Id>i_k_s_ves_batlh_72938</Id>
+    <Set>72938</Set>
+  </Ship>
+  <Ship>
+    <Title>Federation Starship</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Oberth Class</ShipClass>
+    <Faction>Federation</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>2</Attack>
+    <Agility>3</Agility>
+    <Hull>3</Hull>
+    <Shield>2</Shield>
+    <Ability></Ability>
+    <Cost>12</Cost>
+    <EvasiveManeuvers>0</EvasiveManeuvers>
+    <TargetLock>0</TargetLock>
+    <Scan>0</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>2</Tech>
+    <Weapon>0</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>federation_starship_72940</Id>
+    <Set>72940</Set>
+  </Ship>
+  <Ship>
+    <Title>Klingon Starship</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Raptor Class</ShipClass>
+    <Faction>Klingon</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>3</Attack>
+    <Agility>1</Agility>
+    <Hull>3</Hull>
+    <Shield>1</Shield>
+    <Ability></Ability>
+    <Cost>11</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>1</Tech>
+    <Weapon>1</Weapon>
+    <Crew>0</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>klingon_starship_72938</Id>
+    <Set>72938</Set>
+  </Ship>
+  <Ship>
+    <Title>Federation Starship</Title>
+    <Unique>N</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <ShipClass>Oberth Class</ShipClass>
+    <Faction>Federation</Faction>
+    <AdditionalFaction></AdditionalFaction>
+    <Attack>2</Attack>
+    <Agility>3</Agility>
+    <Hull>3</Hull>
+    <Shield>1</Shield>
+    <Ability></Ability>
+    <Cost>12</Cost>
+    <EvasiveManeuvers>1</EvasiveManeuvers>
+    <TargetLock>1</TargetLock>
+    <Scan>1</Scan>
+    <Battlestations>0</Battlestations>
+    <Cloak>0</Cloak>
+    <SensorEcho>0</SensorEcho>
+    <Regenerate>0</Regenerate>
+    <Borg>0</Borg>
+    <Tech>2</Tech>
+    <Weapon>0</Weapon>
+    <Crew>1</Crew>
+    <SquadronUpgrade>0</SquadronUpgrade>
+    <Has360Arc>N</Has360Arc>
+    <Id>federation_starship_b_72940</Id>
+    <Set>72940</Set>
+  </Ship>

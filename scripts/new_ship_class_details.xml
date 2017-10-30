@@ -1,42 +1,6 @@
   <ShipClassDetail>
-    <Name>Constitution Class</Name>
-    <Id>constitution_class</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc>180</FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>Constitution Class</Name>
-    <Id>constitution_class</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc>180</FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>Xindi Reptilian Warship</Name>
-    <Id>xindi_reptilian_warship</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc>90</FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>Xindi Reptilian Warship</Name>
-    <Id>xindi_reptilian_warship</Id>
-    <Maneuvers>
-
-    </Maneuvers>
-    <FrontArc>90</FrontArc>
-    <RearArc></RearArc>
-  </ShipClassDetail>
-  <ShipClassDetail>
-    <Name>Delta Flyer Class Shuttlecraft</Name>
-    <Id>delta_flyer_class_shuttlecraft</Id>
+    <Name>Romulan Drone Ship</Name>
+    <Id>romulan_drone_ship</Id>
     <Maneuvers>
 
     </Maneuvers>
@@ -44,11 +8,65 @@
     <RearArc>90</RearArc>
   </ShipClassDetail>
   <ShipClassDetail>
-    <Name>Delta Flyer Class Shuttlecraft</Name>
-    <Id>delta_flyer_class_shuttlecraft</Id>
+    <Name>Romulan Drone Ship</Name>
+    <Id>romulan_drone_ship</Id>
     <Maneuvers>
 
     </Maneuvers>
     <FrontArc>90</FrontArc>
     <RearArc>90</RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Cardassian ATR-4107</Name>
+    <Id>cardassian_atr_4107</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>180</FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Cardassian ATR-4107</Name>
+    <Id>cardassian_atr_4107</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>180</FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Raptor Class</Name>
+    <Id>raptor_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>90</FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Oberth Class</Name>
+    <Id>oberth_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>90</FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Raptor Class</Name>
+    <Id>raptor_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>90</FrontArc>
+    <RearArc></RearArc>
+  </ShipClassDetail>
+  <ShipClassDetail>
+    <Name>Oberth Class</Name>
+    <Id>oberth_class</Id>
+    <Maneuvers>
+
+    </Maneuvers>
+    <FrontArc>90</FrontArc>
+    <RearArc></RearArc>
   </ShipClassDetail>

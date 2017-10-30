@@ -1,64 +1,64 @@
   <Captain>
-    <Title>Jonathan Archer</Title>
-    <Ability>When attacking, during the Compare Results step, you may place an Auxilliary Power Token beside your ship to convert 1 of your [CRIT] results into 2 [HIT] results.</Ability>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>Y</MirrorUniverseUnique>
+    <Title>J.T. Esteban</Title>
+    <Ability>The Captain's Discretion [TALENT] Upgrade may be equipped to this Captain. WHEN THIS SHIP WOULD BE DESTROYED: Move up to 2 [CREW] Upgrades equipped to this ship to another friendly ship even if it exceeds that ship's restrictions.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>3</Skill>
+    <Talent>0</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
+    <Cost>2</Cost>
+    <Id>j_t_esteban_72940</Id>
+    <Set>72940</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Klaang</Title>
+    <Ability>WHEN ATTACKING: If the defending ship is an [INDEPENDENT] ship or has an [INDEPENDENT] Captain equipped to it: This ship rolls +1 attack die.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>2</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Klingon</Faction>
+    <Cost>2</Cost>
+    <Id>klaang_72938</Id>
+    <Set>72938</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Duras, Son of Toral</Title>
+    <Ability>ACTIVATION PHASE: After an enemy ship in Range moves: You may change this ship's Maneuver.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>6</Skill>
     <Talent>1</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Mirror Universe</Faction>
+    <Faction>Klingon</Faction>
     <Cost>4</Cost>
-    <Id>jonathan_archer_72225p</Id>
-    <Set>72225p</Set>
+    <Id>duras_son_of_toral_72938</Id>
+    <Set>72938</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Dolim</Title>
-    <Ability>During the Gather Forces step, you may treat any of the [CREW] or [TECH] Upgrade slots on your Upgrade Bar as [WEAPON] Upgrade slots. All of your [WEAPON] Upgrades cost -1 SP (-5 max).</Ability>
+    <Title>Jhamel</Title>
+    <Ability>This card cannot be affected by anything that affects a Captain, and this card counts as a Roman Drone Pilot. ACTION: Target an opposing ship in this ship's Primary Firing Arc. The target ship rolls -2 attack dice against this ship.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>8</Skill>
-    <Talent>1</Talent>
+    <Skill>3</Skill>
+    <Talent>3</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Xindi</Faction>
-    <Cost>5</Cost>
-    <Id>dolim_72335</Id>
-    <Set>72335</Set>
-    <Special>WeaponUpgradesCostOneLess</Special>
-  </Captain>
-  <Captain>
-    <Title>Degra</Title>
-    <Ability>When attacking with a Secondary [WEAPON] Upgrade, gain +1 attack die (+2 attack dice if the attack is made with a Xindi [WEAPON] Upgrade).</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>4</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Xindi</Faction>
-    <Cost>3</Cost>
-    <Id>degra_72335</Id>
-    <Set>72335</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Tom Paris</Title>
-    <Ability>If this card is assigned to a ship with a Hull value of 2 or less, whenever your ship executes a red maneuver, treat it as a white maneuver instead. If this card is assigned to a shuttlecraft, you cannot perform a "Docking" Action on the round you use this ability.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>4</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>3</Cost>
-    <Id>tom_paris_72226p</Id>
-    <Set>72226p</Set>
+    <Faction>Independent, Romulan</Faction>
+    <Cost>2</Cost>
+    <Id>jhamel_72939</Id>
+    <Set>72939</Set>
     <Special></Special>
   </Captain>
