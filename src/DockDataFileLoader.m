@@ -660,7 +660,11 @@ static NSString* makeKey(NSString* key)
         @"OnlyFedShipHV4CostPWV",
         @"Ship2LessAndUpgrades1Less",
         @"addoneweaponslot1xindi2less",
-        @"OnlyXindiANDCostPWV"
+        @"OnlyXindiANDCostPWV",
+        @"Hull4",
+        @"Hull3",
+        @"OPSHull4",
+        @"OPSHull3"
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];

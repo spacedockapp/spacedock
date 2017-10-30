@@ -243,6 +243,9 @@ NSString* asDegrees(NSString* textValue)
 
 -(BOOL)isFederation
 {
+    if (targetHasFaction(@"Vulcan",self) || targetHasFaction(@"Bajoran",self)) {
+        return YES;
+    }
     return targetHasFaction(@"Federation", self);
 }
 
@@ -380,6 +383,9 @@ NSString* asDegrees(NSString* textValue)
 
 -(BOOL)isIndependent
 {
+    if (targetHasFaction(@"Ferengi",self) || targetHasFaction(@"Kazon",self) || targetHasFaction(@"Xindi",self)) {
+        return YES;
+    }
     return targetHasFaction(@"Independent", self);
 }
 

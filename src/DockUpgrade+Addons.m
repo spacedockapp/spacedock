@@ -268,6 +268,21 @@ static NSDictionary* sItemLabels = nil;
     if ([self.externalId isEqualToString:@"borg_support_vehicle_token_72006"]) {
         return YES;
     }
+    if ([self.externalId isEqualToString:@"captured_c_72937"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"captured_t_72937"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"captured_w_72937"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"photon_detonation_t_72937"]) {
+        return YES;
+    }
+    if ([self.externalId isEqualToString:@"photon_detonation_w_72937"]) {
+        return YES;
+    }
     return NO;
 }
 
@@ -343,6 +358,9 @@ static NSDictionary* sItemLabels = nil;
 
 -(BOOL)isFederation
 {
+    if (targetHasFaction(@"Vulcan",self) || targetHasFaction(@"Bajoran",self)) {
+        return YES;
+    }
     return targetHasFaction(@"Federation", self);
 }
 
@@ -387,6 +405,9 @@ static NSDictionary* sItemLabels = nil;
 
 -(BOOL)isIndependent
 {
+    if (targetHasFaction(@"Ferengi",self) || targetHasFaction(@"Kazon",self) || targetHasFaction(@"Xindi",self)) {
+        return YES;
+    }
     return targetHasFaction(@"Independent", self);
 }
 
@@ -1234,6 +1255,10 @@ static NSDictionary* sItemLabels = nil;
     if ([externalId isEqualToString:@"borg_support_vehicle_token_c_72006"]) {
         return 1;
     }
+    if ([externalId isEqualToString:@"comm_station_72940"]) {
+        return 1;
+    }
+    
     return 0;
 }
 

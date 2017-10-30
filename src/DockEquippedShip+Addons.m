@@ -170,6 +170,15 @@
 
 -(BOOL)hasFaction:(NSString*)faction
 {
+    if ([faction isEqualToString:@"Independent"]) {
+        if ([self containsUpgradeWithId:@"captured_c_72937"] != nil) {
+            return YES;
+        } else if ([self containsUpgradeWithId:@"captured_t_72937"] != nil) {
+            return YES;
+        } else if ([self containsUpgradeWithId:@"captured_w_72937"] != nil) {
+            return YES;
+        }
+    }
     return targetHasFaction(faction, self.ship) || targetHasFaction(faction, self.flagship);
 }
 
@@ -1294,9 +1303,18 @@
             return NO;
         }
     }
-    
+    if ([upgradeSpecial isEqualToString:@"Hull4"] || [upgradeSpecial isEqualToString:@"OPSHull4"]) {
+        if (self.hull < 4) {
+            return NO;
+        }
+    }
+    if ([upgradeSpecial isEqualToString:@"Hull3"] || [upgradeSpecial isEqualToString:@"OPSHull3"]) {
+        if (self.hull < 3) {
+            return NO;
+        }
+    }
     if (validating) {
-        if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString:@"limited_max_weapon_3"] || [upgradeSpecial hasSuffix:@"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString:@"limited_max_weapon_3AndPlus5NonFed"] || [upgradeSpecial hasPrefix:@"OPSOnlyShipClass_"] || [upgradeSpecial hasPrefix:@"OPSPlus"]) {
+        if ([upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"only_suurok_class_limited_weapon_hull_plus_1"] || [upgradeSpecial isEqualToString:@"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString:@"limited_max_weapon_3"] || [upgradeSpecial hasSuffix:@"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString:@"limited_max_weapon_3AndPlus5NonFed"] || [upgradeSpecial hasPrefix:@"OPSOnlyShipClass_"] || [upgradeSpecial hasPrefix:@"OPSPlus"] || [upgradeSpecial hasPrefix:@"OPSHull"]) {
             DockEquippedUpgrade* existing = [self containsUpgradeWithId: upgrade.externalId];
             if (existing != nil) {
                 return NO;
@@ -1330,6 +1348,14 @@
                 }
             } else if ([upgrade.externalId isEqualToString:@"delta_shift_c_72320p"] || [upgrade.externalId isEqualToString:@"delta_shift_t_72320p"] || [upgrade.externalId isEqualToString:@"delta_shift_w_72320p"] || [upgrade.externalId isEqualToString:@"delta_shift_e_72320p"]) {
                 if ([self containsUpgradeWithId:@"delta_shift_c_72320p"]  != nil || [self containsUpgradeWithId:@"delta_shift_t_72320p"]  != nil || [self containsUpgradeWithId:@"delta_shift_w_72320p"]  != nil || [self containsUpgradeWithId:@"delta_shift_e_72320p"] != nil) {
+                    return NO;
+                }
+            } else if ([upgrade.externalId isEqualToString:@"change_course_c_72324p"] || [upgrade.externalId isEqualToString:@"change_course_e_72324p"] || [upgrade.externalId isEqualToString:@"change_course_t_72324p"] || [upgrade.externalId isEqualToString:@"change_course_w_72324p"]) {
+                if ([self containsUpgradeWithId:@"change_course_c_72324p"]  != nil || [self containsUpgradeWithId:@"change_course_e_72324p"]  != nil || [self containsUpgradeWithId:@"change_course_t_72324p"]  != nil || [self containsUpgradeWithId:@"change_course_w_72324p"] != nil) {
+                    return NO;
+                }
+            } else if ([upgrade.externalId isEqualToString:@"photon_detonation_t_72937"] || [upgrade.externalId isEqualToString:@"photon_detonation_w_72937"]) {
+                if ([self containsUpgradeWithId:@"photon_detonation_t_72937"]  != nil || [self containsUpgradeWithId:@"photon_detonation_w_72937"] != nil) {
                     return NO;
                 }
             }
@@ -1553,7 +1579,7 @@
                 info = @"This upgrade can only be purchased for a Kazon captain on a Kazon ship.";
             } else if ([upgrade isTalent] && [self.captain isKazon] && [self.ship isKazon] && self.talentCount == 1) {
                 info = @"You can only deploy the First Maje [TALENT] to this captain.";
-            } else if ([self containsUpgrade:upgrade] && ([upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasSuffix:@"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix:@"OPSOnlyShipClass_"] || [upgradeSpecial hasPrefix:@"OPSPlus"])) {
+            } else if ([self containsUpgrade:upgrade] && ([upgradeSpecial hasPrefix: @"NoMoreThanOnePerShip"] || [upgradeSpecial isEqualToString: @"ony_federation_ship_limited"] || [upgradeSpecial isEqualToString: @"ony_mu_ship_limited"] || [upgradeSpecial isEqualToString: @"OnlyBorgShipAndNoMoreThanOnePerShip"] || [upgradeSpecial hasSuffix:@"NoMoreThanOnePerShip"] || [upgradeSpecial hasPrefix:@"OPSOnlyShipClass_"] || [upgradeSpecial hasPrefix:@"OPSPlus"] || [upgradeSpecial hasPrefix:@"OPSHull"])) {
                 info = @"No ship may be equipped with more than one of these upgrades.";
             } else if ([upgradeSpecial isEqualToString: @"OnlyJemHadarShips"]) {
                 info = @"This upgrade can only be added to Jem'hadar ships.";
@@ -1671,6 +1697,14 @@
                 info = @"The Borg Support Vehicle Token may only be applied when a ship in your fleet is equipped with the Borg Support Vehicle Dock upgrade.";
             } else if ([upgradeSpecial isEqualToString:@"BSVT"] && self.hull > 7) {
                 info = @"The Borg Support Vehicle Token may only be applied when a ship with a Hull Value of 7 or less.";
+            } else if ([upgradeSpecial isEqualToString:@"Hull4"] && self.hull < 4) {
+                info = @"This upgrade may only be assigned to a ship with a Hull Value of 4 or more.";
+            } else if ([upgradeSpecial isEqualToString:@"Hull3"] && self.hull < 3) {
+                info = @"This upgrade may only be assigned to a ship with a Hull Value of 3 or more.";
+            } else if ([upgradeSpecial isEqualToString:@"OPSHull4"] && self.hull < 4) {
+                info = @"This upgrade may only be assigned to a ship with a Hull Value of 4 or more.";
+            } else if ([upgradeSpecial isEqualToString:@"OPSHull3"] && self.hull < 3) {
+                info = @"This upgrade may only be assigned to a ship with a Hull Value of 3 or more.";
             }
         }
     }

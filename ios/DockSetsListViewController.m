@@ -81,7 +81,7 @@
 
 -(NSArray*)sortDescriptors
 {
-    NSSortDescriptor* releaseDateDescriptor = [[NSSortDescriptor alloc] initWithKey: @"releaseDate" ascending: YES];
+    NSSortDescriptor* releaseDateDescriptor = [[NSSortDescriptor alloc] initWithKey: @"releaseDate" ascending: NO];
     NSSortDescriptor* titleDescriptor = [[NSSortDescriptor alloc] initWithKey: @"productName" ascending: YES];
     NSSortDescriptor* nameDescriptor = [[NSSortDescriptor alloc] initWithKey: @"name" ascending: YES];
     return @[releaseDateDescriptor, nameDescriptor, titleDescriptor];
