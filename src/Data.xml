@@ -1,4 +1,4 @@
-<Data version="2017-10-30@20-45">
+<Data version="2017-11-02@20-38">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -5883,7 +5883,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
       <SquadronUpgrade>0</SquadronUpgrade>
       <Has360Arc>N</Has360Arc>
       <Id>romulan_starship_71536</Id>
-      <Set>71536,72939</Set>
+      <Set>71536</Set>
   </Ship>
   <Ship>
       <Title>I.K.S. Pagh</Title>
@@ -9197,6 +9197,35 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
         <Id>prototype_02_72939</Id>
         <Set>72939</Set>
     </Ship>
+  <Ship>
+      <Title>Romulan Starship</Title>
+      <Unique>N</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <ShipClass>Romulan Drone Ship</ShipClass>
+      <Faction>Romulan</Faction>
+      <AdditionalFaction></AdditionalFaction>
+      <Attack>3</Attack>
+      <Agility>3</Agility>
+      <Hull>3</Hull>
+      <Shield>2</Shield>
+      <Ability>This ship may only be assigned Gareb or a Romulan Drone Pilot as its Captain.</Ability>
+      <Cost>16</Cost>
+      <EvasiveManeuvers>1</EvasiveManeuvers>
+      <TargetLock>1</TargetLock>
+      <Scan>1</Scan>
+      <Battlestations>0</Battlestations>
+      <Cloak>0</Cloak>
+      <SensorEcho>0</SensorEcho>
+      <Regenerate>0</Regenerate>
+      <Borg>0</Borg>
+      <Tech>2</Tech>
+      <Weapon>1</Weapon>
+      <Crew>0</Crew>
+      <SquadronUpgrade>0</SquadronUpgrade>
+      <Has360Arc>N</Has360Arc>
+      <Id>romulan_starship_72939</Id>
+      <Set>72939</Set>
+  </Ship>
     <Ship>
         <Title>Dreadnought</Title>
         <Unique>Y</Unique>
@@ -9285,8 +9314,8 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
         <Set>72938</Set>
     </Ship>
     <Ship>
-        <Title>Federation Starship</Title>
-        <Unique>N</Unique>
+        <Title>U.S.S. Grissom</Title>
+        <Unique>Y</Unique>
         <MirrorUniverseUnique>N</MirrorUniverseUnique>
         <ShipClass>Oberth Class</ShipClass>
         <Faction>Federation</Faction>
@@ -9295,11 +9324,13 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
         <Agility>3</Agility>
         <Hull>3</Hull>
         <Shield>2</Shield>
-        <Ability></Ability>
-        <Cost>12</Cost>
-        <EvasiveManeuvers>0</EvasiveManeuvers>
-        <TargetLock>0</TargetLock>
-        <Scan>0</Scan>
+        <Ability>WHEN THIS SHIP WOULD BE DESTROYED:
+
+The attacking ship must discard one [CREW] Upgrade. If it can't, place an [AUX] Token beside it.</Ability>
+        <Cost>14</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>1</Scan>
         <Battlestations>0</Battlestations>
         <Cloak>0</Cloak>
         <SensorEcho>0</SensorEcho>
@@ -9307,7 +9338,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
         <Borg>0</Borg>
         <Tech>2</Tech>
         <Weapon>0</Weapon>
-        <Crew>1</Crew>
+        <Crew>2</Crew>
         <SquadronUpgrade>0</SquadronUpgrade>
         <Has360Arc>N</Has360Arc>
         <Id>federation_starship_72940</Id>
@@ -28758,7 +28789,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
     <Upgrade>
         <Title>Disguise Protocol</Title>
         <Ability>WHEN DEFENDING: Place 3 [TIME] Tokens on this card. The attacking ship rolls -2 attack dice.</Ability>
-        <Unique>Y</Unique>
+        <Unique>N</Unique>
         <MirrorUniverseUnique>N</MirrorUniverseUnique>
         <Skill></Skill>
         <Talent></Talent>
