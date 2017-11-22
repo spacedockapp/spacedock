@@ -148,6 +148,12 @@ NSString* kOfficerCardsExternalId = @"officer_cards_collectiveop3";
         float cost = (float)hull/2.0f;
         
         return [NSNumber numberWithInt:ceil(cost)];
+    } else if ([self.externalId isEqualToString:@"captains_chair_72936r"]) {
+        if ([squad containsUniqueUpgradeWithName:@"Captain's Chair"] != nil) {
+            return 0;
+        } else {
+            return self.cost;
+        }
     } else {
         return self.cost;
     }

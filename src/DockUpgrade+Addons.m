@@ -639,6 +639,12 @@ static NSDictionary* sItemLabels = nil;
     if ([upgrade isFleetCaptain]) {
         return [[upgrade cost] intValue];
     }
+    
+    if ([upgrade.externalId isEqualToString:@"captains_chair_c_72936r"] ||
+        [upgrade.externalId isEqualToString:@"captains_chair_t_72936r"] ||
+        [upgrade.externalId isEqualToString:@"captains_chair_w_72936r"]) {
+        return [[upgrade cost] intValue];
+    }
 
     int originalCost = [upgrade.cost intValue];
     int cost = originalCost;

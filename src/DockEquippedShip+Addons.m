@@ -1531,6 +1531,15 @@
         }
     }
     
+    if ([upgrade.externalId isEqualToString:@"captains_chair_c_72936r"] || [upgrade.externalId isEqualToString:@"captains_chair_t_72936r"] || [upgrade.externalId isEqualToString:@"captains_chair_w_72936r"]) {
+        if (![self.squad.resource.externalId isEqualToString:@"captains_chair_72936r"]) {
+            return NO;
+        }
+        if ([self.captain.skill intValue] < 5) {
+            return NO;
+        }
+    }
+
     if (ignoreInstalled) {
         return YES;
     }
@@ -1797,7 +1806,7 @@
     }
     
     if ([upgrade isCaptain] && [self.ship.shipClass isEqualToString:@"Romulan Drone Ship"]) {
-        if (![upgrade.externalId isEqualToString:@"gareb_71536"] && ![upgrade.externalId isEqualToString:@"romulan_drone_pilot_71536"] && ![self.captain.externalId isEqualToString:@"gareb_71536"])
+        if (![upgrade.externalId isEqualToString:@"gareb_71536"] && ![upgrade.externalId isEqualToString:@"romulan_drone_pilot_71536"] && ![upgrade.externalId isEqualToString:@"jhamel_72939"] && ![self.captain.externalId isEqualToString:@"gareb_71536"])
         {
             [self addUpgrade: [DockUpgrade upgradeForId:@"gareb_71536" context:context] maybeReplace: nil establishPlaceholders: NO];
         }
