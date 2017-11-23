@@ -1539,6 +1539,12 @@
             return NO;
         }
     }
+    
+    if ([upgrade.externalId isEqualToString:@"all_power_to_weapons_72946"]) {
+        if ([[self.ship hull] intValue] < 5) {
+            return NO;
+        }
+    }
 
     if (ignoreInstalled) {
         return YES;

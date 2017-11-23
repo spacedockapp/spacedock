@@ -664,7 +664,8 @@ static NSString* makeKey(NSString* key)
         @"Hull4",
         @"Hull3",
         @"OPSHull4",
-        @"OPSHull3"
+        @"OPSHull3",
+        @"CostPWV"
                                ];
     NSMutableSet* unhandledSpecials = [[NSMutableSet alloc] initWithSet: specials];
     [unhandledSpecials minusSet: [NSSet setWithArray: handledSpecials]];

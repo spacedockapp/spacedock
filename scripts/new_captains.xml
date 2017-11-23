@@ -1,38 +1,6 @@
   <Captain>
-    <Title>J.T. Esteban</Title>
-    <Ability>The Captain's Discretion [TALENT] Upgrade may be equipped to this Captain. WHEN THIS SHIP WOULD BE DESTROYED: Move up to 2 [CREW] Upgrades equipped to this ship to another friendly ship even if it exceeds that ship's restrictions.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>3</Skill>
-    <Talent>0</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Federation</Faction>
-    <Cost>2</Cost>
-    <Id>j_t_esteban_72940</Id>
-    <Set>72940</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Klaang</Title>
-    <Ability>WHEN ATTACKING: If the defending ship is an [INDEPENDENT] ship or has an [INDEPENDENT] Captain equipped to it: This ship rolls +1 attack die.</Ability>
-    <Unique>Y</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>2</Skill>
-    <Talent>1</Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Captain</Type>
-    <Faction>Klingon</Faction>
-    <Cost>2</Cost>
-    <Id>klaang_72938</Id>
-    <Set>72938</Set>
-    <Special></Special>
-  </Captain>
-  <Captain>
-    <Title>Duras, Son of Toral</Title>
-    <Ability>ACTIVATION PHASE: After an enemy ship in Range moves: You may change this ship's Maneuver.</Ability>
+    <Title>Alidar Jarok</Title>
+    <Ability>ACTIVATION PHASE: After an opposing ship moves but before its Perform Action Step, target that ship and place 2 [TIME] Tokens on this card. Choose an Action on the target ship's Action Bar other than [REGENERATE]. The target ship must perform the chosen Action during its Perform Action Step.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
     <Skill>6</Skill>
@@ -40,25 +8,73 @@
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Klingon</Faction>
-    <Cost>4</Cost>
-    <Id>duras_son_of_toral_72938</Id>
-    <Set>72938</Set>
+    <Faction>Romulan</Faction>
+    <Cost>5</Cost>
+    <Id>alidar_jarok_72945</Id>
+    <Set>72945</Set>
     <Special></Special>
   </Captain>
   <Captain>
-    <Title>Jhamel</Title>
-    <Ability>This card cannot be affected by anything that affects a Captain, and this card counts as a Roman Drone Pilot. ACTION: Target an opposing ship in this ship's Primary Firing Arc. The target ship rolls -2 attack dice against this ship.</Ability>
+    <Title>Deyos</Title>
+    <Ability>ACTION: Target a friendly ship. Equip a [CREW] Upgrade that was discarded from the target ship to the target ship. The target ship cannot attack this game round.</Ability>
     <Unique>Y</Unique>
     <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill>3</Skill>
-    <Talent>3</Talent>
+    <Skill>6</Skill>
+    <Talent>0</Talent>
     <Attack></Attack>
     <Range></Range>
     <Type>Captain</Type>
-    <Faction>Independent, Romulan</Faction>
+    <Faction>Dominion</Faction>
+    <Cost>4</Cost>
+    <Id>deyos_72946</Id>
+    <Set>72946</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Tomalak</Title>
+    <Ability>Add 1 [TECH] to this ship's Upgrade Bar. WHEN ATTACKING: This ship may re-roll 1 attack die for each [TECH] Upgrade equipped to it.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>8</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Romulan</Faction>
+    <Cost>5</Cost>
+    <Id>tomalak_72945</Id>
+    <Set>72945</Set>
+    <Special>addonetechslot</Special>
+  </Captain>
+  <Captain>
+    <Title>Kilana</Title>
+    <Ability>WHEN A [TECH] UPGRADE EQUIPPED TO THIS SHIP WOULD BE DISABLED: You may place 2 [TIME] Tokens on it instead.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>4</Skill>
+    <Talent>1</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Dominion</Faction>
     <Cost>2</Cost>
-    <Id>jhamel_72939</Id>
-    <Set>72939</Set>
+    <Id>kilana_72946</Id>
+    <Set>72946</Set>
+    <Special></Special>
+  </Captain>
+  <Captain>
+    <Title>Jean-Luc Picard</Title>
+    <Ability>ACTION: Place 2 [TIME] Tokens on this card and target all friendly ships. Place a [BATTLESTATIONS] Token beside this ship and all target ships.</Ability>
+    <Unique>Y</Unique>
+    <MirrorUniverseUnique>N</MirrorUniverseUnique>
+    <Skill>8</Skill>
+    <Talent>2</Talent>
+    <Attack></Attack>
+    <Range></Range>
+    <Type>Captain</Type>
+    <Faction>Federation</Faction>
+    <Cost>6</Cost>
+    <Id>jean_luc_picard_72944</Id>
+    <Set>72944</Set>
     <Special></Special>
   </Captain>

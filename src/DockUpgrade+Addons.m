@@ -742,6 +742,15 @@ static NSDictionary* sItemLabels = nil;
                 }
             }
         }
+        if ([upgradeSpecial isEqualToString:@"CostPWV"]) {
+            cost += [ship.attack intValue];
+            if (equippedShip.isResourceSideboard) {
+                cost = 5;
+                if (equippedShip.flagship != nil) {
+                    cost += equippedShip.flagship.attackAdd;
+                }
+            }
+        }
         if ([captainSpecial isEqualToString: @"WeaponUpgradesCostOneLess"]) {
             cost -= 1;
         }

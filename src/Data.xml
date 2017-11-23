@@ -1,4 +1,4 @@
-<Data version="2017-11-22@23-11">
+<Data version="2017-11-23@06-08">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -9402,6 +9402,296 @@ The attacking ship must discard one [CREW] Upgrade. If it can't, place an [AUX] 
         <Id>federation_starship_b_72940</Id>
         <Set>72940</Set>
     </Ship>
+    <Ship>
+        <Title>I.R.W. Suran</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Valdore Class</ShipClass>
+        <Faction>Romulan</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>4</Attack>
+        <Agility>2</Agility>
+        <Hull>6</Hull>
+        <Shield>3</Shield>
+        <Ability>COMBAT PHASE: After this ship attacks:  This ship may perform a 2 [GREEN BANK LEFT] or a 2 [GREEN BANK RIGHT] Maneuver.</Ability>
+        <Cost>28</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>0</Scan>
+        <Battlestations>0</Battlestations>
+        <Cloak>1</Cloak>
+        <SensorEcho>1</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>1</Tech>
+        <Weapon>1</Weapon>
+        <Crew>2</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>i_r_w_suran_72945</Id>
+        <Set>72945</Set>
+    </Ship>
+    <Ship>
+        <Title>U.S.S. Enterprise-D</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Galaxy Class</ShipClass>
+        <Faction>Federation</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>4</Attack>
+        <Agility>1</Agility>
+        <Hull>5</Hull>
+        <Shield>4</Shield>
+        <Ability>WHEN DEFENDING:  The attacking ship rolls -1 attack die.</Ability>
+        <Cost>26</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>1</Scan>
+        <Battlestations>1</Battlestations>
+        <Cloak>0</Cloak>
+        <SensorEcho>0</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>1</Tech>
+        <Weapon>1</Weapon>
+        <Crew>3</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>u_s_s_enterprise_d_72944</Id>
+        <Set>72944</Set>
+    </Ship>
+    <Ship>
+        <Title>3rd Division Battle Cruiser</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Jem'Hadar Battle Cruiser</ShipClass>
+        <Faction>Dominion</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>5</Attack>
+        <Agility>1</Agility>
+        <Hull>6</Hull>
+        <Shield>5</Shield>
+        <Ability>Jem'Hadar Attack Ships within Range 1 roll +1 defense dice.</Ability>
+        <Cost>33</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>1</Scan>
+        <Battlestations>1</Battlestations>
+        <Cloak>0</Cloak>
+        <SensorEcho>0</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>2</Tech>
+        <Weapon>1</Weapon>
+        <Crew>2</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>3rd_division_battle_cruiser_72946</Id>
+        <Set>72946</Set>
+    </Ship>
+    <Ship>
+        <Title>K'Mpec's Attack Cruiser</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Vor'Cha Class</ShipClass>
+        <Faction>Klingon</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>5</Attack>
+        <Agility>1</Agility>
+        <Hull>5</Hull>
+        <Shield>3</Shield>
+        <Ability>ACTION: Target all Cloaked friendly ships within Range 1-2.  Place a [BATTLESTATIONS] Token beside all target ships.</Ability>
+        <Cost>25</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>0</Scan>
+        <Battlestations>0</Battlestations>
+        <Cloak>1</Cloak>
+        <SensorEcho>1</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>1</Tech>
+        <Weapon>1</Weapon>
+        <Crew>2</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>k_mpec_s_attack_cruiser_72944</Id>
+        <Set>72944</Set>
+    </Ship>
+    <Ship>
+        <Title>Jarok's Scout Vessel</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Romulan Scout Vessel</ShipClass>
+        <Faction>Romulan</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>1</Attack>
+        <Agility>3</Agility>
+        <Hull>2</Hull>
+        <Shield>2</Shield>
+        <Ability>ACTIVATION PHASE: Place 2 [TIME] Tokens on this card and target a friendly [ROMULAN] ship within Range 1.  The target ship may perform an Action as a Free Action.</Ability>
+        <Cost>12</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>0</TargetLock>
+        <Scan>1</Scan>
+        <Battlestations>0</Battlestations>
+        <Cloak>1</Cloak>
+        <SensorEcho>1</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>1</Tech>
+        <Weapon>1</Weapon>
+        <Crew>1</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>jarok_s_scout_vessel_72945</Id>
+        <Set>72945</Set>
+    </Ship>
+    <Ship>
+        <Title>2nd Wing Patrol Ship</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Jem'Hadar Attack Ship</ShipClass>
+        <Faction>Dominion</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>3</Attack>
+        <Agility>2</Agility>
+        <Hull>3</Hull>
+        <Shield>3</Shield>
+        <Ability>This ship rolls +2 defense dice if there is another Jem'Hadar Attack Ship within Range 1.</Ability>
+        <Cost>16</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>1</Scan>
+        <Battlestations>1</Battlestations>
+        <Cloak>0</Cloak>
+        <SensorEcho>0</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>1</Tech>
+        <Weapon>1</Weapon>
+        <Crew>2</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>2nd_wing_patrol_ship_72946</Id>
+        <Set>72946</Set>
+    </Ship>
+    <Ship>
+        <Title>Romulan Starship</Title>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Valdore Class</ShipClass>
+        <Faction>Romulan</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>4</Attack>
+        <Agility>2</Agility>
+        <Hull>6</Hull>
+        <Shield>2</Shield>
+        <Ability></Ability>
+        <Cost>24</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>0</Scan>
+        <Battlestations>0</Battlestations>
+        <Cloak>1</Cloak>
+        <SensorEcho>1</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>0</Tech>
+        <Weapon>1</Weapon>
+        <Crew>2</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>romulan_starship_72945</Id>
+        <Set>72945</Set>
+    </Ship>
+    <Ship>
+        <Title>Dominion Starship</Title>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Jem'Hadar Battle Cruiser</ShipClass>
+        <Faction>Dominion</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>5</Attack>
+        <Agility>1</Agility>
+        <Hull>6</Hull>
+        <Shield>4</Shield>
+        <Ability></Ability>
+        <Cost>29</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>1</Scan>
+        <Battlestations>1</Battlestations>
+        <Cloak>0</Cloak>
+        <SensorEcho>0</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>1</Tech>
+        <Weapon>2</Weapon>
+        <Crew>1</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>dominion_starship_72946</Id>
+        <Set>72946</Set>
+    </Ship>
+    <Ship>
+        <Title>Mirok's Science Vessel</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Romulan Science Vessel</ShipClass>
+        <Faction>Romulan</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>1</Attack>
+        <Agility>2</Agility>
+        <Hull>2</Hull>
+        <Shield>2</Shield>
+        <Ability>ACTION: Target a friendly ship within Range 1-2.  Repair 1 Shield or 1 Hull on the target ship.</Ability>
+        <Cost>10</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>0</TargetLock>
+        <Scan>1</Scan>
+        <Battlestations>0</Battlestations>
+        <Cloak>1</Cloak>
+        <SensorEcho>1</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>1</Tech>
+        <Weapon>0</Weapon>
+        <Crew>1</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>mirok_s_science_vessel_72945</Id>
+        <Set>72945</Set>
+    </Ship>
+    <Ship>
+        <Title>U.S.S. Sutherland</Title>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <ShipClass>Nebula Class</ShipClass>
+        <Faction>Federation</Faction>
+        <AdditionalFaction></AdditionalFaction>
+        <Attack>4</Attack>
+        <Agility>1</Agility>
+        <Hull>4</Hull>
+        <Shield>4</Shield>
+        <Ability>WHEN DEFENDING:  Cancel 1 [HIT].</Ability>
+        <Cost>23</Cost>
+        <EvasiveManeuvers>1</EvasiveManeuvers>
+        <TargetLock>1</TargetLock>
+        <Scan>1</Scan>
+        <Battlestations>1</Battlestations>
+        <Cloak>0</Cloak>
+        <SensorEcho>0</SensorEcho>
+        <Regenerate>0</Regenerate>
+        <Borg>0</Borg>
+        <Tech>1</Tech>
+        <Weapon>1</Weapon>
+        <Crew>3</Crew>
+        <SquadronUpgrade>0</SquadronUpgrade>
+        <Has360Arc>N</Has360Arc>
+        <Id>u_s_s_sutherland_72944</Id>
+        <Set>72944</Set>
+    </Ship>
   </Ships>
   <Captains>
     <Captain>
@@ -13782,6 +14072,86 @@ You may only use this Action if this card is equipped to a Tholian ship.</Abilit
       <Cost>2</Cost>
       <Id>jhamel_72939</Id>
       <Set>72939</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Alidar Jarok</Title>
+      <Ability>ACTIVATION PHASE: After an opposing ship moves but before its Perform Action Step, target that ship and place 2 [TIME] Tokens on this card. Choose an Action on the target ship's Action Bar other than [REGENERATE]. The target ship must perform the chosen Action during its Perform Action Step.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>alidar_jarok_72945</Id>
+      <Set>72945</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Deyos</Title>
+      <Ability>ACTION: Target a friendly ship. Equip a [CREW] Upgrade that was discarded from the target ship to the target ship. The target ship cannot attack this game round.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>6</Skill>
+      <Talent>0</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>4</Cost>
+      <Id>deyos_72946</Id>
+      <Set>72946</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Tomalak</Title>
+      <Ability>Add 1 [TECH] to this ship's Upgrade Bar. WHEN ATTACKING: This ship may re-roll 1 attack die for each [TECH] Upgrade equipped to it.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>8</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Romulan</Faction>
+      <Cost>5</Cost>
+      <Id>tomalak_72945</Id>
+      <Set>72945</Set>
+      <Special>addonetechslot</Special>
+  </Captain>
+  <Captain>
+      <Title>Kilana</Title>
+      <Ability>WHEN A [TECH] UPGRADE EQUIPPED TO THIS SHIP WOULD BE DISABLED: You may place 2 [TIME] Tokens on it instead.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>4</Skill>
+      <Talent>1</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Dominion</Faction>
+      <Cost>2</Cost>
+      <Id>kilana_72946</Id>
+      <Set>72946</Set>
+      <Special></Special>
+  </Captain>
+  <Captain>
+      <Title>Jean-Luc Picard</Title>
+      <Ability>ACTION: Place 2 [TIME] Tokens on this card and target all friendly ships. Place a [BATTLESTATIONS] Token beside this ship and all target ships.</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill>8</Skill>
+      <Talent>2</Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Captain</Type>
+      <Faction>Federation</Faction>
+      <Cost>6</Cost>
+      <Id>jean_luc_picard_72944</Id>
+      <Set>72944</Set>
       <Special></Special>
   </Captain>
   </Captains>
@@ -29000,6 +29370,134 @@ Switch the Primary Weapon Value and Agility Value of the target ship until the e
         <Set>72936r</Set>
         <Special>addoneweaponslot</Special>
     </Upgrade>
+    <Upgrade>
+        <Title>Tal Shiar Sub-Commander</Title>
+        <Ability>WHEN ATTACKING: If this ship has an [EVADE] Token beside it: This ship may convert 1 of the defending ship's [EVADE] into a [BLANK].</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Romulan</Faction>
+        <Cost>2</Cost>
+        <Id>tal_shiar_sub_commander_72945</Id>
+        <Set>72945</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>All Power to Weapons</Title>
+        <Ability>COMBAT PHASE: Place 3 [TIME] Tokens on this card and disable this ship's Shields. Continuous Effect: This ship's Shields remain disabled. This ship can only perform Green Maneuvers. This ship rolls +3 attack dice.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Dominion</Faction>
+        <Cost>5</Cost>
+        <Id>all_power_to_weapons_72946</Id>
+        <Set>72946</Set>
+        <Special>OnlyDominionCaptain</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Talak'Talan</Title>
+        <Ability>ACTION: Discard this card and target all friendly ships. Place a [BATTLESTATIONS] Token beside this ship and all target ships. [RANGE 1-2]</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Dominion</Faction>
+        <Cost>2</Cost>
+        <Id>talak_talan_72946</Id>
+        <Set>72946</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Lamat'Ukan</Title>
+        <Ability>WHEN ATTACKING: If this ship spent its [TARGET LOCK] Token to re-roll its attack dice: This ship may convert1 [BLANK] into 1 [HIT].</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Dominion</Faction>
+        <Cost>2</Cost>
+        <Id>lamat_ukan_72946</Id>
+        <Set>72946</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Romulan Medical Team</Title>
+        <Ability>ACTION: Discard this card and target a friendly ship. Remove 1 [DISABLED] Token from all [CREW] Upgrades equipped to target ship. [RANGE 1-2]</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Crew</Type>
+        <Faction>Romulan</Faction>
+        <Cost>3</Cost>
+        <Id>romulan_medical_team_72945</Id>
+        <Set>72945</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Strike From the Shadows</Title>
+        <Ability>WHEN ATTACKING: If this ship is Cloaked, discard this card. Flip this ship's [CLOAK] Token to its green side.</Ability>
+        <Unique>N</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack></Attack>
+        <Range></Range>
+        <Type>Talent</Type>
+        <Faction>Romulan</Faction>
+        <Cost>3</Cost>
+        <Id>strike_from_the_shadows_72945</Id>
+        <Set>72945</Set>
+        <Special></Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Torpedo Fusillade</Title>
+        <Ability>The cost of this [WEAPON] is equal to this ship's Primary Weapon Value. The Attack Value of this [WEAPON] is equal to this ship's Primary Weapon Value. ATTACK: Remove this card from the game and target all opposing ships.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>*</Attack>
+        <Range>2-3</Range>
+        <Type>Weapon</Type>
+        <Faction>Klingon</Faction>
+        <Cost>1</Cost>
+        <Id>torpedo_fusillade_72944</Id>
+        <Set>72944</Set>
+        <Special>CostPWV</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Disruptor Cannon</Title>
+        <Ability>ATTACK: Spend this ship's [TARGET LOCK] Token, discard this card, and target an opposing ship. Perform this attack twice against the target ship.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Skill></Skill>
+        <Talent></Talent>
+        <Attack>6</Attack>
+        <Range>1-2</Range>
+        <Type>Weapon</Type>
+        <Faction>Dominion</Faction>
+        <Cost>3</Cost>
+        <Id>disruptor_cannon_72946</Id>
+        <Set>72946</Set>
+        <Special></Special>Jem'Hadar Battleship
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -29944,6 +30442,10 @@ This ship gains the following:
       <Set id="72941r" overallSetName="Resource Rumble" releaseDate="2017-10-25">Front-Line Retrofit Resource</Set>
       <Set id="72941p" overallSetName="Resource Rumble" releaseDate="2017-10-25">Elizabeth Shelby Crew Prize</Set>
       <Set id="72941p2" overallSetName="Resource Rumble" releaseDate="2017-10-25">Sabotaged Systems Tech Prize</Set>
+      <Set id="72944" overallSetName="Federation vs. Klingons Starter Set">Federation vs. Klingons Starter Set</Set>
+      <Set id="72945" overallSetName="Faction Pack Wave 1">Romulan Faction Pack</Set>
+      <Set id="72946" overallSetName="Faction Pack Wave 1">Dominion Faction Pack</Set>
+
     </Sets>
     <Flagships>
         <Flagship>

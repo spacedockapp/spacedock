@@ -1,151 +1,7 @@
     <Upgrade>
-      <Title>Captain's Discretion</Title>
-      <Ability>FREE ACTION: Discard this card. Perform the Action of a [CREW] Upgrade equipped to this ship.</Ability>
+      <Title>Tal Shiar Sub-Commander</Title>
+      <Ability>WHEN ATTACKING: If this ship has an [EVADE] Token beside it: This ship may convert 1 of the defending ship's [EVADE] into a [BLANK].</Ability>
       <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Talent</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>captain_s_discretion_72940</Id>
-      <Set>72940</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>David Marcus</Title>
-      <Ability>IF A [CREW] UPGRADE EQUIPPED TO THIS SHIP WOULD BE DISCARDED: Discard this card instead. WHEN DEFENDING: Discard this card. Add 1 [EVADE].</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>david_marcus_72940</Id>
-      <Set>72940</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Saavik</Title>
-      <Ability>WHEN DEFENDING: If this ship is within Range of a Planet Token: This ship may convert 1 [BLANK] into 1 [EVADE]. [RANGE 1-2]</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>1</Cost>
-      <Id>saavik_72940</Id>
-      <Set>72940</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Federation Helmsman</Title>
-      <Ability>ACTION: Place an [AUX] Token beside this ship. Perform a White 1 [STRAIGHT], 1 [LEFT BANK], or 1 [RIGHT BANK] Maneuver.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>federation_helmsman_72940</Id>
-      <Set>72940</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>William T. Riker</Title>
-      <Ability>Modify the Captain Skill of the Captain equipped to this ship by +3. IF THE CAPTAIN EQUIPPED TO THIS SHIP IS DISABLED OR DISCARDED: This ship's Captain Skill is 5. IF THIS SHIP RECEIVES A FACE UP "COMMUNICATIONS FAILURE" OR "INJURED CAPTAIN" DAMAGE CARD: Flip that damage card face down.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>william_t_riker_72940</Id>
-      <Set>72940</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Comm Station</Title>
-      <Ability>Add 1 [CREW] to this ship's Upgrade Bar. ACTIVATION PHASE: Disable this card and target a friendly ship. This game round, replace the Captain Skill of this ship's Captain with the Captain Skill of the target ship's Captain. [RANGE 1-2]</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>4</Cost>
-      <Id>comm_station_72940</Id>
-      <Set>72940</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Close-Range Scan</Title>
-      <Ability>ACTIVATION PHASE: If this ship performed a [SCAN] Action, disable 1 Shield. Place a [SCAN] Token beside this ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>3</Cost>
-      <Id>close_range_scan_72940</Id>
-      <Set>72940</Set>
-      <Special>NoMoreThanOnePerShip</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Genesis Effect</Title>
-      <Ability>SETUP: Place 1 [CREW] Upgrade with a cost of 5 SP or less face down beneath this card. END PHASE: If this ship is within Range of a Planet Token, disable all of its Shields. Flip the [CREW] Upgrade beneath this card face up, place 2 [TIME] Tokens on it, and equip it to this ship, even if it exceeds its restrictions. [RANGE 1-3]</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Federation</Faction>
-      <Cost>2</Cost>
-      <Id>genesis_effect_72940</Id>
-      <Set>72940</Set>
-      <Special>Add_Crew_1</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Data</Title>
-      <Ability>ACTION: Discard this card and target an opposing ship. Rolle one attack die and consult the below chart: [CRIT]: Discard a card of your choice on the target ship. [BATTLESTATIONS]: Discard the Captain of the target ship. [HIT]: Discard a [CREW] on the target ship. [BLANK]: Nothing happens. [RANGE 1-2]</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Federation</Faction>
-      <Cost>5</Cost>
-      <Id>data_72936p</Id>
-      <Set>72936p</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Nanclus</Title>
-      <Ability>ACTION: Discard this card and target an opposing ship. This game round, the target ship rolls +1 attack die but cannot roll defense dice. [RANGE 1-3]</Ability>
-      <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
@@ -153,110 +9,14 @@
       <Range></Range>
       <Type>Crew</Type>
       <Faction>Romulan</Faction>
-      <Cost>5</Cost>
-      <Id>nanclus_72936p</Id>
-      <Set>72936p</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Dispersive Armor</Title>
-      <Ability>WHEN DEFENDING: Disable this card. This game round, replace the attacking ship's Primary Weapon Value with 4. For the remainder of this game round, the attacking ship's Primary Weapon Value can not be replaced or modified.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Klingon</Faction>
-      <Cost>4</Cost>
-      <Id>dispersive_armor_72938</Id>
-      <Set>72938</Set>
-      <Special>OPSHull3</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Reactor Pit</Title>
-      <Ability>PLANNING PHASE: Disable this card. Remove an [AUX] Token from beside this ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Klingon</Faction>
-      <Cost>3</Cost>
-      <Id>reactor_pit_72938</Id>
-      <Set>72938</Set>
-      <Special></Special>
-    </Upgrade>
-<Upgrade>
-    <Title>Photon Detonation</Title>
-    <Ability>This card counts as either a [TECH] Upgrade or a [WEAPON] Upgrade. ACTION: Disable this card, place 3 [TIME] Tokens on a Photon Torpedoes Upgrade equipped to this ship, and target a Minefield Token. Remove the Minefield from play. [RANGE 1-2]</Ability>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill></Skill>
-    <Talent></Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Tech</Type>
-    <Faction>Klingon</Faction>
-    <Cost>3</Cost>
-    <Id>photon_detonation_t_72937</Id>
-    <Set>72937</Set>
-    <Special>NoMoreThanOnePerShip</Special>
-</Upgrade>
-<Upgrade>
-    <Title>Photon Detonation</Title>
-    <Ability>This card counts as either a [TECH] Upgrade or a [WEAPON] Upgrade. ACTION: Disable this card, place 3 [TIME] Tokens on a Photon Torpedoes Upgrade equipped to this ship, and target a Minefield Token. Remove the Minefield from play. [RANGE 1-2]</Ability>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill></Skill>
-    <Talent></Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Weapon</Type>
-    <Faction>Klingon</Faction>
-    <Cost>3</Cost>
-    <Id>photon_detonation_w_72937</Id>
-    <Set>72937</Set>
-    <Special>NoMoreThanOnePerShip</Special>
-</Upgrade>
-    <Upgrade>
-      <Title>Goroth</Title>
-      <Ability>Add 1 [CREW] to this ship's Upgrade Bar. ACTION: Discard this card, discard 1 [CREW] Upgrade, and target an opposing ship. Disable the Captain equipped to the target ship. [RANGE 1-2]</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Klingon</Faction>
       <Cost>2</Cost>
-      <Id>goroth_72938</Id>
-      <Set>72938</Set>
-      <Special>Add_Crew_1</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Kolos</Title>
-      <Ability>IF THE CAPTAIN EQUIPPED TO THIS SHIP WOULD BE DISABLED OR DISCARDED: Discard this card instead.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Klingon</Faction>
-      <Cost>3</Cost>
-      <Id>kolos_72938</Id>
-      <Set>72938</Set>
+      <Id>tal_shiar_sub_commander_72945</Id>
+      <Set>72945</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>DNA Encoded Message</Title>
-      <Ability>SETUP: Place 3 [KLINGON] [TALENT] Upgrades face down beneath this card. ACTIVATION PHASE: Discard this card. Flip 1 of the [KLINGON] [TALENT] Upgrades beneath this card face up and equip it to the Captain equipped to this ship. Remove the other 2 face down [KLINGON] [TALENT] Upgrades from the game.</Ability>
+      <Title>All Power to Weapons</Title>
+      <Ability>COMBAT PHASE: Place 3 [TIME] Tokens on this card and disable this ship's Shields. Continuous Effect: This ship's Shields remain disabled. This ship can only perform Green Maneuvers. This ship rolls +3 attack dice.</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -264,207 +24,15 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Talent</Type>
-      <Faction>Klingon</Faction>
-      <Cost>5</Cost>
-      <Id>dna_encoded_message_72938</Id>
-      <Set>72938</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Final Stage Targeting</Title>
-      <Ability>This ship can only target ships that it has a [TARGET LOCK] Token on. WHEN ATTACKING: Defending ships must skip the Modify Defense Dice step.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Dominion</Faction>
-      <Cost>3</Cost>
-      <Id>final_stage_targeting_72937</Id>
-      <Set>72937</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Captured</Title>
-      <Ability>This Upgrade does not require an Upgrade Slot. This ship gains the [INDEPENDENT] Faction. WHEN DEFENDING: If the attacking ship shares a Faction with this ship other than [INDEPENDENT]: The attacking ship rolls +1 attack die.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Independent</Faction>
-      <Cost>1</Cost>
-      <Id>captured_c_72937</Id>
-      <Set>72937</Set>
-      <Special>Add_Crew_1</Special>
-    </Upgrade>
-<Upgrade>
-    <Title>Captured</Title>
-    <Ability>This Upgrade does not require an Upgrade Slot. This ship gains the [INDEPENDENT] Faction. WHEN DEFENDING: If the attacking ship shares a Faction with this ship other than [INDEPENDENT]: The attacking ship rolls +1 attack die.</Ability>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill></Skill>
-    <Talent></Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Tech</Type>
-    <Faction>Independent</Faction>
-    <Cost>1</Cost>
-    <Id>captured_t_72937</Id>
-    <Set>72937</Set>
-    <Special>addonetechslot</Special>
-</Upgrade>
-<Upgrade>
-    <Title>Captured</Title>
-    <Ability>This Upgrade does not require an Upgrade Slot. This ship gains the [INDEPENDENT] Faction. WHEN DEFENDING: If the attacking ship shares a Faction with this ship other than [INDEPENDENT]: The attacking ship rolls +1 attack die.</Ability>
-    <Unique>N</Unique>
-    <MirrorUniverseUnique>N</MirrorUniverseUnique>
-    <Skill></Skill>
-    <Talent></Talent>
-    <Attack></Attack>
-    <Range></Range>
-    <Type>Weapon</Type>
-    <Faction>Independent</Faction>
-    <Cost>1</Cost>
-    <Id>captured_w_72937</Id>
-    <Set>72937</Set>
-    <Special>addoneweaponslot</Special>
-</Upgrade>
-    <Upgrade>
-      <Title>B'Elanna's Codes</Title>
-      <Ability>IF ONE OR MORE [TIME] TOKENS WOULD BE PLACED ON A [WEAPON] UPGRADE EQUIPPED TO T HIS SHIP: Place those [TIME] Tokens on this card instead. WHEN A [WEAPON] UPGRADE EQUIPPED TO THIS SHIP WOULD BE DISCARDED: Discard this card instead.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Independent</Faction>
-      <Cost>3</Cost>
-      <Id>b_elanna_s_codes_72937</Id>
-      <Set>72937</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>B'Elanna Torres</Title>
-      <Ability>WHEN ATTACKING: This ship may re-roll 1 [BLANK]. If the defending ship is a [DOMINION] ship, this ship may also convert 1 [BLANK] into 1 [HIT].</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Independent</Faction>
-      <Cost>1</Cost>
-      <Id>b_elanna_torres_72937</Id>
-      <Set>72937</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Shield Adaptation</Title>
-      <Ability>Discard this card if this ship has no active Shields. WHEN DEFENDING: The attacking ship rolls -2 attack dice when firing a Primary Weapon and -1 attack die when firing a [WEAPON] Upgrade.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
       <Faction>Dominion</Faction>
       <Cost>5</Cost>
-      <Id>shield_adaptation_72937</Id>
-      <Set>72937</Set>
-      <Special>Hull4</Special>
+      <Id>all_power_to_weapons_72946</Id>
+      <Set>72946</Set>
+      <Special>OnlyDominionCaptain</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Propulsion Matrix</Title>
-      <Ability>ACTIVATION PHASE: If this ship reveals a 3 [STRAIGHT] Maneuver: This ship may perform a 4 [STRAIGHT] or a 5 [STRAIGHT] Maneuver instead. If it does, place an [AUX] Token beside this ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Romulan</Faction>
-      <Cost>3</Cost>
-      <Id>propulsion_matrix_72939</Id>
-      <Set>72939</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Repair Protocol</Title>
-      <Ability>END PHASE: Place 3 [TIME] Tokens on this card. Repair 1 damage to this ship's Shields or Hull.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Romulan</Faction>
-      <Cost>4</Cost>
-      <Id>repair_protocol_72939</Id>
-      <Set>72939</Set>
-      <Special>OPSOnlyShipClass_Romulan_Drone_Ship</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Evasive Protocol</Title>
-      <Ability>COMBAT PHASE: If this ship is in the Primary or Secondary Firing Arc of an opposing ship, place 3 [TIME] Tokens on this card. Perform a [SENSOR ECHO] Action as a Free Action. If this ship does, remove an opposing [TARGET LOCK] Token from this ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Romulan</Faction>
-      <Cost>3</Cost>
-      <Id>evasive_protocol_72939</Id>
-      <Set>72939</Set>
-      <Special>OPSOnlyShipClass_Romulan_Drone_Ship</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Disguise Protocol</Title>
-      <Ability>WHEN DEFENDING: Place 3 [TIME] Tokens on this card. The attacking ship rolls -2 attack dice.</Ability>
-      <Unique>Y</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Tech</Type>
-      <Faction>Romulan</Faction>
-      <Cost>4</Cost>
-      <Id>disguise_protocol_72939</Id>
-      <Set>72939</Set>
-      <Special>OPSOnlyShipClass_Romulan_Drone_Ship</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Tellarite Bounty Hunter</Title>
-      <Ability>WHEN THIS CARD WOULD BE DISCARDED: Discard an [EVADE] Token from beside an opposing ship.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack></Attack>
-      <Range></Range>
-      <Type>Crew</Type>
-      <Faction>Independent</Faction>
-      <Cost>1</Cost>
-      <Id>tellarite_bounty_hunter_72938</Id>
-      <Set>72938</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Elizabeth Shelby</Title>
-      <Ability>WHEN DEFENDING: This ship may re-roll one of its [BLANK] results. If the attacking ship is a [BORG] ship, this ship rolls +1 defense die and may re-roll all of its [BLANK] results.</Ability>
+      <Title>Talak'Talan</Title>
+      <Ability>ACTION: Discard this card and target all friendly ships. Place a [BATTLESTATIONS] Token beside this ship and all target ships. [RANGE 1-2]</Ability>
       <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
@@ -472,121 +40,89 @@
       <Attack></Attack>
       <Range></Range>
       <Type>Crew</Type>
-      <Faction>Federation</Faction>
+      <Faction>Dominion</Faction>
       <Cost>2</Cost>
-      <Id>elizabeth_shelby_72941p</Id>
-      <Set>72941p</Set>
+      <Id>talak_talan_72946</Id>
+      <Set>72946</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Triphasic Emitters</Title>
-      <Ability>SETUP: Choose a Non-[BORG] [WEAPON] Upgrade with a cost of 5 SP or less and place it face down beneath this card. ATTACK: Discard this card. Flip the card that is beneath this card face up and perform the attack listed on that card (if possible). After the attack resolves, discard that card.</Ability>
+      <Title>Lamat'Ukan</Title>
+      <Ability>WHEN ATTACKING: If this ship spent its [TARGET LOCK] Token to re-roll its attack dice: This ship may convert1 [BLANK] into 1 [HIT].</Ability>
+      <Unique>Y</Unique>
+      <MirrorUniverseUnique>N</MirrorUniverseUnique>
+      <Skill></Skill>
+      <Talent></Talent>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
+      <Faction>Dominion</Faction>
+      <Cost>2</Cost>
+      <Id>lamat_ukan_72946</Id>
+      <Set>72946</Set>
+      <Special></Special>
+    </Upgrade>
+    <Upgrade>
+      <Title>Romulan Medical Team</Title>
+      <Ability>ACTION: Discard this card and target a friendly ship. Remove 1 [DISABLED] Token from all [CREW] Upgrades equipped to target ship. [RANGE 1-2]</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>?</Attack>
-      <Range>?</Range>
-      <Type>Weapon</Type>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Crew</Type>
       <Faction>Romulan</Faction>
-      <Cost>2</Cost>
-      <Id>triphasic_emitters_72939</Id>
-      <Set>72939</Set>
-      <Special>AddHiddenWeapon</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Quantum Torpedoes</Title>
-      <Ability>ATTACK: Spend this ship's [TARGET LOCK] Token and place 2 [TIME] Tokens on this card. If this attack hits, add 1 [HIT] or add 2 [HITS] if this [WEAPON] is equipped to a Cardassian ATR-4107.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>5</Attack>
-      <Range>2-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Dominion</Faction>
       <Cost>3</Cost>
-      <Id>quantum_torpedoes_72937</Id>
-      <Set>72937</Set>
+      <Id>romulan_medical_team_72945</Id>
+      <Set>72945</Set>
       <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Plasma Pulse</Title>
-      <Ability>ATTACK: Discard this card. The defending ship cannot spend [BATTLESTATIONS] or [EVADE] Tokens. WHEN DEFENDING: Discard this card. The attacking ship suffers 1 [CRIT].</Ability>
+      <Title>Strike From the Shadows</Title>
+      <Ability>WHEN ATTACKING: If this ship is Cloaked, discard this card. Flip this ship's [CLOAK] Token to its green side.</Ability>
       <Unique>N</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>4</Attack>
-      <Range>1-2</Range>
-      <Type>Weapon</Type>
-      <Faction>Dominion</Faction>
+      <Attack></Attack>
+      <Range></Range>
+      <Type>Talent</Type>
+      <Faction>Romulan</Faction>
       <Cost>3</Cost>
-      <Id>plasma_pulse_72937</Id>
-      <Set>72937</Set>
-      <Special>NoMoreThanOnePerShip</Special>
+      <Id>strike_from_the_shadows_72945</Id>
+      <Set>72945</Set>
+      <Special></Special>
     </Upgrade>
     <Upgrade>
-      <Title>Plasma Wave</Title>
-      <Ability>ATTACK: Place 2 [TIME] Tokens on this card and target all opposing ships.</Ability>
-      <Unique>N</Unique>
+      <Title>Torpedo Fusillade</Title>
+      <Ability>The cost of this [WEAPON] is equal to this ship's Primary Weapon Value. The Attack Value of this [WEAPON] is equal to this ship's Primary Weapon Value. ATTACK: Remove this card from the game and target all opposing ships.</Ability>
+      <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
-      <Attack>4</Attack>
-      <Range>1</Range>
-      <Type>Weapon</Type>
-      <Faction>Dominion</Faction>
-      <Cost>3</Cost>
-      <Id>plasma_wave_72937</Id>
-      <Set>72937</Set>
-      <Special>OnlyShipClass_Cardassian_ATR-4107</Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Photon Torpedoes</Title>
-      <Ability>ATTACK: If this ship has a [TARGET LOCK] Token on the defending ship, place 2 [TIME] Tokens on this card. This ship may convert 1 [BATTLESTATIONS] into a [CRIT].</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>4</Attack>
+      <Attack>*</Attack>
       <Range>2-3</Range>
       <Type>Weapon</Type>
       <Faction>Klingon</Faction>
-      <Cost>2</Cost>
-      <Id>photon_torpedoes_72938</Id>
-      <Set>72938</Set>
-      <Special></Special>
+      <Cost>1</Cost>
+      <Id>torpedo_fusillade_72944</Id>
+      <Set>72944</Set>
+      <Special>CostPWV</Special>
     </Upgrade>
     <Upgrade>
-      <Title>Tellarite Disruptor Banks</Title>
-      <Ability>ATTACK: Place 3 [TIME] Tokens on this card. If there is at least 1 unconcealed [HIT], modify the defender's Agility Value by -1 until the end of the game round.</Ability>
-      <Unique>N</Unique>
-      <MirrorUniverseUnique>N</MirrorUniverseUnique>
-      <Skill></Skill>
-      <Talent></Talent>
-      <Attack>4</Attack>
-      <Range>1-3</Range>
-      <Type>Weapon</Type>
-      <Faction>Independent</Faction>
-      <Cost>3</Cost>
-      <Id>tellarite_disruptor_banks_72939</Id>
-      <Set>72939</Set>
-      <Special></Special>
-    </Upgrade>
-    <Upgrade>
-      <Title>Thoron Shock Emitter</Title>
-      <Ability>ATTACK: Discard this card. This ship may re-roll any number of attack dice.</Ability>
-      <Unique>N</Unique>
+      <Title>Disruptor Cannon</Title>
+      <Ability>ATTACK: Spend this ship's [TARGET LOCK] Token, discard this card, and target an opposing ship. Perform this attack twice against the target ship.</Ability>
+      <Unique>Y</Unique>
       <MirrorUniverseUnique>N</MirrorUniverseUnique>
       <Skill></Skill>
       <Talent></Talent>
       <Attack>6</Attack>
-      <Range>1-3</Range>
+      <Range>1-2</Range>
       <Type>Weapon</Type>
       <Faction>Dominion</Faction>
-      <Cost>2</Cost>
-      <Id>thoron_shock_emitter_72937</Id>
-      <Set>72937</Set>
-      <Special>OnlyShipClass_Cardassian_ATR-4107</Special>
+      <Cost>3</Cost>
+      <Id>disruptor_cannon_72946</Id>
+      <Set>72946</Set>
+      <Special></Special>Jem'Hadar Battleship
     </Upgrade>
