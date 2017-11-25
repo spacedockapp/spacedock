@@ -1,4 +1,4 @@
-<Data version="2017-11-23@17-18">
+<Data version="2017-11-25@00-16">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -29498,6 +29498,66 @@ Switch the Primary Weapon Value and Agility Value of the target ship until the e
         <Set>72946</Set>
         <Special></Special>Jem'Hadar Battleship
     </Upgrade>
+    <Upgrade>
+        <Title>Front-Line Retrofit</Title>
+        <Ability>This card can only be assigned to a ship that has a printed Hull Value of 3 or less.
+            
+This ship gains the following:
+            
+1) Increase this ship's Shield Value by +1.
+            
+2) Add an additional [TECH] to this ship's Upgrade Bar.
+            
+3)Increase the Captain Skill of the Captain assigned to this ship by +1.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Type>Crew</Type>
+        <Faction>Independent</Faction>
+        <Cost>5</Cost>
+        <Id>front-line_retrofit_c_72941r</Id>
+        <Set>72941r</Set>
+        <Special>Add_Crew_1</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Front-Line Retrofit</Title>
+        <Ability>This card can only be assigned to a ship that has a printed Hull Value of 3 or less.
+            
+This ship gains the following:
+            
+1) Increase this ship's Shield Value by +1.
+            
+2) Add an additional [TECH] to this ship's Upgrade Bar.
+            
+3)Increase the Captain Skill of the Captain assigned to this ship by +1.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Type>Tech</Type>
+        <Faction>Independent</Faction>
+        <Cost>5</Cost>
+        <Id>front-line_retrofit_t_72941r</Id>
+        <Set>72941r</Set>
+        <Special>addonetechslot</Special>
+    </Upgrade>
+    <Upgrade>
+        <Title>Front-Line Retrofit</Title>
+        <Ability>This card can only be assigned to a ship that has a printed Hull Value of 3 or less.
+            
+This ship gains the following:
+            
+1) Increase this ship's Shield Value by +1.
+            
+2) Add an additional [TECH] to this ship's Upgrade Bar.
+            
+3)Increase the Captain Skill of the Captain assigned to this ship by +1.</Ability>
+        <Unique>Y</Unique>
+        <MirrorUniverseUnique>N</MirrorUniverseUnique>
+        <Type>Weapon</Type>
+        <Faction>Independent</Faction>
+        <Cost>5</Cost>
+        <Id>front-line_retrofit_w_72941r</Id>
+        <Set>72941r</Set>
+        <Special>addoneweaponslot</Special>
+    </Upgrade>
   </Upgrades>
   <Resources>
     <Resource>
@@ -30200,7 +30260,7 @@ This ship gains the following:
 2) Add an additional [TECH] to this ship's Upgrade Bar.
 
 3)Increase the Captain Skill of the Captain assigned to this ship by +1.</Ability>
-      <Cost>3</Cost>
+      <Cost>5</Cost>
       <Id>front-line_retrofit_72941r</Id>
       <Set>72941r</Set>
   </Resource>
