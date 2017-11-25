@@ -222,6 +222,11 @@
     for (DockEquippedUpgrade* eu in self.upgrades) {
         DockUpgrade* upgrade = eu.upgrade;
         shield += [upgrade additionalShield];
+        if ([upgrade.externalId isEqualToString:@"front-line_retrofit_c_72941r"]||
+            [upgrade.externalId isEqualToString:@"front-line_retrofit_t_72941r"]||
+            [upgrade.externalId isEqualToString:@"front-line_retrofit_w_72941r"]){
+            shield ++;
+        }
     }
     return shield;
 }
@@ -1540,6 +1545,15 @@
         }
     }
     
+    if ([upgrade.externalId isEqualToString:@"front-line_retrofit_c_72941r"] || [upgrade.externalId isEqualToString:@"front-line_retrofit_t_72941r"] || [upgrade.externalId isEqualToString:@"front-line_retrofit_w_72941r"]) {
+        if (![self.squad.resource.externalId isEqualToString:@"front-line_retrofit_72941r"]) {
+            return NO;
+        }
+        if ([self.ship.hull intValue] > 3) {
+            return NO;
+        }
+    }
+    
     if ([upgrade.externalId isEqualToString:@"all_power_to_weapons_72946"]) {
         if ([[self.ship hull] intValue] < 5) {
             return NO;
@@ -2350,6 +2364,12 @@
         DockUpgrade* upgrade = eu.upgrade;
         techCount += [upgrade additionalTechSlots];
         if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [upgrade.externalId isEqualToString:@"enhanced_hull_plating_71526"] && ![eu.specialTag isEqualToString:@"AdditionalCaptain"]) {
+            techCount ++;
+        }
+        
+        if ([upgrade.externalId isEqualToString:@"front-line_retrofit_c_72941r"]||
+            [upgrade.externalId isEqualToString:@"front-line_retrofit_t_72941r"]||
+            [upgrade.externalId isEqualToString:@"front-line_retrofit_w_72941r"]){
             techCount ++;
         }
     }

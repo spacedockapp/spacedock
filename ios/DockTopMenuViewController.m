@@ -40,6 +40,10 @@
         [_loadingAlert addSubview:indicator];
         [indicator startAnimating];
     }
+    UIToolbar* toolbar = self.navigationController.toolbar;
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem* settings = [[UIBarButtonItem alloc] initWithTitle:@"\u2699\U0000FE0E" style:UIBarButtonItemStylePlain target:self action:@selector(goToSettings:)];
+    [toolbar setItems:[NSArray arrayWithObjects:spacer,settings, nil] animated:YES];
 }
 
 -(void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
@@ -60,6 +64,11 @@
             UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
             UIBarButtonItem* update = [[UIBarButtonItem alloc] initWithTitle:@"Game Data Update Available" style:UIBarButtonItemStylePlain target:self action:@selector(refresh:)];
             [toolbar setItems:[NSArray arrayWithObjects:spacer,update,spacer,nil] animated:YES];
+        } else {
+            UIToolbar* toolbar = self.navigationController.toolbar;
+            UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+            UIBarButtonItem* settings = [[UIBarButtonItem alloc] initWithTitle:@"\u2699\U0000FE0E" style:UIBarButtonItemStylePlain target:self action:@selector(goToSettings:)];
+            [toolbar setItems:[NSArray arrayWithObjects:spacer,settings, nil] animated:YES];
         }
     }];
 
@@ -211,8 +220,13 @@
         self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:dataVersion];
     }
     UIToolbar* toolbar = self.navigationController.toolbar;
-    [toolbar setItems:nil animated:YES];
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem* settings = [[UIBarButtonItem alloc] initWithTitle:@"\u2699\U0000FE0E" style:UIBarButtonItemStylePlain target:self action:@selector(goToSettings:)];
+    [toolbar setItems:[NSArray arrayWithObjects:spacer,settings, nil] animated:YES];
     [self.refreshControl endRefreshing];
 }
-
+-(void)goToSettings:(NSObject*)source {
+    NSURL* settings = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+    [[UIApplication sharedApplication] openURL:settings];
+}
 @end

@@ -642,7 +642,10 @@ static NSDictionary* sItemLabels = nil;
     
     if ([upgrade.externalId isEqualToString:@"captains_chair_c_72936r"] ||
         [upgrade.externalId isEqualToString:@"captains_chair_t_72936r"] ||
-        [upgrade.externalId isEqualToString:@"captains_chair_w_72936r"]) {
+        [upgrade.externalId isEqualToString:@"captains_chair_w_72936r"] ||
+        [upgrade.externalId isEqualToString:@"front-line_retrofit_c_72941r"] ||
+        [upgrade.externalId isEqualToString:@"front-line_retrofit_t_72941r"] ||
+        [upgrade.externalId isEqualToString:@"front-line_retrofit_w_72941r"]) {
         return [[upgrade cost] intValue];
     }
 

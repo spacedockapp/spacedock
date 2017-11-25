@@ -154,6 +154,12 @@ NSString* kOfficerCardsExternalId = @"officer_cards_collectiveop3";
         } else {
             return self.cost;
         }
+    } else if ([self.externalId isEqualToString:@"front-line_retrofit_72941r"]) {
+        if ([squad containsUniqueUpgradeWithName:@"Front-Line Retrofit"] != nil) {
+            return 0;
+        } else {
+            return self.cost;
+        }
     } else {
         return self.cost;
     }
