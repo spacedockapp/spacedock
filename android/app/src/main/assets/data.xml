@@ -1,4 +1,4 @@
-<Data version="2017-11-25@00-16">
+<Data version="2017-11-29@03-20">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -9251,6 +9251,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
         <Weapon>2</Weapon>
         <Crew>0</Crew>
         <SquadronUpgrade>0</SquadronUpgrade>
+        <CaptainLimit>0</CaptainLimit>
         <Has360Arc>N</Has360Arc>
         <Id>dreadnought_72937</Id>
         <Set>72937</Set>
@@ -9493,7 +9494,7 @@ The attacking ship must discard one [CREW] Upgrade. If it can't, place an [AUX] 
         <Title>K'Mpec's Attack Cruiser</Title>
         <Unique>Y</Unique>
         <MirrorUniverseUnique>N</MirrorUniverseUnique>
-        <ShipClass>Vor'Cha Class</ShipClass>
+        <ShipClass>Vor'cha Class</ShipClass>
         <Faction>Klingon</Faction>
         <AdditionalFaction></AdditionalFaction>
         <Attack>5</Attack>
@@ -28886,7 +28887,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
     </Upgrade>
     <Upgrade>
         <Title>Dispersive Armor</Title>
-        <Ability>WHEN DEFENDING: Disable this card. This game round, replace the attacking ship's Primary Weapon Value with 4. For the remainder of this game round, the attacking ship's Primary Weapon Value can not be replaced or modified.</Ability>
+        <Ability>WHEN DEFENDING: Disable this card. This game round, replace the attacking ship's Primary Weapon Value with 4. For the remainder of this game round, the attacking ship's Primary Weapon Value can not be replaced or modified. [HULL 3+]</Ability>
         <Unique>N</Unique>
         <MirrorUniverseUnique>N</MirrorUniverseUnique>
         <Skill></Skill>
@@ -28929,7 +28930,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Faction>Klingon</Faction>
         <Cost>3</Cost>
         <Id>photon_detonation_t_72937</Id>
-        <Set>72937</Set>
+        <Set>72938</Set>
         <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
@@ -28945,7 +28946,7 @@ This Upgrade may only be purchased for Loskene or any other Tholian Captain on a
         <Faction>Klingon</Faction>
         <Cost>3</Cost>
         <Id>photon_detonation_w_72937</Id>
-        <Set>72937</Set>
+        <Set>72938</Set>
         <Special>NoMoreThanOnePerShip</Special>
     </Upgrade>
     <Upgrade>
