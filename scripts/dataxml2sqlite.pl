@@ -227,6 +227,8 @@ sub upgrades {
         $sth->execute;
 	$sth = $dbh->prepare("CREATE TABLE IF NOT EXISTS Squadron (id text,title text,uniq integer not null,faction integer not null,faction2 integer not null,cost integer not null,special text,ability blob,primary key(id asc))");
         $sth->execute;
+	$sth = $dbh->prepare("CREATE TABLE IF NOT EXISTS ResourceUpgrade (id text,title text,uniq integer not null,faction integer not null,faction2 integer not null,cost integer not null,special text,ability blob,primary key(id asc))");
+	$sth->execute;
 	$sth = $dbh->prepare("CREATE TABLE IF NOT EXISTS Weapon (id text,title text,uniq integer not null,faction integer not null,faction2 integer not null,cost integer not null,attack integer not null,range text,special text,ability blob,primary key(id asc))");
 	$sth->execute;
 	my $sthe = $dbh->prepare("INSERT OR REPLACE INTO Talent VALUES(?,?,?,?,?,?,?,?)");
@@ -234,6 +236,7 @@ sub upgrades {
 	my $stht = $dbh->prepare("INSERT OR REPLACE INTO Tech VALUES(?,?,?,?,?,?,?,?)");
 	my $sthb = $dbh->prepare("INSERT OR REPLACE INTO Borg VALUES(?,?,?,?,?,?,?,?)");
 	my $sths = $dbh->prepare("INSERT OR REPLACE INTO Squadron VALUES(?,?,?,?,?,?,?,?)");
+	my $sthru = $dbh->prepare("INSERT OR REPLACE INTO ResourceUpgrade VALUES(?,?,?,?,?,?,?,?)");
 	my $sthw = $dbh->prepare("INSERT OR REPLACE INTO Weapon VALUES(?,?,?,?,?,?,?,?,?,?)");
 	foreach my $u (@{$upgrades->{"Upgrade"}}) {
 		#print "Upgrade Found: ".$u->{"Title"}."(".$u->{"Type"}.")\n";
@@ -274,6 +277,9 @@ $stht->execute(($u->{"Id"} or 0),($u->{"Title"} or 0),$unique,$faction,$faction2
 $sthb->execute(($u->{"Id"} or 0),($u->{"Title"} or 0),$unique,$faction,$faction2,($u->{"Cost"} or 0),($u->{"Special"}),($u->{"Ability"}));
             } elsif ($u->{"Type"} eq "Squadron") {
 $sths->execute(($u->{"Id"} or 0),($u->{"Title"} or 0),$unique,$faction,$faction2,($u->{"Cost"} or 0),($u->{"Special"}),($u->{"Ability"}));
+            } elsif ($u->{"Type"} eq "Resource") {
+$sthru->execute(($u->{"Id"} or 0),($u->{"Title"} or 0),$unique,$faction,$faction2,($u->{"Cost"} or 0),($u->{"Special"}),($u->{"Ability"}));
+
             } else {
                 print STDERR "Unknown upgrade type: ".$u->{"Type"}."\n";
 		print STDERR "\t".$u->{"Id"}.": ".$u->{"Title"}."\n";
@@ -290,7 +296,7 @@ $sths->execute(($u->{"Id"} or 0),($u->{"Title"} or 0),$unique,$faction,$faction2
                 	}
 		}
 	}
-	foreach my $upgtype ("Talent","Tech","Crew","Borg","Squadron") {
+	foreach my $upgtype ("Talent","Tech","Crew","Borg","Squadron","ResourceUpgrade") {
 		my $sth_dup = $dbh->prepare("SELECT id FROM $upgtype where id not in (SELECT min(id) from $upgtype GROUP BY title,uniq,faction,faction2,cost,special,ability)");
 		$sth_dup->execute();
 		my $dup_id;
