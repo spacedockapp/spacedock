@@ -264,7 +264,7 @@ NSString* kLightHeaderKey = @"lightHeader";
         }
 
         if (col == 3) {
-            if ([[equippedUpgrade descriptionForBuildSheet] isEqualToString:@"Federation Elite Talent"] || [[equippedUpgrade descriptionForBuildSheet] isEqualToString:@"Romulan Elite Talent"] || [[equippedUpgrade descriptionForBuildSheet] isEqualToString:@"Tech Upgrade"] || [[equippedUpgrade descriptionForBuildSheet] isEqualToString:@"Weapon Upgrade"] ) {
+            if ([[equippedUpgrade descriptionForBuildSheet] isEqualToString:@"Federation Elite Talent"] || [[equippedUpgrade descriptionForBuildSheet] isEqualToString:@"Romulan Elite Talent"] || [[equippedUpgrade descriptionForBuildSheet] isEqualToString:@"Tech Upgrade"] || [[equippedUpgrade descriptionForBuildSheet] isEqualToString:@"Weapon Upgrade"] || [[equippedUpgrade descriptionForBuildSheet] isEqualToString:@"Klingon Elite Talent"] ) {
                 return [NSString stringWithFormat: @"%d",equippedUpgrade.cost];
             }
             if ([[equippedUpgrade overridden] boolValue]) {

@@ -1,4 +1,4 @@
-<Data version="2017-11-29@03-20">
+<Data version="2017-11-29@03-29">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -29340,36 +29340,12 @@ Switch the Primary Weapon Value and Agility Value of the target ship until the e
         <Ability>This card can only be assigned to a ship that has a Captain with a printed Captain Skill of 5 or higher.  ACTIVATION PHASE: Once per game round, after this ship executes a Non-Red Maneuver:  Remove a [DISABLED] Token from 1 of the cards equipped to this ship.</Ability>
         <Unique>Y</Unique>
         <MirrorUniverseUnique>N</MirrorUniverseUnique>
-        <Type>Crew</Type>
+        <Type>Resource</Type>
         <Faction>Independent</Faction>
         <Cost>3</Cost>
-        <Id>captains_chair_c_72936r</Id>
+        <Id>captains_chair_r_72936r</Id>
         <Set>72936r</Set>
-        <Special>Add_Crew_1</Special>
-    </Upgrade>
-    <Upgrade>
-        <Title>Captain's Chair</Title>
-        <Ability>This card can only be assigned to a ship that has a Captain with a printed Captain Skill of 5 or higher.  ACTIVATION PHASE: Once per game round, after this ship executes a Non-Red Maneuver:  Remove a [DISABLED] Token from 1 of the cards equipped to this ship.</Ability>
-        <Unique>Y</Unique>
-        <MirrorUniverseUnique>N</MirrorUniverseUnique>
-        <Type>Tech</Type>
-        <Faction>Independent</Faction>
-        <Cost>3</Cost>
-        <Id>captains_chair_t_72936r</Id>
-        <Set>72936r</Set>
-        <Special>addonetechslot</Special>
-    </Upgrade>
-    <Upgrade>
-        <Title>Captain's Chair</Title>
-        <Ability>This card can only be assigned to a ship that has a Captain with a printed Captain Skill of 5 or higher.  ACTIVATION PHASE: Once per game round, after this ship executes a Non-Red Maneuver:  Remove a [DISABLED] Token from 1 of the cards equipped to this ship.</Ability>
-        <Unique>Y</Unique>
-        <MirrorUniverseUnique>N</MirrorUniverseUnique>
-        <Type>Weapon</Type>
-        <Faction>Independent</Faction>
-        <Cost>3</Cost>
-        <Id>captains_chair_w_72936r</Id>
-        <Set>72936r</Set>
-        <Special>addoneweaponslot</Special>
+        <Special></Special>
     </Upgrade>
     <Upgrade>
         <Title>Tal Shiar Sub-Commander</Title>
@@ -29509,55 +29485,15 @@ This ship gains the following:
             
 2) Add an additional [TECH] to this ship's Upgrade Bar.
             
-3)Increase the Captain Skill of the Captain assigned to this ship by +1.</Ability>
+3) Increase the Captain Skill of the Captain assigned to this ship by +1.</Ability>
         <Unique>Y</Unique>
         <MirrorUniverseUnique>N</MirrorUniverseUnique>
-        <Type>Crew</Type>
+        <Type>Resource</Type>
         <Faction>Independent</Faction>
         <Cost>5</Cost>
-        <Id>front-line_retrofit_c_72941r</Id>
-        <Set>72941r</Set>
-        <Special>Add_Crew_1</Special>
-    </Upgrade>
-    <Upgrade>
-        <Title>Front-Line Retrofit</Title>
-        <Ability>This card can only be assigned to a ship that has a printed Hull Value of 3 or less.
-            
-This ship gains the following:
-            
-1) Increase this ship's Shield Value by +1.
-            
-2) Add an additional [TECH] to this ship's Upgrade Bar.
-            
-3)Increase the Captain Skill of the Captain assigned to this ship by +1.</Ability>
-        <Unique>Y</Unique>
-        <MirrorUniverseUnique>N</MirrorUniverseUnique>
-        <Type>Tech</Type>
-        <Faction>Independent</Faction>
-        <Cost>5</Cost>
-        <Id>front-line_retrofit_t_72941r</Id>
+        <Id>front-line_retrofit_r_72941r</Id>
         <Set>72941r</Set>
         <Special>addonetechslot</Special>
-    </Upgrade>
-    <Upgrade>
-        <Title>Front-Line Retrofit</Title>
-        <Ability>This card can only be assigned to a ship that has a printed Hull Value of 3 or less.
-            
-This ship gains the following:
-            
-1) Increase this ship's Shield Value by +1.
-            
-2) Add an additional [TECH] to this ship's Upgrade Bar.
-            
-3)Increase the Captain Skill of the Captain assigned to this ship by +1.</Ability>
-        <Unique>Y</Unique>
-        <MirrorUniverseUnique>N</MirrorUniverseUnique>
-        <Type>Weapon</Type>
-        <Faction>Independent</Faction>
-        <Cost>5</Cost>
-        <Id>front-line_retrofit_w_72941r</Id>
-        <Set>72941r</Set>
-        <Special>addoneweaponslot</Special>
     </Upgrade>
   </Upgrades>
   <Resources>
@@ -30260,7 +30196,7 @@ This ship gains the following:
 
 2) Add an additional [TECH] to this ship's Upgrade Bar.
 
-3)Increase the Captain Skill of the Captain assigned to this ship by +1.</Ability>
+3) Increase the Captain Skill of the Captain assigned to this ship by +1.</Ability>
       <Cost>5</Cost>
       <Id>front-line_retrofit_72941r</Id>
       <Set>72941r</Set>

@@ -16,6 +16,7 @@
 #import "DockWeapon.h"
 #import "DockSquadronUpgrade.h"
 #import "DockBorg.h"
+#import "DockResourceUpgrade.h"
 
 @implementation DockUpgrade (Addons)
 
@@ -30,7 +31,9 @@
 
     if (existingItems.count > 0) {
         for (DockUpgrade* upgrade in existingItems) {
-            [allFactionsSet addObject: upgrade.faction];
+            if (![upgrade.faction isEqualToString:@""]) {
+                [allFactionsSet addObject: upgrade.faction];
+            }
         }
         return [NSSet setWithSet: allFactionsSet];
     }
@@ -57,7 +60,11 @@
 
 +(DockUpgrade*)placeholder:(NSString*)upType inContext:(NSManagedObjectContext*)context
 {
-    NSEntityDescription* entity = [NSEntityDescription entityForName: upType inManagedObjectContext: context];
+    NSString* entityName = upType;
+    if ([upType isEqualToString:@"Resource"]) {
+        entityName = @"ResourceUpgrade";
+    }
+    NSEntityDescription* entity = [NSEntityDescription entityForName: entityName inManagedObjectContext: context];
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity: entity];
     NSPredicate* predicateTemplate = [NSPredicate predicateWithFormat: @"placeholder = YES"];
@@ -65,7 +72,7 @@
     DockUpgrade* placeholderUpgrade = nil;
     NSError* err;
     NSArray* existingItems = [context executeFetchRequest: request error: &err];
-
+    
     if (existingItems.count == 0) {
         Class upClass = [DockUpgrade class];
 
@@ -83,8 +90,10 @@
             upClass = [DockBorg class];
         } else if ([upType isEqualToString: @"Squadron"]) {
             upClass = [DockSquadronUpgrade class];
-            
+        } else if ([upType isEqualToString: @"Resource"]) {
+            upClass = [DockResourceUpgrade class];
         }
+
         placeholderUpgrade = [[upClass alloc] initWithEntity: entity insertIntoManagedObjectContext: context];
         placeholderUpgrade.title = upType;
         placeholderUpgrade.upType = upType;
@@ -277,12 +286,6 @@ static NSDictionary* sItemLabels = nil;
     if ([self.externalId isEqualToString:@"captured_w_72937"]) {
         return YES;
     }
-    if ([self.externalId isEqualToString:@"photon_detonation_t_72937"]) {
-        return YES;
-    }
-    if ([self.externalId isEqualToString:@"photon_detonation_w_72937"]) {
-        return YES;
-    }
     return NO;
 }
 
@@ -320,6 +323,12 @@ static NSDictionary* sItemLabels = nil;
 {
     return [self.upType isEqualToString:@"Squadron"];
 }
+
+-(BOOL)isResourceUpgrade
+{
+    return [self.upType isEqualToString:@"Resource"];
+}
+
 
 -(BOOL)isPlaceholder
 {
@@ -498,6 +507,10 @@ static NSDictionary* sItemLabels = nil;
     if ([self isSquadron]) {
         return [targetShip squadronUpgradeCount];
     }
+    
+    if ([self isResourceUpgrade]) {
+        return [targetShip resourceUpgradeCount];
+    }
 
     return 0;
 }
@@ -533,6 +546,9 @@ static NSDictionary* sItemLabels = nil;
 
     if ([self isTalent]) {
         return @"AATalent";
+    }
+    if ([self isResourceUpgrade]) {
+        return @"ZZZZZResource";
     }
 
     return self.upType;
@@ -584,6 +600,14 @@ static NSDictionary* sItemLabels = nil;
     
     if ([self isFleetCaptain]) {
         return @"FlCp";
+    }
+    
+    if ([self isSquadron]) {
+        return @"S";
+    }
+    
+    if ([self isResourceUpgrade]) {
+        return @"Res";
     }
 
     return @"?";
@@ -640,12 +664,8 @@ static NSDictionary* sItemLabels = nil;
         return [[upgrade cost] intValue];
     }
     
-    if ([upgrade.externalId isEqualToString:@"captains_chair_c_72936r"] ||
-        [upgrade.externalId isEqualToString:@"captains_chair_t_72936r"] ||
-        [upgrade.externalId isEqualToString:@"captains_chair_w_72936r"] ||
-        [upgrade.externalId isEqualToString:@"front-line_retrofit_c_72941r"] ||
-        [upgrade.externalId isEqualToString:@"front-line_retrofit_t_72941r"] ||
-        [upgrade.externalId isEqualToString:@"front-line_retrofit_w_72941r"]) {
+    if ([upgrade.externalId isEqualToString:@"captains_chair_r_72936r"] ||
+        [upgrade.externalId isEqualToString:@"front-line_retrofit_r_72941r"]) {
         return [[upgrade cost] intValue];
     }
 
@@ -688,6 +708,9 @@ static NSDictionary* sItemLabels = nil;
             return 4;
         }
         if ([equippedUpgrade.specialTag hasPrefix:@"shinzon_ET_"]) {
+            return 0;
+        }
+        if ([equippedUpgrade.specialTag hasPrefix:@"dna-enc_ET_"]) {
             return 0;
         }
         if ([upgrade.externalId isEqualToString:@"intercept_course_71808"] && ![equippedShip isResourceSideboard]) {
@@ -1093,6 +1116,10 @@ static NSDictionary* sItemLabels = nil;
         } else if ([equippedShip.ship.externalId isEqualToString:@"quark_s_treasure_72013"] && [upgrade isCrew]) {
         } else if ([equippedShip containsUpgradeWithId:@"romulan_hijackers_71802"] != nil && [upgrade isRomulan] && ![upgrade isCaptain] && ![upgrade isAdmiral]) {
         } else if ([upgradeSpecial isEqualToString:@"no_faction_penalty_on_vulcan"] && [ship isVulcan]) {
+        } else if ([self.externalId isEqualToString:@"captured_c_72937"]) {
+        } else if ([self.externalId isEqualToString:@"captured_t_72937"]) {
+        } else if ([self.externalId isEqualToString:@"captured_w_72937"]) {
+        } else if ([equippedShip hasFaction:self.faction]) {
         } else {
             if (upgrade.isAdmiral) {
                 cost += 3;

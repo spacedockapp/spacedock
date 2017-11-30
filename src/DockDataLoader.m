@@ -150,6 +150,73 @@
         [context deleteObject:crew3of5old];
     }
 
+    DockUpgrade* resourceUpgrade = [DockUpgrade upgradeForId:@"captains_chair_c_72936r" context:_managedObjectContext];
+    if (resourceUpgrade != nil)
+    {
+        NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
+        for (DockSquad* s in allSquads) {
+            [s purgeUpgrade: resourceUpgrade];
+        }
+        [_managedObjectContext deleteObject: resourceUpgrade];
+        NSError* error;
+        [self loadData:&error];
+    }
+    resourceUpgrade = [DockUpgrade upgradeForId:@"captains_chair_t_72936r" context:_managedObjectContext];
+    if (resourceUpgrade != nil)
+    {
+        NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
+        for (DockSquad* s in allSquads) {
+            [s purgeUpgrade: resourceUpgrade];
+        }
+        [_managedObjectContext deleteObject: resourceUpgrade];
+        NSError* error;
+        [self loadData:&error];
+    }
+    resourceUpgrade = [DockUpgrade upgradeForId:@"captains_chair_w_72936r" context:_managedObjectContext];
+    if (resourceUpgrade != nil)
+    {
+        NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
+        for (DockSquad* s in allSquads) {
+            [s purgeUpgrade: resourceUpgrade];
+        }
+        [_managedObjectContext deleteObject: resourceUpgrade];
+        NSError* error;
+        [self loadData:&error];
+    }
+    resourceUpgrade = [DockUpgrade upgradeForId:@"line_retrofit_c_72941r" context:_managedObjectContext];
+    if (resourceUpgrade != nil)
+    {
+        NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
+        for (DockSquad* s in allSquads) {
+            [s purgeUpgrade: resourceUpgrade];
+        }
+        [_managedObjectContext deleteObject: resourceUpgrade];
+        NSError* error;
+        [self loadData:&error];
+    }
+    resourceUpgrade = [DockUpgrade upgradeForId:@"line_retrofit_t_72941r" context:_managedObjectContext];
+    if (resourceUpgrade != nil)
+    {
+        NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
+        for (DockSquad* s in allSquads) {
+            [s purgeUpgrade: resourceUpgrade];
+        }
+        [_managedObjectContext deleteObject: resourceUpgrade];
+        NSError* error;
+        [self loadData:&error];
+    }
+    resourceUpgrade = [DockUpgrade upgradeForId:@"line_retrofit_w_72941r" context:_managedObjectContext];
+    if (resourceUpgrade != nil)
+    {
+        NSArray* allSquads = [DockSquad allSquads: _managedObjectContext];
+        for (DockSquad* s in allSquads) {
+            [s purgeUpgrade: resourceUpgrade];
+        }
+        [_managedObjectContext deleteObject: resourceUpgrade];
+        NSError* error;
+        [self loadData:&error];
+    }
+    
     [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"Plus5NotDominionAndNoMoreThanOnePerShip" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"high_energy_subspace_field_72221c" context:context]];
     [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"3119" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3012" context:context]];
     [self mergeGenericUpgrade:[DockUpgrade upgradeForId:@"3052" context:context] intoUpgrade:[DockUpgrade upgradeForId:@"3011" context:context]];

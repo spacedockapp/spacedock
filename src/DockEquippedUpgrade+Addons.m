@@ -68,6 +68,10 @@
         if ( [self.upgrade isTalent] && [self.upgrade.faction isEqualToString:@"Romulan"] && [self.specialTag hasPrefix:@"shinzon_ET_"]) {
             return @"Romulan Elite Talent";
         }
+    } else if ([self.equippedShip containsUpgradeWithId:@"dna_encoded_message_72938"] != nil) {
+            if ( [self.upgrade isTalent] && [self.upgrade.faction isEqualToString:@"Klingon"] && [self.specialTag hasPrefix:@"dna-enc_ET_"]) {
+                return @"Klingon Elite Talent";
+            }
     } else if ([self.equippedShip containsUpgradeWithId:@"quark_71786"]) {
         if ( [self.upgrade isTech] && [self.specialTag isEqualToString:@"QuarkTech"] ) {
             return @"Tech Upgrade";

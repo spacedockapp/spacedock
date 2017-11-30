@@ -21,6 +21,7 @@
 -(BOOL)isFleetCaptain;
 -(BOOL)isOfficer;
 -(BOOL)isSquadron;
+-(BOOL)isResourceUpgrade;
 -(BOOL)isPlaceholder;
 -(BOOL)isUnique;
 -(BOOL)isMirrorUniverseUnique;

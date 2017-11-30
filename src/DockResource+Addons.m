@@ -79,6 +79,12 @@ NSString* kOfficerCardsExternalId = @"officer_cards_collectiveop3";
         DockFlagship* flagship = [thisSquad flagship];
         return flagship != nil;
     }
+    if ([self.externalId isEqualToString:@"front-line_retrofit_72941r"]) {
+        return [thisSquad containsUniqueUpgradeWithName:self.title];
+    }
+    if ([self.externalId isEqualToString:@"captains_chair_72936r"]) {
+        return [thisSquad containsUniqueUpgradeWithName:self.title];
+    }
     return [self isSideboard] || [self isFighterSquadron] || [self isOfficerCards];
 }
 

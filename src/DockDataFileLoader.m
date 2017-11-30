@@ -21,6 +21,7 @@
 #import "DockSquad+Addons.h"
 #import "DockSquad.h"
 #import "DockSquadronUpgrade.h"
+#import "DockResourceUpgrade.h"
 #import "DockTalent.h"
 #import "DockTech.h"
 #import "DockUpgrade+Addons.h"
@@ -722,6 +723,7 @@ static NSString* makeKey(NSString* key)
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockTech class] entityName: @"Tech" targetType: @"Tech"];
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockBorg class] entityName: @"Borg" targetType: @"Borg"];
     [self loadItems: xmlData[@"Upgrades"] itemClass: [DockSquadronUpgrade class] entityName: @"Squadron" targetType: @"Squadron"];
+    [self loadItems: xmlData[@"Upgrades"] itemClass: [DockResourceUpgrade class] entityName: @"ResourceUpgrade" targetType: @"Resource"];
     [self loadItems: xmlData[@"Resources"] itemClass: [DockResource class] entityName: @"Resource" targetType: @"Resource"];
     [self loadItems: xmlData[@"Flagships"] itemClass: [DockFlagship class] entityName: @"Flagship" targetType: nil];
     [self loadItems: xmlData[@"FleetCaptains"] itemClass: [DockFleetCaptain class] entityName: @"FleetCaptain" targetType: kFleetCaptainUpgradeType];

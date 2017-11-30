@@ -222,9 +222,7 @@
     for (DockEquippedUpgrade* eu in self.upgrades) {
         DockUpgrade* upgrade = eu.upgrade;
         shield += [upgrade additionalShield];
-        if ([upgrade.externalId isEqualToString:@"front-line_retrofit_c_72941r"]||
-            [upgrade.externalId isEqualToString:@"front-line_retrofit_t_72941r"]||
-            [upgrade.externalId isEqualToString:@"front-line_retrofit_w_72941r"]){
+        if ([upgrade.externalId isEqualToString:@"front-line_retrofit_r_72941r"]){
             shield ++;
         }
     }
@@ -539,6 +537,27 @@
 
         if (![upgrade isRomulan]) {
             int artificalLimit = [upgrade limitForShip: self] - talents - 4;
+            if (!validating) {
+                artificalLimit ++;
+            }
+            return artificalLimit > 0;
+            //return NO;
+        }
+    }
+    
+    if (!upgrade.isPlaceholder && [upgrade isTalent] && [self containsUpgradeWithId:@"dna_encoded_message_72938"] != nil) {
+        int talents = 0;
+        
+        for (DockEquippedUpgrade* eu in self.upgrades) {
+            if ([eu.upgrade isTalent] && !eu.isPlaceholder) {
+                if (![eu.specialTag hasPrefix:@"dna-enc_ET_"]) {
+                    talents ++;
+                }
+            }
+        }
+        
+        if (![upgrade isKlingon]) {
+            int artificalLimit = [upgrade limitForShip: self] - talents - 3;
             if (!validating) {
                 artificalLimit ++;
             }
@@ -1536,7 +1555,7 @@
         }
     }
     
-    if ([upgrade.externalId isEqualToString:@"captains_chair_c_72936r"] || [upgrade.externalId isEqualToString:@"captains_chair_t_72936r"] || [upgrade.externalId isEqualToString:@"captains_chair_w_72936r"]) {
+    if ([upgrade.externalId isEqualToString:@"captains_chair_r_72936r"]) {
         if (![self.squad.resource.externalId isEqualToString:@"captains_chair_72936r"]) {
             return NO;
         }
@@ -1545,7 +1564,7 @@
         }
     }
     
-    if ([upgrade.externalId isEqualToString:@"front-line_retrofit_c_72941r"] || [upgrade.externalId isEqualToString:@"front-line_retrofit_t_72941r"] || [upgrade.externalId isEqualToString:@"front-line_retrofit_w_72941r"]) {
+    if ([upgrade.externalId isEqualToString:@"front-line_retrofit_r_72941r"]) {
         if (![self.squad.resource.externalId isEqualToString:@"front-line_retrofit_72941r"]) {
             return NO;
         }
@@ -1734,6 +1753,10 @@
                 info = @"This upgrade may only be assigned to a ship with a Hull Value of 4 or more.";
             } else if ([upgradeSpecial isEqualToString:@"OPSHull3"] && self.hull < 3) {
                 info = @"This upgrade may only be assigned to a ship with a Hull Value of 3 or more.";
+            } else if ([upgrade.externalId isEqualToString:@"captains_chair_r_72936r"] && [self.captain.skill intValue] < 5) {
+                info = @"This resource may only be assigned to a ship with a Captain with a printed Captain Skill of 5 or higher.";
+            } else if ([upgrade.externalId isEqualToString:@"front-line_retrofit_r_72941r"] && [self.ship.hull intValue] > 3) {
+                info = @"This resource may only be assigned to a ship with a printed Hull Value of 3 or less.";
             }
         }
     }
@@ -1891,6 +1914,19 @@
             }
             if (romTalents < 4 && ![upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
                 equippedUpgrade.specialTag = [NSString stringWithFormat:@"shinzon_ET_%d",romTalents+1];
+            }
+        }
+        if ([upgrade isTalent] && [upgrade isKlingon] && [self containsUpgradeWithId:@"dna_encoded_message_72938"] != nil) {
+            int kliTalents = 0;
+            for (DockEquippedUpgrade* eu in self.sortedUpgradesWithoutPlaceholders) {
+                if (eu.upgrade.isTalent && [eu.upgrade.externalId isEqualToString:@"dna_encoded_message_72938"]) {
+                    continue;
+                } else if ([eu.specialTag hasPrefix:@"dna-enc_ET_"]) {
+                    kliTalents ++;
+                }
+            }
+            if (kliTalents < 3 && ![upgrade.externalId isEqualToString:@"dna_encoded_message_72938"]) {
+                equippedUpgrade.specialTag = [NSString stringWithFormat:@"dna-enc_ET_%d",kliTalents+1];
             }
         }
         
@@ -2129,6 +2165,13 @@
                 [toRemove addObject:eu];
             }
         }
+    } else if ([upgrade.upgrade.externalId isEqualToString:@"dna_encoded_message_72938"]) {
+        for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
+            if ([eu.upgrade isRomulan] && [eu.specialTag hasPrefix:@"dna-enc_ET_"])
+            {
+                [toRemove addObject:eu];
+            }
+        }
     } else if ([upgrade.upgrade.special isEqualToString:@"Add3FedTech4Less"]) {
         for (DockEquippedUpgrade* eu in self.sortedUpgrades) {
             if ([eu.upgrade isFederation] && [eu.specialTag hasPrefix:@"fed3_tech_"])
@@ -2316,6 +2359,9 @@
         if ([upgrade.externalId isEqualToString:@"shinzon_romulan_talents_71533"]) {
             talentCount += 4;
         }
+        if ([upgrade.externalId isEqualToString:@"dna_encoded_message_72938"]) {
+            talentCount += 3;
+        }
     }
     if ([self.captain isKazon] && [self.ship isKazon]) {
         talentCount ++;
@@ -2364,12 +2410,6 @@
         DockUpgrade* upgrade = eu.upgrade;
         techCount += [upgrade additionalTechSlots];
         if ([self.ship.externalId isEqualToString:@"enterprise_nx_01_71526"] && [upgrade.externalId isEqualToString:@"enhanced_hull_plating_71526"] && ![eu.specialTag isEqualToString:@"AdditionalCaptain"]) {
-            techCount ++;
-        }
-        
-        if ([upgrade.externalId isEqualToString:@"front-line_retrofit_c_72941r"]||
-            [upgrade.externalId isEqualToString:@"front-line_retrofit_t_72941r"]||
-            [upgrade.externalId isEqualToString:@"front-line_retrofit_w_72941r"]){
             techCount ++;
         }
     }
@@ -2485,6 +2525,21 @@
     int squadronUpgradeCount = self.ship.squadronUpgradeCount;
     
     return squadronUpgradeCount;
+}
+
+-(int)resourceUpgradeCount
+{
+    if ([self.squad.resource.externalId isEqualToString:@"captains_chair_72936r"]) {
+        if ([self.squad containsUpgrade:[DockUpgrade upgradeForId:@"captains_chair_r_72936r" context:self.managedObjectContext]] == nil) {
+            return 1;
+        }
+    }
+    if ([self.squad.resource.externalId isEqualToString:@"front-line_retrofit_72941r"]) {
+        if ([self.squad containsUpgrade:[DockUpgrade upgradeForId:@"front-line_retrofit_r_72941r" context:self.managedObjectContext]] == nil) {
+            return 1;
+        }
+    }
+    return 0;
 }
 
 -(int)officerLimit
@@ -2775,6 +2830,19 @@
         DockUpgrade* upgrade = eu.upgrade;
 
         if ([upgrade.upType isEqualToString: kFleetCaptainUpgradeType]) {
+            return eu;
+        }
+    }
+    return nil;
+}
+
+-(DockEquippedUpgrade*)equippedResource
+{
+
+    for (DockEquippedUpgrade* eu in self.upgrades) {
+        DockUpgrade* upgrade = eu.upgrade;
+        
+        if ([upgrade.upType isEqualToString:@"Resource"]) {
             return eu;
         }
     }

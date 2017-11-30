@@ -38,6 +38,7 @@
 -(int)crewCount;
 -(int)borgCount;
 -(int)squadronUpgradeCount;
+-(int)resourceUpgradeCount;
 -(int)officerLimit;
 -(int)baseCost;
 -(int)attack;
@@ -77,5 +78,6 @@
 -(void)removeAdmiral;
 -(DockEquippedUpgrade*)equippedAdmiral;
 -(DockEquippedUpgrade*)equippedFleetCaptain;
+-(DockEquippedUpgrade*)equippedResource;
 -(void)purgeUpgrade:(DockUpgrade*)upgrade;
 @end

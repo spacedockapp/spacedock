@@ -120,7 +120,7 @@
     // Configure the cell to show the book's title
     DockShip* ship = [self.fetchedResultsController objectAtIndexPath: indexPath];
     cell.textLabel.text = ship.descriptiveTitle;
-
+    cell.detailTextLabel.text = [ship.cost stringValue];
     if ([ship isAnyKindOfUnique]) {
         if (_targetSquad) {
             if (_targetShip != ship && [_targetSquad containsShip: ship]) {

@@ -134,7 +134,7 @@
 
 -(BOOL)useFactionFilter
 {
-    return ![_upType isEqualToString: kOfficerUpgradeType];
+    return ![_upType isEqualToString: kOfficerUpgradeType] && ![_upType isEqualToString: @"Resource"];
 }
 
 -(NSArray*)filterForCost:(NSArray*)rawList
@@ -196,6 +196,10 @@
     if (searchTerm != nil) {
         [predicateTerms addObject: @"title CONTAINS[cd] %@"];
         [predicateValues addObject: searchTerm];
+    }
+    if ([_upType isEqualToString:@"Resource"] && self.targetSquad.resource != nil) {
+        [predicateTerms addObject: @"title = %@"];
+        [predicateValues addObject:self.targetSquad.resource.title];
     }
 
     NSString* predicateTermString = [predicateTerms componentsJoinedByString: @" and "];

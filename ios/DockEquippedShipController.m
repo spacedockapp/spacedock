@@ -23,6 +23,7 @@
 #import "DockOfficerRowHandler.h"
 #import "DockShipRowHandler.h"
 #import "DockUpgradeRowHandler.h"
+#import "DockResourceUpgradeRowHandler.h"
 
 #pragma mark - DockEquippedShipController
 
@@ -142,7 +143,32 @@
         officerHandler.controller = self;
         [extrasSection addRowHandler: officerHandler];
     }
+    
+    if (![sectionTitles containsObject: @"Resource"] && [_equippedShip.squad.resource.externalId isEqualToString:@"captains_chair_72936r"]) {
 
+        DockResourceUpgradeRowHandler* resourceHandler = [[DockResourceUpgradeRowHandler alloc] init];
+        resourceHandler.equippedShip = _equippedShip;
+        resourceHandler.controller = self;
+
+        if ([_equippedShip.squad.resource.externalId isEqualToString:@"captains_chair_72936r"] && [_equippedShip.squad containsUniqueUpgradeWithName:@"Captain's Chair"] == nil) {
+            
+            resourceHandler.controller = self;
+            [extrasSection addRowHandler:resourceHandler];
+        }
+    }
+    if (![sectionTitles containsObject: @"Resource"] && [_equippedShip.squad.resource.externalId isEqualToString:@"front-line_retrofit_72941r"]) {
+        
+        DockResourceUpgradeRowHandler* resourceHandler = [[DockResourceUpgradeRowHandler alloc] init];
+        resourceHandler.equippedShip = _equippedShip;
+        resourceHandler.controller = self;
+        
+        if ([_equippedShip.squad.resource.externalId isEqualToString:@"front-line_retrofit_72941r"] && [_equippedShip.squad containsUniqueUpgradeWithName:@"Front-Line Retrofit"] == nil) {
+            
+            resourceHandler.controller = self;
+            [extrasSection addRowHandler:resourceHandler];
+        }
+    }
+    
     if (extrasSection.rowHandlerCount > 0) {
         [sections addObject: extrasSection];
     }
