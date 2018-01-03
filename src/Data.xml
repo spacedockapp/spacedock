@@ -1,4 +1,4 @@
-<Data version="2017-11-29@03-29">
+<Data version="2018-01-03@06-12">
   <ShipClassDetails>
     <ShipClassDetail>
       <Name>Galaxy Class</Name>
@@ -9281,6 +9281,7 @@ When attacking a ship at Range 1, if that ship has at least 1 damage to its Hull
         <Weapon>3</Weapon>
         <Crew>0</Crew>
         <SquadronUpgrade>0</SquadronUpgrade>
+	<CaptainLimit>0</CaptainLimit>
         <Has360Arc>N</Has360Arc>
         <Id>dominion_starship_72937</Id>
         <Set>72937</Set>
